@@ -20,7 +20,7 @@ public class AlaCharmCardActivityConfig extends IntentConfig {
         getIntent().putExtra("group_id", str4);
         getIntent().putExtra("live_id", str5);
         getIntent().putExtra(LIVE_OWNER_FLAG, z);
-        setRequestCode(25013);
+        setRequestCode(25015);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

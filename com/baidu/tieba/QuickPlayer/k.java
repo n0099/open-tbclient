@@ -4,11 +4,11 @@ import tv.danmaku.ijk.media.player.IMediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements IMediaPlayer.OnErrorListener {
-    final /* synthetic */ h aQB;
+    final /* synthetic */ h aQU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(h hVar) {
-        this.aQB = hVar;
+        this.aQU = hVar;
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnErrorListener
@@ -16,10 +16,10 @@ public class k implements IMediaPlayer.OnErrorListener {
         c cVar;
         c cVar2;
         try {
-            cVar = this.aQB.aQy;
+            cVar = this.aQU.aQR;
             if (cVar != null) {
-                cVar2 = this.aQB.aQy;
-                cVar2.T(i, i2);
+                cVar2 = this.aQU.aQR;
+                cVar2.U(i, i2);
                 return true;
             }
             return true;

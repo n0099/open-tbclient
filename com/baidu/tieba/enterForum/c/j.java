@@ -1,169 +1,121 @@
 package com.baidu.tieba.enterForum.c;
 
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class j extends LinearLayout {
-    private ViewEventCenter bHa;
-    private int bIj;
-    private TextView bIk;
-    private a bIl;
-    private c bIm;
-    private View bIn;
-    private int mType;
+public class j extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, com.baidu.tbadk.mvc.d.b> {
+    private ViewEventCenter bGb;
+    private View bHS;
+    private TextView bHT;
+    private ImageView bHU;
+    private ImageView bHV;
+    private View bHW;
+    private TextView bHX;
+    private ImageView bHY;
+    private ImageView bHZ;
+    private ImageView bIa;
+    private ImageView bIb;
 
-    public j(Context context) {
-        this(context, null);
+    public j(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, view, viewEventCenter);
+        this.bGb = viewEventCenter;
+        this.bHS = view.findViewById(w.h.left_container);
+        this.bHT = (TextView) this.bHS.findViewById(w.h.name);
+        this.bHU = (ImageView) this.bHS.findViewById(w.h.sign);
+        this.bHV = (ImageView) this.bHS.findViewById(w.h.grade);
+        this.bHW = view.findViewById(w.h.right_container);
+        this.bHX = (TextView) this.bHW.findViewById(w.h.name);
+        this.bHY = (ImageView) this.bHW.findViewById(w.h.sign);
+        this.bHZ = (ImageView) this.bHW.findViewById(w.h.grade);
+        this.bIa = (ImageView) view.findViewById(w.h.divide_line_middle);
+        this.bIb = (ImageView) view.findViewById(w.h.divide_line);
+        int g = com.baidu.adp.lib.util.k.g(tbPageContext.getPageActivity(), w.f.ds20);
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.bHV.getLayoutParams();
+        if (marginLayoutParams != null) {
+            marginLayoutParams.rightMargin = g;
+        }
     }
 
-    public j(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.mvc.f.e
+    /* renamed from: a */
+    public void E(com.baidu.tieba.enterForum.b.a aVar) {
+        super.E(aVar);
+        if (aVar != null) {
+            a(aVar.VR(), true);
+            a(aVar.VS(), false);
+            b(aVar.VR(), true);
+            b(aVar.VS(), false);
+            aq.k(this.bIa, w.e.cp_bg_line_c);
+            aq.k(this.bIb, w.e.cp_bg_line_c);
+            aq.j(this.bHU, w.g.icon_sign);
+            aq.j(this.bHY, w.g.icon_sign);
+        }
     }
 
-    public void setColumnTypeAndRefeshView(int i) {
-        this.mType = i;
-        if (i == 2) {
-            if (this.bIl == null) {
-                XP();
+    private void a(com.baidu.tieba.enterForum.b.e eVar, boolean z) {
+        if (eVar != null) {
+            View view = z ? this.bHS : this.bHW;
+            TextView textView = z ? this.bHT : this.bHX;
+            ImageView imageView = z ? this.bHU : this.bHY;
+            ImageView imageView2 = z ? this.bHV : this.bHZ;
+            switch (eVar.getType()) {
+                case 1:
+                    view.setVisibility(0);
+                    textView.setText(w.l.default_personalized_name);
+                    textView.setVisibility(0);
+                    imageView.setVisibility(8);
+                    imageView2.setVisibility(8);
+                    aq.i(textView, w.e.cp_link_tip_a);
+                    return;
+                case 2:
+                    view.setVisibility(4);
+                    return;
+                default:
+                    view.setVisibility(0);
+                    textView.setVisibility(0);
+                    if (eVar instanceof com.baidu.tieba.enterForum.b.g) {
+                        com.baidu.tieba.enterForum.b.g gVar = (com.baidu.tieba.enterForum.b.g) eVar;
+                        textView.setText(gVar.getName());
+                        imageView.setVisibility(gVar.VY() == 0 ? 8 : 0);
+                        if (gVar.getLevel() == 0) {
+                            imageView2.setVisibility(8);
+                        } else {
+                            imageView2.setVisibility(0);
+                            aq.c(imageView2, BitmapHelper.getGradeResourceIdInEnterForum(gVar.getLevel()));
+                        }
+                    } else if (eVar instanceof com.baidu.tieba.enterForum.b.j) {
+                        textView.setText(((com.baidu.tieba.enterForum.b.j) eVar).getForumName());
+                        imageView.setVisibility(8);
+                        imageView2.setVisibility(8);
+                    }
+                    aq.i(textView, w.e.cp_cont_b);
+                    return;
             }
-            if (this.bIl.getParent() == null) {
-                addView(this.bIl);
-            }
-            removeView(this.bIm);
+        }
+    }
+
+    private void b(com.baidu.tieba.enterForum.b.e eVar, boolean z) {
+        View view;
+        if (z) {
+            view = this.bHS;
         } else {
-            if (this.bIm == null) {
-                XO();
-            }
-            if (this.bIm.getParent() == null) {
-                addView(this.bIm);
-            }
-            if (this.bIm.getFooterViewsCount() < 1 && TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                this.bIm.addFooterView(this.bIn);
-            }
-            XQ();
-            removeView(this.bIl);
+            view = this.bHW;
         }
-        setStateForDisplayView(i);
+        view.setOnClickListener(new k(this, eVar));
+        view.setOnLongClickListener(new l(this, eVar));
     }
 
-    private void XO() {
-        this.bIm = new c(getContext());
-        this.bIm.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-        this.bIm.setSelector(new ColorDrawable(0));
-        a(this.bIm);
-        XQ();
-    }
-
-    private void XP() {
-        this.bIl = new a(getContext());
-        this.bIl.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-        this.bIl.setNumColumns(2);
-        this.bIl.setPadding(this.bIj, 0, this.bIj, 0);
-        this.bIl.setSelector(new ColorDrawable(0));
-        a(this.bIl);
-    }
-
-    private void XQ() {
-        this.bIm.setDivider(aq.getDrawable(w.g.enter_forum_list_divider));
-        this.bIm.setDividerHeight(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1));
-    }
-
-    private void a(AbsListView absListView) {
-        if (absListView != null) {
-            absListView.setCacheColorHint(0);
-            absListView.setFadingEdgeLength(0);
-            absListView.setFocusable(false);
-            absListView.setFocusableInTouchMode(false);
-        }
-    }
-
-    public void setSelection(int i) {
-        if (this.mType == 2) {
-            if (this.bIl != null) {
-                this.bIl.setSelection(i);
-            }
-        } else if (this.bIm != null) {
-            this.bIm.setSelection(i);
-        }
-    }
-
-    public void setSelectionFromTop(int i, int i2) {
-        if (this.mType == 2) {
-            if (this.bIl != null) {
-                this.bIl.setSelection(i);
-                this.bIl.setPadding(this.bIj, 0, this.bIj, 0);
-            }
-        } else if (this.bIm != null) {
-            this.bIm.setSelectionFromTop(i, i2);
-        }
-    }
-
-    public void setListAdapterIfNeeded(BaseAdapter baseAdapter) {
-        if (this.bIm != null && this.bIm.getAdapter() != baseAdapter) {
-            this.bIm.setAdapter((ListAdapter) baseAdapter);
-        }
-    }
-
-    public void setGridAdapterIfNeeded(BaseAdapter baseAdapter) {
-        if (this.bIl != null && this.bIl.getAdapter() != baseAdapter) {
-            this.bIl.setAdapter((ListAdapter) baseAdapter);
-        }
-    }
-
-    public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.bHa = viewEventCenter;
-    }
-
-    private void setStateForDisplayView(int i) {
-        if (i == 1) {
-            this.bIk.setText(TbadkCoreApplication.m9getInst().getString(w.l.enter_forum_two_column_display));
-            this.bIk.setCompoundDrawablesWithIntrinsicBounds(aq.getDrawable(w.g.icon_sort_suolue), (Drawable) null, (Drawable) null, (Drawable) null);
-            return;
-        }
-        this.bIk.setText(TbadkCoreApplication.m9getInst().getString(w.l.enter_forum_one_column_display));
-        this.bIk.setCompoundDrawablesWithIntrinsicBounds(aq.getDrawable(w.g.icon_sort_shitu), (Drawable) null, (Drawable) null, (Drawable) null);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        getParent().requestDisallowInterceptTouchEvent(true);
-        return super.dispatchTouchEvent(motionEvent);
-    }
-
-    private void init() {
-        this.bIj = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds10);
-        LayoutInflater.from(getContext()).inflate(w.j.enter_forum_edit_view, this);
-        setOrientation(1);
-        this.bIk = (TextView) findViewById(w.h.forum_editor_column_display);
-        findViewById(w.h.forum_editor_column_display_layout).setOnClickListener(new k(this));
-        findViewById(w.h.forum_editor_sort_by_rank_layout).setOnClickListener(new l(this));
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.k.g(getContext(), w.f.ds150));
-        this.bIn = new View(getContext());
-        this.bIn.setLayoutParams(layoutParams);
-    }
-
-    public void n(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.m.a.a(tbPageContext, this);
-        setBackgroundColor(aq.getColor(w.e.cp_bg_line_d));
-        setStateForDisplayView(this.mType);
-        if (this.mType == 1) {
-            XQ();
-        }
+    @Override // com.baidu.tieba.tbadkCore.q
+    public boolean b(TbPageContext<?> tbPageContext, int i) {
+        com.baidu.tbadk.m.a.a(tbPageContext, getRootView());
+        return true;
     }
 }

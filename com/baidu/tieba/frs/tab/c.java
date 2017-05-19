@@ -1,40 +1,57 @@
 package com.baidu.tieba.frs.tab;
 
 import android.view.View;
+import com.baidu.tieba.frs.tab.HorizontalTabView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ HorizontalTabView cbC;
+    final /* synthetic */ HorizontalTabView bZt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(HorizontalTabView horizontalTabView) {
-        this.cbC = horizontalTabView;
+        this.bZt = horizontalTabView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        g gVar;
+        boolean z;
+        h hVar;
         TabItemView tabItemView;
-        g gVar2;
+        h hVar2;
         TabItemView tabItemView2;
-        g gVar3;
-        if (view instanceof TabItemView) {
-            this.cbC.a((TabItemView) view, false);
+        h hVar3;
+        HorizontalTabView.a aVar;
+        HorizontalTabView.a aVar2;
+        z = this.bZt.bZn;
+        if (z) {
+            if ((view instanceof TabItemView) && ((TabItemView) view).getTabId() == 1) {
+                aVar = this.bZt.bZo;
+                if (aVar != null) {
+                    aVar2 = this.bZt.bZo;
+                    aVar2.a(this.bZt.ir(1));
+                }
+                this.bZt.acu();
+                return;
+            }
+            return;
         }
-        gVar = this.cbC.cbs;
-        if (gVar != null) {
-            if (!(view instanceof TabItemView) || !HorizontalTabView.iE(((TabItemView) view).getTabId())) {
-                tabItemView = this.cbC.cbr;
+        if (view instanceof TabItemView) {
+            this.bZt.a((TabItemView) view, false);
+        }
+        hVar = this.bZt.bZh;
+        if (hVar != null) {
+            if (!(view instanceof TabItemView) || !HorizontalTabView.iw(((TabItemView) view).getTabId())) {
+                tabItemView = this.bZt.bZg;
                 if (tabItemView != null) {
-                    gVar2 = this.cbC.cbs;
-                    tabItemView2 = this.cbC.cbr;
-                    gVar2.iC(tabItemView2.getTabId());
+                    hVar2 = this.bZt.bZh;
+                    tabItemView2 = this.bZt.bZg;
+                    hVar2.iu(tabItemView2.getTabId());
                     return;
                 }
                 return;
             }
-            gVar3 = this.cbC.cbs;
-            gVar3.iC(((TabItemView) view).getTabId());
+            hVar3 = this.bZt.bZh;
+            hVar3.iu(((TabItemView) view).getTabId());
         }
     }
 }

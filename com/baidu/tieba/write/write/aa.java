@@ -1,18 +1,29 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tieba.write.view.PhotoLiveView.PhotoLiveLinearLayout;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements PhotoLiveLinearLayout.a {
-    final /* synthetic */ WriteActivity fUM;
+public class aa implements View.OnFocusChangeListener {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
-    @Override // com.baidu.tieba.write.view.PhotoLiveView.PhotoLiveLinearLayout.a
-    public void bps() {
-        this.fUM.aCx();
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.j jVar2;
+        if (z) {
+            this.fSV.fSs = true;
+            this.fSV.fSQ = true;
+            this.fSV.boe();
+            jVar = this.fSV.azd;
+            if (jVar != null) {
+                jVar2 = this.fSV.azd;
+                jVar2.AN();
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.entelechy.b;
 import android.view.View;
 import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.frs.cd;
+import com.baidu.tieba.frs.bx;
 import com.baidu.tieba.frs.tab.TabData;
 import com.baidu.tieba.tbadkCore.n;
 /* loaded from: classes.dex */
@@ -14,19 +14,19 @@ public interface d {
 
     void a(BdListView bdListView, n nVar, int i);
 
-    void a(cd cdVar);
+    void a(bx bxVar);
 
-    TabData acA();
+    TabData aaN();
 
-    View acB();
+    View aaO();
 
-    View acC();
+    View aaP();
 
-    void ah(View view);
+    void af(View view);
 
     void b(BdListView bdListView);
 
-    void ei(boolean z);
+    void dY(boolean z);
 
     void onChangeSkinType(int i);
 }

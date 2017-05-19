@@ -1,24 +1,21 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import android.view.View;
-import com.baidu.tieba.card.cf;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class an implements View.OnClickListener {
-    final /* synthetic */ am bVX;
+class an implements Runnable {
+    final /* synthetic */ ai bTO;
+    private final /* synthetic */ String bwa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.bVX = amVar;
+    public an(ai aiVar, String str) {
+        this.bTO = aiVar;
+        this.bwa = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.core.data.av avVar;
-        if (this.bVX.getOnSubCardOnClickListenner() != null) {
-            cf<com.baidu.tbadk.core.data.av> onSubCardOnClickListenner = this.bVX.getOnSubCardOnClickListenner();
-            avVar = this.bVX.bVV;
-            onSubCardOnClickListenner.a(view, avVar);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANGE_CARD_TITILE_COLOR, this.bwa));
     }
 }

@@ -3,17 +3,16 @@ package com.baidu.tieba.QuickPlayer;
 import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements MediaPlayer.OnInfoListener {
-    final /* synthetic */ v aRa;
+public class ab implements MediaPlayer.OnVideoSizeChangedListener {
+    final /* synthetic */ x aRv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(v vVar) {
-        this.aRa = vVar;
+    public ab(x xVar) {
+        this.aRv = xVar;
     }
 
-    @Override // android.media.MediaPlayer.OnInfoListener
-    public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
-        this.aRa.notifyOnInfo(i, i2);
-        return true;
+    @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
+    public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
+        this.aRv.notifyOnVideoSizeChanged(i, i2, 0, 0);
     }
 }

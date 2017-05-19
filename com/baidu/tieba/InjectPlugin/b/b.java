@@ -6,99 +6,99 @@ import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends g {
-    private Object aPL;
-    private List<v> aPM;
-    private List<v> aPN;
-    private List<Object> aPO;
-    private boolean aPP;
-    private boolean aPQ;
-    private int aPR;
-    private boolean aPS;
-    private String aPT;
-    private String aPU;
-    private String aPV;
-    private int amZ;
+    private Object aQe;
+    private List<v> aQf;
+    private List<v> aQg;
+    private List<Object> aQh;
+    private boolean aQi;
+    private boolean aQj;
+    private int aQk;
+    private boolean aQl;
+    private String aQm;
+    private String aQn;
+    private String aQo;
+    private int ane;
     private String forumId;
     private int pageNum;
 
     public b(TbPageContext tbPageContext, int i) {
         super(tbPageContext, i);
-        this.aPP = false;
-        this.aPQ = false;
-        this.aPR = 0;
-        this.aPS = false;
+        this.aQi = false;
+        this.aQj = false;
+        this.aQk = 0;
+        this.aQl = false;
     }
 
-    public Object JB() {
-        return this.aPL;
+    public Object IP() {
+        return this.aQe;
     }
 
     public void setExtraData(Object obj) {
-        this.aPL = obj;
+        this.aQe = obj;
     }
 
     public List<v> getThreadList() {
-        return this.aPM;
-    }
-
-    public void G(List<v> list) {
-        this.aPM = list;
-    }
-
-    public List<Object> JC() {
-        return this.aPO;
-    }
-
-    public void H(List<Object> list) {
-        this.aPO = list;
-    }
-
-    public List<v> JD() {
-        return this.aPN;
+        return this.aQf;
     }
 
     public void I(List<v> list) {
-        this.aPN = list;
+        this.aQf = list;
     }
 
-    public boolean JE() {
-        return this.aPP;
+    public List<Object> IQ() {
+        return this.aQh;
     }
 
-    public void cf(boolean z) {
-        this.aPP = z;
+    public void J(List<Object> list) {
+        this.aQh = list;
     }
 
-    public boolean JF() {
-        return this.aPQ;
+    public List<v> IR() {
+        return this.aQg;
     }
 
-    public void cg(boolean z) {
-        this.aPQ = z;
+    public void K(List<v> list) {
+        this.aQg = list;
     }
 
-    public int JG() {
-        return this.aPR;
-    }
-
-    public void bX(int i) {
-        this.aPR = i;
-    }
-
-    public int getSkinType() {
-        return this.amZ;
-    }
-
-    public void setSkinType(int i) {
-        this.amZ = i;
-    }
-
-    public boolean JH() {
-        return this.aPS;
+    public boolean IS() {
+        return this.aQi;
     }
 
     public void ch(boolean z) {
-        this.aPS = z;
+        this.aQi = z;
+    }
+
+    public boolean IT() {
+        return this.aQj;
+    }
+
+    public void ci(boolean z) {
+        this.aQj = z;
+    }
+
+    public int IU() {
+        return this.aQk;
+    }
+
+    public void bV(int i) {
+        this.aQk = i;
+    }
+
+    public int getSkinType() {
+        return this.ane;
+    }
+
+    public void setSkinType(int i) {
+        this.ane = i;
+    }
+
+    public boolean IV() {
+        return this.aQl;
+    }
+
+    public void cj(boolean z) {
+        this.aQl = z;
     }
 
     public int getPageNum() {
@@ -117,27 +117,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String JI() {
-        return this.aPT;
+    public String IW() {
+        return this.aQm;
+    }
+
+    public void gu(String str) {
+        this.aQm = str;
+    }
+
+    public String IX() {
+        return this.aQn;
+    }
+
+    public void gv(String str) {
+        this.aQn = str;
+    }
+
+    public String IY() {
+        return this.aQo;
     }
 
     public void gw(String str) {
-        this.aPT = str;
-    }
-
-    public String JJ() {
-        return this.aPU;
-    }
-
-    public void gx(String str) {
-        this.aPU = str;
-    }
-
-    public String JK() {
-        return this.aPV;
-    }
-
-    public void gy(String str) {
-        this.aPV = str;
+        this.aQo = str;
     }
 }

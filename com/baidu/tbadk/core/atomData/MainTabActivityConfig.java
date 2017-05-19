@@ -7,12 +7,13 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class MainTabActivityConfig extends IntentConfig {
     public static final String IS_NEW_USER = "is_new_user";
+    public static final String MAIN_TAB = "main_tab";
     public static final String NEED_CLOSE_MENU = "need_close_menu";
     public static boolean IS_SUPPORT_LEFT_BAR = true;
     public static boolean IS_BACK_CLOSE_ALL_ACTIVITY = false;
     public static boolean IS_INDICATOR_BOTTOM = true;
     public static boolean ENTER_FORUM_DELEGATE_AVAILABLE = true;
-    public static boolean IMMESSAGE_CENTER_DELEGATE_AVAIBLE = true;
+    public static boolean IMMESSAGE_CENTER_DELEGATE_AVAIBLE = false;
     public static boolean RECOMMEND_FRS_DELEGATE_AVAIBLE = true;
     public static boolean PERSON_TAB_AVAIBLE = true;
     public static boolean HOME_PAGE_DELEGATE_AVAIBLE = true;

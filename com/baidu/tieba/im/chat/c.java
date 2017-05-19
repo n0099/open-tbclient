@@ -6,21 +6,21 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ AbsMsgImageActivity cOQ;
+    final /* synthetic */ AbsMsgImageActivity cIT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AbsMsgImageActivity absMsgImageActivity) {
-        this.cOQ = absMsgImageActivity;
+        this.cIT = absMsgImageActivity;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         int i2;
-        AbsMsgImageActivity absMsgImageActivity = this.cOQ;
-        i2 = this.cOQ.mIndex;
-        absMsgImageActivity.aN(i2, i);
-        this.cOQ.mIndex = i;
-        this.cOQ.anM();
+        AbsMsgImageActivity absMsgImageActivity = this.cIT;
+        i2 = this.cIT.mIndex;
+        absMsgImageActivity.aK(i2, i);
+        this.cIT.mIndex = i;
+        this.cIT.akF();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -38,17 +38,17 @@ public class c implements ViewPager.OnPageChangeListener {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.cOQ.cOM;
+            j = this.cIT.cIP;
             if (nanoTime - j > 300000000) {
-                linkedHashMap = this.cOQ.cOA;
+                linkedHashMap = this.cIT.cID;
                 if (linkedHashMap != null) {
-                    i2 = this.cOQ.mIndex;
-                    linkedHashMap2 = this.cOQ.cOA;
+                    i2 = this.cIT.mIndex;
+                    linkedHashMap2 = this.cIT.cID;
                     if (i2 < linkedHashMap2.size()) {
-                        hashMap = this.cOQ.cON;
-                        linkedHashMap3 = this.cOQ.cOA;
+                        hashMap = this.cIT.cIQ;
+                        linkedHashMap3 = this.cIT.cID;
                         StringBuilder sb = new StringBuilder();
-                        i3 = this.cOQ.mIndex;
+                        i3 = this.cIT.mIndex;
                         hashMap.put((String) linkedHashMap3.get(sb.append(i3).toString()), true);
                     }
                 }

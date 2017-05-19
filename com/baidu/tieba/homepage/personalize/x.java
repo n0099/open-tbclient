@@ -1,28 +1,27 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import tbclient.Personalized.DataRes;
+import com.baidu.tieba.frs.ch;
+import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends com.baidu.tbadk.util.s<Object> {
-    private final /* synthetic */ DataRes.Builder czZ;
-    final /* synthetic */ n this$0;
+public class x implements ScrollFragmentTabHost.a {
+    final /* synthetic */ o this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(n nVar, DataRes.Builder builder) {
-        this.this$0 = nVar;
-        this.czZ = builder;
+    public x(o oVar) {
+        this.this$0 = oVar;
     }
 
-    @Override // com.baidu.tbadk.util.s
-    public Object doInBackground() {
-        try {
-            com.baidu.tbadk.core.c.a.tM().L("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).k("0", this.czZ.build(true).toByteArray());
-            return null;
-        } catch (Exception e) {
-            BdLog.e(e);
-            return null;
+    @Override // com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.a
+    public void jL(int i) {
+        ch chVar;
+        ch chVar2;
+        if (i > 0) {
+            chVar = this.this$0.cuM;
+            if (chVar != null) {
+                chVar2 = this.this$0.cuM;
+                chVar2.hideTip();
+            }
         }
     }
 }

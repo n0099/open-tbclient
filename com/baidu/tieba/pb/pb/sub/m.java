@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity evm;
+    final /* synthetic */ NewSubPbActivity eqU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NewSubPbActivity newSubPbActivity) {
-        this.evm = newSubPbActivity;
+        this.eqU = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
@@ -26,14 +26,14 @@ public class m implements NewSubPbActivity.a {
         SubPbModel subPbModel7;
         Object[] objArr = (Object[]) obj;
         String str = "";
-        subPbModel = this.evm.euV;
-        if (subPbModel.aPO() != null) {
-            subPbModel5 = this.evm.euV;
-            if (subPbModel5.aPO().Kn() != null) {
-                subPbModel6 = this.evm.euV;
-                if (subPbModel6.aPO().Kn().getAuthor() != null) {
-                    subPbModel7 = this.evm.euV;
-                    str = String.valueOf(subPbModel7.aPO().Kn().getAuthor().getUserId());
+        subPbModel = this.eqU.eqD;
+        if (subPbModel.aNe() != null) {
+            subPbModel5 = this.eqU.eqD;
+            if (subPbModel5.aNe().JB() != null) {
+                subPbModel6 = this.eqU.eqD;
+                if (subPbModel6.aNe().JB().getAuthor() != null) {
+                    subPbModel7 = this.eqU.eqD;
+                    str = String.valueOf(subPbModel7.aNe().JB().getAuthor().getUserId());
                 }
             }
         }
@@ -45,13 +45,13 @@ public class m implements NewSubPbActivity.a {
         if (objArr.length > 2) {
             str3 = String.valueOf(objArr[2]);
         }
-        NewSubPbActivity newSubPbActivity = this.evm;
-        Activity pageActivity = this.evm.getPageContext().getPageActivity();
-        subPbModel2 = this.evm.euV;
-        String id = subPbModel2.aPO().aLc().getId();
-        subPbModel3 = this.evm.euV;
-        String name = subPbModel3.aPO().aLc().getName();
-        subPbModel4 = this.evm.euV;
-        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, subPbModel4.aPO().Kn().getId(), str, str2, str3)));
+        NewSubPbActivity newSubPbActivity = this.eqU;
+        Activity pageActivity = this.eqU.getPageContext().getPageActivity();
+        subPbModel2 = this.eqU.eqD;
+        String id = subPbModel2.aNe().aIx().getId();
+        subPbModel3 = this.eqU.eqD;
+        String name = subPbModel3.aNe().aIx().getName();
+        subPbModel4 = this.eqU.eqD;
+        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, subPbModel4.aNe().JB().getId(), str, str2, str3)));
     }
 }

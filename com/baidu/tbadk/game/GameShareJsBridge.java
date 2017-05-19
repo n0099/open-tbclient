@@ -1,6 +1,5 @@
 package com.baidu.tbadk.game;
 
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,7 +53,7 @@ public class GameShareJsBridge {
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.mShareTitle = String.valueOf(jSONObject.opt(VrPlayerActivityConfig.TITLE));
-            this.mShareContent = String.valueOf(jSONObject.opt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT));
+            this.mShareContent = String.valueOf(jSONObject.opt("content"));
             this.mIconUrl = String.valueOf(jSONObject.opt("app_icon"));
             this.mShareContentUrl = String.valueOf(jSONObject.opt("app_link"));
             this.mShareImage = String.valueOf(jSONObject.opt("img"));

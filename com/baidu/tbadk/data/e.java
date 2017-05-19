@@ -1,90 +1,92 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrequentlyForumInfo;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class e implements com.baidu.tbadk.mvc.b.a {
-    private List<String> axA = new ArrayList();
-    private String axt;
-    private String axu;
-    private long axv;
-    private int axw;
-    private int axx;
-    private int axy;
-    private int axz;
-    private long mForumId;
-    private String mForumName;
+public class e {
+    private static e axC;
+    public String axG;
+    public final String axy = "2g";
+    public final String axz = "3g";
+    public final String axA = "4g";
+    public final String axB = "wifi";
+    public HashMap<String, String> axD = new HashMap<>();
+    public HashMap<String, String> axE = new HashMap<>();
+    public HashMap<String, String> axF = new HashMap<>();
 
-    public long getForumId() {
-        return this.mForumId;
+    public static synchronized e BM() {
+        e eVar;
+        synchronized (e.class) {
+            if (axC == null) {
+                axC = new e();
+            }
+            eVar = axC;
+        }
+        return eVar;
     }
 
-    public void setForumId(long j) {
-        this.mForumId = j;
-    }
-
-    public String getForumName() {
-        return this.mForumName;
-    }
-
-    public void eT(String str) {
-        this.mForumName = str;
-    }
-
-    public String CB() {
-        return this.axt;
-    }
-
-    public void eU(String str) {
-        this.axt = str;
-    }
-
-    public String CC() {
-        return this.axu;
-    }
-
-    public int CD() {
-        return this.axw;
-    }
-
-    public void ep(int i) {
-        this.axw = i;
-    }
-
-    public void eq(int i) {
-        this.axz = i;
-    }
-
-    public boolean isSign() {
-        return this.axz == 1;
-    }
-
-    public List<String> CE() {
-        return this.axA;
-    }
-
-    public void a(FrequentlyForumInfo frequentlyForumInfo) {
-        if (frequentlyForumInfo != null) {
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                this.axt = frequentlyForumInfo.avatar;
-                this.mForumId = frequentlyForumInfo.forum_id.longValue();
-                this.mForumName = frequentlyForumInfo.forum_name;
-                this.axx = frequentlyForumInfo.forum_state.intValue();
-                this.axy = frequentlyForumInfo.access_flag.intValue();
-                this.axv = frequentlyForumInfo.last_access_time.longValue();
-                this.axw = frequentlyForumInfo.level_id.intValue();
-                this.axu = frequentlyForumInfo.new_thread_num;
-                this.axz = frequentlyForumInfo.is_sign.intValue();
-                if (frequentlyForumInfo.user_list != null && frequentlyForumInfo.user_list.size() > 0) {
-                    int size = frequentlyForumInfo.user_list.size();
-                    for (int i = 0; i < size; i++) {
-                        if (frequentlyForumInfo.user_list.get(i) != null) {
-                            this.axA.add(frequentlyForumInfo.user_list.get(i).portrait);
-                        }
+                JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
+                if (optJSONObject != null) {
+                    String optString = optJSONObject.optString("2g");
+                    String optString2 = optJSONObject.optString("3g");
+                    String optString3 = optJSONObject.optString("4g");
+                    String optString4 = optJSONObject.optString("wifi");
+                    if (optString != null) {
+                        this.axD.put("2g", optString);
+                    }
+                    if (optString2 != null) {
+                        this.axD.put("3g", optString2);
+                    }
+                    if (optString3 != null) {
+                        this.axD.put("4g", optString3);
+                    }
+                    if (optString4 != null) {
+                        this.axD.put("wifi", optString4);
                     }
                 }
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
+                if (optJSONObject2 != null) {
+                    String optString5 = optJSONObject2.optString("2g");
+                    String optString6 = optJSONObject2.optString("3g");
+                    String optString7 = optJSONObject2.optString("4g");
+                    String optString8 = optJSONObject2.optString("wifi");
+                    if (optString5 != null) {
+                        this.axE.put("2g", optString5);
+                    }
+                    if (optString6 != null) {
+                        this.axE.put("3g", optString6);
+                    }
+                    if (optString7 != null) {
+                        this.axE.put("4g", optString7);
+                    }
+                    if (optString8 != null) {
+                        this.axE.put("wifi", optString8);
+                    }
+                }
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
+                if (optJSONObject3 != null) {
+                    String optString9 = optJSONObject3.optString("2g");
+                    String optString10 = optJSONObject3.optString("3g");
+                    String optString11 = optJSONObject3.optString("4g");
+                    String optString12 = optJSONObject3.optString("wifi");
+                    if (optString9 != null) {
+                        this.axF.put("2g", optString9);
+                    }
+                    if (optString10 != null) {
+                        this.axF.put("3g", optString10);
+                    }
+                    if (optString11 != null) {
+                        this.axF.put("4g", optString11);
+                    }
+                    if (optString12 != null) {
+                        this.axF.put("wifi", optString12);
+                    }
+                }
+                this.axG = jSONObject.optString("is_on");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

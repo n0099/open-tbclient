@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.view.j;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class j extends PopupWindow {
-    private int eyq;
+    private int etZ;
     private com.baidu.tbadk.core.view.j mContainer;
     private View mContentView;
 
@@ -18,7 +18,7 @@ public class j extends PopupWindow {
         super(activity);
         this.mContainer = null;
         this.mContentView = null;
-        this.eyq = 0;
+        this.etZ = 0;
         init(activity, view, drawable, aVar);
     }
 
@@ -28,7 +28,7 @@ public class j extends PopupWindow {
             this.mContainer = new com.baidu.tbadk.core.view.j(activity, this.mContentView, aVar);
             TypedValue typedValue = new TypedValue();
             if (activity.getApplicationContext().getTheme() != null && activity.getApplicationContext().getTheme().resolveAttribute(16843499, typedValue, true)) {
-                this.eyq = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
+                this.etZ = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
             }
             setContentView(this.mContainer);
             setOutsideTouchable(true);
@@ -36,6 +36,7 @@ public class j extends PopupWindow {
             setHeight(-1);
             setWidth(-1);
             setSoftInputMode(16);
+            setFocusable(false);
             setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(w.e.common_color_10022)));
             setAnimationStyle(w.m.pb_more_pop_anim);
         }

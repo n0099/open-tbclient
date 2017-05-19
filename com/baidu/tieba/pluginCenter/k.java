@@ -1,18 +1,18 @@
 package com.baidu.tieba.pluginCenter;
 
 import android.content.DialogInterface;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class k implements DialogInterface.OnDismissListener {
-    final /* synthetic */ PluginDownloadActivity eXI;
+    final /* synthetic */ PluginDownloadActivity eTI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(PluginDownloadActivity pluginDownloadActivity) {
-        this.eXI = pluginDownloadActivity;
+        this.eTI = pluginDownloadActivity;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        this.eXI.setResult(0);
-        this.eXI.finish();
+        this.eTI.setResult(0);
+        this.eTI.finish();
     }
 }

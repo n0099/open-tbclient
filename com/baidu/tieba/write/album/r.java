@@ -1,20 +1,15 @@
 package com.baidu.tieba.write.album;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends BroadcastReceiver {
-    final /* synthetic */ p this$0;
+class r implements Runnable {
+    final /* synthetic */ q this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(p pVar) {
-        this.this$0 = pVar;
+    public r(q qVar) {
+        this.this$0 = qVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.this$0.X(intent);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.this$0.lB(false);
     }
 }

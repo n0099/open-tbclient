@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.imMessageCenter.ResponseFriendListMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SelectFriendActivityStatic {
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(SelectFriendActivityConfig.class, SelectFriendActivity.class);

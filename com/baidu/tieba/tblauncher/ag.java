@@ -1,32 +1,59 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class ag implements a.b {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a awi;
-    final /* synthetic */ z fCF;
-    private final /* synthetic */ int val$type;
+public class ag implements com.baidu.tbadk.core.f.a {
+    private b fyV;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(z zVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.fCF = zVar;
-        this.awi = aVar;
-        this.val$type = i;
+    @Override // com.baidu.tbadk.core.f.a
+    public void b(Context context, int i, boolean z) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i, z)));
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        this.awi.dismiss();
-        if (this.val$type == 0) {
-            mainTabActivity2 = this.fCF.fCy;
-            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
-        } else if (this.val$type == 1) {
-            mainTabActivity = this.fCF.fCy;
-            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
+    @Override // com.baidu.tbadk.core.f.a
+    public void i(Context context, int i) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i)));
+    }
+
+    @Override // com.baidu.tbadk.core.f.a
+    public void ay(Context context) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount != null && currentAccount.length() > 0) {
+            i(context, 1);
+        } else {
+            i(context, 0);
         }
+    }
+
+    @Override // com.baidu.tbadk.core.f.a
+    public void c(Context context, int i, boolean z) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
+    }
+
+    @Override // com.baidu.tbadk.core.f.a
+    public Class<?> tQ() {
+        return MainTabActivity.class;
+    }
+
+    @Override // com.baidu.tbadk.core.f.a
+    public String tR() {
+        return MainTabActivity.class.getName();
+    }
+
+    @Override // com.baidu.tbadk.core.f.a
+    public int getCurrentTabType() {
+        if (this.fyV != null) {
+            return this.fyV.getCurrentTabType();
+        }
+        return -1;
+    }
+
+    public void a(b bVar) {
+        this.fyV = bVar;
     }
 }

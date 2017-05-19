@@ -117,14 +117,14 @@ public class a {
             a(w, w.getClass(), "dexElements", d);
             Object d2 = d(y(w), y(w2));
             if (d2 instanceof File[]) {
-                Arrays.sort((File[]) d2, kk());
+                Arrays.sort((File[]) d2, kj());
                 list = d2;
             } else {
                 boolean z2 = d2 instanceof List;
                 list = d2;
                 if (z2) {
                     List list2 = (List) d2;
-                    Collections.sort(list2, kk());
+                    Collections.sort(list2, kj());
                     list = list2;
                 }
             }
@@ -276,7 +276,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> kk() {
+    private static final Comparator<File> kj() {
         return new c();
     }
 

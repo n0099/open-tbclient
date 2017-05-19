@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.i;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CdnCacheItem implements Serializable {
     private static final long serialVersionUID = 6622778689529331355L;
     private HashMap<String, Long> disableIpMap;
@@ -13,7 +13,7 @@ public class CdnCacheItem implements Serializable {
     private ArrayList<TBIPListItem> mobileIpList;
     private boolean mobileIsUsedIp;
     private static Object mLock = new Object();
-    private static Object dpO = new Object();
+    private static Object djS = new Object();
     private boolean isUsedIp = false;
     public long lastTachometerTime = 0;
     public long firstUseIpTime = 0;
@@ -99,7 +99,7 @@ public class CdnCacheItem implements Serializable {
                 this.ipHashMap.remove(tBIPListItem.cdnIp);
                 this.ipList.remove(i2);
                 long currentTimeMillis = System.currentTimeMillis();
-                axe();
+                aua();
                 this.disableIpMap.put(tBIPListItem.cdnIp, Long.valueOf(currentTimeMillis));
             }
             if (tBIPListItem.ipRank < 0) {
@@ -114,7 +114,7 @@ public class CdnCacheItem implements Serializable {
 
     public int setCdnDomainRank(int i, float f) {
         int i2;
-        synchronized (dpO) {
+        synchronized (djS) {
             this.cdnDomainRank += i;
             if (this.cdnDomainRank < 0) {
                 this.cdnDomainRank = 0;
@@ -136,7 +136,7 @@ public class CdnCacheItem implements Serializable {
         return this.isUsedIp;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private class TBIPListItem implements Serializable {
         private static final long serialVersionUID = -99289965442562023L;
         public String cdnIp;
@@ -154,7 +154,7 @@ public class CdnCacheItem implements Serializable {
     public void setIpList(ArrayList<String> arrayList, boolean z, boolean z2) {
         if (arrayList != null && arrayList.size() != 0) {
             synchronized (mLock) {
-                axe();
+                aua();
                 if (z2) {
                     this.ipList.clear();
                     this.ipHashMap.clear();
@@ -164,7 +164,7 @@ public class CdnCacheItem implements Serializable {
                 for (int i = 0; i < size; i++) {
                     String str = arrayList.get(i);
                     Long l = this.disableIpMap.get(str);
-                    if (l != null && System.currentTimeMillis() - l.longValue() >= axf()) {
+                    if (l != null && System.currentTimeMillis() - l.longValue() >= aub()) {
                         this.disableIpMap.remove(str);
                     }
                     if (this.ipHashMap.get(str) == null && this.disableIpMap.get(str) == null) {
@@ -178,13 +178,13 @@ public class CdnCacheItem implements Serializable {
         }
     }
 
-    private void axe() {
+    private void aua() {
         if (this.disableIpMap == null) {
             this.disableIpMap = new HashMap<>();
         }
     }
 
-    private int axf() {
+    private int aub() {
         if (this.ipDisableTime < 0) {
             return 3600000;
         }

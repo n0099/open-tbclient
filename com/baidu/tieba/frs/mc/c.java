@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b bZY;
+    final /* synthetic */ b bXO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.bZY = bVar;
+        this.bXO = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,14 +23,14 @@ public class c extends CustomMessageListener {
             if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
                 if (!updateAttentionMessage.getData().CB) {
                     if (updateAttentionMessage.getData().errorString != null) {
-                        this.bZY.bVk.showToast(updateAttentionMessage.getData().errorString);
+                        this.bXO.bNK.showToast(updateAttentionMessage.getData().errorString);
                         return;
                     }
                     return;
                 }
-                this.bZY.b(updateAttentionMessage);
-                this.bZY.bVk.a(updateAttentionMessage);
-                this.bZY.c(updateAttentionMessage);
+                this.bXO.b(updateAttentionMessage);
+                this.bXO.bNK.a(updateAttentionMessage);
+                this.bXO.c(updateAttentionMessage);
             }
         }
     }

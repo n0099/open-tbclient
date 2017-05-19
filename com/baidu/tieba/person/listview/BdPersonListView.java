@@ -22,8 +22,8 @@ public class BdPersonListView extends BdTypeListView {
     private float HO;
     private final int HP;
     private final int HQ;
-    private b eCD;
-    public a eCE;
+    private b eyn;
+    public a eyo;
     private final Context mContext;
     private final Scroller mScroller;
     public static int ExpandListView_expandDistance = 1;
@@ -33,9 +33,9 @@ public class BdPersonListView extends BdTypeListView {
     public interface a {
         void G(float f);
 
-        void ld();
+        void lc();
 
-        void le();
+        void ld();
     }
 
     public BdPersonListView(Context context, AttributeSet attributeSet) {
@@ -67,32 +67,32 @@ public class BdPersonListView extends BdTypeListView {
                     int height = this.HH.getHeight();
                     this.HJ = this.HK;
                     this.HN = this.HO;
-                    this.eCD = new b(0, height, 0, this.HQ + height);
+                    this.eyn = new b(0, height, 0, this.HQ + height);
                     break;
                 case 1:
                 case 3:
                     if (this.HM) {
-                        lb();
+                        la();
                         break;
                     } else {
-                        this.eCE.ld();
+                        this.eyo.lc();
                         break;
                     }
                 case 2:
                     float f = this.HO - this.HN;
                     float f2 = this.HK - this.HJ;
                     this.HN = this.HO;
-                    if (this.HH.getParent() == this && this.eCD != null && this.HH.isShown() && this.HH.getTop() >= 0 && Math.abs(f2) >= this.HP && Math.abs(f) < this.HP) {
-                        int H = this.eCD.H(this.HK - this.HJ);
-                        if (H > this.eCD.HU && H <= this.eCD.HW) {
+                    if (this.HH.getParent() == this && this.eyn != null && this.HH.isShown() && this.HH.getTop() >= 0 && Math.abs(f2) >= this.HP && Math.abs(f) < this.HP) {
+                        int H = this.eyn.H(this.HK - this.HJ);
+                        if (H > this.eyn.HU && H <= this.eyn.HW) {
                             this.HM = true;
                             this.HH.setLayoutParams(new AbsListView.LayoutParams(this.HH.getWidth(), H));
-                            F(H - this.eCD.HU);
+                            F(H - this.eyn.HU);
                             break;
-                        } else if (H <= this.eCD.HU) {
+                        } else if (H <= this.eyn.HU) {
                             this.HM = false;
                             break;
-                        } else if (H > this.eCD.HW) {
+                        } else if (H > this.eyn.HW) {
                             this.HM = true;
                             break;
                         } else {
@@ -126,27 +126,27 @@ public class BdPersonListView extends BdTypeListView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void lb() {
-        if (this.eCD != null) {
-            if (this.HH.getHeight() >= this.eCD.HW - (this.HQ / 2)) {
-                lc();
+    public void la() {
+        if (this.eyn != null) {
+            if (this.HH.getHeight() >= this.eyn.HW - (this.HQ / 2)) {
+                lb();
             } else {
-                this.eCE.ld();
+                this.eyo.lc();
             }
-            this.mScroller.startScroll(0, this.HH.getHeight(), 0, this.eCD.HU - this.HH.getHeight(), 200);
+            this.mScroller.startScroll(0, this.HH.getHeight(), 0, this.eyn.HU - this.HH.getHeight(), 200);
             invalidate();
             this.HM = false;
         }
     }
 
-    public void lc() {
-        if (this.eCE != null) {
-            this.eCE.le();
+    public void lb() {
+        if (this.eyo != null) {
+            this.eyo.ld();
         }
     }
 
     public void setPersonListRefreshListener(a aVar) {
-        this.eCE = aVar;
+        this.eyo = aVar;
     }
 
     @Override // android.view.View
@@ -159,7 +159,7 @@ public class BdPersonListView extends BdTypeListView {
     }
 
     private void F(float f) {
-        this.eCE.G(360.0f - ((f * 360.0f) / this.HQ));
+        this.eyo.G(360.0f - ((f * 360.0f) / this.HQ));
     }
 
     /* loaded from: classes.dex */

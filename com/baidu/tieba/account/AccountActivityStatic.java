@@ -11,13 +11,13 @@ import com.baidu.tieba.account.appeal.AppealActivity;
 /* loaded from: classes.dex */
 public class AccountActivityStatic {
     static {
-        LZ();
+        Ln();
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_ACCOUNT, new k());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void LZ() {
+    private static void Ln() {
         TbadkCoreApplication.m9getInst().RegisterIntent(AccountRestoreActivityConfig.class, AccountRestoreActivity.class);
         TbadkCoreApplication.m9getInst().RegisterIntent(NotLoginGuideActivityConfig.class, NotLoginGuideActivity.class);
         AppealActivityConfig.isExistActivity = true;

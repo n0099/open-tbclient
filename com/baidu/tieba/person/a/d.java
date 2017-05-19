@@ -1,43 +1,55 @@
 package com.baidu.tieba.person.a;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.data.j;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.k, com.baidu.tieba.person.b.c> {
-    private View.OnClickListener eBM;
+public class d {
+    private HTypeListView buC;
+    private b exQ;
+    private a exR;
+    private com.baidu.tieba.personCenter.a.b exS;
+    private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
+    private BdUniqueId mId;
     private TbPageContext mTbPageContext;
 
-    public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public d(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
+        this.buC = hTypeListView;
+        this.mId = tbPageContext.getUniqueId();
+        initAdapters();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bp */
-    public com.baidu.tieba.person.b.c onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(w.j.user_pic_nomal_item, (ViewGroup) null));
+    private void initAdapters() {
+        this.exQ = new b(this.mTbPageContext, j.axU);
+        this.exR = new a(this.mTbPageContext, com.baidu.tieba.person.data.a.exU);
+        this.exS = new com.baidu.tieba.personCenter.a.b(this.mTbPageContext.getPageActivity(), com.baidu.tieba.personCenter.b.b.eyF);
+        this.mAdapters.add(this.exQ);
+        this.mAdapters.add(this.exR);
+        this.mAdapters.add(this.exS);
+        this.buC.addAdapters(this.mAdapters);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.k kVar, com.baidu.tieba.person.b.c cVar) {
-        if (cVar == null || kVar == null) {
-            return null;
+    public void setDatas(List<v> list) {
+        if (this.buC != null) {
+            this.buC.setData(list);
         }
-        cVar.u(this.eBM);
-        cVar.e(kVar);
-        return cVar.getView();
     }
 
-    public void u(View.OnClickListener onClickListener) {
-        this.eBM = onClickListener;
+    public void notifyDataSetChanged() {
+        if (this.buC != null && (this.buC.getAdapter() instanceof y)) {
+            ((y) this.buC.getAdapter()).notifyDataSetChanged();
+        }
+    }
+
+    public void setItemOnclickListener(View.OnClickListener onClickListener) {
+        this.exQ.u(onClickListener);
+        this.exR.u(onClickListener);
     }
 }

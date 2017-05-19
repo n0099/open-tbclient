@@ -4,65 +4,53 @@ import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.card.al;
-import com.baidu.tieba.card.cc;
-import com.baidu.tieba.card.cf;
-import com.baidu.tieba.homepage.personalize.aj;
+import com.baidu.tieba.card.ai;
+import com.baidu.tieba.card.ca;
+import com.baidu.tieba.card.cd;
+import com.baidu.tieba.homepage.personalize.am;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends cf {
-    final /* synthetic */ k cAn;
+public class l extends cd {
+    final /* synthetic */ k cvx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.cAn = kVar;
+        this.cvx = kVar;
     }
 
-    @Override // com.baidu.tieba.card.cf
+    @Override // com.baidu.tieba.card.cd
     public void a(View view, com.baidu.tieba.card.data.b bVar) {
-        al alVar;
+        ai aiVar;
         com.baidu.tieba.homepage.personalize.model.f fVar;
-        al alVar2;
-        al alVar3;
+        ai aiVar2;
         com.baidu.tieba.homepage.personalize.model.f fVar2;
-        cc.TV().cY(true);
-        alVar = this.cAn.cAm;
-        if (alVar != null && view != null && bVar != null && (bVar instanceof com.baidu.tieba.card.data.p)) {
-            fVar = this.cAn.cAk;
+        ca.To().db(true);
+        aiVar = this.cvx.cvw;
+        if (aiVar != null && view != null && bVar != null && (bVar instanceof com.baidu.tieba.card.data.n)) {
+            fVar = this.cvx.cvu;
             if (fVar != null) {
-                com.baidu.tieba.card.data.p pVar = (com.baidu.tieba.card.data.p) bVar;
-                if (pVar.bck != null) {
-                    if ((view.getTag() instanceof String) && pVar.Kn() != null && pVar.Kn().getId() != null && !aj.bq(com.baidu.adp.lib.g.b.c(pVar.Kn().getTid(), 0L))) {
-                        aj.bp(com.baidu.adp.lib.g.b.c(pVar.Kn().getTid(), 0L));
-                        fVar2 = this.cAn.cAk;
-                        fVar2.a(com.baidu.adp.lib.g.b.c(pVar.Kn().getTid(), 0L), pVar.getWeight(), pVar.getSource(), pVar.TX(), pVar.TZ(), com.baidu.adp.lib.g.b.g((String) view.getTag(), 1));
+                com.baidu.tieba.card.data.n nVar = (com.baidu.tieba.card.data.n) bVar;
+                if (nVar.bcB != null) {
+                    if ((view.getTag() instanceof String) && nVar.JB() != null && nVar.JB().getId() != null && !am.bd(com.baidu.adp.lib.g.b.c(nVar.JB().getTid(), 0L))) {
+                        am.bc(com.baidu.adp.lib.g.b.c(nVar.JB().getTid(), 0L));
+                        fVar2 = this.cvx.cvu;
+                        fVar2.a(com.baidu.adp.lib.g.b.c(nVar.JB().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.Tq(), nVar.Ts(), com.baidu.adp.lib.g.b.g((String) view.getTag(), 1));
                     }
                     if (view instanceof TbImageView) {
-                        TiebaStatic.log(new as("c11004").aa("tid", pVar.bck.getTid()));
+                        TiebaStatic.log(new as("c11004").aa("tid", nVar.bcB.getTid()));
                         return;
                     }
                     int id = view.getId();
-                    alVar2 = this.cAn.cAm;
-                    if (id == alVar2.btO.getId()) {
-                        if (pVar.bck.getAuthor() != null && pVar.bck.getAuthor().getGodUserData() != null && pVar.bck.getAuthor().getGodUserData().getType() == 3) {
-                            TiebaStatic.log(new as("c11274"));
-                            return;
-                        } else {
-                            TiebaStatic.log(new as("c10803").s("obj_locate", 7).aa("tid", pVar.bck.getTid()));
-                            return;
+                    aiVar2 = this.cvx.cvw;
+                    if (id == aiVar2.getView().getId()) {
+                        if (nVar.bcB.sC() != null && nVar.bcB.sC().channelId > 0) {
+                            nVar.A("c11929", true);
                         }
-                    }
-                    int id2 = view.getId();
-                    alVar3 = this.cAn.cAm;
-                    if (id2 == alVar3.getView().getId()) {
-                        if (pVar.bck.ts() != null && pVar.bck.ts().channelId > 0) {
-                            pVar.A("c11929", true);
-                        }
-                        TiebaStatic.log(new as("c11004").aa("tid", pVar.bck.getTid()));
-                        TiebaStatic.log(new as("c10806").s("obj_locate", 1).aa("tid", pVar.bck.getId()));
+                        TiebaStatic.log(new as("c11004").aa("tid", nVar.bcB.getTid()));
+                        TiebaStatic.log(new as("c10806").s("obj_locate", 1).aa("tid", nVar.bcB.getId()));
                         return;
                     }
-                    TiebaStatic.log(new as("c11004").aa("tid", pVar.bck.getTid()));
+                    TiebaStatic.log(new as("c11004").aa("tid", nVar.bcB.getTid()));
                 }
             }
         }

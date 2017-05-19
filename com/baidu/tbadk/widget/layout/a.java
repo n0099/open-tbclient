@@ -7,7 +7,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a implements f {
     @Override // com.baidu.tbadk.widget.layout.f
-    public int fo(int i) {
+    public int fk(int i) {
         if (i < 4) {
             return 1;
         }
@@ -19,7 +19,7 @@ public class a implements f {
 
     @Override // com.baidu.tbadk.widget.layout.f
     public int a(c cVar, List<String> list, int i, int i2) {
-        if (x.p(list) > 0) {
+        if (x.q(list) > 0) {
             if (i == 0) {
                 return a(cVar, list, i2);
             }
@@ -35,14 +35,14 @@ public class a implements f {
     }
 
     private int a(c cVar, List<String> list, int i) {
-        if (cVar == null || x.q(list)) {
+        if (cVar == null || x.r(list)) {
             return i;
         }
-        int p = x.p(list);
-        if (p == 1) {
+        int q = x.q(list);
+        if (q == 1) {
             cVar.f(list, i);
             return 0;
-        } else if (p == 2 || p == 4 || p == 5) {
+        } else if (q == 2 || q == 4 || q == 5) {
             int i2 = i + 2;
             cVar.f(x.a(list, i, i2), i);
             return i2;
@@ -54,10 +54,10 @@ public class a implements f {
     }
 
     private int b(c cVar, List<String> list, int i) {
-        if (cVar == null || x.q(list)) {
+        if (cVar == null || x.r(list)) {
             return i;
         }
-        if (x.p(list) == 4) {
+        if (x.q(list) == 4) {
             int i2 = i + 2;
             cVar.f(x.a(list, i, i2), i);
             return i2;
@@ -68,12 +68,12 @@ public class a implements f {
     }
 
     private int c(c cVar, List<String> list, int i) {
-        if (cVar == null || x.q(list)) {
+        if (cVar == null || x.r(list)) {
             return i;
         }
-        int p = x.p(list);
+        int q = x.q(list);
         cVar.setImageMaxChildCount(3);
-        int i2 = p - 9;
+        int i2 = q - 9;
         if (i2 > 0) {
             int i3 = i + 3;
             List<String> a = x.a(list, i, i3);
@@ -81,8 +81,8 @@ public class a implements f {
             cVar.a(a, i, true);
             return i3;
         }
-        cVar.f(x.a(list, i, p), i);
+        cVar.f(x.a(list, i, q), i);
         cVar.setExtraCenterText(null);
-        return p;
+        return q;
     }
 }

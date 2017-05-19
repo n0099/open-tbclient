@@ -17,7 +17,7 @@ public class d {
         return this.post_url;
     }
 
-    public String pS() {
+    public String pz() {
         return this.button_text;
     }
 

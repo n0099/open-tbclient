@@ -1,21 +1,22 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.homepage.framework.u;
+import com.baidu.tieba.homepage.framework.v;
 /* loaded from: classes.dex */
-class j implements NoNetworkView.a {
-    final /* synthetic */ ScrollFragmentTabHost cxk;
+class j implements u {
+    final /* synthetic */ ScrollFragmentTabHost cua;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.cxk = scrollFragmentTabHost;
+        this.cua = scrollFragmentTabHost;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aM(boolean z) {
-        a aVar;
-        if (z && com.baidu.tieba.homepage.framework.a.a.ajV().cyf) {
-            aVar = this.cxk.cwY;
-            aVar.eY(true);
-        }
+    @Override // com.baidu.tieba.homepage.framework.u
+    public void jE(int i) {
+        l lVar;
+        v vVar;
+        lVar = this.cua.ctX;
+        vVar = this.cua.ctY;
+        lVar.a(i, vVar);
     }
 }

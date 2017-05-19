@@ -1,14 +1,23 @@
 package com.baidu.tieba.homepage.framework;
 
-import java.util.List;
-import tbclient.Personalized.TagInfo;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface c {
-    void aU(List<TagInfo> list);
+public class c implements NoNetworkView.a {
+    final /* synthetic */ RecommendFrsControlFragment ctq;
 
-    void ajv();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(RecommendFrsControlFragment recommendFrsControlFragment) {
+        this.ctq = recommendFrsControlFragment;
+    }
 
-    void i(int i, int i2, int i3, int i4);
-
-    void u(int i, int i2, int i3);
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aL(boolean z) {
+        ScrollFragmentTabHost scrollFragmentTabHost;
+        if (z && this.ctq.isPrimary()) {
+            scrollFragmentTabHost = this.ctq.ctc;
+            scrollFragmentTabHost.ahk();
+        }
+    }
 }

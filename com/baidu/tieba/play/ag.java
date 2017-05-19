@@ -4,11 +4,11 @@ import com.baidu.tieba.play.QuickVideoView;
 import com.baidu.tieba.play.v;
 /* loaded from: classes.dex */
 class ag implements v.a {
-    final /* synthetic */ QuickVideoView eWL;
+    final /* synthetic */ QuickVideoView eSL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(QuickVideoView quickVideoView) {
-        this.eWL = quickVideoView;
+        this.eSL = quickVideoView;
     }
 
     @Override // com.baidu.tieba.play.v.a
@@ -20,26 +20,26 @@ class ag implements v.a {
         QuickVideoView.a aVar4;
         QuickVideoView.a aVar5;
         QuickVideoView.a aVar6;
-        z = this.eWL.eWD;
+        z = this.eSL.eSD;
         if (z) {
-            aVar5 = this.eWL.eWA;
+            aVar5 = this.eSL.eSA;
             if (aVar5 != null) {
-                QuickVideoView quickVideoView = this.eWL;
-                aVar6 = this.eWL.eWA;
-                quickVideoView.setVideoPath(aVar6.aYY());
-                this.eWL.start();
+                QuickVideoView quickVideoView = this.eSL;
+                aVar6 = this.eSL.eSA;
+                quickVideoView.setVideoPath(aVar6.aWx());
+                this.eSL.start();
                 return;
             }
         }
-        aVar = this.eWL.eWA;
+        aVar = this.eSL.eSA;
         if (aVar != null) {
-            aVar4 = this.eWL.eWA;
-            aVar4.JY();
+            aVar4 = this.eSL.eSA;
+            aVar4.Jm();
         }
-        this.eWL.eWz = false;
-        aVar2 = this.eWL.aQJ;
+        this.eSL.eSz = false;
+        aVar2 = this.eSL.aRc;
         if (aVar2 != null) {
-            aVar3 = this.eWL.aQJ;
+            aVar3 = this.eSL.aRc;
             aVar3.onCompletion(vVar);
         }
     }

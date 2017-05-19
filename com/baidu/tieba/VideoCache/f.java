@@ -5,43 +5,43 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f {
     private static final String TAG = f.class.getSimpleName();
-    private static f aUG;
-    private c aUI;
-    private HashMap<String, c> aUH = new HashMap<>();
-    private List<c> aUJ = new ArrayList();
+    private static f aVb;
+    private c aVd;
+    private HashMap<String, c> aVc = new HashMap<>();
+    private List<c> aVe = new ArrayList();
 
     private f() {
     }
 
-    public static f LB() {
-        if (aUG == null) {
+    public static f KP() {
+        if (aVb == null) {
             synchronized (f.class) {
-                if (aUG == null) {
-                    aUG = new f();
+                if (aVb == null) {
+                    aVb = new f();
                 }
             }
         }
-        return aUG;
+        return aVb;
     }
 
     public synchronized void n(c cVar) {
         k.log(TAG, "addPlayingCacheFile " + cVar);
-        c cVar2 = this.aUH.get(cVar.getVideoUrl());
+        c cVar2 = this.aVc.get(cVar.getVideoUrl());
         if (cVar2 != null) {
             k.log(TAG, "got pre same CacheFile ****************************************************************");
             cVar2.close();
         }
-        this.aUH.put(cVar.getVideoUrl(), cVar);
+        this.aVc.put(cVar.getVideoUrl(), cVar);
     }
 
     public synchronized void o(c cVar) {
         if (cVar != null) {
             k.log(TAG, "removePlayingCacheFile: " + cVar);
             cVar.close();
-            this.aUH.remove(cVar.getVideoUrl());
+            this.aVc.remove(cVar.getVideoUrl());
         }
     }
 
@@ -49,7 +49,7 @@ public class f {
         boolean z;
         if (cVar != null) {
             if (cVar.getVideoUrl() != null) {
-                Iterator<Map.Entry<String, c>> it = this.aUH.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = this.aVc.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -69,18 +69,18 @@ public class f {
         return z;
     }
 
-    public synchronized boolean gJ(String str) {
+    public synchronized boolean gH(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
-                Iterator<Map.Entry<String, c>> it = this.aUH.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = this.aVc.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     Map.Entry<String, c> next = it.next();
-                    if (next != null && (next.getKey() instanceof String) && str.equals(o.gU(next.getKey()))) {
+                    if (next != null && (next.getKey() instanceof String) && str.equals(o.gS(next.getKey()))) {
                         z = true;
                         break;
                     }
@@ -92,32 +92,32 @@ public class f {
     }
 
     public void q(c cVar) {
-        this.aUI = cVar;
+        this.aVd = cVar;
     }
 
-    public c LC() {
-        return this.aUI;
+    public c KQ() {
+        return this.aVd;
     }
 
     public synchronized void r(c cVar) {
-        this.aUJ.add(cVar);
+        this.aVe.add(cVar);
     }
 
     public synchronized void s(c cVar) {
-        this.aUJ.remove(cVar);
+        this.aVe.remove(cVar);
     }
 
-    public synchronized void gK(String str) {
+    public synchronized void gI(String str) {
         if (str != null) {
             if (!str.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
-                for (c cVar : this.aUJ) {
+                for (c cVar : this.aVe) {
                     if (cVar != null && str.equals(cVar.getVideoUrl())) {
                         cVar.close();
                         arrayList.add(cVar);
                     }
                 }
-                this.aUJ.removeAll(arrayList);
+                this.aVe.removeAll(arrayList);
             }
         }
     }
@@ -126,7 +126,7 @@ public class f {
         boolean z;
         if (cVar != null) {
             if (cVar.getVideoUrl() != null) {
-                Iterator<c> it = this.aUJ.iterator();
+                Iterator<c> it = this.aVe.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -144,18 +144,18 @@ public class f {
         return z;
     }
 
-    public synchronized boolean gL(String str) {
+    public synchronized boolean gJ(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
-                Iterator<c> it = this.aUJ.iterator();
+                Iterator<c> it = this.aVe.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     c next = it.next();
-                    if (next != null && str.equals(o.gU(next.getVideoUrl()))) {
+                    if (next != null && str.equals(o.gS(next.getVideoUrl()))) {
                         z = true;
                         break;
                     }
@@ -168,15 +168,15 @@ public class f {
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0035, code lost:
         r0.close();
-        r3.aUH.remove(r4);
+        r3.aVc.remove(r4);
         com.baidu.tieba.VideoCache.k.log(com.baidu.tieba.VideoCache.f.TAG, "CacheFile close: " + r4);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void gM(String str) {
+    public synchronized void gK(String str) {
         if (str != null) {
-            Iterator<Map.Entry<String, c>> it = this.aUH.entrySet().iterator();
+            Iterator<Map.Entry<String, c>> it = this.aVc.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

@@ -18,7 +18,7 @@ public class PersonPolymericHttpResMsg extends TbHttpResponsedMessage {
             setError(personalResIdl.error.errorno.intValue());
             setErrorString(personalResIdl.error.usermsg);
             if (getError() == 0) {
-                personPolymericReqMsg.getPersonPolymericData().a(personalResIdl.data, personPolymericReqMsg.getUid());
+                personPolymericReqMsg.getPersonPolymericData();
             }
         }
     }

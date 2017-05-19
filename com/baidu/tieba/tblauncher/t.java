@@ -1,25 +1,29 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import protobuf.ConfigVersion;
 /* loaded from: classes.dex */
-class t implements bb.a {
-    @Override // com.baidu.tbadk.core.util.bb.a
-    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        if (tbPageContext == null || strArr == null || strArr.length == 0) {
-            return 3;
-        }
-        String str = strArr[0];
-        if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
-            if (str.contains("jump_enter_forum=1")) {
-                com.baidu.tbadk.core.f.b.b(tbPageContext.getPageActivity(), 1, true);
-                return 1;
-            } else if (str.contains("jump_chosen_post=1")) {
-                com.baidu.tbadk.core.f.b.b(tbPageContext.getPageActivity(), 2, true);
-                return 1;
+class t extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ MainTabActivity this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.this$0 = mainTabActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ConfigVersion configVersion;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+            if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
+                return;
             }
+            this.this$0.qq(configVersion.sync);
         }
-        return 3;
     }
 }

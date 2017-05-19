@@ -4,11 +4,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 class i implements Runnable {
-    final /* synthetic */ a bwY;
+    final /* synthetic */ a bwW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar) {
-        this.bwY = aVar;
+        this.bwW = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -16,12 +16,12 @@ class i implements Runnable {
         View view;
         FrameLayout frameLayout;
         Runnable runnable;
-        view = this.bwY.aTl;
+        view = this.bwW.aTG;
         view.setVisibility(0);
-        frameLayout = this.bwY.aTi;
+        frameLayout = this.bwW.aTD;
         frameLayout.setVisibility(8);
         com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable = this.bwY.aTw;
+        runnable = this.bwW.aTR;
         fS.postDelayed(runnable, 2000L);
     }
 }

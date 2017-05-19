@@ -1,34 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bu extends CustomMessageListener {
-    final /* synthetic */ PbActivity emk;
+public class bu implements View.OnClickListener {
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.h cCS;
+    final /* synthetic */ PbActivity ehy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bu(PbActivity pbActivity, int i) {
-        super(i);
-        this.emk = pbActivity;
+    public bu(PbActivity pbActivity, com.baidu.tbadk.coreExtra.share.h hVar) {
+        this.ehy = pbActivity;
+        this.cCS = hVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.editortools.pb.c cVar;
-        ey eyVar;
-        ey eyVar2;
-        com.baidu.tbadk.editortools.pb.c cVar2;
-        if (customResponsedMessage != null) {
-            cVar = this.emk.elu;
-            if (cVar != null) {
-                eyVar2 = this.emk.eli;
-                cVar2 = this.emk.elu;
-                eyVar2.gL(cVar2.DU());
-            }
-            eyVar = this.emk.eli;
-            eyVar.gM(false);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.util.a.ao(this.cCS.linkUrl);
+        com.baidu.adp.lib.util.k.showToast(this.ehy.getPageContext().getPageActivity(), view.getResources().getString(w.l.copy_pb_url_success));
     }
 }

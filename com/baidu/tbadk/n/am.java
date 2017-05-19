@@ -1,7 +1,7 @@
 package com.baidu.tbadk.n;
 /* loaded from: classes.dex */
 public class am extends com.baidu.adp.lib.b.a {
-    public static final String[] aIw = {"com.baidu.tieba.voice"};
+    public static final String[] aIA = {"com.baidu.tieba.voice"};
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
@@ -11,7 +11,7 @@ public class am extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void initData() {
         this.mName = "voice";
-        this.uc = aIw;
+        this.ud = aIA;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -21,7 +21,7 @@ public class am extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] eQ() {
-        return aIw;
+        return aIA;
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -110,14 +110,14 @@ public class m {
     /* loaded from: classes.dex */
     public static class a extends h {
         public byte[] Az;
-        public long oI;
         public long oJ;
+        public long oK;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(byte[] bArr, long j, long j2) {
             this.Az = bArr;
-            this.oI = j;
-            this.oJ = j2;
+            this.oJ = j;
+            this.oK = j2;
         }
     }
 

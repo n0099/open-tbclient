@@ -7,11 +7,11 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i {
     public static void init() {
-        bb.wn().a(new j());
+        bb.vB().a(new j());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String qR(String str) {
+    public static String qL(String str) {
         URL url;
         try {
             url = new URL(str);

@@ -92,6 +92,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_ORDER = 1003029;
     public static final int CMD_GET_PERSONAL_GIFT_LIST = 1003051;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
+    public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
     public static final int CMD_GET_SPLASH_INFO = 1003192;
     public static final int CMD_GET_STORE_REMIND_TIME = 1003067;
     public static final int CMD_GET_SUBSCRIBE_CHANNEL_LIST = 1003304;
@@ -131,6 +132,7 @@ public class CmdConfigHttp {
     public static final int CMD_PAYMENT_PAY = 1001537;
     public static final int CMD_PAY_NEW_VCODE = 1001539;
     public static final int CMD_PB_FLOOR_AGREE = 1001601;
+    public static final int CMD_PB_GOD_MORE = 1001603;
     public static final int CMD_PB_SET_DECLARE = 1001602;
     public static final int CMD_PERSONAL_BACKGROUND_GET = 1003035;
     public static final int CMD_PERSONAL_BACKGROUND_GROUP = 1003033;

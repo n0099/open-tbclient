@@ -1,79 +1,48 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.widget.vote.VoteView;
-import com.baidu.tieba.frs.cz;
+import android.widget.TextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.w;
-import java.util.LinkedList;
-import java.util.List;
-import tbclient.PollOption;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends as {
-    private VoteView bVU;
+public class al extends CustomMessageListener {
+    final /* synthetic */ ai bTO;
 
-    public al(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public al(ai aiVar, int i) {
+        super(i);
+        this.bTO = aiVar;
     }
 
-    @Override // com.baidu.tieba.frs.entelechy.view.as
-    public void initView() {
-        super.initView();
-        View findViewById = this.mRootView.findViewById(w.h.text_vote_view);
-        if (findViewById == null) {
-            findViewById = ((ViewStub) this.mRootView.findViewById(w.h.text_vote_view_stub)).inflate();
-        }
-        if (findViewById != null) {
-            this.bVU = (VoteView) findViewById;
-            this.bVU.setWidth(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds560));
-            this.bVU.setProgressBarHeight(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds20));
-            this.bVU.setDescTextColorResId(w.e.cp_cont_b);
-            this.bVU.setProgressBarTopMargin(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds8));
-            this.bVU.setDescTopMargin(0);
-            try {
-                ((ViewGroup.MarginLayoutParams) this.bWd.getLayoutParams()).topMargin = com.baidu.adp.lib.util.k.g(getContext(), w.f.ds38);
-            } catch (ClassCastException e) {
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.view.as
-    protected void im(int i) {
-        if (this.bVU != null) {
-            this.bVU.onChangeSkinType(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.view.as
-    protected void t(bi biVar) {
-        if (biVar != null && biVar.sd() != null) {
-            long longValue = biVar.sd().total_poll.longValue();
-            long j = longValue < 0 ? 0L : longValue;
-            List<PollOption> list = biVar.sd().options;
-            if (list != null && !list.isEmpty()) {
-                LinkedList linkedList = new LinkedList();
-                for (PollOption pollOption : list) {
-                    if (pollOption != null && !StringUtils.isNull(pollOption.text)) {
-                        if (linkedList.size() >= 3) {
-                            break;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.core.data.aw awVar;
+        com.baidu.tbadk.core.data.aw awVar2;
+        com.baidu.tbadk.core.data.aw awVar3;
+        com.baidu.tbadk.core.data.aw awVar4;
+        com.baidu.tbadk.core.data.aw awVar5;
+        com.baidu.tbadk.core.data.aw awVar6;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+            awVar = this.bTO.bTM;
+            if (awVar != null) {
+                awVar2 = this.bTO.bTM;
+                if (awVar2 != null) {
+                    awVar3 = this.bTO.bTM;
+                    if (awVar3.getTid() != null && this.bTO.bTN != null && this.bTO.bTN.aSr != null && this.bTO.bTN.bTU != null) {
+                        awVar4 = this.bTO.bTM;
+                        if (((String) customResponsedMessage.getData()).equals(awVar4.getTid())) {
+                            TextView textView = this.bTO.bTN.aSr;
+                            awVar5 = this.bTO.bTM;
+                            com.baidu.tieba.card.ap.a(textView, awVar5.getId(), w.e.cp_cont_b, w.e.cp_cont_d);
+                            TextView textView2 = this.bTO.bTN.bTU;
+                            awVar6 = this.bTO.bTM;
+                            com.baidu.tieba.card.ap.a(textView2, awVar6.getId(), w.e.cp_cont_j, w.e.cp_cont_d);
                         }
-                        cz czVar = new cz();
-                        czVar.ee(true);
-                        czVar.a(linkedList.size() + 1, pollOption, j);
-                        linkedList.add(czVar);
                     }
                 }
-                if (linkedList.size() > 0) {
-                    this.bVU.setBoallotsForListView(linkedList);
-                    this.bVU.onChangeSkinType(getSkinType());
-                    this.bVU.setVisibility(0);
-                    return;
-                }
-                this.bVU.setVisibility(8);
             }
         }
     }

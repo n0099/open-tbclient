@@ -1,36 +1,39 @@
 package com.baidu.tieba.tbadkCore.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import tbclient.ActHot;
 import tbclient.ActPost;
 import tbclient.LinkInfo;
 /* loaded from: classes.dex */
 public class c {
-    private String fxB;
-    private ArrayList<a> fxC = new ArrayList<>();
-    private ArrayList<b> fxD = new ArrayList<>();
+    private String ftF;
+    private ArrayList<a> ftG = new ArrayList<>();
+    private ArrayList<b> ftH = new ArrayList<>();
 
-    public String biJ() {
-        return this.fxB;
+    public String bgg() {
+        return this.ftF;
     }
 
-    public List<a> biK() {
-        return this.fxC;
+    public List<a> bgh() {
+        return this.ftG;
     }
 
-    public List<b> biL() {
-        return this.fxD;
+    public List<b> bgi() {
+        return this.ftH;
     }
 
     public void a(ActPost actPost) {
         if (actPost != null) {
-            this.fxB = actPost.list_head;
+            this.ftF = actPost.list_head;
             for (ActHot actHot : actPost.act_hot) {
                 if (actHot != null) {
                     a aVar = new a();
                     aVar.a(actHot);
-                    this.fxC.add(aVar);
+                    this.ftG.add(aVar);
                 }
             }
             List<LinkInfo> list = actPost.link_info;
@@ -38,8 +41,40 @@ public class c {
                 if (list != null) {
                     b bVar = new b();
                     bVar.a(linkInfo);
-                    this.fxD.add(bVar);
+                    this.ftH.add(bVar);
                 }
+            }
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.ftF = jSONObject.optString("list_head");
+                JSONArray optJSONArray = jSONObject.optJSONArray("act_hot");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                        if (jSONObject2 != null) {
+                            a aVar = new a();
+                            aVar.parserJson(jSONObject2);
+                            this.ftG.add(aVar);
+                        }
+                    }
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("link_info");
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        JSONObject jSONObject3 = optJSONArray2.getJSONObject(i2);
+                        if (jSONObject3 != null) {
+                            b bVar = new b();
+                            bVar.parserJson(jSONObject3);
+                            this.ftH.add(bVar);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

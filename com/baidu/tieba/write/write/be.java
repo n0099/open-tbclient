@@ -1,39 +1,23 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.widget.GridView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class be extends CustomMessageListener {
-    final /* synthetic */ WriteActivity fUM;
+public class be implements Runnable {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public be(WriteActivity writeActivity, int i) {
-        super(i);
-        this.fUM = writeActivity;
+    public be(WriteActivity writeActivity) {
+        this.fSV = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        LocationModel locationModel;
-        LocationModel locationModel2;
-        LocationModel locationModel3;
-        if (customResponsedMessage instanceof ResponsedSelectLocation) {
-            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
-            if (responsedSelectLocation.isShowLocation()) {
-                locationModel2 = this.fUM.aAQ;
-                locationModel2.lw(false);
-                locationModel3 = this.fUM.aAQ;
-                locationModel3.cd(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.fUM.b(2, true, responsedSelectLocation.getName());
-                return;
-            }
-            locationModel = this.fUM.aAQ;
-            locationModel.lw(true);
-            this.fUM.b(0, true, null);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.write.view.PhotoLiveView.a aVar;
+        GridView gridView;
+        aVar = this.fSV.fSg;
+        aVar.notifyDataSetChanged();
+        gridView = this.fSV.fSf;
+        gridView.invalidateViews();
     }
 }

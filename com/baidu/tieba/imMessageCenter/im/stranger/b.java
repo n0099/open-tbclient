@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.chat.MsgAdapterScanMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.MsgReplyCardViewItemAdapter;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class b extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i) {
@@ -17,10 +17,10 @@ class b extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.cPP != null && aVar.context != null) {
+            if (aVar.cJS != null && aVar.context != null) {
                 MsgReplyCardViewItemAdapter msgReplyCardViewItemAdapter = new MsgReplyCardViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_REPLY_CARD);
-                msgReplyCardViewItemAdapter.fz(true);
-                aVar.cPP.add(msgReplyCardViewItemAdapter);
+                msgReplyCardViewItemAdapter.fa(true);
+                aVar.cJS.add(msgReplyCardViewItemAdapter);
             }
         }
     }

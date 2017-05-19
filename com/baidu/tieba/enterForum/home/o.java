@@ -1,39 +1,29 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.enterForum.model.EnterForumModel;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends CustomMessageListener {
-    final /* synthetic */ l bHl;
+public class o extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ i bGZ;
+    private final /* synthetic */ String bHb;
+    private final /* synthetic */ boolean bHc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(l lVar, int i) {
-        super(i);
-        this.bHl = lVar;
+    public o(i iVar, String str, boolean z) {
+        this.bGZ = iVar;
+        this.bHb = str;
+        this.bHc = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean WU;
-        boolean z;
-        EnterForumModel enterForumModel;
-        EnterForumModel enterForumModel2;
-        this.bHl.bGS.XF();
-        WU = this.bHl.WU();
-        if (WU) {
-            this.bHl.bGS.XE();
-            enterForumModel = this.bHl.bGT;
-            enterForumModel.ae(this.bHl.bGS.XJ());
-            enterForumModel2 = this.bHl.bGT;
-            enterForumModel2.hx(this.bHl.bGS.Xs());
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        if (!TextUtils.isEmpty(this.bHb)) {
+            com.baidu.tieba.im.settingcache.h.art().g(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bHb), this.bHc);
         }
-        z = this.bHl.bGY;
-        if (z) {
-            this.bHl.bGS.startPullRefresh();
-        }
+        return null;
     }
 }

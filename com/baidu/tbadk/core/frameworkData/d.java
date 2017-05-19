@@ -1,24 +1,16 @@
 package com.baidu.tbadk.core.frameworkData;
 
-import com.baidu.adp.framework.a.k;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import android.support.v4.widget.ExploreByTouchHelper;
+import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
-class d extends k {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.f
-    /* renamed from: d */
-    public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.websocketBase.d.Ch().el(socketMessage.getCmd())) {
-            ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.websocketBase.d.Ch().Ci());
-            return null;
-        }
-        return socketMessage;
+public class d {
+    public static void init() {
+        e eVar = new e(0);
+        eVar.setPriority(ExploreByTouchHelper.INVALID_ID);
+        MessageManager.getInstance().addMessageRule(eVar);
+        MessageManager.getInstance().addResponsedMessageRule(new f(0));
+        g gVar = new g(2000999);
+        gVar.setPriority(ExploreByTouchHelper.INVALID_ID);
+        MessageManager.getInstance().registerListener(gVar);
     }
 }

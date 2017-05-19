@@ -4,23 +4,23 @@ import com.baidu.tieba.play.QuickVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements QuickVideoView.b {
-    final /* synthetic */ c eWq;
+    final /* synthetic */ c eSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(c cVar) {
-        this.eWq = cVar;
+        this.eSq = cVar;
     }
 
     @Override // com.baidu.tieba.play.QuickVideoView.b
     public void onSurfaceDestroyed() {
         Runnable runnable;
         Runnable runnable2;
-        this.eWq.dwG = false;
+        this.eSq.dqP = false;
         com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable = this.eWq.dxd;
+        runnable = this.eSq.drm;
         fS.removeCallbacks(runnable);
         com.baidu.adp.lib.g.h fS2 = com.baidu.adp.lib.g.h.fS();
-        runnable2 = this.eWq.dxf;
+        runnable2 = this.eSq.dro;
         fS2.removeCallbacks(runnable2);
     }
 }

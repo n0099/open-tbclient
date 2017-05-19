@@ -1,108 +1,48 @@
 package com.baidu.tbadk.core.view.viewpager;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.core.view.viewpager.b;
+import com.baidu.tbadk.core.view.viewpager.b.a;
 /* loaded from: classes.dex */
-public class f {
-    private int anh;
-    private List<v> anp;
-    private List<v> anq;
-    private boolean anr;
-    private boolean ans;
-    private int ant = 2;
-    private int anu = 1;
+public abstract class f<T extends v, V extends b.a> {
+    protected a<T, V> ant;
+    protected Context mContext;
+    protected BdUniqueId mType;
 
-    public f(List<v> list, boolean z, int i) {
-        this.anh = 2;
-        this.anp = list;
-        this.ans = z;
-        this.anh = i;
-        r(list);
+    /* loaded from: classes.dex */
+    public interface a<T extends v, V extends b.a> {
+        void c(V v, T t);
     }
 
-    public void r(List<v> list) {
-        if (list != null && list.size() >= this.ant && list.size() <= this.anh) {
-            this.anr = true;
-        } else if (list.size() > this.anh && this.ans) {
-            this.anr = true;
-        } else {
-            this.anr = false;
-        }
-        this.anq = xC();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract View a(ViewGroup viewGroup, V v, T t);
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void a(int i, V v, T t);
+
+    public abstract V b(ViewGroup viewGroup);
+
+    protected f(Context context, BdUniqueId bdUniqueId) {
+        this.mContext = context;
+        this.mType = bdUniqueId;
     }
 
-    private List<v> xC() {
-        ArrayList arrayList = new ArrayList();
-        if (this.anp != null) {
-            if (this.anr) {
-                if (this.anp.size() > this.anh && this.anp.size() >= this.anu) {
-                    arrayList.addAll(this.anp.subList(0, this.anh));
-                    arrayList.addAll(0, this.anp.subList(this.anh - this.anu, this.anh));
-                    arrayList.addAll(this.anp.subList(0, this.anu));
-                } else {
-                    arrayList.addAll(this.anp);
-                    arrayList.addAll(0, this.anp.subList(this.anp.size() - this.anu, this.anp.size()));
-                    arrayList.addAll(this.anp.subList(0, this.anu));
-                }
-            } else if (this.anp != null && this.anp.size() > 0 && this.anp.size() >= this.anu) {
-                arrayList.addAll(this.anp.subList(0, this.anu));
-            }
-        }
-        return arrayList;
+    public BdUniqueId getType() {
+        return this.mType;
     }
 
-    public int dt(int i) {
-        if (this.anr) {
-            int size = this.anq.size();
-            if (i == 0) {
-                return (size - 1) - this.anu;
-            }
-            if (i == size - this.anu) {
-                return this.anu;
-            }
-            return i;
-        }
-        return i;
+    public void b(V v, T t) {
     }
 
-    public int du(int i) {
-        if (this.anr) {
-            return i - this.anu;
-        }
-        return i;
+    public void setOnItemClickListener(a<T, V> aVar) {
+        this.ant = aVar;
     }
 
-    public int xD() {
-        if (this.anp == null) {
-            return 0;
-        }
-        return this.anp.size();
-    }
-
-    public int xE() {
-        if (this.anr) {
-            return this.anu;
-        }
-        return 0;
-    }
-
-    public void dv(int i) {
-        this.anh = i;
-        r(this.anp);
-    }
-
-    public void dw(int i) {
-        this.ant = i;
-        r(this.anp);
-    }
-
-    public List<v> xF() {
-        return this.anq;
-    }
-
-    public void dx(int i) {
-        this.anu = i;
-        r(this.anp);
+    public a<T, V> wP() {
+        return this.ant;
     }
 }

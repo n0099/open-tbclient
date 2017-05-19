@@ -13,7 +13,7 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class e {
-    public static void f(Context context, View view) {
+    public static void e(Context context, View view) {
         Toast toast = new Toast(context);
         toast.setView(view);
         toast.setGravity(17, 0, 0);
@@ -36,7 +36,7 @@ public class e {
             textView2.setText(str2);
             textView3.setText(str3);
         }
-        f(context, inflate);
+        e(context, inflate);
     }
 
     public static void a(z zVar, WriteData writeData) {
@@ -47,10 +47,10 @@ public class e {
                 zVar.n("lat", String.valueOf(C.getLatitude()));
                 zVar.n("lng", String.valueOf(C.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.d.bjV().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.d.bhs().getLocationData();
             if (locationData != null) {
-                zVar.n("name", locationData.bjR());
-                zVar.n("sn", locationData.bjT());
+                zVar.n("name", locationData.bho());
+                zVar.n("sn", locationData.bhq());
             }
         }
     }

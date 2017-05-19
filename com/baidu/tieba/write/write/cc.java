@@ -1,33 +1,20 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cc implements a.b {
-    final /* synthetic */ ca fVt;
+public class cc implements View.OnClickListener {
+    final /* synthetic */ WriteMultiImgsActivity fTB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(ca caVar) {
-        this.fVt = caVar;
+    public cc(WriteMultiImgsActivity writeMultiImgsActivity) {
+        this.fTB = writeMultiImgsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        WriteMultiImgsActivity writeMultiImgsActivity;
-        com.baidu.tbadk.core.dialog.a aVar2;
-        WriteMultiImgsActivity writeMultiImgsActivity2;
-        WriteMultiImgsActivity writeMultiImgsActivity3;
-        WriteMultiImgsActivity writeMultiImgsActivity4;
-        com.baidu.tbadk.core.dialog.a aVar3;
-        writeMultiImgsActivity = this.fVt.fVs;
-        aVar2 = writeMultiImgsActivity.fVn;
-        if (aVar2 != null) {
-            writeMultiImgsActivity4 = this.fVt.fVs;
-            aVar3 = writeMultiImgsActivity4.fVn;
-            aVar3.dismiss();
-        }
-        writeMultiImgsActivity2 = this.fVt.fVs;
-        writeMultiImgsActivity2.setResult(0);
-        writeMultiImgsActivity3 = this.fVt.fVs;
-        writeMultiImgsActivity3.finish();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        q qVar;
+        qVar = this.fTB.fTk;
+        qVar.tk(Integer.parseInt(view.getTag().toString()));
     }
 }

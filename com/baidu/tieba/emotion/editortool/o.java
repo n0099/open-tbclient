@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView bFj;
+    final /* synthetic */ EmotionTabHorizonScrollView bFq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.bFj = emotionTabHorizonScrollView;
+        this.bFq = emotionTabHorizonScrollView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,19 +24,19 @@ public class o implements View.OnClickListener {
         String str;
         com.baidu.tbadk.editortools.j jVar2;
         i iVar;
-        textView = this.bFj.aBY;
+        textView = this.bFq.aBX;
         if (textView != null) {
-            iVar = this.bFj.bFb;
+            iVar = this.bFq.bFi;
             iVar.setNewViewVisible(false);
         }
         TbadkCoreApplication.m9getInst().setFaceShopVersion(TbadkCoreApplication.m9getInst().getTempFaceShopVersion());
         TbadkCoreApplication.m9getInst().setFaceShopNew(false);
-        jVar = this.bFj.KO;
+        jVar = this.bFq.Kg;
         if (jVar != null) {
-            jVar2 = this.bFj.KO;
+            jVar2 = this.bFq.Kg;
             jVar2.b(new com.baidu.tbadk.editortools.a(2, 5, null));
         }
-        switch (this.bFj.from) {
+        switch (this.bFq.from) {
             case 1:
                 str = "faceshop_from_write_shop";
                 break;
@@ -50,6 +50,6 @@ public class o implements View.OnClickListener {
                 str = "";
                 break;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceShopActivityConfig(this.bFj.getContext(), str)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceShopActivityConfig(this.bFq.getContext(), str)));
     }
 }

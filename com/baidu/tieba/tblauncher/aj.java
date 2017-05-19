@@ -2,40 +2,29 @@ package com.baidu.tieba.tblauncher;
 
 import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements View.OnClickListener {
-    final /* synthetic */ z fCF;
+    final /* synthetic */ ah fzg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(z zVar) {
-        this.fCF = zVar;
+    public aj(ah ahVar) {
+        this.fzg = ahVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        FragmentTabHost fragmentTabHost;
-        FragmentTabHost fragmentTabHost2;
-        int i = 3;
-        mainTabActivity = this.fCF.fCy;
-        mainTabActivity2 = this.fCF.fCy;
-        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(mainTabActivity2.getPageContext().getPageActivity())));
-        fragmentTabHost = this.fCF.bCG;
-        if (fragmentTabHost.getCurrentTabType() != 3) {
-            fragmentTabHost2 = this.fCF.bCG;
-            if (fragmentTabHost2.getCurrentTabType() != 2) {
-                i = 0;
-            } else {
-                i = 1;
-            }
+        if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(SignAllForumActivityConfig.class)) {
+            mainTabActivity = this.fzg.fyW;
+            mainTabActivity2 = this.fzg.fyW;
+            mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SignAllForumActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
+            TiebaStatic.log("c10085");
         }
-        TiebaStatic.log(new as("c10378").s("obj_type", i));
     }
 }

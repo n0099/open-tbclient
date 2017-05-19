@@ -60,7 +60,7 @@ public class f {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        ow();
+        od();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -76,7 +76,7 @@ public class f {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
-        ow();
+        od();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -135,7 +135,7 @@ public class f {
 
     public static void ar(Context context) {
         CookieManager cookieManager;
-        a.b ce = com.baidu.tbadk.core.a.a.pw().ce(TbadkCoreApplication.getCurrentBduss());
+        a.b ce = com.baidu.tbadk.core.a.a.pd().ce(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.m9getInst());
             cookieManager = CookieManager.getInstance();
@@ -172,7 +172,7 @@ public class f {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void ow() {
+    private static void od() {
         new an("open_webview", true).start();
     }
 }

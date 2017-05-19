@@ -1,20 +1,10 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.widget.ListView.v;
 /* loaded from: classes.dex */
-public class j extends a {
-    public static BdUniqueId TYPE = BdUniqueId.gen();
-    private List<com.baidu.tieba.horizonalList.widget.l> mList = new ArrayList();
-
-    public void a(k kVar) {
-        this.mList.add(kVar);
-    }
-
-    public List<com.baidu.tieba.horizonalList.widget.l> getDataList() {
-        return this.mList;
-    }
+public class j implements v {
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {

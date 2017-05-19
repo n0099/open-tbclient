@@ -3,13 +3,13 @@ package com.baidu.tieba.imMessageCenter.im.chat;
 import android.os.Handler;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.AbsMsglistView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class d implements Runnable {
-    final /* synthetic */ PersonalChatActivity djA;
+    final /* synthetic */ PersonalChatActivity ddC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PersonalChatActivity personalChatActivity) {
-        this.djA = personalChatActivity;
+        this.ddC = personalChatActivity;
     }
 
     @Override // java.lang.Runnable
@@ -21,16 +21,16 @@ class d implements Runnable {
         Handler handler;
         Runnable runnable;
         long j2;
-        absMsglistView = this.djA.cQK;
-        userData = this.djA.mUser;
+        absMsglistView = this.ddC.cKM;
+        userData = this.ddC.mUser;
         String userName = userData.getUserName();
-        bVar = this.djA.djr;
+        bVar = this.ddC.dds;
         absMsglistView.refreshPersonalHeadFooter(userName, bVar);
-        j = this.djA.djq;
+        j = this.ddC.ddr;
         if (j != 0) {
-            handler = this.djA.mHandler;
-            runnable = this.djA.djv;
-            j2 = this.djA.djq;
+            handler = this.ddC.mHandler;
+            runnable = this.ddC.ddx;
+            j2 = this.ddC.ddr;
             handler.postDelayed(runnable, j2);
         }
     }

@@ -1,83 +1,27 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.text.TextUtils;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.HashMap;
-import tbclient.ReplyMe.DataReq;
-import tbclient.ReplyMe.ReplyMeReqIdl;
-/* loaded from: classes.dex */
-public class as implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int bxh = 1;
-    private int dny;
-    private String ids;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes2.dex */
+public class as extends CustomMessageListener {
+    final /* synthetic */ ReplyMeModelController dhC;
 
-    public void g(FeedData feedData) {
-        if (feedData != null) {
-            this.ids = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public as(ReplyMeModelController replyMeModelController, int i) {
+        super(i);
+        this.dhC = replyMeModelController;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ReplyMessageActivity replyMessageActivity;
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+            replyMessageActivity = this.dhC.dhy;
+            replyMessageActivity.atb();
         }
-    }
-
-    public void toNextPage() {
-        this.bxh++;
-        this.dny = 4;
-    }
-
-    public void reset() {
-        this.bxh = 1;
-        this.dny = 1;
-        this.ids = null;
-    }
-
-    public int getUpdateType() {
-        return this.dny;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Fj() {
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-        hashMap.put("pn", String.valueOf(this.bxh));
-        if (this.dny == 4 && !TextUtils.isEmpty(this.ids)) {
-            hashMap.put("ids", this.ids);
-        }
-        return hashMap;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.k
-    public Object bP(boolean z) {
-        try {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.bxh);
-            builder.ids = this.ids;
-            if (z) {
-                com.baidu.tbadk.util.n.bindCommonParamsToProtobufData(builder, true);
-            }
-            ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.d
-    public String getCacheKey() {
-        return "replyme_cache";
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public String Fg() {
-        return "tb_user_replyme";
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Fh() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean isNeedUid() {
-        return true;
     }
 }

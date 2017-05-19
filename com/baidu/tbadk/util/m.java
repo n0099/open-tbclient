@@ -1,51 +1,18 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.lib.crash.BdNativeCrash;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.List;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
 /* loaded from: classes.dex */
-class m implements BdNativeCrash.NativeCrashCallback {
-    @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
-    public void onNativeCrashed(int i, int i2, int i3, String str, String str2) {
-        v vVar = new v();
-        Thread thread = new Thread();
-        thread.setName("NativeCrashThread");
-        vVar.a(thread, (Throwable) new Exception(str), true);
-        k.gj(str2);
-    }
-
-    @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
-    public boolean onSoFound(String str) {
-        List list;
-        List list2;
-        boolean gk;
-        boolean gl;
-        boolean ap;
-        List list3;
-        try {
-            list2 = k.aJe;
-            if (list2.indexOf(str) >= 0) {
-                return false;
+class m extends BroadcastReceiver {
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        if (intent != null) {
+            String stringExtra = intent.getStringExtra("package_name");
+            if (!TextUtils.isEmpty(stringExtra) && "com.baidu.adp.plugin.installed".equals(intent.getAction())) {
+                com.baidu.tbadk.core.sharedPref.b.tX().putInt("native_crash_count_" + stringExtra, 0);
             }
-            gk = k.gk(str);
-            if (gk) {
-                return true;
-            }
-            gl = k.gl(str);
-            if (gl) {
-                return true;
-            }
-            ap = k.ap(str, TbadkCoreApplication.m9getInst().getApp().getApplicationInfo().sourceDir);
-            if (ap) {
-                return true;
-            }
-            list3 = k.aJe;
-            list3.add(str);
-            return false;
-        } catch (Throwable th) {
-            list = k.aJe;
-            list.add(str);
-            return false;
         }
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ b eIG;
+    final /* synthetic */ b eEl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, int i) {
         super(i);
-        this.eIG = bVar;
+        this.eEl = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,25 +25,25 @@ public class d extends CustomMessageListener {
         TextView textView;
         com.baidu.tieba.personPolymeric.c.a aVar3;
         if (customResponsedMessage != null) {
-            z = this.eIG.bjz;
+            z = this.eEl.bjW;
             if (!z) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof com.baidu.tieba.tbadkCore.writeModel.a) {
                     long j = ((com.baidu.tieba.tbadkCore.writeModel.a) data).forumId;
-                    aVar = this.eIG.eIF;
+                    aVar = this.eEl.eEk;
                     if (j == aVar.forumId) {
                         if (((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
-                            aVar2 = this.eIG.eIF;
+                            aVar2 = this.eEl.eEk;
                             aVar2.isAttention = false;
-                            textView = this.eIG.coO;
+                            textView = this.eEl.clK;
                             textView.setVisibility(0);
-                            b bVar = this.eIG;
-                            aVar3 = this.eIG.eIF;
-                            bVar.jx(aVar3.isAttention);
-                            com.baidu.adp.lib.util.k.showToast(this.eIG.mContext, w.l.unlike_success);
+                            b bVar = this.eEl;
+                            aVar3 = this.eEl.eEk;
+                            bVar.jd(aVar3.isAttention);
+                            com.baidu.adp.lib.util.k.showToast(this.eEl.mContext, w.l.unlike_success);
                             return;
                         }
-                        com.baidu.adp.lib.util.k.showToast(this.eIG.mContext, w.l.unlike_failure);
+                        com.baidu.adp.lib.util.k.showToast(this.eEl.mContext, w.l.unlike_failure);
                     }
                 }
             }

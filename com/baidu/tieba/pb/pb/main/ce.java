@@ -1,21 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.Toast;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.w;
+import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ce implements a.b {
-    final /* synthetic */ PbActivity emk;
+    private final /* synthetic */ UserMuteAddAndDelCustomMessage ehO;
+    final /* synthetic */ PbActivity ehy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(PbActivity pbActivity) {
-        this.emk = pbActivity;
+    public ce(PbActivity pbActivity, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
+        this.ehy = pbActivity;
+        this.ehO = userMuteAddAndDelCustomMessage;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        fm fmVar;
+        fmVar = this.ehy.egt;
+        fmVar.asr();
+        MessageManager.getInstance().sendMessage(this.ehO);
         aVar.dismiss();
-        Toast.makeText(this.emk.getPageContext().getPageActivity(), this.emk.getPageContext().getResources().getString(w.l.channel_no_push), 1).show();
     }
 }

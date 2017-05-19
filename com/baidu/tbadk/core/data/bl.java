@@ -1,85 +1,29 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopCode;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import tbclient.PbContent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bl {
-    private String ZP;
-    private String ZQ;
-    private int ZR;
-    private String ZS;
-    private long ZT;
-    private String ZU;
-    private String imgUrl;
-    private String subTitle;
-    private String summary;
+public class bl extends com.baidu.tbadk.widget.richText.b {
+    final /* synthetic */ bk Zi;
+    private final /* synthetic */ PbContent Zj;
 
-    public String qB() {
-        return this.imgUrl;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bl(bk bkVar, int i, String str, PbContent pbContent) {
+        super(i, str);
+        this.Zi = bkVar;
+        this.Zj = pbContent;
     }
 
-    public String tw() {
-        return this.summary;
-    }
-
-    public String tx() {
-        return this.ZQ;
-    }
-
-    public int ty() {
-        return this.ZR;
-    }
-
-    public String tz() {
-        return this.ZS;
-    }
-
-    public long tA() {
-        return this.ZT;
-    }
-
-    public void a(TopCode topCode) {
-        if (topCode != null) {
-            this.imgUrl = topCode.img_url;
-            this.ZP = topCode.game_link;
-            this.summary = topCode.summary;
-            this.ZQ = topCode.code_link;
-            this.ZR = topCode.get_type.intValue();
-            this.ZS = topCode.surplusgift;
-            if (topCode.giftworth.longValue() < 0) {
-                this.ZT = 0L;
-            } else {
-                this.ZT = topCode.giftworth.longValue();
-            }
-            this.ZU = topCode.type_text;
-            this.subTitle = topCode.subtitle;
+    @Override // com.baidu.tbadk.widget.richText.b, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        if (!TextUtils.isEmpty(this.Zj.link)) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_START_HOT_TOPIC_ACTIVITY, this.Zj.link));
         }
-    }
-
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.imgUrl = jSONObject.optString("img_url");
-                this.ZP = jSONObject.optString("game_link");
-                this.summary = jSONObject.optString("summary");
-                this.ZQ = jSONObject.optString("code_link");
-                this.ZR = jSONObject.optInt("get_type", 1);
-                this.ZS = jSONObject.optString("surplusgift");
-                this.ZT = jSONObject.optLong("giftworth", 0L);
-                this.ZU = jSONObject.optString("type_text");
-                this.subTitle = jSONObject.optString("subtitle");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public String tB() {
-        return this.ZU;
-    }
-
-    public String getSubTitle() {
-        return this.subTitle;
     }
 }

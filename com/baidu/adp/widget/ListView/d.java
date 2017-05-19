@@ -18,13 +18,13 @@ public abstract class d {
 
     public abstract void U(boolean z);
 
-    public abstract View lf();
+    public abstract View le();
+
+    public abstract void lf();
 
     public abstract void lg();
 
     public abstract void lh();
-
-    public abstract void li();
 
     public d(Context context) {
         this.mContext = null;
@@ -40,7 +40,7 @@ public abstract class d {
 
     public final View getView() {
         if (this.mView == null) {
-            this.mView = lf();
+            this.mView = le();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
@@ -57,7 +57,7 @@ public abstract class d {
         }
     }
 
-    public boolean lj() {
+    public boolean li() {
         return this.HX;
     }
 
@@ -81,7 +81,7 @@ public abstract class d {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int lk() {
+    public int lj() {
         return this.HY;
     }
 }

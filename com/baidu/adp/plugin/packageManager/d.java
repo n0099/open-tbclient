@@ -13,7 +13,7 @@ public class d {
     private ArrayList<String> DR = new ArrayList<>();
     private a Ed;
 
-    public static d jw() {
+    public static d jv() {
         if (Ec == null) {
             synchronized (d.class) {
                 if (Ec == null) {
@@ -45,12 +45,12 @@ public class d {
             if (!z) {
                 this.DR.add(pluginSetting.packageName);
             }
-            js();
+            jr();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void js() {
+    public void jr() {
         if (this.DR.size() > 0 && this.Ed == null) {
             this.Ed = new a(this.DR.get(0));
             this.Ed.execute(new String[0]);
@@ -95,22 +95,22 @@ public class d {
                     }
                 }
             }
-            d.this.js();
+            d.this.jr();
         }
 
         private void aX(String str) {
             File[] listFiles;
-            File km = Util.km();
+            File kl = Util.kl();
             String bx = Util.bx(str);
-            if (km != null && km.exists() && (listFiles = km.listFiles()) != null) {
+            if (kl != null && kl.exists() && (listFiles = kl.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
                     if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bx)) {
                         try {
                             com.baidu.adp.lib.util.e.h(listFiles[i]);
-                            com.baidu.adp.plugin.b.a.jl().e("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
+                            com.baidu.adp.plugin.b.a.jk().e("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
-                            com.baidu.adp.plugin.b.a.jl().f("plugin_del_temp", "deltmp_fail", str, String.valueOf(listFiles[i].getName()) + "-" + th.getMessage());
+                            com.baidu.adp.plugin.b.a.jk().f("plugin_del_temp", "deltmp_fail", str, String.valueOf(listFiles[i].getName()) + "-" + th.getMessage());
                         }
                     }
                 }

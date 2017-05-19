@@ -3,33 +3,33 @@ package com.baidu.tbadk.j;
 import com.baidu.tbadk.j.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements a.InterfaceC0044a {
-    final /* synthetic */ e aGd;
+public class g implements a.InterfaceC0048a {
+    final /* synthetic */ e aGh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.aGd = eVar;
+        this.aGh = eVar;
     }
 
-    @Override // com.baidu.tbadk.j.a.InterfaceC0044a
-    public void fb(int i) {
+    @Override // com.baidu.tbadk.j.a.InterfaceC0048a
+    public void eX(int i) {
         int i2;
         int i3;
         int i4;
         a aVar;
         a aVar2;
-        e eVar = this.aGd;
-        i2 = eVar.aGa;
-        eVar.aGa = i2 + 1;
-        i3 = this.aGd.aFV;
-        i4 = this.aGd.aGa;
+        e eVar = this.aGh;
+        i2 = eVar.aGe;
+        eVar.aGe = i2 + 1;
+        i3 = this.aGh.aFZ;
+        i4 = this.aGh.aGe;
         if (i3 == i4) {
-            aVar = this.aGd.aFY;
-            aVar.a((a.InterfaceC0044a) null);
-            aVar2 = this.aGd.aFY;
+            aVar = this.aGh.aGc;
+            aVar.a((a.InterfaceC0048a) null);
+            aVar2 = this.aGh.aGc;
             aVar2.stop();
-            this.aGd.Gu();
+            this.aGh.Fy();
         }
-        this.aGd.fc(i);
+        this.aGh.eY(i);
     }
 }

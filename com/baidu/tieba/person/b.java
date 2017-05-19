@@ -1,7 +1,9 @@
 package com.baidu.tieba.person;
 
-import tbclient.Feedback;
-import tbclient.Profile.UserGodInfo;
+import java.util.List;
+import tbclient.DynamicInfo;
+import tbclient.ForumDynamic;
+import tbclient.Profile.TAInfo;
 import tbclient.TbBookrack;
 import tbclient.User;
 import tbclient.UserManChannelInfo;
@@ -11,13 +13,13 @@ public interface b {
 
     TbBookrack getBookrackData();
 
+    List<ForumDynamic> getConcernedForumList();
+
+    List<DynamicInfo> getDynamicInfoList();
+
     int getErrorCode();
 
-    Feedback getFeedBack();
-
-    f getUcCardData();
+    TAInfo getTaInfo();
 
     UserManChannelInfo getUserChannelInfo();
-
-    UserGodInfo getUserGodInfo();
 }

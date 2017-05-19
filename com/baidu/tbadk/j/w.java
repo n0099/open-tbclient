@@ -3,104 +3,104 @@ package com.baidu.tbadk.j;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class w extends z {
-    public static int aGR = 100;
-    public static int aGS = 10;
+    public static int aGV = 100;
+    public static int aGW = 10;
 
-    public static void GE() {
-        if (aa.GG().GH()) {
-            if (b.aGW > aGS) {
-                b.Gy();
+    public static void FI() {
+        if (aa.FK().FL()) {
+            if (b.aHa > aGW) {
+                b.FC();
             }
-            if (a.aGT > aGS) {
-                a.Gy();
+            if (a.aGX > aGW) {
+                a.FC();
             }
         }
     }
 
     public static void b(boolean z, boolean z2, boolean z3) {
-        a.aGT++;
+        a.aGX++;
         if (z2) {
-            a.aGU++;
+            a.aGY++;
         } else if (z3) {
-            a.aGV++;
+            a.aGZ++;
         }
-        if (a.aGT > aGR) {
-            a.Gy();
+        if (a.aGX > aGV) {
+            a.FC();
         }
     }
 
     public void c(p pVar) {
-        if (aa.GG().GH()) {
-            if (b.aGW < aGR) {
-                b.aGX += pVar.vl;
-                b.aGY += pVar.FD;
-                b.aGZ += pVar.aGo;
-                b.aHa += pVar.aGp;
-                b.aHc += pVar.Hg;
-                b.aHb += pVar.aGf;
-                b.aGW++;
+        if (aa.FK().FL()) {
+            if (b.aHa < aGV) {
+                b.aHb += pVar.vm;
+                b.aHc += pVar.FD;
+                b.aHd += pVar.aGs;
+                b.aHe += pVar.aGt;
+                b.aHg += pVar.Hg;
+                b.aHf += pVar.aGj;
+                b.aHa++;
                 return;
             }
-            b.Gy();
+            b.FC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int aGT;
-        public static int aGU;
-        public static int aGV;
+        public static int aGX;
+        public static int aGY;
+        public static int aGZ;
 
-        public static void Gy() {
+        public static void FC() {
             com.baidu.adp.lib.stats.c fN = w.fN();
             fN.p("action", "imbusy");
-            fN.p("totalNum", String.valueOf(aGT));
-            fN.p("tfailNum", String.valueOf(aGU));
-            fN.p("qfailNum", String.valueOf(aGV));
+            fN.p("totalNum", String.valueOf(aGX));
+            fN.p("tfailNum", String.valueOf(aGY));
+            fN.p("qfailNum", String.valueOf(aGZ));
             BdStatisticsManager.getInstance().performance("im", fN);
             resetData();
         }
 
         public static void resetData() {
-            aGT = 0;
-            aGU = 0;
-            aGV = 0;
+            aGX = 0;
+            aGY = 0;
+            aGZ = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int aGW;
-        public static long aGX;
-        public static long aGY;
-        public static long aGZ;
         public static int aHa;
-        public static int aHb;
+        public static long aHb;
         public static long aHc;
+        public static long aHd;
+        public static int aHe;
+        public static int aHf;
+        public static long aHg;
 
-        public static void Gy() {
+        public static void FC() {
             com.baidu.adp.lib.stats.c fN = w.fN();
             fN.p("action", "imcost");
-            fN.p("dect", String.valueOf(aGX));
-            fN.p("dlsize", String.valueOf(aGY));
-            fN.p("dbt", String.valueOf(aGZ));
-            fN.p("pnum", String.valueOf(aHa));
-            fN.p("reqcost", String.valueOf(aHc));
-            fN.p("cpu", String.valueOf(aHb));
-            fN.p("totalNum", String.valueOf(aGW));
+            fN.p("dect", String.valueOf(aHb));
+            fN.p("dlsize", String.valueOf(aHc));
+            fN.p("dbt", String.valueOf(aHd));
+            fN.p("pnum", String.valueOf(aHe));
+            fN.p("reqcost", String.valueOf(aHg));
+            fN.p("cpu", String.valueOf(aHf));
+            fN.p("totalNum", String.valueOf(aHa));
             BdStatisticsManager.getInstance().performance("im", fN);
-            GF();
+            FJ();
         }
 
-        public static void GF() {
-            aGW = 0;
-            aGX = 0L;
-            aGY = 0L;
-            aGZ = 0L;
+        public static void FJ() {
             aHa = 0;
-            aHb = 0;
+            aHb = 0L;
+            aHc = 0L;
+            aHd = 0L;
+            aHe = 0;
+            aHf = 0;
         }
     }
 }

@@ -29,7 +29,7 @@ public class d extends Handler {
                 String str = ((PluginInstallTask) OrmObject.objectWithBundle(message.getData(), PluginInstallTask.class)).CC;
                 pluginInstallTask2 = this.this$0.Do;
                 if (TextUtils.equals(str, pluginInstallTask2.CC)) {
-                    handler = c.oz;
+                    handler = c.oA;
                     runnable = this.this$0.Dv;
                     handler.removeCallbacks(runnable);
                 }

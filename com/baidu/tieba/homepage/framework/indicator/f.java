@@ -1,29 +1,39 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends com.baidu.tbadk.util.s<String> {
-    final /* synthetic */ a cwV;
+public class f implements View.OnClickListener {
+    private final /* synthetic */ int aak;
+    final /* synthetic */ PagerSlidingTabStrip ctN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(a aVar) {
-        this.cwV = aVar;
+    public f(PagerSlidingTabStrip pagerSlidingTabStrip, int i) {
+        this.ctN = pagerSlidingTabStrip;
+        this.aak = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.s
-    /* renamed from: ajK */
-    public String doInBackground() {
-        String str;
-        String str2;
-        com.baidu.tbadk.core.c.a tM = com.baidu.tbadk.core.c.a.tM();
-        str = this.cwV.cwP;
-        com.baidu.adp.lib.cache.o<String> M = tM.M(str, TbadkCoreApplication.getCurrentAccount());
-        if (M != null) {
-            str2 = this.cwV.cwQ;
-            return M.get(str2);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        z = this.ctN.isLoading;
+        if (!z) {
+            if (this.ctN.akE.getCurrentItem() == this.aak) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
+                return;
+            }
+            TiebaStatic.log(new as("c12049").s("obj_locate", this.aak + 1).aa("obj_type", "1"));
+            this.ctN.ctM = true;
+            if (this.ctN.akE.getAdapter() instanceof a) {
+                ((a) this.ctN.akE.getAdapter()).jJ(this.aak);
+            }
+            this.ctN.akE.setCurrentItem(this.aak);
+            this.ctN.wj();
         }
-        return null;
     }
 }

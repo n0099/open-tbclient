@@ -42,6 +42,7 @@ public class BdStatSwitchData implements Serializable {
         this.writeConfig.item.put(bdStatisticsWriteConfigItem3.type, bdStatisticsWriteConfigItem3);
         BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem3 = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
         bdStatisticsUploadConfigItem3.type = "error";
+        bdStatisticsUploadConfigItem3.isUpload = true;
         this.uploadConfig.item.put(bdStatisticsUploadConfigItem3.type, bdStatisticsUploadConfigItem3);
         BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem4 = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
         bdStatisticsWriteConfigItem4.type = "pfmonitor";

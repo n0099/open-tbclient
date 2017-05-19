@@ -10,13 +10,13 @@ import android.view.Surface;
 import com.baidu.tieba.QuickPlayer.c;
 /* loaded from: classes.dex */
 public interface b extends IInterface {
-    boolean JW() throws RemoteException;
+    boolean Jk() throws RemoteException;
 
     void a(Uri uri, Surface surface) throws RemoteException;
 
     void a(c cVar) throws RemoteException;
 
-    void ci(boolean z) throws RemoteException;
+    void ck(boolean z) throws RemoteException;
 
     int getCurrentPosition() throws RemoteException;
 
@@ -56,7 +56,7 @@ public interface b extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
                 return (b) queryLocalInterface;
             }
-            return new C0047a(iBinder);
+            return new C0051a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -69,7 +69,7 @@ public interface b extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayer");
-                    ci(parcel.readInt() != 0);
+                    ck(parcel.readInt() != 0);
                     parcel2.writeNoException();
                     return true;
                 case 2:
@@ -158,9 +158,9 @@ public interface b extends IInterface {
                     return true;
                 case 16:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayer");
-                    boolean JW = JW();
+                    boolean Jk = Jk();
                     parcel2.writeNoException();
-                    parcel2.writeInt(JW ? 1 : 0);
+                    parcel2.writeInt(Jk ? 1 : 0);
                     return true;
                 case 1598968902:
                     parcel2.writeString("com.baidu.tieba.QuickPlayer.IQuickMediaPlayer");
@@ -172,10 +172,10 @@ public interface b extends IInterface {
 
         /* renamed from: com.baidu.tieba.QuickPlayer.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        private static class C0047a implements b {
+        private static class C0051a implements b {
             private IBinder mRemote;
 
-            C0047a(IBinder iBinder) {
+            C0051a(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
@@ -185,7 +185,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.b
-            public void ci(boolean z) throws RemoteException {
+            public void ck(boolean z) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -422,7 +422,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.b
-            public boolean JW() throws RemoteException {
+            public boolean Jk() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {

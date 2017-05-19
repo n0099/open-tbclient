@@ -7,8 +7,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.recapp.y;
+import com.baidu.tieba.recapp.aa;
 import java.util.ArrayList;
+import org.json.JSONObject;
 import tbclient.App;
 import tbclient.GoodsInfo;
 import tbclient.ThreadPicList;
@@ -65,8 +66,39 @@ public class AppData extends OrmObject {
         this.legoCard = null;
     }
 
+    public AppData(JSONObject jSONObject) {
+        this.legoCard = null;
+        AppData appData = (AppData) OrmObject.objectWithJsonStr(jSONObject.toString(), AppData.class);
+        this.id = appData.id;
+        this.name = appData.name;
+        this.url_type = appData.url_type;
+        this.deepUrl = appData.deepUrl;
+        this.url = appData.url;
+        this.ios_url = appData.ios_url;
+        this.apk_url = appData.apk_url;
+        this.apk_name = appData.apk_name;
+        this.pos_name = appData.pos_name;
+        this.first_name = appData.first_name;
+        this.second_name = appData.second_name;
+        this.cpid = appData.cpid;
+        this.abtest = appData.abtest;
+        this.plan_id = appData.plan_id;
+        this.user_id = appData.user_id;
+        this.verify = appData.verify;
+        this.ext_info = appData.ext_info;
+        this.price = appData.price;
+        this.app_time = appData.app_time;
+        this.goods_info = appData.goods_info;
+        if (this.goods_info != null && this.goods_info.length > 0) {
+            this.goods = this.goods_info[0];
+        } else {
+            this.goods = null;
+        }
+        this.legoCard = appData.legoCard;
+    }
+
     public AppData(App app) {
-        ICardInfo lu;
+        ICardInfo ly;
         this.legoCard = null;
         if (app == null) {
             this.id = null;
@@ -117,8 +149,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (com.baidu.adp.lib.b.e.eZ().Y("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (lu = com.baidu.tieba.lego.card.b.lu(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = lu.getViewItem(0, 1);
+                    if (com.baidu.adp.lib.b.e.eZ().Y("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (ly = com.baidu.tieba.lego.card.b.ly(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = ly.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -133,24 +165,24 @@ public class AppData extends OrmObject {
         }
     }
 
-    public boolean pO() {
+    public boolean pv() {
         if (this.goods == null || !this.goods.c(this.legoCard)) {
             return false;
         }
         if (this.goods.goods_style != 1001) {
-            if (this.url_type == 2) {
-                return false;
+            if ((!TextUtils.isEmpty(this.goods.lego_card) || this.goods.goods_style == 2 || this.goods.goods_style == 6) && this.url_type != 2) {
+                return pw() || px();
             }
-            return pP() || pQ();
+            return false;
         }
         return true;
     }
 
-    public boolean pP() {
+    public boolean pw() {
         return (this.url_type != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
     }
 
-    public boolean pQ() {
+    public boolean px() {
         if (this.url_type == 1) {
             if (!StringUtils.isNull(this.url)) {
                 return true;
@@ -249,7 +281,7 @@ public class AppData extends OrmObject {
                     }
                 }
             }
-            this.lego_card = y.pj(goodsInfo.lego_card);
+            this.lego_card = aa.ph(goodsInfo.lego_card);
             this.video_info = goodsInfo.video_info;
             this.tag_name = goodsInfo.tag_name;
             this.ad_source = goodsInfo.ad_source;

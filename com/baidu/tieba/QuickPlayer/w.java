@@ -1,18 +1,14 @@
 package com.baidu.tieba.QuickPlayer;
 
-import android.media.MediaPlayer;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class w implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ v aRa;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w(v vVar) {
-        this.aRa = vVar;
-    }
-
-    @Override // android.media.MediaPlayer.OnPreparedListener
-    public void onPrepared(MediaPlayer mediaPlayer) {
-        this.aRa.notifyOnPrepared();
+class w implements CustomMessageTask.CustomRunnable<com.baidu.tieba.play.w> {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<com.baidu.tieba.play.w> run(CustomMessage<com.baidu.tieba.play.w> customMessage) {
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_QUICK_PLAYER_FACTORY, new s());
     }
 }

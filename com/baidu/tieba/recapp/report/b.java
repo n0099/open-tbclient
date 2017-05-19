@@ -12,35 +12,35 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b fgg;
-    private CustomMessageListener fgi = new c(this, 2000994);
-    private d fgh = new f();
+    private static b fbZ;
+    private CustomMessageListener fcb = new c(this, 2000994);
+    private d fca = new f();
 
-    public static b bbA() {
-        if (fgg == null) {
+    public static b aYZ() {
+        if (fbZ == null) {
             synchronized (b.class) {
-                if (fgg == null) {
-                    fgg = new b();
+                if (fbZ == null) {
+                    fbZ = new b();
                 }
             }
         }
-        return fgg;
+        return fbZ;
     }
 
-    private boolean bbB() {
+    private boolean aZa() {
         return com.baidu.adp.lib.b.e.eZ().Y("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.fgi);
+        MessageManager.getInstance().registerListener(this.fcb);
     }
 
     public void a(a aVar) {
-        if (bbB() && aVar != null && this.fgh != null) {
+        if (aZa() && aVar != null && this.fca != null) {
             if (i.hk()) {
-                this.fgh.b(aVar);
+                this.fca.b(aVar);
             } else {
-                this.fgh.c(aVar);
+                this.fca.c(aVar);
             }
         }
     }

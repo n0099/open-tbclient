@@ -5,29 +5,29 @@ import android.os.Looper;
 import android.widget.MediaController;
 /* loaded from: classes.dex */
 public class y {
-    private a aSt;
-    private MediaController.MediaPlayerControl aWT;
-    private b eWs;
-    private int eWr = 0;
+    private a aSO;
+    private MediaController.MediaPlayerControl aXp;
+    private b eSs;
+    private int eSr = 0;
     private Handler mHandler = new z(this, Looper.getMainLooper());
 
     /* loaded from: classes.dex */
     public interface a {
-        void KI();
+        void JW();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void aYV();
+        void aWu();
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.aWT = mediaPlayerControl;
+        this.aXp = mediaPlayerControl;
     }
 
     public void start() {
-        this.eWr = 0;
-        aYU();
+        this.eSr = 0;
+        aWt();
     }
 
     public void stop() {
@@ -35,15 +35,15 @@ public class y {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aYU() {
+    public void aWt() {
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 3000L);
     }
 
     public void a(a aVar) {
-        this.aSt = aVar;
+        this.aSO = aVar;
     }
 
     public void a(b bVar) {
-        this.eWs = bVar;
+        this.eSs = bVar;
     }
 }

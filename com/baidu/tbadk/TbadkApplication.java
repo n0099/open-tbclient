@@ -35,7 +35,7 @@ import com.baidu.tbadk.coreExtra.message.UninstallInquirerBySwitchMessage;
 import com.baidu.tbadk.data.d;
 import com.baidu.tbadk.j.ab;
 import com.baidu.tbadk.k.a;
-import com.baidu.tbadk.util.i;
+import com.baidu.tbadk.util.j;
 import com.baidu.tieba.service.SignAlertReceiver;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
@@ -91,16 +91,16 @@ public class TbadkApplication extends TbadkCoreApplication {
                 str = "";
             }
         }
-        if (b.uL().getBoolean("is_domain_qa", false)) {
+        if (b.tX().getBoolean("is_domain_qa", false)) {
             build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(Domain.DOMAIN_QA).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(str).fastLoginSupport(generateFastLoginFeatures()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         } else {
-            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.aop).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(str).fastLoginSupport(generateFastLoginFeatures()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
+            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.aou).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(str).fastLoginSupport(generateFastLoginFeatures()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         }
         try {
             SapiAccountManager.getInstance().init(build);
         } catch (Exception e2) {
         }
-        ab.GM().T(System.currentTimeMillis() - currentTimeMillis);
+        ab.FQ().U(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private FastLoginFeature[] generateFastLoginFeatures() {
@@ -124,18 +124,18 @@ public class TbadkApplication extends TbadkCoreApplication {
             initSapi();
         }
         if ((this.isCdnTachometerProcess == null || !this.isCdnTachometerProcess.booleanValue()) && !this.isPluginInstallProcess) {
-            boolean Hl = i.Hl();
+            boolean Gr = j.Gr();
             boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-            boolean z = Hl && isXiaomiPushSdkShouldOpen;
+            boolean z = Gr && isXiaomiPushSdkShouldOpen;
             long currentTimeMillis = System.currentTimeMillis();
             String str = String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER;
-            PluginPackageManager.jy().a(a.GR(), new com.baidu.tbadk.k.c(), Hl && isXiaomiPushSdkShouldOpen);
-            PluginSettings jY = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().jY();
-            if (jY != null) {
-                String containerVersion = jY.getContainerVersion();
+            PluginPackageManager.jx().a(a.FV(), new com.baidu.tbadk.k.c(), Gr && isXiaomiPushSdkShouldOpen);
+            PluginSettings jX = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().jX();
+            if (jX != null) {
+                String containerVersion = jX.getContainerVersion();
                 if (!TextUtils.isEmpty(containerVersion) && Util.I(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                    ab.GM().bZ(z);
-                    ab.GM().V(System.currentTimeMillis() - currentTimeMillis);
+                    ab.FQ().ca(z);
+                    ab.FQ().W(System.currentTimeMillis() - currentTimeMillis);
                 }
             }
         }
@@ -151,19 +151,19 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
         if (this.isRemoteProcess) {
-            ab.GM().am(System.currentTimeMillis() - this.processCreateTime);
+            ab.FQ().an(System.currentTimeMillis() - this.processCreateTime);
         }
         if (isMainProcess(true)) {
             long currentTimeMillis2 = System.currentTimeMillis();
             NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.3
                 @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                 public void callback(String str2, String str3) {
-                    bb.wn().c(null, new String[]{str3});
+                    bb.vB().c(null, new String[]{str3});
                 }
             });
-            ab.GM().ae(System.currentTimeMillis() - currentTimeMillis2);
+            ab.FQ().af(System.currentTimeMillis() - currentTimeMillis2);
         }
-        ab.GM().R(System.currentTimeMillis());
+        ab.FQ().S(System.currentTimeMillis());
     }
 
     private void initSettings() {
@@ -245,7 +245,7 @@ public class TbadkApplication extends TbadkCoreApplication {
 
     @Override // com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
+        if (BdBaseApplication.getInst() == null || BdBaseApplication.getInst().getIsPluginResourcOpen()) {
             return super.getResources();
         }
         if (this.resourcesWrapper == null && super.getResources() != null) {
@@ -266,7 +266,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        b.uL().remove("account_share");
+        b.tX().remove("account_share");
     }
 
     public String loginShareRead() {
@@ -316,13 +316,13 @@ public class TbadkApplication extends TbadkCoreApplication {
     @Override // com.baidu.tbadk.core.TbadkCoreApplication
     public void loadPatchs() {
         super.loadPatchs();
-        PluginPackageManager.jy().d(String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
-        int i = b.uL().getInt("plugin_patch_hook_failed_count", 0);
-        PluginPackageManager.jy().aC(i);
-        if (checkSyncPatchBlacklist() && l.jj() && i == 0 && PluginPackageManager.jy().jC()) {
+        PluginPackageManager.jx().d(String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
+        int i = b.tX().getInt("plugin_patch_hook_failed_count", 0);
+        PluginPackageManager.jx().aB(i);
+        if (checkSyncPatchBlacklist() && l.ji() && i == 0 && PluginPackageManager.jx().jB()) {
             long currentTimeMillis = System.currentTimeMillis();
-            PluginPackageManager.jy().jD();
-            ab.GM().U(System.currentTimeMillis() - currentTimeMillis);
+            PluginPackageManager.jx().jC();
+            ab.FQ().V(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -331,11 +331,11 @@ public class TbadkApplication extends TbadkCoreApplication {
         Map<String, PluginSetting> plugins;
         PluginSetting pluginSetting;
         try {
-            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().jY().getPlugins();
+            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().jX().getPlugins();
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
-        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().jY().hasPatch() || plugins == null || plugins.isEmpty()) {
+        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().jX().hasPatch() || plugins == null || plugins.isEmpty()) {
             return false;
         }
         Iterator<PluginSetting> it = plugins.values().iterator();

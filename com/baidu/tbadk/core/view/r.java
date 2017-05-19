@@ -12,37 +12,37 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ o ako;
+    final /* synthetic */ o ajL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(o oVar) {
-        this.ako = oVar;
+        this.ajL = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.al alVar;
+        com.baidu.tbadk.core.data.am amVar;
         PopupWindow popupWindow;
         JSONObject l;
         o.a aVar;
         o.a aVar2;
-        com.baidu.tbadk.core.data.al alVar2;
-        alVar = this.ako.ajX;
-        if (alVar != null) {
-            popupWindow = this.ako.ajV;
+        com.baidu.tbadk.core.data.am amVar2;
+        amVar = this.ajL.aju;
+        if (amVar != null) {
+            popupWindow = this.ajL.ajs;
             if (popupWindow != null) {
                 ArrayList<Integer> arrayList = new ArrayList<>();
-                l = this.ako.l(arrayList);
+                l = this.ajL.l(arrayList);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.NEG_FEED_BACK_DELETE, l));
-                this.ako.wS();
+                this.ajL.wf();
                 h hVar = new h();
-                hVar.ajz = 1500L;
-                hVar.d(this.ako.getResources().getString(w.l.reduce_related_thread_recommend));
-                aVar = this.ako.akd;
+                hVar.aiW = 1500L;
+                hVar.d(this.ajL.getResources().getString(w.l.reduce_related_thread_recommend));
+                aVar = this.ajL.ajA;
                 if (aVar != null) {
-                    aVar2 = this.ako.akd;
-                    alVar2 = this.ako.ajX;
-                    aVar2.a(arrayList, alVar2);
+                    aVar2 = this.ajL.ajA;
+                    amVar2 = this.ajL.aju;
+                    aVar2.a(arrayList, amVar2);
                 }
             }
         }

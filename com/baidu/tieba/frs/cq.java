@@ -1,63 +1,82 @@
 package com.baidu.tieba.frs;
 
-import android.animation.ValueAnimator;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.TranslateAnimation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.vote.a;
 import com.baidu.tieba.w;
+import tbclient.PollOption;
 /* loaded from: classes.dex */
-public class cq {
-    private TranslateAnimation bSV;
-    private View bSS = null;
-    private int bST = 2000;
-    private Runnable bSW = new cr(this);
-    private ValueAnimator bSU = new ValueAnimator();
+public class cq implements a {
+    private int bRy = -1;
+    private String bRz = null;
+    private int mPercent = 0;
+    private boolean bRA = false;
+    private int[] bRB = {w.g.icon_grade_vote_num1, w.g.icon_grade_vote_num2, w.g.icon_grade_vote_num3};
+    private int[] bRC = {w.g.icon_grade_vote_no1, w.g.icon_grade_vote_no2, w.g.icon_grade_vote_no3};
 
-    public cq() {
-        this.bSU.setFloatValues(1.0f, 0.0f);
-        this.bSU.setDuration(400L);
-        this.bSU.addUpdateListener(new cs(this));
-        this.bSU.addListener(new ct(this));
-        this.bSV = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.m9getInst().getResources().getDimension(w.f.ds56), 0.0f);
-        this.bSV.setDuration(400L);
-        this.bSV.setAnimationListener(new cu(this));
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int BZ() {
+        return this.bRy;
     }
 
-    public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
-        if (viewGroup != null && view != null) {
-            this.bSS = view;
-            abO();
-            viewGroup.addView(this.bSS, layoutParams);
-            this.bSS.setVisibility(0);
-            this.bST = i;
-            com.baidu.adp.lib.g.h.fS().removeCallbacks(this.bSW);
-            com.baidu.adp.lib.g.h.fS().postDelayed(this.bSW, this.bST);
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String BW() {
+        return this.bRz;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String BX() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Ca() {
+        return this.mPercent;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String BY() {
+        return String.valueOf(this.mPercent) + "%";
+    }
+
+    public void dV(boolean z) {
+        this.bRA = z;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public boolean isSelected() {
+        return true;
+    }
+
+    public void a(int i, PollOption pollOption, long j) {
+        int[] iArr = this.bRA ? this.bRB : this.bRC;
+        switch (i) {
+            case 1:
+                this.bRy = iArr[0];
+                break;
+            case 2:
+                this.bRy = iArr[1];
+                break;
+            case 3:
+                this.bRy = iArr[2];
+                break;
+            default:
+                this.bRy = -1;
+                break;
+        }
+        this.bRz = pollOption.text;
+        if (j > 0) {
+            this.mPercent = (int) ((pollOption.num.longValue() * 100) / j);
+        } else {
+            this.mPercent = 0;
         }
     }
 
-    public void hideTip() {
-        com.baidu.adp.lib.g.h.fS().removeCallbacks(this.bSW);
-        if (this.bSS != null && this.bSS.getParent() != null && this.bSS.getVisibility() == 0 && !this.bSU.isRunning()) {
-            this.bSU.start();
-        }
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Cb() {
+        return null;
     }
 
-    public void abO() {
-        com.baidu.adp.lib.g.h.fS().removeCallbacks(this.bSW);
-        if (this.bSS != null) {
-            if (this.bSU != null && this.bSU.isRunning()) {
-                this.bSU.cancel();
-            }
-            this.bSS.clearAnimation();
-            if (this.bSS.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.bSS.getParent()).removeView(this.bSS);
-            }
-            this.bSS.setVisibility(8);
-        }
-    }
-
-    public void onDestroy() {
-        com.baidu.adp.lib.g.h.fS().removeCallbacks(this.bSW);
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int getId() {
+        return 0;
     }
 }

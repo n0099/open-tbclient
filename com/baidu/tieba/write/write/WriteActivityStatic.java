@@ -10,6 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.AtListActivityConfig;
+import com.baidu.tbadk.core.atomData.HotTopicChangeActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
@@ -19,16 +20,22 @@ import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.w;
 import com.baidu.tieba.write.album.AlbumActivity;
+import com.baidu.tieba.write.selectForum.HotTopicChangeFourmActivity;
+import com.baidu.tieba.write.transmit.TransmitForumActivity;
+import com.baidu.tieba.write.transmit.TransmitForumActivityConfig;
+import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
 import com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity;
 import com.baidu.tieba.write.vcode.oldVcode.VcodeActivity;
 import com.baidu.tieba.write.video.WriteVideoActivity;
 /* loaded from: classes.dex */
 public class WriteActivityStatic {
-    private static int fUP = 11;
-    private static int fUQ = 18;
+    private static int fSY = 11;
+    private static int fSZ = 18;
 
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -39,15 +46,19 @@ public class WriteActivityStatic {
         TbadkCoreApplication.m9getInst().RegisterIntent(AtListActivityConfig.class, AtListActivity.class);
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteImageActivityConfig.class, WriteImageActivity.class);
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteMulitImageActivityConfig.class, WriteMultiImgsActivity.class);
-        LocationModel.bka();
-        com.baidu.tbadk.core.util.bb.wn().a("feedback:", new bj());
+        TbadkCoreApplication.m9getInst().RegisterIntent(TransmitForumActivityConfig.class, TransmitForumActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
+        LocationModel.bhx();
+        com.baidu.tbadk.core.util.bb.vB().a("feedback:", new bn());
         registerListener();
+        com.baidu.tieba.tbadkCore.a.a.a(309450, GetRepostForumSocketResMessage.class, false, false);
+        com.baidu.tieba.tbadkCore.a.a.a(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void E(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= fUQ && Build.VERSION.SDK_INT >= fUP) {
+        if (Build.VERSION.SDK_INT <= fSZ && Build.VERSION.SDK_INT >= fSY) {
             F(tbPageContext);
         } else {
             G(tbPageContext);
@@ -75,6 +86,6 @@ public class WriteActivityStatic {
     }
 
     private static void registerListener() {
-        MessageManager.getInstance().registerListener(new bk(CmdConfigCustom.UEXCEPTION_MESSAGE));
+        MessageManager.getInstance().registerListener(new bo(CmdConfigCustom.UEXCEPTION_MESSAGE));
     }
 }

@@ -3,18 +3,18 @@ package com.baidu.tieba.VideoCache;
 import android.os.Environment;
 import android.os.StatFs;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class o {
     private static final String TAG = o.class.getSimpleName();
 
-    public static long gS(String str) {
+    public static long gQ(String str) {
         long j;
         long j2 = 0;
-        long gT = gT(str);
+        long gR = gR(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
-            File file = new File(String.valueOf(j.aUW) + str);
+            File file = new File(String.valueOf(j.aVr) + str);
             if (file == null || !file.exists() || !file.isDirectory()) {
                 return 0L;
             }
@@ -25,15 +25,15 @@ public class o {
                 j2 = file3.length();
             }
         }
-        return j + j2 + gT;
+        return j + j2 + gR;
     }
 
-    public static long gT(String str) {
+    public static long gR(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(String.valueOf(j.aUW) + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(String.valueOf(file.getAbsolutePath()) + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(String.valueOf(j.aVr) + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(String.valueOf(file.getAbsolutePath()) + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -43,7 +43,7 @@ public class o {
         return j;
     }
 
-    public static long LL() {
+    public static long KZ() {
         if ("mounted".equals(Environment.getExternalStorageState())) {
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();
@@ -82,7 +82,7 @@ public class o {
         }
     }
 
-    public static String gU(String str) {
+    public static String gS(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

@@ -1,50 +1,45 @@
 package com.baidu.tieba.pb.video;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.pb.pb.main.dh;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class a {
-    public TextView aaG;
-    public RelativeLayout ewR;
-    public TextView ewS;
-    public TextView ewT;
-    public TextView ewU;
-    public TextView ewV;
-    public View mRootView;
+public class a extends dh<b, c> {
+    public View.OnClickListener aPm;
 
-    public a(View view) {
-        if (view != null) {
-            this.mRootView = view;
-            this.aaG = (TextView) this.mRootView.findViewById(w.h.view_video_title);
-            this.ewR = (RelativeLayout) this.mRootView.findViewById(w.h.pb_header_video_location_container);
-            this.ewS = (TextView) this.mRootView.findViewById(w.h.pb_video_floor_name);
-            this.ewT = (TextView) this.mRootView.findViewById(w.h.pb_video_floor_reply_time);
-            this.ewU = (TextView) this.mRootView.findViewById(w.h.pb_video_floor_location_address);
-            this.ewV = (TextView) this.mRootView.findViewById(w.h.pb_video_play_count);
-        }
+    public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    public void F(bi biVar) {
-        if (biVar != null && biVar.sF() != null) {
-            this.ewT.setText(au.q(biVar.getCreateTime()));
-            this.ewU.setText(biVar.getAddress());
-            this.ewV.setText(String.format(TbadkCoreApplication.m9getInst().getString(w.l.count_video_play), au.t(biVar.sF().play_count.intValue())));
-            this.aaG.setText(biVar.getTitle());
-            Bn();
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bc */
+    public c onCreateViewHolder(ViewGroup viewGroup) {
+        return new c(LayoutInflater.from(this.mContext).inflate(w.j.pb_god_reply_look_more_item, viewGroup, false));
     }
 
-    public void Bn() {
-        aq.c(this.aaG, w.e.cp_cont_b, 1);
-        aq.c(this.ewS, w.e.cp_cont_c, 1);
-        aq.c(this.ewT, w.e.cp_cont_c, 1);
-        aq.c(this.ewU, w.e.cp_cont_c, 1);
-        aq.c(this.ewV, w.e.cp_cont_c, 1);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.dh, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
+        super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
+        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
+        this.efF.getLayoutMode().ai(this.mSkinType == 1);
+        this.efF.getLayoutMode().t(view);
+        if (this.aPm != null) {
+            view.setOnClickListener(this.aPm);
+        }
+        return view;
+    }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.aPm = onClickListener;
     }
 }

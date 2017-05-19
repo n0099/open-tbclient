@@ -1,79 +1,25 @@
 package com.baidu.tieba.homepage.framework;
 
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.homepage.framework.q;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Bundle;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class s implements CacheModel.a<com.baidu.tieba.homepage.recommendfrs.data.c> {
-    final /* synthetic */ q cwJ;
-
+class s extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(q qVar) {
-        this.cwJ = qVar;
+    public s(int i) {
+        super(i);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00d3  */
-    @Override // com.baidu.tbadk.mvc.model.CacheModel.a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(ReadCacheRespMsg<List<com.baidu.tieba.homepage.recommendfrs.data.c>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.homepage.recommendfrs.data.c> readCacheMessage) {
-        int i;
-        long j;
-        q.a aVar;
-        q.a aVar2;
-        q.a aVar3;
-        q.a aVar4;
-        if (readCacheMessage != null) {
-            if (readCacheMessage.getRequestData() instanceof com.baidu.tieba.homepage.recommendfrs.data.b) {
-                i = 2;
-                j = ((com.baidu.tieba.homepage.recommendfrs.data.b) readCacheMessage.getRequestData()).ajs();
-            } else if (readCacheMessage.getRequestData() instanceof com.baidu.tieba.homepage.mygod.data.c) {
-                i = 3;
-                j = ((com.baidu.tieba.homepage.mygod.data.c) readCacheMessage.getRequestData()).ajs();
-            } else if (readCacheMessage.getRequestData() instanceof com.baidu.tieba.homepage.alalivelist.data.a) {
-                i = 7;
-                j = ((com.baidu.tieba.homepage.alalivelist.data.a) readCacheMessage.getRequestData()).ajs();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.mainTab.c Ei;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
+            RecommendFrsDelegateStatic recommendFrsDelegateStatic = new RecommendFrsDelegateStatic();
+            ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
+            if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Ei = recommendFrsDelegateStatic.Ei()) != null) {
+                Ei.aEi.setArguments(new Bundle());
             }
-            if (j < 0 && readCacheMessage != null && readCacheRespMsg != null) {
-                com.baidu.tbadk.core.e.a.a("frs", readCacheMessage.getClientLogID(), CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE, "readCache", readCacheRespMsg.getError(), "ReadCacheError ContentTag is Null", "ContentTag", Long.valueOf(j));
-            }
-            if (readCacheRespMsg != null || readCacheRespMsg.getData() == null || readCacheRespMsg.getData().size() <= 0 || readCacheRespMsg.getData().get(0) == null) {
-                aVar = this.cwJ.cvv;
-                if (aVar != null) {
-                    aVar2 = this.cwJ.cvv;
-                    aVar2.a(false, null, false, j, "", false);
-                }
-            } else {
-                com.baidu.tieba.homepage.recommendfrs.data.c cVar = readCacheRespMsg.getData().get(0);
-                aVar3 = this.cwJ.cvv;
-                if (aVar3 != null) {
-                    aVar4 = this.cwJ.cvv;
-                    aVar4.a(false, cVar, false, j, "", false);
-                }
-            }
-            this.cwJ.a(1, j, i, 0L, 0L, "", "");
         }
-        i = 0;
-        j = -1;
-        if (j < 0) {
-            com.baidu.tbadk.core.e.a.a("frs", readCacheMessage.getClientLogID(), CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE, "readCache", readCacheRespMsg.getError(), "ReadCacheError ContentTag is Null", "ContentTag", Long.valueOf(j));
-        }
-        if (readCacheRespMsg != null) {
-        }
-        aVar = this.cwJ.cvv;
-        if (aVar != null) {
-        }
-        this.cwJ.a(1, j, i, 0L, 0L, "", "");
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.CacheModel.a
-    public void a(WriteCacheRespMsg<List<com.baidu.tieba.homepage.recommendfrs.data.c>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.homepage.recommendfrs.data.c> writeCacheMessage) {
     }
 }

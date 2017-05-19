@@ -1,25 +1,31 @@
 package com.baidu.tbadk.core.view;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.c;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an implements bg.a {
-    final /* synthetic */ am amo;
-    private final /* synthetic */ String amp;
+public class an implements c.b {
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayout ame;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar, String str) {
-        this.amo = amVar;
-        this.amp = str;
+    public an(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
+        this.ame = threadCommentAndPraiseInfoLayout;
     }
 
-    @Override // com.baidu.tbadk.core.util.bg.a
-    public boolean w(View view) {
-        Object tag = view.getTag();
-        if (tag != null && this.amp.equals(tag)) {
-            view.invalidate();
-            return false;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        List list;
+        TbPageContext<?> tbPageContext;
+        list = this.ame.alN;
+        String str = (String) com.baidu.tbadk.core.util.x.c(list, i);
+        if (!StringUtils.isNull(str)) {
+            com.baidu.tbadk.core.util.bb vB = com.baidu.tbadk.core.util.bb.vB();
+            tbPageContext = this.ame.ajr;
+            vB.c(tbPageContext, new String[]{str});
         }
-        return false;
+        cVar.dismiss();
     }
 }

@@ -1,66 +1,59 @@
 package com.baidu.tbadk.widget;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.lang.reflect.Method;
+import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends CustomMessageListener {
-    final /* synthetic */ TbImageView aKS;
+public class f extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ TbImageView aLc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(TbImageView tbImageView, int i) {
-        super(i);
-        this.aKS = tbImageView;
+    public f(TbImageView tbImageView) {
+        this.aLc = tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Method method;
-        Method method2;
-        Method method3;
-        Method method4;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            String str = (String) customResponsedMessage.getData();
-            String f = com.baidu.adp.lib.f.c.fM().f(this.aKS.mUrl, this.aKS.mType);
-            if (f != null && f.equals(str)) {
-                this.aKS.destroyDrawingCache();
-                HX();
-                method = TbImageView.aKO;
-                com.baidu.adp.lib.OrmObject.a.a.a(method, this.aKS, TbImageView.class);
-                method2 = TbImageView.aKP;
-                com.baidu.adp.lib.OrmObject.a.a.a(method2, this.aKS, TbImageView.class, false);
-                method3 = TbImageView.aKQ;
-                com.baidu.adp.lib.OrmObject.a.a.a(method3, this.aKS, TbImageView.class);
-                method4 = TbImageView.aKR;
-                com.baidu.adp.lib.OrmObject.a.a.a(method4, this.aKS, TbImageView.class);
-                this.aKS.invalidate();
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        this.aLc.stopLoading();
+        BdLog.i("imagecallback. resourceFrom-" + i);
+        if (aVar == null) {
+            this.aLc.aKJ = this.aLc.aKI;
         }
+        if (this.aLc.aKH != null) {
+            if (aVar != null) {
+                this.aLc.aKV = aVar.getWidth();
+                this.aLc.aKW = aVar.getHeight();
+            }
+            this.aLc.aKH.v(str, aVar != null);
+        }
+        if (aVar != null) {
+            if (aVar.Hd != null) {
+                this.aLc.aKS.Hf = aVar.Hd.Hf;
+                this.aLc.aKS.isSuccess = aVar.Hd.Hh;
+                this.aLc.aKS.Hg = aVar.Hd.Hg;
+            }
+        } else {
+            this.aLc.aKS.Hf = "net";
+            this.aLc.aKS.isSuccess = false;
+            this.aLc.aKS.Hg = System.currentTimeMillis() - this.aLc.aKU;
+        }
+        this.aLc.vW();
     }
 
-    private void HX() {
-        Method method;
-        Method method2;
-        Method method3;
-        Method method4;
-        method = TbImageView.aKO;
-        if (method == null) {
-            TbImageView.aKO = com.baidu.adp.lib.OrmObject.a.a.a((Class<?>) TbImageView.class, "destroyLayer", new Object[0]);
-        }
-        method2 = TbImageView.aKP;
-        if (method2 == null) {
-            TbImageView.aKP = com.baidu.adp.lib.OrmObject.a.a.a((Class<?>) TbImageView.class, "destroyLayer", false);
-        }
-        method3 = TbImageView.aKQ;
-        if (method3 == null) {
-            TbImageView.aKQ = com.baidu.adp.lib.OrmObject.a.a.a((Class<?>) TbImageView.class, "clearDisplayList", new Object[0]);
-        }
-        method4 = TbImageView.aKR;
-        if (method4 == null) {
-            TbImageView.aKR = com.baidu.adp.lib.OrmObject.a.a.a((Class<?>) TbImageView.class, "resetDisplayList", new Object[0]);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void onProgressUpdate(Object... objArr) {
+        super.onProgressUpdate(objArr);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void onCancelled(String str) {
+        super.onCancelled(str);
+        this.aLc.stopLoading();
+        if (this.aLc.aKH != null) {
+            this.aLc.aKH.onCancel();
         }
     }
 }

@@ -1,20 +1,9 @@
 package com.baidu.tbadk.core;
-
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.tbadk.util.c;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements c.a {
-    final /* synthetic */ x SX;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public y(x xVar) {
-        this.SX = xVar;
-    }
-
-    @Override // com.baidu.tbadk.util.c.a
-    public void an(boolean z) {
-        if (!z) {
-            BdSocketLinkService.startService(false, "restart");
-        }
+public class y implements com.baidu.adp.framework.client.socket.link.g {
+    @Override // com.baidu.adp.framework.client.socket.link.g
+    public void dn() {
+        com.baidu.tbadk.util.d.Gn().a(new z(this));
     }
 }

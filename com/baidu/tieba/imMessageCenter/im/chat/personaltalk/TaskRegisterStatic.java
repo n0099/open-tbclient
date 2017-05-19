@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.ResponseQueryUserInfoMessage;
 import com.baidu.tieba.im.message.ResponsedPersonalMsgReadMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TaskRegisterStatic {
     static {
         com.baidu.tieba.im.e.b(205101, ResponsePersonalLbsInfoMessage.class, false);

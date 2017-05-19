@@ -1,20 +1,18 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class ay implements BdListView.f {
-    final /* synthetic */ au dnH;
+/* loaded from: classes2.dex */
+public class ay implements NoNetworkView.a {
+    final /* synthetic */ av dhM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(au auVar) {
-        this.dnH = auVar;
+    public ay(av avVar) {
+        this.dhM = avVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.f
-    public void a(BdListView bdListView) {
-        ReplyMessageActivity replyMessageActivity;
-        replyMessageActivity = this.dnH.dnq;
-        replyMessageActivity.Ko();
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aL(boolean z) {
+        this.dhM.gc(z);
     }
 }

@@ -2,25 +2,24 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.card.data.i;
-import com.baidu.tieba.card.data.t;
+import com.baidu.tieba.card.data.r;
 import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes.dex */
-public class b extends i implements t {
-    private CardForum cBi;
+public class b extends com.baidu.tieba.card.data.g implements r {
+    private CardForum cwp;
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0088: IGET  (r6v1 java.lang.Long A[REMOVE]) = (r0v10 tbclient.Personalized.PersonalForum) tbclient.Personalized.PersonalForum.forum_id java.lang.Long)] */
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.cBi = cardForum;
+            this.cwp = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(String.valueOf(Ul()) + cardForum.position.intValue());
+                setYuelaouLocate(String.valueOf(TE()) + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(String.valueOf(Ul()) + 0);
+                setYuelaouLocate(String.valueOf(TE()) + 0);
             }
-            if (x.p(cardForum.forum_list) > 0) {
+            if (x.q(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
                     if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
                         com.baidu.tieba.card.data.e eVar = new com.baidu.tieba.card.data.e();
@@ -35,37 +34,37 @@ public class b extends i implements t {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.t
+    @Override // com.baidu.tieba.card.data.r
     public int getPosition() {
-        if (this.cBi != null) {
-            return this.cBi.position.intValue();
+        if (this.cwp != null) {
+            return this.cwp.position.intValue();
         }
         return 0;
     }
 
-    @Override // com.baidu.tieba.card.data.t
-    public boolean Uc() {
+    @Override // com.baidu.tieba.card.data.r
+    public boolean Tv() {
         return true;
     }
 
-    @Override // com.baidu.tieba.card.data.t
-    public void db(boolean z) {
+    @Override // com.baidu.tieba.card.data.r
+    public void dd(boolean z) {
         this.showTopDivider = z;
     }
 
-    @Override // com.baidu.tieba.card.data.t
-    public void dc(boolean z) {
+    @Override // com.baidu.tieba.card.data.r
+    public void de(boolean z) {
         this.showBottomDivider = z;
     }
 
-    public boolean pO() {
-        if (x.p(getDataList()) > 0) {
+    public boolean pv() {
+        if (x.q(getDataList()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean ka(int i) {
+    public static boolean jR(int i) {
         return i == 1;
     }
 }

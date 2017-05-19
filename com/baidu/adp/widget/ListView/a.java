@@ -14,6 +14,7 @@ public abstract class a<T, V extends y.a> {
     protected w mAdapterItemClickListener;
     protected x mAdapterItemLongClickListener;
     protected Context mContext;
+    protected BdUniqueId mPageId;
     protected BdUniqueId mType;
     protected V viewholder;
 
@@ -25,6 +26,13 @@ public abstract class a<T, V extends y.a> {
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
         this.mType = bdUniqueId;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public a(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        this.mContext = context;
+        this.mType = bdUniqueId;
+        this.mPageId = bdUniqueId2;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.y$a> */
@@ -71,6 +79,10 @@ public abstract class a<T, V extends y.a> {
         this.mType = bdUniqueId;
     }
 
+    public void setPageId(BdUniqueId bdUniqueId) {
+        this.mPageId = bdUniqueId;
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setAdapter(y yVar) {
         this.mAdapter = yVar;
@@ -94,5 +106,12 @@ public abstract class a<T, V extends y.a> {
             return -1;
         }
         return this.mAdapter.t(i, this.mType.getId());
+    }
+
+    public int getCount() {
+        if (this.mAdapter != null) {
+            return this.mAdapter.getCount();
+        }
+        return 0;
     }
 }

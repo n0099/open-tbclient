@@ -1,30 +1,24 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.support.v4.view.ViewPager;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ f bGP;
+public class j extends CustomMessageListener {
+    final /* synthetic */ i bGZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(f fVar) {
-        this.bGP = fVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j(i iVar, int i) {
+        super(i);
+        this.bGZ = iVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        FragmentTabWidget fragmentTabWidget;
-        fragmentTabWidget = this.bGP.bGM;
-        fragmentTabWidget.g(i, true);
-        this.bGP.hu(i);
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && this.bGZ.bGN != null) {
+            this.bGZ.bGN.startPullRefresh();
+        }
     }
 }

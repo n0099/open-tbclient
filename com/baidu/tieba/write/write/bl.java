@@ -1,52 +1,27 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Intent;
-import android.view.View;
-import java.util.Date;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* loaded from: classes.dex */
-class bl implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity this$0;
+class bl implements TextWatcher {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(WriteImageActivity writeImageActivity) {
-        this.this$0 = writeImageActivity;
+    public bl(WriteActivity writeActivity) {
+        this.fSV = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        boolean rr;
-        z = this.this$0.enL;
-        if (!z) {
-            i = this.this$0.requestCode;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                if (this.this$0.mProgress.getVisibility() != 0) {
-                    z2 = this.this$0.eEm;
-                    if (z2 && this.this$0.eEf != null && !this.this$0.eEf.isRecycled()) {
-                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        rr = this.this$0.rr(str);
-                        if (rr) {
-                            intent.putExtra("change", true);
-                            intent.putExtra("file_name", str);
-                        } else {
-                            intent.putExtra("change", false);
-                        }
-                    } else {
-                        intent.putExtra("change", false);
-                    }
-                    this.this$0.setResult(-1, intent);
-                } else {
-                    return;
-                }
-            } else {
-                this.this$0.setResult(0, new Intent());
-            }
-        } else {
-            this.this$0.setResult(0, new Intent());
-        }
-        this.this$0.finish();
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.fSV.a(charSequence, i, i3, "from_title");
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.fSV.bcJ();
     }
 }

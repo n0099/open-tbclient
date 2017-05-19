@@ -7,20 +7,21 @@ import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tbadk.util.r;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bv;
+import com.baidu.tbadk.util.u;
+import com.baidu.tieba.frs.bo;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.frs.r;
 import com.baidu.tieba.frs.smartsort.e;
 import com.baidu.tieba.tbadkCore.util.s;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements c.b {
-    final /* synthetic */ a bVC;
+    final /* synthetic */ a bTu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bVC = aVar;
+        this.bTu = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -29,55 +30,69 @@ public class c implements c.b {
         int i2;
         TextView textView;
         int i3;
+        r rVar;
+        r rVar2;
         int i4;
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        FrsActivity frsActivity3;
-        FrsActivity frsActivity4;
-        FrsActivity frsActivity5;
+        int i5;
+        r rVar3;
+        r rVar4;
+        r rVar5;
+        r rVar6;
+        r rVar7;
+        r rVar8;
         String str;
-        FrsActivity frsActivity6;
+        r rVar9;
         if (!i.gY()) {
-            frsActivity6 = this.bVC.bVu;
-            frsActivity6.showToast(w.l.neterror);
+            rVar9 = this.bTu.bPw;
+            rVar9.showToast(w.l.neterror);
             cVar.dismiss();
             return;
         }
-        aVar = this.bVC.bVx;
-        bv bvVar = (bv) x.c(aVar.acQ(), i);
-        if (bvVar != null) {
-            i2 = this.bVC.bVy;
-            if (i2 != bvVar.bSf) {
-                this.bVC.bVz = true;
-                textView = this.bVC.bVv;
-                textView.setText(bvVar.name);
-                i3 = this.bVC.bVy;
+        aVar = this.bTu.bTp;
+        bo boVar = (bo) x.c(aVar.aaX(), i);
+        if (boVar != null) {
+            i2 = this.bTu.bTq;
+            if (i2 != boVar.bQR) {
+                this.bTu.bTr = true;
+                textView = this.bTu.bTn;
+                textView.setText(boVar.name);
+                i3 = this.bTu.bTq;
                 if (i3 == 7) {
                     as asVar = new as("c11437");
-                    asVar.s("obj_locate", bvVar.bSf);
-                    str = this.bVC.bsM;
+                    asVar.s("obj_locate", boVar.bQR);
+                    str = this.bTu.btj;
                     asVar.aa("fid", str);
                     TiebaStatic.log(asVar);
                 }
-                this.bVC.bVy = bvVar.bSf;
-                cVar.dismiss();
-                i4 = this.bVC.bVy;
-                if (i4 != 7) {
-                    r.Ht();
-                    s.bkm();
-                } else {
-                    s.bkl();
-                }
-                frsActivity = this.bVC.bVu;
-                if (frsActivity.ZU() != null) {
-                    frsActivity2 = this.bVC.bVu;
-                    if (frsActivity2.aab() != null) {
-                        frsActivity3 = this.bVC.bVu;
-                        frsActivity3.ZU().iw(bvVar.bSf);
-                        frsActivity4 = this.bVC.bVu;
-                        frsActivity4.aab().startPullRefresh();
-                        frsActivity5 = this.bVC.bVu;
-                        e.aem().f(frsActivity5.ZU().getForumName(), bvVar.bSf, bvVar.name);
+                rVar = this.bTu.bPw;
+                if (rVar.YU() != null) {
+                    rVar2 = this.bTu.bPw;
+                    FrsModelController YU = rVar2.YU();
+                    i4 = this.bTu.bTq;
+                    YU.in(i4);
+                    this.bTu.bTq = boVar.bQR;
+                    cVar.dismiss();
+                    i5 = this.bTu.bTq;
+                    if (i5 != 7) {
+                        u.GE();
+                        s.bhJ();
+                    } else {
+                        s.bhI();
+                    }
+                    rVar3 = this.bTu.bPw;
+                    if (rVar3.YU() != null) {
+                        rVar4 = this.bTu.bPw;
+                        if (rVar4.YZ() != null) {
+                            rVar5 = this.bTu.bPw;
+                            rVar5.YU().im(boVar.bQR);
+                            rVar6 = this.bTu.bPw;
+                            rVar6.YZ().startPullRefresh();
+                            rVar7 = this.bTu.bPw;
+                            rVar7.YU().ee(true);
+                            rVar8 = this.bTu.bPw;
+                            e.aco().f(rVar8.YU().getForumName(), boVar.bQR, boVar.name);
+                            return;
+                        }
                         return;
                     }
                     return;

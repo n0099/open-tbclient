@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class aa {
-    public static String h(TbPageContext tbPageContext, String str) {
+    public static String g(TbPageContext tbPageContext, String str) {
         if (tbPageContext == null || StringUtils.isNull(str)) {
             return null;
         }
@@ -25,24 +25,24 @@ public class aa {
         return "http://himg.baidu.com/sys/portraitl/item/" + str;
     }
 
-    public static void a(com.baidu.tbadk.data.k kVar, BdUniqueId bdUniqueId) {
-        if (kVar != null && !StringUtils.isNull(kVar.CP()) && com.baidu.tbadk.core.util.x.q(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+    public static void a(com.baidu.tbadk.data.j jVar, BdUniqueId bdUniqueId) {
+        if (jVar != null && !StringUtils.isNull(jVar.BU()) && com.baidu.tbadk.core.util.x.r(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", kVar.CP());
+            httpMessage.addParam("pic_url", jVar.BU());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public static void a(com.baidu.tbadk.data.k kVar, List<com.baidu.adp.widget.ListView.v> list) {
-        com.baidu.tbadk.data.k kVar2;
-        if (kVar != null && !com.baidu.tbadk.core.util.x.q(list) && !StringUtils.isNull(kVar.CP())) {
+    public static void a(com.baidu.tbadk.data.j jVar, List<com.baidu.adp.widget.ListView.v> list) {
+        com.baidu.tbadk.data.j jVar2;
+        if (jVar != null && !com.baidu.tbadk.core.util.x.r(list) && !StringUtils.isNull(jVar.BU())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.v vVar = list.get(i);
-                if ((vVar instanceof com.baidu.tbadk.data.k) && (kVar2 = (com.baidu.tbadk.data.k) vVar) != kVar && !kVar2.CQ()) {
-                    jSONArray.put(kVar2.CP());
+                if ((vVar instanceof com.baidu.tbadk.data.j) && (jVar2 = (com.baidu.tbadk.data.j) vVar) != jVar && !jVar2.BV()) {
+                    jSONArray.put(jVar2.BU());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -65,10 +65,10 @@ public class aa {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.v vVar = list.get(i);
-                if (vVar instanceof com.baidu.tbadk.data.k) {
-                    com.baidu.tbadk.data.k kVar = (com.baidu.tbadk.data.k) vVar;
-                    if (!kVar.CQ()) {
-                        jSONArray.put(kVar.CP());
+                if (vVar instanceof com.baidu.tbadk.data.j) {
+                    com.baidu.tbadk.data.j jVar = (com.baidu.tbadk.data.j) vVar;
+                    if (!jVar.BV()) {
+                        jSONArray.put(jVar.BU());
                     }
                 }
             }
@@ -79,7 +79,7 @@ public class aa {
         }
     }
 
-    public static void B(TbPageContext tbPageContext) {
+    public static void z(TbPageContext tbPageContext) {
         if (tbPageContext != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditHeadActivityConfig(tbPageContext.getPageActivity(), 12001, 12010, null, TbadkCoreApplication.getCurrentAccountObj(), 1.0f)));
         }

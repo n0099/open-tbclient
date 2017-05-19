@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ MediaService anR;
+    final /* synthetic */ MediaService anW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(MediaService mediaService) {
-        this.anR = mediaService;
+        this.anW = mediaService;
     }
 
     @Override // java.lang.Runnable
@@ -19,18 +19,18 @@ class e implements Runnable {
         Runnable runnable;
         int i2;
         long currentTimeMillis = System.currentTimeMillis();
-        j = this.anR.mStartRecorderTime;
+        j = this.anW.mStartRecorderTime;
         int i3 = (int) (currentTimeMillis - j);
-        i = this.anR.mElapsedTime;
+        i = this.anW.mElapsedTime;
         if (i != i3) {
-            this.anR.mElapsedTime = i3 / 1000;
+            this.anW.mElapsedTime = i3 / 1000;
             Intent intent = new Intent("com.baidu.recordElapsedTime");
-            i2 = this.anR.mElapsedTime;
+            i2 = this.anW.mElapsedTime;
             intent.putExtra("com.baidu.msg.recordElapsedTime", i2);
-            this.anR.sendBroadcast(intent);
+            this.anW.sendBroadcast(intent);
         }
-        handler = this.anR.mHandler;
-        runnable = this.anR.mRecordTimeThread;
+        handler = this.anW.mHandler;
+        runnable = this.anW.mRecordTimeThread;
         handler.postDelayed(runnable, 200L);
     }
 }

@@ -1,25 +1,20 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.homepage.framework.v;
 /* loaded from: classes.dex */
-class i implements View.OnClickListener {
-    final /* synthetic */ ScrollFragmentTabHost cxk;
+class i implements v {
+    final /* synthetic */ ScrollFragmentTabHost cua;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.cxk = scrollFragmentTabHost;
+        this.cua = scrollFragmentTabHost;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.cxk.ajL()) {
-            this.cxk.wS();
-            view.setContentDescription("展开");
-            return;
-        }
-        this.cxk.wR();
-        TiebaStatic.log("c10510");
-        view.setContentDescription("折叠");
+    @Override // com.baidu.tieba.homepage.framework.v
+    public void jF(int i) {
+        a aVar;
+        this.cua.g(i, false);
+        aVar = this.cua.ctU;
+        aVar.jI(i);
     }
 }

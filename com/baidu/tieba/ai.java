@@ -21,12 +21,12 @@ public class ai {
                 TiebaStatic.log(new as("c10836").aa("obj_type", "publicKeyCode is null").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] gE = gE(str);
-            if (gE == null || gE.length <= 0) {
+            byte[] gC = gC(str);
+            if (gC == null || gC.length <= 0) {
                 TiebaStatic.log(new as("c10836").aa("obj_type", "server_data is null").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] b = com.baidu.adp.lib.util.v.b(p, gE);
+            byte[] b = com.baidu.adp.lib.util.v.b(p, gC);
             if (b == null || b.length <= 0) {
                 TiebaStatic.log(new as("c10836").aa("obj_type", "des is null").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
@@ -61,7 +61,7 @@ public class ai {
         return digit;
     }
 
-    public static byte[] gE(String str) {
+    public static byte[] gC(String str) {
         int i = 0;
         if (str == null) {
             throw new IllegalArgumentException("binary string is null");

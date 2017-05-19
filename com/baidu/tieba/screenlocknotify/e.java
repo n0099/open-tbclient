@@ -7,7 +7,7 @@ import com.baidu.tieba.screenlocknotify.loadmore.ScreenLockLoadMoreHttpResponseM
 import com.baidu.tieba.screenlocknotify.loadmore.ScreenLockLoadMoreSocketResponseMessage;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class e extends com.baidu.adp.framework.listener.a {
     final /* synthetic */ ScreenLockActivity this$0;
 
@@ -31,11 +31,11 @@ class e extends com.baidu.adp.framework.listener.a {
             if ((responsedMessage instanceof ScreenLockLoadMoreHttpResponseMessage) || (responsedMessage instanceof ScreenLockLoadMoreSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
                     this.this$0.showToast(TextUtils.isEmpty(responsedMessage.getErrorString()) ? this.this$0.getResources().getString(w.l.screen_notify_load_error) : responsedMessage.getErrorString());
-                    textView3 = this.this$0.fic;
+                    textView3 = this.this$0.fdZ;
                     if (textView3 != null) {
-                        textView4 = this.this$0.fic;
+                        textView4 = this.this$0.fdZ;
                         textView4.setText(this.this$0.getResources().getString(w.l.data_load_error));
-                        textView5 = this.this$0.fic;
+                        textView5 = this.this$0.fdZ;
                         textView5.setEnabled(true);
                         return;
                     }
@@ -47,18 +47,18 @@ class e extends com.baidu.adp.framework.listener.a {
                     data = responsedMessage instanceof ScreenLockLoadMoreSocketResponseMessage ? ((ScreenLockLoadMoreSocketResponseMessage) responsedMessage).getData() : null;
                 }
                 if (data != null) {
-                    ArrayList<s> bce = data.bce();
-                    if (this.this$0.fhZ != null) {
-                        this.this$0.fhZ.cC(bce);
+                    ArrayList<s> aZD = data.aZD();
+                    if (this.this$0.fdW != null) {
+                        this.this$0.fdW.cs(aZD);
                     }
                     if (!data.isHasMore()) {
-                        this.this$0.fhZ.setHasMore(false);
-                        textView = this.this$0.fic;
+                        this.this$0.fdW.setHasMore(false);
+                        textView = this.this$0.fdZ;
                         if (textView != null) {
-                            DynamicHeightListView dynamicHeightListView = this.this$0.fhY;
-                            textView2 = this.this$0.fic;
+                            DynamicHeightListView dynamicHeightListView = this.this$0.fdV;
+                            textView2 = this.this$0.fdZ;
                             dynamicHeightListView.removeFooterView(textView2);
-                            this.this$0.fic = null;
+                            this.this$0.fdZ = null;
                         }
                     }
                 }

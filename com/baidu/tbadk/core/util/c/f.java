@@ -25,7 +25,7 @@ public class f extends a {
     @Override // com.baidu.tbadk.core.util.c.a
     public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a b = super.b(str, str2, objArr);
-        if (b != null && b.kS() != null && b.kS().isRecycled()) {
+        if (b != null && b.kR() != null && b.kR().isRecycled()) {
             return null;
         }
         return b;
@@ -52,17 +52,17 @@ public class f extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wC() {
+    public boolean vQ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wD() {
+    public boolean vR() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int wE() {
+    public int vS() {
         return this.procType;
     }
 }

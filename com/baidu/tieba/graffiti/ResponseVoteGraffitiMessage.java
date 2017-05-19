@@ -1,5 +1,6 @@
 package com.baidu.tieba.graffiti;
 
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.w;
@@ -38,7 +39,7 @@ public class ResponseVoteGraffitiMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
             try {
                 this.mErrCode = jSONObject.optInt("error_code");
-                this.mErrMsg = jSONObject.optString("error_msg");
+                this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
             } catch (Exception e) {
             }
         }

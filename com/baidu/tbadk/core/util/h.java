@@ -6,7 +6,7 @@ class h implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         Toast toast;
-        toast = g.zc;
+        toast = g.zd;
         toast.cancel();
     }
 }

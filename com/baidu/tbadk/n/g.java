@@ -1,7 +1,7 @@
 package com.baidu.tbadk.n;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.lib.b.a {
-    public static final String[] aIs = {"com.baidu.browser"};
+    public static final String[] aIw = {"com.baidu.browser"};
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
@@ -15,7 +15,7 @@ public class g extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] eQ() {
-        return aIs;
+        return aIw;
     }
 
     @Override // com.baidu.adp.lib.b.a

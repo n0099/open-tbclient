@@ -67,6 +67,7 @@ public class TbConfig {
     public static final String CMD_GET_BOOK_SUMMARY = "c/e/tbread/getBookSummary";
     public static final String CMD_GET_BOTTLE_FORUM_LIST = "c/f/recommend/recommendForumListForBottle";
     public static final String CMD_GET_CATEGORY_CARTOON = "c/e/cartoon/getCartoonCategoryList";
+    public static final String CMD_GET_REPOST_FORUM_LIST = "c/f/recommend/getRepostRecommendForum";
     public static final String CMD_SCREEN_LOCK_MESSAGE_MORE = "c/f/msg/getMoreMsg";
     public static final String CMD_VIDEO_SET_TOP = "c/c/video/setTop";
     public static final String COMMIT_GOOD_ADDRESS = "c/c/bawu/commitgood";
@@ -260,6 +261,7 @@ public class TbConfig {
     public static final String NEG_FEED_BACK = "c/c/excellent/submitDislike";
     public static final int NET_MSG_GETLENTH = 900002;
     public static final int NET_MSG_TOTALLENTH = 900001;
+    public static final int NEW_FRAME_MUTI_IMAGE_MAX_COUNT = 10;
     public static final int NOTIFY_AT_ME_ID = 25;
     public static final int NOTIFY_CHAT_ID = 16;
     public static final int NOTIFY_FANS_NEW_ID = 26;
@@ -282,13 +284,14 @@ public class TbConfig {
     public static final int NOTIFY_YUN_PUSH = 2500;
     public static final long ONE_DAY_TIME = 86400000;
     public static final String OP_BOOKRACK = "c/c/encourage/tbread/opBookrack";
-    public static final int PB_DEFAULT_CONTENT_TEXT_SIZE = 16;
+    public static final int PB_DEFAULT_CONTENT_TEXT_SIZE = 18;
     public static final int PB_DEFAULT_NAME_TEXT_SIZE = 11;
     public static final String PB_FLOOR_AGREE_URL = "c/c/agree/opAgree";
     public static final int PB_IMAGE_DIP_MAX_WIDTH = 427;
     public static final int PB_IMAGE_MAX_HEIGHT = 105;
     public static final int PB_IMAGE_MAX_WIDTH = 105;
     public static final float PB_IMAGE_NEW_SCALE = 1.6f;
+    public static final String PB_MORE_GOD_REPLY_URL = "/c/f/pb/getPostList";
     public static final int PB_PHOTO_MAX_SIZE = 80;
     public static final int PB_PHOTO_QUALITY = 80;
     public static final String PB_SET_DECLARE_URL = "c/c/thread/setDeclare";
@@ -438,6 +441,7 @@ public class TbConfig {
     public static final String VOTE_GRAFFITI = "c/c/graffiti/vote";
     public static final int WEBP_FAILURE_MAX = 5;
     public static final String WEB_URL_FANS = "http://tieba.baidu.com/n/fans-party/prizeshow?nonavigationbar=1&from=native";
+    public static final String WEB_URL_MAIN_THREAD_PRAISE_LIST = "https://tieba.baidu.com/n/apage-runtime/page/agree_list?";
     public static final String WEB_URL_TDOU_UEG = "http://tieba.baidu.com/mo/q/nativePayUeg?errorno=";
     public static final String WEB_VIEW_JUMP2NATIVE = "jump_tieba_native=1";
     public static final String WEIXIN_APP_ID = "wxdd0912f3a78239c8";
@@ -640,7 +644,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.EJ().eR(i);
+            c.DN().eN(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -728,13 +732,13 @@ public class TbConfig {
     public static int getContentSize() {
         switch (TbadkCoreApplication.m9getInst().getFontSize()) {
             case 0:
-                return 20;
+                return 22;
             case 1:
-                return 18;
+                return 20;
             case 2:
-                return 17;
+                return 19;
             default:
-                return 16;
+                return 18;
         }
     }
 
@@ -743,7 +747,7 @@ public class TbConfig {
     }
 
     public static int getContentSizeOfLzl(Context context) {
-        return context.getResources().getDisplayMetrics().density >= 2.0f ? 14 : 12;
+        return context.getResources().getDisplayMetrics().density >= 2.0f ? 16 : 14;
     }
 
     public static final String getBroadcastActionPageChanged() {

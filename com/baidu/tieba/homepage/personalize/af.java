@@ -1,22 +1,23 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.e.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af extends CustomMessageListener {
-    final /* synthetic */ n this$0;
+public class af implements a.InterfaceC0059a {
+    final /* synthetic */ o this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public af(n nVar, int i) {
-        super(i);
-        this.this$0 = nVar;
+    public af(o oVar) {
+        this.this$0 = oVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.this$0.akw();
+    @Override // com.baidu.tieba.e.a.InterfaceC0059a
+    public void W(int i, int i2) {
+        this.this$0.aRE = true;
+    }
+
+    @Override // com.baidu.tieba.e.a.InterfaceC0059a
+    public void X(int i, int i2) {
+        this.this$0.aRE = false;
     }
 }

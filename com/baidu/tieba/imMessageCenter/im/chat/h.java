@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.RequestPersonalLbsInfoMessage;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class h implements a.InterfaceC0004a {
-    final /* synthetic */ PersonalChatActivity djA;
+    final /* synthetic */ PersonalChatActivity ddC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PersonalChatActivity personalChatActivity) {
-        this.djA = personalChatActivity;
+        this.ddC = personalChatActivity;
     }
 
     @Override // com.baidu.adp.lib.d.a.InterfaceC0004a
@@ -21,11 +21,11 @@ class h implements a.InterfaceC0004a {
         if (i == 0 && address != null) {
             String valueOf = String.valueOf(address.getLatitude());
             String valueOf2 = String.valueOf(address.getLongitude());
-            msglistModel = this.djA.cQL;
+            msglistModel = this.ddC.cKN;
             UserData user = ((PersonalMsglistModel) msglistModel).getUser();
             if (user != null) {
-                this.djA.mUser = user;
-                this.djA.sendMessage(new RequestPersonalLbsInfoMessage(205101, user.getUserIdLong(), valueOf, valueOf2));
+                this.ddC.mUser = user;
+                this.ddC.sendMessage(new RequestPersonalLbsInfoMessage(205101, user.getUserIdLong(), valueOf, valueOf2));
             }
         }
     }

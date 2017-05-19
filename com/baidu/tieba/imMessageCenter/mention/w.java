@@ -5,13 +5,13 @@ import android.widget.AdapterView;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class w implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ l dmU;
+    final /* synthetic */ l dgY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(l lVar) {
-        this.dmU = lVar;
+        this.dgY = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -21,14 +21,14 @@ public class w implements AdapterView.OnItemLongClickListener {
         if (i <= 1) {
             return false;
         }
-        l lVar = this.dmU;
-        messageAggregationListAdapter = this.dmU.dmN;
-        lVar.djV = messageAggregationListAdapter.getItem(i);
-        l lVar2 = this.dmU;
-        imMessageCenterShowItemData = this.dmU.djV;
+        l lVar = this.dgY;
+        messageAggregationListAdapter = this.dgY.dgR;
+        lVar.ddX = messageAggregationListAdapter.getItem(i);
+        l lVar2 = this.dgY;
+        imMessageCenterShowItemData = this.dgY.ddX;
         lVar2.c(imMessageCenterShowItemData);
-        if (this.dmU.dka != null) {
-            this.dmU.dka.tT();
+        if (this.dgY.dec != null) {
+            this.dgY.dec.tg();
             return true;
         }
         return true;

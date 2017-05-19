@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ AddFriendActivity djo;
+    final /* synthetic */ AddFriendActivity ddp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AddFriendActivity addFriendActivity) {
-        this.djo = addFriendActivity;
+        this.ddp = addFriendActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,15 +21,15 @@ public class d implements View.OnClickListener {
         InputMethodManager inputMethodManager;
         EditText editText;
         EditText editText2;
-        AddFriendActivity addFriendActivity = this.djo;
-        inputMethodManager = this.djo.clN;
-        editText = this.djo.dji;
+        AddFriendActivity addFriendActivity = this.ddp;
+        inputMethodManager = this.ddp.ciK;
+        editText = this.ddp.ddj;
         addFriendActivity.HidenSoftKeyPad(inputMethodManager, editText);
         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
-            editText2 = this.djo.dji;
-            this.djo.hp(editText2.getText().toString());
+            editText2 = this.ddp.ddj;
+            this.ddp.hn(editText2.getText().toString());
             return;
         }
-        this.djo.showToast(w.l.plugin_not_install);
+        this.ddp.showToast(w.l.plugin_not_install);
     }
 }

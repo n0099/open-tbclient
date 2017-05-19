@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
     private Class<? extends SocketResponsedMessage> mResponsedClass;
-    private boolean rd;
     private boolean re;
     private boolean rf;
-    private DupLicateMode rg;
+    private boolean rg;
+    private DupLicateMode rh;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -17,7 +17,7 @@ public class SocketMessageTask extends MessageTask {
         REMOVE_WAITING,
         REMOVE_ALL;
 
-        /* JADX DEBUG: Replace access to removed values field (rh) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (ri) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static DupLicateMode[] valuesCustom() {
             DupLicateMode[] valuesCustom = values();
@@ -30,10 +30,10 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.rd = false;
         this.re = false;
-        this.rf = true;
-        this.rg = DupLicateMode.NONE;
+        this.rf = false;
+        this.rg = true;
+        this.rh = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -42,19 +42,19 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public void m(boolean z) {
-        this.rd = z;
+        this.re = z;
     }
 
     public boolean dz() {
-        return this.rd;
-    }
-
-    public boolean dA() {
         return this.re;
     }
 
+    public boolean dA() {
+        return this.rf;
+    }
+
     public void n(boolean z) {
-        this.re = z;
+        this.rf = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -66,18 +66,18 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public boolean dB() {
-        return this.rf;
-    }
-
-    public void o(boolean z) {
-        this.rf = z;
-    }
-
-    public DupLicateMode dC() {
         return this.rg;
     }
 
+    public void o(boolean z) {
+        this.rg = z;
+    }
+
+    public DupLicateMode dC() {
+        return this.rh;
+    }
+
     public void a(DupLicateMode dupLicateMode) {
-        this.rg = dupLicateMode;
+        this.rh = dupLicateMode;
     }
 }

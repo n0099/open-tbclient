@@ -1,19 +1,19 @@
 package com.baidu.tbadk.core.frameworkData;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.u;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class g {
-    public static void initial() {
-        try {
-            if (az.loadStaticClasses()) {
-                BdLog.i("loadStaticClasses success");
-            } else {
-                u.hM();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+class g extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
+            com.baidu.tbadk.coreExtra.websocketBase.d.Bs().ek(((Integer) customResponsedMessage.getData()).intValue());
         }
     }
 }

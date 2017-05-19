@@ -1,41 +1,36 @@
 package com.baidu.tieba.homepage.framework;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import tbclient.Personalized.TagInfo;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tbadk.mvc.model.CacheModel;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends CustomMessageListener {
-    final /* synthetic */ RecommendFrsControlFragment cwt;
+public class e implements CacheModel.a<com.baidu.tieba.myCollection.baseHistory.a> {
+    final /* synthetic */ RecommendFrsControlFragment ctq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(RecommendFrsControlFragment recommendFrsControlFragment, int i) {
-        super(i);
-        this.cwt = recommendFrsControlFragment;
+    public e(RecommendFrsControlFragment recommendFrsControlFragment) {
+        this.ctq = recommendFrsControlFragment;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ScrollFragmentTabHost scrollFragmentTabHost;
-        ScrollFragmentTabHost scrollFragmentTabHost2;
-        ScrollFragmentTabHost scrollFragmentTabHost3;
-        if (customResponsedMessage != null) {
-            Object data = customResponsedMessage.getData();
-            if (data instanceof TagInfo) {
-                TagInfo tagInfo = (TagInfo) data;
-                scrollFragmentTabHost = this.cwt.cwf;
-                if (scrollFragmentTabHost != null) {
-                    scrollFragmentTabHost2 = this.cwt.cwf;
-                    int bk = scrollFragmentTabHost2.bk(tagInfo.tag_code.longValue());
-                    if (bk >= 0) {
-                        scrollFragmentTabHost3 = this.cwt.cwf;
-                        scrollFragmentTabHost3.setCurrentTab(bk);
-                    }
+    @Override // com.baidu.tbadk.mvc.model.CacheModel.a
+    public void a(ReadCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.a>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.myCollection.baseHistory.a> readCacheMessage) {
+        if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && (readCacheRespMsg.getData() instanceof List)) {
+            com.baidu.tieba.tbadkCore.util.n godFeedReadHistory = TbadkCoreApplication.m9getInst().getGodFeedReadHistory();
+            for (com.baidu.tieba.myCollection.baseHistory.a aVar : readCacheRespMsg.getData()) {
+                if (aVar != null && !StringUtils.isNull(aVar.getThreadId()) && godFeedReadHistory != null) {
+                    godFeedReadHistory.a(aVar.getThreadId(), aVar);
                 }
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.CacheModel.a
+    public void a(WriteCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.a>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.myCollection.baseHistory.a> writeCacheMessage) {
     }
 }

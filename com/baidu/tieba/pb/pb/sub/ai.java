@@ -7,13 +7,13 @@ import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class ai extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity evm;
+    final /* synthetic */ NewSubPbActivity eqU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ai(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.evm = newSubPbActivity;
+        this.eqU = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,23 +27,23 @@ class ai extends CustomMessageListener {
         com.baidu.adp.base.g gVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.evm.evh;
+            bdUniqueId = this.eqU.eqP;
             if (tag == bdUniqueId) {
-                aoVar = this.evm.euX;
-                aoVar.aJt();
+                aoVar = this.eqU.eqF;
+                aoVar.aGA();
                 UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
                 if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    hVar2 = this.evm.ely;
-                    gVar2 = this.evm.elx;
+                    hVar2 = this.eqU.egK;
+                    gVar2 = this.eqU.egJ;
                     hVar2.c(gVar2.getResources().getString(w.l.un_mute_success));
                     return;
                 }
                 String muteMessage = userMuteDelResponseMessage.getMuteMessage();
                 if (com.baidu.tbadk.core.util.au.isEmpty(muteMessage)) {
-                    gVar = this.evm.elx;
+                    gVar = this.eqU.egJ;
                     muteMessage = gVar.getResources().getString(w.l.un_mute_fail);
                 }
-                hVar = this.evm.ely;
+                hVar = this.eqU.egK;
                 hVar.d(muteMessage);
             }
         }

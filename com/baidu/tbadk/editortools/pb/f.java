@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tbadkCore.z;
+import com.baidu.tieba.tbadkCore.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements NewWriteModel.d {
-    final /* synthetic */ c aBi;
+    final /* synthetic */ c aBh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.aBi = cVar;
+        this.aBh = cVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -35,48 +35,48 @@ public class f implements NewWriteModel.d {
         String str;
         NewWriteModel newWriteModel2;
         if (writeData == null) {
-            newWriteModel2 = this.aBi.aAR;
+            newWriteModel2 = this.aBh.aAP;
             writeData2 = newWriteModel2.getWriteData();
         } else {
             writeData2 = writeData;
         }
         if (!z) {
-            if (writeData2 != null && qVar != null && !TextUtils.isEmpty(qVar.yG())) {
+            if (writeData2 != null && qVar != null && !TextUtils.isEmpty(qVar.xU())) {
                 writeData2.setVcodeMD5(qVar.getVcode_md5());
                 writeData2.setVcodeUrl(qVar.getVcode_pic_url());
-                writeData2.setVcodeExtra(qVar.yH());
-                if (com.baidu.tbadk.o.a.gt(qVar.yG())) {
+                writeData2.setVcodeExtra(qVar.xV());
+                if (com.baidu.tbadk.o.a.gr(qVar.xU())) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    baseActivity3 = this.aBi.mContext;
-                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(baseActivity3.getActivity(), 12006, writeData2, false, qVar.yG())));
+                    baseActivity3 = this.aBh.mContext;
+                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(baseActivity3.getActivity(), 12006, writeData2, false, qVar.xU())));
                 } else {
                     MessageManager messageManager2 = MessageManager.getInstance();
-                    baseActivity2 = this.aBi.mContext;
+                    baseActivity2 = this.aBh.mContext;
                     messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(baseActivity2.getActivity(), writeData2, 12006)));
                 }
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
                 MessageManager messageManager3 = MessageManager.getInstance();
-                baseActivity = this.aBi.mContext;
+                baseActivity = this.aBh.mContext;
                 messageManager3.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(baseActivity.getActivity(), 12006, writeData2, postWriteCallBackData.getAccessState())));
             }
         } else {
-            this.aBi.bK(true);
-            newWriteModel = this.aBi.aAR;
+            this.aBh.bL(true);
+            newWriteModel = this.aBh.aAP;
             WriteData writeData3 = newWriteModel.getWriteData();
-            this.aBi.resetData();
-            str = this.aBi.mThreadId;
-            z.c(str, (WriteData) null);
+            this.aBh.resetData();
+            str = this.aBh.mThreadId;
+            x.c(str, (WriteData) null);
             if (writeData3 != null) {
                 if (writeData3 != null && writeData3.getType() == 2) {
-                    z.a(writeData3.getThreadId(), this.aBi);
+                    x.a(writeData3.getThreadId(), this.aBh);
                 }
             } else {
                 return;
             }
         }
-        dVar = this.aBi.aAZ;
+        dVar = this.aBh.aAX;
         if (dVar != null) {
-            dVar2 = this.aBi.aAZ;
+            dVar2 = this.aBh.aAX;
             dVar2.callback(z, postWriteCallBackData, qVar, writeData2, antiData);
         }
     }

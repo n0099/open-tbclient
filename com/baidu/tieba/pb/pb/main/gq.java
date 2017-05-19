@@ -1,82 +1,54 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
-import com.baidu.tbadk.widget.TbImageView;
+import android.util.SparseArray;
+import android.view.View;
 import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class gq extends LinearLayout {
-    private LinearLayout aIA;
-    private TextView aOz;
-    private TextView auQ;
-    private TbImageView cMT;
-    private EditText cgw;
-    private ShareFromPBMsgData diO;
+public class gq implements View.OnClickListener {
+    final /* synthetic */ fm epr;
 
-    public EditText getChatMsgView() {
-        return this.cgw;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public gq(fm fmVar) {
+        this.epr = fmVar;
     }
 
-    public void G(String str, boolean z) {
-        if (this.cMT != null) {
-            this.cMT.c(str, z ? 17 : 18, false);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        PbActivity pbActivity3;
+        PbActivity pbActivity4;
+        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            boolean booleanValue = sparseArray.get(w.h.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_should_manage_visible)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(w.h.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_user_mute_visible)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(w.h.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_should_delete_visible)).booleanValue() : false;
+            if (booleanValue) {
+                if (com.baidu.tieba.c.a.SJ()) {
+                    pbActivity3 = this.epr.efF;
+                    Context baseContext = pbActivity3.getBaseContext();
+                    pbActivity4 = this.epr.efF;
+                    if (com.baidu.tieba.c.a.a(baseContext, pbActivity4.aIN().getThreadID(), (String) sparseArray.get(w.h.tag_subpb_main_floor_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue())) {
+                        return;
+                    }
+                }
+                if (booleanValue2) {
+                    sparseArray.put(w.h.tag_from, 1);
+                    pbActivity2 = this.epr.efF;
+                    pbActivity2.d(sparseArray);
+                    return;
+                }
+                this.epr.aW(view);
+            } else if (booleanValue2) {
+                sparseArray.put(w.h.tag_from, 0);
+                sparseArray.put(w.h.tag_check_mute_from, 1);
+                pbActivity = this.epr.efF;
+                pbActivity.d(sparseArray);
+            } else if (booleanValue3) {
+                this.epr.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
+            }
         }
-    }
-
-    public gq(Context context) {
-        super(context);
-        bm(context);
-    }
-
-    private void bm(Context context) {
-        LayoutInflater.from(context).inflate(w.j.thread_to_group_share_view, this);
-        setOrientation(1);
-        this.aIA = (LinearLayout) findViewById(w.h.share_content);
-        this.auQ = (TextView) findViewById(w.h.share_title_view);
-        this.cgw = (EditText) findViewById(w.h.chat_msg);
-        this.cMT = (TbImageView) findViewById(w.h.chat_group_img);
-        this.aOz = (TextView) findViewById(w.h.chat_group_desc);
-        com.baidu.tbadk.core.util.aq.c(this.auQ, w.e.cp_cont_b, 1);
-        com.baidu.tbadk.core.util.aq.c(this.cgw, w.e.cp_cont_b, 2);
-        com.baidu.tbadk.core.util.aq.c(this.aOz, w.e.cp_cont_f, 1);
-        this.cgw.setHintTextColor(com.baidu.tbadk.core.util.aq.getColor(w.e.cp_cont_e));
-        this.cgw.setPadding(context.getResources().getDimensionPixelSize(w.f.ds20), 0, 0, 0);
-        afA();
-    }
-
-    public void afA() {
-        this.aIA.setFocusable(true);
-        this.aIA.setFocusableInTouchMode(true);
-        this.aIA.requestFocus();
-    }
-
-    public String getLeaveMsg() {
-        if (this.cgw != null) {
-            return com.baidu.adp.lib.util.j.a(this.cgw.getText(), null);
-        }
-        return null;
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup
-    protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
-        return new LinearLayout.LayoutParams(-1, -2);
-    }
-
-    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.diO = shareFromPBMsgData;
-        wU();
-    }
-
-    private void wU() {
-        this.auQ.setText(this.diO.getTitle());
-        BdLog.e("mData.getImageUrl()的图片URL" + this.diO.getImageUrl());
-        this.cMT.setTag(this.diO.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.diO.getContent());
-        this.aOz.setText(this.diO.getContent());
     }
 }

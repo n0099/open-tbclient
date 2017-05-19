@@ -1,42 +1,63 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.pb.pb.main.ee;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import java.util.List;
 /* loaded from: classes.dex */
-class ap extends CustomMessageListener {
-    final /* synthetic */ PbActivity emk;
+class ap implements ee.a {
+    final /* synthetic */ PbActivity ehy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ap(PbActivity pbActivity, int i) {
-        super(i);
-        this.emk = pbActivity;
+    public ap(PbActivity pbActivity) {
+        this.ehy = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tieba.pb.pb.main.ee.a
+    public void onSuccess(List<PostData> list) {
         PbModel pbModel;
-        com.baidu.tbadk.editortools.pb.c cVar;
-        ey eyVar;
-        com.baidu.tbadk.editortools.pb.c cVar2;
-        ey eyVar2;
-        ey eyVar3;
-        com.baidu.tbadk.editortools.pb.c cVar3;
-        pbModel = this.emk.ekv;
-        if (pbModel != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            cVar = this.emk.elu;
-            if (cVar != null) {
-                eyVar3 = this.emk.eli;
-                cVar3 = this.emk.elu;
-                eyVar3.gL(cVar3.DU());
+        fm fmVar;
+        PbModel pbModel2;
+        fm fmVar2;
+        fm fmVar3;
+        fm fmVar4;
+        PbModel pbModel3;
+        PbModel pbModel4;
+        PbModel pbModel5;
+        PbModel pbModel6;
+        pbModel = this.ehy.efE;
+        if (pbModel.getPbData().aHQ() != null) {
+            pbModel3 = this.ehy.efE;
+            List<PostData> list2 = pbModel3.getPbData().aHQ().edU;
+            int size = list2.size();
+            if (!com.baidu.tbadk.core.util.x.r(list2)) {
+                pbModel6 = this.ehy.efE;
+                pbModel6.getPbData().aHQ().edU.addAll(size, list);
             }
-            eyVar = this.emk.eli;
-            eyVar.aNU();
-            cVar2 = this.emk.elu;
-            cVar2.DX();
-            eyVar2 = this.emk.eli;
-            eyVar2.axI();
+            pbModel4 = this.ehy.efE;
+            pbModel5 = this.ehy.efE;
+            pbModel4.a(pbModel5.getPbData(), size);
+        }
+        fmVar = this.ehy.egt;
+        cq aLy = fmVar.aLy();
+        pbModel2 = this.ehy.efE;
+        aLy.a(pbModel2.getPbData(), true);
+        fmVar2 = this.ehy.egt;
+        if (fmVar2 != null) {
+            fmVar3 = this.ehy.egt;
+            if (fmVar3.aLy() != null) {
+                fmVar4 = this.ehy.egt;
+                fmVar4.aLy().notifyDataSetChanged();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.ee.a
+    public void h(int i, String str, String str2) {
+        fm fmVar;
+        if (!StringUtils.isNull(str)) {
+            fmVar = this.ehy.egt;
+            fmVar.showToast(str);
         }
     }
 }

@@ -4,27 +4,27 @@ import android.os.Handler;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.a.a.a {
-    private String aGg = "dalvikvm";
-    private String[] aGh = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private d aGi = null;
-    private int aFZ = 0;
-    private final int aGj = 10000;
-    private a aGk = null;
-    private final Handler aGl = new k(this);
+    private String aGk = "dalvikvm";
+    private String[] aGl = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
+    private d aGm = null;
+    private int aGd = 0;
+    private final int aGn = 10000;
+    private a aGo = null;
+    private final Handler aGp = new k(this);
 
     /* loaded from: classes.dex */
     public interface a {
-        void fb(int i);
+        void eX(int i);
     }
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
         if (!ck()) {
             super.start();
-            this.aGl.sendEmptyMessageDelayed(0, 10000L);
-            Gv();
+            this.aGp.sendEmptyMessageDelayed(0, 10000L);
+            Fz();
             try {
-                d.a(this.aGg, new l(this));
+                d.a(this.aGk, new l(this));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -34,27 +34,27 @@ public class j extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        Gw();
+        FA();
     }
 
-    private void Gv() {
-        if (this.aGi == null) {
-            this.aGi = new d();
+    private void Fz() {
+        if (this.aGm == null) {
+            this.aGm = new d();
         }
-        if (!this.aGi.ck()) {
-            new Thread(this.aGi).start();
+        if (!this.aGm.ck()) {
+            new Thread(this.aGm).start();
         }
     }
 
-    private void Gw() {
-        if (this.aGi != null && this.aGi.ck()) {
-            this.aGi.stop();
+    private void FA() {
+        if (this.aGm != null && this.aGm.ck()) {
+            this.aGm.stop();
         }
     }
 
     public void a(a aVar) {
-        if (this.aGk == null) {
-            this.aGk = aVar;
+        if (this.aGo == null) {
+            this.aGo = aVar;
         }
     }
 }

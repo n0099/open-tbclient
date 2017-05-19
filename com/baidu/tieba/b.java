@@ -4,74 +4,75 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.recapp.x;
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b aPr;
-    private long aPo;
-    private final int aPm = 2;
-    private final int aPn = 3;
-    private int aPs = -1;
-    private CustomMessageListener aPt = new c(this, CmdConfigCustom.CMD_HOT_SPLASH_SHOW);
-    private CustomMessageListener aPu = new d(this, CmdConfigCustom.CMD_APP_ENTER_BACKGROUND);
-    private CustomMessageListener aPv = new e(this, CmdConfigCustom.CMD_APP_ENTER_FOREGROUND);
-    private CustomMessageListener aPw = new f(this, CmdConfigCustom.CMD_APP_SCREEN_LOCK_STATE_CHANGED);
-    private boolean aPp = false;
-    private boolean aPq = false;
+    private static volatile b aPK;
+    private long aPH;
+    private final int aPF = 2;
+    private final int aPG = 3;
+    private int aPL = -1;
+    private CustomMessageListener aPM = new c(this, CmdConfigCustom.CMD_HOT_SPLASH_SHOW);
+    private CustomMessageListener aPN = new d(this, CmdConfigCustom.CMD_APP_ENTER_BACKGROUND);
+    private CustomMessageListener aPO = new e(this, CmdConfigCustom.CMD_APP_ENTER_FOREGROUND);
+    private CustomMessageListener aPP = new f(this, CmdConfigCustom.CMD_APP_SCREEN_LOCK_STATE_CHANGED);
+    private boolean aPI = false;
+    private boolean aPJ = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b Jl() {
-        if (aPr == null) {
+    public static b Iz() {
+        if (aPK == null) {
             synchronized (b.class) {
-                if (aPr == null) {
-                    aPr = new b();
+                if (aPK == null) {
+                    aPK = new b();
                 }
             }
         }
-        return aPr;
+        return aPK;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.aPu);
-        MessageManager.getInstance().registerListener(this.aPv);
-        MessageManager.getInstance().registerListener(this.aPt);
-        MessageManager.getInstance().registerListener(this.aPw);
-        if (com.baidu.tieba.recapp.v.baQ().baO() != null) {
-            com.baidu.tieba.recapp.v.baQ().baO().baF();
+        MessageManager.getInstance().registerListener(this.aPN);
+        MessageManager.getInstance().registerListener(this.aPO);
+        MessageManager.getInstance().registerListener(this.aPM);
+        MessageManager.getInstance().registerListener(this.aPP);
+        if (x.aYp().aYn() != null) {
+            x.aYp().aYn().aYe();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Jm() {
-        this.aPq = true;
-        this.aPo = System.currentTimeMillis() / 1000;
+    public void IA() {
+        this.aPJ = true;
+        this.aPH = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Jn() {
-        Jo();
-        this.aPq = false;
+    public boolean IB() {
+        IC();
+        this.aPJ = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        if (this.aPp) {
-            this.aPp = false;
+        if (this.aPI) {
+            this.aPI = false;
             return false;
-        } else if (currentTimeMillis - this.aPo <= 2 || currentTimeMillis - this.aPo <= this.aPs) {
+        } else if (currentTimeMillis - this.aPH <= 2 || currentTimeMillis - this.aPH <= this.aPL) {
             return false;
         } else {
-            com.baidu.tieba.recapp.q baO = com.baidu.tieba.recapp.v.baQ().baO();
-            return (baO != null ? baO.baH() : 3) < 3;
+            com.baidu.tieba.recapp.s aYn = x.aYp().aYn();
+            return (aYn != null ? aYn.aYg() : 3) < 3;
         }
     }
 
-    private void Jo() {
+    private void IC() {
         com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.m9getInst().getAdAdSense();
         if (adAdSense != null) {
-            this.aPs = adAdSense.yk();
-            if (this.aPs <= 0) {
-                this.aPs = 86400;
+            this.aPL = adAdSense.xy();
+            if (this.aPL <= 0) {
+                this.aPL = 86400;
                 return;
             }
             return;
         }
-        this.aPs = 300;
+        this.aPL = 300;
     }
 }

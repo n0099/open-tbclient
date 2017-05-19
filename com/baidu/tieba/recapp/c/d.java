@@ -10,47 +10,47 @@ import com.baidu.tbadk.download.DownloadReceiver;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class d {
-    private final RemoteViews fcx = new RemoteViews(TbadkCoreApplication.m9getInst().getPackageName(), w.j.download_notify_view);
+    private final RemoteViews eYp = new RemoteViews(TbadkCoreApplication.m9getInst().getPackageName(), w.j.download_notify_view);
 
     public d(DownloadData downloadData, int i) {
-        qT(i);
-        this.fcx.setTextViewText(w.h.download_status_text, TbadkCoreApplication.m9getInst().getResources().getString(w.l.downloading_app));
-        this.fcx.setImageViewResource(w.h.download_btn, w.g.notify_pause_bg);
-        this.fcx.setImageViewResource(w.h.download_cancel, w.g.notify_cancel_bg);
-        this.fcx.setTextViewText(w.h.downapp_name, downloadData.getUser_name());
+        qL(i);
+        this.eYp.setTextViewText(w.h.download_status_text, TbadkCoreApplication.m9getInst().getResources().getString(w.l.downloading_app));
+        this.eYp.setImageViewResource(w.h.download_btn, w.g.notify_pause_bg);
+        this.eYp.setImageViewResource(w.h.download_cancel, w.g.notify_cancel_bg);
+        this.eYp.setTextViewText(w.h.downapp_name, downloadData.getUser_name());
         com.baidu.adp.lib.f.c.fM().a(downloadData.getApp_icon(), 17, new e(this), BdUniqueId.gen());
         Intent intent = new Intent(TbadkCoreApplication.m9getInst().getContext(), DownloadReceiver.class);
         intent.setAction(DownloadReceiver.ACTION_PAUSE_DOWNLOAD);
         intent.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
-        this.fcx.setOnClickPendingIntent(w.h.download_btn, PendingIntent.getBroadcast(TbadkCoreApplication.m9getInst(), downloadData.getNotifyId(), intent, 134217728));
+        this.eYp.setOnClickPendingIntent(w.h.download_btn, PendingIntent.getBroadcast(TbadkCoreApplication.m9getInst(), downloadData.getNotifyId(), intent, 134217728));
         Intent intent2 = new Intent(TbadkCoreApplication.m9getInst().getContext(), DownloadReceiver.class);
         intent2.setAction(DownloadReceiver.ACTION_CANCEL_DOWNLOAD);
         intent2.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
-        this.fcx.setOnClickPendingIntent(w.h.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.m9getInst(), downloadData.getNotifyId(), intent2, 134217728));
+        this.eYp.setOnClickPendingIntent(w.h.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.m9getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public RemoteViews baX() {
-        return this.fcx;
+    public RemoteViews aYw() {
+        return this.eYp;
     }
 
-    public void baY() {
-        this.fcx.setTextViewText(w.h.download_status_text, TbadkCoreApplication.m9getInst().getResources().getString(w.l.downloading_app));
-        this.fcx.setImageViewResource(w.h.download_btn, w.g.notify_pause_bg);
+    public void aYx() {
+        this.eYp.setTextViewText(w.h.download_status_text, TbadkCoreApplication.m9getInst().getResources().getString(w.l.downloading_app));
+        this.eYp.setImageViewResource(w.h.download_btn, w.g.notify_pause_bg);
     }
 
-    public void baZ() {
-        this.fcx.setTextViewText(w.h.download_status_text, TbadkCoreApplication.m9getInst().getResources().getString(w.l.downloading_app_paused));
-        this.fcx.setImageViewResource(w.h.download_btn, w.g.notify_start_bg);
+    public void aYy() {
+        this.eYp.setTextViewText(w.h.download_status_text, TbadkCoreApplication.m9getInst().getResources().getString(w.l.downloading_app_paused));
+        this.eYp.setImageViewResource(w.h.download_btn, w.g.notify_start_bg);
     }
 
-    public void qT(int i) {
+    public void qL(int i) {
         String str;
         if (i > 0) {
             str = String.valueOf(i) + "%";
         } else {
             str = "0%";
         }
-        this.fcx.setProgressBar(w.h.download_progress, 100, i, false);
-        this.fcx.setTextViewText(w.h.download_progress_text, str);
+        this.eYp.setProgressBar(w.h.download_progress, 100, i, false);
+        this.eYp.setTextViewText(w.h.download_progress_text, str);
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.CheckPost.CheckPostReqIdl;
 import tbclient.CheckPost.ReqData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CheckPostRequestMessage extends TbSocketMessage {
     private String forumName;
     private long pid;

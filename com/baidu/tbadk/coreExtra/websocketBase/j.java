@@ -6,23 +6,23 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements g.a {
-    final /* synthetic */ i awX;
+    final /* synthetic */ i axc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.awX = iVar;
+        this.axc = iVar;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
     public void e(Map<String, String> map) {
         int i;
-        i = this.awX.awS;
+        i = this.axc.awX;
         if (i >= 5) {
             com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.j.getUrl());
-            a.BW().eM(com.baidu.adp.framework.client.socket.j.getUrl());
-            a.BW().Ca();
+            a.Bh().eL(com.baidu.adp.framework.client.socket.j.getUrl());
+            a.Bh().Bl();
         }
-        this.awX.awS = 0;
+        this.axc.awX = 0;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
@@ -30,13 +30,13 @@ public class j implements g.a {
         int i2;
         int i3;
         if ((i == 2 || i == 9) && com.baidu.adp.lib.util.i.hk()) {
-            i iVar = this.awX;
-            i2 = iVar.awS;
-            iVar.awS = i2 + 1;
-            i3 = this.awX.awS;
+            i iVar = this.axc;
+            i2 = iVar.awX;
+            iVar.awX = i2 + 1;
+            i3 = this.axc.awX;
             if (i3 >= 5) {
                 com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist");
-                this.awX.Cs();
+                this.axc.BD();
             }
         }
     }
@@ -46,7 +46,7 @@ public class j implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void hX() {
+    public void hW() {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a

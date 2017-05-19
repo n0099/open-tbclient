@@ -5,11 +5,11 @@ import com.baidu.tieba.horizonalList.widget.AbsHListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ AbsHListView.e cEw;
+    final /* synthetic */ AbsHListView.e cyG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AbsHListView.e eVar) {
-        this.cEw = eVar;
+        this.cyG = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -29,7 +29,7 @@ public class c implements Runnable {
         i = absHListView.mActivePointerId;
         absHListView2 = AbsHListView.this;
         velocityTracker = absHListView2.mVelocityTracker;
-        o oVar = this.cEw.cEt;
+        n nVar = this.cyG.cyD;
         if (velocityTracker != null && i != -1) {
             absHListView3 = AbsHListView.this;
             i2 = absHListView3.mMaximumVelocity;
@@ -38,16 +38,16 @@ public class c implements Runnable {
             float abs = Math.abs(f);
             absHListView4 = AbsHListView.this;
             i3 = absHListView4.mMinimumVelocity;
-            if (abs >= i3 && oVar.h(f, 0.0f)) {
+            if (abs >= i3 && nVar.h(f, 0.0f)) {
                 absHListView7 = AbsHListView.this;
                 absHListView7.postDelayed(this, 40L);
                 return;
             }
-            this.cEw.alB();
+            this.cyG.air();
             absHListView5 = AbsHListView.this;
-            absHListView5.cDx = 3;
+            absHListView5.cxH = 3;
             absHListView6 = AbsHListView.this;
-            absHListView6.kg(1);
+            absHListView6.jU(1);
         }
     }
 }

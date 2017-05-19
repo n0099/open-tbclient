@@ -7,14 +7,14 @@ import com.baidu.tbadk.download.DownloadMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends CustomMessageListener {
-    final /* synthetic */ XiubaTbJsBridge RK;
-    private boolean RL;
+    final /* synthetic */ XiubaTbJsBridge Rc;
+    private boolean Rd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(XiubaTbJsBridge xiubaTbJsBridge, int i) {
         super(i);
-        this.RK = xiubaTbJsBridge;
+        this.Rc = xiubaTbJsBridge;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,16 +26,16 @@ public class ae extends CustomMessageListener {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                         if (downloadData.getStatus() == 5) {
-                            if (!this.RL) {
-                                this.RL = true;
-                                this.RK.callDownloadListener(1);
+                            if (!this.Rd) {
+                                this.Rd = true;
+                                this.Rc.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
-                            this.RK.callDownloadListener(2);
-                            this.RL = false;
+                            this.Rc.callDownloadListener(2);
+                            this.Rd = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
-                            this.RK.callDownloadListener(0);
-                            this.RL = false;
+                            this.Rc.callDownloadListener(0);
+                            this.Rd = false;
                         }
                     }
                 }

@@ -1,32 +1,32 @@
 package com.baidu.tieba.write.write;
 
-import android.text.SpannableStringBuilder;
-import android.widget.EditText;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    private final /* synthetic */ SpannableStringBuilder aAE;
-    private final /* synthetic */ EmotionGroupType aAF;
-    final /* synthetic */ WriteActivity fUM;
+public class au implements a.b {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
-        this.fUM = writeActivity;
-        this.aAE = spannableStringBuilder;
-        this.aAF = emotionGroupType;
+    public au(WriteActivity writeActivity) {
+        this.fSV = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EditText bqs;
-        super.onLoaded((au) aVar, str, i);
-        if (aVar == null) {
-            return;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        aVar.dismiss();
+        writeData = this.fSV.mData;
+        int type = writeData.getType();
+        if (type == 0) {
+            writeData3 = this.fSV.mData;
+            com.baidu.tieba.tbadkCore.x.b(writeData3.getForumId(), (WriteData) null);
+        } else if (type == 1) {
+            writeData2 = this.fSV.mData;
+            com.baidu.tieba.tbadkCore.x.c(writeData2.getThreadId(), (WriteData) null);
         }
-        bqs = this.fUM.bqs();
-        this.fUM.a(this.aAE, bqs.getSelectionStart(), aVar, this.aAF);
+        this.fSV.finish();
     }
 }

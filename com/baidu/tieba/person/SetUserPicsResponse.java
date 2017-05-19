@@ -1,5 +1,6 @@
 package com.baidu.tieba.person;
 
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
@@ -16,7 +17,7 @@ public class SetUserPicsResponse extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
             this.errCode = jSONObject.optInt("error_code");
-            this.errStr = jSONObject.optString("error_msg");
+            this.errStr = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
         }
     }
 

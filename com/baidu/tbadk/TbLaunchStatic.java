@@ -85,7 +85,7 @@ public class TbLaunchStatic {
                             Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
                             TextView I = dVar.I(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
                             if (data.isInsertBack) {
-                                dVar.a(I, dVar.Bg(), (View.OnClickListener) ((Pair) next.second).second);
+                                dVar.a(I, dVar.Ar(), (View.OnClickListener) ((Pair) next.second).second);
                             } else {
                                 dVar.a(I, (View.OnClickListener) ((Pair) next.second).second);
                             }
@@ -106,11 +106,11 @@ public class TbLaunchStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    long j = b.uL().getLong("clear_redundance_files_time", 0L);
+                    long j = b.tX().getLong("clear_redundance_files_time", 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - j > 86400000) {
-                        PluginPackageManager.jy().jP();
-                        b.uL().putLong("clear_redundance_files_time", currentTimeMillis);
+                        PluginPackageManager.jx().jO();
+                        b.tX().putLong("clear_redundance_files_time", currentTimeMillis);
                     }
                 }
             }

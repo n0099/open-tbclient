@@ -407,7 +407,7 @@ public class ColumnLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: kw */
+    /* renamed from: kv */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2, 51, 1);
     }

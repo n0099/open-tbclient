@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.model;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.message.RequestCheckUserMaskMessage;
@@ -19,6 +20,12 @@ public class BlackListModel extends BdBaseModel {
     public BlackListModel(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mMaskType = 2;
+    }
+
+    public BlackListModel(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext);
+        this.mMaskType = 2;
+        setUniqueId(bdUniqueId);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

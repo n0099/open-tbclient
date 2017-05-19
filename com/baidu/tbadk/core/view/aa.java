@@ -1,21 +1,23 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
+import android.view.ViewTreeObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements View.OnClickListener {
-    final /* synthetic */ TbCheckBox alm;
+public class aa implements ViewTreeObserver.OnGlobalLayoutListener {
+    final /* synthetic */ PagerSlidingTabStrip akW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(TbCheckBox tbCheckBox) {
-        this.alm = tbCheckBox;
+    public aa(PagerSlidingTabStrip pagerSlidingTabStrip) {
+        this.akW = pagerSlidingTabStrip;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean xm;
-        TbCheckBox tbCheckBox = this.alm;
-        xm = this.alm.xm();
-        tbCheckBox.setChecked(!xm);
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        int i;
+        this.akW.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+        this.akW.currentPosition = this.akW.akE.getCurrentItem();
+        PagerSlidingTabStrip pagerSlidingTabStrip = this.akW;
+        i = this.akW.currentPosition;
+        pagerSlidingTabStrip.E(i, 0);
     }
 }

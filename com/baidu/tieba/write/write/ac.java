@@ -1,24 +1,18 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.widget.EditText;
+import com.baidu.tieba.write.view.PhotoLiveView.PhotoLiveLinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fUM;
+public class ac implements PhotoLiveLinearLayout.a {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        com.baidu.tbadk.editortools.j jVar;
-        editText = this.fUM.foA;
-        editText.requestFocus();
-        jVar = this.fUM.azf;
-        jVar.BC();
+    @Override // com.baidu.tieba.write.view.PhotoLiveView.PhotoLiveLinearLayout.a
+    public void bnu() {
+        this.fSV.azB();
     }
 }

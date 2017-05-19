@@ -20,14 +20,14 @@ public class aj {
         String str = null;
         try {
             String versionName = TbadkCoreApplication.m9getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.uL().getString("version_name", "");
+            String string = com.baidu.tbadk.core.sharedPref.b.tX().getString("version_name", "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.uL().getString("apk_md5", "");
+                    str = com.baidu.tbadk.core.sharedPref.b.tX().getString("apk_md5", "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.uL().putString("version_name", versionName);
+                    com.baidu.tbadk.core.sharedPref.b.tX().putString("version_name", versionName);
                     String d = aw.d(TbadkCoreApplication.m9getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.uL().putString("apk_md5", d);
+                    com.baidu.tbadk.core.sharedPref.b.tX().putString("apk_md5", d);
                     str = d;
                 }
             }
@@ -50,7 +50,7 @@ public class aj {
     }
 
     public static boolean a(Context context, CombineDownload combineDownload) {
-        return (combineDownload == null || com.baidu.tieba.tbadkCore.ae.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
+        return (combineDownload == null || com.baidu.tieba.tbadkCore.ac.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
     }
 
     public static void a(Context context, VersionData versionData) {

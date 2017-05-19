@@ -7,20 +7,20 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class h extends BaseViewPager {
-    private PointF ati;
-    private com.baidu.tbadk.widget.a atj;
-    private com.baidu.tbadk.widget.a atk;
+    private PointF atm;
+    private com.baidu.tbadk.widget.b atn;
+    private com.baidu.tbadk.widget.b ato;
 
     public h(Context context) {
         super(context);
     }
 
-    public void setCurrentView(com.baidu.tbadk.widget.a aVar) {
-        this.atj = aVar;
+    public void setCurrentView(com.baidu.tbadk.widget.b bVar) {
+        this.atn = bVar;
     }
 
-    public com.baidu.tbadk.widget.a getCurrentView() {
-        return this.atj;
+    public com.baidu.tbadk.widget.b getCurrentView() {
+        return this.atn;
     }
 
     private float[] l(MotionEvent motionEvent) {
@@ -28,9 +28,9 @@ public class h extends BaseViewPager {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.ati.x, pointF.y - this.ati.y};
+                return new float[]{pointF.x - this.atm.x, pointF.y - this.atm.y};
             case 0:
-                this.ati = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.atm = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -40,25 +40,25 @@ public class h extends BaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.atj != null) {
-                this.atj.HA();
+            if (this.atn != null) {
+                this.atn.GL();
             }
         }
-        if (this.atj == null) {
+        if (this.atn == null) {
             return super.onTouchEvent(motionEvent);
         }
         float[] l = l(motionEvent);
-        if (this.atj.HB()) {
+        if (this.atn.GM()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (l != null && this.atj.HF() && l[0] < 0.0f) {
+        if (l != null && this.atn.GQ() && l[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (l != null && this.atj.HG() && l[0] > 0.0f) {
+        if (l != null && this.atn.GR() && l[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         if (l == null) {
-            if (this.atj.HG() || this.atj.HF()) {
+            if (this.atn.GR() || this.atn.GQ()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -72,20 +72,20 @@ public class h extends BaseViewPager {
             super.onInterceptTouchEvent(motionEvent);
         }
         float[] l = l(motionEvent);
-        if (this.atj == null) {
+        if (this.atn == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.atj.HB()) {
+        if (this.atn.GM()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (l != null && this.atj.HF() && l[0] < 0.0f) {
+        if (l != null && this.atn.GQ() && l[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (l != null && this.atj.HG() && l[0] > 0.0f) {
+        if (l != null && this.atn.GR() && l[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         if (l == null) {
-            if (this.atj.HG() || this.atj.HF()) {
+            if (this.atn.GR() || this.atn.GQ()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -93,11 +93,11 @@ public class h extends BaseViewPager {
         return false;
     }
 
-    public void setSelectedView(com.baidu.tbadk.widget.a aVar) {
-        this.atk = aVar;
+    public void setSelectedView(com.baidu.tbadk.widget.b bVar) {
+        this.ato = bVar;
     }
 
-    public com.baidu.tbadk.widget.a getSelectedView() {
-        return this.atk;
+    public com.baidu.tbadk.widget.b getSelectedView() {
+        return this.ato;
     }
 }

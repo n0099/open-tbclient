@@ -2,13 +2,13 @@ package com.baidu.audiorecorder.lib.voice;
 
 import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d implements Runnable {
-    final /* synthetic */ c Kj;
+    final /* synthetic */ c JB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.Kj = cVar;
+        this.JB = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,10 +17,10 @@ public class d implements Runnable {
         Handler handler;
         Runnable runnable;
         long currentTimeMillis = System.currentTimeMillis();
-        j = this.Kj.Kh;
-        this.Kj.aP((int) (currentTimeMillis - j));
-        handler = this.Kj.zC;
-        runnable = this.Kj.mRecordTimeThread;
+        j = this.JB.Jz;
+        this.JB.aM((int) (currentTimeMillis - j));
+        handler = this.JB.zD;
+        runnable = this.JB.mRecordTimeThread;
         handler.postDelayed(runnable, 200L);
     }
 }

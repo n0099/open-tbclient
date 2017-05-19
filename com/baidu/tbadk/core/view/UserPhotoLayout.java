@@ -26,16 +26,16 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes.dex */
     public interface b {
-        void dp(int i);
+        void dn(int i);
     }
 
     /* loaded from: classes.dex */
     public interface d {
         ListView getListView();
 
-        int xv();
+        int wI();
 
-        com.baidu.adp.lib.e.b<HeadImageView> xw();
+        com.baidu.adp.lib.e.b<HeadImageView> wJ();
     }
 
     public void setAutoChangeStyle(boolean z) {
@@ -75,13 +75,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mItemSize = (int) this.mContext.getResources().getDimension(w.f.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.xw();
+            this.mUserPhotoPool = dVar.wJ();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.xv());
+                this.mTbRecyclerListener = new c(dVar.wI());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
-        setOnHierarchyChangeListener(new au(this));
+        setOnHierarchyChangeListener(new bb(this));
     }
 
     @Override // android.view.ViewGroup
@@ -188,7 +188,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.dp(this.mIndex);
+                UserPhotoLayout.this.mChildClickListener.dn(this.mIndex);
             }
         }
     }
@@ -207,7 +207,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     public static com.baidu.adp.lib.e.b<HeadImageView> createUserPhotoPool(Context context, int i) {
-        return new com.baidu.adp.lib.e.b<>(new av(context), i, 0);
+        return new com.baidu.adp.lib.e.b<>(new bc(context), i, 0);
     }
 
     private HeadImageView getImageView(Context context) {

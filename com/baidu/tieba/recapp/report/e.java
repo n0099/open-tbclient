@@ -10,15 +10,15 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.qV(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
-        aVar.qU(i);
-        aVar.pw(advertAppInfo.price);
-        aVar.pu(advertAppInfo.extensionInfo);
+        aVar.qN(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
+        aVar.qM(i);
+        aVar.pu(advertAppInfo.price);
+        aVar.ps(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.py(advertAppInfo.Ug);
-        aVar.pz(advertAppInfo.Uh);
-        aVar.pA(advertAppInfo.Ui);
-        aVar.pB(advertAppInfo.Ty);
+        aVar.pw(advertAppInfo.Ty);
+        aVar.px(advertAppInfo.Tz);
+        aVar.py(advertAppInfo.TA);
+        aVar.pz(advertAppInfo.SR);
         return aVar;
     }
 
@@ -28,61 +28,61 @@ public class e {
         }
         a aVar = new a();
         aVar.setDownloadStaticsData(downloadStaticsData);
-        aVar.qU(i);
+        aVar.qM(i);
         aVar.setPageNumber(i2);
         return aVar;
     }
 
     public static a O(int i, int i2, int i3) {
         a aVar = new a();
-        aVar.qU(i);
-        aVar.qV(i2);
+        aVar.qM(i);
+        aVar.qN(i2);
         aVar.setPageNumber(i3);
         return aVar;
     }
 
     public static a b(o oVar, int i) {
-        if (oVar == null || oVar.bjd() == null) {
+        if (oVar == null || oVar.bgA() == null) {
             return null;
         }
-        AppData bjd = oVar.bjd();
+        AppData bgA = oVar.bgA();
         a aVar = new a();
-        aVar.qV(com.baidu.adp.lib.g.b.g(bjd.pos_name, 0));
-        aVar.pu(bjd.ext_info);
+        aVar.qN(com.baidu.adp.lib.g.b.g(bgA.pos_name, 0));
+        aVar.ps(bgA.ext_info);
         aVar.setPageNumber(oVar.pageNumber);
-        aVar.qU(i);
-        aVar.pw(bjd.price);
-        aVar.py(oVar.Ug);
-        aVar.pz(oVar.Uh);
-        aVar.pA(oVar.forumId);
-        aVar.pB("PB");
+        aVar.qM(i);
+        aVar.pu(bgA.price);
+        aVar.pw(oVar.Ty);
+        aVar.px(oVar.Tz);
+        aVar.py(oVar.forumId);
+        aVar.pz("PB");
         return aVar;
     }
 
     public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4, int i5) {
         a b = b(advertAppInfo, i, i2);
-        b.qW(i3);
-        b.qY(i4);
-        b.qX(i5);
-        b.pB(advertAppInfo.Ty);
+        b.qO(i3);
+        b.qQ(i4);
+        b.qP(i5);
+        b.pz(advertAppInfo.SR);
         if (i == 2) {
-            b.px("video");
+            b.pv("video");
         }
         return b;
     }
 
     public static a h(String str, int i, String str2) {
         a aVar = new a();
-        aVar.qU(i);
-        aVar.pv(str2);
-        aVar.pB("HOMEPAGE");
-        aVar.pu(str);
+        aVar.qM(i);
+        aVar.pt(str2);
+        aVar.pz("HOMEPAGE");
+        aVar.ps(str);
         return aVar;
     }
 
     public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         a b = b(advertAppInfo, i, i2);
-        b.qW(i3);
+        b.qO(i3);
         return b;
     }
 }

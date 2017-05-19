@@ -1,24 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.animation.Animation;
+import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fs extends CustomMessageListener {
-    final /* synthetic */ ey etN;
+public class fs implements Animation.AnimationListener {
+    final /* synthetic */ fm epr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fs(ey eyVar, int i) {
-        super(i);
-        this.etN = eyVar;
+    public fs(fm fmVar) {
+        this.epr = fmVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            this.etN.esK = false;
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        this.epr.emS.setTitleVisibility(false);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ObservedChangeLinearLayout observedChangeLinearLayout;
+        PbActivity pbActivity;
+        observedChangeLinearLayout = this.epr.enF;
+        observedChangeLinearLayout.setVisibility(0);
+        this.epr.emS.setTitleVisibility(true);
+        this.epr.iy(false);
+        pbActivity = this.epr.efF;
+        pbActivity.hW(true);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

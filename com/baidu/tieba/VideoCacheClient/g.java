@@ -4,13 +4,13 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g implements Handler.Callback {
-    final /* synthetic */ f aVo;
+    final /* synthetic */ f aVI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.aVo = fVar;
+        this.aVI = fVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -20,21 +20,21 @@ public class g implements Handler.Callback {
         Handler handler2;
         if (message.what == 1) {
             if (message.obj instanceof String) {
-                this.aVo.gG((String) message.obj);
+                this.aVI.gE((String) message.obj);
             }
         } else if (message.what == 2) {
             if (message.obj instanceof String) {
-                this.aVo.gM((String) message.obj);
+                this.aVI.gK((String) message.obj);
             }
         } else if (message.what == 3) {
             str = f.TAG;
             e.log(str, "got MSG_CHECK");
-            this.aVo.LS();
-            handler = this.aVo.mHandler;
-            handler2 = this.aVo.mHandler;
+            this.aVI.Lg();
+            handler = this.aVI.mHandler;
+            handler2 = this.aVI.mHandler;
             handler.sendMessageDelayed(handler2.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
         } else if (message.what == 4) {
-            this.aVo.LT();
+            this.aVI.Lh();
         }
         return true;
     }

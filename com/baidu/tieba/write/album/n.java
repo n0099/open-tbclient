@@ -1,9 +1,23 @@
 package com.baidu.tieba.write.album;
 
-import java.util.List;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-public interface n {
-    void cW(List<d> list);
+class n implements com.baidu.tbadk.imageManager.b {
+    private final /* synthetic */ ViewGroup aAq;
+    final /* synthetic */ m fMK;
 
-    void ln();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(m mVar, ViewGroup viewGroup) {
+        this.fMK = mVar;
+        this.aAq = viewGroup;
+    }
+
+    @Override // com.baidu.tbadk.imageManager.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        HeadImageView headImageView = (HeadImageView) this.aAq.findViewWithTag(str);
+        if (headImageView != null && aVar != null) {
+            headImageView.invalidate();
+        }
+    }
 }

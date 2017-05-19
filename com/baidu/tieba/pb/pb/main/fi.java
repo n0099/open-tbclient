@@ -1,46 +1,45 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fi implements View.OnClickListener {
-    final /* synthetic */ ey etN;
+public class fi extends dh<com.baidu.tieba.pb.data.k, fj> {
+    private View.OnClickListener aSt;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public fi(ey eyVar) {
-        this.etN = eyVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public fi(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        PbActivity.a aVar;
-        PbActivity.a aVar2;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.etN.esg;
-        if (dialog != null) {
-            dialog2 = this.etN.esg;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.etN.esg;
-                pbActivity = this.etN.ekw;
-                com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bb */
+    public fj onCreateViewHolder(ViewGroup viewGroup) {
+        return new fj(LayoutInflater.from(this.mContext).inflate(w.j.layout_thread_praise_item, viewGroup, false));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.dh, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.k kVar, fj fjVar) {
+        super.onFillViewHolder(i, view, viewGroup, kVar, fjVar);
+        if (kVar != null && fjVar != null) {
+            fjVar.b(kVar);
+            fjVar.emA.setTag(w.h.pb_main_thread_praise_data, kVar);
+            fjVar.emA.setTag(w.h.pb_main_thread_praise_view, fjVar);
+            fjVar.emA.setOnClickListener(this.aSt);
+            fjVar.emB.setOnClickListener(this.aSt);
+            fjVar.emC.setOnClickListener(this.aSt);
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray == null) {
-            return;
-        }
-        aVar = this.etN.etG;
-        if (aVar == null) {
-            return;
-        }
-        aVar2 = this.etN.etG;
-        aVar2.g(new Object[]{sparseArray.get(w.h.tag_manage_user_identity), sparseArray.get(w.h.tag_forbid_user_name), sparseArray.get(w.h.tag_forbid_user_post_id)});
+        return view;
+    }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.aSt = onClickListener;
     }
 }

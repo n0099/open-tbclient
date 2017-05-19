@@ -9,11 +9,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements SubPbModel.a {
-    final /* synthetic */ NewSubPbActivity evm;
+    final /* synthetic */ NewSubPbActivity eqU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(NewSubPbActivity newSubPbActivity) {
-        this.evm = newSubPbActivity;
+        this.eqU = newSubPbActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0050, code lost:
@@ -23,7 +23,7 @@ public class k implements SubPbModel.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(boolean z, int i, String str, com.baidu.tieba.pb.data.j jVar) {
+    public void a(boolean z, int i, String str, com.baidu.tieba.pb.data.l lVar) {
         ao aoVar;
         b bVar;
         ao aoVar2;
@@ -39,48 +39,48 @@ public class k implements SubPbModel.a {
         b bVar2;
         b bVar3;
         ao aoVar5;
-        aoVar = this.evm.euX;
+        aoVar = this.eqU.eqF;
         if (aoVar != null) {
-            aoVar5 = this.evm.euX;
-            aoVar5.aPC();
+            aoVar5 = this.eqU.eqF;
+            aoVar5.aMS();
         }
-        bVar = this.evm.evj;
+        bVar = this.eqU.eqR;
         if (bVar != null) {
-            bVar2 = this.evm.evj;
-            if (bVar2.aPk()) {
-                bVar3 = this.evm.evj;
-                bVar3.oC(w.e.cp_bg_line_k_alpha40);
+            bVar2 = this.eqU.eqR;
+            if (bVar2.aMz()) {
+                bVar3 = this.eqU.eqR;
+                bVar3.os(w.e.cp_bg_line_k_alpha40);
             }
         }
         if (z) {
-            aoVar2 = this.evm.euX;
+            aoVar2 = this.eqU.eqF;
             aoVar2.hideNoDataView();
-            if (jVar != null) {
-                if (jVar.aKW() == null) {
-                    subPbModel4 = this.evm.euV;
+            if (lVar != null) {
+                if (lVar.aIr() == null) {
+                    subPbModel4 = this.eqU.eqD;
                 }
-                PostData aKW = jVar.aKW();
-                subPbModel = this.evm.euV;
-                aKW.a(subPbModel.aQc());
-                aoVar3 = this.evm.euX;
+                PostData aIr = lVar.aIr();
+                subPbModel = this.eqU.eqD;
+                aIr.a(subPbModel.aNs());
+                aoVar3 = this.eqU.eqF;
                 if (aoVar3 != null) {
-                    aoVar4 = this.evm.euX;
-                    subPbModel2 = this.evm.euV;
-                    int aKI = subPbModel2.aKI();
-                    subPbModel3 = this.evm.euV;
-                    aoVar4.a(jVar, aKI, subPbModel3.aQe() != null);
-                    z2 = this.evm.evg;
+                    aoVar4 = this.eqU.eqF;
+                    subPbModel2 = this.eqU.eqD;
+                    int aHR = subPbModel2.aHR();
+                    subPbModel3 = this.eqU.eqD;
+                    aoVar4.a(lVar, aHR, subPbModel3.aNu() != null);
+                    z2 = this.eqU.eqO;
                     if (z2) {
-                        this.evm.aPp();
-                        this.evm.evg = false;
+                        this.eqU.aME();
+                        this.eqU.eqO = false;
                     }
                 }
                 com.baidu.tieba.pb.d dVar = new com.baidu.tieba.pb.d();
-                dVar.setData(jVar);
-                nVar = this.evm.dnB;
+                dVar.setData(lVar);
+                nVar = this.eqU.dhG;
                 if (nVar != null) {
-                    nVar2 = this.evm.dnB;
-                    nVar2.a(jVar.axt());
+                    nVar2 = this.eqU.dhG;
+                    nVar2.a(lVar.aup());
                 }
                 dVar.setType(0);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, dVar));
@@ -88,6 +88,6 @@ public class k implements SubPbModel.a {
             }
             return;
         }
-        this.evm.M(i, str);
+        this.eqU.N(i, str);
     }
 }

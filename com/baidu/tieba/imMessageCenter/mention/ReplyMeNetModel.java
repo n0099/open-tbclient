@@ -5,39 +5,39 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-/* loaded from: classes.dex */
-public class ReplyMeNetModel extends NetAutoModel<as, at, ReplyMessageActivity> {
-    public ReplyMeNetModel(TbPageContext<ReplyMessageActivity> tbPageContext, as asVar) {
-        super(tbPageContext, asVar);
+/* loaded from: classes2.dex */
+public class ReplyMeNetModel extends NetAutoModel<at, au, ReplyMessageActivity> {
+    public ReplyMeNetModel(TbPageContext<ReplyMessageActivity> tbPageContext, at atVar) {
+        super(tbPageContext, atVar);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> FE() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> EI() {
         return ReplyMeHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> FG() {
+    protected Class<? extends MvcSocketResponsedMessage> EK() {
         return ReplyMeSocketResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Fy() {
+    protected int EC() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String FA() {
+    protected String EE() {
         return "c/u/feed/replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<at> getResponseDataClass() {
-        return at.class;
+    protected Class<au> getResponseDataClass() {
+        return au.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Fz() {
+    protected int ED() {
         return 303007;
     }
 }

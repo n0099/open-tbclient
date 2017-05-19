@@ -1,27 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
-import com.baidu.tieba.tbadkCore.data.PostData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.inputmethod.InputMethodManager;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class gi implements PbFakeFloorModel.a {
-    final /* synthetic */ ey etN;
+class gi implements Runnable {
+    final /* synthetic */ gh epv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gi(ey eyVar) {
-        this.etN = eyVar;
+    public gi(gh ghVar) {
+        this.epv = ghVar;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel.a
-    public void i(PostData postData) {
-        PbFakeFloorModel pbFakeFloorModel;
-        cn cnVar;
-        dc dcVar;
-        pbFakeFloorModel = this.etN.ens;
-        pbFakeFloorModel.j(postData);
-        cnVar = this.etN.erY;
-        cnVar.notifyDataSetChanged();
-        dcVar = this.etN.etg;
-        dcVar.aMl();
+    @Override // java.lang.Runnable
+    public void run() {
+        fm fmVar;
+        PbActivity pbActivity;
+        fm fmVar2;
+        PbActivity pbActivity2;
+        fm fmVar3;
+        RelativeLayout relativeLayout;
+        fmVar = this.epv.epr;
+        pbActivity = fmVar.efF;
+        fmVar2 = this.epv.epr;
+        pbActivity2 = fmVar2.efF;
+        fmVar3 = this.epv.epr;
+        relativeLayout = fmVar3.bGH;
+        pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
     }
 }

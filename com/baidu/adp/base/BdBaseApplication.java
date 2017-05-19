@@ -29,7 +29,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.jo().init();
+        com.baidu.adp.plugin.c.a.jn().init();
     }
 
     public static BdBaseApplication getInst() {

@@ -8,11 +8,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements c.b {
-    final /* synthetic */ AbsMsgImageActivity cOQ;
+    final /* synthetic */ AbsMsgImageActivity cIT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.cOQ = absMsgImageActivity;
+        this.cIT = absMsgImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -21,22 +21,22 @@ public class e implements c.b {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         AbsMsgImageActivity.a aVar;
-        listMenu = this.cOQ.getListMenu();
+        listMenu = this.cIT.getListMenu();
         if (cVar == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.cOQ.cOE;
+                        multiImageView = this.cIT.cIH;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.cOQ.cOE;
+                            multiImageView2 = this.cIT.cIH;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.cOQ.cOB = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
-                            aVar = this.cOQ.cOB;
+                            this.cIT.cIE = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
+                            aVar = this.cIT.cIE;
                             aVar.execute(new String[0]);
-                            this.cOQ.cOC.setClickable(false);
+                            this.cIT.cIF.setClickable(false);
                         } else {
-                            this.cOQ.showToast(this.cOQ.getPageContext().getString(w.l.no_data));
+                            this.cIT.showToast(this.cIT.getPageContext().getString(w.l.no_data));
                         }
                         break;
                     } catch (Exception e) {

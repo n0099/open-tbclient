@@ -18,7 +18,7 @@ public class b {
     public static void b(AccountData accountData) {
         if (accountData != null && accountData.getAccount() != null) {
             if (accountData.getIsActive() == 1) {
-                py();
+                pf();
             }
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (!cg(accountData.getAccount()) || !a(accountData, mainDBDatabaseManager)) {
@@ -31,16 +31,16 @@ public class b {
         }
     }
 
-    public static void py() {
+    public static void pf() {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().r("update account_data set isactive=0 where isactive=1");
     }
 
     public static void c(AccountData accountData) {
-        py();
+        pf();
         TiebaDatabase.getInstance().getMainDBDatabaseManager().g("update account_data set isactive=1 where account=?", new String[]{accountData.getAccount()});
     }
 
-    public static int pz() {
+    public static int pg() {
         Cursor cursor;
         Exception exc;
         Cursor cursor2 = null;
@@ -89,7 +89,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v34, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData pA() {
+    public static AccountData ph() {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -230,7 +230,7 @@ public class b {
         return accountData;
     }
 
-    public static ArrayList<AccountData> pB() {
+    public static ArrayList<AccountData> pi() {
         Cursor cursor;
         Throwable th;
         Exception exc;

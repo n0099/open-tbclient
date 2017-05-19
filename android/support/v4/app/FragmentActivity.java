@@ -20,7 +20,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.sapi2.utils.SapiUtils;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -546,7 +545,7 @@ public class FragmentActivity extends Activity {
                         sb.append(resourceEntryName);
                         break;
                     case 2130706432:
-                        resourcePackageName = SapiUtils.QR_LOGIN_LP_APP;
+                        resourcePackageName = "app";
                         String resourceTypeName2 = resources.getResourceTypeName(id);
                         String resourceEntryName2 = resources.getResourceEntryName(id);
                         sb.append(" ");

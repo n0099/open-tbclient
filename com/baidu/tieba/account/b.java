@@ -5,11 +5,11 @@ import android.os.Message;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class b extends Handler {
-    final /* synthetic */ AccountActivity aVy;
+    final /* synthetic */ AccountActivity aVU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AccountActivity accountActivity) {
-        this.aVy = accountActivity;
+        this.aVU = accountActivity;
     }
 
     @Override // android.os.Handler
@@ -17,11 +17,11 @@ class b extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                this.aVy.LX();
+                this.aVU.Ll();
                 return;
             case 2:
                 if (message.obj instanceof AccountData) {
-                    this.aVy.m((AccountData) message.obj);
+                    this.aVU.m((AccountData) message.obj);
                     return;
                 }
                 return;

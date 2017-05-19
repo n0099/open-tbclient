@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs.tab;
 
-import com.baidu.tieba.frs.cd;
-import com.baidu.tieba.frs.tab.j;
+import com.baidu.tieba.frs.bx;
+import com.baidu.tieba.frs.tab.k;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a implements j.b {
-    final /* synthetic */ HorizontalTabView cbC;
+public class a implements k.b {
+    final /* synthetic */ HorizontalTabView bZt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(HorizontalTabView horizontalTabView) {
-        this.cbC = horizontalTabView;
+        this.bZt = horizontalTabView;
     }
 
-    @Override // com.baidu.tieba.frs.tab.j.b
-    public void iF(int i) {
+    @Override // com.baidu.tieba.frs.tab.k.b
+    public void ix(int i) {
         TabItemView tabItemView;
-        g gVar;
-        g gVar2;
-        cd cdVar;
-        cd cdVar2;
-        cd cdVar3;
+        h hVar;
+        h hVar2;
+        bx bxVar;
+        bx bxVar2;
+        bx bxVar3;
         TabItemView tabItemView2;
-        tabItemView = this.cbC.cbr;
+        tabItemView = this.bZt.bZg;
         if (tabItemView != null) {
-            cdVar = this.cbC.cbA;
-            if (cdVar != null) {
-                cdVar2 = this.cbC.cbA;
-                if (cdVar2 != null) {
-                    cdVar3 = this.cbC.cbA;
-                    tabItemView2 = this.cbC.cbr;
-                    cdVar3.a(tabItemView2.getTabId(), i, null);
+            bxVar = this.bZt.bZr;
+            if (bxVar != null) {
+                bxVar2 = this.bZt.bZr;
+                if (bxVar2 != null) {
+                    bxVar3 = this.bZt.bZr;
+                    tabItemView2 = this.bZt.bZg;
+                    bxVar3.a(tabItemView2.getTabId(), i, null);
                 }
             }
         }
-        gVar = this.cbC.cbs;
-        if (gVar != null) {
-            gVar2 = this.cbC.cbs;
-            gVar2.iD(i);
+        hVar = this.bZt.bZh;
+        if (hVar != null) {
+            hVar2 = this.bZt.bZh;
+            hVar2.iv(i);
         }
     }
 }

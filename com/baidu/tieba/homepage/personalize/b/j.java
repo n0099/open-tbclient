@@ -8,19 +8,19 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements com.baidu.adp.lib.e.c<TbImageView> {
-    final /* synthetic */ g cAl;
+    final /* synthetic */ g cvv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar) {
-        this.cAl = gVar;
+        this.cvv = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: xs */
+    /* renamed from: wF */
     public TbImageView fL() {
         TbPageContext tbPageContext;
-        tbPageContext = this.cAl.ajU;
+        tbPageContext = this.cvv.ajr;
         TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
         tbImageView.setDrawBorder(true);
         tbImageView.setBorderColor(aq.getColor(w.e.common_color_10043));

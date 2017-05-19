@@ -1,45 +1,20 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.bg;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
-    final /* synthetic */ z fCF;
-
+class ab extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(z zVar) {
-        this.fCF = zVar;
+    public ab(int i) {
+        super(i);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MainTabActivity mainTabActivity;
-        int i;
-        MainTabActivity mainTabActivity2;
-        mainTabActivity = this.fCF.fCy;
-        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
-        String str = "";
-        i = this.fCF.dUW;
-        switch (i) {
-            case 1:
-                str = "forum";
-                break;
-            case 2:
-                str = "kantie";
-                break;
-            case 3:
-                str = "message";
-                break;
-            case 8:
-                str = "profile";
-                break;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001120) {
+            return;
         }
-        TiebaStatic.log(new as("c10517").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str));
-        mainTabActivity2 = this.fCF.fCy;
-        bg.aI(mainTabActivity2.getPageContext().getPageActivity());
+        MainTabActivityStatic.h(customResponsedMessage);
     }
 }

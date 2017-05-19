@@ -1,29 +1,19 @@
 package com.baidu.tieba.enterForum.c;
-
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>> {
-    final /* synthetic */ e bIg;
+public class g implements Runnable {
+    final /* synthetic */ c bHP;
+    private final /* synthetic */ int bHQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(e eVar, TbPageContext tbPageContext, Class[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, clsArr, iArr, viewEventCenter);
-        this.bIg = eVar;
+    public g(c cVar, int i) {
+        this.bHP = cVar;
+        this.bHQ = i;
     }
 
-    @Override // com.baidu.tbadk.mvc.f.b
-    public int eX(int i) {
-        Object item = getItem(i);
-        if (item instanceof com.baidu.tieba.tbadkCore.u) {
-            if (((com.baidu.tieba.tbadkCore.u) item).getType() == 1) {
-                return 1;
-            }
-        } else if (item instanceof com.baidu.tieba.enterForum.b.a) {
-            return 2;
-        }
-        return 0;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.bHP.hs(this.bHQ);
+        com.baidu.adp.lib.g.h.fS().post(new h(this));
     }
 }

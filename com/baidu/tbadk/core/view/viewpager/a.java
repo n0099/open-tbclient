@@ -1,223 +1,155 @@
 package com.baidu.tbadk.core.view.viewpager;
 
-import android.content.Context;
+import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.view.viewpager.a.C0034a;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes.dex */
-public class a<T extends v, V extends C0034a> extends PagerAdapter implements View.OnClickListener {
-    private Context context;
-    private HashMap<BdUniqueId, e<T, V>> amX = new HashMap<>();
-    private List<v> mListData = new ArrayList();
-    private List<View> amY = new ArrayList();
-    private int mChildCount = 0;
+public abstract class a extends PagerAdapter {
+    private final FragmentManager mFragmentManager;
+    private FragmentTransaction mCurTransaction = null;
+    private ArrayList<Fragment.SavedState> mSavedState = new ArrayList<>();
+    private ArrayList<Fragment> mFragments = new ArrayList<>();
+    private Fragment mCurrentPrimaryItem = null;
 
-    public void a(Context context, e<T, V> eVar) {
-        if (eVar != null && eVar.getType() != null) {
-            this.amX.put(eVar.getType(), eVar);
-        }
-    }
+    public abstract Fragment getItem(int i);
 
-    public a(Context context) {
-        this.context = context;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        e<T, V> eVar;
-        C0034a D = D(view);
-        if (D != null && D.xx() != null && D.xx().getType() != null && (eVar = this.amX.get(D.xx().getType())) != null && eVar.xB() != null) {
-            eVar.xB().c(D, D.xx());
-        }
-    }
-
-    public void setDatas(List<v> list) {
-        if (list != null && list.size() > 0) {
-            destory();
-            this.mListData = list;
-            if (this.amY == null) {
-                this.amY = new ArrayList();
-            }
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.mListData.size()) {
-                    v vVar = this.mListData.get(i2);
-                    if (vVar != null) {
-                        View a = a(vVar);
-                        a.setOnClickListener(this);
-                        this.amY.add(a);
-                    }
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
-        }
-    }
-
-    private View a(v vVar) {
-        e<T, V> eVar = this.amX.get(vVar.getType());
-        if (eVar != null) {
-            V b = eVar.b(null);
-            if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.i("ViewPager View is creating " + b.getClass().getName());
-            }
-            if (b != null) {
-                b.b(vVar);
-                eVar.a((ViewGroup) null, (ViewGroup) b, (V) vVar);
-                return b.getView();
-            }
-        }
-        return null;
+    public a(FragmentManager fragmentManager) {
+        this.mFragmentManager = fragmentManager;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return this.mListData.size();
+    public void startUpdate(ViewGroup viewGroup) {
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public int getItemPosition(Object obj) {
-        if (this.mChildCount > 0) {
-            this.mChildCount--;
-            return -2;
-        }
-        return super.getItemPosition(obj);
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void notifyDataSetChanged() {
-        this.mChildCount = getCount();
-        super.notifyDataSetChanged();
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        View view;
-        if (this.amY.size() > 0 && i >= 0 && i < this.amY.size() && (view = this.amY.get(i)) != null) {
-            viewGroup.removeView(view);
-        }
+    public final ArrayList<Fragment> wK() {
+        return this.mFragments;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (i >= this.mListData.size()) {
-            return null;
+        Fragment.SavedState savedState;
+        Fragment fragment;
+        if (this.mFragments.size() <= i || (fragment = this.mFragments.get(i)) == null) {
+            if (this.mCurTransaction == null) {
+                this.mCurTransaction = this.mFragmentManager.beginTransaction();
+            }
+            Fragment item = getItem(i);
+            if (this.mSavedState.size() > i && (savedState = this.mSavedState.get(i)) != null) {
+                item.setInitialSavedState(savedState);
+            }
+            while (this.mFragments.size() <= i) {
+                this.mFragments.add(null);
+            }
+            item.setMenuVisibility(false);
+            item.setUserVisibleHint(false);
+            this.mFragments.set(i, item);
+            this.mCurTransaction.add(viewGroup.getId(), item);
+            return item;
         }
-        View ds = ds(i);
-        if (ds != null && ds.getParent() != viewGroup) {
-            viewGroup.addView(ds);
-            return ds;
-        }
-        return ds;
+        return fragment;
     }
 
-    public View ds(int i) {
-        if (i >= this.amY.size() || i >= this.mListData.size()) {
-            return null;
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        Fragment fragment = (Fragment) obj;
+        if (this.mCurTransaction == null) {
+            this.mCurTransaction = this.mFragmentManager.beginTransaction();
         }
-        View view = this.amY.get(i);
-        C0034a D = D(view);
-        if (D != null && D.xx() == null) {
-            a((C0034a) view.getTag(), this.mListData.get(i));
-            return view;
+        while (this.mSavedState.size() <= i) {
+            this.mSavedState.add(null);
         }
-        return view;
+        this.mSavedState.set(i, this.mFragmentManager.saveFragmentInstanceState(fragment));
+        this.mFragments.set(i, null);
+        this.mCurTransaction.remove(fragment);
     }
 
-    private void a(C0034a c0034a, v vVar) {
-        e<T, V> eVar;
-        if (c0034a != null && vVar != null && (eVar = this.amX.get(vVar.getType())) != null) {
-            c0034a.b(vVar);
-            eVar.a((ViewGroup) null, (ViewGroup) c0034a, (C0034a) vVar);
+    @Override // android.support.v4.view.PagerAdapter
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        Fragment fragment = (Fragment) obj;
+        if (fragment != this.mCurrentPrimaryItem) {
+            if (this.mCurrentPrimaryItem != null) {
+                this.mCurrentPrimaryItem.setMenuVisibility(false);
+                this.mCurrentPrimaryItem.setUserVisibleHint(false);
+            }
+            if (fragment != null) {
+                fragment.setMenuVisibility(true);
+                fragment.setUserVisibleHint(true);
+            }
+            this.mCurrentPrimaryItem = fragment;
         }
     }
 
-    private C0034a D(View view) {
-        if (view == null || !(view.getTag() instanceof C0034a)) {
-            return null;
+    @Override // android.support.v4.view.PagerAdapter
+    public void finishUpdate(ViewGroup viewGroup) {
+        if (this.mCurTransaction != null) {
+            this.mCurTransaction.commitAllowingStateLoss();
+            this.mCurTransaction = null;
+            this.mFragmentManager.executePendingTransactions();
         }
-        return (C0034a) view.getTag();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return ((Fragment) obj).getView() == view;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Parcelable saveState() {
-        return super.saveState();
+        Bundle bundle = null;
+        if (this.mSavedState.size() > 0) {
+            bundle = new Bundle();
+            Fragment.SavedState[] savedStateArr = new Fragment.SavedState[this.mSavedState.size()];
+            this.mSavedState.toArray(savedStateArr);
+            bundle.putParcelableArray("states", savedStateArr);
+        }
+        Bundle bundle2 = bundle;
+        for (int i = 0; i < this.mFragments.size(); i++) {
+            Fragment fragment = this.mFragments.get(i);
+            if (fragment != null) {
+                if (bundle2 == null) {
+                    bundle2 = new Bundle();
+                }
+                this.mFragmentManager.putFragment(bundle2, "f" + i, fragment);
+            }
+        }
+        return bundle2;
     }
 
-    public void destory() {
-        e<T, V> eVar;
-        if (this.amY != null) {
-            for (View view : this.amY) {
-                C0034a D = D(view);
-                if (D != null && D.xx() != null && (eVar = this.amX.get(D.xx().getType())) != null) {
-                    eVar.b(D, D.xx());
+    @Override // android.support.v4.view.PagerAdapter
+    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
+        if (parcelable != null) {
+            Bundle bundle = (Bundle) parcelable;
+            bundle.setClassLoader(classLoader);
+            Parcelable[] parcelableArray = bundle.getParcelableArray("states");
+            this.mSavedState.clear();
+            this.mFragments.clear();
+            if (parcelableArray != null) {
+                for (Parcelable parcelable2 : parcelableArray) {
+                    this.mSavedState.add((Fragment.SavedState) parcelable2);
                 }
             }
-            this.amY.clear();
-            this.amY = null;
-        }
-        if (this.mListData != null) {
-            this.mListData.clear();
-        }
-    }
-
-    public void df(int i) {
-        e<T, V> eVar;
-        if (this.amY != null) {
-            for (View view : this.amY) {
-                C0034a D = D(view);
-                if (D != null && D.xx() != null && (eVar = this.amX.get(D.xx().getType())) != null) {
-                    eVar.a(i, (int) D, (C0034a) D.xx());
+            for (String str : bundle.keySet()) {
+                if (str.startsWith("f")) {
+                    int parseInt = Integer.parseInt(str.substring(1));
+                    Fragment fragment = this.mFragmentManager.getFragment(bundle, str);
+                    if (fragment != null) {
+                        while (this.mFragments.size() <= parseInt) {
+                            this.mFragments.add(null);
+                        }
+                        fragment.setMenuVisibility(false);
+                        this.mFragments.set(parseInt, fragment);
+                    } else {
+                        Log.e("FragmentPagerAdapter", "Badfragment key " + str);
+                    }
                 }
             }
-        }
-    }
-
-    /* renamed from: com.baidu.tbadk.core.view.viewpager.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0034a {
-        public int amZ = 3;
-        private v ana = null;
-        private View view;
-
-        public C0034a(View view) {
-            this.view = null;
-            this.view = view;
-            if (this.view == null) {
-                throw new RuntimeException("view cannt be null");
-            }
-            this.view.setTag(this);
-        }
-
-        public View getView() {
-            return this.view;
-        }
-
-        public v xx() {
-            return this.ana;
-        }
-
-        public void b(v vVar) {
-            this.ana = vVar;
-        }
-
-        public void df(int i) {
         }
     }
 }

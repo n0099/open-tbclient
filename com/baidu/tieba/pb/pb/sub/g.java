@@ -4,30 +4,30 @@ import com.baidu.tieba.pb.pb.sub.a;
 import com.baidu.tieba.pb.pb.sub.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements a.InterfaceC0067a {
-    final /* synthetic */ b euT;
+public class g implements a.InterfaceC0072a {
+    final /* synthetic */ b eqB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(b bVar) {
-        this.euT = bVar;
+        this.eqB = bVar;
     }
 
-    @Override // com.baidu.tieba.pb.pb.sub.a.InterfaceC0067a
-    public void aPh() {
+    @Override // com.baidu.tieba.pb.pb.sub.a.InterfaceC0072a
+    public void aMw() {
         a aVar;
         b.a aVar2;
         b.a aVar3;
         a aVar4;
-        aVar = this.euT.euO;
+        aVar = this.eqB.eqw;
         if (aVar != null) {
-            aVar4 = this.euT.euO;
+            aVar4 = this.eqB.eqw;
             aVar4.setVisibility(8);
         }
-        this.euT.euR = false;
-        aVar2 = this.euT.euQ;
+        this.eqB.eqz = false;
+        aVar2 = this.eqB.eqy;
         if (aVar2 != null) {
-            aVar3 = this.euT.euQ;
-            aVar3.aPm();
+            aVar3 = this.eqB.eqy;
+            aVar3.aMB();
         }
     }
 }

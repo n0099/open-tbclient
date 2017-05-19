@@ -1,26 +1,26 @@
 package com.baidu.tieba.homepage.personalize.model;
 
-import com.baidu.tieba.card.data.t;
+import com.baidu.tieba.card.data.r;
 import java.util.Comparator;
 /* loaded from: classes.dex */
-class b implements Comparator<t> {
-    final /* synthetic */ a cBv;
+class b implements Comparator<r> {
+    final /* synthetic */ a cwC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cBv = aVar;
+        this.cwC = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     /* renamed from: a */
-    public int compare(t tVar, t tVar2) {
-        if (tVar == null || tVar2 == null) {
+    public int compare(r rVar, r rVar2) {
+        if (rVar == null || rVar2 == null) {
             return 0;
         }
-        if (tVar.getPosition() > tVar2.getPosition()) {
+        if (rVar.getPosition() > rVar2.getPosition()) {
             return 1;
         }
-        return tVar.getPosition() < tVar2.getPosition() ? -1 : 0;
+        return rVar.getPosition() < rVar2.getPosition() ? -1 : 0;
     }
 }

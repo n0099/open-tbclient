@@ -3,16 +3,16 @@ package com.baidu.tieba.QuickPlayer;
 import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements MediaPlayer.OnSeekCompleteListener {
-    final /* synthetic */ v aRa;
+public class y implements MediaPlayer.OnPreparedListener {
+    final /* synthetic */ x aRv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(v vVar) {
-        this.aRa = vVar;
+    public y(x xVar) {
+        this.aRv = xVar;
     }
 
-    @Override // android.media.MediaPlayer.OnSeekCompleteListener
-    public void onSeekComplete(MediaPlayer mediaPlayer) {
-        this.aRa.notifyOnSeekComplete();
+    @Override // android.media.MediaPlayer.OnPreparedListener
+    public void onPrepared(MediaPlayer mediaPlayer) {
+        this.aRv.notifyOnPrepared();
     }
 }

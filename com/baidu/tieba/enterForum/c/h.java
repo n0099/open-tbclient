@@ -1,19 +1,32 @@
 package com.baidu.tieba.enterForum.c;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public class h implements Runnable {
-    final /* synthetic */ e bIg;
-    private final /* synthetic */ int bIh;
+class h implements Runnable {
+    final /* synthetic */ g bHR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(e eVar, int i) {
-        this.bIg = eVar;
-        this.bIh = i;
+    public h(g gVar) {
+        this.bHR = gVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bIg.hA(this.bIh);
-        com.baidu.adp.lib.g.h.fS().post(new i(this));
+        c cVar;
+        com.baidu.tieba.enterForum.model.d dVar;
+        c cVar2;
+        com.baidu.tieba.enterForum.model.d dVar2;
+        c cVar3;
+        BdListView bdListView;
+        cVar = this.bHR.bHP;
+        dVar = cVar.bHG;
+        if (dVar.WE() != null) {
+            cVar2 = this.bHR.bHP;
+            dVar2 = cVar2.bHG;
+            dVar2.WE().setVisibility(0);
+            cVar3 = this.bHR.bHP;
+            bdListView = cVar3.bkP;
+            bdListView.setVisibility(8);
+        }
     }
 }

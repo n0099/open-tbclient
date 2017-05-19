@@ -4,13 +4,13 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdapter;
 import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class y implements com.baidu.tieba.im.chat.a.a {
-    final /* synthetic */ l dmU;
+    final /* synthetic */ l dgY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(l lVar) {
-        this.dmU = lVar;
+        this.dgY = lVar;
     }
 
     @Override // com.baidu.tieba.im.chat.a.a
@@ -22,21 +22,21 @@ public class y implements com.baidu.tieba.im.chat.a.a {
         boolean isLogin;
         MessageAggregationListAdapter messageAggregationListAdapter;
         ImMessageCenterModel imMessageCenterModel3;
-        bdListView = this.dmU.djW;
+        bdListView = this.dgY.ddY;
         if (bdListView != null) {
-            imMessageCenterModel = this.dmU.djT;
+            imMessageCenterModel = this.dgY.ddV;
             if (imMessageCenterModel != null) {
-                bdListView2 = this.dmU.djW;
+                bdListView2 = this.dgY.ddY;
                 bdListView2.completePullRefreshPostDelayed(2000L);
-                imMessageCenterModel2 = this.dmU.djT;
+                imMessageCenterModel2 = this.dgY.ddV;
                 if (imMessageCenterModel2.getData() != null) {
-                    messageAggregationListAdapter = this.dmU.dmN;
-                    imMessageCenterModel3 = this.dmU.djT;
+                    messageAggregationListAdapter = this.dgY.dgR;
+                    imMessageCenterModel3 = this.dgY.ddV;
                     messageAggregationListAdapter.setData(imMessageCenterModel3.getData());
                     return;
                 }
-                l lVar = this.dmU;
-                isLogin = this.dmU.isLogin();
+                l lVar = this.dgY;
+                isLogin = this.dgY.isLogin();
                 lVar.r(isLogin, true);
             }
         }

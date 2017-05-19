@@ -1,66 +1,68 @@
 package com.baidu.tieba.personPolymeric.d;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class s extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.m> {
-    private TbPageContext ajU;
-    private TbImageView eJh;
-    private TextView eJi;
-    private View mRootView;
+public class s extends RelativeLayout {
+    public TextView clJ;
+    public BarImageView eEJ;
+    public TextView eEK;
+    public TextView eEL;
+    public TextView eEM;
+    private com.baidu.tieba.personPolymeric.c.e eEN;
+    private Context mContext;
+    private View.OnClickListener mOnClickListener;
+    private int mSkinType;
 
-    public s(TbPageContext tbPageContext) {
-        super(tbPageContext);
-        this.mRootView = getView();
-        this.ajU = tbPageContext;
-        this.mRootView.setTag(this);
-        this.eJh = (TbImageView) this.mRootView.findViewById(w.h.gift_pic);
-        this.eJi = (TextView) this.mRootView.findViewById(w.h.gift_num_text);
+    public s(Context context) {
+        super(context);
+        this.mSkinType = 3;
+        this.mContext = context;
+        LayoutInflater.from(getContext()).inflate(w.j.person_info_common_forum_item, (ViewGroup) this, true);
+        init();
+        initListener();
     }
 
-    @Override // com.baidu.tieba.card.a
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        aq.k(this.mRootView, w.e.cp_bg_line_d);
-        aq.j(this.eJh, w.g.item_gift_selector);
-        aq.k(this.eJi, w.e.common_color_10294);
-        aq.i(this.eJi, w.e.cp_link_tip_a);
+    private void init() {
+        this.eEJ = (BarImageView) findViewById(w.h.forum_avatar);
+        this.clJ = (TextView) findViewById(w.h.forum_name);
+        this.eEK = (TextView) findViewById(w.h.forum_post_thread);
+        this.eEL = (TextView) findViewById(w.h.forum_thread_num);
+        this.eEM = (TextView) findViewById(w.h.forum_thread_str);
     }
 
-    @Override // com.baidu.tieba.card.a
-    public int getLayout() {
-        return w.j.item_gift_view;
+    private void initListener() {
+        this.mOnClickListener = new t(this);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.a
-    /* renamed from: a */
-    public void onBindDataToView(com.baidu.tieba.personPolymeric.c.m mVar) {
-        if (mVar == null) {
-            this.mRootView.setVisibility(8);
-            return;
+    public void setData(com.baidu.tieba.personPolymeric.c.e eVar) {
+        this.eEN = eVar;
+        this.eEJ.c(eVar.avatar, 10, false);
+        this.clJ.setText(String.valueOf(au.e(eVar.forumName, 7, "...")) + this.mContext.getString(w.l.forum));
+        this.eEL.setText(au.t(eVar.eDh));
+        this.eEK.setText(String.format(this.mContext.getString(w.l.person_has_posted), au.cR(eVar.sex)));
+        if (getRootView() != null) {
+            getRootView().setOnClickListener(this.mOnClickListener);
         }
-        onChangeSkinType(this.ajU, TbadkCoreApplication.m9getInst().getSkinType());
-        this.eJh.c(mVar.picUrl, 10, false);
-        this.mRootView.setOnClickListener(this);
-        if (mVar.eIa > 0) {
-            this.eJi.setVisibility(0);
-            if (mVar.eIa > 99) {
-                this.eJi.setText("99");
-                return;
-            } else {
-                this.eJi.setText(String.valueOf(mVar.eIa));
-                return;
-            }
-        }
-        this.eJi.setVisibility(8);
+        onChangeSkinType();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onChangeSkinType() {
+        if (this.mSkinType != TbadkCoreApplication.m9getInst().getSkinType()) {
+            aq.i(this.clJ, w.e.cp_cont_b);
+            aq.i(this.eEK, w.e.cp_cont_c);
+            aq.i(this.eEM, w.e.cp_cont_c);
+            aq.i(this.eEL, w.e.cp_link_tip_a);
+        }
+        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
     }
 }

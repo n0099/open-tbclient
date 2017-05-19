@@ -1,20 +1,39 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.frs.b.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj extends CustomMessageListener {
+public class aj implements bx {
+    final /* synthetic */ r bPn;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(int i) {
-        super(i);
+    public aj(r rVar) {
+        this.bPn = rVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-            ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new a(null, com.baidu.tieba.frs.b.h.bZQ));
+    @Override // com.baidu.tieba.frs.bx
+    public void a(by byVar) {
+    }
+
+    @Override // com.baidu.tieba.frs.bx
+    public void a(int i, int i2, cd cdVar) {
+        if (i != 1) {
+            com.baidu.tieba.card.ca.To().dc(false);
         }
+        if (i == 1) {
+            this.bPn.bOn.dO(true);
+            this.bPn.bOn.dN(false);
+        } else {
+            this.bPn.bOn.dP(true);
+            this.bPn.bOn.dN(true);
+        }
+        this.bPn.Zo();
+        this.bPn.bOw.a(i, i2, cdVar);
+    }
+
+    @Override // com.baidu.tieba.frs.bx
+    public void init() {
+    }
+
+    @Override // com.baidu.tieba.frs.bx
+    public void ML() {
     }
 }

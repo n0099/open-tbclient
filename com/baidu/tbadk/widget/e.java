@@ -1,59 +1,102 @@
 package com.baidu.tbadk.widget;
 
-import com.baidu.adp.lib.util.BdLog;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.graphics.Paint;
+import android.os.Build;
+import android.util.AttributeSet;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import java.lang.reflect.Method;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbImageView aKS;
+public class e extends TbImageView {
+    private static Method aKF;
+    private boolean aKG;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(TbImageView tbImageView) {
-        this.aKS = tbImageView;
+    static {
+        aKF = null;
+        try {
+            aKF = e.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+        } catch (NoSuchMethodException e) {
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        this.aKS.stopLoading();
-        BdLog.i("imagecallback. resourceFrom-" + i);
-        if (aVar == null) {
-            this.aKS.aKA = this.aKS.aKz;
-        }
-        if (this.aKS.aKy != null) {
-            if (aVar != null) {
-                this.aKS.aKM = aVar.getWidth();
-                this.aKS.aKN = aVar.getHeight();
+    public e(Context context) {
+        this(context, null, 0);
+    }
+
+    public e(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.aKG = false;
+        b(context, attributeSet, i);
+    }
+
+    public e(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    private void b(Context context, AttributeSet attributeSet, int i) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        String trim = Build.MODEL.trim();
+        if (trim != null) {
+            String[] strArr = {"M040", "M045"};
+            int length = strArr.length;
+            int i2 = 0;
+            while (true) {
+                if (i2 >= length) {
+                    z3 = false;
+                    break;
+                } else if (strArr[i2].equalsIgnoreCase(trim)) {
+                    z3 = true;
+                    break;
+                } else {
+                    i2++;
+                }
             }
-            this.aKS.aKy.v(str, aVar != null);
-        }
-        if (aVar != null) {
-            if (aVar.Hd != null) {
-                this.aKS.aKJ.Hf = aVar.Hd.Hf;
-                this.aKS.aKJ.isSuccess = aVar.Hd.Hh;
-                this.aKS.aKJ.Hg = aVar.Hd.Hg;
+            String[] strArr2 = {"HTC T329D"};
+            int length2 = strArr2.length;
+            int i3 = 0;
+            while (true) {
+                if (i3 >= length2) {
+                    z2 = z3;
+                    z = false;
+                    break;
+                } else if (strArr2[i3].equalsIgnoreCase(trim)) {
+                    z2 = z3;
+                    z = true;
+                    break;
+                } else {
+                    i3++;
+                }
             }
         } else {
-            this.aKS.aKJ.Hf = "net";
-            this.aKS.aKJ.isSuccess = false;
-            this.aKS.aKJ.Hg = System.currentTimeMillis() - this.aKS.aKL;
+            z = false;
+            z2 = false;
         }
-        this.aKS.wJ();
+        if (Build.VERSION.SDK_INT >= 11) {
+            CompatibleUtile.getInstance().closeViewGpu(this);
+            try {
+                if (aKF != null) {
+                    aKF.invoke(this, 1, null);
+                }
+            } catch (Exception e) {
+            }
+        }
+        if (z2 || z) {
+            this.aKG = false;
+        } else {
+            this.aKG = true;
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onProgressUpdate(Object... objArr) {
-        super.onProgressUpdate(objArr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onCancelled(String str) {
-        super.onCancelled(str);
-        this.aKS.stopLoading();
-        if (this.aKS.aKy != null) {
-            this.aKS.aKy.onCancel();
+    @Override // com.baidu.adp.b.a.b
+    public void setDrawerType(int i) {
+        if (i == 0) {
+            super.setDrawerType(i);
+        } else if (i == 1) {
+            super.setDrawerType(this.aKG ? 4 : 5);
+        } else {
+            super.setDrawerType(i);
         }
     }
 }

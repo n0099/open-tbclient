@@ -7,7 +7,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
 import com.baidu.tieba.imMessageCenter.mention.ad;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class r implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFragmentConfig> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<Fragment> run(CustomMessage<InvokeNewImMessageCenterFragmentConfig> customMessage) {

@@ -1,57 +1,43 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.data.IconData;
-import java.util.ArrayList;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-class ar implements View.OnClickListener {
-    final /* synthetic */ UserIconLayout amF;
+public class ar extends ImageSpan {
+    private WeakReference<Drawable> FT;
+    private int offset;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(UserIconLayout userIconLayout) {
-        this.amF = userIconLayout;
+    public ar(Drawable drawable) {
+        super(drawable);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        bi biVar;
-        bi biVar2;
-        bi biVar3;
-        bi biVar4;
-        bi biVar5;
-        Context context2;
-        Context context3;
-        context = this.amF.mContext;
-        if (bg.aK(context)) {
-            biVar = this.amF.aiC;
-            if (biVar != null) {
-                biVar2 = this.amF.aiC;
-                if (biVar2.getAuthor() != null) {
-                    biVar3 = this.amF.aiC;
-                    if (biVar3.getAuthor().getTShowInfoNew() != null) {
-                        biVar4 = this.amF.aiC;
-                        ArrayList<IconData> tShowInfoNew = biVar4.getAuthor().getTShowInfoNew();
-                        if (com.baidu.tbadk.core.util.x.p(tShowInfoNew) != 0 && com.baidu.tbadk.core.util.x.c(tShowInfoNew, 0) != null) {
-                            biVar5 = this.amF.aiC;
-                            String url = biVar5.getAuthor().getTShowInfoNew().get(0).getUrl();
-                            if (url != null) {
-                                context2 = this.amF.mContext;
-                                if (com.baidu.adp.base.k.Z(context2) instanceof TbPageContext) {
-                                    bb wn = bb.wn();
-                                    context3 = this.amF.mContext;
-                                    wn.c((TbPageContext) com.baidu.adp.base.k.Z(context3), new String[]{url});
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+    public void setOffset(int i) {
+        this.offset = i;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable ku = ku();
+        canvas.save();
+        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - ku.getBounds().height()) / 2) + this.offset);
+        ku.draw(canvas);
+        canvas.restore();
+    }
+
+    private Drawable ku() {
+        WeakReference<Drawable> weakReference = this.FT;
+        Drawable drawable = null;
+        if (weakReference != null) {
+            drawable = weakReference.get();
         }
+        if (drawable == null) {
+            Drawable drawable2 = getDrawable();
+            this.FT = new WeakReference<>(drawable2);
+            return drawable2;
+        }
+        return drawable;
     }
 }

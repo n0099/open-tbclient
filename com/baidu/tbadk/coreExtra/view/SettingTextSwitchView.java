@@ -15,88 +15,88 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class SettingTextSwitchView extends FrameLayout {
-    private LinearLayout avE;
-    private TextView avF;
-    protected TextView avG;
-    private BdSwitchView avH;
+    private LinearLayout avI;
+    private TextView avJ;
+    protected TextView avK;
+    private BdSwitchView avL;
     private final Context mContext;
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        BL();
+        AW();
         d(attributeSet);
-        ej(TbadkCoreApplication.m9getInst().getSkinType());
+        eh(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context) {
         super(context);
         this.mContext = context;
-        BL();
-        ej(TbadkCoreApplication.m9getInst().getSkinType());
+        AW();
+        eh(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        BL();
+        AW();
         d(attributeSet);
-        ej(TbadkCoreApplication.m9getInst().getSkinType());
+        eh(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     public View getView() {
-        return this.avE;
+        return this.avI;
     }
 
-    public void ej(int i) {
-        this.avH.a(aq.cO(w.g.bg_switch_open), aq.cO(w.g.bg_switch_close), aq.cO(w.g.btn_handle));
-        aq.c(this.avF, w.e.cp_cont_b, 1);
-        if (this.avG != null) {
-            aq.c(this.avG, w.e.cp_cont_d, 1);
+    public void eh(int i) {
+        this.avL.a(aq.cL(w.g.bg_switch_open), aq.cL(w.g.bg_switch_close), aq.cL(w.g.btn_handle));
+        aq.c(this.avJ, w.e.cp_cont_b, 1);
+        if (this.avK != null) {
+            aq.c(this.avK, w.e.cp_cont_d, 1);
         }
-    }
-
-    public void kt() {
-        this.avH.kt();
-        this.avH.setContentDescription(String.valueOf(this.mContext.getString(w.l.talk_message_tip)) + this.mContext.getString(w.l.talk_close));
     }
 
     public void ks() {
-        this.avH.ks();
-        this.avH.setContentDescription(String.valueOf(this.mContext.getString(w.l.talk_message_tip)) + this.mContext.getString(w.l.talk_open));
+        this.avL.ks();
+        this.avL.setContentDescription(String.valueOf(this.mContext.getString(w.l.talk_message_tip)) + this.mContext.getString(w.l.talk_close));
+    }
+
+    public void kr() {
+        this.avL.kr();
+        this.avL.setContentDescription(String.valueOf(this.mContext.getString(w.l.talk_message_tip)) + this.mContext.getString(w.l.talk_open));
     }
 
     public void Q(boolean z) {
-        this.avH.Q(z);
-        this.avH.setContentDescription(String.valueOf(this.mContext.getString(w.l.talk_message_tip)) + this.mContext.getString(w.l.talk_close));
+        this.avL.Q(z);
+        this.avL.setContentDescription(String.valueOf(this.mContext.getString(w.l.talk_message_tip)) + this.mContext.getString(w.l.talk_close));
     }
 
     public void P(boolean z) {
-        this.avH.P(z);
-        this.avH.setContentDescription(String.valueOf(this.mContext.getString(w.l.talk_message_tip)) + this.mContext.getString(w.l.talk_open));
+        this.avL.P(z);
+        this.avL.setContentDescription(String.valueOf(this.mContext.getString(w.l.talk_message_tip)) + this.mContext.getString(w.l.talk_open));
     }
 
     public void setText(String str) {
-        this.avF.setText(str);
+        this.avJ.setText(str);
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.avH.setOnSwitchStateChangeListener(aVar);
+        this.avL.setOnSwitchStateChangeListener(aVar);
     }
 
-    private void BL() {
+    private void AW() {
         LayoutInflater.from(this.mContext).inflate(w.j.setting_text_switch_view, (ViewGroup) this, true);
-        this.avE = (LinearLayout) findViewById(w.h.container);
-        this.avF = (TextView) findViewById(w.h.text);
-        this.avH = (BdSwitchView) findViewById(w.h.button);
-        this.avH.setFocusable(true);
-        this.avG = (TextView) findViewById(w.h.tip);
-        if (this.avG != null) {
-            this.avG.setVisibility(8);
+        this.avI = (LinearLayout) findViewById(w.h.container);
+        this.avJ = (TextView) findViewById(w.h.text);
+        this.avL = (BdSwitchView) findViewById(w.h.button);
+        this.avL.setFocusable(true);
+        this.avK = (TextView) findViewById(w.h.tip);
+        if (this.avK != null) {
+            this.avK.setVisibility(8);
         }
-        setTag(this.avH);
-        this.avE.setClickable(false);
-        this.avE.setFocusable(false);
+        setTag(this.avL);
+        this.avI.setClickable(false);
+        this.avI.setFocusable(false);
     }
 
     private void d(AttributeSet attributeSet) {
@@ -106,66 +106,66 @@ public class SettingTextSwitchView extends FrameLayout {
         float dimension = obtainStyledAttributes.getDimension(2, -1.0f);
         String string2 = obtainStyledAttributes.getString(3);
         int color2 = obtainStyledAttributes.getColor(4, -1);
-        if (this.avG != null && string2 != null) {
-            this.avG.setVisibility(0);
-            this.avG.setText(string2);
+        if (this.avK != null && string2 != null) {
+            this.avK.setVisibility(0);
+            this.avK.setText(string2);
             if (color2 > -1) {
-                this.avG.setTextColor(color2);
+                this.avK.setTextColor(color2);
             }
         }
         if (string != null) {
-            this.avF.setText(string);
+            this.avJ.setText(string);
         }
         if (color > -1) {
-            this.avF.setTextColor(color);
+            this.avJ.setTextColor(color);
         }
         if (dimension > -1.0f) {
-            this.avF.setTextSize(0, dimension);
+            this.avJ.setTextSize(0, dimension);
         }
-        this.avE.setClickable(false);
-        this.avE.setFocusable(false);
+        this.avI.setClickable(false);
+        this.avI.setFocusable(false);
         obtainStyledAttributes.recycle();
     }
 
     public void setTip(String str) {
-        if (str != null && this.avG != null) {
+        if (str != null && this.avK != null) {
             displayTip();
-            this.avG.setText(str);
+            this.avK.setText(str);
         }
     }
 
     public void setTip(int i) {
-        if (i != -1 && this.avG != null) {
+        if (i != -1 && this.avK != null) {
             displayTip();
-            this.avG.setText(i);
+            this.avK.setText(i);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.avG != null) {
-            this.avG.setTextColor(i);
+        if (this.avK != null) {
+            this.avK.setTextColor(i);
         }
     }
 
     public void displayTip() {
-        if (this.avG != null) {
-            this.avG.setVisibility(8);
+        if (this.avK != null) {
+            this.avK.setVisibility(8);
         }
     }
 
     public void setTextLeftMargin(int i) {
-        if (this.avF.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.avF.getLayoutParams();
+        if (this.avJ.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.avJ.getLayoutParams();
             layoutParams.leftMargin = this.mContext.getResources().getDimensionPixelSize(i);
-            this.avF.setLayoutParams(layoutParams);
+            this.avJ.setLayoutParams(layoutParams);
         }
     }
 
     public BdSwitchView getSwitchView() {
-        return this.avH;
+        return this.avL;
     }
 
     public void setSwitchView(BdSwitchView bdSwitchView) {
-        this.avH = bdSwitchView;
+        this.avL = bdSwitchView;
     }
 }

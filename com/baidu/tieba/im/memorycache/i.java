@@ -5,29 +5,29 @@ import com.baidu.tieba.im.memorycache.a;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements a.InterfaceC0064a {
-    final /* synthetic */ b dda;
-    private final /* synthetic */ ImMessageCenterPojo dde;
+public class i implements a.InterfaceC0068a {
+    final /* synthetic */ b cXb;
+    private final /* synthetic */ ImMessageCenterPojo cXf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(b bVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.dda = bVar;
-        this.dde = imMessageCenterPojo;
+        this.cXb = bVar;
+        this.cXf = imMessageCenterPojo;
     }
 
-    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0064a
+    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0068a
     public void a(Iterator<ImMessageCenterPojo> it) {
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
             if (next.getCustomGroupType() == 4 && next.getIs_hidden() == 0 && (next.getUserType() == 1 || next.getUserType() == 3)) {
-                if (this.dde.getLast_content_time() < next.getLast_content_time()) {
-                    this.dde.setLast_content(next.getLast_content());
-                    this.dde.setLast_content_time(next.getLast_content_time());
-                    this.dde.setLast_rid(next.getLast_rid());
-                    this.dde.setLast_user_name(next.getLast_user_name());
+                if (this.cXf.getLast_content_time() < next.getLast_content_time()) {
+                    this.cXf.setLast_content(next.getLast_content());
+                    this.cXf.setLast_content_time(next.getLast_content_time());
+                    this.cXf.setLast_rid(next.getLast_rid());
+                    this.cXf.setLast_user_name(next.getLast_user_name());
                 }
-                this.dde.setIs_hidden(0);
-                this.dde.setUnread_count(next.getUnread_count() + this.dde.getUnread_count());
+                this.cXf.setIs_hidden(0);
+                this.cXf.setUnread_count(next.getUnread_count() + this.cXf.getUnread_count());
             }
         }
     }

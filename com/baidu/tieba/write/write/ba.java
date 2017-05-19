@@ -1,27 +1,53 @@
 package com.baidu.tieba.write.write;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
+import android.text.Editable;
+import android.text.SpannableString;
+import android.text.TextWatcher;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ WriteActivity fUM;
+public class ba implements TextWatcher {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.fUM.aAP;
-        com.baidu.tbadk.core.util.l.q(new File(append.append(str).toString()));
-        return null;
+        str = this.fSV.fSK;
+        if (!str.equals(charSequence.toString())) {
+            this.fSV.fSL = i + i3;
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        String str;
+        SpannableString fY;
+        EditText editText;
+        int i;
+        EditText editText2;
+        EditText editText3;
+        int i2;
+        str = this.fSV.fSK;
+        if (!str.equals(editable.toString()) && (fY = com.baidu.tbadk.plugins.a.fY(editable.toString())) != null) {
+            this.fSV.fSK = fY.toString();
+            editText = this.fSV.fkx;
+            editText.setText(fY);
+            i = this.fSV.fSL;
+            editText2 = this.fSV.fkx;
+            if (i <= editText2.getText().length()) {
+                editText3 = this.fSV.fkx;
+                i2 = this.fSV.fSL;
+                editText3.setSelection(i2);
+            }
+        }
     }
 }

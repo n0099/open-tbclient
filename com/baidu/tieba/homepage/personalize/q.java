@@ -3,68 +3,43 @@ package com.baidu.tieba.homepage.personalize;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import tbclient.GodInfo;
+import java.util.ArrayList;
+import java.util.List;
 import tbclient.Personalized.DataRes;
-import tbclient.ThreadInfo;
-import tbclient.User;
+import tbclient.SimpleForum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends CustomMessageListener {
-    final /* synthetic */ n this$0;
+    final /* synthetic */ o this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(n nVar, int i) {
+    public q(o oVar, int i) {
         super(i);
-        this.this$0 = nVar;
+        this.this$0 = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Incorrect condition in loop: B:15:0x0040 */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         DataRes.Builder builder;
+        List<com.baidu.tieba.homepage.b.a.a> list;
         DataRes.Builder builder2;
-        DataRes.Builder builder3;
-        DataRes.Builder builder4;
-        int intValue;
-        DataRes.Builder builder5;
-        if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            builder = this.this$0.czv;
-            if (builder != null) {
-                builder2 = this.this$0.czv;
-                if (!com.baidu.tbadk.core.util.x.q(builder2.thread_list)) {
-                    UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                    if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
-                        return;
-                    }
-                    for (int i = 0; i < builder3.thread_list.size(); i++) {
-                        builder4 = this.this$0.czv;
-                        ThreadInfo threadInfo = builder4.thread_list.get(i);
-                        if (threadInfo != null && threadInfo.author != null && threadInfo.author.id.longValue() == com.baidu.adp.lib.g.b.c(updateAttentionMessage.getData().toUid, -1L)) {
-                            ThreadInfo.Builder builder6 = new ThreadInfo.Builder(threadInfo);
-                            User.Builder builder7 = new User.Builder(builder6.author);
-                            GodInfo.Builder builder8 = new GodInfo.Builder(builder7.god_data);
-                            if (updateAttentionMessage.getData().isAttention) {
-                                intValue = builder7.fans_num.intValue() + 1;
-                                builder8.followed = 1;
-                            } else {
-                                intValue = builder7.fans_num.intValue() - 1;
-                                builder8.followed = 0;
-                            }
-                            builder7.fans_num = Integer.valueOf(intValue);
-                            builder7.god_data = builder8.build(true);
-                            builder6.author = builder7.build(true);
-                            builder5 = this.this$0.czv;
-                            builder5.thread_list.set(i, builder6.build(true));
-                            return;
-                        }
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            builder = this.this$0.cuG;
+            if (builder != null && (list = (List) customResponsedMessage.getData()) != null) {
+                ArrayList arrayList = new ArrayList();
+                for (com.baidu.tieba.homepage.b.a.a aVar : list) {
+                    if (aVar != null && aVar.cxb != -1 && aVar.cxb != -2 && !StringUtils.isNull(aVar.cxa)) {
+                        SimpleForum.Builder builder3 = new SimpleForum.Builder();
+                        builder3.name = aVar.cxa;
+                        builder3.level_id = Integer.valueOf(aVar.level);
+                        arrayList.add(builder3.build(true));
                     }
                 }
+                builder2 = this.this$0.cuG;
+                builder2.like_forums = arrayList;
+                this.this$0.ahF();
             }
         }
     }

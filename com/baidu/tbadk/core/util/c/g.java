@@ -24,12 +24,12 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wC() {
+    public boolean vQ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wD() {
+    public boolean vR() {
         return false;
     }
 
@@ -39,7 +39,7 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int wE() {
+    public int vS() {
         return this.procType;
     }
 }

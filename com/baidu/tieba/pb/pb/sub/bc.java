@@ -11,13 +11,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bc extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SubPbModel ewF;
+    final /* synthetic */ SubPbModel eso;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bc(SubPbModel subPbModel, int i, int i2) {
         super(i, i2);
-        this.ewF = subPbModel;
+        this.eso = subPbModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -30,13 +30,13 @@ public class bc extends com.baidu.adp.framework.listener.a {
         com.baidu.tieba.tbadkCore.d.b bVar2;
         SubPbModel.a aVar;
         SubPbModel.a aVar2;
-        com.baidu.tieba.pb.data.j jVar;
+        com.baidu.tieba.pb.data.l lVar;
         boolean z2;
         String str;
         boolean z3;
         SubPbModel.a aVar3;
         SubPbModel.a aVar4;
-        com.baidu.tieba.pb.data.j jVar2;
+        com.baidu.tieba.pb.data.l lVar2;
         String str2;
         String str3;
         String str4;
@@ -54,16 +54,16 @@ public class bc extends com.baidu.adp.framework.listener.a {
         ArrayList arrayList6;
         ArrayList arrayList7;
         boolean z4;
-        com.baidu.tieba.pb.data.j jVar3;
-        com.baidu.tieba.pb.data.j jVar4;
+        com.baidu.tieba.pb.data.l lVar3;
+        com.baidu.tieba.pb.data.l lVar4;
         TbPageContext tbPageContext2;
         long j4 = 0;
         String str5 = null;
-        bdUniqueId = this.ewF.unique_id;
+        bdUniqueId = this.eso.unique_id;
         if (bdUniqueId == responsedMessage.getOrginalMessage().getTag()) {
-            this.ewF.isLoading = false;
+            this.eso.isLoading = false;
             if (responsedMessage.hasError() && responsedMessage.getError() == 4) {
-                tbPageContext2 = this.ewF.aaY;
+                tbPageContext2 = this.eso.aat;
                 tbPageContext2.getPageActivity().finish();
             }
             if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -72,7 +72,7 @@ public class bc extends com.baidu.adp.framework.listener.a {
                 SubPbHttpResponseMessage subPbHttpResponseMessage = (SubPbHttpResponseMessage) responsedMessage;
                 if (subPbHttpResponseMessage.isTreatDelPage()) {
                     if (!subPbHttpResponseMessage.hasError()) {
-                        this.ewF.f(subPbHttpResponseMessage.pbFloorData);
+                        this.eso.g(subPbHttpResponseMessage.pbFloorData);
                         return;
                     }
                     return;
@@ -89,44 +89,44 @@ public class bc extends com.baidu.adp.framework.listener.a {
                 SubPbSocketResponseMessage subPbSocketResponseMessage = (SubPbSocketResponseMessage) responsedMessage;
                 if (subPbSocketResponseMessage.isTreatDelPage()) {
                     if (!subPbSocketResponseMessage.hasError()) {
-                        this.ewF.f(subPbSocketResponseMessage.pbFloorData);
+                        this.eso.g(subPbSocketResponseMessage.pbFloorData);
                         return;
                     }
                     return;
                 }
             }
-            arrayList = this.ewF.ewx;
+            arrayList = this.eso.esg;
             if (arrayList != null) {
-                arrayList4 = this.ewF.ewx;
+                arrayList4 = this.eso.esg;
                 if (arrayList4.size() > 0) {
                     try {
-                        arrayList6 = this.ewF.ewx;
+                        arrayList6 = this.eso.esg;
                         for (int size = arrayList6.size() - 1; size >= 0; size--) {
-                            arrayList7 = this.ewF.ewx;
-                            com.baidu.tieba.pb.data.j jVar5 = (com.baidu.tieba.pb.data.j) arrayList7.get(size);
-                            z4 = this.ewF.ewz;
+                            arrayList7 = this.eso.esg;
+                            com.baidu.tieba.pb.data.l lVar5 = (com.baidu.tieba.pb.data.l) arrayList7.get(size);
+                            z4 = this.eso.esi;
                             if (z4) {
-                                jVar4 = this.ewF.eul;
-                                jVar4.c(jVar5, true);
+                                lVar4 = this.eso.epO;
+                                lVar4.c(lVar5, true);
                             } else {
-                                jVar3 = this.ewF.eul;
-                                jVar3.b(jVar5, true);
+                                lVar3 = this.eso.epO;
+                                lVar3.b(lVar5, true);
                             }
                         }
                     } catch (Exception e) {
                         BdLog.detailException(e);
                     }
-                    arrayList5 = this.ewF.ewx;
+                    arrayList5 = this.eso.esg;
                     arrayList5.clear();
                 }
             }
             int error = responsedMessage.getError();
             String errorString = responsedMessage.getErrorString();
-            bVar = this.ewF.bHB;
+            bVar = this.eso.bHm;
             if (bVar == null) {
-                this.ewF.bHB = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
+                this.eso.bHm = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
             }
-            bVar2 = this.ewF.bHB;
+            bVar2 = this.eso.bHm;
             if (bVar2 != null) {
                 if (error == 0) {
                     if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -144,82 +144,82 @@ public class bc extends com.baidu.adp.framework.listener.a {
                         j3 = j;
                         i = downSize2;
                     }
-                    bVar3 = this.ewF.bHB;
+                    bVar3 = this.eso.bHm;
                     bVar3.a(z, true, error, errorString, i, j3, j2);
-                    this.ewF.bHB = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
-                    this.ewF.bHB = null;
+                    this.eso.bHm = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
+                    this.eso.bHm = null;
                 }
                 if (responsedMessage == null || ((!(responsedMessage instanceof SubPbSocketResponseMessage) && !(responsedMessage instanceof SubPbHttpResponseMessage)) || responsedMessage.getError() != 0)) {
-                    aVar = this.ewF.ewt;
+                    aVar = this.eso.esc;
                     if (aVar != null) {
-                        aVar2 = this.ewF.ewt;
+                        aVar2 = this.eso.esc;
                         aVar2.a(false, error, errorString, null);
                     }
                 } else if (responsedMessage.getCmd() == 302002 || responsedMessage.getCmd() == 1002100) {
                     if (responsedMessage instanceof SubPbHttpResponseMessage) {
-                        jVar = ((SubPbHttpResponseMessage) responsedMessage).pbFloorData;
+                        lVar = ((SubPbHttpResponseMessage) responsedMessage).pbFloorData;
                     } else {
-                        jVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
+                        lVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
                     }
-                    if (jVar.aKV().errorno.intValue() != 0) {
-                        aVar5 = this.ewF.ewt;
+                    if (lVar.aIq().errorno.intValue() != 0) {
+                        aVar5 = this.eso.esc;
                         if (aVar5 != null) {
-                            aVar6 = this.ewF.ewt;
-                            aVar6.a(false, jVar.eiS.errorno.intValue(), jVar.eiS.errmsg, null);
+                            aVar6 = this.eso.esc;
+                            aVar6.a(false, lVar.edT.errorno.intValue(), lVar.edT.errmsg, null);
                             return;
                         }
                         return;
                     }
-                    if (jVar.Kn() != null && jVar.Kn().getAuthor() != null) {
-                        str5 = jVar.Kn().getAuthor().getUserId();
-                        if (com.baidu.tbadk.core.util.x.q(jVar.aKW().getAuthor().getIconInfo())) {
-                            arrayList2 = this.ewF.ewv;
+                    if (lVar.JB() != null && lVar.JB().getAuthor() != null) {
+                        str5 = lVar.JB().getAuthor().getUserId();
+                        if (com.baidu.tbadk.core.util.x.r(lVar.aIr().getAuthor().getIconInfo())) {
+                            arrayList2 = this.eso.ese;
                             if (arrayList2 != null) {
-                                MetaData author = jVar.aKW().getAuthor();
-                                arrayList3 = this.ewF.ewv;
+                                MetaData author = lVar.aIr().getAuthor();
+                                arrayList3 = this.eso.ese;
                                 author.setIconInfo(arrayList3);
                             }
                         }
                     }
-                    z2 = this.ewF.ewz;
+                    z2 = this.eso.esi;
                     if (!z2) {
-                        for (int i2 = 0; i2 < jVar.aLa().size(); i2++) {
-                            boolean equals = str5.equals(jVar.aLa().get(i2).getAuthor().getUserId());
-                            tbPageContext = this.ewF.aaY;
-                            jVar.aLa().get(i2).b(tbPageContext, equals);
+                        for (int i2 = 0; i2 < lVar.aIv().size(); i2++) {
+                            boolean equals = str5.equals(lVar.aIv().get(i2).getAuthor().getUserId());
+                            tbPageContext = this.eso.aat;
+                            lVar.aIv().get(i2).a(tbPageContext, equals);
                         }
                     }
-                    if (jVar.aKW() != null) {
-                        this.ewF.postID = jVar.aKW().getId();
+                    if (lVar.aIr() != null) {
+                        this.eso.postID = lVar.aIr().getId();
                     }
-                    if (jVar.Kn() != null) {
-                        this.ewF.threadID = jVar.Kn().getId();
-                        this.ewF.eiR = jVar.oe();
-                        this.ewF.ews = jVar.Kn().sx();
+                    if (lVar.JB() != null) {
+                        this.eso.threadID = lVar.JB().getId();
+                        this.eso.edS = lVar.nL();
+                        this.eso.esb = lVar.JB().rH();
                     }
-                    str = this.ewF.ews;
+                    str = this.eso.esb;
                     if (str != null) {
-                        str2 = this.ewF.postID;
+                        str2 = this.eso.postID;
                         if (str2 != null) {
-                            str3 = this.ewF.ews;
-                            str4 = this.ewF.postID;
+                            str3 = this.eso.esb;
+                            str4 = this.eso.postID;
                             if (str3.equals(str4)) {
-                                this.ewF.eiR = true;
+                                this.eso.edS = true;
                             }
                         }
                     }
-                    z3 = this.ewF.ewz;
+                    z3 = this.eso.esi;
                     if (!z3) {
-                        this.ewF.d(jVar);
+                        this.eso.e(lVar);
                     } else {
-                        this.ewF.e(jVar);
+                        this.eso.f(lVar);
                     }
-                    aVar3 = this.ewF.ewt;
+                    aVar3 = this.eso.esc;
                     if (aVar3 != null) {
-                        boolean z5 = this.ewF.aPP();
-                        aVar4 = this.ewF.ewt;
-                        jVar2 = this.ewF.eul;
-                        aVar4.a(z5, error, errorString, jVar2);
+                        boolean z5 = this.eso.aNf();
+                        aVar4 = this.eso.esc;
+                        lVar2 = this.eso.epO;
+                        aVar4.a(z5, error, errorString, lVar2);
                     }
                 }
             }

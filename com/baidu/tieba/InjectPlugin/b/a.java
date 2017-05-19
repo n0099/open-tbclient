@@ -6,59 +6,51 @@ import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a extends g {
-    private BdTypeListView aPG;
-    private Map<String, String> aPH;
-    private Object aPI;
-    private boolean aPJ;
-    private int aPK;
-    private int amZ;
+    private BdTypeListView aPZ;
+    private Map<String, String> aQa;
+    private Object aQb;
+    private boolean aQc;
+    private int aQd;
+    private int ane;
 
     public a(TbPageContext tbPageContext, int i) {
         super(tbPageContext, i);
-        this.aPJ = false;
+        this.aQc = false;
     }
 
     public BdTypeListView getListView() {
-        return this.aPG;
+        return this.aPZ;
     }
 
     public void a(BdTypeListView bdTypeListView) {
-        this.aPG = bdTypeListView;
+        this.aPZ = bdTypeListView;
     }
 
-    public Object Jy() {
-        return this.aPI;
+    public Object IM() {
+        return this.aQb;
     }
 
     public void J(Object obj) {
-        this.aPI = obj;
+        this.aQb = obj;
     }
 
-    public Map<String, String> Jz() {
-        return this.aPH;
+    public Map<String, String> IN() {
+        return this.aQa;
     }
 
     public void setParams(Map<String, String> map) {
-        this.aPH = map;
+        this.aQa = map;
     }
 
-    public void ce(boolean z) {
-        this.aPJ = z;
-    }
-
-    public int JA() {
-        return this.aPK;
-    }
-
-    public void setMaskColor(int i) {
-        this.aPK = i;
+    public int IO() {
+        return this.aQd;
     }
 
     public int getSkinType() {
-        return this.amZ;
+        return this.ane;
     }
 
     public void setSkinType(int i) {
-        this.amZ = i;
+        this.ane = i;
     }
 }

@@ -5,15 +5,15 @@ import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ MultiImageView aup;
+    final /* synthetic */ MultiImageView aut;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(MultiImageView multiImageView) {
-        this.aup = multiImageView;
+        this.aut = multiImageView;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
-        r0 = r1.aup.getCurrentImageView();
+        r0 = r1.aut.getCurrentImageView();
      */
     @Override // android.view.View.OnClickListener
     /*
@@ -22,20 +22,20 @@ public class o implements View.OnClickListener {
     public void onClick(View view) {
         Button button;
         Button button2;
-        com.baidu.tbadk.widget.a currentImageView;
-        com.baidu.tbadk.widget.a currentImageView2;
-        button = this.aup.auf;
+        com.baidu.tbadk.widget.b currentImageView;
+        com.baidu.tbadk.widget.b currentImageView2;
+        button = this.aut.auj;
         if (view != button) {
-            button2 = this.aup.aug;
+            button2 = this.aut.auk;
             if (view == button2 && currentImageView != null) {
-                currentImageView.HJ();
+                currentImageView.GU();
                 return;
             }
             return;
         }
-        currentImageView2 = this.aup.getCurrentImageView();
+        currentImageView2 = this.aut.getCurrentImageView();
         if (currentImageView2 != null) {
-            currentImageView2.HI();
+            currentImageView2.GT();
         }
     }
 }

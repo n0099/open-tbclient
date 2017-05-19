@@ -1,25 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fx implements View.OnClickListener {
-    final /* synthetic */ ey etN;
+public class fx extends CustomMessageListener {
+    final /* synthetic */ fm epr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fx(ey eyVar) {
-        this.etN = eyVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fx(fm fmVar, int i) {
+        super(i);
+        this.epr = fmVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        this.etN.aOF();
-        pbActivity = this.etN.ekw;
-        if (pbActivity.bQO != null) {
-            pbActivity2 = this.etN.ekw;
-            pbActivity2.bQO.onClick(view);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        cq cqVar;
+        cq cqVar2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+            cqVar = this.epr.enG;
+            if (cqVar != null) {
+                cqVar2 = this.epr.enG;
+                cqVar2.notifyDataSetChanged();
+            }
         }
     }
 }

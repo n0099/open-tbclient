@@ -1,59 +1,25 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.bg;
 /* loaded from: classes.dex */
-public class y implements com.baidu.tbadk.core.f.a {
-    private b fCx;
+class y extends CustomMessageListener {
+    final /* synthetic */ MainTabActivity this$0;
 
-    @Override // com.baidu.tbadk.core.f.a
-    public void b(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i, z)));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.f.a
-    public void i(Context context, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i)));
-    }
-
-    @Override // com.baidu.tbadk.core.f.a
-    public void av(Context context) {
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            i(context, 1);
-        } else {
-            i(context, 0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (!bg.aN(this.this$0.getBaseContext())) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tbadk.core.f.a
-    public void c(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
-    }
-
-    @Override // com.baidu.tbadk.core.f.a
-    public Class<?> uE() {
-        return MainTabActivity.class;
-    }
-
-    @Override // com.baidu.tbadk.core.f.a
-    public String uF() {
-        return MainTabActivity.class.getName();
-    }
-
-    @Override // com.baidu.tbadk.core.f.a
-    public int getCurrentTabType() {
-        if (this.fCx != null) {
-            return this.fCx.getCurrentTabType();
-        }
-        return -1;
-    }
-
-    public void a(b bVar) {
-        this.fCx = bVar;
+        this.this$0.bip();
     }
 }

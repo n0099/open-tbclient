@@ -1,7 +1,7 @@
 package com.baidu.tbadk.n;
 /* loaded from: classes.dex */
 public class af {
-    public static void Ha() {
+    public static void Ge() {
         com.baidu.adp.lib.b.e.eZ().f(q.class);
         com.baidu.adp.lib.b.e.eZ().f(a.class);
         com.baidu.adp.lib.b.e.eZ().f(b.class);

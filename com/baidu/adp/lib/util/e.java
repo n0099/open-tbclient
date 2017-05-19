@@ -14,9 +14,9 @@ import java.nio.channels.FileChannel;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class e {
-    private static String ys = "baidu";
-    public static final File yt = Environment.getExternalStorageDirectory();
-    private static final char yu = File.separatorChar;
+    private static String yt = "baidu";
+    public static final File yu = Environment.getExternalStorageDirectory();
+    private static final char yv = File.separatorChar;
 
     public static boolean dH() {
         return Environment.getExternalStorageState().equals("mounted");
@@ -38,21 +38,21 @@ public class e {
 
     public static String aq(String str) {
         if (str != null) {
-            return yt + "/" + ys + "/" + str + "/";
+            return yu + "/" + yt + "/" + str + "/";
         }
-        return yt + "/" + ys + "/";
+        return yu + "/" + yt + "/";
     }
 
     public static String r(String str, String str2) {
         if (str != null) {
-            return yt + "/" + ys + "/" + str + "/" + str2;
+            return yu + "/" + yt + "/" + str + "/" + str2;
         }
-        return yt + "/" + ys + "/" + str2;
+        return yu + "/" + yt + "/" + str2;
     }
 
     public static boolean gU() {
         try {
-            StatFs statFs = new StatFs(yt.getPath());
+            StatFs statFs = new StatFs(yu.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT > 2;
         } catch (Exception e) {
             return false;
@@ -544,7 +544,7 @@ public class e {
     }
 
     static boolean gV() {
-        return yu == '\\';
+        return yv == '\\';
     }
 
     public static void k(File file) throws IOException {

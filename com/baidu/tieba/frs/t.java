@@ -1,26 +1,27 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity bQa;
+public class t extends CustomMessageListener {
+    final /* synthetic */ r bPn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(FrsActivity frsActivity) {
-        this.bQa = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(r rVar, int i) {
+        super(i);
+        this.bPn = rVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aM(boolean z) {
-        if (this.bQa.bPf.adM() == 1 && z && !this.bQa.bOU.aat()) {
-            if (this.bQa.bOV == null || com.baidu.tbadk.core.util.x.q(this.bQa.bOV.getThreadList())) {
-                this.bQa.hideNetRefreshView(this.bQa.bOU.abg());
-                this.bQa.showLoadingView(this.bQa.bOU.abg(), true);
-                this.bQa.bOU.dQ(false);
-                this.bQa.refresh();
-                return;
-            }
-            this.bQa.bOU.aaW();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.i) && !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+            this.bPn.bNT.a((com.baidu.tbadk.data.i) customResponsedMessage.getData());
+            this.bPn.bOn.ZO().notifyDataSetChanged();
         }
     }
 }

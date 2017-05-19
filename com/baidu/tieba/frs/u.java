@@ -2,34 +2,31 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.UserData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bQa;
+public class u extends CustomMessageListener {
+    final /* synthetic */ r bPn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(FrsActivity frsActivity, int i) {
+    public u(r rVar, int i) {
         super(i);
-        this.bQa = frsActivity;
+        this.bPn = rVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() != 2001120) {
-                if (customResponsedMessage.getCmd() == 2001118) {
-                    com.baidu.tieba.frs.f.e.a(customResponsedMessage, this.bQa.bOU, this.bQa.bOV);
-                    return;
-                }
-                return;
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Integer num;
+        UserData userData;
+        com.baidu.tieba.frs.e.u uVar;
+        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && this.bPn.bNT != null && (userData = this.bPn.bNT.getUserData()) != null) {
+            userData.setIsMem(num.intValue());
+            if (num.intValue() != 0) {
+                uVar = this.bPn.bOx;
+                uVar.a(num);
             }
-            this.bQa.d(customResponsedMessage);
         }
     }
 }

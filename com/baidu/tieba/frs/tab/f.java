@@ -1,18 +1,18 @@
 package com.baidu.tieba.frs.tab;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tieba.frs.cv;
-import java.util.List;
+import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface f {
-    void a(Context context, j jVar);
+public class f implements Runnable {
+    final /* synthetic */ HorizontalTabView bZt;
 
-    int aes();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(HorizontalTabView horizontalTabView) {
+        this.bZt = horizontalTabView;
+    }
 
-    View getView();
-
-    void setData(List<cv> list);
-
-    void xl();
+    @Override // java.lang.Runnable
+    public void run() {
+        this.bZt.scrollBy(this.bZt.getContext().getResources().getDimensionPixelSize(w.f.ds160), 0);
+    }
 }

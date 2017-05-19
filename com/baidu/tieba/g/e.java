@@ -1,31 +1,29 @@
 package com.baidu.tieba.g;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Context;
+import android.view.WindowManager;
+import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends CustomMessageListener {
-    final /* synthetic */ a fhS;
+public class e implements Runnable {
+    final /* synthetic */ d dOW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(a aVar, int i) {
-        super(i);
-        this.fhS = aVar;
+    public e(d dVar) {
+        this.dOW = dVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean z;
-        if (customResponsedMessage != null && com.baidu.tbadk.core.sharedPref.b.uL().getLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L) < TbadkCoreApplication.m9getInst().getLastUpdateThemeTime()) {
-            this.fhS.fhE = true;
-            a aVar = this.fhS;
-            z = this.fhS.fhE;
-            aVar.fhw = z ? true : this.fhS.fhw;
-            com.baidu.tbadk.core.sharedPref.b.uL().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L);
-            this.fhS.bbO();
+    @Override // java.lang.Runnable
+    public void run() {
+        RelativeLayout relativeLayout;
+        Context context;
+        RelativeLayout relativeLayout2;
+        relativeLayout = this.dOW.dOS;
+        if (relativeLayout != null) {
+            context = this.dOW.mContext;
+            relativeLayout2 = this.dOW.dOS;
+            ((WindowManager) context.getSystemService("window")).removeViewImmediate(relativeLayout2);
+            this.dOW.clean();
         }
     }
 }

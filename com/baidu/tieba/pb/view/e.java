@@ -5,17 +5,17 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CountDownTimer {
-    private final /* synthetic */ com.baidu.tieba.pb.data.f eoA;
-    final /* synthetic */ PbInterviewStatusView eyn;
-    private final /* synthetic */ PbActivity eyo;
+    private final /* synthetic */ com.baidu.tieba.pb.data.f ekx;
+    final /* synthetic */ PbInterviewStatusView etW;
+    private final /* synthetic */ PbActivity etX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbActivity pbActivity, com.baidu.tieba.pb.data.f fVar) {
         super(j, j2);
-        this.eyn = pbInterviewStatusView;
-        this.eyo = pbActivity;
-        this.eoA = fVar;
+        this.etW = pbInterviewStatusView;
+        this.etX = pbActivity;
+        this.ekx = fVar;
     }
 
     @Override // android.os.CountDownTimer
@@ -24,6 +24,6 @@ public class e extends CountDownTimer {
 
     @Override // android.os.CountDownTimer
     public void onFinish() {
-        this.eyn.b(this.eyo, this.eoA);
+        this.etW.b(this.etX, this.ekx);
     }
 }

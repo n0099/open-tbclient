@@ -63,8 +63,8 @@ public class o extends Thread {
         this.AX = handler;
         this.Ak = aVar;
         this.As = nVar;
-        this.AY = ByteBuffer.allocateDirect(nVar.io() + 14);
-        this.AZ = new d(nVar.ip());
+        this.AY = ByteBuffer.allocateDirect(nVar.in() + 14);
+        this.AZ = new d(nVar.io());
         this.Bd = null;
         this.mState = 1;
     }
@@ -78,7 +78,7 @@ public class o extends Thread {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [232=8] */
-    private boolean iv() throws Exception {
+    private boolean iu() throws Exception {
         int i;
         String str;
         int i2;
@@ -191,19 +191,19 @@ public class o extends Thread {
                 if (!this.Bb) {
                     this.Bb = true;
                     this.Bc = this.Bd.Bj;
-                    if (this.Bc == 1 && this.As.is()) {
+                    if (this.Bc == 1 && this.As.ir()) {
                         this.Bf.reset();
                     }
                 }
-                if (this.Bc == 1 && this.As.is() && !this.Bf.q(this.AZ.toByteArray())) {
+                if (this.Bc == 1 && this.As.ir() && !this.Bf.q(this.AZ.toByteArray())) {
                     throw new WebSocketException("invalid UTF-8 in text message payload");
                 }
                 if (this.Bd.Bk) {
                     if (this.Bc == 1) {
-                        if (this.As.is() && !this.Bf.isValid()) {
+                        if (this.As.ir() && !this.Bf.isValid()) {
                             throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
                         }
-                        if (this.As.in()) {
+                        if (this.As.im()) {
                             r(this.AZ.toByteArray());
                         } else {
                             x(new String(this.AZ.toByteArray(), "UTF-8"));
@@ -281,7 +281,7 @@ public class o extends Thread {
         t(new m.a(bArr, this.Bh, this.Bi));
     }
 
-    private boolean iw() throws UnsupportedEncodingException {
+    private boolean iv() throws UnsupportedEncodingException {
         boolean z;
         boolean z2;
         int position = this.AY.position() - 4;
@@ -294,9 +294,9 @@ public class o extends Thread {
                 int position2 = this.AY.position();
                 Map<String, String> map = null;
                 if (this.AY.get(0) == 72 && this.AY.get(1) == 84 && this.AY.get(2) == 84 && this.AY.get(3) == 80) {
-                    Pair<Integer, String> ix = ix();
-                    if (((Integer) ix.first).intValue() >= 300) {
-                        t(new m.p(((Integer) ix.first).intValue(), (String) ix.second));
+                    Pair<Integer, String> iw = iw();
+                    if (((Integer) iw.first).intValue() >= 300) {
+                        t(new m.p(((Integer) iw.first).intValue(), (String) iw.second));
                         z = true;
                     } else {
                         z = false;
@@ -313,7 +313,7 @@ public class o extends Thread {
                 this.AY.position(position + 4);
                 this.AY.limit(position2);
                 this.AY.compact();
-                if (this.Bg < this.Ak.hW() && map.size() == 0) {
+                if (this.Bg < this.Ak.hV() && map.size() == 0) {
                     this.Bg++;
                     return true;
                 }
@@ -348,7 +348,7 @@ public class o extends Thread {
         return hashMap;
     }
 
-    private Pair<Integer, String> ix() throws UnsupportedEncodingException {
+    private Pair<Integer, String> iw() throws UnsupportedEncodingException {
         int i = 4;
         while (i < this.AY.position() && this.AY.get(i) != 32) {
             i++;
@@ -374,12 +374,12 @@ public class o extends Thread {
         return new Pair<>(Integer.valueOf(i4), new String(bArr, "UTF-8"));
     }
 
-    private boolean iy() throws Exception {
+    private boolean ix() throws Exception {
         if (this.mState == 3 || this.mState == 2) {
-            return iv();
+            return iu();
         }
         if (this.mState == 1) {
-            return iw();
+            return iv();
         }
         if (this.mState == 0) {
         }
@@ -413,7 +413,7 @@ public class o extends Thread {
                     }
                     if (read > 0) {
                         do {
-                        } while (iy());
+                        } while (ix());
                     } else if (read < 0) {
                         t(new m.d(new SocketException("len < 0")));
                         this.mStopped = true;
@@ -437,7 +437,7 @@ public class o extends Thread {
         }
     }
 
-    public void ie() {
+    public void id() {
         synchronized (o.class) {
             Ba = 0L;
         }

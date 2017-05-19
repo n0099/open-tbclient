@@ -5,12 +5,12 @@ import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class e {
-    private static Toast zc;
-    private boolean ael;
+    private static Toast zd;
+    private boolean adD;
     private static Handler mHandler = new Handler();
-    private static Runnable aek = new f();
+    private static Runnable adC = new f();
 
-    public static e uR() {
+    public static e ud() {
         return new e();
     }
 
@@ -18,18 +18,18 @@ public class e {
     }
 
     public void b(String str, int i, int i2) {
-        if (!this.ael && str != null) {
+        if (!this.adD && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
-                mHandler.removeCallbacks(aek);
-                if (zc != null) {
-                    zc.setText(trim);
+                mHandler.removeCallbacks(adC);
+                if (zd != null) {
+                    zd.setText(trim);
                 } else {
-                    zc = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    zc.setGravity(17, 0, i2);
+                    zd = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    zd.setGravity(17, 0, i2);
                 }
-                mHandler.postDelayed(aek, i);
-                zc.show();
+                mHandler.postDelayed(adC, i);
+                zd.show();
             }
         }
     }
@@ -51,19 +51,19 @@ public class e {
     }
 
     public void onPause() {
-        this.ael = true;
+        this.adD = true;
         cancel();
     }
 
     public void onResume() {
-        this.ael = false;
+        this.adD = false;
     }
 
     public static void cancel() {
-        if (zc != null) {
-            mHandler.removeCallbacks(aek);
-            zc.cancel();
-            zc = null;
+        if (zd != null) {
+            mHandler.removeCallbacks(adC);
+            zd.cancel();
+            zd = null;
         }
     }
 }

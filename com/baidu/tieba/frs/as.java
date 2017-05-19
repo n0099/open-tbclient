@@ -1,14 +1,40 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import tbclient.FrsPage.FrsPageResIdl;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.InjectPlugin.b;
 /* loaded from: classes.dex */
-class as extends BdAsyncTask<Void, Void, Void> {
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.tbadk.util.y.a(com.baidu.tieba.tbadkCore.l.WIRE, FrsPageResIdl.class);
-        return null;
+public class as {
+    private TbPageContext aat;
+    private com.baidu.tieba.frs.mc.y bPu;
+
+    public as(TbPageContext tbPageContext, com.baidu.tieba.frs.mc.y yVar) {
+        this.aat = tbPageContext;
+        this.bPu = yVar;
+    }
+
+    public void b(b bVar) {
+        if (this.bPu != null && this.bPu.YU() != null && this.bPu.YU().abG() != null && this.bPu.YZ() != null && bVar != null && this.bPu.YZ().getListView() != null && this.bPu.YW() != null) {
+            BdTypeListView listView = this.bPu.YZ().getListView();
+            switch (bVar.what) {
+                case 2:
+                    if (bVar.getView() != null) {
+                        listView.removeHeaderView(bVar.getView());
+                        listView.addHeaderView(bVar.getView(), listView.getHeaderViewsCount() - 1);
+                        this.bPu.YW().iH(8);
+                        return;
+                    }
+                    return;
+                case 3:
+                    if (bVar.getView() != null) {
+                        listView.removeHeaderView(bVar.getView());
+                        this.bPu.YW().iH(0);
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
+        }
     }
 }

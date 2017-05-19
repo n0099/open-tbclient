@@ -1,32 +1,17 @@
 package com.baidu.tbadk.core.view;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserIconBox amn;
+class ao implements View.OnClickListener {
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayoutNew amm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(UserIconBox userIconBox) {
-        this.amn = userIconBox;
+    public ao(ThreadCommentAndPraiseInfoLayoutNew threadCommentAndPraiseInfoLayoutNew) {
+        this.amm = threadCommentAndPraiseInfoLayoutNew;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.e.b bVar;
-        com.baidu.adp.lib.e.b bVar2;
-        if (view2 instanceof TbImageView) {
-            bVar = this.amn.amf;
-            if (bVar != null) {
-                bVar2 = this.amn.amf;
-                bVar2.n((TbImageView) view2);
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.amm.wB();
     }
 }

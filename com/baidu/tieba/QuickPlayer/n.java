@@ -7,29 +7,29 @@ import com.baidu.tieba.QuickPlayer.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements ServiceConnection {
-    final /* synthetic */ m aQG;
+    final /* synthetic */ m aQZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.aQG = mVar;
+        this.aQZ = mVar;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Runnable runnable;
-        this.aQG.aQD = true;
+        this.aQZ.aQW = true;
         com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable = this.aQG.aQF;
+        runnable = this.aQZ.aQY;
         fS.removeCallbacks(runnable);
-        this.aQG.aQE = d.a.d(iBinder);
+        this.aQZ.aQX = d.a.d(iBinder);
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
         Runnable runnable;
-        this.aQG.aQD = false;
+        this.aQZ.aQW = false;
         com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable = this.aQG.aQF;
+        runnable = this.aQZ.aQY;
         fS.postDelayed(runnable, 1000L);
     }
 }

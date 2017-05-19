@@ -1,59 +1,61 @@
 package com.baidu.tieba.enterForum.b;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import tbclient.RecommendForumInfo;
+import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
-public class g implements com.baidu.tbadk.mvc.b.a {
-    private String axt;
-    private int bGA;
-    private int bGB;
-    private String bGC;
-    private long mForumId;
-    private String mForumName;
-    private int mThreadNum;
-    private int mType;
+public class g extends e implements com.baidu.tbadk.mvc.b.a {
+    private int bGt;
+    private String bGu;
+    private int bhs;
+    private String mId;
+    private String mName;
+
+    public String getId() {
+        return this.mId;
+    }
+
+    public String getName() {
+        return this.mName;
+    }
+
+    public void hq(int i) {
+        this.bGt = i;
+    }
+
+    public int VY() {
+        return this.bGt;
+    }
+
+    public void setLevel(int i) {
+        this.bhs = i;
+    }
+
+    public int getLevel() {
+        return this.bhs;
+    }
 
     public String getAvatar() {
-        return this.axt;
+        return this.bGu;
     }
 
-    public long getForumId() {
-        return this.mForumId;
+    public void a(LikeForum likeForum) {
+        if (likeForum != null) {
+            a(likeForum, null);
+        }
     }
 
-    public String getForumName() {
-        return this.mForumName;
-    }
-
-    public int WJ() {
-        return this.bGB;
-    }
-
-    public int WK() {
-        return this.mThreadNum;
-    }
-
-    public String getSlogan() {
-        return this.bGC;
-    }
-
-    public void a(RecommendForumInfo recommendForumInfo) {
-        if (recommendForumInfo != null) {
+    public void a(LikeForum likeForum, Context context) {
+        if (likeForum != null) {
             try {
-                this.axt = recommendForumInfo.avatar;
-                this.mForumId = recommendForumInfo.forum_id.longValue();
-                this.mForumName = recommendForumInfo.forum_name;
-                this.bGA = recommendForumInfo.is_like.intValue();
-                this.bGB = recommendForumInfo.member_count.intValue();
-                this.mThreadNum = recommendForumInfo.thread_count.intValue();
-                this.bGC = recommendForumInfo.slogan;
+                this.mId = String.valueOf(likeForum.forum_id);
+                this.mName = likeForum.forum_name;
+                this.bGt = likeForum.is_sign.intValue();
+                this.bhs = likeForum.level_id.intValue();
+                this.bGu = likeForum.avatar;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-    }
-
-    public int getType() {
-        return this.mType;
     }
 }

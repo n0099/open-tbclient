@@ -1,90 +1,105 @@
 package com.baidu.tbadk.util;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class x {
-    public static String ar(String str, String str2) {
-        int indexOf = str.indexOf(str2);
-        if (indexOf != -1) {
-            int length = str2.length() + indexOf;
-            int i = length;
-            while (i < str.length() && str.charAt(i) != '&') {
+    public static boolean e(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
+    }
+
+    public static int go(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        int i = 0;
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            if (e(str.charAt(i2))) {
                 i++;
-            }
-            try {
-                return URLDecoder.decode(str.substring(length, i));
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-                return "";
+            } else {
+                i += 2;
             }
         }
-        return "";
+        return i;
     }
 
-    public static Bundle gr(String str) {
-        URL url;
-        String query;
-        String[] split;
+    public static String C(String str, int i) {
         if (StringUtils.isNull(str)) {
-            return null;
+            return "";
         }
-        Bundle bundle = new Bundle();
-        try {
-            url = new URL(str);
-            query = url.getQuery();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+        if (go(str) > i) {
+            return String.valueOf(d(str, 0, i - 2)) + "...";
         }
-        if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
-            return null;
-        }
-        bundle.putString("path", url.getPath());
-        for (String str2 : split) {
-            String[] split2 = str2.split("=");
-            if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
-                bundle.putString(split2[0], split2[1]);
-            }
-        }
-        return bundle;
+        return str;
     }
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public String BDUSS;
-        public String aJt;
-
-        public a(String str, String str2) {
-            this.BDUSS = "";
-            this.aJt = "";
-            this.BDUSS = str;
-            this.aJt = str2;
+    public static String D(String str, int i) {
+        if (StringUtils.isNull(str)) {
+            return "";
         }
-
-        public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aJt != null ? this.aJt.hashCode() : 0);
+        if (go(str) > i) {
+            return d(str, 0, i);
         }
+        return str;
+    }
 
-        public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj != null && getClass() == obj.getClass()) {
-                a aVar = (a) obj;
-                if (this.BDUSS == null) {
-                    if (aVar.BDUSS != null) {
-                        return false;
+    public static String d(String str, int i, int i2) {
+        StringBuilder sb = new StringBuilder();
+        if (TextUtils.isEmpty(str) || i > i2) {
+            return sb.toString();
+        }
+        if (i >= 0 && i2 >= 0) {
+            int i3 = 0;
+            for (int i4 = 0; i4 < str.length(); i4++) {
+                char charAt = str.charAt(i4);
+                if (i3 >= i2) {
+                    if (i3 == i2) {
+                        return sb.toString();
                     }
-                } else if (!this.BDUSS.equals(aVar.BDUSS)) {
-                    return false;
+                    return sb.deleteCharAt(sb.length() - 1).toString();
                 }
-                return this.aJt == null ? aVar.aJt == null : this.aJt.equals(aVar.aJt);
+                if (i3 >= i) {
+                    sb.append(charAt);
+                }
+                if (e(charAt)) {
+                    i3++;
+                } else {
+                    i3 += 2;
+                }
             }
-            return false;
         }
+        return sb.toString();
+    }
+
+    public static boolean f(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ';
+    }
+
+    public static String u(String str, int i) {
+        StringBuilder sb = new StringBuilder();
+        if (TextUtils.isEmpty(str)) {
+            return sb.toString();
+        }
+        if (i > 0) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < str.length(); i3++) {
+                char charAt = str.charAt(i3);
+                if (i2 >= i) {
+                    if (i2 == i) {
+                        return sb.toString();
+                    }
+                    return sb.deleteCharAt(sb.length() - 1).toString();
+                }
+                if (i2 >= 0) {
+                    sb.append(charAt);
+                }
+                if (f(charAt)) {
+                    i2++;
+                } else {
+                    i2 += 2;
+                }
+            }
+        }
+        return sb.toString();
     }
 }

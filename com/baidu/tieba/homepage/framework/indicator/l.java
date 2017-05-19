@@ -1,31 +1,30 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import android.view.View;
+import com.baidu.tieba.homepage.framework.v;
 /* loaded from: classes.dex */
-class l implements com.baidu.tbadk.widget.layout.h {
-    final /* synthetic */ ScrollFragmentTabHost cxk;
+public class l {
+    private int cub = -1;
+    private boolean cuc = false;
+    private boolean cud = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.cxk = scrollFragmentTabHost;
+    public void a(v vVar) {
+        this.cuc = true;
+        if (this.cub != -1 && this.cud) {
+            vVar.jF(this.cub);
+        }
     }
 
-    @Override // com.baidu.tbadk.widget.layout.h
-    public void a(View view, int i, int i2, int i3, int i4) {
-        a aVar;
-        r rVar;
-        r rVar2;
-        a aVar2;
-        this.cxk.topHeight = i2;
-        aVar = this.cxk.cwY;
-        if (aVar != null) {
-            aVar2 = this.cxk.cwY;
-            aVar2.b(view, i, i2, i3, i4);
+    public void a(int i, v vVar) {
+        this.cub = i;
+        if (this.cuc && this.cud) {
+            vVar.jF(this.cub);
         }
-        rVar = this.cxk.cxb;
-        if (rVar != null) {
-            rVar2 = this.cxk.cxb;
-            rVar2.jQ(i2);
+    }
+
+    public void b(v vVar) {
+        this.cud = true;
+        if (this.cub != -1 && this.cuc) {
+            vVar.jF(this.cub);
         }
     }
 }

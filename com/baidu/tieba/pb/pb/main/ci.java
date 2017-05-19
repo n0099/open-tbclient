@@ -1,14 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import tbclient.PbPage.PbPageResIdl;
+import android.widget.Toast;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ci extends BdAsyncTask<Void, Void, Void> {
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.tbadk.util.y.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
-        return null;
+public class ci implements a.b {
+    final /* synthetic */ PbActivity ehy;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ci(PbActivity pbActivity) {
+        this.ehy = pbActivity;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        Toast.makeText(this.ehy.getPageContext().getPageActivity(), this.ehy.getPageContext().getResources().getString(w.l.channel_no_push), 1).show();
     }
 }

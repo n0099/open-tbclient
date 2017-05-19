@@ -503,19 +503,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream dd = l.dd(str);
-                BitmapFactory.decodeStream(dd, null, options);
+                InputStream db = l.db(str);
+                BitmapFactory.decodeStream(db, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.o.j(dd);
+                com.baidu.adp.lib.util.o.j(db);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream dd2 = l.dd(str);
-                        decodeStream = BitmapFactory.decodeStream(dd2, null, options);
-                        com.baidu.adp.lib.util.o.j(dd2);
+                        InputStream db2 = l.db(str);
+                        decodeStream = BitmapFactory.decodeStream(db2, null, options);
+                        com.baidu.adp.lib.util.o.j(db2);
                     }
                 }
             }
@@ -693,7 +693,7 @@ public class BitmapHelper {
         return Bytes2Bitmap(bArr, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [773=4, 806=5, 807=5, 808=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [770=4, 803=5, 804=5, 805=5] */
     public static Bitmap Bytes2Bitmap(byte[] bArr, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -790,7 +790,7 @@ public class BitmapHelper {
         return bitmap2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [853=5, 854=5, 855=5, 857=5, 859=5, 860=5, 861=5, 826=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [850=5, 851=5, 852=5, 854=5, 856=5, 857=5, 858=5, 823=4] */
     public static Bitmap Bytes2NineBitmap(byte[] bArr, Rect rect, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -1019,86 +1019,51 @@ public class BitmapHelper {
     }
 
     public static int getGradeResourceIdNew(int i) {
-        switch (i) {
-            case 1:
-                return w.g.icon_grade_lv1;
-            case 2:
-                return w.g.icon_grade_lv2;
-            case 3:
-                return w.g.icon_grade_lv3;
-            case 4:
-                return w.g.icon_grade_lv4;
-            case 5:
-                return w.g.icon_grade_lv5;
-            case 6:
-                return w.g.icon_grade_lv6;
-            case 7:
-                return w.g.icon_grade_lv7;
-            case 8:
-                return w.g.icon_grade_lv8;
-            case 9:
-                return w.g.icon_grade_lv9;
-            case 10:
-                return w.g.icon_grade_lv10;
-            case 11:
-                return w.g.icon_grade_lv11;
-            case 12:
-                return w.g.icon_grade_lv12;
-            case 13:
-                return w.g.icon_grade_lv13;
-            case 14:
-                return w.g.icon_grade_lv14;
-            case 15:
-                return w.g.icon_grade_lv15;
-            case 16:
-                return w.g.icon_grade_lv16;
-            case 17:
-                return w.g.icon_grade_lv17;
-            case 18:
-                return w.g.icon_grade_lv18;
-            default:
-                return 0;
-        }
+        return getGradeResourceIdInEnterForum(i);
     }
 
     public static int getSmallGradeResourceIdNew(int i) {
+        return getGradeResourceIdInEnterForum(i);
+    }
+
+    public static int getGradeResourceIdInEnterForum(int i) {
         switch (i) {
             case 1:
-                return w.g.icon_small_grade_lv1;
+                return w.g.icon_level_01;
             case 2:
-                return w.g.icon_small_grade_lv2;
+                return w.g.icon_level_02;
             case 3:
-                return w.g.icon_small_grade_lv3;
+                return w.g.icon_level_03;
             case 4:
-                return w.g.icon_small_grade_lv4;
+                return w.g.icon_level_04;
             case 5:
-                return w.g.icon_small_grade_lv5;
+                return w.g.icon_level_05;
             case 6:
-                return w.g.icon_small_grade_lv6;
+                return w.g.icon_level_06;
             case 7:
-                return w.g.icon_small_grade_lv7;
+                return w.g.icon_level_07;
             case 8:
-                return w.g.icon_small_grade_lv8;
+                return w.g.icon_level_08;
             case 9:
-                return w.g.icon_small_grade_lv9;
+                return w.g.icon_level_09;
             case 10:
-                return w.g.icon_small_grade_lv10;
+                return w.g.icon_level_10;
             case 11:
-                return w.g.icon_small_grade_lv11;
+                return w.g.icon_level_11;
             case 12:
-                return w.g.icon_small_grade_lv12;
+                return w.g.icon_level_12;
             case 13:
-                return w.g.icon_small_grade_lv13;
+                return w.g.icon_level_13;
             case 14:
-                return w.g.icon_small_grade_lv14;
+                return w.g.icon_level_14;
             case 15:
-                return w.g.icon_small_grade_lv15;
+                return w.g.icon_level_15;
             case 16:
-                return w.g.icon_small_grade_lv16;
+                return w.g.icon_level_16;
             case 17:
-                return w.g.icon_small_grade_lv17;
+                return w.g.icon_level_17;
             case 18:
-                return w.g.icon_small_grade_lv18;
+                return w.g.icon_level_18;
             default:
                 return 0;
         }

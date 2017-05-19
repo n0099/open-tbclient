@@ -1,23 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.c.a;
 /* loaded from: classes.dex */
-class ac extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bQa;
+class ac implements a.InterfaceC0058a {
+    final /* synthetic */ ab bPo;
+    private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(FrsActivity frsActivity, int i) {
-        super(i);
-        this.bQa = frsActivity;
+    public ac(ab abVar, String str) {
+        this.bPo = abVar;
+        this.val$url = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && ((Integer) customResponsedMessage.getData()).intValue() == 51 && this.bQa.bOV != null) {
-            com.baidu.tieba.frs.f.u.a(this.bQa.bOV, this.bQa.getPageContext());
-        }
+    @Override // com.baidu.tieba.c.a.InterfaceC0058a
+    public void SL() {
+        r rVar;
+        r rVar2;
+        r rVar3;
+        rVar = this.bPo.bPn;
+        com.baidu.tbadk.browser.f.S(rVar.getPageContext().getPageActivity(), this.val$url);
+        com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c10502");
+        rVar2 = this.bPo.bPn;
+        com.baidu.tbadk.core.util.as aa = asVar.aa("fid", rVar2.bNT.aHE().getId());
+        rVar3 = this.bPo.bPn;
+        TiebaStatic.log(aa.aa(SapiAccountManager.SESSION_UID, rVar3.bNT.getUserData().getUserId()));
     }
 }

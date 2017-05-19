@@ -6,7 +6,7 @@ public class c {
     private static volatile c EC;
     private b ED;
 
-    public static c jT() {
+    public static c jS() {
         if (EC == null) {
             synchronized (c.class) {
                 if (EC == null) {
@@ -49,7 +49,7 @@ public class c {
             return false;
         }
         if (this.ED != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.ED.jS()) {
+            for (BdFileDownloadData bdFileDownloadData : this.ED.jR()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

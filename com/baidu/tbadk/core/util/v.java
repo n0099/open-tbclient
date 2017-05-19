@@ -1,47 +1,47 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class v {
-    private static v aeY;
-    private long aeT = 0;
-    private long aeU = 0;
-    private String aeV = "";
-    private String aeW = "";
-    private final long aeX = 120000;
+    private static v aeq;
+    private long ael = 0;
+    private long aem = 0;
+    private String aen = "";
+    private String aeo = "";
+    private final long aep = 120000;
 
-    public static v vn() {
-        if (aeY == null) {
+    public static v uA() {
+        if (aeq == null) {
             synchronized (v.class) {
-                if (aeY == null) {
-                    aeY = new v();
+                if (aeq == null) {
+                    aeq = new v();
                 }
             }
         }
-        return aeY;
+        return aeq;
     }
 
-    public String vo() {
+    public String uB() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.aeT > 120000) {
+        if (currentTimeMillis - this.ael > 120000) {
             if (com.baidu.adp.lib.util.k.hA()) {
                 return "";
             }
-            this.aeT = currentTimeMillis;
-            this.aeV = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
+            this.ael = currentTimeMillis;
+            this.aen = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
         }
-        return this.aeV;
+        return this.aen;
     }
 
-    public String dp(String str) {
+    public String dn(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.aeU > 120000) {
+        if (currentTimeMillis - this.aem > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");
             if (indexOf <= 0 || com.baidu.adp.lib.util.k.hA()) {
                 return "";
             }
-            this.aeU = currentTimeMillis;
-            this.aeW = UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
-            return this.aeW;
+            this.aem = currentTimeMillis;
+            this.aeo = UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
+            return this.aeo;
         }
-        return this.aeW;
+        return this.aeo;
     }
 }

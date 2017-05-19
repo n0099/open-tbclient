@@ -1,61 +1,39 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.util.as;
+import java.util.List;
 /* loaded from: classes.dex */
-public class p extends c {
-    public static final BdUniqueId bxE = BdUniqueId.gen();
-    public static final BdUniqueId bxF = BdUniqueId.gen();
-    public static String bxG = "";
-    public static String bxH = "";
-    public static String bxI = "";
-    public static String bxJ = "";
-    public static String bxK = "";
-    public static String bxL = "";
-    public static String bxM = "";
-    public bi bck;
-    public boolean bxz = false;
+public class p extends b implements r {
+    public static final BdUniqueId bxM = BdUniqueId.gen();
     public boolean bxN = true;
-    public int sourceType = 0;
-
-    public p(bi biVar) {
-        this.bck = biVar;
-    }
-
-    public static boolean n(bi biVar) {
-        return (biVar == null || biVar.sF() == null) ? false : true;
-    }
+    public boolean bxO = true;
+    public String bxP;
+    public List<o> bxQ;
+    public int bxR;
+    public int position;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.bck == null) {
-            return bxE;
-        }
-        if (this.bck.sr() || this.bck.ss()) {
-            return bxF;
-        }
-        return bxE;
+        return bxM;
     }
 
-    @Override // com.baidu.tieba.card.data.c
-    public bi Kn() {
-        return this.bck;
+    @Override // com.baidu.tieba.card.data.r
+    public int getPosition() {
+        return this.position;
     }
 
-    public as Un() {
-        return A(bxJ, true);
+    @Override // com.baidu.tieba.card.data.r
+    public boolean Tv() {
+        return true;
     }
 
-    public as o(bi biVar) {
-        return (biVar.ts() == null || biVar.ts().channelId <= 0) ? A(bxK, true) : A(bxL, true);
+    @Override // com.baidu.tieba.card.data.r
+    public void dd(boolean z) {
+        this.bxN = z;
     }
 
-    public as Up() {
-        return A(bxH, true);
-    }
-
-    public as p(bi biVar) {
-        return (biVar.ts() == null || biVar.ts().channelId <= 0) ? A(bxG, true) : A(bxM, true);
+    @Override // com.baidu.tieba.card.data.r
+    public void de(boolean z) {
+        this.bxO = z;
     }
 }

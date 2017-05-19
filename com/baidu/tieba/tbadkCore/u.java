@@ -1,77 +1,28 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.ForumRecommend.LikeForum;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bk;
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.mvc.b.a {
-    private String axt;
-    private int bgX;
-    private int fwQ;
-    private String mId;
-    private String mName;
-    private int mType;
+public class u extends bk {
+    public static final BdUniqueId ftd = BdUniqueId.gen();
+    private String fortune_desc;
+    private boolean fte;
+    private o ftf;
 
-    public u() {
+    public boolean bfX() {
+        return this.fte;
     }
 
-    public u(int i) {
-        this.mType = i;
+    public String bfY() {
+        return this.fortune_desc;
     }
 
-    public String getId() {
-        return this.mId;
+    public o bfZ() {
+        return this.ftf;
     }
 
-    public String getName() {
-        return this.mName;
-    }
-
-    public void eq(int i) {
-        this.fwQ = i;
-    }
-
-    public int bix() {
-        return this.fwQ;
-    }
-
-    public void setLevel(int i) {
-        this.bgX = i;
-    }
-
-    public int getLevel() {
-        return this.bgX;
-    }
-
-    public String getAvatar() {
-        return this.axt;
-    }
-
-    public void a(LikeForum likeForum) {
-        if (likeForum != null) {
-            a(likeForum, null);
-        }
-    }
-
-    public void a(LikeForum likeForum, Context context) {
-        if (likeForum != null) {
-            try {
-                this.mId = String.valueOf(likeForum.forum_id);
-                this.mName = likeForum.forum_name;
-                this.fwQ = likeForum.is_sign.intValue();
-                this.bgX = likeForum.level_id.intValue();
-                this.axt = likeForum.avatar;
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
-    }
-
-    public int getType() {
-        return this.mType;
-    }
-
-    public void setType(int i) {
-        this.mType = i;
+    @Override // com.baidu.tbadk.core.data.bk, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return ftd;
     }
 }

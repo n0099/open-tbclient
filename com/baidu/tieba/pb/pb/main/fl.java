@@ -1,18 +1,32 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
-public class fl implements a.b {
-    final /* synthetic */ ey etN;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public fl(ey eyVar) {
-        this.etN = eyVar;
+public class fl {
+    public static Intent ah(Context context, String str) {
+        if (TextUtils.isEmpty(str) || context == null) {
+            return null;
+        }
+        Intent intent = new Intent(context, DealIntentService.class);
+        intent.putExtra("class", 1);
+        intent.putExtra("id", str);
+        intent.putExtra("from", "nas");
+        return intent;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    public static boolean h(PostData postData) {
+        if (postData == null || postData.bgU() == null) {
+            return false;
+        }
+        com.baidu.tieba.tbadkCore.data.h bgU = postData.bgU();
+        if (bgU.ftS) {
+            int bgq = bgU.bgq();
+            return bgq == 2 || bgq == 1 || bgq == 3;
+        }
+        return false;
     }
 }

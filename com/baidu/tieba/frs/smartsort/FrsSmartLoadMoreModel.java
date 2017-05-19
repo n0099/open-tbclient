@@ -3,30 +3,32 @@ package com.baidu.tieba.frs.smartsort;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bl;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tieba.frs.bf;
 import com.baidu.tieba.frs.mc.x;
-import com.baidu.tieba.tbadkCore.w;
+import com.baidu.tieba.frs.r;
+import com.baidu.tieba.tbadkCore.u;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
-    private x bPO;
-    private final FrsActivity bQw;
-    private int ble;
-    private int bxh;
+public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
+    private final r bNK;
+    private x bPd;
+    private int blB;
+    private int bxg;
     private int mSortType;
     private final ArrayList<v> mThreadList;
 
-    public FrsSmartLoadMoreModel(FrsActivity frsActivity, x xVar) {
-        super(frsActivity.getPageContext());
+    public FrsSmartLoadMoreModel(r rVar, x xVar) {
+        super(rVar.getPageContext());
         this.mThreadList = new ArrayList<>();
-        this.bxh = 1;
-        this.ble = -1;
-        this.bQw = frsActivity;
-        this.bPO = xVar;
+        this.bxg = 1;
+        this.blB = -1;
+        this.bNK = rVar;
+        setUniqueId(this.bNK.getUniqueId());
+        this.bPd = xVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -43,28 +45,28 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
         this.mSortType = i;
     }
 
-    public int aac() {
-        return this.ble;
+    public int Za() {
+        return this.blB;
     }
 
     public void setHasMore(int i) {
-        this.ble = i;
+        this.blB = i;
     }
 
     public int getPn() {
-        return this.bxh;
+        return this.bxg;
     }
 
     public void setPn(int i) {
-        if (i > this.bxh) {
-            this.bxh = i;
+        if (i > this.bxg) {
+            this.bxg = i;
         }
     }
 
     public ArrayList<v> a(boolean z, boolean z2, ArrayList<v> arrayList) {
-        if (com.baidu.tbadk.core.util.x.q(arrayList)) {
-            if (this.bPO != null) {
-                this.bPO.a(this.mSortType, z2, 0, z, null);
+        if (com.baidu.tbadk.core.util.x.r(arrayList)) {
+            if (this.bPd != null) {
+                this.bPd.a(this.mSortType, z2, 0, z, null);
             }
             return this.mThreadList;
         }
@@ -75,13 +77,13 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
             int i = 0;
             while (it.hasNext()) {
                 v next = it.next();
-                if (!(next instanceof bl)) {
+                if (!(next instanceof bf)) {
                     if (d(next)) {
                         arrayList3.add(next);
-                    } else if (next instanceof bi) {
-                        bi biVar = (bi) next;
-                        biVar.au(true);
-                        if ((biVar.tv() != null && !biVar.sL()) || !e(biVar.getId(), this.mThreadList)) {
+                    } else if (next instanceof bk) {
+                        bk bkVar = (bk) next;
+                        bkVar.ar(true);
+                        if ((bkVar.sF() != null && !bkVar.rV()) || !e(bkVar.getId(), this.mThreadList)) {
                             arrayList2.add(next);
                             i++;
                         }
@@ -94,14 +96,14 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
             if (z2) {
                 K(arrayList2);
             }
-            this.bQw.aas().a(this.bQw, true, arrayList2, this.mThreadList, this.bQw.ZU().adW());
+            this.bNK.Zq().a(this.bNK.getPageContext(), true, arrayList2, this.mThreadList, this.bNK.YU().aca());
             if (z2) {
-                if (this.bPO != null) {
-                    this.bPO.a(this.mSortType, z2, i, z, arrayList2);
+                if (this.bPd != null) {
+                    this.bPd.a(this.mSortType, z2, i, z, arrayList2);
                 }
-                aei();
-                f(this.mThreadList, arrayList2);
-                av(arrayList2);
+                acl();
+                g(this.mThreadList, arrayList2);
+                ar(arrayList2);
                 J(arrayList3);
             } else {
                 this.mThreadList.addAll(arrayList2);
@@ -111,8 +113,8 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
         return this.mThreadList;
     }
 
-    private void av(List<v> list) {
-        if (!com.baidu.tbadk.core.util.x.q(list)) {
+    private void ar(List<v> list) {
+        if (!com.baidu.tbadk.core.util.x.r(list)) {
             this.mThreadList.addAll(0, list);
         }
     }
@@ -121,19 +123,19 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
         if (vVar == null) {
             return false;
         }
-        if (vVar instanceof w) {
+        if (vVar instanceof u) {
             return true;
         }
-        return (vVar instanceof bi) && ((bi) vVar).sk() == 2;
+        return (vVar instanceof bk) && ((bk) vVar).ru() == 2;
     }
 
     private void a(ArrayList<v> arrayList, boolean z, int i) {
-        int p;
+        int q;
         int i2;
-        if (arrayList != null && (p = com.baidu.tbadk.core.util.x.p(arrayList)) > i) {
-            int max = Math.max(p - i, 30);
+        if (arrayList != null && (q = com.baidu.tbadk.core.util.x.q(arrayList)) > i) {
+            int max = Math.max(q - i, 30);
             if (z) {
-                i2 = ((p - 20) - max) - 1;
+                i2 = ((q - 20) - max) - 1;
             } else {
                 i2 = 20;
             }
@@ -141,57 +143,57 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
         }
     }
 
-    public void aei() {
-        if (!com.baidu.tbadk.core.util.x.q(this.mThreadList)) {
+    public void acl() {
+        if (!com.baidu.tbadk.core.util.x.r(this.mThreadList)) {
             ArrayList arrayList = new ArrayList();
             Iterator<v> it = this.mThreadList.iterator();
             while (it.hasNext()) {
                 v next = it.next();
                 if (d(next)) {
                     arrayList.add(next);
-                } else if (next instanceof bl) {
+                } else if (next instanceof bf) {
                     arrayList.add(next);
                 }
             }
-            if (!com.baidu.tbadk.core.util.x.q(arrayList)) {
+            if (!com.baidu.tbadk.core.util.x.r(arrayList)) {
                 this.mThreadList.removeAll(arrayList);
             }
         }
     }
 
     public void J(ArrayList<v> arrayList) {
-        if (!com.baidu.tbadk.core.util.x.q(arrayList) && !com.baidu.tbadk.core.util.x.q(this.mThreadList)) {
+        if (!com.baidu.tbadk.core.util.x.r(arrayList) && !com.baidu.tbadk.core.util.x.r(this.mThreadList)) {
             this.mThreadList.addAll(0, arrayList);
         }
     }
 
     public void K(ArrayList<v> arrayList) {
-        if (!com.baidu.tbadk.core.util.x.q(arrayList)) {
+        if (!com.baidu.tbadk.core.util.x.r(arrayList)) {
             ArrayList arrayList2 = new ArrayList();
-            if (!com.baidu.tbadk.core.util.x.q(arrayList)) {
+            if (!com.baidu.tbadk.core.util.x.r(arrayList)) {
                 Iterator<v> it = arrayList.iterator();
                 while (it.hasNext()) {
                     v next = it.next();
                     if (next != null) {
-                        if (next.getType() == bi.Zk) {
+                        if (next.getType() == bk.YC) {
                             it.remove();
                             arrayList2.add(next);
-                        } else if ((next instanceof bi) && ((bi) next).sm() == 1) {
+                        } else if ((next instanceof bk) && ((bk) next).rw() == 1) {
                             it.remove();
                             arrayList2.add(next);
                         }
                     }
                 }
             }
-            if (!com.baidu.tbadk.core.util.x.q(arrayList2)) {
-                if (!com.baidu.tbadk.core.util.x.q(this.mThreadList)) {
+            if (!com.baidu.tbadk.core.util.x.r(arrayList2)) {
+                if (!com.baidu.tbadk.core.util.x.r(this.mThreadList)) {
                     Iterator<v> it2 = this.mThreadList.iterator();
                     while (it2.hasNext()) {
                         v next2 = it2.next();
                         if (next2 != null) {
-                            if (next2.getType() == bi.Zk) {
+                            if (next2.getType() == bk.YC) {
                                 it2.remove();
-                            } else if ((next2 instanceof bi) && ((bi) next2).sm() == 1) {
+                            } else if ((next2 instanceof bk) && ((bk) next2).rw() == 1) {
                                 it2.remove();
                             }
                         }
@@ -209,7 +211,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
         Iterator<v> it = arrayList.iterator();
         while (it.hasNext()) {
             v next = it.next();
-            if ((next instanceof bi) && str.equalsIgnoreCase(((bi) next).getTid())) {
+            if ((next instanceof bk) && str.equalsIgnoreCase(((bk) next).getTid())) {
                 return true;
             }
         }
@@ -222,21 +224,21 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
 
     public void resetData() {
         this.mThreadList.clear();
-        this.ble = -1;
-        this.bxh = 1;
+        this.blB = -1;
+        this.bxg = 1;
     }
 
-    private void f(List<v> list, List<v> list2) {
-        if (!com.baidu.tbadk.core.util.x.q(list) && !com.baidu.tbadk.core.util.x.q(list2)) {
-            long iR = a.aee().iR(this.bQw.getForumName());
-            bl blVar = new bl();
-            if (iR > 0) {
-                blVar.aP(iR);
+    private void g(List<v> list, List<v> list2) {
+        if (!com.baidu.tbadk.core.util.x.r(list) && !com.baidu.tbadk.core.util.x.r(list2)) {
+            long iY = a.ach().iY(this.bNK.getForumName());
+            bf bfVar = new bf();
+            if (iY > 0) {
+                bfVar.aO(iY);
             } else {
-                blVar.aP(System.currentTimeMillis());
+                bfVar.aO(System.currentTimeMillis());
             }
-            list2.add(blVar);
-            a.aee().i(this.bQw.getForumName(), System.currentTimeMillis());
+            list2.add(bfVar);
+            a.ach().i(this.bNK.getForumName(), System.currentTimeMillis());
         }
     }
 }

@@ -52,4 +52,40 @@ public class HotTopicBussinessData implements Serializable {
         this.mTopicName = str2;
         this.mIsGlobalBlock = i;
     }
+
+    public HotTopicBussinessData() {
+        this.mForumId = 0L;
+        this.mForumName = null;
+        this.mForumAvatar = null;
+        this.mForumAbstract = null;
+        this.mThreadNum = 0L;
+        this.mPostNum = 0L;
+        this.mFollowNum = 0L;
+        this.mIsLiked = false;
+        this.mIsGlobalBlock = 0;
+    }
+
+    public long getForumId() {
+        return this.mForumId;
+    }
+
+    public void setForumId(long j) {
+        this.mForumId = j;
+    }
+
+    public String getForumName() {
+        return this.mForumName;
+    }
+
+    public void setForumName(String str) {
+        this.mForumName = str;
+    }
+
+    public String getForumAvatar() {
+        return this.mForumAvatar;
+    }
+
+    public void setForumAvatar(String str) {
+        this.mForumAvatar = str;
+    }
 }

@@ -1,48 +1,48 @@
 package com.baidu.audiorecorder.lib.voice;
 
 import android.os.Handler;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static c Kb;
-    private static String Kc;
-    private static com.baidu.adp.lib.voice.k Kd;
-    private static int Ka = 0;
-    private static long Ke = 0;
+    private static c Jt;
+    private static String Ju;
+    private static com.baidu.adp.lib.voice.k Jv;
+    private static int Js = 0;
+    private static long Jw = 0;
     private static Handler mHandler = new Handler(new b());
 
     public static boolean a(String str, int i, com.baidu.adp.lib.voice.k kVar) {
-        if (System.currentTimeMillis() - Ke < 1000) {
+        if (System.currentTimeMillis() - Jw < 1000) {
             return false;
         }
-        Ke = System.currentTimeMillis();
-        if (Ka == 0) {
-            if (Kb == null) {
-                Kb = new c(mHandler);
+        Jw = System.currentTimeMillis();
+        if (Js == 0) {
+            if (Jt == null) {
+                Jt = new c(mHandler);
             }
-            Kc = str;
-            Kd = kVar;
-            if (Kb.o(str, i)) {
-                Ka = 3;
-                new Thread(Kb).start();
+            Ju = str;
+            Jv = kVar;
+            if (Jt.o(str, i)) {
+                Js = 3;
+                new Thread(Jt).start();
                 return true;
             }
-            Kb = null;
+            Jt = null;
             return false;
         }
         return false;
     }
 
     public static void stop() {
-        if (Kb != null) {
-            Kb.stop();
+        if (Jt != null) {
+            Jt.stop();
         }
-        Ka = 0;
+        Js = 0;
     }
 
     public static void cancel() {
-        if (Kb != null) {
-            Kb.cancel();
+        if (Jt != null) {
+            Jt.cancel();
         }
-        Ka = 0;
+        Js = 0;
     }
 }

@@ -1,43 +1,111 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import android.os.Environment;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.w;
-import java.io.File;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class ae {
-    public static final void ap(Context context, String str) {
-        if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.k.showToast(context, w.l.download_error);
-            return;
-        }
-        File cX = com.baidu.tbadk.core.util.l.cX(String.valueOf(str.replace(".", "_")) + ".apk");
-        if (cX != null) {
-            Intent intent = new Intent();
-            intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(cX, intent, context), "application/vnd.android.package-archive");
-            intent.addFlags(268435456);
-            context.startActivity(intent);
-        }
+    private String ahf = "bar_detail";
+    private a ftv;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void j(String str, long j);
+
+        void k(String str, long j);
     }
 
-    public static boolean isInstalledPackage(Context context, String str) {
-        return context.getPackageManager().getApplicationInfo(str, 8192) != null;
+    public void setFrom(String str) {
+        this.ahf = str;
     }
 
-    public static boolean x(Activity activity) {
-        if (Build.VERSION.SDK_INT < 23) {
-            return true;
+    public void a(a aVar) {
+        this.ftv = aVar;
+    }
+
+    public void s(String str, long j) {
+        new b(str, j, this.ahf, this.ftv).execute(new Integer[0]);
+    }
+
+    /* loaded from: classes.dex */
+    private static class b extends BdAsyncTask<Integer, Integer, Integer> {
+        private String ahf;
+        private WeakReference<a> ftw;
+        private long mForumId;
+        private String mForumName;
+        private com.baidu.tbadk.core.util.z mNetwork = null;
+
+        public b(String str, long j, String str2, a aVar) {
+            this.mForumName = null;
+            this.mForumId = 0L;
+            this.ftw = null;
+            this.mForumName = str;
+            this.mForumId = j;
+            this.ftw = new WeakReference<>(aVar);
+            this.ahf = str2;
+            setPriority(3);
         }
-        boolean aE = com.baidu.tbadk.core.util.ae.aE(activity);
-        if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
-            return false;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public Integer doInBackground(Integer... numArr) {
+            try {
+                if (this.mForumId != 0 && this.mForumName != null) {
+                    this.mNetwork = new com.baidu.tbadk.core.util.z(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
+                    this.mNetwork.n("fid", String.valueOf(this.mForumId));
+                    this.mNetwork.n("kw", this.mForumName);
+                    this.mNetwork.n("favo_type", "1");
+                    this.mNetwork.n("st_type", this.ahf);
+                    this.mNetwork.uJ().vD().mIsNeedTbs = true;
+                    this.mNetwork.ul();
+                }
+                return 1;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return 0;
+            }
         }
-        return aE;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
+            super.onPostExecute((b) num);
+            if (this.ftw != null) {
+                com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
+                aVar.forumId = this.mForumId;
+                a aVar2 = this.ftw.get();
+                if (aVar2 != null) {
+                    if (this.mNetwork != null) {
+                        if (this.mNetwork.uJ().vE().isRequestSuccess()) {
+                            if (num.intValue() == 1) {
+                                TbadkCoreApplication.m9getInst().delLikeForum(this.mForumName);
+                                aVar2.j(this.mForumName, this.mForumId);
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM_NAME, this.mForumName));
+                                aVar.isSuccess = true;
+                            } else {
+                                aVar2.k(this.mForumName, this.mForumId);
+                                aVar.isSuccess = false;
+                            }
+                        } else {
+                            aVar2.k(this.mForumName, this.mForumId);
+                            aVar.isSuccess = false;
+                        }
+                    } else {
+                        aVar2.k(this.mForumName, this.mForumId);
+                        aVar.isSuccess = false;
+                    }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM, aVar));
+                }
+            }
+        }
     }
 }

@@ -29,7 +29,7 @@ public class CreateGroupActivityActivityConfig extends IntentConfig {
         getIntent().putExtra("name", groupActivityData.getgActivityTitle());
         getIntent().putExtra(GROUP_ACTIVITY_TIME, groupActivityData.getgActivityTime());
         getIntent().putExtra(GROUP_ACTIVITY_AREA, groupActivityData.getgActivityArea());
-        getIntent().putExtra(GROUP_ACTIVITY_CONTENT, groupActivityData.getgActivityContent());
+        getIntent().putExtra("content", groupActivityData.getgActivityContent());
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }

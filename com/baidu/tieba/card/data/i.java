@@ -1,41 +1,7 @@
 package com.baidu.tieba.card.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
-public class i extends a {
-    public static final BdUniqueId bxl = BdUniqueId.gen();
-    private String buo;
-    private List<com.baidu.tieba.horizonalList.widget.l> mList = new ArrayList();
-    private String stType;
-
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return bxl;
-    }
-
-    public void b(com.baidu.tieba.horizonalList.widget.l lVar) {
-        this.mList.add(lVar);
-    }
-
-    public List<com.baidu.tieba.horizonalList.widget.l> getDataList() {
-        return this.mList;
-    }
-
-    public String getStType() {
-        return this.stType;
-    }
-
-    public void setStType(String str) {
-        this.stType = str;
-    }
-
-    public String Ul() {
-        return this.buo;
-    }
-
-    public void setYuelaouLocate(String str) {
-        this.buo = str;
-    }
+public class i implements com.baidu.tieba.horizonalList.widget.k {
+    public MetaData author;
 }

@@ -2,19 +2,19 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class s implements Runnable {
-    final /* synthetic */ l dmU;
+    final /* synthetic */ l dgY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(l lVar) {
-        this.dmU = lVar;
+        this.dgY = lVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         BdListView bdListView;
-        bdListView = this.dmU.djW;
+        bdListView = this.dgY.ddY;
         bdListView.startPullRefresh();
     }
 }

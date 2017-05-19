@@ -9,54 +9,54 @@ import java.io.InputStreamReader;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class aa {
-    private static String aHf = "tb_perfor_samllflow_time";
-    private static volatile aa aHi;
-    private long aHh;
-    private boolean aHd = false;
-    private long aHg = 86400;
-    private long aHe = com.baidu.tbadk.core.sharedPref.b.uL().getLong(aHf, 0);
+    private static String aHj = "tb_perfor_samllflow_time";
+    private static volatile aa aHm;
+    private long aHl;
+    private boolean aHh = false;
+    private long aHk = 86400;
+    private long aHi = com.baidu.tbadk.core.sharedPref.b.tX().getLong(aHj, 0);
 
-    public static aa GG() {
-        if (aHi == null) {
+    public static aa FK() {
+        if (aHm == null) {
             synchronized (aa.class) {
-                if (aHi == null) {
-                    aHi = new aa();
+                if (aHm == null) {
+                    aHm = new aa();
                 }
             }
         }
-        return aHi;
+        return aHm;
     }
 
     private aa() {
-        this.aHh = 0L;
-        this.aHh = this.aHg;
+        this.aHl = 0L;
+        this.aHl = this.aHk;
     }
 
-    public boolean GH() {
-        if (!this.aHd || (System.currentTimeMillis() - this.aHe) / 1000 <= this.aHh) {
-            return this.aHd;
+    public boolean FL() {
+        if (!this.aHh || (System.currentTimeMillis() - this.aHi) / 1000 <= this.aHl) {
+            return this.aHh;
         }
         return false;
     }
 
-    public void bX(boolean z) {
+    public void bY(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aHe || currentTimeMillis - this.aHe >= this.aHh) {
-                this.aHe = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.uL().putLong(aHf, this.aHe);
+            if (0 == this.aHi || currentTimeMillis - this.aHi >= this.aHl) {
+                this.aHi = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.tX().putLong(aHj, this.aHi);
             }
         } else {
-            this.aHe = 0L;
-            com.baidu.tbadk.core.sharedPref.b.uL().putLong(aHf, this.aHe);
+            this.aHi = 0L;
+            com.baidu.tbadk.core.sharedPref.b.tX().putLong(aHj, this.aHi);
         }
-        this.aHd = z;
+        this.aHh = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            ab.GM().GN();
+            ab.FQ().FR();
         }
     }
 
-    public String GI() {
+    public String FM() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -70,7 +70,7 @@ public class aa {
         }
     }
 
-    public final String GJ() {
+    public final String FN() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
@@ -104,7 +104,7 @@ public class aa {
         return "2G";
     }
 
-    public static String ff(int i) {
+    public static String fb(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -117,8 +117,8 @@ public class aa {
         return "WIFI";
     }
 
-    public z fg(int i) {
-        if (GH()) {
+    public z fc(int i) {
+        if (FL()) {
             switch (i) {
                 case 1000:
                     ac acVar = new ac();
@@ -151,28 +151,28 @@ public class aa {
         return null;
     }
 
-    public void P(long j) {
+    public void Q(long j) {
         if (j > 0) {
-            this.aHh = j;
+            this.aHl = j;
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:81:0x001f */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:82:0x001f */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0062, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:81:0x001e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:82:0x001e */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0061, code lost:
         r0 = r6[2].trim();
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0032  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a1 A[Catch: Exception -> 0x00a7, TRY_LEAVE, TryCatch #1 {Exception -> 0x00a7, blocks: (B:44:0x009c, B:46:0x00a1), top: B:63:0x009c }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x009c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0031  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a0 A[Catch: Exception -> 0x00a6, TRY_LEAVE, TryCatch #3 {Exception -> 0x00a6, blocks: (B:44:0x009b, B:46:0x00a0), top: B:63:0x009b }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x009b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v4 */
     /* JADX WARN: Type inference failed for: r2v6 */
     /* JADX WARN: Type inference failed for: r2v7, types: [java.lang.String] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int GK() {
+    public int FO() {
         BufferedReader bufferedReader;
         Process process;
         String str;

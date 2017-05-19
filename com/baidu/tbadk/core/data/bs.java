@@ -1,49 +1,48 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
+import com.baidu.tbadk.core.atomData.GroupActivityActivityConfig;
 import org.json.JSONObject;
-import tbclient.YulePostActivity;
+import tbclient.FrsPage.YuleActivity;
 /* loaded from: classes.dex */
 public class bs {
-    private String activity_banner;
-    private String activity_button;
-    private String activity_desc;
+    private int SG;
+    private long Zu;
+    private String activity_all_icon;
+    private String activity_half_icon;
     private String activity_url;
-    private long end_time;
-    private long start_time;
-
-    public String tK() {
-        return this.activity_banner;
-    }
 
     public String getActivityUrl() {
         return this.activity_url;
     }
 
-    public String tL() {
-        return this.activity_button;
+    public String sT() {
+        return this.activity_all_icon;
     }
 
-    public void a(YulePostActivity yulePostActivity) {
-        if (yulePostActivity != null) {
-            this.start_time = yulePostActivity.start_time != null ? yulePostActivity.start_time.longValue() : -1L;
-            this.end_time = yulePostActivity.end_time != null ? yulePostActivity.end_time.longValue() : -1L;
-            this.activity_banner = yulePostActivity.activity_banner;
-            this.activity_url = yulePostActivity.activity_url;
-            this.activity_desc = yulePostActivity.activity_desc;
-            this.activity_button = yulePostActivity.activity_button;
+    public String sU() {
+        return this.activity_half_icon;
+    }
+
+    public void a(YuleActivity yuleActivity) {
+        if (yuleActivity != null) {
+            this.Zu = yuleActivity.activity_id.longValue();
+            this.SG = yuleActivity.activity_type.intValue();
+            this.activity_url = yuleActivity.activity_url;
+            this.activity_all_icon = yuleActivity.activity_all_icon;
+            this.activity_half_icon = yuleActivity.activity_half_icon;
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.start_time = jSONObject.optLong("start_time");
-                this.end_time = jSONObject.optLong("end_time");
-                this.activity_banner = jSONObject.optString("activity_banner");
+                this.Zu = jSONObject.optLong(GroupActivityActivityConfig.ACTIVITY_ID);
+                this.SG = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.activity_url = jSONObject.optString("activity_url");
-                this.activity_desc = jSONObject.optString("activity_desc");
-                this.activity_button = jSONObject.optString("activity_button");
+                this.activity_all_icon = jSONObject.optString("activity_all_icon");
+                this.activity_half_icon = jSONObject.optString("activity_half_icon");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }

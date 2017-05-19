@@ -1,46 +1,35 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import com.baidu.tieba.w;
-import java.util.ArrayList;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import com.baidu.tieba.write.view.PostCategoryView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends com.baidu.adp.base.f {
-    final /* synthetic */ WriteActivity fUM;
+public class al implements View.OnClickListener {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.write.WriteActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.adp.base.f
-    public void g(Object obj) {
-        FeedBackTopListView feedBackTopListView;
-        View view;
-        FeedBackTopListView feedBackTopListView2;
-        View view2;
-        FeedBackTopListView feedBackTopListView3;
-        this.fUM.hideProgressBar();
-        if (obj == null || !(obj instanceof FeedBackModel)) {
-            feedBackTopListView = this.fUM.fTE;
-            feedBackTopListView.setVisibility(8);
-            view = this.fUM.fTF;
-            view.setVisibility(8);
-            this.fUM.showToast(w.l.neterror);
-            return;
-        }
-        FeedBackModel feedBackModel = (FeedBackModel) obj;
-        if (feedBackModel.getErrCode() != 0) {
-            feedBackTopListView2 = this.fUM.fTE;
-            feedBackTopListView2.setVisibility(8);
-            view2 = this.fUM.fTF;
-            view2.setVisibility(8);
-            return;
-        }
-        ArrayList<com.baidu.tbadk.core.data.bi> bpU = feedBackModel.bpU();
-        feedBackTopListView3 = this.fUM.fTE;
-        feedBackTopListView3.a(bpU, this.fUM.getPageContext());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PostCategoryView postCategoryView;
+        InputMethodManager inputMethodManager;
+        EditText box;
+        InputMethodManager inputMethodManager2;
+        EditText bow;
+        postCategoryView = this.fSV.fSd;
+        postCategoryView.bnv();
+        WriteActivity writeActivity = this.fSV;
+        inputMethodManager = this.fSV.mInputManager;
+        box = this.fSV.box();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, box);
+        WriteActivity writeActivity2 = this.fSV;
+        inputMethodManager2 = this.fSV.mInputManager;
+        bow = this.fSV.bow();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, bow);
     }
 }

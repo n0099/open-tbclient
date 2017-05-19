@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a dhg;
-    private b dhh;
+    private a dbh;
+    private b dbi;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,24 +29,24 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.dhg = new a(str, chatMessage);
-        this.dhg.execute(new Object[0]);
+        this.dbh = new a(str, chatMessage);
+        this.dbh.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.dhh = bVar;
+        this.dbi = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String dhi;
-        private ChatMessage dhj;
-        private ac dhk = new ac();
+        private String dbj;
+        private ChatMessage dbk;
+        private ac dbl = new ac();
 
         public a(String str, ChatMessage chatMessage) {
-            this.dhi = str;
-            this.dhj = chatMessage;
+            this.dbj = str;
+            this.dbk = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: u */
         public String doInBackground(Object... objArr) {
             try {
-                return this.dhk.kP(this.dhi);
+                return this.dbl.kT(this.dbj);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.dhh != null) {
-                VoiceSendModel.this.dhh.a(str, this.dhj);
+            if (VoiceSendModel.this.dbi != null) {
+                VoiceSendModel.this.dbi.a(str, this.dbk);
             }
         }
     }

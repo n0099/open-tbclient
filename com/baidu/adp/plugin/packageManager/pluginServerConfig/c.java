@@ -7,7 +7,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class c {
     private List<BasicNameValuePair> EE = new ArrayList();
 
-    public List<BasicNameValuePair> jU() {
+    public List<BasicNameValuePair> jT() {
         return this.EE;
     }
 

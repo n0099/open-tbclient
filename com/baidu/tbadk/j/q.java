@@ -7,23 +7,23 @@ import com.baidu.tbadk.j.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends Handler {
-    final /* synthetic */ p aGs;
+    final /* synthetic */ p aGw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(p pVar, Looper looper) {
         super(looper);
-        this.aGs = pVar;
+        this.aGw = pVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         p.a aVar;
         p.a aVar2;
-        this.aGs.aGq = new p.a();
-        aVar = this.aGs.aGq;
+        this.aGw.aGu = new p.a();
+        aVar = this.aGw.aGu;
         aVar.setSelfExecute(true);
-        aVar2 = this.aGs.aGq;
+        aVar2 = this.aGw.aGu;
         aVar2.execute(new String[0]);
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class h {
     private boolean isRunning = false;
-    private int qk = 0;
-    private final Handler ql = new i(this, Looper.getMainLooper());
+    private int ql = 0;
+    private final Handler qm = new i(this, Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void start(String str) {
@@ -17,20 +17,20 @@ public class h {
             stop("online failed 5");
         } else if (!this.isRunning) {
             this.isRunning = true;
-            this.ql.removeMessages(1);
-            if (com.baidu.adp.lib.webSocket.h.hY().ib()) {
+            this.qm.removeMessages(1);
+            if (com.baidu.adp.lib.webSocket.h.hX().ia()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
                 stop("in Opened");
                 return;
             }
             m2do();
             BdLog.d("启动重连策略");
-            this.qk = 0;
+            this.ql = 0;
             int[] cX = com.baidu.adp.framework.client.socket.j.cX();
             if (cX != null && cX.length >= 1) {
                 BdLog.i("start reconnStrategy... the first will be delay" + cX[0]);
-                k.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, String.valueOf(str) + " retryTimes=" + String.valueOf(this.qk));
-                this.ql.sendMessageDelayed(this.ql.obtainMessage(1), cX[0] * 1000);
+                k.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, String.valueOf(str) + " retryTimes=" + String.valueOf(this.ql));
+                this.qm.sendMessageDelayed(this.qm.obtainMessage(1), cX[0] * 1000);
                 return;
             }
             BdLog.i("don't have reconnStrategy!");
@@ -49,9 +49,9 @@ public class h {
         if (this.isRunning) {
             k.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, str);
             this.isRunning = false;
-            this.qk = 0;
+            this.ql = 0;
             BdLog.i("stop reconnStrategy");
-            this.ql.removeMessages(1);
+            this.qm.removeMessages(1);
         }
     }
 }

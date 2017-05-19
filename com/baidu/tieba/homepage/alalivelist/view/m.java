@@ -6,37 +6,37 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class m implements View.OnClickListener {
-    final /* synthetic */ ThreadLiveAndRecordUserInfoLayout cvY;
+    final /* synthetic */ ThreadLiveAndRecordUserInfoLayout csV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ThreadLiveAndRecordUserInfoLayout threadLiveAndRecordUserInfoLayout) {
-        this.cvY = threadLiveAndRecordUserInfoLayout;
+        this.csV = threadLiveAndRecordUserInfoLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bi biVar;
-        bi biVar2;
+        bk bkVar;
+        bk bkVar2;
         Context context;
-        bi biVar3;
+        bk bkVar3;
         View.OnClickListener onClickListener;
         View.OnClickListener onClickListener2;
-        biVar = this.cvY.aRX;
-        if (biVar != null) {
-            biVar2 = this.cvY.aRX;
-            if (!StringUtils.isNull(biVar2.st())) {
+        bkVar = this.csV.aSs;
+        if (bkVar != null) {
+            bkVar2 = this.csV.aSs;
+            if (!StringUtils.isNull(bkVar2.rD())) {
                 MessageManager messageManager = MessageManager.getInstance();
-                context = this.cvY.mContext;
+                context = this.csV.mContext;
                 FrsActivityConfig frsActivityConfig = new FrsActivityConfig(context);
-                biVar3 = this.cvY.aRX;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createJumpLiveTabCfg(biVar3.st(), FrsActivityConfig.FRS_FROM_RECOMMEND, true)));
-                onClickListener = this.cvY.ama;
+                bkVar3 = this.csV.aSs;
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createJumpLiveTabCfg(bkVar3.rD(), FrsActivityConfig.FRS_FROM_RECOMMEND, true)));
+                onClickListener = this.csV.alY;
                 if (onClickListener != null) {
-                    onClickListener2 = this.cvY.ama;
+                    onClickListener2 = this.csV.alY;
                     onClickListener2.onClick(view);
                 }
             }

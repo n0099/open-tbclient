@@ -10,7 +10,7 @@ public class d {
         return str.getBytes(charset);
     }
 
-    public static byte[] rt(String str) {
+    public static byte[] rp(String str) {
         return a(str, c.UTF_8);
     }
 

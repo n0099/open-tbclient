@@ -12,18 +12,18 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class g {
-    private HttpMessageTask.HTTP_METHOD vL;
+    private HttpMessageTask.HTTP_METHOD vM;
     private String url = "";
-    protected Map<String, String> vM = new HashMap();
-    protected LinkedList<BasicNameValuePair> vN = new LinkedList<>();
-    protected HashMap<String, byte[]> vO = new HashMap<>();
+    protected Map<String, String> vN = new HashMap();
+    protected LinkedList<BasicNameValuePair> vO = new LinkedList<>();
+    protected HashMap<String, byte[]> vP = new HashMap<>();
 
     public HttpMessageTask.HTTP_METHOD getMethod() {
-        return this.vL;
+        return this.vM;
     }
 
     public void setMethod(HttpMessageTask.HTTP_METHOD http_method) {
-        this.vL = http_method;
+        this.vM = http_method;
     }
 
     public String getUrl() {
@@ -39,13 +39,13 @@ public class g {
     }
 
     public boolean fF() {
-        return this.vO != null && this.vO.size() > 0;
+        return this.vP != null && this.vP.size() > 0;
     }
 
     public String c(e eVar) {
-        if (this.vN.size() == 0) {
+        if (this.vO.size() == 0) {
             if (eVar != null) {
-                eVar.vt = this.url.length();
+                eVar.vu = this.url.length();
             }
             return this.url;
         }
@@ -59,27 +59,27 @@ public class g {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.vN.size()) {
+            if (i2 >= this.vO.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.vN.get(i2).getName());
+            sb.append(this.vO.get(i2).getName());
             sb.append("=");
-            sb.append(j.aD(this.vN.get(i2).getValue()));
+            sb.append(j.aD(this.vO.get(i2).getValue()));
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.vt = sb.length();
+            eVar.vu = sb.length();
         }
         return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void e(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.vM != null) {
-            for (Map.Entry<String, String> entry : this.vM.entrySet()) {
+        if (httpURLConnection != null && this.vN != null) {
+            for (Map.Entry<String, String> entry : this.vN.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -92,8 +92,8 @@ public class g {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.vN != null) {
-                    Iterator<BasicNameValuePair> it = this.vN.iterator();
+                if (this.vO != null) {
+                    Iterator<BasicNameValuePair> it = this.vO.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -110,8 +110,8 @@ public class g {
                         }
                     }
                 }
-                if (this.vO != null) {
-                    for (Map.Entry<String, byte[]> entry : this.vO.entrySet()) {
+                if (this.vP != null) {
+                    for (Map.Entry<String, byte[]> entry : this.vP.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -131,7 +131,7 @@ public class g {
             }
         }
         if (eVar != null) {
-            eVar.vt = i;
+            eVar.vu = i;
         }
     }
 
@@ -151,14 +151,14 @@ public class g {
             }
         }
         if (eVar != null) {
-            eVar.vt = i;
+            eVar.vu = i;
         }
     }
 
     private StringBuilder fG() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.vN != null) {
-            Iterator<BasicNameValuePair> it = this.vN.iterator();
+        if (this.vO != null) {
+            Iterator<BasicNameValuePair> it = this.vO.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -181,12 +181,12 @@ public class g {
     }
 
     public void d(HashMap<String, String> hashMap) {
-        this.vM = hashMap;
+        this.vN = hashMap;
     }
 
     public String aa(String str) {
-        if (this.vM != null) {
-            return this.vM.get(str);
+        if (this.vN != null) {
+            return this.vN.get(str);
         }
         return null;
     }
@@ -197,9 +197,9 @@ public class g {
                 Object value = entry.getValue();
                 if (value != null) {
                     if (value instanceof String) {
-                        this.vN.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                        this.vO.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
                     } else if (value instanceof byte[]) {
-                        this.vO.put(entry.getKey(), (byte[]) entry.getValue());
+                        this.vP.put(entry.getKey(), (byte[]) entry.getValue());
                     } else {
                         throw new UnsupportedOperationException("post type is not String and byte[]");
                     }
@@ -209,20 +209,20 @@ public class g {
     }
 
     public void d(String str, byte[] bArr) {
-        this.vO.put(str, bArr);
+        this.vP.put(str, bArr);
     }
 
     public void n(String str, String str2) {
-        this.vN.add(new BasicNameValuePair(str, str2));
+        this.vO.add(new BasicNameValuePair(str, str2));
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.vN.add(basicNameValuePair);
+        this.vO.add(basicNameValuePair);
     }
 
     public void o(String str, String str2) {
-        if (this.vM != null) {
-            this.vM.put(str, str2);
+        if (this.vN != null) {
+            this.vN.put(str, str2);
         }
     }
 }

@@ -1,15 +1,17 @@
 package com.baidu.tieba.frs.entelechy;
+
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-class f implements Runnable {
-    final /* synthetic */ a bTw;
+class f implements a.b {
+    final /* synthetic */ c bRN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(a aVar) {
-        this.bTw = aVar;
+    public f(c cVar) {
+        this.bRN = cVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.bTw.NF();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

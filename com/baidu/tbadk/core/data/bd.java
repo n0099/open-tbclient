@@ -1,83 +1,54 @@
 package com.baidu.tbadk.core.data;
 
-import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import tbclient.ForumRecommend.Banner;
+import org.json.JSONObject;
+import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class bd {
-    protected float tagNameRatio;
-    protected String tagNameUrl;
-    protected String img_url = null;
-    protected String link = null;
-    protected String XR = null;
+    private String avatar;
+    private String forumId;
+    private int forumLevel;
+    private String forumName;
 
-    public String qB() {
-        return this.img_url;
+    public String getForumId() {
+        return this.forumId;
     }
 
-    public void cr(String str) {
-        this.img_url = str;
+    public String getForumName() {
+        return this.forumName;
     }
 
-    public String getLink() {
-        return this.link;
+    public int qU() {
+        return this.forumLevel;
     }
 
-    public void setLink(String str) {
-        this.link = str;
+    public void setForumName(String str) {
+        this.forumName = str;
     }
 
-    public void cs(String str) {
-        this.tagNameUrl = str;
+    public void setForumLevel(int i) {
+        this.forumLevel = i;
     }
 
-    public String qs() {
-        return this.tagNameUrl;
-    }
-
-    public void ct(String str) {
-        if (str != null) {
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                String[] split = str.split(",");
-                int g = com.baidu.adp.lib.g.b.g(split[0], 1);
-                int g2 = com.baidu.adp.lib.g.b.g(split[1], 1);
-                if (g2 != 0) {
-                    this.tagNameRatio = g / g2;
-                }
+                this.forumId = String.valueOf(jSONObject.optLong("id", 0L));
+                this.forumName = jSONObject.optString("name");
+                this.avatar = jSONObject.optString("avatar");
+                this.forumLevel = jSONObject.optInt("level_id");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    public float rN() {
-        return this.tagNameRatio;
-    }
-
-    public void a(Banner banner) {
-        if (banner != null) {
-            a(banner, null);
+    public void parserProtobuf(SimpleForum simpleForum) {
+        if (simpleForum != null) {
+            this.forumId = String.valueOf(simpleForum.id);
+            this.forumName = simpleForum.name;
+            this.avatar = simpleForum.avatar;
+            this.forumLevel = simpleForum.level_id.intValue();
         }
-    }
-
-    public void a(Banner banner, Context context) {
-        if (banner != null) {
-            try {
-                cr(banner.pic_url);
-                setLink(banner.link);
-                cs(banner.tag_name_url);
-                ct(banner.tag_name_wh);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
-    }
-
-    public String rO() {
-        return this.XR;
-    }
-
-    public void cu(String str) {
-        this.XR = str;
     }
 }

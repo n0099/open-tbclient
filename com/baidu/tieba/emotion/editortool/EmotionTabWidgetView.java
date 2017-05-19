@@ -12,15 +12,15 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmotionTabWidgetView extends LinearLayout {
-    private com.baidu.tbadk.editortools.j KO;
-    private boolean bFA;
-    private EmotionTabHorizonScrollView bFx;
-    private ImageView bFy;
-    private View bFz;
+    private com.baidu.tbadk.editortools.j Kg;
+    private EmotionTabHorizonScrollView bFE;
+    private ImageView bFF;
+    private View bFG;
+    private boolean bFH;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eQ(int i);
+        void eM(int i);
     }
 
     public EmotionTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -36,71 +36,71 @@ public class EmotionTabWidgetView extends LinearLayout {
     private void init(Context context) {
         removeAllViews();
         LayoutInflater.from(context).inflate(w.j.emotion_tab_widget, (ViewGroup) this, true);
-        this.bFx = (EmotionTabHorizonScrollView) findViewById(w.h.face_tab_scroll_view);
-        this.bFy = (ImageView) findViewById(w.h.face_tab_delete);
-        this.bFz = findViewById(w.h.vertical_div_line);
-        this.bFy.setOnClickListener(new s(this));
+        this.bFE = (EmotionTabHorizonScrollView) findViewById(w.h.face_tab_scroll_view);
+        this.bFF = (ImageView) findViewById(w.h.face_tab_delete);
+        this.bFG = findViewById(w.h.vertical_div_line);
+        this.bFF.setOnClickListener(new s(this));
     }
 
     public void setFrom(int i) {
-        if (this.bFx != null) {
-            this.bFx.setFrom(i);
+        if (this.bFE != null) {
+            this.bFE.setFrom(i);
         }
     }
 
     public void setDatas(ArrayList<com.baidu.tbadk.editortools.emotiontool.c> arrayList) {
-        this.bFx.setDatas(arrayList);
+        this.bFE.setDatas(arrayList);
     }
 
     public void c(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.bFx.c(cVar);
+        this.bFE.c(cVar);
     }
 
     public void setCurrentTab(int i) {
-        this.bFx.setCurrentTab(i);
+        this.bFE.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.bFx.setOnTabSelectedListener(aVar);
+        this.bFE.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.bFx.reset();
+        this.bFE.reset();
     }
 
     public void setIsInChat(boolean z) {
-        this.bFA = z;
-        if (this.bFx != null) {
-            this.bFx.setIsInChat(z);
+        this.bFH = z;
+        if (this.bFE != null) {
+            this.bFE.setIsInChat(z);
         }
     }
 
     public void onChangeSkinType(int i) {
         aq.e(this, w.e.common_color_10255, i);
-        this.bFx.m17do(i);
-        aq.c(this.bFy, w.g.but_face_close, i);
-        aq.e(this.bFy, w.e.common_color_10255, i);
-        aq.e(this.bFz, w.e.common_color_10288, i);
+        this.bFE.dm(i);
+        aq.c(this.bFF, w.g.but_face_close, i);
+        aq.e(this.bFF, w.e.common_color_10255, i);
+        aq.e(this.bFG, w.e.common_color_10288, i);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.bFy.setVisibility(0);
+            this.bFF.setVisibility(0);
         } else {
-            this.bFy.setVisibility(8);
+            this.bFF.setVisibility(8);
         }
     }
 
     public void l(int i, boolean z) {
-        this.bFx.l(i, z);
+        this.bFE.l(i, z);
     }
 
     public void setTabWidgetBigEmontionVisibility(boolean z) {
-        this.bFx.setTabWidgetBigEmontionVisibility(z);
+        this.bFE.setTabWidgetBigEmontionVisibility(z);
     }
 
     public void setOnDataSelected(com.baidu.tbadk.editortools.j jVar) {
-        this.KO = jVar;
-        this.bFx.setEditorTools(this.KO);
+        this.Kg = jVar;
+        this.bFE.setEditorTools(this.Kg);
     }
 }

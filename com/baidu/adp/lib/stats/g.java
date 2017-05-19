@@ -7,63 +7,63 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class g {
-    private static g wY;
-    private HashMap<String, a> wW = new HashMap<>();
-    private HashMap<String, b> wX = new HashMap<>();
+    private static g wZ;
+    private HashMap<String, a> wX = new HashMap<>();
+    private HashMap<String, b> wY = new HashMap<>();
     private Handler mHandler = new h(this, Looper.getMainLooper());
 
     public static g fY() {
-        if (wY == null) {
+        if (wZ == null) {
             synchronized (g.class) {
-                if (wY == null) {
-                    wY = new g();
+                if (wZ == null) {
+                    wZ = new g();
                 }
             }
         }
-        return wY;
+        return wZ;
     }
 
     public g() {
         b bVar = new b(this, null);
-        bVar.an(3000);
-        bVar.ao(120000);
-        bVar.ap(500);
-        this.wX.put("net", bVar);
-        this.wX.put("op", bVar);
-        this.wX.put("stat", bVar);
-        this.wX.put("crash", bVar);
-        this.wX.put("pfmonitor", bVar);
+        bVar.am(3000);
+        bVar.an(120000);
+        bVar.ao(500);
+        this.wY.put("net", bVar);
+        this.wY.put("op", bVar);
+        this.wY.put("stat", bVar);
+        this.wY.put("crash", bVar);
+        this.wY.put("pfmonitor", bVar);
         b bVar2 = new b(this, null);
-        bVar2.an(3000);
-        bVar2.ao(120000);
-        bVar2.ap(1500);
-        this.wX.put("file", bVar2);
-        this.wX.put("db", bVar2);
-        this.wX.put("img", bVar2);
-        this.wX.put("voice", bVar2);
-        this.wX.put("error", bVar2);
+        bVar2.am(3000);
+        bVar2.an(120000);
+        bVar2.ao(1500);
+        this.wY.put("file", bVar2);
+        this.wY.put("db", bVar2);
+        this.wY.put("img", bVar2);
+        this.wY.put("voice", bVar2);
+        this.wY.put("error", bVar2);
         b bVar3 = new b(this, null);
-        bVar3.an(3000);
-        bVar3.ao(120000);
-        bVar3.ap(1500);
-        this.wX.put("dbg", bVar3);
+        bVar3.am(3000);
+        bVar3.an(120000);
+        bVar3.ao(1500);
+        this.wY.put("dbg", bVar3);
     }
 
     public synchronized boolean ag(String str) {
         a aVar;
         boolean z;
-        b bVar = this.wX.get(str);
+        b bVar = this.wY.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.wW.get(str);
+            a aVar2 = this.wX.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a(this, null);
                 aVar3.G(false);
                 aVar3.F(false);
                 aVar3.f(currentTimeMillis);
-                this.wW.put(str, aVar3);
+                this.wX.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
@@ -72,7 +72,7 @@ public class g {
                 z = true;
             } else {
                 if (aVar.ge()) {
-                    aVar.am(aVar.gb() + 1);
+                    aVar.al(aVar.gb() + 1);
                     if (currentTimeMillis - aVar.ga() < bVar.gg()) {
                         if (aVar.gb() >= bVar.gh()) {
                             aVar.F(true);
@@ -82,7 +82,7 @@ public class g {
                         }
                     } else {
                         aVar.G(false);
-                        aVar.am(0);
+                        aVar.al(0);
                         aVar.f(currentTimeMillis);
                     }
                 } else if (currentTimeMillis - aVar.gd() < bVar.gf()) {
@@ -110,14 +110,14 @@ public class g {
     public class a {
         private int mCount;
         private boolean mIsRunning;
-        private long xa;
         private long xb;
-        private boolean xc;
+        private long xc;
+        private boolean xd;
 
         private a() {
             this.mIsRunning = false;
             this.mCount = 0;
-            this.xc = false;
+            this.xd = false;
         }
 
         /* synthetic */ a(g gVar, a aVar) {
@@ -125,35 +125,35 @@ public class g {
         }
 
         public boolean fZ() {
-            return this.xc;
+            return this.xd;
         }
 
         public void F(boolean z) {
-            this.xc = z;
+            this.xd = z;
         }
 
         public long ga() {
-            return this.xb;
+            return this.xc;
         }
 
         public void e(long j) {
-            this.xb = j;
+            this.xc = j;
         }
 
         public int gb() {
             return this.mCount;
         }
 
-        public void am(int i) {
+        public void al(int i) {
             this.mCount = i;
         }
 
         public long gd() {
-            return this.xa;
+            return this.xb;
         }
 
         public void f(long j) {
-            this.xa = j;
+            this.xb = j;
         }
 
         public boolean ge() {
@@ -168,9 +168,9 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private int xd;
         private int xe;
         private int xf;
+        private int xg;
 
         private b() {
         }
@@ -180,27 +180,27 @@ public class g {
         }
 
         public int gf() {
-            return this.xd;
-        }
-
-        public void an(int i) {
-            this.xd = i;
-        }
-
-        public int gg() {
             return this.xe;
         }
 
-        public void ao(int i) {
+        public void am(int i) {
             this.xe = i;
         }
 
-        public int gh() {
+        public int gg() {
             return this.xf;
         }
 
-        public void ap(int i) {
+        public void an(int i) {
             this.xf = i;
+        }
+
+        public int gh() {
+            return this.xg;
+        }
+
+        public void ao(int i) {
+            this.xg = i;
         }
     }
 }

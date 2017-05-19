@@ -7,11 +7,11 @@ import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ c eWq;
+    final /* synthetic */ c eSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(c cVar) {
-        this.eWq = cVar;
+        this.eSq = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,60 +26,60 @@ public class q implements View.OnClickListener {
         c.d dVar;
         c.d dVar2;
         int id = view.getId();
-        view2 = this.eWq.aTl;
+        view2 = this.eSq.aTG;
         if (id != view2.getId()) {
-            if (view.getId() != this.eWq.aTg.getId()) {
+            if (view.getId() != this.eSq.aTB.getId()) {
                 int id2 = view.getId();
-                imageView = this.eWq.dww;
+                imageView = this.eSq.dqF;
                 if (id2 != imageView.getId()) {
-                    if (view.getId() != this.eWq.eWh.getId()) {
-                        if (view.getId() == this.eWq.eWg.getId()) {
-                            fVar = this.eWq.eWo;
+                    if (view.getId() != this.eSq.eSh.getId()) {
+                        if (view.getId() == this.eSq.eSg.getId()) {
+                            fVar = this.eSq.eSo;
                             if (fVar != null) {
-                                fVar2 = this.eWq.eWo;
-                                fVar2.aQz();
+                                fVar2 = this.eSq.eSo;
+                                fVar2.aNQ();
                             }
-                            c cVar = this.eWq;
-                            str = this.eWq.mVideoUrl;
+                            c cVar = this.eSq;
+                            str = this.eSq.mVideoUrl;
                             cVar.startPlay(str);
                             return;
                         }
                         int id3 = view.getId();
-                        imageView2 = this.eWq.dwx;
+                        imageView2 = this.eSq.dqG;
                         if (id3 == imageView2.getId()) {
-                            if (this.eWq.cHV) {
+                            if (this.eSq.cCa) {
                                 TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11714"));
                             } else {
                                 TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11710"));
                             }
-                            this.eWq.azr();
+                            this.eSq.awo();
                             return;
                         }
                         int id4 = view.getId();
-                        imageView3 = this.eWq.dwE;
+                        imageView3 = this.eSq.dqN;
                         if (id4 == imageView3.getId()) {
                             TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11713"));
-                            this.eWq.azr();
+                            this.eSq.awo();
                             return;
-                        } else if (view.getId() != this.eWq.dwp.getId() || !this.eWq.dwG) {
+                        } else if (view.getId() != this.eSq.dqy.getId() || !this.eSq.dqP) {
                             return;
                         } else {
-                            this.eWq.aYP();
+                            this.eSq.aWo();
                             return;
                         }
                     }
-                    dVar = this.eWq.eWn;
+                    dVar = this.eSq.eSn;
                     if (dVar != null) {
-                        dVar2 = this.eWq.eWn;
-                        dVar2.aQy();
+                        dVar2 = this.eSq.eSn;
+                        dVar2.aNP();
                         return;
                     }
                     return;
                 }
             }
-            this.eWq.aQv();
+            this.eSq.aNM();
             return;
         }
-        this.eWq.aYO();
+        this.eSq.aWn();
     }
 }

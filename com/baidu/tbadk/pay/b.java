@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class b extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PayConfigModel aFC;
+    final /* synthetic */ PayConfigModel aFG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(PayConfigModel payConfigModel, int i, int i2) {
         super(i, i2);
-        this.aFC = payConfigModel;
+        this.aFG = payConfigModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -22,7 +22,7 @@ class b extends com.baidu.adp.framework.listener.a {
         boolean checkMessageIsBelongToCurPage;
         a aVar;
         a aVar2;
-        checkMessageIsBelongToCurPage = this.aFC.checkMessageIsBelongToCurPage(responsedMessage);
+        checkMessageIsBelongToCurPage = this.aFG.checkMessageIsBelongToCurPage(responsedMessage);
         if (checkMessageIsBelongToCurPage) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                 String errorString = responsedMessage.getErrorString();
@@ -30,18 +30,18 @@ class b extends com.baidu.adp.framework.listener.a {
                 if (!StringUtils.isNull(errorString)) {
                     string = errorString;
                 }
-                aVar = this.aFC.aFA;
+                aVar = this.aFG.aFE;
                 if (aVar != null) {
-                    aVar2 = this.aFC.aFA;
+                    aVar2 = this.aFG.aFE;
                     aVar2.onError(string);
                 }
             } else if (!(responsedMessage instanceof ClientConfigHttpProtoResponse)) {
                 if (!(responsedMessage instanceof ClientConfigSocketResponse)) {
                     return;
                 }
-                this.aFC.b(((ClientConfigSocketResponse) responsedMessage).getData());
+                this.aFG.b(((ClientConfigSocketResponse) responsedMessage).getData());
             } else {
-                this.aFC.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                this.aFG.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
             }
         }
     }

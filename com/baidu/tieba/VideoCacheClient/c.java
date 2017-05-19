@@ -10,28 +10,28 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URLEncoder;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c implements x {
     public static final String TAG = c.class.getSimpleName();
-    private static c aVl;
-    private int aVm = 0;
+    private static c aVF;
+    private int aVG = 0;
 
     private c() {
-        a.LN();
+        a.Lb();
     }
 
-    public static c LP() {
-        if (aVl == null) {
+    public static c Ld() {
+        if (aVF == null) {
             synchronized (c.class) {
-                if (aVl == null) {
-                    aVl = new c();
+                if (aVF == null) {
+                    aVF = new c();
                 }
             }
         }
-        return aVl;
+        return aVF;
     }
 
-    private static long LL() {
+    private static long KZ() {
         if ("mounted".equals(Environment.getExternalStorageState())) {
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();
@@ -39,38 +39,38 @@ public class c implements x {
         return 0L;
     }
 
-    private boolean LQ() {
-        e.log(TAG, "sdcard avalible size " + ((LL() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M");
-        return LL() > 314572800 && getPort() > 0;
+    private boolean Le() {
+        e.log(TAG, "sdcard avalible size " + ((KZ() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M");
+        return KZ() > 314572800 && getPort() > 0;
     }
 
-    public void aU(Context context) {
+    public void aX(Context context) {
         if (context != null) {
-            f.aW(context).Ke();
+            f.aZ(context).Js();
         }
     }
 
     @Override // com.baidu.tieba.play.x
-    public String gW(String str) {
-        if (LQ()) {
-            String gX = gX(str);
-            if (gX == null) {
-                String gU = gU(str);
-                if (gU != null && new File(String.valueOf(d.aUW) + gU + "/header_downloaded").exists()) {
+    public String gU(String str) {
+        if (Le()) {
+            String gV = gV(str);
+            if (gV == null) {
+                String gS = gS(str);
+                if (gS != null && new File(String.valueOf(d.aVr) + gS + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
             }
-            return gX;
+            return gV;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.x
-    public String gX(String str) {
-        String gU;
+    public String gV(String str) {
+        String gS;
         File file;
-        if (str == null || !str.contains("/") || (gU = gU(str)) == null || (file = new File(String.valueOf(d.aUW) + gU + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (gS = gS(str)) == null || (file = new File(String.valueOf(d.aVr) + gS + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -78,25 +78,25 @@ public class c implements x {
 
     @Override // com.baidu.tieba.play.x
     public void ae(Context context, String str) {
-        f.aW(context).gZ(str);
+        f.aZ(context).gX(str);
     }
 
     @Override // com.baidu.tieba.play.x
     public void af(Context context, String str) {
-        f.aW(context).ha(str);
+        f.aZ(context).gY(str);
     }
 
     @Override // com.baidu.tieba.play.x
-    public void gY(String str) {
-        a.LN().gV(str);
+    public void gW(String str) {
+        a.Lb().gT(str);
     }
 
     @Override // com.baidu.tieba.play.x
-    public void aV(Context context) {
-        f.aW(context).clearCache();
+    public void aY(Context context) {
+        f.aZ(context).clearCache();
     }
 
-    public static String gU(String str) {
+    public static String gS(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -118,8 +118,8 @@ public class c implements x {
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        if (this.aVm == 0) {
-            File file = new File(d.aUX);
+        if (this.aVG == 0) {
+            File file = new File(d.aVs);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -163,7 +163,7 @@ public class c implements x {
                                         e5.printStackTrace();
                                     }
                                 }
-                                return this.aVm;
+                                return this.aVG;
                             } catch (Throwable th) {
                                 th = th;
                                 fileInputStream = fileInputStream2;
@@ -209,10 +209,10 @@ public class c implements x {
                 }
             }
         }
-        return this.aVm;
+        return this.aVG;
     }
 
-    public void LR() {
-        this.aVm = 0;
+    public void Lf() {
+        this.aVG = 0;
     }
 }

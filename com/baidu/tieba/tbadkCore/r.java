@@ -1,27 +1,28 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.app.Dialog;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ProgressBar;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class r extends Dialog {
-    private View.OnTouchListener aOj;
-    private ProgressBar mProgressBar;
-    private View nv;
-
-    @Override // android.app.Dialog
-    protected void onStop() {
-        super.onStop();
-        this.mProgressBar.setVisibility(8);
+public class r {
+    private static boolean pS(String str) {
+        String[] stringArray = TbadkCoreApplication.m9getInst().getApp().getResources().getStringArray(w.b.voice_black_frs_list);
+        String string = TbadkCoreApplication.m9getInst().getApp().getResources().getString(w.l.forum);
+        int length = stringArray.length;
+        for (int i = 0; i < length; i++) {
+            if (stringArray[i].equals(str) || str.equals(String.valueOf(stringArray[i]) + string)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(this.nv);
-        setCanceledOnTouchOutside(true);
-        setCancelable(true);
-        getWindow().getDecorView().setOnTouchListener(this.aOj);
+    public static boolean a(String str, Boolean bool) {
+        if (com.baidu.adp.lib.b.e.eZ().Y("voice") == 0) {
+            if ((str == null || !pS(str)) && bool != null) {
+                return bool.booleanValue();
+            }
+            return false;
+        }
+        return false;
     }
 }

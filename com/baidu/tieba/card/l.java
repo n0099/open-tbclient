@@ -1,72 +1,80 @@
 package com.baidu.tieba.card;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tbadkCore.LikeModel;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
-    final /* synthetic */ h bur;
+public class l extends com.baidu.tieba.horizonalList.widget.m {
+    private TbPageContext aat;
+    public ClickableHeaderImageView bus;
+    public TextView but;
+    public TextView buu;
+    public EntelechyUserLikeButton buv;
+    private com.baidu.tbadk.core.view.userLike.c buw;
+    private com.baidu.tieba.card.data.i bux;
+    private View.OnClickListener mOnClickListener;
+    private int mSkinType;
+    private BdUniqueId uniqueId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(h hVar) {
-        this.bur = hVar;
+    public l(View view, TbPageContext tbPageContext) {
+        super(view);
+        this.mSkinType = 3;
+        this.mOnClickListener = new m(this);
+        this.aat = tbPageContext;
+        this.bus = (ClickableHeaderImageView) view.findViewById(w.h.rec_god_item_header);
+        this.bus.setGodIconMargin(w.f.ds6);
+        this.but = (TextView) view.findViewById(w.h.rec_god_item_user_name);
+        this.buu = (TextView) view.findViewById(w.h.rec_god_item_user_describe);
+        this.buv = (EntelechyUserLikeButton) view.findViewById(w.h.rec_god_item_user_like_btn);
+        this.buw = new com.baidu.tbadk.core.view.userLike.c(this.aat, this.buv);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        LikeModel likeModel;
-        String str7;
-        if (view != null) {
-            if (view.getId() == w.h.forum_add_love) {
-                if (com.baidu.tbadk.core.util.bg.aK(this.bur.getView().getContext())) {
-                    String str8 = (String) view.getTag(w.h.tag_forum_name);
-                    String valueOf = String.valueOf(view.getTag(w.h.tag_forum_id));
-                    if (com.baidu.tbadk.core.util.au.aB(str8)) {
-                        likeModel = this.bur.bui;
-                        likeModel.bY(str8, valueOf);
-                        str7 = this.bur.bul;
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.as(str7).aa("fid", valueOf).aa("obj_param3", at.TP()));
-                    }
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        this.uniqueId = bdUniqueId;
+    }
+
+    @Override // com.baidu.tieba.horizonalList.widget.m
+    public com.baidu.tieba.horizonalList.widget.m U(View view) {
+        l lVar = new l(view, this.aat);
+        lVar.buw.i(this.uniqueId);
+        return lVar;
+    }
+
+    @Override // com.baidu.tieba.horizonalList.widget.m
+    public void a(com.baidu.tieba.horizonalList.widget.k kVar) {
+        if (kVar instanceof com.baidu.tieba.card.data.i) {
+            this.bux = (com.baidu.tieba.card.data.i) kVar;
+            if (this.bux.author != null) {
+                getView().setTag(w.h.rec_god_item_root, this.bux.author.getUserId());
+                this.bus.setTag(w.h.rec_god_item_root, this.bux.author.getUserId());
+                this.buv.setTag(this.bux.author);
+                this.bus.setData(this.bux.author);
+                this.bus.setAfterClickListener(this.asZ);
+                this.but.setText(com.baidu.tbadk.core.util.au.t(this.bux.author.getName_show(), 5));
+                getView().setOnClickListener(this.mOnClickListener);
+                if (this.bux.author.getGodUserData() != null) {
+                    this.buu.setText(com.baidu.tbadk.core.util.au.t(this.bux.author.getGodUserData().getIntro(), 6));
                 }
-            } else if (view.getTag(w.h.tag_forum_name) != null) {
-                String str9 = (String) view.getTag(w.h.tag_forum_name);
-                String valueOf2 = String.valueOf(view.getTag(w.h.tag_forum_id));
-                if (com.baidu.tbadk.core.util.au.aB(str9)) {
-                    if (view.getId() != w.h.m_forum_name_textview) {
-                        str = this.bur.bum;
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.as(str).aa("fid", valueOf2).aa("obj_param3", at.TP()));
-                    } else {
-                        str6 = this.bur.bun;
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.as(str6).aa("fid", valueOf2).aa("obj_param3", at.TP()));
-                    }
-                    str2 = this.bur.stType;
-                    if (!StringUtils.isNull(str2)) {
-                        str3 = this.bur.buo;
-                        if (!StringUtils.isNull(str3)) {
-                            MessageManager messageManager = MessageManager.getInstance();
-                            FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.bur.getView().getContext());
-                            str4 = this.bur.stType;
-                            str5 = this.bur.buo;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(str9, str4, str5)));
-                            return;
-                        }
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bur.getView().getContext()).createNormalCfg(str9, FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                }
+                this.buw.a(this.bux.author);
+                onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
             }
         }
+    }
+
+    @Override // com.baidu.tieba.horizonalList.widget.m
+    public void onChangeSkinType(int i) {
+        if (this.mSkinType != i) {
+            com.baidu.tbadk.core.util.aq.i(this.but, w.e.cp_cont_b);
+            com.baidu.tbadk.core.util.aq.i(this.buu, w.e.cp_cont_d);
+            if (this.buv != null) {
+                this.buv.onChangeSkinType(i);
+            }
+        }
+        this.mSkinType = i;
     }
 }

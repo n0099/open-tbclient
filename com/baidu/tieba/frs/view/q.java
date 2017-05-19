@@ -1,164 +1,128 @@
 package com.baidu.tieba.frs.view;
 
-import android.graphics.drawable.ColorDrawable;
+import android.content.Context;
+import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.adp.widget.ListView.w;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.view.aa;
 import com.baidu.tieba.w;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class q extends PopupWindow implements View.OnClickListener {
-    private final List<b> aSD;
-    private View aXB;
-    private ViewGroup aat;
-    private final TbPageContext<?> ajU;
-    private final a cgG;
-    private ViewGroup cgH;
-    private ViewGroup cgI;
-    private ImageView cgJ;
-    private final List<View> cgK;
+public class q extends BaseAdapter implements com.baidu.tieba.frs.c.e {
+    private List<bk> aWb;
+    private w cdL;
+    private x cdO;
+    private Context mContext;
+    private boolean cdM = false;
+    private View.OnClickListener cdN = new r(this);
+    private View.OnLongClickListener cdP = new s(this);
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void iJ(int i);
+    public q(Context context) {
+        this.mContext = context;
     }
 
-    public q(TbPageContext<?> tbPageContext, View view, a aVar) {
-        super(tbPageContext.getPageActivity());
-        this.aSD = new ArrayList();
-        this.cgK = new ArrayList();
-        this.ajU = tbPageContext;
-        this.cgG = aVar;
-        this.aXB = view;
-        initView();
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return com.baidu.tbadk.core.util.x.q(this.aWb);
     }
 
-    private void initView() {
-        this.aat = (ViewGroup) LayoutInflater.from(this.ajU.getPageActivity()).inflate(w.j.frs_write_popup, (ViewGroup) null);
-        setContentView(this.aat);
-        this.cgH = (ViewGroup) this.aat.findViewById(w.h.frs_write_popup_item_container);
-        this.cgI = (ViewGroup) this.aat.findViewById(w.h.frs_write_popup_board);
-        this.cgJ = (ImageView) this.aat.findViewById(w.h.image_frs_write_popup_close);
-        setBackgroundDrawable(new ColorDrawable(this.ajU.getResources().getColor(w.e.common_color_10262)));
-        this.ajU.getLayoutMode().t(this.aat);
-        this.cgI.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
-        setWidth(-1);
-        setHeight(-1);
-        setFocusable(true);
-        this.aat.setOnClickListener(this);
-        this.cgJ.setOnClickListener(this);
-        this.cgI.setOnClickListener(this);
-        this.aat.setOnKeyListener(new r(this));
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return com.baidu.tbadk.core.util.x.c(this.aWb, i);
     }
 
-    public void d(boolean z, boolean z2, boolean z3) {
-        e(z, z2, z3);
-        afD();
-        afE();
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
     }
 
-    private void e(boolean z, boolean z2, boolean z3) {
-        this.aSD.add(new b(0, this.ajU.getPageActivity().getString(w.l.topic_thread), w.g.write_popup_normal_item_selector));
-        if (z) {
-            this.aSD.add(new b(1, this.ajU.getPageActivity().getString(w.l.publish_live_thread), w.g.write_popup_live_item_selector));
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        boolean z = false;
+        if (view == null) {
+            aVar = new a(this, null);
+            view = LayoutInflater.from(this.mContext).inflate(w.j.frs_header_top_item, (ViewGroup) null);
+            aVar.cdR = view;
+            aVar.cdS = (TextView) view.findViewById(w.h.top_item_type);
+            aVar.cdT = (TextView) view.findViewById(w.h.top_item_title);
+            aVar.aaN = view.findViewById(w.h.top_item_divider);
+            view.setTag(aVar);
+        } else {
+            aVar = (a) view.getTag();
         }
-        if (z2) {
-            this.aSD.add(new b(3, this.ajU.getPageActivity().getString(w.l.msglist_video), w.g.write_popup_video_item_selector));
-        }
-        this.aSD.add(new b(2, this.ajU.getPageActivity().getString(w.l.publish_vote_thread), w.g.write_popup_vote_item_selector));
-        if (z3) {
-            this.aSD.add(new b(5, this.ajU.getPageActivity().getString(w.l.ala_live_write_title), w.g.write_popup_live_video_item_selector));
-        }
-    }
-
-    private void afD() {
-        LinearLayout linearLayout;
-        int i = 0;
-        LinearLayout linearLayout2 = null;
-        while (i < this.aSD.size()) {
-            b bVar = this.aSD.get(i);
-            if (bVar == null) {
-                linearLayout = linearLayout2;
+        bk bkVar = (bk) com.baidu.tbadk.core.util.x.c(this.aWb, i);
+        if (bkVar != null) {
+            aVar.cdS.setText(TbadkCoreApplication.m9getInst().getString(w.l.top));
+            bkVar.si();
+            SpannableStringBuilder rY = bkVar.rY();
+            aVar.cdT.setOnTouchListener(new aa(rY));
+            aVar.cdT.setText(rY);
+            aVar.cdR.setOnClickListener(this.cdN);
+            aVar.cdR.setOnLongClickListener(this.cdP);
+            if (this.cdM && i == 0) {
+                aVar.aaN.setVisibility(8);
             } else {
-                View inflate = LayoutInflater.from(this.ajU.getPageActivity()).inflate(w.j.frs_write_popup_item, (ViewGroup) null);
-                TextView textView = (TextView) inflate.findViewById(w.h.text_frs_write_popup_item);
-                aq.i(textView, w.e.cp_cont_b);
-                textView.setText(bVar.mTitle);
-                aq.c((ImageView) inflate.findViewById(w.h.image_frs_write_popup_item), bVar.cgO);
-                inflate.setOnClickListener(new s(this, bVar));
-                int dimensionPixelOffset = this.ajU.getResources().getDimensionPixelOffset(w.f.ds100);
-                if (i != 0 && i % 2 == 0) {
-                    dimensionPixelOffset = 0;
-                }
-                inflate.setPadding(0, 0, dimensionPixelOffset, 0);
-                if (i % 3 == 0) {
-                    linearLayout = new LinearLayout(this.ajU.getPageActivity());
-                    linearLayout.setPadding(this.ajU.getResources().getDimensionPixelOffset(w.f.ds80), 0, this.ajU.getResources().getDimensionPixelOffset(w.f.ds80), 0);
-                    this.cgH.addView(linearLayout);
-                } else {
-                    linearLayout = linearLayout2;
-                }
-                inflate.setTag(bVar);
-                this.cgK.add(inflate);
-                if (linearLayout != null) {
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    if (i >= 3) {
-                        layoutParams.topMargin = this.ajU.getResources().getDimensionPixelOffset(w.f.ds76);
-                        layoutParams.bottomMargin = this.ajU.getResources().getDimensionPixelOffset(w.f.ds76);
-                    }
-                    linearLayout.addView(inflate, layoutParams);
-                }
+                aVar.aaN.setVisibility(0);
             }
-            i++;
-            linearLayout2 = linearLayout;
+            com.baidu.tieba.tbadkCore.util.r readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory();
+            if (readThreadHistory != null && readThreadHistory.qi(bkVar.getId())) {
+                z = true;
+            }
+            a(aVar, z);
+        }
+        aVar.position = i;
+        com.baidu.tieba.frs.c.b.acs().a(bZb, bkVar);
+        return view;
+    }
+
+    private void a(a aVar, boolean z) {
+        if (aVar != null) {
+            aq.i(aVar.cdS, w.e.cp_link_tip_c);
+            if (z) {
+                aq.i(aVar.cdT, w.e.cp_cont_c);
+            } else {
+                aq.i(aVar.cdT, w.e.cp_cont_b);
+            }
+            aq.j(aVar.cdR, w.g.home_thread_card_item_bg);
+            aq.j(aVar.aaN, w.e.cp_bg_line_c);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.aat == view || this.cgJ == view) {
-            afF();
-        }
+    public void b(com.baidu.adp.widget.ListView.w wVar) {
+        this.cdL = wVar;
     }
 
-    private void afE() {
-        long j = com.baidu.tbadk.core.sharedPref.b.uL().getLong("key_frs_videolive_last_popup_time", 0L);
-        com.baidu.adp.lib.g.j.showPopupWindowAtLocation(this, this.aXB, 0, 0, 1);
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.ajU.getPageActivity(), w.a.write_popup_in);
-        if (j == 0 && this.cgK != null && this.cgK.size() > 0) {
-            loadAnimation.setAnimationListener(new t(this));
-        }
-        this.cgI.startAnimation(loadAnimation);
+    public void setData(List<bk> list) {
+        this.aWb = list;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void afF() {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.ajU.getPageActivity(), w.a.write_popup_out);
-        loadAnimation.setAnimationListener(new u(this));
-        this.cgI.startAnimation(loadAnimation);
+    public void en(boolean z) {
+        this.cdM = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class b {
-        public int cgN;
-        public int cgO;
-        public String mTitle;
+    public class a {
+        View aaN;
+        View cdR;
+        TextView cdS;
+        TextView cdT;
+        int position;
 
-        public b(int i, String str, int i2) {
-            this.cgN = i;
-            this.mTitle = str;
-            this.cgO = i2;
+        private a() {
+        }
+
+        /* synthetic */ a(q qVar, a aVar) {
+            this();
         }
     }
 }

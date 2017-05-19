@@ -4,31 +4,31 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import java.io.InputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class l {
-    private static l aUY;
-    private Handler.Callback aQP = new m(this);
-    private h aUZ;
-    private b aVa;
+    private static l aVt;
+    private Handler.Callback aRi = new m(this);
+    private h aVu;
+    private b aVv;
     private Handler mHandler;
 
     private l() {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aQP);
-        this.aUZ = new h();
-        this.aVa = new b();
+        this.mHandler = new Handler(handlerThread.getLooper(), this.aRi);
+        this.aVu = new h();
+        this.aVv = new b();
     }
 
-    public static l LJ() {
-        if (aUY == null) {
+    public static l KX() {
+        if (aVt == null) {
             synchronized (l.class) {
-                if (aUY == null) {
-                    aUY = new l();
+                if (aVt == null) {
+                    aVt = new l();
                 }
             }
         }
-        return aUY;
+        return aVt;
     }
 
     public void q(InputStream inputStream) {
@@ -37,18 +37,18 @@ public class l {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void gR(String str) {
+    public void gP(String str) {
         this.mHandler.removeMessages(2);
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessageDelayed(obtainMessage, 1000L);
     }
 
-    public void Lx() {
+    public void KL() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
     }
 
-    public void gG(String str) {
+    public void gE(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(4);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);

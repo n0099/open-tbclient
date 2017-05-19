@@ -1,29 +1,32 @@
 package com.baidu.tieba.write.album;
 
-import android.view.View;
-import com.baidu.tbadk.img.ImageFileInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
-public class u implements View.OnClickListener {
-    final /* synthetic */ t fQo;
-    private final /* synthetic */ ImageFileInfo fQp;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(t tVar, ImageFileInfo imageFileInfo) {
-        this.fQo = tVar;
-        this.fQp = imageFileInfo;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        AlbumActivity albumActivity;
-        AlbumActivity albumActivity2;
-        AlbumActivity albumActivity3;
-        albumActivity = this.fQo.fPr;
-        albumActivity.d(this.fQp);
-        albumActivity2 = this.fQo.fPr;
-        albumActivity2.e(this.fQp, false);
-        albumActivity3 = this.fQo.fPr;
-        albumActivity3.f(this.fQp, false);
+public class u {
+    public static void a(TbPageContext<?> tbPageContext, String str, TbCameraView tbCameraView) {
+        String str2;
+        try {
+            if (!com.baidu.tbadk.core.util.l.dH()) {
+                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(com.baidu.tbadk.core.util.l.ue());
+                } else if (tbPageContext instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(com.baidu.tbadk.core.util.l.ue());
+                }
+            } else {
+                if (com.baidu.tbadk.core.util.l.cS(com.baidu.tbadk.core.util.l.yu + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+                    String str3 = String.valueOf(str2) + "/" + str;
+                    if (tbCameraView != null) {
+                        tbCameraView.setStorePath(str3);
+                        tbCameraView.takePicture();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

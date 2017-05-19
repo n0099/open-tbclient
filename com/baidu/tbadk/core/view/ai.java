@@ -1,17 +1,24 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-class ai implements View.OnClickListener {
-    final /* synthetic */ ThreadCommentAndPraiseInfoLayout ame;
+class ai extends CustomMessageListener {
+    final /* synthetic */ ah alC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
-        this.ame = threadCommentAndPraiseInfoLayout;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ai(ah ahVar, int i) {
+        super(i);
+        this.alC = ahVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.ame.xq();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (this.alC.isDone) {
+            this.alC.di(TbadkCoreApplication.m9getInst().getSkinType());
+        }
     }
 }

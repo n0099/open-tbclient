@@ -9,6 +9,8 @@ import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteData implements Serializable {
+    public static final String CALL_FROM_ONE = "1";
+    public static final String CALL_FROM_TWO = "2";
     public static final int NEW = 0;
     public static final int NEW_DRUFTING_BOTTLE = 7;
     public static final int NEW_PHOTO_LIVE = 4;
@@ -22,9 +24,13 @@ public class WriteData implements Serializable {
     public static final int VIDEO_REVIEW_TYPE_DEFAULT = 0;
     public static final int VIDEO_REVIEW_TYPE_NEED = 1;
     public static final int VIDEO_REVIEW_TYPE_NOT_NEED = 2;
+    private String callFrom;
+    private boolean canNoForum;
     private boolean isAd;
     private boolean isBabaoPosted;
+    private boolean isUserFeedback;
     private long mBarrageTime;
+    private int mBigEmtionCount;
     private int mCategoryFrom;
     private int mCategoryTo;
     private String mContent;
@@ -44,6 +50,7 @@ public class WriteData implements Serializable {
     private boolean mIsGiftPost;
     private boolean mIsInterviewLivew;
     private boolean mIsNoTitle;
+    private String mRecommendExt;
     private String mReplyUid;
     private String mRepostId;
     private String mReturnVoiceMd5;
@@ -73,6 +80,9 @@ public class WriteData implements Serializable {
     private int mVideoReviewType;
     private String mVoiceMd5;
     private VoteInfo mVoteInfo;
+    private String transmitForumData;
+    private String vForumId;
+    private String vForumName;
     private WriteImagesInfo writeImagesInfo;
 
     public boolean isBabaoPosted() {
@@ -101,9 +111,12 @@ public class WriteData implements Serializable {
 
     public WriteData() {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
+        this.isUserFeedback = false;
         this.mCategoryFrom = -1;
         this.mCategoryTo = -1;
         this.mVideoReviewType = 0;
+        this.callFrom = "2";
+        this.mBigEmtionCount = 0;
         this.mType = 0;
         this.mForumId = null;
         this.mForumName = null;
@@ -138,9 +151,12 @@ public class WriteData implements Serializable {
 
     public WriteData(int i) {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
+        this.isUserFeedback = false;
         this.mCategoryFrom = -1;
         this.mCategoryTo = -1;
         this.mVideoReviewType = 0;
+        this.callFrom = "2";
+        this.mBigEmtionCount = 0;
         this.mType = i;
         this.mTitle = null;
         this.mContent = null;
@@ -179,6 +195,7 @@ public class WriteData implements Serializable {
             jSONObject.put("mGraffitiFileName", this.mGraffitiFileName);
             jSONObject.put("is_barrage", this.mIsBarrage);
             jSONObject.put("barrage_time", this.mBarrageTime);
+            jSONObject.put("big_count", this.mBigEmtionCount);
         } catch (Exception e) {
         }
         return jSONObject.toString();
@@ -210,6 +227,7 @@ public class WriteData implements Serializable {
             writeData.mGraffitiFileName = jSONObject.optString("mGraffitiFileName");
             writeData.mIsBarrage = jSONObject.optBoolean("is_barrage");
             writeData.mBarrageTime = jSONObject.getLong("barrage_time");
+            writeData.mBigEmtionCount = jSONObject.getInt("big_count");
             return writeData;
         } catch (Exception e) {
             return null;
@@ -680,5 +698,69 @@ public class WriteData implements Serializable {
 
     public String getVcodeType() {
         return this.mVcodeType;
+    }
+
+    public boolean isUserFeedback() {
+        return this.isUserFeedback;
+    }
+
+    public void setIsUserFeedback(boolean z) {
+        this.isUserFeedback = z;
+    }
+
+    public String getTransmitForumData() {
+        return this.transmitForumData;
+    }
+
+    public void setTransmitForumData(String str) {
+        this.transmitForumData = str;
+    }
+
+    public boolean isCanNoForum() {
+        return this.canNoForum;
+    }
+
+    public void setCanNoForum(boolean z) {
+        this.canNoForum = z;
+    }
+
+    public String getCallFrom() {
+        return this.callFrom == null ? "2" : this.callFrom;
+    }
+
+    public void setCallFrom(String str) {
+        this.callFrom = str;
+    }
+
+    public String getVForumId() {
+        return this.vForumId;
+    }
+
+    public void setVForumId(String str) {
+        this.vForumId = str;
+    }
+
+    public String getVForumName() {
+        return this.vForumName;
+    }
+
+    public void setVForumName(String str) {
+        this.vForumName = str;
+    }
+
+    public void setRecommendExt(String str) {
+        this.mRecommendExt = str;
+    }
+
+    public String getRecommendExt() {
+        return this.mRecommendExt;
+    }
+
+    public int getmBigEmtionCount() {
+        return this.mBigEmtionCount;
+    }
+
+    public void setmBigEmtionCount(int i) {
+        this.mBigEmtionCount = i;
     }
 }

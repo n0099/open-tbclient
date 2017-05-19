@@ -4,16 +4,16 @@ import com.baidu.tieba.b.a.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends b.a {
-    final /* synthetic */ b brd;
+    final /* synthetic */ b brA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.brd = bVar;
+        this.brA = bVar;
     }
 
     @Override // com.baidu.tieba.b.a.b.a, com.baidu.tieba.b.a.a
     public void d(float f, float f2, float f3, int i) {
-        this.brd.Sz();
-        this.brd.SA();
+        this.brA.RU();
+        this.brA.RV();
     }
 }

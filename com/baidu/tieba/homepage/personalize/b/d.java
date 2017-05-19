@@ -8,67 +8,66 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.o;
-import com.baidu.tieba.card.cf;
+import com.baidu.tieba.card.cd;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.m, a> {
-    private TbPageContext<?> ajU;
-    private o.a akd;
-    public BdUniqueId bbE;
-    private com.baidu.tieba.card.t cAf;
-    cf<com.baidu.tieba.card.data.m> cAg;
+public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, a> {
+    public BdUniqueId aLk;
+    private o.a ajA;
+    private TbPageContext<?> ajr;
+    private com.baidu.tieba.card.p cvp;
+    cd<com.baidu.tieba.card.data.k> cvq;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.akd = null;
-        this.cAg = new e(this);
-        this.ajU = tbPageContext;
+        this.ajA = null;
+        this.cvq = new e(this);
+        this.ajr = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ad */
+    /* renamed from: Y */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cAf = new com.baidu.tieba.card.t(this.ajU);
-        this.cAf.TK();
-        this.cAf.j(this.ajU.getUniqueId());
-        return new a(this.cAf);
+        this.cvp = new com.baidu.tieba.card.p(this.ajr);
+        this.cvp.j(this.ajr.getUniqueId());
+        return new a(this.cvp);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.m mVar, a aVar) {
-        if (mVar != null) {
-            mVar.gR(i + 1);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, a aVar) {
+        if (kVar != null) {
+            kVar.gN(i + 1);
         }
-        aVar.cAi.onBindDataToView(mVar);
-        aVar.cAi.setOnSubCardOnClickListenner(this.cAg);
-        aVar.cAi.a(this.akd);
+        aVar.cvs.onBindDataToView(kVar);
+        aVar.cvs.setOnSubCardOnClickListenner(this.cvq);
+        aVar.cvs.a(this.ajA);
         int i2 = 0;
         String str = "";
-        if (mVar != null && mVar.Kn() != null) {
-            i2 = mVar.Kn().sG().live_type;
-            str = mVar.Kn().getTid();
+        if (kVar != null && kVar.JB() != null) {
+            i2 = kVar.JB().rQ().live_type;
+            str = kVar.JB().getTid();
         }
         TiebaStatic.log(new as("c11823").s("obj_type", i2).aa("tid", str));
         return aVar.getView();
     }
 
     public void setEventCallback(o.a aVar) {
-        this.akd = aVar;
+        this.ajA = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public com.baidu.tieba.card.t cAi;
+        public com.baidu.tieba.card.p cvs;
 
-        public a(com.baidu.tieba.card.t tVar) {
-            super(tVar.getView());
-            this.cAi = tVar;
+        public a(com.baidu.tieba.card.p pVar) {
+            super(pVar.getView());
+            this.cvs = pVar;
         }
     }
 }

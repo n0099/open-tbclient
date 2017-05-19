@@ -2,7 +2,7 @@ package com.baidu.tbadk.core;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.tbadk.core.data.ExceptionData;
 /* loaded from: classes.dex */
 class l extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,8 +13,8 @@ class l extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2010001 && (customResponsedMessage.getData() instanceof String)) {
-            BdStatisticsManager.getInstance().resetSwitch((String) customResponsedMessage.getData());
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ((ExceptionData) customResponsedMessage.getData()).info.contains("java.lang.SecurityException: No permission to modify given thread")) {
+            TbadkCoreApplication.m9getInst().setWebviewCrashCount(TbadkCoreApplication.m9getInst().getWebviewCrashCount() + 1);
         }
     }
 }

@@ -9,11 +9,11 @@ import com.baidu.tieba.homepage.personalize.b.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
-    final /* synthetic */ v.a cAC;
+    final /* synthetic */ v.a cvM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(v.a aVar) {
-        this.cAC = aVar;
+        this.cvM = aVar;
     }
 
     @Override // android.view.View.OnClickListener

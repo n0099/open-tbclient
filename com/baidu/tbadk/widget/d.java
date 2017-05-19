@@ -1,102 +1,160 @@
 package com.baidu.tbadk.widget;
 
-import android.content.Context;
-import android.graphics.Paint;
-import android.os.Build;
-import android.util.AttributeSet;
-import com.baidu.tieba.compatible.CompatibleUtile;
-import java.lang.reflect.Method;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.tbadk.widget.b;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends TbImageView {
-    private static Method aKw;
-    private boolean aKx;
+public class d extends GestureDetector.SimpleOnGestureListener {
+    final /* synthetic */ b aKm;
 
-    static {
-        aKw = null;
-        try {
-            aKw = d.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
-        } catch (NoSuchMethodException e) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(b bVar) {
+        this.aKm = bVar;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        int i;
+        b.a aVar;
+        b.a aVar2;
+        i = this.aKm.agC;
+        if (i != 2 && (Math.abs(f) > 200.0f || Math.abs(f2) > 200.0f)) {
+            aVar = this.aKm.aJP;
+            aVar.e(f, f2);
+            b bVar = this.aKm;
+            aVar2 = this.aKm.aJP;
+            bVar.startAnimation(aVar2);
         }
+        return super.onFling(motionEvent, motionEvent2, f, f2);
     }
 
-    public d(Context context) {
-        this(context, null, 0);
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTap(MotionEvent motionEvent) {
+        int i;
+        int i2;
+        float f;
+        float f2;
+        float f3;
+        float f4;
+        float f5;
+        i = this.aKm.agC;
+        if (i != 1) {
+            i2 = this.aKm.agC;
+            if (i2 != 2) {
+                this.aKm.mMode = 2;
+                f = this.aKm.mCurrentScale;
+                f2 = this.aKm.aJH;
+                if (f > f2) {
+                    b bVar = this.aKm;
+                    f4 = this.aKm.aJH;
+                    bVar.mCurrentScale = f4;
+                    b bVar2 = this.aKm;
+                    f5 = this.aKm.mCurrentScale;
+                    bVar2.aJJ = f5;
+                    this.aKm.GW();
+                    return true;
+                }
+                b bVar3 = this.aKm;
+                f3 = this.aKm.aJH;
+                bVar3.mCurrentScale = f3 * 2.0f;
+                this.aKm.e(true, (int) motionEvent.getX(), (int) motionEvent.getY());
+                return true;
+            }
+        }
+        return false;
     }
 
-    public d(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.aKx = false;
-        b(context, attributeSet, i);
-    }
-
-    public d(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    private void b(Context context, AttributeSet attributeSet, int i) {
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+        View.OnClickListener onClickListener;
         boolean z;
-        boolean z2;
-        boolean z3;
-        String trim = Build.MODEL.trim();
-        if (trim != null) {
-            String[] strArr = {"M040", "M045"};
-            int length = strArr.length;
-            int i2 = 0;
-            while (true) {
-                if (i2 >= length) {
-                    z3 = false;
-                    break;
-                } else if (strArr[i2].equalsIgnoreCase(trim)) {
-                    z3 = true;
-                    break;
-                } else {
-                    i2++;
-                }
-            }
-            String[] strArr2 = {"HTC T329D"};
-            int length2 = strArr2.length;
-            int i3 = 0;
-            while (true) {
-                if (i3 >= length2) {
-                    z2 = z3;
-                    z = false;
-                    break;
-                } else if (strArr2[i3].equalsIgnoreCase(trim)) {
-                    z2 = z3;
-                    z = true;
-                    break;
-                } else {
-                    i3++;
-                }
-            }
-        } else {
-            z = false;
-            z2 = false;
-        }
-        if (Build.VERSION.SDK_INT >= 11) {
-            CompatibleUtile.getInstance().closeViewGpu(this);
-            try {
-                if (aKw != null) {
-                    aKw.invoke(this, 1, null);
-                }
-            } catch (Exception e) {
+        View.OnClickListener onClickListener2;
+        onClickListener = this.aKm.aJO;
+        if (onClickListener != null) {
+            z = this.aKm.aJR;
+            if (!z) {
+                onClickListener2 = this.aKm.aJO;
+                onClickListener2.onClick(this.aKm);
             }
         }
-        if (z2 || z) {
-            this.aKx = false;
-        } else {
-            this.aKx = true;
-        }
+        return super.onSingleTapConfirmed(motionEvent);
     }
 
-    @Override // com.baidu.adp.newwidget.a.b
-    public void setDrawerType(int i) {
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0084  */
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        int i;
+        int i2;
+        int scrollY;
+        int i3;
+        int i4;
+        boolean z;
+        this.aKm.aJR = true;
+        i = this.aKm.aJM;
         if (i == 0) {
-            super.setDrawerType(i);
-        } else if (i == 1) {
-            super.setDrawerType(this.aKx ? 4 : 5);
-        } else {
-            super.setDrawerType(i);
+            z = this.aKm.aJS;
+            if (z) {
+                return false;
+            }
         }
+        int scrollX = this.aKm.getScrollX();
+        if (this.aKm.aJE >= this.aKm.getWidth()) {
+            scrollX = (int) (scrollX + f);
+            i4 = this.aKm.aJM;
+            if (i4 == 0) {
+                i2 = scrollX >= 0 ? scrollX : 0;
+                if (this.aKm.getWidth() + i2 > this.aKm.aJE) {
+                    i2 = (int) (this.aKm.aJE - this.aKm.getWidth());
+                }
+                scrollY = this.aKm.getScrollY();
+                if (this.aKm.aJF + this.aKm.mTop + this.aKm.mBottom >= this.aKm.getHeight()) {
+                    scrollY = (int) (scrollY + f2);
+                    i3 = this.aKm.aJM;
+                    if (i3 == 0) {
+                        if (scrollY < (-this.aKm.aJW)) {
+                            scrollY = -this.aKm.aJW;
+                        }
+                        if (this.aKm.getHeight() + scrollY > this.aKm.aJF + this.aKm.mBottom + this.aKm.aJX) {
+                            scrollY = (int) ((this.aKm.aJF - this.aKm.getHeight()) + this.aKm.mBottom + this.aKm.aJX);
+                        }
+                    }
+                }
+                if (i2 == this.aKm.getScrollX() || scrollY != this.aKm.getScrollY()) {
+                    this.aKm.scrollTo(i2, scrollY);
+                    this.aKm.invalidate();
+                }
+                return true;
+            }
+        }
+        i2 = scrollX;
+        scrollY = this.aKm.getScrollY();
+        if (this.aKm.aJF + this.aKm.mTop + this.aKm.mBottom >= this.aKm.getHeight()) {
+        }
+        if (i2 == this.aKm.getScrollX()) {
+        }
+        this.aKm.scrollTo(i2, scrollY);
+        this.aKm.invalidate();
+        return true;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public void onLongPress(MotionEvent motionEvent) {
+        View.OnLongClickListener onLongClickListener;
+        boolean z;
+        View.OnLongClickListener onLongClickListener2;
+        onLongClickListener = this.aKm.atr;
+        if (onLongClickListener != null) {
+            z = this.aKm.aJR;
+            if (!z) {
+                onLongClickListener2 = this.aKm.atr;
+                onLongClickListener2.onLongClick(this.aKm);
+            }
+        }
+        super.onLongPress(motionEvent);
     }
 }

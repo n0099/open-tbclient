@@ -6,9 +6,9 @@ public class g implements Runnable {
     public void run() {
         com.baidu.adp.lib.guide.d dVar;
         com.baidu.adp.lib.guide.d dVar2;
-        dVar = a.fxt;
+        dVar = a.ftx;
         if (dVar != null) {
-            dVar2 = a.fxt;
+            dVar2 = a.ftx;
             dVar2.dismiss();
         }
     }

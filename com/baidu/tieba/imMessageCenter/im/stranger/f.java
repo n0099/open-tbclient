@@ -2,15 +2,15 @@ package com.baidu.tieba.imMessageCenter.im.stranger;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class f extends CustomMessageListener {
-    final /* synthetic */ StrangerListActivity dmm;
+    final /* synthetic */ StrangerListActivity dgq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(StrangerListActivity strangerListActivity, int i) {
         super(i);
-        this.dmm = strangerListActivity;
+        this.dgq = strangerListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,17 +26,17 @@ class f extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            strangerListModel = this.dmm.dmh;
-                            aVar = this.dmm.cSx;
+                            strangerListModel = this.dgq.dgl;
+                            aVar = this.dgq.cMz;
                             strangerListModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            iVar = this.dmm.dmg;
+                            iVar = this.dgq.dgk;
                             if (iVar != null) {
-                                iVar2 = this.dmm.dmg;
-                                if (iVar2.awc() != null) {
-                                    iVar3 = this.dmm.dmg;
-                                    iVar3.awc().notifyDataSetChanged();
+                                iVar2 = this.dgq.dgk;
+                                if (iVar2.asX() != null) {
+                                    iVar3 = this.dgq.dgk;
+                                    iVar3.asX().notifyDataSetChanged();
                                     return;
                                 }
                                 return;
@@ -46,13 +46,13 @@ class f extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.dmm.f(customResponsedMessage);
+                    this.dgq.f(customResponsedMessage);
                     return;
                 }
-                this.dmm.e(customResponsedMessage);
+                this.dgq.e(customResponsedMessage);
                 return;
             }
-            this.dmm.d(customResponsedMessage);
+            this.dgq.d(customResponsedMessage);
         }
     }
 }

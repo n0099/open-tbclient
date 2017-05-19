@@ -1,33 +1,23 @@
 package com.baidu.tbadk.core.data;
 
-import android.util.SparseArray;
+import tbclient.LotteryTheme;
 /* loaded from: classes.dex */
 public class al {
-    private String WT;
-    public SparseArray<String> WU = null;
-    private String fid;
+    private String Wj;
+    private String Wk;
 
-    public String getTid() {
-        return this.WT;
+    public String qo() {
+        return this.Wj;
     }
 
-    public void cp(String str) {
-        this.WT = str;
+    public String qp() {
+        return this.Wk;
     }
 
-    public String getFid() {
-        return this.fid;
-    }
-
-    public void setFid(long j) {
-        this.fid = String.valueOf(j);
-    }
-
-    public SparseArray<String> rg() {
-        return this.WU;
-    }
-
-    public void a(SparseArray<String> sparseArray) {
-        this.WU = sparseArray;
+    public void a(LotteryTheme lotteryTheme) {
+        if (lotteryTheme != null) {
+            this.Wj = lotteryTheme.bgcolor;
+            this.Wk = lotteryTheme.bgimage;
+        }
     }
 }

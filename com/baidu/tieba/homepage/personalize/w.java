@@ -1,20 +1,53 @@
 package com.baidu.tieba.homepage.personalize;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import java.util.ArrayList;
+import java.util.List;
 import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements com.baidu.tbadk.util.f<DataRes> {
-    final /* synthetic */ n this$0;
+public class w extends CustomMessageListener {
+    final /* synthetic */ o this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(n nVar) {
-        this.this$0 = nVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(o oVar, int i) {
+        super(i);
+        this.this$0 = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.f
-    /* renamed from: b */
-    public void onReturnDataInUI(DataRes dataRes) {
-        this.this$0.a(dataRes);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        DataRes.Builder builder;
+        DataRes.Builder builder2;
+        List list;
+        List list2;
+        com.baidu.tieba.homepage.personalize.b.ad adVar;
+        com.baidu.tieba.homepage.personalize.b.ad adVar2;
+        List list3;
+        if (customResponsedMessage != null) {
+            builder = this.this$0.cuG;
+            if (builder != null) {
+                builder2 = this.this$0.cuG;
+                if (com.baidu.tbadk.core.util.x.q(builder2.thread_list) != 0) {
+                    list = this.this$0.aSY;
+                    if (com.baidu.tbadk.core.util.x.q(list) != 0) {
+                        String str = (String) customResponsedMessage.getData();
+                        o oVar = this.this$0;
+                        list2 = this.this$0.aSY;
+                        oVar.f(str, list2);
+                        this.this$0.jM(str);
+                        adVar = this.this$0.cuL;
+                        if (adVar != null) {
+                            adVar2 = this.this$0.cuL;
+                            list3 = this.this$0.aSY;
+                            adVar2.aV(new ArrayList(list3));
+                        }
+                    }
+                }
+            }
+        }
     }
 }

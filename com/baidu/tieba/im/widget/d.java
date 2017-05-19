@@ -4,7 +4,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.w;
 import com.baidu.tieba.im.db.l;
 import com.baidu.tieba.im.db.m;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,18 +21,18 @@ public class d extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
             boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
             if (!isNull) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.zj().c(new com.baidu.tbadk.coreExtra.c.e());
-                com.baidu.tbadk.coreExtra.messageCenter.a.zj().setMsgChat(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.zj().setMsgAtme(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.zj().setMsgFans(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.zj().setMsgGiftNum(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.zj().setMsgLiveVip(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.zj().zB();
-                t.Hu();
-                m.aqK().aqs();
-                l.aqJ().aqs();
+                com.baidu.tbadk.coreExtra.messageCenter.a.yu().c(new com.baidu.tbadk.coreExtra.c.e());
+                com.baidu.tbadk.coreExtra.messageCenter.a.yu().setMsgChat(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.yu().setMsgAtme(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.yu().setMsgFans(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.yu().setMsgGiftNum(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.yu().setMsgLiveVip(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.yu().yM();
+                w.GF();
+                m.anD().anl();
+                l.anC().anl();
             }
-            t.b(new e(this, isNull), new f(this));
+            w.b(new e(this, isNull), new f(this));
         }
     }
 }

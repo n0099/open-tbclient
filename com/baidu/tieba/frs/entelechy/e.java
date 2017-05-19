@@ -1,49 +1,34 @@
 package com.baidu.tieba.frs.entelechy;
 
-import android.widget.TextView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.w;
+import android.view.View;
+import com.baidu.tbadk.core.data.m;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tieba.frs.r;
+import com.baidu.tieba.tbadkCore.d.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends CustomMessageListener {
-    final /* synthetic */ a bTw;
+public class e implements View.OnClickListener {
+    final /* synthetic */ c bRN;
+    private final /* synthetic */ m bRO;
+    private final /* synthetic */ String bRP;
+    private final /* synthetic */ String bRQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(a aVar, int i) {
-        super(i);
-        this.bTw = aVar;
+    public e(c cVar, m mVar, String str, String str2) {
+        this.bRN = cVar;
+        this.bRO = mVar;
+        this.bRP = str;
+        this.bRQ = str2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        String[] strArr;
-        com.baidu.tbadk.core.data.s sVar;
-        int g;
-        com.baidu.tbadk.core.data.s sVar2;
-        TextView textView;
-        TbPageContext tbPageContext;
-        TextView textView2;
-        TbPageContext tbPageContext2;
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String[]) && (strArr = (String[]) customResponsedMessage.getData()) != null && strArr.length == 2 && strArr[0] != null && strArr[1] != null) {
-            String str = strArr[0];
-            sVar = this.bTw.bTq;
-            if (str.equals(sVar.getBookId()) && (g = com.baidu.adp.lib.g.b.g(strArr[1], -1)) > 0) {
-                sVar2 = this.bTw.bTq;
-                if (sVar2.qk() != 3) {
-                    textView = this.bTw.bTn;
-                    tbPageContext = this.bTw.aaY;
-                    textView.setText(tbPageContext.getString(w.l.continue_read));
-                    return;
-                }
-                this.bTw.bTr = g;
-                textView2 = this.bTw.bTn;
-                tbPageContext2 = this.bTw.aaY;
-                textView2.setText(tbPageContext2.getString(w.l.continue_read));
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        r rVar;
+        a.C0080a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0130", "ad_plat", "CLICK", this.bRO.pF(), this.bRP, this.bRQ, null);
+        a.cb("obj_url", this.bRO.getUrl());
+        a.save();
+        bb vB = bb.vB();
+        rVar = this.bRN.bPw;
+        vB.c(rVar.getPageContext(), new String[]{this.bRO.getUrl()});
     }
 }

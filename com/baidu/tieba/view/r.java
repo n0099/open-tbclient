@@ -1,65 +1,91 @@
 package com.baidu.tieba.view;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.view.MotionEvent;
-import android.widget.TextView;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends LinkMovementMethod {
-    private static r fMl;
+public class r implements AbsListView.OnScrollListener {
+    final /* synthetic */ q fIZ;
 
-    public static r bnq() {
-        if (fMl == null) {
-            fMl = new r();
-        }
-        return fMl;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public r(q qVar) {
+        this.fIZ = qVar;
     }
 
-    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        q b = b(textView, spannable, motionEvent);
-        if (motionEvent.getAction() == 0) {
-            if (b != null) {
-                b.setPressed(true);
-                Selection.setSelection(spannable, spannable.getSpanStart(b), spannable.getSpanEnd(b));
-            }
-            textView.invalidate();
-        } else if (motionEvent.getAction() == 2) {
-            if (b != null) {
-                b.setPressed(false);
-                super.onTouchEvent(textView, spannable, motionEvent);
-            }
-        } else if (motionEvent.getAction() == 1) {
-            if (b != null) {
-                b.setPressed(false);
-                super.onTouchEvent(textView, spannable, motionEvent);
-            }
-            Selection.removeSelection(spannable);
-            textView.invalidate();
-        } else if (motionEvent.getAction() == 3) {
-            if (b != null) {
-                b.setPressed(false);
-                super.onTouchEvent(textView, spannable, motionEvent);
-            }
-            Selection.removeSelection(spannable);
-            textView.invalidate();
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        y yVar;
+        int i2;
+        int i3;
+        int i4;
+        y yVar2;
+        yVar = this.fIZ.fIS;
+        if (yVar != null) {
+            yVar2 = this.fIZ.fIS;
+            yVar2.onScrollStateChanged(absListView, i);
         }
-        return super.onTouchEvent(textView, spannable, motionEvent);
+        if (i == 0) {
+            i2 = this.fIZ.fIJ;
+            if (i2 > 2 && this.fIZ.fIP.getVisibility() != 0) {
+                this.fIZ.acT();
+            }
+            i3 = this.fIZ.fIJ;
+            if (i3 <= 2 && this.fIZ.fIP.getVisibility() == 0) {
+                int top = this.fIZ.fIM.getTop();
+                i4 = this.fIZ.fIY;
+                if (top > i4) {
+                    this.fIZ.aQf();
+                }
+            }
+        }
     }
 
-    private q b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-        int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-        int scrollX = x + textView.getScrollX();
-        int scrollY = y + textView.getScrollY();
-        Layout layout = textView.getLayout();
-        int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-        q[] qVarArr = (q[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, q.class);
-        if (qVarArr.length <= 0) {
-            return null;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        y yVar;
+        boolean z;
+        boolean z2;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        y yVar2;
+        this.fIZ.Rk();
+        this.fIZ.Rl();
+        yVar = this.fIZ.fIS;
+        if (yVar != null) {
+            yVar2 = this.fIZ.fIS;
+            yVar2.onScroll(absListView, i, i2, i3);
         }
-        return qVarArr[0];
+        if (i == 0 && this.fIZ.mNavigationBar.getY() != 0.0f) {
+            this.fIZ.mNavigationBar.setY(0.0f);
+        }
+        z = this.fIZ.fIT;
+        if (!z) {
+            i6 = this.fIZ.fIJ;
+            if (i6 <= i) {
+                if (this.fIZ.fIM.getTop() <= this.fIZ.mNavigationBar.getHeight() && this.fIZ.fIM.getTop() > 0) {
+                    this.fIZ.mNavigationBar.setY(this.fIZ.fIM.getTop() - this.fIZ.mNavigationBar.getHeight());
+                }
+                int top = this.fIZ.fIM.getTop();
+                i7 = this.fIZ.fIY;
+                if (top < i7) {
+                    this.fIZ.acT();
+                    this.fIZ.fIT = true;
+                }
+            }
+        }
+        z2 = this.fIZ.fIT;
+        if (z2) {
+            i4 = this.fIZ.fIJ;
+            if (i4 >= i) {
+                int top2 = this.fIZ.fIM.getTop();
+                i5 = this.fIZ.fIY;
+                if (top2 > i5) {
+                    this.fIZ.aQf();
+                    this.fIZ.fIT = false;
+                }
+            }
+        }
+        this.fIZ.fIJ = i;
     }
 }

@@ -306,7 +306,7 @@ public final class BDLocation implements Parcelable {
             setLocType(parseInt);
             setTime(jSONObject2.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME));
             if (parseInt == 61) {
-                JSONObject jSONObject3 = jSONObject.getJSONObject(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
+                JSONObject jSONObject3 = jSONObject.getJSONObject("content");
                 JSONObject jSONObject4 = jSONObject3.getJSONObject("point");
                 setLatitude(Double.parseDouble(jSONObject4.getString("y")));
                 setLongitude(Double.parseDouble(jSONObject4.getString("x")));
@@ -341,7 +341,7 @@ public final class BDLocation implements Parcelable {
                     }
                     return;
                 }
-                JSONObject jSONObject5 = jSONObject.getJSONObject(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
+                JSONObject jSONObject5 = jSONObject.getJSONObject("content");
                 JSONObject jSONObject6 = jSONObject5.getJSONObject("point");
                 setLatitude(Double.parseDouble(jSONObject6.getString("y")));
                 setLongitude(Double.parseDouble(jSONObject6.getString("x")));
@@ -349,7 +349,7 @@ public final class BDLocation implements Parcelable {
                 setCellChangeFlag(Boolean.valueOf(Boolean.parseBoolean(jSONObject5.getString("isCellChanged"))));
                 setCoorType("gcj02");
             } else {
-                JSONObject jSONObject7 = jSONObject.getJSONObject(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
+                JSONObject jSONObject7 = jSONObject.getJSONObject("content");
                 JSONObject jSONObject8 = jSONObject7.getJSONObject("point");
                 setLatitude(Double.parseDouble(jSONObject8.getString("y")));
                 setLongitude(Double.parseDouble(jSONObject8.getString("x")));

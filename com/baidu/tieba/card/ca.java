@@ -1,27 +1,75 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ca implements com.baidu.tbadk.widget.layout.g {
-    private final /* synthetic */ LinkedList bvN;
-    private final /* synthetic */ com.baidu.tbadk.core.data.bi bvO;
-    final /* synthetic */ br bwI;
+public class ca {
+    private static ca bwS;
+    private List<com.baidu.tbadk.core.util.as> bwR;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(br brVar, LinkedList linkedList, com.baidu.tbadk.core.data.bi biVar) {
-        this.bwI = brVar;
-        this.bvN = linkedList;
-        this.bvO = biVar;
+    public static ca To() {
+        if (bwS == null) {
+            synchronized (ca.class) {
+                if (bwS == null) {
+                    bwS = new ca();
+                }
+            }
+        }
+        return bwS;
     }
 
-    @Override // com.baidu.tbadk.widget.layout.g
-    public void c(View view, int i, boolean z) {
-        if (z) {
-            this.bwI.TR();
-        } else {
-            this.bwI.a(this.bvN, i, this.bvO);
+    public void a(com.baidu.tbadk.core.util.as asVar) {
+        if (asVar != null) {
+            if (this.bwR == null) {
+                this.bwR = new ArrayList();
+            }
+            if (this.bwR != null) {
+                this.bwR.add(asVar);
+            }
+        }
+    }
+
+    public void ib(String str) {
+        if (str != null) {
+            if (this.bwR == null) {
+                this.bwR = new ArrayList();
+            }
+            if (this.bwR != null) {
+                this.bwR.add(new com.baidu.tbadk.core.util.as(str));
+            }
+        }
+    }
+
+    public void db(boolean z) {
+        if (com.baidu.tbadk.core.util.x.q(this.bwR) != 0) {
+            for (com.baidu.tbadk.core.util.as asVar : this.bwR) {
+                if (asVar != null) {
+                    int i = 0;
+                    if (z) {
+                        i = 1;
+                    }
+                    asVar.s("obj_param2", i);
+                    TiebaStatic.log(asVar);
+                }
+            }
+            this.bwR.clear();
+        }
+    }
+
+    public void dc(boolean z) {
+        if (com.baidu.tbadk.core.util.x.q(this.bwR) != 0) {
+            for (com.baidu.tbadk.core.util.as asVar : this.bwR) {
+                if (asVar != null) {
+                    int i = 0;
+                    if (z) {
+                        i = 1;
+                    }
+                    asVar.s("obj_type", i);
+                    TiebaStatic.log(asVar);
+                }
+            }
+            this.bwR.clear();
         }
     }
 }

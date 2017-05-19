@@ -1,13 +1,7 @@
 package com.baidu.tbadk.core;
-
-import android.content.Intent;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements CustomMessageTask.CustomRunnable<Intent> {
+public class ai implements com.baidu.tbadk.util.g<Boolean> {
     final /* synthetic */ TbadkCoreApplication this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,9 +9,11 @@ public class ai implements CustomMessageTask.CustomRunnable<Intent> {
         this.this$0 = tbadkCoreApplication;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
-        UtilHelper.commenDealIntent(com.baidu.adp.base.a.ca().cb() == null ? this.this$0.getApp() : com.baidu.adp.base.a.ca().cb(), customMessage.getData());
-        return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.util.g
+    public void onReturnDataInUI(Boolean bool) {
+        if (bool != null) {
+            this.this$0.mIsOfficial = bool.booleanValue();
+        }
     }
 }

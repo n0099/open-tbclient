@@ -1,28 +1,22 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class be implements c.b {
-    final /* synthetic */ az bRf;
+public class be extends y.a {
+    public int ane;
+    public TextView bQx;
+    public PhotoLiveCardView bQy;
+    public View bQz;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public be(az azVar) {
-        this.bRf = azVar;
-    }
-
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        cVar.dismiss();
-        if (i == 0) {
-            frsActivity2 = this.bRf.bQw;
-            frsActivity2.Qz();
-        } else if (i == 1) {
-            frsActivity = this.bRf.bQw;
-            com.baidu.tbadk.core.util.ap.p(frsActivity.getPageContext().getPageActivity());
-        }
+    public be(View view) {
+        super(view);
+        this.ane = 3;
+        this.bQx = (TextView) view.findViewById(w.h.more_live_list);
+        this.bQy = (PhotoLiveCardView) view.findViewById(w.h.photo_live_card);
+        this.bQz = view.findViewById(w.h.make_headlines);
     }
 }

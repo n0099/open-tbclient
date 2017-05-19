@@ -33,7 +33,7 @@ public class g implements Runnable {
                 eVar2 = this.Ih.mBdListAdpter;
                 if (eVar2.getWrappedAdapter() != null) {
                     eVar3 = this.Ih.mBdListAdpter;
-                    if (eVar3.ll() > 0) {
+                    if (eVar3.lk() > 0) {
                         eVar4 = this.Ih.mBdListAdpter;
                         i2 = firstVisiblePosition - eVar4.getHeadersCount();
                         if (i2 < 0) {
@@ -42,9 +42,9 @@ public class g implements Runnable {
                         eVar5 = this.Ih.mBdListAdpter;
                         int headersCount = lastVisiblePosition - eVar5.getHeadersCount();
                         eVar6 = this.Ih.mBdListAdpter;
-                        if (headersCount >= eVar6.ll()) {
+                        if (headersCount >= eVar6.lk()) {
                             eVar7 = this.Ih.mBdListAdpter;
-                            headersCount = eVar7.ll() - 1;
+                            headersCount = eVar7.lk() - 1;
                         }
                         if (headersCount >= 0) {
                             i = headersCount;

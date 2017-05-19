@@ -6,25 +6,25 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask<Void, Void, Void> {
-    private final /* synthetic */ String bHn;
-    private final /* synthetic */ WriteData fxg;
+    private final /* synthetic */ WriteData ftl;
+    private final /* synthetic */ String ftm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(WriteData writeData, String str) {
-        this.fxg = writeData;
-        this.bHn = str;
+        this.ftl = writeData;
+        this.ftm = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        com.baidu.adp.lib.cache.o<String> cB = com.baidu.tbadk.core.c.a.tM().cB("tb.pb_editor");
-        if (this.fxg != null && this.fxg.hasContentToSave()) {
-            cB.a(z.qc(this.bHn), this.fxg.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+        com.baidu.adp.lib.cache.o<String> cz = com.baidu.tbadk.core.c.a.sZ().cz("tb.pb_editor");
+        if (this.ftl != null && this.ftl.hasContentToSave()) {
+            cz.a(x.pU(this.ftm), this.ftl.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             return null;
         }
-        cB.remove(z.qc(this.bHn));
+        cz.remove(x.pU(this.ftm));
         return null;
     }
 }

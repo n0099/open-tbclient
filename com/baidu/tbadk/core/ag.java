@@ -1,22 +1,36 @@
 package com.baidu.tbadk.core;
 
-import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag extends com.baidu.tbadk.util.s<Boolean> {
+public class ag implements CustomMessageTask.CustomRunnable<IntentConfig> {
     final /* synthetic */ TbadkCoreApplication this$0;
-    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(TbadkCoreApplication tbadkCoreApplication, Context context) {
+    public ag(TbadkCoreApplication tbadkCoreApplication) {
         this.this$0 = tbadkCoreApplication;
-        this.val$context = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.util.s
-    public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tbadk.core.util.b.aw(this.val$context));
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<IntentConfig> run(CustomMessage<IntentConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            IntentConfig data = customMessage.getData();
+            Class<?> intentClass = this.this$0.getIntentClass(data.getClass());
+            if (this.this$0.getIntentClass(AlbumActivityConfig.class) == null) {
+                TiebaStatic.log(new as("inter_config_disappear").s("obj_param1", ao.vg().vh()));
+            }
+            if (intentClass != null) {
+                data.setComponentClass(intentClass);
+                data.run();
+            }
+        }
+        return null;
     }
 }

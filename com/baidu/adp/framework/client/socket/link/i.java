@@ -8,13 +8,13 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends Handler {
-    final /* synthetic */ h qm;
+    final /* synthetic */ h qn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(h hVar, Looper looper) {
         super(looper);
-        this.qm = hVar;
+        this.qn = hVar;
     }
 
     @Override // android.os.Handler
@@ -32,41 +32,41 @@ public class i extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                handler = this.qm.ql;
+                handler = this.qn.qm;
                 handler.removeMessages(1);
                 StringBuilder sb = new StringBuilder("this is reconn time:");
-                i = this.qm.qk;
+                i = this.qn.ql;
                 BdLog.i(sb.append(i).toString());
                 BdSocketLinkService.startService(true, "time to reconnStragety");
-                h hVar = this.qm;
-                i2 = hVar.qk;
-                hVar.qk = i2 + 1;
+                h hVar = this.qn;
+                i2 = hVar.ql;
+                hVar.ql = i2 + 1;
                 if (com.baidu.adp.lib.util.i.hk()) {
                     int maxAlertCount = com.baidu.adp.lib.stats.switchs.a.gC().getMaxAlertCount("alert_im", 3);
-                    i6 = this.qm.qk;
+                    i6 = this.qn.ql;
                     if (i6 >= maxAlertCount) {
                         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
                         StringBuilder sb2 = new StringBuilder("Socket_Reconnect_");
-                        i7 = this.qm.qk;
+                        i7 = this.qn.ql;
                         bdStatisticsManager.alert("alert_im", sb2.append(String.valueOf(i7)).append("_times").toString());
                     }
                 }
                 int[] cX = com.baidu.adp.framework.client.socket.j.cX();
                 if (cX != null) {
-                    i3 = this.qm.qk;
+                    i3 = this.qn.ql;
                     if (i3 < cX.length) {
                         StringBuilder sb3 = new StringBuilder("Next will be delay:");
-                        i4 = this.qm.qk;
+                        i4 = this.qn.ql;
                         BdLog.i(sb3.append(cX[i4]).toString());
-                        handler2 = this.qm.ql;
-                        handler3 = this.qm.ql;
+                        handler2 = this.qn.qm;
+                        handler3 = this.qn.qm;
                         Message obtainMessage = handler3.obtainMessage(1);
-                        i5 = this.qm.qk;
+                        i5 = this.qn.ql;
                         handler2.sendMessageDelayed(obtainMessage, cX[i5] * 1000);
                         return;
                     }
                 }
-                this.qm.stop("reconnStragety to the end");
+                this.qn.stop("reconnStragety to the end");
                 return;
             default:
                 return;

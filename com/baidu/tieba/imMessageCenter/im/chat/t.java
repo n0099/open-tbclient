@@ -5,19 +5,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class t implements Animation.AnimationListener {
-    private final /* synthetic */ String cPN;
-    final /* synthetic */ PersonalChatView djN;
-    private final /* synthetic */ Animation djO;
-    private final /* synthetic */ String djP;
+    private final /* synthetic */ String cJQ;
+    final /* synthetic */ PersonalChatView ddP;
+    private final /* synthetic */ Animation ddQ;
+    private final /* synthetic */ String ddR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PersonalChatView personalChatView, String str, String str2, Animation animation) {
-        this.djN = personalChatView;
-        this.cPN = str;
-        this.djP = str2;
-        this.djO = animation;
+        this.ddP = personalChatView;
+        this.cJQ = str;
+        this.ddR = str2;
+        this.ddQ = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -35,14 +35,14 @@ public class t implements Animation.AnimationListener {
         PersonalChatActivity personalChatActivity;
         TextView textView2;
         LinearLayout linearLayout2;
-        linearLayout = this.djN.djG;
+        linearLayout = this.ddP.ddI;
         linearLayout.clearAnimation();
-        textView = this.djN.djH;
-        personalChatActivity = this.djN.djE;
-        textView.setText(personalChatActivity.getResources().getString(w.l.add_friend_agree_title, this.cPN));
-        textView2 = this.djN.djI;
-        textView2.setText(this.djP);
-        linearLayout2 = this.djN.djG;
-        linearLayout2.setAnimation(this.djO);
+        textView = this.ddP.ddJ;
+        personalChatActivity = this.ddP.ddG;
+        textView.setText(personalChatActivity.getResources().getString(w.l.add_friend_agree_title, this.cJQ));
+        textView2 = this.ddP.ddK;
+        textView2.setText(this.ddR);
+        linearLayout2 = this.ddP.ddI;
+        linearLayout2.setAnimation(this.ddQ);
     }
 }

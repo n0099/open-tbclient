@@ -8,13 +8,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ c amV;
+    final /* synthetic */ c ana;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.amV = cVar;
+        this.ana = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,26 +27,26 @@ public class d extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-            if (this.amV.amO != null && !StringUtils.isNull(this.amV.amO.getUserId()) && data != null && this.amV.amO.getUserId().equals(data.toUid)) {
+            if (this.ana.amT != null && !StringUtils.isNull(this.ana.amT.getUserId()) && data != null && this.ana.amT.getUserId().equals(data.toUid)) {
                 if (!data.CB) {
-                    tbPageContext = this.amV.ajU;
+                    tbPageContext = this.ana.ajr;
                     tbPageContext.showToast(updateAttentionMessage.getData().errorString);
                     return;
                 }
-                int fansNum = this.amV.amO.getFansNum();
-                if (data.isAttention && !this.amV.amO.getIsLike()) {
+                int fansNum = this.ana.amT.getFansNum();
+                if (data.isAttention && !this.ana.amT.getIsLike()) {
                     fansNum++;
-                } else if (!data.isAttention && this.amV.amO.getIsLike()) {
+                } else if (!data.isAttention && this.ana.amT.getIsLike()) {
                     fansNum--;
                 }
-                this.amV.amO.setIsLike(data.isAttention);
-                this.amV.amO.setIsFromNetWork(false);
-                this.amV.amO.setFansNum(fansNum);
-                bVar = this.amV.amP;
+                this.ana.amT.setIsLike(data.isAttention);
+                this.ana.amT.setIsFromNetWork(false);
+                this.ana.amT.setFansNum(fansNum);
+                bVar = this.ana.amU;
                 if (bVar != null) {
-                    bVar2 = this.amV.amP;
-                    bVar2.dq(fansNum);
-                    bVar3 = this.amV.amP;
+                    bVar2 = this.ana.amU;
+                    bVar2.mo12do(fansNum);
+                    bVar3 = this.ana.amU;
                     bVar3.aQ(data.isAttention);
                 }
             }

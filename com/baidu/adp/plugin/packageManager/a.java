@@ -20,7 +20,7 @@ public class a {
     private a() {
     }
 
-    public static a jr() {
+    public static a jq() {
         if (DP == null) {
             synchronized (a.class) {
                 if (DP == null) {
@@ -54,12 +54,12 @@ public class a {
                     }
                 }
             }
-            js();
+            jr();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void js() {
+    public void jr() {
         if (this.DR.size() != 0 && this.DS == null) {
             this.DS = new C0009a(this.DR.get(0));
             this.DS.execute(new String[0]);
@@ -108,7 +108,7 @@ public class a {
             if (bool != null && bool.booleanValue() && a.this.DQ != null) {
                 a.this.DQ.C(this.DT.packageName, this.DT.apkPath);
             }
-            a.this.js();
+            a.this.jr();
         }
 
         private boolean aW(String str) {
@@ -117,9 +117,9 @@ public class a {
             }
             try {
                 com.baidu.adp.lib.util.e.h(new File(str));
-                com.baidu.adp.plugin.b.a.jl().e("plugin_del_unuse", "delete_unuse", str, null);
+                com.baidu.adp.plugin.b.a.jk().e("plugin_del_unuse", "delete_unuse", str, null);
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.jl().e("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
+                com.baidu.adp.plugin.b.a.jk().e("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
             }
             int length = str.length();
             if (length >= 4) {
@@ -127,9 +127,9 @@ public class a {
                 if (file.exists() && file.isDirectory()) {
                     try {
                         com.baidu.adp.lib.util.e.h(file);
-                        com.baidu.adp.plugin.b.a.jl().e("plugin_del_unuse", "delete_unuse", str, null);
+                        com.baidu.adp.plugin.b.a.jk().e("plugin_del_unuse", "delete_unuse", str, null);
                     } catch (Throwable th2) {
-                        com.baidu.adp.plugin.b.a.jl().e("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
+                        com.baidu.adp.plugin.b.a.jk().e("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
                     }
                 }
                 return true;

@@ -8,21 +8,21 @@ import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 /* loaded from: classes.dex */
 class ae implements TbFaceManager.a {
-    final /* synthetic */ WriteActivity fUM;
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
     @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
-    public ImageSpan fL(String str) {
+    public ImageSpan fI(String str) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), com.baidu.adp.widget.a.a.class);
         com.baidu.adp.widget.a.a aVar = runTask != null ? (com.baidu.adp.widget.a.a) runTask.getData() : null;
         if (aVar == null) {
             return null;
         }
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.kS());
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.kR());
         int width = aVar.getWidth();
         bitmapDrawable.setBounds(0, 0, width, width);
         bitmapDrawable.setGravity(119);

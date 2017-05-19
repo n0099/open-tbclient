@@ -6,23 +6,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int nU;
-    private a nV;
+    private int nV;
+    private a nW;
 
     public a cn() throws IOException {
         a aVar = new a();
-        aVar.nX = s(String.valueOf("/proc/uid_stat/") + this.nU + "/tcp_rcv");
-        aVar.nY = s(String.valueOf("/proc/uid_stat/") + this.nU + "/tcp_snd");
-        aVar.nW = d.a(aVar.nX + aVar.nY);
+        aVar.nY = s(String.valueOf("/proc/uid_stat/") + this.nV + "/tcp_rcv");
+        aVar.nZ = s(String.valueOf("/proc/uid_stat/") + this.nV + "/tcp_snd");
+        aVar.nX = d.a(aVar.nY + aVar.nZ);
         return aVar;
     }
 
     public a co() throws IOException {
         a cn = cn();
-        this.nV.nX = d.a(cn.nX - d.cm().nX);
-        this.nV.nY = d.a(cn.nY - d.cm().nY);
-        this.nV.nW = d.a(cn.nW - d.cm().nW);
-        return this.nV;
+        this.nW.nY = d.a(cn.nY - d.cm().nY);
+        this.nW.nZ = d.a(cn.nZ - d.cm().nZ);
+        this.nW.nX = d.a(cn.nX - d.cm().nX);
+        return this.nW;
     }
 
     public double s(String str) {
@@ -71,9 +71,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double nW = 0.0d;
         double nX = 0.0d;
         double nY = 0.0d;
+        double nZ = 0.0d;
 
         public a() {
         }

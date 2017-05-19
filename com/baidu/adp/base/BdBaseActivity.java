@@ -197,8 +197,8 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
 
     private void refreshImage(View view) {
         if (view != null) {
-            if (view instanceof com.baidu.adp.newwidget.a.i) {
-                ((com.baidu.adp.newwidget.a.i) view).refresh();
+            if (view instanceof com.baidu.adp.b.a.i) {
+                ((com.baidu.adp.b.a.i) view).refresh();
             }
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;

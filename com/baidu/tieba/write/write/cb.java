@@ -1,30 +1,20 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
+import com.baidu.tieba.write.write.WriteImageActivity;
 /* loaded from: classes.dex */
-class cb implements a.b {
-    final /* synthetic */ ca fVt;
+class cb implements Runnable {
+    final /* synthetic */ WriteImageActivity.a fTi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(ca caVar) {
-        this.fVt = caVar;
+    public cb(WriteImageActivity.a aVar) {
+        this.fTi = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        WriteMultiImgsActivity writeMultiImgsActivity;
-        com.baidu.tbadk.core.dialog.a aVar2;
-        WriteMultiImgsActivity writeMultiImgsActivity2;
-        WriteMultiImgsActivity writeMultiImgsActivity3;
-        com.baidu.tbadk.core.dialog.a aVar3;
-        writeMultiImgsActivity = this.fVt.fVs;
-        aVar2 = writeMultiImgsActivity.fVn;
-        if (aVar2 != null) {
-            writeMultiImgsActivity3 = this.fVt.fVs;
-            aVar3 = writeMultiImgsActivity3.fVn;
-            aVar3.dismiss();
-        }
-        writeMultiImgsActivity2 = this.fVt.fVs;
-        writeMultiImgsActivity2.bqK();
+    @Override // java.lang.Runnable
+    public void run() {
+        WriteImageActivity writeImageActivity;
+        writeImageActivity = WriteImageActivity.this;
+        writeImageActivity.ob(WriteImageActivityConfig.FILTER_NAME_NORMAL);
     }
 }

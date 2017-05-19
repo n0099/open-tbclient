@@ -7,6 +7,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Xml;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
@@ -4964,7 +4965,7 @@ public final class b {
                     if (str != null) {
                         try {
                             JSONObject jSONObject = new JSONObject(str);
-                            if (jSONObject.has("error_code") || jSONObject.has("error_msg") || jSONObject.optInt("fulfilbind") != 0) {
+                            if (jSONObject.has("error_code") || jSONObject.has(PushConstants.EXTRA_ERROR_CODE) || jSONObject.optInt("fulfilbind") != 0) {
                                 return;
                             }
                             if (jSONObject.optInt(TbConfig.ST_TYPE_REG) == 1 || jSONObject.optInt("login") == 1) {
@@ -5104,7 +5105,7 @@ public final class b {
                     c(sapiCallBack, jSONObject.optString("force_reg_token"));
                     return;
                 }
-                if (!jSONObject.has("error_code") && !jSONObject.has("error_msg")) {
+                if (!jSONObject.has("error_code") && !jSONObject.has(PushConstants.EXTRA_ERROR_CODE)) {
                     SapiAccount sapiAccount = new SapiAccount();
                     sapiAccount.uid = sapiAccountResponse.uid;
                     sapiAccount.bduss = sapiAccountResponse.bduss;
@@ -5146,7 +5147,7 @@ public final class b {
                 sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                 sapiAccountResponse.bduss = jSONObject.optString(SapiAccountManager.SESSION_BDUSS);
                 sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
-                if (!jSONObject.has("error_code") && !jSONObject.has("error_msg")) {
+                if (!jSONObject.has("error_code") && !jSONObject.has(PushConstants.EXTRA_ERROR_CODE)) {
                     SapiAccount sapiAccount = new SapiAccount();
                     sapiAccount.uid = sapiAccountResponse.uid;
                     sapiAccount.bduss = sapiAccountResponse.bduss;

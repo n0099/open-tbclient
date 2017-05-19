@@ -19,7 +19,7 @@ public class a {
     private a() {
     }
 
-    public static a ki() {
+    public static a kh() {
         if (Fi == null) {
             synchronized (a.class) {
                 if (Fi == null) {
@@ -31,7 +31,7 @@ public class a {
     }
 
     public void bt(String str) {
-        PluginStatus bu = ki().bu(str);
+        PluginStatus bu = kh().bu(str);
         if (bu != null) {
             bu.Ff = PluginPackageManager.PluginStatus.NROMAL;
         }
@@ -100,7 +100,7 @@ public class a {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bu));
     }
 
-    public List<PluginStatus> kj() {
+    public List<PluginStatus> ki() {
         ArrayList arrayList;
         PluginStatus value;
         synchronized (this.Fj) {

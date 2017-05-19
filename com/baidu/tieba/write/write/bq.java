@@ -1,6 +1,8 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bq implements View.OnClickListener {
@@ -13,11 +15,22 @@ public class bq implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.this$0.mProgress.getVisibility() != 0) {
-            if ((this.this$0.mBitmap != null || this.this$0.eEf != null) && view.getTag() != null) {
-                this.this$0.eEm = false;
-                this.this$0.rq(view.getTag().toString());
-            }
+        NavigationBar navigationBar;
+        NavigationBar navigationBar2;
+        LinearLayout linearLayout;
+        NavigationBar navigationBar3;
+        LinearLayout linearLayout2;
+        navigationBar = this.this$0.mNavigationBar;
+        if (navigationBar.getVisibility() == 0) {
+            navigationBar3 = this.this$0.mNavigationBar;
+            navigationBar3.setVisibility(8);
+            linearLayout2 = this.this$0.ezs;
+            linearLayout2.setVisibility(8);
+            return;
         }
+        navigationBar2 = this.this$0.mNavigationBar;
+        navigationBar2.setVisibility(0);
+        linearLayout = this.this$0.ezs;
+        linearLayout.setVisibility(0);
     }
 }

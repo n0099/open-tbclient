@@ -2,14 +2,14 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
-    private BdUniqueId dnp;
-    private ReplyMessageActivity dnq;
-    private a dnr;
+    private BdUniqueId dhu;
+    private ReplyMessageActivity dhv;
+    private a dhw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void b(long j, long j2, long j3);
     }
@@ -20,25 +20,25 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
 
     public ReplyMeModel(ReplyMessageActivity replyMessageActivity) {
         super(com.baidu.adp.base.k.Z(replyMessageActivity.getPageContext().getPageActivity()));
-        this.dnp = BdUniqueId.gen();
-        this.dnq = replyMessageActivity;
-        awq();
+        this.dhu = BdUniqueId.gen();
+        this.dhv = replyMessageActivity;
+        atl();
     }
 
-    public void b(long j, int i, String str) {
+    public void a(long j, int i, String str) {
         CheckPostRequestMessage checkPostRequestMessage = new CheckPostRequestMessage();
         checkPostRequestMessage.setPid(j);
         checkPostRequestMessage.setPostType(i);
         checkPostRequestMessage.setForumName(str);
-        checkPostRequestMessage.setTag(this.dnq.getUniqueId());
+        checkPostRequestMessage.setTag(this.dhv.getUniqueId());
         sendMessage(checkPostRequestMessage);
     }
 
-    public void awq() {
-        aq aqVar = new aq(this, 303010);
-        aqVar.setTag(this.dnq.getUniqueId());
-        aqVar.setSelfListener(true);
-        this.dnq.registerListener(aqVar);
+    public void atl() {
+        ar arVar = new ar(this, 303010);
+        arVar.setTag(this.dhv.getUniqueId());
+        arVar.setSelfListener(true);
+        this.dhv.registerListener(arVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -52,6 +52,6 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
     }
 
     public void a(a aVar) {
-        this.dnr = aVar;
+        this.dhw = aVar;
     }
 }

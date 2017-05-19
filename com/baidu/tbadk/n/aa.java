@@ -4,7 +4,7 @@ public class aa extends com.baidu.adp.lib.b.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void X(int i) {
-        com.baidu.tbadk.j.aa.GG().bX(1 == i);
+        com.baidu.tbadk.j.aa.FK().bY(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a

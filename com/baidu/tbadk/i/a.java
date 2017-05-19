@@ -4,45 +4,45 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View aDH;
-    private boolean aDI;
+    protected View aDG;
+    private boolean aDH;
 
     public a(View view) {
-        this.aDH = view;
+        this.aDG = view;
     }
 
-    public boolean ET() {
-        return this.aDI;
+    public boolean DX() {
+        return this.aDH;
     }
 
-    public void b(View view, boolean z) {
-        if (view != null && this.aDH != null && this.aDH.getParent() == null) {
-            this.aDI = true;
-            d.K(view).a(view, this.aDH, z);
-            EU();
+    public void c(View view, boolean z) {
+        if (view != null && this.aDG != null && this.aDG.getParent() == null) {
+            this.aDH = true;
+            d.J(view).a(view, this.aDG, z);
+            DY();
         }
     }
 
-    public void I(View view) {
-        if (view != null && this.aDH != null && this.aDH.getParent() != null && (view instanceof ViewGroup)) {
+    public void H(View view) {
+        if (view != null && this.aDG != null && this.aDG.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                EV();
-                ((ViewGroup) view).removeView(this.aDH);
-                this.aDI = false;
+                DZ();
+                ((ViewGroup) view).removeView(this.aDG);
+                this.aDH = false;
             } catch (Exception e) {
             }
         }
     }
 
-    public void J(View view) {
-        b(view, false);
+    public void I(View view) {
+        c(view, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void EU() {
+    public void DY() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void EV() {
+    public void DZ() {
     }
 }

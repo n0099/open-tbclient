@@ -17,9 +17,24 @@ class n extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.h)) {
-            this.this$0.a((com.baidu.tbadk.data.h) customResponsedMessage.getData());
-            TbadkCoreApplication.m9getInst().setPaymemberInfo((com.baidu.tbadk.data.h) customResponsedMessage.getData());
+        ah ahVar;
+        ah ahVar2;
+        ah ahVar3;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            int oldSkinType = TbadkCoreApplication.m9getInst().getOldSkinType();
+            if (!((intValue == 2 || oldSkinType == 2) ? false : true)) {
+                if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
+                    ahVar3 = this.this$0.fyv;
+                    ahVar3.biC().cv(1);
+                } else if (TbadkCoreApplication.m9getInst().isThemeIconCover()) {
+                    ahVar2 = this.this$0.fyv;
+                    ahVar2.biC().cv(2);
+                } else {
+                    ahVar = this.this$0.fyv;
+                    ahVar.biC().cv(1);
+                }
+            }
         }
     }
 }

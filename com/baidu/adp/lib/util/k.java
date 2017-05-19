@@ -24,13 +24,13 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
-    private static float yZ;
-    static int za;
+    private static float za;
     static int zb;
-    private static String ze;
-    static boolean yY = false;
-    private static Toast zc = null;
-    private static a zd = null;
+    static int zc;
+    private static String zf;
+    static boolean yZ = false;
+    private static Toast zd = null;
+    private static a ze = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new l();
 
@@ -47,74 +47,74 @@ public class k {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            za = displayMetrics.heightPixels;
-            zb = displayMetrics.widthPixels;
-        } else {
-            za = displayMetrics.widthPixels;
             zb = displayMetrics.heightPixels;
+            zc = displayMetrics.widthPixels;
+        } else {
+            zb = displayMetrics.widthPixels;
+            zc = displayMetrics.heightPixels;
         }
-        yZ = displayMetrics.density;
-        yY = true;
+        za = displayMetrics.density;
+        yZ = true;
     }
 
     public static int af(Context context) {
-        if (!yY) {
-            ae(context);
-        }
-        return za;
-    }
-
-    public static int ag(Context context) {
-        if (!yY) {
+        if (!yZ) {
             ae(context);
         }
         return zb;
     }
 
-    public static int dip2px(Context context, float f) {
-        if (!yY) {
+    public static int ag(Context context) {
+        if (!yZ) {
             ae(context);
         }
-        return (int) ((yZ * f) + 0.5f);
+        return zc;
+    }
+
+    public static int dip2px(Context context, float f) {
+        if (!yZ) {
+            ae(context);
+        }
+        return (int) ((za * f) + 0.5f);
     }
 
     public static float ah(Context context) {
-        if (!yY) {
+        if (!yZ) {
             ae(context);
         }
-        return yZ;
+        return za;
     }
 
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (zc == null) {
-                if (zd == null || zd.hH() == null) {
-                    zc = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (zd == null) {
+                if (ze == null || ze.hH() == null) {
+                    zd = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    zc = new Toast(BdBaseApplication.getInst().getApp());
-                    zc.setDuration(0);
-                    zd.aH(str);
-                    zc.setView(zd.hH());
+                    zd = new Toast(BdBaseApplication.getInst().getApp());
+                    zd.setDuration(0);
+                    ze.aH(str);
+                    zd.setView(ze.hH());
                 }
-                zc.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+                zd.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (!str.equals(ze)) {
-                    if (zd == null || zd.hH() == null) {
-                        zc.setText(str);
+                if (!str.equals(zf)) {
+                    if (ze == null || ze.hH() == null) {
+                        zd.setText(str);
                     } else {
-                        zd.aH(str);
+                        ze.aH(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
                 if (BdBaseApplication.getInst().getApp().getResources().getConfiguration().orientation == 2) {
                     dip2px = 0;
                 }
-                zc.setGravity(17, 0, dip2px);
+                zd.setGravity(17, 0, dip2px);
             }
-            ze = str;
+            zf = str;
             mHandler.postDelayed(mRunnable, i);
-            zc.show();
+            zd.show();
         }
     }
 
@@ -437,10 +437,10 @@ public class k {
     }
 
     public static a hF() {
-        return zd;
+        return ze;
     }
 
     public static void a(a aVar) {
-        zd = aVar;
+        ze = aVar;
     }
 }

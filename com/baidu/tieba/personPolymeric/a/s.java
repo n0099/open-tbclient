@@ -1,61 +1,73 @@
 package com.baidu.tieba.personPolymeric.a;
 
 import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.person.listview.BdPersonListView;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    private com.baidu.tieba.personCenter.a.b eBS;
-    private r eGD;
-    private c eGE;
-    private k eGF;
-    private a eGG;
-    private e eGH;
-    private j eGI;
-    private o eGJ;
-    private g eGK;
-    private p eGL;
-    private f eGM;
-    private com.baidu.tieba.person.a.e eGN;
+    private r eBQ;
+    private c eBR;
+    private k eBS;
+    private a eBT;
+    private e eBU;
+    private j eBV;
+    private o eBW;
+    private g eBX;
+    private p eBY;
+    private f eBZ;
+    private com.baidu.tieba.person.a.c eCa;
+    private u eCb;
+    private com.baidu.tieba.personCenter.a.b exS;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
+    private BdUniqueId mBdUniqueId;
 
-    public s(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
+    public s(TbPageContext tbPageContext, BdPersonListView bdPersonListView, BdUniqueId bdUniqueId) {
+        this.mBdUniqueId = bdUniqueId;
         a(tbPageContext, bdPersonListView);
     }
 
     private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.eGD = new r(tbPageContext);
-        this.eGE = new c(tbPageContext);
-        this.eGF = new k(tbPageContext);
-        this.eGG = new a(tbPageContext);
-        this.eGH = new e(tbPageContext);
-        this.eGI = new j(tbPageContext);
-        this.eGJ = new o(tbPageContext);
-        this.eGK = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.f.eHO);
-        this.eGL = new p(tbPageContext);
-        this.eGM = new f(tbPageContext);
-        this.eGN = new com.baidu.tieba.person.a.e(tbPageContext, com.baidu.tieba.person.a.g.eBT);
-        this.eBS = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.eDh);
-        this.mAdapters.add(this.eGD);
-        this.mAdapters.add(this.eGE);
-        this.mAdapters.add(this.eGF);
-        this.mAdapters.add(this.eGG);
-        this.mAdapters.add(this.eGH);
-        this.mAdapters.add(this.eGI);
-        this.mAdapters.add(this.eGJ);
-        this.mAdapters.add(this.eGK);
-        this.mAdapters.add(this.eGL);
-        this.mAdapters.add(this.eGM);
-        this.mAdapters.add(this.eGN);
+        this.eBQ = new r(tbPageContext);
+        this.eBR = new c(tbPageContext);
+        this.eBS = new k(tbPageContext);
+        this.eBT = new a(tbPageContext);
+        this.eBU = new e(tbPageContext);
+        this.eBV = new j(tbPageContext);
+        this.eBW = new o(tbPageContext);
+        this.eBX = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.f.eDi);
+        this.eBY = new p(tbPageContext);
+        this.eBZ = new f(tbPageContext);
+        this.eCa = new com.baidu.tieba.person.a.c(tbPageContext, com.baidu.tieba.person.a.e.exT);
+        this.exS = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.b.b.eyF);
+        this.eCb = new u(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
+        this.mAdapters.add(this.eBQ);
+        this.mAdapters.add(this.eBR);
         this.mAdapters.add(this.eBS);
+        this.mAdapters.add(this.eBT);
+        this.mAdapters.add(this.eBU);
+        this.mAdapters.add(this.eBV);
+        this.mAdapters.add(this.eBW);
+        this.mAdapters.add(this.eBX);
+        this.mAdapters.add(this.eBY);
+        this.mAdapters.add(this.eBZ);
+        this.mAdapters.add(this.eCa);
+        this.mAdapters.add(this.exS);
+        this.mAdapters.add(this.eCb);
         bdPersonListView.addAdapters(this.mAdapters);
     }
 
-    public void L(View.OnClickListener onClickListener) {
-        if (this.eGN != null) {
-            this.eGN.J(onClickListener);
+    public void M(View.OnClickListener onClickListener) {
+        if (this.eCa != null) {
+            this.eCa.K(onClickListener);
         }
+    }
+
+    public void setIsHost(boolean z) {
+        this.eCb.setIsHost(z);
+        this.eBS.setIsHost(z);
     }
 }

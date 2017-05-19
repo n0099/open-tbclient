@@ -1,40 +1,29 @@
 package com.baidu.tieba.homepage.personalize;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.frs.cq;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
-    final /* synthetic */ n this$0;
+public class ad extends com.baidu.tbadk.util.v<String> {
+    final /* synthetic */ o this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(n nVar) {
-        this.this$0 = nVar;
+    public ad(o oVar) {
+        this.this$0 = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        cq cqVar;
-        int i;
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        BdTypeListView bdTypeListView3;
-        cq cqVar2;
-        cqVar = this.this$0.czC;
-        if (cqVar != null) {
-            cqVar2 = this.this$0.czC;
-            cqVar2.hideTip();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.util.v
+    /* renamed from: ahm */
+    public String doInBackground() {
+        String str;
+        String str2;
+        com.baidu.tbadk.core.c.a sZ = com.baidu.tbadk.core.c.a.sZ();
+        str = this.this$0.cvc;
+        com.baidu.adp.lib.cache.o<String> M = sZ.M(str, TbadkCoreApplication.getCurrentAccount());
+        if (M != null) {
+            str2 = this.this$0.cvc;
+            return M.get(str2);
         }
-        i = this.this$0.czy;
-        if (i == 1) {
-            bdTypeListView = this.this$0.mListView;
-            if (bdTypeListView != null) {
-                bdTypeListView2 = this.this$0.mListView;
-                bdTypeListView2.setSelection(0);
-                bdTypeListView3 = this.this$0.mListView;
-                bdTypeListView3.startPullRefresh();
-            }
-        }
+        return null;
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.tieba.write.write.q;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ q.b fTw;
+    final /* synthetic */ q.b fRA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q.b bVar) {
-        this.fTw = bVar;
+        this.fRA = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,9 +17,9 @@ public class r implements View.OnClickListener {
         q qVar;
         q qVar2;
         qVar = q.this;
-        if (qVar.fTo != null) {
+        if (qVar.fRs != null) {
             qVar2 = q.this;
-            qVar2.fTo.bpX();
+            qVar2.fRs.bnZ();
         }
     }
 }

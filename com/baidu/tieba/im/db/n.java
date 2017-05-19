@@ -2,7 +2,7 @@ package com.baidu.tieba.im.db;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends CustomMessageListener {
@@ -15,7 +15,7 @@ public class n extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015 && customResponsedMessage.getData() != null) {
-            t.b(new o(this, customResponsedMessage), new p(this));
+            w.b(new o(this, customResponsedMessage), new p(this));
         }
     }
 }

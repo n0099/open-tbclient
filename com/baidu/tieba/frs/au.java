@@ -1,29 +1,32 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.Drawable;
-import java.util.HashMap;
+import android.view.ViewStub;
+import android.widget.FrameLayout;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au {
-    private HashMap<String, Drawable> bQk = new HashMap<>();
+public class au implements Runnable {
+    final /* synthetic */ at bPW;
 
-    public Drawable x(int i, int i2) {
-        String ag = ag(i, i2);
-        Drawable drawable = this.bQk.get(ag);
-        if (drawable == null) {
-            Drawable x = com.baidu.tbadk.core.util.aq.x(i2, i);
-            this.bQk.put(ag, x);
-            return x.getConstantState().newDrawable();
-        }
-        return drawable.getConstantState().newDrawable();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public au(at atVar) {
+        this.bPW = atVar;
     }
 
-    private String ag(int i, int i2) {
-        return String.valueOf(i) + "_" + i2;
-    }
-
-    public void destory() {
-        if (!this.bQk.isEmpty()) {
-            this.bQk.clear();
+    @Override // java.lang.Runnable
+    public void run() {
+        ViewStub viewStub;
+        FrameLayout frameLayout;
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        viewStub = this.bPW.bPB;
+        if (viewStub != null) {
+            frameLayout = this.bPW.bPC;
+            frameLayout.setVisibility(0);
+            tbImageView = this.bPW.bPE;
+            tbImageView.setVisibility(0);
+            tbImageView2 = this.bPW.bPD;
+            tbImageView2.setVisibility(8);
         }
     }
 }

@@ -1,25 +1,92 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.pb.pb.main.PbModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dz implements View.OnClickListener {
-    final /* synthetic */ dw epw;
-    private final /* synthetic */ String epx;
+public class dz extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ PbModel eku;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dz(dw dwVar, String str) {
-        this.epw = dwVar;
-        this.epx = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dz(PbModel pbModel, int i, int i2) {
+        super(i, i2);
+        this.eku = pbModel;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (!StringUtils.isNull(this.epx) && com.baidu.adp.lib.util.k.hB()) {
-            TiebaStatic.log("c10854");
-            com.baidu.tbadk.browser.f.T(this.epw.ekw.getActivity(), this.epx);
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        PbModel.a aVar;
+        PbModel.a aVar2;
+        boolean z4;
+        long j;
+        boolean z5;
+        long j2;
+        BaseActivity baseActivity;
+        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.eku.getUniqueId()) {
+            if (responsedMessage.hasError() && responsedMessage.getError() != 4 && com.baidu.adp.lib.util.i.hk()) {
+                baseActivity = this.eku.bdY;
+                baseActivity.showToast(responsedMessage.getErrorString());
+            }
+            if (responsedMessage instanceof pbPageSocketResponseMessage) {
+                pbPageSocketResponseMessage pbpagesocketresponsemessage = (pbPageSocketResponseMessage) responsedMessage;
+                this.eku.a(pbpagesocketresponsemessage);
+                pbpagesocketresponsemessage.getDownSize();
+            }
+            if (!(responsedMessage instanceof pbPageHttpResponseMessage)) {
+                z = false;
+            } else {
+                pbPageHttpResponseMessage pbpagehttpresponsemessage = (pbPageHttpResponseMessage) responsedMessage;
+                this.eku.a(pbpagehttpresponsemessage);
+                pbpagehttpresponsemessage.getDownSize();
+                z = true;
+            }
+            if (responsedMessage.getError() != 0) {
+                if (z) {
+                    j2 = 0;
+                } else {
+                    j2 = ((pbPageSocketResponseMessage) responsedMessage).sequenceID;
+                }
+                PbPageRequestMessage pbPageRequestMessage = (PbPageRequestMessage) responsedMessage.getOrginalMessage().getExtra();
+                long clientLogID = responsedMessage.getOrginalMessage().getClientLogID();
+                int cmd = responsedMessage.getOrginalMessage().getCmd();
+                int error = responsedMessage.getError();
+                String errorString = responsedMessage.getErrorString();
+                Object[] objArr = new Object[6];
+                objArr[0] = "updateType";
+                objArr[1] = pbPageRequestMessage != null ? String.valueOf(pbPageRequestMessage.getUpdateType()) : null;
+                objArr[2] = "ThreadId";
+                objArr[3] = pbPageRequestMessage != null ? String.valueOf(pbPageRequestMessage.get_kz()) : null;
+                objArr[4] = "seq_id";
+                objArr[5] = Long.valueOf(j2);
+                com.baidu.tbadk.core.e.a.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
+            }
+            z2 = this.eku.ejX;
+            if (z2) {
+                z5 = this.eku.ejY;
+                if (z5) {
+                    return;
+                }
+            }
+            z3 = this.eku.ejX;
+            if (!z3) {
+                this.eku.ejX = true;
+            } else {
+                this.eku.ejY = true;
+            }
+            aVar = this.eku.ejR;
+            if (aVar != null) {
+                aVar2 = this.eku.ejR;
+                int aJQ = this.eku.aJQ();
+                z4 = this.eku.ejZ;
+                long currentTimeMillis = System.currentTimeMillis();
+                j = this.eku.bXM;
+                aVar2.a(aJQ, z, responsedMessage, z4, currentTimeMillis - j);
+            }
         }
     }
 }

@@ -8,7 +8,9 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Anti;
 import tbclient.DealWindow;
+import tbclient.DynamicInfo;
 import tbclient.Feedback;
+import tbclient.ForumDynamic;
 import tbclient.Highlist;
 import tbclient.PostInfoList;
 import tbclient.Profile.ProfileResIdl;
@@ -22,6 +24,8 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     private static final String PROFILE_CACHE_KEY = "profile_cache_key";
     private Anti anti_stat;
     public TbBookrack bookrack;
+    private List<ForumDynamic> concernedForumList;
+    private List<DynamicInfo> dynamicInfoList;
     private boolean error_hint;
     private Feedback feedback;
     private boolean from_db;
@@ -60,7 +64,6 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.error_hint;
     }
 
-    @Override // com.baidu.tieba.person.b
     public f getUcCardData() {
         return this.ucCardData;
     }
@@ -70,7 +73,6 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.bookrack;
     }
 
-    @Override // com.baidu.tieba.person.b
     public UserGodInfo getUserGodInfo() {
         return this.userGodInfo;
     }
@@ -97,7 +99,8 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.anti_stat;
     }
 
-    public TAInfo GetTainfo() {
+    @Override // com.baidu.tieba.person.b
+    public TAInfo getTaInfo() {
         return this.tainfo;
     }
 
@@ -138,13 +141,15 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
             this.highlist = profileResIdl.data.highs;
             this.window = profileResIdl.data.window;
             this.feedback = profileResIdl.data.feedback;
+            this.concernedForumList = profileResIdl.data.concerned_forum_list;
+            this.dynamicInfoList = profileResIdl.data.dynamic_list;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<byte[]> L = com.baidu.tbadk.core.c.a.tM().L("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        o<byte[]> L = com.baidu.tbadk.core.c.a.sZ().L("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             L.k(PROFILE_CACHE_KEY, bArr);
         }
@@ -155,15 +160,15 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         o<String> M;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.tM().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<f.a> list = this.ucCardData.eBK;
+        if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.sZ().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<f.a> list = this.ucCardData.exM;
             list.get(4).timeStamp = 8L;
             if (list != null) {
                 for (f.a aVar : list) {
                     if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(M.get(aVar.title), 0L)) {
-                        aVar.eBL = true;
+                        aVar.exN = true;
                     } else {
-                        aVar.eBL = false;
+                        aVar.exN = false;
                     }
                 }
             }
@@ -175,8 +180,17 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return getError();
     }
 
-    @Override // com.baidu.tieba.person.b
     public Feedback getFeedBack() {
         return this.feedback;
+    }
+
+    @Override // com.baidu.tieba.person.b
+    public List<ForumDynamic> getConcernedForumList() {
+        return this.concernedForumList;
+    }
+
+    @Override // com.baidu.tieba.person.b
+    public List<DynamicInfo> getDynamicInfoList() {
+        return this.dynamicInfoList;
     }
 }

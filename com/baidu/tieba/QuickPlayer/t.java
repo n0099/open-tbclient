@@ -2,9 +2,9 @@ package com.baidu.tieba.QuickPlayer;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t extends CustomMessageListener {
+public class t extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(int i) {
         super(i);
@@ -13,8 +13,8 @@ class t extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            QuickPlayerStatic.Ki();
+        if (customResponsedMessage != null) {
+            new Thread(new u(this)).start();
         }
     }
 }

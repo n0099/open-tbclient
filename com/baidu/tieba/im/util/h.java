@@ -21,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private static Pattern agT = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern agl = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
     public static String I(String str, boolean z) {
         String str2 = null;
@@ -127,7 +127,7 @@ public class h {
         }
     }
 
-    private static final String kS(String str) {
+    private static final String kW(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -156,7 +156,7 @@ public class h {
         return sb.toString();
     }
 
-    private static final String kT(String str) {
+    private static final String kX(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -179,28 +179,28 @@ public class h {
     }
 
     public static String x(ChatMessage chatMessage) {
-        return chatMessage == null ? "" : C(chatMessage.getMsgType(), chatMessage.getContent());
+        return chatMessage == null ? "" : D(chatMessage.getMsgType(), chatMessage.getContent());
     }
 
-    public static String C(int i, String str) {
+    public static String D(int i, String str) {
         int i2 = 0;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (i == 1) {
-            String kS = (str.length() <= 1 || str.charAt(0) != '[') ? null : kS(str);
-            if (TextUtils.isEmpty(kS)) {
-                kS = str;
+            String kW = (str.length() <= 1 || str.charAt(0) != '[') ? null : kW(str);
+            if (TextUtils.isEmpty(kW)) {
+                kW = str;
             }
-            if (kS == null) {
+            if (kW == null) {
                 return null;
             }
-            Matcher matcher = agT.matcher(kS);
+            Matcher matcher = agl.matcher(kW);
             while (matcher.find()) {
                 String group = matcher.group();
-                kS = kS.replace(group, group.replace("#(", "[").replace(")", "]"));
+                kW = kW.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return kS;
+            return kW;
         } else if (i == 2) {
             return TbadkCoreApplication.m9getInst().getApp().getString(w.l.last_msg_pic);
         } else {
@@ -208,7 +208,7 @@ public class h {
                 return TbadkCoreApplication.m9getInst().getApp().getString(w.l.last_msg_voice);
             }
             if (i == 11) {
-                return kU(str);
+                return kY(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.m9getInst().getApp().getString(w.l.last_msg_reply_card);
@@ -297,7 +297,7 @@ public class h {
                         return TbadkCoreApplication.m9getInst().getApp().getString(w.l.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return kT(str);
+                    return kX(str);
                 } else {
                     return null;
                 }
@@ -329,7 +329,7 @@ public class h {
         return x(chatMessage);
     }
 
-    private static String kU(String str) {
+    private static String kY(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -443,25 +443,25 @@ public class h {
         }
     }
 
-    public static int r(Context context, int i) {
+    public static int q(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
     }
 
     public static d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return kV(commonMsgPojo.getContent());
+            return kZ(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static d kV(String str) {
+    public static d kZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return kW(jSONArray.getJSONObject(0).optString("msg_src"));
+                return la(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -470,13 +470,13 @@ public class h {
         }
     }
 
-    public static d kW(String str) {
+    public static d la(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
             return null;
         }
         d dVar = new d();
-        dVar.cVl = split[0];
+        dVar.cPn = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

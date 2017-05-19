@@ -1,85 +1,44 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.ImageView;
-import com.baidu.tbadk.widget.ForeDrawableImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
+import android.content.DialogInterface;
+import android.content.Intent;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bn implements com.baidu.adp.lib.e.c<ImageView> {
-    final /* synthetic */ PbActivity emk;
+public class bn implements DialogInterface.OnCancelListener {
+    private final /* synthetic */ MarkData ehK;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a ehL;
+    final /* synthetic */ PbActivity ehy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(PbActivity pbActivity) {
-        this.emk = pbActivity;
+    public bn(PbActivity pbActivity, MarkData markData, com.baidu.tbadk.core.dialog.a aVar) {
+        this.ehy = pbActivity;
+        this.ehK = markData;
+        this.ehL = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Rf */
-    public ImageView fL() {
-        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.emk.getPageContext().getPageActivity());
-        boolean pu = com.baidu.tbadk.core.q.po().pu();
-        foreDrawableImageView.setDefaultBg(com.baidu.tbadk.core.util.aq.getDrawable(w.e.common_color_10220));
-        if (pu) {
-            foreDrawableImageView.setAdjustViewBounds(false);
-            foreDrawableImageView.setInterceptOnClick(false);
-        } else {
-            foreDrawableImageView.setDefaultResource(w.g.icon_click);
-            foreDrawableImageView.setAdjustViewBounds(true);
-            foreDrawableImageView.setInterceptOnClick(true);
-        }
-        return foreDrawableImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: g */
-    public void o(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-        if (imageView instanceof ForeDrawableImageView) {
-            ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-            ((ForeDrawableImageView) imageView).stopLoading();
-            foreDrawableImageView.setForegroundDrawable(0);
-            foreDrawableImageView.setDefaultBgResource(w.e.common_color_10220);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: f */
-    public ImageView p(ImageView imageView) {
-        if (imageView instanceof TbImageView) {
-            TbImageView tbImageView = (TbImageView) imageView;
-            tbImageView.setTag(null);
-            if (com.baidu.tbadk.core.q.po().pu()) {
-                tbImageView.setAdjustViewBounds(false);
-                tbImageView.setInterceptOnClick(false);
-            } else {
-                tbImageView.setDefaultResource(w.g.icon_click);
-                tbImageView.setAdjustViewBounds(true);
-                tbImageView.setInterceptOnClick(true);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        fm fmVar;
+        fm fmVar2;
+        fm fmVar3;
+        dialogInterface.dismiss();
+        int[] iArr = new int[2];
+        fmVar = this.ehy.egt;
+        if (fmVar != null) {
+            fmVar2 = this.ehy.egt;
+            if (fmVar2.getView() != null) {
+                fmVar3 = this.ehy.egt;
+                fmVar3.getView().getLocationOnScreen(iArr);
             }
         }
-        return imageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: h */
-    public ImageView q(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-        if (imageView instanceof ForeDrawableImageView) {
-            ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-            ((ForeDrawableImageView) imageView).stopLoading();
-            foreDrawableImageView.setForegroundDrawable(0);
-            foreDrawableImageView.setDefaultBgResource(w.e.common_color_10220);
+        if (iArr[0] > 0) {
+            Intent intent = new Intent();
+            intent.putExtra(PbActivityConfig.KEY_MARK, this.ehK);
+            this.ehy.setResult(-1, intent);
+            this.ehL.dismiss();
+            this.ehy.aIW();
         }
-        return imageView;
     }
 }

@@ -133,10 +133,10 @@ public class IndicatorView extends View {
                 return;
             }
             IndicatorView.this.setWillNotDraw(false);
-            IndicatorView.this.setMeasuredDimension(aH(i), aI(i2));
+            IndicatorView.this.setMeasuredDimension(aG(i), aH(i2));
         }
 
-        private int aH(int i) {
+        private int aG(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
             int max = (IndicatorView.this.Hj * (IndicatorView.this.mCount - 1)) + (Math.max(IndicatorView.this.Hl.getIntrinsicWidth(), IndicatorView.this.Hm.getIntrinsicWidth()) * IndicatorView.this.mCount);
@@ -160,7 +160,7 @@ public class IndicatorView extends View {
             }
         }
 
-        private int aI(int i) {
+        private int aH(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
             int max = Math.max(IndicatorView.this.Hl.getIntrinsicHeight(), IndicatorView.this.Hm.getIntrinsicHeight());
@@ -200,7 +200,7 @@ public class IndicatorView extends View {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void kB() {
+        public void kA() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.Hs = ((((float) (uptimeMillis - this.Hp)) / 1000.0f) * this.Hr) + this.Hs;
             this.Hp = uptimeMillis;
@@ -240,7 +240,7 @@ public class IndicatorView extends View {
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1000:
-                        a.this.kB();
+                        a.this.kA();
                         return;
                     default:
                         return;

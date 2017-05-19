@@ -1,31 +1,23 @@
 package com.baidu.tieba.write.album;
 
-import android.view.View;
-import com.baidu.tbadk.core.view.NavigationBar;
-import java.util.List;
+import com.baidu.tbadk.core.view.HeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak implements View.OnClickListener {
-    final /* synthetic */ ag fQJ;
+public class ak implements com.baidu.tbadk.imageManager.b {
+    final /* synthetic */ ac fNP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ag agVar) {
-        this.fQJ = agVar;
+    public ak(ac acVar) {
+        this.fNP = acVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.write.view.a aVar;
-        o oVar;
-        o oVar2;
-        com.baidu.tieba.write.view.a aVar2;
-        NavigationBar navigationBar;
-        aVar = this.fQJ.fQH;
-        oVar = this.fQJ.fPd;
-        List<d> boG = oVar.boG();
-        oVar2 = this.fQJ.fPd;
-        aVar.b(boG, oVar2.boE());
-        aVar2 = this.fQJ.fQH;
-        navigationBar = this.fQJ.mNavigationBar;
-        aVar2.aH(navigationBar);
+    @Override // com.baidu.tbadk.imageManager.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        TransparentHeadGridView transparentHeadGridView;
+        transparentHeadGridView = this.fNP.fNo;
+        HeadImageView headImageView = (HeadImageView) transparentHeadGridView.findViewWithTag(str);
+        if (headImageView != null && aVar != null) {
+            headImageView.invalidate();
+        }
     }
 }

@@ -5,15 +5,15 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdapter;
 import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class x extends CustomMessageListener {
-    final /* synthetic */ l dmU;
+    final /* synthetic */ l dgY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(l lVar, int i) {
         super(i);
-        this.dmU = lVar;
+        this.dgY = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,22 +30,22 @@ public class x extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            imMessageCenterModel = this.dmU.djT;
-                            aVar = this.dmU.cSx;
+                            imMessageCenterModel = this.dgY.ddV;
+                            aVar = this.dgY.cMz;
                             imMessageCenterModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            messageAggregationListAdapter3 = this.dmU.dmN;
+                            messageAggregationListAdapter3 = this.dgY.dgR;
                             if (messageAggregationListAdapter3 != null) {
-                                messageAggregationListAdapter4 = this.dmU.dmN;
+                                messageAggregationListAdapter4 = this.dgY.dgR;
                                 messageAggregationListAdapter4.notifyDataSetChanged();
                                 return;
                             }
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            messageAggregationListAdapter = this.dmU.dmN;
+                            messageAggregationListAdapter = this.dgY.dgR;
                             if (messageAggregationListAdapter != null) {
-                                messageAggregationListAdapter2 = this.dmU.dmN;
+                                messageAggregationListAdapter2 = this.dgY.dgR;
                                 messageAggregationListAdapter2.notifyDataSetChanged();
                                 return;
                             }
@@ -54,13 +54,13 @@ public class x extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.dmU.f(customResponsedMessage);
+                    this.dgY.f(customResponsedMessage);
                     return;
                 }
-                this.dmU.e(customResponsedMessage);
+                this.dgY.e(customResponsedMessage);
                 return;
             }
-            this.dmU.d((CustomResponsedMessage<?>) customResponsedMessage);
+            this.dgY.d(customResponsedMessage);
         }
     }
 }

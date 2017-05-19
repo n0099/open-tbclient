@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.im.stranger;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.imMessageCenter.StrangerListActivityConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class StrangerListActivityStatic {
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(StrangerListActivityConfig.class, StrangerListActivity.class);

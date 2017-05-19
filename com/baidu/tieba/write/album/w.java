@@ -1,19 +1,7 @@
 package com.baidu.tieba.write.album;
 
-import android.widget.HorizontalScrollView;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
-class w implements Runnable {
-    final /* synthetic */ t fQo;
-    private final /* synthetic */ HorizontalScrollView fQq;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w(t tVar, HorizontalScrollView horizontalScrollView) {
-        this.fQo = tVar;
-        this.fQq = horizontalScrollView;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        this.fQq.fullScroll(66);
-    }
+public interface w {
+    void a(int i, ImageFileInfo imageFileInfo);
 }

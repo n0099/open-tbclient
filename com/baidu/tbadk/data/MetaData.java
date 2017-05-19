@@ -25,7 +25,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private int gender;
     private boolean isGod;
     private int is_myfriend;
-    private j pendantData;
+    private i pendantData;
     private String virtualUserUrl;
     private boolean isLikeStatusFromNet = false;
     private int is_like = 0;
@@ -354,7 +354,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
             if (user.pendant != null) {
-                this.pendantData = new j();
+                this.pendantData = new i();
                 this.pendantData.a(user.pendant);
             }
             this.isLikeStatusFromNet = true;
@@ -455,12 +455,12 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.themeCard;
     }
 
-    public j getPendantData() {
+    public i getPendantData() {
         return this.pendantData;
     }
 
-    public void setPendantData(j jVar) {
-        this.pendantData = jVar;
+    public void setPendantData(i iVar) {
+        this.pendantData = iVar;
     }
 
     public String getVirtualUserUrl() {

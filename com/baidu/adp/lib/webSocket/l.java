@@ -30,7 +30,7 @@ public class l implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void hX() {
+    public void hW() {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a

@@ -1,38 +1,38 @@
 package com.baidu.tbadk.coreExtra.view;
 
 import android.view.View;
-import com.baidu.tbadk.widget.a;
+import com.baidu.tbadk.widget.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements a.d {
-    final /* synthetic */ MultiImageView aup;
+public class r implements b.d {
+    final /* synthetic */ MultiImageView aut;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(MultiImageView multiImageView) {
-        this.aup = multiImageView;
+        this.aut = multiImageView;
     }
 
-    @Override // com.baidu.tbadk.widget.a.d
-    public void a(com.baidu.tbadk.widget.a aVar) {
+    @Override // com.baidu.tbadk.widget.b.d
+    public void a(com.baidu.tbadk.widget.b bVar) {
         h hVar;
         boolean z;
         h hVar2;
         h hVar3;
-        hVar = this.aup.aui;
-        if (aVar == hVar.getCurrentView()) {
-            z = this.aup.aum;
+        hVar = this.aut.aum;
+        if (bVar == hVar.getCurrentView()) {
+            z = this.aut.auq;
             if (z) {
-                hVar2 = this.aup.aui;
+                hVar2 = this.aut.aum;
                 int childCount = hVar2.getChildCount();
                 for (int i = 0; i < childCount; i++) {
-                    hVar3 = this.aup.aui;
+                    hVar3 = this.aut.aum;
                     View childAt = hVar3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof u) && ((u) childAt).getImageView() != aVar) {
+                    if (childAt != null && (childAt instanceof u) && ((u) childAt).getImageView() != bVar) {
                         ((u) childAt).release();
                     }
                 }
             }
-            aVar.play();
+            bVar.play();
         }
     }
 }

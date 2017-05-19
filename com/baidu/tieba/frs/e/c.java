@@ -1,33 +1,25 @@
 package com.baidu.tieba.frs.e;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.HashSet;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.PopupWindow;
 /* loaded from: classes.dex */
-public class c extends CustomMessageListener {
-    final /* synthetic */ b cbk;
+class c implements Runnable {
+    final /* synthetic */ b caG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(b bVar, int i) {
-        super(i);
-        this.cbk = bVar;
+    public c(b bVar) {
+        this.caG = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        HashSet hashSet;
-        HashSet hashSet2;
-        if (customResponsedMessage == null) {
-            return;
+    @Override // java.lang.Runnable
+    public void run() {
+        a aVar;
+        PopupWindow popupWindow;
+        a aVar2;
+        aVar = this.caG.caF;
+        popupWindow = aVar.caD;
+        if (popupWindow != null) {
+            aVar2 = this.caG.caF;
+            aVar2.acC();
         }
-        hashSet = this.cbk.cbi;
-        if (hashSet == null) {
-            return;
-        }
-        hashSet2 = this.cbk.cbi;
-        hashSet2.clear();
     }
 }

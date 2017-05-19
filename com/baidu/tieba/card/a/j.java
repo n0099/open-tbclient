@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
@@ -19,89 +19,89 @@ import com.baidu.tieba.play.y;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class j implements u {
-    private bi aRX;
-    private a aSI;
-    private y aSq;
-    private aj aSr;
-    private com.baidu.tbadk.core.data.c bwZ;
-    private String bxa;
+    private y aSL;
+    private aj aSM;
+    private bk aSs;
+    private a aTd;
+    private com.baidu.tbadk.core.data.c bwX;
+    private String bwY;
     private String mForumName;
-    private boolean aSp = false;
-    private y.a aSt = new k(this);
+    private boolean aSK = false;
+    private y.a aSO = new k(this);
 
     public j(a aVar) {
-        this.aSI = aVar;
-        if (this.aSI != null) {
-            this.aSq = new y();
-            this.aSq.setPlayer(this.aSI.Lg());
-            this.aSq.a(this.aSt);
-            if (this.aSI.Lg() != null) {
-                this.aSr = new aj(this.aSI.Lg().getContext());
-                this.aSI.Lg().setBusiness(this.aSr);
+        this.aTd = aVar;
+        if (this.aTd != null) {
+            this.aSL = new y();
+            this.aSL.setPlayer(this.aTd.Ku());
+            this.aSL.a(this.aSO);
+            if (this.aTd.Ku() != null) {
+                this.aSM = new aj(this.aTd.Ku().getContext());
+                this.aTd.Ku().setBusiness(this.aSM);
             }
         }
     }
 
-    public void a(bi biVar, String str, String str2, boolean z) {
-        this.bxa = str2;
+    public void a(bk bkVar, String str, String str2, boolean z) {
+        this.bwY = str2;
         this.mForumName = str;
-        if (biVar != null) {
-            this.aRX = biVar;
-            if (this.aSI != null && this.aRX.sG() != null) {
-                this.bwZ = this.aRX.sG();
-                this.aSI.gD(this.bwZ.cover);
-                if (this.aSr != null && this.aSr.aZc() != null) {
-                    this.aSr.aZc().a(this.bwZ);
+        if (bkVar != null) {
+            this.aSs = bkVar;
+            if (this.aTd != null && this.aSs.rQ() != null) {
+                this.bwX = this.aSs.rQ();
+                this.aTd.gB(this.bwX.cover);
+                if (this.aSM != null && this.aSM.aWB() != null) {
+                    this.aSM.aWB().a(this.bwX);
                 }
                 if (z) {
-                    this.aSI.setTitle(this.aRX.getTitle());
+                    this.aTd.setTitle(this.aSs.getTitle());
                 } else {
-                    this.aSI.setTitle("");
+                    this.aTd.setTitle("");
                 }
             }
         }
     }
 
     public void j(TbPageContext<?> tbPageContext) {
-        if (tbPageContext != null && this.aRX != null && this.bwZ != null) {
+        if (tbPageContext != null && this.aSs != null && this.bwX != null) {
             if (!com.baidu.adp.lib.util.i.hk()) {
                 com.baidu.adp.lib.util.k.showToast(tbPageContext.getPageActivity(), w.l.no_network_guide);
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             String str = AlaLiveRoomActivityConfig.FROM_TYPE_FRS_PLAY;
-            if (this.aRX.sf() != null) {
-                str = this.aRX.sf();
+            if (this.aSs.rp() != null) {
+                str = this.aSs.rp();
             }
             if (str.equals(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY)) {
-                if (this.aRX.st().equals(this.mForumName)) {
-                    TiebaStatic.log(new as("c11843").aa(SapiAccountManager.SESSION_UID, currentAccount).g("fid", this.aRX.getFid()));
+                if (this.aSs.rD().equals(this.mForumName)) {
+                    TiebaStatic.log(new as("c11843").aa(SapiAccountManager.SESSION_UID, currentAccount).g("fid", this.aSs.getFid()));
                 } else {
-                    TiebaStatic.log(new as("c11845").aa(SapiAccountManager.SESSION_UID, currentAccount).g("fid", this.aRX.getFid()));
+                    TiebaStatic.log(new as("c11845").aa(SapiAccountManager.SESSION_UID, currentAccount).g("fid", this.aSs.getFid()));
                 }
             }
             boolean z = false;
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && this.aRX.getAuthor() != null) {
-                z = TextUtils.equals(this.aRX.getAuthor().getUserId(), TbadkCoreApplication.getCurrentAccount());
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && this.aSs.getAuthor() != null) {
+                z = TextUtils.equals(this.aSs.getAuthor().getUserId(), TbadkCoreApplication.getCurrentAccount());
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.setLiveID(this.bwZ.live_id);
-            alaLiveInfoCoreData.setGroupID(this.bwZ.group_id);
-            alaLiveInfoCoreData.setHslUrl(this.bwZ.hls_url);
-            alaLiveInfoCoreData.setLiveCover(this.bwZ.cover);
-            alaLiveInfoCoreData.setLiveTitle(this.bwZ.description);
-            alaLiveInfoCoreData.setRtmpUrl(this.bwZ.rtmp_url);
-            alaLiveInfoCoreData.setSessionID(this.bwZ.session_id);
-            if (this.bwZ.UC != null) {
-                alaLiveInfoCoreData.setUserName(this.bwZ.UC.user_name);
+            alaLiveInfoCoreData.setLiveID(this.bwX.live_id);
+            alaLiveInfoCoreData.setGroupID(this.bwX.group_id);
+            alaLiveInfoCoreData.setHslUrl(this.bwX.hls_url);
+            alaLiveInfoCoreData.setLiveCover(this.bwX.cover);
+            alaLiveInfoCoreData.setLiveTitle(this.bwX.description);
+            alaLiveInfoCoreData.setRtmpUrl(this.bwX.rtmp_url);
+            alaLiveInfoCoreData.setSessionID(this.bwX.session_id);
+            if (this.bwX.TU != null) {
+                alaLiveInfoCoreData.setUserName(this.bwX.TU.user_name);
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, "", z)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, "", z, this.mForumName)));
         }
     }
 
     @Override // com.baidu.tieba.play.u
     public boolean isPlayStarted() {
-        return this.aSp;
+        return this.aSK;
     }
 
     @Override // com.baidu.tieba.play.u
@@ -115,43 +115,43 @@ public class j implements u {
 
     @Override // com.baidu.tieba.play.u
     public void stopPlay() {
-        if (this.aSI != null && this.aSI.Lg() != null) {
-            this.aSI.Lg().stopPlayback();
-            this.aSI.Lh();
-            if (this.aSq != null) {
-                this.aSq.stop();
+        if (this.aTd != null && this.aTd.Ku() != null) {
+            this.aTd.Ku().stopPlayback();
+            this.aTd.Kv();
+            if (this.aSL != null) {
+                this.aSL.stop();
             }
         }
-        this.aSp = false;
+        this.aSK = false;
     }
 
     @Override // com.baidu.tieba.play.u
     public View getVideoContainer() {
-        if (this.aSI != null) {
-            return this.aSI.getView();
+        if (this.aTd != null) {
+            return this.aTd.getView();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.play.u
     public String getPlayUrl() {
-        if (this.aRX == null || this.aRX.sF() == null) {
+        if (this.aSs == null || this.aSs.rP() == null) {
             return null;
         }
-        return this.aRX.sF().video_url;
+        return this.aSs.rP().video_url;
     }
 
     @Override // com.baidu.tieba.play.u
     public int getCurrentPosition() {
-        if (this.aSI == null || this.aSI.Lg() == null) {
+        if (this.aTd == null || this.aTd.Ku() == null) {
             return 0;
         }
-        return this.aSI.Lg().getCurrentPosition();
+        return this.aTd.Ku().getCurrentPosition();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KG() {
-        if (this.aRX == null || this.aRX.sF() == null) {
+    public void JU() {
+        if (this.aSs == null || this.aSs.rP() == null) {
         }
     }
 }

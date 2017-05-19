@@ -2,9 +2,8 @@ package com.baidu.tieba.tbadkCore.util;
 
 import android.content.Context;
 import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements a.b {
+class h implements a.b {
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */

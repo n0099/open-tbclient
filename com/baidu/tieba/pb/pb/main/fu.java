@@ -1,30 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
-import android.widget.RelativeLayout;
+import android.view.View;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fu implements Runnable {
-    final /* synthetic */ ft etS;
+public class fu implements Animation.AnimationListener {
+    final /* synthetic */ fm epr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fu(ft ftVar) {
-        this.etS = ftVar;
+    public fu(fm fmVar) {
+        this.epr = fmVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ey eyVar;
-        PbActivity pbActivity;
-        ey eyVar2;
-        PbActivity pbActivity2;
-        ey eyVar3;
-        RelativeLayout relativeLayout;
-        eyVar = this.etS.etN;
-        pbActivity = eyVar.ekw;
-        eyVar2 = this.etS.etN;
-        pbActivity2 = eyVar2.ekw;
-        eyVar3 = this.etS.etN;
-        relativeLayout = eyVar3.dVV;
-        pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.j jVar2;
+        View view;
+        boolean z2;
+        z = this.epr.eot;
+        if (!z) {
+            jVar = this.epr.Kg;
+            if (jVar != null) {
+                jVar2 = this.epr.Kg;
+                jVar2.lW();
+                return;
+            }
+            return;
+        }
+        view = this.epr.eoo;
+        if (view != null) {
+            z2 = this.epr.dlE;
+            if (z2) {
+                this.epr.go(false);
+            } else {
+                this.epr.gp(false);
+            }
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

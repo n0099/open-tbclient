@@ -1,29 +1,21 @@
 package com.baidu.tieba.frs.tab;
 
+import android.view.View;
 import com.baidu.tbadk.core.view.MorePopupWindow;
-import com.baidu.tbadk.core.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements j.a {
-    final /* synthetic */ j cbO;
+public class l implements View.OnClickListener {
+    final /* synthetic */ k bZH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(j jVar) {
-        this.cbO = jVar;
+    public l(k kVar) {
+        this.bZH = kVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void oL() {
-    }
-
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void oM() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         MorePopupWindow morePopupWindow;
-        MorePopupWindow morePopupWindow2;
-        morePopupWindow = this.cbO.RC;
-        if (morePopupWindow != null) {
-            morePopupWindow2 = this.cbO.RC;
-            com.baidu.adp.lib.g.j.a(morePopupWindow2);
-        }
+        morePopupWindow = this.bZH.QU;
+        com.baidu.adp.lib.g.j.a(morePopupWindow);
     }
 }

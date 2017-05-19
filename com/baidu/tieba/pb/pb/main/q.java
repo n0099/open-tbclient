@@ -1,36 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.pb.pb.main.a.f;
 /* loaded from: classes.dex */
-class q extends CustomMessageListener {
-    final /* synthetic */ PbActivity emk;
+class q implements f.a {
+    final /* synthetic */ PbActivity ehy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(PbActivity pbActivity, int i) {
-        super(i);
-        this.emk = pbActivity;
+    public q(PbActivity pbActivity) {
+        this.ehy = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
-                if (!updateAttentionMessage.getData().CB) {
-                    if (updateAttentionMessage.getData().errorString != null) {
-                        this.emk.showToast(updateAttentionMessage.getData().errorString);
-                        return;
-                    }
-                    return;
-                }
-                this.emk.b(updateAttentionMessage);
-                this.emk.a(updateAttentionMessage);
-                this.emk.c(updateAttentionMessage);
-            }
+    @Override // com.baidu.tieba.pb.pb.main.a.f.a
+    public void dz(boolean z) {
+        fm fmVar;
+        fm fmVar2;
+        this.ehy.hW(z);
+        fmVar = this.ehy.egt;
+        if (fmVar.aLY() != null && z) {
+            fmVar2 = this.ehy.egt;
+            fmVar2.iy(false);
         }
     }
 }
