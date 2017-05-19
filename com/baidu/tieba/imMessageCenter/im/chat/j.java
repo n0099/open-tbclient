@@ -1,27 +1,27 @@
 package com.baidu.tieba.imMessageCenter.im.chat;
 
 import com.baidu.tieba.im.chat.AbsMsglistView;
-/* loaded from: classes.dex */
-class j implements com.baidu.tbadk.util.f<Boolean> {
-    final /* synthetic */ PersonalChatActivity djA;
+/* loaded from: classes2.dex */
+class j implements com.baidu.tbadk.util.g<Boolean> {
+    final /* synthetic */ PersonalChatActivity ddC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PersonalChatActivity personalChatActivity) {
-        this.djA = personalChatActivity;
+        this.ddC = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.f
+    @Override // com.baidu.tbadk.util.g
     public void onReturnDataInUI(Boolean bool) {
         AbsMsglistView absMsglistView;
         AbsMsglistView absMsglistView2;
         if (bool != null) {
             if (bool.booleanValue()) {
-                absMsglistView2 = this.djA.cQK;
+                absMsglistView2 = this.ddC.cKM;
                 absMsglistView2.closeNotNotify();
                 return;
             }
-            absMsglistView = this.djA.cQK;
+            absMsglistView = this.ddC.cKM;
             absMsglistView.showNotNotfiy();
         }
     }

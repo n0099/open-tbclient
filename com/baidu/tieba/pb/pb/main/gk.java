@@ -1,29 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gk implements CustomMessageTask.CustomRunnable<Object> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
-            return null;
-        }
-        PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
-        byte[] N = cu.aMi().N(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
-        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
-        pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
-        pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
-        pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
-        pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
-        try {
-            pbPageReadLocalResponseMessage.decodeInBackGround(CmdConfigCustom.PB_PAGE_CACHE_CMD, N);
-            return pbPageReadLocalResponseMessage;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return pbPageReadLocalResponseMessage;
-        }
+public class gk implements a.b {
+    final /* synthetic */ fm epr;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public gk(fm fmVar) {
+        this.epr = fmVar;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

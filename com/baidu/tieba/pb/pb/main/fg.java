@@ -1,50 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fg implements Animation.AnimationListener {
-    final /* synthetic */ ey etN;
+public class fg implements View.OnClickListener {
+    final /* synthetic */ fe emz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fg(ey eyVar) {
-        this.etN = eyVar;
+    public fg(fe feVar) {
+        this.emz = feVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.j jVar2;
-        View view;
-        boolean z2;
-        z = this.etN.esK;
-        if (!z) {
-            jVar = this.etN.KO;
-            if (jVar != null) {
-                jVar2 = this.etN.KO;
-                jVar2.mp();
-                return;
-            }
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View.OnClickListener onClickListener;
+        View.OnClickListener onClickListener2;
+        int i;
+        if (com.baidu.adp.lib.util.i.hk()) {
+            this.emz.aLf();
+            i = this.emz.emv;
+            view.setTag(Boolean.valueOf(i == 0));
         }
-        view = this.etN.esF;
-        if (view != null) {
-            z2 = this.etN.drA;
-            if (z2) {
-                this.etN.gN(false);
-            } else {
-                this.etN.gO(false);
-            }
+        onClickListener = this.emz.emw;
+        if (onClickListener != null) {
+            onClickListener2 = this.emz.emw;
+            onClickListener2.onClick(view);
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -1,0 +1,26 @@
+package com.baidu.android.pushservice.f;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
+public class h extends m {
+    public int a;
+
+    public h() {
+    }
+
+    public h(m mVar) {
+        super(mVar);
+    }
+
+    public JSONObject a() throws JSONException {
+        JSONObject jSONObject = new JSONObject();
+        jSONObject.put("action_name", this.d);
+        jSONObject.put("timestamp", this.e);
+        jSONObject.put("network_status", this.f);
+        jSONObject.put("heart", this.a);
+        jSONObject.put("err_code", this.g);
+        jSONObject.put("msg_result", this.j);
+        return jSONObject;
+    }
+}

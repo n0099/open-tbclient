@@ -1,35 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.pb.a.a;
+import android.view.View;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ge implements a.InterfaceC0066a {
-    final /* synthetic */ ey etN;
+public class ge implements View.OnClickListener {
+    final /* synthetic */ fm epr;
+    private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ge(ey eyVar) {
-        this.etN = eyVar;
+    public ge(fm fmVar, String str) {
+        this.epr = fmVar;
+        this.val$url = str;
     }
 
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0066a
-    public void abu() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        com.baidu.tieba.pb.video.d dVar;
-        bdTypeListView = this.etN.mListView;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.etN.mListView;
-            bdTypeListView2.setSelection(0);
-            dVar = this.etN.erf;
-            dVar.aQs();
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0066a
-    public void abt() {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         PbActivity pbActivity;
-        pbActivity = this.etN.ekw;
-        pbActivity.aar();
+        PbActivity pbActivity2;
+        PbActivity pbActivity3;
+        if (!com.baidu.adp.lib.util.k.hB()) {
+            pbActivity = this.epr.efF;
+            pbActivity.showToast(w.l.neterror);
+            return;
+        }
+        com.baidu.tbadk.core.util.bb vB = com.baidu.tbadk.core.util.bb.vB();
+        pbActivity2 = this.epr.efF;
+        vB.c(pbActivity2.getPageContext(), new String[]{this.val$url});
+        pbActivity3 = this.epr.efF;
+        pbActivity3.finish();
     }
 }

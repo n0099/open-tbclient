@@ -17,7 +17,7 @@ public class h {
     private j Ac = null;
     private ArrayList<g.a> Ae = new ArrayList<>();
 
-    public static h hY() {
+    public static h hX() {
         if (zX == null) {
             synchronized (h.class) {
                 if (zX == null) {
@@ -41,12 +41,12 @@ public class h {
         this.Af = new i(this);
     }
 
-    public boolean hZ() {
+    public boolean hY() {
         if (isDebug()) {
             com.baidu.adp.lib.util.k.hz();
         }
         if (this.Ac != null) {
-            if (this.Ac.ic() || this.Ac.isOpen()) {
+            if (this.Ac.ib() || this.Ac.isOpen()) {
                 isDebug();
                 return true;
             }
@@ -77,25 +77,25 @@ public class h {
         }
     }
 
-    public boolean ia() {
+    public boolean hZ() {
         if (isDebug()) {
             com.baidu.adp.lib.util.k.hz();
         }
-        return (this.Ac == null || !this.Ac.isOpen() || this.Ac.ij()) ? false : true;
+        return (this.Ac == null || !this.Ac.isOpen() || this.Ac.ii()) ? false : true;
     }
 
-    public boolean ib() {
+    public boolean ia() {
         if (isDebug()) {
             com.baidu.adp.lib.util.k.hz();
         }
         return this.Ac != null && this.Ac.isOpen();
     }
 
-    public boolean ic() {
+    public boolean ib() {
         if (isDebug()) {
             com.baidu.adp.lib.util.k.hz();
         }
-        return this.Ac != null && this.Ac.ic();
+        return this.Ac != null && this.Ac.ib();
     }
 
     public synchronized boolean sendMessage(c cVar) {
@@ -128,9 +128,9 @@ public class h {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void id() {
+    public void ic() {
         if (this.Ac != null) {
-            this.Ac.id();
+            this.Ac.ic();
         }
     }
 
@@ -141,9 +141,9 @@ public class h {
         return -1L;
     }
 
-    public void ie() {
+    public void id() {
         if (this.Ac != null) {
-            this.Ac.ie();
+            this.Ac.id();
         }
     }
 
@@ -154,24 +154,23 @@ public class h {
         return -1L;
     }
 
-    public long hV() {
+    public long hU() {
         if (this.Ac != null) {
-            return this.Ac.ik();
+            return this.Ac.ij();
         }
         return -1L;
     }
 
-    public String hU() {
+    public String hT() {
         if (this.Ac != null) {
-            return this.Ac.il();
+            return this.Ac.ik();
         }
         return null;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public long m5if() {
+    public long ie() {
         if (this.Ac != null) {
-            return this.Ac.im();
+            return this.Ac.il();
         }
         return -1L;
     }

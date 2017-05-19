@@ -9,13 +9,13 @@ import tbclient.UserMuteCheck.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ PersonPolymericModel eIt;
+    final /* synthetic */ PersonPolymericModel eDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(PersonPolymericModel personPolymericModel, int i) {
         super(i);
-        this.eIt = personPolymericModel;
+        this.eDW = personPolymericModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,24 +28,24 @@ public class d extends CustomMessageListener {
         String str2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.eIt.unique_id;
+            bdUniqueId = this.eDW.unique_id;
             if (tag == bdUniqueId) {
                 com.baidu.tieba.usermute.a aVar2 = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
-                DataRes dataRes = aVar2.fKP;
+                DataRes dataRes = aVar2.fHr;
                 if (aVar2.error == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
                     if (dataRes.is_mute.equals("0")) {
-                        this.eIt.eGR = 0;
-                        this.eIt.eGS = dataRes.mute_confirm;
-                        str2 = this.eIt.eGS;
+                        this.eDW.eCg = 0;
+                        this.eDW.eCh = dataRes.mute_confirm;
+                        str2 = this.eDW.eCh;
                         if (au.isEmpty(str2)) {
-                            this.eIt.eGS = "确定禁言？";
+                            this.eDW.eCh = "确定禁言？";
                         }
                     } else if (dataRes.is_mute.equals("1")) {
-                        this.eIt.eGR = 1;
+                        this.eDW.eCg = 1;
                     }
-                    aVar = this.eIt.eIr;
-                    i = this.eIt.eGR;
-                    str = this.eIt.eGS;
+                    aVar = this.eDW.eDU;
+                    i = this.eDW.eCg;
+                    str = this.eDW.eCh;
                     aVar.a(0, i, str, aVar2.error, aVar2.errorString);
                 }
             }

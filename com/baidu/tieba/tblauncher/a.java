@@ -5,7 +5,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.tblauncher.ClientStartStatic;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
@@ -28,7 +27,7 @@ class a extends CustomMessageListener {
             if (SystemClock.elapsedRealtime() - this.mTimeStamp > 30000) {
                 new ClientStartStatic.a(null).execute(new Void[0]);
             }
-            TiebaStatic.log(new as("c11894").s("obj_param1", 1));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11894").s("obj_param1", 1));
         }
     }
 }

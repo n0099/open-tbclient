@@ -6,43 +6,43 @@ import com.baidu.tieba.pb.pb.sub.b;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements a.InterfaceC0055a {
-    final /* synthetic */ b euT;
+public class e implements a.InterfaceC0059a {
+    final /* synthetic */ b eqB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.euT = bVar;
+        this.eqB = bVar;
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0055a
-    public void V(int i, int i2) {
+    @Override // com.baidu.tieba.e.a.InterfaceC0059a
+    public void W(int i, int i2) {
         b.a aVar;
         b.a aVar2;
         int i3;
         a aVar3;
         BaseActivity baseActivity;
         a aVar4;
-        aVar = this.euT.euQ;
+        aVar = this.eqB.eqy;
         if (aVar != null) {
-            aVar2 = this.euT.euQ;
-            if (aVar2.aPn()) {
+            aVar2 = this.eqB.eqy;
+            if (aVar2.aMC()) {
                 int abs = Math.abs(i2);
                 i3 = b.TOUCH_SLOP;
                 if (abs > i3) {
-                    aVar3 = this.euT.euO;
+                    aVar3 = this.eqB.eqw;
                     if (aVar3 != null) {
-                        aVar4 = this.euT.euO;
+                        aVar4 = this.eqB.eqw;
                         aVar4.setBackgroundResource(w.e.transparent);
                     }
-                    baseActivity = this.euT.bdG;
+                    baseActivity = this.eqB.bdY;
                     baseActivity.finish();
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0055a
-    public void W(int i, int i2) {
-        this.euT.aPi();
+    @Override // com.baidu.tieba.e.a.InterfaceC0059a
+    public void X(int i, int i2) {
+        this.eqB.aMx();
     }
 }

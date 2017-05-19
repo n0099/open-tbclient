@@ -5,14 +5,14 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes.dex */
 public class a {
-    private static final String etZ = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon";
-    private final PbActivity ekw;
-    public final View.OnClickListener eua = new b(this);
-    public final View.OnClickListener bYW = new c(this);
-    public final View.OnClickListener eub = new d(this);
-    public final TbRichTextView.d euc = new e(this);
+    private static final String epA = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon";
+    private final PbActivity efF;
+    public final View.OnClickListener epB = new b(this);
+    public final View.OnClickListener bWW = new c(this);
+    public final View.OnClickListener epC = new d(this);
+    public final TbRichTextView.d epD = new e(this);
 
     public a(PbActivity pbActivity) {
-        this.ekw = pbActivity;
+        this.efF = pbActivity;
     }
 }

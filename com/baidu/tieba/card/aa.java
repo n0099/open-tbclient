@@ -1,25 +1,29 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
+import android.os.Handler;
+import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements View.OnClickListener {
-    final /* synthetic */ x bvq;
+public class aa implements v.d {
+    final /* synthetic */ u bvn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(x xVar) {
-        this.bvq = xVar;
+    public aa(u uVar) {
+        this.bvn = uVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.card.data.p pVar;
-        com.baidu.tieba.card.data.p pVar2;
-        pVar = this.bvq.bvi;
-        if (pVar != null && this.bvq.getOnSubCardOnClickListenner() != null) {
-            cf<com.baidu.tieba.card.data.p> onSubCardOnClickListenner = this.bvq.getOnSubCardOnClickListenner();
-            pVar2 = this.bvq.bvi;
-            onSubCardOnClickListenner.a(view, pVar2);
+    @Override // com.baidu.tieba.play.v.d
+    public void onPrepared(com.baidu.tieba.play.v vVar) {
+        Handler handler;
+        if (vVar != null) {
+            try {
+                vVar.setVolume(0.0f, 0.0f);
+                vVar.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            handler = this.bvn.aTT;
+            handler.sendEmptyMessageDelayed(202, 300L);
         }
     }
 }

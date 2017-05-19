@@ -42,7 +42,7 @@ public class HTypeListView extends HListView {
         setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
-    public void setData(List<v> list) {
+    public void setData(List<? extends v> list) {
         this.mTypeAdapter.setData(list);
     }
 

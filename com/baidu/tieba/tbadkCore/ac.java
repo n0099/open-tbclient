@@ -1,30 +1,43 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Environment;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.w;
+import java.io.File;
 /* loaded from: classes.dex */
-public class ac extends BdAsyncTask<Void, Void, Void> {
-    private final /* synthetic */ WriteData fxg;
-    private final /* synthetic */ String fxh;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(WriteData writeData, String str) {
-        this.fxg = writeData;
-        this.fxh = str;
+public class ac {
+    public static final void ap(Context context, String str) {
+        if (TextUtils.isEmpty(str)) {
+            com.baidu.adp.lib.util.k.showToast(context, w.l.download_error);
+            return;
+        }
+        File cV = com.baidu.tbadk.core.util.l.cV(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (cV != null) {
+            Intent intent = new Intent();
+            intent.setAction("android.intent.action.VIEW");
+            intent.setDataAndType(UtilHelper.getUriFromFile(cV, intent, context), "application/vnd.android.package-archive");
+            intent.addFlags(268435456);
+            context.startActivity(intent);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.adp.lib.cache.o<String> cB = com.baidu.tbadk.core.c.a.tM().cB("tb.pb_editor");
-        if (this.fxg != null && this.fxg.hasContentToSave()) {
-            cB.a(z.qa(this.fxh), this.fxg.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
-            return null;
+    public static boolean isInstalledPackage(Context context, String str) {
+        return context.getPackageManager().getApplicationInfo(str, 8192) != null;
+    }
+
+    public static boolean w(Activity activity) {
+        if (Build.VERSION.SDK_INT < 23) {
+            return true;
         }
-        cB.remove(z.qa(this.fxh));
-        return null;
+        boolean aH = com.baidu.tbadk.core.util.ae.aH(activity);
+        if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
+            return false;
+        }
+        return aH;
     }
 }

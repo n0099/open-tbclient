@@ -1,11 +1,9 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-public interface cd {
-    void Nx();
-
-    void a(int i, int i2, cl clVar);
-
-    void a(ce ceVar);
-
-    void init();
+public class cd {
+    public Object bRh;
+    public String forumId;
+    public String forumName;
+    public int pn;
+    public String stType;
 }

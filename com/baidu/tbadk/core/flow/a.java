@@ -11,65 +11,65 @@ import com.baidu.tbadk.core.data.t;
 import com.baidu.tbadk.core.flow.a.a;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.recapp.y;
+import com.baidu.tieba.recapp.aa;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
-    private b abC;
-    private View.OnClickListener abz;
+    private View.OnClickListener aaT;
+    private b aaW;
     private Context context;
-    private ArrayList<TbImageView> abx = new ArrayList<>();
-    private ArrayList<T> aby = new ArrayList<>();
-    private ArrayList<TbImageView> abA = new ArrayList<>();
-    private ArrayList<RelativeLayout> abB = new ArrayList<>();
+    private ArrayList<TbImageView> aaR = new ArrayList<>();
+    private ArrayList<T> aaS = new ArrayList<>();
+    private ArrayList<TbImageView> aaU = new ArrayList<>();
+    private ArrayList<RelativeLayout> aaV = new ArrayList<>();
 
     public a(Context context) {
         this.context = context;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.abz = onClickListener;
+        this.aaT = onClickListener;
     }
 
-    public T cr(int i) {
-        if (this.aby == null || this.aby.isEmpty() || i < 0 || i >= this.aby.size()) {
+    public T cp(int i) {
+        if (this.aaS == null || this.aaS.isEmpty() || i < 0 || i >= this.aaS.size()) {
             return null;
         }
-        return this.aby.get(i);
+        return this.aaS.get(i);
     }
 
     public void a(List<T> list, b bVar) {
         TbImageView tbImageView;
         TbImageView tbImageView2;
         if (list != null && !list.isEmpty()) {
-            this.abC = bVar;
-            this.aby.clear();
-            this.aby.addAll(list);
-            j(this.aby);
-            int size = this.abx.size();
-            int size2 = this.aby.size();
+            this.aaW = bVar;
+            this.aaS.clear();
+            this.aaS.addAll(list);
+            j(this.aaS);
+            int size = this.aaR.size();
+            int size2 = this.aaS.size();
             for (int i = 0; i < size2; i++) {
                 if (i >= size) {
                     TbImageView as = bVar.as(this.context);
-                    this.abx.add(as);
+                    this.aaR.add(as);
                     tbImageView = bVar.as(this.context);
-                    this.abA.add(tbImageView);
-                    this.abB.add(new RelativeLayout(this.context));
+                    this.aaU.add(tbImageView);
+                    this.aaV.add(new RelativeLayout(this.context));
                     tbImageView2 = as;
                 } else {
-                    tbImageView = this.abA.get(i);
-                    this.abB.get(i);
-                    tbImageView2 = this.abx.get(i);
+                    tbImageView = this.aaU.get(i);
+                    this.aaV.get(i);
+                    tbImageView2 = this.aaR.get(i);
                 }
-                if (this.aby.get(i) != null && tbImageView2 != null) {
-                    tbImageView2.c(this.aby.get(i).getPicUrl(), 10, false);
-                    tbImageView2.setOnClickListener(this.abz);
-                    if ((this.aby.get(i) instanceof t) && !((t) this.aby.get(i)).qv()) {
-                        t tVar = (t) this.aby.get(i);
-                        y.b(tVar.qs(), tbImageView, tVar.qt(), k.g(this.context, w.f.ds24));
+                if (this.aaS.get(i) != null && tbImageView2 != null) {
+                    tbImageView2.c(this.aaS.get(i).getPicUrl(), 10, false);
+                    tbImageView2.setOnClickListener(this.aaT);
+                    if ((this.aaS.get(i) instanceof t) && !((t) this.aaS.get(i)).pS()) {
+                        t tVar = (t) this.aaS.get(i);
+                        aa.b(tVar.pP(), tbImageView, tVar.pQ(), k.g(this.context, w.f.ds24));
                     }
                 }
             }
@@ -87,31 +87,31 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.abx != null && this.abx.size() > 0) {
-            return this.abx.size();
+        if (this.aaR != null && this.aaR.size() > 0) {
+            return this.aaR.size();
         }
         return 0;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.abx == null) {
+        if (this.aaR == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        ImageView imageView = (ImageView) x.c(this.abx, i);
+        ImageView imageView = (ImageView) x.c(this.aaR, i);
         if (imageView == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        if ((x.c(this.aby, i) instanceof t) && !((t) x.c(this.aby, i)).qv()) {
-            RelativeLayout relativeLayout = (RelativeLayout) x.c(this.abB, i);
-            TbImageView tbImageView = (TbImageView) x.c(this.abA, i);
+        if ((x.c(this.aaS, i) instanceof t) && !((t) x.c(this.aaS, i)).pS()) {
+            RelativeLayout relativeLayout = (RelativeLayout) x.c(this.aaV, i);
+            TbImageView tbImageView = (TbImageView) x.c(this.aaU, i);
             relativeLayout.removeView(tbImageView);
             if (imageView.getParent() != null) {
                 ((ViewGroup) imageView.getParent()).removeView(imageView);
             }
             relativeLayout.addView(imageView, new RelativeLayout.LayoutParams(-1, -1));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            if (this.abC.ud() == null) {
+            if (this.aaW.tq() == null) {
                 layoutParams.addRule(12);
                 layoutParams.addRule(9);
             } else {
@@ -141,8 +141,8 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
     }
 
     public void onChangeSkinType() {
-        if (this.abx != null && this.abx.size() > 0) {
-            Iterator<TbImageView> it = this.abx.iterator();
+        if (this.aaR != null && this.aaR.size() > 0) {
+            Iterator<TbImageView> it = this.aaR.iterator();
             while (it.hasNext()) {
                 it.next().invalidate();
             }

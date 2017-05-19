@@ -3,18 +3,18 @@ package com.baidu.tieba.write.write;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 class f implements NoNetworkView.a {
-    final /* synthetic */ AtListActivity fSZ;
+    final /* synthetic */ AtListActivity fRd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AtListActivity atListActivity) {
-        this.fSZ = atListActivity;
+        this.fRd = atListActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aM(boolean z) {
+    public void aL(boolean z) {
         if (!z) {
             return;
         }
-        this.fSZ.rl(null);
+        this.fRd.rh(null);
     }
 }

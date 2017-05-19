@@ -19,7 +19,7 @@ public class VideoListMediaControllerView extends au {
     }
 
     @Override // com.baidu.tieba.play.au
-    protected View aX(Context context) {
+    protected View ba(Context context) {
         return View.inflate(context, w.j.video_list_video_controller, null);
     }
 }

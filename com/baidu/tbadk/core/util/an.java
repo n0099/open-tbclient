@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class an extends Thread {
-    private String agg;
-    private boolean agh;
+    private String afx;
+    private boolean afy;
     private String mObjTp;
     private String mParam;
     private String mType;
@@ -12,19 +12,19 @@ public class an extends Thread {
     public an(String str, boolean z) {
         this.mType = null;
         this.mParam = null;
-        this.agg = null;
+        this.afx = null;
         this.mObjTp = null;
-        this.agh = false;
+        this.afy = false;
         this.mType = str;
-        this.agh = z;
+        this.afy = z;
     }
 
     public an(String str, String str2) {
         this.mType = null;
         this.mParam = null;
-        this.agg = null;
+        this.afx = null;
         this.mObjTp = null;
-        this.agh = false;
+        this.afy = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -33,7 +33,7 @@ public class an extends Thread {
     public void run() {
         String str;
         super.run();
-        if (this.agh) {
+        if (this.afy) {
             str = TbConfig.IN_PV_ADDRESS;
         } else {
             str = TbConfig.LOAD_REG_PV_ADDRESS;
@@ -43,12 +43,12 @@ public class an extends Thread {
         if (this.mParam != null) {
             zVar.n("st_param", this.mParam);
         }
-        if (this.agg != null) {
-            zVar.n("obj", this.agg);
+        if (this.afx != null) {
+            zVar.n("obj", this.afx);
         }
         if (this.mObjTp != null) {
             zVar.n("obj_tp", this.mObjTp);
         }
-        zVar.uY();
+        zVar.ul();
     }
 }

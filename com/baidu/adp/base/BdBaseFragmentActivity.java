@@ -193,8 +193,8 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
 
     private void refreshImage(View view) {
         if (view != null) {
-            if (view instanceof com.baidu.adp.newwidget.a.i) {
-                ((com.baidu.adp.newwidget.a.i) view).refresh();
+            if (view instanceof com.baidu.adp.b.a.i) {
+                ((com.baidu.adp.b.a.i) view).refresh();
             }
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;

@@ -23,7 +23,7 @@ public class DownloadData implements Serializable, Cloneable {
     private static final long serialVersionUID = 1402749061179345930L;
     private String action;
     private String app_icon;
-    private transient d ayv;
+    private transient d ays;
     private String check;
     private String description;
     private DownloadStaticsData downloadStaticsData;
@@ -87,7 +87,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.ayv = null;
+        this.ays = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -103,7 +103,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.ayv = null;
+        this.ays = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -120,7 +120,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.ayv = null;
+        this.ays = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -138,7 +138,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.ayv = null;
+        this.ays = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -147,7 +147,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.ayv = dVar;
+        this.ays = dVar;
         this.status = 5;
     }
 
@@ -248,11 +248,11 @@ public class DownloadData implements Serializable, Cloneable {
     }
 
     public d getCallback() {
-        return this.ayv;
+        return this.ays;
     }
 
     public void setCallback(d dVar) {
-        this.ayv = dVar;
+        this.ays = dVar;
     }
 
     public String getStatusMsg() {

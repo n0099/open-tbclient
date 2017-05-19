@@ -5,7 +5,7 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 public interface e {
     void a(ICardInfo iCardInfo);
 
-    e ah(String str, int i);
+    e ai(String str, int i);
 
     e bp(String str, String str2);
 

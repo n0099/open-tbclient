@@ -1,9 +1,9 @@
 package com.baidu.tieba.homepage.personalize.data;
 
-import com.baidu.tieba.card.data.s;
+import com.baidu.tieba.card.data.q;
 import tbclient.Personalized.Resource;
 /* loaded from: classes.dex */
-public class c extends s {
+public class c extends q {
     public void a(Resource resource) {
         if (resource != null) {
             this.byj = resource.res_id.longValue();

@@ -6,18 +6,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.imMessageCenter.mention.ad;
 import com.baidu.tieba.w;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private TextView avG;
-    private CustomMessageListener djQ;
-    private com.baidu.adp.framework.listener.e djR = new d(this, 104106);
+    private TextView avK;
+    private CustomMessageListener ddS;
+    private com.baidu.adp.framework.listener.e ddT = new d(this, 104106);
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -25,54 +24,52 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Fd() {
+    public com.baidu.tbadk.mainTab.c Eh() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         ad adVar = new ad();
-        adVar.gG(true);
-        cVar.aEh = adVar;
+        adVar.gh(true);
+        cVar.aEi = adVar;
         cVar.type = 3;
-        cVar.aEi = w.l.my_message;
-        cVar.aEj = w.g.s_tabbar_icon_three_bg;
+        cVar.aEj = w.l.my_message;
+        cVar.aEk = w.g.s_tabbar_icon_three_bg;
+        cVar.aEo = com.baidu.tbadk.mainTab.c.aEl;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator aP(Context context) {
-        this.aDU = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
-        this.avG = (TextView) LayoutInflater.from(context).inflate(w.j.message_tip_item, (ViewGroup) null);
+    public FragmentTabIndicator aS(Context context) {
+        this.aDV = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
+        this.avK = (TextView) LayoutInflater.from(context).inflate(w.j.message_tip_item, (ViewGroup) null);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.aEg = this.aDU;
-        aVar.uS = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
-        aVar.view = this.avG;
-        aVar.aEe = w.g.icon_dot_orange;
-        aVar.aEf = w.e.common_color_10225;
-        this.avG.setVisibility(8);
-        this.aDU.a(AddFriendActivityConfig.MSG, aVar);
-        return this.aDU;
+        aVar.aEh = this.aDV;
+        aVar.uT = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
+        aVar.view = this.avK;
+        aVar.aEf = w.g.icon_dot_orange;
+        aVar.aEg = w.e.common_color_10225;
+        this.avK.setVisibility(8);
+        return this.aDV;
     }
 
     static {
-        c cVar = new c(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
-        cVar.setPriority(4);
-        MessageManager.getInstance().registerListener(cVar);
+        new c(CmdConfigCustom.MAINTAB_ADD_FRAGMENT).setPriority(6);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Fc() {
-        this.djQ = new e(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
-        MessageManager.getInstance().registerListener(this.djQ);
-        MessageManager.getInstance().registerListener(this.djR);
+    public void Eg() {
+        this.ddS = new e(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
+        MessageManager.getInstance().registerListener(this.ddS);
+        MessageManager.getInstance().registerListener(this.ddT);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void cB() {
         super.cB();
-        MessageManager.getInstance().unRegisterListener(this.djQ);
-        MessageManager.getInstance().unRegisterListener(this.djR);
+        MessageManager.getInstance().unRegisterListener(this.ddS);
+        MessageManager.getInstance().unRegisterListener(this.ddT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void o(TextView textView, int i) {
+    public static void n(TextView textView, int i) {
         if (textView != null) {
             textView.setVisibility(0);
             aq.c(textView, w.e.common_color_10225, 1);

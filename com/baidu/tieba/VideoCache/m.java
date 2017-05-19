@@ -4,13 +4,13 @@ import android.os.Handler;
 import android.os.Message;
 import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class m implements Handler.Callback {
-    final /* synthetic */ l aVb;
+    final /* synthetic */ l aVw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.aVb = lVar;
+        this.aVw = lVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -32,26 +32,26 @@ public class m implements Handler.Callback {
             }
         } else if (message.what == 2) {
             if (message.obj instanceof String) {
-                hVar = this.aVb.aUZ;
+                hVar = this.aVw.aVu;
                 hVar.setVideoUrl((String) message.obj);
-                hVar2 = this.aVb.aUZ;
+                hVar2 = this.aVw.aVu;
                 hVar2.run();
             }
         } else if (message.what == 3) {
-            bVar4 = this.aVb.aVa;
+            bVar4 = this.aVw.aVv;
             if (bVar4 != null) {
-                bVar5 = this.aVb.aVa;
-                bVar5.Lx();
+                bVar5 = this.aVw.aVv;
+                bVar5.KL();
             }
         } else if (message.what == 4) {
             if (message.obj instanceof String) {
-                bVar3 = this.aVb.aVa;
-                bVar3.gG((String) message.obj);
+                bVar3 = this.aVw.aVv;
+                bVar3.gE((String) message.obj);
             }
         } else if (message.what == 5) {
-            bVar = this.aVb.aVa;
+            bVar = this.aVw.aVv;
             if (bVar != null) {
-                bVar2 = this.aVb.aVa;
+                bVar2 = this.aVw.aVv;
                 bVar2.clearCache();
             }
         }

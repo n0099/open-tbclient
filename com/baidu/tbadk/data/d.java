@@ -3,17 +3,17 @@ package com.baidu.tbadk.data;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class d extends TbConfig {
-    public static final Long axl = 3600000L;
-    public static final Long axm = 36000000L;
-    public static final Long axn = 36000000L;
-    public static final Long axo = 86400000L;
+    public static final Long axq = 3600000L;
+    public static final Long axr = 36000000L;
+    public static final Long axs = 36000000L;
+    public static final Long axt = 86400000L;
     public static final String RECOMMEND_APP_ADDRESS = String.valueOf(SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/136_1";
-    public static final String axp = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/recommend/";
-    public static final String axq = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/classic";
-    public static int axr = 80;
+    public static final String axu = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/recommend/";
+    public static final String axv = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/classic";
+    public static int axw = 80;
     private static int PB_LIST_ITEM_MAX_NUM = 300;
     private static int IMG_CHUNK_UPLOAD_ENABLE = 1;
-    public static final Long axs = 3600000L;
+    public static final Long axx = 3600000L;
 
     public static int getPbListItemMaxNum() {
         return PB_LIST_ITEM_MAX_NUM;

@@ -6,51 +6,51 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class d {
-    public static String uk = "_crashtime";
-    public static String ul = "_crashtype";
-    private int um;
+    public static String ul = "_crashtime";
+    public static String um = "_crashtype";
     private int uo;
-    private c up;
+    private int up;
+    private c uq;
 
     public d(c cVar) {
-        this.um = 0;
         this.uo = 0;
-        this.up = null;
+        this.up = 0;
+        this.uq = null;
         if (cVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.up = cVar;
-        if (this.up.eT() > 0 && this.up.eW() != null) {
-            this.um = eY();
-            if (this.um == -1) {
+        this.uq = cVar;
+        if (this.uq.eT() > 0 && this.uq.eW() != null) {
+            this.uo = eY();
+            if (this.uo == -1) {
                 reset();
             }
         }
-        this.uo = eX();
-        this.up.d(this.uo, true);
+        this.up = eX();
+        this.uq.d(this.up, true);
     }
 
     public String getName() {
-        return this.up.getName();
+        return this.uq.getName();
     }
 
     public int eR() {
-        return this.up.eR();
+        return this.uq.eR();
     }
 
     public int getType() {
-        return this.uo;
+        return this.up;
     }
 
     public boolean Y(int i) {
-        if (this.up.eT() >= 0 && this.um >= this.up.eT() + 2) {
-            i = this.up.eS();
+        if (this.uq.eT() >= 0 && this.uo >= this.uq.eT() + 2) {
+            i = this.uq.eS();
         }
-        if (i == this.uo) {
+        if (i == this.up) {
             return false;
         }
-        this.uo = i;
-        this.up.d(this.uo, false);
+        this.up = i;
+        this.uq.d(this.up, false);
         Z(i);
         return true;
     }
@@ -58,33 +58,33 @@ public class d {
     public boolean X(String str) {
         String[] eU;
         String[] eW;
-        if (str == null || this.up.eT() <= 0) {
+        if (str == null || this.uq.eT() <= 0) {
             return false;
         }
-        if (this.up.eW() != null) {
-            for (String str2 : this.up.eW()) {
+        if (this.uq.eW() != null) {
+            for (String str2 : this.uq.eW()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.um++;
-                    aa(this.um);
-                    if (this.um >= this.up.eT()) {
-                        Z(this.up.eS());
-                        this.uo = this.up.eS();
-                        this.up.d(this.up.eS(), false);
+                    this.uo++;
+                    aa(this.uo);
+                    if (this.uo >= this.uq.eT()) {
+                        Z(this.uq.eS());
+                        this.up = this.uq.eS();
+                        this.uq.d(this.uq.eS(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.up.eU() != null) {
-            for (String str3 : this.up.eU()) {
+        if (this.uq.eU() != null) {
+            for (String str3 : this.uq.eU()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.um++;
-                    aa(this.um);
-                    if (this.um >= this.up.eT()) {
-                        Z(this.up.eS());
-                        this.uo = this.up.eS();
-                        this.up.d(this.up.eS(), false);
+                    this.uo++;
+                    aa(this.uo);
+                    if (this.uo >= this.uq.eT()) {
+                        Z(this.uq.eS());
+                        this.up = this.uq.eS();
+                        this.uq.d(this.uq.eS(), false);
                         return true;
                     }
                     return true;
@@ -96,29 +96,29 @@ public class d {
 
     private void Z(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.up.getName()) + ul, i);
+        edit.putInt(String.valueOf(this.uq.getName()) + um, i);
         edit.commit();
     }
 
     private int eX() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.up.getName()) + ul, this.up.eR());
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.uq.getName()) + um, this.uq.eR());
     }
 
     private int eY() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.up.getName()) + uk, -1);
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.uq.getName()) + ul, -1);
     }
 
     private void aa(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.up.getName()) + uk, i);
+        edit.putInt(String.valueOf(this.uq.getName()) + ul, i);
         edit.commit();
     }
 
     public void reset() {
-        this.um = 0;
+        this.uo = 0;
     }
 
     public void ab(int i) {
-        this.um = i;
+        this.uo = i;
     }
 }

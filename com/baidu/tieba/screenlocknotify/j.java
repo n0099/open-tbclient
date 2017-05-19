@@ -3,13 +3,13 @@ package com.baidu.tieba.screenlocknotify;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class j extends Handler {
-    final /* synthetic */ i fiw;
+    final /* synthetic */ i fer;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.fiw = iVar;
+        this.fer = iVar;
     }
 
     @Override // android.os.Handler

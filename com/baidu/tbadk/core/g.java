@@ -1,47 +1,18 @@
 package com.baidu.tbadk.core;
 
-import android.view.animation.Animation;
-import java.lang.ref.WeakReference;
-import java.util.List;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements Animation.AnimationListener {
-    final /* synthetic */ BaseFragmentActivity SG;
-    private final /* synthetic */ Animation.AnimationListener val$listener;
-    private final /* synthetic */ WeakReference val$reference;
+public class g implements DialogInterface.OnCancelListener {
+    final /* synthetic */ BaseFragmentActivity RZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(BaseFragmentActivity baseFragmentActivity, Animation.AnimationListener animationListener, WeakReference weakReference) {
-        this.SG = baseFragmentActivity;
-        this.val$listener = animationListener;
-        this.val$reference = weakReference;
+    public g(BaseFragmentActivity baseFragmentActivity) {
+        this.RZ = baseFragmentActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        if (this.val$listener != null) {
-            this.val$listener.onAnimationStart(animation);
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-        if (this.val$listener != null) {
-            this.val$listener.onAnimationRepeat(animation);
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        List list;
-        List list2;
-        if (this.val$listener != null) {
-            this.val$listener.onAnimationEnd(animation);
-        }
-        list = this.SG.animationList;
-        synchronized (list) {
-            list2 = this.SG.animationList;
-            list2.remove(this.val$reference);
-        }
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.RZ.mWaitingDialog = null;
     }
 }

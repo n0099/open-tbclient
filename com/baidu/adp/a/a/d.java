@@ -6,19 +6,19 @@ import java.math.BigDecimal;
 /* loaded from: classes.dex */
 public class d {
     private static int mFps = 0;
-    private static String nJ = null;
     private static String nK = null;
-    private static int nL = 0;
+    private static String nL = null;
     private static int nM = 0;
-    private static String nN = null;
-    private static e.a nO = null;
+    private static int nN = 0;
+    private static String nO = null;
     private static e.a nP = null;
+    private static e.a nQ = null;
     public static Handler mHandler = null;
     @Deprecated
-    public static int nQ = 0;
-    public static boolean nR = false;
+    public static int nR = 0;
     public static boolean nS = false;
     public static boolean nT = false;
+    public static boolean nU = false;
 
     public static void F(int i) {
         mFps = i;
@@ -32,7 +32,7 @@ public class d {
     }
 
     public static void a(e.a aVar) {
-        nO = aVar;
+        nP = aVar;
         try {
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(6);
@@ -43,7 +43,7 @@ public class d {
     }
 
     public static e.a cm() {
-        return nP;
+        return nQ;
     }
 
     public static double a(double d) {

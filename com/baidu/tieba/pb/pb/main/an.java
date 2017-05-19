@@ -1,27 +1,59 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class an implements NoNetworkView.a {
-    final /* synthetic */ PbActivity emk;
+class an implements View.OnLongClickListener {
+    final /* synthetic */ PbActivity ehy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PbActivity pbActivity) {
-        this.emk = pbActivity;
+        this.ehy = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aM(boolean z) {
-        boolean z2;
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        SparseArray sparseArray;
+        com.baidu.tbadk.baseEditMark.a aVar;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        boolean z;
+        fm fmVar;
+        c.b bVar;
         PbModel pbModel;
-        z2 = this.emk.ekQ;
-        if (!z2 && z) {
-            pbModel = this.emk.ekv;
-            if (!pbModel.aMJ()) {
-                this.emk.axq();
+        try {
+            sparseArray = (SparseArray) view.getTag();
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            sparseArray = null;
+        }
+        if (sparseArray != null) {
+            this.ehy.eho = (PostData) sparseArray.get(w.h.tag_clip_board);
+            if (this.ehy.eho != null) {
+                aVar = this.ehy.dCb;
+                if (aVar != null) {
+                    aVar2 = this.ehy.dCb;
+                    if (aVar2.nL() && this.ehy.eho.getId() != null) {
+                        String id = this.ehy.eho.getId();
+                        pbModel = this.ehy.efE;
+                        if (id.equals(pbModel.rH())) {
+                            z = true;
+                            boolean booleanValue = ((Boolean) sparseArray.get(w.h.tag_is_subpb)).booleanValue();
+                            fmVar = this.ehy.egt;
+                            bVar = this.ehy.ehp;
+                            fmVar.a(bVar, z, booleanValue);
+                        }
+                    }
+                    z = false;
+                    boolean booleanValue2 = ((Boolean) sparseArray.get(w.h.tag_is_subpb)).booleanValue();
+                    fmVar = this.ehy.egt;
+                    bVar = this.ehy.ehp;
+                    fmVar.a(bVar, z, booleanValue2);
+                }
             }
         }
-        this.emk.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(this.emk.getApplicationContext(), w.f.ds200));
+        return true;
     }
 }

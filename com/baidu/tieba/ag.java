@@ -14,11 +14,11 @@ public class ag implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        z = this.this$0.aTE;
+        z = this.this$0.aTZ;
         if (z) {
-            this.this$0.Lq();
+            this.this$0.KE();
         }
-        this.this$0.aUk.dismiss();
+        this.this$0.aUF.dismiss();
         this.this$0.finish();
     }
 }

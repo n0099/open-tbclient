@@ -1,21 +1,22 @@
 package com.baidu.tieba.enterForum.c;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.view.ab;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements ab.c {
-    final /* synthetic */ e bIg;
+public class f implements View.OnClickListener {
+    final /* synthetic */ c bHP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.bIg = eVar;
+    public f(c cVar) {
+        this.bHP = cVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.ab.c
-    public void aO(boolean z) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_TO_REFRESH, Boolean.valueOf(z)));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        q qVar;
+        this.bHP.hideNoDataView();
+        qVar = this.bHP.bHF;
+        qVar.setVisibility(8);
+        this.bHP.startPullRefresh();
     }
 }

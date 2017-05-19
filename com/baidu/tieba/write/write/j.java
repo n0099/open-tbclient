@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ AtListActivity fSZ;
+    final /* synthetic */ AtListActivity fRd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(AtListActivity atListActivity) {
-        this.fSZ = atListActivity;
+        this.fRd = atListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,11 +19,11 @@ public class j implements View.OnClickListener {
         AtSelectFriendList atSelectFriendList;
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
-        atSelectFriendList = this.fSZ.fSO;
+        atSelectFriendList = this.fRd.fQS;
         bundle.putStringArrayList(IntentConfig.NAME_SHOW, atSelectFriendList.getDataList());
         intent.putExtras(bundle);
-        com.baidu.adp.lib.util.k.b(this.fSZ.getPageContext().getPageActivity(), this.fSZ.dhM);
-        this.fSZ.setResult(-1, intent);
-        this.fSZ.finish();
+        com.baidu.adp.lib.util.k.b(this.fRd.getPageContext().getPageActivity(), this.fRd.dbN);
+        this.fRd.setResult(-1, intent);
+        this.fRd.finish();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.adp.widget.ListView;
 import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements com.baidu.adp.widget.ScrollView.g {
+public class q implements com.baidu.adp.widget.b.a {
     final /* synthetic */ BdListView.i Ip;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +11,8 @@ public class q implements com.baidu.adp.widget.ScrollView.g {
         this.Ip = iVar;
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.g
-    public void ls() {
+    @Override // com.baidu.adp.widget.b.a
+    public void lr() {
         this.Ip.done();
     }
 }

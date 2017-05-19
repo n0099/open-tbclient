@@ -8,19 +8,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c implements h {
-    private Bundle sg;
+    private Bundle sh;
 
     public c(Bundle bundle) {
-        this.sg = bundle;
+        this.sh = bundle;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
         Type[] ej = cVar.ej();
-        Set<String> keySet = this.sg.keySet();
+        Set<String> keySet = this.sh.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
-            Object obj = this.sg.get(str);
+            Object obj = this.sh.get(str);
             if (ej != null && ej.length >= 2) {
                 try {
                     jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.l(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(ej[1])));
@@ -40,7 +40,7 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object b(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.sg;
+        return this.sh;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -50,7 +50,7 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.sg;
+        return this.sh;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -70,6 +70,6 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.sg;
+        return this.sh;
     }
 }

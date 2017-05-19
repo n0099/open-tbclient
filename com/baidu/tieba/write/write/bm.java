@@ -1,36 +1,27 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.view.NavigationBar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.Editable;
+import android.text.TextWatcher;
 /* loaded from: classes.dex */
-public class bm implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity this$0;
+class bm implements TextWatcher {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(WriteImageActivity writeImageActivity) {
-        this.this$0 = writeImageActivity;
+    public bm(WriteActivity writeActivity) {
+        this.fSV = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        NavigationBar navigationBar;
-        NavigationBar navigationBar2;
-        LinearLayout linearLayout;
-        NavigationBar navigationBar3;
-        LinearLayout linearLayout2;
-        navigationBar = this.this$0.mNavigationBar;
-        if (navigationBar.getVisibility() == 0) {
-            navigationBar3 = this.this$0.mNavigationBar;
-            navigationBar3.setVisibility(8);
-            linearLayout2 = this.this$0.eEd;
-            linearLayout2.setVisibility(8);
-            return;
-        }
-        navigationBar2 = this.this$0.mNavigationBar;
-        navigationBar2.setVisibility(0);
-        linearLayout = this.this$0.eEd;
-        linearLayout.setVisibility(0);
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.fSV.a(charSequence, i, i3, "from_content");
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.fSV.bcJ();
     }
 }

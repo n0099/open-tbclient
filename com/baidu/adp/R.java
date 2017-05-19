@@ -27,8 +27,6 @@ public final class R {
         public static final int border_width = 0x7f01000e;
         public static final int bottomHeight = 0x7f01002d;
         public static final int bottomOffset = 0x7f01002b;
-        public static final int circle_image = 0x7f010039;
-        public static final int circle_size = 0x7f010038;
         public static final int columnOrientation = 0x7f01002e;
         public static final int corner_radius = 0x7f01000d;
         public static final int count = 0x7f010022;
@@ -82,17 +80,18 @@ public final class R {
         public static final int adp_foot_need_refresh_delta = 0x7f090001;
         public static final int adp_head_need_refresh_delta = 0x7f090000;
         public static final int adp_head_view_height = 0x7f090002;
+        public static final int adp_list_view_pull_maxoffset = 0x7f090003;
     }
 
     /* loaded from: classes.dex */
     public static final class drawable {
         public static final int adp_down_arrow = 0x7f02000e;
-        public static final int bg_switch_close = 0x7f0202ec;
-        public static final int bg_switch_open = 0x7f0202ed;
-        public static final int btn_handle = 0x7f020483;
-        public static final int icon_gif = 0x7f020a44;
-        public static final int listview_pull_refresh01 = 0x7f021037;
-        public static final int listview_pull_refresh02 = 0x7f021039;
+        public static final int bg_switch_close = 0x7f0202f7;
+        public static final int bg_switch_open = 0x7f0202f8;
+        public static final int btn_handle = 0x7f020492;
+        public static final int icon_gif = 0x7f020ab4;
+        public static final int listview_pull_refresh01 = 0x7f021115;
+        public static final int listview_pull_refresh02 = 0x7f021117;
     }
 
     /* loaded from: classes.dex */
@@ -100,23 +99,23 @@ public final class R {
         public static final int both = 0x7f070005;
         public static final int common = 0x7f070000;
         public static final int disabled = 0x7f070002;
-        public static final int foot_layout_progress = 0x7f07034d;
-        public static final int foot_layout_text = 0x7f07034c;
-        public static final int foot_ly = 0x7f07034f;
-        public static final int head_layout_left_arrow = 0x7f07034a;
-        public static final int head_layout_left_progressbar = 0x7f07034b;
-        public static final int head_layout_refresh_time = 0x7f070349;
-        public static final int head_layout_title = 0x7f070348;
-        public static final int head_ly = 0x7f07034e;
-        public static final int head_text_container = 0x7f070347;
+        public static final int foot_layout_progress = 0x7f070351;
+        public static final int foot_layout_text = 0x7f070350;
+        public static final int foot_ly = 0x7f070353;
+        public static final int head_layout_left_arrow = 0x7f07034e;
+        public static final int head_layout_left_progressbar = 0x7f07034f;
+        public static final int head_layout_refresh_time = 0x7f07034d;
+        public static final int head_layout_title = 0x7f07034c;
+        public static final int head_ly = 0x7f070352;
+        public static final int head_text_container = 0x7f07034b;
         public static final int manualOnly = 0x7f070006;
         public static final int pullFromEnd = 0x7f070004;
         public static final int pullFromStart = 0x7f070003;
-        public static final int pull_content = 0x7f071403;
-        public static final int pull_image = 0x7f071402;
-        public static final int pull_root = 0x7f071401;
-        public static final int pull_text = 0x7f071404;
-        public static final int pull_time = 0x7f071405;
+        public static final int pull_content = 0x7f071423;
+        public static final int pull_image = 0x7f071422;
+        public static final int pull_root = 0x7f071421;
+        public static final int pull_text = 0x7f071424;
+        public static final int pull_time = 0x7f071425;
         public static final int shader = 0x7f070001;
     }
 
@@ -125,7 +124,7 @@ public final class R {
         public static final int adp_default_header_layout = 0x7f030029;
         public static final int adp_detault_footer_layout = 0x7f03002a;
         public static final int adp_pull_refresh_scroll_view = 0x7f03002b;
-        public static final int pull_view = 0x7f0303b0;
+        public static final int pull_view = 0x7f0303c7;
     }
 
     /* loaded from: classes.dex */
@@ -229,8 +228,6 @@ public final class R {
         public static final int BdRoundedImageView_corner_radius = 0x00000001;
         public static final int BdRoundedImageView_is_oval = 0x00000005;
         public static final int BdRoundedImageView_round_background = 0x00000004;
-        public static final int CircleRippleView_circle_image = 0x00000001;
-        public static final int CircleRippleView_circle_size = 0x00000000;
         public static final int ColumnLayout_Layout_layout_column = 0x00000000;
         public static final int ColumnLayout_columnOrientation = 0x00000000;
         public static final int ColumnLayout_spacingLeft = 0x00000001;
@@ -266,7 +263,6 @@ public final class R {
         public static final int[] AdpPullToRefreshScrollView = {com.baidu.tieba.R.attr.adpMode, com.baidu.tieba.R.attr.adpHeaderNeedRefreshDelta, com.baidu.tieba.R.attr.adpFooterNeedRefreshDelta, com.baidu.tieba.R.attr.adpHeaderHeight, com.baidu.tieba.R.attr.adpHeaderDurationTime, com.baidu.tieba.R.attr.adpFooterDurationTime};
         public static final int[] BDImageView = {com.baidu.tieba.R.attr.radius, com.baidu.tieba.R.attr.isRound, com.baidu.tieba.R.attr.hasBorder, com.baidu.tieba.R.attr.borderWidth, com.baidu.tieba.R.attr.borderColor, com.baidu.tieba.R.attr.borderSurroundContent, com.baidu.tieba.R.attr.showGifIcon, com.baidu.tieba.R.attr.gifIcon, com.baidu.tieba.R.attr.drawerType, com.baidu.tieba.R.attr.maxWidth, com.baidu.tieba.R.attr.maxHeight, com.baidu.tieba.R.attr.adjustViewBounds, com.baidu.tieba.R.attr.foregroundColor};
         public static final int[] BdRoundedImageView = {16843037, com.baidu.tieba.R.attr.corner_radius, com.baidu.tieba.R.attr.border_width, com.baidu.tieba.R.attr.border_color, com.baidu.tieba.R.attr.round_background, com.baidu.tieba.R.attr.is_oval};
-        public static final int[] CircleRippleView = {com.baidu.tieba.R.attr.circle_size, com.baidu.tieba.R.attr.circle_image};
         public static final int[] ColumnLayout = {com.baidu.tieba.R.attr.columnOrientation, com.baidu.tieba.R.attr.spacingLeft, com.baidu.tieba.R.attr.spacingRight};
         public static final int[] ColumnLayout_Layout = {com.baidu.tieba.R.attr.layout_column};
         public static final int[] ExpandListView = {com.baidu.tieba.R.attr.beforeExpandHeight, com.baidu.tieba.R.attr.expandDistance};

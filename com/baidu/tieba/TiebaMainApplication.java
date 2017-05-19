@@ -7,5 +7,8 @@ public class TiebaMainApplication extends TbadkApplication {
     public void onCreate() {
         setPageStayOpen(true);
         super.onCreate();
+        if (getSplash() != null) {
+            getSplash().hide();
+        }
     }
 }

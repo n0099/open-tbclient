@@ -90,8 +90,8 @@ public class PushInfoProvider extends ContentProvider {
         return true;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0016 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x000a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0015 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x000a */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v10 */
     /* JADX WARN: Type inference failed for: r0v17 */

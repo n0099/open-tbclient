@@ -1,31 +1,19 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class l extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bQa;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l(FrsActivity frsActivity, int i) {
-        super(i);
-        this.bQa = frsActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.frs.FrsActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            String str = (String) customResponsedMessage.getData();
-            if (!TextUtils.isEmpty(str)) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11455").aa("obj_locate", "frs"));
-                com.baidu.tbadk.core.util.bb.wn().c(this.bQa.getPageContext(), new String[]{str});
-            }
+class l implements com.baidu.tbadk.ala.f {
+    @Override // com.baidu.tbadk.ala.f
+    public View aq(Context context) {
+        TextView ap = com.baidu.tbadk.ala.d.ap(context);
+        if (ap != null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 16;
+            ap.setLayoutParams(layoutParams);
         }
+        return ap;
     }
 }

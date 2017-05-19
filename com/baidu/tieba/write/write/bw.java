@@ -1,18 +1,31 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.write.write.WriteImageActivity;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bw implements a.b {
-    final /* synthetic */ WriteImageActivity.a fUZ;
+public class bw implements View.OnClickListener {
+    private final /* synthetic */ String ezH;
+    final /* synthetic */ WriteImageActivity this$0;
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(WriteImageActivity.a aVar) {
-        this.fUZ = aVar;
+    public bw(WriteImageActivity writeImageActivity, String str, int i) {
+        this.this$0 = writeImageActivity;
+        this.ezH = str;
+        this.val$id = i;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        if (this.this$0.mProgress.getVisibility() != 0) {
+            String str2 = this.ezH;
+            str = this.this$0.ezz;
+            if (!str2.equals(str)) {
+                this.this$0.rm(this.ezH);
+                this.this$0.ob(this.ezH);
+                this.this$0.ezx = this.val$id;
+            }
+        }
     }
 }

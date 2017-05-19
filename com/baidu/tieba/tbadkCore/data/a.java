@@ -1,19 +1,20 @@
 package com.baidu.tieba.tbadkCore.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
 import tbclient.ActHot;
 /* loaded from: classes.dex */
 public class a {
-    private int ahk;
-    private String fxA;
-    private String fxy;
-    private String fxz;
+    private int agC;
+    private String ftC;
+    private String ftD;
+    private String ftE;
     private int mHeight;
     private String mTitle;
     private int mWidth;
 
-    public String biH() {
-        return this.fxy;
+    public String bge() {
+        return this.ftC;
     }
 
     public int getImageWidth() {
@@ -24,8 +25,8 @@ public class a {
         return this.mHeight;
     }
 
-    public String biI() {
-        return this.fxz;
+    public String bgf() {
+        return this.ftD;
     }
 
     public String getTitle() {
@@ -33,7 +34,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.fxA;
+        return this.ftE;
     }
 
     public void a(ActHot actHot) {
@@ -54,11 +55,38 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.fxy = actHot.img_src;
-            this.fxz = actHot.link;
+            this.ftC = actHot.img_src;
+            this.ftD = actHot.link;
             this.mTitle = actHot.author_name;
-            this.fxA = actHot.img_des;
-            this.ahk = actHot.img_type.intValue();
+            this.ftE = actHot.img_des;
+            this.agC = actHot.img_type.intValue();
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.ftC = jSONObject.optString("img_src");
+                this.ftD = jSONObject.optString("link");
+                this.mTitle = jSONObject.optString("author_name");
+                this.ftE = jSONObject.optString("img_des");
+                String optString = jSONObject.optString("bsize");
+                if (optString != null && optString.length() > 0) {
+                    String[] split = optString.split(",");
+                    if (split.length > 1) {
+                        this.mWidth = Integer.valueOf(split[0]).intValue();
+                        this.mHeight = Integer.valueOf(split[1]).intValue();
+                    }
+                }
+                if (this.mWidth <= 0) {
+                    this.mWidth = 1;
+                }
+                if (this.mHeight <= 0) {
+                    this.mHeight = 1;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 }

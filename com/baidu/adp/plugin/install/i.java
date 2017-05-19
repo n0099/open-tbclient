@@ -46,7 +46,7 @@ public class i extends BroadcastReceiver {
                 if (pluginInstallTask17 != null) {
                     pluginInstallTask20 = this.this$0.Do;
                     if (TextUtils.equals(null, pluginInstallTask20.CC)) {
-                        this.this$0.iV();
+                        this.this$0.iU();
                         this.this$0.Do = null;
                         this.this$0.a((PluginInstallTask) null);
                         return;
@@ -56,9 +56,9 @@ public class i extends BroadcastReceiver {
                 if (pluginInstallTask18 != null) {
                     pluginInstallTask19 = this.this$0.Dq;
                     if (TextUtils.equals(null, pluginInstallTask19.CC)) {
-                        this.this$0.iW();
+                        this.this$0.iV();
                         this.this$0.a((PluginInstallTask) null);
-                        com.baidu.adp.plugin.b.a.jl().aV("plugin_retry_install_succ");
+                        com.baidu.adp.plugin.b.a.jk().aV("plugin_retry_install_succ");
                         return;
                     }
                 }
@@ -73,7 +73,7 @@ public class i extends BroadcastReceiver {
                         if (pluginInstallTask13 != null) {
                             pluginInstallTask16 = this.this$0.Do;
                             if (TextUtils.equals(str, pluginInstallTask16.CC)) {
-                                this.this$0.iV();
+                                this.this$0.iU();
                                 this.this$0.Do = null;
                                 this.this$0.a((PluginInstallTask) null);
                                 return;
@@ -83,9 +83,9 @@ public class i extends BroadcastReceiver {
                         if (pluginInstallTask14 != null) {
                             pluginInstallTask15 = this.this$0.Dq;
                             if (TextUtils.equals(str, pluginInstallTask15.CC)) {
-                                this.this$0.iW();
+                                this.this$0.iV();
                                 this.this$0.a((PluginInstallTask) null);
-                                com.baidu.adp.plugin.b.a.jl().aV("plugin_retry_install_succ");
+                                com.baidu.adp.plugin.b.a.jk().aV("plugin_retry_install_succ");
                                 return;
                             }
                         }
@@ -99,13 +99,13 @@ public class i extends BroadcastReceiver {
                     String action = intent.getAction();
                     if ("com.baidu.adp.plugin.installed".equals(action)) {
                         this.this$0.e(str, z);
-                        com.baidu.adp.plugin.packageManager.status.a.ki().bt(str);
+                        com.baidu.adp.plugin.packageManager.status.a.kh().bt(str);
                     } else if ("com.baidu.adp.plugin.installfail".equals(action)) {
                         if (z) {
                             this.this$0.Dl = false;
                         }
                         this.this$0.e(str, z);
-                        com.baidu.adp.plugin.packageManager.status.a.ki().g(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
+                        com.baidu.adp.plugin.packageManager.status.a.kh().g(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
                     } else if ("com.baidu.adp.plugin.installcancel".equals(action)) {
                         this.this$0.e(str, z);
                     }
@@ -113,7 +113,7 @@ public class i extends BroadcastReceiver {
                     if (pluginInstallTask9 != null) {
                         pluginInstallTask12 = this.this$0.Do;
                         if (TextUtils.equals(str, pluginInstallTask12.CC)) {
-                            this.this$0.iV();
+                            this.this$0.iU();
                             this.this$0.Do = null;
                             this.this$0.a((PluginInstallTask) null);
                             return;
@@ -123,9 +123,9 @@ public class i extends BroadcastReceiver {
                     if (pluginInstallTask10 != null) {
                         pluginInstallTask11 = this.this$0.Dq;
                         if (TextUtils.equals(str, pluginInstallTask11.CC)) {
-                            this.this$0.iW();
+                            this.this$0.iV();
                             this.this$0.a((PluginInstallTask) null);
-                            com.baidu.adp.plugin.b.a.jl().aV("plugin_retry_install_succ");
+                            com.baidu.adp.plugin.b.a.jk().aV("plugin_retry_install_succ");
                             return;
                         }
                     }
@@ -137,7 +137,7 @@ public class i extends BroadcastReceiver {
                     if (pluginInstallTask5 != null) {
                         pluginInstallTask8 = this.this$0.Do;
                         if (TextUtils.equals(str, pluginInstallTask8.CC)) {
-                            this.this$0.iV();
+                            this.this$0.iU();
                             this.this$0.Do = null;
                             this.this$0.a((PluginInstallTask) null);
                             return;
@@ -147,9 +147,9 @@ public class i extends BroadcastReceiver {
                     if (pluginInstallTask6 != null) {
                         pluginInstallTask7 = this.this$0.Dq;
                         if (TextUtils.equals(str, pluginInstallTask7.CC)) {
-                            this.this$0.iW();
+                            this.this$0.iV();
                             this.this$0.a((PluginInstallTask) null);
-                            com.baidu.adp.plugin.b.a.jl().aV("plugin_retry_install_succ");
+                            com.baidu.adp.plugin.b.a.jk().aV("plugin_retry_install_succ");
                             return;
                         }
                     }
@@ -164,7 +164,7 @@ public class i extends BroadcastReceiver {
                 if (pluginInstallTask != null) {
                     pluginInstallTask4 = this.this$0.Do;
                     if (TextUtils.equals(null, pluginInstallTask4.CC)) {
-                        this.this$0.iV();
+                        this.this$0.iU();
                         this.this$0.Do = null;
                         this.this$0.a((PluginInstallTask) null);
                         throw th;
@@ -174,9 +174,9 @@ public class i extends BroadcastReceiver {
                 if (pluginInstallTask2 != null) {
                     pluginInstallTask3 = this.this$0.Dq;
                     if (TextUtils.equals(null, pluginInstallTask3.CC)) {
-                        this.this$0.iW();
+                        this.this$0.iV();
                         this.this$0.a((PluginInstallTask) null);
-                        com.baidu.adp.plugin.b.a.jl().aV("plugin_retry_install_succ");
+                        com.baidu.adp.plugin.b.a.jk().aV("plugin_retry_install_succ");
                         throw th;
                     }
                 }

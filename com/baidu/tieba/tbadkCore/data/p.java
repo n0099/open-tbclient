@@ -7,23 +7,23 @@ import com.baidu.tbadk.data.IconData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements e.a {
-    final /* synthetic */ PostData fyN;
-    private final /* synthetic */ IconData fyO;
-    private final /* synthetic */ BdUniqueId fyP;
+    final /* synthetic */ PostData fuV;
+    private final /* synthetic */ IconData fuW;
+    private final /* synthetic */ BdUniqueId fuX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PostData postData, IconData iconData, BdUniqueId bdUniqueId) {
-        this.fyN = postData;
-        this.fyO = iconData;
-        this.fyP = bdUniqueId;
+        this.fuV = postData;
+        this.fuW = iconData;
+        this.fuX = bdUniqueId;
     }
 
     @Override // com.baidu.adp.widget.e.a
     public Drawable a(com.baidu.adp.widget.e eVar) {
-        com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.c.fM().a(this.fyO.getIcon(), 21, new Object[0]);
+        com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.c.fM().a(this.fuW.getIcon(), 21, new Object[0]);
         if (aVar == null) {
-            com.baidu.adp.lib.f.c.fM().a(this.fyO.getIcon(), 21, new q(this, eVar), this.fyP);
+            com.baidu.adp.lib.f.c.fM().a(this.fuW.getIcon(), 21, new q(this, eVar), this.fuX);
         }
-        return this.fyN.g(aVar);
+        return this.fuV.g(aVar);
     }
 }

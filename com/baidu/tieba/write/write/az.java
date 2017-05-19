@@ -1,23 +1,19 @@
 package com.baidu.tieba.write.write;
 
-import android.widget.GridView;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az implements Runnable {
-    final /* synthetic */ WriteActivity fUM;
+public class az implements DialogInterface.OnCancelListener {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.write.view.PhotoLiveView.a aVar;
-        GridView gridView;
-        aVar = this.fUM.fUa;
-        aVar.notifyDataSetChanged();
-        gridView = this.fUM.fTZ;
-        gridView.invalidateViews();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.fSV.destroyWaitingDialog();
+        this.fSV.bcB();
     }
 }

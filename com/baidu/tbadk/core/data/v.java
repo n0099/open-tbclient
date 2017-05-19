@@ -9,14 +9,6 @@ public class v {
     private String mName;
     private String mUrl;
 
-    public String getIcon() {
-        return this.mIcon;
-    }
-
-    public String getUrl() {
-        return this.mUrl;
-    }
-
     public void a(MemberShowIcon memberShowIcon) {
         if (memberShowIcon != null) {
             this.mIcon = memberShowIcon.icon;

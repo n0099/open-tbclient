@@ -4,7 +4,7 @@ public class ah extends com.baidu.adp.lib.b.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void X(int i) {
-        this.ud = 1;
+        this.ue = 1;
     }
 
     @Override // com.baidu.adp.lib.b.a

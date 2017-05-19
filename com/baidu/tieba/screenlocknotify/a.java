@@ -3,7 +3,7 @@ package com.baidu.tieba.screenlocknotify;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class a extends BroadcastReceiver {
     final /* synthetic */ ScreenLockActivity this$0;
 
@@ -16,7 +16,7 @@ class a extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String stringExtra;
         if (intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") && (stringExtra = intent.getStringExtra("reason")) != null && stringExtra.equals("homekey")) {
-            i.bbW().fin.bcb();
+            i.aZv().fei.aZA();
             this.this$0.finish();
         }
     }

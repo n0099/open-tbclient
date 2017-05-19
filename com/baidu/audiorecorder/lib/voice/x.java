@@ -1,13 +1,13 @@
 package com.baidu.audiorecorder.lib.voice;
 
 import android.widget.TextView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class x implements Runnable {
-    final /* synthetic */ s LP;
+    final /* synthetic */ s Lh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(s sVar) {
-        this.LP = sVar;
+        this.Lh = sVar;
     }
 
     @Override // java.lang.Runnable
@@ -15,11 +15,11 @@ class x implements Runnable {
         TextView textView;
         TextView textView2;
         TextView textView3;
-        textView = this.LP.Lz;
+        textView = this.Lh.KR;
         if (textView != null) {
-            textView2 = this.LP.Lz;
+            textView2 = this.Lh.KR;
             textView2.setVisibility(4);
-            textView3 = this.LP.Lz;
+            textView3 = this.Lh.KR;
             textView3.setText("");
         }
     }

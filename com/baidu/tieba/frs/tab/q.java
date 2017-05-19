@@ -1,72 +1,53 @@
 package com.baidu.tieba.frs.tab;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.frs.TabMenuPopView;
-import com.baidu.tieba.frs.cv;
-import com.baidu.tieba.frs.tab.j;
-import com.baidu.tieba.w;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import com.baidu.tieba.frs.cm;
+import com.baidu.tieba.frs.tab.k;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements f {
-    private View avJ;
-    private TabMenuPopView.a bTc = new r(this);
-    private j cbU;
-    private j.b cbX;
-    private List<cv> cbY;
-    private TabMenuPopView cbZ;
-    private View mContentView;
-    private Context mContext;
+public class q implements AdapterView.OnItemClickListener {
+    final /* synthetic */ o bZP;
 
-    @Override // com.baidu.tieba.frs.tab.f
-    public void a(Context context, j jVar) {
-        if (context != null && jVar != null) {
-            this.mContext = context;
-            this.cbU = jVar;
-            this.cbX = jVar.aev();
-            this.mContentView = LayoutInflater.from(this.mContext).inflate(w.j.tab_menu_multline_view, (ViewGroup) null);
-            this.avJ = this.mContentView.findViewById(w.h.top_line);
-            this.cbZ = (TabMenuPopView) this.mContentView.findViewById(w.h.categorycontainer);
-            this.cbZ.setOnItemClickCallBack(this.bTc);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(o oVar) {
+        this.bZP = oVar;
     }
 
-    @Override // com.baidu.tieba.frs.tab.f
-    public void setData(List<cv> list) {
-        if (list != null) {
-            this.cbY = list;
-            cv cvVar = new cv();
-            cvVar.bSf = 0;
-            cvVar.name = this.mContext.getResources().getString(w.l.forum_list_menu_all);
-            cvVar.isSelected = false;
-            aq.k(this.mContentView, w.e.cp_bg_line_d);
-            aq.k(this.avJ, w.e.cp_bg_line_b);
-            this.cbZ.a(this.cbY, cvVar);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        k kVar;
+        BaseAdapter baseAdapter;
+        k.b bVar;
+        List<cm> list;
+        BaseAdapter baseAdapter2;
+        k.b bVar2;
+        k kVar2;
+        kVar = this.bZP.bZN;
+        if (kVar != null) {
+            kVar2 = this.bZP.bZN;
+            kVar2.acx();
         }
-    }
-
-    @Override // com.baidu.tieba.frs.tab.f
-    public View getView() {
-        return this.mContentView;
-    }
-
-    @Override // com.baidu.tieba.frs.tab.f
-    public void xl() {
-        if (this.mContentView != null) {
-            aq.k(this.mContentView, w.e.cp_bg_line_d);
-            aq.k(this.avJ, w.e.cp_bg_line_b);
+        baseAdapter = this.bZP.bZO;
+        if (baseAdapter != null) {
+            bVar = this.bZP.bZp;
+            if (bVar != null) {
+                list = this.bZP.aWb;
+                for (cm cmVar : list) {
+                    if (cmVar != null) {
+                        cmVar.isSelected = false;
+                    }
+                }
+                baseAdapter2 = this.bZP.bZO;
+                cm cmVar2 = (cm) baseAdapter2.getItem(i);
+                if (cmVar2 != null) {
+                    cmVar2.isSelected = true;
+                    bVar2 = this.bZP.bZp;
+                    bVar2.ix(cmVar2.bQR);
+                }
+            }
         }
-        if (this.cbZ != null) {
-            this.cbZ.xl();
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.tab.f
-    public int aes() {
-        this.mContentView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-        return this.mContentView.getMeasuredHeight();
     }
 }

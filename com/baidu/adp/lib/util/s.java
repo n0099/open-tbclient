@@ -26,9 +26,9 @@ public class s {
             try {
                 o.c cVar = new o.c();
                 cVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                cVar.tO = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                cVar.tz = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                cVar.sG = cursor.getString(cursor.getColumnIndex("m_value"));
+                cVar.tP = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                cVar.tA = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                cVar.sH = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(cVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -47,7 +47,7 @@ public class s {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [109=4] */
-    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
     public static List<o.c<byte[]>> c(com.baidu.adp.lib.cache.o<byte[]> oVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();
@@ -64,9 +64,9 @@ public class s {
             try {
                 o.c cVar = new o.c();
                 cVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                cVar.tO = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                cVar.tz = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                cVar.sG = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                cVar.tP = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                cVar.tA = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                cVar.sH = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(cVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -109,10 +109,10 @@ public class s {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(o.c<?> cVar, o.c<?> cVar2) {
-            if (cVar.tO == cVar2.tO) {
+            if (cVar.tP == cVar2.tP) {
                 return 0;
             }
-            return cVar.tO > cVar2.tO ? -1 : 1;
+            return cVar.tP > cVar2.tP ? -1 : 1;
         }
     }
 }

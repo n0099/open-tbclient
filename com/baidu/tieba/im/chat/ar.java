@@ -17,75 +17,75 @@ import com.baidu.tieba.w;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class ar extends com.baidu.adp.base.d<MsglistActivity<?>> {
-    protected int atz;
-    protected TextView bLE;
-    protected com.baidu.adp.lib.c.a cPJ;
-    protected com.baidu.adp.lib.c.b cPK;
-    protected int cPT;
-    private long cQe;
-    private Calendar cQf;
-    protected long cQg;
-    protected Long cQh;
-    protected TbRichTextView cQi;
-    protected ChatVoiceView cQj;
-    protected GifView cQk;
-    protected Invite2GroupView cQl;
-    protected ShareFromPBView cQm;
-    protected ShareFromFrsView cQn;
-    protected ShareFromGameCenter cQo;
-    protected ChatImageWithTailView cQp;
-    protected boolean cQq;
-    protected boolean cQr;
+    protected int atD;
+    protected TextView bKI;
+    protected com.baidu.adp.lib.c.a cJM;
+    protected com.baidu.adp.lib.c.b cJN;
+    protected int cJW;
+    private Calendar cKh;
+    protected long cKi;
+    protected Long cKj;
+    protected TbRichTextView cKk;
+    protected ChatVoiceView cKl;
+    protected GifView cKm;
+    protected Invite2GroupView cKn;
+    protected ShareFromPBView cKo;
+    protected ShareFromFrsView cKp;
+    protected ShareFromGameCenter cKq;
+    protected ChatImageWithTailView cKr;
+    protected boolean cKs;
+    protected boolean cKt;
+    private long mLastTime;
 
     public ar(TbPageContext<MsglistActivity<?>> tbPageContext, int i) {
         super(tbPageContext, i);
-        this.cPJ = null;
-        this.cPK = null;
-        this.atz = 0;
-        this.cQg = 0L;
-        this.cQh = null;
-        this.cQq = true;
-        this.cQr = false;
-        this.cQe = 0L;
-        this.cQf = null;
+        this.cJM = null;
+        this.cJN = null;
+        this.atD = 0;
+        this.cKi = 0L;
+        this.cKj = null;
+        this.cKs = true;
+        this.cKt = false;
+        this.mLastTime = 0L;
+        this.cKh = null;
         this.mContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.cPJ = aVar;
+        this.cJM = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.cPK = bVar;
+        this.cJN = bVar;
     }
 
     public void setPosition(int i) {
-        this.atz = i;
+        this.atD = i;
     }
 
-    public void bx(long j) {
-        this.cQe = j;
+    public void bi(long j) {
+        this.mLastTime = j;
     }
 
-    public void by(long j) {
-        this.cQf = Calendar.getInstance();
-        this.cQf.setTimeInMillis(1000 * j);
+    public void bj(long j) {
+        this.cKh = Calendar.getInstance();
+        this.cKh.setTimeInMillis(1000 * j);
     }
 
-    private boolean bz(long j) {
+    private boolean bk(long j) {
         if (j < 1000) {
             return false;
         }
-        return this.cQe == 0 || j - this.cQe >= 180;
+        return this.mLastTime == 0 || j - this.mLastTime >= 180;
     }
 
-    private String bA(long j) {
+    private String bl(long j) {
         if (j < 1000) {
             return "";
         }
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(1000 * j);
-        if (this.cQf != null && this.cQf.get(1) == calendar.get(1) && this.cQf.get(6) == calendar.get(6)) {
+        if (this.cKh != null && this.cKh.get(1) == calendar.get(1) && this.cKh.get(6) == calendar.get(6)) {
             return com.baidu.tbadk.core.util.au.b(calendar.getTime());
         }
         return com.baidu.tbadk.core.util.au.a(calendar.getTime());
@@ -96,73 +96,73 @@ public class ar extends com.baidu.adp.base.d<MsglistActivity<?>> {
 
     public void b(View view, ChatMessage chatMessage) {
         if (chatMessage != null) {
-            this.cQh = Long.valueOf(chatMessage.getMsgId());
+            this.cKj = Long.valueOf(chatMessage.getMsgId());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initView() {
-        this.bLE = (TextView) findViewById(w.h.tex_msgitem_time);
-        this.cQi = (TbRichTextView) findViewById(w.h.tex_msgitem_text);
-        this.cQi.setLinkTextColor(-14845754);
-        this.cQp = (ChatImageWithTailView) findViewById(w.h.img_msgitem_image);
-        this.cQl = (Invite2GroupView) findViewById(w.h.lay_msgitem_invite_view);
-        this.cQm = (ShareFromPBView) findViewById(w.h.lay_msgitem_share_view);
-        this.cQn = (ShareFromFrsView) findViewById(w.h.lay_msgitem_share_frs);
-        this.cQo = (ShareFromGameCenter) findViewById(w.h.lay_msgitem_share_game);
-        this.cQj = (ChatVoiceView) findViewById(w.h.lay_msgitem_voice);
-        this.cQj.setClickable(true);
-        this.cQj.setOnClickListener(this.cQj);
-        this.cQj.setLongClickable(true);
-        this.cQj.setOnLongClickListener(new as(this));
-        this.cQp.getImage().setClickable(true);
-        this.cQp.getImage().setOnClickListener(new az(this));
-        this.cQp.getImage().setLongClickable(true);
-        this.cQp.getImage().setOnLongClickListener(new ba(this));
-        this.cQp.getTail().setClickable(true);
-        this.cQp.getTail().setOnClickListener(new bb(this));
-        this.cQi.setLongClickable(true);
-        this.cQi.setOnLongClickListener(new bc(this));
-        this.cQk = (GifView) findViewById(w.h.emotion_msgitem_image);
-        this.cQk.setSupportNoImage(false);
-        this.cQk.setOnClickListener(new bd(this));
-        this.cQk.setLongClickable(true);
-        this.cQk.setOnLongClickListener(new be(this));
-        this.cQm.setClickable(true);
-        this.cQm.setOnClickListener(new bf(this));
-        this.cQm.setLongClickable(true);
-        this.cQm.setOnLongClickListener(new bg(this));
-        this.cQn.setClickable(true);
-        this.cQn.setOnClickListener(new at(this));
-        this.cQn.setLongClickable(true);
-        this.cQn.setOnLongClickListener(new au(this));
-        this.cQo.getContentBody().setClickable(true);
-        this.cQo.getContentBody().setOnClickListener(new av(this));
-        this.cQo.getTail().setClickable(true);
-        this.cQo.getTail().setOnClickListener(new aw(this));
-        this.cQo.getContentBody().setLongClickable(true);
-        this.cQo.getContentBody().setOnLongClickListener(new ax(this));
-        if (this.cQl != null) {
-            this.cQl.setOnLongClickListener(new ay(this));
+        this.bKI = (TextView) findViewById(w.h.tex_msgitem_time);
+        this.cKk = (TbRichTextView) findViewById(w.h.tex_msgitem_text);
+        this.cKk.setLinkTextColor(-14845754);
+        this.cKr = (ChatImageWithTailView) findViewById(w.h.img_msgitem_image);
+        this.cKn = (Invite2GroupView) findViewById(w.h.lay_msgitem_invite_view);
+        this.cKo = (ShareFromPBView) findViewById(w.h.lay_msgitem_share_view);
+        this.cKp = (ShareFromFrsView) findViewById(w.h.lay_msgitem_share_frs);
+        this.cKq = (ShareFromGameCenter) findViewById(w.h.lay_msgitem_share_game);
+        this.cKl = (ChatVoiceView) findViewById(w.h.lay_msgitem_voice);
+        this.cKl.setClickable(true);
+        this.cKl.setOnClickListener(this.cKl);
+        this.cKl.setLongClickable(true);
+        this.cKl.setOnLongClickListener(new as(this));
+        this.cKr.getImage().setClickable(true);
+        this.cKr.getImage().setOnClickListener(new az(this));
+        this.cKr.getImage().setLongClickable(true);
+        this.cKr.getImage().setOnLongClickListener(new ba(this));
+        this.cKr.getTail().setClickable(true);
+        this.cKr.getTail().setOnClickListener(new bb(this));
+        this.cKk.setLongClickable(true);
+        this.cKk.setOnLongClickListener(new bc(this));
+        this.cKm = (GifView) findViewById(w.h.emotion_msgitem_image);
+        this.cKm.setSupportNoImage(false);
+        this.cKm.setOnClickListener(new bd(this));
+        this.cKm.setLongClickable(true);
+        this.cKm.setOnLongClickListener(new be(this));
+        this.cKo.setClickable(true);
+        this.cKo.setOnClickListener(new bf(this));
+        this.cKo.setLongClickable(true);
+        this.cKo.setOnLongClickListener(new bg(this));
+        this.cKp.setClickable(true);
+        this.cKp.setOnClickListener(new at(this));
+        this.cKp.setLongClickable(true);
+        this.cKp.setOnLongClickListener(new au(this));
+        this.cKq.getContentBody().setClickable(true);
+        this.cKq.getContentBody().setOnClickListener(new av(this));
+        this.cKq.getTail().setClickable(true);
+        this.cKq.getTail().setOnClickListener(new aw(this));
+        this.cKq.getContentBody().setLongClickable(true);
+        this.cKq.getContentBody().setOnLongClickListener(new ax(this));
+        if (this.cKn != null) {
+            this.cKn.setOnLongClickListener(new ay(this));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void lk(int i) {
-        this.cQp.setVisibility(i);
+    public void kX(int i) {
+        this.cKr.setVisibility(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(ChatMessage chatMessage) {
         boolean z = chatMessage.getCacheData() != null && chatMessage.getCacheData().getIs_show_time() == 1;
-        boolean bz = bz(chatMessage.getTime());
-        if (z || bz) {
-            this.bLE.setVisibility(0);
-            this.bLE.setText(bA(chatMessage.getTime()));
+        boolean bk = bk(chatMessage.getTime());
+        if (z || bk) {
+            this.bKI.setVisibility(0);
+            this.bKI.setText(bl(chatMessage.getTime()));
         } else {
-            this.bLE.setVisibility(8);
+            this.bKI.setVisibility(8);
         }
-        if (!z && bz) {
+        if (!z && bk) {
             MsgCacheData cacheData = chatMessage.getCacheData();
             if (cacheData == null) {
                 MsgCacheData msgCacheData = new MsgCacheData();
@@ -176,52 +176,52 @@ public class ar extends com.baidu.adp.base.d<MsglistActivity<?>> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ChatMessage chatMessage, String str) {
-        bq.a(this.mContext.getContext(), this.cQi, chatMessage, str, this.cPT);
+        bq.a(this.mContext.getContext(), this.cKk, chatMessage, str, this.cJW);
         if (chatMessage != null && chatMessage.getContent() != null) {
             String[] split = chatMessage.getContent().split("#");
             StringBuffer stringBuffer = new StringBuffer();
             for (String str2 : split) {
                 stringBuffer.append(str2);
             }
-            this.cQi.setContentDescription(stringBuffer.toString());
-            this.cQi.getTextView().setContentDescription(stringBuffer.toString());
+            this.cKk.setContentDescription(stringBuffer.toString());
+            this.cKk.getTextView().setContentDescription(stringBuffer.toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(View view, ChatMessage chatMessage, String str) {
-        bq.a(this.mContext.getContext(), view, this.cQp, chatMessage, this.cQg, str);
+        bq.a(this.mContext.getContext(), view, this.cKr, chatMessage, this.cKi, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(ChatMessage chatMessage, String str) {
-        bq.a(this.mContext.getContext(), this.cQj, chatMessage, str);
+        bq.a(this.mContext.getContext(), this.cKl, chatMessage, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ChatMessage chatMessage, boolean z) {
-        bq.a(this.mContext.getContext(), this.cQk, chatMessage, z);
+        bq.a(this.mContext.getContext(), this.cKm, chatMessage, z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(View view, ChatMessage chatMessage, String str) {
-        bq.a((TbPageContext) this.mContext, this.mContext.getContext(), view, this.cQl, chatMessage, str);
+        bq.a((TbPageContext) this.mContext, this.mContext.getContext(), view, this.cKn, chatMessage, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void c(View view, ChatMessage chatMessage, String str) {
-        bq.a(this.mContext.getContext(), view, this.cQm, this.cQn, this.cQo, chatMessage, str);
+        bq.a(this.mContext.getContext(), view, this.cKo, this.cKp, this.cKq, chatMessage, str);
     }
 
-    public void fA(boolean z) {
-        this.cQq = z;
+    public void fb(boolean z) {
+        this.cKs = z;
     }
 
-    public void fB(boolean z) {
-        this.cQr = z;
+    public void fc(boolean z) {
+        this.cKt = z;
     }
 
-    public void lj(int i) {
-        this.cPT = i;
+    public void kW(int i) {
+        this.cJW = i;
     }
 }

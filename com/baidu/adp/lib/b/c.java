@@ -4,12 +4,12 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
     private String mName;
-    private int ud;
-    private a ug;
-    private int uf = 0;
-    private String[] ui = null;
-    private int ue = 0;
+    private int ue;
+    private a uh;
+    private int ug = 0;
     private String[] uj = null;
+    private int uf = 0;
+    private String[] uk = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,28 +18,28 @@ public class c {
 
     public c(String str, int i, a aVar) {
         this.mName = null;
-        this.ug = null;
-        this.ud = 0;
+        this.uh = null;
+        this.ue = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.ug = aVar;
-        this.ud = i;
+        this.uh = aVar;
+        this.ue = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.uf = i;
-        this.ui = strArr;
-        this.ue = i2;
+        this.ug = i;
+        this.uj = strArr;
+        this.uf = i2;
     }
 
     public void g(String[] strArr) {
-        this.uj = strArr;
+        this.uk = strArr;
     }
 
     public String[] eU() {
-        return this.uj;
+        return this.uk;
     }
 
     public String getName() {
@@ -47,24 +47,24 @@ public class c {
     }
 
     public int eT() {
-        return this.uf;
+        return this.ug;
     }
 
     public String[] eW() {
-        return this.ui;
+        return this.uj;
     }
 
     public int eS() {
-        return this.ue;
+        return this.uf;
     }
 
     public int eR() {
-        return this.ud;
+        return this.ue;
     }
 
     public void d(int i, boolean z) {
-        if (this.ug != null) {
-            this.ug.a(this.mName, i, z);
+        if (this.uh != null) {
+            this.uh.a(this.mName, i, z);
         }
     }
 }

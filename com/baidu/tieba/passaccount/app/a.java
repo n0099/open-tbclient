@@ -5,23 +5,23 @@ import com.baidu.sapi2.SapiWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ ForgetPwdActivity eeY;
+    final /* synthetic */ ForgetPwdActivity dZH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ForgetPwdActivity forgetPwdActivity) {
-        this.eeY = forgetPwdActivity;
+        this.dZH = forgetPwdActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         SapiWebView sapiWebView;
         SapiWebView sapiWebView2;
-        sapiWebView = this.eeY.eeX;
+        sapiWebView = this.dZH.dZG;
         if (sapiWebView.canGoBack()) {
-            sapiWebView2 = this.eeY.eeX;
+            sapiWebView2 = this.dZH.dZG;
             sapiWebView2.goBack();
             return;
         }
-        this.eeY.finish();
+        this.dZH.finish();
     }
 }

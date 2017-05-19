@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.im.data.BlackListItemData;
 import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 import com.baidu.tieba.w;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ IMBlackListActivity dkP;
+    final /* synthetic */ IMBlackListActivity deS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(IMBlackListActivity iMBlackListActivity, int i) {
         super(i);
-        this.dkP = iMBlackListActivity;
+        this.deS = iMBlackListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,46 +34,46 @@ class a extends com.baidu.adp.framework.listener.e {
         h hVar3;
         com.baidu.tbadk.core.dialog.a aVar4;
         h hVar4;
-        hVar = this.dkP.dkN;
-        hVar.avy();
-        this.dkP.closeLoadingDialog();
+        hVar = this.deS.deQ;
+        hVar.ast();
+        this.deS.closeLoadingDialog();
         if (socketResponsedMessage != null) {
             if (socketResponsedMessage.getCmd() == 104103 && (socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
                 ResponseGetMaskInfoMessage responseGetMaskInfoMessage = (ResponseGetMaskInfoMessage) socketResponsedMessage;
                 if (responseGetMaskInfoMessage.getError() == 0) {
-                    aVar3 = this.dkP.LI;
+                    aVar3 = this.deS.La;
                     if (aVar3 != null) {
-                        aVar4 = this.dkP.LI;
+                        aVar4 = this.deS.La;
                         aVar4.dismiss();
                     }
-                    hVar3 = this.dkP.dkN;
-                    hVar3.S(responseGetMaskInfoMessage.getBlackList());
+                    hVar3 = this.deS.deQ;
+                    hVar3.R(responseGetMaskInfoMessage.getBlackList());
                     return;
                 }
-                this.dkP.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? this.dkP.getResources().getString(w.l.neterror) : responseGetMaskInfoMessage.getErrorString());
+                this.deS.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? this.deS.getResources().getString(w.l.neterror) : responseGetMaskInfoMessage.getErrorString());
                 if (com.baidu.adp.lib.util.i.hk()) {
-                    hVar4 = this.dkP.dkN;
+                    hVar4 = this.deS.deQ;
                     hVar4.refreshData();
                 }
             } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    aVar = this.dkP.LI;
+                    aVar = this.deS.La;
                     if (aVar != null) {
-                        aVar2 = this.dkP.LI;
+                        aVar2 = this.deS.La;
                         aVar2.dismiss();
                     }
-                    this.dkP.showToast(this.dkP.getPageContext().getString(w.l.black_list_remove_success));
-                    blackListItemData = this.dkP.dkO;
+                    this.deS.showToast(this.deS.getPageContext().getString(w.l.black_list_remove_success));
+                    blackListItemData = this.deS.deR;
                     if (blackListItemData != null) {
-                        hVar2 = this.dkP.dkN;
-                        blackListItemData2 = this.dkP.dkO;
+                        hVar2 = this.deS.deQ;
+                        blackListItemData2 = this.deS.deR;
                         hVar2.b(blackListItemData2);
-                        this.dkP.dkO = null;
+                        this.deS.deR = null;
                         return;
                     }
                     return;
                 }
-                this.dkP.showToast(responseUpdateMaskInfoMessage.getErrorString());
+                this.deS.showToast(responseUpdateMaskInfoMessage.getErrorString());
             }
         }
     }

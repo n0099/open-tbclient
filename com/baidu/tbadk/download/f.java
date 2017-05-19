@@ -6,24 +6,24 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends Handler {
-    final /* synthetic */ e ayD;
+    final /* synthetic */ e ayA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(e eVar, Looper looper) {
         super(looper);
-        this.ayD = eVar;
+        this.ayA = eVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         super.handleMessage(message);
-        if (message.what == 900002 && message.arg2 > 0 && e.ayA != null) {
-            e.ayA.setLength(message.arg1);
-            e.ayA.setSize(message.arg2);
-            e.ayA.setStatus(1);
-            if (e.ayA.getCallback() != null) {
-                e.ayA.getCallback().onFileUpdateProgress(e.ayA);
+        if (message.what == 900002 && message.arg2 > 0 && e.ayx != null) {
+            e.ayx.setLength(message.arg1);
+            e.ayx.setSize(message.arg2);
+            e.ayx.setStatus(1);
+            if (e.ayx.getCallback() != null) {
+                e.ayx.getCallback().onFileUpdateProgress(e.ayx);
             }
         }
     }

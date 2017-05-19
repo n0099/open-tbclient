@@ -2,7 +2,6 @@ package com.baidu.adp.a.a;
 
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -18,7 +17,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static int nI = 0;
+    private static int nJ = 0;
 
     private static String a(String str, Object obj, List list) {
         StringBuffer stringBuffer = new StringBuffer("");
@@ -31,9 +30,9 @@ public class b {
             }
             while (cls != null && c(cls)) {
                 if (!cls.getSimpleName().equals("Object")) {
-                    nI++;
+                    nJ++;
                     a(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    nI--;
+                    nJ--;
                 }
                 cls = cls.getSuperclass();
             }
@@ -45,7 +44,7 @@ public class b {
     }
 
     private static boolean c(Class<?> cls) {
-        for (String str : new String[]{"activity", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, "listener", "view", "drawable"}) {
+        for (String str : new String[]{"activity", "content", "listener", "view", "drawable"}) {
             if (cls.getSimpleName().toLowerCase().endsWith(str)) {
                 return false;
             }
@@ -64,7 +63,7 @@ public class b {
 
     private static String cl() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < nI; i++) {
+        for (int i = 0; i < nJ; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -231,7 +230,7 @@ public class b {
 
     public static void i(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (d.nT) {
+        if (d.nU) {
             stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(h("", obj));
             stringBuffer.append("----------------------------------------------------------\n");

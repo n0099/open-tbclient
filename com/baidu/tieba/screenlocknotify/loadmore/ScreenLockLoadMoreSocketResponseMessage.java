@@ -3,7 +3,7 @@ package com.baidu.tieba.screenlocknotify.loadmore;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetMoreMsg.GetMoreMsgResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMessage {
     private a loadMoreData;
 

@@ -23,7 +23,7 @@ class e implements View.OnClickListener {
                 return;
             }
             b bVar = (b) view.getTag();
-            AlaUserInfoData alaUserInfoData = bVar.QS;
+            AlaUserInfoData alaUserInfoData = bVar.Qj;
             if (alaUserInfoData != null) {
                 AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                 if (alaUserInfoData.anchor_live != 0) {
@@ -48,7 +48,7 @@ class e implements View.OnClickListener {
                         TiebaStatic.log(new as("c11852").aa(SapiAccountManager.SESSION_UID, currentAccount));
                         break;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, new AlaLiveRoomActivityConfig(view.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT, null, false)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, new AlaLiveRoomActivityConfig(view.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT, (String) null, false, "")));
             }
         }
     }

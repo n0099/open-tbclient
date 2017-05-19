@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import com.baidu.android.pushservice.PushConstants;
 import com.squareup.wire.UnknownFieldMap;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -147,7 +148,7 @@ public abstract class Message {
             TYPES_BY_NAME.put("enum", ENUM);
             TYPES_BY_NAME.put("string", STRING);
             TYPES_BY_NAME.put("bytes", BYTES);
-            TYPES_BY_NAME.put("message", MESSAGE);
+            TYPES_BY_NAME.put(PushConstants.EXTRA_PUSH_MESSAGE, MESSAGE);
             TYPES_BY_NAME.put("fixed32", FIXED32);
             TYPES_BY_NAME.put("sfixed32", SFIXED32);
             TYPES_BY_NAME.put("fixed64", FIXED64);

@@ -1,9 +1,21 @@
 package com.baidu.tieba.recapp;
+
+import android.view.View;
 /* loaded from: classes.dex */
 public interface q {
-    void baF();
+    long getCurrentPosition();
 
-    void baG();
+    String getPlayUrl();
 
-    int baH();
+    View getVideoContainer();
+
+    boolean isPlayStarted();
+
+    boolean isPlaying();
+
+    void release();
+
+    void startPlay();
+
+    void stopPlay();
 }

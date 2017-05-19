@@ -3,14 +3,14 @@ package com.baidu.tieba.imMessageCenter.chatmessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChatMessageActivityConfig;
 import com.baidu.tbadk.core.util.bb;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ChatMessageActivityStatic {
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(ChatMessageActivityConfig.class, ChatMessageActivity.class);
-        Kk();
+        Jy();
     }
 
-    private static void Kk() {
-        bb.wn().a(new b());
+    private static void Jy() {
+        bb.vB().a(new b());
     }
 }

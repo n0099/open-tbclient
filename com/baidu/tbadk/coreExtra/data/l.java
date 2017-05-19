@@ -1,8 +1,8 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class l {
-    private String apm;
-    private EmotionGroupType apn;
+    private String aps;
+    private EmotionGroupType apt;
     private int height;
     private String name;
     private String pname;
@@ -16,28 +16,28 @@ public class l {
         this.name = str;
     }
 
-    public EmotionGroupType yy() {
-        return this.apn;
+    public EmotionGroupType xM() {
+        return this.apt;
     }
 
     public void a(EmotionGroupType emotionGroupType) {
-        this.apn = emotionGroupType;
+        this.apt = emotionGroupType;
     }
 
-    public String yz() {
+    public String xN() {
         return this.pname;
     }
 
-    public void ee(String str) {
+    public void ed(String str) {
         this.pname = str;
     }
 
     public String getPid() {
-        return this.apm;
+        return this.aps;
     }
 
-    public void ef(String str) {
-        this.apm = str;
+    public void ee(String str) {
+        this.aps = str;
     }
 
     public int getWidth() {

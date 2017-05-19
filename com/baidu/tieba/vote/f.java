@@ -4,8 +4,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.widget.vote.a {
-    private String aem;
-    private long ayb;
+    private String adE;
+    private long axY;
     private boolean isSelected = false;
     private int mId;
     private int mPercent;
@@ -13,25 +13,25 @@ public class f implements com.baidu.tbadk.widget.vote.a {
 
     public f(int i, String str, String str2, long j) {
         this.mId = i;
-        this.aem = str;
+        this.adE = str;
         this.mUrl = str2;
-        this.ayb = j;
+        this.axY = j;
     }
 
     public void setSelected(boolean z) {
         this.isSelected = z;
     }
 
-    public void ch(int i) {
+    public void cf(int i) {
         this.mPercent = i;
     }
 
     public void setNum(long j) {
-        this.ayb = j;
+        this.axY = j;
     }
 
     public long getNum() {
-        return this.ayb;
+        return this.axY;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -40,8 +40,8 @@ public class f implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String CR() {
-        return this.aem;
+    public String BW() {
+        return this.adE;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -50,27 +50,27 @@ public class f implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String CS() {
-        return String.valueOf(this.ayb) + TbadkCoreApplication.m9getInst().getString(w.l.vote_unit);
+    public String BX() {
+        return String.valueOf(this.axY) + TbadkCoreApplication.m9getInst().getString(w.l.vote_unit);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String CT() {
+    public String BY() {
         return String.valueOf(this.mPercent) + TbadkCoreApplication.m9getInst().getString(w.l.vote_percent);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int CU() {
+    public int BZ() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int CV() {
+    public int Ca() {
         return this.mPercent;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String CW() {
+    public String Cb() {
         return this.mUrl;
     }
 }

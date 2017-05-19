@@ -29,7 +29,7 @@ public class e extends a {
                 if (fVar2 == null) {
                     return null;
                 }
-                sk((int) (30.0f + ((50.0f * i3) / size)));
+                sc((int) (30.0f + ((50.0f * i3) / size)));
                 if (!StringUtils.isNull(fVar2.videoUrl) || fVar2.errorNo != 0) {
                     return fVar2;
                 }

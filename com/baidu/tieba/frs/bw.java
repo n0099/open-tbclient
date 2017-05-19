@@ -1,23 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public class bw {
-    private static bw bSh = new bw();
-    private SparseArray<bx> bSg = new SparseArray<>();
+public interface bw {
+    void K(Intent intent);
 
-    private bw() {
-    }
+    void Xb();
 
-    public static bw abC() {
-        return bSh;
-    }
+    void Zg();
 
-    public void a(int i, bx bxVar) {
-        this.bSg.put(i, bxVar);
-    }
+    void Zh();
 
-    public bx ia(int i) {
-        return this.bSg.get(i);
-    }
+    void Zu();
+
+    ForumWriteData Zv();
+
+    void setHeaderViewHeight(int i);
+
+    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.t tVar);
+
+    void ww();
 }

@@ -7,72 +7,72 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private final NewWriteModel.d aBg = new b(this);
-    private final c fOU;
-    private final NewWriteModel fOX;
+    private final NewWriteModel.d aBf = new b(this);
+    private final c fLH;
+    private final NewWriteModel fLK;
 
     public a(c cVar, NewWriteModel newWriteModel) {
-        this.fOU = cVar;
-        this.fOX = newWriteModel;
-        newWriteModel.b(this.aBg);
+        this.fLH = cVar;
+        this.fLK = newWriteModel;
+        newWriteModel.b(this.aBf);
     }
 
-    public boolean qV(String str) {
-        if (this.fOU == null || str == null) {
+    public boolean qP(String str) {
+        if (this.fLH == null || str == null) {
             return false;
         }
         if (str.equals("http://tieba.baidu.com/account/access/cancel")) {
-            this.fOU.getContext().finish();
+            this.fLH.getContext().finish();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/input_focus")) {
-            this.fOU.t(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-            if (this.fOU.bog() != this.fOU.bm()) {
-                this.fOU.setRatio(this.fOU.bog());
-                this.fOU.boh();
+            this.fLH.s(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
+            if (this.fLH.blM() != this.fLH.bm()) {
+                this.fLH.setRatio(this.fLH.blM());
+                this.fLH.blN();
             }
-            this.fOU.getWebView().setVisibility(0);
+            this.fLH.getWebView().setVisibility(0);
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/valid_success")) {
-            bof();
+            blL();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/feedback") || str.equals("https://tieba.baidu.com/account/access/feedback")) {
-            this.fOU.getContext().finish();
-            bb.wn().c(this.fOU.getContext().getPageContext(), new String[]{"feedback:"});
+            this.fLH.getContext().finish();
+            bb.vB().c(this.fLH.getContext().getPageContext(), new String[]{"feedback:"});
             return true;
         } else {
             return true;
         }
     }
 
-    public void boe() {
-        if (this.fOU != null) {
-            this.fOU.showWebViewDelay(500);
+    public void blK() {
+        if (this.fLH != null) {
+            this.fLH.showWebViewDelay(500);
         }
     }
 
     public void start(String str) {
-        if (this.fOU != null) {
-            this.fOU.showWebLoadingView(true);
-            this.fOU.showWebView(false);
-            this.fOU.getWebView().loadUrl(str);
+        if (this.fLH != null) {
+            this.fLH.showWebLoadingView(true);
+            this.fLH.showWebView(false);
+            this.fLH.getWebView().loadUrl(str);
         }
     }
 
     public void onPostThreadCancle() {
-        if (this.fOU != null) {
-            this.fOU.showPostThreadLoadingView(false);
+        if (this.fLH != null) {
+            this.fLH.showPostThreadLoadingView(false);
         }
     }
 
-    private void bof() {
-        if (this.fOU != null && this.fOX != null) {
+    private void blL() {
+        if (this.fLH != null && this.fLK != null) {
             if (!k.hB()) {
-                this.fOU.getContext().showToast(w.l.neterror);
-                this.fOU.getContext().finish();
+                this.fLH.getContext().showToast(w.l.neterror);
+                this.fLH.getContext().finish();
                 return;
             }
-            this.fOU.showPostThreadLoadingView(true);
-            this.fOX.startPostWrite();
+            this.fLH.showPostThreadLoadingView(true);
+            this.fLK.startPostWrite();
         }
     }
 }

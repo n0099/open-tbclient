@@ -15,7 +15,7 @@ import tbclient.RecommendForumInfo;
 public class forumRecommendSocketResponseMessage extends SocketResponsedMessage {
     private List<Banner> banner;
     private List<FrequentlyForumInfo> frequently_forum_info;
-    private com.baidu.tieba.enterForum.b.d hotSearchInfo;
+    private com.baidu.tieba.enterForum.b.f hotSearchInfo;
     private Integer is_login;
     private Integer is_mem;
     private List<LikeForum> like_forum;
@@ -80,7 +80,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         return this.recommend_forum_info;
     }
 
-    public com.baidu.tieba.enterForum.b.d getHotSearchInfoData() {
+    public com.baidu.tieba.enterForum.b.f getHotSearchInfoData() {
         return this.hotSearchInfo;
     }
 
@@ -114,7 +114,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
                 this.new_banner_info = forumRecommendResIdl.data.new_banner_info;
                 this.frequently_forum_info = forumRecommendResIdl.data.frequently_forum_info;
                 if (forumRecommendResIdl.data.hot_search != null) {
-                    this.hotSearchInfo = new com.baidu.tieba.enterForum.b.d();
+                    this.hotSearchInfo = new com.baidu.tieba.enterForum.b.f();
                     this.hotSearchInfo.a(forumRecommendResIdl.data.hot_search);
                 }
             }
@@ -125,7 +125,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.c.a.tM().L("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).l(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+            com.baidu.tbadk.core.c.a.sZ().L("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).l(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
         }
     }
 }

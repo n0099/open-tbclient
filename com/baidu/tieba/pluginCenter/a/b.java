@@ -5,21 +5,21 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.w;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<String, com.baidu.tbadk.mvc.d.b> {
-    private TextView clZ;
+    private TextView ciW;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.clZ = (TextView) view.findViewById(w.h.text);
+        this.ciW = (TextView) view.findViewById(w.h.text);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
-    /* renamed from: oX */
+    /* renamed from: oV */
     public void E(String str) {
         super.E(str);
-        this.clZ.setText(str);
+        this.ciW.setText(str);
     }
 
     @Override // com.baidu.tieba.tbadkCore.q

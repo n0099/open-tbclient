@@ -1,66 +1,40 @@
 package com.baidu.tieba.card;
 
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
-import com.baidu.tbadk.core.message.HistoryMessage;
-import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
-import com.baidu.tieba.w;
+import android.content.Context;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends CustomMessageListener {
-    final /* synthetic */ e bud;
+public class g extends com.baidu.adp.base.f {
+    final /* synthetic */ d bun;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(e eVar, int i) {
-        super(i);
-        this.bud = eVar;
+    public g(d dVar) {
+        this.bun = dVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        HistoryMessage historyMessage;
-        com.baidu.tieba.tbadkCore.util.n nVar;
-        TextView textView;
-        TextView textView2;
-        PbHistoryCacheModel pbHistoryCacheModel;
-        PbHistoryCacheModel pbHistoryCacheModel2;
-        BdUniqueId bdUniqueId;
-        PbHistoryCacheModel pbHistoryCacheModel3;
-        if ((customResponsedMessage instanceof HistoryMessage) && (historyMessage = (HistoryMessage) customResponsedMessage) != null && historyMessage.Activity != null) {
-            com.baidu.tieba.myCollection.baseHistory.a aVar = new com.baidu.tieba.myCollection.baseHistory.a();
-            aVar.setThreadId(historyMessage.threadId);
-            aVar.setForumName(historyMessage.forumName);
-            aVar.mB(historyMessage.threadName);
-            aVar.mC(historyMessage.postID);
-            aVar.hQ(historyMessage.isHostOnly);
-            aVar.hR(historyMessage.isSquence);
-            aVar.setThreadType(historyMessage.threadType);
-            if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(PbHistoryActivityConfig.class)) {
-                pbHistoryCacheModel = this.bud.btX;
-                if (pbHistoryCacheModel == null) {
-                    this.bud.btX = new PbHistoryCacheModel(historyMessage.Activity.getPageContext());
-                }
-                pbHistoryCacheModel2 = this.bud.btX;
-                bdUniqueId = this.bud.bbE;
-                pbHistoryCacheModel2.setUniqueId(bdUniqueId);
-                pbHistoryCacheModel3 = this.bud.btX;
-                pbHistoryCacheModel3.a((PbHistoryCacheModel) aVar);
+    @Override // com.baidu.adp.base.f
+    public void g(Object obj) {
+        LikeModel likeModel;
+        LikeModel likeModel2;
+        LikeModel likeModel3;
+        LikeModel likeModel4;
+        if (obj instanceof com.baidu.tieba.tbadkCore.t) {
+            likeModel4 = this.bun.bue;
+            if (likeModel4.getErrorCode() == 0) {
+                return;
             }
-            nVar = this.bud.btY;
-            nVar.a(historyMessage.threadId, aVar);
-            at.hZ(historyMessage.threadId);
-            e eVar = this.bud;
-            textView = this.bud.mTitle;
-            eVar.j(textView, w.e.cp_cont_b);
-            e eVar2 = this.bud;
-            textView2 = this.bud.btU;
-            eVar2.j(textView2, w.e.cp_cont_c);
         }
+        likeModel = this.bun.bue;
+        if (AntiHelper.rV(likeModel.getErrorCode())) {
+            Context context = this.bun.getContext();
+            likeModel3 = this.bun.bue;
+            AntiHelper.aq(context, likeModel3.getErrorString());
+            return;
+        }
+        TbPageContext<?> tbPageContext = this.bun.getTbPageContext();
+        likeModel2 = this.bun.bue;
+        tbPageContext.showToast(likeModel2.getErrorString());
     }
 }

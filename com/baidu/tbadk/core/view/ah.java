@@ -1,75 +1,98 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import android.view.View;
+import android.graphics.drawable.AnimationDrawable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class ah implements View.OnClickListener {
-    final /* synthetic */ ThreadCommentAndPraiseInfoLayout ame;
+public class ah extends ae {
+    protected boolean alA;
+    private CustomMessageListener alB;
+    protected boolean isDone;
+    private CustomMessageListener listener;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
-        this.ame = threadCommentAndPraiseInfoLayout;
+    public ah(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
+        this.isDone = true;
+        this.listener = new ai(this, CmdConfigCustom.CMD_PULL_IMAGE_CHANGE);
+        this.alB = new aj(this, CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE);
+        d(tbPageContext);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0063  */
-    /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
-    @Override // android.view.View.OnClickListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onClick(View view) {
-        bi biVar;
-        bi biVar2;
-        String str;
-        Context context;
-        bi biVar3;
-        View.OnClickListener onClickListener;
-        View.OnClickListener onClickListener2;
-        String str2;
-        Context context2;
-        bi biVar4;
-        String str3;
-        String str4;
-        biVar = this.ame.aiC;
-        if (biVar != null) {
-            biVar2 = this.ame.aiC;
-            if (!StringUtils.isNull(biVar2.st())) {
-                str = this.ame.alY;
-                if (!StringUtils.isNull(str)) {
-                    str2 = this.ame.alZ;
-                    if (!StringUtils.isNull(str2)) {
-                        MessageManager messageManager = MessageManager.getInstance();
-                        context2 = this.ame.mContext;
-                        FrsActivityConfig frsActivityConfig = new FrsActivityConfig(context2);
-                        biVar4 = this.ame.aiC;
-                        String st = biVar4.st();
-                        str3 = this.ame.alY;
-                        str4 = this.ame.alZ;
-                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(st, str3, str4)));
-                        onClickListener = this.ame.ama;
-                        if (onClickListener == null) {
-                            onClickListener2 = this.ame.ama;
-                            onClickListener2.onClick(view);
-                            return;
-                        }
-                        return;
-                    }
+    @Override // com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d
+    public void T(boolean z) {
+        this.alk.setBackgroundDrawable(null);
+        super.T(z);
+        this.isDone = true;
+    }
+
+    @Override // com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d
+    public void S(boolean z) {
+        super.S(z);
+        this.isDone = false;
+        if (!this.alA) {
+            di(TbadkCoreApplication.m9getInst().getSkinType());
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d
+    public void lg() {
+        super.lg();
+        this.isDone = false;
+    }
+
+    @Override // com.baidu.tbadk.core.view.ae
+    public void di(int i) {
+        super.di(i);
+        if (this.alj != null && this.alk != null) {
+            this.alA = false;
+            if (!ve()) {
+                this.alp = com.baidu.tbadk.core.util.ai.uW().cE(i);
+                if (this.alp != null) {
+                    this.alA = true;
+                } else {
+                    this.alp = new AnimationDrawable();
                 }
-                MessageManager messageManager2 = MessageManager.getInstance();
-                context = this.ame.mContext;
-                FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(context);
-                biVar3 = this.ame.aiC;
-                messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig2.createNormalCfg(biVar3.st(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                onClickListener = this.ame.ama;
-                if (onClickListener == null) {
+                this.alj.setBackgroundColor(com.baidu.tbadk.core.util.ai.uW().cG(i));
+                if (!this.alA) {
+                    this.alp = com.baidu.tbadk.core.util.ai.uW().cF(i);
                 }
+                this.alp.setOneShot(false);
+                this.alk.setBackgroundDrawable(this.alp);
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d
+    public void U(boolean z) {
+        super.U(z);
+        setPadding(0, -getContext().getResources().getDimensionPixelSize(w.f.ds46), 0, 0);
+    }
+
+    private void d(TbPageContext<?> tbPageContext) {
+        this.listener.setTag(tbPageContext.getUniqueId());
+        this.alB.setTag(tbPageContext.getUniqueId());
+        tbPageContext.registerListener(this.listener);
+        tbPageContext.registerListener(this.alB);
+    }
+
+    public void setTag(BdUniqueId bdUniqueId) {
+        if (this.listener != null) {
+            this.listener.setTag(bdUniqueId);
+        }
+        if (this.alB != null) {
+            this.alB.setTag(bdUniqueId);
+        }
+        MessageManager.getInstance().registerListener(this.listener);
+        MessageManager.getInstance().registerListener(this.alB);
+    }
+
+    public void release() {
+        MessageManager.getInstance().unRegisterListener(this.listener);
+        MessageManager.getInstance().unRegisterListener(this.alB);
     }
 }

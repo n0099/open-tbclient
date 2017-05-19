@@ -1,13 +1,35 @@
 package com.baidu.tieba.enterForum.b;
-/* loaded from: classes.dex */
-public class f implements com.baidu.tbadk.mvc.b.a {
-    private int atz;
 
-    public f(int i) {
-        this.atz = i;
+import tbclient.ForumRecommend.HotSearch;
+/* loaded from: classes.dex */
+public class f {
+    private String bGr;
+    private long bGs;
+    private long mId;
+    private String mName;
+
+    public String VW() {
+        return this.bGr;
     }
 
-    public int getPosition() {
-        return this.atz;
+    public long VX() {
+        return this.bGs;
+    }
+
+    public long getId() {
+        return this.mId;
+    }
+
+    public String getName() {
+        return this.mName;
+    }
+
+    public void a(HotSearch hotSearch) {
+        if (hotSearch != null && hotSearch.search_value != null) {
+            this.bGr = hotSearch.search_title;
+            this.mId = hotSearch.search_value.id.longValue();
+            this.mName = hotSearch.search_value.name;
+            this.bGs = hotSearch.search_value.type.longValue();
+        }
     }
 }

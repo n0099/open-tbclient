@@ -5,13 +5,13 @@ import android.widget.TextView;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.tieba.pluginCenter.PluginDownloadActivity;
 import com.baidu.tieba.w;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ PluginDownloadActivity.a eXR;
+    final /* synthetic */ PluginDownloadActivity.a eTR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PluginDownloadActivity.a aVar) {
-        this.eXR = aVar;
+        this.eTR = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,15 +28,15 @@ class n implements View.OnClickListener {
             return;
         }
         pluginDownloadActivity = PluginDownloadActivity.this;
-        pluginDownloadActivity.eXH = true;
-        textView = this.eXR.eXL;
+        pluginDownloadActivity.eTH = true;
+        textView = this.eTR.eTL;
         textView.setVisibility(8);
-        textView2 = this.eXR.aXD;
+        textView2 = this.eTR.aXZ;
         textView2.setVisibility(8);
-        textView3 = this.eXR.dIU;
+        textView3 = this.eTR.dDr;
         textView3.setVisibility(0);
-        PluginPackageManager jy = PluginPackageManager.jy();
+        PluginPackageManager jx = PluginPackageManager.jx();
         pluginDownloadActivity2 = PluginDownloadActivity.this;
-        jy.a(pluginDownloadActivity2.eXE, new o(this));
+        jx.a(pluginDownloadActivity2.eTE, new o(this));
     }
 }

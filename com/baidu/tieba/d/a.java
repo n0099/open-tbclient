@@ -7,31 +7,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private TbPageContext ajU;
-    private boolean bDm;
-    private String bDn;
+    private TbPageContext ajr;
+    private boolean bDn;
+    private String bDo;
     private View jv;
     private String mMessage;
     private Handler mHandler = null;
-    private com.baidu.adp.lib.guide.d bDl = null;
-    private int bDo = w.g.pic_sign_tip;
-    private int bDp = 0;
-    private int bDq = 1;
-    private int bDr = 1000;
-    private int bDs = 3000;
-    private int akb = 5;
+    private com.baidu.adp.lib.guide.d bDm = null;
+    private int bDp = w.g.pic_sign_tip;
+    private int bDq = 0;
+    private int bDr = 1;
+    private int bDs = 1000;
+    private int bDt = 3000;
+    private int ajy = 5;
     private int mYOffset = 0;
-    private Runnable bjJ = new b(this);
-    private Runnable bDt = new d(this);
+    private Runnable bkg = new b(this);
+    private Runnable bDu = new d(this);
 
     public a(TbPageContext tbPageContext, View view) {
-        this.ajU = tbPageContext;
+        this.ajr = tbPageContext;
         this.jv = view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VH() {
-        com.baidu.tbadk.core.sharedPref.b.uL().putInt(this.bDn, this.bDp + 1);
+    public void Va() {
+        com.baidu.tbadk.core.sharedPref.b.tX().putInt(this.bDo, this.bDq + 1);
     }
 
     public void aD(String str, String str2) {
@@ -39,43 +39,47 @@ public class a {
     }
 
     public void f(String str, String str2, boolean z) {
-        if (!this.bDm && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.jv != null && this.jv.getVisibility() == 0) {
+        if (!this.bDn && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.jv != null && this.jv.getVisibility() == 0) {
             this.mMessage = str;
-            this.bDn = str2;
-            this.bDp = com.baidu.tbadk.core.sharedPref.b.uL().getInt(str2, 0);
-            if (this.bDp < this.bDq) {
+            this.bDo = str2;
+            this.bDq = com.baidu.tbadk.core.sharedPref.b.tX().getInt(str2, 0);
+            if (this.bDq < this.bDr) {
                 if (z) {
-                    VH();
-                    this.bDm = true;
+                    Va();
+                    this.bDn = true;
                 }
                 if (this.mHandler == null) {
                     this.mHandler = new Handler();
                 }
-                this.mHandler.postDelayed(this.bjJ, this.bDr);
+                this.mHandler.postDelayed(this.bkg, this.bDs);
             }
         }
     }
 
-    public void VI() {
-        if (this.bDl != null) {
-            this.bDl.dismiss();
-            this.bDl = null;
+    public void Vb() {
+        if (this.bDm != null) {
+            this.bDm.dismiss();
+            this.bDm = null;
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.bjJ);
-            this.mHandler.removeCallbacks(this.bDt);
+            this.mHandler.removeCallbacks(this.bkg);
+            this.mHandler.removeCallbacks(this.bDu);
         }
     }
 
-    public void he(int i) {
+    public void ha(int i) {
         if (i > 0) {
-            this.bDs = i;
+            this.bDt = i;
         }
     }
 
-    public void hf(int i) {
+    public void hb(int i) {
         if (i > 0) {
-            this.bDq = i;
+            this.bDr = i;
         }
+    }
+
+    public void hc(int i) {
+        this.ajy = i;
     }
 }

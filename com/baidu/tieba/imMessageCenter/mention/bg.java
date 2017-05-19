@@ -3,7 +3,8 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+/* loaded from: classes2.dex */
 class bg extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(int i) {
@@ -13,10 +14,12 @@ class bg extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (TbadkCoreApplication.isLogin()) {
-            ah.awm().awo();
-        } else {
-            ah.awm().destroy();
+        if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+            if (TbadkCoreApplication.isLogin()) {
+                ai.ath().start();
+            } else {
+                ai.ath().destroy();
+            }
         }
     }
 }

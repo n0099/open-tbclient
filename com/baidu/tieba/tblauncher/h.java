@@ -1,24 +1,28 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Intent;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.w;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements a.b {
+public class h implements View.OnClickListener {
+    private final /* synthetic */ LinearLayout fyS;
+    private final /* synthetic */ TbImageView fyT;
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(MainTabActivity mainTabActivity) {
+    public h(MainTabActivity mainTabActivity, LinearLayout linearLayout, TbImageView tbImageView) {
         this.this$0 = mainTabActivity;
+        this.fyS = linearLayout;
+        this.fyT = tbImageView;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        try {
-            this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-            aVar.dismiss();
-        } catch (Exception e) {
-            this.this$0.showToast(w.l.goto_developActivity_error_toast);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PopupWindow popupWindow;
+        MainTabActivity mainTabActivity = this.this$0;
+        popupWindow = this.this$0.ajs;
+        mainTabActivity.a(popupWindow, this.fyS, this.fyT);
     }
 }

@@ -1,44 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.pb.pb.main.di;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dj extends CustomMessageListener {
-    final /* synthetic */ PbModel eox;
+public class dj extends HttpMessageListener {
+    final /* synthetic */ di ejb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dj(PbModel pbModel, int i) {
+    public dj(di diVar, int i) {
         super(i);
-        this.eox = pbModel;
+        this.ejb = diVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        BdUniqueId bdUniqueId;
-        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage;
-        com.baidu.tieba.pb.data.f pbData;
-        PbModel.a aVar;
-        this.eox.eoh = true;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
-            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.eox.unique_id;
-            if (tag != bdUniqueId || (pbData = (pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage).getPbData()) == null) {
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        di.a aVar;
+        di.a aVar2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
+            if (httpResponsedMessage.getStatusCode() != 200) {
+                aVar = this.ejb.ehs;
+                aVar.i(-1, null, null);
                 return;
             }
-            this.eox.i(pbData);
-            this.eox.d(pbData);
-            if (pbData.aKy() != null) {
-                pbData.aKy().bR(0);
+            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
+            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
+            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
+            String tid = applyCopyThreadResponseMessage.getTid();
+            if (errorCode == 0) {
+                errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
             }
-            aVar = this.eox.enX;
-            if (aVar != null && pbData != null) {
-                com.baidu.adp.lib.g.h.fS().post(new dk(this, pbPageReadLocalResponseMessage, pbData));
-            }
+            aVar2 = this.ejb.ehs;
+            aVar2.i(errorCode, errorMessage, tid);
         }
     }
 }

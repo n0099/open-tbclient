@@ -1,31 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cg extends CustomMessageListener {
-    final /* synthetic */ PbActivity emk;
+public class cg implements a.b {
+    final /* synthetic */ PbActivity ehy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cg(PbActivity pbActivity, int i) {
-        super(i);
-        this.emk = pbActivity;
+    public cg(PbActivity pbActivity) {
+        this.ehy = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ey eyVar;
-        ey eyVar2;
-        ey eyVar3;
-        eyVar = this.emk.eli;
-        if (eyVar != null) {
-            eyVar2 = this.emk.eli;
-            if (eyVar2.aOh() != null) {
-                eyVar3 = this.emk.eli;
-                eyVar3.aOh().notifyDataSetChanged();
-            }
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

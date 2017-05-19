@@ -14,13 +14,13 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class n extends BaseAdapter {
-    private ArrayList<MetaData> abo;
-    private TbCheckBox.a dli;
-    private AtListActivity fTb;
-    private boolean fTd;
+    private ArrayList<MetaData> aaJ;
+    private TbCheckBox.a dfl;
+    private AtListActivity fRf;
+    private boolean fRh;
     private final Context mContext;
-    private b fTc = null;
-    private ViewGroup cHu = null;
+    private b fRg = null;
+    private ViewGroup dfn = null;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,40 +29,40 @@ public class n extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.fTc = bVar;
+        this.fRg = bVar;
     }
 
     public n(AtListActivity atListActivity, boolean z) {
-        this.fTd = true;
-        this.fTb = atListActivity;
-        this.mContext = this.fTb.getPageContext().getContext();
-        this.fTd = z;
+        this.fRh = true;
+        this.fRf = atListActivity;
+        this.mContext = this.fRf.getPageContext().getContext();
+        this.fRh = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setData(ArrayList<MetaData> arrayList) {
-        this.abo = arrayList;
+        this.aaJ = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(TbCheckBox.a aVar) {
-        this.dli = aVar;
+        this.dfl = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.abo == null) {
+        if (this.aaJ == null) {
             return 0;
         }
-        return this.abo.size();
+        return this.aaJ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tm */
+    /* renamed from: tj */
     public MetaData getItem(int i) {
-        if (this.abo != null && i < this.abo.size()) {
-            return this.abo.get(i);
+        if (this.aaJ != null && i < this.aaJ.size()) {
+            return this.aaJ.get(i);
         }
         return null;
     }
@@ -75,8 +75,8 @@ public class n extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        if (this.cHu == null) {
-            this.cHu = viewGroup;
+        if (this.dfn == null) {
+            this.dfn = viewGroup;
         }
         MetaData item = getItem(i);
         if (item != null) {
@@ -94,37 +94,37 @@ public class n extends BaseAdapter {
         a aVar;
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
         if (obj == null) {
-            aVar = bpT();
+            aVar = bnV();
         } else {
             aVar = (a) obj;
         }
-        if (this.fTc != null) {
-            this.fTc.a(aVar.rootView, metaData);
+        if (this.fRg != null) {
+            this.fRg.a(aVar.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
-        aVar.bux.setText(metaData.getName_show());
-        aVar.dll.setTagData(metaData);
-        aVar.dkS.setTag(portrait);
-        if (this.fTd) {
-            aVar.dll.setVisibility(0);
+        aVar.but.setText(metaData.getName_show());
+        aVar.dfp.setTagData(metaData);
+        aVar.deV.setTag(portrait);
+        if (this.fRh) {
+            aVar.dfp.setVisibility(0);
         } else {
-            aVar.dll.setVisibility(8);
+            aVar.dfp.setVisibility(8);
         }
-        aVar.dkS.c(portrait, 12, false);
-        this.fTb.getPageContext().getLayoutMode().aj(skinType == 1);
-        this.fTb.getPageContext().getLayoutMode().t(aVar.rootView);
+        aVar.deV.c(portrait, 12, false);
+        this.fRf.getPageContext().getLayoutMode().ai(skinType == 1);
+        this.fRf.getPageContext().getLayoutMode().t(aVar.rootView);
         return aVar;
     }
 
-    private a bpT() {
+    private a bnV() {
         a aVar = new a(this, null);
         aVar.rootView = LayoutInflater.from(this.mContext).inflate(w.j.invite_friend_list_item, (ViewGroup) null);
-        aVar.dkS = (HeadImageView) aVar.rootView.findViewById(w.h.photo);
-        aVar.dkS.setIsRound(false);
-        aVar.bux = (TextView) aVar.rootView.findViewById(w.h.txt_user_name);
-        aVar.dll = (TbCheckBox) aVar.rootView.findViewById(w.h.ckb_select);
-        if (this.dli != null) {
-            aVar.dll.setStatedChangedListener(this.dli);
+        aVar.deV = (HeadImageView) aVar.rootView.findViewById(w.h.photo);
+        aVar.deV.setIsRound(false);
+        aVar.but = (TextView) aVar.rootView.findViewById(w.h.txt_user_name);
+        aVar.dfp = (TbCheckBox) aVar.rootView.findViewById(w.h.ckb_select);
+        if (this.dfl != null) {
+            aVar.dfp.setStatedChangedListener(this.dfl);
         }
         aVar.rootView.setTag(aVar);
         return aVar;
@@ -133,9 +133,9 @@ public class n extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public TextView bux;
-        public HeadImageView dkS;
-        public TbCheckBox dll;
+        public TextView but;
+        public HeadImageView deV;
+        public TbCheckBox dfp;
         public View rootView;
 
         private a() {

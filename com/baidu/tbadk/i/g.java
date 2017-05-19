@@ -15,16 +15,16 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        int EW;
+        int Ea;
         TextView textView;
         String[] strArr;
         Runnable runnable;
-        EW = this.aDN.EW();
-        textView = this.aDN.avF;
-        strArr = this.aDN.aDK;
-        textView.setText(strArr[EW]);
+        Ea = this.aDN.Ea();
+        textView = this.aDN.avJ;
+        strArr = this.aDN.aDJ;
+        textView.setText(strArr[Ea]);
         Handler handler = TbadkCoreApplication.m9getInst().handler;
-        runnable = this.aDN.IL;
+        runnable = this.aDN.aDM;
         handler.postDelayed(runnable, 200L);
     }
 }

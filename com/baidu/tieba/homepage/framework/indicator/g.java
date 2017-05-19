@@ -1,22 +1,21 @@
 package com.baidu.tieba.homepage.framework.indicator;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class g implements com.baidu.tbadk.util.f<String> {
-    final /* synthetic */ a cwV;
-    private final /* synthetic */ com.baidu.tieba.homepage.framework.x cwW;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(a aVar, com.baidu.tieba.homepage.framework.x xVar) {
-        this.cwV = aVar;
-        this.cwW = xVar;
+import android.os.Parcel;
+import android.os.Parcelable;
+import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
+/* loaded from: classes.dex */
+class g implements Parcelable.Creator<PagerSlidingTabStrip.SavedState> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: h */
+    public PagerSlidingTabStrip.SavedState createFromParcel(Parcel parcel) {
+        return new PagerSlidingTabStrip.SavedState(parcel, null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.f
-    /* renamed from: jE */
-    public void onReturnDataInUI(String str) {
-        if (this.cwW != null) {
-            this.cwW.jL(com.baidu.adp.lib.g.b.g(str, 0));
-        }
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: jK */
+    public PagerSlidingTabStrip.SavedState[] newArray(int i) {
+        return new PagerSlidingTabStrip.SavedState[i];
     }
 }

@@ -3,13 +3,13 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class k implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ f dkg;
+    final /* synthetic */ f dei;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar) {
-        this.dkg = fVar;
+        this.dei = fVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -19,14 +19,14 @@ class k implements AdapterView.OnItemLongClickListener {
         if (i < 0) {
             return false;
         }
-        f fVar = this.dkg;
-        imMessageCenterListAdapter = this.dkg.djX;
-        fVar.djV = imMessageCenterListAdapter.getItem(i);
-        f fVar2 = this.dkg;
-        imMessageCenterShowItemData = this.dkg.djV;
+        f fVar = this.dei;
+        imMessageCenterListAdapter = this.dei.ddZ;
+        fVar.ddX = imMessageCenterListAdapter.getItem(i);
+        f fVar2 = this.dei;
+        imMessageCenterShowItemData = this.dei.ddX;
         fVar2.c(imMessageCenterShowItemData);
-        if (this.dkg.dka != null) {
-            this.dkg.dka.tT();
+        if (this.dei.dec != null) {
+            this.dei.dec.tg();
         }
         return true;
     }

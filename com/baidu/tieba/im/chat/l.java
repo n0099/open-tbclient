@@ -8,11 +8,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements AbsListView.RecyclerListener {
-    final /* synthetic */ AbsMsglistView cOT;
+    final /* synthetic */ AbsMsglistView cIW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(AbsMsglistView absMsglistView) {
-        this.cOT = absMsglistView;
+        this.cIW = absMsglistView;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

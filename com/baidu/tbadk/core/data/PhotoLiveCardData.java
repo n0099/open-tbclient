@@ -31,7 +31,7 @@ public class PhotoLiveCardData implements Serializable {
     private long lastModifiedTime;
     private String liveCoverSrcBsize;
     private String nickName;
-    private com.baidu.tbadk.data.j pendantData;
+    private com.baidu.tbadk.data.i pendantData;
     private int postNum;
     private int praiseNum;
     private String refreshTime;
@@ -132,11 +132,11 @@ public class PhotoLiveCardData implements Serializable {
 
     @Deprecated
     public String buildRefreshTime() {
-        return String.valueOf(com.baidu.tbadk.core.util.au.q(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m9getInst().getString(w.l.update_floor_num, new Object[]{com.baidu.tbadk.core.util.au.w(this.postNum)});
+        return String.valueOf(com.baidu.tbadk.core.util.au.q(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m9getInst().getString(w.l.update_floor_num, new Object[]{com.baidu.tbadk.core.util.au.x(this.postNum)});
     }
 
     public String buildRefreshTimeWithPostNum() {
-        return String.valueOf(com.baidu.tbadk.core.util.au.q(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m9getInst().getString(w.l.update_floor_num, new Object[]{com.baidu.tbadk.core.util.au.w(this.postNum)});
+        return String.valueOf(com.baidu.tbadk.core.util.au.q(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m9getInst().getString(w.l.update_floor_num, new Object[]{com.baidu.tbadk.core.util.au.x(this.postNum)});
     }
 
     public String buildRefreshTimeWithoutPostNum() {
@@ -196,10 +196,10 @@ public class PhotoLiveCardData implements Serializable {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf("live") + "space" + ((Object) charSequence));
-        Bitmap cO = com.baidu.tbadk.core.util.aq.cO(w.g.icon_zhibo);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cO);
-        int height = cO.getHeight();
-        bitmapDrawable.setBounds(0, 0, cO.getWidth(), height);
+        Bitmap cL = com.baidu.tbadk.core.util.aq.cL(w.g.icon_zhibo);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cL);
+        int height = cL.getHeight();
+        bitmapDrawable.setBounds(0, 0, cL.getWidth(), height);
         spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), 0, "live".length(), 33);
         ColorDrawable colorDrawable = new ColorDrawable();
         colorDrawable.setBounds(0, 0, 10, height);
@@ -280,16 +280,16 @@ public class PhotoLiveCardData implements Serializable {
                 this.authorPortrait = zhiBoInfoTW.user.portrait;
                 this.nickName = zhiBoInfoTW.user.fans_nickname;
                 this.fansNum = zhiBoInfoTW.user.fans_num.intValue();
-                com.baidu.tbadk.data.j jVar = new com.baidu.tbadk.data.j();
-                jVar.a(zhiBoInfoTW.user.pendant);
-                this.pendantData = jVar;
+                com.baidu.tbadk.data.i iVar = new com.baidu.tbadk.data.i();
+                iVar.a(zhiBoInfoTW.user.pendant);
+                this.pendantData = iVar;
             }
             if (zhiBoInfoTW.labelInfo != null) {
                 int size = zhiBoInfoTW.labelInfo.size();
                 for (int i = 0; i < size; i++) {
                     if (zhiBoInfoTW.labelInfo.get(i) != null) {
                         com.baidu.tbadk.coreExtra.view.n nVar = new com.baidu.tbadk.coreExtra.view.n();
-                        nVar.eh(zhiBoInfoTW.labelInfo.get(i).labelHot.intValue());
+                        nVar.ef(zhiBoInfoTW.labelInfo.get(i).labelHot.intValue());
                         nVar.setLabelId(zhiBoInfoTW.labelInfo.get(i).labelId);
                         nVar.setLabelName(zhiBoInfoTW.labelInfo.get(i).labelContent);
                         this.expressionList.add(nVar);
@@ -373,11 +373,11 @@ public class PhotoLiveCardData implements Serializable {
         return this.isShowDiffViewInSameAdapter;
     }
 
-    public com.baidu.tbadk.data.j getPendantData() {
+    public com.baidu.tbadk.data.i getPendantData() {
         return this.pendantData;
     }
 
-    public void setUserPendantData(com.baidu.tbadk.data.j jVar) {
-        this.pendantData = jVar;
+    public void setUserPendantData(com.baidu.tbadk.data.i iVar) {
+        this.pendantData = iVar;
     }
 }

@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
-    private String Ww;
-    private int aNk;
-    private String aNl;
-    private int aNm;
-    private int aNn;
+    private String VP;
+    private int aNB;
+    private String aNC;
+    private int aND;
+    private int aNE;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class e {
     public void a(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.Ww = pbContent.src;
+            this.VP = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aNk = pbContent.e_type.intValue();
-            this.aNl = pbContent.text;
+            this.aNB = pbContent.e_type.intValue();
+            this.aNC = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aNm = pbContent.count.intValue();
-            this.aNn = pbContent.origin_size.intValue();
+            this.aND = pbContent.count.intValue();
+            this.aNE = pbContent.origin_size.intValue();
         }
     }
 
@@ -32,8 +32,8 @@ public class e {
         return this.videoUrl;
     }
 
-    public String qP() {
-        return this.Ww;
+    public String qc() {
+        return this.VP;
     }
 
     public int getWidth() {
@@ -44,23 +44,23 @@ public class e {
         return this.height;
     }
 
-    public String IY() {
-        return this.aNl;
+    public String Im() {
+        return this.aNC;
     }
 
-    public boolean IZ() {
-        return this.aNk == 15;
+    public boolean In() {
+        return this.aNB == 15;
     }
 
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 
-    public int Ja() {
-        return this.aNm;
+    public int Io() {
+        return this.aND;
     }
 
-    public void fz(int i) {
-        this.aNm = i;
+    public void fw(int i) {
+        this.aND = i;
     }
 }

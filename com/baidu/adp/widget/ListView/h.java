@@ -18,7 +18,7 @@ public class h implements Runnable {
         iVar = this.Ih.mPullRefresh;
         if (iVar != null) {
             iVar2 = this.Ih.mPullRefresh;
-            iVar2.lr();
+            iVar2.lq();
         }
     }
 }

@@ -5,12 +5,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ b ads;
+    final /* synthetic */ b acN;
     private final /* synthetic */ Uri val$uri;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar, Uri uri) {
-        this.ads = bVar;
+        this.acN = bVar;
         this.val$uri = uri;
     }
 
@@ -18,7 +18,7 @@ public class d extends BdAsyncTask<Void, Void, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        this.ads.e(this.val$uri);
+        this.acN.e(this.val$uri);
         return null;
     }
 }

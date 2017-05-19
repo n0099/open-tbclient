@@ -1,19 +1,22 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.frs.r;
 /* loaded from: classes.dex */
-class aq extends CustomMessageListener {
+class aq implements Runnable {
+    final /* synthetic */ r.a bPq;
+    private final /* synthetic */ String bPr;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(int i) {
-        super(i);
+    public aq(r.a aVar, String str) {
+        this.bPq = aVar;
+        this.bPr = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getCmd() == 2016501 && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            com.baidu.tieba.frs.smartsort.e.aem().aeo();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.util.z zVar = new com.baidu.tbadk.core.util.z(this.bPr);
+        zVar.uJ().vD().mIsNeedAddCommenParam = false;
+        zVar.uJ().vD().mIsUseCurrentBDUSS = false;
+        zVar.um();
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.play;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class s implements Animation.AnimationListener {
-    final /* synthetic */ c eWq;
+    final /* synthetic */ c eSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(c cVar) {
-        this.eWq = cVar;
+        this.eSq = cVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener

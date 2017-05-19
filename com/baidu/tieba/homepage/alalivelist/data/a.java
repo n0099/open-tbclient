@@ -1,36 +1,32 @@
 package com.baidu.tieba.homepage.alalivelist.data;
 
-import com.baidu.tbadk.mvc.b.e;
-import com.baidu.tieba.homepage.alalivelist.model.RecommendAlaLiveCacheModel;
+import com.baidu.tbadk.mvc.b.h;
+import com.baidu.tbadk.util.o;
+import java.util.HashMap;
+import tbclient.AlaTab.AlaTabReqIdl;
+import tbclient.AlaTab.DataReq;
 /* loaded from: classes.dex */
-public class a implements e {
-    private long cvK;
+public class a implements h {
+    private int pn;
 
-    public a(long j) {
-        this.cvK = j;
+    @Override // com.baidu.tbadk.mvc.b.g
+    public HashMap<String, Object> En() {
+        return null;
     }
 
-    public long ajs() {
-        return this.cvK;
+    @Override // com.baidu.tbadk.mvc.b.k
+    public Object bQ(boolean z) {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.pn = Integer.valueOf(getPn());
+        if (z) {
+            o.bindCommonParamsToProtobufData(builder, true);
+        }
+        AlaTabReqIdl.Builder builder2 = new AlaTabReqIdl.Builder();
+        builder2.data = builder.build(false);
+        return builder2.build(false);
     }
 
-    @Override // com.baidu.tbadk.mvc.b.d
-    public String getCacheKey() {
-        return new StringBuilder(String.valueOf(this.cvK)).toString();
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public String Fg() {
-        return RecommendAlaLiveCacheModel.TABLE_NAME;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Fh() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean isNeedUid() {
-        return false;
+    public int getPn() {
+        return this.pn;
     }
 }

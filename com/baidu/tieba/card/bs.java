@@ -1,43 +1,60 @@
 package com.baidu.tieba.card;
 
-import android.text.TextPaint;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.widget.TextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bs extends com.baidu.tieba.view.q {
-    final /* synthetic */ br bwI;
+public class bs extends CustomMessageListener {
+    final /* synthetic */ bp bwH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(br brVar) {
-        this.bwI = brVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bs(bp bpVar, int i) {
+        super(i);
+        this.bwH = bpVar;
     }
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         CardPersonDynamicThreadData cardPersonDynamicThreadData;
         CardPersonDynamicThreadData cardPersonDynamicThreadData2;
+        TextView textView;
+        TextView textView2;
         CardPersonDynamicThreadData cardPersonDynamicThreadData3;
-        cardPersonDynamicThreadData = this.bwI.bwv;
-        if (cardPersonDynamicThreadData != null) {
-            cardPersonDynamicThreadData2 = this.bwI.bwv;
-            if (!StringUtils.isNull(cardPersonDynamicThreadData2.forumName)) {
-                MessageManager messageManager = MessageManager.getInstance();
-                FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.bwI.mContext);
-                cardPersonDynamicThreadData3 = this.bwI.bwv;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createNormalCfg(cardPersonDynamicThreadData3.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
+        boolean Te;
+        TextView textView3;
+        CardPersonDynamicThreadData cardPersonDynamicThreadData4;
+        TextView textView4;
+        CardPersonDynamicThreadData cardPersonDynamicThreadData5;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+            cardPersonDynamicThreadData = this.bwH.bww;
+            if (cardPersonDynamicThreadData != null) {
+                cardPersonDynamicThreadData2 = this.bwH.bww;
+                if (cardPersonDynamicThreadData2.threadId != null) {
+                    textView = this.bwH.mTitle;
+                    if (textView != null) {
+                        textView2 = this.bwH.bwB;
+                        if (textView2 != null) {
+                            cardPersonDynamicThreadData3 = this.bwH.bww;
+                            if (((String) customResponsedMessage.getData()).equals(cardPersonDynamicThreadData3.threadId)) {
+                                Te = this.bwH.Te();
+                                if (!Te) {
+                                    textView3 = this.bwH.mTitle;
+                                    cardPersonDynamicThreadData4 = this.bwH.bww;
+                                    ap.a(textView3, cardPersonDynamicThreadData4.threadId, w.e.cp_cont_b, w.e.cp_cont_d);
+                                    textView4 = this.bwH.bwB;
+                                    cardPersonDynamicThreadData5 = this.bwH.bww;
+                                    ap.a(textView4, cardPersonDynamicThreadData5.threadId, w.e.cp_cont_j, w.e.cp_cont_d);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
-    }
-
-    @Override // com.baidu.tieba.view.q
-    public void a(TextPaint textPaint, boolean z) {
-        textPaint.setColor(z ? this.bwI.mContext.getResources().getColor(w.e.cp_link_tip_c) : this.bwI.mContext.getResources().getColor(w.e.cp_link_tip_a));
     }
 }

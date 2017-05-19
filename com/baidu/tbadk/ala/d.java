@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class d {
-    private static View.OnClickListener QV = new e();
+    private static View.OnClickListener Qm = new e();
 
     public static TextView ap(Context context) {
         if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
@@ -16,7 +16,7 @@ public class d {
         }
         TextView textView = new TextView(context);
         textView.setBackgroundDrawable(context.getResources().getDrawable(w.g.live_tail_selector));
-        textView.setOnClickListener(QV);
+        textView.setOnClickListener(Qm);
         return textView;
     }
 }

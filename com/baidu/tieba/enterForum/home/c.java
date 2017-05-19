@@ -1,21 +1,31 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.message.EnterForumInfoMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.message.RequestEnterForumDataMessage;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
-import java.util.ArrayList;
-import java.util.Iterator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements EnterForumModel.b {
-    @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
-    public void a(EnterForumModel.a aVar) {
-        com.baidu.tieba.enterForum.b.e WC = aVar.bHJ.WC();
-        ArrayList arrayList = new ArrayList();
-        Iterator<com.baidu.tieba.tbadkCore.u> it = WC.WH().iterator();
-        while (it.hasNext()) {
-            arrayList.add(it.next().getName());
+public class c extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        EnterForumModel enterForumModel;
+        EnterForumModel enterForumModel2;
+        if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
+            if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
+                enterForumModel2 = CoreSearchRequestStatic.bGB;
+                enterForumModel2.dw(true);
+                return;
+            }
+            enterForumModel = CoreSearchRequestStatic.bGB;
+            enterForumModel.dv(true);
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new EnterForumInfoMessage(CmdConfigCustom.CMD_ENTER_FORUM_INFO, arrayList));
     }
 }

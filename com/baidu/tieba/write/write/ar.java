@@ -1,86 +1,138 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements TextWatcher {
-    private int eOk;
-    final /* synthetic */ WriteActivity fUM;
-    private EditText dhM = null;
-    private TextView mTextView = null;
+public class ar implements View.OnClickListener {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        InputMethodManager inputMethodManager;
+        EditText box;
+        InputMethodManager inputMethodManager2;
+        EditText bow;
+        com.baidu.tbadk.editortools.j jVar;
+        WriteData writeData;
         boolean z;
-        this.fUM.bfg();
-        z = this.fUM.fUl;
-        if (z) {
-            this.eOk = this.dhM.getSelectionStart();
-            this.dhM.setSelection(this.eOk);
-            this.fUM.b(this.mTextView, this.dhM);
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        boolean z;
-        boolean z2;
-        EditText editText;
-        EditText editText2;
+        WriteData writeData2;
+        EditText box2;
+        EditText bow2;
+        com.baidu.tieba.write.transmit.model.a aVar;
+        com.baidu.tieba.write.transmit.model.a aVar2;
+        com.baidu.tieba.write.transmit.model.a aVar3;
+        com.baidu.tbadk.core.view.a aVar4;
+        com.baidu.tbadk.core.view.a aVar5;
+        EditText bow3;
+        EditText bow4;
+        EditText box3;
+        EditText box4;
+        PostPrefixData postPrefixData;
+        PostPrefixData postPrefixData2;
+        PostPrefixData postPrefixData3;
+        PostPrefixData postPrefixData4;
+        PostPrefixData postPrefixData5;
+        PostPrefixData postPrefixData6;
+        int i;
         TextView textView;
         TextView textView2;
-        boolean z3;
-        EditText editText3;
-        EditText editText4;
-        TextView textView3;
-        TextView textView4;
-        z = this.fUM.fUl;
-        if (z) {
-            z3 = this.fUM.fUm;
-            if (z3) {
-                EditText editText5 = this.dhM;
-                editText3 = this.fUM.fUg;
-                if (editText5 == editText3) {
-                    TextView textView5 = this.mTextView;
-                    textView4 = this.fUM.fUh;
-                    if (textView5 == textView4) {
-                        return;
-                    }
-                }
-                editText4 = this.fUM.fUg;
-                this.dhM = editText4;
-                textView3 = this.fUM.fUh;
-                this.mTextView = textView3;
-                return;
-            }
+        if (!com.baidu.adp.lib.util.i.hk()) {
+            this.fSV.showToast(w.l.neterror);
         }
-        z2 = this.fUM.fUl;
-        if (z2) {
-            EditText editText6 = this.dhM;
-            editText = this.fUM.fUc;
-            if (editText6 == editText) {
-                TextView textView6 = this.mTextView;
-                textView2 = this.fUM.fUi;
-                if (textView6 == textView2) {
+        if (!com.baidu.tieba.write.d.a.isFastDoubleClick()) {
+            WriteActivity writeActivity = this.fSV;
+            inputMethodManager = this.fSV.mInputManager;
+            box = this.fSV.box();
+            writeActivity.HidenSoftKeyPad(inputMethodManager, box);
+            WriteActivity writeActivity2 = this.fSV;
+            inputMethodManager2 = this.fSV.mInputManager;
+            bow = this.fSV.bow();
+            writeActivity2.HidenSoftKeyPad(inputMethodManager2, bow);
+            jVar = this.fSV.azd;
+            jVar.AN();
+            writeData = this.fSV.mData;
+            if (writeData.getType() != 7) {
+                z = this.fSV.fRD;
+                if (!z) {
+                    com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c12102");
+                    writeData2 = this.fSV.mData;
+                    asVar.s("obj_type", StringUtils.isNull(writeData2.getForumName()) ? 1 : 2);
+                    TiebaStatic.log(asVar);
+                    String str = "";
+                    String str2 = "";
+                    box2 = this.fSV.box();
+                    if (box2 != null) {
+                        box3 = this.fSV.box();
+                        if (box3.getText() != null) {
+                            box4 = this.fSV.box();
+                            str = box4.getText().toString();
+                            postPrefixData = this.fSV.mPrefixData;
+                            if (postPrefixData != null) {
+                                postPrefixData5 = this.fSV.mPrefixData;
+                                if (postPrefixData5.getPrefixs() != null) {
+                                    postPrefixData6 = this.fSV.mPrefixData;
+                                    if (postPrefixData6.getPrefixs().size() > 0) {
+                                        i = this.fSV.fkf;
+                                        if (i != 0) {
+                                            textView = this.fSV.fkC;
+                                            if (textView.getText() != null) {
+                                                textView2 = this.fSV.fkC;
+                                                str = String.valueOf(textView2.getText().toString()) + str;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            postPrefixData2 = this.fSV.mPrefixData;
+                            if (postPrefixData2 != null) {
+                                postPrefixData3 = this.fSV.mPrefixData;
+                                if (!StringUtils.isNull(postPrefixData3.getImplicitTitle())) {
+                                    postPrefixData4 = this.fSV.mPrefixData;
+                                    str = String.valueOf(postPrefixData4.getImplicitTitle()) + str;
+                                }
+                            }
+                        }
+                    }
+                    bow2 = this.fSV.bow();
+                    if (bow2 != null) {
+                        bow3 = this.fSV.bow();
+                        if (bow3.getText() != null) {
+                            bow4 = this.fSV.bow();
+                            str2 = bow4.getText().toString();
+                        }
+                    }
+                    aVar = this.fSV.fPs;
+                    aVar.setThreadTitle(str);
+                    aVar2 = this.fSV.fPs;
+                    aVar2.setThreadContent(str2);
+                    aVar3 = this.fSV.fPs;
+                    aVar3.NA();
+                    aVar4 = this.fSV.fSt;
+                    aVar4.c(null);
+                    aVar5 = this.fSV.fSt;
+                    aVar5.aI(true);
                     return;
                 }
+                this.fSV.bnD();
+                BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
+                return;
             }
-            editText2 = this.fUM.fUc;
-            this.dhM = editText2;
-            textView = this.fUM.fUi;
-            this.mTextView = textView;
+            TiebaStatic.log("c12015");
+            this.fSV.bnD();
         }
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

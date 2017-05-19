@@ -9,27 +9,27 @@ import org.apache.http.entity.mime.MIME;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Thread {
-    final /* synthetic */ f QC;
+    final /* synthetic */ f PU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.QC = fVar;
+        this.PU = fVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.QC.h = i.c();
-        this.QC.b();
-        this.QC.a();
+        this.PU.h = i.c();
+        this.PU.b();
+        this.PU.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.QC.i;
+        int i = this.PU.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.QC.h).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.PU.h).openConnection();
                 try {
                     try {
                         httpURLConnection.setRequestMethod("GET");
@@ -74,8 +74,8 @@ public class j extends Thread {
                 }
                 inputStream.close();
                 byteArrayOutputStream.close();
-                this.QC.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                this.QC.a(true);
+                this.PU.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                this.PU.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -94,7 +94,7 @@ public class j extends Thread {
             return;
         }
         f.o++;
-        this.QC.j = null;
-        this.QC.a(false);
+        this.PU.j = null;
+        this.PU.a(false);
     }
 }

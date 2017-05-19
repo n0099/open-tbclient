@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb.pb.main;
 
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
@@ -42,7 +43,7 @@ public class HideChudianPostResponseMessage extends JsonHttpResponsedMessage {
                 this.resultFlag = jSONObject.optInt(FrsActivityConfig.FLAG);
                 this.templateId = jSONObject.optLong("template_id");
                 this.errorCode = jSONObject.optInt("error_code");
-                this.errorMessage = jSONObject.optString("error_msg");
+                this.errorMessage = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
             }
         }
     }

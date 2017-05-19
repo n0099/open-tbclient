@@ -1,274 +1,281 @@
 package com.baidu.tieba.g;
 
-import android.util.SparseArray;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.NewsNotifyMessage;
-import com.baidu.tieba.g.i;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.util.Log;
+import dalvik.system.DexFile;
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
-public class a {
-    private int fhA;
-    private int fhB;
-    private int fhC;
-    private boolean fhD;
-    private boolean fhE;
-    private boolean fhF;
-    private boolean fhG;
-    private boolean fhH;
-    private boolean fhI;
-    private boolean fhJ;
-    private boolean fhK;
-    private boolean fhL;
-    private final CustomMessageListener fhM;
-    CustomMessageListener fhN;
-    private CustomMessageListener fhO;
-    private CustomMessageListener fhP;
-    private CustomMessageListener fhQ;
-    private CustomMessageListener fhR;
-    private boolean fhr;
-    private boolean fhs;
-    private boolean fht;
-    private boolean fhu;
-    private boolean fhv;
-    private boolean fhw;
-    private boolean fhx;
-    private int fhy;
-    private int fhz;
-    private boolean isPrimary;
-    private boolean mHasNewVersion;
+public final class a {
+    private static final String abp = "code_cache" + File.separator + "secondary-dexes";
+    private static final Set<String> dOO = new HashSet();
+    private static final boolean dOP = mD(System.getProperty("java.vm.version"));
 
-    /* renamed from: com.baidu.tieba.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    private static class C0057a {
-        private static final a fhT = new a(null);
-    }
-
-    private a() {
-        this.isPrimary = false;
-        this.fhr = false;
-        this.fhs = false;
-        this.fht = false;
-        this.fhu = false;
-        this.fhv = false;
-        this.fhw = false;
-        this.fhx = false;
-        this.fhy = 0;
-        this.fhz = 0;
-        this.fhA = 0;
-        this.fhB = 0;
-        this.fhC = 0;
-        this.fhD = false;
-        this.mHasNewVersion = false;
-        this.fhE = false;
-        this.fhF = false;
-        this.fhG = false;
-        this.fhH = false;
-        this.fhI = false;
-        this.fhJ = false;
-        this.fhL = false;
-        this.fhM = new b(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
-        this.fhN = new c(this, CmdConfigCustom.CMD_RESPONSE_UNREAD_NEW_FRIENDS_NUM);
-        this.fhO = new d(this, CmdConfigCustom.CMD_MAINTAB_MEMBER_RED_TIP);
-        this.fhP = new e(this, CmdConfigCustom.CMD_LEFT_NAV_DRESSUP_CENTER_TIP);
-        this.fhQ = new f(this, CmdConfigCustom.CMD_UPDATE_VERSION_MSG);
-        this.fhR = new g(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-        initListener();
-    }
-
-    /* synthetic */ a(a aVar) {
-        this();
-    }
-
-    public static final a bbK() {
-        return C0057a.fhT;
-    }
-
-    private void initListener() {
-        MessageManager.getInstance().registerListener(this.fhM);
-        MessageManager.getInstance().registerListener(this.fhN);
-        MessageManager.getInstance().registerListener(this.fhP);
-        MessageManager.getInstance().registerListener(this.fhQ);
-        MessageManager.getInstance().registerListener(this.fhR);
-        MessageManager.getInstance().registerListener(this.fhO);
-    }
-
-    private void bbL() {
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (!com.baidu.tbadk.core.sharedPref.b.uL().getBoolean("member_close_ad_setting_clicked", false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-            this.fhv = true;
-        }
-        TbadkSettings inst = TbadkSettings.getInst();
-        StringBuilder sb = new StringBuilder("has_clicked_addresslist_item_in_leftnavi");
-        TbadkCoreApplication.m9getInst();
-        this.fhK = inst.loadBoolean(sb.append(TbadkCoreApplication.getCurrentAccount()).toString(), false);
-    }
-
-    private void bbM() {
-        if (TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(this.fhv || this.fhw)));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage != null && (responsedMessage instanceof NewsNotifyMessage)) {
-            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
-            this.fhH = newsNotifyMessage.getMsgBookmark() > this.fhB;
-            this.fhF = newsNotifyMessage.getMsgFans() > this.fhy;
-            this.fhG = newsNotifyMessage.getMsgGiftNum() > this.fhz;
-            this.fhB = newsNotifyMessage.getMsgBookmark();
-            this.fhy = newsNotifyMessage.getMsgFans();
-            this.fhz = newsNotifyMessage.getMsgGiftNum();
-            this.fhA = newsNotifyMessage.getMsgLiveVip();
-            if (this.fhH || this.fhF || this.fhG || this.mHasNewVersion) {
-                this.fhr = this.fhF ? true : this.fhr;
-                this.fhs = this.fhH ? true : this.fhs;
-                this.fht = this.fhG ? true : this.fht;
-                this.fhv = this.mHasNewVersion ? true : this.fhv;
-                bbO();
+    public static void bG(Context context) {
+        Log.i("MultiDex", "install");
+        if (dOP) {
+            Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
+        } else if (Build.VERSION.SDK_INT < 4) {
+            throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
+        } else {
+            try {
+                ApplicationInfo applicationInfo = getApplicationInfo(context);
+                if (applicationInfo != null) {
+                    synchronized (dOO) {
+                        String str = applicationInfo.sourceDir;
+                        if (!dOO.contains(str)) {
+                            dOO.add(str);
+                            if (Build.VERSION.SDK_INT > 20) {
+                                Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
+                            }
+                            try {
+                                ClassLoader classLoader = context.getClassLoader();
+                                if (classLoader == null) {
+                                    Log.e("MultiDex", "Context class loader is null. Must be running in test mode. Skip patching.");
+                                    return;
+                                }
+                                bH(context);
+                                File file = new File(applicationInfo.dataDir, abp);
+                                List<File> a = com.baidu.tieba.g.b.a(context, applicationInfo, file, false);
+                                if (bK(a)) {
+                                    a(classLoader, file, a);
+                                } else {
+                                    Log.w("MultiDex", "Files were not valid zip files.  Forcing a reload.");
+                                    List<File> a2 = com.baidu.tieba.g.b.a(context, applicationInfo, file, true);
+                                    if (!bK(a2)) {
+                                        throw new RuntimeException("Zip files were not valid.");
+                                    }
+                                    a(classLoader, file, a2);
+                                }
+                                Log.i("MultiDex", "install done");
+                            } catch (RuntimeException e) {
+                                Log.w("MultiDex", "Failure while trying to obtain Context class loader. Must be running in test mode. Skip patching.", e);
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e2) {
+                Log.e("MultiDex", "Multidex installation failure", e2);
+                throw new RuntimeException("Multi dex installation failed (" + e2.getMessage() + ").");
             }
         }
     }
 
-    public void bbN() {
-        if (this.fhD) {
-            TbadkSettings inst = TbadkSettings.getInst();
-            StringBuilder sb = new StringBuilder("has_clicked_addresslist_item_in_leftnavi");
-            TbadkCoreApplication.m9getInst();
-            inst.saveBoolean(sb.append(TbadkCoreApplication.getCurrentAccount()).toString(), false);
-            return;
+    private static ApplicationInfo getApplicationInfo(Context context) throws PackageManager.NameNotFoundException {
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            String packageName = context.getPackageName();
+            if (packageManager == null || packageName == null) {
+                return null;
+            }
+            return packageManager.getApplicationInfo(packageName, 128);
+        } catch (RuntimeException e) {
+            Log.w("MultiDex", "Failure while trying to obtain ApplicationInfo from Context. Must be running in test mode. Skip patching.", e);
+            return null;
         }
-        TbadkSettings inst2 = TbadkSettings.getInst();
-        StringBuilder sb2 = new StringBuilder("has_clicked_addresslist_item_in_leftnavi");
-        TbadkCoreApplication.m9getInst();
-        inst2.saveBoolean(sb2.append(TbadkCoreApplication.getCurrentAccount()).toString(), true);
     }
 
-    public void kM(boolean z) {
-        this.isPrimary = z;
+    static boolean mD(String str) {
+        boolean z = false;
+        if (str != null) {
+            Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
+            if (matcher.matches()) {
+                try {
+                    int parseInt = Integer.parseInt(matcher.group(1));
+                    int parseInt2 = Integer.parseInt(matcher.group(2));
+                    if (parseInt > 2 || (parseInt == 2 && parseInt2 >= 1)) {
+                        z = true;
+                    }
+                } catch (NumberFormatException e) {
+                }
+            }
+        }
+        Log.i("MultiDex", "VM with version " + str + (z ? " has multidex support" : " does not have multidex support"));
+        return z;
+    }
+
+    private static void a(ClassLoader classLoader, File file, List<File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException, IOException {
+        if (!list.isEmpty()) {
+            if (Build.VERSION.SDK_INT < 19) {
+                if (Build.VERSION.SDK_INT < 14) {
+                    c.a(classLoader, list);
+                    return;
+                } else {
+                    C0061a.a(classLoader, list, file);
+                    return;
+                }
+            }
+            b.a(classLoader, list, file);
+        }
+    }
+
+    private static boolean bK(List<File> list) {
+        for (File file : list) {
+            if (!com.baidu.tieba.g.b.B(file)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbO() {
-        SparseArray sparseArray = new SparseArray();
-        if (this.fhD) {
-            sparseArray.append(4, new i.a(this.fhu, this.fhC));
-        }
-        if (this.fhF) {
-            sparseArray.append(2, new i.a(this.fhr, this.fhy));
-        }
-        if (this.fhG) {
-            sparseArray.append(1, new i.a(this.fht, this.fhz));
-        }
-        if (this.fhH) {
-            sparseArray.append(3, new i.a(this.fhs, this.fhB));
-        }
-        if (this.fhE) {
-            sparseArray.append(6, new i.a(this.fhw, 0));
-        }
-        if (this.mHasNewVersion) {
-            sparseArray.append(5, new i.a(this.fhv, 0));
-        }
-        if (this.fhI) {
-            sparseArray.append(7, new i.a(this.fhx, 0));
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_RED_TIP, new i(sparseArray)));
-        bbQ();
-    }
-
-    public void bbP() {
-        SparseArray sparseArray = new SparseArray();
-        sparseArray.append(4, new i.a(this.fhu, this.fhC));
-        sparseArray.append(2, new i.a(this.fhr, this.fhy));
-        sparseArray.append(1, new i.a(this.fht, this.fhz));
-        sparseArray.append(3, new i.a(this.fhs, this.fhB));
-        sparseArray.append(6, new i.a(this.fhw, 0));
-        sparseArray.append(5, new i.a(this.fhv, 0));
-        sparseArray.append(7, new i.a(this.fhx, 0));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_RED_TIP, new i(sparseArray)));
-    }
-
-    private void bbQ() {
-        boolean z = (this.fhy > 0 && this.fhF) || (this.fhC > 0 && this.fhD) || ((this.fhB > 0 && this.fhH) || this.mHasNewVersion || this.fhE);
-        if (z && !this.isPrimary && TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(z)));
-        }
-    }
-
-    public void bbR() {
-        if (this.isPrimary) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(false)));
-        }
-    }
-
-    public void E(int i, boolean z) {
-        String currentAccount;
-        switch (i) {
-            case 1:
-                this.fht = z;
-                break;
-            case 2:
-                this.fhr = z;
-                break;
-            case 3:
-                this.fhs = z;
-                break;
-            case 4:
-                this.fhu = z;
-                break;
-            case 5:
-                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                if (currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-                    com.baidu.tbadk.core.sharedPref.b.uL().putBoolean("member_close_ad_setting_clicked", true);
+    public static Field g(Object obj, String str) throws NoSuchFieldException {
+        for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
+            try {
+                Field declaredField = cls.getDeclaredField(str);
+                if (!declaredField.isAccessible()) {
+                    declaredField.setAccessible(true);
                 }
-                this.fhL = true;
-                this.fhv = z;
-                break;
-            case 6:
-                com.baidu.tbadk.core.sharedPref.b.uL().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
-                this.fhw = z;
-                break;
-            case 7:
-                if (!TbadkCoreApplication.isLogin()) {
-                    currentAccount = "temp";
+                return declaredField;
+            } catch (NoSuchFieldException e) {
+            }
+        }
+        throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static Method b(Object obj, String str, Class... clsArr) throws NoSuchMethodException {
+        for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
+            try {
+                Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
+                if (!declaredMethod.isAccessible()) {
+                    declaredMethod.setAccessible(true);
+                }
+                return declaredMethod;
+            } catch (NoSuchMethodException e) {
+            }
+        }
+        throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void e(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+        Field g = g(obj, str);
+        Object[] objArr2 = (Object[]) g.get(obj);
+        Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
+        System.arraycopy(objArr2, 0, objArr3, 0, objArr2.length);
+        System.arraycopy(objArr, 0, objArr3, objArr2.length, objArr.length);
+        g.set(obj, objArr3);
+    }
+
+    private static void bH(Context context) throws Exception {
+        File file = new File(context.getFilesDir(), "secondary-dexes");
+        if (file.isDirectory()) {
+            Log.i("MultiDex", "Clearing old secondary dex dir (" + file.getPath() + ").");
+            File[] listFiles = file.listFiles();
+            if (listFiles == null) {
+                Log.w("MultiDex", "Failed to list secondary dex dir content (" + file.getPath() + ").");
+                return;
+            }
+            for (File file2 : listFiles) {
+                Log.i("MultiDex", "Trying to delete old file " + file2.getPath() + " of size " + file2.length());
+                if (!file2.delete()) {
+                    Log.w("MultiDex", "Failed to delete old file " + file2.getPath());
                 } else {
-                    currentAccount = TbadkCoreApplication.getCurrentAccount();
+                    Log.i("MultiDex", "Deleted old file " + file2.getPath());
                 }
-                com.baidu.tbadk.core.sharedPref.b.uL().putLong("maintab_member_center_red_tip_" + currentAccount, TbadkCoreApplication.m9getInst().getLastUpdateMemberCenterTime());
-                this.fhx = z;
-                break;
+            }
+            if (!file.delete()) {
+                Log.w("MultiDex", "Failed to delete secondary dex dir " + file.getPath());
+            } else {
+                Log.i("MultiDex", "Deleted old secondary dex dir " + file.getPath());
+            }
         }
-        bbP();
     }
 
-    public void bbS() {
-        this.fhr = false;
-        this.fhs = false;
-        this.fht = false;
-        this.fhu = false;
-        this.fhv = false;
-        this.fhw = false;
-        this.fhx = false;
-        this.fhy = 0;
-        this.fhz = 0;
-        this.fhA = 0;
-        this.fhB = 0;
-        this.fhC = 0;
-        this.fhD = false;
-        this.mHasNewVersion = false;
-        this.fhF = false;
-        this.fhG = false;
-        this.fhH = false;
-        this.fhJ = false;
-        this.fhI = false;
-        bbL();
-        com.baidu.adp.lib.g.h.fS().post(new h(this));
-        bbM();
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static final class c {
+        /* JADX INFO: Access modifiers changed from: private */
+        public static void a(ClassLoader classLoader, List<File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, IOException {
+            int size = list.size();
+            Field g = a.g(classLoader, "path");
+            StringBuilder sb = new StringBuilder((String) g.get(classLoader));
+            String[] strArr = new String[size];
+            File[] fileArr = new File[size];
+            ZipFile[] zipFileArr = new ZipFile[size];
+            DexFile[] dexFileArr = new DexFile[size];
+            ListIterator<File> listIterator = list.listIterator();
+            while (listIterator.hasNext()) {
+                File next = listIterator.next();
+                String absolutePath = next.getAbsolutePath();
+                sb.append(':').append(absolutePath);
+                int previousIndex = listIterator.previousIndex();
+                strArr[previousIndex] = absolutePath;
+                fileArr[previousIndex] = next;
+                zipFileArr[previousIndex] = new ZipFile(next);
+                dexFileArr[previousIndex] = DexFile.loadDex(absolutePath, String.valueOf(absolutePath) + ".dex", 0);
+            }
+            g.set(classLoader, sb.toString());
+            a.e(classLoader, "mPaths", strArr);
+            a.e(classLoader, "mFiles", fileArr);
+            a.e(classLoader, "mZips", zipFileArr);
+            a.e(classLoader, "mDexs", dexFileArr);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: com.baidu.tieba.g.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static final class C0061a {
+        /* JADX INFO: Access modifiers changed from: private */
+        public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
+            Object obj = a.g(classLoader, "pathList").get(classLoader);
+            a.e(obj, "dexElements", a(obj, new ArrayList(list), file));
+        }
+
+        private static Object[] a(Object obj, ArrayList<File> arrayList, File file) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+            return (Object[]) a.b(obj, "makeDexElements", ArrayList.class, File.class).invoke(obj, arrayList, file);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static final class b {
+        /* JADX INFO: Access modifiers changed from: private */
+        public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
+            IOException[] iOExceptionArr;
+            Object obj = a.g(classLoader, "pathList").get(classLoader);
+            ArrayList arrayList = new ArrayList();
+            a.e(obj, "dexElements", a(obj, new ArrayList(list), file, arrayList));
+            if (arrayList.size() > 0) {
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    Log.w("MultiDex", "Exception in makeDexElement", (IOException) it.next());
+                }
+                Field g = a.g(classLoader, "dexElementsSuppressedExceptions");
+                IOException[] iOExceptionArr2 = (IOException[]) g.get(classLoader);
+                if (iOExceptionArr2 == null) {
+                    iOExceptionArr = (IOException[]) arrayList.toArray(new IOException[arrayList.size()]);
+                } else {
+                    IOException[] iOExceptionArr3 = new IOException[arrayList.size() + iOExceptionArr2.length];
+                    arrayList.toArray(iOExceptionArr3);
+                    System.arraycopy(iOExceptionArr2, 0, iOExceptionArr3, arrayList.size(), iOExceptionArr2.length);
+                    iOExceptionArr = iOExceptionArr3;
+                }
+                g.set(classLoader, iOExceptionArr);
+            }
+        }
+
+        private static Object[] a(Object obj, ArrayList<File> arrayList, File file, ArrayList<IOException> arrayList2) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+            return (Object[]) a.b(obj, "makeDexElements", ArrayList.class, File.class, ArrayList.class).invoke(obj, arrayList, file, arrayList2);
+        }
     }
 }

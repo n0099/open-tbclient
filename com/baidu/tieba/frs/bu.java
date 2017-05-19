@@ -1,12 +1,15 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.a;
 import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
-public class bu extends y.a {
-    public com.baidu.tbadk.i.f bSe;
+public interface bu {
+    a<? extends com.baidu.tbadk.core.data.bk, ? extends y.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z);
 
-    public bu(View view) {
-        super(view);
-    }
+    p<ICardInfo, ? extends y.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
+
+    a<? extends com.baidu.tbadk.core.data.bk, ? extends y.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
 }

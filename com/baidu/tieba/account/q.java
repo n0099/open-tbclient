@@ -6,47 +6,47 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class q implements a.InterfaceC0030a {
-    final /* synthetic */ NotLoginGuideActivity aVT;
+class q implements a.InterfaceC0035a {
+    final /* synthetic */ NotLoginGuideActivity aWp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(NotLoginGuideActivity notLoginGuideActivity) {
-        this.aVT = notLoginGuideActivity;
+        this.aWp = notLoginGuideActivity;
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
     public void cf(String str) {
-        if (this.aVT.getLoadingDialog() == null || !this.aVT.getLoadingDialog().isShowing()) {
-            this.aVT.showLoadingDialog(this.aVT.getPageContext().getString(w.l.sapi_logining), new r(this));
+        if (this.aWp.getLoadingDialog() == null || !this.aWp.getLoadingDialog().isShowing()) {
+            this.aWp.showLoadingDialog(this.aWp.getPageContext().getString(w.l.sapi_logining), new r(this));
         }
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
     public void a(AccountData accountData) {
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_success", 0, "", new Object[0]);
-        this.aVT.closeLoadingDialog();
+        this.aWp.closeLoadingDialog();
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            this.aVT.k(accountData);
+            this.aWp.k(accountData);
         } else {
-            this.aVT.p(accountData);
+            this.aWp.p(accountData);
         }
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
     public void b(String str, int i, String str2) {
         int i2;
         int i3;
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_fail", i, str2, new Object[0]);
-        this.aVT.closeLoadingDialog();
-        i2 = this.aVT.aVR;
+        this.aWp.closeLoadingDialog();
+        i2 = this.aWp.aWn;
         if (i2 != 1) {
-            i3 = this.aVT.aVR;
+            i3 = this.aWp.aWn;
             if (i3 != 2) {
                 return;
             }
-            this.aVT.Mf();
+            this.aWp.Lt();
             return;
         }
-        this.aVT.Me();
+        this.aWp.Ls();
     }
 }

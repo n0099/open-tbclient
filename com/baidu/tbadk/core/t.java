@@ -1,12 +1,16 @@
 package com.baidu.tbadk.core;
-
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.base.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements a.InterfaceC0002a {
-    @Override // com.baidu.adp.base.a.a.InterfaceC0002a
-    public void b(SQLiteDatabase sQLiteDatabase) {
-        TbadkCoreApplication.resetTDatabaseCreateTime();
+public class t implements Runnable {
+    final /* synthetic */ TbadkCoreApplication this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public t(TbadkCoreApplication tbadkCoreApplication) {
+        this.this$0 = tbadkCoreApplication;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.d.a.fg().a(true, this.this$0.locationCallBack);
     }
 }

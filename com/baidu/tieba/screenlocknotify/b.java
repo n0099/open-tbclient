@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.im.util.MessageUtils;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class b implements View.OnClickListener {
     final /* synthetic */ ScreenLockActivity this$0;
 
@@ -27,11 +27,11 @@ class b implements View.OnClickListener {
         com.baidu.tieba.screenlocknotify.a.a aVar3;
         com.baidu.tieba.screenlocknotify.a.a aVar4;
         com.baidu.tieba.screenlocknotify.a.a aVar5;
-        aVar = this.this$0.fif;
+        aVar = this.this$0.feb;
         if (aVar != null) {
-            aVar2 = this.this$0.fif;
+            aVar2 = this.this$0.feb;
             if (!StringUtils.isNull(aVar2.getInputMsg())) {
-                aVar3 = this.this$0.fif;
+                aVar3 = this.this$0.feb;
                 s data = aVar3.getData();
                 if (data != null) {
                     if (data.customGroupType == 4) {
@@ -39,20 +39,20 @@ class b implements View.OnClickListener {
                     }
                     if (data.customGroupType == 1) {
                         long c = com.baidu.adp.lib.g.b.c(data.groupId, 0L);
-                        aVar5 = this.this$0.fif;
+                        aVar5 = this.this$0.feb;
                         MessageUtils.createGroupChatMessage(1, aVar5.getInputMsg(), c);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.zj().em(data.groupId);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.yu().el(data.groupId);
                         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.groupId, 1)));
                     } else if (data.customGroupType == 2) {
                         long c2 = com.baidu.adp.lib.g.b.c(data.groupId, 0L);
-                        aVar4 = this.this$0.fif;
-                        MessageUtils.createPersonalChatMessage(1, aVar4.getInputMsg(), c2, data.userName, data.fiH);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.zj().em(data.groupId);
+                        aVar4 = this.this$0.feb;
+                        MessageUtils.createPersonalChatMessage(1, aVar4.getInputMsg(), c2, data.userName, data.feC);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.yu().el(data.groupId);
                         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.groupId, 2)));
                         MessageUtils.sendHasReadMessage(data.groupId, 2);
                     }
                     new an("lockscreen_reply", true).start();
-                    i.bbW().fin.bcb();
+                    i.aZv().fei.aZA();
                     this.this$0.finish();
                 }
             }

@@ -9,17 +9,17 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ h ejH;
-    private final /* synthetic */ String ejI;
-    private final /* synthetic */ String ejJ;
-    private final /* synthetic */ String ejK;
+    final /* synthetic */ h eeL;
+    private final /* synthetic */ String eeM;
+    private final /* synthetic */ String eeN;
+    private final /* synthetic */ String eeO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, String str, String str2, String str3) {
-        this.ejH = hVar;
-        this.ejI = str;
-        this.ejJ = str2;
-        this.ejK = str3;
+        this.eeL = hVar;
+        this.eeM = str;
+        this.eeN = str2;
+        this.eeO = str3;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,15 +27,15 @@ public class i implements View.OnClickListener {
         Context context;
         Context context2;
         PbActivity pbActivity;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.ejI) && !StringUtils.isNull(this.ejJ)) {
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.eeM) && !StringUtils.isNull(this.eeN)) {
             if (!com.baidu.adp.lib.util.i.hk()) {
-                pbActivity = this.ejH.ekw;
+                pbActivity = this.eeL.efF;
                 pbActivity.showToast(w.l.neterror);
                 return;
             }
-            context = this.ejH.mContext;
-            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.ejI) + "," + this.ejJ, this.ejK, this.ejK, context.getString(w.l.app_info_for_map));
-            context2 = this.ejH.mContext;
+            context = this.eeL.mContext;
+            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.eeM) + "," + this.eeN, this.eeO, this.eeO, context.getString(w.l.app_info_for_map));
+            context2 = this.eeL.mContext;
             com.baidu.tbadk.browser.f.S(context2, format);
         }
     }

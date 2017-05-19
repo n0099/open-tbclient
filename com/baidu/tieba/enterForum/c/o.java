@@ -2,116 +2,70 @@ package com.baidu.tieba.enterForum.c;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class o extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter bHa;
-    private TextView bIA;
-    private TextView bIB;
-    private TextView bIC;
-    private ImageView bID;
-    private View bIu;
-    private TextView bIv;
-    private TextView bIw;
-    private TextView bIx;
-    private ImageView bIy;
-    private View bIz;
+public class o extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.g, com.baidu.tbadk.mvc.d.b> {
+    private ViewEventCenter bGb;
+    private View bIl;
+    private TextView bIm;
+    private ImageView bIn;
+    private View bIo;
+    private RelativeLayout.LayoutParams bIp;
+    private int padding;
 
     public o(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.bHa = viewEventCenter;
-        this.bIu = view.findViewById(w.h.left_container);
-        this.bIv = (TextView) this.bIu.findViewById(w.h.sign);
-        this.bIw = (TextView) this.bIu.findViewById(w.h.name);
-        this.bIx = (TextView) this.bIu.findViewById(w.h.grade);
-        this.bIy = (ImageView) this.bIu.findViewById(w.h.add);
-        this.bIz = view.findViewById(w.h.right_container);
-        this.bIA = (TextView) this.bIz.findViewById(w.h.sign);
-        this.bIB = (TextView) this.bIz.findViewById(w.h.name);
-        this.bIC = (TextView) this.bIz.findViewById(w.h.grade);
-        this.bID = (ImageView) this.bIz.findViewById(w.h.add);
+        this.padding = 0;
+        this.bIl = view.findViewById(w.h.container_edit_forum);
+        this.bGb = viewEventCenter;
+        this.bIm = (TextView) view.findViewById(w.h.forum_name_view);
+        this.bIn = (ImageView) view.findViewById(w.h.delete_forum_view);
+        this.bIo = view.findViewById(w.h.divider_left_name);
+        this.bIn.setOnClickListener(new p(this));
+        this.padding = com.baidu.adp.lib.util.k.g(tbPageContext.getPageActivity(), w.f.ds16);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
-    /* renamed from: a */
-    public void E(com.baidu.tieba.enterForum.b.a aVar) {
-        super.E(aVar);
-        if (aVar != null) {
-            a(aVar.Ww(), true);
-            a(aVar.Wx(), false);
-            b(aVar.Ww(), true);
-            b(aVar.Wx(), false);
-        }
-    }
-
-    private void a(com.baidu.tieba.tbadkCore.u uVar, boolean z) {
-        if (uVar != null) {
-            View view = z ? this.bIu : this.bIz;
-            TextView textView = z ? this.bIv : this.bIA;
-            TextView textView2 = z ? this.bIw : this.bIB;
-            TextView textView3 = z ? this.bIx : this.bIC;
-            ImageView imageView = z ? this.bIy : this.bID;
-            switch (uVar.getType()) {
-                case 1:
-                    view.setVisibility(0);
-                    imageView.setVisibility(0);
-                    textView2.setVisibility(8);
-                    textView.setVisibility(8);
-                    textView3.setVisibility(8);
-                    return;
-                case 2:
-                    view.setVisibility(4);
-                    return;
-                default:
-                    view.setVisibility(0);
-                    imageView.setVisibility(8);
-                    textView2.setVisibility(0);
-                    textView2.setText(uVar.getName());
-                    if (uVar.bix() == 0) {
-                        textView.setVisibility(8);
-                    } else {
-                        textView.setVisibility(0);
-                    }
-                    if (uVar.getLevel() == 0) {
-                        textView3.setVisibility(4);
-                        return;
-                    }
-                    textView3.setVisibility(0);
-                    aq.j(textView3, BitmapHelper.getGradeResourceIdNew(uVar.getLevel()));
-                    return;
+    /* renamed from: c */
+    public void E(com.baidu.tieba.enterForum.b.g gVar) {
+        super.E(gVar);
+        if (gVar != null) {
+            if (gVar.getType() == 1) {
+                aq.c(this.bIm, w.e.cp_cont_d, 1);
+                this.bIm.setText(w.l.default_personalized_name);
+                aq.j(this.bIl, w.e.cp_bg_line_d);
+                this.bIn.setVisibility(8);
+            } else {
+                aq.c(this.bIm, w.e.cp_cont_b, 1);
+                this.bIm.setText(gVar.getName());
+                this.bIn.setVisibility(0);
+                aq.j(this.bIl, w.g.forum_item_bg);
+            }
+            this.bIp = (RelativeLayout.LayoutParams) this.bIn.getLayoutParams();
+            if (this.position % 2 == 0) {
+                this.bIo.setVisibility(8);
+                this.bIp.leftMargin = 0;
+            } else {
+                this.bIo.setVisibility(0);
+                this.bIp.leftMargin = this.padding;
+                this.bIp.rightMargin = this.padding;
+            }
+            if (this.bIn.getVisibility() == 0) {
+                this.bIn.setLayoutParams(this.bIp);
             }
         }
-    }
-
-    private void b(com.baidu.tieba.tbadkCore.u uVar, boolean z) {
-        View view;
-        if (z) {
-            view = this.bIu;
-        } else {
-            view = this.bIz;
-        }
-        view.setOnClickListener(new p(this, uVar));
-        view.setOnLongClickListener(new q(this, uVar));
     }
 
     @Override // com.baidu.tieba.tbadkCore.q
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.m.a.a(tbPageContext, getRootView());
-        this.bIu.setBackgroundDrawable(aq.getDrawable(w.g.home_like_item_bg));
-        this.bIz.setBackgroundDrawable(aq.getDrawable(w.g.home_like_item_bg));
-        if (getData() != null && getData().Ww() != null) {
-            aq.j(this.bIx, BitmapHelper.getGradeResourceIdNew(getData().Ww().getLevel()));
-        }
-        if (getData() != null && getData().Wx() != null) {
-            aq.j(this.bIC, BitmapHelper.getGradeResourceIdNew(getData().Wx().getLevel()));
-            return true;
-        }
+        aq.j(this.bIl, w.g.forum_item_bg);
         return true;
     }
 }

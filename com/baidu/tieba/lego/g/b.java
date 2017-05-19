@@ -7,19 +7,19 @@ import com.baidu.tieba.lego.d.e;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class b implements a {
-    public static final AtomicReference<a> dAN = new AtomicReference<>(null);
-    private static final a dAO = new b();
+    public static final AtomicReference<a> dvf = new AtomicReference<>(null);
+    private static final a dvg = new b();
 
     private b() {
     }
 
-    public static a aAt() {
-        a aVar = dAN.get();
-        return aVar == null ? dAO : aVar;
+    public static a axu() {
+        a aVar = dvf.get();
+        return aVar == null ? dvg : aVar;
     }
 
     @Override // com.baidu.tieba.lego.g.a
-    public com.baidu.tieba.lego.model.a a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+    public com.baidu.tieba.lego.model.a b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         BdLog.e("Card project loaded failed.");
         return null;
     }

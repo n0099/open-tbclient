@@ -1,55 +1,31 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import android.widget.TextView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tieba.w;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad extends CustomMessageListener {
-    final /* synthetic */ aa bVP;
+public class ad implements com.baidu.tbadk.widget.layout.g {
+    final /* synthetic */ x bTG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad(aa aaVar, int i) {
-        super(i);
-        this.bVP = aaVar;
+    public ad(x xVar) {
+        this.bTG = xVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bi biVar;
-        bi biVar2;
-        bi biVar3;
-        TextView textView;
-        bi biVar4;
-        TextView textView2;
-        bi biVar5;
-        bi biVar6;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            biVar = this.bVP.aiC;
-            if (biVar != null) {
-                biVar2 = this.bVP.aiC;
-                if (biVar2 != null) {
-                    biVar3 = this.bVP.aiC;
-                    if (biVar3.getTid() != null) {
-                        textView = this.bVP.mTitle;
-                        if (textView != null && this.bVP.btU != null) {
-                            biVar4 = this.bVP.aiC;
-                            if (((String) customResponsedMessage.getData()).equals(biVar4.getTid())) {
-                                textView2 = this.bVP.mTitle;
-                                biVar5 = this.bVP.aiC;
-                                com.baidu.tieba.card.at.a(textView2, biVar5.getId(), w.e.cp_cont_b, w.e.cp_cont_d);
-                                TextView textView3 = this.bVP.btU;
-                                biVar6 = this.bVP.aiC;
-                                com.baidu.tieba.card.at.a(textView3, biVar6.getId(), w.e.cp_cont_c, w.e.cp_cont_d);
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    @Override // com.baidu.tbadk.widget.layout.g
+    public void c(View view, int i, boolean z) {
+        bk bkVar;
+        TbPageContext tbPageContext;
+        bkVar = this.bTG.ahV;
+        com.baidu.tbadk.core.data.n su = bkVar.su();
+        long cartoonId = su.getCartoonId();
+        int chapterId = su.getChapterId();
+        tbPageContext = this.bTG.ajr;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(tbPageContext.getPageActivity(), cartoonId, chapterId, 2)));
     }
 }

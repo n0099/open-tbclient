@@ -1,17 +1,21 @@
 package com.baidu.tbadk.core.view;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ad implements Runnable {
-    final /* synthetic */ ab alD;
+public class ad implements View.OnClickListener {
+    final /* synthetic */ TbCheckBox alh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ab abVar) {
-        this.alD = abVar;
+    public ad(TbCheckBox tbCheckBox) {
+        this.alh = tbCheckBox;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (this.alD.alt != null) {
-            this.alD.alt.start();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean wx;
+        TbCheckBox tbCheckBox = this.alh;
+        wx = this.alh.wx();
+        tbCheckBox.setChecked(!wx);
     }
 }

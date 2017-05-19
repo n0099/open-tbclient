@@ -1,30 +1,23 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
 /* loaded from: classes.dex */
-class h extends CustomMessageListener {
-    final /* synthetic */ ScrollFragmentTabHost cxk;
+class h implements com.baidu.tbadk.widget.layout.h {
+    final /* synthetic */ ScrollFragmentTabHost cua;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(ScrollFragmentTabHost scrollFragmentTabHost, int i) {
-        super(i);
-        this.cxk = scrollFragmentTabHost;
+    public h(ScrollFragmentTabHost scrollFragmentTabHost) {
+        this.cua = scrollFragmentTabHost;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        o oVar;
-        o oVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016326 && (customResponsedMessage.getData() instanceof Integer)) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            oVar = this.cxk.cwX;
-            if (oVar != null) {
-                oVar2 = this.cxk.cwX;
-                oVar2.aq(com.baidu.tieba.homepage.framework.a.a.ajV().cyc, intValue);
-            }
+    @Override // com.baidu.tbadk.widget.layout.h
+    public void a(View view, int i, int i2, int i3, int i4) {
+        a aVar;
+        a aVar2;
+        aVar = this.cua.ctU;
+        if (aVar != null) {
+            aVar2 = this.cua.ctU;
+            aVar2.b(view, i, i2, i3, i4);
         }
     }
 }

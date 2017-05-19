@@ -15,6 +15,8 @@ public class n implements AbsListView.OnScrollListener {
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
+        com.baidu.adp.base.j jVar;
+        com.baidu.adp.base.j X;
         AbsListView.OnScrollListener onScrollListener;
         BdListView.e eVar;
         BdListView.f fVar;
@@ -29,7 +31,12 @@ public class n implements AbsListView.OnScrollListener {
         Runnable runnable3;
         Runnable runnable4;
         Runnable runnable5;
-        com.baidu.adp.base.j X = com.baidu.adp.base.k.X(this.Ih.getContext());
+        jVar = this.Ih.mScrollable;
+        if (jVar != null) {
+            X = this.Ih.mScrollable;
+        } else {
+            X = com.baidu.adp.base.k.X(this.Ih.getContext());
+        }
         if (X != null) {
             if (i == 2) {
                 BdListView bdListView = this.Ih;
@@ -62,7 +69,7 @@ public class n implements AbsListView.OnScrollListener {
             eVar = this.Ih.mOnScrollToBottomListener;
             if (eVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
                 eVar2 = this.Ih.mOnScrollToBottomListener;
-                eVar2.lo();
+                eVar2.ln();
             }
             fVar = this.Ih.mExScrollToBottomListener;
             if (fVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
@@ -75,7 +82,7 @@ public class n implements AbsListView.OnScrollListener {
                 i2 = this.Ih.mScrollToTopNum;
                 if (firstVisiblePosition <= i2) {
                     hVar2 = this.Ih.mOnScrollToTopListener;
-                    hVar2.lp();
+                    hVar2.lo();
                 }
             }
         }

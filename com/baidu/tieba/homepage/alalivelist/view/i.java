@@ -12,7 +12,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.au;
@@ -20,43 +20,43 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class i extends com.baidu.tieba.card.a<h> {
-    private View.OnClickListener ama;
-    private View.OnClickListener amx;
-    private TextView bcA;
-    private TbImageView bcr;
-    private TextView bcs;
-    private RelativeLayout bct;
-    private FrameLayout bcw;
-    private View bcx;
-    private TextView bcz;
-    private ThreadLiveAndRecordUserInfoLayout cvT;
-    private h cvW;
+    private View.OnClickListener alY;
+    private View.OnClickListener amk;
+    private TbImageView bcI;
+    private TextView bcJ;
+    private RelativeLayout bcK;
+    private FrameLayout bcN;
+    private View bcO;
+    private TextView bcQ;
+    private TextView bcR;
+    private ThreadLiveAndRecordUserInfoLayout csQ;
+    private h csT;
 
     public i(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.amx = new j(this);
-        this.ama = new k(this);
+        this.amk = new j(this);
+        this.alY = new k(this);
         initView();
     }
 
     private void initView() {
-        this.bct = (RelativeLayout) getView().findViewById(w.h.rlAlaLivePane);
-        ViewGroup.LayoutParams layoutParams = this.bct.getLayoutParams();
+        this.bcK = (RelativeLayout) getView().findViewById(w.h.rlAlaLivePane);
+        ViewGroup.LayoutParams layoutParams = this.bcK.getLayoutParams();
         layoutParams.height = (int) (com.baidu.adp.lib.util.k.af(this.mContext) * 0.5625f);
-        this.bct.setLayoutParams(layoutParams);
+        this.bcK.setLayoutParams(layoutParams);
         getView().setOnClickListener(this);
-        this.bcw = (FrameLayout) getView().findViewById(w.h.flAlaLiveTitlePane);
-        this.bcr = (TbImageView) getView().findViewById(w.h.imgAlaLiveView);
-        this.bcr.setDefaultErrorResource(0);
-        this.bcr.setDefaultBgResource(w.g.pic_bg_video_frs);
-        this.bcs = (TextView) getView().findViewById(w.h.tvAlaLiveTitle);
-        this.cvT = (ThreadLiveAndRecordUserInfoLayout) getView().findViewById(w.h.layoutAlaUserCard);
-        this.cvT.setForumAfterClickListener(this.ama);
-        this.cvT.setUserAfterClickListener(this.amx);
-        this.cvT.setBarNameClickEnabled(true);
-        this.bcx = getView().findViewById(w.h.dividerBottom);
-        this.bcz = (TextView) getView().findViewById(w.h.tvRecordThreadCreateTime);
-        this.bcA = (TextView) getView().findViewById(w.h.tvRecordThreadDuration);
+        this.bcN = (FrameLayout) getView().findViewById(w.h.flAlaLiveTitlePane);
+        this.bcI = (TbImageView) getView().findViewById(w.h.imgAlaLiveView);
+        this.bcI.setDefaultErrorResource(0);
+        this.bcI.setDefaultBgResource(w.g.pic_bg_video_frs);
+        this.bcJ = (TextView) getView().findViewById(w.h.tvAlaLiveTitle);
+        this.csQ = (ThreadLiveAndRecordUserInfoLayout) getView().findViewById(w.h.layoutAlaUserCard);
+        this.csQ.setForumAfterClickListener(this.alY);
+        this.csQ.setUserAfterClickListener(this.amk);
+        this.csQ.setBarNameClickEnabled(true);
+        this.bcO = getView().findViewById(w.h.dividerBottom);
+        this.bcQ = (TextView) getView().findViewById(w.h.tvRecordThreadCreateTime);
+        this.bcR = (TextView) getView().findViewById(w.h.tvRecordThreadDuration);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -65,7 +65,7 @@ public class i extends com.baidu.tieba.card.a<h> {
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        if (bdUniqueId == null || this.cvT == null) {
+        if (bdUniqueId == null || this.csQ == null) {
         }
     }
 
@@ -73,33 +73,33 @@ public class i extends com.baidu.tieba.card.a<h> {
     @Override // com.baidu.tieba.card.a
     /* renamed from: a */
     public void onBindDataToView(h hVar) {
-        if (hVar != null && hVar.bck != null && hVar.bck.sF() != null) {
-            this.cvW = hVar;
-            l(this.cvW.bck);
-            this.bcr.c(hVar.bck.sF().thumbnail_url, 10, false);
-            this.bcz.setText(au.q(hVar.bck.getCreateTime()));
-            this.bcA.setText(StringUtils.translateSecondsToString(hVar.bck.sF().video_duration.intValue()));
-            this.cvT.k(hVar.bck);
+        if (hVar != null && hVar.bcB != null && hVar.bcB.rP() != null) {
+            this.csT = hVar;
+            q(this.csT.bcB);
+            this.bcI.c(hVar.bcB.rP().thumbnail_url, 10, false);
+            this.bcQ.setText(au.q(hVar.bcB.getCreateTime()));
+            this.bcR.setText(StringUtils.translateSecondsToString(hVar.bcB.rP().video_duration.intValue()));
+            this.csQ.p(hVar.bcB);
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
-    private void l(bi biVar) {
+    private void q(bk bkVar) {
         String str = "";
-        if (biVar.getAuthor() != null) {
-            str = biVar.getAuthor().getName_show();
+        if (bkVar.getAuthor() != null) {
+            str = bkVar.getAuthor().getName_show();
         }
-        String title = biVar.getTitle();
-        this.bcs.setText(StringUtils.isNull(title) ? this.mContext.getResources().getString(w.l.recommend_ala_record_title, str) : title);
+        String title = bkVar.getTitle();
+        this.bcJ.setText(StringUtils.isNull(title) ? this.mContext.getResources().getString(w.l.recommend_ala_record_title, str) : title);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            aq.j(this.bct, w.g.addresslist_item_bg);
-            aq.i(this.bcs, w.e.cp_cont_i);
-            aq.j(this.bcx, w.g.addresslist_item_bg);
-            this.cvT.onChangeSkinType(tbPageContext, i);
+            aq.j(this.bcK, w.g.addresslist_item_bg);
+            aq.i(this.bcJ, w.e.cp_cont_i);
+            aq.j(this.bcO, w.g.addresslist_item_bg);
+            this.csQ.onChangeSkinType(tbPageContext, i);
             this.mSkinType = i;
         }
     }
@@ -116,8 +116,8 @@ public class i extends com.baidu.tieba.card.a<h> {
     }
 
     private void l(TbPageContext<?> tbPageContext) {
-        if (tbPageContext != null && this.cvW != null && this.cvW.bck != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext.getPageActivity()).createFromThreadCfg(this.cvW.bck, null, "", 0, true, false, false)));
+        if (tbPageContext != null && this.csT != null && this.csT.bcB != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext.getPageActivity()).createFromThreadCfg(this.csT.bcB, null, "", 0, true, false, false)));
         }
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import tbclient.AlaTab.AlaTabResIdl;
 /* loaded from: classes.dex */
-public class RecommendAlaLiveHttpResponseMessage extends MvcProtobufHttpResponsedMessage<c, AlaTabResIdl> {
+public class RecommendAlaLiveHttpResponseMessage extends MvcProtobufHttpResponsedMessage<RecommendAlaLiveResponseData, AlaTabResIdl> {
     public RecommendAlaLiveHttpResponseMessage() {
         super(CmdConfigHttp.CMD_ALA_LIVE_LIST);
     }
@@ -17,8 +17,8 @@ public class RecommendAlaLiveHttpResponseMessage extends MvcProtobufHttpResponse
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if ((getOrginalMessage().getExtra() instanceof MvcNetMessage) && (((MvcNetMessage) getOrginalMessage().getExtra()).getRequestData() instanceof b)) {
-            com.baidu.tbadk.ala.a.nZ().putLong("recommend_auto_update_get_server_data_time", System.currentTimeMillis());
+        if ((getOrginalMessage().getExtra() instanceof MvcNetMessage) && (((MvcNetMessage) getOrginalMessage().getExtra()).getRequestData() instanceof a)) {
+            com.baidu.tbadk.ala.a.nG().putLong("recommend_auto_update_get_server_data_time", System.currentTimeMillis());
         }
     }
 }

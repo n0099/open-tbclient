@@ -1,17 +1,28 @@
 package com.baidu.tieba.pb.video;
 
-import com.baidu.tieba.play.au;
+import android.animation.ValueAnimator;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements au.a {
-    final /* synthetic */ d exo;
+public class i implements ValueAnimator.AnimatorUpdateListener {
+    final /* synthetic */ g esY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(d dVar) {
-        this.exo = dVar;
+    public i(g gVar) {
+        this.esY = gVar;
     }
 
-    @Override // com.baidu.tieba.play.au.a
-    public void Mm() {
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        FrameLayout frameLayout;
+        FrameLayout frameLayout2;
+        int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+        frameLayout = this.esY.emJ;
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
+        layoutParams.topMargin = intValue;
+        frameLayout2 = this.esY.emJ;
+        frameLayout2.setLayoutParams(layoutParams);
+        this.esY.aNK();
     }
 }

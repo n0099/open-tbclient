@@ -1,56 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.cv;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.w;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.widget.richText.b;
 /* loaded from: classes.dex */
-class l implements cv.a {
-    final /* synthetic */ PbActivity emk;
+class l extends CustomMessageListener {
+    final /* synthetic */ PbActivity ehy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(PbActivity pbActivity) {
-        this.emk = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(PbActivity pbActivity, int i) {
+        super(i);
+        this.ehy = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cv.a
-    public void i(int i, long j) {
-        PbModel pbModel;
-        PbModel pbModel2;
-        ey eyVar;
-        PbModel pbModel3;
-        if (i != 0) {
-            this.emk.showToast(w.l.operation_failed);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof b.a)) {
+            b.a aVar = (b.a) customResponsedMessage.getData();
+            com.baidu.tbadk.widget.richText.b.a(this.ehy.getPageContext(), aVar.type, aVar.url, aVar.subType);
         }
-        this.emk.oj(2);
-        ep.aNL().reset();
-        pbModel = this.emk.ekv;
-        pbModel.aMV();
-        pbModel2 = this.emk.ekv;
-        ArrayList<PostData> aKA = pbModel2.getPbData().aKA();
-        if (aKA != null) {
-            Iterator<PostData> it = aKA.iterator();
-            boolean z = false;
-            while (it.hasNext()) {
-                PostData next = it.next();
-                if (ex.g(next) && next.bjx().getTemplateId() == j) {
-                    it.remove();
-                    z = true;
-                }
-            }
-            if (z) {
-                eyVar = this.emk.eli;
-                pbModel3 = this.emk.ekv;
-                eyVar.k(pbModel3.getPbData());
-            }
-            this.emk.showToast(w.l.operation_success);
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.cv.a
-    public void onError(int i, String str) {
-        this.emk.showToast(w.l.operation_failed);
     }
 }

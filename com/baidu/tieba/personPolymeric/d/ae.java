@@ -1,24 +1,26 @@
 package com.baidu.tieba.personPolymeric.d;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bg;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae extends CustomMessageListener {
-    final /* synthetic */ z eJz;
+public class ae implements View.OnClickListener {
+    final /* synthetic */ ab eFx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae(z zVar, int i) {
-        super(i);
-        this.eJz = zVar;
+    public ae(ab abVar) {
+        this.eFx = abVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.data.j jVar;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j) && (jVar = (com.baidu.tbadk.data.j) customResponsedMessage.getData()) != null) {
-            this.eJz.fMf.oc(jVar.qB());
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        tbPageContext = this.eFx.aat;
+        TiebaStatic.eventStat(tbPageContext.getPageActivity(), "notlogin_4", "click", 1, new Object[0]);
+        tbPageContext2 = this.eFx.aat;
+        bg.aM(tbPageContext2.getPageActivity());
     }
 }

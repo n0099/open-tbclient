@@ -1,11 +1,11 @@
 package com.baidu.tieba.homepage.alalivelist.view;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public bi bck;
+    public bk bcB;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {

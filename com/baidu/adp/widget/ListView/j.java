@@ -11,7 +11,14 @@ public class j implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.adp.base.j X = com.baidu.adp.base.k.X(this.Ih.getContext());
+        com.baidu.adp.base.j jVar;
+        com.baidu.adp.base.j X;
+        jVar = this.Ih.mScrollable;
+        if (jVar != null) {
+            X = this.Ih.mScrollable;
+        } else {
+            X = com.baidu.adp.base.k.X(this.Ih.getContext());
+        }
         if (X != null) {
             X.onPreLoad(this.Ih);
         }

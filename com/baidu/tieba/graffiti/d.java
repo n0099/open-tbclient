@@ -22,56 +22,56 @@ import com.baidu.tieba.tbadkCore.util.o;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class d extends RelativeLayout implements View.OnClickListener {
-    static final int cpN = k.g(TbadkCoreApplication.m9getInst(), w.f.ds150);
-    static final int cpO = k.g(TbadkCoreApplication.m9getInst(), w.f.ds30);
-    private TbRichTextGraffitiInfo aMU;
-    private boolean aNP;
-    private View bGK;
-    private final View.OnLongClickListener bIW;
-    private RelativeLayout.LayoutParams cpP;
-    private RelativeLayout.LayoutParams cpQ;
-    private TbImageView cpR;
-    private View cpS;
-    private TextView cpT;
-    private boolean cpU;
-    private final com.baidu.tbadk.util.e<Error> cpV;
-    public final View.OnClickListener cpW;
+    static final int cmK = k.g(TbadkCoreApplication.m9getInst(), w.f.ds150);
+    static final int cmL = k.g(TbadkCoreApplication.m9getInst(), w.f.ds30);
+    private TbRichTextGraffitiInfo aNl;
+    private boolean aOh;
+    private RelativeLayout.LayoutParams cmM;
+    private RelativeLayout.LayoutParams cmN;
+    private TbImageView cmO;
+    private View cmP;
+    private View cmQ;
+    private TextView cmR;
+    private boolean cmS;
+    private final View.OnLongClickListener cmT;
+    private final com.baidu.tbadk.util.f<Error> cmU;
+    public final View.OnClickListener cmV;
 
     public d(Context context) {
         super(context);
-        this.cpP = new RelativeLayout.LayoutParams(-2, -2);
-        this.cpQ = new RelativeLayout.LayoutParams(-1, -2);
-        this.cpR = null;
-        this.bGK = null;
-        this.cpS = null;
-        this.cpT = null;
-        this.aNP = true;
-        this.cpU = false;
-        this.bIW = new e(this);
-        this.cpV = new f(this);
-        this.cpW = new g(this);
+        this.cmM = new RelativeLayout.LayoutParams(-2, -2);
+        this.cmN = new RelativeLayout.LayoutParams(-1, -2);
+        this.cmO = null;
+        this.cmP = null;
+        this.cmQ = null;
+        this.cmR = null;
+        this.aOh = true;
+        this.cmS = false;
+        this.cmT = new e(this);
+        this.cmU = new f(this);
+        this.cmV = new g(this);
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(w.j.tb_richtext_graffitiview, this);
-        this.bGK = inflate.findViewById(w.h.root_layout);
-        this.cpR = (TbImageView) inflate.findViewById(w.h.graffiti_image);
-        this.cpR.setGifIconSupport(false);
-        this.cpS = inflate.findViewById(w.h.save_layout);
-        this.cpT = (TextView) inflate.findViewById(w.h.tv_save);
-        this.cpR.setDrawBorder(true);
-        this.cpR.setBorderColor(aq.getColor(w.e.cp_bg_line_k));
-        this.cpR.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1));
-        this.cpR.setFocusable(false);
-        this.cpS.setClickable(true);
-        this.cpR.setOnClickListener(this.cpW);
-        this.cpR.setGifIconSupport(false);
-        this.cpR.setAdjustViewBounds(false);
-        this.cpT.setClickable(true);
-        this.cpT.setOnClickListener(this);
-        this.cpT.setLongClickable(true);
-        this.cpT.setOnLongClickListener(this.bIW);
+        this.cmP = inflate.findViewById(w.h.root_layout);
+        this.cmO = (TbImageView) inflate.findViewById(w.h.graffiti_image);
+        this.cmO.setGifIconSupport(false);
+        this.cmQ = inflate.findViewById(w.h.save_layout);
+        this.cmR = (TextView) inflate.findViewById(w.h.tv_save);
+        this.cmO.setDrawBorder(true);
+        this.cmO.setBorderColor(aq.getColor(w.e.cp_bg_line_k));
+        this.cmO.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1));
+        this.cmO.setFocusable(false);
+        this.cmQ.setClickable(true);
+        this.cmO.setOnClickListener(this.cmV);
+        this.cmO.setGifIconSupport(false);
+        this.cmO.setAdjustViewBounds(false);
+        this.cmR.setClickable(true);
+        this.cmR.setOnClickListener(this);
+        this.cmR.setLongClickable(true);
+        this.cmR.setOnLongClickListener(this.cmT);
     }
 
     public void a(TbRichTextGraffitiInfo tbRichTextGraffitiInfo, int i, String str, int i2, int i3, boolean z) {
@@ -82,49 +82,49 @@ public class d extends RelativeLayout implements View.OnClickListener {
         if (getVisibility() != 0) {
             setVisibility(0);
         }
-        this.aMU = tbRichTextGraffitiInfo;
+        this.aNl = tbRichTextGraffitiInfo;
         a(tbRichTextGraffitiInfo, i, i2, i3);
-        if (!c.ahE() || !z) {
-            this.cpS.setVisibility(8);
-            this.bGK.setLayoutParams(this.cpP);
+        if (!c.afn() || !z) {
+            this.cmQ.setVisibility(8);
+            this.cmP.setLayoutParams(this.cmM);
         } else {
-            this.cpS.setVisibility(0);
-            this.bGK.setLayoutParams(this.cpQ);
+            this.cmQ.setVisibility(0);
+            this.cmP.setLayoutParams(this.cmN);
         }
-        boolean pu = com.baidu.tbadk.core.q.po().pu();
-        this.cpR.setDefaultBgResource(w.e.cp_bg_line_c);
-        if (pu) {
-            this.cpR.setInterceptOnClick(false);
-            this.cpR.setDefaultResource(w.g.transparent_bg);
+        boolean pb = com.baidu.tbadk.core.r.oV().pb();
+        this.cmO.setDefaultBgResource(w.e.cp_bg_line_c);
+        if (pb) {
+            this.cmO.setInterceptOnClick(false);
+            this.cmO.setDefaultResource(w.g.transparent_bg);
         } else {
-            this.cpR.setDefaultResource(w.g.icon_click);
-            this.cpR.setInterceptOnClick(true);
+            this.cmO.setDefaultResource(w.g.icon_click);
+            this.cmO.setInterceptOnClick(true);
         }
-        this.cpR.c(tbRichTextGraffitiInfo.url, 17, false);
-        this.cpR.setTag(tbRichTextGraffitiInfo.url);
+        this.cmO.c(tbRichTextGraffitiInfo.url, 17, false);
+        this.cmO.setTag(tbRichTextGraffitiInfo.url);
         onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     private void a(TbRichTextGraffitiInfo tbRichTextGraffitiInfo, int i, int i2, int i3) {
         ViewGroup.LayoutParams layoutParams;
-        if (tbRichTextGraffitiInfo != null && (layoutParams = this.cpR.getLayoutParams()) != null && i2 > cpN) {
+        if (tbRichTextGraffitiInfo != null && (layoutParams = this.cmO.getLayoutParams()) != null && i2 > cmK) {
             int i4 = tbRichTextGraffitiInfo.width;
-            int i5 = (i2 - cpN) - cpO;
+            int i5 = (i2 - cmK) - cmL;
             if (i5 <= 0 || i4 <= i5) {
                 i5 = i4;
             }
             if (layoutParams.width != i5 || layoutParams.height != i5) {
                 layoutParams.width = i5;
                 layoutParams.height = i5;
-                this.cpR.setLayoutParams(layoutParams);
+                this.cmO.setLayoutParams(layoutParams);
             }
-            this.cpS.setPadding(Math.min(i3, ((i2 - cpN) - i5) / 2), 0, 0, 0);
+            this.cmQ.setPadding(Math.min(i3, ((i2 - cmK) - i5) / 2), 0, 0, 0);
         }
     }
 
     public void j(boolean z, boolean z2) {
-        if (this.aNP != z) {
-            this.aNP = z;
+        if (this.aOh != z) {
+            this.aOh = z;
             if (z2) {
                 requestLayout();
             }
@@ -132,42 +132,42 @@ public class d extends RelativeLayout implements View.OnClickListener {
     }
 
     public TbImageView getGraffitiImageView() {
-        return this.cpR;
+        return this.cmO;
     }
 
     public View getSaveBtn() {
-        return this.cpS;
+        return this.cmQ;
     }
 
     public void onChangeSkinType(int i) {
-        aq.c(this.cpT, w.e.cp_link_tip_a, 1);
-        aq.j(this.cpT, w.g.btn_tuya_save_n);
+        aq.c(this.cmR, w.e.cp_link_tip_a, 1);
+        aq.j(this.cmR, w.g.btn_tuya_save_n);
     }
 
     public void reset() {
-        this.aMU = null;
-        this.cpR.setImageResource(0);
-        this.cpS.setBackgroundResource(0);
-        this.cpT.setBackgroundResource(0);
+        this.aNl = null;
+        this.cmO.setImageResource(0);
+        this.cmQ.setBackgroundResource(0);
+        this.cmR.setBackgroundResource(0);
         setTag(null);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         o oVar;
-        ahF();
-        if (view == this.cpT && this.aMU != null && bg.aK(getContext()) && !com.baidu.tbadk.util.d.isFastDoubleClick() && !this.cpU) {
-            this.cpU = true;
+        afo();
+        if (view == this.cmR && this.aNl != null && bg.aN(getContext()) && !com.baidu.tbadk.util.e.isFastDoubleClick() && !this.cmS) {
+            this.cmS = true;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, o.class);
             if (runTask != null && (oVar = (o) runTask.getData()) != null) {
-                oVar.b(this.aMU.url, this.cpV);
+                oVar.b(this.aNl.url, this.cmU);
             }
             TiebaStatic.log(new as("c10964"));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahF() {
+    public void afo() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
     }
 

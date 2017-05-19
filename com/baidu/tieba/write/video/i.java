@@ -1,21 +1,23 @@
 package com.baidu.tieba.write.video;
-
-import com.baidu.tieba.tbadkCore.c.a;
 /* loaded from: classes.dex */
-class i implements a.InterfaceC0073a {
-    final /* synthetic */ WriteVideoActivity fRv;
+class i implements Runnable {
+    final /* synthetic */ WriteVideoActivity fPv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(WriteVideoActivity writeVideoActivity) {
-        this.fRv = writeVideoActivity;
+        this.fPv = writeVideoActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0073a
-    public void onUploadProgress(int i) {
-        Runnable runnable;
-        this.fRv.fRs = i;
-        com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable = this.fRv.fRu;
-        fS.post(runnable);
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.dialog.e eVar;
+        com.baidu.tbadk.core.dialog.e eVar2;
+        int i;
+        eVar = this.fPv.cat;
+        if (eVar != null) {
+            eVar2 = this.fPv.cat;
+            i = this.fPv.fPq;
+            eVar2.cf(i);
+        }
     }
 }

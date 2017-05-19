@@ -94,7 +94,7 @@ public class y extends BaseAdapter {
         }
     }
 
-    public void setData(List<v> list) {
+    public void setData(List<? extends v> list) {
         if (this.IC == null) {
             this.IC = new ArrayList();
         } else {

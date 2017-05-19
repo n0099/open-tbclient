@@ -17,29 +17,29 @@ import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class c {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static c fvi;
-    private com.baidu.adp.lib.cache.o<byte[]> aRI;
+    private static c frl;
+    private com.baidu.adp.lib.cache.o<byte[]> aSd;
     private l responseData = null;
 
     private c() {
-        this.aRI = null;
-        this.aRI = BdCacheService.eI().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.aSd = null;
+        this.aSd = BdCacheService.eI().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static synchronized c bhj() {
+    public static synchronized c beL() {
         c cVar;
         synchronized (c.class) {
-            if (fvi == null) {
-                fvi = new c();
+            if (frl == null) {
+                frl = new c();
             }
-            cVar = fvi;
+            cVar = frl;
         }
         return cVar;
     }
 
-    public boolean pM(String str) {
-        if (this.aRI != null && str != null) {
-            byte[] bArr = this.aRI.get(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str);
+    public boolean pK(String str) {
+        if (this.aSd != null && str != null) {
+            byte[] bArr = this.aSd.get(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str);
             if (bArr != null && bArr.length > 0) {
                 this.responseData = new l();
                 this.responseData.C(bArr);
@@ -50,8 +50,8 @@ public class c {
     }
 
     public void bW(String str, String str2) {
-        if (this.aRI != null && str != null) {
-            byte[] bArr = this.aRI.get(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str);
+        if (this.aSd != null && str != null) {
+            byte[] bArr = this.aSd.get(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -78,8 +78,8 @@ public class c {
     }
 
     public void bX(String str, String str2) {
-        if (this.aRI != null && str != null) {
-            byte[] bArr = this.aRI.get(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str);
+        if (this.aSd != null && str != null) {
+            byte[] bArr = this.aSd.get(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -112,29 +112,29 @@ public class c {
     public void a(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.aRI.a(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                this.aSd.a(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
                 return;
             }
-            this.aRI.b(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            this.aSd.b(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }
 
     public void V(String str, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.aRI.remove(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str);
+                this.aSd.remove(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str);
                 return;
             }
-            this.aRI.Q(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str);
+            this.aSd.Q(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + str);
         }
     }
 
     public boolean isSameDay(String str) {
         o.c<byte[]> P;
-        if (str == null || str.length() <= 0 || (P = this.aRI.P(str)) == null) {
+        if (str == null || str.length() <= 0 || (P = this.aSd.P(str)) == null) {
             return false;
         }
-        return UtilHelper.isSameDay(P.tO, System.currentTimeMillis());
+        return UtilHelper.isSameDay(P.tP, System.currentTimeMillis());
     }
 
     public l getResponseData() {

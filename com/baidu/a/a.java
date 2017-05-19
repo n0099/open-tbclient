@@ -3,7 +3,7 @@ package com.baidu.a;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean nT() {
+    public static boolean nA() {
         return Build.VERSION.SDK_INT >= 23;
     }
 }

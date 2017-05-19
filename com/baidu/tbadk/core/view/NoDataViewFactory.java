@@ -21,7 +21,7 @@ public class NoDataViewFactory {
         WEBVIEW,
         LOCAL;
 
-        /* JADX DEBUG: Replace access to removed values field (akL) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aki) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ImgType[] valuesCustom() {
             ImgType[] valuesCustom = values();
@@ -34,43 +34,43 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        a akG;
-        a akH;
-        int akI = -1;
+        a akd;
+        a ake;
+        int akf = -1;
 
         private b() {
         }
 
         public static b a(a aVar) {
             b bVar = new b();
-            bVar.akG = aVar;
+            bVar.akd = aVar;
             return bVar;
         }
 
         public static b a(a aVar, int i) {
             b bVar = new b();
-            bVar.akG = aVar;
-            bVar.akI = i;
+            bVar.akd = aVar;
+            bVar.akf = i;
             return bVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        String aem;
-        View.OnClickListener akF;
+        String adE;
+        View.OnClickListener akc;
 
         public a(String str, View.OnClickListener onClickListener) {
-            this.aem = str;
-            this.akF = onClickListener;
+            this.adE = str;
+            this.akc = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        ImgType akJ = ImgType.NONE;
-        int akK = -1;
-        int akD = -1;
+        ImgType akg = ImgType.NONE;
+        int akh = -1;
+        int aka = -1;
         int mHeight = -1;
         int mWidth = -1;
 
@@ -79,16 +79,16 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType, int i) {
             c cVar = new c();
-            cVar.akJ = imgType;
-            cVar.akK = i;
+            cVar.akg = imgType;
+            cVar.akh = i;
             return cVar;
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             c cVar = new c();
-            cVar.akJ = imgType;
-            cVar.akD = i;
-            cVar.akK = i2;
+            cVar.akg = imgType;
+            cVar.aka = i;
+            cVar.akh = i2;
             cVar.mHeight = i3;
             cVar.mWidth = i4;
             return cVar;
@@ -96,38 +96,38 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType) {
             c cVar = new c();
-            cVar.akJ = imgType;
+            cVar.akg = imgType;
             return cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class d {
-        int abO;
-        String akM;
-        int akN = -1;
+        int abi;
+        String akj;
+        int akk = -1;
         String mSubTitle;
         String mTitle;
 
         private d() {
         }
 
-        public static d D(int i, int i2) {
+        public static d B(int i, int i2) {
             d dVar = new d();
             dVar.mSubTitle = TbadkCoreApplication.m9getInst().getResources().getString(i);
-            dVar.akN = i2;
+            dVar.akk = i2;
             return dVar;
         }
 
-        public static d dh(int i) {
-            return dV(TbadkCoreApplication.m9getInst().getResources().getString(i));
+        public static d dd(int i) {
+            return dT(TbadkCoreApplication.m9getInst().getResources().getString(i));
         }
 
-        public static d E(int i, int i2) {
+        public static d C(int i, int i2) {
             return ae(TbadkCoreApplication.m9getInst().getResources().getString(i), TbadkCoreApplication.m9getInst().getResources().getString(i2));
         }
 
-        public static d dV(String str) {
+        public static d dT(String str) {
             d dVar = new d();
             dVar.mSubTitle = str;
             return dVar;
@@ -144,7 +144,7 @@ public class NoDataViewFactory {
             d dVar = new d();
             dVar.mTitle = str2;
             dVar.mSubTitle = str;
-            dVar.abO = i;
+            dVar.abi = i;
             return dVar;
         }
     }

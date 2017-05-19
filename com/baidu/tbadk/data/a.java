@@ -3,11 +3,11 @@ package com.baidu.tbadk.data;
 import tbclient.ActivitySponsor;
 /* loaded from: classes.dex */
 public class a {
-    private Integer axg;
-    private String axh;
+    private Integer axl;
+    private String axm;
 
     public void a(ActivitySponsor activitySponsor) {
-        this.axg = activitySponsor.is_sponsor;
-        this.axh = activitySponsor.sponsor_url;
+        this.axl = activitySponsor.is_sponsor;
+        this.axm = activitySponsor.sponsor_url;
     }
 }

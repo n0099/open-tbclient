@@ -36,7 +36,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
     public final void onReceive(Context context, Intent intent) {
         if (intent != null && intent.getAction() != null) {
             if (intent.getAction().equals("com.baidu.tieba.secret")) {
-                handleMethod(context, intent.getStringExtra("method"), intent.getStringExtra(LegoListActivityConfig.PARAMS));
+                handleMethod(context, intent.getStringExtra(PushConstants.EXTRA_METHOD), intent.getStringExtra(LegoListActivityConfig.PARAMS));
             }
             Log.d(TAG, " PushMessageListener new  !!!!!");
             Log.d(TAG, " PushMessageReceiver call PushMessageReceiverUtil : " + intent.toUri(0));

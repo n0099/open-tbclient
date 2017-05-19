@@ -1,20 +1,17 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
-public class ae implements View.OnClickListener {
-    final /* synthetic */ z fCF;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(z zVar) {
-        this.fCF = zVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MessageManager.getInstance().runTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, (Class) null);
+class ae implements CustomMessageTask.CustomRunnable<Integer> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
+        if (customMessage != null && (customMessage instanceof NewMsgArriveRequestMessage)) {
+            return new NewMsgArriveResponsedMessage(((NewMsgArriveRequestMessage) customMessage).getData().intValue());
+        }
+        return null;
     }
 }

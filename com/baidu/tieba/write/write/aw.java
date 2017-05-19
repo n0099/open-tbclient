@@ -1,53 +1,30 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.SpannableString;
-import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw implements TextWatcher {
-    final /* synthetic */ WriteActivity fUM;
+public class aw implements View.OnTouchListener {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        String str;
-        str = this.fUM.fUC;
-        if (!str.equals(charSequence.toString())) {
-            this.fUM.fUD = i + i3;
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        String str;
-        SpannableString gb;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        com.baidu.tbadk.editortools.j jVar;
         EditText editText;
-        int i;
-        EditText editText2;
-        EditText editText3;
-        int i2;
-        str = this.fUM.fUC;
-        if (!str.equals(editable.toString()) && (gb = com.baidu.tbadk.plugins.a.gb(editable.toString())) != null) {
-            this.fUM.fUC = gb.toString();
-            editText = this.fUM.fow;
-            editText.setText(gb);
-            i = this.fUM.fUD;
-            editText2 = this.fUM.fow;
-            if (i <= editText2.getText().length()) {
-                editText3 = this.fUM.fow;
-                i2 = this.fUM.fUD;
-                editText3.setSelection(i2);
-            }
+        if (motionEvent.getAction() == 1) {
+            view.requestFocus();
+            jVar = this.fSV.azd;
+            jVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+            editText = this.fSV.fkB;
+            editText.requestFocus();
+            return false;
         }
+        return false;
     }
 }

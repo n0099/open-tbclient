@@ -7,6 +7,6 @@ import android.content.Intent;
 class a extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        x.Ws().Wt();
+        x.VN().VO();
     }
 }

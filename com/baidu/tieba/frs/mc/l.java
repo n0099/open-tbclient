@@ -4,11 +4,10 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.data.an;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bw;
+import com.baidu.tieba.frs.bp;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
@@ -18,28 +17,28 @@ import tbclient.GetMyPost.User_Info;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class l extends w {
-    private final com.baidu.adp.framework.listener.a caA;
-    private final CustomMessageListener caz;
+    private final CustomMessageListener bYr;
+    private final com.baidu.adp.framework.listener.a bYs;
 
-    public l(FrsActivity frsActivity) {
-        super(frsActivity);
-        this.caz = new m(this, CmdConfigCustom.CMD_VIDEO_WRITE_POST_SUCCESS);
-        this.caA = new n(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
-        this.caA.getSocketMessageListener().setSelfListener(true);
-        this.caA.getHttpMessageListener().setSelfListener(true);
-        this.bVk.registerListener(this.caA);
-        this.bVk.registerListener(this.caz);
+    public l(com.baidu.tieba.frs.r rVar) {
+        super(rVar);
+        this.bYr = new m(this, CmdConfigCustom.CMD_VIDEO_WRITE_POST_SUCCESS);
+        this.bYs = new n(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
+        this.bYs.getSocketMessageListener().setSelfListener(true);
+        this.bYs.getHttpMessageListener().setSelfListener(true);
+        this.bNK.registerListener(this.bYs);
+        this.bNK.registerListener(this.bYr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, GetMyPostResIdl getMyPostResIdl) {
         if (i != 0) {
-            this.bVk.showToast(str);
+            this.bNK.showToast(str);
             return;
         }
-        com.baidu.tieba.tbadkCore.n aas = this.bVk.aas();
-        if (aas != null && getMyPostResIdl != null && this.bOU != null && this.bPf != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
-            am amVar = new am();
+        com.baidu.tieba.tbadkCore.n Zq = this.bNK.Zq();
+        if (Zq != null && getMyPostResIdl != null && this.bOn != null && this.bOw != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
+            an anVar = new an();
             HashMap<String, MetaData> hashMap = new HashMap<>();
             MetaData metaData = new MetaData();
             metaData.parserProtobuf(getMyPostResIdl.data.thread_info.author);
@@ -49,16 +48,16 @@ public class l extends w {
             if (userId != null && !userId.equals("0")) {
                 hashMap.put(metaData.getUserId(), metaData);
             }
-            amVar.setUserMap(hashMap);
-            amVar.a(getMyPostResIdl.data.thread_info);
-            amVar.bX(3);
-            this.bPf.a(amVar);
-            ArrayList<com.baidu.adp.widget.ListView.v> a = this.caM.a(false, true, aas.getThreadList(), null);
+            anVar.setUserMap(hashMap);
+            anVar.a(getMyPostResIdl.data.thread_info);
+            anVar.bV(3);
+            this.bOw.a(anVar);
+            ArrayList<com.baidu.adp.widget.ListView.v> a = this.bYE.a(false, true, Zq.getThreadList(), null);
             if (a != null) {
-                aas.ax(a);
-                aas.bie();
-                this.bOU.a(a, aas);
-                this.bOU.hY(0);
+                Zq.ay(a);
+                Zq.bfE();
+                this.bOn.a(a, Zq);
+                this.bOn.hO(0);
             }
         }
     }
@@ -78,7 +77,7 @@ public class l extends w {
             if (zhiBoInfoTW != null && zhiBoInfoTW.user != null) {
                 String str = zhiBoInfoTW.user.fans_nickname;
                 if (StringUtils.isNull(str)) {
-                    str = this.bVk.getPageContext().getResources().getString(w.l.fans_default_name);
+                    str = this.bNK.getPageContext().getResources().getString(w.l.fans_default_name);
                 }
                 metaData.setFansNickName(str);
             }
@@ -86,16 +85,16 @@ public class l extends w {
     }
 
     public void a(PostWriteCallBackData postWriteCallBackData) {
-        if (this.bPf != null) {
-            if (this.bPf.adS() == 2 || this.bPf.adS() == 3 || this.bPf.adS() == 7) {
-                int adK = this.bPf.adK();
-                if (bw.abC().ia(1) == null) {
-                    adK = 0;
+        if (this.bOw != null) {
+            if (this.bOw.abW() == 2 || this.bOw.abW() == 3 || this.bOw.abW() == 7) {
+                int abO = this.bOw.abO();
+                if (bp.aab().hQ(1) == null) {
+                    abO = 0;
                 }
-                if (adK == 0 && postWriteCallBackData != null) {
+                if (abO == 0 && postWriteCallBackData != null) {
                     long c = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getPostId(), 0L);
                     long c2 = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getThreadId(), 0L);
-                    long c3 = com.baidu.adp.lib.g.b.c(this.bVk.getForumId(), 0L);
+                    long c3 = com.baidu.adp.lib.g.b.c(this.bNK.getForumId(), 0L);
                     if (c != 0 && c2 != 0 && c3 != 0) {
                         com.baidu.adp.lib.g.h.fS().postDelayed(new o(this, c2, c, c3), 1000L);
                     }

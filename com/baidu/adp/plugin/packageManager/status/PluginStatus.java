@@ -20,7 +20,7 @@ public class PluginStatus extends OrmObject {
     String errorMsg;
     int priority;
 
-    public String kg() {
+    public String kf() {
         return this.CC;
     }
 
@@ -36,7 +36,7 @@ public class PluginStatus extends OrmObject {
         return this.errorMsg;
     }
 
-    public String kh() {
+    public String kg() {
         return this.Fg;
     }
 }

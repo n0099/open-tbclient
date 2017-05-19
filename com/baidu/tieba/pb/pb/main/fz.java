@@ -1,30 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.animation.Animation;
-import android.widget.TextView;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fz implements Animation.AnimationListener {
-    final /* synthetic */ ey etN;
+public class fz implements a.b {
+    final /* synthetic */ fm epr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fz(ey eyVar) {
-        this.etN = eyVar;
+    public fz(fm fmVar) {
+        this.epr = fmVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        TextView textView;
-        this.etN.etp = false;
-        textView = this.etN.etn;
-        textView.setVisibility(8);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

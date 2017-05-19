@@ -4,15 +4,15 @@ import android.view.ViewTreeObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements ViewTreeObserver.OnGlobalLayoutListener {
-    final /* synthetic */ k ajS;
+    final /* synthetic */ k ajp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.ajS = kVar;
+        this.ajp = kVar;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
-        this.ajS.wN();
+        this.ajp.wa();
     }
 }

@@ -255,7 +255,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.bjQ();
+            this.jsBridge.bhn();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -283,7 +283,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     TbWebViewActivity.this.mView.bY(TbWebViewActivity.this.mUrlTitle);
                 }
                 TbWebViewActivity.this.mView.setNavBarVisibility(TbWebViewActivity.this.mIsShowNavBar);
-                TbWebViewActivity.this.mView.ag(TbWebViewActivity.this.isNeedShowShareItem());
+                TbWebViewActivity.this.mView.af(TbWebViewActivity.this.isNeedShowShareItem());
                 TbWebViewActivity.this.hideProgressBar();
                 TbWebViewActivity.this.stopLoadTimer();
             }
@@ -316,7 +316,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int b = bb.wn().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
+            int b = bb.vB().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
             if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -410,7 +410,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void trackFPS() {
         if (!sFrameLostTracked) {
             sFrameLostTracked = true;
-            com.baidu.tbadk.core.d.h.up().a(16, new w(this));
+            com.baidu.tbadk.core.d.h.tB().a(16, new w(this));
         }
     }
 

@@ -14,16 +14,16 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d implements Runnable {
-    final /* synthetic */ c aUE;
+    final /* synthetic */ c aUZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.aUE = cVar;
+        this.aUZ = cVar;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:129:0x0562 */
+    /* JADX WARN: Incorrect condition in loop: B:129:0x055a */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -117,50 +117,50 @@ public class d implements Runnable {
         String str33;
         String str34;
         str = c.TAG;
-        k.log(str, "test run in " + this.aUE);
-        while (f.LB().t(this.aUE)) {
-            f LB = f.LB();
-            str32 = this.aUE.mVideoUrl;
-            LB.gK(str32);
+        k.log(str, "test run in " + this.aUZ);
+        while (f.KP().t(this.aUZ)) {
+            f KP = f.KP();
+            str32 = this.aUZ.mVideoUrl;
+            KP.gI(str32);
             try {
                 str33 = c.TAG;
-                k.log(str33, "mDownloadRunnable sleep in..." + this.aUE);
+                k.log(str33, "mDownloadRunnable sleep in..." + this.aUZ);
                 Thread.sleep(100L);
                 str34 = c.TAG;
-                k.log(str34, "mDownloadRunnable sleep out..." + this.aUE);
+                k.log(str34, "mDownloadRunnable sleep out..." + this.aUZ);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            z16 = this.aUE.aUw;
+            z16 = this.aUZ.aUR;
             if (z16) {
                 break;
             }
         }
-        z = this.aUE.aUw;
+        z = this.aUZ.aUR;
         if (!z) {
-            f.LB().r(this.aUE);
+            f.KP().r(this.aUZ);
         }
         while (true) {
-            z2 = this.aUE.aUw;
+            z2 = this.aUZ.aUR;
             if (z2) {
                 break;
             }
             str3 = c.TAG;
-            k.log(str3, "download in " + this.aUE);
-            str4 = this.aUE.aUB;
-            long gT = o.gT(str4);
-            j = this.aUE.aoR;
-            if (gT <= j) {
-                this.aUE.aUz = -1L;
-                str8 = this.aUE.aUx;
+            k.log(str3, "download in " + this.aUZ);
+            str4 = this.aUZ.aUW;
+            long gR = o.gR(str4);
+            j = this.aUZ.aoW;
+            if (gR <= j) {
+                this.aUZ.aUU = -1L;
+                str8 = this.aUZ.aUS;
                 File file2 = new File(str8);
-                j2 = this.aUE.aUs;
-                j3 = this.aUE.aUr;
+                j2 = this.aUZ.aUN;
+                j3 = this.aUZ.aUM;
                 File[] listFiles = file2.listFiles();
                 ArrayList arrayList = new ArrayList();
                 if (listFiles != null) {
                     for (File file3 : listFiles) {
-                        z15 = this.aUE.aUw;
+                        z15 = this.aUZ.aUR;
                         if (z15) {
                             break;
                         }
@@ -179,7 +179,7 @@ public class d implements Runnable {
                         }
                     }
                 }
-                z3 = this.aUE.aUw;
+                z3 = this.aUZ.aUR;
                 if (z3) {
                     break;
                 }
@@ -203,7 +203,7 @@ public class d implements Runnable {
                     int i3 = 0;
                     while (true) {
                         if (i3 < fileArr.length) {
-                            z14 = this.aUE.aUw;
+                            z14 = this.aUZ.aUR;
                             if (z14) {
                                 j4 = 0;
                                 j5 = 0;
@@ -216,9 +216,9 @@ public class d implements Runnable {
                                 long parseInt2 = Integer.parseInt(file4.getName());
                                 long fileSize = o.getFileSize(file4);
                                 long j27 = (parseInt2 + fileSize) - 1;
-                                j25 = this.aUE.aUs;
+                                j25 = this.aUZ.aUN;
                                 if (j25 >= parseInt2) {
-                                    j26 = this.aUE.aUs;
+                                    j26 = this.aUZ.aUN;
                                     if (j26 <= j27) {
                                         file = file4;
                                         j24 = parseInt2 + fileSize;
@@ -247,7 +247,7 @@ public class d implements Runnable {
                             j6 = j3;
                             break;
                         }
-                        z13 = this.aUE.aUw;
+                        z13 = this.aUZ.aUR;
                         if (z13) {
                             j2 = j24;
                             j6 = j3;
@@ -266,20 +266,20 @@ public class d implements Runnable {
                         }
                     }
                 }
-                z4 = this.aUE.aUw;
+                z4 = this.aUZ.aUR;
                 if (z4) {
                     break;
                 }
                 if (file == null) {
-                    str9 = this.aUE.aUx;
+                    str9 = this.aUZ.aUS;
                     StringBuilder append = new StringBuilder(String.valueOf(str9)).append("/");
-                    j7 = this.aUE.aUs;
+                    j7 = this.aUZ.aUN;
                     sb = append.append(j7).toString();
                     try {
                         new File(sb).createNewFile();
                     } catch (IOException e5) {
                         as aa = new as("c12027").aa("errormsg", "创建缓存文件出现异常").aa("name", sb).aa("error", e5.getMessage());
-                        str10 = this.aUE.mVideoUrl;
+                        str10 = this.aUZ.mVideoUrl;
                         TiebaStatic.log(aa.aa("url", str10));
                         e5.printStackTrace();
                     }
@@ -310,34 +310,34 @@ public class d implements Runnable {
                     }
                 }
                 try {
-                    this.aUE.aUv = new FileInputStream(str11);
+                    this.aUZ.aUQ = new FileInputStream(str11);
                     if (file != null) {
                         try {
-                            fileInputStream = this.aUE.aUv;
-                            j9 = this.aUE.aUs;
+                            fileInputStream = this.aUZ.aUQ;
+                            j9 = this.aUZ.aUN;
                             fileInputStream.skip(j9 - j4);
                         } catch (Exception e6) {
                             e6.printStackTrace();
                         }
                     }
                     if (file != null) {
-                        this.aUE.aUu = j4 + j5;
+                        this.aUZ.aUP = j4 + j5;
                     }
-                    this.aUE.aUy = true;
-                    obj = this.aUE.mLock;
+                    this.aUZ.aUT = true;
+                    obj = this.aUZ.mLock;
                     synchronized (obj) {
-                        obj2 = this.aUE.mLock;
+                        obj2 = this.aUZ.mLock;
                         obj2.notify();
                     }
                     if (file != null) {
-                        j23 = this.aUE.aUr;
+                        j23 = this.aUZ.aUM;
                         if (j2 > j23) {
                             str31 = c.TAG;
-                            k.log(str31, "do not download, return " + this.aUE);
+                            k.log(str31, "do not download, return " + this.aUZ);
                             break;
                         }
                     }
-                    z6 = this.aUE.aUw;
+                    z6 = this.aUZ.aUR;
                     if (z6) {
                         break;
                     }
@@ -345,23 +345,23 @@ public class d implements Runnable {
                     k.log(str12, "download range is " + j2 + "-" + j8);
                     if (j2 <= j8 && !z5) {
                         try {
-                            str20 = this.aUE.mVideoUrl;
+                            str20 = this.aUZ.mVideoUrl;
                             URL url = new URL(str20);
                             str21 = c.TAG;
-                            k.log(str21, "url opt 1 " + this.aUE);
+                            k.log(str21, "url opt 1 " + this.aUZ);
                             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                             str22 = c.TAG;
-                            k.log(str22, "url opt 2 " + this.aUE);
+                            k.log(str22, "url opt 2 " + this.aUZ);
                             httpURLConnection.setRequestProperty("Range", "bytes=" + j2 + "-" + j8);
                             httpURLConnection.setConnectTimeout(5000);
                             httpURLConnection.setReadTimeout(5000);
                             str23 = c.TAG;
-                            k.log(str23, "url opt 3 " + this.aUE);
+                            k.log(str23, "url opt 3 " + this.aUZ);
                             InputStream inputStream = httpURLConnection.getInputStream();
                             while (inputStream == null) {
                                 str30 = c.TAG;
-                                k.log(str30, "conn input is null " + this.aUE);
-                                z12 = this.aUE.aUw;
+                                k.log(str30, "conn input is null " + this.aUZ);
+                                z12 = this.aUZ.aUR;
                                 if (z12) {
                                     break;
                                 }
@@ -373,65 +373,65 @@ public class d implements Runnable {
                                 inputStream = httpURLConnection.getInputStream();
                             }
                             str24 = c.TAG;
-                            k.log(str24, "got conn input " + this.aUE);
+                            k.log(str24, "got conn input " + this.aUZ);
                             str25 = c.TAG;
-                            k.log(str25, "url opt 4 " + this.aUE);
+                            k.log(str25, "url opt 4 " + this.aUZ);
                             int i5 = 0;
                             FileOutputStream fileOutputStream = new FileOutputStream(str11, true);
                             str26 = c.TAG;
-                            k.log(str26, "read start ..." + this.aUE);
+                            k.log(str26, "read start ..." + this.aUZ);
                             while (true) {
                                 try {
-                                    bArr = this.aUE.aUC;
+                                    bArr = this.aUZ.aUX;
                                     int read = inputStream.read(bArr);
                                     if (read == -1) {
                                         break;
                                     }
-                                    z11 = this.aUE.aUw;
+                                    z11 = this.aUZ.aUR;
                                     if (z11) {
                                         break;
                                     }
-                                    bArr2 = this.aUE.aUC;
+                                    bArr2 = this.aUZ.aUX;
                                     fileOutputStream.write(bArr2, 0, read);
-                                    c cVar = this.aUE;
-                                    j22 = cVar.aUu;
-                                    cVar.aUu = j22 + read;
+                                    c cVar = this.aUZ;
+                                    j22 = cVar.aUP;
+                                    cVar.aUP = j22 + read;
                                     i5 += read;
-                                    obj3 = this.aUE.mLock;
+                                    obj3 = this.aUZ.mLock;
                                     synchronized (obj3) {
-                                        obj4 = this.aUE.mLock;
+                                        obj4 = this.aUZ.mLock;
                                         obj4.notify();
                                     }
                                 } catch (Exception e8) {
                                     as s = new as("c12027").aa("errormsg", "下载文件出现异常，网络文件流读取数据出现异常").aa("error", e8.getMessage()).s("dsize", i5);
-                                    str27 = this.aUE.mVideoUrl;
+                                    str27 = this.aUZ.mVideoUrl;
                                     TiebaStatic.log(s.aa("url", str27));
                                     e8.printStackTrace();
                                 }
                             }
-                            str29 = this.aUE.mVideoUrl;
-                            j21 = this.aUE.aoR;
+                            str29 = this.aUZ.mVideoUrl;
+                            j21 = this.aUZ.aoW;
                             ay.i(str29, i5, (int) j21);
                             str28 = c.TAG;
-                            k.log(str28, "read end ..." + this.aUE);
+                            k.log(str28, "read end ..." + this.aUZ);
                             fileOutputStream.close();
-                            l.LJ().q(inputStream);
-                            this.aUE.aUz = j8;
+                            l.KX().q(inputStream);
+                            this.aUZ.aUU = j8;
                         } catch (Exception e9) {
                             as aa2 = new as("c12027").aa("errormsg", "连接中断，文件下载出现异常").aa("error", e9.getMessage());
-                            str18 = this.aUE.mVideoUrl;
+                            str18 = this.aUZ.mVideoUrl;
                             TiebaStatic.log(aa2.aa("url", str18));
                             str19 = c.TAG;
-                            k.log(str19, "download exception " + this.aUE);
+                            k.log(str19, "download exception " + this.aUZ);
                             e9.printStackTrace();
                         }
                     } else {
-                        this.aUE.aUz = (j4 + j5) - 1;
+                        this.aUZ.aUU = (j4 + j5) - 1;
                     }
                     str13 = c.TAG;
-                    k.log(str13, "download out " + this.aUE);
+                    k.log(str13, "download out " + this.aUZ);
                     while (j10 < j11) {
-                        z9 = this.aUE.aUw;
+                        z9 = this.aUZ.aUR;
                         if (z9) {
                             break;
                         }
@@ -440,39 +440,39 @@ public class d implements Runnable {
                         } catch (InterruptedException e10) {
                             e10.printStackTrace();
                         }
-                        z10 = this.aUE.aUw;
+                        z10 = this.aUZ.aUR;
                         if (z10) {
                             break;
                         }
                     }
-                    z7 = this.aUE.aUw;
+                    z7 = this.aUZ.aUR;
                     if (z7) {
                         break;
                     }
-                    j12 = this.aUE.aUt;
+                    j12 = this.aUZ.aUO;
                     int i6 = 0;
                     for (int i7 = 0; i7 < fileArr.length; i7++) {
-                        z8 = this.aUE.aUw;
+                        z8 = this.aUZ.aUR;
                         if (z8) {
                             break;
                         }
                         int length2 = (fileArr.length - 1) - i7;
                         File file5 = fileArr[length2];
                         if (file5 != null && file5.exists()) {
-                            if (this.aUE.aUA) {
+                            if (this.aUZ.aUV) {
                                 if (length2 != 0) {
                                     file5.delete();
                                     str17 = c.TAG;
-                                    k.log(str17, "release some cached slices " + this.aUE);
+                                    k.log(str17, "release some cached slices " + this.aUZ);
                                 }
                             } else {
                                 long fileSize2 = o.getFileSize(file5);
                                 if ((Integer.parseInt(file5.getName()) + fileSize2) - 1 < j12 && (i6 = (int) (i6 + fileSize2)) > 31457280) {
-                                    this.aUE.aUA = true;
+                                    this.aUZ.aUV = true;
                                     if (length2 != 0) {
                                         file5.delete();
                                         str16 = c.TAG;
-                                        k.log(str16, "release some cached slices " + this.aUE);
+                                        k.log(str16, "release some cached slices " + this.aUZ);
                                     }
                                 }
                             }
@@ -480,53 +480,53 @@ public class d implements Runnable {
                     }
                     str14 = c.TAG;
                     StringBuilder sb2 = new StringBuilder("mLastRequestRangeEnd ");
-                    j13 = this.aUE.aUz;
+                    j13 = this.aUZ.aUU;
                     StringBuilder append2 = sb2.append(j13).append(" mReadPosition ");
-                    j14 = this.aUE.aUt;
-                    k.log(str14, append2.append(j14).append(" ").append(" ").append(this.aUE).toString());
-                    j15 = this.aUE.aUz;
+                    j14 = this.aUZ.aUO;
+                    k.log(str14, append2.append(j14).append(" ").append(" ").append(this.aUZ).toString());
+                    j15 = this.aUZ.aUU;
                     if (j15 == -1) {
                         break;
                     }
-                    j16 = this.aUE.aUt;
-                    j17 = this.aUE.aUz;
+                    j16 = this.aUZ.aUO;
+                    j17 = this.aUZ.aUU;
                     if (j16 <= j17) {
                         break;
                     }
-                    j18 = this.aUE.aUz;
-                    j19 = this.aUE.aUr;
+                    j18 = this.aUZ.aUU;
+                    j19 = this.aUZ.aUM;
                     if (j18 >= j19) {
                         break;
                     }
                     try {
-                        fileInputStream2 = this.aUE.aUv;
+                        fileInputStream2 = this.aUZ.aUQ;
                         fileInputStream2.close();
                     } catch (Exception e11) {
                         e11.printStackTrace();
                     }
-                    this.aUE.aUy = false;
-                    c cVar2 = this.aUE;
-                    j20 = this.aUE.aUz;
-                    cVar2.aUs = j20 + 1;
+                    this.aUZ.aUT = false;
+                    c cVar2 = this.aUZ;
+                    j20 = this.aUZ.aUU;
+                    cVar2.aUN = j20 + 1;
                     str15 = c.TAG;
-                    k.log(str15, "continue to download... " + this.aUE);
+                    k.log(str15, "continue to download... " + this.aUZ);
                 } catch (FileNotFoundException e12) {
                     e12.printStackTrace();
                 }
             } else {
-                StringBuilder sb3 = new StringBuilder(String.valueOf(j.aUW));
-                str5 = this.aUE.aUB;
+                StringBuilder sb3 = new StringBuilder(String.valueOf(j.aVr));
+                str5 = this.aUZ.aUW;
                 o.x(new File(sb3.append(str5).append("/").append("segments").toString()));
                 as aa3 = new as("c12028").aa("errormsg", "校验到缓存文件片段大小有异常");
-                str6 = this.aUE.mVideoUrl;
+                str6 = this.aUZ.mVideoUrl;
                 TiebaStatic.log(aa3.aa("url", str6));
                 str7 = c.TAG;
                 k.log(str7, "cache error !");
                 break;
             }
         }
-        f.LB().s(this.aUE);
+        f.KP().s(this.aUZ);
         str2 = c.TAG;
-        k.log(str2, "test run out ***************************************************************" + this.aUE);
+        k.log(str2, "test run out ***************************************************************" + this.aUZ);
     }
 }

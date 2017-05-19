@@ -9,20 +9,20 @@ import com.baidu.tbadk.editortools.y;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class SendView extends TextView implements y {
-    private int KN;
-    private j KO;
-    private boolean[] aBy;
-    private int[] aBz;
-    private int amZ;
+    private int Kf;
+    private j Kg;
+    private boolean[] aBx;
+    private int[] aBy;
+    private int ane;
     private int mType;
-    public static int aBA = 1;
+    public static int aBz = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.aBy = new boolean[5];
-        this.aBz = new int[2];
-        this.amZ = 0;
+        this.aBx = new boolean[5];
+        this.aBy = new int[2];
+        this.ane = 0;
         this.mType = ALL;
         setWidth(context.getResources().getDimensionPixelSize(w.f.ds100));
         setHeight(context.getResources().getDimensionPixelSize(w.f.ds88));
@@ -42,98 +42,98 @@ public class SendView extends TextView implements y {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.aBy[0] = false;
+                        this.aBx[0] = false;
                         break;
                     } else {
-                        this.aBy[0] = true;
+                        this.aBx[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.aBy[0] = false;
-                    this.aBy[1] = false;
-                    this.aBy[2] = false;
-                    this.aBy[3] = false;
-                    this.aBy[4] = false;
-                    this.aBz[0] = 0;
-                    this.aBz[1] = 0;
+                    this.aBx[0] = false;
+                    this.aBx[1] = false;
+                    this.aBx[2] = false;
+                    this.aBx[3] = false;
+                    this.aBx[4] = false;
+                    this.aBy[0] = 0;
+                    this.aBy[1] = 0;
                     break;
                 case 10:
-                    this.aBy[2] = true;
+                    this.aBx[2] = true;
                     break;
                 case 11:
-                    this.aBy[2] = false;
+                    this.aBx[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.azW != null) {
-                            if (aVar2.azW.getChosedFiles() != null) {
-                                this.aBz[0] = aVar2.azW.getChosedFiles().size();
+                        if (aVar2.azU != null) {
+                            if (aVar2.azU.getChosedFiles() != null) {
+                                this.aBy[0] = aVar2.azU.getChosedFiles().size();
                             } else {
-                                this.aBz[0] = 0;
+                                this.aBy[0] = 0;
                             }
                         }
-                        if (this.aBz[0] > 0) {
-                            this.aBy[1] = true;
+                        if (this.aBy[0] > 0) {
+                            this.aBx[1] = true;
                             break;
                         } else {
-                            this.aBy[1] = false;
+                            this.aBx[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.aBz;
+                    int[] iArr = this.aBy;
                     iArr[0] = iArr[0] - 1;
-                    if (this.aBz[0] > 0) {
-                        this.aBy[1] = true;
+                    if (this.aBy[0] > 0) {
+                        this.aBx[1] = true;
                         break;
                     } else {
-                        this.aBy[1] = false;
+                        this.aBx[1] = false;
                         break;
                     }
                 case 28:
                 case w.n.PullToRefresh_headerBackground /* 39 */:
-                    this.aBy[3] = true;
+                    this.aBx[3] = true;
                     break;
                 case 29:
-                    this.aBy[3] = false;
+                    this.aBx[3] = false;
                     break;
                 case w.n.PullToRefresh_headerTextColor /* 40 */:
                     if (aVar.data instanceof String) {
-                        this.aBy[4] = true;
+                        this.aBx[4] = true;
                         break;
                     } else {
-                        this.aBy[4] = false;
+                        this.aBx[4] = false;
                         break;
                     }
             }
-            eM(this.mType);
+            eI(this.mType);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.y
     public void setEditorTools(j jVar) {
-        this.KO = jVar;
+        this.Kg = jVar;
     }
 
     @Override // com.baidu.tbadk.editortools.y
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.KO != null) {
-            this.KO.b(aVar);
+        if (this.Kg != null) {
+            this.Kg.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.y
     public void setToolId(int i) {
-        this.KN = i;
+        this.Kf = i;
     }
 
     @Override // com.baidu.tbadk.editortools.y
     public int getToolId() {
-        return this.KN;
+        return this.Kf;
     }
 
     @Override // com.baidu.tbadk.editortools.y
@@ -142,7 +142,7 @@ public class SendView extends TextView implements y {
     }
 
     @Override // com.baidu.tbadk.editortools.y
-    public void mp() {
+    public void lW() {
         setVisibility(0);
     }
 
@@ -153,7 +153,7 @@ public class SendView extends TextView implements y {
 
     @Override // com.baidu.tbadk.editortools.y
     public void onChangeSkinType(int i) {
-        this.amZ = i;
+        this.ane = i;
         if (isEnabled()) {
             aq.b(this, w.e.cp_cont_f, 1, i);
         } else {
@@ -166,19 +166,19 @@ public class SendView extends TextView implements y {
         this.mType = i;
     }
 
-    public void eM(int i) {
+    public void eI(int i) {
         if (i == ALL) {
-            if (this.aBy[0] || this.aBy[1] || this.aBy[2] || this.aBy[3] || this.aBy[4]) {
+            if (this.aBx[0] || this.aBx[1] || this.aBx[2] || this.aBx[3] || this.aBx[4]) {
                 setEnabled(true);
-                aq.b(this, w.e.cp_cont_f, 1, this.amZ);
+                aq.b(this, w.e.cp_cont_f, 1, this.ane);
                 return;
             }
             setEnabled(false);
             aq.b(this, w.e.common_color_10050, 1, 0);
-        } else if (i == aBA) {
-            if (this.aBy[1]) {
+        } else if (i == aBz) {
+            if (this.aBx[1]) {
                 setEnabled(true);
-                aq.b(this, w.e.cp_cont_f, 1, this.amZ);
+                aq.b(this, w.e.cp_cont_f, 1, this.ane);
                 return;
             }
             setEnabled(false);

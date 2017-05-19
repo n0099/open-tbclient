@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class c extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(int i) {

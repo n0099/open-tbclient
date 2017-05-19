@@ -5,17 +5,17 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.w;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class h extends a {
-    private static h dhu = new h();
+    private static h dbv = new h();
 
     private h() {
     }
 
-    public static h auz() {
-        return dhu;
+    public static h art() {
+        return dbv;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,8 +27,8 @@ public class h extends a {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.dhm) {
-            ChatSetting chatSetting = this.dhm.get(str3);
+        synchronized (this.dbn) {
+            ChatSetting chatSetting = this.dbn.get(str3);
             officialSettingItemData = (chatSetting == null || !(chatSetting instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) chatSetting;
         }
         if (officialSettingItemData == null) {
@@ -46,7 +46,7 @@ public class h extends a {
         return officialSettingItemData;
     }
 
-    public void aqu() {
+    public void ann() {
         super.m(OfficialSettingItemData.class);
     }
 
@@ -61,8 +61,8 @@ public class h extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> auw() {
-        return com.baidu.tbadk.core.c.a.tM().cB("tb.im_official_chat_setting");
+    public o<String> arq() {
+        return com.baidu.tbadk.core.c.a.sZ().cz("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -77,18 +77,18 @@ public class h extends a {
                 }
                 return;
             }
-            o<String> auw = auw();
+            o<String> arq = arq();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.dhm) {
-                this.dhm.put(str, officialSettingItemData);
+            synchronized (this.dbn) {
+                this.dbn.put(str, officialSettingItemData);
             }
-            auw.k(str, jsonStrWithObject);
+            arq.k(str, jsonStrWithObject);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    public void a(ChatSetting chatSetting, com.baidu.tbadk.util.f<Void> fVar) {
+    public void a(ChatSetting chatSetting, com.baidu.tbadk.util.g<Void> gVar) {
         if (chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
             OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
             String myUid = officialSettingItemData.getMyUid();
@@ -100,10 +100,10 @@ public class h extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.dhm) {
-                this.dhm.put(str, officialSettingItemData);
+            synchronized (this.dbn) {
+                this.dbn.put(str, officialSettingItemData);
             }
-            t.b(new i(this, officialSettingItemData, str), fVar);
+            w.b(new i(this, officialSettingItemData, str), gVar);
         }
     }
 }

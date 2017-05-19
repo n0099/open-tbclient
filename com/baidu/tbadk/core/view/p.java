@@ -4,22 +4,22 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ o ako;
+    final /* synthetic */ o ajL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.ako = oVar;
+        this.ajL = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         long j;
-        this.ako.wS();
+        this.ajL.wf();
         long currentTimeMillis = System.currentTimeMillis();
-        j = this.ako.akf;
+        j = this.ajL.ajC;
         if (currentTimeMillis - j > 500) {
-            this.ako.wR();
+            this.ajL.we();
         }
-        this.ako.akf = currentTimeMillis;
+        this.ajL.ajC = currentTimeMillis;
     }
 }

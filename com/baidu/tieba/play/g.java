@@ -5,25 +5,25 @@ import com.baidu.tieba.play.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements au.b {
-    final /* synthetic */ c eWq;
+    final /* synthetic */ c eSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.eWq = cVar;
+        this.eSq = cVar;
     }
 
     @Override // com.baidu.tieba.play.au.b
-    public void fM(int i) {
+    public void fJ(int i) {
         int duration;
         ProgressBar progressBar;
         ProgressBar progressBar2;
-        if (this.eWq.aTd != null && (duration = this.eWq.aTd.getDuration()) > 0) {
-            progressBar = this.eWq.eWe;
+        if (this.eSq.aTy != null && (duration = this.eSq.aTy.getDuration()) > 0) {
+            progressBar = this.eSq.eSe;
             if (progressBar != null) {
-                progressBar2 = this.eWq.eWe;
-                progressBar2.setProgress((int) ((i * this.eWq.dwp.getWidth()) / duration));
+                progressBar2 = this.eSq.eSe;
+                progressBar2.setProgress((int) ((i * this.eSq.dqy.getWidth()) / duration));
             }
         }
-        this.eWq.mH(i);
+        this.eSq.mu(i);
     }
 }

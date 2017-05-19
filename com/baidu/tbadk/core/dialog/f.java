@@ -19,43 +19,43 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f {
     private BdListView Im;
-    private TextView aaG;
-    private View aaH;
-    private g aaX;
-    private TbPageContext<?> aaY;
-    private AlertDialog aas;
-    private ViewGroup aat;
+    private AlertDialog ZN;
+    private ViewGroup ZO;
+    private TextView aab;
+    private View aac;
+    private g aas;
+    private TbPageContext<?> aat;
     private ArrayList<h> mItems;
     private AdapterView.OnItemClickListener mOnItemClickListener;
     private String mTitle;
-    private int aaJ = -1;
-    private int aah = -1;
-    private boolean aav = false;
+    private int aae = -1;
+    private int ZC = -1;
+    private boolean ZQ = false;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int aaR = w.m.dialog_ani_b2t;
-        public static final int aaS = w.m.dialog_ani_t2b;
-        public static final int aaT = w.m.dialog_ani_l2r;
-        public static final int aaU = w.m.dialog_ani_r2l;
+        public static final int aam = w.m.dialog_ani_b2t;
+        public static final int aan = w.m.dialog_ani_t2b;
+        public static final int aao = w.m.dialog_ani_l2r;
+        public static final int aap = w.m.dialog_ani_r2l;
     }
 
     public f(TbPageContext<?> tbPageContext) {
-        this.aaY = tbPageContext;
-        this.aat = (ViewGroup) LayoutInflater.from(this.aaY.getPageActivity()).inflate(w.j.dialog_rich_layout, (ViewGroup) null);
-        this.aaG = (TextView) this.aat.findViewById(w.h.dialog_title_list);
-        this.Im = (BdListView) this.aat.findViewById(w.h.dialog_content_list);
-        this.aaH = this.aat.findViewById(w.h.line_bg);
-        this.aaX = new g(this.aaY);
+        this.aat = tbPageContext;
+        this.ZO = (ViewGroup) LayoutInflater.from(this.aat.getPageActivity()).inflate(w.j.dialog_rich_layout, (ViewGroup) null);
+        this.aab = (TextView) this.ZO.findViewById(w.h.dialog_title_list);
+        this.Im = (BdListView) this.ZO.findViewById(w.h.dialog_content_list);
+        this.aac = this.ZO.findViewById(w.h.line_bg);
+        this.aas = new g(this.aat);
     }
 
-    public f cG(String str) {
+    public f cE(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public f ci(int i) {
-        return cG(this.aaY.getResources().getString(i));
+    public f cg(int i) {
+        return cE(this.aat.getResources().getString(i));
     }
 
     public f a(ArrayList<h> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -69,25 +69,25 @@ public class f {
         return this;
     }
 
-    public f tU() {
-        if (!this.aav) {
-            this.aav = true;
+    public f th() {
+        if (!this.ZQ) {
+            this.ZQ = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.aaG.setText(this.mTitle);
-                this.aaG.setVisibility(0);
-                this.aaH.setVisibility(0);
+                this.aab.setText(this.mTitle);
+                this.aab.setVisibility(0);
+                this.aac.setVisibility(0);
             } else {
-                this.aaG.setVisibility(8);
-                this.aaH.setVisibility(8);
+                this.aab.setVisibility(8);
+                this.aac.setVisibility(8);
             }
-            this.Im.setAdapter((ListAdapter) this.aaX);
-            this.aaX.setData(this.mItems);
-            c(this.aaY);
+            this.Im.setAdapter((ListAdapter) this.aas);
+            this.aas.setData(this.mItems);
+            c(this.aat);
         }
         return this;
     }
 
-    public void cj(int i) {
+    public void ch(int i) {
         for (int i2 = 0; i2 < this.mItems.size(); i2++) {
             if (i2 == i) {
                 this.mItems.get(i2).setChecked(true);
@@ -95,32 +95,32 @@ public class f {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.aaX.setData(this.mItems);
+        this.aas.setData(this.mItems);
     }
 
-    public f tV() {
-        if (!this.aav) {
+    public f ti() {
+        if (!this.ZQ) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.aas != null) {
-            j.a(this.aas, this.aaY);
+        if (this.ZN != null) {
+            j.a(this.ZN, this.aat);
         } else {
-            this.aas = new AlertDialog.Builder(this.aaY.getPageActivity()).create();
-            this.aas.setCanceledOnTouchOutside(true);
-            if (j.a(this.aas, this.aaY.getPageActivity())) {
-                Window window = this.aas.getWindow();
-                if (this.aaJ == -1) {
-                    this.aaJ = a.aaR;
+            this.ZN = new AlertDialog.Builder(this.aat.getPageActivity()).create();
+            this.ZN.setCanceledOnTouchOutside(true);
+            if (j.a(this.ZN, this.aat.getPageActivity())) {
+                Window window = this.ZN.getWindow();
+                if (this.aae == -1) {
+                    this.aae = a.aam;
                 }
-                if (this.aah == -1) {
-                    this.aah = 17;
+                if (this.ZC == -1) {
+                    this.ZC = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.aah);
+                window.setGravity(this.ZC);
                 window.setBackgroundDrawableResource(w.g.transparent_bg);
-                window.setContentView(this.aat);
+                window.setContentView(this.ZO);
             }
         }
         return this;
@@ -129,15 +129,15 @@ public class f {
     private void c(com.baidu.adp.base.g<?> gVar) {
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
         if (gVar instanceof TbPageContext) {
-            ((TbPageContext) gVar).getLayoutMode().aj(skinType == 1);
-            ((TbPageContext) gVar).getLayoutMode().t(this.aat);
+            ((TbPageContext) gVar).getLayoutMode().ai(skinType == 1);
+            ((TbPageContext) gVar).getLayoutMode().t(this.ZO);
         }
-        this.aat.setBackgroundResource(w.g.transparent_bg);
+        this.ZO.setBackgroundResource(w.g.transparent_bg);
     }
 
     public void dismiss() {
-        if (this.aas != null) {
-            j.b(this.aas, this.aaY.getPageActivity());
+        if (this.ZN != null) {
+            j.b(this.ZN, this.aat.getPageActivity());
         }
     }
 }

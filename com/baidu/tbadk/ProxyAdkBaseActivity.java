@@ -104,7 +104,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.uR();
+        this.customToast = e.ud();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -117,7 +117,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        ba.dE(getClass().getName());
+        ba.dC(getClass().getName());
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
         this.mIsLogin = TbadkCoreApplication.isLogin();
@@ -172,7 +172,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     }
 
     public void setActivityBgTransparent() {
-        this.mSwipeBackLayout.lR();
+        this.mSwipeBackLayout.ly();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -242,7 +242,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.wI();
+            this.mGuidPage.vV();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -357,19 +357,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i).tY();
+        BdToast.b(getActivity(), str, i).tl();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2).tY();
+        BdToast.a(getActivity(), str, i, i2).tl();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).tY();
+        BdToast.a(getActivity(), str, defaultIcon).tl();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).tY();
+        BdToast.a(getActivity(), str, defaultIcon, i).tl();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -487,7 +487,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         TbadkCoreApplication.m9getInst().AddResumeNum();
-        ba.dE(getClass().getName());
+        ba.dC(getClass().getName());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
             this.mIsLogin = isLogin;
@@ -782,7 +782,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
                 this.loadingView = new f(getPageContext().getContext(), i);
             }
         }
-        this.loadingView.b(view, z);
+        this.loadingView.c(view, z);
     }
 
     public void showLoadingView(View view, boolean z) {
@@ -793,12 +793,12 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.ET();
+        return this.loadingView.DX();
     }
 
     public void hideLoadingView(View view) {
         if (this.loadingView != null) {
-            this.loadingView.I(view);
+            this.loadingView.H(view);
         }
     }
 
@@ -806,8 +806,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.fT(str);
-        this.refreshView.b(view, z);
+        this.refreshView.fQ(str);
+        this.refreshView.c(view, z);
     }
 
     public void showNetRefreshView(View view, String str) {
@@ -816,13 +816,13 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
 
     public void hideNetRefreshView(View view) {
         if (this.refreshView != null) {
-            this.refreshView.I(view);
+            this.refreshView.H(view);
         }
     }
 
     protected void setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(boolean z) {
-        if (this.refreshView != null && this.refreshView.ET() && this.refreshView.EZ() != null && (this.refreshView.EZ().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ((ViewGroup.MarginLayoutParams) this.refreshView.EZ().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        if (this.refreshView != null && this.refreshView.DX() && this.refreshView.Ed() != null && (this.refreshView.Ed().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ((ViewGroup.MarginLayoutParams) this.refreshView.Ed().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         }
     }
 

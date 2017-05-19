@@ -9,7 +9,7 @@ public class g {
     private static volatile g CV;
     private Map<String, a> CW;
 
-    public static g iP() {
+    public static g iO() {
         if (CV == null) {
             synchronized (g.class) {
                 if (CV == null) {
@@ -37,7 +37,7 @@ public class g {
         this.CW.remove(str);
     }
 
-    public int iQ() {
+    public int iP() {
         return this.CW.size();
     }
 

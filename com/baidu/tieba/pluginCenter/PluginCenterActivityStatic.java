@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PluginCenterActivityConfig;
 import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PluginCenterActivityStatic {
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(PluginCenterActivityConfig.class, PluginCenterActivity.class);

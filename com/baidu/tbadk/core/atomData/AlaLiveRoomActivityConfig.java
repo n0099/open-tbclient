@@ -37,12 +37,13 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String USER_ID = "user_id";
     public static final String USER_NAME = "user_name";
 
-    public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, String str, String str2, boolean z) {
+    public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, String str, String str2, boolean z, String str3) {
         super(context);
         getIntent().putExtra("user_id", str2);
         getIntent().putExtra(LIVE_IS_HOST, z);
         getIntent().putExtra(LIVE_INFO, alaLiveInfoCoreData);
         getIntent().putExtra(LIVE_FROM_TYPE, str);
+        getIntent().putExtra(LIVE_FORUM_NAME, str3);
     }
 
     public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, AlaLiveInfoListCoreData alaLiveInfoListCoreData, String str, String str2, boolean z) {

@@ -1,31 +1,24 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.enterForum.model.EnterForumModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Bundle;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.framework.listener.a {
+class d extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(int i, int i2) {
-        super(i, i2);
+    public d(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        EnterForumModel enterForumModel;
-        EnterForumModel enterForumModel2;
-        EnterForumModel enterForumModel3;
-        if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
-            enterForumModel = EnterForumDelegateStatic.bGF;
-            if (enterForumModel.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
-                if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    enterForumModel3 = EnterForumDelegateStatic.bGF;
-                    enterForumModel3.a((forumRecommendSocketResponseMessage) responsedMessage);
-                }
-                if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    enterForumModel2 = EnterForumDelegateStatic.bGF;
-                    enterForumModel2.a((forumRecommendHttpResponseMessage) responsedMessage);
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.mainTab.c Ei;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
+            EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
+            ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
+            if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Ei = enterForumDelegateStatic.Ei()) != null) {
+                Ei.aEi.setArguments(new Bundle());
             }
         }
     }

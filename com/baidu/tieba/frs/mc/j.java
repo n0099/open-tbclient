@@ -1,22 +1,22 @@
 package com.baidu.tieba.frs.mc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends com.baidu.tbadk.util.s<Object> {
-    final /* synthetic */ FrsModelController cav;
-    private final /* synthetic */ String caw;
+public class j extends com.baidu.tbadk.util.v<Object> {
+    final /* synthetic */ FrsModelController bYn;
+    private final /* synthetic */ String bYo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsModelController frsModelController, String str) {
-        this.cav = frsModelController;
-        this.caw = str;
+        this.bYn = frsModelController;
+        this.bYo = str;
     }
 
-    @Override // com.baidu.tbadk.util.s
+    @Override // com.baidu.tbadk.util.v
     public Object doInBackground() {
         String str;
-        com.baidu.tieba.tbadkCore.c bhj = com.baidu.tieba.tbadkCore.c.bhj();
-        str = this.cav.cas;
-        bhj.bW(str, this.caw);
+        com.baidu.tieba.tbadkCore.c beL = com.baidu.tieba.tbadkCore.c.beL();
+        str = this.bYn.bYk;
+        beL.bW(str, this.bYo);
         return null;
     }
 }

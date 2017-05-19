@@ -8,40 +8,40 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class h implements w {
-    private ImageView bBx;
+public class h implements z {
+    private ImageView bBy;
     private NavigationBar mNavigationBar;
 
-    @Override // com.baidu.tieba.view.w
+    @Override // com.baidu.tieba.view.z
     public void a(Context context, NavigationBar navigationBar) {
         this.mNavigationBar = navigationBar;
-        this.bBx = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.item_person_guess_navigation_more, (View.OnClickListener) null);
-        this.bBx.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
+        this.bBy = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.item_person_guess_navigation_more, (View.OnClickListener) null);
+        this.bBy.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 4);
     }
 
-    @Override // com.baidu.tieba.view.w
-    public void setOnViewResponseListener(m mVar) {
-        if (this.bBx != null) {
-            this.bBx.setOnClickListener(new i(this, mVar));
+    @Override // com.baidu.tieba.view.z
+    public void setOnViewResponseListener(p pVar) {
+        if (this.bBy != null) {
+            this.bBy.setOnClickListener(new i(this, pVar));
         }
     }
 
-    @Override // com.baidu.tieba.view.w
-    public void bno() {
+    @Override // com.baidu.tieba.view.z
+    public void bkU() {
     }
 
-    @Override // com.baidu.tieba.view.w
-    public void H(int i, boolean z) {
+    @Override // com.baidu.tieba.view.z
+    public void G(int i, boolean z) {
     }
 
-    @Override // com.baidu.tieba.view.w
+    @Override // com.baidu.tieba.view.z
     public void c(float f, boolean z) {
         float f2;
-        if (this.bBx != null) {
+        if (this.bBy != null) {
             if (z) {
-                aq.b(this.bBx, w.g.icon_more_bg_s, w.g.icon_more_bg);
+                aq.b(this.bBy, w.g.icon_more_bg_s, w.g.icon_more_bg);
             } else {
-                aq.b(this.bBx, w.g.icon_more_bg, w.g.icon_more_bg_person);
+                aq.b(this.bBy, w.g.icon_more_bg, w.g.icon_more_bg_person);
             }
             if (f < 0.5f) {
                 f2 = 1.0f - (f * 2.0f);
@@ -49,20 +49,20 @@ public class h implements w {
                 f2 = (f * 2.0f) - 1.0f;
             }
             if (f2 >= 0.0f && f2 <= 1.0f) {
-                this.bBx.setAlpha(f2);
+                this.bBy.setAlpha(f2);
             }
         }
     }
 
-    @Override // com.baidu.tieba.view.w
+    @Override // com.baidu.tieba.view.z
     public void onChangeSkinType(int i) {
-        if (this.bBx != null) {
+        if (this.bBy != null) {
             if (2 == i) {
-                aq.b(this.bBx, w.g.icon_more_bg_s, w.g.icon_more_bg);
+                aq.b(this.bBy, w.g.icon_more_bg_s, w.g.icon_more_bg);
             } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                aq.b(this.bBx, w.g.icon_more_bg, w.g.icon_more_bg_s);
+                aq.b(this.bBy, w.g.icon_more_bg, w.g.icon_more_bg_s);
             } else {
-                aq.b(this.bBx, w.g.icon_more_bg_s, w.g.icon_more_bg_person);
+                aq.b(this.bBy, w.g.icon_more_bg_s, w.g.icon_more_bg_person);
             }
         }
     }

@@ -9,5 +9,5 @@ public interface a {
 
     com.baidu.tieba.lego.d.a a(e eVar);
 
-    com.baidu.tieba.lego.model.a a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
+    com.baidu.tieba.lego.model.a b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 }

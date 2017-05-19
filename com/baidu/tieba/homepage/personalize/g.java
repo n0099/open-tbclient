@@ -1,18 +1,18 @@
 package com.baidu.tieba.homepage.personalize;
-
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
-    final /* synthetic */ a czr;
+public class g implements Runnable {
+    final /* synthetic */ f cuD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(a aVar) {
-        this.czr = aVar;
+    public g(f fVar) {
+        this.cuD = fVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.czr.aaw();
+    @Override // java.lang.Runnable
+    public void run() {
+        b bVar;
+        bVar = this.cuD.cuC;
+        bVar.agF();
     }
 }

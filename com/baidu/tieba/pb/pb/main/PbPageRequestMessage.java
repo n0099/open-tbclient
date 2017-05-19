@@ -15,6 +15,7 @@ public class PbPageRequestMessage extends NetMessage {
     private String cacheKey;
     private Context context;
     private Integer floor_rn;
+    private Long forumId;
     private Integer fromSmartFrs;
     private boolean isFromMark;
     private boolean isJumpFloor;
@@ -28,6 +29,7 @@ public class PbPageRequestMessage extends NetMessage {
     private Integer mark;
     private String message_click;
     private Integer message_id;
+    private Integer needRepostRecommendForum;
     private String objParam1;
     public String obj_source;
     private long opMessageID;
@@ -362,6 +364,14 @@ public class PbPageRequestMessage extends NetMessage {
         return this.fromSmartFrs.intValue();
     }
 
+    public void setForumId(String str) {
+        this.forumId = Long.valueOf(com.baidu.adp.lib.g.b.c(str, 0L));
+    }
+
+    public void setNeedRepostRecommendForum(boolean z) {
+        this.needRepostRecommendForum = Integer.valueOf(z ? 1 : 0);
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -404,8 +414,10 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.bbv().bby();
-            com.baidu.tbadk.util.n.bindCommonParamsToProtobufData(builder, true, false, true);
+            builder.app_pos = com.baidu.tieba.recapp.d.a.aYU().aYX();
+            builder.forum_id = this.forumId;
+            builder.need_repost_recommend_forum = this.needRepostRecommendForum;
+            com.baidu.tbadk.util.o.bindCommonParamsToProtobufData(builder, true, false, true);
             PbPageReqIdl.Builder builder2 = new PbPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

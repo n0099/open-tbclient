@@ -1,9 +1,16 @@
 package com.baidu.tbadk.core;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.adp.framework.client.socket.link.g {
-    @Override // com.baidu.adp.framework.client.socket.link.g
-    public void dn() {
-        com.baidu.tbadk.util.c.Hh().a(new y(this));
+public class x implements com.baidu.adp.framework.client.socket.link.f {
+    final /* synthetic */ TbadkCoreApplication this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public x(TbadkCoreApplication tbadkCoreApplication) {
+        this.this$0 = tbadkCoreApplication;
+    }
+
+    @Override // com.baidu.adp.framework.client.socket.link.f
+    public boolean dm() {
+        return !this.this$0.isExitAppCloseWebSocket();
     }
 }

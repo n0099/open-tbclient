@@ -12,13 +12,16 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final String CAMERA_RESULT = "camera_result";
     public static final int FROM_DEFAULT = 0;
     public static final String FROM_FRS = "frs";
+    public static final String FROM_MAIN_TAB = "main_tab";
     public static final String FROM_PB = "pb";
     public static final int FROM_PB_SHOW_PICTURE = 2;
     public static final int FROM_PHOTO_LIVE_COVER = 1;
     public static final int FROM_PHOTO_LIVE_UPGRADE_DIALOG = 3;
     public static final int FROM_VOTE = 3;
     public static final int FROM_WEB_VIEW = 5;
+    public static final String FROM_WRITE = "write";
     public static final String IS_SELECT_DIRECTLY = "select_directly";
+    public static final String KEY_FORUM_WRITE_DATA = "KEY_FORUM_WRITE_DATA";
     public static final String LAST_ALBUM_ID = "last_album_id";
     public static final String USE_ORIGINAL_IMG = "use_original_img";
     public static final String WRITE_IMAGES_INFO = "write_images_info";

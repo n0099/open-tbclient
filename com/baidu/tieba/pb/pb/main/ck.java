@@ -1,21 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tieba.w;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-class ck implements com.baidu.tbadk.ala.f {
-    @Override // com.baidu.tbadk.ala.f
-    public View aq(Context context) {
-        TextView ap = com.baidu.tbadk.ala.d.ap(context);
-        if (ap != null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(com.baidu.adp.lib.util.k.g(context, w.f.ds4), -com.baidu.adp.lib.util.k.g(context, w.f.ds6), -com.baidu.adp.lib.util.k.g(context, w.f.ds6), 0);
-            layoutParams.gravity = 16;
-            ap.setLayoutParams(layoutParams);
+class ck implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            if ("1".equals(customMessage.getData().getIntent().getStringExtra(PbActivityConfig.KYE_IS_START_FOR_RESULT))) {
+                customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra(IntentConfig.REQUEST_CODE, 0), PbActivity.class);
+            } else {
+                customMessage.getData().startActivity(PbActivity.class);
+            }
         }
-        return ap;
+        return null;
     }
 }

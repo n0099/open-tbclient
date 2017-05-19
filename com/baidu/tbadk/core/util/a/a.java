@@ -1,19 +1,19 @@
 package com.baidu.tbadk.core.util.a;
 /* loaded from: classes.dex */
 public class a {
-    private b ahe = new b();
-    private c ahf = new c();
-    private d ahg = new d();
+    private b agw = new b();
+    private c agx = new c();
+    private d agy = new d();
 
-    public b wp() {
-        return this.ahe;
+    public b vD() {
+        return this.agw;
     }
 
-    public c wq() {
-        return this.ahf;
+    public c vE() {
+        return this.agx;
     }
 
-    public d wr() {
-        return this.ahg;
+    public d vF() {
+        return this.agy;
     }
 }

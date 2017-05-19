@@ -67,7 +67,7 @@ public class UserData extends MetaData {
     public MembershipUserInfo membershipInfo;
     private int newMarkCount;
     private String password;
-    private h payMemberInfo;
+    private g payMemberInfo;
     private Permission permission;
     private PersonPrivateData personPrivate;
     private String position;
@@ -253,19 +253,19 @@ public class UserData extends MetaData {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
-            k kVar = new k();
-            kVar.eX(getPortraitH());
-            kVar.eY(getPortrait());
-            kVar.bw(true);
-            this.mPhotoAlbum.add(kVar);
+            j jVar = new j();
+            jVar.eU(getPortraitH());
+            jVar.eV(getPortrait());
+            jVar.bw(true);
+            this.mPhotoAlbum.add(jVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
-                        k kVar2 = new k();
-                        kVar2.eX(userPics.big);
-                        kVar2.eY(userPics.small);
-                        kVar2.bw(false);
-                        this.mPhotoAlbum.add(kVar2);
+                        j jVar2 = new j();
+                        jVar2.eU(userPics.big);
+                        jVar2.eV(userPics.small);
+                        jVar2.bw(false);
+                        this.mPhotoAlbum.add(jVar2);
                     }
                 }
             }
@@ -306,7 +306,7 @@ public class UserData extends MetaData {
             }
             PayMemberInfo payMemberInfo = user.pay_member_info;
             if (payMemberInfo != null) {
-                this.payMemberInfo = new h();
+                this.payMemberInfo = new g();
                 this.payMemberInfo.a(payMemberInfo);
             }
             if (user.is_mask.intValue() == 1) {
@@ -344,11 +344,13 @@ public class UserData extends MetaData {
                 }
             }
             NewParrScores newParrScores = user.parr_scores;
-            if (newParrScores != null) {
+            if (newParrScores == null) {
+                this.mTDouNum = 0L;
+            } else {
                 this.mTDouNum = newParrScores.scores_total.longValue();
-                if (getUserId() != null && getUserId().equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
-                    TbadkCoreApplication.m9getInst().currentAccountTdouNum = this.mTDouNum;
-                }
+            }
+            if (getUserId() != null && getUserId().equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
+                TbadkCoreApplication.m9getInst().currentAccountTdouNum = this.mTDouNum;
             }
             if (user.tw_anchor_info != null) {
                 this.anchorLevel = user.tw_anchor_info.anchor_level.intValue();
@@ -435,7 +437,7 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("pay_member_info");
                 if (optJSONObject5 != null) {
-                    this.payMemberInfo = new h();
+                    this.payMemberInfo = new g();
                     this.payMemberInfo.parseJson(optJSONObject5);
                 }
                 if (jSONObject.optInt("is_mask") == 1) {
@@ -447,22 +449,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                k kVar = new k();
-                kVar.eX(getPortraitH());
-                kVar.eY(getPortrait());
-                kVar.bw(true);
-                this.mPhotoAlbum.add(kVar);
+                j jVar = new j();
+                jVar.eU(getPortraitH());
+                jVar.eV(getPortrait());
+                jVar.bw(true);
+                this.mPhotoAlbum.add(jVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            k kVar2 = new k();
-                            kVar2.eX(jSONObject2.optString("big"));
-                            kVar2.eY(jSONObject2.optString("small"));
-                            kVar2.bw(false);
-                            this.mPhotoAlbum.add(kVar2);
+                            j jVar2 = new j();
+                            jVar2.eU(jSONObject2.optString("big"));
+                            jVar2.eV(jSONObject2.optString("small"));
+                            jVar2.bw(false);
+                            this.mPhotoAlbum.add(jVar2);
                         }
                     }
                 }
@@ -580,7 +582,7 @@ public class UserData extends MetaData {
         return this.sex;
     }
 
-    public h getPayMemberInfoData() {
+    public g getPayMemberInfoData() {
         return this.payMemberInfo;
     }
 

@@ -6,26 +6,26 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.card.cc;
-import com.baidu.tieba.card.cf;
+import com.baidu.tieba.card.ca;
+import com.baidu.tieba.card.cd;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<e, a> {
-    private final TbPageContext<?> ajU;
-    private cf<e> bUw;
+    private final TbPageContext<?> ajr;
+    private cd<e> bSq;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bUw = new d(this);
-        this.ajU = tbPageContext;
+        this.bSq = new d(this);
+        this.ajr = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ah */
+    /* renamed from: ac */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.homepage.personalize.c.a aVar = new com.baidu.tieba.homepage.personalize.c.a(this.ajU);
-        aVar.setOnSubCardOnClickListenner(this.bUw);
+        com.baidu.tieba.homepage.personalize.c.a aVar = new com.baidu.tieba.homepage.personalize.c.a(this.ajr);
+        aVar.setOnSubCardOnClickListenner(this.bSq);
         return new a(aVar);
     }
 
@@ -34,18 +34,18 @@ public class c extends com.baidu.adp.widget.ListView.a<e, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, a aVar) {
-        cc.TV().a(new as("c11272"));
-        aVar.cBN.onBindDataToView(eVar);
+        ca.To().a(new as("c11272"));
+        aVar.cwN.onBindDataToView(eVar);
         return aVar.getView();
     }
 
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public com.baidu.tieba.homepage.personalize.c.a cBN;
+        public com.baidu.tieba.homepage.personalize.c.a cwN;
 
         public a(com.baidu.tieba.homepage.personalize.c.a aVar) {
             super(aVar.getView());
-            this.cBN = aVar;
+            this.cwN = aVar;
         }
     }
 }

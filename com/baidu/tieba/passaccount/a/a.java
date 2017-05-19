@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a efr = null;
-    private final a.InterfaceC0030a efs = new b(this);
+    private static a eaa = null;
+    private final a.InterfaceC0035a eab = new b(this);
 
     private a() {
     }
 
-    public static a aJE() {
-        if (efr == null) {
-            efr = new a();
+    public static a aGL() {
+        if (eaa == null) {
+            eaa = new a();
         }
-        return efr;
+        return eaa;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -33,7 +33,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                     try {
                         bVar.mBduss = split[0];
                         if (split.length >= 2) {
-                            bVar.Tb = split[1];
+                            bVar.Su = split[1];
                             return bVar;
                         }
                         return bVar;
@@ -52,17 +52,17 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public void px() {
+    public void pe() {
         AccountData currentAccountObj;
         a.b ce;
         if (i.hk() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (ce = ce(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ce.mBduss, ce.Tb, currentAccountObj.getStoken(), this.efs);
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ce.mBduss, ce.Su, currentAccountObj.getStoken(), this.eab);
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0030a interfaceC0030a) {
-        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0030a);
+    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0035a interfaceC0035a) {
+        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0035a);
     }
 
     @Override // com.baidu.tbadk.core.a.a

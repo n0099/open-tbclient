@@ -18,67 +18,67 @@ import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* loaded from: classes.dex */
 public class PbActivityStatic {
-    private static BdAsyncTaskParallel emF = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    private static BdAsyncTaskParallel ehT = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
 
     static {
-        aaE();
-        Kj();
-        aLX();
-        aLZ();
-        aMa();
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PB_ACTIVITY, new ch());
+        YL();
+        Jx();
+        aJw();
+        aJy();
+        aJz();
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PB_ACTIVITY, new ck());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        Kk();
-        aLY();
-        ci ciVar = new ci();
-        ciVar.setSelfExecute(true);
-        ciVar.setPriority(4);
-        ciVar.execute(new Void[0]);
+        Jy();
+        aJx();
+        cl clVar = new cl();
+        clVar.setSelfExecute(true);
+        clVar.setPriority(4);
+        clVar.execute(new Void[0]);
     }
 
-    private static void Kj() {
+    private static void Jx() {
         com.baidu.tieba.tbadkCore.a.a.a(302001, pbPageSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.av("c/f/pb/page", 302001));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.ax("c/f/pb/page", 302001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
         tbHttpMessageTask.setResponsedClass(pbPageHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        LocationModel.bka();
+        LocationModel.bhx();
     }
 
-    private static void aLX() {
-        com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.PB_PAGE_CACHE_CMD, gk.class);
+    private static void aJw() {
+        com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.PB_PAGE_CACHE_CMD, gt.class);
     }
 
-    private static void aLY() {
+    private static void aJx() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_APPLY_COPY_THREAD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.URL_APPLY_COPY_THREAD);
         tbHttpMessageTask.setResponsedClass(ApplyCopyThreadResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static void aaE() {
-        com.baidu.tbadk.ala.c.oa().a(2, new cj());
-        com.baidu.tbadk.ala.c.oa().a(3, new ck());
-        com.baidu.tbadk.ala.c.oa().a(4, new cl());
+    public static void YL() {
+        com.baidu.tbadk.ala.c.nH().a(2, new cm());
+        com.baidu.tbadk.ala.c.nH().a(3, new cn());
+        com.baidu.tbadk.ala.c.nH().a(4, new co());
     }
 
-    private static void aLZ() {
+    private static void aJy() {
         TbadkCoreApplication.m9getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
         com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(302002, SubPbSocketResponseMessage.class, false, false);
         TbHttpMessageTask a2 = com.baidu.tieba.tbadkCore.a.a.a(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
-        a.setParallel(emF);
-        a2.setParallel(emF);
+        a.setParallel(ehT);
+        a2.setParallel(ehT);
     }
 
-    private static void aMa() {
+    private static void aJz() {
         TbadkCoreApplication.m9getInst().RegisterIntent(ForbidActivityConfig.class, ForbidActivity.class);
     }
 
-    private static void Kk() {
-        com.baidu.tbadk.core.util.bb.wn().a(new cm());
+    private static void Jy() {
+        com.baidu.tbadk.core.util.bb.vB().a(new cp());
     }
 }

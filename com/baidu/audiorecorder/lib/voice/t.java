@@ -2,26 +2,26 @@ package com.baidu.audiorecorder.lib.voice;
 
 import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class t implements a.b {
-    final /* synthetic */ s LP;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.voice.a LQ;
+    final /* synthetic */ s Lh;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.voice.a Li;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar, com.baidu.tieba.tbadkCore.voice.a aVar) {
-        this.LP = sVar;
-        this.LQ = aVar;
+        this.Lh = sVar;
+        this.Li = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        this.LP.mt();
-        if (this.LP.getVoiceManager() != null && this.LP.mModel != null) {
-            if (this.LQ != null) {
-                this.LQ.bz(this.LP.mModel.voiceId);
+        this.Lh.ma();
+        if (this.Lh.getVoiceManager() != null && this.Lh.mModel != null) {
+            if (this.Li != null) {
+                this.Li.bz(this.Lh.mModel.voiceId);
             }
-            this.LP.mModel = null;
+            this.Lh.mModel = null;
         }
     }
 }

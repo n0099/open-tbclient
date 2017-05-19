@@ -1,40 +1,61 @@
 package com.baidu.tieba.personPolymeric.d;
 
 import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.au;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import com.baidu.tbadk.widget.layout.FlowLayout;
+import com.baidu.tieba.w;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ q eJg;
+public class r extends FlowLayout {
+    private List<com.baidu.tieba.personPolymeric.c.e> eEG;
+    private List<s> eEH;
+    private com.baidu.adp.lib.e.b<s> eEI;
+    private Context mContext;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public r(q qVar) {
-        this.eJg = qVar;
+    public r(Context context) {
+        super(context);
+        this.eEH = new ArrayList();
+        this.mContext = context;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.personPolymeric.c.e eVar;
-        com.baidu.tieba.personPolymeric.c.e eVar2;
-        Context context;
-        if (view != null) {
-            eVar = this.eJg.eJf;
-            if (eVar != null) {
-                TiebaStatic.log(new as("c11594"));
-                eVar2 = this.eJg.eJf;
-                String str = eVar2.forumName;
-                if (au.aB(str)) {
-                    MessageManager messageManager = MessageManager.getInstance();
-                    context = this.eJg.mContext;
-                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(context).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
+    public void setData(List<com.baidu.tieba.personPolymeric.c.e> list) {
+        this.eEG = list;
+        aQa();
+    }
+
+    private void aQa() {
+        if (!com.baidu.tbadk.core.util.x.r(this.eEG)) {
+            for (com.baidu.tieba.personPolymeric.c.e eVar : this.eEG) {
+                if (eVar != null) {
+                    s fK = this.eEI.fK();
+                    fK.setData(eVar);
+                    ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.k.af(this.mContext) - com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds80)) - com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds16)) / 2, -2);
+                    fK.setPadding(com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds16), 0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds14), 0);
+                    addView(fK, layoutParams);
+                    this.eEH.add(fK);
                 }
+            }
+        }
+    }
+
+    public void recycle() {
+        if (!com.baidu.tbadk.core.util.x.r(this.eEH)) {
+            for (s sVar : this.eEH) {
+                this.eEI.n(sVar);
+            }
+            removeAllViews();
+        }
+    }
+
+    public void setForumItemViewBdObjectPool(com.baidu.adp.lib.e.b<s> bVar) {
+        this.eEI = bVar;
+    }
+
+    public void onChangeSkinType() {
+        for (s sVar : this.eEH) {
+            if (sVar != null) {
+                sVar.onChangeSkinType();
             }
         }
     }

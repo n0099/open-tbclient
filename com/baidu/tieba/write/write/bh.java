@@ -1,27 +1,23 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bh implements TextWatcher {
-    final /* synthetic */ WriteActivity fUM;
+public class bh implements DialogInterface.OnDismissListener {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.fUM.a(charSequence, i, i3, "from_title");
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.fUM.bfg();
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        boolean z;
+        z = this.fSV.fSA;
+        if (z) {
+            com.baidu.adp.lib.util.k.b(this.fSV.getPageContext().getPageActivity(), this.fSV.getCurrentFocus());
+            this.fSV.fSB = System.currentTimeMillis();
+        }
     }
 }

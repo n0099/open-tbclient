@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class InvokeNewImMessageCenterFragmentConfig extends IntentConfig {
     public static final String PAGE_TYPE = "pageType";
     public static int currentPageType;

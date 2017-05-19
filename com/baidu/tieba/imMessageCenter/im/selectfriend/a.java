@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
 import com.baidu.tbadk.core.view.y;
 import com.baidu.tieba.imMessageCenter.ResponseFriendListMessage;
 import java.util.LinkedList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class a extends HttpMessageListener {
-    final /* synthetic */ SelectFriendActivity dlP;
+    final /* synthetic */ SelectFriendActivity dfT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(SelectFriendActivity selectFriendActivity, int i) {
         super(i);
-        this.dlP = selectFriendActivity;
+        this.dfT = selectFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,13 +29,13 @@ class a extends HttpMessageListener {
                 friendList = new LinkedList<>();
             }
             if (friendList.size() > 0) {
-                yVar2 = this.dlP.mNoDataView;
+                yVar2 = this.dfT.mNoDataView;
                 yVar2.setVisibility(8);
-                this.dlP.dlL.setContacts(friendList);
-                this.dlP.dlL.notifyDataSetChanged();
+                this.dfT.dfP.setContacts(friendList);
+                this.dfT.dfP.notifyDataSetChanged();
                 return;
             }
-            yVar = this.dlP.mNoDataView;
+            yVar = this.dfT.mNoDataView;
             yVar.setVisibility(0);
         }
     }

@@ -1,29 +1,34 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends com.baidu.tbadk.util.s<String> {
-    final /* synthetic */ n this$0;
+public class aa implements View.OnTouchListener {
+    final /* synthetic */ o this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(n nVar) {
-        this.this$0 = nVar;
+    public aa(o oVar) {
+        this.this$0 = oVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.s
-    /* renamed from: ajK */
-    public String doInBackground() {
-        String str;
-        String str2;
-        com.baidu.tbadk.core.c.a tM = com.baidu.tbadk.core.c.a.tM();
-        str = this.this$0.czS;
-        com.baidu.adp.lib.cache.o<String> M = tM.M(str, TbadkCoreApplication.getCurrentAccount());
-        if (M != null) {
-            str2 = this.this$0.czS;
-            return M.get(str2);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        View.OnTouchListener onTouchListener;
+        com.baidu.tieba.e.a aVar;
+        com.baidu.tieba.e.a aVar2;
+        View.OnTouchListener onTouchListener2;
+        onTouchListener = this.this$0.cuU;
+        if (onTouchListener != null) {
+            onTouchListener2 = this.this$0.cuU;
+            onTouchListener2.onTouch(view, motionEvent);
         }
-        return null;
+        aVar = this.this$0.aRD;
+        if (aVar != null) {
+            aVar2 = this.this$0.aRD;
+            aVar2.onTouchEvent(motionEvent);
+            return false;
+        }
+        return false;
     }
 }

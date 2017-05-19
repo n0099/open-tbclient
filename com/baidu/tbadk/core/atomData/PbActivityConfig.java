@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -15,6 +15,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String FROM_SEARCHBOX = "from_searchbox";
     public static final String FROM_VIDEO_LIST = "from_video_list";
     public static final int INVALID_SMART_FRS_POSITION = -1;
+    public static final String KEY_FORUM_ID = "forum_id";
     public static final int KEY_FOR_PRAISE_DATA_NO_ACTION = -1;
     public static final String KEY_FROM = "from";
     public static final String KEY_FROM_FORUM_NAME = "from_forum_name";
@@ -41,6 +42,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_IS_PV = "is_pv";
     public static final String KEY_IS_SUB_PB = "is_sub_pb";
     public static final String KEY_IS_TOP = "is_top";
+    public static final String KEY_JUMP_TO_GOD_REPLY = "key_jump_to_god_reply";
     public static final String KEY_LOCATE = "locate";
     public static final String KEY_MANGA_NEXT_CHAPTER = "key_manga_next_chapter";
     public static final String KEY_MANGA_PREV_CHAPTER = "key_manga_prev_chapter";
@@ -50,9 +52,12 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_MSG_OP_STAT = "op_stat";
     public static final String KEY_MSG_OP_TYPE = "op_type";
     public static final String KEY_MSG_OP_URL = "op_url";
+    public static final String KEY_NEED_REPOST_RECOMMEND_FORUM = "KEY_NEED_REPOST_RECOMMEND_FORUM";
     public static final String KEY_POST_ID = "post_id";
+    public static final String KEY_POST_THREAD_TIP = "KEY_POST_THREAD_TIP";
     public static final String KEY_SMART_FRS_POSITION = "KEY_SMART_FRS_POSITION";
     public static final String KEY_SQUENCE = "squence";
+    public static final String KEY_START_FROM = "key_start_from";
     public static final String KEY_ST_TYPE = "st_type";
     public static final String KEY_THREAD_ID = "thread_id";
     public static final String KEY_THREAD_TIME = "thread_time";
@@ -269,13 +274,13 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(bi biVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (biVar != null) {
+    public PbActivityConfig createFromThreadCfg(bk bkVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (bkVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", biVar.getId());
-            intent.putExtra("is_good", biVar.sl());
-            intent.putExtra("is_top", biVar.sk());
-            intent.putExtra(KEY_THREAD_TIME, biVar.sj());
+            intent.putExtra("thread_id", bkVar.getId());
+            intent.putExtra("is_good", bkVar.rv());
+            intent.putExtra("is_top", bkVar.ru());
+            intent.putExtra(KEY_THREAD_TIME, bkVar.rt());
             intent.putExtra("st_type", str2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
@@ -285,10 +290,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (biVar.se() == null ? 0L : biVar.se().getNum()));
-            if (biVar.getAuthor() != null && biVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, biVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, biVar.getAuthor().getGodUserData().getIsLike());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bkVar.ro() == null ? 0L : bkVar.ro().getNum()));
+            if (bkVar.getAuthor() != null && bkVar.getAuthor().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bkVar.getAuthor().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bkVar.getAuthor().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -396,6 +401,13 @@ public class PbActivityConfig extends IntentConfig {
         }
     }
 
+    public void setJumpGodReply(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_JUMP_TO_GOD_REPLY, z);
+        }
+    }
+
     private void addMoreIntentExtraParam() {
         Intent intent = getIntent();
         if (intent != null && this.mContext != null) {
@@ -426,6 +438,41 @@ public class PbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra("is_from_push", true);
+        }
+    }
+
+    public void setForumId(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra("forum_id", str);
+        }
+    }
+
+    public void setForumName(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_FROM_FORUM_NAME, str);
+        }
+    }
+
+    public void setNeedRepostRecommendForum(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_NEED_REPOST_RECOMMEND_FORUM, z);
+        }
+    }
+
+    public void setPostThreadTip(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_POST_THREAD_TIP, str);
+        }
+    }
+
+    public void setStartFrom(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_START_FROM, i);
         }
     }
 }

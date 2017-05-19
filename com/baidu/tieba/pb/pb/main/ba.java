@@ -4,52 +4,39 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class ba extends CustomMessageListener {
-    final /* synthetic */ PbActivity emk;
+    final /* synthetic */ PbActivity ehy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ba(PbActivity pbActivity, int i) {
         super(i);
-        this.emk = pbActivity;
+        this.ehy = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         PbModel pbModel;
-        ey eyVar;
-        ey eyVar2;
-        ey eyVar3;
-        ey eyVar4;
-        PbModel pbModel2;
-        ey eyVar5;
-        PbModel pbModel3;
-        PbModel pbModel4;
-        PbModel pbModel5;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
-            pbModel = this.emk.ekv;
-            pbModel.a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
-            eyVar = this.emk.eli;
-            if (eyVar != null) {
-                pbModel2 = this.emk.ekv;
-                if (pbModel2 != null) {
-                    eyVar5 = this.emk.eli;
-                    pbModel3 = this.emk.ekv;
-                    com.baidu.tieba.pb.data.f pbData = pbModel3.getPbData();
-                    pbModel4 = this.emk.ekv;
-                    boolean aMD = pbModel4.aMD();
-                    pbModel5 = this.emk.ekv;
-                    eyVar5.d(pbData, aMD, pbModel5.aMU());
-                }
+        com.baidu.tbadk.editortools.pb.c cVar;
+        fm fmVar;
+        com.baidu.tbadk.editortools.pb.c cVar2;
+        fm fmVar2;
+        fm fmVar3;
+        com.baidu.tbadk.editortools.pb.c cVar3;
+        pbModel = this.ehy.efE;
+        if (pbModel != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            cVar = this.ehy.egG;
+            if (cVar != null) {
+                fmVar3 = this.ehy.egt;
+                cVar3 = this.ehy.egG;
+                fmVar3.gm(cVar3.CY());
             }
-            eyVar2 = this.emk.eli;
-            if (eyVar2 != null) {
-                eyVar3 = this.emk.eli;
-                if (eyVar3.aOh() != null) {
-                    eyVar4 = this.emk.eli;
-                    eyVar4.aOh().notifyDataSetChanged();
-                }
-            }
+            fmVar = this.ehy.egt;
+            fmVar.aLl();
+            cVar2 = this.ehy.egG;
+            cVar2.Db();
+            fmVar2 = this.ehy.egt;
+            fmVar2.auE();
         }
     }
 }

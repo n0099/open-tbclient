@@ -1,32 +1,41 @@
 package com.baidu.tieba.enterForum.c;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements Runnable {
-    final /* synthetic */ h bIi;
+public class i implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ c bHP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.bIi = hVar;
+    public i(c cVar) {
+        this.bHP = cVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        e eVar;
-        com.baidu.tieba.enterForum.model.e eVar2;
-        e eVar3;
-        com.baidu.tieba.enterForum.model.e eVar4;
-        e eVar5;
-        BdListView bdListView;
-        eVar = this.bIi.bIg;
-        eVar2 = eVar.bHZ;
-        if (eVar2.Xq() != null) {
-            eVar3 = this.bIi.bIg;
-            eVar4 = eVar3.bHZ;
-            eVar4.Xq().setVisibility(0);
-            eVar5 = this.bIi.bIg;
-            bdListView = eVar5.bks;
-            bdListView.setVisibility(8);
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(w.j.drag_to_sort_forum_tip_layout, (ViewGroup) null, false);
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int fa() {
+        return 4;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int fb() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getXOffset() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getYOffset() {
+        return 0;
     }
 }

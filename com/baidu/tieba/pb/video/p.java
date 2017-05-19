@@ -1,36 +1,17 @@
 package com.baidu.tieba.pb.video;
-
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.play.c;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements c.g {
-    final /* synthetic */ d exo;
+class p implements Runnable {
+    final /* synthetic */ o etb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(d dVar) {
-        this.exo = dVar;
+    public p(o oVar) {
+        this.etb = oVar;
     }
 
-    @Override // com.baidu.tieba.play.c.g
-    public void onStop() {
-        com.baidu.tieba.play.c cVar;
-        PbActivity pbActivity;
-        cVar = this.exo.eri;
-        if (cVar.azy()) {
-            pbActivity = this.exo.ekw;
-            pbActivity.setSwipeBackEnabled(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.play.c.g
-    public void onStart() {
-        com.baidu.tieba.play.c cVar;
-        PbActivity pbActivity;
-        cVar = this.exo.eri;
-        if (cVar.azy()) {
-            pbActivity = this.exo.ekw;
-            pbActivity.setSwipeBackEnabled(false);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        g gVar;
+        gVar = this.etb.esY;
+        gVar.aND();
     }
 }

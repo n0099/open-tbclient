@@ -3,15 +3,15 @@ package com.baidu.tieba.imageProblem.cdnOptimize;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> dpq;
+    public ArrayList<ArrayList<String>> dju;
     public int errorNum = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String dpp = null;
-    boolean dpr = false;
-    public String dps = null;
+    public String djt = null;
+    boolean djv = false;
+    public String djw = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -23,15 +23,15 @@ public class TbCdnIpListData {
                     this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.dpr = true;
+                    this.djv = true;
                 } else {
-                    this.dpr = false;
+                    this.djv = false;
                 }
-                this.dps = jSONObject.optString("cdn_domain");
+                this.djw = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString("img_url");
-                    this.dpp = optJSONObject2.optString("img_md5");
+                    this.djt = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -54,7 +54,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.dpq = arrayList;
+                        this.dju = arrayList;
                     }
                 }
             } catch (Exception e) {

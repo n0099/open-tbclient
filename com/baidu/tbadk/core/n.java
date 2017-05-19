@@ -1,15 +1,27 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.kuang.ReLoginFromKuangMessage;
 /* loaded from: classes.dex */
-public class n {
-    private static int BASE_ERROR_NO = -100000000;
-    public static final int SI = BASE_ERROR_NO - 1000;
-    public static final int SJ = BASE_ERROR_NO + TbErrInfo.ERR_IMG_GET_REMOTE;
-    public static final int SK = BASE_ERROR_NO + TbErrInfo.ERR_IMG_SEND;
-    public static final int SL = BASE_ERROR_NO - 2000;
-    public static final int SM = BASE_ERROR_NO - 2001;
-    public static final int SN = BASE_ERROR_NO - 2002;
-    public static final int SO = BASE_ERROR_NO - 3000;
-    public static final int SP = BASE_ERROR_NO - 3001;
+class n extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001325 && customResponsedMessage.getData() != null) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                TbadkCoreApplication.m9getInst().setIsKuangLogin(true);
+                com.baidu.tbadk.kuang.a.bP(true);
+                return;
+            }
+            TbadkCoreApplication.m9getInst().setIsKuangLogin(false);
+            MessageManager.getInstance().dispatchResponsedMessage(new ReLoginFromKuangMessage(false));
+        }
+    }
 }

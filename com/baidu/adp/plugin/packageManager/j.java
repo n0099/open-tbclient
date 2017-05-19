@@ -23,8 +23,8 @@ public class j implements com.baidu.adp.plugin.packageManager.pluginServerConfig
                 this.this$0.a(cVar, configs);
                 str = this.this$0.e(configs);
             }
-            com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().setForbiddenFeatures(str);
+            com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().setForbiddenFeatures(str);
         }
-        this.this$0.jJ();
+        this.this$0.jI();
     }
 }

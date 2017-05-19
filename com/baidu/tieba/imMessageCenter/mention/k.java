@@ -3,15 +3,15 @@ package com.baidu.tieba.imMessageCenter.mention;
 import android.content.Intent;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class k extends CustomMessageListener {
-    final /* synthetic */ AtMessageActivity dmL;
+    final /* synthetic */ AtMessageActivity dgP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(AtMessageActivity atMessageActivity, int i) {
         super(i);
-        this.dmL = atMessageActivity;
+        this.dgP = atMessageActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,10 +21,10 @@ class k extends CustomMessageListener {
         AtMeModelController atMeModelController2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
             Intent intent = (Intent) customResponsedMessage.getData();
-            atMeModelController = this.dmL.dmI;
+            atMeModelController = this.dgP.dgM;
             if (atMeModelController != null) {
-                atMeModelController2 = this.dmL.dmI;
-                atMeModelController2.Vp();
+                atMeModelController2 = this.dgP.dgM;
+                atMeModelController2.UI();
             }
         }
     }

@@ -1,22 +1,21 @@
 package com.baidu.tieba.horizonalList.widget;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.baidu.tieba.horizonalList.widget.AbsHListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements Runnable {
-    private final /* synthetic */ int aaP;
-    final /* synthetic */ AbsHListView.j cEJ;
-    private final /* synthetic */ int cEK;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(AbsHListView.j jVar, int i, int i2) {
-        this.cEJ = jVar;
-        this.aaP = i;
-        this.cEK = i2;
+class e implements Parcelable.Creator<AbsHListView.SavedState> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: k */
+    public AbsHListView.SavedState createFromParcel(Parcel parcel) {
+        return new AbsHListView.SavedState(parcel, null);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.cEJ.aA(this.aaP, this.cEK);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: kf */
+    public AbsHListView.SavedState[] newArray(int i) {
+        return new AbsHListView.SavedState[i];
     }
 }

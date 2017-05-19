@@ -1,78 +1,23 @@
 package com.baidu.tieba.tblauncher;
 
-import android.support.v4.view.ViewPager;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class af implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ z fCF;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public af(z zVar) {
-        this.fCF = zVar;
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        FragmentTabHost fragmentTabHost;
-        FragmentTabHost fragmentTabHost2;
-        FragmentTabHost fragmentTabHost3;
-        FragmentTabHost fragmentTabHost4;
-        FragmentTabHost fragmentTabHost5;
-        FragmentTabHost fragmentTabHost6;
-        FragmentTabHost fragmentTabHost7;
-        FragmentTabHost fragmentTabHost8;
-        ImageView imageView;
-        ImageView imageView2;
-        FragmentTabHost fragmentTabHost9;
-        fragmentTabHost = this.fCF.bCG;
-        if (fragmentTabHost.getCurrentTabType() == 2) {
-            TiebaStatic.log("kantie_entry");
+class af implements bb.a {
+    @Override // com.baidu.tbadk.core.util.bb.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        if (tbPageContext == null || strArr == null || strArr.length == 0) {
+            return 3;
         }
-        this.fCF.bld();
-        fragmentTabHost2 = this.fCF.bCG;
-        int currentTabType = fragmentTabHost2.getCurrentTabType();
-        fragmentTabHost3 = this.fCF.bCG;
-        if (currentTabType != fragmentTabHost3.cz(i).mType) {
-            fragmentTabHost9 = this.fCF.bCG;
-            fragmentTabHost9.setCurrentTab(i);
+        String str = strArr[0];
+        if (StringUtils.isNull(str) || !str.startsWith("tiebavr:") || TbadkCoreApplication.m9getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
+            return 3;
         }
-        fragmentTabHost4 = this.fCF.bCG;
-        if (fragmentTabHost4.getCurrentTabType() != 1) {
-            imageView = this.fCF.fCz;
-            imageView.setVisibility(8);
-            imageView2 = this.fCF.aYJ;
-            imageView2.setVisibility(0);
-        }
-        z zVar = this.fCF;
-        fragmentTabHost5 = this.fCF.bCG;
-        zVar.dUW = fragmentTabHost5.getCurrentTabType();
-        this.fCF.bla();
-        if (com.baidu.tbadk.core.sharedPref.b.uL().getBoolean("enter_forum_edit_mode", false)) {
-            fragmentTabHost7 = this.fCF.bCG;
-            if (fragmentTabHost7.getCurrentTabType() != 3) {
-                fragmentTabHost8 = this.fCF.bCG;
-                if (fragmentTabHost8.getCurrentTabType() == 2) {
-                    TiebaStatic.log("c10098");
-                }
-            } else {
-                TiebaStatic.log("c10149");
-            }
-        }
-        fragmentTabHost6 = this.fCF.bCG;
-        if (fragmentTabHost6.getCurrentTabType() == 3) {
-            TiebaStatic.log(new as("view_msg").aa("nobatch", "1"));
-        }
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+        tbPageContext.showToast(w.l.vr_plugin_not_available);
+        return 1;
     }
 }

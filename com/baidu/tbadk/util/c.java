@@ -1,87 +1,108 @@
 package com.baidu.tbadk.util;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c aIZ = new c();
-    private b aJa;
-    private a aJb;
+    public static void B(List<a> list) {
+        if (list != null) {
+            StringBuilder sb = new StringBuilder();
+            HashMap hashMap = new HashMap();
+            for (a aVar : list) {
+                if (aVar != null && !StringUtils.isNull(aVar.forumName)) {
+                    if (!hashMap.containsKey(aVar.forumName)) {
+                        sb.append(aVar.toString()).append("^");
+                        hashMap.put(aVar.forumName, aVar.forumName);
+                    }
+                } else {
+                    return;
+                }
+            }
+            com.baidu.tbadk.core.sharedPref.b.tX().putString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), sb.toString());
+        }
+    }
+
+    public static String[] Gk() {
+        String string = com.baidu.tbadk.core.sharedPref.b.tX().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+        if (StringUtils.isNull(string)) {
+            return new String[0];
+        }
+        String[] split = string.split("\\^");
+        if (split != null && split.length > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (String str : split) {
+                a gb = a.gb(str);
+                if (gb != null && !StringUtils.isNull(gb.forumName)) {
+                    arrayList.add(gb.forumName);
+                }
+            }
+            return (String[]) arrayList.toArray(new String[arrayList.size()]);
+        }
+        return null;
+    }
+
+    public static a[] Gl() {
+        String string = com.baidu.tbadk.core.sharedPref.b.tX().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+        if (StringUtils.isNull(string)) {
+            return new a[0];
+        }
+        String[] split = string.split("\\^");
+        if (split != null && split.length > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (String str : split) {
+                a gb = a.gb(str);
+                if (gb != null && !StringUtils.isNull(gb.forumName)) {
+                    arrayList.add(gb);
+                }
+            }
+            return (a[]) arrayList.toArray(new a[arrayList.size()]);
+        }
+        return new a[0];
+    }
 
     /* loaded from: classes.dex */
-    public interface a {
-        void an(boolean z);
-    }
+    public static class a {
+        public String forumName;
+        public int level;
 
-    private c() {
-    }
-
-    public static c Hh() {
-        return aIZ;
-    }
-
-    public void a(a aVar) {
-        this.aJb = aVar;
-        if (this.aJa != null) {
-            this.aJa.cancel();
+        public a() {
         }
-        this.aJa = new b(this, null);
-        this.aJa.setPriority(4);
-        this.aJa.execute(new String[0]);
-    }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean Hi() {
-        int i;
-        long j = 0;
-        byte[] au = com.baidu.adp.lib.util.e.au("crash_hour_record.log");
-        String str = null;
-        if (au != null) {
-            str = new String(au);
+        public a(String str, int i) {
+            this.forumName = str;
+            this.level = i;
         }
-        long j2 = StringUtils.getyyyyMMddHHTimeForNow();
-        if (TextUtils.isEmpty(str)) {
-            i = 0;
-        } else {
-            String[] split = str.split(":");
-            if (split == null || split.length != 2) {
-                i = 0;
-            } else {
-                i = com.baidu.adp.lib.g.b.g(split[0], 0);
-                j = com.baidu.adp.lib.g.b.c(split[1], j2);
+
+        public String toString() {
+            if (StringUtils.isNull(this.forumName)) {
+                return null;
             }
-        }
-        if (j == j2 && i > 1) {
-            return true;
-        }
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class b extends BdAsyncTask<String, Integer, Boolean> {
-        private b() {
+            return String.valueOf(this.forumName) + "#" + this.level;
         }
 
-        /* synthetic */ b(c cVar, b bVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(c.this.Hi());
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            if (c.this.aJb != null && bool != null) {
-                c.this.aJb.an(bool.booleanValue());
+        public static a gb(String str) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
+            a aVar = new a();
+            if (str.contains("#")) {
+                String[] split = str.split("#");
+                if (split.length == 1) {
+                    aVar.forumName = split[0];
+                    return aVar;
+                } else if (split.length == 2) {
+                    aVar.forumName = split[0];
+                    aVar.level = com.baidu.adp.lib.g.b.g(split[1], -1);
+                    return aVar;
+                } else {
+                    return aVar;
+                }
+            }
+            aVar.forumName = str;
+            return aVar;
         }
     }
 }

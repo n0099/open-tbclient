@@ -4,15 +4,15 @@ import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c implements a.b {
-    private final /* synthetic */ PluginConfigWrapper eXA;
-    final /* synthetic */ PluginCenterActivity eXz;
+    private final /* synthetic */ PluginConfigWrapper eTA;
+    final /* synthetic */ PluginCenterActivity eTz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PluginCenterActivity pluginCenterActivity, PluginConfigWrapper pluginConfigWrapper) {
-        this.eXz = pluginCenterActivity;
-        this.eXA = pluginConfigWrapper;
+        this.eTz = pluginCenterActivity;
+        this.eTA = pluginConfigWrapper;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -20,16 +20,16 @@ public class c implements a.b {
         com.baidu.adp.plugin.packageManager.e eVar;
         com.baidu.tbadk.mvc.f.b bVar;
         if (com.baidu.adp.lib.util.k.hB()) {
-            PluginPackageManager jy = PluginPackageManager.jy();
-            PluginConfigWrapper pluginConfigWrapper = this.eXA;
-            eVar = this.eXz.Er;
-            jy.a(pluginConfigWrapper, eVar);
-            this.eXA.setDownLoadPercent(0.0f);
-            this.eXA.setDownLoadStatus(3);
-            bVar = this.eXz.eXx;
-            bVar.D(this.eXA);
+            PluginPackageManager jx = PluginPackageManager.jx();
+            PluginConfigWrapper pluginConfigWrapper = this.eTA;
+            eVar = this.eTz.Er;
+            jx.a(pluginConfigWrapper, eVar);
+            this.eTA.setDownLoadPercent(0.0f);
+            this.eTA.setDownLoadStatus(3);
+            bVar = this.eTz.eTx;
+            bVar.D(this.eTA);
         } else {
-            this.eXz.showToast(w.l.neterror);
+            this.eTz.showToast(w.l.neterror);
         }
         aVar.dismiss();
     }

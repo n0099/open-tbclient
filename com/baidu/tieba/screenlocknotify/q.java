@@ -10,11 +10,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class q extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<s> fiy = new ArrayList();
+    private List<s> fes = new ArrayList();
 
     public q(Context context) {
         this.mContext = context;
@@ -22,20 +22,20 @@ public class q extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fiy != null) {
-            return this.fiy.size();
+        if (this.fes != null) {
+            return this.fes.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: rd */
+    /* renamed from: qV */
     public s getItem(int i) {
-        if (this.fiy == null || i >= this.fiy.size()) {
+        if (this.fes == null || i >= this.fes.size()) {
             return null;
         }
-        return this.fiy.get(i);
+        return this.fes.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,45 +45,45 @@ public class q extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.fiy.get(i), view, viewGroup);
+        return a(this.fes.get(i), view, viewGroup);
     }
 
     public View a(s sVar, View view, ViewGroup viewGroup) {
         View inflate;
-        a bl;
+        a bh;
         if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
-            bl = (a) view.getTag();
+            bh = (a) view.getTag();
             inflate = view;
         } else {
             inflate = LayoutInflater.from(this.mContext).inflate(w.j.screenlock_show_item_view_4, viewGroup, false);
-            bl = bl(inflate);
-            inflate.setTag(bl);
+            bh = bh(inflate);
+            inflate.setTag(bh);
         }
         if (sVar == null) {
             return inflate;
         }
-        bl.fiz.setText(sVar.title);
-        bl.fiA.setText(sVar.content);
-        bl.fiB.setDefaultErrorResource(w.g.screen_notify_default_bg);
-        bl.fiB.setDefaultResource(w.g.screen_notify_default_bg);
-        bl.fiB.a(sVar.pic, 10, 0, 0, false);
+        bh.fet.setText(sVar.title);
+        bh.feu.setText(sVar.content);
+        bh.fev.setDefaultErrorResource(w.g.screen_notify_default_bg);
+        bh.fev.setDefaultResource(w.g.screen_notify_default_bg);
+        bh.fev.a(sVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
-    public void cC(List<s> list) {
+    public void cs(List<s> list) {
         if (list != null && list.size() != 0) {
-            this.fiy.addAll(list);
+            this.fes.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a {
-        View arO;
-        TextView fiA;
-        TbImageView fiB;
-        TextView fiz;
+        View arQ;
+        TextView fet;
+        TextView feu;
+        TbImageView fev;
 
         private a() {
         }
@@ -93,13 +93,13 @@ public class q extends BaseAdapter {
         }
     }
 
-    private a bl(View view) {
+    private a bh(View view) {
         a aVar = new a(this, null);
-        aVar.fiz = (TextView) view.findViewById(w.h.push_msg_title);
-        aVar.fiA = (TextView) view.findViewById(w.h.push_msg_content);
-        aVar.fiB = (TbImageView) view.findViewById(w.h.push_msg_pic);
-        aVar.fiB.setAutoChangeStyle(false);
-        aVar.arO = view.findViewById(w.h.line);
+        aVar.fet = (TextView) view.findViewById(w.h.push_msg_title);
+        aVar.feu = (TextView) view.findViewById(w.h.push_msg_content);
+        aVar.fev = (TbImageView) view.findViewById(w.h.push_msg_pic);
+        aVar.fev.setAutoChangeStyle(false);
+        aVar.arQ = view.findViewById(w.h.line);
         return aVar;
     }
 

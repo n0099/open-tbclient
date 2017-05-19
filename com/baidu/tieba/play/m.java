@@ -12,11 +12,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements v.a {
-    final /* synthetic */ c eWq;
+    final /* synthetic */ c eSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(c cVar) {
-        this.eWq = cVar;
+        this.eSq = cVar;
     }
 
     @Override // com.baidu.tieba.play.v.a
@@ -25,7 +25,7 @@ public class m implements v.a {
         ProgressBar progressBar;
         ProgressBar progressBar2;
         ProgressBar progressBar3;
-        c.InterfaceC0070c interfaceC0070c;
+        c.InterfaceC0076c interfaceC0076c;
         View view2;
         ImageView imageView;
         TextView textView;
@@ -40,64 +40,64 @@ public class m implements v.a {
         ImageView imageView2;
         TextView textView2;
         View view5;
-        c.InterfaceC0070c interfaceC0070c2;
-        this.eWq.dwG = false;
-        this.eWq.dwL = 0;
-        this.eWq.azn();
-        view = this.eWq.dws;
+        c.InterfaceC0076c interfaceC0076c2;
+        this.eSq.dqP = false;
+        this.eSq.dqU = 0;
+        this.eSq.awk();
+        view = this.eSq.dqB;
         view.setVisibility(0);
-        progressBar = this.eWq.eWe;
+        progressBar = this.eSq.eSe;
         progressBar.setVisibility(8);
-        progressBar2 = this.eWq.eWe;
-        progressBar3 = this.eWq.eWe;
+        progressBar2 = this.eSq.eSe;
+        progressBar3 = this.eSq.eSe;
         progressBar2.setProgress(progressBar3.getMax());
-        interfaceC0070c = this.eWq.eWm;
-        if (interfaceC0070c != null) {
-            interfaceC0070c2 = this.eWq.eWm;
-            interfaceC0070c2.jn(false);
+        interfaceC0076c = this.eSq.eSm;
+        if (interfaceC0076c != null) {
+            interfaceC0076c2 = this.eSq.eSm;
+            interfaceC0076c2.iS(false);
         }
-        if (this.eWq.cHV) {
-            view4 = this.eWq.dwy;
+        if (this.eSq.cCa) {
+            view4 = this.eSq.dqH;
             view4.setVisibility(0);
-            imageView2 = this.eWq.dwE;
+            imageView2 = this.eSq.dqN;
             imageView2.setVisibility(0);
-            textView2 = this.eWq.dwF;
+            textView2 = this.eSq.dqO;
             textView2.setVisibility(0);
-            view5 = this.eWq.eWf;
+            view5 = this.eSq.eSf;
             view5.setVisibility(8);
         } else {
-            view2 = this.eWq.dwy;
+            view2 = this.eSq.dqH;
             view2.setVisibility(8);
-            imageView = this.eWq.dwE;
+            imageView = this.eSq.dqN;
             imageView.setVisibility(8);
-            textView = this.eWq.dwF;
+            textView = this.eSq.dqO;
             textView.setVisibility(8);
-            view3 = this.eWq.eWf;
+            view3 = this.eSq.eSf;
             view3.setVisibility(8);
         }
-        this.eWq.eWg.setVisibility(0);
-        str = this.eWq.exh;
+        this.eSq.eSg.setVisibility(0);
+        str = this.eSq.esR;
         if (TextUtils.isEmpty(str)) {
-            this.eWq.eWh.setVisibility(8);
-            this.eWq.eWi.setVisibility(8);
+            this.eSq.eSh.setVisibility(8);
+            this.eSq.eSi.setVisibility(8);
         } else {
-            this.eWq.eWh.setVisibility(0);
-            this.eWq.eWi.setVisibility(0);
-            TextView textView3 = this.eWq.eWi;
-            tbPageContext = this.eWq.aaY;
+            this.eSq.eSh.setVisibility(0);
+            this.eSq.eSi.setVisibility(0);
+            TextView textView3 = this.eSq.eSi;
+            tbPageContext = this.eSq.aat;
             StringBuilder sb = new StringBuilder(String.valueOf(tbPageContext.getString(w.l.video_play_nextvideo)));
-            str2 = this.eWq.exh;
+            str2 = this.eSq.esR;
             textView3.setText(sb.append(str2).toString());
         }
-        az aZn = az.aZn();
-        str3 = this.eWq.mVideoUrl;
-        aZn.remove(str3);
-        aVar = this.eWq.eWj;
+        az aWM = az.aWM();
+        str3 = this.eSq.mVideoUrl;
+        aWM.remove(str3);
+        aVar = this.eSq.eSj;
         if (aVar != null) {
-            aVar2 = this.eWq.eWj;
+            aVar2 = this.eSq.eSj;
             aVar2.onCompletion(vVar);
         }
-        this.eWq.akS = 3;
-        this.eWq.aTd.setRecoveryState(3);
+        this.eSq.akp = 3;
+        this.eSq.aTy.setRecoveryState(3);
     }
 }

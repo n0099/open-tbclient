@@ -1,9 +1,20 @@
 package com.baidu.tbadk.core;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.tbadk.util.d;
 /* loaded from: classes.dex */
-public class z implements Runnable {
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.tbadkCore.util.l.cashNoAccountData("", 7);
+class z implements d.a {
+    final /* synthetic */ y Sq;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(y yVar) {
+        this.Sq = yVar;
+    }
+
+    @Override // com.baidu.tbadk.util.d.a
+    public void am(boolean z) {
+        if (!z) {
+            BdSocketLinkService.startService(false, "restart");
+        }
     }
 }

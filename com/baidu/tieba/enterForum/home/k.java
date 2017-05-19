@@ -1,36 +1,20 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.view.View;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tbadk.widget.CustomViewPager;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements FragmentTabWidget.a {
-    final /* synthetic */ f bGP;
+public class k implements a.b {
+    final /* synthetic */ i bGZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(f fVar) {
-        this.bGP = fVar;
+    public k(i iVar) {
+        this.bGZ = iVar;
     }
 
-    @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
-    public void f(int i, boolean z) {
-        CustomViewPager customViewPager;
-        FragmentTabWidget fragmentTabWidget;
-        customViewPager = this.bGP.adA;
-        customViewPager.setCurrentItem(i);
-        fragmentTabWidget = this.bGP.bGM;
-        View childAt = fragmentTabWidget.getChildAt(i);
-        if (childAt.getTag() != null && 1 == com.baidu.adp.lib.g.b.g(String.valueOf(childAt.getTag()), 0)) {
-            String string = com.baidu.tbadk.core.sharedPref.b.uL().getString("wefan_url", "");
-            if (!bb.wn().a(this.bGP.getBaseFragmentActivity().getPageContext(), "", new String[]{string}, false, null, true) && !bb.wn().dL(string)) {
-                this.bGP.getBaseFragmentActivity().showToast(w.l.pluginstatus_tip_unknown);
-            }
-            this.bGP.hu(1);
-            return;
-        }
-        this.bGP.hu(0);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        this.bGZ.Wm();
+        com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("enter_forum_edit_mode", false);
     }
 }

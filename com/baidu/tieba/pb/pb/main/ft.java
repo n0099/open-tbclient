@@ -1,26 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.DialogInterface;
+import android.view.View;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ft implements DialogInterface.OnCancelListener {
-    final /* synthetic */ ey etN;
+public class ft implements Animation.AnimationListener {
+    final /* synthetic */ fm epr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ft(ey eyVar) {
-        this.etN = eyVar;
+    public ft(fm fmVar) {
+        this.epr = fmVar;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        Runnable runnable;
-        Runnable runnable2;
-        runnable = this.etN.etd;
-        if (runnable == null) {
-            this.etN.etd = new fu(this);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        View view;
+        com.baidu.tbadk.editortools.j jVar;
+        View view2;
+        com.baidu.tbadk.editortools.j jVar2;
+        fm fmVar = this.epr;
+        view = this.epr.eoo;
+        fmVar.eot = view.getVisibility() == 0;
+        jVar = this.epr.Kg;
+        if (jVar != null) {
+            jVar2 = this.epr.Kg;
+            jVar2.hide();
         }
-        com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable2 = this.etN.etd;
-        fS.postDelayed(runnable2, 150L);
+        view2 = this.epr.eoo;
+        view2.setVisibility(8);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

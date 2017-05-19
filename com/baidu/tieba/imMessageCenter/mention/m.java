@@ -4,15 +4,15 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class m extends CustomMessageListener {
-    final /* synthetic */ l dmU;
+    final /* synthetic */ l dgY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(l lVar, int i) {
         super(i);
-        this.dmU = lVar;
+        this.dgY = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class m extends CustomMessageListener {
         MessageAggregationListAdapter messageAggregationListAdapter;
         MessageAggregationListAdapter messageAggregationListAdapter2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            messageAggregationListAdapter = this.dmU.dmN;
+            messageAggregationListAdapter = this.dgY.dgR;
             if (messageAggregationListAdapter != null) {
-                messageAggregationListAdapter2 = this.dmU.dmN;
+                messageAggregationListAdapter2 = this.dgY.dgR;
                 messageAggregationListAdapter2.notifyDataSetChanged();
             }
         }

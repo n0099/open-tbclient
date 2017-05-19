@@ -7,7 +7,7 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.w;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DynamicHeightListView extends BdListView {
     private int maxHeight;
 
@@ -26,8 +26,9 @@ public class DynamicHeightListView extends BdListView {
         this.maxHeight = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst(), w.f.ds484);
     }
 
-    @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
-    protected void onMeasure(int i, int i2) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.View
+    public void onMeasure(int i, int i2) {
         if (getMeasuredHeight() > this.maxHeight && this.maxHeight > 0) {
             setMeasuredDimension(View.MeasureSpec.getSize(i), this.maxHeight);
             return;
@@ -45,6 +46,7 @@ public class DynamicHeightListView extends BdListView {
         return this.maxHeight;
     }
 
+    @Override // com.baidu.adp.widget.ListView.BdListView
     public void setMaxHeight(int i) {
         this.maxHeight = i;
     }

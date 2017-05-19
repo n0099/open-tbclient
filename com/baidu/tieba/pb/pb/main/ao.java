@@ -1,21 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class ao implements View.OnTouchListener {
-    final /* synthetic */ PbActivity emk;
+class ao implements NoNetworkView.a {
+    final /* synthetic */ PbActivity ehy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(PbActivity pbActivity) {
-        this.emk = pbActivity;
+        this.ehy = pbActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        com.baidu.tieba.e.c cVar;
-        cVar = this.emk.bSv;
-        cVar.onTouchEvent(motionEvent);
-        return false;
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aL(boolean z) {
+        boolean z2;
+        PbModel pbModel;
+        z2 = this.ehy.efZ;
+        if (!z2 && z) {
+            pbModel = this.ehy.efE;
+            if (!pbModel.aJY()) {
+                this.ehy.aum();
+            }
+        }
+        this.ehy.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(this.ehy.getApplicationContext(), w.f.ds200));
     }
 }

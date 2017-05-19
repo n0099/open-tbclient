@@ -6,32 +6,32 @@ import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements RecPersonalizePageModel.a {
-    final /* synthetic */ q cwJ;
+    final /* synthetic */ q ctu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.cwJ = qVar;
+        this.ctu = qVar;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.a
-    public void b(long j, DataRes dataRes, boolean z) {
+    public void b(DataRes dataRes, boolean z, boolean z2) {
         q.a aVar;
         q.a aVar2;
-        aVar = this.cwJ.cvv;
+        aVar = this.ctu.csv;
         if (aVar != null) {
-            aVar2 = this.cwJ.cvv;
-            aVar2.a(j, dataRes, z);
+            aVar2 = this.ctu.csv;
+            aVar2.a(dataRes, z, z2);
         }
     }
 
     @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.a
-    public void a(long j, int i, String str) {
+    public void z(int i, String str) {
         q.a aVar;
         q.a aVar2;
-        aVar = this.cwJ.cvv;
+        aVar = this.ctu.csv;
         if (aVar != null) {
-            aVar2 = this.cwJ.cvv;
-            aVar2.a(j, "", str, i, false);
+            aVar2 = this.ctu.csv;
+            aVar2.a("", str, i, false);
         }
     }
 }

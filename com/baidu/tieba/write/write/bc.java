@@ -1,26 +1,34 @@
 package com.baidu.tieba.write.write;
 
+import android.app.Activity;
 import android.view.View;
-import java.io.File;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.HotTopicChangeActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bc implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fUM;
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        File file;
-        File file2;
-        file = this.fUM.fUn;
-        if (file != null) {
-            WriteActivity writeActivity = this.fUM;
-            file2 = this.fUM.fUn;
-            writeActivity.ro(file2.getAbsolutePath());
+        WriteData writeData;
+        List list;
+        writeData = this.fSV.mData;
+        if (writeData.getType() == 7) {
+            TiebaStatic.log("c12016");
         }
+        Activity pageActivity = this.fSV.getPageContext().getPageActivity();
+        list = this.fSV.mList;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicChangeActivityConfig(pageActivity, 25005, list)));
     }
 }

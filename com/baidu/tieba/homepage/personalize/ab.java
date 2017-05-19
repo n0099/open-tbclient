@@ -1,22 +1,28 @@
 package com.baidu.tieba.homepage.personalize;
+
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements com.baidu.tbadk.util.f<String> {
-    private final /* synthetic */ m cAa;
-    final /* synthetic */ n this$0;
+public class ab extends com.baidu.tbadk.util.v<Object> {
+    private final /* synthetic */ DataRes.Builder cvj;
+    final /* synthetic */ o this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(n nVar, m mVar) {
-        this.this$0 = nVar;
-        this.cAa = mVar;
+    public ab(o oVar, DataRes.Builder builder) {
+        this.this$0 = oVar;
+        this.cvj = builder;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.f
-    /* renamed from: jE */
-    public void onReturnDataInUI(String str) {
-        if (this.cAa != null) {
-            this.cAa.jL(com.baidu.adp.lib.g.b.g(str, 0));
+    @Override // com.baidu.tbadk.util.v
+    public Object doInBackground() {
+        try {
+            com.baidu.tbadk.core.c.a.sZ().L("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).k("0", this.cvj.build(true).toByteArray());
+            return null;
+        } catch (Exception e) {
+            BdLog.e(e);
+            return null;
         }
     }
 }

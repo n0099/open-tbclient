@@ -1,28 +1,31 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Intent;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class be implements CustomMessageTask.CustomRunnable<Boolean> {
-    final /* synthetic */ ReplyMessageActivity dnK;
+/* loaded from: classes2.dex */
+class be extends CustomMessageListener {
+    final /* synthetic */ ReplyMessageActivity dhP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(ReplyMessageActivity replyMessageActivity) {
-        this.dnK = replyMessageActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public be(ReplyMessageActivity replyMessageActivity, int i) {
+        super(i);
+        this.dhP = replyMessageActivity;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
-        au auVar;
-        au auVar2;
-        auVar = this.dnK.dnJ;
-        if (auVar != null) {
-            auVar2 = this.dnK.dnJ;
-            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, Boolean.valueOf(auVar2.onBackPressed()));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ReplyMeModelController replyMeModelController;
+        ReplyMeModelController replyMeModelController2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
+            Intent intent = (Intent) customResponsedMessage.getData();
+            replyMeModelController = this.dhP.dhN;
+            if (replyMeModelController != null) {
+                replyMeModelController2 = this.dhP.dhN;
+                replyMeModelController2.UI();
+            }
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, false);
     }
 }

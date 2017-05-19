@@ -16,12 +16,14 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
     public static final String TYPE_ZAN = "zan";
     private static final long serialVersionUID = -7837936115460478133L;
+    private long fromForumId;
+    private int hideForumName;
     private boolean isAuthor;
     private int isFloor;
     private String mPraiseItemType;
@@ -113,6 +115,14 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
         return this.isAuthor;
     }
 
+    public long getFromForumId() {
+        return this.fromForumId;
+    }
+
+    public boolean isHideForumName() {
+        return this.hideForumName == 1;
+    }
+
     public String toJson() {
         JSONArray jSONArray = new JSONArray();
         try {
@@ -121,13 +131,15 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             jSONObject.put(VrPlayerActivityConfig.TITLE, this.title);
             jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.time / 1000);
             jSONObject.put(ImageViewerConfig.FORUM_NAME, this.fname);
-            jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, this.content);
+            jSONObject.put("content", this.content);
             jSONObject.put("quote_content", this.quote_content);
             jSONObject.put("thread_id", this.thread_id);
             jSONObject.put("post_id", this.post_id);
             jSONObject.put("is_floor", this.isFloor);
             jSONObject.put("quote_pid", this.quote_pid);
             jSONObject.put("thread_type", this.thread_type);
+            jSONObject.put("v_forum_id", this.fromForumId);
+            jSONObject.put("hide_fname", this.hideForumName);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("id", this.replyer.getUserId());
             jSONObject2.put("name", this.replyer.getUserName());
@@ -155,13 +167,15 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.title = jSONObject.optString(VrPlayerActivityConfig.TITLE);
                 this.time = jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
                 this.fname = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
-                this.content = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
+                this.content = jSONObject.optString("content");
                 this.quote_content = jSONObject.optString("quote_content");
                 this.thread_id = jSONObject.optString("thread_id");
                 this.post_id = jSONObject.optString("post_id");
                 this.isFloor = jSONObject.optInt("is_floor");
                 this.quote_pid = jSONObject.optString("quote_pid");
                 this.mPraiseItemType = jSONObject.optString("item_type");
+                this.fromForumId = jSONObject.optLong("v_forum_id");
+                this.hideForumName = jSONObject.optInt("hide_fname");
                 if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                     this.mPraiseNum = optJSONObject.optInt("num");
                     this.mPraiseLiked = optJSONObject.optInt(ThreadExpressionActivityConfig.IS_LIKED);
@@ -201,6 +215,8 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.isFloor = replyList.is_floor.intValue();
                 this.quote_pid = String.valueOf(replyList.quote_pid);
                 this.mPraiseItemType = replyList.item_type;
+                this.hideForumName = replyList.hide_fname.intValue();
+                this.fromForumId = replyList.v_forum_id.longValue();
                 if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
                     this.mPraiseNum = zan.num.intValue();
                     this.mPraiseLiked = zan.is_liked.intValue();

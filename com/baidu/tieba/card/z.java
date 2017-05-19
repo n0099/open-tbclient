@@ -1,24 +1,33 @@
 package com.baidu.tieba.card;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.animation.Animation;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends CustomMessageListener {
-    final /* synthetic */ x bvq;
+public class z implements Animation.AnimationListener {
+    final /* synthetic */ u bvn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z(x xVar, int i) {
-        super(i);
-        this.bvq = xVar;
+    public z(u uVar) {
+        this.bvn = uVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016477) {
-            this.bvq.bvl = false;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        tbImageView = this.bvn.buP;
+        if (tbImageView != null) {
+            tbImageView2 = this.bvn.buP;
+            tbImageView2.setVisibility(8);
         }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

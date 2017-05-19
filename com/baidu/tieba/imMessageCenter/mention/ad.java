@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MentionActivityConfig;
@@ -16,50 +17,50 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ad extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter dmJ;
-    private l dmW;
-    private boolean dmX = false;
-    private CustomMessageListener dmY = new ae(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-    private CustomMessageListener dmK = new af(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
+    private ViewEventCenter dgN;
+    private l dha;
+    private boolean dhb = false;
+    private CustomMessageListener dhc = new ae(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private CustomMessageListener dgO = new af(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.dmW = new l(this);
+        this.dha = new l(this);
         if (bundle != null) {
-            this.dmW.h(bundle);
-            this.dmW.h(bundle);
+            this.dha.h(bundle);
+            this.dha.h(bundle);
         } else {
-            this.dmW.h((Bundle) null);
-            this.dmW.h((Bundle) null);
+            this.dha.h((Bundle) null);
+            this.dha.h((Bundle) null);
         }
-        View Vr = this.dmW.Vr();
-        this.dmW.gF(this.dmX);
-        this.dmW.b(getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
-        FU().addEventDelegate(this);
-        registerListener(this.dmY);
-        registerListener(this.dmK);
+        View UK = this.dha.UK();
+        this.dha.gg(this.dhb);
+        this.dha.b(getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
+        EY().addEventDelegate(this);
+        registerListener(this.dhc);
+        registerListener(this.dgO);
         TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11941"));
-        return Vr;
+        return UK;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
-        if (getActivity() != null && P(getActivity().getIntent())) {
-            this.dmW.onNewIntent(getActivity().getIntent());
+        if (getActivity() != null && R(getActivity().getIntent())) {
+            this.dha.onNewIntent(getActivity().getIntent());
         } else {
-            this.dmW.acF();
+            this.dha.aaS();
         }
         super.onViewCreated(view, bundle);
     }
 
-    private boolean P(Intent intent) {
+    private boolean R(Intent intent) {
         return (intent == null || intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1) == -1) ? false : true;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean Fk() {
+    public boolean Eo() {
         return false;
     }
 
@@ -68,17 +69,17 @@ public class ad extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         return bVar == null;
     }
 
-    public ViewEventCenter FU() {
-        if (this.dmJ == null) {
-            this.dmJ = new ViewEventCenter();
+    public ViewEventCenter EY() {
+        if (this.dgN == null) {
+            this.dgN = new ViewEventCenter();
         }
-        return this.dmJ;
+        return this.dgN;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.dmW != null) {
-            this.dmW.b(getPageContext(), i);
+        if (this.dha != null) {
+            this.dha.b(getPageContext(), i);
         }
     }
 
@@ -116,11 +117,12 @@ public class ad extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOME_NOTIFY_MSG, false));
         super.onDestroy();
-        this.dmW.onActivityDestroy();
+        this.dha.onActivityDestroy();
     }
 
-    public void gG(boolean z) {
-        this.dmX = z;
+    public void gh(boolean z) {
+        this.dhb = z;
     }
 }

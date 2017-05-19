@@ -1,18 +1,18 @@
 package com.baidu.tieba.frs.tab;
 
-import com.baidu.tieba.frs.tab.j;
+import com.baidu.tieba.frs.tab.k;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements j.a {
-    final /* synthetic */ HorizontalTabView cbC;
+public class b implements k.a {
+    final /* synthetic */ HorizontalTabView bZt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(HorizontalTabView horizontalTabView) {
-        this.cbC = horizontalTabView;
+        this.bZt = horizontalTabView;
     }
 
-    @Override // com.baidu.tieba.frs.tab.j.a
+    @Override // com.baidu.tieba.frs.tab.k.a
     public void a(TabItemView tabItemView) {
-        this.cbC.a(tabItemView, false);
+        this.bZt.a(tabItemView, false);
     }
 }

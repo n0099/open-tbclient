@@ -3,5 +3,5 @@ package com.baidu.tieba.lego.card;
 public interface a {
     void aM(String str, String str2);
 
-    void it(int i);
+    void ij(int i);
 }

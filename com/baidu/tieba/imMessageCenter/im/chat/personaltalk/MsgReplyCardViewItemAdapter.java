@@ -8,7 +8,7 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.ao;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MsgReplyCardViewItemAdapter extends ao<MsgReplyCardView> {
     public MsgReplyCardViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -17,9 +17,9 @@ public class MsgReplyCardViewItemAdapter extends ao<MsgReplyCardView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: as */
+    /* renamed from: an */
     public ao.a<MsgReplyCardView> onCreateViewHolder(ViewGroup viewGroup) {
-        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.ajU);
+        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.ajr);
         return new a(msgReplyCardView.cf(), msgReplyCardView);
     }
 
@@ -27,17 +27,17 @@ public class MsgReplyCardViewItemAdapter extends ao<MsgReplyCardView> {
     @Override // com.baidu.tieba.im.chat.ao
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ao.a<MsgReplyCardView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgReplyCardView aox = aVar.aox();
-        aox.a(this.ajU, chatMessage, viewGroup);
-        aox.a(this.cPJ);
-        aox.setPosition(i);
-        this.ajU.getLayoutMode().aj(false);
-        this.ajU.getLayoutMode().t(view);
+        MsgReplyCardView alq = aVar.alq();
+        alq.a(this.ajr, chatMessage, viewGroup);
+        alq.a(this.cJM);
+        alq.setPosition(i);
+        this.ajr.getLayoutMode().ai(false);
+        this.ajr.getLayoutMode().t(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends ao.a<MsgReplyCardView> {
         public a(View view, MsgReplyCardView msgReplyCardView) {
             super(view, msgReplyCardView);

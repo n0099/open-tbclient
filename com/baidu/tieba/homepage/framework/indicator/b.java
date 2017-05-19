@@ -1,38 +1,32 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.lib.cache.o;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.util.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements com.baidu.tieba.homepage.framework.d {
-    final /* synthetic */ a cwV;
+public class b extends v<Object> {
+    private final /* synthetic */ int aak;
+    final /* synthetic */ a ctJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.cwV = aVar;
+    public b(a aVar, int i) {
+        this.ctJ = aVar;
+        this.aak = i;
     }
 
-    @Override // com.baidu.tieba.homepage.framework.d
-    public void g(long j, int i) {
-        ArrayList arrayList;
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        if (i >= 0) {
-            arrayList = this.cwV.cwN;
-            if (arrayList != null) {
-                arrayList2 = this.cwV.cwN;
-                if (arrayList2.size() > 0) {
-                    arrayList3 = this.cwV.cwN;
-                    Iterator it = arrayList3.iterator();
-                    while (it.hasNext()) {
-                        com.baidu.tieba.homepage.recommendfrs.data.a aVar = (com.baidu.tieba.homepage.recommendfrs.data.a) it.next();
-                        if (aVar != null && aVar.akO() != null && j == aVar.akO().tag_code.longValue()) {
-                            aVar.kd(i);
-                            return;
-                        }
-                    }
-                }
-            }
+    @Override // com.baidu.tbadk.util.v
+    public Object doInBackground() {
+        String str;
+        String str2;
+        com.baidu.tbadk.core.c.a sZ = com.baidu.tbadk.core.c.a.sZ();
+        str = this.ctJ.ctB;
+        o<String> M = sZ.M(str, TbadkCoreApplication.getCurrentAccount());
+        if (M != null) {
+            str2 = this.ctJ.ctC;
+            M.a(str2, Integer.toString(this.aak), 43200000L);
+            return null;
         }
+        return null;
     }
 }

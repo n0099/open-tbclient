@@ -1,48 +1,62 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.w;
+import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
-class x implements a.b {
-    final /* synthetic */ PbActivity emk;
+class x extends CustomMessageListener {
+    final /* synthetic */ PbActivity ehy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(PbActivity pbActivity) {
-        this.emk = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(PbActivity pbActivity, int i) {
+        super(i);
+        this.ehy = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        PbModel pbModel;
-        ey eyVar;
-        ey eyVar2;
-        ey eyVar3;
-        PbModel pbModel2;
-        ey eyVar4;
-        this.emk.aar();
-        pbModel = this.emk.ekv;
-        com.baidu.tbadk.core.data.ap amV = pbModel.amV();
-        eyVar = this.emk.eli;
-        int pageNum = eyVar.getPageNum();
-        if (pageNum <= 0) {
-            this.emk.showToast(w.l.pb_page_error);
-        } else if (amV == null || pageNum <= amV.ri()) {
-            eyVar2 = this.emk.eli;
-            eyVar2.axI();
-            this.emk.oj(2);
-            this.emk.aaq();
-            eyVar3 = this.emk.eli;
-            eyVar3.aOm();
-            if (com.baidu.adp.lib.util.i.hk()) {
-                pbModel2 = this.emk.ekv;
-                eyVar4 = this.emk.eli;
-                pbModel2.on(eyVar4.getPageNum());
-            } else {
-                this.emk.showToast(w.l.neterror);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        fm fmVar;
+        Object obj;
+        fm fmVar2;
+        boolean z = false;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId = this.ehy.egL;
+            if (tag == bdUniqueId) {
+                com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
+                fmVar = this.ehy.egt;
+                fmVar.aGA();
+                obj = this.ehy.mExtra;
+                SparseArray<Object> sparseArray = (SparseArray) obj;
+                DataRes dataRes = aVar.fHr;
+                if (aVar.error == 0 && dataRes != null) {
+                    int g = com.baidu.adp.lib.g.b.g(dataRes.is_mute, 0);
+                    String str = dataRes.mute_confirm;
+                    boolean z2 = g == 1;
+                    if (com.baidu.tbadk.core.util.au.isEmpty(str)) {
+                        sparseArray.put(w.h.tag_user_mute_msg, "确定禁言？");
+                    } else {
+                        sparseArray.put(w.h.tag_user_mute_msg, str);
+                    }
+                    sparseArray.put(w.h.tag_user_mute_visible, true);
+                    z = z2;
+                } else {
+                    sparseArray.put(w.h.tag_user_mute_visible, false);
+                }
+                int intValue = ((Integer) sparseArray.get(w.h.tag_from)).intValue();
+                if (intValue == 0) {
+                    this.ehy.a(z, sparseArray);
+                } else if (intValue == 1) {
+                    fmVar2 = this.ehy.egt;
+                    fmVar2.a(sparseArray, z);
+                }
             }
-            aVar.dismiss();
-        } else {
-            this.emk.showToast(w.l.pb_page_error);
         }
     }
 }

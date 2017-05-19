@@ -1,25 +1,21 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.os.Bundle;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.message.EnterForumInfoMessage;
+import com.baidu.tieba.enterForum.model.EnterForumModel;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-class a extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.c Fe;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-            EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
-            ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
-            if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Fe = enterForumDelegateStatic.Fe()) != null) {
-                Fe.aEh.setArguments(new Bundle());
-            }
+class a implements EnterForumModel.b {
+    @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
+    public void a(EnterForumModel.a aVar) {
+        com.baidu.tieba.enterForum.b.h VT = aVar.bHu.VT();
+        ArrayList arrayList = new ArrayList();
+        Iterator<com.baidu.tieba.enterForum.b.g> it = VT.VZ().iterator();
+        while (it.hasNext()) {
+            arrayList.add(it.next().getName());
         }
+        MessageManager.getInstance().dispatchResponsedMessage(new EnterForumInfoMessage(CmdConfigCustom.CMD_ENTER_FORUM_INFO, arrayList));
     }
 }

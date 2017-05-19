@@ -1,7 +1,7 @@
 package com.baidu.tieba.screenlocknotify;
 
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class d implements View.OnClickListener {
     final /* synthetic */ ScreenLockActivity this$0;
 
@@ -14,12 +14,12 @@ class d implements View.OnClickListener {
     public void onClick(View view) {
         com.baidu.tieba.screenlocknotify.a.a aVar;
         com.baidu.tieba.screenlocknotify.a.a aVar2;
-        aVar = this.this$0.fif;
+        aVar = this.this$0.feb;
         if (aVar != null) {
             ScreenLockActivity screenLockActivity = this.this$0;
-            aVar2 = this.this$0.fif;
-            screenLockActivity.fia = aVar2.getData();
-            this.this$0.b(this.this$0.fia);
+            aVar2 = this.this$0.feb;
+            screenLockActivity.fdX = aVar2.getData();
+            this.this$0.b(this.this$0.fdX);
         }
     }
 }

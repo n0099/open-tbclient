@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class at {
-    private static at agp;
+    private static at afG;
 
-    public static synchronized at vU() {
+    public static synchronized at vi() {
         at atVar;
         synchronized (at.class) {
-            if (agp == null) {
-                agp = new at();
+            if (afG == null) {
+                afG = new at();
             }
-            atVar = agp;
+            atVar = afG;
         }
         return atVar;
     }
 
-    public String dv(String str) {
+    public String dt(String str) {
         long j = 0;
         for (byte b : str.getBytes()) {
             j += b;
@@ -27,35 +27,35 @@ public class at {
         return "image/" + (j % 20);
     }
 
-    public Bitmap dw(String str) {
+    public Bitmap du(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return l.W(dv(str), str);
+        return l.W(dt(str), str);
     }
 
-    public boolean dx(String str) {
+    public boolean dv(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return l.V(dv(str), str);
+        return l.V(dt(str), str);
     }
 
-    public int dy(String str) {
+    public int dw(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) l.U(dv(str), str);
+        return (int) l.U(dt(str), str);
     }
 
     public boolean ab(String str, String str2) {
-        String str3 = l.yt + "/" + TbConfig.getTempDirName() + "/";
-        if (!l.cU(str3)) {
-            l.dh(str3);
+        String str3 = l.yu + "/" + TbConfig.getTempDirName() + "/";
+        if (!l.cS(str3)) {
+            l.df(str3);
         }
-        String str4 = String.valueOf(str3) + dv(str2);
-        if (!l.cU(str4)) {
-            l.dh(str4);
+        String str4 = String.valueOf(str3) + dt(str2);
+        if (!l.cS(str4)) {
+            l.df(str4);
         }
         String str5 = String.valueOf(str4) + "/" + str2;
         if (str.equals(str5)) {
@@ -66,7 +66,7 @@ public class at {
 
     public void h(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            l.d(dv(str), str, bArr);
+            l.d(dt(str), str, bArr);
         }
     }
 
@@ -84,13 +84,13 @@ public class at {
         }
     }
 
-    public void vV() {
-        t(new File(l.yt + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
-        t(new File(l.yt + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+    public void vj() {
+        t(new File(l.yu + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        t(new File(l.yu + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void vW() {
-        u(new File(l.yt + "/" + TbConfig.getTempDirName() + "/" + l.cB(3)));
+    public void vk() {
+        u(new File(l.yu + "/" + TbConfig.getTempDirName() + "/" + l.cy(3)));
     }
 
     private void u(File file) {

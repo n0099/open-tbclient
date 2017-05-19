@@ -1,44 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
-public class ej extends CustomMessageListener {
-    final /* synthetic */ eh eqD;
+public class ej extends PostData {
+    public static final BdUniqueId elo = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.as elp;
+    public com.baidu.tbadk.core.data.as elq;
+    public com.baidu.tbadk.core.data.as elr;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ej(eh ehVar, int i) {
-        super(i);
-        this.eqD = ehVar;
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return elo;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.be)) {
-            int rP = ((com.baidu.tbadk.core.data.be) customResponsedMessage.getData()).rP();
-            this.eqD.eqz = false;
-            switch (rP) {
-                case 9:
-                    this.eqD.A(this.eqD.eqs, false);
-                    return;
-                case 10:
-                    this.eqD.A(this.eqD.eqs + 1, true);
-                    return;
-                case 11:
-                    this.eqD.eqz = true;
-                    this.eqD.A(this.eqD.eqs - 1, true);
-                    return;
-                case 12:
-                default:
-                    return;
-                case 13:
-                    this.eqD.eqw = 0;
-                    this.eqD.eqs = 0;
-                    return;
+    public boolean hasData() {
+        if (this.elp == null || StringUtils.isNull(this.elp.summary)) {
+            if (this.elq == null || StringUtils.isNull(this.elq.summary)) {
+                return (this.elr == null || StringUtils.isNull(this.elr.summary)) ? false : true;
             }
+            return true;
         }
+        return true;
     }
 }

@@ -7,13 +7,13 @@ import android.os.Parcel;
 import android.os.RemoteException;
 /* loaded from: classes.dex */
 public interface c extends IInterface {
-    void JX() throws RemoteException;
+    void Jl() throws RemoteException;
 
-    void JY() throws RemoteException;
-
-    void T(int i, int i2) throws RemoteException;
+    void Jm() throws RemoteException;
 
     void U(int i, int i2) throws RemoteException;
+
+    void V(int i, int i2) throws RemoteException;
 
     /* loaded from: classes.dex */
     public static abstract class a extends Binder implements c {
@@ -29,7 +29,7 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C0048a(iBinder);
+            return new C0052a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -42,22 +42,22 @@ public interface c extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener");
-                    JX();
+                    Jl();
                     parcel2.writeNoException();
                     return true;
                 case 2:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener");
-                    JY();
+                    Jm();
                     parcel2.writeNoException();
                     return true;
                 case 3:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener");
-                    T(parcel.readInt(), parcel.readInt());
+                    U(parcel.readInt(), parcel.readInt());
                     parcel2.writeNoException();
                     return true;
                 case 4:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener");
-                    U(parcel.readInt(), parcel.readInt());
+                    V(parcel.readInt(), parcel.readInt());
                     parcel2.writeNoException();
                     return true;
                 case 1598968902:
@@ -70,10 +70,10 @@ public interface c extends IInterface {
 
         /* renamed from: com.baidu.tieba.QuickPlayer.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        private static class C0048a implements c {
+        private static class C0052a implements c {
             private IBinder mRemote;
 
-            C0048a(IBinder iBinder) {
+            C0052a(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
@@ -83,7 +83,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.c
-            public void JX() throws RemoteException {
+            public void Jl() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -97,7 +97,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.c
-            public void JY() throws RemoteException {
+            public void Jm() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -111,7 +111,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.c
-            public void T(int i, int i2) throws RemoteException {
+            public void U(int i, int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -127,7 +127,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.c
-            public void U(int i, int i2) throws RemoteException {
+            public void V(int i, int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {

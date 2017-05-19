@@ -55,7 +55,7 @@ public class a {
         this.Hd = new C0013a();
         this.GR = bitmap;
         this.GS = z;
-        kP();
+        kO();
     }
 
     public a(Bitmap bitmap, boolean z, String str) {
@@ -73,7 +73,7 @@ public class a {
         this.GR = bitmap;
         this.GS = z;
         this.url = str;
-        kP();
+        kO();
     }
 
     public a(Bitmap bitmap, boolean z, String str, Rect rect) {
@@ -92,7 +92,7 @@ public class a {
         this.GS = z;
         this.url = str;
         this.Ha = rect;
-        kP();
+        kO();
     }
 
     public a(Bitmap bitmap, boolean z, String str, byte[] bArr) {
@@ -111,7 +111,7 @@ public class a {
         this.GS = z;
         this.url = str;
         this.GU = bArr;
-        kP();
+        kO();
     }
 
     public a(com.baidu.adp.gif.b bVar) {
@@ -130,7 +130,7 @@ public class a {
         this.GZ = true;
     }
 
-    private void kP() {
+    private void kO() {
         byte[] ninePatchChunk;
         if (this.GR != null && (ninePatchChunk = this.GR.getNinePatchChunk()) != null && ninePatchChunk.length > 0 && NinePatch.isNinePatchChunk(ninePatchChunk)) {
             this.Hb = true;
@@ -138,7 +138,7 @@ public class a {
         }
     }
 
-    public boolean kQ() {
+    public boolean kP() {
         return this.GZ;
     }
 
@@ -208,7 +208,7 @@ public class a {
         return this.GR.getHeight() * this.GR.getRowBytes();
     }
 
-    public boolean kR() {
+    public boolean kQ() {
         if (this.GT && !this.GX.get()) {
             if (this.GR != null) {
                 Bitmap bitmap = this.GR;
@@ -225,16 +225,16 @@ public class a {
         return false;
     }
 
-    public Bitmap kS() {
+    public Bitmap kR() {
         this.GT = false;
         return this.GR;
     }
 
-    public boolean kT() {
+    public boolean kS() {
         return this.GR != null;
     }
 
-    public BitmapDrawable kU() {
+    public BitmapDrawable kT() {
         if (this.GR == null) {
             return null;
         }
@@ -246,7 +246,7 @@ public class a {
         return this.url;
     }
 
-    public byte[] kV() {
+    public byte[] kU() {
         byte[] byteArray;
         if (this.GR == null) {
             return null;
@@ -259,15 +259,15 @@ public class a {
         return byteArray;
     }
 
-    public Rect kW() {
+    public Rect kV() {
         return this.Ha;
     }
 
-    public byte[] kX() {
+    public byte[] kW() {
         return this.GU;
     }
 
-    public BitmapShader kY() {
+    public BitmapShader kX() {
         if (this.GR == null) {
             return null;
         }
@@ -279,7 +279,7 @@ public class a {
         this.GX.set(z);
     }
 
-    public boolean kZ() {
+    public boolean kY() {
         return this.Hb;
     }
 }

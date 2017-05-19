@@ -1,47 +1,32 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class av implements com.baidu.adp.lib.e.c<HeadImageView> {
-    private final /* synthetic */ Context val$context;
+public class av implements ViewGroup.OnHierarchyChangeListener {
+    final /* synthetic */ UserIconBox amA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(Context context) {
-        this.val$context = context;
+    public av(UserIconBox userIconBox) {
+        this.amA = userIconBox;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: xu */
-    public HeadImageView fL() {
-        return new HeadImageView(this.val$context);
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        com.baidu.adp.lib.e.b bVar;
+        com.baidu.adp.lib.e.b bVar2;
+        if (view2 instanceof TbImageView) {
+            bVar = this.amA.amv;
+            if (bVar != null) {
+                bVar2 = this.amA.amv;
+                bVar2.n((TbImageView) view2);
+            }
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void o(HeadImageView headImageView) {
-        headImageView.setBackgroundResource(0);
-        headImageView.setImageDrawable(null);
-        headImageView.setTag(null);
-        headImageView.setOnClickListener(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public HeadImageView p(HeadImageView headImageView) {
-        return headImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public HeadImageView q(HeadImageView headImageView) {
-        headImageView.setBackgroundResource(0);
-        headImageView.setImageDrawable(null);
-        headImageView.setTag(null);
-        headImageView.setOnClickListener(null);
-        return headImageView;
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

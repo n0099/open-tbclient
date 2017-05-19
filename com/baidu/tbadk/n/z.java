@@ -1,7 +1,7 @@
 package com.baidu.tbadk.n;
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.lib.b.a {
-    public static final String[] aIv = {"cn.jingling.lib"};
+    public static final String[] aIz = {"cn.jingling.lib"};
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
@@ -15,7 +15,7 @@ public class z extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] eQ() {
-        return aIv;
+        return aIz;
     }
 
     @Override // com.baidu.adp.lib.b.a

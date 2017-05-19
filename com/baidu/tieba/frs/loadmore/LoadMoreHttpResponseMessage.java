@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ah;
-import com.baidu.tbadk.core.data.av;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.aw;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.x;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
             if (getError() == 0 && threadListResIdl.data != null) {
-                if (x.p(threadListResIdl.data.user_list) > 0) {
+                if (x.q(threadListResIdl.data.user_list) > 0) {
                     this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
@@ -56,28 +56,28 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         }
                     }
                 }
-                if (x.p(threadListResIdl.data.thread_list) > 0) {
+                if (x.q(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
                         for (int i3 = 0; i3 < list2.size(); i3++) {
-                            bi biVar = new bi();
-                            biVar.setUserMap(this.userMap);
-                            biVar.a(list2.get(i3));
-                            biVar.bX(3);
-                            biVar.sW();
-                            if (biVar.getThreadType() == 33) {
-                                av avVar = new av();
-                                avVar.a(biVar, 0);
+                            bk bkVar = new bk();
+                            bkVar.setUserMap(this.userMap);
+                            bkVar.a(list2.get(i3));
+                            bkVar.bV(3);
+                            bkVar.sg();
+                            if (bkVar.getThreadType() == 33) {
+                                aw awVar = new aw();
+                                awVar.a(bkVar, 0);
                                 if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                    this.threadList.add(avVar);
+                                    this.threadList.add(awVar);
                                 }
-                            } else if (!TextUtils.isEmpty(biVar.tj())) {
+                            } else if (!TextUtils.isEmpty(bkVar.st())) {
                                 ah ahVar = new ah();
-                                ahVar.co(biVar.tj());
+                                ahVar.co(bkVar.st());
                                 this.threadList.add(ahVar);
                             } else {
-                                this.threadList.add(biVar);
+                                this.threadList.add(bkVar);
                             }
                         }
                     }

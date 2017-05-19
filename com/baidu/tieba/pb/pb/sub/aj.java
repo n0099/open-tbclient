@@ -8,13 +8,13 @@ import com.baidu.tieba.w;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
 class aj extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity evm;
+    final /* synthetic */ NewSubPbActivity eqU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aj(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.evm = newSubPbActivity;
+        this.eqU = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,14 +27,14 @@ class aj extends CustomMessageListener {
         ao aoVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.evm.evh;
+            bdUniqueId = this.eqU.eqP;
             if (tag == bdUniqueId) {
                 com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
-                aoVar = this.evm.euX;
-                aoVar.aJt();
-                obj = this.evm.mExtra;
+                aoVar = this.eqU.eqF;
+                aoVar.aGA();
+                obj = this.eqU.mExtra;
                 SparseArray<Object> sparseArray = (SparseArray) obj;
-                DataRes dataRes = aVar.fKP;
+                DataRes dataRes = aVar.fHr;
                 if (aVar.error == 0 && dataRes != null) {
                     boolean z2 = com.baidu.adp.lib.g.b.g(dataRes.is_mute, 0) == 1;
                     sparseArray.put(w.h.tag_user_mute_visible, true);
@@ -47,13 +47,13 @@ class aj extends CustomMessageListener {
                 int intValue = sparseArray.get(w.h.tag_from) instanceof Integer ? ((Integer) sparseArray.get(w.h.tag_from)).intValue() : 0;
                 if (intValue != 0) {
                     if (intValue == 1) {
-                        aoVar2 = this.evm.euX;
+                        aoVar2 = this.eqU.eqF;
                         aoVar2.a(sparseArray, z);
                         return;
                     }
                     return;
                 }
-                this.evm.a(z, sparseArray);
+                this.eqU.a(z, sparseArray);
             }
         }
     }

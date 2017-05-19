@@ -10,16 +10,16 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    private static Runnable aEK = new e();
-    private static boolean aHT = false;
+    private static Runnable aEP = new e();
+    private static boolean aHX = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void GO() {
+    public static final void FS() {
         if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            h.fS().removeCallbacks(aEK);
-            h.fS().postDelayed(aEK, 120000L);
-            if (!aHT) {
-                aHT = true;
+            h.fS().removeCallbacks(aEP);
+            h.fS().postDelayed(aEP, 120000L);
+            if (!aHX) {
+                aHX = true;
                 String string = TbadkCoreApplication.m9getInst().getResources().getString(w.l.plugin_tip_installing);
                 NotificationHelper.showNotification(TbadkCoreApplication.m9getInst().getApplicationContext(), 1000, null, string, string, null, false);
             }
@@ -27,10 +27,10 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void GP() {
+    public static final void FT() {
         if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            aHT = false;
-            h.fS().removeCallbacks(aEK);
+            aHX = false;
+            h.fS().removeCallbacks(aEP);
             NotificationHelper.cancelNotification(TbadkCoreApplication.m9getInst().getApplicationContext(), 1000);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_COLLECT_GROUPS, new ArrayList()));
         }
@@ -38,7 +38,7 @@ public class d {
 
     public static void init() {
         if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            h.fS().post(aEK);
+            h.fS().post(aEP);
             MessageManager.getInstance().registerListener(new f(2000993));
             MessageManager.getInstance().registerListener(new g(2000988));
         }

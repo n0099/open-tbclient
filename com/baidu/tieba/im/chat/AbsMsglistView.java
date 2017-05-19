@@ -71,7 +71,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.e<MsglistActivit
 
     /* loaded from: classes.dex */
     public interface a {
-        void anP();
+        void akI();
 
         void d(VoiceData.VoiceModel voiceModel);
     }
@@ -175,8 +175,8 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.e<MsglistActivit
         this.mPrgLisMsg.setVisibility(8);
         this.mAdapter = new bk(msglistActivity.getPageContext(), this.mLisMsg);
         setNeedShowName();
-        this.mAdapter.fA(this.mNeedShowName);
-        this.mAdapter.fB(isPersonal());
+        this.mAdapter.fb(this.mNeedShowName);
+        this.mAdapter.fc(isPersonal());
         this.mAdapter.a(msglistActivity);
         this.mAdapter.setOnItemViewLongClickListener(msglistActivity);
         this.mLisMsg.setOnScrollListener(new j(this, msglistActivity));
@@ -200,34 +200,34 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.e<MsglistActivit
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CHAT_SEND_VOICE_VIEW, x.class, talkableActivity.getActivity());
         if (runTask != null && runTask.getData() != null) {
             this.mSendTool = (x) runTask.getData();
-            if (this.mSendTool.ayZ != null && (this.mSendTool.ayZ instanceof ISendVoiceView)) {
-                this.mSendVoiceView = (ISendVoiceView) this.mSendTool.ayZ;
+            if (this.mSendTool.ayX != null && (this.mSendTool.ayX instanceof ISendVoiceView)) {
+                this.mSendVoiceView = (ISendVoiceView) this.mSendTool.ayX;
                 if (this.mSendVoiceView instanceof View) {
                     ((View) this.mSendVoiceView).setOnTouchListener(this.mContext);
                 }
             }
-            this.mSendTool.azL = 1;
+            this.mSendTool.azJ = 1;
             this.mTool.b(this.mSendTool);
         }
         this.mTool.b(new com.baidu.tbadk.editortools.imagetool.i(talkableActivity.getActivity(), 2));
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        this.mTool.u(arrayList);
-        x eB = this.mTool.eB(5);
-        if (eB != null) {
-            eB.azL = 3;
-            eB.azJ = w.g.btn_pb_add_expression;
+        this.mTool.v(arrayList);
+        x ex = this.mTool.ex(5);
+        if (ex != null) {
+            ex.azJ = 3;
+            ex.azH = w.g.btn_pb_add_expression;
         }
         com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(talkableActivity.getActivity(), false, false);
         aVar.setIsOnlyLocalEmotion(true);
-        if (aVar.ayZ != null && (aVar.ayZ instanceof EditText)) {
-            ((EditText) aVar.ayZ).setTextSize(0, talkableActivity.getActivity().getResources().getDimensionPixelSize(w.f.ds36));
+        if (aVar.ayX != null && (aVar.ayX instanceof EditText)) {
+            ((EditText) aVar.ayX).setTextSize(0, talkableActivity.getActivity().getResources().getDimensionPixelSize(w.f.ds36));
         }
         this.mTool.b(aVar);
         com.baidu.tbadk.editortools.sendtool.a aVar2 = new com.baidu.tbadk.editortools.sendtool.a(talkableActivity.getActivity());
         aVar2.setText(w.l.send_msg);
         this.mTool.b(aVar2);
-        this.mTool.Do();
+        this.mTool.Ct();
         this.mInputControl.addView(this.mTool, new ViewGroup.LayoutParams(-1, -2));
         this.mTool.a(24, this.mActionListener);
         this.mTool.a(8, this.mActionListener);
@@ -266,19 +266,19 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.e<MsglistActivit
     public void refreshPersonalHeadFooter(String str, com.baidu.tbadk.coreExtra.relationship.b bVar) {
         this.personal_lbs_title_name.setText(str);
         if (bVar != null) {
-            if (bVar.AZ() < 0 || bVar.AZ() > 1) {
+            if (bVar.Ak() < 0 || bVar.Ak() > 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(8);
-            } else if (bVar.AZ() == 1) {
+            } else if (bVar.Ak() == 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(0);
                 this.personal_lbs_title_lbsinfo.setText(getPageContext().getResources().getString(w.l.contact_yinshen));
                 this.personal_lbs_shadow.setVisibility(8);
                 this.personal_lbs_title_time.setVisibility(8);
-            } else if (!StringUtils.isNull(bVar.AY()) && bVar.getTime() > 0) {
+            } else if (!StringUtils.isNull(bVar.Aj()) && bVar.getTime() > 0) {
                 this.personal_lbs_title_lbsinfo.setVisibility(0);
                 this.personal_lbs_shadow.setVisibility(0);
                 this.personal_lbs_title_time.setVisibility(0);
                 this.personal_lbs_title_time.setText(com.baidu.tbadk.core.util.au.o(bVar.getTime()));
-                this.personal_lbs_title_lbsinfo.setText(bVar.AY());
+                this.personal_lbs_title_lbsinfo.setText(bVar.Aj());
             } else {
                 this.personal_lbs_title_lbsinfo.setVisibility(8);
                 this.personal_lbs_shadow.setVisibility(8);
@@ -370,7 +370,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.e<MsglistActivit
 
     public void sendmsgCloseSoftkey() {
         if (this.mTool != null) {
-            this.mTool.BC();
+            this.mTool.AN();
         }
         com.baidu.adp.lib.util.k.b(this.mContext.getActivity(), this.mContext.getCurrentFocus());
     }
@@ -473,12 +473,12 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.e<MsglistActivit
     public void showDiaItemContentOperate(int i, String[] strArr) {
         if (strArr != null && strArr.length > 0) {
             com.baidu.tbadk.core.dialog.c cVar = new com.baidu.tbadk.core.dialog.c(this.mContext.getPageContext().getPageActivity());
-            cVar.cc(w.l.operation);
+            cVar.ca(w.l.operation);
             cVar.a(strArr, this.mContext);
             this.mMsgItemOperation = cVar;
             this.mMsgItemOperation.d(this.mContext.getPageContext());
             this.mMsgItemOperation.getRootView().setTag(Integer.valueOf(i));
-            this.mMsgItemOperation.tT();
+            this.mMsgItemOperation.tg();
         }
     }
 
@@ -487,23 +487,23 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.e<MsglistActivit
     }
 
     public void displayNoNetwork() {
-        this.mNetworkView.aL(true);
+        this.mNetworkView.aK(true);
     }
 
     public void hideNoNetwork() {
-        this.mNetworkView.aL(false);
+        this.mNetworkView.aK(false);
     }
 
     public boolean isMoreVisible() {
         if (this.mTool == null) {
             return false;
         }
-        return this.mTool.Dq();
+        return this.mTool.Cv();
     }
 
     public void hideMore() {
         if (this.mTool != null) {
-            this.mTool.BC();
+            this.mTool.AN();
         }
     }
 
@@ -563,7 +563,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.e<MsglistActivit
     public void onDeletedVoice(String str) {
         this.mModel = null;
         if (this.mCallback != null) {
-            this.mCallback.anP();
+            this.mCallback.akI();
         }
     }
 
@@ -621,10 +621,10 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.e<MsglistActivit
         if (this.mTool == null) {
             return "";
         }
-        x eB = this.mTool.eB(3);
-        if (eB == null || eB.ayZ == null || !(eB.ayZ instanceof View)) {
+        x ex = this.mTool.ex(3);
+        if (ex == null || ex.ayX == null || !(ex.ayX instanceof View)) {
             str = "input_text";
-        } else if (((View) eB.ayZ).getVisibility() == 0) {
+        } else if (((View) ex.ayX).getVisibility() == 0) {
             str = "input_text";
         } else {
             str = "input_voice";

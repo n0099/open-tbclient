@@ -1,49 +1,44 @@
 package com.baidu.tieba.person.a;
 
-import android.app.Activity;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements View.OnClickListener {
-    final /* synthetic */ b eBO;
+public class c extends com.baidu.tieba.a.a<e, com.baidu.tieba.person.b.c> {
+    private TbPageContext ajr;
+    private View.OnClickListener exP;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.eBO = bVar;
+    public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.ajr = tbPageContext;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.person.data.b bVar;
-        com.baidu.tieba.person.data.b bVar2;
-        TbPageContext tbPageContext;
-        com.baidu.tieba.person.data.b bVar3;
-        TbPageContext tbPageContext2;
-        bVar = this.eBO.eBN;
-        if (bVar != null) {
-            bVar2 = this.eBO.eBN;
-            if (!StringUtils.isNull(bVar2.eCh)) {
-                if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(MyBookrackActivityConfig.class)) {
-                    tbPageContext2 = this.eBO.bKU;
-                    com.baidu.adp.lib.util.k.showToast(tbPageContext2.getPageActivity(), w.l.book_plugin_not_install_tip);
-                    return;
-                }
-                tbPageContext = this.eBO.bKU;
-                Activity pageActivity = tbPageContext.getPageActivity();
-                bVar3 = this.eBO.eBN;
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyBookrackActivityConfig(pageActivity, 0, bVar3.eCh)));
-                TiebaStatic.log(new as("c11390").s("obj_type", 2));
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bo */
+    public com.baidu.tieba.person.b.c onCreateViewHolder(ViewGroup viewGroup) {
+        com.baidu.tieba.person.b.c cVar = new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mContext).inflate(w.j.person_info_user_pics_layout, viewGroup, false), this.ajr);
+        cVar.eyl.setItemOnclickListener(this.exP);
+        return cVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.person.b.c cVar) {
+        if (eVar != null && cVar != null) {
+            cVar.aOH();
+            cVar.a(eVar);
         }
+        return view;
+    }
+
+    public void K(View.OnClickListener onClickListener) {
+        this.exP = onClickListener;
     }
 }

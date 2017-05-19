@@ -16,6 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class SubPbActivityConfig extends IntentConfig {
     public static final String ICON_LIST = "icon_list";
     public static final String KEY_ANTI = "anti";
+    public static final String KEY_FROM_FORUM_ID = "from_forum_id";
     public static final String KEY_IMG_URLS = "img_urls";
     public static final String KEY_IS_JUMP_FROM_PB = "is_jump_from_pb";
     public static final String KEY_IS_SHOW_GO_TO_SUBJECT = "is_show_go_to_subject";
@@ -108,5 +109,12 @@ public class SubPbActivityConfig extends IntentConfig {
             intent.putExtra(KEY_IMG_URLS, bundle);
         }
         return this;
+    }
+
+    public void setKeyFromForumId(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_FROM_FORUM_ID, str);
+        }
     }
 }

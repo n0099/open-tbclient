@@ -27,7 +27,7 @@ public class m {
         return this.text;
     }
 
-    public String qa() {
+    public String pE() {
         return this.headline_cover;
     }
 
@@ -35,7 +35,7 @@ public class m {
         return this.url;
     }
 
-    public String qb() {
+    public String pF() {
         return this.obj_id;
     }
 }

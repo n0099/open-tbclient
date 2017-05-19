@@ -18,7 +18,7 @@ public class a {
     private static volatile a DK = null;
     private HashMap<String, Integer> DJ = new HashMap<>();
 
-    public static synchronized a jl() {
+    public static synchronized a jk() {
         a aVar;
         synchronized (a.class) {
             if (DK == null) {
@@ -72,9 +72,9 @@ public class a {
             fN.p("pname", str2);
         }
         fN.d(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings jY = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().jY();
-        if (jY != null) {
-            fN.p("pver", jY.getContainerVersion());
+        PluginSettings jX = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().jX();
+        if (jX != null) {
+            fN.p("pver", jX.getContainerVersion());
         }
         BdStatisticsManager.getInstance().debug("pluginproxy", fN);
     }
@@ -94,9 +94,9 @@ public class a {
             fN.p("comment", str4);
         }
         fN.d(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings jY = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().jY();
-        if (jY != null) {
-            fN.p("pver", jY.getContainerVersion());
+        PluginSettings jX = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().jX();
+        if (jX != null) {
+            fN.p("pver", jX.getContainerVersion());
         }
         BdLog.e(fN.toString());
         BdStatisticsManager.getInstance().debug("pluginproxy", fN);
@@ -123,16 +123,16 @@ public class a {
             fN.p("comment", str4);
         }
         fN.d(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings jY = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().jY();
-        if (jY != null) {
-            fN.p("pver", jY.getContainerVersion());
+        PluginSettings jX = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().jX();
+        if (jX != null) {
+            fN.p("pver", jX.getContainerVersion());
         }
         BdLog.e(fN.toString());
         BdStatisticsManager.getInstance().debug("pluginproxy", fN);
         BdStatisticsManager.getInstance().save();
     }
 
-    public void jm() {
+    public void jl() {
         if (this.DJ.size() != 0) {
             c fN = fN();
             c(fN);
@@ -154,14 +154,14 @@ public class a {
 
     public void e(String str, String str2, PluginSetting pluginSetting) {
         if (pluginSetting == null) {
-            pluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().findPluginSetting(str2);
+            pluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().findPluginSetting(str2);
         }
         BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, ImageViewerConfig.INDEX, Integer.valueOf(pluginSetting != null ? pluginSetting.install_fail_count : 0));
     }
 
     public void a(String str, String str2, PluginSetting pluginSetting, String str3) {
         if (pluginSetting == null) {
-            pluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().findPluginSetting(str2);
+            pluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().findPluginSetting(str2);
         }
         BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, ImageViewerConfig.INDEX, Integer.valueOf(pluginSetting != null ? pluginSetting.install_fail_count : 0), "reason", str3);
     }
@@ -187,7 +187,7 @@ public class a {
         EditorHelper.putBoolean(BdBaseApplication.getInst().getSharedPreferences(PluginDownloadActivityConfig.PLUGIN_CONFIG, 0), "is_plugin_lastload_fail", z);
     }
 
-    public boolean jn() {
+    public boolean jm() {
         return BdBaseApplication.getInst().getSharedPreferences(PluginDownloadActivityConfig.PLUGIN_CONFIG, 0).getBoolean("is_plugin_lastload_fail", false);
     }
 }

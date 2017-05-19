@@ -237,35 +237,35 @@ public class BdSwitchView extends View implements View.OnTouchListener {
         invalidate();
     }
 
-    public void kq() {
+    public void kp() {
         if (this.mState != SwitchState.ON) {
             a(SwitchState.ON, false);
         }
     }
 
-    public void kr() {
+    public void kq() {
         if (this.mState != SwitchState.OFF) {
             a(SwitchState.OFF, false);
         }
     }
 
-    public void ks() {
+    public void kr() {
         a(SwitchState.ON, true);
     }
 
     public void P(boolean z) {
         if (this.mState != SwitchState.ON) {
-            ks();
+            kr();
         }
     }
 
-    public void kt() {
+    public void ks() {
         a(SwitchState.OFF, true);
     }
 
     public void Q(boolean z) {
         if (this.mState != SwitchState.OFF) {
-            kt();
+            ks();
         }
     }
 
@@ -279,7 +279,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ku() {
+    public void kt() {
         if (this.mState == SwitchState.ON) {
             a(SwitchState.OFF, true);
         } else if (this.mState == SwitchState.OFF) {

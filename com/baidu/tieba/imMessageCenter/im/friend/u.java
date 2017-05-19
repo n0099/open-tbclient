@@ -4,13 +4,13 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class u implements TextWatcher {
-    final /* synthetic */ p dlA;
+    final /* synthetic */ p dfE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(p pVar) {
-        this.dlA = pVar;
+        this.dfE = pVar;
     }
 
     @Override // android.text.TextWatcher
@@ -20,13 +20,13 @@ public class u implements TextWatcher {
         String a = com.baidu.adp.lib.util.j.a(editable, null);
         if (a != null) {
             if (a.length() > 0) {
-                textView2 = this.dlA.dly;
+                textView2 = this.dfE.dfC;
                 textView2.setVisibility(0);
             } else {
-                textView = this.dlA.dly;
+                textView = this.dfE.dfC;
                 textView.setVisibility(8);
             }
-            this.dlA.avI();
+            this.dfE.asD();
         }
     }
 

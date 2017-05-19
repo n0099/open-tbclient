@@ -1,41 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.view.ViewGroup;
-import android.view.animation.Animation;
+import android.animation.ValueAnimator;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cj implements Animation.AnimationListener {
-    final /* synthetic */ cg bSw;
+public class cj implements ValueAnimator.AnimatorUpdateListener {
+    final /* synthetic */ ch bRq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(cg cgVar) {
-        this.bSw = cgVar;
+    public cj(ch chVar) {
+        this.bRq = chVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        ViewGroup viewGroup;
-        ViewGroup viewGroup2;
-        viewGroup = this.bSw.bSq;
-        if (viewGroup != null) {
-            viewGroup2 = this.bSw.bSq;
-            viewGroup2.setVisibility(8);
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        ViewGroup viewGroup;
-        ViewGroup viewGroup2;
-        viewGroup = this.bSw.bSq;
-        if (viewGroup != null) {
-            viewGroup2 = this.bSw.bSq;
-            viewGroup2.clearAnimation();
-            this.bSw.dx(true);
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        View view;
+        View view2;
+        view = this.bRq.bRl;
+        if (view != null && valueAnimator != null) {
+            view2 = this.bRq.bRl;
+            view2.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
     }
 }

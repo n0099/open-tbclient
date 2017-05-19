@@ -4,16 +4,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bg implements View.OnLongClickListener {
-    final /* synthetic */ ar cQs;
+    final /* synthetic */ ar cKu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(ar arVar) {
-        this.cQs = arVar;
+        this.cKu = arVar;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        this.cQs.cPK.b(view, 10, this.cQs.atz, 0L);
+        this.cKu.cJN.b(view, 10, this.cKu.atD, 0L);
         return true;
     }
 }

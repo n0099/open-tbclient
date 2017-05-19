@@ -158,7 +158,7 @@ public final class d {
                         }
                     }
                     HashMap hashMap = new HashMap();
-                    hashMap.put(SapiUtils.QR_LOGIN_LP_APP, sapiAccount.app);
+                    hashMap.put("app", sapiAccount.app);
                     StatService.a("silent_login_share", hashMap);
                 } else {
                     for (SapiAccount sapiAccount3 : shareModel.a()) {

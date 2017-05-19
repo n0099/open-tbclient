@@ -9,11 +9,11 @@ import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
-    private com.baidu.tieba.im.settingcache.a dhE;
+    private com.baidu.tieba.im.settingcache.a dbF;
     private int mCmd;
 
     public a(com.baidu.tieba.im.settingcache.a aVar, int i) {
-        this.dhE = aVar;
+        this.dbF = aVar;
         this.mCmd = i;
     }
 
@@ -22,7 +22,7 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
         String str;
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.mCmd);
         if (customMessage == null || !(customMessage instanceof LoadDraftMessage)) {
-            return mc(this.mCmd);
+            return lP(this.mCmd);
         }
         LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
         if (TbadkCoreApplication.getCurrentAccountObj() == null) {
@@ -31,9 +31,9 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
         LoadDraftMessage.a data = loadDraftMessage.getData();
-        ChatSetting bf = this.dhE.bf(str, data.id);
+        ChatSetting bf = this.dbF.bf(str, data.id);
         if (bf == null) {
-            return mc(loadDraftMessage.getCmd());
+            return lP(loadDraftMessage.getCmd());
         }
         String draft = bf.getDraft();
         LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
@@ -47,7 +47,7 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
         return loadDraftResponsedMessage;
     }
 
-    private LoadDraftResponsedMessage mc(int i) {
+    private LoadDraftResponsedMessage lP(int i) {
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
         loadDraftResponsedMessage.setError(-18);
         return loadDraftResponsedMessage;

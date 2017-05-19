@@ -32,7 +32,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     }
                     if (!TextUtils.isEmpty(str2)) {
                         if (str2.startsWith("http") || str2.startsWith("https")) {
-                            bb.wn().c(getPageContext(), new String[]{str2});
+                            bb.vB().c(getPageContext(), new String[]{str2});
                         } else {
                             Intent parseUri = Intent.parseUri(str2, 1);
                             parseUri.setFlags(276824064);

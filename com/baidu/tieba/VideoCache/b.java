@@ -11,38 +11,38 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private a aUp = new a();
+    private a aUK = new a();
 
     public b() {
-        Lv();
+        KJ();
     }
 
-    private void Lv() {
+    private void KJ() {
         File[] listFiles;
-        File file = new File(j.aUV);
+        File file = new File(j.aVq);
         if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
                     e eVar = new e();
-                    eVar.gI(file2.getName());
-                    eVar.an(gF(file2.getAbsolutePath()));
-                    eVar.ao(o.gS(file2.getName()));
-                    this.aUp.a(eVar);
+                    eVar.gG(file2.getName());
+                    eVar.ao(gD(file2.getAbsolutePath()));
+                    eVar.ap(o.gQ(file2.getName()));
+                    this.aUK.a(eVar);
                 }
             }
-            Collections.sort(this.aUp.Ls(), new AccessTimeComparator());
+            Collections.sort(this.aUK.KG(), new AccessTimeComparator());
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:54:0x009e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x00a3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x009d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long gF(String str) {
+    private long gD(String str) {
         DataInputStream dataInputStream;
         long j = 0;
         FileInputStream fileInputStream = null;
@@ -138,59 +138,59 @@ public class b {
         return j;
     }
 
-    public void gG(String str) {
+    public void gE(String str) {
         e eVar;
-        String gU = o.gU(str);
-        if (gU != null && !gU.isEmpty()) {
-            gH(gU);
-            if (this.aUp != null) {
+        String gS = o.gS(str);
+        if (gS != null && !gS.isEmpty()) {
+            gF(gS);
+            if (this.aUK != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
                 while (true) {
-                    if (i >= this.aUp.Lu()) {
+                    if (i >= this.aUK.KI()) {
                         eVar = null;
                         break;
                     }
-                    e fK = this.aUp.fK((this.aUp.Lu() - 1) - i);
-                    if (fK != null && fK.getFileName() != null && fK.getFileName().equals(gU)) {
-                        eVar = fK;
+                    e fH = this.aUK.fH((this.aUK.KI() - 1) - i);
+                    if (fH != null && fH.getFileName() != null && fH.getFileName().equals(gS)) {
+                        eVar = fH;
                         break;
                     }
                     i++;
                 }
                 if (eVar != null) {
-                    this.aUp.b(eVar);
+                    this.aUK.b(eVar);
                 } else {
                     eVar = new e();
-                    eVar.gI(gU);
+                    eVar.gG(gS);
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
-                h(gU, currentTimeMillis2);
-                eVar.an(currentTimeMillis2);
-                eVar.ao(o.gS(gU));
-                this.aUp.a(eVar);
-                k.log(TAG, "total cache size: " + ((this.aUp.Lt() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M list size " + this.aUp.Lu());
-                if (this.aUp.Lt() > 629145600) {
-                    while (this.aUp.Lt() > 524288000 && this.aUp.Lu() > 2 && Lw()) {
+                h(gS, currentTimeMillis2);
+                eVar.ao(currentTimeMillis2);
+                eVar.ap(o.gQ(gS));
+                this.aUK.a(eVar);
+                k.log(TAG, "total cache size: " + ((this.aUK.KH() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M list size " + this.aUK.KI());
+                if (this.aUK.KH() > 629145600) {
+                    while (this.aUK.KH() > 524288000 && this.aUK.KI() > 2 && KK()) {
                     }
-                    Ly();
+                    KM();
                 }
-                if (o.LL() < 314572800) {
-                    while (o.LL() < 419430400 && this.aUp.Lu() > 2 && Lw()) {
+                if (o.KZ() < 314572800) {
+                    while (o.KZ() < 419430400 && this.aUK.KI() > 2 && KK()) {
                     }
-                    Ly();
+                    KM();
                 }
                 k.log(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
-    private boolean Lw() {
-        e fK = this.aUp.fK(0);
-        if (fK == null || !(f.LB().gJ(fK.getFileName()) || f.LB().gL(fK.getFileName()))) {
-            this.aUp.remove(0);
-            if (fK != null) {
-                File file = new File(String.valueOf(j.aUW) + fK.getFileName());
+    private boolean KK() {
+        e fH = this.aUK.fH(0);
+        if (fH == null || !(f.KP().gH(fH.getFileName()) || f.KP().gJ(fH.getFileName()))) {
+            this.aUK.remove(0);
+            if (fH != null) {
+                File file = new File(String.valueOf(j.aVr) + fH.getFileName());
                 k.log(TAG, "delete file " + file.getName());
                 o.x(file);
             }
@@ -200,7 +200,7 @@ public class b {
     }
 
     private void h(String str, long j) {
-        File file = new File(String.valueOf(j.aUW) + str);
+        File file = new File(String.valueOf(j.aVr) + str);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -216,39 +216,39 @@ public class b {
         }
     }
 
-    public void Lx() {
-        if (this.aUp != null) {
+    public void KL() {
+        if (this.aUK != null) {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.aUp.Lu() - 2; i++) {
-                e fK = this.aUp.fK(i);
-                if (fK != null) {
-                    if (currentTimeMillis - fK.Lz() < 86400000) {
+            for (int i = 0; i < this.aUK.KI() - 2; i++) {
+                e fH = this.aUK.fH(i);
+                if (fH != null) {
+                    if (currentTimeMillis - fH.KN() < 86400000) {
                         break;
                     }
-                    arrayList.add(fK);
+                    arrayList.add(fH);
                 }
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 e eVar = (e) arrayList.get(i2);
-                if (eVar == null || (!f.LB().gJ(eVar.getFileName()) && !f.LB().gL(eVar.getFileName()))) {
-                    this.aUp.b(eVar);
+                if (eVar == null || (!f.KP().gH(eVar.getFileName()) && !f.KP().gJ(eVar.getFileName()))) {
+                    this.aUK.b(eVar);
                     if (eVar != null) {
-                        File file = new File(String.valueOf(j.aUW) + eVar.getFileName());
+                        File file = new File(String.valueOf(j.aVr) + eVar.getFileName());
                         k.log(TAG, "delete expired file " + eVar.getFileName());
                         o.x(file);
                     }
                 }
             }
-            Ly();
+            KM();
         }
     }
 
-    private void gH(String str) {
+    private void gF(String str) {
         File[] listFiles;
         if (str != null && !str.isEmpty()) {
-            File file = new File(String.valueOf(j.aUW) + str + "/completed");
-            File file2 = new File(String.valueOf(j.aUW) + str + "/segments");
+            File file = new File(String.valueOf(j.aVr) + str + "/completed");
+            File file2 = new File(String.valueOf(j.aVr) + str + "/segments");
             if (file.exists()) {
                 k.log(TAG, "delete segments");
                 if (file2 != null && file2.exists() && file2.listFiles() != null) {
@@ -264,16 +264,16 @@ public class b {
     }
 
     public void clearCache() {
-        if (this.aUp != null) {
-            while (this.aUp.Lu() > 0 && Lw()) {
+        if (this.aUK != null) {
+            while (this.aUK.KI() > 0 && KK()) {
             }
-            Ly();
+            KM();
         }
     }
 
-    private void Ly() {
+    private void KM() {
         File[] listFiles;
-        File file = new File(j.aUV);
+        File file = new File(j.aVq);
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {

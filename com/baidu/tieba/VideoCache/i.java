@@ -1,58 +1,58 @@
 package com.baidu.tieba.VideoCache;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i {
-    private String QO;
-    private String aUM;
-    private boolean aUN;
-    private long aUO = -1;
-    private long aUP = -1;
-    private long aUQ = 0;
+    private String Qg;
+    private String aVh;
+    private boolean aVi;
+    private long aVj = -1;
+    private long aVk = -1;
+    private long aVl = 0;
 
-    public String LE() {
-        return this.aUM;
+    public String KS() {
+        return this.aVh;
     }
 
-    public void gP(String str) {
-        this.aUM = str;
+    public void gN(String str) {
+        this.aVh = str;
     }
 
-    public String LF() {
-        return this.QO;
+    public String KT() {
+        return this.Qg;
     }
 
-    public void gQ(String str) {
-        this.QO = str;
+    public void gO(String str) {
+        this.Qg = str;
     }
 
-    public boolean LG() {
-        return this.aUN;
+    public boolean KU() {
+        return this.aVi;
     }
 
-    public void cm(boolean z) {
-        this.aUN = z;
+    public void co(boolean z) {
+        this.aVi = z;
     }
 
-    public long LH() {
-        return this.aUO;
-    }
-
-    public void ap(long j) {
-        this.aUO = j;
-    }
-
-    public long LI() {
-        return this.aUP;
+    public long KV() {
+        return this.aVj;
     }
 
     public void aq(long j) {
-        this.aUP = j;
+        this.aVj = j;
+    }
+
+    public long KW() {
+        return this.aVk;
+    }
+
+    public void ar(long j) {
+        this.aVk = j;
     }
 
     public long getTotalLength() {
-        return this.aUQ;
+        return this.aVl;
     }
 
-    public void L(long j) {
-        this.aUQ = j;
+    public void M(long j) {
+        this.aVl = j;
     }
 }

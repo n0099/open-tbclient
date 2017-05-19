@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.bb;
-import com.baidu.tbadk.util.x;
+import com.baidu.tbadk.util.aa;
 /* loaded from: classes.dex */
 class d implements bb.a {
     @Override // com.baidu.tbadk.core.util.bb.a
@@ -17,7 +17,7 @@ class d implements bb.a {
         }
         String str = strArr[0];
         if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), x.ar(str, "userid="), x.ar(str, "un="))));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), aa.ar(str, "userid="), aa.ar(str, "un="))));
             return 1;
         }
         return 3;

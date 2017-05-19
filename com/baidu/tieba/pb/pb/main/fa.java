@@ -1,18 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class fa implements View.OnLongClickListener {
-    final /* synthetic */ ey etN;
-
+class fa extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fa(ey eyVar) {
-        this.etN = eyVar;
+    public fa(int i) {
+        super(i);
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ex.aLb().a(1, customResponsedMessage);
     }
 }

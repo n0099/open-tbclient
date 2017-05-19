@@ -1,47 +1,76 @@
 package com.baidu.tieba.homepage.framework;
 
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
-import java.util.List;
-import tbclient.Personalized.TagInfo;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.util.c;
+import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements c {
-    final /* synthetic */ RecommendFrsControlFragment cwt;
+public class m extends CustomMessageListener {
+    final /* synthetic */ RecommendFrsControlFragment ctq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cwt = recommendFrsControlFragment;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(RecommendFrsControlFragment recommendFrsControlFragment, int i) {
+        super(i);
+        this.ctq = recommendFrsControlFragment;
     }
 
-    @Override // com.baidu.tieba.homepage.framework.c
-    public void u(int i, int i2, int i3) {
-        q qVar;
-        qVar = this.cwt.cwg;
-        qVar.a(1, true, i, i2, 1, i3);
-        if (com.baidu.adp.lib.util.i.gY()) {
-            TiebaStatic.log(new as("c11032").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Object data;
+        ScrollFragmentTabHost scrollFragmentTabHost;
+        ScrollFragmentTabHost scrollFragmentTabHost2;
+        int i;
+        boolean z;
+        String str = null;
+        if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null) {
+            String str2 = data instanceof String ? (String) data : null;
+            if (!StringUtils.isNull(str2)) {
+                ArrayList<com.baidu.tieba.homepage.b.a.a> arrayList = new ArrayList();
+                scrollFragmentTabHost = this.ctq.ctc;
+                if (!x.r(scrollFragmentTabHost.getTagList())) {
+                    scrollFragmentTabHost2 = this.ctq.ctc;
+                    arrayList.addAll(scrollFragmentTabHost2.getTagList());
+                    int i2 = com.baidu.tieba.homepage.framework.a.a.ahr().cue;
+                    int size = arrayList.size();
+                    int i3 = 0;
+                    while (true) {
+                        if (i3 >= size) {
+                            i = i2;
+                            z = false;
+                            break;
+                        }
+                        com.baidu.tieba.homepage.b.a.a aVar = (com.baidu.tieba.homepage.b.a.a) arrayList.get(i3);
+                        String str3 = aVar != null ? aVar.cxa : str;
+                        if (!str2.equals(str3)) {
+                            i3++;
+                            str = str3;
+                        } else {
+                            z = true;
+                            i = i3;
+                            break;
+                        }
+                    }
+                    if (z) {
+                        arrayList.remove(i);
+                    }
+                    ArrayList arrayList2 = new ArrayList();
+                    for (com.baidu.tieba.homepage.b.a.a aVar2 : arrayList) {
+                        if (aVar2 != null && !StringUtils.isNull(aVar2.cxa) && aVar2.cxb != -1 && aVar2.cxb != -2) {
+                            arrayList2.add(new c.a(aVar2.cxa, aVar2.level));
+                        }
+                    }
+                    com.baidu.tbadk.util.c.B(arrayList2);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_CHANGE_SUB_TAB, false));
+                }
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.homepage.framework.c
-    public void i(int i, int i2, int i3, int i4) {
-        q qVar;
-        qVar = this.cwt.cwg;
-        qVar.a(2, false, i, i3, i2, i4);
-        if (com.baidu.adp.lib.util.i.gY()) {
-            TiebaStatic.log(new as("c11032").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 2));
-        }
-    }
-
-    @Override // com.baidu.tieba.homepage.framework.c
-    public void aU(List<TagInfo> list) {
-        this.cwt.aV(list);
-    }
-
-    @Override // com.baidu.tieba.homepage.framework.c
-    public void ajv() {
-        this.cwt.ajy();
     }
 }

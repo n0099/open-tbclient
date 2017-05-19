@@ -1,11 +1,18 @@
 package com.baidu.tieba.recapp;
+
+import android.view.View;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public interface p {
-    void ar(String str, int i);
+    View getAdCloseView();
 
-    void baE();
+    int getCloseViewHeight();
 
-    int pf(String str);
+    int getCloseViewWidth();
 
-    int pg(String str);
+    void onChangeSkinType();
+
+    void setData(AdvertAppInfo advertAppInfo);
+
+    void setPage(int i);
 }

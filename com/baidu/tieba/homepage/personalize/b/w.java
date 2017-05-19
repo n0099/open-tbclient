@@ -10,11 +10,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements AdapterView.OnItemClickListener {
-    final /* synthetic */ v.a cAC;
+    final /* synthetic */ v.a cvM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(v.a aVar) {
-        this.cAC = aVar;
+        this.cvM = aVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -31,14 +31,14 @@ public class w implements AdapterView.OnItemClickListener {
             com.baidu.adp.lib.util.k.showToast(context, w.l.neterror);
             return;
         }
-        uVar = this.cAC.cAz;
+        uVar = this.cvM.cvJ;
         com.baidu.tieba.homepage.personalize.data.g item = uVar.getItem(i);
-        item.cBo = !item.cBo;
-        uVar2 = this.cAC.cAz;
+        item.cwv = !item.cwv;
+        uVar2 = this.cvM.cvJ;
         uVar2.notifyDataSetChanged();
         vVar = v.this;
-        uVar3 = this.cAC.cAz;
-        vVar.b(uVar3.akC());
-        TiebaStatic.log(new as("c10986").aa("obj_name", item.Uw));
+        uVar3 = this.cvM.cvJ;
+        vVar.b(uVar3.ahO());
+        TiebaStatic.log(new as("c10986").aa("obj_name", item.TP));
     }
 }

@@ -12,16 +12,16 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PraiseModel extends BdBaseModel {
     public static final int LIKE = 1;
     public static final int UN_LIKE = 0;
-    private static final String aYN = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aYN);
-    private final HttpMessageListener aYO;
-    private a fxj;
+    private static final String aZj = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aZj);
+    private final HttpMessageListener aZk;
+    private a fto;
 
     /* loaded from: classes.dex */
     public interface a {
-        void hm(String str);
+        void hk(String str);
 
-        void w(int i, String str);
+        void x(int i, String str);
     }
 
     static {
@@ -31,15 +31,15 @@ public class PraiseModel extends BdBaseModel {
 
     public PraiseModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.fxj = null;
-        this.aYO = new ad(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.fxj = aVar;
+        this.fto = null;
+        this.aZk = new ab(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.fto = aVar;
     }
 
     public void registerListener() {
-        this.aYO.setSelfListener(true);
-        this.aYO.setTag(getUniqueId());
-        registerListener(this.aYO);
+        this.aZk.setSelfListener(true);
+        this.aZk.setTag(getUniqueId());
+        registerListener(this.aZk);
     }
 
     public void a(String str, String str2, int i, String str3) {

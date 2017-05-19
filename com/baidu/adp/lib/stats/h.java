@@ -6,13 +6,13 @@ import android.os.Message;
 import com.baidu.adp.lib.stats.g;
 /* loaded from: classes.dex */
 class h extends Handler {
-    final /* synthetic */ g wZ;
+    final /* synthetic */ g xa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(g gVar, Looper looper) {
         super(looper);
-        this.wZ = gVar;
+        this.xa = gVar;
     }
 
     @Override // android.os.Handler
@@ -23,7 +23,7 @@ class h extends Handler {
                 if ((message.obj instanceof g.a) && (aVar = (g.a) message.obj) != null) {
                     aVar.F(false);
                     aVar.G(false);
-                    aVar.am(0);
+                    aVar.al(0);
                     aVar.f(System.currentTimeMillis());
                     return;
                 }

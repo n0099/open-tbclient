@@ -1,9 +1,8 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.kuang.ReLoginFromKuangMessage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 class m extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,14 +13,8 @@ class m extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001325 && customResponsedMessage.getData() != null) {
-            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                TbadkCoreApplication.m9getInst().setIsKuangLogin(true);
-                com.baidu.tbadk.kuang.a.bO(true);
-                return;
-            }
-            TbadkCoreApplication.m9getInst().setIsKuangLogin(false);
-            MessageManager.getInstance().dispatchResponsedMessage(new ReLoginFromKuangMessage(false));
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2010001 && (customResponsedMessage.getData() instanceof String)) {
+            BdStatisticsManager.getInstance().resetSwitch((String) customResponsedMessage.getData());
         }
     }
 }

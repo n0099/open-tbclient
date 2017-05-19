@@ -1,51 +1,38 @@
 package com.baidu.tieba.frs.f;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.TextView;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.z;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b {
-    private TbPageContext<FrsActivity> aaY;
-    private Animation ccb;
+public class b implements View.OnClickListener {
+    final /* synthetic */ a cdU;
+    private final /* synthetic */ z cdV;
 
-    public b(TbPageContext<FrsActivity> tbPageContext) {
-        this.aaY = tbPageContext;
-        this.ccb = AnimationUtils.loadAnimation(this.aaY.getPageActivity(), w.a.frs_like);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar, z zVar) {
+        this.cdU = aVar;
+        this.cdV = zVar;
     }
 
-    public void c(View view, String str) {
-        if (!this.aaY.getPageActivity().isFinishing()) {
-            View inflate = LayoutInflater.from(this.aaY.getPageActivity()).inflate(w.j.frs_like_cover, (ViewGroup) null);
-            Button button = (Button) inflate.findViewById(w.h.btn_love);
-            TextView textView = (TextView) inflate.findViewById(w.h.tv_love);
-            if ("frs_page".equals(str)) {
-                textView.setCompoundDrawablesWithIntrinsicBounds(aq.getDrawable(w.g.icon_like_selector), (Drawable) null, (Drawable) null, (Drawable) null);
-                aq.j(button, w.g.frs_star_btn_like);
-                aq.c(textView, w.g.frs_text_color_selector, 1);
-            } else {
-                textView.setCompoundDrawablesWithIntrinsicBounds(aq.getDrawable(w.g.icon_sml_like), (Drawable) null, (Drawable) null, (Drawable) null);
-                textView.setShadowLayer(0.0f, 0.0f, 0.0f, aq.getColor(w.e.common_color_10245));
-                aq.j(button, w.g.bg_frs_header_button_selector);
-                aq.c(textView, w.e.cp_cont_g, 1);
-            }
-            button.setLayoutParams(new FrameLayout.LayoutParams(view.getMeasuredWidth(), view.getMeasuredHeight()));
-            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.y(false);
-            gVar.ae(w.h.love).ad(0).z(true);
-            gVar.a(new c(this, inflate));
-            com.baidu.adp.lib.guide.d fc = gVar.fc();
-            fc.j(this.aaY.getPageActivity());
-            com.baidu.tieba.tbadkCore.a.a(this.aaY.getOrignalPage(), inflate, this.ccb, new d(this, fc));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext<?> tbPageContext;
+        TbPageContext tbPageContext2;
+        String str = this.cdV.linkUrl;
+        String[] strArr = {str};
+        bb vB = bb.vB();
+        tbPageContext = this.cdU.ajr;
+        if (!vB.a(tbPageContext, "", strArr, false, null, true) && !bb.vB().dJ(str)) {
+            tbPageContext2 = this.cdU.ajr;
+            tbPageContext2.showToast(w.l.pluginstatus_tip_unknown);
         }
+        TiebaStatic.log(new as("c11683").aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
     }
 }

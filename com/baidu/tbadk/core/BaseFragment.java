@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import com.baidu.adp.BdUniqueId;
@@ -15,39 +15,40 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.megapp.ma.MAFragment;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public abstract class BaseFragment extends MAFragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, com.baidu.tbadk.pageStayDuration.a {
+public abstract class BaseFragment extends MAFragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, com.baidu.adp.base.j, com.baidu.tbadk.pageStayDuration.a {
+    private static final int PRELOAD_DELAY = 100;
     private com.baidu.tbadk.core.util.e customToast;
     private boolean isPrimary;
     private long lastResumeTime;
     private com.baidu.tbadk.i.f loadingView;
+    private com.baidu.tbadk.i.h mRefreshView;
     private String mTag;
+    private a netRefreshListener;
     private com.baidu.tbadk.pageStayDuration.d pageStayDurationItem;
     private BdUniqueId mId = null;
     protected int mSkinType = 3;
     protected int mUsedThemeId = 0;
     protected boolean mIsLogin = false;
-
-    @Override // android.support.v4.app.Fragment
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-    }
-
-    @Override // android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return super.onCreateView(layoutInflater, viewGroup, bundle);
-    }
+    public final Handler mHandler = new Handler();
+    private boolean mIsScroll = false;
+    private boolean isLazyLoaded = false;
+    private boolean isPrepared = false;
+    private final Runnable preLoadRunnable = new d(this);
 
     @Override // android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         this.mId = BdUniqueId.gen();
-        this.customToast = com.baidu.tbadk.core.util.e.uR();
+        this.customToast = com.baidu.tbadk.core.util.e.ud();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -55,6 +56,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     @Override // android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
+        this.isPrepared = true;
     }
 
     public String getBaseTag() {
@@ -122,11 +124,6 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override // android.support.v4.app.Fragment
     public void onResume() {
         if (this.customToast != null) {
             this.customToast.onResume();
@@ -134,18 +131,103 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-            ba.dE(getClass().getName());
+            ba.dC(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }
+            onResumeLoadResource();
         }
+    }
+
+    public void showNetRefreshView(View view, String str, String str2, String str3, boolean z, View.OnClickListener onClickListener) {
+        if (getPageContext() != null && getPageContext().getContext() != null) {
+            if (this.mRefreshView == null) {
+                this.mRefreshView = new com.baidu.tbadk.i.h(getPageContext().getContext(), onClickListener);
+            }
+            this.mRefreshView.setTitle(str);
+            this.mRefreshView.fQ(str2);
+            this.mRefreshView.fR(str3);
+            this.mRefreshView.c(view, z);
+            this.mRefreshView.Ee();
+        }
+    }
+
+    public void setNetRefreshViewEmotionDefMarginTop() {
+        setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst(), w.f.ds300));
+    }
+
+    public void showNetRefreshView(View view, String str, boolean z) {
+        showNetRefreshView(view, null, str, null, z, getNetRefreshListener());
+    }
+
+    public void showNetRefreshViewNoClick(View view, String str, boolean z) {
+        if (this.mRefreshView == null) {
+            this.mRefreshView = new com.baidu.tbadk.i.h(getPageContext().getContext(), getNetRefreshListener());
+        }
+        this.mRefreshView.fQ(str);
+        this.mRefreshView.c(view, z);
+        this.mRefreshView.Ef();
+    }
+
+    public void setNetRefreshViewTopMargin(int i) {
+        if (this.mRefreshView == null) {
+            this.mRefreshView = new com.baidu.tbadk.i.h(getPageContext().getContext(), getNetRefreshListener());
+        }
+        this.mRefreshView.eR(i);
+    }
+
+    public View.OnClickListener getNetRefreshListener() {
+        if (this.netRefreshListener == null) {
+            this.netRefreshListener = new a(this, null);
+        }
+        return this.netRefreshListener;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void setNetRefreshViewEmotionMarginTop(int i) {
+        if (this.mRefreshView != null && this.mRefreshView.DX()) {
+            this.mRefreshView.eR(i);
+        }
+    }
+
+    public void hideNetRefreshView(View view) {
+        if (this.mRefreshView != null) {
+            this.mRefreshView.H(view);
+        }
+    }
+
+    public void onResumeLoadResource() {
+        if (getView() instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) getView();
+            int childCount = viewGroup.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                refreshImage(viewGroup.getChildAt(i));
+            }
+            this.mHandler.removeCallbacks(this.preLoadRunnable);
+            this.mHandler.postDelayed(this.preLoadRunnable, 100L);
+        }
+    }
+
+    public BdListView onGetPreLoadListView() {
+        return null;
     }
 
     @Override // android.support.v4.app.Fragment
     public void setUserVisibleHint(boolean z) {
         if (isAdded() && !isHidden()) {
             super.setUserVisibleHint(z);
+            lazyLoad();
         }
+    }
+
+    private void lazyLoad() {
+        if (getUserVisibleHint() && this.isPrepared && !this.isLazyLoaded) {
+            onLazyLoad();
+            this.isLazyLoaded = true;
+        }
+    }
+
+    public void onLazyLoad() {
     }
 
     public void changeSkinType(int i) {
@@ -163,24 +245,27 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (isPrimary() && this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = getPageStayDurationItem();
-            pageStayDurationItem.O(currentTimeMillis);
-            com.baidu.tbadk.pageStayDuration.e.Gb().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            pageStayDurationItem.P(currentTimeMillis);
+            com.baidu.tbadk.pageStayDuration.e.Ff().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            this.lastResumeTime = System.currentTimeMillis();
         }
-    }
-
-    @Override // android.support.v4.app.Fragment
-    public void onStop() {
-        super.onStop();
+        com.baidu.adp.lib.f.c.fM().e(this.mId);
+        this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
+        com.baidu.adp.lib.f.c.fM().e(this.mId);
+        this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
+        if (this.loadingView != null) {
+            this.loadingView.release();
+        }
     }
 
     @Override // android.support.v4.app.Fragment
@@ -193,6 +278,9 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
             this.loadingView.onChangeSkinType();
+        }
+        if (this.mRefreshView != null) {
+            this.mRefreshView.onChangeSkinType();
         }
     }
 
@@ -243,32 +331,37 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         showLoadingView(view, false);
     }
 
-    protected void showLoadingView(View view, boolean z) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void showLoadingView(View view, boolean z) {
         showLoadingView(view, z, -1);
     }
 
     protected void showLoadingView(View view, boolean z, int i) {
-        if (this.loadingView == null) {
-            if (i < 0) {
-                this.loadingView = new com.baidu.tbadk.i.f(getActivity());
-            } else {
-                this.loadingView = new com.baidu.tbadk.i.f(getActivity(), i);
+        if (!isLoadingViewAttached()) {
+            if (this.loadingView == null) {
+                if (i < 0) {
+                    this.loadingView = new com.baidu.tbadk.i.f(getActivity());
+                } else {
+                    this.loadingView = new com.baidu.tbadk.i.f(getActivity(), i);
+                }
+                this.loadingView.onChangeSkinType();
             }
-            this.loadingView.onChangeSkinType();
+            this.loadingView.c(view, z);
         }
-        this.loadingView.b(view, z);
     }
 
-    protected boolean isLoadingViewAttached() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean isLoadingViewAttached() {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.ET();
+        return this.loadingView.DX();
     }
 
-    protected void hideLoadingView(View view) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void hideLoadingView(View view) {
         if (this.loadingView != null) {
-            this.loadingView.I(view);
+            this.loadingView.H(view);
         }
     }
 
@@ -323,6 +416,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         MessageManager.getInstance().registerListener(i, aVar);
     }
 
+    @Override // com.baidu.adp.base.j
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -344,8 +438,9 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         } else if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = getPageStayDurationItem();
-            pageStayDurationItem.O(currentTimeMillis);
-            com.baidu.tbadk.pageStayDuration.e.Gb().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            pageStayDurationItem.P(currentTimeMillis);
+            com.baidu.tbadk.pageStayDuration.e.Ff().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            this.lastResumeTime = System.currentTimeMillis();
         }
         refreshImage(getView());
         boolean isLogin = TbadkCoreApplication.isLogin();
@@ -365,8 +460,8 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
 
     public void refreshImage(View view) {
         if (view != null) {
-            if (view instanceof com.baidu.adp.newwidget.a.i) {
-                ((com.baidu.adp.newwidget.a.i) view).refresh();
+            if (view instanceof com.baidu.adp.b.a.i) {
+                ((com.baidu.adp.b.a.i) view).refresh();
             }
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;
@@ -388,7 +483,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             com.baidu.tbadk.pageStayDuration.a aVar = (com.baidu.tbadk.pageStayDuration.a) getActivity();
             ArrayList arrayList = (ArrayList) aVar.getCurrentPageSourceKeyList();
             if (!StringUtils.isNull(aVar.getCurrentPageKey())) {
-                if (com.baidu.tbadk.core.util.x.q(arrayList)) {
+                if (com.baidu.tbadk.core.util.x.r(arrayList)) {
                     arrayList = new ArrayList();
                 }
                 arrayList.add(aVar.getCurrentPageKey());
@@ -404,14 +499,14 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         ArrayList arrayList;
         ArrayList arrayList2 = (ArrayList) getCurrentPageSourceKeyList();
         String currentPageKey = getCurrentPageKey();
-        if (com.baidu.tbadk.core.util.x.q(arrayList2)) {
+        if (com.baidu.tbadk.core.util.x.r(arrayList2)) {
             arrayList = null;
         } else {
             ArrayList arrayList3 = new ArrayList();
             arrayList3.addAll(arrayList2);
             arrayList = arrayList3;
         }
-        if ((getPageStayFilter() == null || getPageStayFilter().FV()) && !StringUtils.isNull(currentPageKey)) {
+        if ((getPageStayFilter() == null || getPageStayFilter().EZ()) && !StringUtils.isNull(currentPageKey)) {
             if (arrayList == null) {
                 arrayList = new ArrayList();
             }
@@ -428,9 +523,51 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     public com.baidu.tbadk.pageStayDuration.d getPageStayDurationItem() {
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new com.baidu.tbadk.pageStayDuration.d();
-            this.pageStayDurationItem.fX(getCurrentPageKey());
         }
-        this.pageStayDurationItem.z(getCurrentPageSourceKeyList());
+        this.pageStayDurationItem.fU(getCurrentPageKey());
+        this.pageStayDurationItem.A(getCurrentPageSourceKeyList());
         return this.pageStayDurationItem;
+    }
+
+    @Override // com.baidu.adp.base.j
+    public boolean isScroll() {
+        return this.mIsScroll;
+    }
+
+    @Override // com.baidu.adp.base.j
+    public void setIsScroll(boolean z) {
+        this.mIsScroll = z;
+    }
+
+    @Override // com.baidu.adp.base.j
+    public void onPreLoad(BdListView bdListView) {
+        com.baidu.tbadk.core.util.ag.a(bdListView, getUniqueId());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a implements View.OnClickListener {
+        private a() {
+        }
+
+        /* synthetic */ a(BaseFragment baseFragment, a aVar) {
+            this();
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            BaseFragment.this.onNetRefreshButtonClicked();
+        }
+    }
+
+    protected void onNetRefreshButtonClicked() {
+    }
+
+    public void HidenSoftKeyPad(InputMethodManager inputMethodManager, View view) {
+        try {
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

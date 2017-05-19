@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.im.chat;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class l extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(int i) {
@@ -13,7 +13,7 @@ class l extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            PersonalChatActivityStatic.djB = null;
+            PersonalChatActivityStatic.ddD = null;
         }
     }
 }

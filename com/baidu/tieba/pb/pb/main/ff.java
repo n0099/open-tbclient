@@ -1,40 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import android.view.animation.Animation;
+import com.baidu.tieba.pb.pb.main.view.TextLineView;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ff implements Animation.AnimationListener {
-    final /* synthetic */ ey etN;
+public class ff implements View.OnClickListener {
+    final /* synthetic */ fe emz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ff(ey eyVar) {
-        this.etN = eyVar;
+    public ff(fe feVar) {
+        this.emz = feVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        com.baidu.tbadk.editortools.j jVar;
-        View view2;
-        com.baidu.tbadk.editortools.j jVar2;
-        ey eyVar = this.etN;
-        view = this.etN.esF;
-        eyVar.esK = view.getVisibility() == 0;
-        jVar = this.etN.KO;
-        if (jVar != null) {
-            jVar2 = this.etN.KO;
-            jVar2.hide();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View.OnClickListener onClickListener;
+        View.OnClickListener onClickListener2;
+        List<TextLineView> list;
+        if (com.baidu.adp.lib.util.i.hk()) {
+            list = this.emz.emu;
+            for (TextLineView textLineView : list) {
+                if (textLineView != null) {
+                    if (textLineView != view) {
+                        textLineView.setSelected(false);
+                    } else {
+                        textLineView.setSelected(true);
+                    }
+                }
+            }
         }
-        view2 = this.etN.esF;
-        view2.setVisibility(8);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+        onClickListener = this.emz.emw;
+        if (onClickListener != null) {
+            onClickListener2 = this.emz.emw;
+            onClickListener2.onClick(view);
+        }
     }
 }

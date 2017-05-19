@@ -1,31 +1,31 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class g {
-    private String aoQ;
-    private long aoR;
-    private int aoS;
+    private String aoV;
+    private long aoW;
+    private int aoX;
 
     public String getMd5() {
-        return this.aoQ;
+        return this.aoV;
     }
 
     public void setMd5(String str) {
-        this.aoQ = str;
+        this.aoV = str;
     }
 
     public long getTotalLength() {
-        return this.aoR;
+        return this.aoW;
     }
 
-    public void L(long j) {
-        this.aoR = j;
+    public void M(long j) {
+        this.aoW = j;
     }
 
-    public int yt() {
-        return this.aoS;
+    public int xH() {
+        return this.aoX;
     }
 
-    public void dC(int i) {
-        this.aoS = i;
+    public void dA(int i) {
+        this.aoX = i;
     }
 }

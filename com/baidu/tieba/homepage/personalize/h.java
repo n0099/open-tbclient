@@ -1,20 +1,18 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.tbadk.core.view.ab;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements ab.b {
-    final /* synthetic */ a czr;
+public class h implements View.OnClickListener {
+    final /* synthetic */ b cuC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(a aVar) {
-        this.czr = aVar;
+    public h(b bVar) {
+        this.cuC = bVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.ab.b
-    public void aN(boolean z) {
-        n nVar;
-        nVar = this.czr.czj;
-        nVar.update();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cuC.Zs();
     }
 }

@@ -1,55 +1,120 @@
 package com.baidu.tieba.write.album;
 
-import android.text.TextUtils;
+import android.graphics.drawable.Drawable;
+import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.write.view.a;
-import java.util.ArrayList;
+import com.baidu.tieba.w;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al implements a.InterfaceC0078a {
-    final /* synthetic */ ag fQJ;
+public class al implements View.OnClickListener {
+    final /* synthetic */ ac fNP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ag agVar) {
-        this.fQJ = agVar;
+    public al(ac acVar) {
+        this.fNP = acVar;
     }
 
-    @Override // com.baidu.tieba.write.view.a.InterfaceC0078a
-    public void a(int i, d dVar) {
-        o oVar;
-        o oVar2;
-        boolean z;
-        List<ImageFileInfo> list;
-        o oVar3;
-        o oVar4;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         TextView textView;
-        String albumId = dVar.getAlbumId();
-        String name = dVar.getName();
-        if (!TextUtils.isEmpty(albumId)) {
-            oVar = this.fQJ.fPd;
-            if (!albumId.equals(oVar.boE())) {
-                oVar2 = this.fQJ.fPd;
-                List<ImageFileInfo> boH = oVar2.boH();
-                if (!albumId.equals("-1")) {
-                    list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : boH) {
-                        if (albumId.equals(imageFileInfo.getAlbumId())) {
-                            list.add(imageFileInfo);
-                        }
-                    }
-                    z = false;
-                } else {
-                    z = true;
-                    list = boH;
+        View view2;
+        View view3;
+        View view4;
+        View view5;
+        View view6;
+        TbCameraView tbCameraView;
+        TbCameraView tbCameraView2;
+        TbCameraView tbCameraView3;
+        TbCameraView tbCameraView4;
+        p pVar;
+        p pVar2;
+        p pVar3;
+        AlbumActivity albumActivity;
+        p pVar4;
+        AlbumActivity albumActivity2;
+        com.baidu.tieba.write.view.a aVar;
+        p pVar5;
+        p pVar6;
+        com.baidu.tieba.write.view.a aVar2;
+        View view7;
+        int i;
+        int i2;
+        TextView textView2;
+        int id = view.getId();
+        textView = this.fNP.bKb;
+        if (id == textView.getId()) {
+            aVar = this.fNP.fNn;
+            pVar5 = this.fNP.fLQ;
+            List<e> bmt = pVar5.bmt();
+            pVar6 = this.fNP.fLQ;
+            aVar.b(bmt, pVar6.bmr());
+            aVar2 = this.fNP.fNn;
+            view7 = this.fNP.aTA;
+            aVar2.aC(view7);
+            i = this.fNP.fNC;
+            if (i <= 50) {
+                i2 = w.g.d_ic_post_gallery_spread_s;
+            } else {
+                i2 = w.g.ic_post_gallery_spread_s;
+            }
+            Drawable drawable = this.fNP.getResources().getDrawable(i2);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            textView2 = this.fNP.bKb;
+            textView2.setCompoundDrawables(null, null, drawable, null);
+            return;
+        }
+        int id2 = view.getId();
+        view2 = this.fNP.fNt;
+        if (id2 == view2.getId()) {
+            this.fNP.lE(true);
+            this.fNP.bmy();
+            return;
+        }
+        int id3 = view.getId();
+        view3 = this.fNP.fNu;
+        if (id3 == view3.getId()) {
+            pVar = this.fNP.fLQ;
+            int maxImagesAllowed = pVar.getMaxImagesAllowed();
+            pVar2 = this.fNP.fLQ;
+            if (pVar2.size() >= maxImagesAllowed) {
+                albumActivity2 = this.fNP.fMg;
+                if (!albumActivity2.blT()) {
+                    this.fNP.showToast(String.format(this.fNP.getPageContext().getString(w.l.album_beyond_max_choose), Integer.valueOf(maxImagesAllowed)));
+                    return;
                 }
-                oVar3 = this.fQJ.fPd;
-                oVar3.cX(list);
-                oVar4 = this.fQJ.fPd;
-                oVar4.ra(albumId);
-                this.fQJ.setData(list, z);
-                textView = this.fQJ.bKX;
-                textView.setText(name);
+            }
+            pVar3 = this.fNP.fLQ;
+            pVar3.qV(String.valueOf(System.currentTimeMillis()));
+            albumActivity = this.fNP.fMg;
+            pVar4 = this.fNP.fLQ;
+            albumActivity.hA(pVar4.bmv());
+            return;
+        }
+        int id4 = view.getId();
+        view4 = this.fNP.fNv;
+        if (id4 == view4.getId()) {
+            tbCameraView3 = this.fNP.fNr;
+            if (tbCameraView3 != null) {
+                tbCameraView4 = this.fNP.fNr;
+                tbCameraView4.bmJ();
+                return;
+            }
+            return;
+        }
+        int id5 = view.getId();
+        view5 = this.fNP.fNy;
+        if (id5 == view5.getId()) {
+            this.fNP.bmz();
+            return;
+        }
+        int id6 = view.getId();
+        view6 = this.fNP.fNx;
+        if (id6 == view6.getId()) {
+            tbCameraView = this.fNP.fNr;
+            if (tbCameraView != null) {
+                tbCameraView2 = this.fNP.fNr;
+                tbCameraView2.bmL();
             }
         }
     }

@@ -46,7 +46,7 @@ public class AdUploadHttpRequest extends HttpMessage {
     }
 
     private String toJSONString(ArrayList<a> arrayList) {
-        if (x.p(arrayList) <= 0) {
+        if (x.q(arrayList) <= 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
@@ -54,7 +54,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             a next = it.next();
             if (next != null) {
-                jSONArray.put(next.bbz());
+                jSONArray.put(next.aYY());
             }
         }
         return jSONArray.toString();

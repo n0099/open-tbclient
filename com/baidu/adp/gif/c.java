@@ -5,6 +5,6 @@ import com.baidu.adp.lib.util.h;
 class c extends h {
     @Override // com.baidu.adp.lib.util.h
     public void p(boolean z) {
-        NSGif.rl = z;
+        NSGif.rm = z;
     }
 }

@@ -8,7 +8,7 @@ import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
 /* loaded from: classes.dex */
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
-    public com.baidu.tieba.pb.data.j pbFloorData;
+    public com.baidu.tieba.pb.data.l pbFloorData;
     private boolean treatDelPage;
 
     public boolean isTreatDelPage() {
@@ -24,7 +24,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Context context;
-        com.baidu.tieba.pb.data.j jVar = null;
+        com.baidu.tieba.pb.data.l lVar = null;
         super.decodeInBackGround(i, bArr);
         Object extra = getOrginalMessage().getExtra();
         if (extra == null || !(extra instanceof SubPbRequestMessage)) {
@@ -37,9 +37,9 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
         try {
             PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                jVar = com.baidu.tieba.pb.data.j.a(pbFloorResIdl.data, context);
-                if (jVar != null) {
-                    jVar.eiS = pbFloorResIdl.error;
+                lVar = com.baidu.tieba.pb.data.l.a(pbFloorResIdl.data, context);
+                if (lVar != null) {
+                    lVar.edT = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());
@@ -50,6 +50,6 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        this.pbFloorData = jVar;
+        this.pbFloorData = lVar;
     }
 }

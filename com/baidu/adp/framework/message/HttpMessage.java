@@ -27,7 +27,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         DESCEND,
         NONE;
 
-        /* JADX DEBUG: Replace access to removed values field (qG) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qH) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SORT[] valuesCustom() {
             SORT[] valuesCustom = values();
@@ -200,18 +200,18 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
-        private SORT qF;
+        private SORT qG;
 
         public a(SORT sort) {
-            this.qF = null;
-            this.qF = sort;
+            this.qG = null;
+            this.qG = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: b */
         public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            return this.qF == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
+            return this.qG == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
         }
     }
 

@@ -14,21 +14,21 @@ import com.baidu.tieba.passaccount.app.SapiFastRegActivity;
 /* loaded from: classes.dex */
 public class PassManagerStatic {
     static {
-        LZ();
-        EC();
+        Ln();
+        DG();
         registerListener();
     }
 
-    private static void LZ() {
+    private static void Ln() {
         com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
-        if (!com.baidu.tbadk.coreExtra.a.a.xV()) {
+        if (!com.baidu.tbadk.coreExtra.a.a.xj()) {
             TbadkCoreApplication.m9getInst().RegisterOrUpdateIntent(RegisterActivityConfig.class, SapiFastRegActivity.class);
         }
         TbadkCoreApplication.m9getInst().RegisterOrUpdateIntent(LoginActivityConfig.class, LoginActivity.class);
         TbadkCoreApplication.m9getInst().RegisterOrUpdateIntent(QALoginActivityConfig.class, QALoginActivity.class);
     }
 
-    private static void EC() {
+    private static void DG() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_PASS_MANAGER, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -39,6 +39,6 @@ public class PassManagerStatic {
 
     private static void registerListener() {
         MessageManager.getInstance().registerListener(new c(CmdConfigCustom.UEXCEPTION_MESSAGE));
-        bb.wn().a(new d());
+        bb.vB().a(new d());
     }
 }

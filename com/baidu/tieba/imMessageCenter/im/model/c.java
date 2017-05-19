@@ -1,27 +1,27 @@
 package com.baidu.tieba.imMessageCenter.im.model;
 
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.v;
 import com.baidu.tieba.im.db.m;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes.dex */
-class c extends s<Boolean> {
-    final /* synthetic */ PersonalMsglistModel dlH;
+/* loaded from: classes2.dex */
+class c extends v<Boolean> {
+    final /* synthetic */ PersonalMsglistModel dfL;
     private final /* synthetic */ ChatMessage val$msg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PersonalMsglistModel personalMsglistModel, ChatMessage chatMessage) {
-        this.dlH = personalMsglistModel;
+        this.dfL = personalMsglistModel;
         this.val$msg = chatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.util.s
+    @Override // com.baidu.tbadk.util.v
     public Boolean doInBackground() {
         UserData userData;
-        m aqK = m.aqK();
-        userData = this.dlH.mUser;
-        return Boolean.valueOf(aqK.ba(String.valueOf(userData.getUserId()), String.valueOf(this.val$msg.getMsgId())));
+        m anD = m.anD();
+        userData = this.dfL.mUser;
+        return Boolean.valueOf(anD.ba(String.valueOf(userData.getUserId()), String.valueOf(this.val$msg.getMsgId())));
     }
 }

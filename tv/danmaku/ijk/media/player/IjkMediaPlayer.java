@@ -15,7 +15,6 @@ import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -306,7 +305,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         String scheme = uri.getScheme();
         if ("file".equals(scheme)) {
             setDataSource(uri.getPath());
-        } else if (CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT.equals(scheme) && TbConfig.SETTINGFILE.equals(uri.getAuthority()) && (uri = RingtoneManager.getActualDefaultRingtoneUri(context, RingtoneManager.getDefaultType(uri))) == null) {
+        } else if ("content".equals(scheme) && TbConfig.SETTINGFILE.equals(uri.getAuthority()) && (uri = RingtoneManager.getActualDefaultRingtoneUri(context, RingtoneManager.getDefaultType(uri))) == null) {
             throw new FileNotFoundException("Failed to resolve default ringtone");
         } else {
             AssetFileDescriptor assetFileDescriptor2 = null;

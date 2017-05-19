@@ -55,8 +55,8 @@ public class j implements g {
                     try {
                         if (j.this.Ak.isConnected()) {
                             j.this.Aw = System.currentTimeMillis() - currentTimeMillis;
-                            j.this.ii();
                             j.this.ih();
+                            j.this.ig();
                             m.b bVar = new m.b(String.valueOf(j.this.An) + ":" + j.this.Ao);
                             bVar.mPath = j.this.Ap;
                             bVar.AB = j.this.Aq;
@@ -86,7 +86,7 @@ public class j implements g {
     }
 
     public j() {
-        ig();
+        m5if();
     }
 
     public boolean sendMessage(c cVar) {
@@ -201,7 +201,8 @@ public class j implements g {
         this.Ah.sendMessage(obtainMessage);
     }
 
-    protected void ig() {
+    /* renamed from: if  reason: not valid java name */
+    protected void m5if() {
         this.Ah = new k(this);
     }
 
@@ -209,22 +210,22 @@ public class j implements g {
     public void s(Object obj) {
     }
 
-    protected void ih() {
+    protected void ig() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
         this.Aj = new q(handlerThread.getLooper(), this.Ah, this.Ak, this.As);
     }
 
-    protected void ii() {
+    protected void ih() {
         this.Ai = new o(this.Ah, this.Ak, this.As, "WebSocketReader");
         this.Ai.start();
     }
 
-    public boolean ij() {
+    public boolean ii() {
         return this.Ax != null;
     }
 
-    public boolean ic() {
+    public boolean ib() {
         return this.Au;
     }
 
@@ -237,9 +238,9 @@ public class j implements g {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void id() {
+    public void ic() {
         if (this.Aj != null) {
-            this.Aj.id();
+            this.Aj.ic();
         }
     }
 
@@ -250,9 +251,9 @@ public class j implements g {
         return 0L;
     }
 
-    public void ie() {
+    public void id() {
         if (this.Ai != null) {
-            this.Ai.ie();
+            this.Ai.id();
         }
     }
 
@@ -263,21 +264,21 @@ public class j implements g {
         return 0L;
     }
 
-    public long ik() {
+    public long ij() {
         if (this.Ak != null) {
-            return this.Ak.hV();
+            return this.Ak.hU();
         }
         return 0L;
     }
 
-    public String il() {
+    public String ik() {
         if (this.Ak != null) {
-            return this.Ak.hU();
+            return this.Ak.hT();
         }
         return null;
     }
 
-    public long im() {
+    public long il() {
         return this.Aw;
     }
 

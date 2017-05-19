@@ -1,19 +1,22 @@
 package com.baidu.tbadk.core;
+
+import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements com.baidu.tbadk.util.f<Boolean> {
+public class ah extends com.baidu.tbadk.util.v<Boolean> {
     final /* synthetic */ TbadkCoreApplication this$0;
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(TbadkCoreApplication tbadkCoreApplication) {
+    public ah(TbadkCoreApplication tbadkCoreApplication, Context context) {
         this.this$0 = tbadkCoreApplication;
+        this.val$context = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.f
-    public void onReturnDataInUI(Boolean bool) {
-        if (bool != null) {
-            this.this$0.mIsOfficial = bool.booleanValue();
-        }
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tbadk.util.v
+    public Boolean doInBackground() {
+        return Boolean.valueOf(com.baidu.tbadk.core.util.b.az(this.val$context));
     }
 }

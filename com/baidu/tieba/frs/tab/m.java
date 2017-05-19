@@ -1,27 +1,29 @@
 package com.baidu.tieba.frs.tab;
 
-import android.widget.PopupWindow;
-import com.baidu.tieba.frs.tab.j;
+import com.baidu.tbadk.core.view.MorePopupWindow;
+import com.baidu.tbadk.core.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements PopupWindow.OnDismissListener {
-    final /* synthetic */ j cbO;
-    private final /* synthetic */ TabItemView cbP;
+public class m implements j.a {
+    final /* synthetic */ k bZH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(j jVar, TabItemView tabItemView) {
-        this.cbO = jVar;
-        this.cbP = tabItemView;
+    public m(k kVar) {
+        this.bZH = kVar;
     }
 
-    @Override // android.widget.PopupWindow.OnDismissListener
-    public void onDismiss() {
-        j.a aVar;
-        j.a aVar2;
-        aVar = this.cbO.cbz;
-        if (aVar != null) {
-            aVar2 = this.cbO.cbz;
-            aVar2.a(this.cbP);
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void os() {
+    }
+
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void ot() {
+        MorePopupWindow morePopupWindow;
+        MorePopupWindow morePopupWindow2;
+        morePopupWindow = this.bZH.QU;
+        if (morePopupWindow != null) {
+            morePopupWindow2 = this.bZH.QU;
+            com.baidu.adp.lib.g.j.a(morePopupWindow2);
         }
     }
 }

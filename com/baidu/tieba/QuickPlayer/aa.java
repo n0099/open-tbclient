@@ -3,17 +3,16 @@ package com.baidu.tieba.QuickPlayer;
 import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements MediaPlayer.OnErrorListener {
-    final /* synthetic */ v aRa;
+public class aa implements MediaPlayer.OnSeekCompleteListener {
+    final /* synthetic */ x aRv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(v vVar) {
-        this.aRa = vVar;
+    public aa(x xVar) {
+        this.aRv = xVar;
     }
 
-    @Override // android.media.MediaPlayer.OnErrorListener
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-        this.aRa.notifyOnError(i, i2);
-        return true;
+    @Override // android.media.MediaPlayer.OnSeekCompleteListener
+    public void onSeekComplete(MediaPlayer mediaPlayer) {
+        this.aRv.notifyOnSeekComplete();
     }
 }

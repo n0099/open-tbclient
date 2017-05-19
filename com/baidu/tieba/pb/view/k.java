@@ -13,6 +13,7 @@ import com.baidu.tieba.w;
 public class k {
     public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         if (smallTailInfo != null && smallTailInfo.tailSpannable != null && smallTailInfo.tailSpannable.length() != 0 && textView != null) {
+            smallTailInfo.updateShowInfo();
             b(smallTailInfo, textView, z, z2, z3);
         }
     }
@@ -26,7 +27,7 @@ public class k {
             } else if (z) {
                 layoutParams.setMargins(0, (int) resources.getDimension(w.f.ds8), 0, 0);
             } else if (!z2) {
-                layoutParams.setMargins(0, (int) resources.getDimension(w.f.ds8), (int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds14));
+                layoutParams.setMargins((int) resources.getDimension(w.f.ds116), (int) resources.getDimension(w.f.ds8), (int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds14));
             } else {
                 layoutParams.setMargins((int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds8), (int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds14));
             }
@@ -36,9 +37,9 @@ public class k {
             Drawable drawable = aq.getDrawable(w.g.icon_pb_tail);
             int g = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds32);
             drawable.setBounds(0, 0, g, g);
-            com.baidu.tbadk.widget.g gVar = new com.baidu.tbadk.widget.g(drawable);
-            gVar.fn(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds4));
-            spannableStringBuilder.setSpan(gVar, 0, 4, 33);
+            com.baidu.tbadk.widget.h hVar = new com.baidu.tbadk.widget.h(drawable);
+            hVar.fj(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds4));
+            spannableStringBuilder.setSpan(hVar, 0, 4, 33);
             textView.setLayoutParams(layoutParams);
             textView.setText(spannableStringBuilder);
             textView.setTextColor(smallTailInfo.showColorId);

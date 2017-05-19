@@ -17,103 +17,103 @@ import com.baidu.tieba.tbadkCore.util.l;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class c {
-    private static c aql = new c();
-    public int aqm = 300;
-    public boolean aqn = true;
-    public boolean aqo = false;
+    private static c aqn = new c();
+    public int aqo = 300;
     public boolean aqp = true;
-    public boolean aqq = true;
+    public boolean aqq = false;
     public boolean aqr = true;
-    public boolean aqs = false;
+    public boolean aqs = true;
     public boolean aqt = true;
-    public boolean aqu = true;
-    public boolean aqv = false;
-    public String aqw = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-    public String aqx = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    public boolean aqu = false;
+    public boolean aqv = true;
+    public boolean aqw = true;
+    public boolean aqx = false;
+    public String aqy = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+    public String aqz = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
 
     private c() {
     }
 
-    public static c zG() {
-        return aql;
+    public static c yR() {
+        return aqn;
     }
 
     public void initSetting() {
-        l.bkj();
+        l.bhG();
     }
 
-    public void zH() {
-        l.zH();
+    public void yS() {
+        l.yS();
     }
 
-    public boolean zI() {
-        return this.aqm > 0;
+    public boolean yT() {
+        return this.aqo > 0;
     }
 
-    public int zJ() {
-        return this.aqm;
-    }
-
-    public boolean zK() {
+    public int yU() {
         return this.aqo;
     }
 
-    public boolean zL() {
-        return this.aqp;
-    }
-
-    public boolean zM() {
-        return this.aqr;
-    }
-
-    public boolean zN() {
+    public boolean yV() {
         return this.aqq;
     }
 
-    public boolean zO() {
-        return this.aqn;
+    public boolean yW() {
+        return this.aqr;
     }
 
-    public boolean zP() {
+    public boolean yX() {
         return this.aqt;
     }
 
-    public boolean zQ() {
-        return this.aqu;
-    }
-
-    public boolean zR() {
-        return this.aqv;
-    }
-
-    public boolean zS() {
+    public boolean yY() {
         return this.aqs;
     }
 
-    public String zT() {
+    public boolean yZ() {
+        return this.aqp;
+    }
+
+    public boolean za() {
+        return this.aqv;
+    }
+
+    public boolean zb() {
         return this.aqw;
     }
 
-    public String zU() {
+    public boolean zc() {
         return this.aqx;
     }
 
+    public boolean zd() {
+        return this.aqu;
+    }
+
+    public String ze() {
+        return this.aqy;
+    }
+
+    public String zf() {
+        return this.aqz;
+    }
+
     public void aV(boolean z) {
-        this.aqn = z;
+        this.aqp = z;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public void dI(int i) {
+    public void dG(int i) {
         if (i == 0) {
-            this.aqm = i;
-            a.zj().aU(true);
+            this.aqo = i;
+            a.yu().aU(true);
         } else {
-            this.aqm = 300;
+            this.aqo = 300;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public boolean zV() {
+    public boolean zg() {
         return TbadkSettings.getInst().loadBoolean("group_notify", true) && TbadkCoreApplication.m9getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
     }
 
@@ -122,7 +122,7 @@ public class c {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public boolean zW() {
+    public boolean zh() {
         return TbadkSettings.getInst().loadBoolean("zan_disjunctor_setting" + TbadkCoreApplication.getCurrentAccount(), true);
     }
 
@@ -131,51 +131,51 @@ public class c {
     }
 
     public void aY(boolean z) {
-        this.aqo = z;
-    }
-
-    public void aZ(boolean z) {
-        this.aqv = z;
-    }
-
-    public void en(String str) {
-        this.aqw = str;
-    }
-
-    public void eo(String str) {
-        this.aqx = str;
-    }
-
-    public void ba(boolean z) {
-        this.aqs = z;
-    }
-
-    public void bb(boolean z) {
-        this.aqu = z;
-    }
-
-    public void bc(boolean z) {
-        this.aqt = z;
-    }
-
-    public void bd(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.uL().putBoolean("permit_screen_lock", z);
-    }
-
-    public boolean zX() {
-        return com.baidu.tbadk.core.sharedPref.b.uL().getBoolean("permit_screen_lock", true);
-    }
-
-    public void be(boolean z) {
         this.aqq = z;
     }
 
+    public void aZ(boolean z) {
+        this.aqx = z;
+    }
+
+    public void em(String str) {
+        this.aqy = str;
+    }
+
+    public void en(String str) {
+        this.aqz = str;
+    }
+
+    public void ba(boolean z) {
+        this.aqu = z;
+    }
+
+    public void bb(boolean z) {
+        this.aqw = z;
+    }
+
+    public void bc(boolean z) {
+        this.aqv = z;
+    }
+
+    public void bd(boolean z) {
+        com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("permit_screen_lock", z);
+    }
+
+    public boolean zi() {
+        return com.baidu.tbadk.core.sharedPref.b.tX().getBoolean("permit_screen_lock", true);
+    }
+
+    public void be(boolean z) {
+        this.aqs = z;
+    }
+
     public void bf(boolean z) {
-        this.aqp = z;
+        this.aqr = z;
     }
 
     public void bg(boolean z) {
-        this.aqr = z;
+        this.aqt = z;
     }
 
     public boolean isSignAlertOn() {
@@ -250,7 +250,7 @@ public class c {
         updateSignAlarm();
     }
 
-    public void dJ(int i) {
+    public void dH(int i) {
         if (i == 0) {
             bc(false);
             ba(false);
@@ -266,14 +266,14 @@ public class c {
         }
     }
 
-    public int zY() {
-        if (!this.aqt && !this.aqs) {
+    public int zj() {
+        if (!this.aqv && !this.aqu) {
             return 0;
         }
-        if (this.aqt && !this.aqs) {
+        if (this.aqv && !this.aqu) {
             return 1;
         }
-        if (!this.aqt && this.aqs) {
+        if (!this.aqv && this.aqu) {
             return 2;
         }
         return 3;
@@ -283,7 +283,7 @@ public class c {
         TbadkSettings.getInst().saveBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_switch", z);
     }
 
-    public boolean zZ() {
+    public boolean zk() {
         return TbadkSettings.getInst().loadBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_switch", true);
     }
 
@@ -291,7 +291,7 @@ public class c {
         TbadkSettings.getInst().saveBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_forum_broadcast_switch", z);
     }
 
-    public boolean Aa() {
+    public boolean zl() {
         return TbadkSettings.getInst().loadBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_forum_broadcast_switch", true);
     }
 }

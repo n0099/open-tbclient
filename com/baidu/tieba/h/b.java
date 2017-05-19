@@ -1,20 +1,25 @@
 package com.baidu.tieba.h;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface b {
-    public static final b fuX = new a();
+public class b extends CustomMessageListener {
+    final /* synthetic */ a fdP;
 
-    void e(String str, long j);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(a aVar, int i) {
+        super(i);
+        this.fdP = aVar;
+    }
 
-    void f(String str, String str2, String str3);
-
-    /* loaded from: classes.dex */
-    public static class a implements b {
-        @Override // com.baidu.tieba.h.b
-        public void e(String str, long j) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001120) {
+            return;
         }
-
-        @Override // com.baidu.tieba.h.b
-        public void f(String str, String str2, String str3) {
-        }
+        this.fdP.h(customResponsedMessage);
     }
 }

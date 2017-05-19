@@ -30,9 +30,9 @@ public class v extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     public void X(int i) {
         if (i == 1) {
-            com.baidu.tbadk.core.sharedPref.b.uL().putBoolean("switch_immersive_sticky_status", true);
+            com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("switch_immersive_sticky_status", true);
         } else {
-            com.baidu.tbadk.core.sharedPref.b.uL().putBoolean("switch_immersive_sticky_status", false);
+            com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("switch_immersive_sticky_status", false);
         }
     }
 }

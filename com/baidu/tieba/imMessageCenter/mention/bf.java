@@ -1,25 +1,28 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-/* loaded from: classes.dex */
-class bf extends CustomMessageListener {
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes2.dex */
+public class bf implements CustomMessageTask.CustomRunnable<Boolean> {
+    final /* synthetic */ ReplyMessageActivity dhP;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(int i) {
-        super(i);
+    public bf(ReplyMessageActivity replyMessageActivity) {
+        this.dhP = replyMessageActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-            if (TbadkCoreApplication.isLogin()) {
-                ah.awm().start();
-            } else {
-                ah.awm().destroy();
-            }
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
+        av avVar;
+        av avVar2;
+        avVar = this.dhP.dhO;
+        if (avVar != null) {
+            avVar2 = this.dhP.dhO;
+            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, Boolean.valueOf(avVar2.onBackPressed()));
         }
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, false);
     }
 }

@@ -1,33 +1,200 @@
 package com.baidu.tieba.personPolymeric.d;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.widget.ListView.BdExpandImageView;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.view.HeadPendantView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x implements Animation.AnimationListener {
-    final /* synthetic */ t eJt;
+public class x implements View.OnClickListener {
+    com.baidu.tieba.personPolymeric.event.a eFh = new com.baidu.tieba.personPolymeric.event.a();
+    final /* synthetic */ w eFi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(t tVar) {
-        this.eJt = tVar;
+    public x(w wVar) {
+        this.eFi = wVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        Animation animation2;
-        Animation animation3;
-        view = this.eJt.eJm;
-        animation2 = this.eJt.eJq;
-        view.setAnimation(animation2);
-        animation3 = this.eJt.eJq;
-        animation3.start();
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x018c, code lost:
+        if (r0.getIsFriend() != 1) goto L46;
+     */
+    @Override // android.view.View.OnClickListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onClick(View view) {
+        com.baidu.tieba.view.p pVar;
+        HeadPendantView headPendantView;
+        UserIconBox userIconBox;
+        UserIconBox userIconBox2;
+        BdExpandImageView bdExpandImageView;
+        ImageView imageView;
+        TextView textView;
+        TextView textView2;
+        View view2;
+        UserData userData;
+        UserData userData2;
+        UserData userData3;
+        UserData userData4;
+        Context context;
+        Context context2;
+        UserData userData5;
+        UserData userData6;
+        UserData userData7;
+        Context context3;
+        UserData userData8;
+        UserData userData9;
+        UserData userData10;
+        UserData userData11;
+        boolean z;
+        UserData userData12;
+        UserData userData13;
+        UserData userData14;
+        Context context4;
+        UserData userData15;
+        UserData userData16;
+        Context context5;
+        UserData userData17;
+        UserData userData18;
+        UserData userData19;
+        UserData userData20;
+        com.baidu.tieba.view.p pVar2;
+        UserData userData21;
+        pVar = this.eFi.eyy;
+        if (pVar != null) {
+            this.eFh.bIu = -1;
+            headPendantView = this.eFi.fJn;
+            if (headPendantView != view) {
+                userIconBox = this.eFi.fJp;
+                if (userIconBox != view) {
+                    userIconBox2 = this.eFi.fJq;
+                    if (userIconBox2 != view) {
+                        bdExpandImageView = this.eFi.fJm;
+                        if (bdExpandImageView != view) {
+                            imageView = this.eFi.bjm;
+                            if (imageView != view) {
+                                textView = this.eFi.fJs;
+                                if (textView != view) {
+                                    textView2 = this.eFi.eEZ;
+                                    if (textView2 != view) {
+                                        view2 = this.eFi.eFb;
+                                        if (view2 == view) {
+                                            userData = this.eFi.mUserData;
+                                            if (userData != null) {
+                                                if (!com.baidu.adp.lib.util.i.hk()) {
+                                                    context5 = this.eFi.mContext;
+                                                    com.baidu.adp.lib.util.k.showToast(context5, w.l.neterror);
+                                                    return;
+                                                }
+                                                as asVar = new as("c11855");
+                                                asVar.aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                                                userData2 = this.eFi.mUserData;
+                                                asVar.aa("click_uid", userData2.getUserId());
+                                                userData3 = this.eFi.mUserData;
+                                                asVar.s("live_status", userData3.getLiveStatus());
+                                                TiebaStatic.log(asVar);
+                                                userData4 = this.eFi.mUserData;
+                                                if (userData4.getPersonPrivate().BQ() != 3) {
+                                                    userData6 = this.eFi.mUserData;
+                                                    if (userData6.getPersonPrivate().BQ() == 2) {
+                                                        userData16 = this.eFi.mUserData;
+                                                    }
+                                                    userData7 = this.eFi.mUserData;
+                                                    if (userData7.getLiveStatus() != 1) {
+                                                        context3 = this.eFi.mContext;
+                                                        userData8 = this.eFi.mUserData;
+                                                        String userId = userData8.getUserId();
+                                                        userData9 = this.eFi.mUserData;
+                                                        String userName = userData9.getUserName();
+                                                        userData10 = this.eFi.mUserData;
+                                                        String portrait = userData10.getPortrait();
+                                                        userData11 = this.eFi.mUserData;
+                                                        int sex = userData11.getSex();
+                                                        z = this.eFi.bdp;
+                                                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(context3, userId, userName, portrait, sex, z)));
+                                                    } else {
+                                                        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+                                                        userData12 = this.eFi.mUserData;
+                                                        alaLiveInfoCoreData.setLiveID(Long.parseLong(userData12.getLiveId()));
+                                                        userData13 = this.eFi.mUserData;
+                                                        alaLiveInfoCoreData.setUserID(Long.parseLong(userData13.getUserId()));
+                                                        userData14 = this.eFi.mUserData;
+                                                        alaLiveInfoCoreData.setUserName(userData14.getUserName());
+                                                        context4 = this.eFi.mContext;
+                                                        userData15 = this.eFi.mUserData;
+                                                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context4, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, userData15.getUserId(), false, "")));
+                                                    }
+                                                }
+                                                context = this.eFi.mContext;
+                                                context2 = this.eFi.mContext;
+                                                String string = context2.getString(w.l.person_privacy_toast);
+                                                userData5 = this.eFi.mUserData;
+                                                BdToast.b(context, String.format(string, au.cR(userData5.getSex())), w.g.icon_toast_game_error).tl();
+                                                return;
+                                            }
+                                            return;
+                                        }
+                                    } else {
+                                        this.eFh.bIu = 14;
+                                    }
+                                } else {
+                                    this.eFh.bIu = 13;
+                                }
+                            } else {
+                                this.eFh.bIu = 12;
+                                this.eFh.bIv = new Bundle();
+                                Bundle bundle = this.eFh.bIv;
+                                userData17 = this.eFi.mUserData;
+                                bundle.putSerializable(UserData.TYPE_USER, userData17);
+                            }
+                        } else {
+                            this.eFh.bIu = 10;
+                            this.eFh.bIv = new Bundle();
+                            Bundle bundle2 = this.eFh.bIv;
+                            userData18 = this.eFi.mUserData;
+                            bundle2.putSerializable(UserData.TYPE_USER, userData18);
+                        }
+                    } else {
+                        this.eFh.bIu = 3;
+                        this.eFh.bIv = new Bundle();
+                        Bundle bundle3 = this.eFh.bIv;
+                        userData19 = this.eFi.mUserData;
+                        bundle3.putSerializable(UserData.TYPE_USER, userData19);
+                    }
+                } else {
+                    this.eFh.bIu = 2;
+                    this.eFh.bIv = new Bundle();
+                    Bundle bundle4 = this.eFh.bIv;
+                    userData20 = this.eFi.mUserData;
+                    bundle4.putString("vip_user_jump", userData20.getTShowInfo().get(0).getUrl());
+                }
+            } else {
+                this.eFh.bIu = 1;
+                this.eFh.bIv = new Bundle();
+                Bundle bundle5 = this.eFh.bIv;
+                userData21 = this.eFi.mUserData;
+                bundle5.putSerializable(UserData.TYPE_USER, userData21);
+            }
+            pVar2 = this.eFi.eyy;
+            pVar2.a(view, this.eFh);
+        }
     }
 }

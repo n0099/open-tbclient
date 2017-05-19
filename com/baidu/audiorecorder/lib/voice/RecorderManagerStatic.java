@@ -4,10 +4,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class RecorderManagerStatic {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static class a {
     }
 

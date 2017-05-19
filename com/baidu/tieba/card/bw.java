@@ -5,20 +5,19 @@ import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bw implements View.OnClickListener {
-    final /* synthetic */ br bwI;
+    final /* synthetic */ bp bwH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(br brVar) {
-        this.bwI = brVar;
+    public bw(bp bpVar) {
+        this.bwH = bpVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         CardPersonDynamicThreadData cardPersonDynamicThreadData;
-        cf<CardPersonDynamicThreadData> onSubCardOnClickListenner = this.bwI.getOnSubCardOnClickListenner();
-        if (onSubCardOnClickListenner != null) {
-            view.setTag("1");
-            cardPersonDynamicThreadData = this.bwI.bwv;
+        if (this.bwH.getOnSubCardOnClickListenner() != null) {
+            cd<CardPersonDynamicThreadData> onSubCardOnClickListenner = this.bwH.getOnSubCardOnClickListenner();
+            cardPersonDynamicThreadData = this.bwH.bww;
             onSubCardOnClickListenner.a(view, cardPersonDynamicThreadData);
         }
     }

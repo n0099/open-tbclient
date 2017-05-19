@@ -1,26 +1,16 @@
 package com.baidu.tieba.view;
-
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements View.OnClickListener {
-    final /* synthetic */ j fMc;
+public class l implements Runnable {
+    final /* synthetic */ j fIG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.fMc = jVar;
+        this.fIG = jVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.fMc.H(5, false);
-        com.baidu.tieba.g.a.bbK().E(5, false);
-        TiebaStatic.log(new as("c10598"));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MORE, new IntentConfig(view.getContext())));
+    @Override // java.lang.Runnable
+    public void run() {
+        this.fIG.biF();
     }
 }

@@ -1,40 +1,34 @@
 package com.baidu.tieba.card;
 
-import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.GodSquareActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.base.f {
-    final /* synthetic */ h bur;
+public class k implements View.OnClickListener {
+    final /* synthetic */ i bur;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(h hVar) {
-        this.bur = hVar;
+    public k(i iVar) {
+        this.bur = iVar;
     }
 
-    @Override // com.baidu.adp.base.f
-    public void g(Object obj) {
-        LikeModel likeModel;
-        LikeModel likeModel2;
-        LikeModel likeModel3;
-        LikeModel likeModel4;
-        if (obj instanceof com.baidu.tieba.tbadkCore.v) {
-            likeModel4 = this.bur.bui;
-            if (likeModel4.getErrorCode() == 0) {
-                return;
-            }
-        }
-        likeModel = this.bur.bui;
-        if (AntiHelper.sd(likeModel.getErrorCode())) {
-            Context context = this.bur.getContext();
-            likeModel3 = this.bur.bui;
-            AntiHelper.aq(context, likeModel3.getErrorString());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(GodSquareActivityConfig.class)) {
+            tbPageContext2 = this.bur.aat;
+            tbPageContext2.showToast(w.l.pluginstatus_tip_timeout_last);
             return;
         }
-        TbPageContext<?> tbPageContext = this.bur.getTbPageContext();
-        likeModel2 = this.bur.bui;
-        tbPageContext.showToast(likeModel2.getErrorString());
+        MessageManager messageManager = MessageManager.getInstance();
+        tbPageContext = this.bur.aat;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GodSquareActivityConfig(tbPageContext.getPageActivity())));
     }
 }

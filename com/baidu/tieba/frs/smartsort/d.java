@@ -23,7 +23,7 @@ public class d {
     }
 
     public static boolean a(ArrayList<v> arrayList, String str, CardHListViewData cardHListViewData, int i) {
-        if (cardHListViewData == null || x.q(arrayList) || StringUtils.isNull(str) || i < 0) {
+        if (cardHListViewData == null || x.r(arrayList) || StringUtils.isNull(str) || i < 0) {
             return false;
         }
         int size = arrayList.size();

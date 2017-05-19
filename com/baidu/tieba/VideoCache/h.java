@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class h implements Runnable {
     private static final String TAG = h.class.getSimpleName();
     private String mVideoUrl;
@@ -22,7 +22,7 @@ public class h implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        LD();
+        KR();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00ca, code lost:
@@ -55,9 +55,9 @@ public class h implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void LD() {
+    private synchronized void KR() {
         File file;
-        long gO;
+        long gM;
         File[] fileArr;
         long j;
         long fileSize;
@@ -65,15 +65,15 @@ public class h implements Runnable {
         int i = 0;
         synchronized (this) {
             k.log(TAG, "merge ...");
-            String gU = o.gU(this.mVideoUrl);
-            if (gU != null && !gU.isEmpty() && ((file = new File(String.valueOf(j.aUW) + gU + "/completed")) == null || !file.exists())) {
-                File file2 = new File(String.valueOf(j.aUW) + gU + "/completed.temp");
+            String gS = o.gS(this.mVideoUrl);
+            if (gS != null && !gS.isEmpty() && ((file = new File(String.valueOf(j.aVr) + gS + "/completed")) == null || !file.exists())) {
+                File file2 = new File(String.valueOf(j.aVr) + gS + "/completed.temp");
                 if (file2 != null && file2.exists()) {
                     file2.delete();
                 }
-                File file3 = new File(String.valueOf(j.aUW) + gU + "/segments");
+                File file3 = new File(String.valueOf(j.aVr) + gS + "/segments");
                 if (file3 != null && file3.exists()) {
-                    gO = gO(gU);
+                    gM = gM(gS);
                     File[] listFiles = file3.listFiles();
                     if (listFiles != null && listFiles.length != 0) {
                         ArrayList arrayList = new ArrayList();
@@ -120,7 +120,7 @@ public class h implements Runnable {
                 return;
             }
             i++;
-        } else if (o.getFileSize(fileArr[i]) + j != gO) {
+        } else if (o.getFileSize(fileArr[i]) + j != gM) {
             return;
         } else {
             i++;
@@ -131,7 +131,7 @@ public class h implements Runnable {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [163=4] */
     /* JADX WARN: Removed duplicated region for block: B:18:0x002c A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x00c1 A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00bf A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -255,11 +255,11 @@ public class h implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long gO(String str) {
+    private long gM(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream = null;
-        File file = new File(String.valueOf(j.aUW) + str + "/content_length");
+        File file = new File(String.valueOf(j.aVr) + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

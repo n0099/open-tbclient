@@ -4,20 +4,20 @@ import android.widget.SeekBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements SeekBar.OnSeekBarChangeListener {
-    final /* synthetic */ c eWq;
+    final /* synthetic */ c eSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(c cVar) {
-        this.eWq = cVar;
+        this.eSq = cVar;
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
     public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
         boolean z2;
         if (z) {
-            z2 = this.eWq.dwI;
+            z2 = this.eSq.dqR;
             if (z2) {
-                this.eWq.azG();
+                this.eSq.awD();
             }
         }
     }
@@ -29,10 +29,10 @@ public class h implements SeekBar.OnSeekBarChangeListener {
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
     public void onStopTrackingTouch(SeekBar seekBar) {
         String str;
-        if (!this.eWq.azC() && this.eWq.azs() != null) {
-            this.eWq.setStartPosition(this.eWq.azs().getSeekPosition());
-            c cVar = this.eWq;
-            str = this.eWq.mVideoUrl;
+        if (!this.eSq.awz() && this.eSq.awp() != null) {
+            this.eSq.setStartPosition(this.eSq.awp().getSeekPosition());
+            c cVar = this.eSq;
+            str = this.eSq.mVideoUrl;
             cVar.startPlay(str);
         }
     }

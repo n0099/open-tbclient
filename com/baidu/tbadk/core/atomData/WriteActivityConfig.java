@@ -30,6 +30,9 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String IS_ADDITION = "is_addition";
     public static final String IS_LIVE_POST = "is_live_post";
     public static final String IS_SAVE_DRAFTE = "need_save_draft";
+    public static final String KEY_CALL_FROM = "KEY_CALL_FROM";
+    public static final String KEY_WRITE_IMAGES_INFO_STRING = "KEY_WRITE_IMAGES_INFO_STRING";
+    public static final String KEY_WRITE_LEVEL = "key_write_level";
     public static final String LIVE_DATE = "live_date";
     public static final String LIVE_GROUP_HEAD = "live_group_head";
     public static final String LIVE_GROUP_ID = "live_group_id";
@@ -101,7 +104,10 @@ public class WriteActivityConfig extends IntentConfig {
         getIntent().putExtra(REPLY_SUB_PB, z2);
         getIntent().putExtra("is_ad", z3);
         getIntent().putExtra("mem_type", i4);
-        if (antiData != null) {
+        if (antiData == null) {
+            getIntent().putExtra(ENABLE_AUDIO, true);
+            getIntent().putExtra(DISABLE_AUDIO_MESSAGE, "");
+        } else {
             getIntent().putExtra(ENABLE_AUDIO, antiData.isIfvoice());
             getIntent().putExtra(DISABLE_AUDIO_MESSAGE, antiData.getVoice_message());
         }
@@ -142,6 +148,18 @@ public class WriteActivityConfig extends IntentConfig {
     public void setIsVcodeFeedBack() {
         if (getIntent() != null) {
             getIntent().putExtra(VCODE_FEED_BACK, true);
+        }
+    }
+
+    public void setCallFrom(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra(KEY_CALL_FROM, str);
+        }
+    }
+
+    public void setForumLevel(int i) {
+        if (getIntent() != null) {
+            getIntent().putExtra(KEY_WRITE_LEVEL, i);
         }
     }
 }

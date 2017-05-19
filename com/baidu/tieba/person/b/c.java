@@ -2,68 +2,64 @@ package com.baidu.tieba.person.b;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.k;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.q;
-import com.baidu.tbadk.data.k;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import com.baidu.tieba.person.a.d;
+import com.baidu.tieba.person.a.e;
 import com.baidu.tieba.w;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class c extends y.a {
-    public TbImageView aON;
-    private View.OnClickListener aRY;
-    private v eCu;
-    public TextView eCv;
-    public View eCw;
-    private int mSkinType;
+    public TextView QL;
+    public TbPageContext ajr;
+    public int ane;
+    public View bDa;
+    public HTypeListView eyk;
+    public d eyl;
+    public View rootView;
 
-    public c(View view) {
+    public c(View view, TbPageContext tbPageContext) {
         super(view);
-        this.mSkinType = 3;
-        this.aON = (TbImageView) view.findViewById(w.h.photo_image_view);
-        this.aON.setDefaultBgResource(w.e.cp_bg_line_e);
-        this.eCw = view.findViewById(w.h.normal_pic_click_bg);
-        this.eCv = (TextView) view.findViewById(w.h.tip_default_view);
+        this.ane = 3;
+        this.rootView = view;
+        this.ajr = tbPageContext;
+        this.bDa = view.findViewById(w.h.divider_view_under_photo_album);
+        this.QL = (TextView) view.findViewById(w.h.text_view_photo_album);
+        this.eyk = (HTypeListView) view.findViewById(w.h.listview_photo_album);
+        this.eyl = new d(this.ajr, this.eyk);
     }
 
-    public void e(v vVar) {
-        if (vVar instanceof k) {
-            this.eCu = vVar;
-            k kVar = (k) vVar;
-            if (kVar.CQ()) {
-                String dn = q.dn(kVar.getSmallUrl());
-                this.eCv.setVisibility(0);
-                if (StringUtils.isNull(dn)) {
-                    this.aON.setDefaultResource(w.g.pic_mycenter_avatar_def_i);
-                } else {
-                    this.aON.c(dn, 25, false);
-                }
-            } else {
-                this.aON.setDefaultResource(w.g.img_default_100);
-                this.eCv.setVisibility(8);
-                this.aON.c(kVar.getSmallUrl(), 10, false);
-            }
-            getView().setOnClickListener(this.aRY);
-            onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+    public void a(e eVar) {
+        if (eVar != null) {
+            this.eyl.setDatas(bY(eVar.getPhotoAlbum()));
         }
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            aq.c(this.eCv, w.e.cp_cont_g, 1);
-            aq.k(this.eCv, w.e.black_alpha50);
-            this.mSkinType = i;
+    private List<v> bY(List<v> list) {
+        if (x.q(list) > 0) {
+            ArrayList arrayList = new ArrayList(list);
+            com.baidu.tieba.personCenter.b.b bVar = new com.baidu.tieba.personCenter.b.b(k.g(this.ajr.getPageActivity(), w.f.ds32), k.g(this.ajr.getPageActivity(), w.f.ds120));
+            x.a(arrayList, 0, bVar);
+            x.b(arrayList, bVar);
+            return arrayList;
         }
+        return list;
     }
 
-    public v xx() {
-        return this.eCu;
-    }
-
-    public void u(View.OnClickListener onClickListener) {
-        this.aRY = onClickListener;
+    public void aOH() {
+        if (this.ane != TbadkCoreApplication.m9getInst().getSkinType()) {
+            this.ane = TbadkCoreApplication.m9getInst().getSkinType();
+            aq.k(this.rootView, w.e.cp_bg_line_d);
+            aq.k(this.bDa, w.e.cp_bg_line_c);
+            aq.c(this.QL, w.e.cp_cont_d, 1);
+            this.eyl.notifyDataSetChanged();
+        }
     }
 }

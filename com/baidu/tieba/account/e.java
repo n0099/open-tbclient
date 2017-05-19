@@ -8,11 +8,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ AccountActivity aVy;
+    final /* synthetic */ AccountActivity aVU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.aVy = accountActivity;
+        this.aVU = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,25 +22,25 @@ public class e implements View.OnClickListener {
         TextView textView3;
         TextView textView4;
         TextView textView5;
-        if (!this.aVy.aVq.Ma()) {
-            this.aVy.aVq.setEditState(true);
-            textView3 = this.aVy.aVs;
+        if (!this.aVU.aVM.Lo()) {
+            this.aVU.aVM.setEditState(true);
+            textView3 = this.aVU.aVO;
             textView3.setText(w.l.done);
             if (TbadkCoreApplication.m9getInst().getSkinType() == 2) {
-                textView5 = this.aVy.aVs;
+                textView5 = this.aVU.aVO;
                 aq.c(textView5, w.e.navi_op_text, 1);
             } else {
-                textView4 = this.aVy.aVs;
+                textView4 = this.aVU.aVO;
                 aq.c(textView4, w.e.cp_link_tip_a, 1);
             }
-            this.aVy.aVq.notifyDataSetChanged();
+            this.aVU.aVM.notifyDataSetChanged();
             return;
         }
-        this.aVy.aVq.setEditState(false);
-        textView = this.aVy.aVs;
+        this.aVU.aVM.setEditState(false);
+        textView = this.aVU.aVO;
         textView.setText(w.l.edit);
-        textView2 = this.aVy.aVs;
+        textView2 = this.aVU.aVO;
         aq.c(textView2, w.e.navi_op_text, 1);
-        this.aVy.aVq.notifyDataSetChanged();
+        this.aVU.aVM.notifyDataSetChanged();
     }
 }

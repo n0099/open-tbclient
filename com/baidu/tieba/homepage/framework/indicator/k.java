@@ -1,32 +1,36 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import com.baidu.tieba.homepage.framework.indicator.r;
+import android.support.v4.view.ViewPager;
+import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k implements r.a {
-    final /* synthetic */ ScrollFragmentTabHost cxk;
+public class k implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ ScrollFragmentTabHost cua;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.cxk = scrollFragmentTabHost;
+        this.cua = scrollFragmentTabHost;
     }
 
-    @Override // com.baidu.tieba.homepage.framework.indicator.r.a
-    public void ajR() {
-        o oVar;
-        r rVar;
-        r rVar2;
-        o oVar2;
-        oVar = this.cxk.cwX;
-        if (oVar != null) {
-            oVar2 = this.cxk.cwX;
-            oVar2.ajT();
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+        a aVar;
+        aVar = this.cua.ctU;
+        aVar.onPageScrolled(i, f, i2);
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        ScrollFragmentTabHost.a aVar;
+        ScrollFragmentTabHost.a aVar2;
+        aVar = this.cua.ctW;
+        if (aVar != null) {
+            aVar2 = this.cua.ctW;
+            aVar2.jL(i);
         }
-        rVar = this.cxk.cxb;
-        if (rVar != null) {
-            rVar2 = this.cxk.cxb;
-            rVar2.a((r.a) null);
-            this.cxk.cxc = true;
-            this.cxk.cxb = null;
-        }
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 }

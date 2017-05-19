@@ -24,7 +24,7 @@ public abstract class NetMessage {
         HTTP,
         AUTO;
 
-        /* JADX DEBUG: Replace access to removed values field (qH) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qI) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetType[] valuesCustom() {
             NetType[] valuesCustom = values();

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.browser;
 
 import android.os.Build;
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import org.json.JSONException;
@@ -14,18 +15,18 @@ public class h extends com.baidu.tbadk.core.d.p {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.d.p
-    public String oy() {
+    public String of() {
         return "TBHY_COMMON_Utils";
     }
 
-    @com.baidu.tbadk.core.d.q(uz = false, value = "showToast")
+    @com.baidu.tbadk.core.d.q(tL = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString("message")).tY();
+            BdToast.a(getContext(), jSONObject.optString(PushConstants.EXTRA_PUSH_MESSAGE)).tl();
         }
     }
 
-    @com.baidu.tbadk.core.d.q(uz = false, value = "showNetStatus")
+    @com.baidu.tbadk.core.d.q(tL = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
@@ -51,7 +52,7 @@ public class h extends com.baidu.tbadk.core.d.p {
         return jSONObject;
     }
 
-    @com.baidu.tbadk.core.d.q(uz = false, value = "showDeviceInfo")
+    @com.baidu.tbadk.core.d.q(tL = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.m9getInst().getCuid();

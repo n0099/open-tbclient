@@ -1,26 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.PbModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class dk implements Runnable {
-    private final /* synthetic */ com.baidu.tieba.pb.data.f eoA;
-    final /* synthetic */ dj eoy;
-    private final /* synthetic */ PbPageReadLocalResponseMessage eoz;
+public class dk {
+    public long Uy;
+    public long ejc;
+    public long ejd;
+    public int eje;
+    public long mForumId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dk(dj djVar, PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage, com.baidu.tieba.pb.data.f fVar) {
-        this.eoy = djVar;
-        this.eoz = pbPageReadLocalResponseMessage;
-        this.eoA = fVar;
+    public dk() {
+        DG();
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PbModel pbModel;
-        PbModel.a aVar;
-        pbModel = this.eoy.eox;
-        aVar = pbModel.enX;
-        aVar.a(true, 0, this.eoz.getUpdateType(), 0, this.eoA, this.eoz.getErrorString(), 0);
+    public void aJJ() {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_SET_DECLARE);
+        httpMessage.addParam("tid", this.Uy);
+        httpMessage.addParam("author_uid", this.ejc);
+        httpMessage.addParam("declare_id", this.ejd);
+        httpMessage.addParam("forum_id", this.mForumId);
+        httpMessage.addParam("operation", this.eje);
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    private void DG() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_SET_DECLARE, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PB_SET_DECLARE_URL);
+        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 }

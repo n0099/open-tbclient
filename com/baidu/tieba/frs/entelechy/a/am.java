@@ -1,33 +1,32 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tieba.frs.at;
-import com.baidu.tieba.tbadkCore.n;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tieba.frs.n;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface am {
-    void a(at atVar);
+    int ZZ();
 
-    int abx();
+    void a(n nVar);
 
-    HashMap<Integer, bi> acq();
+    HashMap<Integer, bk> aaC();
 
-    void acr();
+    void aaD();
 
-    int acs();
+    int aaE();
 
-    int act();
+    int aaF();
 
-    int acu();
+    int aaG();
 
-    int acv();
+    int aaH();
 
-    void b(ArrayList<com.baidu.adp.widget.ListView.v> arrayList, n nVar);
+    void b(ArrayList<com.baidu.adp.widget.ListView.v> arrayList, com.baidu.tieba.tbadkCore.n nVar);
 
-    void ef(boolean z);
+    void dW(boolean z);
 
     List<com.baidu.adp.widget.ListView.v> getDatas();
 
@@ -42,6 +41,4 @@ public interface am {
     void setFromCDN(boolean z);
 
     void setOnAdapterItemClickListener(com.baidu.adp.widget.ListView.w wVar);
-
-    void setOnAdapterItemLongClickListener(com.baidu.adp.widget.ListView.x xVar);
 }

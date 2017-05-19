@@ -9,19 +9,19 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private float aKX;
-    private boolean amW;
+    private float aLh;
+    private boolean anb;
     private int mTouchSlop;
 
     public TbViewPager(Context context) {
         super(context);
-        this.amW = false;
+        this.anb = false;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.amW = false;
+        this.anb = false;
         init();
     }
 
@@ -31,7 +31,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.amW = z;
+        this.anb = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -40,7 +40,7 @@ public class TbViewPager extends ViewPager {
         if (k(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.amW) {
+        if (motionEvent.getPointerCount() > 1 && this.anb) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -68,15 +68,15 @@ public class TbViewPager extends ViewPager {
             case 5:
             case 6:
                 aR(true);
-                this.aKX = motionEvent.getX();
+                this.aLh = motionEvent.getX();
                 break;
             case 1:
             case 3:
                 aR(false);
-                this.aKX = 0.0f;
+                this.aLh = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.aKX;
+                float x = motionEvent.getX() - this.aLh;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
                         aR(false);

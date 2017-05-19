@@ -186,14 +186,14 @@ public final class d {
     public static class a {
         private static final String a = ".BD_SAPI_CACHE";
         private String c;
-        private List<C0023a> d = new ArrayList();
+        private List<C0028a> d = new ArrayList();
         private boolean b = true;
 
         public boolean a() {
             return this.b;
         }
 
-        public List<C0023a> b() {
+        public List<C0028a> b() {
             return this.d;
         }
 
@@ -203,7 +203,7 @@ public final class d {
 
         /* renamed from: com.baidu.sapi2.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0023a {
+        public static class C0028a {
             public String a;
             public String b;
             public String c;
@@ -220,12 +220,12 @@ public final class d {
                 }
             }
 
-            static C0023a a(JSONObject jSONObject) {
-                C0023a c0023a = new C0023a();
-                c0023a.a = jSONObject.optString("id");
-                c0023a.b = jSONObject.optString(d.m);
-                c0023a.c = jSONObject.optString(d.n);
-                return c0023a;
+            static C0028a a(JSONObject jSONObject) {
+                C0028a c0028a = new C0028a();
+                c0028a.a = jSONObject.optString("id");
+                c0028a.b = jSONObject.optString(d.m);
+                c0028a.c = jSONObject.optString(d.n);
+                return c0028a;
             }
 
             public static String a(String str) {
@@ -247,7 +247,7 @@ public final class d {
                 if (obj == null || getClass() != obj.getClass()) {
                     return false;
                 }
-                return this.a.equals(((C0023a) obj).a);
+                return this.a.equals(((C0028a) obj).a);
             }
 
             public int hashCode() {
@@ -261,8 +261,8 @@ public final class d {
                 jSONObject.put(d.i, this.b);
                 jSONObject.put(d.j, this.c);
                 JSONArray jSONArray = new JSONArray();
-                for (C0023a c0023a : b()) {
-                    jSONArray.put(c0023a.a());
+                for (C0028a c0028a : b()) {
+                    jSONArray.put(c0028a.a());
                 }
                 jSONObject.put(d.k, jSONArray);
                 return jSONObject;
@@ -279,7 +279,7 @@ public final class d {
                     aVar.c = jSONObject.optLong(d.j) + "";
                     JSONArray optJSONArray = jSONObject.optJSONArray(d.k);
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        aVar.b().add(C0023a.a(optJSONArray.getJSONObject(i)));
+                        aVar.b().add(C0028a.a(optJSONArray.getJSONObject(i)));
                     }
                 } catch (Throwable th) {
                 }

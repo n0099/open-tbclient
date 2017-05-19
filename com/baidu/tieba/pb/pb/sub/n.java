@@ -11,11 +11,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity evm;
+    final /* synthetic */ NewSubPbActivity eqU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(NewSubPbActivity newSubPbActivity) {
-        this.evm = newSubPbActivity;
+        this.eqU = newSubPbActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
@@ -34,27 +34,27 @@ public class n implements NewSubPbActivity.a {
         Object[] objArr = (Object[]) obj;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            forumManageModel = this.evm.euW;
-            if (!forumManageModel.bkb() && objArr != null && objArr.length >= 4) {
+            forumManageModel = this.eqU.eqE;
+            if (!forumManageModel.bhy() && objArr != null && objArr.length >= 4) {
                 String valueOf = String.valueOf(objArr[0]);
                 int g = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[1]), 0);
                 boolean d = com.baidu.adp.lib.g.b.d(String.valueOf(objArr[2]), false);
                 int g2 = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[3]), 0);
-                subPbModel = this.evm.euV;
+                subPbModel = this.eqU.eqD;
                 if (subPbModel != null) {
-                    subPbModel2 = this.evm.euV;
-                    if (subPbModel2.aPO() != null) {
-                        subPbModel3 = this.evm.euV;
-                        if (subPbModel3.aPO().aLc() != null) {
-                            subPbModel4 = this.evm.euV;
-                            if (subPbModel4.aPO().Kn() != null) {
-                                forumManageModel2 = this.evm.euW;
-                                subPbModel5 = this.evm.euV;
-                                String id = subPbModel5.aPO().aLc().getId();
-                                subPbModel6 = this.evm.euV;
-                                String name = subPbModel6.aPO().aLc().getName();
-                                subPbModel7 = this.evm.euV;
-                                forumManageModel2.a(id, name, subPbModel7.aPO().Kn().getId(), valueOf, g2, g, d);
+                    subPbModel2 = this.eqU.eqD;
+                    if (subPbModel2.aNe() != null) {
+                        subPbModel3 = this.eqU.eqD;
+                        if (subPbModel3.aNe().aIx() != null) {
+                            subPbModel4 = this.eqU.eqD;
+                            if (subPbModel4.aNe().JB() != null) {
+                                forumManageModel2 = this.eqU.eqE;
+                                subPbModel5 = this.eqU.eqD;
+                                String id = subPbModel5.aNe().aIx().getId();
+                                subPbModel6 = this.eqU.eqD;
+                                String name = subPbModel6.aNe().aIx().getName();
+                                subPbModel7 = this.eqU.eqD;
+                                forumManageModel2.a(id, name, subPbModel7.aNe().JB().getId(), valueOf, g2, g, d);
                                 return;
                             }
                             return;
@@ -67,6 +67,6 @@ public class n implements NewSubPbActivity.a {
             }
             return;
         }
-        TbadkCoreApplication.m9getInst().login(this.evm.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.evm.getPageContext().getPageActivity(), this.evm.getPageContext().getString(w.l.login_to_use), true, 11017)));
+        TbadkCoreApplication.m9getInst().login(this.eqU.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.eqU.getPageContext().getPageActivity(), this.eqU.getPageContext().getString(w.l.login_to_use), true, 11017)));
     }
 }

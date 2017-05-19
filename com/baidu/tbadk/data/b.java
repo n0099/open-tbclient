@@ -1,11 +1,10 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import org.json.JSONObject;
 import tbclient.TailInfo;
 /* loaded from: classes.dex */
 public class b {
-    private int axi;
+    private int axn;
     private String content;
     private String icon_link;
     private String icon_url;
@@ -14,8 +13,8 @@ public class b {
         try {
             this.icon_url = jSONObject.optString("icon_url");
             this.icon_link = jSONObject.optString("icon_link");
-            this.content = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
-            this.axi = jSONObject.optInt("tail_type");
+            this.content = jSONObject.optString("content");
+            this.axn = jSONObject.optInt("tail_type");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -26,7 +25,7 @@ public class b {
             this.icon_url = tailInfo.icon_url;
             this.icon_link = tailInfo.icon_link;
             this.content = tailInfo.content;
-            this.axi = tailInfo.tail_type.intValue();
+            this.axn = tailInfo.tail_type.intValue();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,7 +35,7 @@ public class b {
         return this.icon_url;
     }
 
-    public String Cy() {
+    public String BJ() {
         return this.icon_link;
     }
 }

@@ -24,24 +24,24 @@ public class VerticalTranslateLayout extends FrameLayout {
     private final Paint Gr;
     private int Gs;
     private int Gt;
-    private float JE;
-    private float JF;
-    private float JG;
-    private float JH;
-    private int JI;
-    private boolean JJ;
-    private boolean JK;
-    private TrackDirection JL;
-    private final Rect JM;
-    private final Rect JN;
-    private int JO;
-    private boolean JP;
-    private final a JQ;
-    private final b JR;
-    private final g JS;
-    private e JT;
-    private c JU;
-    private f JV;
+    private float IW;
+    private float IX;
+    private float IY;
+    private float IZ;
+    private int Ja;
+    private boolean Jb;
+    private boolean Jc;
+    private TrackDirection Jd;
+    private final Rect Je;
+    private final Rect Jf;
+    private int Jg;
+    private boolean Jh;
+    private final a Ji;
+    private final b Jj;
+    private final g Jk;
+    private e Jl;
+    private c Jm;
+    private f Jn;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -51,7 +51,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         vertical,
         none;
 
-        /* JADX DEBUG: Replace access to removed values field (JX) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Jp) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TrackDirection[] valuesCustom() {
             TrackDirection[] valuesCustom = values();
@@ -65,31 +65,31 @@ public class VerticalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface c {
-        void kK();
+        void kJ();
 
-        void ma();
+        void lH();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface d {
-        void kI();
+        void kH();
 
-        void kJ();
+        void kI();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface e {
-        void kG();
+        void kF();
 
-        void mb();
+        void lI();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface f {
-        void aN(int i);
+        void aK(int i);
     }
 
     static {
@@ -105,17 +105,17 @@ public class VerticalTranslateLayout extends FrameLayout {
     public void setProportion(float f2) {
         if (f2 >= -1.0f && f2 <= 1.0f) {
             if (f2 < 0.0f) {
-                this.JI = (int) ((this.JE - this.Gf) * (-f2));
+                this.Ja = (int) ((this.IW - this.Gf) * (-f2));
             } else if (f2 > 0.0f) {
-                this.JI = (int) ((this.Gf - this.JG) * f2);
+                this.Ja = (int) ((this.Gf - this.IY) * f2);
             } else if (f2 == 0.0f) {
-                this.JI = 0;
+                this.Ja = 0;
                 this.Go = 10004;
             } else if (f2 == -1.0f) {
-                this.JE -= this.Gf;
+                this.IW -= this.Gf;
                 this.Go = 10000;
             } else if (f2 == 1.0f) {
-                this.JE = this.Gf - this.JG;
+                this.IW = this.Gf - this.IY;
                 this.Go = IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND;
             }
             invalidate();
@@ -123,19 +123,19 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     public int getTopOffset() {
-        return (int) this.JE;
+        return (int) this.IW;
     }
 
     public int getBottomOffset() {
-        return (int) this.JG;
+        return (int) this.IY;
     }
 
     public void setTopTapBack(boolean z) {
-        this.JJ = z;
+        this.Jb = z;
     }
 
     public void setBottomTapBack(boolean z) {
-        this.JK = z;
+        this.Jc = z;
     }
 
     public int getState() {
@@ -143,34 +143,34 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     public void setTopAnimationListener(e eVar) {
-        this.JT = eVar;
+        this.Jl = eVar;
     }
 
     public void setBottomAnimationListener(c cVar) {
-        this.JU = cVar;
+        this.Jm = cVar;
     }
 
     public void setVerticalTrackListener(f fVar) {
-        this.JV = fVar;
+        this.Jn = fVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         canvas.save();
-        canvas.translate(0.0f, this.JI);
-        BdLog.d("VerticalTranslateLayout@dispatchDraw " + this.JI);
+        canvas.translate(0.0f, this.Ja);
+        BdLog.d("VerticalTranslateLayout@dispatchDraw " + this.Ja);
         canvas.drawRect(0.0f, 0.0f, this.Ge, this.Gf, this.Gr);
         super.dispatchDraw(canvas);
         canvas.restore();
     }
 
     public int getTopTranslate() {
-        return this.JI;
+        return this.Ja;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.JL == TrackDirection.none) {
+        if (this.Jd == TrackDirection.none) {
             return false;
         }
         int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
@@ -181,17 +181,17 @@ public class VerticalTranslateLayout extends FrameLayout {
                 case 0:
                     this.Gs = x;
                     this.Gt = y;
-                    this.JQ.removeMessages(-100);
-                    this.JQ.removeMessages(-104);
-                    this.JQ.removeMessages(-101);
-                    this.JQ.removeMessages(-105);
+                    this.Ji.removeMessages(-100);
+                    this.Ji.removeMessages(-104);
+                    this.Ji.removeMessages(-101);
+                    this.Ji.removeMessages(-105);
                     return false;
                 case 1:
                 default:
                     return false;
                 case 2:
                     BdLog.d("VerticalTranslateLayout@interceptInterceptTouchEvent");
-                    motionEvent.offsetLocation(0.0f, -this.JI);
+                    motionEvent.offsetLocation(0.0f, -this.Ja);
                     return q(x, y);
             }
         }
@@ -200,7 +200,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     private boolean q(int i, int i2) {
-        return i >= this.Gs - this.Gk && i <= this.Gs + this.Gk && (i2 < this.Gt - this.Gk || i2 > this.Gt + this.Gk) && this.JS.aF(i2 - this.Gt);
+        return i >= this.Gs - this.Gk && i <= this.Gs + this.Gk && (i2 < this.Gt - this.Gk || i2 > this.Gt + this.Gk) && this.Jk.aE(i2 - this.Gt);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -214,28 +214,28 @@ public class VerticalTranslateLayout extends FrameLayout {
                 case 1:
                 case 3:
                     BdLog.d("VerticalTranslateLayout@onTouchEvent up");
-                    this.JP = false;
-                    if (this.JS.GN) {
+                    this.Jh = false;
+                    if (this.Jk.GN) {
                         BdLog.d("VerticalTranslateLayout@onTouchEvent tracking");
-                        this.JS.kM();
-                        this.JS.kN();
+                        this.Jk.kL();
+                        this.Jk.kM();
                         return true;
                     }
                     return true;
                 case 2:
-                    if (this.JS.GN) {
-                        if (!this.JP) {
+                    if (this.Jk.GN) {
+                        if (!this.Jh) {
                             if (y > this.Gt) {
-                                this.JO = this.Gt + this.Gk;
-                                this.JP = true;
+                                this.Jg = this.Gt + this.Gk;
+                                this.Jh = true;
                             } else {
-                                this.JO = this.Gt - this.Gk;
-                                this.JP = true;
+                                this.Jg = this.Gt - this.Gk;
+                                this.Jh = true;
                             }
                         }
-                        this.JS.aG(this.JO - y);
-                        this.JO = y;
-                        this.JS.GM.addMovement(motionEvent);
+                        this.Jk.aF(this.Jg - y);
+                        this.Jg = y;
+                        this.Jk.GM.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -245,20 +245,20 @@ public class VerticalTranslateLayout extends FrameLayout {
         }
         switch (action) {
             case 0:
-                if ((this.Go != 10000 || !this.JM.contains(x, y)) && (this.Go != 10001 || !this.JN.contains(x, y))) {
+                if ((this.Go != 10000 || !this.Je.contains(x, y)) && (this.Go != 10001 || !this.Jf.contains(x, y))) {
                     return false;
                 }
-                if (!this.JS.GN) {
-                    this.JO = y;
-                    this.JS.aF(y);
+                if (!this.Jk.GN) {
+                    this.Jg = y;
+                    this.Jk.aE(y);
                     break;
                 }
                 break;
             case 1:
             case 3:
-                if (this.JS.GN) {
-                    this.JS.kM();
-                    this.JS.kN();
+                if (this.Jk.GN) {
+                    this.Jk.kL();
+                    this.Jk.kM();
                     return true;
                 }
                 return true;
@@ -267,10 +267,10 @@ public class VerticalTranslateLayout extends FrameLayout {
             default:
                 return true;
         }
-        if (this.JS.GN) {
-            this.JS.aG(this.JO - y);
-            this.JO = y;
-            this.JS.GM.addMovement(motionEvent);
+        if (this.Jk.GN) {
+            this.Jk.aF(this.Jg - y);
+            this.Jg = y;
+            this.Jk.GM.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -280,15 +280,15 @@ public class VerticalTranslateLayout extends FrameLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.JE != -1.0f) {
-                this.JM.set(i, i2, i3, (int) (i2 + this.JE));
+            if (this.IW != -1.0f) {
+                this.Je.set(i, i2, i3, (int) (i2 + this.IW));
             }
-            if (this.JG != -1.0f) {
-                this.JN.set(i, (int) (i4 - this.JG), i3, i4);
+            if (this.IY != -1.0f) {
+                this.Jf.set(i, (int) (i4 - this.IY), i3, i4);
             }
         }
-        if (!this.JR.GK && !this.JS.GN) {
-            kA();
+        if (!this.Jj.GK && !this.Jk.GN) {
+            kz();
         }
     }
 
@@ -296,16 +296,16 @@ public class VerticalTranslateLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int i3 = 1073741823 & i2;
-        if (this.JF != -1.0f) {
-            this.JE = i3 - this.JH;
+        if (this.IX != -1.0f) {
+            this.IW = i3 - this.IZ;
         }
-        if (this.JH != -1.0f) {
-            this.JG = i3 - this.JF;
+        if (this.IZ != -1.0f) {
+            this.IY = i3 - this.IX;
         }
-        if (!$assertionsDisabled && i3 < this.JE) {
+        if (!$assertionsDisabled && i3 < this.IW) {
             throw new AssertionError("top offset should not be larger than the view's width");
         }
-        if (!$assertionsDisabled && i3 < this.JG) {
+        if (!$assertionsDisabled && i3 < this.IY) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
         this.Ge = getMeasuredWidth();
@@ -313,14 +313,14 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kA() {
+    public void kz() {
         switch (this.Go) {
             case 10000:
-                this.JI = (int) (this.JE - this.Gf);
+                this.Ja = (int) (this.IW - this.Gf);
                 invalidate();
                 return;
             case IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND /* 10001 */:
-                this.JI = (int) (this.Gf - this.JG);
+                this.Ja = (int) (this.Gf - this.IY);
                 invalidate();
                 return;
             case IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND /* 10002 */:
@@ -328,7 +328,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             default:
                 return;
             case 10004:
-                this.JI = 0;
+                this.Ja = 0;
                 invalidate();
                 return;
         }
@@ -337,27 +337,27 @@ public class VerticalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends Handler {
-        final /* synthetic */ VerticalTranslateLayout JW;
+        final /* synthetic */ VerticalTranslateLayout Jo;
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (this.JW.JR.GK) {
+            if (this.Jo.Jj.GK) {
                 switch (message.what) {
                     case -105:
-                        this.JW.JR.lZ();
+                        this.Jo.Jj.lG();
                         return;
                     case -104:
-                        this.JW.JR.lY();
+                        this.Jo.Jj.lF();
                         return;
                     case -103:
                     case -102:
                     default:
                         return;
                     case -101:
-                        this.JW.JR.lX();
+                        this.Jo.Jj.lE();
                         return;
                     case -100:
-                        this.JW.JR.lW();
+                        this.Jo.Jj.lD();
                         return;
                 }
             }
@@ -367,15 +367,15 @@ public class VerticalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class g {
-        private static /* synthetic */ int[] JY;
+        private static /* synthetic */ int[] Jq;
         VelocityTracker GM;
         boolean GN;
         final int GO;
         final int GP;
-        final /* synthetic */ VerticalTranslateLayout JW;
+        final /* synthetic */ VerticalTranslateLayout Jo;
 
-        static /* synthetic */ int[] mc() {
-            int[] iArr = JY;
+        static /* synthetic */ int[] lJ() {
+            int[] iArr = Jq;
             if (iArr == null) {
                 iArr = new int[TrackDirection.valuesCustom().length];
                 try {
@@ -394,26 +394,26 @@ public class VerticalTranslateLayout extends FrameLayout {
                     iArr[TrackDirection.vertical.ordinal()] = 3;
                 } catch (NoSuchFieldError e4) {
                 }
-                JY = iArr;
+                Jq = iArr;
             }
             return iArr;
         }
 
-        boolean aF(int i) {
-            switch (mc()[this.JW.JL.ordinal()]) {
+        boolean aE(int i) {
+            switch (lJ()[this.Jo.Jd.ordinal()]) {
                 case 1:
-                    if (this.JW.Go != 10004 && this.JW.Go != 10000) {
+                    if (this.Jo.Go != 10004 && this.Jo.Go != 10000) {
                         return false;
                     }
                     break;
                 case 2:
-                    if (this.JW.Go != 10004 && this.JW.Go != 10001) {
+                    if (this.Jo.Go != 10004 && this.Jo.Go != 10001) {
                         return false;
                     }
                     break;
                 case 3:
-                    if (this.JW.JV != null) {
-                        this.JW.JV.aN(i);
+                    if (this.Jo.Jn != null) {
+                        this.Jo.Jn.aK(i);
                         break;
                     }
                     break;
@@ -423,35 +423,35 @@ public class VerticalTranslateLayout extends FrameLayout {
             return true;
         }
 
-        void kM() {
+        void kL() {
             this.GN = false;
         }
 
-        void aG(int i) {
+        void aF(int i) {
             if (this.GN) {
-                int i2 = this.JW.JI - i;
-                switch (mc()[this.JW.JL.ordinal()]) {
+                int i2 = this.Jo.Ja - i;
+                switch (lJ()[this.Jo.Jd.ordinal()]) {
                     case 1:
                         BdLog.d("VerticalTranslateLayout@move top");
-                        if (i2 > this.JW.JE - this.JW.Gf && i2 < 0) {
-                            this.JW.JI -= i;
-                            this.JW.invalidate();
+                        if (i2 > this.Jo.IW - this.Jo.Gf && i2 < 0) {
+                            this.Jo.Ja -= i;
+                            this.Jo.invalidate();
                             return;
                         }
                         return;
                     case 2:
                         BdLog.d("VerticalTranslateLayout@move bottom");
-                        if (i2 < this.JW.Gf - this.JW.JG && i2 > 0) {
-                            this.JW.JI -= i;
-                            this.JW.invalidate();
+                        if (i2 < this.Jo.Gf - this.Jo.IY && i2 > 0) {
+                            this.Jo.Ja -= i;
+                            this.Jo.invalidate();
                             return;
                         }
                         return;
                     case 3:
                         BdLog.d("VerticalTranslateLayout@move vertical");
-                        if (i2 >= this.JW.JE - this.JW.Gf && i2 <= this.JW.Gf - this.JW.JG) {
-                            this.JW.JI -= i;
-                            this.JW.invalidate();
+                        if (i2 >= this.Jo.IW - this.Jo.Gf && i2 <= this.Jo.Gf - this.Jo.IY) {
+                            this.Jo.Ja -= i;
+                            this.Jo.invalidate();
                             return;
                         }
                         return;
@@ -462,7 +462,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void kN() {
+        public void kM() {
             float max;
             this.GM.computeCurrentVelocity(this.GO);
             float yVelocity = this.GM.getYVelocity();
@@ -472,7 +472,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             } else {
                 max = Math.max(yVelocity, this.GP);
             }
-            switch (mc()[this.JW.JL.ordinal()]) {
+            switch (lJ()[this.Jo.Jd.ordinal()]) {
                 case 1:
                     O(max);
                     break;
@@ -489,18 +489,18 @@ public class VerticalTranslateLayout extends FrameLayout {
 
         private void N(float f) {
             BdLog.d("VerticalTranslateLayout@verticalFling");
-            int i = this.JW.JI;
-            if (i <= 0 && i >= this.JW.JE - this.JW.Gf) {
+            int i = this.Jo.Ja;
+            if (i <= 0 && i >= this.Jo.IW - this.Jo.Gf) {
                 if (f < 0.0f) {
-                    this.JW.JR.L(f);
+                    this.Jo.Jj.L(f);
                 } else {
-                    this.JW.JR.J(f);
+                    this.Jo.Jj.J(f);
                 }
-            } else if (i >= 0 && i <= this.JW.Gf - this.JW.JG) {
+            } else if (i >= 0 && i <= this.Jo.Gf - this.Jo.IY) {
                 if (f < 0.0f) {
-                    this.JW.JR.K(f);
+                    this.Jo.Jj.K(f);
                 } else {
-                    this.JW.JR.M(f);
+                    this.Jo.Jj.M(f);
                 }
             }
         }
@@ -508,18 +508,18 @@ public class VerticalTranslateLayout extends FrameLayout {
         private void O(float f) {
             BdLog.d("VerticalTranslateLayout@topFling");
             if (f < 0.0f) {
-                this.JW.JR.L(f);
+                this.Jo.Jj.L(f);
             } else {
-                this.JW.JR.J(f);
+                this.Jo.Jj.J(f);
             }
         }
 
         private void P(float f) {
             BdLog.d("VerticalTranslateLayout@bottomFling");
             if (f < 0.0f) {
-                this.JW.JR.K(f);
+                this.Jo.Jj.K(f);
             } else {
-                this.JW.JR.M(f);
+                this.Jo.Jj.M(f);
             }
         }
     }
@@ -534,89 +534,89 @@ public class VerticalTranslateLayout extends FrameLayout {
         long GI;
         long GJ;
         boolean GK;
-        final /* synthetic */ VerticalTranslateLayout JW;
+        final /* synthetic */ VerticalTranslateLayout Jo;
 
-        private void kB() {
+        private void kA() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.GE = ((((float) (uptimeMillis - this.GI)) / 1000.0f) * this.GF) + this.GE;
             this.GI = uptimeMillis;
             this.GJ += 16;
         }
 
-        void lW() {
-            kB();
+        void lD() {
+            kA();
             if (this.GE <= this.GG) {
-                e eVar = this.JW.JT;
+                e eVar = this.Jo.Jl;
                 if (eVar != null) {
-                    eVar.mb();
+                    eVar.lI();
                 }
                 this.GK = false;
-                this.JW.Go = 10000;
-                this.JW.kA();
+                this.Jo.Go = 10000;
+                this.Jo.kz();
                 return;
             }
-            this.JW.JI = (int) (com.baidu.adp.widget.a.a(this.GG, this.GE, false) + this.GH);
-            this.JW.invalidate();
-            this.JW.JQ.sendEmptyMessageAtTime(-100, this.GJ);
+            this.Jo.Ja = (int) (com.baidu.adp.widget.a.a(this.GG, this.GE, false) + this.GH);
+            this.Jo.invalidate();
+            this.Jo.Ji.sendEmptyMessageAtTime(-100, this.GJ);
         }
 
-        void lX() {
-            kB();
+        void lE() {
+            kA();
             if (this.GE >= this.GG) {
-                c cVar = this.JW.JU;
+                c cVar = this.Jo.Jm;
                 if (cVar != null) {
-                    cVar.ma();
+                    cVar.lH();
                 }
                 this.GK = false;
-                this.JW.Go = IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND;
-                this.JW.kA();
+                this.Jo.Go = IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND;
+                this.Jo.kz();
                 return;
             }
-            this.JW.JI = (int) (com.baidu.adp.widget.a.a(this.GG, this.GE, false) + this.GH);
-            this.JW.invalidate();
-            this.JW.JQ.sendEmptyMessageAtTime(-101, this.GJ);
+            this.Jo.Ja = (int) (com.baidu.adp.widget.a.a(this.GG, this.GE, false) + this.GH);
+            this.Jo.invalidate();
+            this.Jo.Ji.sendEmptyMessageAtTime(-101, this.GJ);
         }
 
-        void lY() {
-            kB();
+        void lF() {
+            kA();
             if (this.GE >= this.GG) {
-                for (d dVar : this.JW.GB) {
+                for (d dVar : this.Jo.GB) {
                     if (dVar != null) {
-                        dVar.kJ();
+                        dVar.kI();
                     }
                 }
                 this.GK = false;
-                this.JW.Go = 10004;
-                this.JW.kA();
+                this.Jo.Go = 10004;
+                this.Jo.kz();
                 return;
             }
-            this.JW.JI = (int) (com.baidu.adp.widget.a.a(this.GG, this.GE, false) + this.GH);
-            this.JW.invalidate();
-            this.JW.JQ.sendEmptyMessageAtTime(-104, this.GJ);
+            this.Jo.Ja = (int) (com.baidu.adp.widget.a.a(this.GG, this.GE, false) + this.GH);
+            this.Jo.invalidate();
+            this.Jo.Ji.sendEmptyMessageAtTime(-104, this.GJ);
         }
 
-        void lZ() {
-            kB();
+        void lG() {
+            kA();
             if (this.GE <= this.GG) {
-                for (d dVar : this.JW.GB) {
+                for (d dVar : this.Jo.GB) {
                     if (dVar != null) {
-                        dVar.kJ();
+                        dVar.kI();
                     }
                 }
                 this.GK = false;
-                this.JW.Go = 10004;
-                this.JW.kA();
+                this.Jo.Go = 10004;
+                this.Jo.kz();
                 return;
             }
-            this.JW.JI = (int) (com.baidu.adp.widget.a.a(this.GG, this.GE, false) + this.GH);
-            this.JW.invalidate();
-            this.JW.JQ.sendEmptyMessageAtTime(-105, this.GJ);
+            this.Jo.Ja = (int) (com.baidu.adp.widget.a.a(this.GG, this.GE, false) + this.GH);
+            this.Jo.invalidate();
+            this.Jo.Ji.sendEmptyMessageAtTime(-105, this.GJ);
         }
 
         void J(float f) {
-            for (d dVar : this.JW.GB) {
+            for (d dVar : this.Jo.GB) {
                 if (dVar != null) {
-                    dVar.kI();
+                    dVar.kH();
                 }
             }
             this.GK = true;
@@ -625,18 +625,18 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.GJ = uptimeMillis + 16;
             this.GF = f;
             this.GE = 0.0f;
-            this.GG = 0 - this.JW.JI;
-            this.GH = this.JW.JI;
-            this.JW.JQ.removeMessages(-104);
+            this.GG = 0 - this.Jo.Ja;
+            this.GH = this.Jo.Ja;
+            this.Jo.Ji.removeMessages(-104);
             BdLog.d("Animator@animateTopOpen " + this.GG);
             BdLog.d("Animator@animateTopOpen " + f);
-            this.JW.JQ.sendEmptyMessageAtTime(-104, this.GJ);
+            this.Jo.Ji.sendEmptyMessageAtTime(-104, this.GJ);
         }
 
         void K(float f) {
-            for (d dVar : this.JW.GB) {
+            for (d dVar : this.Jo.GB) {
                 if (dVar != null) {
-                    dVar.kI();
+                    dVar.kH();
                 }
             }
             this.GK = true;
@@ -645,18 +645,18 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.GJ = uptimeMillis + 16;
             this.GF = f;
             this.GE = 0.0f;
-            this.GG = 0 - this.JW.JI;
-            this.GH = this.JW.JI;
+            this.GG = 0 - this.Jo.Ja;
+            this.GH = this.Jo.Ja;
             BdLog.d("Animator@animateBottomOpen " + this.GG);
             BdLog.d("Animator@animateBottomOpen " + f);
-            this.JW.JQ.removeMessages(-105);
-            this.JW.JQ.sendEmptyMessageAtTime(-105, this.GJ);
+            this.Jo.Ji.removeMessages(-105);
+            this.Jo.Ji.sendEmptyMessageAtTime(-105, this.GJ);
         }
 
         void L(float f) {
-            e eVar = this.JW.JT;
+            e eVar = this.Jo.Jl;
             if (eVar != null) {
-                eVar.kG();
+                eVar.kF();
             }
             this.GK = true;
             long uptimeMillis = SystemClock.uptimeMillis();
@@ -664,18 +664,18 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.GJ = uptimeMillis + 16;
             this.GF = f;
             this.GE = 0.0f;
-            this.GG = ((-this.JW.Gf) + this.JW.JE) - this.JW.JI;
-            this.GH = this.JW.JI;
+            this.GG = ((-this.Jo.Gf) + this.Jo.IW) - this.Jo.Ja;
+            this.GH = this.Jo.Ja;
             BdLog.d("Animator@animateTop " + this.GG);
             BdLog.d("Animator@animateTop " + f);
-            this.JW.JQ.removeMessages(-100);
-            this.JW.JQ.sendEmptyMessageAtTime(-100, this.GJ);
+            this.Jo.Ji.removeMessages(-100);
+            this.Jo.Ji.sendEmptyMessageAtTime(-100, this.GJ);
         }
 
         void M(float f) {
-            c cVar = this.JW.JU;
+            c cVar = this.Jo.Jm;
             if (cVar != null) {
-                cVar.kK();
+                cVar.kJ();
             }
             this.GK = true;
             long uptimeMillis = SystemClock.uptimeMillis();
@@ -683,12 +683,12 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.GJ = uptimeMillis + 16;
             this.GF = f;
             this.GE = 0.0f;
-            this.GG = (this.JW.Gf - this.JW.JG) - this.JW.JI;
-            this.GH = this.JW.JI;
+            this.GG = (this.Jo.Gf - this.Jo.IY) - this.Jo.Ja;
+            this.GH = this.Jo.Ja;
             BdLog.d("Animator@animateBottom " + this.GG);
             BdLog.d("Animator@animateBottom " + f);
-            this.JW.JQ.removeMessages(-101);
-            this.JW.JQ.sendEmptyMessageAtTime(-101, this.GJ);
+            this.Jo.Ji.removeMessages(-101);
+            this.Jo.Ji.sendEmptyMessageAtTime(-101, this.GJ);
         }
     }
 }

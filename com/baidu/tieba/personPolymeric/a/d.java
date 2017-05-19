@@ -3,43 +3,43 @@ package com.baidu.tieba.personPolymeric.a;
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.adp.lib.e.c<com.baidu.tieba.personPolymeric.d.q> {
-    final /* synthetic */ c eGB;
+public class d implements com.baidu.adp.lib.e.c<com.baidu.tieba.personPolymeric.d.s> {
+    final /* synthetic */ c eBO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.eGB = cVar;
+        this.eBO = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: aSm */
-    public com.baidu.tieba.personPolymeric.d.q fL() {
+    /* renamed from: aPz */
+    public com.baidu.tieba.personPolymeric.d.s fL() {
         Context context;
-        context = this.eGB.mContext;
-        return new com.baidu.tieba.personPolymeric.d.q(context);
+        context = this.eBO.mContext;
+        return new com.baidu.tieba.personPolymeric.d.s(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: a */
-    public void o(com.baidu.tieba.personPolymeric.d.q qVar) {
-        if (qVar != null) {
-            qVar.removeAllViews();
+    public void o(com.baidu.tieba.personPolymeric.d.s sVar) {
+        if (sVar != null) {
+            sVar.removeAllViews();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: b */
-    public com.baidu.tieba.personPolymeric.d.q p(com.baidu.tieba.personPolymeric.d.q qVar) {
-        return qVar;
+    public com.baidu.tieba.personPolymeric.d.s p(com.baidu.tieba.personPolymeric.d.s sVar) {
+        return sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: c */
-    public com.baidu.tieba.personPolymeric.d.q q(com.baidu.tieba.personPolymeric.d.q qVar) {
-        return qVar;
+    public com.baidu.tieba.personPolymeric.d.s q(com.baidu.tieba.personPolymeric.d.s sVar) {
+        return sVar;
     }
 }

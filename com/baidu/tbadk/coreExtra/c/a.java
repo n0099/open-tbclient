@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.z;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private C0035a aqz;
+    private C0039a aqB;
     private f mLoadDataCallBack;
 
     public a(f fVar) {
@@ -34,25 +34,25 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.aqz == null) {
-            this.aqz = new C0035a(this, null);
-            this.aqz.setPriority(2);
-            this.aqz.bj(z);
-            this.aqz.setPortrait(str);
-            this.aqz.setToUid(str2);
-            this.aqz.setIsGod(z2);
-            this.aqz.setFrom(str3);
-            this.aqz.setPageId(bdUniqueId);
-            this.aqz.setForumId(str4);
-            this.aqz.setInLive(str5);
-            this.aqz.execute(new Integer[0]);
+        if (this.aqB == null) {
+            this.aqB = new C0039a(this, null);
+            this.aqB.setPriority(2);
+            this.aqB.bj(z);
+            this.aqB.setPortrait(str);
+            this.aqB.setToUid(str2);
+            this.aqB.setIsGod(z2);
+            this.aqB.setFrom(str3);
+            this.aqB.setPageId(bdUniqueId);
+            this.aqB.setForumId(str4);
+            this.aqB.setInLive(str5);
+            this.aqB.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0035a extends BdAsyncTask<Integer, Integer, String> {
+    public class C0039a extends BdAsyncTask<Integer, Integer, String> {
         private String forumId;
         private String from;
         private String inLive;
@@ -64,7 +64,7 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0035a() {
+        private C0039a() {
             this.mNetwork = null;
             this.isGod = false;
             this.from = "0";
@@ -73,7 +73,7 @@ public class a {
             this.showToastAfterAttentionSuc = false;
         }
 
-        /* synthetic */ C0035a(a aVar, C0035a c0035a) {
+        /* synthetic */ C0039a(a aVar, C0039a c0039a) {
             this();
         }
 
@@ -132,8 +132,8 @@ public class a {
                         this.mNetwork.n("forum_id", this.forumId);
                     }
                     this.mNetwork.n("in_live", this.inLive);
-                    this.mNetwork.vw().wp().mIsNeedTbs = true;
-                    return this.mNetwork.uY();
+                    this.mNetwork.uJ().vD().mIsNeedTbs = true;
+                    return this.mNetwork.ul();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -145,11 +145,11 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0035a) str);
-            a.this.aqz = null;
+            super.onPostExecute((C0039a) str);
+            a.this.aqB = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.CB = this.mNetwork.vw().wq().isRequestSuccess();
+                aVar.CB = this.mNetwork.uJ().vE().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
@@ -168,7 +168,7 @@ public class a {
                 this.mNetwork.fs();
                 this.mNetwork = null;
             }
-            a.this.aqz = null;
+            a.this.aqB = null;
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.g(false);
             }
@@ -176,8 +176,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.aqz != null) {
-            this.aqz.cancel();
+        if (this.aqB != null) {
+            this.aqB.cancel();
         }
     }
 }

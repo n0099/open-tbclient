@@ -1,117 +1,61 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class n extends c {
-    public bi threadData;
-    public static String bxm = "";
-    public static String bxn = "";
-    public static String bxo = "";
-    public static String bxp = "";
-    public static String bxq = "";
-    public static String bxr = "";
-    public static String bxs = "";
-    public static String bxt = "";
-    public static String bxu = "";
-    public static String bxv = "";
-    public static String bxw = "";
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId bxx = BdUniqueId.gen();
-    public boolean bxy = false;
-    public boolean bxz = false;
-    public boolean aAq = true;
+    public static final BdUniqueId bxC = BdUniqueId.gen();
+    public static final BdUniqueId bxD = BdUniqueId.gen();
+    public static String bxE = "";
+    public static String bxF = "";
+    public static String bxG = "";
+    public static String bxH = "";
+    public static String bxI = "";
+    public static String bxJ = "";
+    public static String bxK = "";
+    public bk bcB;
+    public boolean bxx = false;
+    public boolean bxL = true;
+    public int sourceType = 0;
 
-    public static boolean n(bi biVar) {
-        if (biVar == null) {
-            return false;
-        }
-        return biVar.getType() == bi.Yb || biVar.getType() == bi.Yc;
+    public n(bk bkVar) {
+        this.bcB = bkVar;
+    }
+
+    public static boolean s(bk bkVar) {
+        return (bkVar == null || bkVar.rP() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.threadData == null) {
-            return TYPE;
+        if (this.bcB == null) {
+            return bxC;
         }
-        if (this.bxy) {
-            return bxx;
+        if (this.bcB.rB() || this.bcB.rC()) {
+            return bxD;
         }
-        return TYPE;
+        return bxC;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bi Kn() {
-        return this.threadData;
+    public bk JB() {
+        return this.bcB;
     }
 
-    public boolean Um() {
-        return (this.threadData == null || x.p(this.threadData.sC()) == 0) ? false : true;
+    public as TG() {
+        return A(bxH, true);
     }
 
-    public as Un() {
-        if (Um()) {
-            return m16if(bxr);
-        }
-        as asVar = m16if(bxm);
-        if (asVar != null) {
-            asVar.aa("ab_tag", TZ()).aa("ab_action", "show");
-            return asVar;
-        }
-        return asVar;
+    public as t(bk bkVar) {
+        return (bkVar.sC() == null || bkVar.sC().channelId <= 0) ? A(bxI, true) : A(bxJ, true);
     }
 
-    public as Uo() {
-        if (Um()) {
-            return m16if(bxs);
-        }
-        as asVar = m16if(bxn);
-        if (asVar != null) {
-            asVar.aa("ab_tag", TZ()).aa("ab_action", "click");
-            return asVar;
-        }
-        return asVar;
+    public as TI() {
+        return A(bxF, true);
     }
 
-    public as Up() {
-        if (Um()) {
-            return m16if(bxt);
-        }
-        as asVar = m16if(bxo);
-        if (asVar != null) {
-            asVar.aa("ab_tag", TZ()).aa("ab_action", "click");
-            return asVar;
-        }
-        return asVar;
-    }
-
-    public as Uq() {
-        if (Um()) {
-            return m16if(bxu);
-        }
-        as asVar = m16if(bxp);
-        if (asVar != null) {
-            asVar.aa("ab_tag", TZ()).aa("ab_action", "click");
-            return asVar;
-        }
-        return asVar;
-    }
-
-    public as Ur() {
-        if (Um()) {
-            return m16if(bxv);
-        }
-        as asVar = m16if(bxq);
-        if (asVar != null) {
-            asVar.aa("ab_tag", TZ()).aa("ab_action", "click");
-            return asVar;
-        }
-        return asVar;
-    }
-
-    public as Us() {
-        return m16if(bxw);
+    public as u(bk bkVar) {
+        return (bkVar.sC() == null || bkVar.sC().channelId <= 0) ? A(bxE, true) : A(bxK, true);
     }
 }

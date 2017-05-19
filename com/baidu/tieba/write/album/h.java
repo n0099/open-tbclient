@@ -1,378 +1,54 @@
 package com.baidu.tieba.write.album;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.provider.MediaStore;
-import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.au;
+import android.support.v4.view.ViewPager;
+import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h {
-    private final String fPw = TbConfig.getTempDirName();
-    private a fPx;
-    private c fPy;
-    private final Context mContext;
+public class h implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ f fMr;
 
-    /* loaded from: classes.dex */
-    public interface b {
-        void cV(List<ImageFileInfo> list);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(f fVar) {
+        this.fMr = fVar;
     }
 
-    public h(Context context) {
-        this.mContext = context;
-    }
-
-    public boolean a(n nVar) {
-        if (nVar == null) {
-            return false;
-        }
-        boA();
-        this.fPx = new a(nVar);
-        this.fPx.setPriority(3);
-        this.fPx.execute(new Object[0]);
-        return true;
-    }
-
-    public boolean a(String str, ap apVar) {
-        if (apVar == null) {
-            return false;
-        }
-        boB();
-        this.fPy = new c(str, apVar);
-        this.fPy.setPriority(3);
-        this.fPy.execute(new Void[0]);
-        return true;
-    }
-
-    public void boA() {
-        if (this.fPx != null) {
-            this.fPx.cancel();
-            this.fPx = null;
-        }
-    }
-
-    public void boB() {
-        if (this.fPy != null) {
-            this.fPy.cancel();
-            this.fPy = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<Object, Integer, List<d>> {
-        private final n fPz;
-
-        public a(n nVar) {
-            this.fPz = nVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public List<d> doInBackground(Object... objArr) {
-            return h.this.boC();
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            super.onPreExecute();
-            if (this.fPz != null) {
-                this.fPz.ln();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(List<d> list) {
-            super.onPostExecute((a) list);
-            if (this.fPz != null) {
-                this.fPz.cW(list);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public List<d> boC() {
-        HashSet<String> hashSet = new HashSet<>();
-        return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
-    }
-
-    private List<d> a(Context context, List<d> list, Uri uri, HashSet<String> hashSet) {
-        Cursor cursor;
-        File[] listFiles;
-        Matcher matcher;
-        if (context == null) {
-            return null;
-        }
-        Pattern compile = Pattern.compile("image\\/\\w+", 2);
-        if (list == null) {
-            list = new ArrayList<>();
-        }
-        try {
-            cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "bucket_display_name", "_data", "count(*)"}, "mime_type like 'image/%') GROUP BY 1,(2", null, "date_added DESC");
-            try {
-                try {
-                    if (cursor.moveToFirst()) {
-                        int columnIndex = cursor.getColumnIndex("bucket_id");
-                        int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
-                        int columnIndex3 = cursor.getColumnIndex("_data");
-                        int columnIndex4 = cursor.getColumnIndex("count(*)");
-                        do {
-                            String string = cursor.getString(columnIndex);
-                            String string2 = cursor.getString(columnIndex2);
-                            String string3 = cursor.getString(columnIndex3);
-                            cursor.getString(columnIndex4);
-                            int i = 0;
-                            String substring = string3.substring(0, string3.lastIndexOf("/"));
-                            if (hashSet != null) {
-                                if (!hashSet.contains(substring)) {
-                                    hashSet.add(substring);
-                                }
-                            }
-                            File file = new File(substring);
-                            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                                for (File file2 : listFiles) {
-                                    String qZ = qZ(file2.getAbsolutePath());
-                                    if (qZ != null && (matcher = compile.matcher(qZ)) != null && matcher.matches()) {
-                                        i++;
-                                    }
-                                }
-                            }
-                            if (i != 0) {
-                                String sb = new StringBuilder(String.valueOf(i)).toString();
-                                d dVar = new d();
-                                dVar.qX(string);
-                                dVar.qY(sb);
-                                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                                File file3 = new File(string3);
-                                if (file3.exists() && file3.isFile()) {
-                                    imageFileInfo.setModifyTime(au.H(file3.lastModified()));
-                                }
-                                imageFileInfo.setFilePath(string3);
-                                dVar.f(imageFileInfo);
-                                dVar.setName(string2);
-                                if (string2 != null && string2.equals(this.fPw)) {
-                                    list.add(0, dVar);
-                                } else {
-                                    list.add(dVar);
-                                }
-                            }
-                        } while (cursor.moveToNext());
-                        com.baidu.adp.lib.g.a.a(cursor);
-                        return list;
-                    }
-                    com.baidu.adp.lib.g.a.a(cursor);
-                    return list;
-                } catch (Exception e) {
-                    e = e;
-                    BdLog.detailException(e);
-                    com.baidu.adp.lib.g.a.a(cursor);
-                    return list;
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        k kVar;
+        p pVar;
+        k kVar2;
+        int i2;
+        p pVar2;
+        ImageView imageView;
+        ImageView imageView2;
+        this.fMr.aBS = i;
+        kVar = this.fMr.fMn;
+        if (kVar != null) {
+            pVar = this.fMr.fLQ;
+            if (pVar != null) {
+                kVar2 = this.fMr.fMn;
+                i2 = this.fMr.aBS;
+                ImageFileInfo sN = kVar2.sN(i2);
+                pVar2 = this.fMr.fLQ;
+                if (pVar2.isAdded(sN)) {
+                    f fVar = this.fMr;
+                    imageView2 = this.fMr.fMo;
+                    fVar.c(imageView2, true);
+                    return;
                 }
-            } catch (Throwable th) {
-                th = th;
-                com.baidu.adp.lib.g.a.a(cursor);
-                throw th;
+                f fVar2 = this.fMr;
+                imageView = this.fMr.fMo;
+                fVar2.c(imageView, false);
             }
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            cursor = null;
-            com.baidu.adp.lib.g.a.a(cursor);
-            throw th;
         }
     }
 
-    public String qZ(String str) {
-        String fileExtensionFromUrl = getFileExtensionFromUrl(str);
-        if (fileExtensionFromUrl == null) {
-            return null;
-        }
-        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl.toLowerCase(Locale.getDefault()));
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
     }
 
-    private String getFileExtensionFromUrl(String str) {
-        int lastIndexOf;
-        if (!TextUtils.isEmpty(str)) {
-            int lastIndexOf2 = str.lastIndexOf(35);
-            if (lastIndexOf2 > 0) {
-                str = str.substring(0, lastIndexOf2);
-            }
-            int lastIndexOf3 = str.lastIndexOf(63);
-            if (lastIndexOf3 > 0) {
-                str = str.substring(0, lastIndexOf3);
-            }
-            int lastIndexOf4 = str.lastIndexOf(47);
-            if (lastIndexOf4 >= 0) {
-                str = str.substring(lastIndexOf4 + 1);
-            }
-            if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(46)) >= 0 && lastIndexOf < str.length() - 1) {
-                return str.substring(lastIndexOf + 1);
-            }
-        }
-        return "";
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class c extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo>> {
-        private final ap fPB;
-        private final String fPC;
-        private String fPD;
-        private List<d> fPE;
-        private int fPF = 1;
-        private b fPG = new i(this);
-
-        public c(String str, ap apVar) {
-            this.fPB = apVar;
-            this.fPC = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public List<ImageFileInfo> doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.fPC)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            if (this.fPC.equals("-1")) {
-                this.fPE = h.this.boC();
-                if (this.fPE != null) {
-                    for (d dVar : this.fPE) {
-                        String albumId = dVar.getAlbumId();
-                        if (!TextUtils.isEmpty(albumId)) {
-                            a(arrayList, this.fPG, albumId);
-                        }
-                    }
-                }
-                return arrayList;
-            }
-            a(arrayList, this.fPG, this.fPC);
-            return arrayList;
-        }
-
-        private void a(List<ImageFileInfo> list, b bVar, String str) {
-            if (list != null) {
-                a(list, bVar, str, h.this.mContext, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                if (list == null || list.size() <= 0) {
-                    a(list, bVar, str, h.this.mContext, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                }
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreCancel() {
-            super.onPreCancel();
-            if (this.fPB != null) {
-                this.fPB.ln();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onProgressUpdate(List<ImageFileInfo>... listArr) {
-            super.onProgressUpdate(listArr);
-            if (listArr.length > 0 && this.fPB != null) {
-                this.fPB.a(this.fPE, listArr[0], this.fPD);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(List<ImageFileInfo> list) {
-            super.onPostExecute((c) list);
-            if (this.fPB != null) {
-                this.fPB.a(this.fPE, list, this.fPD);
-            }
-        }
-
-        private void a(List<ImageFileInfo> list, b bVar) {
-            if (list != null && bVar != null) {
-                if (this.fPF == 1 || this.fPF == 2) {
-                    if (list.size() / this.fPF > 50) {
-                        if (bVar != null) {
-                            bVar.cV(list);
-                        }
-                        this.fPF++;
-                    }
-                } else if (list.size() / this.fPF > 500) {
-                    if (bVar != null) {
-                        bVar.cV(list);
-                    }
-                    this.fPF++;
-                }
-            }
-        }
-
-        private void a(List<ImageFileInfo> list, b bVar, String str, Context context, Uri uri) {
-            Cursor cursor;
-            if (list != null) {
-                try {
-                    cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "_data", "bucket_display_name"}, "bucket_id=?", new String[]{str}, "datetaken DESC");
-                    try {
-                        try {
-                            if (cursor.moveToFirst()) {
-                                int columnIndex = cursor.getColumnIndex("_data");
-                                int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
-                                do {
-                                    String string = cursor.getString(columnIndex);
-                                    this.fPD = cursor.getString(columnIndex2);
-                                    ImageFileInfo imageFileInfo = new ImageFileInfo();
-                                    imageFileInfo.setAlbumnId(str);
-                                    imageFileInfo.setFilePath(string);
-                                    File file = new File(string);
-                                    if (file.exists() && file.length() > 0) {
-                                        imageFileInfo.setModifyTime(au.H(file.lastModified()));
-                                        list.add(imageFileInfo);
-                                        a(list, bVar);
-                                    }
-                                } while (cursor.moveToNext());
-                                com.baidu.adp.lib.g.a.a(cursor);
-                            }
-                            com.baidu.adp.lib.g.a.a(cursor);
-                        } catch (Exception e) {
-                            e = e;
-                            BdLog.detailException(e);
-                            com.baidu.adp.lib.g.a.a(cursor);
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        com.baidu.adp.lib.g.a.a(cursor);
-                        throw th;
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    cursor = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor = null;
-                    com.baidu.adp.lib.g.a.a(cursor);
-                    throw th;
-                }
-            }
-        }
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 }

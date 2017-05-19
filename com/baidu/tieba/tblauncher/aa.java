@@ -1,21 +1,25 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
-public class aa implements FragmentTabHost.b {
-    final /* synthetic */ z fCF;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar) {
-        this.fCF = zVar;
-    }
-
-    @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b
-    public void f(int i, boolean z) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, Integer.valueOf(i)));
+class aa implements bb.a {
+    @Override // com.baidu.tbadk.core.util.bb.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        if (tbPageContext == null || strArr == null || strArr.length == 0) {
+            return 3;
+        }
+        String str = strArr[0];
+        if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
+            if (str.contains("jump_enter_forum=1")) {
+                com.baidu.tbadk.core.f.b.b(tbPageContext.getPageActivity(), 1, true);
+                return 1;
+            } else if (str.contains("jump_chosen_post=1")) {
+                com.baidu.tbadk.core.f.b.b(tbPageContext.getPageActivity(), 2, true);
+                return 1;
+            }
+        }
+        return 3;
     }
 }

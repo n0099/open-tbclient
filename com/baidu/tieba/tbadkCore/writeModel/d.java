@@ -3,12 +3,12 @@ package com.baidu.tieba.tbadkCore.writeModel;
 import com.baidu.tbadk.core.data.AntiData;
 /* loaded from: classes.dex */
 public class d {
+    final AntiData antiData;
     private String colorMsg;
-    final AntiData doC;
     final int errorCode;
     private String errorString;
-    private String fBw;
-    private String fBx;
+    private String fxG;
+    private String fxH;
     private int isCopyTWZhibo;
     private String preMsg;
     private String threadId = null;
@@ -17,18 +17,18 @@ public class d {
     public d(int i, String str, AntiData antiData) {
         this.errorCode = i;
         this.errorString = str;
-        this.doC = antiData;
+        this.antiData = antiData;
     }
 
     public boolean hasError() {
         return this.errorCode != 0;
     }
 
-    public boolean bkw() {
+    public boolean bhT() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bkx() {
+    public boolean bhU() {
         return this.errorCode == 227001;
     }
 
@@ -44,8 +44,8 @@ public class d {
         this.errorString = str;
     }
 
-    public AntiData axt() {
-        return this.doC;
+    public AntiData aup() {
+        return this.antiData;
     }
 
     public String getPreMsg() {
@@ -88,19 +88,19 @@ public class d {
         return this.isCopyTWZhibo;
     }
 
-    public String bky() {
-        return this.fBw;
+    public String bhV() {
+        return this.fxG;
     }
 
-    public void qu(String str) {
-        this.fBw = str;
+    public void qn(String str) {
+        this.fxG = str;
     }
 
-    public String bkz() {
-        return this.fBx;
+    public String bhW() {
+        return this.fxH;
     }
 
-    public void qv(String str) {
-        this.fBx = str;
+    public void qo(String str) {
+        this.fxH = str;
     }
 }

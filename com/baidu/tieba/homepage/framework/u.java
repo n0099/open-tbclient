@@ -1,25 +1,5 @@
 package com.baidu.tieba.homepage.framework;
-
-import android.os.Bundle;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class u extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.c Fe;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-            RecommendFrsDelegateStatic recommendFrsDelegateStatic = new RecommendFrsDelegateStatic();
-            ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
-            if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Fe = recommendFrsDelegateStatic.Fe()) != null) {
-                Fe.aEh.setArguments(new Bundle());
-            }
-        }
-    }
+public interface u {
+    void jE(int i);
 }

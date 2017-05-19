@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.sapi2.utils.SapiUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,7 +17,7 @@ public class BannerListData implements Serializable {
     private static final long serialVersionUID = 1630193525564805923L;
     private ArrayList<AdvertAppInfo> advertAppList = new ArrayList<>();
     private ArrayList<FeedForumData> feedForumList = new ArrayList<>();
-    private com.baidu.tieba.card.data.r recomTopicData;
+    private com.baidu.tieba.card.data.p recomTopicData;
 
     public ArrayList<AdvertAppInfo> getAllAdvertList() {
         return this.advertAppList;
@@ -31,8 +30,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).TT)) {
-                sb.append(this.advertAppList.get(i).TT);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).Tl)) {
+                sb.append(this.advertAppList.get(i).Tl);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -52,7 +51,7 @@ public class BannerListData implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                JSONArray optJSONArray = jSONObject.optJSONArray(SapiUtils.QR_LOGIN_LP_APP);
+                JSONArray optJSONArray = jSONObject.optJSONArray("app");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                     }
@@ -87,14 +86,14 @@ public class BannerListData implements Serializable {
                 }
             }
             if (bannerList.hot_topic != null) {
-                az azVar = new az();
-                azVar.a(bannerList.hot_topic);
-                this.recomTopicData = azVar.rz();
+                ba baVar = new ba();
+                baVar.a(bannerList.hot_topic);
+                this.recomTopicData = baVar.qJ();
             }
         }
     }
 
-    public com.baidu.tieba.card.data.r getRecomTopicData() {
+    public com.baidu.tieba.card.data.p getRecomTopicData() {
         return this.recomTopicData;
     }
 

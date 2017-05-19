@@ -7,40 +7,40 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private static int fAD = 6144000;
-    private static int fAE = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b fAF;
+    private static int fwM = 6144000;
+    private static int fwN = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b fwO;
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (com.baidu.adp.lib.b.e.eZ().Y("is_video_batch") == 1) {
-                this.fAF = new d(str2, fAE);
+                this.fwO = new d(str2, fwN);
             } else {
-                this.fAF = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, fAD);
+                this.fwO = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, fwM);
             }
-            this.fAF.a(eVar);
-            return this.fAF.aw(str2, i);
+            this.fwO.a(eVar);
+            return this.fwO.ay(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
         }
     }
 
-    public void bko() {
-        if (this.fAF != null) {
-            this.fAF.cancel();
+    public void bhL() {
+        if (this.fwO != null) {
+            this.fwO.cancel();
         }
     }
 
-    public static void sh(int i) {
+    public static void rZ(int i) {
         if (i <= 0) {
-            fAE = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+            fwN = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
-            fAE = i;
+            fwN = i;
         }
     }
 
-    public static void si(int i) {
+    public static void sa(int i) {
         if (i <= 0) {
             chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
@@ -48,11 +48,11 @@ public class a {
         }
     }
 
-    public static void sj(int i) {
+    public static void sb(int i) {
         if (i <= 0) {
-            fAD = 6144000;
+            fwM = 6144000;
         } else {
-            fAD = i;
+            fwM = i;
         }
     }
 }

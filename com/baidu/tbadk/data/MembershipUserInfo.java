@@ -1,7 +1,6 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -18,7 +17,7 @@ public class MembershipUserInfo extends OrmObject implements Serializable {
         if (jSONObject != null) {
             this.mVipIcon = jSONObject.optString("vip_icon");
             this.mLink = jSONObject.optString("link");
-            this.mContent = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
+            this.mContent = jSONObject.optString("content");
             this.mTitle = jSONObject.optString(VrPlayerActivityConfig.TITLE);
         }
     }

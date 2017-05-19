@@ -1,96 +1,39 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.RecomTopicInfo;
-import tbclient.RecomTopicList;
+import tbclient.RecommendInfo;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class az {
-    private String XC;
-    private List<a> XD = new ArrayList();
+public class az extends bk {
+    public static final BdUniqueId WS = BdUniqueId.gen();
+    private String title = "";
+    private ArrayList<bb> WT = new ArrayList<>();
 
-    public String ry() {
-        return StringUtils.isNull(this.XC) ? TbadkCoreApplication.m9getInst().getString(w.l.hot_topic_card_title) : this.XC;
-    }
-
-    public com.baidu.tieba.card.data.r rz() {
-        com.baidu.tieba.card.data.r rVar = new com.baidu.tieba.card.data.r();
-        ArrayList arrayList = null;
-        rVar.bxR = ry();
-        if (this.XD != null) {
-            ArrayList arrayList2 = new ArrayList();
-            for (a aVar : this.XD) {
-                if (aVar != null) {
-                    arrayList2.add(aVar.rB());
-                }
-            }
-            arrayList = arrayList2;
-        }
-        rVar.bxS = arrayList;
-        return rVar;
-    }
-
-    public void a(RecomTopicInfo recomTopicInfo) {
-        if (recomTopicInfo != null) {
-            this.XC = recomTopicInfo.recom_title;
-            if (com.baidu.tbadk.core.util.x.p(recomTopicInfo.topic_list) > 0) {
-                for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
-                    if (recomTopicList != null) {
-                        a aVar = new a();
-                        aVar.a(recomTopicList);
-                        if (!a(aVar)) {
-                            this.XD.add(aVar);
-                        }
-                    }
+    public void a(RecommendInfo recommendInfo) {
+        if (recommendInfo != null) {
+            this.title = recommendInfo.title;
+            for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
+                if (schoolRecomUserInfo != null) {
+                    bb bbVar = new bb();
+                    bbVar.a(schoolRecomUserInfo);
+                    this.WT.add(bbVar);
                 }
             }
         }
     }
 
-    private boolean a(a aVar) {
-        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.rA() <= 0;
+    @Override // com.baidu.tbadk.core.data.bk
+    public String getTitle() {
+        return this.title;
     }
 
-    /* loaded from: classes.dex */
-    public static class a {
-        private long XE;
-        private String XF;
-        private long XG;
-        private String XH;
-        private String XI;
-        private int tag;
-        private int type;
+    public ArrayList<bb> qH() {
+        return this.WT;
+    }
 
-        public long rA() {
-            return this.XE;
-        }
-
-        public String getTopicName() {
-            return this.XF;
-        }
-
-        public void a(RecomTopicList recomTopicList) {
-            if (recomTopicList != null) {
-                this.XE = recomTopicList.topic_id.longValue();
-                this.XF = recomTopicList.topic_name;
-                this.type = recomTopicList.type.intValue();
-                this.XG = recomTopicList.discuss_num.longValue();
-                this.tag = recomTopicList.tag.intValue();
-                this.XH = recomTopicList.topic_desc;
-                this.XI = recomTopicList.topic_pic;
-            }
-        }
-
-        public com.baidu.tieba.card.data.q rB() {
-            com.baidu.tieba.card.data.q qVar = new com.baidu.tieba.card.data.q();
-            qVar.tag = this.tag;
-            qVar.desc = this.XH;
-            qVar.XE = this.XE;
-            qVar.XF = this.XF;
-            return qVar;
-        }
+    @Override // com.baidu.tbadk.core.data.bk, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return WS;
     }
 }

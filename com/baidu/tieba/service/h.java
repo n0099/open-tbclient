@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.model.ReportUserInfoModel;
 /* loaded from: classes.dex */
 class h implements ReportUserInfoModel.a {
-    final /* synthetic */ UpdateInfoService fjd;
+    final /* synthetic */ UpdateInfoService feY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(UpdateInfoService updateInfoService) {
-        this.fjd = updateInfoService;
+        this.feY = updateInfoService;
     }
 
     @Override // com.baidu.tieba.model.ReportUserInfoModel.a
-    public void nF(int i) {
+    public void nv(int i) {
         ReportUserInfoModel reportUserInfoModel;
         BdLog.i("location_success");
         BdLog.e("location_success next time=" + i);
@@ -22,17 +22,17 @@ class h implements ReportUserInfoModel.a {
         } else if (i >= 32400) {
             i = 32400;
         }
-        reportUserInfoModel = this.fjd.mModel;
-        reportUserInfoModel.cc(i * 1000);
-        TbadkCoreApplication.m9getInst().getAlarmManager().a(com.baidu.tbadk.b.a.QZ, 1, System.currentTimeMillis() + (i * 1000), i * 1000);
+        reportUserInfoModel = this.feY.mModel;
+        reportUserInfoModel.bN(i * 1000);
+        TbadkCoreApplication.m9getInst().getAlarmManager().a(com.baidu.tbadk.b.a.Qq, 1, System.currentTimeMillis() + (i * 1000), i * 1000);
     }
 
     @Override // com.baidu.tieba.model.ReportUserInfoModel.a
     public void onError(int i, String str) {
         ReportUserInfoModel reportUserInfoModel;
         BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
-        reportUserInfoModel = this.fjd.mModel;
-        reportUserInfoModel.cc(600000L);
-        TbadkCoreApplication.m9getInst().getAlarmManager().a(com.baidu.tbadk.b.a.QZ, 1, System.currentTimeMillis() + 600000, 600000L);
+        reportUserInfoModel = this.feY.mModel;
+        reportUserInfoModel.bN(600000L);
+        TbadkCoreApplication.m9getInst().getAlarmManager().a(com.baidu.tbadk.b.a.Qq, 1, System.currentTimeMillis() + 600000, 600000L);
     }
 }

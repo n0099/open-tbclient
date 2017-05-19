@@ -1,24 +1,27 @@
 package com.baidu.tieba.enterForum.home;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.bg;
 /* loaded from: classes.dex */
-public class h implements com.baidu.tbadk.widget.layout.h {
-    final /* synthetic */ f bGP;
+class h implements View.OnClickListener {
+    final /* synthetic */ e bGL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(f fVar) {
-        this.bGP = fVar;
+    public h(e eVar) {
+        this.bGL = eVar;
     }
 
-    @Override // com.baidu.tbadk.widget.layout.h
-    public void a(View view, int i, int i2, int i3, int i4) {
-        if (i2 != i4) {
-            int lightStatusBarHeight = UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.k.g(this.bGP.getActivity(), w.f.ds98) + i2;
-            if (this.bGP.bGG != null) {
-                this.bGP.bGG.hw(lightStatusBarHeight);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (!this.bGL.Wg()) {
+            if (!TbadkCoreApplication.isLogin()) {
+                bg.aL(this.bGL.getPageContext().getPageActivity());
+            } else if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(SignAllForumActivityConfig.class)) {
+                this.bGL.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SignAllForumActivityConfig(this.bGL.getPageContext().getPageActivity())));
             }
         }
     }

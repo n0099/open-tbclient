@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.data;
 /* loaded from: classes.dex */
 public class a {
-    private int cVh;
+    private int cPj;
     private String content;
     private long id;
     private String name;
@@ -48,11 +48,11 @@ public class a {
         this.status = i;
     }
 
-    public int aqm() {
-        return this.cVh;
+    public int anf() {
+        return this.cPj;
     }
 
-    public void ls(int i) {
-        this.cVh = i;
+    public void lf(int i) {
+        this.cPj = i;
     }
 }

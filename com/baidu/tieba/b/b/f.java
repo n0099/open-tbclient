@@ -3,17 +3,17 @@ package com.baidu.tieba.b.b;
 import com.baidu.tieba.b.a.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends b.C0050b {
-    final /* synthetic */ b brd;
+public class f extends b.C0054b {
+    final /* synthetic */ b brA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar) {
-        this.brd = bVar;
+        this.brA = bVar;
     }
 
-    @Override // com.baidu.tieba.b.a.b.C0050b, com.baidu.tieba.b.a.a
+    @Override // com.baidu.tieba.b.a.b.C0054b, com.baidu.tieba.b.a.a
     public void d(float f, float f2, float f3, int i) {
-        this.brd.Sz();
-        this.brd.SA();
+        this.brA.RU();
+        this.brA.RV();
     }
 }

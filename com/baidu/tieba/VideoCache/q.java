@@ -4,13 +4,13 @@ import android.content.Context;
 import java.net.ServerSocket;
 import java.net.Socket;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class q implements Runnable {
-    final /* synthetic */ p aVf;
+    final /* synthetic */ p aVA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.aVf = pVar;
+        this.aVA = pVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:4:0x0016 */
@@ -32,25 +32,25 @@ public class q implements Runnable {
         Context context;
         str = p.TAG;
         k.log(str, "run ...");
-        this.aVf.LM();
+        this.aVA.La();
         int i = 9000;
         while (serverSocket == null && i < 10000) {
             try {
-                this.aVf.aVe = new ServerSocket(i);
+                this.aVA.aVz = new ServerSocket(i);
             } catch (Exception e) {
                 e.printStackTrace();
-                this.aVf.aVe = null;
+                this.aVA.aVz = null;
                 i++;
             }
         }
         str2 = p.TAG;
         k.log(str2, "service port " + i);
-        this.aVf.fL(i);
-        f.LB();
-        l.LJ();
+        this.aVA.fI(i);
+        f.KP();
+        l.KX();
         while (true) {
             try {
-                serverSocket2 = this.aVf.aVe;
+                serverSocket2 = this.aVA.aVz;
                 if (serverSocket2.isClosed()) {
                     str4 = p.TAG;
                     k.log(str4, "视频服务已退出");
@@ -58,7 +58,7 @@ public class q implements Runnable {
                 }
                 str5 = p.TAG;
                 k.log(str5, "accept start");
-                serverSocket3 = this.aVf.aVe;
+                serverSocket3 = this.aVA.aVz;
                 Socket accept = serverSocket3.accept();
                 str6 = p.TAG;
                 k.log(str6, "accept end");
@@ -66,27 +66,27 @@ public class q implements Runnable {
                     str7 = p.TAG;
                     k.log(str7, "连接视频服务的client:" + accept);
                     i b = g.b(accept);
-                    String LF = b.LF();
-                    if (LF == null || !LF.contains("?file_access=1")) {
-                        if (LF == null || !LF.contains("?stop_cache=1")) {
-                            if (LF == null || !LF.contains("delete_expired_files")) {
-                                if (LF == null || !LF.contains("clear_cache")) {
-                                    context = this.aVf.mContext;
+                    String KT = b.KT();
+                    if (KT == null || !KT.contains("?file_access=1")) {
+                        if (KT == null || !KT.contains("?stop_cache=1")) {
+                            if (KT == null || !KT.contains("delete_expired_files")) {
+                                if (KT == null || !KT.contains("clear_cache")) {
+                                    context = this.aVA.mContext;
                                     g gVar = new g(context);
                                     gVar.a(accept);
                                     gVar.a(b);
-                                    n.LK().g(gVar);
+                                    n.KY().g(gVar);
                                 } else {
-                                    this.aVf.d(b, accept);
+                                    this.aVA.d(b, accept);
                                 }
                             } else {
-                                this.aVf.c(b, accept);
+                                this.aVA.c(b, accept);
                             }
                         } else {
-                            this.aVf.a(b, accept);
+                            this.aVA.a(b, accept);
                         }
                     } else {
-                        this.aVf.b(b, accept);
+                        this.aVA.b(b, accept);
                     }
                 }
             } catch (Exception e2) {

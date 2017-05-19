@@ -14,11 +14,18 @@ public class i implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
+        com.baidu.adp.base.j jVar;
+        com.baidu.adp.base.j X;
         int childCount = this.Ih.getChildCount();
         for (int i = 0; i < childCount; i++) {
             refreshImage(this.Ih.getChildAt(i));
         }
-        com.baidu.adp.base.j X = com.baidu.adp.base.k.X(this.Ih.getContext());
+        jVar = this.Ih.mScrollable;
+        if (jVar != null) {
+            X = this.Ih.mScrollable;
+        } else {
+            X = com.baidu.adp.base.k.X(this.Ih.getContext());
+        }
         if (X != null) {
             X.onPreLoad(this.Ih);
         }
@@ -26,8 +33,8 @@ public class i implements Runnable {
 
     private void refreshImage(View view) {
         if (view != null) {
-            if (view instanceof com.baidu.adp.newwidget.a.i) {
-                ((com.baidu.adp.newwidget.a.i) view).refresh();
+            if (view instanceof com.baidu.adp.b.a.i) {
+                ((com.baidu.adp.b.a.i) view).refresh();
             }
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;

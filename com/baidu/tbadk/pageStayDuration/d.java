@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public boolean aFr = false;
-    private List<String> aFs;
-    private String aFt;
-    private long aFu;
-    public String aFv;
+    public boolean aFv = false;
+    private List<String> aFw;
+    private String aFx;
+    private long aFy;
+    public String aFz;
     private long fid;
     public String objParam1;
     private long pid;
     private long tid;
 
-    public List<String> FY() {
-        return this.aFs;
+    public List<String> Fc() {
+        return this.aFw;
     }
 
-    public void z(List<String> list) {
-        this.aFs = list;
+    public void A(List<String> list) {
+        this.aFw = list;
     }
 
     public String getCurrentPageKey() {
-        return this.aFt;
+        return this.aFx;
     }
 
-    public void fX(String str) {
-        this.aFt = str;
+    public void fU(String str) {
+        this.aFx = str;
     }
 
     public long getFid() {
@@ -50,18 +50,18 @@ public class d {
         return this.pid;
     }
 
-    public long FZ() {
-        return this.aFu;
+    public long Fd() {
+        return this.aFy;
     }
 
-    public void O(long j) {
-        this.aFu = j;
+    public void P(long j) {
+        this.aFy = j;
     }
 
-    public boolean Ga() {
-        if (StringUtils.isNull(this.aFt)) {
+    public boolean Fe() {
+        if (StringUtils.isNull(this.aFx)) {
             return true;
         }
-        return !this.aFr && this.aFu <= 0;
+        return !this.aFv && this.aFy <= 0;
     }
 }

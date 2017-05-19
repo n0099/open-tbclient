@@ -9,11 +9,11 @@ import tbclient.ForumRecommend.ForumRecommendResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
-    final /* synthetic */ EnterForumModel bHG;
+    final /* synthetic */ EnterForumModel bHr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(EnterForumModel enterForumModel) {
-        this.bHG = enterForumModel;
+        this.bHr = enterForumModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,22 +21,22 @@ public class c extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public com.baidu.tieba.enterForum.b.b doInBackground(Void... voidArr) {
-        o<byte[]> L = com.baidu.tbadk.core.c.a.tM().L("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
+        o<byte[]> L = com.baidu.tbadk.core.c.a.sZ().L("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
         com.baidu.tieba.enterForum.b.b bVar = new com.baidu.tieba.enterForum.b.b();
         byte[] bArr = L.get(EnterForumModel.FORUMRECOMMEND_CACHE_KEY);
         if (bArr != null) {
-            bVar.aC(true);
+            bVar.az(true);
             try {
                 ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
                 if (forumRecommendResIdl.data != null) {
                     bVar.a(forumRecommendResIdl.data);
-                    bVar.m18do(true);
+                    bVar.dq(true);
                 }
             } catch (Exception e) {
-                bVar.aC(false);
+                bVar.az(false);
             }
-            if (bVar.isSuccess() && !bVar.WD()) {
-                bVar.WC().WI();
+            if (bVar.isSuccess() && !bVar.VV()) {
+                bVar.VT().Wa();
             }
         }
         return bVar;
@@ -45,20 +45,20 @@ public class c extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: e */
+    /* renamed from: c */
     public void onPostExecute(com.baidu.tieba.enterForum.b.b bVar) {
         EnterForumModel.b bVar2;
         super.onPostExecute(bVar);
         EnterForumModel.a aVar = new EnterForumModel.a();
         aVar.type = 0;
         if (bVar != null && bVar.isSuccess()) {
-            aVar.bHI = true;
-            aVar.bHJ = bVar;
+            aVar.bHt = true;
+            aVar.bHu = bVar;
         } else {
-            aVar.bHI = false;
-            aVar.bHJ = bVar;
+            aVar.bHt = false;
+            aVar.bHu = bVar;
         }
-        bVar2 = this.bHG.bHA;
+        bVar2 = this.bHr.bHl;
         bVar2.a(aVar);
     }
 }

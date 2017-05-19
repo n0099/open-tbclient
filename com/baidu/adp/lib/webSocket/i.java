@@ -77,12 +77,12 @@ public class i implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void hX() {
+    public void hW() {
         ArrayList arrayList;
         arrayList = this.Ag.Ae;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            ((g.a) it.next()).hX();
+            ((g.a) it.next()).hW();
         }
     }
 

@@ -1,27 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class du extends PostData {
-    public static final BdUniqueId epq = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.ar epr;
-    public com.baidu.tbadk.core.data.ar eps;
-    public com.baidu.tbadk.core.data.ar ept;
+public class du extends CustomMessageListener {
+    final /* synthetic */ dt ejt;
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return epq;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public du(dt dtVar, int i) {
+        super(i);
+        this.ejt = dtVar;
     }
 
-    public boolean hasData() {
-        if (this.epr == null || StringUtils.isNull(this.epr.summary)) {
-            if (this.eps == null || StringUtils.isNull(this.eps.summary)) {
-                return (this.ept == null || StringUtils.isNull(this.ept.summary)) ? false : true;
-            }
-            return true;
-        }
-        return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.ejt.h(customResponsedMessage);
     }
 }

@@ -1,110 +1,41 @@
 package com.baidu.tieba.homepage.framework;
 
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.homepage.framework.q;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* loaded from: classes.dex */
-public class t implements NetModel.b<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.homepage.recommendfrs.data.c> {
-    final /* synthetic */ q cwJ;
+class t extends CustomMessageListener {
+    final /* synthetic */ RecommendFrsDelegateStatic ctx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(q qVar) {
-        this.cwJ = qVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(RecommendFrsDelegateStatic recommendFrsDelegateStatic, int i) {
+        super(i);
+        this.ctx = recommendFrsDelegateStatic;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel.c
-    public void a(MvcHttpResponsedMessage<com.baidu.tieba.homepage.recommendfrs.data.c> mvcHttpResponsedMessage, MvcHttpMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.homepage.recommendfrs.data.c> mvcHttpMessage, MvcNetMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.homepage.recommendfrs.data.c> mvcNetMessage) {
-        long a;
-        q.a aVar;
-        q.a aVar2;
-        q.a aVar3;
-        com.baidu.tieba.homepage.recommendfrs.data.d dVar;
-        boolean z;
-        q.a aVar4;
-        q.a aVar5;
-        q.a aVar6;
-        a = this.cwJ.a(mvcNetMessage);
-        if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.getError() != 0 || mvcHttpResponsedMessage.getData() == null || a == -1) {
-            aVar = this.cwJ.cvv;
-            if (aVar != null) {
-                aVar2 = this.cwJ.cvv;
-                aVar2.a(a, "", mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError(), false);
-            }
-        } else {
-            com.baidu.tieba.homepage.recommendfrs.data.c data = mvcHttpResponsedMessage.getData();
-            if (data.getThreadList() == null) {
-                aVar5 = this.cwJ.cvv;
-                if (aVar5 != null) {
-                    aVar6 = this.cwJ.cvv;
-                    aVar6.a(a, "", mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError(), false);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        FragmentTabIndicator fragmentTabIndicator;
+        ImageView imageView;
+        ImageView imageView2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016325 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            fragmentTabIndicator = this.ctx.aDV;
+            FragmentTabIndicator.a fS = fragmentTabIndicator.fS("godFeed");
+            if (fS != null) {
+                if (intValue <= 0) {
+                    imageView2 = this.ctx.ctv;
+                    imageView2.setVisibility(8);
                     return;
                 }
-            }
-            aVar3 = this.cwJ.cvv;
-            if (aVar3 != null) {
-                dVar = this.cwJ.cwD;
-                boolean z2 = dVar.akS() != 0;
-                if (data instanceof com.baidu.tieba.homepage.mygod.data.d) {
-                    z = ((com.baidu.tieba.homepage.mygod.data.d) data).getPn() != 1;
-                } else {
-                    z = z2;
-                }
-                aVar4 = this.cwJ.cvv;
-                aVar4.a(true, data, z, a, "", false);
+                imageView = this.ctx.ctv;
+                imageView.setVisibility(0);
+                fS.dm(TbadkCoreApplication.m9getInst().getSkinType());
             }
         }
-        this.cwJ.a(mvcHttpResponsedMessage, mvcNetMessage);
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.d
-    public void a(MvcSocketResponsedMessage<com.baidu.tieba.homepage.recommendfrs.data.c, ?> mvcSocketResponsedMessage, MvcSocketMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.homepage.recommendfrs.data.c> mvcSocketMessage, MvcNetMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.homepage.recommendfrs.data.c> mvcNetMessage) {
-        long a;
-        q.a aVar;
-        q.a aVar2;
-        q.a aVar3;
-        com.baidu.tieba.homepage.recommendfrs.data.d dVar;
-        boolean z;
-        q.a aVar4;
-        q.a aVar5;
-        q.a aVar6;
-        a = this.cwJ.a(mvcNetMessage);
-        if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.getError() != 0 || mvcSocketResponsedMessage.getData() == null || a == -1) {
-            aVar = this.cwJ.cvv;
-            if (aVar != null) {
-                aVar2 = this.cwJ.cvv;
-                aVar2.a(a, "", mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError(), false);
-            }
-        } else {
-            com.baidu.tieba.homepage.recommendfrs.data.c data = mvcSocketResponsedMessage.getData();
-            if (data.getThreadList() == null) {
-                aVar5 = this.cwJ.cvv;
-                if (aVar5 != null) {
-                    aVar6 = this.cwJ.cvv;
-                    aVar6.a(a, "", mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError(), false);
-                    return;
-                }
-            }
-            aVar3 = this.cwJ.cvv;
-            if (aVar3 != null) {
-                dVar = this.cwJ.cwD;
-                boolean z2 = dVar.akS() != 0;
-                if (data instanceof com.baidu.tieba.homepage.mygod.data.d) {
-                    z2 = ((com.baidu.tieba.homepage.mygod.data.d) data).getPn() != 1;
-                }
-                if (data instanceof com.baidu.tieba.homepage.alalivelist.data.c) {
-                    z = ((com.baidu.tieba.homepage.alalivelist.data.c) data).getPn() != 1;
-                } else {
-                    z = z2;
-                }
-                aVar4 = this.cwJ.cvv;
-                aVar4.a(true, data, z, a, "", false);
-            }
-        }
-        this.cwJ.a(mvcSocketResponsedMessage, mvcNetMessage);
     }
 }

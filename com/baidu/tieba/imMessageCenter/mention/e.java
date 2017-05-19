@@ -1,18 +1,18 @@
 package com.baidu.tieba.imMessageCenter.mention;
-/* loaded from: classes.dex */
-public class e extends as {
-    @Override // com.baidu.tieba.imMessageCenter.mention.as, com.baidu.tbadk.mvc.b.e
-    public String Fg() {
+/* loaded from: classes2.dex */
+public class e extends at {
+    @Override // com.baidu.tieba.imMessageCenter.mention.at, com.baidu.tbadk.mvc.b.e
+    public String Ek() {
         return "tb_user_atme";
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.mention.as, com.baidu.tbadk.mvc.b.d
+    @Override // com.baidu.tieba.imMessageCenter.mention.at, com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
         return "atme_cache";
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.mention.as, com.baidu.tbadk.mvc.b.e
-    public boolean Fh() {
+    @Override // com.baidu.tieba.imMessageCenter.mention.at, com.baidu.tbadk.mvc.b.e
+    public boolean El() {
         return false;
     }
 }

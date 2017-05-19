@@ -1,32 +1,21 @@
 package com.baidu.tieba.frs;
 
-import android.view.ViewStub;
-import android.widget.FrameLayout;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class ba implements Runnable {
-    final /* synthetic */ az bRf;
+public class ba implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId bPY = BdUniqueId.gen();
+    private int bPZ;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(az azVar) {
-        this.bRf = azVar;
+    public int ZX() {
+        return this.bPZ;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ViewStub viewStub;
-        FrameLayout frameLayout;
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        viewStub = this.bRf.bQz;
-        if (viewStub != null) {
-            frameLayout = this.bRf.bQA;
-            frameLayout.setVisibility(0);
-            tbImageView = this.bRf.bQC;
-            tbImageView.setVisibility(0);
-            tbImageView2 = this.bRf.bQB;
-            tbImageView2.setVisibility(8);
-        }
+    public void hP(int i) {
+        this.bPZ = i;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return bPY;
     }
 }

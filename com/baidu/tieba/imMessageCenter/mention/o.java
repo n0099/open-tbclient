@@ -2,17 +2,17 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class o implements NoNetworkView.a {
-    final /* synthetic */ l dmU;
+    final /* synthetic */ l dgY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(l lVar) {
-        this.dmU = lVar;
+        this.dgY = lVar;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aM(boolean z) {
-        this.dmU.gB(z);
+    public void aL(boolean z) {
+        this.dgY.gc(z);
     }
 }

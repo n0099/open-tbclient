@@ -1,57 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.GameLaunchMessage;
-import java.util.Map;
+import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
+import com.baidu.tieba.tbadkCore.data.PostData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gr {
-    private static gr etY = null;
+public class gr implements PbFakeFloorModel.a {
+    final /* synthetic */ fm epr;
 
-    public static gr aOU() {
-        if (etY == null) {
-            synchronized (gr.class) {
-                if (etY == null) {
-                    etY = new gr();
-                }
-            }
-        }
-        return etY;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public gr(fm fmVar) {
+        this.epr = fmVar;
     }
 
-    public void g(TbPageContext tbPageContext, String str) {
-        if (tbPageContext != null && !TextUtils.isEmpty(str)) {
-            if (str.contains("is_native_app=1")) {
-            }
-            if (nL(str)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (nM(str)) {
-                com.baidu.tbadk.core.util.bb.wn().a(tbPageContext, new String[]{str}, true);
-            } else {
-                com.baidu.tbadk.core.util.bb.wn().c(tbPageContext, new String[]{str});
-            }
-        }
-    }
-
-    public static boolean nK(String str) {
-        return str != null && str.contains("bookcover:");
-    }
-
-    private boolean nL(String str) {
-        Map<String, String> dG;
-        if (!TextUtils.isEmpty(str) && (dG = com.baidu.tbadk.core.util.bb.dG(com.baidu.tbadk.core.util.bb.dH(str))) != null) {
-            String str2 = dG.get("url");
-            if (!TextUtils.isEmpty(str2)) {
-                return nL(com.baidu.adp.lib.util.j.aE(str2));
-            }
-            String str3 = dG.get("tbgametype");
-            return !TextUtils.isEmpty(str3) && str3.equals("1");
-        }
-        return false;
-    }
-
-    private boolean nM(String str) {
-        return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
+    @Override // com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel.a
+    public void j(PostData postData) {
+        PbFakeFloorModel pbFakeFloorModel;
+        cq cqVar;
+        dq dqVar;
+        pbFakeFloorModel = this.epr.ejo;
+        pbFakeFloorModel.k(postData);
+        cqVar = this.epr.enG;
+        cqVar.notifyDataSetChanged();
+        dqVar = this.epr.eoN;
+        dqVar.aJK();
     }
 }

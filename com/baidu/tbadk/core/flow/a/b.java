@@ -10,13 +10,13 @@ import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.core.flow.b {
     @Override // com.baidu.tbadk.core.flow.b
-    public c ub() {
+    public c to() {
         c cVar = new c();
-        cVar.cs(w.g.icon_banner_n);
-        cVar.ct(w.g.icon_banner_s);
+        cVar.cq(w.g.icon_banner_n);
+        cVar.cr(w.g.icon_banner_s);
         cVar.setSpacing(w.f.ds22);
         cVar.setGravity(81);
-        cVar.cu(w.f.ds22);
+        cVar.cs(w.f.ds22);
         return cVar;
     }
 
@@ -29,7 +29,7 @@ public class b implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public e uc() {
+    public e tp() {
         e eVar = new e();
         Resources resources = TbadkCoreApplication.m9getInst().getResources();
         if (resources != null) {
@@ -39,7 +39,7 @@ public class b implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public View ud() {
+    public View tq() {
         return null;
     }
 }

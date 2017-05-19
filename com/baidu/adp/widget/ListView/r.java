@@ -7,7 +7,7 @@ import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class r {
     private int Ir;
-    private com.baidu.adp.widget.ScrollView.g Is;
+    private com.baidu.adp.widget.b.a Is;
     private boolean It;
     a Iu;
     int Iv;
@@ -27,8 +27,8 @@ public class r {
         this.Iv = i3;
     }
 
-    public void a(com.baidu.adp.widget.ScrollView.g gVar) {
-        this.Is = gVar;
+    public void a(com.baidu.adp.widget.b.a aVar) {
+        this.Is = aVar;
     }
 
     /* loaded from: classes.dex */
@@ -40,7 +40,7 @@ public class r {
             this.mScroller = new Scroller(context);
         }
 
-        private void lt() {
+        private void ls() {
             if (r.this.mHandler != null) {
                 r.this.mHandler.removeCallbacks(r.this.Iw);
             }
@@ -79,7 +79,7 @@ public class r {
         public void s(int i, int i2) {
             if (r.this.mView != null && this.mScroller != null) {
                 int i3 = i == 0 ? i - 1 : i;
-                lt();
+                ls();
                 this.Iy = 0;
                 this.mScroller.startScroll(0, 0, 0, i3, i2);
                 r.this.mView.post(this);
@@ -87,7 +87,7 @@ public class r {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void lu() {
+        public void lt() {
             r.this.mHandler.removeCallbacks(r.this.Iw);
             if (this.mScroller != null) {
                 this.mScroller.abortAnimation();
@@ -97,7 +97,7 @@ public class r {
                 r.this.mView.removeCallbacks(this);
             }
             if (r.this.Is != null) {
-                r.this.Is.ls();
+                r.this.Is.lr();
             }
         }
     }

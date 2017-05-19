@@ -1,19 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class ar implements com.baidu.tbadk.ala.f {
-    @Override // com.baidu.tbadk.ala.f
-    public View aq(Context context) {
-        TextView ap = com.baidu.tbadk.ala.d.ap(context);
-        if (ap != null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 16;
-            ap.setLayoutParams(layoutParams);
-        }
-        return ap;
+public class ar extends y.a {
+    public TextView alE;
+    public TextView alH;
+    public int ane;
+    public TextView bPs;
+    public TextView bPt;
+
+    public ar(View view) {
+        super(view);
+        this.ane = 3;
+        this.alE = (TextView) getView().findViewById(w.h.frs_god_lv_reply_time);
+        this.alH = (TextView) getView().findViewById(w.h.frs_god_praise_num);
+        this.bPt = (TextView) getView().findViewById(w.h.frs_god_reply_num);
+        this.bPs = (TextView) getView().findViewById(w.h.frs_god_item_location_address);
     }
 }

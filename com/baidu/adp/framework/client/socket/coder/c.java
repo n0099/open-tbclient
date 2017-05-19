@@ -1,8 +1,8 @@
 package com.baidu.adp.framework.client.socket.coder;
 /* loaded from: classes.dex */
 public class c {
-    public a qc;
-    public byte[] qd;
-    public int qe;
+    public a qd;
+    public byte[] qe;
     public int qf;
+    public int qg;
 }

@@ -1,19 +1,23 @@
 package com.baidu.tieba.pb.pb.main;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class dn implements Runnable {
-    private final /* synthetic */ com.baidu.tieba.pb.data.f eoB;
-    final /* synthetic */ PbModel eox;
+class dn implements View.OnClickListener {
+    private final /* synthetic */ String bHb;
+    private final /* synthetic */ String cQi;
+    final /* synthetic */ dl eji;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dn(PbModel pbModel, com.baidu.tieba.pb.data.f fVar) {
-        this.eox = pbModel;
-        this.eoB = fVar;
+    public dn(dl dlVar, String str, String str2) {
+        this.eji = dlVar;
+        this.cQi = str;
+        this.bHb = str2;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.eox.a(this.eoB, 3, false, 0, "", false, 0, 0L, 0L, true);
-        this.eox.isLoading = false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.eji.nA(this.cQi);
+        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c12041").aa("fid", this.bHb));
     }
 }

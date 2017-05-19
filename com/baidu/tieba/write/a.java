@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    private TextView fOP;
-    private ImageView fOQ;
-    private View fOR;
+    private TextView fLC;
+    private ImageView fLD;
+    private View fLE;
     private Context mContext;
 
     public a(Context context) {
@@ -32,34 +32,34 @@ public class a extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(w.j.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.fOP = (TextView) findViewById(w.h.prefix_text);
-        this.fOQ = (ImageView) findViewById(w.h.prefix_checked);
-        this.fOR = findViewById(w.h.prefix_item_divider);
-        this.fOP.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        aq.j(this.fOP, w.e.cp_bg_line_d);
-        this.fOQ.setBackgroundDrawable(aq.getDrawable(w.g.icon_set_list_ok_s));
-        aq.j(this.fOR, w.e.cp_bg_line_c);
+        this.fLC = (TextView) findViewById(w.h.prefix_text);
+        this.fLD = (ImageView) findViewById(w.h.prefix_checked);
+        this.fLE = findViewById(w.h.prefix_item_divider);
+        this.fLC.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        aq.j(this.fLC, w.e.cp_bg_line_d);
+        this.fLD.setBackgroundDrawable(aq.getDrawable(w.g.icon_set_list_ok_s));
+        aq.j(this.fLE, w.e.cp_bg_line_c);
     }
 
     public void setPrefixText(String str) {
-        this.fOP.setText(str);
+        this.fLC.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.fOP.setTextColor(i);
+        this.fLC.setTextColor(i);
     }
 
-    public void lR(boolean z) {
+    public void lz(boolean z) {
         if (z) {
-            this.fOQ.setVisibility(0);
+            this.fLD.setVisibility(0);
         } else {
-            this.fOQ.setVisibility(8);
+            this.fLD.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.fOR.getLayoutParams()).setMargins(k.g(this.mContext, w.f.ds30), 0, k.g(this.mContext, w.f.ds30), 0);
+            ((LinearLayout.LayoutParams) this.fLE.getLayoutParams()).setMargins(k.g(this.mContext, w.f.ds30), 0, k.g(this.mContext, w.f.ds30), 0);
         }
     }
 }

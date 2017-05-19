@@ -1,43 +1,17 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import java.lang.ref.WeakReference;
+import android.view.View;
 /* loaded from: classes.dex */
-public class al extends ImageSpan {
-    private WeakReference<Drawable> FT;
-    private int offset;
+class al implements View.OnClickListener {
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayout ame;
 
-    public al(Drawable drawable) {
-        super(drawable);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public al(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
+        this.ame = threadCommentAndPraiseInfoLayout;
     }
 
-    public void setOffset(int i) {
-        this.offset = i;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable kv = kv();
-        canvas.save();
-        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - kv.getBounds().height()) / 2) + this.offset);
-        kv.draw(canvas);
-        canvas.restore();
-    }
-
-    private Drawable kv() {
-        WeakReference<Drawable> weakReference = this.FT;
-        Drawable drawable = null;
-        if (weakReference != null) {
-            drawable = weakReference.get();
-        }
-        if (drawable == null) {
-            Drawable drawable2 = getDrawable();
-            this.FT = new WeakReference<>(drawable2);
-            return drawable2;
-        }
-        return drawable;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.ame.wB();
     }
 }

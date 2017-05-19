@@ -1,37 +1,26 @@
 package com.baidu.tieba.view;
 
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
-public class o implements AbsListView.OnScrollListener {
-    final /* synthetic */ n fMj;
+class o implements View.OnClickListener {
+    final /* synthetic */ j fIG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar) {
-        this.fMj = nVar;
+    public o(j jVar) {
+        this.fIG = jVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        v vVar;
-        v vVar2;
-        vVar = this.fMj.fMi;
-        if (vVar != null) {
-            vVar2 = this.fMj.fMi;
-            vVar2.onScrollStateChanged(absListView, i);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        v vVar;
-        v vVar2;
-        this.fMj.RP();
-        this.fMj.RQ();
-        vVar = this.fMj.fMi;
-        if (vVar != null) {
-            vVar2 = this.fMj.fMi;
-            vVar2.onScroll(absListView, i, i2, i3);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.fIG.G(5, false);
+        com.baidu.tieba.h.a.aZj().D(5, false);
+        TiebaStatic.log(new as("c10598"));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MORE, new IntentConfig(view.getContext())));
     }
 }

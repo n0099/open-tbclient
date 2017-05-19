@@ -1,8 +1,11 @@
 package com.baidu.tieba.frs;
-
-import java.util.List;
 /* loaded from: classes.dex */
-public class bx {
-    public int bSi;
-    public List<bv> bSj;
+public interface bx {
+    void ML();
+
+    void a(int i, int i2, cd cdVar);
+
+    void a(by byVar);
+
+    void init();
 }

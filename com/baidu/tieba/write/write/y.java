@@ -1,29 +1,19 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteActivity fUM;
+public class y implements a.b {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.j jVar2;
-        if (z) {
-            this.fUM.fUm = true;
-            this.fUM.fUI = true;
-            this.fUM.bqc();
-            jVar = this.fUM.azf;
-            if (jVar != null) {
-                jVar2 = this.fUM.azf;
-                jVar2.BC();
-            }
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.fSV.b(0, true, null);
+        aVar.dismiss();
     }
 }

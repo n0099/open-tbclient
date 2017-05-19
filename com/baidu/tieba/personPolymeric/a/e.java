@@ -4,15 +4,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.ce;
+import com.baidu.tieba.card.cc;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.c, com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.e>> {
-    private TbPageContext<?> ajU;
-    private ce btr;
+    private TbPageContext<?> ajr;
+    private cc btK;
 
     public e(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.c.eHK);
-        this.ajU = tbPageContext;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.c.eDe);
+        this.ajr = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: m */
     public com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.e> onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.b.a<>(new com.baidu.tieba.personPolymeric.d.e(this.ajU));
+        return new com.baidu.tieba.card.b.a<>(new com.baidu.tieba.personPolymeric.d.e(this.ajr));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,9 +28,9 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.c cVar, com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.e> aVar) {
-        aVar.UB().setOnCardStatisticsCallback(this.btr);
-        aVar.UB().onChangeSkinType(this.ajU, TbadkCoreApplication.m9getInst().getSkinType());
-        aVar.UB().onBindDataToView(cVar);
+        aVar.TU().setOnCardStatisticsCallback(this.btK);
+        aVar.TU().onChangeSkinType(this.ajr, TbadkCoreApplication.m9getInst().getSkinType());
+        aVar.TU().onBindDataToView(cVar);
         return aVar.getView();
     }
 }

@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class p extends r {
-    private volatile HashMap<String, Long> fAy;
+    private volatile HashMap<String, Long> fwH;
 
     static {
         MessageManager.getInstance().registerListener(new q(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
@@ -16,28 +16,28 @@ public class p extends r {
 
     public p(int i) {
         super(i);
-        this.fAy = new HashMap<>();
+        this.fwH = new HashMap<>();
     }
 
     public void ce(String str, String str2) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                if (this.fAy.size() >= this.fAA) {
-                    aVN();
+                if (this.fwH.size() >= this.fwJ) {
+                    aTm();
                 }
-                this.fAy.put(str, valueOf);
+                this.fwH.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public long qn(String str) {
+    public long qg(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.fAy.get(str) != null ? this.fAy.get(str).longValue() : 0L;
+                longValue = this.fwH.get(str) != null ? this.fwH.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -51,11 +51,11 @@ public class p extends r {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                Iterator<Map.Entry<String, Long>> it = this.fAy.entrySet().iterator();
+                Iterator<Map.Entry<String, Long>> it = this.fwH.entrySet().iterator();
                 if (it.hasNext() && (key = it.next().getKey()) != null && key.equals(str)) {
-                    this.fAy.remove(key);
+                    this.fwH.remove(key);
                 }
-                this.fAy.put(str, valueOf);
+                this.fwH.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -63,10 +63,10 @@ public class p extends r {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.r
-    public void bkk() {
+    public void bhH() {
         synchronized (this) {
-            this.fAB.clear();
-            this.fAy.clear();
+            this.fwK.clear();
+            this.fwH.clear();
         }
     }
 }

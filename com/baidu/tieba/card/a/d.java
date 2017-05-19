@@ -6,11 +6,11 @@ import com.baidu.tieba.play.v;
 import com.baidu.tieba.view.AudioAnimationView;
 /* loaded from: classes.dex */
 class d implements v.d {
-    final /* synthetic */ a bwY;
+    final /* synthetic */ a bwW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bwY = aVar;
+        this.bwW = aVar;
     }
 
     @Override // com.baidu.tieba.play.v.d
@@ -24,17 +24,17 @@ class d implements v.d {
             vVar.setLooping(true);
             vVar.setVolume(0.0f, 0.0f);
         }
-        audioAnimationView = this.bwY.aTk;
+        audioAnimationView = this.bwW.aTF;
         audioAnimationView.start();
-        frameLayout = this.bwY.aTi;
+        frameLayout = this.bwW.aTD;
         frameLayout.setVisibility(8);
-        tbImageView = this.bwY.aTe;
+        tbImageView = this.bwW.aTz;
         tbImageView.setVisibility(8);
         com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable = this.bwY.aTu;
+        runnable = this.bwW.aTP;
         fS.postDelayed(runnable, 3000L);
         com.baidu.adp.lib.g.h fS2 = com.baidu.adp.lib.g.h.fS();
-        runnable2 = this.bwY.aTx;
+        runnable2 = this.bwW.aTS;
         fS2.removeCallbacks(runnable2);
     }
 }

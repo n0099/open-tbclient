@@ -1,25 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.SignData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dy implements View.OnClickListener {
-    final /* synthetic */ dw epw;
-    private final /* synthetic */ String epx;
+public class dy extends CustomMessageListener {
+    final /* synthetic */ PbModel eku;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dy(dw dwVar, String str) {
-        this.epw = dwVar;
-        this.epx = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dy(PbModel pbModel, int i) {
+        super(i);
+        this.eku = pbModel;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (!StringUtils.isNull(this.epx) && com.baidu.adp.lib.util.k.hB()) {
-            TiebaStatic.log("c10854");
-            com.baidu.tbadk.browser.f.T(this.epw.ekw.getActivity(), this.epx);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof SignData)) {
+            SignData signData = (SignData) customResponsedMessage.getData();
+            if (this.eku.getPbData() != null && this.eku.getPbData().aHE() != null && this.eku.getPbData().aHE().getSignData() != null && signData.forumId.equals(this.eku.getPbData().getForumId())) {
+                this.eku.getPbData().aHE().getSignData().is_signed = signData.is_signed;
+            }
         }
     }
 }

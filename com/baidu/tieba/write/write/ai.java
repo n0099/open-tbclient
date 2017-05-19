@@ -1,17 +1,19 @@
 package com.baidu.tieba.write.write;
 
-import android.app.TimePickerDialog;
-import android.widget.TimePicker;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ai implements TimePickerDialog.OnTimeSetListener {
-    final /* synthetic */ WriteActivity fUM;
+public class ai implements View.OnClickListener {
+    final /* synthetic */ WriteActivity fSV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(WriteActivity writeActivity) {
-        this.fUM = writeActivity;
+        this.fSV = writeActivity;
     }
 
-    @Override // android.app.TimePickerDialog.OnTimeSetListener
-    public void onTimeSet(TimePicker timePicker, int i, int i2) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.fSV.bcB();
+        this.fSV.bnC();
     }
 }

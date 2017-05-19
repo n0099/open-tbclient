@@ -1,16 +1,16 @@
 package com.baidu.tieba.screenlocknotify;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class o implements Runnable {
-    final /* synthetic */ i fiw;
+    final /* synthetic */ i fer;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(i iVar) {
-        this.fiw = iVar;
+        this.fer = iVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.fiw.fin.bcc();
+        this.fer.fei.aZB();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.VideoCache;
 import java.io.File;
 import java.io.Serializable;
 import java.util.Comparator;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class StartPositionComparator implements Serializable, Comparator<File> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator

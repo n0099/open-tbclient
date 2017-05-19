@@ -1,5 +1,6 @@
 package com.baidu.tieba.graffiti;
 
+import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.ae;
@@ -57,7 +58,7 @@ public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
             try {
                 this.mErrCode = jSONObject.optInt("error_code");
-                this.mErrMsg = jSONObject.optString("error_msg");
+                this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                 JSONObject optJSONObject2 = jSONObject.optJSONObject(LoginActivityConfig.INFO);
                 if (optJSONObject2 != null) {
                     this.isNeedVcode = optJSONObject2.optInt("need_vcode", 0) == 1;
@@ -71,7 +72,7 @@ public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
                     this.mGraffitiInfo.parserJson(optJSONObject);
                     this.mGraffitiInfo.setType(1);
                     long c = com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), -1L);
-                    if (!this.mGraffitiInfo.qR() || c != this.mGraffitiInfo.getUid()) {
+                    if (!this.mGraffitiInfo.qe() || c != this.mGraffitiInfo.getUid()) {
                         setError(-3);
                         setErrCode(-3);
                         setErrorString(this.mErrMsg);

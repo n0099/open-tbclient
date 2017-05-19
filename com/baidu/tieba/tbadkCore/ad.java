@@ -1,50 +1,30 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.tbadkCore.PraiseModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bn;
+import com.baidu.tbadk.core.data.bq;
 /* loaded from: classes.dex */
-public class ad extends HttpMessageListener {
-    final /* synthetic */ PraiseModel fxl;
+public class ad extends bk {
+    public static final BdUniqueId ftr = BdUniqueId.gen();
+    private bn fts;
+    private bq ftt;
+    private boolean ftu = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad(PraiseModel praiseModel, int i) {
-        super(i);
-        this.fxl = praiseModel;
+    @Override // com.baidu.tbadk.core.data.bk, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return ftr;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        PraiseModel.a aVar;
-        PraiseModel.a aVar2;
-        PraiseModel.a aVar3;
-        PraiseModel.a aVar4;
-        PraiseModel.a aVar5;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
-            int statusCode = httpResponsedMessage.getStatusCode();
-            if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                aVar = this.fxl.fxj;
-                if (aVar != null) {
-                    aVar2 = this.fxl.fxj;
-                    aVar2.w(statusCode, null);
-                    return;
-                }
-                return;
-            }
-            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
-            if (praiseResponseMessage.getError() == 0) {
-                aVar5 = this.fxl.fxj;
-                aVar5.hm(praiseResponseMessage.getErrMsg());
-                return;
-            }
-            aVar3 = this.fxl.fxj;
-            if (aVar3 != null) {
-                aVar4 = this.fxl.fxj;
-                aVar4.w(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
-            }
-        }
+    public boolean bga() {
+        return this.ftu;
+    }
+
+    public bn bgb() {
+        return this.fts;
+    }
+
+    public bq bgc() {
+        return this.ftt;
     }
 }

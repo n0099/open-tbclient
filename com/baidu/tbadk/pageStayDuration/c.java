@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.util.x;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    public static String y(List<String> list) {
-        if (x.p(list) <= 0) {
+    public static String z(List<String> list) {
+        if (x.q(list) <= 0) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
@@ -26,9 +26,9 @@ public class c {
     }
 
     public static List<String> e(List<String> list, int i) {
-        int p = x.p(list);
-        if (p > 0 && i >= 0 && p > i) {
-            return x.a(list, p - i, p);
+        int q = x.q(list);
+        if (q > 0 && i >= 0 && q > i) {
+            return x.a(list, q - i, q);
         }
         return list;
     }

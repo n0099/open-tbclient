@@ -1,81 +1,46 @@
 package com.baidu.tbadk.util;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.media.ExifInterface;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import android.media.AudioManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tieba.play.at;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class z {
-    public static int readPictureDegree(String str) {
-        try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
-                case 3:
-                    return SubsamplingScaleImageView.ORIENTATION_180;
-                case 4:
-                case 5:
-                case 7:
-                default:
-                    return 0;
-                case 6:
-                    return 90;
-                case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+    public static boolean a(WeakReference<Context> weakReference, boolean z) {
+        if (weakReference == null || weakReference.get() == null) {
+            return false;
+        }
+        AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
+        if (z) {
+            return audioManager.requestAudioFocus(null, 3, 2) == 1;
+        }
+        return audioManager.abandonAudioFocus(null) == 1;
+    }
+
+    public static boolean fg(int i) {
+        switch (i) {
+            case 1:
+            case 2:
+                return (com.baidu.adp.lib.util.i.hm() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
+            case 3:
+            case 4:
+                return com.baidu.adp.lib.util.i.hl();
+            case 5:
+                return TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2 || (com.baidu.tbadk.n.o.Gd() && com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0);
+            default:
+                return (com.baidu.adp.lib.util.i.hm() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
+        }
+    }
+
+    public static boolean r(int i, String str) {
+        if (!au.isEmpty(at.gV(str))) {
+            if (TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 1) {
+                return false;
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return 0;
+            return (com.baidu.adp.lib.util.i.hm() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0) ? false : true;
         }
-    }
-
-    private static Bitmap fl(int i) {
-        Exception e;
-        try {
-            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.l.cW("camera.jpg"));
-            Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap("camera.jpg", i);
-            if (readPictureDegree != 0 && subSampleBitmap != null) {
-                try {
-                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
-                } catch (Exception e2) {
-                    e = e2;
-                    BdLog.e(e.getMessage());
-                    return null;
-                }
-            }
-            return subSampleBitmap;
-        } catch (Exception e3) {
-            e = e3;
-        }
-    }
-
-    private static Bitmap e(Context context, String str, int i) {
-        try {
-            return BitmapHelper.loadResizedBitmap(str, i, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
-        }
-    }
-
-    private static Bitmap a(Context context, Uri uri, int i) {
-        try {
-            return BitmapHelper.subSampleBitmap(context, uri, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
-        }
-    }
-
-    public static Bitmap a(int i, Context context, Uri uri, String str, int i2) {
-        if (i == 12001) {
-            return fl(i2);
-        }
-        if (!TextUtils.isEmpty(str)) {
-            return e(context, str, i2);
-        }
-        return a(context, uri, i2);
+        return fg(i);
     }
 }

@@ -3,15 +3,15 @@ package com.baidu.tieba.imMessageCenter.im.chat;
 import android.view.animation.Animation;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class s implements Animation.AnimationListener {
-    final /* synthetic */ PersonalChatView djN;
-    private final /* synthetic */ Animation djO;
+    final /* synthetic */ PersonalChatView ddP;
+    private final /* synthetic */ Animation ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PersonalChatView personalChatView, Animation animation) {
-        this.djN = personalChatView;
-        this.djO = animation;
+        this.ddP = personalChatView;
+        this.ddQ = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -26,9 +26,9 @@ public class s implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         TextView textView;
         TextView textView2;
-        textView = this.djN.djJ;
+        textView = this.ddP.ddL;
         textView.setVisibility(0);
-        textView2 = this.djN.djJ;
-        textView2.setAnimation(this.djO);
+        textView2 = this.ddP.ddL;
+        textView2.setAnimation(this.ddQ);
     }
 }

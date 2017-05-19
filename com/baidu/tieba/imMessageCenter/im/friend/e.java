@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.IMBlackListActivityConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class e implements CustomMessageTask.CustomRunnable<IMBlackListActivityConfig> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<IMBlackListActivityConfig> run(CustomMessage<IMBlackListActivityConfig> customMessage) {

@@ -15,142 +15,142 @@ import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class au extends RelativeLayout {
     private int Iv;
-    private int aWS;
-    private MediaController.MediaPlayerControl aWT;
-    private TextView aWU;
-    private TextView aWV;
-    private boolean aWW;
-    private boolean aWX;
-    private SeekBar aWY;
-    private SeekBar.OnSeekBarChangeListener aXb;
-    private int aXc;
-    private SeekBar.OnSeekBarChangeListener aXd;
-    private b dzP;
-    private a dzQ;
+    private int aXo;
+    private MediaController.MediaPlayerControl aXp;
+    private TextView aXq;
+    private TextView aXr;
+    private boolean aXs;
+    private boolean aXt;
+    private SeekBar aXu;
+    private SeekBar.OnSeekBarChangeListener aXx;
+    private int aXy;
+    private SeekBar.OnSeekBarChangeListener aXz;
+    private b due;
+    private a duf;
     private Context mContext;
     private Handler mHandler;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Mm();
+        void LA();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void fM(int i);
+        void fJ(int i);
     }
 
     public au(Context context) {
         super(context);
-        this.aWS = 50;
-        this.aWW = false;
-        this.aWX = true;
-        this.aXc = 0;
+        this.aXo = 50;
+        this.aXs = false;
+        this.aXt = true;
+        this.aXy = 0;
         this.mHandler = new av(this, Looper.getMainLooper());
-        this.aXd = new aw(this);
+        this.aXz = new aw(this);
         init(context);
     }
 
     public au(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aWS = 50;
-        this.aWW = false;
-        this.aWX = true;
-        this.aXc = 0;
+        this.aXo = 50;
+        this.aXs = false;
+        this.aXt = true;
+        this.aXy = 0;
         this.mHandler = new av(this, Looper.getMainLooper());
-        this.aXd = new aw(this);
+        this.aXz = new aw(this);
         init(context);
     }
 
     public au(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aWS = 50;
-        this.aWW = false;
-        this.aWX = true;
-        this.aXc = 0;
+        this.aXo = 50;
+        this.aXs = false;
+        this.aXt = true;
+        this.aXy = 0;
         this.mHandler = new av(this, Looper.getMainLooper());
-        this.aXd = new aw(this);
+        this.aXz = new aw(this);
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        View aX = aX(context);
-        addView(aX, -1, (int) context.getResources().getDimension(w.f.ds80));
-        this.aWU = (TextView) aX.findViewById(w.h.textview_cur_time);
-        this.aWV = (TextView) aX.findViewById(w.h.textview_duration);
-        this.aWY = (SeekBar) aX.findViewById(w.h.pb_video_controller_seekBar);
-        this.aWY.setOnSeekBarChangeListener(this.aXd);
+        View ba = ba(context);
+        addView(ba, -1, (int) context.getResources().getDimension(w.f.ds80));
+        this.aXq = (TextView) ba.findViewById(w.h.textview_cur_time);
+        this.aXr = (TextView) ba.findViewById(w.h.textview_duration);
+        this.aXu = (SeekBar) ba.findViewById(w.h.pb_video_controller_seekBar);
+        this.aXu.setOnSeekBarChangeListener(this.aXz);
     }
 
-    protected View aX(Context context) {
+    protected View ba(Context context) {
         return LayoutInflater.from(context).inflate(w.j.video_controller, (ViewGroup) null);
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.aWT = mediaPlayerControl;
+        this.aXp = mediaPlayerControl;
     }
 
-    public void X(int i, int i2) {
+    public void Y(int i, int i2) {
         this.Iv = i2;
-        this.aWX = false;
+        this.aXt = false;
         this.mHandler.removeMessages(1);
-        this.aWY.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
-        if (this.aWU != null) {
-            this.aWU.setText(com.baidu.tbadk.core.util.au.cW(i));
+        this.aXu.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
+        if (this.aXq != null) {
+            this.aXq.setText(com.baidu.tbadk.core.util.au.cS(i));
         }
-        if (this.aWV != null) {
-            this.aWV.setText(com.baidu.tbadk.core.util.au.cW(this.Iv));
+        if (this.aXr != null) {
+            this.aXr.setText(com.baidu.tbadk.core.util.au.cS(this.Iv));
         }
     }
 
     public void showProgress() {
-        if (this.aWT != null) {
-            this.aWS = ((this.aWT.getDuration() / 200) / 50) * 50;
-            if (this.aWS < 50) {
-                this.aWS = 50;
-            } else if (this.aWS > 500) {
-                this.aWS = 500;
+        if (this.aXp != null) {
+            this.aXo = ((this.aXp.getDuration() / 200) / 50) * 50;
+            if (this.aXo < 50) {
+                this.aXo = 50;
+            } else if (this.aXo > 500) {
+                this.aXo = 500;
             }
-            this.aWX = true;
+            this.aXt = true;
             this.mHandler.removeMessages(1);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.aWS - (this.aWT.getCurrentPosition() % this.aWS));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.aXo - (this.aXp.getCurrentPosition() % this.aXo));
         }
     }
 
-    public void Mk() {
-        this.aWX = false;
+    public void Ly() {
+        this.aXt = false;
         this.mHandler.removeMessages(1);
-        this.aWY.setProgress(0);
-        if (this.aWU != null) {
-            this.aWU.setText(com.baidu.tbadk.core.util.au.cW(0));
+        this.aXu.setProgress(0);
+        if (this.aXq != null) {
+            this.aXq.setText(com.baidu.tbadk.core.util.au.cS(0));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int Ml() {
-        if (this.aWT == null || this.aWW) {
+    public int Lz() {
+        if (this.aXp == null || this.aXs) {
             return 0;
         }
-        int currentPosition = this.aWT.getCurrentPosition();
-        int duration = this.aWT.getDuration();
+        int currentPosition = this.aXp.getCurrentPosition();
+        int duration = this.aXp.getDuration();
         if (currentPosition > duration) {
             currentPosition = duration;
         }
-        if (this.aWY != null) {
+        if (this.aXu != null) {
             if (duration > 0) {
-                this.aWY.setProgress((int) ((10000 * currentPosition) / duration));
+                this.aXu.setProgress((int) ((10000 * currentPosition) / duration));
             }
-            this.aWT.getBufferPercentage();
+            this.aXp.getBufferPercentage();
         }
-        if (this.aWU != null) {
-            this.aWU.setText(com.baidu.tbadk.core.util.au.cW(currentPosition));
+        if (this.aXq != null) {
+            this.aXq.setText(com.baidu.tbadk.core.util.au.cS(currentPosition));
             return currentPosition;
         }
         return currentPosition;
     }
 
-    public void D(int i, boolean z) {
+    public void C(int i, boolean z) {
         if (i < 0) {
             i = 0;
         }
@@ -159,31 +159,31 @@ public class au extends RelativeLayout {
                 this.mHandler.removeMessages(1);
             }
         } else {
-            this.aWT.seekTo(i);
-            if (this.aWU != null) {
-                this.aWU.setText(com.baidu.tbadk.core.util.au.cW(i));
+            this.aXp.seekTo(i);
+            if (this.aXq != null) {
+                this.aXq.setText(com.baidu.tbadk.core.util.au.cS(i));
             }
             showProgress();
         }
-        if (!this.aWT.isPlaying()) {
-            this.aWY.setProgress((int) (((i * 1.0f) / this.Iv) * 10000.0f));
+        if (!this.aXp.isPlaying()) {
+            this.aXu.setProgress((int) (((i * 1.0f) / this.Iv) * 10000.0f));
         }
     }
 
-    public String qE(int i) {
+    public String qw(int i) {
         if (i < 0) {
             i = 0;
         }
-        return com.baidu.tbadk.core.util.au.cW(i);
+        return com.baidu.tbadk.core.util.au.cS(i);
     }
 
     public int getSeekPosition() {
-        return this.aXc;
+        return this.aXy;
     }
 
     public int getCurProgress() {
-        if (this.aWY != null) {
-            return this.aWY.getProgress();
+        if (this.aXu != null) {
+            return this.aXu.getProgress();
         }
         return 0;
     }
@@ -195,14 +195,14 @@ public class au extends RelativeLayout {
     }
 
     public void setOnProgressUpdatedListener(b bVar) {
-        this.dzP = bVar;
+        this.due = bVar;
     }
 
     public void setOnDragingListener(a aVar) {
-        this.dzQ = aVar;
+        this.duf = aVar;
     }
 
     public void setOnSeekBarChangeListener(SeekBar.OnSeekBarChangeListener onSeekBarChangeListener) {
-        this.aXb = onSeekBarChangeListener;
+        this.aXx = onSeekBarChangeListener;
     }
 }

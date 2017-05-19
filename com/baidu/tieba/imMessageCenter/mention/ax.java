@@ -1,18 +1,30 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class ax implements NoNetworkView.a {
-    final /* synthetic */ au dnH;
+/* loaded from: classes2.dex */
+public class ax implements AbsListView.OnScrollListener {
+    final /* synthetic */ av dhM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(au auVar) {
-        this.dnH = auVar;
+    public ax(av avVar) {
+        this.dhM = avVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aM(boolean z) {
-        this.dnH.gB(z);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        com.baidu.tbadk.editortools.pb.n nVar;
+        com.baidu.tbadk.editortools.pb.n nVar2;
+        if (i != 0) {
+            nVar = this.dhM.dhG;
+            if (nVar != null) {
+                nVar2 = this.dhM.dhG;
+                nVar2.Dq();
+            }
+        }
     }
 }

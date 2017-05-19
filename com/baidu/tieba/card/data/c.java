@@ -5,68 +5,69 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ah;
 import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.card.at;
+import com.baidu.tieba.card.ap;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ah {
-    public String WT;
-    public SparseArray<String> WU = null;
+    public String Wl;
+    private String bxa;
+    private int bxb;
     private String bxc;
-    private int bxd;
-    private String bxe;
-    private String bxf;
+    private String bxd;
     private String mSource;
+    public int bxe = 0;
+    public SparseArray<String> Wm = null;
 
     public void setWeight(String str) {
-        this.bxc = str;
+        this.bxa = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void gR(int i) {
-        this.bxd = i;
+    public void gN(int i) {
+        this.bxb = i;
     }
 
-    public void id(String str) {
-        this.bxe = str;
+    public void ic(String str) {
+        this.bxc = str;
     }
 
-    public int TX() {
-        return this.bxd;
+    public int Tq() {
+        return this.bxb;
     }
 
-    public String TY() {
-        return String.valueOf(this.mSource) + "#" + this.bxd + "#" + this.bxe;
+    public String Tr() {
+        return String.valueOf(this.mSource) + "#" + this.bxb + "#" + this.bxc;
     }
 
     public String getWeight() {
-        return this.bxc;
+        return this.bxa;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String TZ() {
-        return this.bxe;
+    public String Ts() {
+        return this.bxc;
     }
 
-    public String Ua() {
-        return this.bxf;
+    public String Tt() {
+        return this.bxd;
     }
 
-    public void ie(String str) {
-        this.bxf = str;
+    public void id(String str) {
+        this.bxd = str;
     }
 
-    public bi Kn() {
+    public bk JB() {
         return null;
     }
 
@@ -74,36 +75,49 @@ public abstract class c extends b implements ah {
         return true;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public as m16if(String str) {
+    public as ie(String str) {
         return A(str, false);
     }
 
     public as A(String str, boolean z) {
-        bi Kn = Kn();
-        if (Kn == null) {
+        bk JB = JB();
+        if (JB == null) {
             return null;
         }
-        as aa = new as(str).aa("fid", String.valueOf(Kn.getFid())).aa("tid", String.valueOf(Kn.getTid())).s("obj_id", m(Kn)).aa("obj_param1", getWeight()).s("obj_param2", 1).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", TX()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", at.TP());
+        as aa = new as(str).aa("fid", String.valueOf(JB.getFid())).aa("tid", String.valueOf(JB.getTid())).s("obj_id", r(JB)).aa("obj_param1", getWeight()).s("obj_param2", 1).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", Tq()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", ap.Th());
         if (!z) {
-            aa.s("obj_type", Ub());
+            aa.s("obj_type", Tu());
             return aa;
         }
-        aa.aa("ab_tag", TZ());
+        aa.aa("ab_tag", Ts());
         return aa;
     }
 
-    private int Ub() {
+    public as I(String str, int i) {
+        bk JB = JB();
+        if (JB == null) {
+            return null;
+        }
+        as aa = new as(str).aa("fid", String.valueOf(JB.getFid())).aa("tid", String.valueOf(JB.getTid())).s("obj_id", r(JB)).s("obj_param2", 1).aa("obj_param1", getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", Tq()).aa("obj_name", Ts()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", ap.Th());
+        if (i == 0) {
+            aa.s("obj_type", Tu());
+            return aa;
+        }
+        aa.s("obj_type", i);
+        return aa;
+    }
+
+    private int Tu() {
         int i;
-        bi Kn = Kn();
-        if (Kn == null) {
+        bk JB = JB();
+        if (JB == null) {
             return 0;
         }
-        ArrayList<MediaData> sy = Kn.sy();
-        if (sy == null) {
+        ArrayList<MediaData> rI = JB.rI();
+        if (rI == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = sy.iterator();
+            Iterator<MediaData> it = rI.iterator();
             i = 0;
             while (it.hasNext()) {
                 MediaData next = it.next();
@@ -117,17 +131,17 @@ public abstract class c extends b implements ah {
 
     @Override // com.baidu.tbadk.core.util.ah
     public ArrayList<PreLoadImageInfo> getImages() {
-        bi Kn = Kn();
-        if (Kn != null) {
-            return Kn.getImages();
+        bk JB = JB();
+        if (JB != null) {
+            return JB.getImages();
         }
         return null;
     }
 
-    private int m(bi biVar) {
-        if (biVar.ts() == null || biVar.ts().channelId <= 0) {
+    private int r(bk bkVar) {
+        if (bkVar.sC() == null || bkVar.sC().channelId <= 0) {
             return 0;
         }
-        return (int) biVar.ts().channelId;
+        return (int) bkVar.sC().channelId;
     }
 }

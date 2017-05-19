@@ -1,19 +1,30 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-class q implements com.baidu.tbadk.util.e<Boolean> {
-    final /* synthetic */ FrsActivity bQa;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public q(FrsActivity frsActivity) {
-        this.bQa = frsActivity;
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes.dex */
+public class q implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId bNY = BdUniqueId.gen();
+    private int height = 0;
+    private int bnT = 0;
+
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return bNY;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.e
-    /* renamed from: d */
-    public void F(Boolean bool) {
-        if (bool != null && this.bQa.bOU != null) {
-            this.bQa.bOU.abm();
-        }
+    public int getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public int YP() {
+        return this.bnT;
+    }
+
+    public void hH(int i) {
+        this.bnT = i;
     }
 }
