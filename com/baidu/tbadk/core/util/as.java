@@ -22,19 +22,19 @@ public class as {
         this.key = str;
     }
 
-    public as aa(String str, String str2) {
+    public as Z(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
     }
 
-    public as s(String str, int i) {
+    public as r(String str, int i) {
         this.params.add(str);
         this.params.add(Integer.valueOf(i));
         return this;
     }
 
-    public as g(String str, long j) {
+    public as f(String str, long j) {
         this.params.add(str);
         this.params.add(Long.valueOf(j));
         return this;

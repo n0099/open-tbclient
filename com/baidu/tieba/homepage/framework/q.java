@@ -7,10 +7,10 @@ import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class q {
-    private a csv;
-    private final TbPageContext<BaseFragmentActivity> ctr;
-    private RecPersonalizePageModel cts;
-    private RecPersonalizePageModel.a ctt = new r(this);
+    private a cyN;
+    private final TbPageContext<BaseFragmentActivity> czJ;
+    private RecPersonalizePageModel czK;
+    private RecPersonalizePageModel.a czL = new r(this);
     private final BdUniqueId uniqueId;
 
     /* loaded from: classes.dex */
@@ -23,15 +23,15 @@ public class q {
     }
 
     public q(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
-        this.ctr = tbPageContext;
+        this.czJ = tbPageContext;
         this.uniqueId = bdUniqueId;
-        this.cts = new RecPersonalizePageModel(tbPageContext, bdUniqueId);
-        this.cts.a(this.ctt);
+        this.czK = new RecPersonalizePageModel(tbPageContext, bdUniqueId);
+        this.czK.a(this.czL);
     }
 
     public void d(int i, int i2, int i3, int i4, int i5) {
-        if (this.cts != null) {
-            this.cts.d(i, i2, i3, i4, i5);
+        if (this.czK != null) {
+            this.czK.d(i, i2, i3, i4, i5);
         }
     }
 
@@ -39,22 +39,22 @@ public class q {
         return this.uniqueId;
     }
 
-    public TbPageContext<BaseFragmentActivity> ahf() {
-        return this.ctr;
+    public TbPageContext<BaseFragmentActivity> aiu() {
+        return this.czJ;
     }
 
     public void a(com.baidu.tieba.lego.model.a aVar) {
     }
 
-    public com.baidu.tieba.lego.model.a ahg() {
+    public com.baidu.tieba.lego.model.a aiv() {
         return null;
     }
 
     public void a(a aVar) {
-        this.csv = aVar;
+        this.cyN = aVar;
     }
 
-    public a ahh() {
-        return this.csv;
+    public a aiw() {
+        return this.cyN;
     }
 }

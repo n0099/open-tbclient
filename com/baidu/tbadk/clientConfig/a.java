@@ -7,13 +7,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ ClientConfigModel Rp;
+    final /* synthetic */ ClientConfigModel Rc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ClientConfigModel clientConfigModel, int i, int i2) {
         super(i, i2);
-        this.Rp = clientConfigModel;
+        this.Rc = clientConfigModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,11 +25,11 @@ public class a extends com.baidu.adp.framework.listener.a {
         b bVar4;
         b bVar5;
         b bVar6;
-        checkMessageIsBelongToCurPage = this.Rp.checkMessageIsBelongToCurPage(responsedMessage);
+        checkMessageIsBelongToCurPage = this.Rc.checkMessageIsBelongToCurPage(responsedMessage);
         if (!checkMessageIsBelongToCurPage) {
-            bVar5 = this.Rp.Rn;
+            bVar5 = this.Rc.Ra;
             if (bVar5 != null) {
-                bVar6 = this.Rp.Rn;
+                bVar6 = this.Rc.Ra;
                 bVar6.onError("");
             }
         } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
@@ -38,24 +38,24 @@ public class a extends com.baidu.adp.framework.listener.a {
             if (!StringUtils.isNull(errorString)) {
                 string = errorString;
             }
-            bVar = this.Rp.Rn;
+            bVar = this.Rc.Ra;
             if (bVar != null) {
-                bVar2 = this.Rp.Rn;
+                bVar2 = this.Rc.Ra;
                 bVar2.onError(string);
             }
         } else if (!(responsedMessage instanceof ClientConfigHttpProtoResponse)) {
             if (!(responsedMessage instanceof ClientConfigSocketResponse)) {
-                bVar3 = this.Rp.Rn;
+                bVar3 = this.Rc.Ra;
                 if (bVar3 != null) {
-                    bVar4 = this.Rp.Rn;
+                    bVar4 = this.Rc.Ra;
                     bVar4.onError("");
                     return;
                 }
                 return;
             }
-            this.Rp.a(((ClientConfigSocketResponse) responsedMessage).getData());
+            this.Rc.a(((ClientConfigSocketResponse) responsedMessage).getData());
         } else {
-            this.Rp.a(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+            this.Rc.a(((ClientConfigHttpProtoResponse) responsedMessage).getData());
         }
     }
 }

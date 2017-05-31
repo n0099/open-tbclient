@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.sub;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.pb.pb.sub.ba;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.w;
@@ -11,11 +11,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ao erD;
+    final /* synthetic */ ao eyO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(ao aoVar) {
-        this.erD = aoVar;
+        this.eyO = aoVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -27,39 +27,39 @@ public class av implements AdapterView.OnItemClickListener {
         com.baidu.tbadk.editortools.pb.n nVar2;
         SubPbModel subPbModel;
         b bVar2;
-        newSubPbActivity = this.erD.era;
-        if (bg.aN(newSubPbActivity.getPageContext().getPageActivity())) {
-            bVar = this.erD.eqR;
+        newSubPbActivity = this.eyO.eyk;
+        if (bh.aN(newSubPbActivity.getPageContext().getPageActivity())) {
+            bVar = this.eyO.eyb;
             if (bVar != null) {
-                bVar2 = this.erD.eqR;
-                bVar2.aMx();
+                bVar2 = this.eyO.eyb;
+                bVar2.aNG();
             }
-            this.erD.aML();
+            this.eyO.aNU();
             if (view == null || !(view.getTag() instanceof ba.a)) {
-                arrayList = this.erD.eru;
+                arrayList = this.eyO.eyF;
                 PostData postData = (PostData) com.baidu.tbadk.core.util.x.c(arrayList, i);
                 if (postData == null) {
-                    this.erD.erv = null;
+                    this.eyO.eyG = null;
                 } else {
-                    this.erD.erv = postData.getId();
+                    this.eyO.eyG = postData.getId();
                 }
                 SparseArray sparseArray = (SparseArray) view.getTag();
                 if (sparseArray != null) {
                     String str = (String) sparseArray.get(w.h.tag_photo_username);
                     String str2 = (String) sparseArray.get(w.h.tag_photo_userid);
                     if (str != null) {
-                        nVar = this.erD.dhG;
+                        nVar = this.eyO.dnc;
                         nVar.setReplyId(str2);
-                        nVar2 = this.erD.dhG;
-                        nVar2.fE(str);
+                        nVar2 = this.eyO.dnc;
+                        nVar2.fC(str);
                     }
                 }
-                this.erD.aMM();
+                this.eyO.aNV();
                 return;
             }
-            this.erD.aMN();
-            subPbModel = this.erD.eqD;
-            subPbModel.aNh();
+            this.eyO.aNW();
+            subPbModel = this.eyO.exN;
+            subPbModel.aOq();
         }
     }
 }

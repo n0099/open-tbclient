@@ -8,26 +8,26 @@ import com.baidu.tbadk.util.w;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class c extends a {
-    private static c dbq = new c();
+    private static c dgN = new c();
 
     private c() {
     }
 
-    public static c arr() {
-        return dbq;
+    public static c asp() {
+        return dgN;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: bh */
-    public GroupSettingItemData bf(String str, String str2) {
+    /* renamed from: bf */
+    public GroupSettingItemData bd(String str, String str2) {
         GroupSettingItemData groupSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.dbn) {
-            ChatSetting chatSetting = this.dbn.get(str3);
+        synchronized (this.dgK) {
+            ChatSetting chatSetting = this.dgK.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {
@@ -46,24 +46,24 @@ public class c extends a {
         return groupSettingItemData;
     }
 
-    public void ann() {
+    public void aon() {
         super.m(GroupSettingItemData.class);
     }
 
     public void b(String str, String str2, boolean z, com.baidu.tbadk.util.g<Void> gVar) {
-        GroupSettingItemData bf = bf(str, str2);
-        if (bf != null) {
-            bf.setAlreadyApply(z);
-            bf.setLastApplyTimeStamp(System.currentTimeMillis());
-            a(bf, gVar);
+        GroupSettingItemData bd = bd(str, str2);
+        if (bd != null) {
+            bd.setAlreadyApply(z);
+            bd.setLastApplyTimeStamp(System.currentTimeMillis());
+            a(bd, gVar);
         }
     }
 
     public void c(String str, String str2, boolean z, com.baidu.tbadk.util.g<Void> gVar) {
-        GroupSettingItemData bf = bf(str, str2);
-        if (bf != null) {
-            bf.setInGroup(z);
-            a(bf, gVar);
+        GroupSettingItemData bd = bd(str, str2);
+        if (bd != null) {
+            bd.setInGroup(z);
+            a(bd, gVar);
         }
     }
 
@@ -73,8 +73,8 @@ public class c extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> arq() {
-        return com.baidu.tbadk.core.c.a.sZ().cz("tb.im_group_setting");
+    public o<String> aso() {
+        return com.baidu.tbadk.core.c.a.sY().cy("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -89,13 +89,13 @@ public class c extends a {
                 }
                 return;
             }
-            o<String> arq = arq();
+            o<String> aso = aso();
             String str = String.valueOf(uid) + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.dbn) {
-                this.dbn.put(str, groupSettingItemData);
+            synchronized (this.dgK) {
+                this.dgK.put(str, groupSettingItemData);
             }
-            arq.k(str, jsonStrWithObject);
+            aso.k(str, jsonStrWithObject);
         }
     }
 
@@ -112,8 +112,8 @@ public class c extends a {
                 return;
             }
             String str = String.valueOf(uid) + "@" + gid;
-            synchronized (this.dbn) {
-                this.dbn.put(str, groupSettingItemData);
+            synchronized (this.dgK) {
+                this.dgK.put(str, groupSettingItemData);
             }
             w.b(new e(this, groupSettingItemData, str), gVar);
         }
@@ -122,8 +122,8 @@ public class c extends a {
     public void b(String str, String str2, com.baidu.tbadk.util.g<Void> gVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String str3 = String.valueOf(str) + "@" + str2;
-            synchronized (this.dbn) {
-                this.dbn.remove(str3);
+            synchronized (this.dgK) {
+                this.dgK.remove(str3);
             }
             w.b(new f(this, str3), gVar);
         }

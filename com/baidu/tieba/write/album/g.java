@@ -6,11 +6,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ f fMr;
+    final /* synthetic */ f fTY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.fMr = fVar;
+        this.fTY = fVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,41 +31,41 @@ public class g implements View.OnClickListener {
         ImageView imageView2;
         AlbumActivity albumActivity5;
         int i4;
-        kVar = this.fMr.fMn;
+        kVar = this.fTY.fTU;
         if (kVar != null) {
-            pVar = this.fMr.fLQ;
+            pVar = this.fTY.fTx;
             if (pVar != null) {
-                albumActivity = this.fMr.fMg;
+                albumActivity = this.fTY.fTN;
                 if (albumActivity != null) {
-                    kVar2 = this.fMr.fMn;
-                    i = this.fMr.aBS;
-                    if (kVar2.sO(i)) {
-                        kVar3 = this.fMr.fMn;
-                        i2 = this.fMr.aBS;
-                        ImageFileInfo sN = kVar3.sN(i2);
-                        pVar2 = this.fMr.fLQ;
-                        if (pVar2.isAdded(sN)) {
-                            albumActivity4 = this.fMr.fMg;
-                            if (albumActivity4.d(sN)) {
-                                f fVar = this.fMr;
-                                imageView2 = this.fMr.fMo;
+                    kVar2 = this.fTY.fTU;
+                    i = this.fTY.aBF;
+                    if (kVar2.tj(i)) {
+                        kVar3 = this.fTY.fTU;
+                        i2 = this.fTY.aBF;
+                        ImageFileInfo ti = kVar3.ti(i2);
+                        pVar2 = this.fTY.fTx;
+                        if (pVar2.isAdded(ti)) {
+                            albumActivity4 = this.fTY.fTN;
+                            if (albumActivity4.d(ti)) {
+                                f fVar = this.fTY;
+                                imageView2 = this.fTY.fTV;
                                 fVar.c(imageView2, false);
-                                albumActivity5 = this.fMr.fMg;
-                                i4 = this.fMr.aBS;
-                                albumActivity5.I(i4, false);
+                                albumActivity5 = this.fTY.fTN;
+                                i4 = this.fTY.aBF;
+                                albumActivity5.G(i4, false);
                             }
                         } else {
-                            albumActivity2 = this.fMr.fMg;
-                            if (albumActivity2.c(sN)) {
-                                f fVar2 = this.fMr;
-                                imageView = this.fMr.fMo;
+                            albumActivity2 = this.fTY.fTN;
+                            if (albumActivity2.c(ti)) {
+                                f fVar2 = this.fTY;
+                                imageView = this.fTY.fTV;
                                 fVar2.c(imageView, true);
-                                albumActivity3 = this.fMr.fMg;
-                                i3 = this.fMr.aBS;
-                                albumActivity3.I(i3, true);
+                                albumActivity3 = this.fTY.fTN;
+                                i3 = this.fTY.aBF;
+                                albumActivity3.G(i3, true);
                             }
                         }
-                        this.fMr.bmk();
+                        this.fTY.bnH();
                     }
                 }
             }

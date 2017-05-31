@@ -19,11 +19,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.editortools.b {
-    final /* synthetic */ WriteActivity fSV;
+    final /* synthetic */ WriteActivity gaR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(WriteActivity writeActivity) {
-        this.fSV = writeActivity;
+        this.gaR = writeActivity;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -35,8 +35,8 @@ public class ad implements com.baidu.tbadk.editortools.b {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
         com.baidu.tbadk.editortools.j jVar;
-        EditText box;
-        EditText bow;
+        EditText bpW;
+        EditText bpV;
         WriteData writeData;
         WriteData writeData2;
         com.baidu.tbadk.editortools.j jVar2;
@@ -61,42 +61,42 @@ public class ad implements com.baidu.tbadk.editortools.b {
         WriteData writeData7;
         int i;
         AdditionData additionData;
-        boolean bov;
-        boolean bov2;
+        boolean bpU;
+        boolean bpU2;
         if (aVar != null) {
             if (aVar.code != 16) {
                 if (aVar.code == 14 || aVar.code == 48) {
-                    this.fSV.d(aVar);
+                    this.gaR.d(aVar);
                     return;
                 } else if (aVar.code != 24) {
                     if (aVar.code == 3) {
-                        this.fSV.boy();
+                        this.gaR.bpX();
                         return;
                     } else if (aVar.code == 10) {
                         if (aVar.data != null && (aVar.data instanceof VoiceData.VoiceModel)) {
-                            this.fSV.aAM = (VoiceData.VoiceModel) aVar.data;
-                            this.fSV.bcJ();
+                            this.gaR.aAy = (VoiceData.VoiceModel) aVar.data;
+                            this.gaR.bed();
                             return;
                         }
                         return;
                     } else if (aVar.code == 11) {
-                        this.fSV.aAM = null;
-                        this.fSV.bcJ();
+                        this.gaR.aAy = null;
+                        this.gaR.bed();
                         return;
                     } else if (aVar.code != 12 && aVar.code != 13 && aVar.code != 46 && aVar.code != 49) {
                         if (aVar.code == 15 || aVar.code == 47) {
                             if (aVar.data != null && (aVar.data instanceof Integer)) {
                                 int intValue = ((Integer) aVar.data).intValue();
-                                writeImagesInfo = this.fSV.writeImagesInfo;
+                                writeImagesInfo = this.gaR.writeImagesInfo;
                                 if (writeImagesInfo != null) {
-                                    writeImagesInfo2 = this.fSV.writeImagesInfo;
+                                    writeImagesInfo2 = this.gaR.writeImagesInfo;
                                     if (writeImagesInfo2.getChosedFiles() != null) {
-                                        writeImagesInfo3 = this.fSV.writeImagesInfo;
+                                        writeImagesInfo3 = this.gaR.writeImagesInfo;
                                         int size = writeImagesInfo3.getChosedFiles().size();
                                         if (size >= 1 && intValue >= 0 && intValue < size) {
-                                            WriteActivity writeActivity = this.fSV;
-                                            Activity pageActivity = this.fSV.getPageContext().getPageActivity();
-                                            writeImagesInfo4 = this.fSV.writeImagesInfo;
+                                            WriteActivity writeActivity = this.gaR;
+                                            Activity pageActivity = this.gaR.getPageContext().getPageActivity();
+                                            writeImagesInfo4 = this.gaR.writeImagesInfo;
                                             writeActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(pageActivity, 12012, writeImagesInfo4, intValue)));
                                             return;
                                         }
@@ -109,18 +109,18 @@ public class ad implements com.baidu.tbadk.editortools.b {
                             return;
                         } else if (aVar.code == 18) {
                             if (aVar.data != null) {
-                                additionData = this.fSV.fRR;
+                                additionData = this.gaR.fZN;
                                 if (additionData == null) {
-                                    this.fSV.CX();
+                                    this.gaR.CR();
                                     return;
                                 }
                             }
-                            i = this.fSV.aAW;
+                            i = this.gaR.aAI;
                             switch (i) {
                                 case 0:
-                                    Activity pageActivity2 = this.fSV.getPageContext().getPageActivity();
+                                    Activity pageActivity2 = this.gaR.getPageContext().getPageActivity();
                                     if (com.baidu.tbadk.core.util.ae.aC(pageActivity2)) {
-                                        this.fSV.CV();
+                                        this.gaR.CP();
                                         return;
                                     } else {
                                         com.baidu.tbadk.core.util.ae.c(pageActivity2, 0);
@@ -130,146 +130,146 @@ public class ad implements com.baidu.tbadk.editortools.b {
                                 default:
                                     return;
                                 case 2:
-                                    this.fSV.CU();
+                                    this.gaR.CO();
                                     return;
                             }
                         } else if (aVar.code == 25) {
                             if (aVar.data == null || !(aVar.data instanceof String)) {
-                                this.fSV.dEo = null;
+                                this.gaR.dJM = null;
                             } else {
-                                this.fSV.dEo = (String) aVar.data;
+                                this.gaR.dJM = (String) aVar.data;
                             }
-                            this.fSV.lJ(false);
+                            this.gaR.mc(false);
                             return;
                         } else if (aVar.code == 27) {
-                            com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("xiaoying_has_click", true);
+                            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("xiaoying_has_click", true);
                             com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c10645");
-                            writeData4 = this.fSV.mData;
+                            writeData4 = this.gaR.mData;
                             if (writeData4 != null) {
-                                writeData7 = this.fSV.mData;
+                                writeData7 = this.gaR.mData;
                                 str = writeData7.getForumId();
                             } else {
                                 str = "";
                             }
-                            asVar.aa("fid", str);
+                            asVar.Z("fid", str);
                             TiebaStatic.log(asVar);
-                            writeData5 = this.fSV.mData;
+                            writeData5 = this.gaR.mData;
                             if (writeData5 != null) {
-                                writeData6 = this.fSV.mData;
+                                writeData6 = this.gaR.mData;
                                 VideoInfo videoInfo = writeData6.getVideoInfo();
                                 if (videoInfo != null && videoInfo.isAvaliable()) {
-                                    jVar10 = this.fSV.azd;
+                                    jVar10 = this.gaR.ayP;
                                     jVar10.b(new com.baidu.tbadk.editortools.a(2, 19, " "));
                                     com.baidu.tbadk.editortools.a aVar2 = new com.baidu.tbadk.editortools.a(28, 20, videoInfo);
-                                    jVar11 = this.fSV.azd;
+                                    jVar11 = this.gaR.ayP;
                                     jVar11.b(aVar2);
                                     return;
                                 }
                             }
-                            jVar6 = this.fSV.azd;
+                            jVar6 = this.gaR.ayP;
                             jVar6.b(new com.baidu.tbadk.editortools.a(2, 19, null));
                             if (XiaoyingUtil.isXiaoyingInstalled()) {
                                 if (!XiaoyingUtil.isXiaoyingForbidden()) {
-                                    jVar7 = this.fSV.azd;
-                                    if (jVar7.Cv()) {
-                                        jVar8 = this.fSV.azd;
-                                        jVar8.AN();
-                                        jVar9 = this.fSV.azd;
+                                    jVar7 = this.gaR.ayP;
+                                    if (jVar7.Cp()) {
+                                        jVar8 = this.gaR.ayP;
+                                        jVar8.AG();
+                                        jVar9 = this.gaR.ayP;
                                         jVar9.b(new com.baidu.tbadk.editortools.a(5, -1, null));
                                     }
-                                    XiaoyingUtil.startXiaoying(this.fSV.getActivity());
+                                    XiaoyingUtil.startXiaoying(this.gaR.getActivity());
                                     return;
                                 }
-                                XiaoyingUtil.showGoPluginDetailDialog(this.fSV.getPageContext(), this.fSV.getResources().getString(w.l.plugin_video_not_active), this.fSV.getResources().getString(w.l.setup));
+                                XiaoyingUtil.showGoPluginDetailDialog(this.gaR.getPageContext(), this.gaR.getResources().getString(w.l.plugin_video_not_active), this.gaR.getResources().getString(w.l.setup));
                                 return;
                             }
-                            XiaoyingUtil.showGoPluginDetailDialog(this.fSV.getPageContext(), this.fSV.getResources().getString(w.l.plugin_video_install_tips), this.fSV.getResources().getString(w.l.plugin_go_install));
+                            XiaoyingUtil.showGoPluginDetailDialog(this.gaR.getPageContext(), this.gaR.getResources().getString(w.l.plugin_video_install_tips), this.gaR.getResources().getString(w.l.plugin_go_install));
                             return;
                         } else if (aVar.code == 29) {
                             com.baidu.tbadk.editortools.a aVar3 = new com.baidu.tbadk.editortools.a(2, 19, null);
-                            jVar2 = this.fSV.azd;
+                            jVar2 = this.gaR.ayP;
                             jVar2.b(aVar3);
                             com.baidu.tbadk.editortools.a aVar4 = new com.baidu.tbadk.editortools.a(1, 2, null);
-                            jVar3 = this.fSV.azd;
+                            jVar3 = this.gaR.ayP;
                             jVar3.b(aVar4);
-                            writeData3 = this.fSV.mData;
+                            writeData3 = this.gaR.mData;
                             writeData3.setVideoInfo(null);
-                            this.fSV.bcJ();
-                            editText = this.fSV.fkB;
+                            this.gaR.bed();
+                            editText = this.gaR.fst;
                             if (editText != null) {
-                                editText3 = this.fSV.fkB;
+                                editText3 = this.gaR.fst;
                                 editText3.requestFocus();
                             }
-                            jVar4 = this.fSV.azd;
-                            jVar4.AN();
-                            jVar5 = this.fSV.azd;
+                            jVar4 = this.gaR.ayP;
+                            jVar4.AG();
+                            jVar5 = this.gaR.ayP;
                             jVar5.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-                            WriteActivity writeActivity2 = this.fSV;
-                            inputMethodManager = this.fSV.mInputManager;
-                            editText2 = this.fSV.fkB;
+                            WriteActivity writeActivity2 = this.gaR;
+                            inputMethodManager = this.gaR.mInputManager;
+                            editText2 = this.gaR.fst;
                             writeActivity2.ShowSoftKeyPad(inputMethodManager, editText2);
                             return;
                         } else if (aVar.code == 40) {
                             if ((aVar.data instanceof String) || aVar.data == null) {
-                                writeData = this.fSV.mData;
+                                writeData = this.gaR.mData;
                                 if (writeData != null) {
-                                    writeData2 = this.fSV.mData;
+                                    writeData2 = this.gaR.mData;
                                     writeData2.setGraffitiFileName((String) aVar.data);
-                                    this.fSV.bcJ();
+                                    this.gaR.bed();
                                     return;
                                 }
                                 return;
                             }
                             return;
                         } else if (aVar.code == 43) {
-                            com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("hot_topic_has_click", true);
-                            jVar = this.fSV.azd;
+                            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("hot_topic_has_click", true);
+                            jVar = this.gaR.ayP;
                             jVar.b(new com.baidu.tbadk.editortools.a(2, 26, null));
-                            this.fSV.fRC = true;
-                            this.fSV.lK(true);
-                            box = this.fSV.box();
-                            if (box.isFocused()) {
-                                this.fSV.fRB = "from_title";
+                            this.gaR.fZy = true;
+                            this.gaR.md(true);
+                            bpW = this.gaR.bpW();
+                            if (bpW.isFocused()) {
+                                this.gaR.fZx = "from_title";
                                 return;
                             }
-                            bow = this.fSV.bow();
-                            if (bow.isFocused()) {
-                                this.fSV.fRB = "from_content";
+                            bpV = this.gaR.bpV();
+                            if (bpV.isFocused()) {
+                                this.gaR.fZx = "from_content";
                                 return;
                             }
                             return;
                         } else if (aVar.code == 45) {
-                            linearLayout = this.fSV.dUp;
+                            linearLayout = this.gaR.dZL;
                             linearLayout.setVisibility(0);
-                            linearLayout2 = this.fSV.dUp;
+                            linearLayout2 = this.gaR.dZL;
                             linearLayout2.requestFocus();
                             return;
                         } else {
                             return;
                         }
                     } else {
-                        this.fSV.boG();
-                        this.fSV.bcJ();
+                        this.gaR.bqf();
+                        this.gaR.bed();
                         return;
                     }
                 } else {
-                    bov = this.fSV.bov();
-                    if (bov) {
-                        this.fSV.showToast(w.l.over_limit_tip);
+                    bpU = this.gaR.bpU();
+                    if (bpU) {
+                        this.gaR.showToast(w.l.over_limit_tip);
                         return;
                     } else if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.coreExtra.data.l)) {
-                        this.fSV.b((com.baidu.tbadk.coreExtra.data.l) aVar.data);
+                        this.gaR.b((com.baidu.tbadk.coreExtra.data.l) aVar.data);
                         return;
                     } else {
                         return;
                     }
                 }
             }
-            bov2 = this.fSV.bov();
-            if (bov2) {
-                this.fSV.showToast(w.l.over_limit_tip);
+            bpU2 = this.gaR.bpU();
+            if (bpU2) {
+                this.gaR.showToast(w.l.over_limit_tip);
             } else {
-                this.fSV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.fSV.getPageContext().getPageActivity(), 12004, true)));
+                this.gaR.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.gaR.getPageContext().getPageActivity(), 12004, true)));
             }
         }
     }

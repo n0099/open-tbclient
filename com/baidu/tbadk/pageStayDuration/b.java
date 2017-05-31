@@ -3,44 +3,44 @@ package com.baidu.tbadk.pageStayDuration;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean aFu = com.baidu.tbadk.core.sharedPref.b.tX().getBoolean("page_stay_duration_switch", false);
+    private boolean aFh = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("page_stay_duration_switch", false);
 
-    public abstract boolean EZ();
+    public abstract boolean ET();
 
-    public abstract int Fa();
+    public abstract int EU();
 
     public boolean a(d dVar) {
-        if (dVar == null || dVar.Fe()) {
+        if (dVar == null || dVar.EY()) {
             return false;
         }
-        if (dVar.aFv) {
-            dVar.A(c.e(dVar.Fc(), 6));
+        if (dVar.aFi) {
+            dVar.A(c.e(dVar.EW(), 6));
         } else {
-            int Fh = Fa() > e.Ff().Fh() ? e.Ff().Fh() : Fa();
-            dVar.A(c.e(dVar.Fc(), Fh <= 5 ? Fh : 5));
+            int Fb = EU() > e.EZ().Fb() ? e.EZ().Fb() : EU();
+            dVar.A(c.e(dVar.EW(), Fb <= 5 ? Fb : 5));
         }
         return true;
     }
 
-    private void bW(boolean z) {
-        if (this.aFu != z) {
-            com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("page_stay_duration_switch", true);
-            this.aFu = z;
+    private void bT(boolean z) {
+        if (this.aFh != z) {
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("page_stay_duration_switch", true);
+            this.aFh = z;
         }
     }
 
-    public boolean Fb() {
+    public boolean EV() {
         if (!TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            return this.aFu;
+            return this.aFh;
         }
         if (!TbadkCoreApplication.m9getInst().isPageStayOpen()) {
-            bW(false);
+            bT(false);
             return false;
-        } else if (!e.Ff().Fg()) {
-            bW(false);
+        } else if (!e.EZ().Fa()) {
+            bT(false);
             return false;
         } else {
-            bW(true);
+            bT(true);
             return true;
         }
     }

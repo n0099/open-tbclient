@@ -16,9 +16,9 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public String showMsg;
         public String toUid;
         public boolean isGod = false;
-        public boolean apW = false;
+        public boolean apG = false;
 
-        public void n(String str, boolean z) {
+        public void k(String str, boolean z) {
             boolean z2 = true;
             if (str != null) {
                 try {
@@ -27,7 +27,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                         if (!z || optJSONObject.optInt("is_toast", 0) != 1) {
                             z2 = false;
                         }
-                        this.apW = z2;
+                        this.apG = z2;
                         this.showMsg = optJSONObject.optString("toast_text");
                     }
                 } catch (Exception e) {

@@ -5,11 +5,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ d eYq;
+    final /* synthetic */ d fgR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.eYq = dVar;
+        this.fgR = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,9 +18,9 @@ public class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         RemoteViews remoteViews;
         RemoteViews remoteViews2;
-        remoteViews = this.eYq.eYp;
+        remoteViews = this.fgR.fgQ;
         if (remoteViews != null && aVar != null && aVar.kR() != null) {
-            remoteViews2 = this.eYq.eYp;
+            remoteViews2 = this.fgR.fgQ;
             remoteViews2.setImageViewBitmap(w.h.app_icon, aVar.kR());
         }
     }

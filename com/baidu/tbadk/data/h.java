@@ -1,31 +1,53 @@
 package com.baidu.tbadk.data;
+
+import org.json.JSONObject;
+import tbclient.PayMemberInfo;
 /* loaded from: classes.dex */
 public class h {
-    private int activityId;
-    private String activityNum;
-    private int axS;
+    private int Sv;
+    private int axx;
+    private String expire_remind;
+    private String url;
 
-    public int getActivityId() {
-        return this.activityId;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.axx = jSONObject.optInt("props_id");
+            this.Sv = jSONObject.optInt("end_time", 0);
+            this.url = jSONObject.optString(this.url, "");
+            this.expire_remind = jSONObject.optString("expire_remind");
+        }
     }
 
-    public void setActivityId(int i) {
-        this.activityId = i;
+    public void a(PayMemberInfo payMemberInfo) {
+        if (payMemberInfo != null) {
+            if (payMemberInfo.props_id != null) {
+                this.axx = payMemberInfo.props_id.intValue();
+            }
+            if (payMemberInfo.end_time != null) {
+                this.Sv = payMemberInfo.end_time.intValue();
+            }
+            this.url = payMemberInfo.url;
+            this.expire_remind = payMemberInfo.expire_remind;
+        }
     }
 
-    public int BR() {
-        return this.axS;
+    public int BG() {
+        return this.axx;
     }
 
-    public void en(int i) {
-        this.axS = i;
+    public int pg() {
+        return this.Sv;
     }
 
-    public String BS() {
-        return this.activityNum;
+    public String getUrl() {
+        return this.url;
     }
 
-    public void eT(String str) {
-        this.activityNum = str;
+    public String BH() {
+        return this.expire_remind;
+    }
+
+    public void eQ(String str) {
+        this.expire_remind = str;
     }
 }

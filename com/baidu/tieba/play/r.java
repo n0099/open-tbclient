@@ -7,11 +7,11 @@ import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements Animation.AnimationListener {
-    final /* synthetic */ c eSq;
+    final /* synthetic */ c fbb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(c cVar) {
-        this.eSq = cVar;
+        this.fbb = cVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -23,19 +23,19 @@ public class r implements Animation.AnimationListener {
         View view;
         View view2;
         ProgressBar progressBar;
-        c.InterfaceC0076c interfaceC0076c;
-        c.InterfaceC0076c interfaceC0076c2;
-        view = this.eSq.dqH;
+        c.InterfaceC0078c interfaceC0078c;
+        c.InterfaceC0078c interfaceC0078c2;
+        view = this.fbb.dvZ;
         if (view != null) {
-            view2 = this.eSq.dqH;
+            view2 = this.fbb.dvZ;
             view2.setVisibility(8);
-            progressBar = this.eSq.eSe;
+            progressBar = this.fbb.faO;
             progressBar.setVisibility(0);
-            this.eSq.dqR = false;
-            interfaceC0076c = this.eSq.eSm;
-            if (interfaceC0076c != null) {
-                interfaceC0076c2 = this.eSq.eSm;
-                interfaceC0076c2.aNO();
+            this.fbb.dwj = false;
+            interfaceC0078c = this.fbb.faW;
+            if (interfaceC0078c != null) {
+                interfaceC0078c2 = this.fbb.faW;
+                interfaceC0078c2.aPc();
             }
         }
     }

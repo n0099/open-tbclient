@@ -9,15 +9,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class s implements com.baidu.tbadk.editortools.b {
-    private final /* synthetic */ com.baidu.tbadk.editortools.j aBo;
-    final /* synthetic */ r aBv;
-    private final /* synthetic */ n aBw;
+    private final /* synthetic */ com.baidu.tbadk.editortools.j aBa;
+    final /* synthetic */ r aBh;
+    private final /* synthetic */ n aBi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar, n nVar, com.baidu.tbadk.editortools.j jVar) {
-        this.aBv = rVar;
-        this.aBw = nVar;
-        this.aBo = jVar;
+        this.aBh = rVar;
+        this.aBi = nVar;
+        this.aBa = jVar;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -28,8 +28,8 @@ class s implements com.baidu.tbadk.editortools.b {
         if (aVar != null) {
             switch (aVar.code) {
                 case 4:
-                    this.aBw.fv((String) aVar.data);
-                    this.aBv.aBk = false;
+                    this.aBi.ft((String) aVar.data);
+                    this.aBh.aAW = false;
                     return;
                 case 5:
                 case 6:
@@ -41,35 +41,35 @@ class s implements com.baidu.tbadk.editortools.b {
                 default:
                     return;
                 case 7:
-                    this.aBw.xD().showToast(w.l.over_limit_tip);
-                    this.aBv.aBk = true;
+                    this.aBi.xw().showToast(w.l.over_limit_tip);
+                    this.aBh.aAW = true;
                     return;
                 case 8:
-                    a = this.aBv.a(this.aBw.xD(), 11001);
+                    a = this.aBh.a(this.aBi.xw(), 11001);
                     if (a) {
-                        this.aBw.Dm();
+                        this.aBi.Dg();
                         TiebaStatic.log("c10090");
                         return;
                     }
                     return;
                 case 10:
                     if (aVar.data instanceof VoiceData.VoiceModel) {
-                        this.aBw.setVoiceModel((VoiceData.VoiceModel) aVar.data);
+                        this.aBi.setVoiceModel((VoiceData.VoiceModel) aVar.data);
                     }
-                    this.aBo.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
+                    this.aBa.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
                     return;
                 case 11:
-                    this.aBw.setVoiceModel(null);
-                    this.aBo.b(new com.baidu.tbadk.editortools.a(2, 6, null));
+                    this.aBi.setVoiceModel(null);
+                    this.aBa.b(new com.baidu.tbadk.editortools.a(2, 6, null));
                     return;
                 case 16:
-                    z = this.aBv.aBk;
+                    z = this.aBh.aAW;
                     if (z) {
-                        this.aBw.xD().showToast(w.l.over_limit_tip);
+                        this.aBi.xw().showToast(w.l.over_limit_tip);
                     }
-                    a2 = this.aBv.a(this.aBw.xD(), 11025);
+                    a2 = this.aBh.a(this.aBi.xw(), 11025);
                     if (a2) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.aBw.xD().getPageActivity(), 12005, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.aBi.xw().getPageActivity(), 12005, true)));
                         return;
                     }
                     return;

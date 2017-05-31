@@ -6,11 +6,11 @@ import com.baidu.tieba.e.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Handler.Callback {
-    final /* synthetic */ a bEG;
+    final /* synthetic */ a bKv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bEG = aVar;
+        this.bKv = aVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -21,12 +21,12 @@ public class b implements Handler.Callback {
         int i2 = message.arg2;
         switch (message.what) {
             case 0:
-                interfaceC0059a2 = this.bEG.aRJ;
-                interfaceC0059a2.W(i, i2);
+                interfaceC0059a2 = this.bKv.bwT;
+                interfaceC0059a2.Y(i, i2);
                 return true;
             case 1:
-                interfaceC0059a = this.bEG.aRJ;
-                interfaceC0059a.X(i, i2);
+                interfaceC0059a = this.bKv.bwT;
+                interfaceC0059a.Z(i, i2);
                 return true;
             default:
                 return false;

@@ -9,11 +9,11 @@ import com.baidu.tieba.enterForum.c.o;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.mvc.f.d<g, com.baidu.tbadk.mvc.d.b, o> implements e {
-    private int bGg;
+    private int bLV;
 
     public d(TbPageContext<?> tbPageContext, Class<o> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.bGg = -1;
+        this.bLV = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.e
@@ -24,18 +24,18 @@ public class d extends com.baidu.tbadk.mvc.f.d<g, com.baidu.tbadk.mvc.d.b, o> im
     }
 
     @Override // com.baidu.tieba.enterForum.a.e
-    public void hm(int i) {
-        this.bGg = i;
+    public void hK(int i) {
+        this.bLV = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.e
-    public void Uz() {
+    public void VC() {
         notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.mvc.f.c
     public void x(List<g> list) {
-        if (list != null && list.size() > 0) {
+        if (list != null) {
             if (list.size() >= 1 && list.get(0) != null && list.get(0).getType() == 1) {
                 super.x(list);
             } else {
@@ -48,7 +48,7 @@ public class d extends com.baidu.tbadk.mvc.f.d<g, com.baidu.tbadk.mvc.d.b, o> im
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2 = super.getView(i, view, viewGroup);
         if (view2 != null) {
-            if (i == this.bGg) {
+            if (i == this.bLV) {
                 view2.setVisibility(4);
             } else {
                 view2.setVisibility(0);

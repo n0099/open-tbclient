@@ -55,7 +55,7 @@ public class SyncLoginService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<String, Integer, com.baidu.tieba.model.f> {
+    public class a extends BdAsyncTask<String, Integer, com.baidu.tieba.model.g> {
         z mNetWork;
 
         private a() {
@@ -70,8 +70,8 @@ public class SyncLoginService extends BdBaseService {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: B */
-        public com.baidu.tieba.model.f doInBackground(String... strArr) {
-            com.baidu.tieba.model.f fVar;
+        public com.baidu.tieba.model.g doInBackground(String... strArr) {
+            com.baidu.tieba.model.g gVar;
             Exception e;
             try {
                 this.mNetWork = new z(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/switch");
@@ -84,7 +84,7 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.n("scr_w", String.valueOf(k.af(TbadkCoreApplication.m9getInst().getApp())));
                 this.mNetWork.n("scr_h", String.valueOf(k.ag(TbadkCoreApplication.m9getInst().getApp())));
                 this.mNetWork.n("scr_dip", String.valueOf(k.ah(TbadkCoreApplication.m9getInst().getApp())));
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.yR().yU() > 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.yK().yN() > 0) {
                     this.mNetWork.n("_msg_status", "0");
                 } else {
                     this.mNetWork.n("_msg_status", "1");
@@ -105,22 +105,22 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.n("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m9getInst().getVersionCode())).toString());
                 this.mNetWork.n("signmd5", aw.d(TbadkCoreApplication.m9getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.mNetWork.n("md5", aj.getTiebaApkMd5());
-                String ul = this.mNetWork.ul();
-                if (this.mNetWork.uJ().vE().isRequestSuccess()) {
-                    fVar = new com.baidu.tieba.model.f();
+                String ug = this.mNetWork.ug();
+                if (this.mNetWork.uF().vB().isRequestSuccess()) {
+                    gVar = new com.baidu.tieba.model.g();
                     try {
-                        fVar.parserJson(ul);
+                        gVar.parserJson(ug);
                         SyncLoginService.mStatistics = null;
-                        return fVar;
+                        return gVar;
                     } catch (Exception e2) {
                         e = e2;
                         BdLog.e(e.getMessage());
-                        return fVar;
+                        return gVar;
                     }
                 }
                 return null;
             } catch (Exception e3) {
-                fVar = null;
+                gVar = null;
                 e = e3;
             }
         }
@@ -138,8 +138,8 @@ public class SyncLoginService extends BdBaseService {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
-        public void onPostExecute(com.baidu.tieba.model.f fVar) {
-            super.onPostExecute(fVar);
+        public void onPostExecute(com.baidu.tieba.model.g gVar) {
+            super.onPostExecute(gVar);
             SyncLoginService.this.mSyncTask = null;
         }
     }

@@ -4,12 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.widget.ListView.z;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class HTypeListView extends HListView {
-    y mTypeAdapter;
+    z mTypeAdapter;
 
     public HTypeListView(Context context) {
         super(context);
@@ -30,7 +30,7 @@ public class HTypeListView extends HListView {
 
     private void init() {
         if (this.mTypeAdapter == null) {
-            this.mTypeAdapter = new y();
+            this.mTypeAdapter = new z();
         }
     }
 

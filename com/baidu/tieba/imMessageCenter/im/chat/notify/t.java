@@ -14,14 +14,14 @@ public class t extends ah {
     @Override // com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d
     public View le() {
         View le = super.le();
-        this.alk.setVisibility(4);
+        this.ala.setVisibility(4);
         return le;
     }
 
     @Override // com.baidu.tbadk.core.view.ah, com.baidu.tbadk.core.view.ae
-    public void di(int i) {
-        super.di(i);
-        aq.k(this.alj, w.e.cp_bg_line_d);
+    public void dj(int i) {
+        super.dj(i);
+        aq.k(this.akZ, w.e.cp_bg_line_d);
     }
 
     @Override // com.baidu.tbadk.core.view.ah, com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d

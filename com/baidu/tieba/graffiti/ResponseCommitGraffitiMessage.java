@@ -72,7 +72,7 @@ public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
                     this.mGraffitiInfo.parserJson(optJSONObject);
                     this.mGraffitiInfo.setType(1);
                     long c = com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), -1L);
-                    if (!this.mGraffitiInfo.qe() || c != this.mGraffitiInfo.getUid()) {
+                    if (!this.mGraffitiInfo.pV() || c != this.mGraffitiInfo.getUid()) {
                         setError(-3);
                         setErrCode(-3);
                         setErrorString(this.mErrMsg);

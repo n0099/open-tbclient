@@ -1,28 +1,22 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.view.j;
 /* loaded from: classes.dex */
-public class v implements c.b {
-    final /* synthetic */ q eCE;
+class v implements j.a {
+    final /* synthetic */ p eLo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(q qVar) {
-        this.eCE = qVar;
+    public v(p pVar) {
+        this.eLo = pVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        this.eCE.eCw = false;
-        switch (i) {
-            case 0:
-                this.eCE.RQ();
-                break;
-            case 1:
-                this.eCE.aPJ();
-                break;
-        }
-        cVar.dismiss();
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void ok() {
+        com.baidu.adp.lib.g.j.a(this.eLo.eLg, this.eLo.ajh.getPageActivity());
+    }
+
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void ol() {
+        com.baidu.adp.lib.g.j.a(this.eLo.eLg, this.eLo.ajh.getPageActivity());
     }
 }

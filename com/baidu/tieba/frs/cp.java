@@ -1,28 +1,65 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
 import android.widget.TextView;
-import com.baidu.adp.lib.e.b;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class cp implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ TabMenuPopView bRx;
+class cp implements com.baidu.adp.lib.e.c<TextView> {
+    final /* synthetic */ TabMenuPopView bXn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cp(TabMenuPopView tabMenuPopView) {
-        this.bRx = tabMenuPopView;
+        this.bXn = tabMenuPopView;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        b bVar;
-        if (view2 instanceof TextView) {
-            bVar = this.bRx.aNL;
-            bVar.n((TextView) view2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Io */
+    public TextView fL() {
+        Context context;
+        Context context2;
+        context = this.bXn.mContext;
+        TextView textView = new TextView(context);
+        context2 = this.bXn.mContext;
+        textView.setTextSize(0, com.baidu.adp.lib.util.k.g(context2, w.f.fontsize28));
+        com.baidu.tbadk.core.util.aq.j(textView, w.g.bg_tab_meun);
+        com.baidu.tbadk.core.util.aq.c(textView, w.e.cp_cont_f, 1);
+        textView.setGravity(17);
+        textView.setOnClickListener(this.bXn);
+        return textView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public void o(TextView textView) {
+        if (textView != null) {
+            textView.setText("");
+            textView.setTag(null);
+            textView.setSelected(false);
         }
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: d */
+    public TextView p(TextView textView) {
+        if (textView != null) {
+            com.baidu.tbadk.core.util.aq.j(textView, w.g.bg_tab_meun);
+            com.baidu.tbadk.core.util.aq.c(textView, w.e.cp_cont_f, 1);
+        }
+        return textView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: e */
+    public TextView q(TextView textView) {
+        if (textView != null) {
+            textView.setText("");
+            textView.setTag(null);
+            textView.setSelected(false);
+        }
+        return textView;
     }
 }

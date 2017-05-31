@@ -1,23 +1,26 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
+import com.baidu.tieba.play.QuickVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements View.OnClickListener {
-    final /* synthetic */ u bvn;
+public class ah implements Runnable {
+    final /* synthetic */ y bBb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(u uVar) {
-        this.bvn = uVar;
+    public ah(y yVar) {
+        this.bBb = yVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.card.data.n nVar;
-        if (this.bvn.getOnSubCardOnClickListenner() != null) {
-            cd<com.baidu.tieba.card.data.n> onSubCardOnClickListenner = this.bvn.getOnSubCardOnClickListenner();
-            nVar = this.bvn.bvd;
-            onSubCardOnClickListenner.a(view, nVar);
+    @Override // java.lang.Runnable
+    public void run() {
+        QuickVideoView quickVideoView;
+        QuickVideoView quickVideoView2;
+        quickVideoView = this.bBb.bAC;
+        if (quickVideoView != null) {
+            quickVideoView2 = this.bBb.bAC;
+            if (!quickVideoView2.isPlaying()) {
+                this.bBb.f(true, 1);
+            }
         }
     }
 }

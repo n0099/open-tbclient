@@ -5,13 +5,13 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnLongClickListener {
-    final /* synthetic */ j bIc;
-    private final /* synthetic */ com.baidu.tieba.enterForum.b.e bId;
+    final /* synthetic */ j bNQ;
+    private final /* synthetic */ com.baidu.tieba.enterForum.b.e bNR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar, com.baidu.tieba.enterForum.b.e eVar) {
-        this.bIc = jVar;
-        this.bId = eVar;
+        this.bNQ = jVar;
+        this.bNR = eVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -19,12 +19,12 @@ public class l implements View.OnLongClickListener {
         ViewEventCenter viewEventCenter;
         ViewEventCenter viewEventCenter2;
         int i;
-        viewEventCenter = this.bIc.bGb;
+        viewEventCenter = this.bNQ.bLQ;
         if (viewEventCenter != null) {
-            switch (this.bId.getType()) {
+            switch (this.bNR.getType()) {
                 case 0:
-                    viewEventCenter2 = this.bIc.bGb;
-                    i = this.bIc.position;
+                    viewEventCenter2 = this.bNQ.bLQ;
+                    i = this.bNQ.position;
                     return viewEventCenter2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(2, new com.baidu.tieba.enterForum.b.i(i), null, null));
                 case 3:
                     return true;

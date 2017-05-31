@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.util.t;
 import com.baidu.tbadk.util.w;
-import com.baidu.tieba.frs.bw;
+import com.baidu.tieba.frs.bx;
 import com.baidu.tieba.homepage.framework.u;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,46 +24,46 @@ import java.util.List;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.view.viewpager.a {
-    private int bOR;
-    private bw ctA;
-    private String ctB;
-    private String ctC;
-    private int ctD;
-    private List<com.baidu.tieba.homepage.b.a.a> ctE;
-    private boolean ctF;
-    private int ctG;
-    private t ctH;
-    private String[] ctI;
-    private com.baidu.tieba.homepage.personalize.a cty;
-    private BaseFragment ctz;
+    private int bUE;
+    private String[] cAa;
+    private com.baidu.tieba.homepage.personalize.a czQ;
+    private BaseFragment czR;
+    private bx czS;
+    private String czT;
+    private String czU;
+    private int czV;
+    private List<com.baidu.tieba.homepage.b.a.a> czW;
+    private boolean czX;
+    private int czY;
+    private t czZ;
     private int mChildCount;
     private Context mContext;
 
     public a(Context context, FragmentManager fragmentManager, com.baidu.tieba.homepage.framework.b bVar) {
         super(fragmentManager);
-        this.ctB = "recommendFrsLastReadTabPositionNamespace";
-        this.ctC = "recommendFrsLastReadTabPositionKey";
-        this.ctD = 0;
-        this.ctF = false;
-        this.ctG = -1;
+        this.czT = "recommendFrsLastReadTabPositionNamespace";
+        this.czU = "recommendFrsLastReadTabPositionKey";
+        this.czV = 0;
+        this.czX = false;
+        this.czY = -1;
         this.mChildCount = 0;
-        this.ctI = new String[]{"推荐", "发现"};
+        this.cAa = new String[]{"推荐", "发现"};
         this.mContext = context;
-        this.cty = new com.baidu.tieba.homepage.personalize.a(context);
-        this.cty.setCallback(bVar);
+        this.czQ = new com.baidu.tieba.homepage.personalize.a(context);
+        this.czQ.setCallback(bVar);
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, BaseFragment.class);
         if (runTask != null) {
-            this.ctz = (BaseFragment) runTask.getData();
+            this.czR = (BaseFragment) runTask.getData();
         }
     }
 
     public void aR(List<com.baidu.tieba.homepage.b.a.a> list) {
         if (!x.r(list)) {
-            this.ctE = new ArrayList(list);
+            this.czW = new ArrayList(list);
         }
     }
 
-    private Fragment ahi() {
+    private Fragment aix() {
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GET_NEW_FRS_FRAGMENT);
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GET_NEW_FRS_FRAGMENT);
         customResponsedMessage.setOrginalMessage(customMessage);
@@ -74,12 +74,12 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         return null;
     }
 
-    private Intent jG(int i) {
-        com.baidu.tieba.homepage.b.a.a aVar = (com.baidu.tieba.homepage.b.a.a) x.c(this.ctE, i);
+    private Intent kf(int i) {
+        com.baidu.tieba.homepage.b.a.a aVar = (com.baidu.tieba.homepage.b.a.a) x.c(this.czW, i);
         if (aVar == null) {
             return null;
         }
-        String str = aVar.cxa;
+        String str = aVar.cDr;
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -92,17 +92,17 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     @Override // com.baidu.tbadk.core.view.viewpager.a
     public Fragment getItem(int i) {
         if (i == 0) {
-            return this.cty;
+            return this.czQ;
         }
         if (i == 1) {
-            return this.ctz;
+            return this.czR;
         }
-        Fragment ahi = ahi();
-        if (ahi instanceof bw) {
-            ((bw) ahi).K(jG(i));
-            return ahi;
+        Fragment aix = aix();
+        if (aix instanceof bx) {
+            ((bx) aix).K(kf(i));
+            return aix;
         }
-        return ahi;
+        return aix;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -122,7 +122,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.ctI.length;
+        return this.cAa.length;
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.a, android.support.v4.view.PagerAdapter
@@ -133,44 +133,44 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     @Override // com.baidu.tbadk.core.view.viewpager.a, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (obj != null && com.baidu.tieba.homepage.framework.a.a.ahr().cue != i) {
-            if (this.ctA instanceof BaseFragment) {
-                ((BaseFragment) this.ctA).setPrimary(false);
+        if (obj != null && com.baidu.tieba.homepage.framework.a.a.aiG().cAw != i) {
+            if (this.czS instanceof BaseFragment) {
+                ((BaseFragment) this.czS).setPrimary(false);
             }
-            com.baidu.tieba.homepage.framework.a.a.ahr().cue = i;
-            VoiceManager bU = com.baidu.tieba.tbadkCore.voice.b.bU(this.mContext);
-            if (bU != null) {
-                bU.stopPlay();
+            com.baidu.tieba.homepage.framework.a.a.aiG().cAw = i;
+            VoiceManager bV = com.baidu.tieba.tbadkCore.voice.b.bV(this.mContext);
+            if (bV != null) {
+                bV.stopPlay();
             }
             if (obj instanceof BaseFragment) {
                 ((BaseFragment) obj).setPrimary(true);
             }
             if ((obj instanceof com.baidu.tieba.homepage.personalize.a) && i == 0) {
-                ((com.baidu.tieba.homepage.personalize.a) obj).ahl();
+                ((com.baidu.tieba.homepage.personalize.a) obj).aiA();
             }
-            if (obj instanceof bw) {
-                ((bw) obj).Xb();
+            if (obj instanceof bx) {
+                ((bx) obj).Ye();
             }
         }
-        if (obj instanceof bw) {
-            this.ctA = (bw) obj;
-            this.ctA.setHeaderViewHeight(this.bOR);
-            this.ctA.setRecommendFrsNavigationAnimDispatcher(this.ctH);
+        if (obj instanceof bx) {
+            this.czS = (bx) obj;
+            this.czS.setHeaderViewHeight(this.bUE);
+            this.czS.setRecommendFrsNavigationAnimDispatcher(this.czZ);
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        return this.ctI[i];
+        return this.cAa[i];
     }
 
     public void setPrimary(boolean z) {
-        if (this.ctA instanceof BaseFragment) {
+        if (this.czS instanceof BaseFragment) {
             if (!z) {
-                jH(this.ctD);
+                kg(this.czV);
                 completePullRefresh();
             }
-            ((BaseFragment) this.ctA).setPrimary(z);
+            ((BaseFragment) this.czS).setPrimary(z);
         }
     }
 
@@ -180,111 +180,111 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     }
 
     public void setRecommendFrsNavigationAnimDispatcher(t tVar) {
-        this.ctH = tVar;
+        this.czZ = tVar;
     }
 
     public void b(View view, int i, int i2, int i3, int i4) {
-        if (this.bOR != i2) {
-            this.bOR = i2;
-            Iterator<Fragment> it = wK().iterator();
+        if (this.bUE != i2) {
+            this.bUE = i2;
+            Iterator<Fragment> it = wG().iterator();
             while (it.hasNext()) {
                 Fragment next = it.next();
-                if (next != null && (next instanceof bw)) {
-                    ((bw) next).setHeaderViewHeight(this.bOR);
+                if (next != null && (next instanceof bx)) {
+                    ((bx) next).setHeaderViewHeight(this.bUE);
                 }
             }
         }
     }
 
-    public void jH(int i) {
+    public void kg(int i) {
         w.a(new b(this, i), null);
     }
 
     public void a(u uVar) {
-        if (!this.ctF) {
-            this.ctF = true;
+        if (!this.czX) {
+            this.czX = true;
             w.a(new c(this), new d(this, uVar));
         }
     }
 
     private void completePullRefresh() {
-        if (this.cty != null && this.ctA == this.cty) {
-            this.cty.completePullRefresh();
+        if (this.czQ != null && this.czS == this.czQ) {
+            this.czQ.completePullRefresh();
         }
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.cty != null) {
-            this.cty.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.czQ != null) {
+            this.czQ.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
     public void M(String str, int i) {
-        if (0 == this.cty.getTagCode()) {
-            this.cty.M(str, i);
+        if (0 == this.czQ.getTagCode()) {
+            this.czQ.M(str, i);
         }
     }
 
-    public void ahj() {
-        if (this.cty != null) {
-            this.cty.ahj();
+    public void aiy() {
+        if (this.czQ != null) {
+            this.czQ.aiy();
         }
     }
 
     public void c(DataRes dataRes, boolean z, boolean z2) {
-        if (this.cty != null) {
-            this.cty.d(dataRes, z, z2);
+        if (this.czQ != null) {
+            this.czQ.d(dataRes, z, z2);
         }
     }
 
-    public void dm(int i) {
-        if (this.ctA != null) {
-            this.ctA.ww();
+    public void dn(int i) {
+        if (this.czS != null) {
+            this.czS.ws();
         }
     }
 
-    public void ahk() {
-        if (this.ctA != null) {
-            this.ctA.Zu();
+    public void aiz() {
+        if (this.czS != null) {
+            this.czS.aax();
         }
     }
 
-    public bw getCurrentFragment() {
-        return this.ctA;
+    public bx getCurrentFragment() {
+        return this.czS;
     }
 
-    public void ahl() {
-        if (com.baidu.tieba.homepage.framework.a.a.ahr().cue == 0 && this.cty != null) {
-            this.cty.ahl();
+    public void aiA() {
+        if (com.baidu.tieba.homepage.framework.a.a.aiG().cAw == 0 && this.czQ != null) {
+            this.czQ.aiA();
         }
     }
 
-    public void jI(int i) {
-        if (i == 0 && this.cty != null) {
-            this.cty.ahs();
+    public void kh(int i) {
+        if (i == 0 && this.czQ != null) {
+            this.czQ.aiH();
         }
     }
 
-    public void jJ(int i) {
-        if (com.baidu.tieba.homepage.framework.a.a.ahr().cue == i) {
-            this.ctG = -1;
+    public void ki(int i) {
+        if (com.baidu.tieba.homepage.framework.a.a.aiG().cAw == i) {
+            this.czY = -1;
         } else {
-            this.ctG = i;
+            this.czY = i;
         }
     }
 
     public void onPageScrolled(int i, float f, int i2) {
-        if (this.ctG == -1 || (i == this.ctG && f == 0.0f)) {
-            Fragment fragment = (Fragment) x.c(wK(), i - 1);
-            Fragment fragment2 = (Fragment) x.c(wK(), i);
-            Fragment fragment3 = (Fragment) x.c(wK(), i + 1);
-            this.ctG = -1;
+        if (this.czY == -1 || (i == this.czY && f == 0.0f)) {
+            Fragment fragment = (Fragment) x.c(wG(), i - 1);
+            Fragment fragment2 = (Fragment) x.c(wG(), i);
+            Fragment fragment3 = (Fragment) x.c(wG(), i + 1);
+            this.czY = -1;
             if (f == 0.0f) {
-                if (fragment instanceof bw) {
-                    ((bw) fragment).Zh();
+                if (fragment instanceof bx) {
+                    ((bx) fragment).aal();
                 }
-                if (fragment3 instanceof bw) {
-                    ((bw) fragment3).Zh();
+                if (fragment3 instanceof bx) {
+                    ((bx) fragment3).aal();
                 }
                 if (fragment2 != null) {
                     fragment2.setMenuVisibility(true);
@@ -293,21 +293,21 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
                 }
                 return;
             }
-            if (fragment instanceof bw) {
-                ((bw) fragment).Zg();
+            if (fragment instanceof bx) {
+                ((bx) fragment).aak();
             }
-            if (fragment2 instanceof bw) {
-                ((bw) fragment2).Zg();
+            if (fragment2 instanceof bx) {
+                ((bx) fragment2).aak();
             }
-            if (fragment3 instanceof bw) {
-                ((bw) fragment3).Zg();
+            if (fragment3 instanceof bx) {
+                ((bx) fragment3).aak();
             }
         }
     }
 
     public String getCurrentPageKey() {
-        if (this.ctA instanceof BaseFragment) {
-            return ((BaseFragment) this.ctA).getCurrentPageKey();
+        if (this.czS instanceof BaseFragment) {
+            return ((BaseFragment) this.czS).getCurrentPageKey();
         }
         return null;
     }

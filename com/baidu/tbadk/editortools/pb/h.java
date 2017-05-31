@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements a.b {
-    final /* synthetic */ c aBh;
+    final /* synthetic */ c aAT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(c cVar) {
-        this.aBh = cVar;
+        this.aAT = cVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -17,12 +17,12 @@ public class h implements a.b {
         LocationModel.a aVar2;
         LocationModel locationModel;
         if (!com.baidu.adp.lib.util.i.hk()) {
-            aVar2 = this.aBh.aBd;
-            aVar2.Dj();
+            aVar2 = this.aAT.aAP;
+            aVar2.Dd();
         } else {
-            this.aBh.b(1, true, null);
-            locationModel = this.aBh.aAO;
-            locationModel.Qy();
+            this.aAT.b(1, true, null);
+            locationModel = this.aAT.aAA;
+            locationModel.QK();
         }
         aVar.dismiss();
     }

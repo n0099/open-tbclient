@@ -14,25 +14,25 @@ import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 public class ReportUserInfoModel extends BdBaseModel {
     public static final long TIME_INTERVAL = 300000;
     public static final int TYPE_ADDRESS = 1;
-    private a dOL;
-    private final HttpMessageListener dOM;
+    private a dUi;
+    private final HttpMessageListener dUj;
     public long timeInterval;
 
     /* loaded from: classes.dex */
     public interface a {
-        void nv(int i);
+        void nO(int i);
 
         void onError(int i, String str);
     }
 
     public void a(a aVar) {
-        this.dOL = aVar;
+        this.dUi = aVar;
     }
 
     public ReportUserInfoModel(Context context) {
         super(null);
         this.timeInterval = TIME_INTERVAL;
-        this.dOM = new e(this, CmdConfigHttp.REPORT_USER_INFO);
+        this.dUj = new f(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -45,24 +45,24 @@ public class ReportUserInfoModel extends BdBaseModel {
         return false;
     }
 
-    public boolean aDf() {
+    public boolean aEc() {
         return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m9getInst().getReporyUserInfoLastTime()) >= this.timeInterval;
     }
 
-    public void aDg() {
+    public void aEd() {
         TbadkCoreApplication.m9getInst().setReporyUserInfoCurrentTime();
     }
 
-    public void bN(long j) {
+    public void bQ(long j) {
         this.timeInterval = j;
     }
 
-    public void aDh() {
+    public void aEe() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.dOM);
+        messageManager.registerListener(this.dUj);
     }
 
     public void b(int i, float f, float f2) {
@@ -74,6 +74,6 @@ public class ReportUserInfoModel extends BdBaseModel {
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.dOM);
+        MessageManager.getInstance().unRegisterListener(this.dUj);
     }
 }

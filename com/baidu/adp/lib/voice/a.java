@@ -14,7 +14,7 @@ public class a {
             if (zx == null) {
                 zx = new c(mHandler, i);
             } else {
-                zx.av(i);
+                zx.aw(i);
             }
             mFileName = str;
             zy = fVar;

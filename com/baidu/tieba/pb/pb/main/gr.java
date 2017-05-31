@@ -1,27 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gr implements PbFakeFloorModel.a {
-    final /* synthetic */ fm epr;
+public class gr implements a.b {
+    final /* synthetic */ fx evi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gr(fm fmVar) {
-        this.epr = fmVar;
+    public gr(fx fxVar) {
+        this.evi = fxVar;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel.a
-    public void j(PostData postData) {
-        PbFakeFloorModel pbFakeFloorModel;
-        cq cqVar;
-        dq dqVar;
-        pbFakeFloorModel = this.epr.ejo;
-        pbFakeFloorModel.k(postData);
-        cqVar = this.epr.enG;
-        cqVar.notifyDataSetChanged();
-        dqVar = this.epr.eoN;
-        dqVar.aJK();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

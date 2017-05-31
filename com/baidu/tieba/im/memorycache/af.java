@@ -25,23 +25,23 @@ public class af extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         MemoryModifyVisibilityMessage.a data;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016005 && (customResponsedMessage instanceof MemoryModifyVisibilityMessage) && (data = ((MemoryModifyVisibilityMessage) customResponsedMessage).getData()) != null) {
-            ImMessageCenterPojo Z = b.apX().Z(data.id, data.customGroupType);
+            ImMessageCenterPojo Z = b.aqX().Z(data.id, data.customGroupType);
             int i = data.visible ? 0 : 1;
             if (Z != null && i != Z.getIs_hidden()) {
                 if (data.customGroupType == 2) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.yu().el(data.id);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yn().ej(data.id);
                 } else if (data.customGroupType == 4) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.yu().dD(com.baidu.adp.lib.g.b.g(data.id, 0));
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yn().dE(com.baidu.adp.lib.g.b.g(data.id, 0));
                 } else if (data.customGroupType == -3) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.yu().dE(2);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yn().dF(2);
                 } else if (data.customGroupType == -4) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.yu().dE(1);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yn().dF(1);
                 } else if (data.customGroupType == -5) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.yu().dE(3);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yn().dF(3);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.yu().ek(data.id);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yn().ei(data.id);
                 }
-                b.apX().f(data.id, data.customGroupType, data.visible);
+                b.aqX().f(data.id, data.customGroupType, data.visible);
                 Z.setIs_hidden(i);
                 CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ag(this, Z));
                 customMessageTask.setParallel(TiebaIMConfig.getParallel());

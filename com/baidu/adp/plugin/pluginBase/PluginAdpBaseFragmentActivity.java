@@ -18,7 +18,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.f.c;
 import com.baidu.adp.lib.util.k;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.w;
 /* loaded from: classes.dex */
 public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, j {
     private static final int PRELOAD_DELAY = 100;
@@ -165,7 +165,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onStop() {
         super.onStop();
-        BdListView onGetPreLoadListView = onGetPreLoadListView();
+        w onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
             onGetPreLoadListView.cancelRefresh();
         }
@@ -182,10 +182,10 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
-    public void onPreLoad(BdListView bdListView) {
+    public void onPreLoad(w wVar) {
     }
 
-    public BdListView onGetPreLoadListView() {
+    public w onGetPreLoadListView() {
         return null;
     }
 

@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements Animation.AnimationListener {
-    final /* synthetic */ ac fNP;
+    final /* synthetic */ ac fVw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(ac acVar) {
-        this.fNP = acVar;
+        this.fVw = acVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -19,7 +19,7 @@ public class as implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         View view;
-        view = this.fNP.fNw;
+        view = this.fVw.fVd;
         view.setAlpha(0.0f);
     }
 

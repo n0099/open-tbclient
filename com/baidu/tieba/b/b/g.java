@@ -4,21 +4,21 @@ import android.content.Context;
 import android.os.Handler;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.b.b.a {
-    private int brB;
-    private a brC;
+    private int bsI;
+    private a bsJ;
     private Handler mHandler;
     private float mRadius;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cR(boolean z);
+        void cX(boolean z);
     }
 
     public g(Context context) {
         super(context);
         this.mRadius = 0.0f;
-        this.brB = 1;
-        this.brC = null;
+        this.bsI = 1;
+        this.bsJ = null;
         fh();
     }
 
@@ -28,51 +28,51 @@ public class g extends com.baidu.tieba.b.b.a {
 
     public void setRotateRadius(float f) {
         this.mRadius = f;
-        this.brr = this.mRadius;
-        this.brq = this.mRadius;
+        this.bsy = this.mRadius;
+        this.bsx = this.mRadius;
     }
 
-    public void RZ() {
-        RU();
-        this.brr = this.mRadius;
-        this.brq = this.mRadius;
-        gF(4);
+    public void Sl() {
+        Sg();
+        this.bsy = this.mRadius;
+        this.bsx = this.mRadius;
+        gW(4);
         a(new i(this));
         a(new j(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Sa() {
+    public void Sm() {
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
     }
 
-    public void Sb() {
-        RU();
-        gF(2);
+    public void Sn() {
+        Sg();
+        gW(2);
         a(new k(this));
         a(new l(this));
     }
 
     public int getViewStatus() {
-        return this.brB;
+        return this.bsI;
     }
 
-    public void gF(int i) {
-        this.brB = i;
+    public void gW(int i) {
+        this.bsI = i;
     }
 
     @Override // com.baidu.tieba.b.b.a
-    public void vN() {
-        super.vN();
-        this.brr = this.mRadius;
-        this.brq = this.mRadius;
-        this.brB = 1;
-        Sa();
+    public void vK() {
+        super.vK();
+        this.bsy = this.mRadius;
+        this.bsx = this.mRadius;
+        this.bsI = 1;
+        Sm();
         this.mHandler.sendEmptyMessage(1);
     }
 
     public void setWriteEndCallBack(a aVar) {
-        this.brC = aVar;
+        this.bsJ = aVar;
     }
 }

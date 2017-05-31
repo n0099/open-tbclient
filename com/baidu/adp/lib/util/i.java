@@ -44,8 +44,8 @@ public class i {
     /* JADX INFO: Access modifiers changed from: private */
     public void gX() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+        this.yD = activeNetworkInfo;
         if (activeNetworkInfo != null) {
-            this.yD = activeNetworkInfo;
             if (activeNetworkInfo.getType() == 1) {
                 this.isWifi = true;
                 this.yE = false;
@@ -59,7 +59,7 @@ public class i {
             this.yF = true;
             this.yG = activeNetworkInfo.getSubtype();
             if (this.yE) {
-                this.yH = as(this.yG);
+                this.yH = at(this.yG);
             } else {
                 this.yH = 0;
             }
@@ -188,7 +188,7 @@ public class i {
         }
     }
 
-    public static int as(int i) {
+    public static int at(int i) {
         switch (i) {
             case 1:
             case 2:

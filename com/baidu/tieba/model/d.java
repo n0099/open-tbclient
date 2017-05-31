@@ -1,27 +1,32 @@
 package com.baidu.tieba.model;
 
 import com.baidu.tbadk.core.a.a;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.model.b;
+import com.baidu.tbadk.core.a.h;
+import com.baidu.tieba.model.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements a.InterfaceC0035a {
-    final /* synthetic */ b.a dOK;
+public class d implements h.a {
+    private final /* synthetic */ c.a dUb;
+    private final /* synthetic */ a.InterfaceC0035a dUc;
+    private final /* synthetic */ String dUd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(b.a aVar) {
-        this.dOK = aVar;
+    public d(c.a aVar, a.InterfaceC0035a interfaceC0035a, String str) {
+        this.dUb = aVar;
+        this.dUc = interfaceC0035a;
+        this.dUd = str;
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
-    public void cf(String str) {
+    @Override // com.baidu.tbadk.core.a.h.a
+    public void onSuccess(String str) {
+        this.dUb.setStoken(str);
+        this.dUb.execute(new String[0]);
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
-    public void a(AccountData accountData) {
-    }
-
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
-    public void b(String str, int i, String str2) {
+    @Override // com.baidu.tbadk.core.a.h.a
+    public void onFailed() {
+        if (this.dUc != null) {
+            this.dUc.b(this.dUd, 1, null);
+        }
     }
 }

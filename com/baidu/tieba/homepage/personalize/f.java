@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
 class f extends CustomMessageListener {
-    final /* synthetic */ b cuC;
+    final /* synthetic */ b cAU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(b bVar, int i) {
         super(i);
-        this.cuC = bVar;
+        this.cAU = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -3,18 +3,18 @@ package com.baidu.tieba.homepage.framework.indicator;
 import com.baidu.tieba.homepage.framework.v;
 /* loaded from: classes.dex */
 class i implements v {
-    final /* synthetic */ ScrollFragmentTabHost cua;
+    final /* synthetic */ ScrollFragmentTabHost cAs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.cua = scrollFragmentTabHost;
+        this.cAs = scrollFragmentTabHost;
     }
 
     @Override // com.baidu.tieba.homepage.framework.v
-    public void jF(int i) {
+    public void ke(int i) {
         a aVar;
-        this.cua.g(i, false);
-        aVar = this.cua.ctU;
-        aVar.jI(i);
+        this.cAs.g(i, false);
+        aVar = this.cAs.cAm;
+        aVar.kh(i);
     }
 }

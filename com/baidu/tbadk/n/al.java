@@ -8,7 +8,7 @@ public class al extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "movideo_split";
+        return "both_video_download";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,6 +28,6 @@ public class al extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eT() {
-        return 0;
+        return 10;
     }
 }

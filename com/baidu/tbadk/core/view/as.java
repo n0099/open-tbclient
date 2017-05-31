@@ -3,45 +3,45 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.util.bh;
 /* loaded from: classes.dex */
 class as implements View.OnClickListener {
-    final /* synthetic */ ThreadUserInfoLayout amu;
+    final /* synthetic */ ThreadUserInfoLayout amr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(ThreadUserInfoLayout threadUserInfoLayout) {
-        this.amu = threadUserInfoLayout;
+        this.amr = threadUserInfoLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        bk bkVar;
-        bk bkVar2;
-        bk bkVar3;
-        bk bkVar4;
-        bk bkVar5;
+        bl blVar;
+        bl blVar2;
+        bl blVar3;
+        bl blVar4;
+        bl blVar5;
         Context context2;
         Context context3;
-        context = this.amu.mContext;
-        if (bg.aN(context)) {
-            bkVar = this.amu.ahV;
-            if (bkVar != null) {
-                bkVar2 = this.amu.ahV;
-                if (bkVar2.getAuthor() != null) {
-                    bkVar3 = this.amu.ahV;
-                    if (bkVar3.getAuthor().getTShowInfoNew() != null) {
-                        bkVar4 = this.amu.ahV;
-                        if (com.baidu.tbadk.core.util.x.c(bkVar4.getAuthor().getTShowInfoNew(), 0) != null) {
-                            bkVar5 = this.amu.ahV;
-                            String url = bkVar5.getAuthor().getTShowInfoNew().get(0).getUrl();
+        context = this.amr.mContext;
+        if (bh.aN(context)) {
+            blVar = this.amr.ahM;
+            if (blVar != null) {
+                blVar2 = this.amr.ahM;
+                if (blVar2.getAuthor() != null) {
+                    blVar3 = this.amr.ahM;
+                    if (blVar3.getAuthor().getTShowInfoNew() != null) {
+                        blVar4 = this.amr.ahM;
+                        if (com.baidu.tbadk.core.util.x.c(blVar4.getAuthor().getTShowInfoNew(), 0) != null) {
+                            blVar5 = this.amr.ahM;
+                            String url = blVar5.getAuthor().getTShowInfoNew().get(0).getUrl();
                             if (url != null) {
-                                context2 = this.amu.mContext;
+                                context2 = this.amr.mContext;
                                 if (com.baidu.adp.base.k.Z(context2) instanceof TbPageContext) {
-                                    com.baidu.tbadk.core.util.bb vB = com.baidu.tbadk.core.util.bb.vB();
-                                    context3 = this.amu.mContext;
-                                    vB.c((TbPageContext) com.baidu.adp.base.k.Z(context3), new String[]{url});
+                                    com.baidu.tbadk.core.util.bb vy = com.baidu.tbadk.core.util.bb.vy();
+                                    context3 = this.amr.mContext;
+                                    vy.c((TbPageContext) com.baidu.adp.base.k.Z(context3), new String[]{url});
                                 }
                             }
                         }

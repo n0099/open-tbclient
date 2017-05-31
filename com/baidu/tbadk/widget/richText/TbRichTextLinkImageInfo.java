@@ -5,8 +5,8 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextLinkImageInfo extends OrmObject {
-    private boolean aNu;
-    private boolean aNv;
+    private boolean aNr;
+    private boolean aNs;
     private String cdn_src;
     private String link;
     private int mHeight;
@@ -17,8 +17,8 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.aNu = false;
-        this.aNv = true;
+        this.aNr = false;
+        this.aNs = true;
     }
 
     public TbRichTextLinkImageInfo(PbContent pbContent) {
@@ -26,8 +26,8 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.aNu = false;
-        this.aNv = true;
+        this.aNr = false;
+        this.aNs = true;
         this.cdn_src = pbContent.cdn_src;
         this.link = pbContent.link;
         String str = pbContent.bsize;
@@ -47,7 +47,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
             this.mHeight = 1;
         }
         if (this.cdn_src != null && this.cdn_src.indexOf(".baidu.com") != -1) {
-            this.aNu = true;
+            this.aNr = true;
         }
     }
 
@@ -59,7 +59,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         return this.mHeight;
     }
 
-    public String Ie() {
+    public String HZ() {
         return this.cdn_src;
     }
 
@@ -67,7 +67,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         return this.link;
     }
 
-    public boolean HX() {
-        return this.aNv;
+    public boolean HS() {
+        return this.aNs;
     }
 }

@@ -7,11 +7,11 @@ import java.io.FileOutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax extends com.baidu.tbadk.util.v<Object> {
-    final /* synthetic */ TbCameraView fOb;
+    final /* synthetic */ TbCameraView fVI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(TbCameraView tbCameraView) {
-        this.fOb = tbCameraView;
+        this.fVI = tbCameraView;
     }
 
     @Override // com.baidu.tbadk.util.v
@@ -22,25 +22,25 @@ public class ax extends com.baidu.tbadk.util.v<Object> {
         Bitmap bitmap2;
         String str2;
         Runnable runnable;
-        bitmap = this.fOb.fNY;
+        bitmap = this.fVI.fVF;
         if (bitmap != null) {
-            str = this.fOb.fNT;
+            str = this.fVI.fVA;
             if (!StringUtils.isNull(str)) {
-                z = this.fOb.fGk;
+                z = this.fVI.fOe;
                 int i = z ? -90 : 90;
                 try {
-                    TbCameraView tbCameraView = this.fOb;
-                    bitmap2 = this.fOb.fNY;
+                    TbCameraView tbCameraView = this.fVI;
+                    bitmap2 = this.fVI.fVF;
                     Bitmap b = tbCameraView.b(bitmap2, i);
                     if (b != null) {
-                        str2 = this.fOb.fNT;
+                        str2 = this.fVI.fVA;
                         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(str2));
                         b.compress(Bitmap.CompressFormat.JPEG, 100, bufferedOutputStream);
                         bufferedOutputStream.flush();
                         bufferedOutputStream.close();
                         b.recycle();
                         com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-                        runnable = this.fOb.mRunnable;
+                        runnable = this.fVI.mRunnable;
                         fS.post(runnable);
                         return null;
                     }

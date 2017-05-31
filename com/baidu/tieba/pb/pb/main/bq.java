@@ -1,45 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.w;
+import android.content.Intent;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bq implements com.baidu.adp.lib.e.c<View> {
-    final /* synthetic */ PbActivity ehy;
+public class bq implements a.b {
+    final /* synthetic */ PbActivity enc;
+    private final /* synthetic */ MarkData eno;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a enp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(PbActivity pbActivity) {
-        this.ehy = pbActivity;
+    public bq(PbActivity pbActivity, MarkData markData, com.baidu.tbadk.core.dialog.a aVar) {
+        this.enc = pbActivity;
+        this.eno = markData;
+        this.enp = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: afp */
-    public View fL() {
-        PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(this.ehy.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
-        playVoiceBntNew.setPlayTimeTextView(w.f.fontsize28);
-        return playVoiceBntNew;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: ak */
-    public void o(View view) {
-        ((PlayVoiceBntNew) view).reset();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: al */
-    public View p(View view) {
-        return view;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: am */
-    public View q(View view) {
-        ((PlayVoiceBntNew) view).reset();
-        return view;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        Intent intent = new Intent();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.eno);
+        this.enc.setResult(-1, intent);
+        this.enp.dismiss();
+        this.enc.aJO();
     }
 }

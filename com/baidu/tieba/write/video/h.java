@@ -15,11 +15,11 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
 class h implements NewWriteModel.d {
-    final /* synthetic */ WriteVideoActivity fPv;
+    final /* synthetic */ WriteVideoActivity fXr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(WriteVideoActivity writeVideoActivity) {
-        this.fPv = writeVideoActivity;
+        this.fXr = writeVideoActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -28,17 +28,17 @@ class h implements NewWriteModel.d {
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
-        this.fPv.closeLoadingDialog();
+        this.fXr.closeLoadingDialog();
         if (postWriteCallBackData != null) {
-            writeData2 = this.fPv.mData;
+            writeData2 = this.fXr.mData;
             if (writeData2 != null) {
-                boolean z2 = com.baidu.tbadk.core.sharedPref.b.tX().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
-                writeData3 = this.fPv.mData;
+                boolean z2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
+                writeData3 = this.fXr.mData;
                 if (writeData3 != null) {
-                    writeData4 = this.fPv.mData;
+                    writeData4 = this.fXr.mData;
                     if (writeData4.getVideoInfo() != null && writeData != null) {
                         if (!z2) {
-                            writeData5 = this.fPv.mData;
+                            writeData5 = this.fXr.mData;
                             if (writeData5.getVideoInfo().getVideoDuration() > 8) {
                                 writeData.setVideoReviewType(1);
                             }
@@ -51,27 +51,27 @@ class h implements NewWriteModel.d {
                         if (qVar != null && writeData != null && qVar.getVcode_pic_url() != null) {
                             writeData.setVcodeMD5(qVar.getVcode_md5());
                             writeData.setVcodeUrl(qVar.getVcode_pic_url());
-                            writeData.setVcodeExtra(qVar.xV());
-                            if (com.baidu.tbadk.o.a.gr(qVar.xU())) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.fPv.getPageContext().getPageActivity(), 12006, writeData, false, qVar.xU())));
+                            writeData.setVcodeExtra(qVar.xO());
+                            if (com.baidu.tbadk.o.a.gq(qVar.xN())) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.fXr.getPageContext().getPageActivity(), 12006, writeData, false, qVar.xN())));
                                 return;
                             } else {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.fPv.getPageContext().getPageActivity(), writeData, 12006)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.fXr.getPageContext().getPageActivity(), writeData, 12006)));
                                 return;
                             }
                         } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(this.fPv.getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(this.fXr.getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.fPv.a(false, postWriteCallBackData);
+                    this.fXr.a(false, postWriteCallBackData);
                     return;
                 }
-                this.fPv.bnd();
-                this.fPv.a(true, postWriteCallBackData);
-                this.fPv.b(postWriteCallBackData);
+                this.fXr.boC();
+                this.fXr.a(true, postWriteCallBackData);
+                this.fXr.b(postWriteCallBackData);
             }
         }
     }

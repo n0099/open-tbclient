@@ -4,49 +4,43 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class b extends BaseFragment {
-    private f bDx;
-    private String mUrl = "https://tieba.baidu.com/n/apage-runtime/page/discovery";
-    private boolean bAr = true;
-    private CustomMessageListener bDy = new c(this, CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK);
-    private CustomMessageListener bDz = new d(this, CmdConfigCustom.CMD_SKIN_TYPE_CHANGE);
+    private d bJn;
+    private String mUrl = "https://tieba.baidu.com/n/apage-runtime/page/350";
+    private boolean bwA = true;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.bDy);
-        registerListener(this.bDz);
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.bDx = new f();
-        return this.bDx.a(layoutInflater, viewGroup);
+        this.bJn = new d();
+        return this.bJn.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.bDx.n(getPageContext());
+        this.bJn.m(getPageContext());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.bAr || StringUtils.isNull(this.bDx.SX().getUrl())) {
+        if (this.bwA || StringUtils.isNull(this.bJn.Tj().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.bDx.loadUrl(ig(this.mUrl));
+                this.bJn.loadUrl(im(this.mUrl));
             } else {
-                this.bDx.loadUrl(this.mUrl);
+                this.bJn.loadUrl(this.mUrl);
             }
-            this.bAr = false;
+            this.bwA = false;
         }
     }
 
@@ -60,8 +54,7 @@ public class b extends BaseFragment {
         super.onResume();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String ig(String str) {
+    private String im(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -86,5 +79,15 @@ public class b extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
     public String getCurrentPageKey() {
         return "a033";
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        if (i == 1) {
+            this.bJn.loadUrl(im(this.mUrl));
+        } else {
+            this.bJn.loadUrl(this.mUrl);
+        }
     }
 }

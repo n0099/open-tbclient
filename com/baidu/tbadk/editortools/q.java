@@ -7,26 +7,26 @@ import com.baidu.tieba.w;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class q extends com.baidu.tbadk.editortools.view.c {
-    LinkedList<p> ayY;
-    private SparseIntArray azx;
+    LinkedList<p> ayK;
+    private SparseIntArray azj;
 
     public q(Context context) {
         super(context);
-        this.azx = new SparseIntArray();
+        this.azj = new SparseIntArray();
         setBackgroundColorId(w.e.common_color_10255);
         setToolId(2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void h(LinkedList<p> linkedList) {
-        this.ayY = linkedList;
+        this.ayK = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.y
     public void init() {
         setShowDelete(false);
         r rVar = new r();
-        rVar.h(this.ayY);
+        rVar.h(this.ayK);
         b(rVar);
     }
 
@@ -35,12 +35,12 @@ public class q extends com.baidu.tbadk.editortools.view.c {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            CB();
+            Cv();
         }
     }
 
     private void c(a aVar) {
-        Integer valueOf = Integer.valueOf(this.azx.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.azj.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             intValue = 0;
@@ -52,13 +52,13 @@ public class q extends com.baidu.tbadk.editortools.view.c {
                 intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.g.b.g(str, 1);
             }
         }
-        this.azx.put(aVar.id, intValue >= 0 ? intValue : 0);
+        this.azj.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void CB() {
+    private void Cv() {
         int i = 0;
-        for (int i2 = 0; i2 < this.azx.size(); i2++) {
-            i += this.azx.valueAt(i2);
+        for (int i2 = 0; i2 < this.azj.size(); i2++) {
+            i += this.azj.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));
@@ -68,7 +68,7 @@ public class q extends com.baidu.tbadk.editortools.view.c {
     }
 
     @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.y
-    public void lW() {
-        super.lW();
+    public void lO() {
+        super.lO();
     }
 }

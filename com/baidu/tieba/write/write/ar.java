@@ -13,34 +13,34 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fSV;
+    final /* synthetic */ WriteActivity gaR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(WriteActivity writeActivity) {
-        this.fSV = writeActivity;
+        this.gaR = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         InputMethodManager inputMethodManager;
-        EditText box;
+        EditText bpW;
         InputMethodManager inputMethodManager2;
-        EditText bow;
+        EditText bpV;
         com.baidu.tbadk.editortools.j jVar;
         WriteData writeData;
         boolean z;
         WriteData writeData2;
-        EditText box2;
-        EditText bow2;
+        EditText bpW2;
+        EditText bpV2;
         com.baidu.tieba.write.transmit.model.a aVar;
         com.baidu.tieba.write.transmit.model.a aVar2;
         com.baidu.tieba.write.transmit.model.a aVar3;
         com.baidu.tbadk.core.view.a aVar4;
         com.baidu.tbadk.core.view.a aVar5;
-        EditText bow3;
-        EditText bow4;
-        EditText box3;
-        EditText box4;
+        EditText bpV3;
+        EditText bpV4;
+        EditText bpW3;
+        EditText bpW4;
         PostPrefixData postPrefixData;
         PostPrefixData postPrefixData2;
         PostPrefixData postPrefixData3;
@@ -51,88 +51,88 @@ public class ar implements View.OnClickListener {
         TextView textView;
         TextView textView2;
         if (!com.baidu.adp.lib.util.i.hk()) {
-            this.fSV.showToast(w.l.neterror);
+            this.gaR.showToast(w.l.neterror);
         }
-        if (!com.baidu.tieba.write.d.a.isFastDoubleClick()) {
-            WriteActivity writeActivity = this.fSV;
-            inputMethodManager = this.fSV.mInputManager;
-            box = this.fSV.box();
-            writeActivity.HidenSoftKeyPad(inputMethodManager, box);
-            WriteActivity writeActivity2 = this.fSV;
-            inputMethodManager2 = this.fSV.mInputManager;
-            bow = this.fSV.bow();
-            writeActivity2.HidenSoftKeyPad(inputMethodManager2, bow);
-            jVar = this.fSV.azd;
-            jVar.AN();
-            writeData = this.fSV.mData;
+        if (!com.baidu.tieba.write.c.a.isFastDoubleClick()) {
+            WriteActivity writeActivity = this.gaR;
+            inputMethodManager = this.gaR.mInputManager;
+            bpW = this.gaR.bpW();
+            writeActivity.HidenSoftKeyPad(inputMethodManager, bpW);
+            WriteActivity writeActivity2 = this.gaR;
+            inputMethodManager2 = this.gaR.mInputManager;
+            bpV = this.gaR.bpV();
+            writeActivity2.HidenSoftKeyPad(inputMethodManager2, bpV);
+            jVar = this.gaR.ayP;
+            jVar.AG();
+            writeData = this.gaR.mData;
             if (writeData.getType() != 7) {
-                z = this.fSV.fRD;
+                z = this.gaR.fZz;
                 if (!z) {
                     com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c12102");
-                    writeData2 = this.fSV.mData;
-                    asVar.s("obj_type", StringUtils.isNull(writeData2.getForumName()) ? 1 : 2);
+                    writeData2 = this.gaR.mData;
+                    asVar.r("obj_type", StringUtils.isNull(writeData2.getForumName()) ? 1 : 2);
                     TiebaStatic.log(asVar);
                     String str = "";
                     String str2 = "";
-                    box2 = this.fSV.box();
-                    if (box2 != null) {
-                        box3 = this.fSV.box();
-                        if (box3.getText() != null) {
-                            box4 = this.fSV.box();
-                            str = box4.getText().toString();
-                            postPrefixData = this.fSV.mPrefixData;
+                    bpW2 = this.gaR.bpW();
+                    if (bpW2 != null) {
+                        bpW3 = this.gaR.bpW();
+                        if (bpW3.getText() != null) {
+                            bpW4 = this.gaR.bpW();
+                            str = bpW4.getText().toString();
+                            postPrefixData = this.gaR.mPrefixData;
                             if (postPrefixData != null) {
-                                postPrefixData5 = this.fSV.mPrefixData;
+                                postPrefixData5 = this.gaR.mPrefixData;
                                 if (postPrefixData5.getPrefixs() != null) {
-                                    postPrefixData6 = this.fSV.mPrefixData;
+                                    postPrefixData6 = this.gaR.mPrefixData;
                                     if (postPrefixData6.getPrefixs().size() > 0) {
-                                        i = this.fSV.fkf;
+                                        i = this.gaR.frX;
                                         if (i != 0) {
-                                            textView = this.fSV.fkC;
+                                            textView = this.gaR.fsu;
                                             if (textView.getText() != null) {
-                                                textView2 = this.fSV.fkC;
+                                                textView2 = this.gaR.fsu;
                                                 str = String.valueOf(textView2.getText().toString()) + str;
                                             }
                                         }
                                     }
                                 }
                             }
-                            postPrefixData2 = this.fSV.mPrefixData;
+                            postPrefixData2 = this.gaR.mPrefixData;
                             if (postPrefixData2 != null) {
-                                postPrefixData3 = this.fSV.mPrefixData;
+                                postPrefixData3 = this.gaR.mPrefixData;
                                 if (!StringUtils.isNull(postPrefixData3.getImplicitTitle())) {
-                                    postPrefixData4 = this.fSV.mPrefixData;
+                                    postPrefixData4 = this.gaR.mPrefixData;
                                     str = String.valueOf(postPrefixData4.getImplicitTitle()) + str;
                                 }
                             }
                         }
                     }
-                    bow2 = this.fSV.bow();
-                    if (bow2 != null) {
-                        bow3 = this.fSV.bow();
-                        if (bow3.getText() != null) {
-                            bow4 = this.fSV.bow();
-                            str2 = bow4.getText().toString();
+                    bpV2 = this.gaR.bpV();
+                    if (bpV2 != null) {
+                        bpV3 = this.gaR.bpV();
+                        if (bpV3.getText() != null) {
+                            bpV4 = this.gaR.bpV();
+                            str2 = bpV4.getText().toString();
                         }
                     }
-                    aVar = this.fSV.fPs;
+                    aVar = this.gaR.fXo;
                     aVar.setThreadTitle(str);
-                    aVar2 = this.fSV.fPs;
+                    aVar2 = this.gaR.fXo;
                     aVar2.setThreadContent(str2);
-                    aVar3 = this.fSV.fPs;
-                    aVar3.NA();
-                    aVar4 = this.fSV.fSt;
+                    aVar3 = this.gaR.fXo;
+                    aVar3.NJ();
+                    aVar4 = this.gaR.gap;
                     aVar4.c(null);
-                    aVar5 = this.fSV.fSt;
-                    aVar5.aI(true);
+                    aVar5 = this.gaR.gap;
+                    aVar5.aH(true);
                     return;
                 }
-                this.fSV.bnD();
+                this.gaR.bpc();
                 BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
                 return;
             }
             TiebaStatic.log("c12015");
-            this.fSV.bnD();
+            this.gaR.bpc();
         }
     }
 }

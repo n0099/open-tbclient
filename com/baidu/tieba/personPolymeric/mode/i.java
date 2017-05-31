@@ -8,13 +8,13 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends HttpMessageListener {
-    final /* synthetic */ PersonPostModel eDY;
+    final /* synthetic */ PersonPostModel eMN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(PersonPostModel personPostModel, int i) {
         super(i);
-        this.eDY = personPostModel;
+        this.eMN = personPostModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,8 +25,8 @@ public class i extends HttpMessageListener {
         if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
             UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
             if (userPostPageHttpResponseMessage.getOrginalMessage() == null || userPostPageHttpResponseMessage.hasError()) {
-                bVar = this.eDY.mOnResult;
-                z = this.eDY.mIsReset;
+                bVar = this.eMN.mOnResult;
+                z = this.eMN.mIsReset;
                 bVar.a(null, z);
                 return;
             }

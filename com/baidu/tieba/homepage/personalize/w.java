@@ -24,26 +24,26 @@ public class w extends CustomMessageListener {
         DataRes.Builder builder2;
         List list;
         List list2;
-        com.baidu.tieba.homepage.personalize.b.ad adVar;
-        com.baidu.tieba.homepage.personalize.b.ad adVar2;
+        com.baidu.tieba.homepage.personalize.b.af afVar;
+        com.baidu.tieba.homepage.personalize.b.af afVar2;
         List list3;
         if (customResponsedMessage != null) {
-            builder = this.this$0.cuG;
+            builder = this.this$0.cAY;
             if (builder != null) {
-                builder2 = this.this$0.cuG;
+                builder2 = this.this$0.cAY;
                 if (com.baidu.tbadk.core.util.x.q(builder2.thread_list) != 0) {
-                    list = this.this$0.aSY;
+                    list = this.this$0.mDataList;
                     if (com.baidu.tbadk.core.util.x.q(list) != 0) {
                         String str = (String) customResponsedMessage.getData();
                         o oVar = this.this$0;
-                        list2 = this.this$0.aSY;
+                        list2 = this.this$0.mDataList;
                         oVar.f(str, list2);
-                        this.this$0.jM(str);
-                        adVar = this.this$0.cuL;
-                        if (adVar != null) {
-                            adVar2 = this.this$0.cuL;
-                            list3 = this.this$0.aSY;
-                            adVar2.aV(new ArrayList(list3));
+                        this.this$0.jW(str);
+                        afVar = this.this$0.cBd;
+                        if (afVar != null) {
+                            afVar2 = this.this$0.cBd;
+                            list3 = this.this$0.mDataList;
+                            afVar2.aV(new ArrayList(list3));
                         }
                     }
                 }

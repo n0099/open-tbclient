@@ -19,6 +19,7 @@ public class TbConfig {
     public static final int ADD_IAMGE_WATER_NONE = 0;
     public static final int ADD_IMAGE_WATER_FORUM_NAME = 2;
     public static final int ADD_IMAGE_WATER_USER_NAME = 1;
+    public static final String ADD_LINK = "c/c/thread/addLink";
     public static final String ADD_MY_GAME = "c/c/game/addmygamebatch";
     public static final String ADD_USER_BOOKMARK = "c/c/encourage/tbread/addUserBookMark";
     public static final String ALA_GET_LIVE_LIST_URL = "c/f/video/AlaTab";
@@ -30,11 +31,13 @@ public class TbConfig {
     public static final int AUTO_PLAY_ALWAYS = 2;
     public static final int AUTO_PLAY_CLOSED = 1;
     public static final int AUTO_PLAY_IN_WIFI = 0;
+    public static final int AUTO_PLAY_UNSET = -1;
     public static final String AVATAR_PENDANT = "c/e/theme/getPendantByCategory";
     public static final int BIG_IMAGE_MIN_CAPACITY = 10000;
     public static final int BIG_IMAGE_MIN_SIZE = 80;
     public static final String BIG_IMG_SPEC = "big_img";
     public static final int BIG_PHOTO_MAX_SIZE = 110;
+    public static final String BIG_V_APPLAY = "https://jing.baidu.com/h5/dashenshuomingye.html";
     private static final String BROADCAST_CHANGESKIN = "com.baidu.tieba.broadcast.changeskin";
     private static final String BROADCAST_CHANGE_SHARED_PREF = "com.baidu.tieba.broadcast.changeSharedPref";
     public static final String BROADCAST_FIELD_SKIN_TYPE = "skin_type";
@@ -134,6 +137,7 @@ public class TbConfig {
     public static final String GET_BANNER_GAME = "c/u/game/getgameadvertise";
     public static final String GET_BARRAGE_LIST = "c/f/video/getBarrageList";
     public static final String GET_BAWU_INFO = "c/f/forum/getBawuInfo";
+    public static final String GET_BIGV_THREAD_LIST = "c/u/feed/queryModuleThreadInfo";
     public static final String GET_BOOK_DETAIL_INFO = "c/e/tbread/getBookDetailInfo";
     public static final String GET_BOOK_DIRECTORY_INFO = "c/e/tbread/getBookDirectory";
     public static final String GET_BOOK_DOWNLOAD_INFO = "c/e/tbread/getBookDownloadInfo";
@@ -284,6 +288,7 @@ public class TbConfig {
     public static final int NOTIFY_YUN_PUSH = 2500;
     public static final long ONE_DAY_TIME = 86400000;
     public static final String OP_BOOKRACK = "c/c/encourage/tbread/opBookrack";
+    public static final String PB_CHANGE_FLOOR_AGREE_URL = "c/c/agree/modifyAgree";
     public static final int PB_DEFAULT_CONTENT_TEXT_SIZE = 18;
     public static final int PB_DEFAULT_NAME_TEXT_SIZE = 11;
     public static final String PB_FLOOR_AGREE_URL = "c/c/agree/opAgree";
@@ -397,6 +402,7 @@ public class TbConfig {
     public static final int UPLOAD_IMAGE_QUALITY_MID = 2;
     public static final String URL_APPLY_COPY_THREAD = "c/c/livegroup/applycopythread";
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
+    public static final String URL_CHECK_REAL_NAME = "c/s/checkRealName";
     public static final String URL_CHECK_VIDEO_STATUS = "c/c/video/uploadVideoStatus";
     public static final String URL_DELETE_GRAFFITTI = "c/c/graffiti/remove";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
@@ -644,7 +650,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.DN().eN(i);
+            c.DH().eO(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

@@ -10,44 +10,44 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a bYH;
-    private boolean bYF = false;
-    private final HashMap<String, ArrayList<g>> bYG = new HashMap<>();
+    private static volatile a ceT;
+    private boolean ceR = false;
+    private final HashMap<String, ArrayList<g>> ceS = new HashMap<>();
 
     private a() {
     }
 
-    public static a ach() {
-        if (bYH == null) {
+    public static a adl() {
+        if (ceT == null) {
             synchronized (a.class) {
-                if (bYH == null) {
-                    bYH = new a();
+                if (ceT == null) {
+                    ceT = new a();
                 }
             }
         }
-        return bYH;
+        return ceT;
     }
 
-    public String aci() {
+    public String adm() {
         return "frs_smart_sort_last_time_" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public synchronized long iY(String str) {
-        g iZ;
-        iZ = iZ(str);
-        return iZ != null ? iZ.lastTime : 0L;
+    public synchronized long jg(String str) {
+        g jh;
+        jh = jh(str);
+        return jh != null ? jh.lastTime : 0L;
     }
 
-    public synchronized void i(String str, long j) {
+    public synchronized void h(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
-            String aci = aci();
-            ArrayList<g> arrayList = this.bYG.get(aci);
+            String adm = adm();
+            ArrayList<g> arrayList = this.ceS.get(adm);
             ArrayList<g> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            g iZ = iZ(str);
+            g jh = jh(str);
             boolean z = false;
-            if (iZ != null) {
-                if (iZ.lastTime != j) {
-                    iZ.lastTime = j;
+            if (jh != null) {
+                if (jh.lastTime != j) {
+                    jh.lastTime = j;
                     z = true;
                 }
             } else {
@@ -58,13 +58,13 @@ public class a {
                 z = true;
             }
             if (z) {
-                d(aci, arrayList2);
+                d(adm, arrayList2);
             }
         }
     }
 
     private synchronized void d(String str, ArrayList<g> arrayList) {
-        JSONObject acr;
+        JSONObject adv;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -72,26 +72,26 @@ public class a {
             ArrayList<g> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 g gVar = arrayList.get(i);
-                if (!TextUtils.isEmpty(gVar.forumName) && (acr = gVar.acr()) != null) {
-                    jSONArray.put(acr);
+                if (!TextUtils.isEmpty(gVar.forumName) && (adv = gVar.adv()) != null) {
+                    jSONArray.put(adv);
                     arrayList2.add(gVar);
                 }
             }
             if (!x.r(arrayList2)) {
-                this.bYG.put(str, arrayList2);
-                if (!this.bYF) {
-                    acj();
+                this.ceS.put(str, arrayList2);
+                if (!this.ceR) {
+                    adn();
                 } else {
-                    ja(jSONArray.toString());
+                    ji(jSONArray.toString());
                 }
             }
         }
     }
 
-    private synchronized g iZ(String str) {
+    private synchronized g jh(String str) {
         g gVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<g> arrayList = this.bYG.get(aci());
+            ArrayList<g> arrayList = this.ceS.get(adm());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -116,26 +116,26 @@ public class a {
         return gVar;
     }
 
-    private void ja(String str) {
-        o<String> ack = ack();
-        if (ack != null) {
-            ack.l("frs_smart_sort_last_time", str);
+    private void ji(String str) {
+        o<String> ado = ado();
+        if (ado != null) {
+            ado.l("frs_smart_sort_last_time", str);
         }
     }
 
-    public void acj() {
-        o<String> ack = ack();
-        if (ack != null) {
-            ack.a("frs_smart_sort_last_time", new b(this));
+    public void adn() {
+        o<String> ado = ado();
+        if (ado != null) {
+            ado.a("frs_smart_sort_last_time", new b(this));
         }
     }
 
-    private o<String> ack() {
-        return com.baidu.tbadk.core.c.a.sZ().M("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
+    private o<String> ado() {
+        return com.baidu.tbadk.core.c.a.sY().M("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<g> jb(String str) {
+    public ArrayList<g> jj(String str) {
         ArrayList<g> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {

@@ -62,7 +62,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface c {
-        void aD(int i);
+        void aE(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -197,7 +197,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     private boolean q(int i, int i2) {
-        return i2 >= this.Gt - this.Gk && i2 <= this.Gt + this.Gk && (i < this.Gs - this.Gk || i > this.Gs + this.Gk) && this.Gy.aE(i - this.Gs);
+        return i2 >= this.Gt - this.Gk && i2 <= this.Gt + this.Gk && (i < this.Gs - this.Gk || i > this.Gs + this.Gk) && this.Gy.aF(i - this.Gs);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -230,7 +230,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                                 this.Gv = true;
                             }
                         }
-                        this.Gy.aF(this.Gu - x);
+                        this.Gy.aG(this.Gu - x);
                         this.Gu = x;
                         this.Gy.GM.addMovement(motionEvent);
                         return true;
@@ -250,7 +250,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 }
                 if (!this.Gy.GN) {
                     this.Gu = x;
-                    this.Gy.aE(x);
+                    this.Gy.aF(x);
                     break;
                 }
                 break;
@@ -268,7 +268,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 return true;
         }
         if (this.Gy.GN) {
-            this.Gy.aF(this.Gu - x);
+            this.Gy.aG(this.Gu - x);
             this.Gu = x;
             this.Gy.GM.addMovement(motionEvent);
             return true;
@@ -392,7 +392,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             return iArr;
         }
 
-        boolean aE(int i) {
+        boolean aF(int i) {
             switch (kN()[this.GD.Gn.ordinal()]) {
                 case 1:
                     if (this.GD.Go != 10004 && this.GD.Go != 10000) {
@@ -406,7 +406,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     break;
                 case 3:
                     if (this.GD.GC != null) {
-                        this.GD.GC.aD(i);
+                        this.GD.GC.aE(i);
                         break;
                     }
                     break;
@@ -420,7 +420,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.GN = false;
         }
 
-        void aF(int i) {
+        void aG(int i) {
             if (this.GN) {
                 int i2 = this.GD.Gj - i;
                 switch (kN()[this.GD.Gn.ordinal()]) {

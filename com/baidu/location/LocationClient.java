@@ -10,6 +10,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.text.TextUtils;
 import com.baidu.location.a.b;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -131,13 +132,13 @@ public final class LocationClient implements b.InterfaceC0020b {
                 case 27:
                     LocationClient.this.onNewNotifyLocation(message);
                     return;
-                case 54:
+                case w.n.View_transformPivotY /* 54 */:
                     if (LocationClient.this.mOption.location_change_notify) {
                         LocationClient.this.mGpsStatus = true;
                         return;
                     }
                     return;
-                case 55:
+                case w.n.View_rotation /* 55 */:
                     if (LocationClient.this.mOption.location_change_notify) {
                         LocationClient.this.mGpsStatus = false;
                         return;

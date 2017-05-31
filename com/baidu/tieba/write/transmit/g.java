@@ -13,7 +13,7 @@ class g implements Parcelable.Creator<TransmitForumData> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: sV */
+    /* renamed from: tq */
     public TransmitForumData[] newArray(int i) {
         return new TransmitForumData[i];
     }

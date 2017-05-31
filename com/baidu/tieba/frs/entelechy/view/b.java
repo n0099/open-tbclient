@@ -6,23 +6,23 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ a bTA;
+    final /* synthetic */ a bZs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, Looper looper) {
         super(looper);
-        this.bTA = aVar;
+        this.bZs = aVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         switch (message.what) {
             case 202:
-                this.bTA.Kx();
+                this.bZs.Ul();
                 return;
             case 203:
-                this.bTA.Ky();
+                this.bZs.Um();
                 return;
             default:
                 return;

@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
 public class g extends e implements com.baidu.tbadk.mvc.b.a {
-    private int bGt;
-    private String bGu;
-    private int bhs;
+    private int bMi;
+    private String bMj;
+    private int biB;
     private String mId;
     private String mName;
 
@@ -19,24 +19,24 @@ public class g extends e implements com.baidu.tbadk.mvc.b.a {
         return this.mName;
     }
 
-    public void hq(int i) {
-        this.bGt = i;
+    public void hO(int i) {
+        this.bMi = i;
     }
 
-    public int VY() {
-        return this.bGt;
+    public int Xb() {
+        return this.bMi;
     }
 
     public void setLevel(int i) {
-        this.bhs = i;
+        this.biB = i;
     }
 
     public int getLevel() {
-        return this.bhs;
+        return this.biB;
     }
 
     public String getAvatar() {
-        return this.bGu;
+        return this.bMj;
     }
 
     public void a(LikeForum likeForum) {
@@ -50,9 +50,9 @@ public class g extends e implements com.baidu.tbadk.mvc.b.a {
             try {
                 this.mId = String.valueOf(likeForum.forum_id);
                 this.mName = likeForum.forum_name;
-                this.bGt = likeForum.is_sign.intValue();
-                this.bhs = likeForum.level_id.intValue();
-                this.bGu = likeForum.avatar;
+                this.bMi = likeForum.is_sign.intValue();
+                this.biB = likeForum.level_id.intValue();
+                this.bMj = likeForum.avatar;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

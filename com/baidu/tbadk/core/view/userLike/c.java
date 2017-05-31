@@ -7,68 +7,68 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    private TbPageContext ajr;
-    protected a amT;
-    private b amU;
-    private BdUniqueId amX;
-    private com.baidu.tbadk.d.a amY;
-    private String amW = "0";
-    private CustomMessageListener amZ = new d(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
-    private com.baidu.tbadk.coreExtra.c.a amV = new com.baidu.tbadk.coreExtra.c.a(null);
+    private TbPageContext ajh;
+    protected a amP;
+    private b amQ;
+    private BdUniqueId amT;
+    private com.baidu.tbadk.d.a amU;
+    private String amS = "0";
+    private CustomMessageListener amV = new d(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+    private com.baidu.tbadk.coreExtra.c.a amR = new com.baidu.tbadk.coreExtra.c.a(null);
 
     public c(TbPageContext tbPageContext) {
-        this.ajr = tbPageContext;
-        tbPageContext.registerListener(this.amZ);
+        this.ajh = tbPageContext;
+        tbPageContext.registerListener(this.amV);
     }
 
     public c(TbPageContext tbPageContext, b bVar) {
-        this.ajr = tbPageContext;
-        tbPageContext.registerListener(this.amZ);
+        this.ajh = tbPageContext;
+        tbPageContext.registerListener(this.amV);
         a(bVar);
     }
 
     public void i(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.amX = bdUniqueId;
-            MessageManager.getInstance().unRegisterListener(this.amZ);
-            this.amZ.setTag(this.amX);
-            MessageManager.getInstance().registerListener(this.amZ);
+            this.amT = bdUniqueId;
+            MessageManager.getInstance().unRegisterListener(this.amV);
+            this.amV.setTag(this.amT);
+            MessageManager.getInstance().registerListener(this.amV);
         }
     }
 
     public void a(b bVar) {
-        this.amU = bVar;
-        if (this.amU != null) {
-            this.amU.g(this);
+        this.amQ = bVar;
+        if (this.amQ != null) {
+            this.amQ.g(this);
         }
     }
 
     public void a(a aVar) {
-        this.amT = aVar;
-        if (this.amU != null && this.amT != null) {
-            this.amU.aQ(aVar.getIsLike());
-            this.amU.mo12do(aVar.getFansNum());
+        this.amP = aVar;
+        if (this.amQ != null && this.amP != null) {
+            this.amQ.aO(aVar.getIsLike());
+            this.amQ.dp(aVar.getFansNum());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.amY == null || !this.amY.s(view)) {
+        if (this.amU == null || !this.amU.s(view)) {
             if (!i.gY()) {
-                this.ajr.showToast(w.l.network_ungeilivable);
+                this.ajh.showToast(w.l.network_ungeilivable);
             }
-            if (this.amU != null) {
-                this.amU.B(view);
+            if (this.amQ != null) {
+                this.amQ.B(view);
             }
-            if (bg.aN(this.ajr.getPageActivity()) && this.amT != null) {
-                if (this.amX == null) {
-                    this.amV.a(this.amT.getIsLike() ? false : true, this.amT.getPortrait(), this.amT.getUserId(), this.amT.isGod(), this.ajr.getUniqueId());
+            if (bh.aN(this.ajh.getPageActivity()) && this.amP != null) {
+                if (this.amT == null) {
+                    this.amR.a(this.amP.getIsLike() ? false : true, this.amP.getPortrait(), this.amP.getUserId(), this.amP.isGod(), this.ajh.getUniqueId());
                 } else {
-                    this.amV.a(this.amT.getIsLike() ? false : true, this.amT.getPortrait(), this.amT.getUserId(), this.amT.isGod(), this.amX);
+                    this.amR.a(this.amP.getIsLike() ? false : true, this.amP.getPortrait(), this.amP.getUserId(), this.amP.isGod(), this.amT);
                 }
             }
         }

@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ah extends ae {
-    protected boolean alA;
-    private CustomMessageListener alB;
+    protected boolean alq;
+    private CustomMessageListener alr;
     protected boolean isDone;
     private CustomMessageListener listener;
 
@@ -19,13 +19,13 @@ public class ah extends ae {
         super(tbPageContext.getPageActivity());
         this.isDone = true;
         this.listener = new ai(this, CmdConfigCustom.CMD_PULL_IMAGE_CHANGE);
-        this.alB = new aj(this, CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE);
+        this.alr = new aj(this, CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE);
         d(tbPageContext);
     }
 
     @Override // com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d
     public void T(boolean z) {
-        this.alk.setBackgroundDrawable(null);
+        this.ala.setBackgroundDrawable(null);
         super.T(z);
         this.isDone = true;
     }
@@ -34,8 +34,8 @@ public class ah extends ae {
     public void S(boolean z) {
         super.S(z);
         this.isDone = false;
-        if (!this.alA) {
-            di(TbadkCoreApplication.m9getInst().getSkinType());
+        if (!this.alq) {
+            dj(TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
@@ -46,23 +46,23 @@ public class ah extends ae {
     }
 
     @Override // com.baidu.tbadk.core.view.ae
-    public void di(int i) {
-        super.di(i);
-        if (this.alj != null && this.alk != null) {
-            this.alA = false;
-            if (!ve()) {
-                this.alp = com.baidu.tbadk.core.util.ai.uW().cE(i);
-                if (this.alp != null) {
-                    this.alA = true;
+    public void dj(int i) {
+        super.dj(i);
+        if (this.akZ != null && this.ala != null) {
+            this.alq = false;
+            if (!vb()) {
+                this.ale = com.baidu.tbadk.core.util.ai.uT().cF(i);
+                if (this.ale != null) {
+                    this.alq = true;
                 } else {
-                    this.alp = new AnimationDrawable();
+                    this.ale = new AnimationDrawable();
                 }
-                this.alj.setBackgroundColor(com.baidu.tbadk.core.util.ai.uW().cG(i));
-                if (!this.alA) {
-                    this.alp = com.baidu.tbadk.core.util.ai.uW().cF(i);
+                this.akZ.setBackgroundColor(com.baidu.tbadk.core.util.ai.uT().cH(i));
+                if (!this.alq) {
+                    this.ale = com.baidu.tbadk.core.util.ai.uT().cG(i);
                 }
-                this.alp.setOneShot(false);
-                this.alk.setBackgroundDrawable(this.alp);
+                this.ale.setOneShot(false);
+                this.ala.setBackgroundDrawable(this.ale);
             }
         }
     }
@@ -75,24 +75,24 @@ public class ah extends ae {
 
     private void d(TbPageContext<?> tbPageContext) {
         this.listener.setTag(tbPageContext.getUniqueId());
-        this.alB.setTag(tbPageContext.getUniqueId());
+        this.alr.setTag(tbPageContext.getUniqueId());
         tbPageContext.registerListener(this.listener);
-        tbPageContext.registerListener(this.alB);
+        tbPageContext.registerListener(this.alr);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (this.listener != null) {
             this.listener.setTag(bdUniqueId);
         }
-        if (this.alB != null) {
-            this.alB.setTag(bdUniqueId);
+        if (this.alr != null) {
+            this.alr.setTag(bdUniqueId);
         }
         MessageManager.getInstance().registerListener(this.listener);
-        MessageManager.getInstance().registerListener(this.alB);
+        MessageManager.getInstance().registerListener(this.alr);
     }
 
     public void release() {
         MessageManager.getInstance().unRegisterListener(this.listener);
-        MessageManager.getInstance().unRegisterListener(this.alB);
+        MessageManager.getInstance().unRegisterListener(this.alr);
     }
 }

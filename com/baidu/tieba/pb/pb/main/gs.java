@@ -1,32 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class gs {
-    protected BaseActivity bdY;
-    protected View mRootView;
+public class gs implements a.b {
+    final /* synthetic */ fx evi;
 
-    protected abstract void a(e eVar);
-
-    public gs(BaseActivity baseActivity, View view) {
-        this.bdY = baseActivity;
-        this.mRootView = view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public gs(fx fxVar) {
+        this.evi = fxVar;
     }
 
-    public void init() {
-        b(null);
-    }
-
-    public void b(e eVar) {
-        if (this.bdY != null && this.mRootView != null) {
-            a(eVar);
-        }
-    }
-
-    public void a(View view, View.OnClickListener onClickListener) {
-        if (view != null) {
-            view.setOnClickListener(onClickListener);
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

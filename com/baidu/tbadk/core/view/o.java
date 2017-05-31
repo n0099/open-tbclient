@@ -22,26 +22,26 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o extends ImageView {
-    private a ajA;
-    private PopupWindow ajB;
-    private long ajC;
-    private String[] ajD;
-    private View.OnClickListener ajE;
-    private CompoundButton.OnCheckedChangeListener ajF;
-    private View.OnClickListener ajG;
-    private PopupWindow.OnDismissListener ajH;
-    private final CustomMessageListener ajI;
-    private View.OnTouchListener ajJ;
-    private CustomMessageListener ajK;
-    private TbPageContext ajr;
-    private PopupWindow ajs;
-    private List<NEGFeedBackReasonCheckBox> ajt;
-    private com.baidu.tbadk.core.data.am aju;
-    private SparseArray<String> ajv;
-    private int ajw;
-    private int ajx;
-    private int ajy;
-    private boolean ajz;
+    private CustomMessageListener ajA;
+    private TbPageContext ajh;
+    private PopupWindow aji;
+    private List<NEGFeedBackReasonCheckBox> ajj;
+    private com.baidu.tbadk.core.data.an ajk;
+    private SparseArray<String> ajl;
+    private int ajm;
+    private int ajn;
+    private int ajo;
+    private boolean ajp;
+    private a ajq;
+    private PopupWindow ajr;
+    private long ajs;
+    private String[] ajt;
+    private View.OnClickListener aju;
+    private CompoundButton.OnCheckedChangeListener ajv;
+    private View.OnClickListener ajw;
+    private PopupWindow.OnDismissListener ajx;
+    private final CustomMessageListener ajy;
+    private View.OnTouchListener ajz;
     private Context mContext;
     private int mWindowHeight;
     private int mYOffset;
@@ -49,62 +49,62 @@ public class o extends ImageView {
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(com.baidu.tbadk.core.data.am amVar);
+        void a(com.baidu.tbadk.core.data.an anVar);
 
-        void a(com.baidu.tbadk.core.data.am amVar, CompoundButton compoundButton, boolean z);
+        void a(com.baidu.tbadk.core.data.an anVar, CompoundButton compoundButton, boolean z);
 
-        void a(ArrayList<Integer> arrayList, com.baidu.tbadk.core.data.am amVar);
+        void a(ArrayList<Integer> arrayList, com.baidu.tbadk.core.data.an anVar);
     }
 
     public o(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.ajs = null;
-        this.ajt = null;
-        this.aju = null;
-        this.ajv = null;
-        this.ajz = false;
-        this.ajA = null;
-        this.ajC = 0L;
-        this.ajE = new p(this);
-        this.ajF = new q(this);
-        this.ajG = new r(this);
-        this.ajH = new s(this);
-        this.ajI = new t(this, CmdConfigCustom.CMD_NEG_FEED_BACK_DISMISS_WINDOW);
-        this.ajJ = new u(this);
-        this.ajK = new v(this, CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN);
+        this.aji = null;
+        this.ajj = null;
+        this.ajk = null;
+        this.ajl = null;
+        this.ajp = false;
+        this.ajq = null;
+        this.ajs = 0L;
+        this.aju = new p(this);
+        this.ajv = new q(this);
+        this.ajw = new r(this);
+        this.ajx = new s(this);
+        this.ajy = new t(this, CmdConfigCustom.CMD_NEG_FEED_BACK_DISMISS_WINDOW);
+        this.ajz = new u(this);
+        this.ajA = new v(this, CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN);
         this.mContext = tbPageContext.getPageActivity();
-        this.ajr = tbPageContext;
+        this.ajh = tbPageContext;
         this.paddingLeft = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds16);
         init();
     }
 
     private void init() {
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.ajy = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds40);
+        this.ajo = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds40);
         this.mWindowHeight = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds278);
-        this.ajw = com.baidu.adp.lib.util.k.af(this.mContext) - (this.ajy * 2);
-        this.ajx = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds120);
-        setOnClickListener(this.ajE);
+        this.ajm = com.baidu.adp.lib.util.k.af(this.mContext) - (this.ajo * 2);
+        this.ajn = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds120);
+        setOnClickListener(this.aju);
         com.baidu.tbadk.core.util.aq.c(this, w.g.icon_home_feedback_selector);
-        this.ajr.registerListener(this.ajK);
-        this.ajr.registerListener(this.ajI);
+        this.ajh.registerListener(this.ajA);
+        this.ajh.registerListener(this.ajy);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            if (this.ajK != null) {
-                this.ajK.setTag(bdUniqueId);
+            if (this.ajA != null) {
+                this.ajA.setTag(bdUniqueId);
             }
-            if (this.ajI != null) {
-                this.ajI.setTag(bdUniqueId);
+            if (this.ajy != null) {
+                this.ajy.setTag(bdUniqueId);
             }
-            MessageManager.getInstance().registerListener(this.ajK);
-            MessageManager.getInstance().registerListener(this.ajI);
+            MessageManager.getInstance().registerListener(this.ajA);
+            MessageManager.getInstance().registerListener(this.ajy);
         }
     }
 
-    public void wd() {
+    public void wa() {
         int g = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds48);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-2, -2);
         layoutParams.height = g;
@@ -123,25 +123,25 @@ public class o extends ImageView {
         View inflate = LayoutInflater.from(this.mContext).inflate(w.j.neg_feedback_popupwindow, (ViewGroup) null);
         View findViewById = inflate.findViewById(w.h.divider_line);
         Button button = (Button) inflate.findViewById(w.h.forbid_thread_btn);
-        button.setOnClickListener(this.ajG);
+        button.setOnClickListener(this.ajw);
         com.baidu.tbadk.core.util.aq.c((TextView) inflate.findViewById(w.h.head_text), w.e.cp_cont_c, 1);
         com.baidu.tbadk.core.util.aq.j(findViewById, w.e.cp_bg_line_b);
         com.baidu.tbadk.core.util.aq.j(button, w.g.btn_home_neg_feedback_forbid_selector);
         com.baidu.tbadk.core.util.aq.c(button, w.e.cp_cont_b, 3);
-        this.ajt = new ArrayList();
+        this.ajj = new ArrayList();
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) inflate.findViewById(w.h.reason_checkbox1);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) inflate.findViewById(w.h.reason_checkbox2);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox3 = (NEGFeedBackReasonCheckBox) inflate.findViewById(w.h.reason_checkbox3);
-        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.ajF);
-        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.ajF);
-        nEGFeedBackReasonCheckBox3.setOnCheckedChangeListener(this.ajF);
-        this.ajt.add(nEGFeedBackReasonCheckBox);
-        this.ajt.add(nEGFeedBackReasonCheckBox2);
-        this.ajt.add(nEGFeedBackReasonCheckBox3);
-        if (this.ajD != null && this.ajD.length == 3) {
+        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.ajv);
+        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.ajv);
+        nEGFeedBackReasonCheckBox3.setOnCheckedChangeListener(this.ajv);
+        this.ajj.add(nEGFeedBackReasonCheckBox);
+        this.ajj.add(nEGFeedBackReasonCheckBox2);
+        this.ajj.add(nEGFeedBackReasonCheckBox3);
+        if (this.ajt != null && this.ajt.length == 3) {
             for (int i = 0; i < 3; i++) {
-                if (!StringUtils.isNull(this.ajD[i])) {
-                    this.ajt.get(i).setText(this.ajD[i]);
+                if (!StringUtils.isNull(this.ajt[i])) {
+                    this.ajj.get(i).setText(this.ajt[i]);
                 }
             }
         }
@@ -149,62 +149,62 @@ public class o extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void we() {
+    public void wb() {
         if (this.mContext != null) {
-            this.ajs = new PopupWindow(getContentView(), this.ajw, this.mWindowHeight);
-            this.ajs.setFocusable(true);
-            this.ajs.setTouchable(true);
-            this.ajs.setOnDismissListener(this.ajH);
-            this.ajs.setTouchInterceptor(this.ajJ);
-            if (this.ajv != null && this.ajv.size() == 3 && com.baidu.tbadk.core.util.x.q(this.ajt) == 3) {
-                for (int i = 0; i < this.ajv.size(); i++) {
-                    String valueAt = this.ajv.valueAt(i);
-                    if (com.baidu.tbadk.core.util.au.dz(valueAt) > 8) {
+            this.aji = new PopupWindow(getContentView(), this.ajm, this.mWindowHeight);
+            this.aji.setFocusable(true);
+            this.aji.setTouchable(true);
+            this.aji.setOnDismissListener(this.ajx);
+            this.aji.setTouchInterceptor(this.ajz);
+            if (this.ajl != null && this.ajl.size() == 3 && com.baidu.tbadk.core.util.x.q(this.ajj) == 3) {
+                for (int i = 0; i < this.ajl.size(); i++) {
+                    String valueAt = this.ajl.valueAt(i);
+                    if (com.baidu.tbadk.core.util.au.dw(valueAt) > 8) {
                         valueAt = com.baidu.tbadk.core.util.au.d(valueAt, 6, "...吧");
                     }
-                    this.ajt.get(i).setText(valueAt);
+                    this.ajj.get(i).setText(valueAt);
                 }
             }
             View inflate = LayoutInflater.from(this.mContext).inflate(w.j.view_negative_feedback_bottom, (ViewGroup) null);
-            this.ajB = new PopupWindow(inflate, -1, -1);
-            this.ajB.showAtLocation(this, 0, 0, 0);
+            this.ajr = new PopupWindow(inflate, -1, -1);
+            this.ajr.showAtLocation(this, 0, 0, 0);
             int[] iArr = new int[2];
-            boolean a2 = a(this.mContext, this, this.mWindowHeight, this.ajw, this.ajx, this.mYOffset, iArr);
+            boolean a2 = a(this.mContext, this, this.mWindowHeight, this.ajm, this.ajn, this.mYOffset, iArr);
             if (iArr[0] != 0 || iArr[1] != 0) {
                 if (a2) {
-                    this.ajs.setAnimationStyle(w.m.scale_rb2lt_anim);
-                    com.baidu.tbadk.core.util.aq.a(this.ajs, w.g.bg_home_feedback_under);
+                    this.aji.setAnimationStyle(w.m.scale_rb2lt_anim);
+                    com.baidu.tbadk.core.util.aq.a(this.aji, w.g.bg_home_feedback_under);
                 } else {
-                    this.ajs.setAnimationStyle(w.m.scale_rt2lb_anim);
-                    com.baidu.tbadk.core.util.aq.a(this.ajs, w.g.bg_home_feedback_top);
+                    this.aji.setAnimationStyle(w.m.scale_rt2lb_anim);
+                    com.baidu.tbadk.core.util.aq.a(this.aji, w.g.bg_home_feedback_top);
                 }
-                this.ajs.showAtLocation(inflate, 0, iArr[0] - this.ajy, iArr[1]);
-                if (this.ajA != null) {
-                    this.ajA.a(this.aju);
+                this.aji.showAtLocation(inflate, 0, iArr[0] - this.ajo, iArr[1]);
+                if (this.ajq != null) {
+                    this.ajq.a(this.ajk);
                 }
             }
         }
     }
 
-    public void wf() {
-        if (this.ajs != null) {
-            this.ajs.dismiss();
-            this.ajs = null;
+    public void wc() {
+        if (this.aji != null) {
+            this.aji.dismiss();
+            this.aji = null;
         }
-        if (this.ajB != null) {
-            this.ajB.dismiss();
-            this.ajB = null;
+        if (this.ajr != null) {
+            this.ajr.dismiss();
+            this.ajr = null;
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.ajI);
-        MessageManager.getInstance().unRegisterListener(this.ajK);
-        if (this.ajB != null) {
-            this.ajB.dismiss();
-            this.ajB = null;
+        MessageManager.getInstance().unRegisterListener(this.ajy);
+        MessageManager.getInstance().unRegisterListener(this.ajA);
+        if (this.ajr != null) {
+            this.ajr.dismiss();
+            this.ajr = null;
         }
     }
 
@@ -227,10 +227,10 @@ public class o extends ImageView {
         return z;
     }
 
-    public void setData(com.baidu.tbadk.core.data.am amVar) {
-        if (amVar != null) {
-            this.aju = amVar;
-            this.ajv = amVar.qq();
+    public void setData(com.baidu.tbadk.core.data.an anVar) {
+        if (anVar != null) {
+            this.ajk = anVar;
+            this.ajl = anVar.qm();
         }
     }
 
@@ -240,59 +240,59 @@ public class o extends ImageView {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Can't wrap try/catch for region: R(8:4|(7:6|(2:7|(3:9|(4:17|(1:19)|20|21)|22)(0))|28|(1:30)|31|32|33)(0)|27|28|(0)|31|32|33) */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0097, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0098, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0098, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0099, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0035 A[Catch: JSONException -> 0x0097, TryCatch #0 {JSONException -> 0x0097, blocks: (B:12:0x0024, B:14:0x0035, B:15:0x003e), top: B:32:0x0024 }] */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0036 A[Catch: JSONException -> 0x0098, TryCatch #0 {JSONException -> 0x0098, blocks: (B:12:0x0024, B:14:0x0036, B:15:0x003f), top: B:32:0x0024 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public JSONObject l(ArrayList<Integer> arrayList) {
         JSONObject jSONObject = new JSONObject();
-        if (this.aju == null || arrayList == null) {
+        if (this.ajk == null || arrayList == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        if (!com.baidu.tbadk.core.util.x.r(this.ajt)) {
+        if (!com.baidu.tbadk.core.util.x.r(this.ajj)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.ajt.size()) {
-                    NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = this.ajt.get(i2);
-                    if (nEGFeedBackReasonCheckBox != null && nEGFeedBackReasonCheckBox.isChecked() && this.ajv != null && this.ajv.size() > i2) {
+                if (i2 < this.ajj.size()) {
+                    NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = this.ajj.get(i2);
+                    if (nEGFeedBackReasonCheckBox != null && nEGFeedBackReasonCheckBox.isChecked() && this.ajl != null && this.ajl.size() > i2) {
                         arrayList.add(Integer.valueOf(nEGFeedBackReasonCheckBox.getId()));
                         if (sb.length() != 0) {
                             sb.append(",");
                         }
-                        sb.append(String.valueOf(this.ajv.keyAt(i2)));
+                        sb.append(String.valueOf(this.ajl.keyAt(i2)));
                     }
                     i = i2 + 1;
                 }
             }
-            jSONObject.put("tid", this.aju.getTid());
+            jSONObject.put("tid", this.ajk.getTid());
             if (sb.length() != 0) {
                 jSONObject.put("dislike_ids", sb.toString());
             }
-            jSONObject.put("fid", this.aju.getFid());
+            jSONObject.put("fid", this.ajk.getFid());
             jSONObject.put("click_time", System.currentTimeMillis());
             return jSONObject;
         }
-        jSONObject.put("tid", this.aju.getTid());
+        jSONObject.put("tid", this.ajk.getTid());
         if (sb.length() != 0) {
         }
-        jSONObject.put("fid", this.aju.getFid());
+        jSONObject.put("fid", this.ajk.getFid());
         jSONObject.put("click_time", System.currentTimeMillis());
         return jSONObject;
     }
 
     public void setEventCallback(a aVar) {
-        this.ajA = aVar;
+        this.ajq = aVar;
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.ajD = strArr;
+        this.ajt = strArr;
     }
 }

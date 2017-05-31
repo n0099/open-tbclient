@@ -15,16 +15,16 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes2.dex */
 public class al implements com.baidu.tbadk.mvc.b.j {
     protected boolean CB;
-    protected ArrayList<FeedData> dhm = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.aq dhn = new com.baidu.tbadk.core.data.aq();
-    protected ah dho = new ah();
+    protected ArrayList<FeedData> dmI = new ArrayList<>();
+    protected com.baidu.tbadk.core.data.ar dmJ = new com.baidu.tbadk.core.data.ar();
+    protected ah dmK = new ah();
 
-    public ArrayList<FeedData> atk() {
-        return this.dhm;
+    public ArrayList<FeedData> auf() {
+        return this.dmI;
     }
 
-    public com.baidu.tbadk.core.data.aq qB() {
-        return this.dhn;
+    public com.baidu.tbadk.core.data.ar qx() {
+        return this.dmJ;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -38,21 +38,21 @@ public class al implements com.baidu.tbadk.mvc.b.j {
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
                     if (feedData.getThread_Type() == 33) {
                         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.dhm.add(feedData);
+                            this.dmI.add(feedData);
                         }
                     } else {
-                        this.dhm.add(feedData);
-                        if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.c.afn()) {
-                            this.dhm.remove(feedData);
+                        this.dmI.add(feedData);
+                        if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.c.agC()) {
+                            this.dmI.remove(feedData);
                         }
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.x.q(feedData.getPraiseList()) == 0) {
-                            this.dhm.remove(feedData);
+                            this.dmI.remove(feedData);
                         }
                     }
                 }
             }
-            this.dho.parserJson(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
-            this.dhn.parserJson(jSONObject.optJSONObject("page"));
+            this.dmK.parserJson(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
+            this.dmJ.parserJson(jSONObject.optJSONObject("page"));
             this.CB = true;
         } catch (Exception e) {
             this.CB = false;
@@ -72,20 +72,20 @@ public class al implements com.baidu.tbadk.mvc.b.j {
                         feedData.parserProtoBuf(list.get(i));
                         if (feedData.getThread_Type() == 33) {
                             if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.dhm.add(feedData);
+                                this.dmI.add(feedData);
                             }
                         } else {
-                            this.dhm.add(feedData);
-                            if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.c.afn()) {
-                                this.dhm.remove(feedData);
+                            this.dmI.add(feedData);
+                            if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.c.agC()) {
+                                this.dmI.remove(feedData);
                             }
                             if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.x.q(feedData.getPraiseList()) == 0) {
-                                this.dhm.remove(feedData);
+                                this.dmI.remove(feedData);
                             }
                         }
                     }
                 }
-                this.dhn.a(dataRes.page);
+                this.dmJ.a(dataRes.page);
                 this.CB = true;
             } catch (Exception e) {
                 this.CB = false;

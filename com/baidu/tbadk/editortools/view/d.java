@@ -6,11 +6,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements c.a {
-    final /* synthetic */ c aCd;
+    final /* synthetic */ c aBQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.aCd = cVar;
+        this.aBQ = cVar;
     }
 
     @Override // com.baidu.tbadk.editortools.view.c.a
@@ -24,22 +24,22 @@ public class d implements c.a {
         CommonTabWidgetView commonTabWidgetView3;
         ArrayList arrayList3;
         boolean z;
-        this.aCd.hideProgressBar();
-        commonTabWidgetView = this.aCd.aCb;
+        this.aBQ.hideProgressBar();
+        commonTabWidgetView = this.aBQ.aBO;
         commonTabWidgetView.reset();
-        commonTabWidgetView2 = this.aCd.aCb;
-        arrayList = this.aCd.aaJ;
+        commonTabWidgetView2 = this.aBQ.aBO;
+        arrayList = this.aBQ.aaI;
         commonTabWidgetView2.setDatas(arrayList);
-        arrayList2 = this.aCd.aaJ;
+        arrayList2 = this.aBQ.aaI;
         int size = arrayList2.size();
         int i3 = 0;
         boolean z2 = false;
         while (i3 < size) {
-            arrayList3 = this.aCd.aaJ;
-            b.C0044b Ds = ((b) arrayList3.get(i3)).Ds();
-            if (Ds != null) {
+            arrayList3 = this.aBQ.aaI;
+            b.C0044b Dm = ((b) arrayList3.get(i3)).Dm();
+            if (Dm != null) {
                 z = true;
-                this.aCd.c(Ds);
+                this.aBQ.c(Dm);
             } else {
                 z = z2;
             }
@@ -47,26 +47,26 @@ public class d implements c.a {
             z2 = z;
         }
         if (!z2) {
-            commonTabWidgetView3 = this.aCd.aCb;
+            commonTabWidgetView3 = this.aBQ.aBO;
             commonTabWidgetView3.setVisibility(8);
         }
-        i = this.aCd.aBS;
+        i = this.aBQ.aBF;
         if (i < 0) {
-            this.aCd.setCurrentTab(0);
+            this.aBQ.setCurrentTab(0);
             return;
         }
-        c cVar = this.aCd;
-        i2 = this.aCd.aBS;
+        c cVar = this.aBQ;
+        i2 = this.aBQ.aBF;
         cVar.setCurrentTab(i2);
     }
 
     @Override // com.baidu.tbadk.editortools.view.c.a
-    public void Dy() {
-        this.aCd.showProgressBar();
+    public void Ds() {
+        this.aBQ.showProgressBar();
     }
 
     @Override // com.baidu.tbadk.editortools.view.c.a
-    public void Dz() {
-        this.aCd.hideProgressBar();
+    public void Dt() {
+        this.aBQ.hideProgressBar();
     }
 }

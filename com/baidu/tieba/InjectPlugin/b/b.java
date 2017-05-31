@@ -1,104 +1,103 @@
 package com.baidu.tieba.InjectPlugin.b;
 
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends g {
-    private Object aQe;
-    private List<v> aQf;
+    private Object aQf;
     private List<v> aQg;
-    private List<Object> aQh;
-    private boolean aQi;
+    private List<v> aQh;
+    private List<Object> aQi;
     private boolean aQj;
-    private int aQk;
-    private boolean aQl;
-    private String aQm;
+    private boolean aQk;
+    private int aQl;
+    private boolean aQm;
     private String aQn;
     private String aQo;
-    private int ane;
+    private String aQp;
+    private int ana;
     private String forumId;
     private int pageNum;
 
-    public b(TbPageContext tbPageContext, int i) {
-        super(tbPageContext, i);
-        this.aQi = false;
+    public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
+        super(bVar, i);
         this.aQj = false;
-        this.aQk = 0;
-        this.aQl = false;
+        this.aQk = false;
+        this.aQl = 0;
+        this.aQm = false;
     }
 
-    public Object IP() {
-        return this.aQe;
-    }
-
-    public void setExtraData(Object obj) {
-        this.aQe = obj;
-    }
-
-    public List<v> getThreadList() {
+    public Object IL() {
         return this.aQf;
     }
 
-    public void I(List<v> list) {
-        this.aQf = list;
+    public void setExtraData(Object obj) {
+        this.aQf = obj;
     }
 
-    public List<Object> IQ() {
-        return this.aQh;
-    }
-
-    public void J(List<Object> list) {
-        this.aQh = list;
-    }
-
-    public List<v> IR() {
+    public List<v> getThreadList() {
         return this.aQg;
     }
 
-    public void K(List<v> list) {
+    public void setThreadList(List<v> list) {
         this.aQg = list;
     }
 
-    public boolean IS() {
+    public List<Object> IM() {
         return this.aQi;
     }
 
-    public void ch(boolean z) {
-        this.aQi = z;
+    public void I(List<Object> list) {
+        this.aQi = list;
     }
 
-    public boolean IT() {
+    public List<v> IN() {
+        return this.aQh;
+    }
+
+    public void J(List<v> list) {
+        this.aQh = list;
+    }
+
+    public boolean IO() {
         return this.aQj;
     }
 
-    public void ci(boolean z) {
+    public void ce(boolean z) {
         this.aQj = z;
     }
 
-    public int IU() {
+    public boolean IP() {
         return this.aQk;
     }
 
-    public void bV(int i) {
-        this.aQk = i;
+    public void cf(boolean z) {
+        this.aQk = z;
     }
 
-    public int getSkinType() {
-        return this.ane;
-    }
-
-    public void setSkinType(int i) {
-        this.ane = i;
-    }
-
-    public boolean IV() {
+    public int IQ() {
         return this.aQl;
     }
 
-    public void cj(boolean z) {
-        this.aQl = z;
+    public void bW(int i) {
+        this.aQl = i;
+    }
+
+    public int getSkinType() {
+        return this.ana;
+    }
+
+    public void setSkinType(int i) {
+        this.ana = i;
+    }
+
+    public boolean IR() {
+        return this.aQm;
+    }
+
+    public void cg(boolean z) {
+        this.aQm = z;
     }
 
     public int getPageNum() {
@@ -117,27 +116,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String IW() {
-        return this.aQm;
-    }
-
-    public void gu(String str) {
-        this.aQm = str;
-    }
-
-    public String IX() {
+    public String IS() {
         return this.aQn;
     }
 
-    public void gv(String str) {
+    public void gt(String str) {
         this.aQn = str;
     }
 
-    public String IY() {
+    public String IT() {
         return this.aQo;
     }
 
-    public void gw(String str) {
+    public void gu(String str) {
         this.aQo = str;
+    }
+
+    public String IU() {
+        return this.aQp;
+    }
+
+    public void gv(String str) {
+        this.aQp = str;
     }
 }

@@ -7,20 +7,20 @@ import com.baidu.tieba.enterForum.model.EnterForumModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements ae.b {
-    final /* synthetic */ i bGZ;
+    final /* synthetic */ i bMN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(i iVar) {
-        this.bGZ = iVar;
+        this.bMN = iVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ae.b
-    public void aM(boolean z) {
+    public void onListPullRefresh(boolean z) {
         EnterForumModel enterForumModel;
         String str;
-        enterForumModel = this.bGZ.bGO;
-        str = this.bGZ.bGQ;
-        enterForumModel.dv(!StringUtils.isNull(str));
+        enterForumModel = this.bMN.bMC;
+        str = this.bMN.bME;
+        enterForumModel.dM(!StringUtils.isNull(str));
         TbadkCoreApplication.m9getInst().setLikeBarChanged(false);
     }
 }

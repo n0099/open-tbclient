@@ -5,13 +5,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class c extends BdAsyncTask<Void, Void, AccountData> {
-    private final /* synthetic */ String dOG;
-    final /* synthetic */ b ead;
+    private final /* synthetic */ String dUd;
+    final /* synthetic */ b efz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, String str) {
-        this.ead = bVar;
-        this.dOG = str;
+        this.efz = bVar;
+        this.dUd = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ class c extends BdAsyncTask<Void, Void, AccountData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public AccountData doInBackground(Void... voidArr) {
-        return com.baidu.tbadk.core.a.b.ch(this.dOG);
+        return com.baidu.tbadk.core.a.b.ch(this.dUd);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

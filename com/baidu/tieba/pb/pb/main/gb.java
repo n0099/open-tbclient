@@ -1,27 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gb implements View.OnClickListener {
-    final /* synthetic */ fm epr;
+public class gb implements View.OnLongClickListener {
+    final /* synthetic */ fx evi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gb(fm fmVar) {
-        this.epr = fmVar;
+    public gb(fx fxVar) {
+        this.evi = fxVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        PbActivity pbActivity;
-        dialog = this.epr.eob;
-        if (dialog instanceof Dialog) {
-            dialog2 = this.epr.eob;
-            pbActivity = this.epr.efF;
-            com.baidu.adp.lib.g.j.b(dialog2, pbActivity.getPageContext());
-        }
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        return false;
     }
 }

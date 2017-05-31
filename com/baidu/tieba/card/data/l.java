@@ -1,34 +1,38 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class l extends c {
-    public bk threadData;
-    public static String bxk = "";
-    public static String bxl = "";
-    public static String bxm = "";
-    public static String bxn = "";
-    public static String bxo = "";
-    public static String bxp = "";
-    public static String bxq = "";
-    public static String bxr = "";
-    public static String bxs = "";
-    public static String bxt = "";
-    public static String bxu = "";
+    public bl threadData;
+    public static String bDg = "";
+    public static String bDh = "";
+    public static String bDi = "";
+    public static String bDj = "";
+    public static String bDk = "";
+    public static String bDl = "";
+    public static String bDm = "";
+    public static String bDn = "";
+    public static String bDo = "";
+    public static String bDp = "";
+    public static String bDq = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId bxv = BdUniqueId.gen();
-    public boolean bxw = false;
-    public boolean bxx = false;
-    public boolean aAo = true;
+    public static final BdUniqueId bDr = BdUniqueId.gen();
+    public static final BdUniqueId Xp = BdUniqueId.gen();
+    public boolean bDs = false;
+    public boolean isLinkThread = false;
+    public boolean bDt = false;
+    public boolean aAa = true;
 
-    public static boolean s(bk bkVar) {
-        if (bkVar == null) {
+    public static boolean w(bl blVar) {
+        if (blVar == null) {
             return false;
         }
-        return bkVar.getType() == bk.Xt || bkVar.getType() == bk.Xu;
+        return blVar.getType() == bl.Xo || blVar.getType() == bl.Xq || blVar.getType() == bl.Xp;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
@@ -36,82 +40,114 @@ public class l extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.bxw) {
-            return bxv;
+        if (this.bDs) {
+            return bDr;
+        }
+        if (this.isLinkThread) {
+            return Xp;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bk JB() {
+    public bl LH() {
         return this.threadData;
     }
 
-    public boolean TF() {
-        return (this.threadData == null || x.q(this.threadData.rM()) == 0) ? false : true;
+    public boolean UJ() {
+        return (this.threadData == null || x.q(this.threadData.rI()) == 0) ? false : true;
     }
 
-    public as TG() {
-        if (TF()) {
-            return ie(bxp);
+    public as UK() {
+        if (UJ()) {
+            as ht = ht(bDl);
+            if (ht != null && LH() != null) {
+                ht.r("obj_name", LH().sG() != null && LH().sG().avd() != null && !au.isEmpty(LH().sG().bU(TbadkCoreApplication.m9getInst())) ? 1 : 0);
+            }
+            return ht;
         }
-        as ie = ie(bxk);
-        if (ie != null) {
-            ie.aa("ab_tag", Ts()).aa("ab_action", "show");
-            return ie;
+        as ht2 = ht(bDg);
+        if (ht2 != null) {
+            ht2.Z("ab_tag", UD()).Z("ab_action", "show");
+            if (LH() != null) {
+                ht2.r("obj_name", LH().sG() != null && LH().sG().avd() != null && !au.isEmpty(LH().sG().bU(TbadkCoreApplication.m9getInst())) ? 1 : 0);
+            }
         }
-        return ie;
+        return ht2;
     }
 
-    public as TH() {
-        if (TF()) {
-            return ie(bxq);
+    public as ii(String str) {
+        as ht = ht(str);
+        if (ht != null) {
+            ht.Z("ab_tag", UD()).Z("ab_action", "show");
+            if (LH() != null) {
+                ht.r("obj_name", LH().sG() != null && LH().sG().avd() != null && !au.isEmpty(LH().sG().bU(TbadkCoreApplication.m9getInst())) ? 1 : 0);
+            }
         }
-        as ie = ie(bxl);
-        if (ie != null) {
-            ie.aa("ab_tag", Ts()).aa("ab_action", "click");
-            return ie;
-        }
-        return ie;
+        return ht;
     }
 
-    public as TI() {
-        if (TF()) {
-            return ie(bxr);
+    public as ij(String str) {
+        as ht = ht(str);
+        if (ht != null) {
+            ht.Z("ab_tag", UD()).Z("ab_action", "click");
         }
-        as I = I(bxm, 0);
+        return ht;
+    }
+
+    public as UL() {
+        if (UJ()) {
+            return ht(bDm);
+        }
+        as ht = ht(bDh);
+        if (ht != null) {
+            ht.Z("ab_tag", UD()).Z("ab_action", "click");
+            return ht;
+        }
+        return ht;
+    }
+
+    public as UM() {
+        if (UJ()) {
+            return ht(bDn);
+        }
+        as I = I(bDi, 0);
         if (I != null) {
-            I.aa("ab_tag", Ts()).aa("ab_action", "click");
+            I.Z("ab_tag", UD()).Z("ab_action", "click");
             return I;
         }
         return I;
     }
 
-    public as TJ() {
-        if (TF()) {
-            return ie(bxs);
+    public as UN() {
+        if (UJ()) {
+            return ht(bDo);
         }
-        as ie = ie(bxn);
-        if (ie != null) {
-            ie.aa("ab_tag", Ts()).aa("ab_action", "click");
-            return ie;
+        as ht = ht(bDj);
+        if (ht != null) {
+            ht.Z("ab_tag", UD()).Z("ab_action", "click");
+            return ht;
         }
-        return ie;
+        return ht;
     }
 
-    public as TK() {
-        if (TF()) {
-            return ie(bxt);
+    public as UO() {
+        if (UJ()) {
+            return ht(bDp);
         }
-        as ie = ie(bxo);
-        if (ie != null) {
-            ie.aa("ab_tag", Ts()).aa("ab_action", "click");
-            return ie;
+        as ht = ht(bDk);
+        if (ht != null) {
+            ht.Z("ab_tag", UD()).Z("ab_action", "click");
+            return ht;
         }
-        return ie;
+        return ht;
     }
 
-    public as TL() {
-        return ie(bxu);
+    public as UP() {
+        return ht(bDq);
+    }
+
+    public as ik(String str) {
+        return ht(str);
     }
 }

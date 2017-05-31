@@ -16,43 +16,43 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    private ArrayList<b> Ia;
-    private ArrayList<b> Ib;
-    private boolean Ic;
-    private DataSetObserver Ie;
+    private boolean HZ;
+    private DataSetObserver mAdapterDataSetObserver;
     private Context mContext;
+    private ArrayList<b> mFooterViewInfos;
+    private ArrayList<b> mHeaderViewInfos;
     private ListAdapter mAdapter = null;
-    private boolean Id = false;
+    private boolean mIsFilterable = false;
     private DataSetObserver mDataSetObserver = null;
-    private a If = null;
+    private a mListPreLoad = null;
 
     /* loaded from: classes.dex */
     public interface a {
-        void lm();
+        void onPreLoad();
     }
 
     public e(Context context) {
         boolean z = false;
         this.mContext = null;
-        this.Ia = null;
-        this.Ib = null;
-        this.Ic = false;
-        this.Ie = null;
+        this.mHeaderViewInfos = null;
+        this.mFooterViewInfos = null;
+        this.HZ = false;
+        this.mAdapterDataSetObserver = null;
         this.mContext = context;
-        this.Ia = new ArrayList<>();
-        this.Ib = new ArrayList<>();
-        if (e(this.Ia) && e(this.Ib)) {
+        this.mHeaderViewInfos = new ArrayList<>();
+        this.mFooterViewInfos = new ArrayList<>();
+        if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
             z = true;
         }
-        this.Ic = z;
-        this.Ie = new f(this);
+        this.HZ = z;
+        this.mAdapterDataSetObserver = new f(this);
     }
 
-    public void a(a aVar) {
-        this.If = aVar;
+    public void setListPreLoad(a aVar) {
+        this.mListPreLoad = aVar;
     }
 
-    public int lk() {
+    public int getWrappedCount() {
         if (this.mAdapter != null) {
             return this.mAdapter.getCount();
         }
@@ -63,13 +63,13 @@ public class e extends BaseAdapter {
         return this.mAdapter;
     }
 
-    public void a(ListAdapter listAdapter) {
+    public void setAdaper(ListAdapter listAdapter) {
         if (this.mAdapter != null) {
-            this.Id = false;
+            this.mIsFilterable = false;
         }
         this.mAdapter = listAdapter;
         if (this.mAdapter != null) {
-            this.Id = this.mAdapter instanceof Filterable;
+            this.mIsFilterable = this.mAdapter instanceof Filterable;
         }
         notifyDataSetChanged();
     }
@@ -79,7 +79,7 @@ public class e extends BaseAdapter {
         super.registerDataSetObserver(dataSetObserver);
         this.mDataSetObserver = dataSetObserver;
         if (this.mAdapter != null) {
-            this.mAdapter.registerDataSetObserver(this.Ie);
+            this.mAdapter.registerDataSetObserver(this.mAdapterDataSetObserver);
         }
     }
 
@@ -88,16 +88,16 @@ public class e extends BaseAdapter {
         super.unregisterDataSetObserver(dataSetObserver);
         this.mDataSetObserver = dataSetObserver;
         if (this.mAdapter != null) {
-            this.mAdapter.unregisterDataSetObserver(this.Ie);
+            this.mAdapter.unregisterDataSetObserver(this.mAdapterDataSetObserver);
         }
     }
 
     public int getHeadersCount() {
-        return this.Ia.size();
+        return this.mHeaderViewInfos.size();
     }
 
     public int getFootersCount() {
-        return this.Ib.size();
+        return this.mFooterViewInfos.size();
     }
 
     private boolean e(ArrayList<b> arrayList) {
@@ -117,13 +117,13 @@ public class e extends BaseAdapter {
         if (view == null) {
             return false;
         }
-        for (int i = 0; i < this.Ia.size(); i++) {
-            if (this.Ia.get(i).view == view) {
-                this.Ia.remove(i);
-                if (e(this.Ia) && e(this.Ib)) {
+        for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
+            if (this.mHeaderViewInfos.get(i).view == view) {
+                this.mHeaderViewInfos.remove(i);
+                if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Ic = z;
+                this.HZ = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -136,13 +136,13 @@ public class e extends BaseAdapter {
         if (view == null) {
             return false;
         }
-        for (int i = 0; i < this.Ib.size(); i++) {
-            if (this.Ib.get(i).view == view) {
-                this.Ib.remove(i);
-                if (e(this.Ia) && e(this.Ib)) {
+        for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
+            if (this.mFooterViewInfos.get(i).view == view) {
+                this.mFooterViewInfos.remove(i);
+                if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Ic = z;
+                this.HZ = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -151,46 +151,46 @@ public class e extends BaseAdapter {
     }
 
     public void addHeaderView(View view, int i) {
-        a(view, null, true, i);
+        addHeaderView(view, null, true, i);
     }
 
-    public void a(View view, Object obj, boolean z, int i) {
+    public void addHeaderView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             b bVar = new b();
             bVar.view = view;
             bVar.data = obj;
             bVar.isSelectable = z;
-            if (i < 0 || i > this.Ia.size()) {
-                this.Ia.add(bVar);
+            if (i < 0 || i > this.mHeaderViewInfos.size()) {
+                this.mHeaderViewInfos.add(bVar);
             } else {
-                this.Ia.add(i, bVar);
+                this.mHeaderViewInfos.add(i, bVar);
             }
             notifyDataSetChanged();
         }
     }
 
     public int getHeaderViewsCount() {
-        return this.Ia.size();
+        return this.mHeaderViewInfos.size();
     }
 
     public int getFooterViewsCount() {
-        return this.Ib.size();
+        return this.mFooterViewInfos.size();
     }
 
     public void addFooterView(View view) {
-        b(view, null, true, -1);
+        addFooterView(view, null, true, -1);
     }
 
-    public void b(View view, Object obj, boolean z, int i) {
+    public void addFooterView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             b bVar = new b();
             bVar.view = view;
             bVar.data = obj;
             bVar.isSelectable = z;
-            if (i < 0 || i > this.Ib.size()) {
-                this.Ib.add(bVar);
+            if (i < 0 || i > this.mFooterViewInfos.size()) {
+                this.mFooterViewInfos.add(bVar);
             } else {
-                this.Ib.add(i, bVar);
+                this.mFooterViewInfos.add(i, bVar);
             }
             notifyDataSetChanged();
         }
@@ -205,7 +205,7 @@ public class e extends BaseAdapter {
     public Object getItem(int i) {
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.Ia.get(i).data;
+            return this.mHeaderViewInfos.get(i).data;
         }
         int i2 = i - headersCount;
         int i3 = 0;
@@ -213,8 +213,8 @@ public class e extends BaseAdapter {
             return this.mAdapter.getItem(i2);
         }
         int i4 = i2 - i3;
-        if (i4 >= 0 && i4 < this.Ib.size()) {
-            return this.Ib.get(i4).data;
+        if (i4 >= 0 && i4 < this.mFooterViewInfos.size()) {
+            return this.mFooterViewInfos.get(i4).data;
         }
         return null;
     }
@@ -237,7 +237,7 @@ public class e extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.Ic && this.mAdapter.areAllItemsEnabled();
+            return this.HZ && this.mAdapter.areAllItemsEnabled();
         }
         return super.areAllItemsEnabled();
     }
@@ -247,7 +247,7 @@ public class e extends BaseAdapter {
         int i2;
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.Ia.get(i).isSelectable;
+            return this.mHeaderViewInfos.get(i).isSelectable;
         }
         int i3 = i - headersCount;
         if (this.mAdapter != null) {
@@ -259,10 +259,10 @@ public class e extends BaseAdapter {
             i2 = 0;
         }
         int i4 = i3 - i2;
-        if (i4 < 0 || i4 >= this.Ib.size()) {
+        if (i4 < 0 || i4 >= this.mFooterViewInfos.size()) {
             return false;
         }
-        return this.Ib.get(i4).isSelectable;
+        return this.mFooterViewInfos.get(i4).isSelectable;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -294,9 +294,9 @@ public class e extends BaseAdapter {
         View view3;
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            View view4 = this.Ia.get(i).view;
+            View view4 = this.mHeaderViewInfos.get(i).view;
             if (view4 == null) {
-                return ll();
+                return lk();
             }
             return view4;
         }
@@ -319,23 +319,23 @@ public class e extends BaseAdapter {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return ll();
+                return lk();
             }
             return view3;
         }
         try {
-            view2 = this.Ib.get(i2 - i3).view;
+            view2 = this.mFooterViewInfos.get(i2 - i3).view;
         } catch (Exception e3) {
             BdLog.detailException(e3);
             view2 = null;
         }
         if (view2 == null) {
-            return ll();
+            return lk();
         }
         return view2;
     }
 
-    private View ll() {
+    private View lk() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.k.dip2px(this.mContext, 15.0f);

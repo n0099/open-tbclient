@@ -14,12 +14,12 @@ class d implements View.OnClickListener {
     public void onClick(View view) {
         com.baidu.tieba.screenlocknotify.a.a aVar;
         com.baidu.tieba.screenlocknotify.a.a aVar2;
-        aVar = this.this$0.feb;
+        aVar = this.this$0.flT;
         if (aVar != null) {
             ScreenLockActivity screenLockActivity = this.this$0;
-            aVar2 = this.this$0.feb;
-            screenLockActivity.fdX = aVar2.getData();
-            this.this$0.b(this.this$0.fdX);
+            aVar2 = this.this$0.flT;
+            screenLockActivity.flP = aVar2.getData();
+            this.this$0.b(this.this$0.flP);
         }
     }
 }

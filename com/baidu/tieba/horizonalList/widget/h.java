@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class h {
-    private static ArrayList<h> czT = new ArrayList<>(5);
-    public int czX;
-    public int czY;
-    int czZ;
+    private static ArrayList<h> cFC = new ArrayList<>(5);
+    public int cFG;
+    public int cFH;
+    int cFI;
     public int type;
 
-    private void aiK() {
-        this.czX = 0;
-        this.czY = 0;
-        this.czZ = 0;
+    private void ajK() {
+        this.cFG = 0;
+        this.cFH = 0;
+        this.cFI = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aiN() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.czX, this.czY) : ExpandableListView.getPackedPositionForGroup(this.czX);
+    public long ajN() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.cFG, this.cFH) : ExpandableListView.getPackedPositionForGroup(this.cFG);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static h ki(int i) {
-        return j(2, i, 0, 0);
+    public static h kE(int i) {
+        return i(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static h j(int i, int i2, int i3, int i4) {
-        h aiO = aiO();
-        aiO.type = i;
-        aiO.czX = i2;
-        aiO.czY = i3;
-        aiO.czZ = i4;
-        return aiO;
+    public static h i(int i, int i2, int i3, int i4) {
+        h ajO = ajO();
+        ajO.type = i;
+        ajO.cFG = i2;
+        ajO.cFH = i3;
+        ajO.cFI = i4;
+        return ajO;
     }
 
-    private static h aiO() {
+    private static h ajO() {
         h hVar;
-        synchronized (czT) {
-            if (czT.size() > 0) {
-                hVar = czT.remove(0);
-                hVar.aiK();
+        synchronized (cFC) {
+            if (cFC.size() > 0) {
+                hVar = cFC.remove(0);
+                hVar.ajK();
             } else {
                 hVar = new h();
             }
@@ -54,9 +54,9 @@ class h {
     }
 
     public void recycle() {
-        synchronized (czT) {
-            if (czT.size() < 5) {
-                czT.add(this);
+        synchronized (cFC) {
+            if (cFC.size() < 5) {
+                cFC.add(this);
             }
         }
     }

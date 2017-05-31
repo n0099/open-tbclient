@@ -1,37 +1,70 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewParent;
+import com.baidu.tbadk.core.view.NoPressedLinearLayout;
+import com.baidu.tbadk.widget.TbListTextView;
+import com.baidu.tieba.pb.a.d;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dk {
-    public long Uy;
-    public long ejc;
-    public long ejd;
-    public int eje;
-    public long mForumId;
+public class dk implements d.a {
+    final /* synthetic */ dh eor;
 
-    public dk() {
-        DG();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dk(dh dhVar) {
+        this.eor = dhVar;
     }
 
-    public void aJJ() {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_SET_DECLARE);
-        httpMessage.addParam("tid", this.Uy);
-        httpMessage.addParam("author_uid", this.ejc);
-        httpMessage.addParam("declare_id", this.ejd);
-        httpMessage.addParam("forum_id", this.mForumId);
-        httpMessage.addParam("operation", this.eje);
-        MessageManager.getInstance().sendMessage(httpMessage);
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean a(View view, MotionEvent motionEvent) {
+        if (view != null) {
+            if (!(view instanceof NoPressedLinearLayout)) {
+                int i = 0;
+                for (ViewParent parent = view.getParent(); parent != null && i < 10; parent = parent.getParent()) {
+                    if (!(parent instanceof NoPressedLinearLayout)) {
+                        i++;
+                    } else {
+                        this.eor.a((NoPressedLinearLayout) parent);
+                        return true;
+                    }
+                }
+                return true;
+            }
+            this.eor.a((NoPressedLinearLayout) view);
+            return true;
+        }
+        return true;
     }
 
-    private void DG() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_SET_DECLARE, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PB_SET_DECLARE_URL);
-        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean c(View view, MotionEvent motionEvent) {
+        com.baidu.tieba.pb.a.d dVar;
+        com.baidu.tieba.pb.a.d dVar2;
+        com.baidu.tieba.pb.a.d dVar3;
+        View.OnClickListener onClickListener;
+        View.OnClickListener onClickListener2;
+        dVar = this.eor.aOc;
+        if (dVar != null) {
+            if (view instanceof TbListTextView) {
+                onClickListener = this.eor.cvw;
+                if (onClickListener != null) {
+                    onClickListener2 = this.eor.cvw;
+                    onClickListener2.onClick(view);
+                    return true;
+                }
+            }
+            dVar2 = this.eor.aOc;
+            dVar2.aQ(view);
+            dVar3 = this.eor.aOc;
+            dVar3.onSingleTapConfirmed(motionEvent);
+            return true;
+        }
+        return true;
     }
 }

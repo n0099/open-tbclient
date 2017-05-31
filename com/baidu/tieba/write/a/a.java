@@ -1,58 +1,24 @@
 package com.baidu.tieba.write.a;
-
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.MetaData;
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private final ArrayList<MetaData> fOo = new ArrayList<>();
-    private HashMap<String, String> fOp = null;
-
-    public void b(JSONObject jSONObject, boolean z) {
-        if (jSONObject != null) {
-            if (z) {
-                try {
-                    if (this.fOp == null) {
-                        this.fOp = new HashMap<>();
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                    return;
-                }
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    MetaData metaData = new MetaData();
-                    metaData.parserJson(optJSONArray.getJSONObject(i));
-                    if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.fOo.add(metaData);
-                        if (z) {
-                            this.fOp.put(metaData.getName_show(), metaData.getPortrait());
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void qX(String str) {
-        try {
-            b(new JSONObject(str), true);
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public ArrayList<MetaData> bmO() {
-        return this.fOo;
-    }
-
-    public HashMap<String, String> bmP() {
-        return this.fOp;
-    }
+    public String VU;
+    public String VV;
+    public String fVX;
+    public String fVY;
+    public String fVZ;
+    public String linkUrl;
+    public String linkUrlCode;
+    public boolean fVV = false;
+    public int fVW = 1;
+    public String videoUrl = "";
+    public long fcb = 0;
+    public int videoDuration = 0;
+    public String fWa = "";
+    public int fWb = 0;
+    public int videoWidth = 0;
+    public int videoHeight = 0;
+    public String fWc = "";
+    public int fWd = 0;
+    public int fWe = 0;
+    public int fWf = 0;
 }

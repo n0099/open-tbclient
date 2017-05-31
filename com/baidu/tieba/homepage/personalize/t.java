@@ -12,7 +12,7 @@ public class t implements n {
     }
 
     @Override // com.baidu.tieba.homepage.personalize.n
-    public void jE(int i) {
+    public void kd(int i) {
         BdTypeListView bdTypeListView;
         bdTypeListView = this.this$0.mListView;
         bdTypeListView.post(new u(this, i));

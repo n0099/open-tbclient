@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bs extends com.baidu.adp.base.f {
-    final /* synthetic */ TalkableActivity cLa;
+    final /* synthetic */ TalkableActivity cQy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(TalkableActivity talkableActivity) {
-        this.cLa = talkableActivity;
+        this.cQy = talkableActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: com.baidu.tieba.im.chat.TalkableActivity */
@@ -21,73 +21,73 @@ public class bs extends com.baidu.adp.base.f {
     public void g(Object obj) {
         long j;
         if (!com.baidu.adp.lib.util.i.hk()) {
-            if (this.cLa.cKM != null) {
-                this.cLa.cKM.displayNoNetwork();
+            if (this.cQy.cQk != null) {
+                this.cQy.cQk.displayNoNetwork();
             }
-        } else if (this.cLa.cKM != null) {
-            this.cLa.cKM.hideNoNetwork();
+        } else if (this.cQy.cQk != null) {
+            this.cQy.cQk.hideNoNetwork();
         }
-        switch (this.cLa.cKN.getLoadDataMode()) {
+        switch (this.cQy.cQl.getLoadDataMode()) {
             case 1:
-                j = this.cLa.cKU;
+                j = this.cQy.cQs;
                 if (j > -1) {
-                    this.cLa.cKU = -1L;
+                    this.cQy.cQs = -1L;
                 }
-                this.cLa.cKM.closeProgress();
-                this.cLa.cKM.refreshGo2New(this.cLa.cKN.getData());
+                this.cQy.cQk.closeProgress();
+                this.cQy.cQk.refreshGo2New(this.cQy.cQl.getData());
                 return;
             case 2:
-                this.cLa.cKM.refreshPrepage(this.cLa.cKN.getData());
+                this.cQy.cQk.refreshPrepage(this.cQy.cQl.getData());
                 return;
             case 3:
-                this.cLa.cKM.refreshCheckNew(this.cLa.cKN.getData());
+                this.cQy.cQk.refreshCheckNew(this.cQy.cQl.getData());
                 return;
             case 4:
-                this.cLa.cKM.refreshGo2New(this.cLa.cKN.getData());
+                this.cQy.cQk.refreshGo2New(this.cQy.cQl.getData());
                 return;
             case 5:
-                this.cLa.cKM.refreshNormal(this.cLa.cKN.getData());
+                this.cQy.cQk.refreshNormal(this.cQy.cQl.getData());
                 return;
             case 6:
-                this.cLa.cKM.refreshNormal(this.cLa.cKN.getData());
+                this.cQy.cQk.refreshNormal(this.cQy.cQl.getData());
                 return;
             case 7:
-                this.cLa.cKM.refreshNormal(this.cLa.cKN.getData());
+                this.cQy.cQk.refreshNormal(this.cQy.cQl.getData());
                 return;
             case 8:
                 if (obj != null && (obj instanceof String)) {
                     String str = (String) obj;
-                    this.cLa.cKM.setDraft(str);
-                    this.cLa.cKN.setDraft(str);
+                    this.cQy.cQk.setDraft(str);
+                    this.cQy.cQl.setDraft(str);
                     return;
                 }
                 return;
             case 9:
-                this.cLa.cKW = false;
-                this.cLa.finish();
+                this.cQy.cQu = false;
+                this.cQy.finish();
                 return;
             case 10:
                 if (obj != null && (obj instanceof String)) {
-                    this.cLa.cKM.refreshHeaderFooter((String) obj, true);
+                    this.cQy.cQk.refreshHeaderFooter((String) obj, true);
                     return;
                 }
                 return;
             case 11:
-                TbadkCoreApplication.m9getInst().login(this.cLa.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.cLa.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
-                this.cLa.cKW = false;
-                this.cLa.finish();
+                TbadkCoreApplication.m9getInst().login(this.cQy.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.cQy.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
+                this.cQy.cQu = false;
+                this.cQy.finish();
                 return;
             case 12:
-                this.cLa.cKM.refreshGo2New(this.cLa.cKN.getData());
+                this.cQy.cQk.refreshGo2New(this.cQy.cQl.getData());
                 return;
             case 13:
-                this.cLa.cKM.refreshNormal(this.cLa.cKN.getData());
+                this.cQy.cQk.refreshNormal(this.cQy.cQl.getData());
                 break;
             case 14:
                 break;
             default:
                 return;
         }
-        this.cLa.cKM.refreshNormal(this.cLa.cKN.getData());
+        this.cQy.cQk.refreshNormal(this.cQy.cQl.getData());
     }
 }

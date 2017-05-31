@@ -1,46 +1,60 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tieba.frs.AbsDelegateAdapterList;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cw implements View.OnClickListener {
-    final /* synthetic */ cq eiw;
+public class cw extends CustomMessageListener {
+    final /* synthetic */ cv eod;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(cq cqVar) {
-        this.eiw = cqVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cw(cv cvVar, int i) {
+        super(i);
+        this.eod = cvVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.pb.data.f fVar;
-        com.baidu.tieba.pb.data.f fVar2;
-        com.baidu.tieba.pb.data.f fVar3;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        List list;
+        List list2;
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
         PbActivity pbActivity;
-        com.baidu.tieba.pb.data.f fVar4;
-        com.baidu.tieba.pb.data.f fVar5;
-        PbActivity pbActivity2;
-        fVar = this.eiw.eeB;
-        if (fVar.aHQ() != null) {
-            fVar2 = this.eiw.eeB;
-            List<Long> list = fVar2.aHQ().edV;
-            fVar3 = this.eiw.eeB;
-            int count = fVar3.aHQ().getCount();
-            if (list.size() != count) {
-                if (list.size() >= count + 5) {
-                    fVar5 = this.eiw.eeB;
-                    fVar5.aHQ().setCount(count + 5);
-                    pbActivity2 = this.eiw.efF;
-                    pbActivity2.aIN().aKt().bW(list.subList(count, count + 5));
-                } else if (list.size() < count + 5) {
-                    pbActivity = this.eiw.efF;
-                    pbActivity.aIN().aKt().bW(list.subList(count, list.size()));
-                    fVar4 = this.eiw.eeB;
-                    fVar4.aHQ().setCount(list.size());
+        ArrayList arrayList;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.d)) {
+            AbsDelegateAdapterList bhG = ((com.baidu.tieba.tbadkCore.data.d) customResponsedMessage.getData()).bhG();
+            Iterator it = bhG.iterator();
+            while (it.hasNext()) {
+                com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
+                if (aVar instanceof dn) {
+                    pbActivity = this.eod.elf;
+                    ((dn) aVar).af(pbActivity);
+                    if (aVar instanceof com.baidu.tieba.pb.pb.a.a) {
+                        arrayList = this.eod.enT;
+                        arrayList.add((com.baidu.tieba.pb.pb.a.a) aVar);
+                    }
+                    if (aVar instanceof com.baidu.tieba.pb.pb.a.b) {
+                        this.eod.enO = (com.baidu.tieba.pb.pb.a.b) aVar;
+                    }
                 }
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c12040"));
+            }
+            ArrayList arrayList2 = new ArrayList();
+            arrayList2.addAll(bhG);
+            list = this.eod.eoa;
+            list.clear();
+            list2 = this.eod.eoa;
+            list2.addAll(arrayList2);
+            bdTypeListView = this.eod.mListView;
+            if (bdTypeListView != null) {
+                bdTypeListView2 = this.eod.mListView;
+                bdTypeListView2.addAdapters(arrayList2);
             }
         }
     }

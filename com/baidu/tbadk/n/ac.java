@@ -8,7 +8,7 @@ public class ac extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "forum_mask_stat";
+        return "android_url_post";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -18,7 +18,7 @@ public class ac extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eR() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -29,5 +29,9 @@ public class ac extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int eT() {
         return 10;
+    }
+
+    public static boolean fV() {
+        return com.baidu.adp.lib.b.e.eZ().Y("android_url_post") == 1;
     }
 }

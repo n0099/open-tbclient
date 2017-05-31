@@ -1,50 +1,30 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
-import com.baidu.tbadk.core.atomData.GroupActivityActivityConfig;
 import org.json.JSONObject;
-import tbclient.FrsPage.YuleActivity;
+import tbclient.VideoChannelInfo;
 /* loaded from: classes.dex */
 public class bs {
-    private int SG;
-    private long Zu;
-    private String activity_all_icon;
-    private String activity_half_icon;
-    private String activity_url;
+    public int Zs;
+    public String channelAvatar;
+    public long channelId;
+    public String channelName;
+    public int mCurrentPage;
 
-    public String getActivityUrl() {
-        return this.activity_url;
-    }
-
-    public String sT() {
-        return this.activity_all_icon;
-    }
-
-    public String sU() {
-        return this.activity_half_icon;
-    }
-
-    public void a(YuleActivity yuleActivity) {
-        if (yuleActivity != null) {
-            this.Zu = yuleActivity.activity_id.longValue();
-            this.SG = yuleActivity.activity_type.intValue();
-            this.activity_url = yuleActivity.activity_url;
-            this.activity_all_icon = yuleActivity.activity_all_icon;
-            this.activity_half_icon = yuleActivity.activity_half_icon;
+    public void a(VideoChannelInfo videoChannelInfo) {
+        if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
+            this.channelId = videoChannelInfo.channel_id.longValue();
+            this.channelName = videoChannelInfo.channel_name;
+            this.channelAvatar = videoChannelInfo.channel_avatar;
         }
     }
 
-    public void parserJson(JSONObject jSONObject) {
+    public void i(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Zu = jSONObject.optLong(GroupActivityActivityConfig.ACTIVITY_ID);
-                this.SG = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
-                this.activity_url = jSONObject.optString("activity_url");
-                this.activity_all_icon = jSONObject.optString("activity_all_icon");
-                this.activity_half_icon = jSONObject.optString("activity_half_icon");
+                this.channelId = jSONObject.optLong("channel_id", 0L);
+                this.channelName = jSONObject.optString("channel_name");
+                this.channelAvatar = jSONObject.optString("channel_avatar");
             } catch (Exception e) {
-                BdLog.e(e.toString());
             }
         }
     }

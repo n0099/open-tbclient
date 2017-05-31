@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
@@ -11,18 +10,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ag {
-    public static void a(ListView listView, BdUniqueId bdUniqueId) {
+    public static void a(com.baidu.adp.widget.ListView.w wVar, BdUniqueId bdUniqueId) {
         ListAdapter adapter;
         ArrayList<PreLoadImageInfo> images;
         int pbImageSize;
-        if (listView != null && com.baidu.adp.lib.util.i.hl() && (adapter = listView.getAdapter()) != null) {
+        if (wVar != null && com.baidu.adp.lib.util.i.hl() && (adapter = wVar.getAdapter()) != null) {
             int i = 0;
             int i2 = 0;
             int i3 = 0;
             int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean vy = av.vy();
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            int lastVisiblePosition = listView.getLastVisiblePosition();
+            boolean vv = av.vv();
+            int firstVisiblePosition = wVar.getFirstVisiblePosition();
+            int lastVisiblePosition = wVar.getLastVisiblePosition();
             com.baidu.adp.lib.f.c.fM().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
             while (true) {
                 int i4 = firstVisiblePosition;
@@ -35,7 +34,7 @@ public class ag {
                         int i7 = i2;
                         while (it.hasNext()) {
                             PreLoadImageInfo next = it.next();
-                            if (com.baidu.adp.lib.f.c.fM().ak(next.procType)) {
+                            if (com.baidu.adp.lib.f.c.fM().al(next.procType)) {
                                 if (12 == next.procType || 28 == next.procType) {
                                     int i8 = i5 + 1;
                                     if (i8 <= 30 && i4 > lastVisiblePosition && !TextUtils.isEmpty(next.imgUrl)) {
@@ -66,9 +65,9 @@ public class ag {
                                     if (i10 <= 13 && pbImageSize < bigImageMaxUsedMemory && i4 > lastVisiblePosition) {
                                         if (next.bigEmotion != null) {
                                             TbRichTextEmotionInfo tbRichTextEmotionInfo = next.bigEmotion;
-                                            String str = vy ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
+                                            String str = vv ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
                                             if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.c.fM().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, 0, 0, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(vy), str);
+                                                com.baidu.adp.lib.f.c.fM().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, 0, 0, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(vv), str);
                                                 i7 = pbImageSize;
                                                 i6 = i10;
                                             }

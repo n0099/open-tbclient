@@ -22,7 +22,7 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.amP) {
+        if (this.amL) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             aq.i(this, w.e.cp_cont_d);
             setBackgroundDrawable(null);

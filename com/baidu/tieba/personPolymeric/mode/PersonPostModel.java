@@ -31,7 +31,7 @@ import tbclient.User;
 public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
     public int hide_post;
-    private com.baidu.tieba.personPolymeric.c.h mCardNullPolymericData;
+    private com.baidu.tieba.personPolymeric.c.i mCardNullPolymericData;
     private boolean mIsReset;
     private int mLastChooseStyle;
     private b mOnResult;
@@ -39,9 +39,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     private com.baidu.adp.framework.listener.e pageSocketListener;
     public final ArrayList<v> postList;
     public final ArrayList<v> threadList;
-    private static int eBC = 0;
-    private static int eDX = 1;
-    private static String eBD = "";
+    private static int eKo = 0;
+    private static int eMM = 1;
+    private static String eKp = "";
 
     /* loaded from: classes.dex */
     public interface a {
@@ -94,32 +94,32 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        eDX = 1;
+        eMM = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(eBD)) {
-                eBC = 1;
-                eBD = str;
+            if (z || !str.equals(eKp)) {
+                eKo = 1;
+                eKp = str;
             } else {
-                eBC++;
+                eKo++;
             }
         } else {
-            if (z || !str.equals(eBD)) {
-                eDX = 1;
-                eBD = str;
+            if (z || !str.equals(eKp)) {
+                eMM = 1;
+                eKp = str;
             }
-            eDX++;
+            eMM++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(eBD);
+        userPostPageRequestMessage.setUid(eKp);
         if (z3) {
-            userPostPageRequestMessage.setPn(eBC);
+            userPostPageRequestMessage.setPn(eKo);
         } else {
-            userPostPageRequestMessage.setPn(eDX);
+            userPostPageRequestMessage.setPn(eMM);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -128,7 +128,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         int af = k.af(TbadkCoreApplication.m9getInst().getApp());
         int ag = k.ag(TbadkCoreApplication.m9getInst().getApp());
         float f = TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = av.vo().vq() ? 2 : 1;
+        int i2 = av.vl().vn() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(af);
         userPostPageRequestMessage.set_scr_h(ag);
         userPostPageRequestMessage.set_scr_dip(f);
@@ -141,7 +141,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         if (dataRes != null) {
             this.hide_post = dataRes.hide_post.intValue();
             if (x.r(dataRes.post_list)) {
-                this.mCardNullPolymericData = new com.baidu.tieba.personPolymeric.c.h();
+                this.mCardNullPolymericData = new com.baidu.tieba.personPolymeric.c.i();
                 this.postList.add(this.mCardNullPolymericData);
                 return;
             }
@@ -152,7 +152,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 this.mLastChooseStyle = random;
                 cardPersonDynamicThreadData.parseProtobuf(postInfoList, random);
                 postInfoList2.parseProtobuf(postInfoList, random);
-                if (cardPersonDynamicThreadData.bxW != 33) {
+                if (cardPersonDynamicThreadData.bDS != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 } else if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {

@@ -1,48 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class da {
-    private BaseActivity bdY;
-    private PbModel efE;
-    private a eiE = null;
-    private final HttpMessageListener eiF = new db(this, CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
+public class da implements View.OnClickListener {
+    final /* synthetic */ cv eod;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void i(int i, long j);
-
-        void onError(int i, String str);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public da(cv cvVar) {
+        this.eod = cvVar;
     }
 
-    public da(PbModel pbModel, BaseActivity baseActivity) {
-        this.efE = pbModel;
-        this.bdY = baseActivity;
-        aJI();
-        this.bdY.registerListener(this.eiF);
-    }
-
-    public void a(a aVar) {
-        this.eiE = aVar;
-    }
-
-    public void aJI() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/b/commit/tpointhide");
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setResponsedClass(HideChudianPostResponseMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-    }
-
-    public void bX(long j) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
-        httpMessage.addParam("template_id", String.valueOf(j));
-        MessageManager.getInstance().sendMessage(httpMessage);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.pb.data.f fVar;
+        cv cvVar = this.eod;
+        fVar = this.eod.ekc;
+        cvVar.a(fVar, false);
+        this.eod.notifyDataSetChanged();
+        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11926"));
     }
 }

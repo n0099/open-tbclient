@@ -21,16 +21,16 @@ import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class c {
-    private b aDr;
-    private a aDs;
-    private Object aDt;
+    private b aDe;
+    private a aDf;
+    private Object aDg;
     private int bigHeight;
     private int bigWidth;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int aDq = 512000;
+    private int aDd = 512000;
     private String groupId = "1";
     private z mNetwork = null;
 
@@ -51,10 +51,10 @@ public class c {
     }
 
     public void a(a aVar, Object obj) {
-        this.aDs = aVar;
-        this.aDt = obj;
+        this.aDf = aVar;
+        this.aDg = obj;
         if (aVar != null) {
-            this.aDq = 10240;
+            this.aDd = 10240;
         }
     }
 
@@ -143,16 +143,16 @@ public class c {
             }
             return f(filePath, z, z2);
         }
-        if (this.aDr == null) {
-            this.aDr = new b();
+        if (this.aDe == null) {
+            this.aDe = new b();
         }
         LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
         imageFileInfo.setPageActionsList(null);
-        com.baidu.adp.widget.a.a a3 = this.aDr.a(imageFileInfo, true);
+        com.baidu.adp.widget.a.a a3 = this.aDe.a(imageFileInfo, true);
         if (a3 != null) {
             bitmap = a3.kR();
         } else {
-            Bitmap b = this.aDr.b(imageFileInfo, true);
+            Bitmap b = this.aDe.b(imageFileInfo, true);
             try {
                 int readPictureDegree2 = BitmapHelper.readPictureDegree(imageFileInfo.getFilePath());
                 if (readPictureDegree2 != 0) {
@@ -176,7 +176,7 @@ public class c {
         return a(imageFileInfo, false, z);
     }
 
-    public ImageUploadResult u(String str, boolean z) {
+    public ImageUploadResult r(String str, boolean z) {
         return f(str, false, z);
     }
 
@@ -267,8 +267,8 @@ public class c {
                         }
                     }
                 } else {
-                    String str2 = String.valueOf(k) + this.aDq;
-                    long j2 = length % ((long) this.aDq) == 0 ? length / this.aDq : (length / this.aDq) + 1;
+                    String str2 = String.valueOf(k) + this.aDd;
+                    long j2 = length % ((long) this.aDd) == 0 ? length / this.aDd : (length / this.aDd) + 1;
                     sb.append("|chunkNo=");
                     sb.append(j2);
                     randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -306,14 +306,14 @@ public class c {
                                         bArr = null;
                                     } else {
                                         if (i < j2) {
-                                            i4 = this.aDq;
+                                            i4 = this.aDd;
                                         } else if (i == j2) {
-                                            i4 = (int) (length - (this.aDq * (j2 - 1)));
+                                            i4 = (int) (length - (this.aDd * (j2 - 1)));
                                         }
                                         if (bArr2 == null || bArr2.length != i4) {
                                             bArr2 = new byte[i4];
                                         }
-                                        randomAccessFile2.seek(this.aDq * (i - 1));
+                                        randomAccessFile2.seek(this.aDd * (i - 1));
                                         randomAccessFile2.read(bArr2, 0, i4);
                                         bArr = bArr2;
                                     }
@@ -344,22 +344,22 @@ public class c {
                                         this.mNetwork.n("saveOrigin", "0");
                                     }
                                     if (z2) {
-                                        int oZ = r.oV().oZ();
-                                        if (oZ != 0) {
-                                            this.mNetwork.n("pic_water_type", String.valueOf(oZ));
+                                        int oR = r.oN().oR();
+                                        if (oR != 0) {
+                                            this.mNetwork.n("pic_water_type", String.valueOf(oR));
                                         }
                                         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-                                        if (!StringUtils.isNull(currentAccountName) && oZ == 1) {
+                                        if (!StringUtils.isNull(currentAccountName) && oR == 1) {
                                             this.mNetwork.n("user_name", currentAccountName);
                                         }
-                                        String pa = r.oV().pa();
-                                        if (!StringUtils.isNull(pa) && oZ == 2) {
-                                            this.mNetwork.n("forum_name", pa);
+                                        String oS = r.oN().oS();
+                                        if (!StringUtils.isNull(oS) && oR == 2) {
+                                            this.mNetwork.n("forum_name", oS);
                                         }
                                     }
-                                    String uo = this.mNetwork.uo();
-                                    imageUploadResult2 = ImageUploadResult.parser(uo);
-                                    if (uo == null || imageUploadResult2 == null || !(imageUploadResult2.error_code == 0 || imageUploadResult2.error_code == ImageUploadResult.CHUNK_ERROR)) {
+                                    String uk = this.mNetwork.uk();
+                                    imageUploadResult2 = ImageUploadResult.parser(uk);
+                                    if (uk == null || imageUploadResult2 == null || !(imageUploadResult2.error_code == 0 || imageUploadResult2.error_code == ImageUploadResult.CHUNK_ERROR)) {
                                         break;
                                     }
                                     if (imageUploadResult2.error_code == ImageUploadResult.CHUNK_ERROR) {
@@ -371,9 +371,9 @@ public class c {
                                     } else {
                                         int i5 = i + 1;
                                         long j4 = j3 + i4;
-                                        long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aDq) : j4;
-                                        if (this.aDs != null) {
-                                            this.aDs.a(str, this.aDt, j5, length);
+                                        long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aDd) : j4;
+                                        if (this.aDf != null) {
+                                            this.aDf.a(str, this.aDg, j5, length);
                                         }
                                         i2 = i5;
                                         j = j4;

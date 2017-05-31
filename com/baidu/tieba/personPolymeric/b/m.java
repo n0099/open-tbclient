@@ -1,37 +1,29 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.newFriends.ResponseApplyMessage;
-import com.baidu.tieba.w;
+import android.view.View;
+import com.baidu.tieba.personPolymeric.b.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ h eCv;
+public class m implements View.OnClickListener {
+    final /* synthetic */ i eKZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m(h hVar, int i) {
-        super(i);
-        this.eCv = hVar;
+    public m(i iVar) {
+        this.eKZ = iVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        String errorString;
-        TbPageContext tbPageContext;
-        TbPageContext tbPageContext2;
-        if ((socketResponsedMessage instanceof ResponseApplyMessage) && ((ResponseApplyMessage) socketResponsedMessage).getError() != 0) {
-            if (StringUtils.isNull(socketResponsedMessage.getErrorString())) {
-                tbPageContext2 = this.eCv.ajr;
-                errorString = tbPageContext2.getResources().getString(w.l.neterror);
-            } else {
-                errorString = socketResponsedMessage.getErrorString();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        i.a aVar;
+        i.a aVar2;
+        if (com.baidu.adp.lib.util.i.gY()) {
+            this.eKZ.Mx();
+            this.eKZ.jt(true);
+            aVar = this.eKZ.eKY;
+            if (aVar != null) {
+                aVar2 = this.eKZ.eKY;
+                aVar2.bd(view);
             }
-            tbPageContext = this.eCv.ajr;
-            tbPageContext.showToast(errorString);
         }
     }
 }

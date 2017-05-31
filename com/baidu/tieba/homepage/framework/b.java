@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.framework;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface b {
-    void ahc();
+    void air();
 
     void aq(int i, int i2);
 

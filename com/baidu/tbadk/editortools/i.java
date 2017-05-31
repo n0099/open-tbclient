@@ -2,21 +2,21 @@ package com.baidu.tbadk.editortools;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    final /* synthetic */ h azf;
+    final /* synthetic */ h ayR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.azf = hVar;
+        this.ayR = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         y yVar;
         y yVar2;
-        yVar = this.azf.aza;
+        yVar = this.ayR.ayM;
         if (yVar != null) {
-            yVar2 = this.azf.aza;
-            yVar2.lW();
+            yVar2 = this.ayR.ayM;
+            yVar2.lO();
         }
     }
 }

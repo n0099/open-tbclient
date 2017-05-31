@@ -1,54 +1,58 @@
 package com.baidu.tieba.frs.entelechy.a;
 
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.card.cg;
+import com.baidu.tieba.card.ci;
+import com.baidu.tieba.card.data.CardHListViewData;
 /* loaded from: classes.dex */
-public class r implements com.baidu.adp.lib.e.c<TbImageView> {
-    final /* synthetic */ o bSL;
+public class r extends com.baidu.tieba.frs.p<CardHListViewData, com.baidu.tieba.card.b.a<com.baidu.tieba.card.r>> implements cg, com.baidu.tieba.frs.d.e {
+    private ci bYD;
+    private String mForumName;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public r(o oVar) {
-        this.bSL = oVar;
+    public static void aT(long j) {
+        if (j > 0 && cfm != null && !TextUtils.isEmpty(cfm.cfe)) {
+            as asVar = new as("c11958");
+            asVar.f("tid", j);
+            asVar.Z("fid", cfm.cfe);
+            TiebaStatic.log(asVar);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public r(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
+        this.bYD = new s(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: wF */
-    public TbImageView fL() {
-        TbPageContext tbPageContext;
-        tbPageContext = this.bSL.ajr;
-        TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
-        tbImageView.setDrawBorder(true);
-        tbImageView.setBorderColor(aq.getColor(w.e.common_color_10043));
-        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1));
-        return tbImageView;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: l */
+    public com.baidu.tieba.card.b.a onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.card.b.a(new com.baidu.tieba.card.r(this.ajh));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.p, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public void o(TbImageView tbImageView) {
-        tbImageView.setOnClickListener(null);
-        tbImageView.setForegroundColor(0);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardHListViewData cardHListViewData, com.baidu.tieba.card.b.a aVar) {
+        if (aVar == null || aVar.UY() == null) {
+            return null;
+        }
+        aVar.UY().a((com.baidu.tieba.card.a) cardHListViewData);
+        aVar.UY().a(this.bYD);
+        return aVar.getView();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public TbImageView p(TbImageView tbImageView) {
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public TbImageView q(TbImageView tbImageView) {
-        tbImageView.setOnClickListener(null);
-        tbImageView.setForegroundColor(0);
-        return tbImageView;
+    @Override // com.baidu.tieba.card.cg
+    public void setForumName(String str) {
+        this.mForumName = str;
     }
 }

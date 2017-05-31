@@ -5,8 +5,8 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class d implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a eeb;
-    private View eec;
+    private a ejB;
+    private View ejC;
     private GestureDetector mGestureDetector = new GestureDetector(this);
 
     /* loaded from: classes.dex */
@@ -19,12 +19,12 @@ public class d implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public d(a aVar) {
-        this.eeb = aVar;
+        this.ejB = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.eec = view;
+        this.ejC = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -61,25 +61,29 @@ public class d implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.eeb != null) {
-            return this.eeb.a(this.eec, motionEvent);
+        if (this.ejB != null) {
+            return this.ejB.a(this.ejC, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.eeb != null) {
-            return this.eeb.b(this.eec, motionEvent);
+        if (this.ejB != null) {
+            return this.ejB.b(this.ejC, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.eeb != null) {
-            return this.eeb.c(this.eec, motionEvent);
+        if (this.ejB != null) {
+            return this.ejB.c(this.ejC, motionEvent);
         }
         return false;
+    }
+
+    public void aQ(View view) {
+        this.ejC = view;
     }
 }

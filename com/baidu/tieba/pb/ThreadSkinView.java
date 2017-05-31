@@ -15,8 +15,8 @@ import com.baidu.tieba.w;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo ebc;
-    private a.C0080a ebd;
+    private SkinInfo egy;
+    private a.C0082a egz;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -38,22 +38,22 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0080a c0080a) {
+    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0082a c0082a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.ebc != skinInfo && c0080a != null) {
-            this.ebd = c0080a;
-            this.ebd.delete("action_type");
-            this.ebd.cb("obj_id", skinInfo.obj_id);
-            this.ebd.cb("obj_url", skinInfo.url);
-            this.ebd.cb("obj_name", skinInfo.monitor_id);
-            this.ebd.cb("action_type", "VIEW_TRUE");
-            this.ebd.save();
+        if (this.egy != skinInfo && c0082a != null) {
+            this.egz = c0082a;
+            this.egz.delete("action_type");
+            this.egz.cb("obj_id", skinInfo.obj_id);
+            this.egz.cb("obj_url", skinInfo.url);
+            this.egz.cb("obj_name", skinInfo.monitor_id);
+            this.egz.cb("action_type", "VIEW_TRUE");
+            this.egz.save();
         }
-        this.ebc = skinInfo;
+        this.egy = skinInfo;
         int af = k.af(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = af;
@@ -80,13 +80,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ebc != null && !StringUtils.isNull(this.ebc.url)) {
-            if (this.ebd != null) {
-                this.ebd.delete("action_type");
-                this.ebd.cb("action_type", "CLICK");
-                this.ebd.save();
+        if (this.egy != null && !StringUtils.isNull(this.egy.url)) {
+            if (this.egz != null) {
+                this.egz.delete("action_type");
+                this.egz.cb("action_type", "CLICK");
+                this.egz.save();
             }
-            bb.vB().c(this.mTbPageContext, new String[]{this.ebc.url});
+            bb.vy().c(this.mTbPageContext, new String[]{this.egy.url});
         }
     }
 }

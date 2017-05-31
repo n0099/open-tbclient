@@ -9,14 +9,14 @@ import com.baidu.tieba.w;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class ClientConfigModel extends BdBaseModel {
-    private b Rn;
-    private final com.baidu.adp.framework.listener.a Ro;
+    private b Ra;
+    private final com.baidu.adp.framework.listener.a Rb;
 
     public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, b bVar) {
         super(bdBaseFragmentActivity.getPageContext());
-        this.Ro = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.Rn = bVar;
-        registerListener(this.Ro);
+        this.Rb = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.Ra = bVar;
+        registerListener(this.Rb);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -43,11 +43,11 @@ public class ClientConfigModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
         if (dataRes == null) {
-            if (this.Rn != null) {
-                this.Rn.onError(TbadkCoreApplication.m9getInst().getString(w.l.data_load_error));
+            if (this.Ra != null) {
+                this.Ra.onError(TbadkCoreApplication.m9getInst().getString(w.l.data_load_error));
             }
-        } else if (this.Rn != null) {
-            this.Rn.z(dataRes);
+        } else if (this.Ra != null) {
+            this.Ra.z(dataRes);
         }
     }
 }

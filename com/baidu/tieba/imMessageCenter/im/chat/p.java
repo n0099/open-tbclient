@@ -17,12 +17,12 @@ class p implements bb.a {
         }
         String str = strArr[0];
         if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_chat=1")) {
-            String ar = aa.ar(str, "userid=");
-            String ar2 = aa.ar(str, "username=");
-            String ar3 = aa.ar(str, "portrait=");
-            if (ar != null && ar.length() > 0) {
+            String aq = aa.aq(str, "userid=");
+            String aq2 = aa.aq(str, "username=");
+            String aq3 = aa.aq(str, "portrait=");
+            if (aq != null && aq.length() > 0) {
                 try {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(ar), ar2, ar3, 0)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(aq), aq2, aq3, 0)));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

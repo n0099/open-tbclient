@@ -1,26 +1,29 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.ae;
 /* loaded from: classes.dex */
-class am implements c.b {
-    final /* synthetic */ PbActivity ehy;
+class am implements ae.b {
+    final /* synthetic */ PbActivity enc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PbActivity pbActivity) {
-        this.ehy = pbActivity;
+        this.enc = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        cVar.dismiss();
-        if (this.ehy.eho != null) {
-            if (i == 0) {
-                this.ehy.eho.bS(this.ehy.getPageContext().getPageActivity());
-                this.ehy.eho = null;
-            } else if (i == 1 && this.ehy.checkUpIsLogin()) {
-                this.ehy.f(this.ehy.eho);
-            }
+    @Override // com.baidu.tbadk.core.view.ae.b
+    public void onListPullRefresh(boolean z) {
+        PbModel pbModel;
+        fx fxVar;
+        if (this.enc.aJX()) {
+            this.enc.finish();
         }
+        pbModel = this.enc.ele;
+        if (!pbModel.is(true)) {
+            fxVar = this.enc.elU;
+            fxVar.aMC();
+            return;
+        }
+        TiebaStatic.eventStat(this.enc.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

@@ -1,38 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bz implements a.b {
-    private final /* synthetic */ String bRP;
-    private final /* synthetic */ String bRQ;
-    private final /* synthetic */ String bYo;
-    private final /* synthetic */ long ehM;
-    private final /* synthetic */ String ehN;
-    final /* synthetic */ PbActivity ehy;
+public class bz implements View.OnClickListener {
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.h bJq;
+    final /* synthetic */ PbActivity enc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(PbActivity pbActivity, long j, String str, String str2, String str3, String str4) {
-        this.ehy = pbActivity;
-        this.ehM = j;
-        this.ehN = str;
-        this.bRP = str2;
-        this.bRQ = str3;
-        this.bYo = str4;
+    public bz(PbActivity pbActivity, com.baidu.tbadk.coreExtra.share.h hVar) {
+        this.enc = pbActivity;
+        this.bJq = hVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        PbModel pbModel;
-        PbModel pbModel2;
-        com.baidu.tieba.pb.b.a(this.ehM, this.ehN, null, "PB", "BTN_FBOK", "CLICK_FEEDBACK", "tpoint", null, null, this.bRP, this.bRQ, this.bYo);
-        aVar.dismiss();
-        if (this.ehy.checkUpIsLogin()) {
-            pbModel = this.ehy.efE;
-            if (pbModel.aKq() != null) {
-                pbModel2 = this.ehy.efE;
-                pbModel2.aKq().bX(this.ehM);
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.util.a.ao(this.bJq.linkUrl);
+        com.baidu.adp.lib.util.k.showToast(this.enc.getPageContext().getPageActivity(), view.getResources().getString(w.l.copy_pb_url_success));
     }
 }

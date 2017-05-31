@@ -20,15 +20,15 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class m implements com.baidu.tbadk.editortools.b {
-    final /* synthetic */ l aBm;
-    private final /* synthetic */ c aBn;
-    private final /* synthetic */ com.baidu.tbadk.editortools.j aBo;
+    final /* synthetic */ l aAY;
+    private final /* synthetic */ c aAZ;
+    private final /* synthetic */ com.baidu.tbadk.editortools.j aBa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, c cVar, com.baidu.tbadk.editortools.j jVar) {
-        this.aBm = lVar;
-        this.aBn = cVar;
-        this.aBo = jVar;
+        this.aAY = lVar;
+        this.aAZ = cVar;
+        this.aBa = jVar;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -42,15 +42,15 @@ class m implements com.baidu.tbadk.editortools.b {
         String str4;
         boolean z;
         boolean a3;
-        if (this.aBn != null && this.aBn.Cs() != null && aVar != null) {
+        if (this.aAZ != null && this.aAZ.Cm() != null && aVar != null) {
             switch (aVar.code) {
                 case 4:
-                    this.aBn.fv((String) aVar.data);
-                    this.aBm.aBk = false;
+                    this.aAZ.ft((String) aVar.data);
+                    this.aAY.aAW = false;
                     return;
                 case 5:
-                    if (!this.aBo.Cv()) {
-                        TiebaStatic.eventStat(this.aBo.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                    if (!this.aBa.Cp()) {
+                        TiebaStatic.eventStat(this.aBa.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
                         return;
                     }
                     return;
@@ -73,150 +73,150 @@ class m implements com.baidu.tbadk.editortools.b {
                 case 34:
                 case 35:
                 case 37:
-                case w.n.PullToRefresh_adapterViewBackground /* 38 */:
-                case w.n.PullToRefresh_headerBackground /* 39 */:
-                case w.n.PullToRefresh_mode /* 41 */:
-                case 42:
+                case 38:
+                case 39:
+                case 41:
+                case w.n.View_duplicateParentState /* 42 */:
                 default:
                     return;
                 case 7:
-                    this.aBn.getContext().showToast(w.l.over_limit_tip);
-                    this.aBm.aBk = true;
+                    this.aAZ.getContext().showToast(w.l.over_limit_tip);
+                    this.aAY.aAW = true;
                     return;
                 case 8:
-                    a2 = this.aBm.a(this.aBn.getContext().getPageContext(), 11001);
+                    a2 = this.aAY.a(this.aAZ.getContext().getPageContext(), 11001);
                     if (a2) {
-                        this.aBn.a((String) null, (WriteData) null);
+                        this.aAZ.a((String) null, (WriteData) null);
                         return;
                     }
                     return;
                 case 10:
                     if (aVar.data instanceof VoiceData.VoiceModel) {
-                        this.aBn.setVoiceModel((VoiceData.VoiceModel) aVar.data);
+                        this.aAZ.setVoiceModel((VoiceData.VoiceModel) aVar.data);
                     }
-                    this.aBo.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
+                    this.aBa.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
                     return;
                 case 11:
-                    this.aBn.setVoiceModel(null);
-                    this.aBo.b(new com.baidu.tbadk.editortools.a(2, 6, null));
+                    this.aAZ.setVoiceModel(null);
+                    this.aBa.b(new com.baidu.tbadk.editortools.a(2, 6, null));
                     return;
                 case 14:
-                    if ((aVar.data != null && aVar.data != null && (aVar.data instanceof Boolean) && ((Boolean) aVar.data).booleanValue()) || this.aBn.getWriteImagesInfo().getChosedFiles() == null || this.aBn.getWriteImagesInfo().getChosedFiles().size() == 0) {
-                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.aBn.getContext().getActivity(), this.aBn.getWriteImagesInfo().toJsonString(), true, true);
-                        str = this.aBm.from;
+                    if ((aVar.data != null && aVar.data != null && (aVar.data instanceof Boolean) && ((Boolean) aVar.data).booleanValue()) || this.aAZ.getWriteImagesInfo().getChosedFiles() == null || this.aAZ.getWriteImagesInfo().getChosedFiles().size() == 0) {
+                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.aAZ.getContext().getActivity(), this.aAZ.getWriteImagesInfo().toJsonString(), true, true);
+                        str = this.aAY.from;
                         if (!StringUtils.isNull(str, true)) {
                             Intent intent = albumActivityConfig.getIntent();
-                            str4 = this.aBm.from;
+                            str4 = this.aAY.from;
                             intent.putExtra("from", str4);
                         }
-                        str2 = this.aBm.forumId;
+                        str2 = this.aAY.forumId;
                         if (!StringUtils.isNull(str2, true)) {
                             Intent intent2 = albumActivityConfig.getIntent();
-                            str3 = this.aBm.forumId;
+                            str3 = this.aAY.forumId;
                             intent2.putExtra("forum_id", str3);
                         }
                         albumActivityConfig.setRequestCode(12002);
-                        if (a.CO().getStatus() == 1) {
+                        if (a.CI().getStatus() == 1) {
                             albumActivityConfig.setRequestFrom(2);
-                            this.aBn.eG(1);
-                            if (this.aBn.getWriteImagesInfo() != null) {
-                                this.aBn.getWriteImagesInfo().setMaxImagesAllowed(1);
+                            this.aAZ.eH(1);
+                            if (this.aAZ.getWriteImagesInfo() != null) {
+                                this.aAZ.getWriteImagesInfo().setMaxImagesAllowed(1);
                             }
                         } else {
-                            this.aBn.eG(10);
-                            if (this.aBn.getWriteImagesInfo() != null) {
-                                this.aBn.getWriteImagesInfo().setMaxImagesAllowed(10);
+                            this.aAZ.eH(10);
+                            if (this.aAZ.getWriteImagesInfo() != null) {
+                                this.aAZ.getWriteImagesInfo().setMaxImagesAllowed(10);
                             }
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
                         return;
                     }
-                    this.aBn.Dg();
+                    this.aAZ.Da();
                     return;
                 case 15:
                     int intValue = ((Integer) aVar.data).intValue();
-                    if (this.aBn.getWriteImagesInfo() != null && this.aBn.getWriteImagesInfo().getChosedFiles() != null && (size = this.aBn.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.aBn.getContext().getActivity(), 12012, this.aBn.getWriteImagesInfo(), intValue)));
+                    if (this.aAZ.getWriteImagesInfo() != null && this.aAZ.getWriteImagesInfo().getChosedFiles() != null && (size = this.aAZ.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.aAZ.getContext().getActivity(), 12012, this.aAZ.getWriteImagesInfo(), intValue)));
                         return;
                     }
                     return;
                 case 16:
-                    z = this.aBm.aBk;
+                    z = this.aAY.aAW;
                     if (z) {
-                        this.aBn.getContext().showToast(w.l.over_limit_tip);
+                        this.aAZ.getContext().showToast(w.l.over_limit_tip);
                     }
-                    a3 = this.aBm.a(this.aBn.getContext().getPageContext(), 11025);
+                    a3 = this.aAY.a(this.aAZ.getContext().getPageContext(), 11025);
                     if (a3) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.aBn.getContext().getActivity(), 12004, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.aAZ.getContext().getActivity(), 12004, true)));
                         return;
                     }
                     return;
                 case 18:
                     if (aVar.data != null) {
-                        this.aBn.CX();
+                        this.aAZ.CR();
                         return;
                     }
-                    switch (this.aBn.Dc()) {
+                    switch (this.aAZ.CW()) {
                         case 0:
-                            this.aBn.CV();
+                            this.aAZ.CP();
                             return;
                         case 1:
                         default:
                             return;
                         case 2:
-                            this.aBn.CU();
+                            this.aAZ.CO();
                             return;
                     }
                 case 20:
-                    this.aBn.Cs().b(new com.baidu.tbadk.editortools.a(2, 7, null));
-                    com.baidu.tieba.tbadkCore.location.d.bhs().kZ(true);
+                    this.aAZ.Cm().b(new com.baidu.tbadk.editortools.a(2, 7, null));
+                    com.baidu.tieba.tbadkCore.location.d.biM().lu(true);
                     MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                     return;
                 case 27:
-                    VideoInfo videoInfo = this.aBn.getVideoInfo();
+                    VideoInfo videoInfo = this.aAZ.getVideoInfo();
                     if (videoInfo != null && videoInfo.isAvaliable()) {
-                        this.aBn.Cs().b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
+                        this.aAZ.Cm().b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
                         return;
-                    } else if (this.aBn.getContext() != null && this.aBn.getContext().getResources() != null) {
-                        Resources resources = this.aBn.getContext().getResources();
+                    } else if (this.aAZ.getContext() != null && this.aAZ.getContext().getResources() != null) {
+                        Resources resources = this.aAZ.getContext().getResources();
                         if (XiaoyingUtil.isXiaoyingInstalled()) {
                             if (XiaoyingUtil.isXiaoyingForbidden()) {
-                                XiaoyingUtil.showGoPluginDetailDialog(this.aBn.getContext().getPageContext(), resources.getString(w.l.plugin_video_not_active), resources.getString(w.l.setup));
+                                XiaoyingUtil.showGoPluginDetailDialog(this.aAZ.getContext().getPageContext(), resources.getString(w.l.plugin_video_not_active), resources.getString(w.l.setup));
                                 return;
                             } else {
-                                XiaoyingUtil.startXiaoying(this.aBn.getContext().getActivity());
+                                XiaoyingUtil.startXiaoying(this.aAZ.getContext().getActivity());
                                 return;
                             }
                         }
-                        XiaoyingUtil.showGoPluginDetailDialog(this.aBn.getContext().getPageContext(), resources.getString(w.l.plugin_video_install_tips), resources.getString(w.l.plugin_go_install));
+                        XiaoyingUtil.showGoPluginDetailDialog(this.aAZ.getContext().getPageContext(), resources.getString(w.l.plugin_video_install_tips), resources.getString(w.l.plugin_go_install));
                         return;
                     } else {
                         return;
                     }
                 case 29:
-                    this.aBn.Cs().b(new com.baidu.tbadk.editortools.a(2, 19, null));
-                    this.aBn.Cs().b(new com.baidu.tbadk.editortools.a(1, 2, null));
-                    this.aBn.CZ();
+                    this.aAZ.Cm().b(new com.baidu.tbadk.editortools.a(2, 19, null));
+                    this.aAZ.Cm().b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                    this.aAZ.CT();
                     return;
                 case 32:
-                    this.aBn.Cs().b(new com.baidu.tbadk.editortools.a(1, 11, null));
+                    this.aAZ.Cm().b(new com.baidu.tbadk.editortools.a(1, 11, null));
                     return;
                 case 36:
-                    a = this.aBm.a(this.aBn.getContext().getPageContext(), 11040);
+                    a = this.aAY.a(this.aAZ.getContext().getPageContext(), 11040);
                     if (a) {
-                        this.aBn.CT();
+                        this.aAZ.CN();
                         return;
                     }
                     return;
-                case w.n.PullToRefresh_headerTextColor /* 40 */:
+                case 40:
                     if ((aVar.data instanceof String) || aVar.data == null) {
-                        this.aBn.setGraffitiFileName((String) aVar.data);
+                        this.aAZ.setGraffitiFileName((String) aVar.data);
                         return;
                     }
                     return;
-                case 43:
-                    if (!com.baidu.tbadk.plugins.a.a(this.aBn.getContext().getPageContext(), true, false)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotSelectActivityConfig(this.aBn.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB)));
+                case w.n.View_minHeight /* 43 */:
+                    if (!com.baidu.tbadk.plugins.a.a(this.aAZ.getContext().getPageContext(), true, false)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotSelectActivityConfig(this.aAZ.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB)));
                         return;
                     }
                     return;

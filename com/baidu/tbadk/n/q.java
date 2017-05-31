@@ -8,22 +8,22 @@ public class q extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "offline_gift";
+        return "android_game_enter_switch";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] eQ() {
-        return null;
+        return new String[0];
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int eR() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int eS() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a

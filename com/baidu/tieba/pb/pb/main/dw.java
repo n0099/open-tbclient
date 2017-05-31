@@ -1,44 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.pb.pb.main.PbModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class dw extends CustomMessageListener {
-    final /* synthetic */ PbModel eku;
+class dw implements View.OnClickListener {
+    private final /* synthetic */ String bMP;
+    private final /* synthetic */ String cVG;
+    final /* synthetic */ dr eoS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dw(PbModel pbModel, int i) {
-        super(i);
-        this.eku = pbModel;
+    public dw(dr drVar, String str, String str2) {
+        this.eoS = drVar;
+        this.cVG = str;
+        this.bMP = str2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        BdUniqueId bdUniqueId;
-        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage;
-        com.baidu.tieba.pb.data.f pbData;
-        PbModel.a aVar;
-        this.eku.eka = true;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
-            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.eku.unique_id;
-            if (tag != bdUniqueId || (pbData = (pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage).getPbData()) == null) {
-                return;
-            }
-            this.eku.j(pbData);
-            this.eku.e(pbData);
-            if (pbData.aHG() != null) {
-                pbData.aHG().bO(0);
-            }
-            aVar = this.eku.ejR;
-            if (aVar != null && pbData != null) {
-                com.baidu.adp.lib.g.h.fS().post(new dx(this, pbPageReadLocalResponseMessage, pbData));
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.eoS.nM(this.cVG);
+        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c12041").Z("fid", this.bMP));
+        if (this.eoS.ekc != null && this.eoS.ekc.aIB() != null && this.eoS.ekc.aIB().getThreadType() == 40) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c12123").Z("fid", this.eoS.ekc.getForumId()).Z("obj_param1", this.cVG));
         }
     }
 }

@@ -9,11 +9,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements TextWatcher {
-    final /* synthetic */ n fPE;
+    final /* synthetic */ n fXA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.fPE = nVar;
+        this.fXA = nVar;
     }
 
     @Override // android.text.TextWatcher
@@ -27,22 +27,22 @@ public class o implements TextWatcher {
         TextView textView2;
         TextView textView3;
         TextView textView4;
-        long bni = n.fPw - this.fPE.bni();
-        if (bni >= 0) {
-            textView4 = this.fPE.fPB;
+        long boH = n.fXs - this.fXA.boH();
+        if (boH >= 0) {
+            textView4 = this.fXA.fXx;
             aq.i(textView4, w.e.cp_cont_e);
         } else {
-            textView = this.fPE.fPB;
+            textView = this.fXA.fXx;
             aq.i(textView, w.e.cp_cont_h);
         }
-        i4 = n.fPx;
-        if (bni <= i4) {
-            textView3 = this.fPE.fPB;
-            textView3.setText(au.vn());
+        i4 = n.fXt;
+        if (boH <= i4) {
+            textView3 = this.fXA.fXx;
+            textView3.setText(au.vk());
             return;
         }
-        textView2 = this.fPE.fPB;
-        textView2.setText(String.valueOf(bni));
+        textView2 = this.fXA.fXx;
+        textView2.setText(String.valueOf(boH));
     }
 
     @Override // android.text.TextWatcher

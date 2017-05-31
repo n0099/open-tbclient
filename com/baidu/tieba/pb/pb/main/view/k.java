@@ -1,25 +1,27 @@
 package com.baidu.tieba.pb.pb.main.view;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.pb.view.x;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k extends CustomMessageListener {
-    final /* synthetic */ j eqo;
+public class k implements Runnable {
+    final /* synthetic */ h exs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(j jVar, int i) {
-        super(i);
-        this.eqo = jVar;
+    public k(h hVar) {
+        this.exs = hVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.widget.richText.e)) {
-            com.baidu.tbadk.widget.richText.e eVar = (com.baidu.tbadk.widget.richText.e) customResponsedMessage.getData();
-            this.eqo.c(eVar);
-            this.eqo.d(eVar);
+    @Override // java.lang.Runnable
+    public void run() {
+        x xVar;
+        x xVar2;
+        PbActivity pbActivity;
+        xVar = this.exs.exo;
+        if (xVar != null) {
+            xVar2 = this.exs.exo;
+            pbActivity = this.exs.elf;
+            com.baidu.adp.lib.g.j.a(xVar2, pbActivity.getPageContext().getPageActivity());
         }
     }
 }

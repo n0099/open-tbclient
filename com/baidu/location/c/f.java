@@ -12,17 +12,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private g NG;
-    private static volatile f NE = null;
+    private g Nu;
+    private static volatile f Ns = null;
     private static String c = "LogSDK";
     private static int d = 5;
     private static int e = 1024;
     private static final String f = com.baidu.location.h.h.a + "/llg.dat";
     private static final String g = com.baidu.location.h.h.a + "/ller.dat";
     public static final String a = com.baidu.location.h.h.a + "/llin.dat";
-    private SimpleDateFormat NF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private g NH = null;
-    private a NI = null;
+    private SimpleDateFormat Nt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private g Nv = null;
+    private a Nw = null;
     private long l = 0;
 
     /* loaded from: classes.dex */
@@ -31,14 +31,14 @@ public class f {
         private boolean c = false;
 
         a() {
-            this.PG = new HashMap();
+            this.Pt = new HashMap();
         }
 
         @Override // com.baidu.location.h.f
         public void a() {
-            this.PG.clear();
-            this.PG.put("qt", "stat");
-            this.PG.put("req", this.b);
+            this.Pt.clear();
+            this.Pt.put("qt", "stat");
+            this.Pt.put("req", this.b);
             this.h = "http://loc.map.baidu.com/statloc";
         }
 
@@ -69,9 +69,9 @@ public class f {
     }
 
     private f() {
-        this.NG = null;
-        if (this.NG == null) {
-            this.NG = new g();
+        this.Nu = null;
+        if (this.Nu == null) {
+            this.Nu = new g();
         }
     }
 
@@ -190,15 +190,15 @@ public class f {
         }
     }
 
-    public static f mP() {
-        if (NE == null) {
+    public static f mI() {
+        if (Ns == null) {
             synchronized (f.class) {
-                if (NE == null) {
-                    NE = new f();
+                if (Ns == null) {
+                    Ns = new f();
                 }
             }
         }
-        return NE;
+        return Ns;
     }
 
     public void a(g gVar) {
@@ -211,13 +211,13 @@ public class f {
         if (str != null) {
             try {
                 StringBuffer stringBuffer = new StringBuffer();
-                String format = this.NF.format(new Date());
+                String format = this.Nt.format(new Date());
                 stringBuffer.append("&time=");
                 stringBuffer.append(format);
                 stringBuffer.append("&err=");
                 stringBuffer.append(str);
-                stringBuffer.append(com.baidu.location.h.c.nw().a(false));
-                stringBuffer.append(com.baidu.location.a.a.mw().c());
+                stringBuffer.append(com.baidu.location.h.c.np().a(false));
+                stringBuffer.append(com.baidu.location.a.a.mp().c());
                 a(g, Jni.encode(stringBuffer.toString()));
             } catch (Exception e2) {
             }
@@ -225,19 +225,19 @@ public class f {
     }
 
     public void c() {
-        if (this.NG != null) {
-            a(f, Jni.encode(this.NG.b()));
-            this.NG.a();
+        if (this.Nu != null) {
+            a(f, Jni.encode(this.Nu.b()));
+            this.Nu.a();
         }
     }
 
     public void d() {
         boolean z;
         boolean z2;
-        if (this.NI == null) {
-            this.NI = new a();
+        if (this.Nw == null) {
+            this.Nw = new a();
         }
-        if (System.currentTimeMillis() - this.l >= 3600000 && !this.NI.b()) {
+        if (System.currentTimeMillis() - this.l >= 3600000 && !this.Nw.b()) {
             try {
                 ArrayList arrayList = new ArrayList();
                 a(g, arrayList);
@@ -269,14 +269,14 @@ public class f {
                     } else {
                         jSONObject.put("loctc", jSONArray);
                     }
-                    this.NI.a(jSONObject.toString());
+                    this.Nw.a(jSONObject.toString());
                 }
             } catch (Exception e2) {
             }
         }
     }
 
-    public g mQ() {
-        return this.NG;
+    public g mJ() {
+        return this.Nu;
     }
 }

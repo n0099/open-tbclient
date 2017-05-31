@@ -4,11 +4,11 @@ import android.view.SurfaceHolder;
 import com.baidu.tieba.write.album.TbCameraView;
 /* loaded from: classes.dex */
 class au implements SurfaceHolder.Callback {
-    final /* synthetic */ TbCameraView fOb;
+    final /* synthetic */ TbCameraView fVI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(TbCameraView tbCameraView) {
-        this.fOb = tbCameraView;
+        this.fVI = tbCameraView;
     }
 
     @Override // android.view.SurfaceHolder.Callback
@@ -16,14 +16,14 @@ class au implements SurfaceHolder.Callback {
         TbCameraView.c cVar;
         TbCameraView.c cVar2;
         boolean z;
-        this.fOb.mSurfaceHolder = surfaceHolder;
-        cVar = this.fOb.fNG;
+        this.fVI.mSurfaceHolder = surfaceHolder;
+        cVar = this.fVI.fVn;
         if (cVar != null) {
-            cVar2 = this.fOb.fNG;
-            if (cVar2.bmF()) {
-                TbCameraView tbCameraView = this.fOb;
-                z = this.fOb.fGk;
-                tbCameraView.lF(z);
+            cVar2 = this.fVI.fVn;
+            if (cVar2.boc()) {
+                TbCameraView tbCameraView = this.fVI;
+                z = this.fVI.fOe;
+                tbCameraView.lY(z);
             }
         }
     }
@@ -34,6 +34,6 @@ class au implements SurfaceHolder.Callback {
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        this.fOb.stopCamera();
+        this.fVI.stopCamera();
     }
 }

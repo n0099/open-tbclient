@@ -17,14 +17,14 @@ import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 /* loaded from: classes.dex */
 public class PersonInfoActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSON_INFO, new c());
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSON_INFO, new i());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        Jx();
-        bb.vB().a(new d());
+        LR();
+        bb.vy().a(new j());
     }
 
-    private static void Jx() {
+    private static void LR() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }

@@ -1,7 +1,6 @@
 package com.baidu.sapi2.utils.enums;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.frs.tab.TabData;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public enum SocialType {
     UNKNOWN(0, "未知"),
@@ -44,15 +43,15 @@ public enum SocialType {
                 return TENCENT_WEIBO;
             case 15:
                 return QQ;
-            case 42:
+            case w.n.View_duplicateParentState /* 42 */:
                 return WEIXIN;
-            case TbConfig.VIEW_IMAGE_QUALITY_LOW_VALUE /* 45 */:
+            case 45:
                 return HUAWEI;
-            case 46:
+            case w.n.View_hapticFeedbackEnabled /* 46 */:
                 return WANDA_FEIFAN;
-            case 47:
+            case w.n.View_contentDescription /* 47 */:
                 return IQIYI;
-            case TabData.TYPE_TAB_ALA_LIVE /* 49 */:
+            case 49:
                 return XIAOMI;
             case 50:
                 return MEIZU;

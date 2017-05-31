@@ -1,35 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.app.Dialog;
+import android.util.SparseArray;
 import android.view.View;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ge implements View.OnClickListener {
-    final /* synthetic */ fm epr;
-    private final /* synthetic */ String val$url;
+    final /* synthetic */ fx evi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ge(fm fmVar, String str) {
-        this.epr = fmVar;
-        this.val$url = str;
+    public ge(fx fxVar) {
+        this.evi = fxVar;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        Dialog dialog3;
         PbActivity pbActivity;
-        PbActivity pbActivity2;
-        PbActivity pbActivity3;
-        if (!com.baidu.adp.lib.util.k.hB()) {
-            pbActivity = this.epr.efF;
-            pbActivity.showToast(w.l.neterror);
-            return;
+        dialog = this.evi.etD;
+        if (dialog != null) {
+            dialog2 = this.evi.etD;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.evi.etD;
+                pbActivity = this.evi.elf;
+                com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
+            }
         }
-        com.baidu.tbadk.core.util.bb vB = com.baidu.tbadk.core.util.bb.vB();
-        pbActivity2 = this.epr.efF;
-        vB.c(pbActivity2.getPageContext(), new String[]{this.val$url});
-        pbActivity3 = this.epr.efF;
-        pbActivity3.finish();
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            this.evi.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
+        }
     }
 }

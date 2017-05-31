@@ -4,21 +4,21 @@ import com.baidu.tieba.write.transmit.model.a;
 import java.util.List;
 import tbclient.SimpleForum;
 /* loaded from: classes.dex */
-class v implements a.InterfaceC0083a {
-    final /* synthetic */ WriteActivity fSV;
+class v implements a.InterfaceC0086a {
+    final /* synthetic */ WriteActivity gaR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(WriteActivity writeActivity) {
-        this.fSV = writeActivity;
+        this.gaR = writeActivity;
     }
 
-    @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0083a
-    public void bna() {
-        this.fSV.cR(null);
+    @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0086a
+    public void boz() {
+        this.gaR.cT(null);
     }
 
-    @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0083a
+    @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0086a
     public void onSuccess(List<SimpleForum> list) {
-        this.fSV.cR(list);
+        this.gaR.cT(list);
     }
 }

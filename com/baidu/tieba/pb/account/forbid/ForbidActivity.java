@@ -24,13 +24,13 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ForbidActivity extends BaseActivity<ForbidActivity> {
-    private BdListView Im;
-    private RadioGroup ebe;
-    private String ebf;
-    private TextView ebg;
-    private TextView ebh;
-    private a ebi;
-    private View.OnClickListener ebj = new com.baidu.tieba.pb.account.forbid.a(this);
+    private BdListView Ic;
+    private RadioGroup egB;
+    private String egC;
+    private TextView egD;
+    private TextView egE;
+    private a egF;
+    private View.OnClickListener egG = new com.baidu.tieba.pb.account.forbid.a(this);
     private String mForumId;
     private String mForumName;
     private NavigationBar mNavigationBar;
@@ -51,11 +51,11 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(w.h.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(w.l.forbid_page_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.ebg = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(w.l.forbid_btn_txt), this.ebj);
-        this.ebh = (TextView) findViewById(w.h.forbid_id);
-        this.Im = (BdListView) findViewById(w.h.listview_forbid_reason);
-        this.ebe = (RadioGroup) findViewById(w.h.forbid_days);
-        this.ebe.setOnCheckedChangeListener(new c(this));
+        this.egD = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(w.l.forbid_btn_txt), this.egG);
+        this.egE = (TextView) findViewById(w.h.forbid_id);
+        this.Ic = (BdListView) findViewById(w.h.listview_forbid_reason);
+        this.egB = (RadioGroup) findViewById(w.h.forbid_days);
+        this.egB.setOnCheckedChangeListener(new c(this));
         initData();
     }
 
@@ -64,16 +64,16 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         this.mForumId = intent.getStringExtra("forum_id");
         this.mForumName = intent.getStringExtra("forum_name");
         this.mThreadId = intent.getStringExtra("thread_id");
-        this.ebf = intent.getStringExtra(ForbidActivityConfig.MANAGER_USER_ID);
+        this.egC = intent.getStringExtra(ForbidActivityConfig.MANAGER_USER_ID);
         this.mUserName = intent.getStringExtra("user_name");
         this.mPostId = intent.getStringExtra("post_id");
-        g.a(this.mForumId, this.ebf, new d(this));
+        g.a(this.mForumId, this.egC, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nS(int i) {
+    public void oj(int i) {
         for (int i2 = 0; i2 < 3; i2++) {
-            RadioButton radioButton = (RadioButton) this.ebe.getChildAt(i2);
+            RadioButton radioButton = (RadioButton) this.egB.getChildAt(i2);
             if (radioButton.getId() == i) {
                 aq.j(radioButton, w.g.btn_prohibit_day_s);
                 aq.c(radioButton, w.e.cp_cont_i, 3);
@@ -90,38 +90,38 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         super.onChangeSkinType(i);
         boolean z = i == 1;
         View findViewById = findViewById(w.h.root);
-        getLayoutMode().ai(z);
+        getLayoutMode().ah(z);
         getLayoutMode().t(findViewById);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.ebg.setTextColor(aq.getColor(w.e.cp_cont_f));
-        this.Im.setDivider(aq.getDrawable(w.g.forbid_list_divider));
-        this.Im.setDividerHeight(k.dip2px(getPageContext().getPageActivity(), 1.0f));
+        this.egD.setTextColor(aq.getColor(w.e.cp_cont_f));
+        this.Ic.setDivider(aq.getDrawable(w.g.forbid_list_divider));
+        this.Ic.setDividerHeight(k.dip2px(getPageContext().getPageActivity(), 1.0f));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BaseAdapter {
-        private String[] ebm;
-        private int cnh = 0;
-        private View.OnClickListener cdN = new e(this);
+        private String[] egJ;
+        private int ctF = 0;
+        private View.OnClickListener ckb = new e(this);
 
         public a(String[] strArr) {
-            this.ebm = strArr;
+            this.egJ = strArr;
         }
 
-        public String aHi() {
-            if (this.ebm == null || this.cnh >= this.ebm.length) {
+        public String aId() {
+            if (this.egJ == null || this.ctF >= this.egJ.length) {
                 return null;
             }
-            return this.ebm[this.cnh];
+            return this.egJ[this.ctF];
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.ebm == null) {
+            if (this.egJ == null) {
                 return 0;
             }
-            return this.ebm.length;
+            return this.egJ.length;
         }
 
         @Override // android.widget.Adapter
@@ -130,23 +130,23 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(w.j.forbid_list_item, (ViewGroup) null);
                 b bVar2 = new b(null);
-                bVar2.ebo = (TextView) view.findViewById(w.h.reason_text);
-                bVar2.ebp = (ImageView) view.findViewById(w.h.check_img);
+                bVar2.egL = (TextView) view.findViewById(w.h.reason_text);
+                bVar2.egM = (ImageView) view.findViewById(w.h.check_img);
                 view.setTag(bVar2);
-                view.setOnClickListener(this.cdN);
+                view.setOnClickListener(this.ckb);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
             bVar.mIndex = i;
-            bVar.ebo.setText(this.ebm[i]);
-            if (bVar.mIndex == this.cnh) {
-                aq.c(bVar.ebp, w.g.icon_found_information_choose);
-                bVar.ebp.setVisibility(0);
-                aq.c(bVar.ebo, w.e.common_color_10047, 1);
+            bVar.egL.setText(this.egJ[i]);
+            if (bVar.mIndex == this.ctF) {
+                aq.c(bVar.egM, w.g.icon_found_information_choose);
+                bVar.egM.setVisibility(0);
+                aq.c(bVar.egL, w.e.common_color_10047, 1);
             } else {
-                bVar.ebp.setVisibility(4);
-                aq.c(bVar.ebo, w.e.common_color_10039, 1);
+                bVar.egM.setVisibility(4);
+                aq.c(bVar.egL, w.e.common_color_10039, 1);
             }
             return view;
         }
@@ -165,8 +165,8 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        TextView ebo;
-        ImageView ebp;
+        TextView egL;
+        ImageView egM;
         int mIndex;
 
         private b() {

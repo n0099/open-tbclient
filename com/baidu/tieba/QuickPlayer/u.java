@@ -1,15 +1,15 @@
 package com.baidu.tieba.QuickPlayer;
 /* loaded from: classes.dex */
 class u implements Runnable {
-    final /* synthetic */ t aRn;
+    final /* synthetic */ t aRo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.aRn = tVar;
+        this.aRo = tVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        m.Jr();
+        m.Jo();
     }
 }

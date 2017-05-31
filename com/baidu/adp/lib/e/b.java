@@ -22,10 +22,10 @@ public class b<T> {
         this.wd = i;
         this.we = i2;
         this.wf = new LinkedList<>();
-        aj(this.we);
+        ak(this.we);
     }
 
-    private void aj(int i) {
+    private void ak(int i) {
         T t;
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -51,7 +51,7 @@ public class b<T> {
                 } else {
                     t = this.wg.p(this.wg.fL());
                 }
-                aj(this.we - this.wf.size());
+                ak(this.we - this.wf.size());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

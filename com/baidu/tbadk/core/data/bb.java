@@ -1,42 +1,96 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.StringUtils;
-import tbclient.SchoolRecomUserInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RecomTopicInfo;
+import tbclient.RecomTopicList;
 /* loaded from: classes.dex */
 public class bb {
-    private String uid = "";
-    private String uname = "";
-    private String portrait = "";
-    private String institute = "";
-    private int isLike = -1;
+    private String WP;
+    private List<a> WQ = new ArrayList();
 
-    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
-        if (schoolRecomUserInfo != null) {
-            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
-            this.uname = schoolRecomUserInfo.uname;
-            this.portrait = schoolRecomUserInfo.portrait;
-            this.institute = schoolRecomUserInfo.institute;
-            this.isLike = schoolRecomUserInfo.is_liked.intValue();
+    public String qE() {
+        return StringUtils.isNull(this.WP) ? TbadkCoreApplication.m9getInst().getString(w.l.hot_topic_card_title) : this.WP;
+    }
+
+    public com.baidu.tieba.card.data.p qF() {
+        com.baidu.tieba.card.data.p pVar = new com.baidu.tieba.card.data.p();
+        ArrayList arrayList = null;
+        pVar.bDL = qE();
+        if (this.WQ != null) {
+            ArrayList arrayList2 = new ArrayList();
+            for (a aVar : this.WQ) {
+                if (aVar != null) {
+                    arrayList2.add(aVar.qH());
+                }
+            }
+            arrayList = arrayList2;
+        }
+        pVar.bDM = arrayList;
+        return pVar;
+    }
+
+    public void a(RecomTopicInfo recomTopicInfo) {
+        if (recomTopicInfo != null) {
+            this.WP = recomTopicInfo.recom_title;
+            if (com.baidu.tbadk.core.util.x.q(recomTopicInfo.topic_list) > 0) {
+                for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
+                    if (recomTopicList != null) {
+                        a aVar = new a();
+                        aVar.a(recomTopicList);
+                        if (!a(aVar)) {
+                            this.WQ.add(aVar);
+                        }
+                    }
+                }
+            }
         }
     }
 
-    public String getUid() {
-        return this.uid;
+    private boolean a(a aVar) {
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.qG() <= 0;
     }
 
-    public String qM() {
-        return this.uname;
-    }
+    /* loaded from: classes.dex */
+    public static class a {
+        private long WR;
+        private String WS;
+        private long WT;
+        private String WU;
+        private String WV;
+        private int tag;
+        private int type;
 
-    public String getPortrait() {
-        return this.portrait;
-    }
+        public long qG() {
+            return this.WR;
+        }
 
-    public String qN() {
-        return this.institute;
-    }
+        public String getTopicName() {
+            return this.WS;
+        }
 
-    public int getIsLike() {
-        return this.isLike;
+        public void a(RecomTopicList recomTopicList) {
+            if (recomTopicList != null) {
+                this.WR = recomTopicList.topic_id.longValue();
+                this.WS = recomTopicList.topic_name;
+                this.type = recomTopicList.type.intValue();
+                this.WT = recomTopicList.discuss_num.longValue();
+                this.tag = recomTopicList.tag.intValue();
+                this.WU = recomTopicList.topic_desc;
+                this.WV = recomTopicList.topic_pic;
+            }
+        }
+
+        public com.baidu.tieba.card.data.o qH() {
+            com.baidu.tieba.card.data.o oVar = new com.baidu.tieba.card.data.o();
+            oVar.tag = this.tag;
+            oVar.desc = this.WU;
+            oVar.WR = this.WR;
+            oVar.WS = this.WS;
+            return oVar;
+        }
     }
 }

@@ -4,29 +4,29 @@ import com.baidu.tieba.write.album.TbCameraView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements TbCameraView.d {
-    final /* synthetic */ ac fNP;
+    final /* synthetic */ ac fVw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(ac acVar) {
-        this.fNP = acVar;
+        this.fVw = acVar;
     }
 
     @Override // com.baidu.tieba.write.album.TbCameraView.d
-    public void bmH() {
-        this.fNP.lE(false);
+    public void boe() {
+        this.fVw.lX(false);
     }
 
     @Override // com.baidu.tieba.write.album.TbCameraView.d
-    public void blW() {
+    public void bnt() {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
-        albumActivity = this.fNP.fMg;
+        albumActivity = this.fVw.fTN;
         if (albumActivity != null) {
-            albumActivity2 = this.fNP.fMg;
-            albumActivity2.blW();
+            albumActivity2 = this.fVw.fTN;
+            albumActivity2.bnt();
         }
-        this.fNP.bmz();
-        this.fNP.lE(true);
-        this.fNP.bmy();
+        this.fVw.bnW();
+        this.fVw.lX(true);
+        this.fVw.bnV();
     }
 }

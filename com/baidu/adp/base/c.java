@@ -1,7 +1,6 @@
 package com.baidu.adp.base;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements Runnable {
+class c implements Runnable {
     final /* synthetic */ BdBaseFragmentActivity nu;
 
     /* JADX INFO: Access modifiers changed from: package-private */

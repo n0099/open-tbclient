@@ -232,7 +232,7 @@ public class FloatingLayout extends LinearLayout {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
-    /* renamed from: c */
+    /* renamed from: b */
     public a generateLayoutParams(AttributeSet attributeSet) {
         return new a(getContext(), attributeSet);
     }

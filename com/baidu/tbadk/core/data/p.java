@@ -8,35 +8,35 @@ import tbclient.DeclareInfo;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class p implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId Uv = BdUniqueId.gen();
-    private List<q> Uw;
-    private long Ux;
-    private long Uy;
+    public static final BdUniqueId Ui = BdUniqueId.gen();
+    private List<q> Uj;
+    private long Uk;
+    private long Ul;
     private long mForumId;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return Uv;
+        return Ui;
     }
 
     public void a(ThreadInfo threadInfo) {
         if (threadInfo != null) {
-            this.Uy = threadInfo.id.longValue();
+            this.Ul = threadInfo.id.longValue();
             if (threadInfo.author != null) {
-                this.Ux = threadInfo.author.id.longValue();
+                this.Uk = threadInfo.author.id.longValue();
             }
             if (threadInfo.declare_list != null) {
-                this.Uw = new ArrayList();
+                this.Uj = new ArrayList();
                 boolean z = false;
                 for (DeclareInfo declareInfo : threadInfo.declare_list) {
                     if (declareInfo != null) {
                         q qVar = new q();
                         qVar.a(declareInfo);
                         if (z) {
-                            qVar.UE = false;
+                            qVar.Uq = false;
                         }
-                        boolean z2 = qVar.UE || z;
-                        this.Uw.add(qVar);
+                        boolean z2 = qVar.Uq || z;
+                        this.Uj.add(qVar);
                         z = z2;
                     }
                 }
@@ -44,16 +44,16 @@ public class p implements com.baidu.adp.widget.ListView.v {
         }
     }
 
-    public List<q> pI() {
-        return this.Uw;
+    public List<q> pA() {
+        return this.Uj;
     }
 
-    public long pJ() {
-        return this.Ux;
+    public long pB() {
+        return this.Uk;
     }
 
     public long getTid() {
-        return this.Uy;
+        return this.Ul;
     }
 
     public long getForumId() {
@@ -64,21 +64,21 @@ public class p implements com.baidu.adp.widget.ListView.v {
         this.mForumId = j;
     }
 
-    public boolean pK() {
+    public boolean pC() {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
-            return TbadkCoreApplication.getCurrentAccount().equals(String.valueOf(this.Ux));
+            return TbadkCoreApplication.getCurrentAccount().equals(String.valueOf(this.Uk));
         }
         return false;
     }
 
-    public boolean pL() {
-        if (this.Uw == null) {
+    public boolean pD() {
+        if (this.Uj == null) {
             return false;
         }
         boolean z = false;
-        for (q qVar : this.Uw) {
+        for (q qVar : this.Uj) {
             if (qVar != null) {
-                boolean z2 = z || qVar.UE;
+                boolean z2 = z || qVar.Uq;
                 if (z2) {
                     return true;
                 }
@@ -88,18 +88,18 @@ public class p implements com.baidu.adp.widget.ListView.v {
         return false;
     }
 
-    public long bA(int i) {
+    public long bB(int i) {
         long j = 0;
-        if (this.Uw != null) {
-            if (this.Uw.size() <= i) {
-                i = this.Uw.size();
+        if (this.Uj != null) {
+            if (this.Uj.size() <= i) {
+                i = this.Uj.size();
             }
             long j2 = i;
             int i2 = 0;
             while (i2 < j2) {
-                q qVar = this.Uw.get(i2);
+                q qVar = this.Uj.get(i2);
                 i2++;
-                j = qVar != null ? qVar.UD + j : j;
+                j = qVar != null ? qVar.Up + j : j;
             }
         }
         return j;

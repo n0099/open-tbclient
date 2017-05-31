@@ -1,37 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.ResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class et extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ es emb;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public et(es esVar, int i, int i2) {
-        super(i, i2);
-        this.emb = esVar;
+public class et extends dn<com.baidu.tieba.pb.data.i, com.baidu.tieba.pb.pb.a.g> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public et(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        boolean z;
-        BdUniqueId bdUniqueId;
-        if ((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) {
-            z = this.emb.elZ;
-            if (!z) {
-                BdUniqueId tag = responsedMessage.getOrginalMessage().getTag();
-                bdUniqueId = this.emb.mTag;
-                if (tag == bdUniqueId && !responsedMessage.hasError()) {
-                    if (responsedMessage instanceof pbPageSocketResponseMessage) {
-                        this.emb.a((pbPageSocketResponseMessage) responsedMessage);
-                    }
-                    if (responsedMessage instanceof pbPageHttpResponseMessage) {
-                        this.emb.a((pbPageHttpResponseMessage) responsedMessage);
-                    }
-                }
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: aZ */
+    public com.baidu.tieba.pb.pb.a.g onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.pb.pb.a.g(LayoutInflater.from(this.mContext).inflate(w.j.pb_no_data_item_layout, viewGroup, false), this.mContext);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.dn, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.i iVar, com.baidu.tieba.pb.pb.a.g gVar) {
+        super.onFillViewHolder(i, view, viewGroup, iVar, gVar);
+        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
+        this.elf.getLayoutMode().ah(this.mSkinType == 1);
+        this.elf.getLayoutMode().t(view);
+        return view;
     }
 }

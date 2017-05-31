@@ -2,8 +2,10 @@ package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.cache.o;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.person.f;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tieba.person.m;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Anti;
@@ -12,15 +14,17 @@ import tbclient.DynamicInfo;
 import tbclient.Feedback;
 import tbclient.ForumDynamic;
 import tbclient.Highlist;
+import tbclient.ModuleInfo;
 import tbclient.PostInfoList;
 import tbclient.Profile.ProfileResIdl;
 import tbclient.Profile.TAInfo;
+import tbclient.Profile.UserAgreeInfo;
 import tbclient.Profile.UserGodInfo;
 import tbclient.TbBookrack;
 import tbclient.User;
 import tbclient.UserManChannelInfo;
 /* loaded from: classes.dex */
-public class ProfileSocketResponseMessage extends SocketResponsedMessage implements b {
+public class ProfileSocketResponseMessage extends SocketResponsedMessage implements f {
     private static final String PROFILE_CACHE_KEY = "profile_cache_key";
     private Anti anti_stat;
     public TbBookrack bookrack;
@@ -31,12 +35,15 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     private boolean from_db;
     private Highlist highlist;
     private boolean isSelf;
+    private AlaLiveInfoCoreData liveInfoData;
+    private ModuleInfo moduleInfo;
     private int pageNum;
     private List<PostInfoList> post_list;
     private TAInfo taInfo;
     private TAInfo tainfo;
-    public f ucCardData;
+    public m ucCardData;
     private User user;
+    private UserAgreeInfo userAgreeInfo;
     private UserGodInfo userGodInfo;
     private UserManChannelInfo userManChannelInfo;
     public DealWindow window;
@@ -65,20 +72,21 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.error_hint;
     }
 
-    public f getUcCardData() {
+    public m getUcCardData() {
         return this.ucCardData;
     }
 
-    @Override // com.baidu.tieba.person.b
+    @Override // com.baidu.tieba.person.f
     public TbBookrack getBookrackData() {
         return this.bookrack;
     }
 
+    @Override // com.baidu.tieba.person.f
     public UserGodInfo getUserGodInfo() {
         return this.userGodInfo;
     }
 
-    @Override // com.baidu.tieba.person.b
+    @Override // com.baidu.tieba.person.f
     public UserManChannelInfo getUserChannelInfo() {
         return this.userManChannelInfo;
     }
@@ -91,7 +99,12 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return getErrorString();
     }
 
-    @Override // com.baidu.tieba.person.b
+    @Override // com.baidu.tieba.person.f
+    public UserAgreeInfo getUserAgreeInfo() {
+        return this.userAgreeInfo;
+    }
+
+    @Override // com.baidu.tieba.person.f
     public User GetUser() {
         return this.user;
     }
@@ -135,7 +148,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
             this.tainfo = profileResIdl.data.tainfo;
             this.post_list = profileResIdl.data.post_list;
             if (profileResIdl.data.uc_card != null) {
-                this.ucCardData = new f();
+                this.ucCardData = new m();
                 this.ucCardData.a(profileResIdl.data.uc_card);
             }
             this.bookrack = profileResIdl.data.tbbookrack;
@@ -145,6 +158,12 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
             this.concernedForumList = profileResIdl.data.concerned_forum_list;
             this.dynamicInfoList = profileResIdl.data.dynamic_list;
             this.taInfo = profileResIdl.data.tainfo;
+            this.moduleInfo = profileResIdl.data.module_info;
+            if (profileResIdl.data.ala_live_info != null) {
+                this.liveInfoData = new AlaLiveInfoCoreData();
+                this.liveInfoData.parserProtoBuf(profileResIdl.data.ala_live_info);
+            }
+            this.userAgreeInfo = profileResIdl.data.user_agree_info;
         }
     }
 
@@ -153,15 +172,15 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         o<String> M;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.sZ().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<f.a> list = this.ucCardData.exM;
-            list.get(4).timeStamp = 8L;
-            if (list != null) {
-                for (f.a aVar : list) {
+        if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.sY().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<m.a> list = this.ucCardData.eGE;
+            if (x.q(list) > 4) {
+                list.get(4).timeStamp = 8L;
+                for (m.a aVar : list) {
                     if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(M.get(aVar.title), 0L)) {
-                        aVar.exN = true;
+                        aVar.eGF = true;
                     } else {
-                        aVar.exN = false;
+                        aVar.eGF = false;
                     }
                 }
             }
@@ -171,13 +190,23 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<byte[]> L = com.baidu.tbadk.core.c.a.sZ().L("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        o<byte[]> L = com.baidu.tbadk.core.c.a.sY().L("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             L.k(PROFILE_CACHE_KEY, bArr);
         }
     }
 
-    @Override // com.baidu.tieba.person.b
+    @Override // com.baidu.tieba.person.f
+    public ModuleInfo getModuleInfo() {
+        return this.moduleInfo;
+    }
+
+    @Override // com.baidu.tieba.person.f
+    public AlaLiveInfoCoreData getLiveInfo() {
+        return this.liveInfoData;
+    }
+
+    @Override // com.baidu.tieba.person.f
     public int getErrorCode() {
         return getError();
     }
@@ -186,17 +215,17 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.feedBack;
     }
 
-    @Override // com.baidu.tieba.person.b
+    @Override // com.baidu.tieba.person.f
     public List<ForumDynamic> getConcernedForumList() {
         return this.concernedForumList;
     }
 
-    @Override // com.baidu.tieba.person.b
+    @Override // com.baidu.tieba.person.f
     public List<DynamicInfo> getDynamicInfoList() {
         return this.dynamicInfoList;
     }
 
-    @Override // com.baidu.tieba.person.b
+    @Override // com.baidu.tieba.person.f
     public TAInfo getTaInfo() {
         return this.tainfo;
     }

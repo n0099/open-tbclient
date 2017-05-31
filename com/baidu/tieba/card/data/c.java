@@ -5,69 +5,69 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ah;
 import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.card.ap;
+import com.baidu.tieba.card.at;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ah {
-    public String Wl;
-    private String bxa;
-    private int bxb;
-    private String bxc;
-    private String bxd;
+    public String Wg;
+    private String bCX;
+    private int bCY;
+    private String bCZ;
+    private String bDa;
     private String mSource;
-    public int bxe = 0;
-    public SparseArray<String> Wm = null;
+    public int bDb = 0;
+    public SparseArray<String> Wh = null;
 
     public void setWeight(String str) {
-        this.bxa = str;
+        this.bCX = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void gN(int i) {
-        this.bxb = i;
+    public void hl(int i) {
+        this.bCY = i;
     }
 
-    public void ic(String str) {
-        this.bxc = str;
+    public void ig(String str) {
+        this.bCZ = str;
     }
 
-    public int Tq() {
-        return this.bxb;
+    public int UB() {
+        return this.bCY;
     }
 
-    public String Tr() {
-        return String.valueOf(this.mSource) + "#" + this.bxb + "#" + this.bxc;
+    public String UC() {
+        return String.valueOf(this.mSource) + "#" + this.bCY + "#" + this.bCZ;
     }
 
     public String getWeight() {
-        return this.bxa;
+        return this.bCX;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String Ts() {
-        return this.bxc;
+    public String UD() {
+        return this.bCZ;
     }
 
-    public String Tt() {
-        return this.bxd;
+    public String UE() {
+        return this.bDa;
     }
 
-    public void id(String str) {
-        this.bxd = str;
+    public void ih(String str) {
+        this.bDa = str;
     }
 
-    public bk JB() {
+    public bl LH() {
         return null;
     }
 
@@ -75,49 +75,49 @@ public abstract class c extends b implements ah {
         return true;
     }
 
-    public as ie(String str) {
-        return A(str, false);
+    public as ht(String str) {
+        return x(str, false);
     }
 
-    public as A(String str, boolean z) {
-        bk JB = JB();
-        if (JB == null) {
+    public as x(String str, boolean z) {
+        bl LH = LH();
+        if (LH == null) {
             return null;
         }
-        as aa = new as(str).aa("fid", String.valueOf(JB.getFid())).aa("tid", String.valueOf(JB.getTid())).s("obj_id", r(JB)).aa("obj_param1", getWeight()).s("obj_param2", 1).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", Tq()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", ap.Th());
+        as Z = new as(str).Z("fid", String.valueOf(LH.getFid())).Z("tid", String.valueOf(LH.getTid())).r("obj_id", v(LH)).Z("obj_param1", getWeight()).r("obj_param2", 1).Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", UB()).Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).Z("obj_param3", at.Up());
         if (!z) {
-            aa.s("obj_type", Tu());
-            return aa;
+            Z.r("obj_type", UF());
+            return Z;
         }
-        aa.aa("ab_tag", Ts());
-        return aa;
+        Z.Z("ab_tag", UD());
+        return Z;
     }
 
     public as I(String str, int i) {
-        bk JB = JB();
-        if (JB == null) {
+        bl LH = LH();
+        if (LH == null) {
             return null;
         }
-        as aa = new as(str).aa("fid", String.valueOf(JB.getFid())).aa("tid", String.valueOf(JB.getTid())).s("obj_id", r(JB)).s("obj_param2", 1).aa("obj_param1", getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", Tq()).aa("obj_name", Ts()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", ap.Th());
+        as Z = new as(str).Z("fid", String.valueOf(LH.getFid())).Z("tid", String.valueOf(LH.getTid())).r("obj_id", v(LH)).r("obj_param2", 1).Z("obj_param1", getWeight()).Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", UB()).Z("obj_name", UD()).Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).Z("obj_param3", at.Up());
         if (i == 0) {
-            aa.s("obj_type", Tu());
-            return aa;
+            Z.r("obj_type", UF());
+            return Z;
         }
-        aa.s("obj_type", i);
-        return aa;
+        Z.r("obj_type", i);
+        return Z;
     }
 
-    private int Tu() {
+    private int UF() {
         int i;
-        bk JB = JB();
-        if (JB == null) {
+        bl LH = LH();
+        if (LH == null) {
             return 0;
         }
-        ArrayList<MediaData> rI = JB.rI();
-        if (rI == null) {
+        ArrayList<MediaData> rE = LH.rE();
+        if (rE == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = rI.iterator();
+            Iterator<MediaData> it = rE.iterator();
             i = 0;
             while (it.hasNext()) {
                 MediaData next = it.next();
@@ -131,17 +131,17 @@ public abstract class c extends b implements ah {
 
     @Override // com.baidu.tbadk.core.util.ah
     public ArrayList<PreLoadImageInfo> getImages() {
-        bk JB = JB();
-        if (JB != null) {
-            return JB.getImages();
+        bl LH = LH();
+        if (LH != null) {
+            return LH.getImages();
         }
         return null;
     }
 
-    private int r(bk bkVar) {
-        if (bkVar.sC() == null || bkVar.sC().channelId <= 0) {
+    private int v(bl blVar) {
+        if (blVar.sx() == null || blVar.sx().channelId <= 0) {
             return 0;
         }
-        return (int) bkVar.sC().channelId;
+        return (int) blVar.sx().channelId;
     }
 }

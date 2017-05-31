@@ -49,15 +49,15 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
     private v mMemberShowIconData;
     private PostTopicData mPostTopicData;
     private final PostPrefixData mPrefixData;
-    private ay mRealTimeData;
+    private az mRealTimeData;
     private ArrayList<RecommendForumData> mRecommendForumData;
-    private bq news_info;
+    private br news_info;
     private String slogan;
     private String tag_color;
     private String tag_id;
-    private bn top_code;
-    private bo top_notice_data;
-    private bt yuleData;
+    private bo top_code;
+    private bp top_notice_data;
+    private bu yuleData;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -82,18 +82,18 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new bo();
+        this.top_notice_data = new bp();
         this.mBadgeData = new ArrayList<>();
         this.mFrsBannerData = new x();
         this.mBannerListData = new BannerListData();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
         this.mPostTopicData = new PostTopicData();
-        this.top_code = new bn();
-        this.news_info = new bq();
+        this.top_code = new bo();
+        this.news_info = new br();
         this.canAddPhotoLivePost = false;
         this.mMemberShowIconData = new v();
-        this.yuleData = new bt();
+        this.yuleData = new bu();
         this.mIsLiveGameForum = 0;
     }
 
@@ -244,12 +244,12 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
         this.mSignData = signData;
     }
 
-    public bo getTop_notice_data() {
+    public bp getTop_notice_data() {
         return this.top_notice_data;
     }
 
-    public void setTop_notice_data(bo boVar) {
-        this.top_notice_data = boVar;
+    public void setTop_notice_data(bp bpVar) {
+        this.top_notice_data = bpVar;
     }
 
     public void setManagers(ArrayList<String> arrayList) {
@@ -296,12 +296,12 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
         return this.accelerate_cotent;
     }
 
-    public ay getRealTimeData() {
+    public az getRealTimeData() {
         return this.mRealTimeData;
     }
 
-    public void setRealTimeData(ay ayVar) {
-        this.mRealTimeData = ayVar;
+    public void setRealTimeData(az azVar) {
+        this.mRealTimeData = azVar;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0056: IGET  (r4v12 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.tag_id java.lang.Integer)] */
@@ -412,7 +412,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
                 this.news_info.a(forumInfo.news_info);
                 RealTime realTime = forumInfo.realtime_data;
                 if (realTime != null) {
-                    this.mRealTimeData = new ay();
+                    this.mRealTimeData = new az();
                     this.mRealTimeData.a(realTime);
                 }
                 this.mAcrossForumIcon = forumInfo.across_forum_show;
@@ -645,19 +645,19 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
         return this.mPostTopicData;
     }
 
-    public void setTopCode(bn bnVar) {
-        this.top_code = bnVar;
+    public void setTopCode(bo boVar) {
+        this.top_code = boVar;
     }
 
-    public void setNewsInfo(bq bqVar) {
-        this.news_info = bqVar;
+    public void setNewsInfo(br brVar) {
+        this.news_info = brVar;
     }
 
-    public bn getTopCode() {
+    public bo getTopCode() {
         return this.top_code;
     }
 
-    public bq getNewsInfo() {
+    public br getNewsInfo() {
         return this.news_info;
     }
 
@@ -665,12 +665,12 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
         return this.mMemberShowIconData;
     }
 
-    public bt getYuleData() {
+    public bu getYuleData() {
         return this.yuleData;
     }
 
-    public void setYuleData(bt btVar) {
-        this.yuleData = btVar;
+    public void setYuleData(bu buVar) {
+        this.yuleData = buVar;
     }
 
     public boolean isGameForumType() {

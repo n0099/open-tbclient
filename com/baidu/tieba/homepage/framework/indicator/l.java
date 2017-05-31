@@ -3,28 +3,28 @@ package com.baidu.tieba.homepage.framework.indicator;
 import com.baidu.tieba.homepage.framework.v;
 /* loaded from: classes.dex */
 public class l {
-    private int cub = -1;
-    private boolean cuc = false;
-    private boolean cud = false;
+    private int cAt = -1;
+    private boolean cAu = false;
+    private boolean cAv = false;
 
     public void a(v vVar) {
-        this.cuc = true;
-        if (this.cub != -1 && this.cud) {
-            vVar.jF(this.cub);
+        this.cAu = true;
+        if (this.cAt != -1 && this.cAv) {
+            vVar.ke(this.cAt);
         }
     }
 
     public void a(int i, v vVar) {
-        this.cub = i;
-        if (this.cuc && this.cud) {
-            vVar.jF(this.cub);
+        this.cAt = i;
+        if (this.cAu && this.cAv) {
+            vVar.ke(this.cAt);
         }
     }
 
     public void b(v vVar) {
-        this.cud = true;
-        if (this.cub != -1 && this.cuc) {
-            vVar.jF(this.cub);
+        this.cAv = true;
+        if (this.cAt != -1 && this.cAu) {
+            vVar.ke(this.cAt);
         }
     }
 }

@@ -1,16 +1,13 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-class c implements CustomMessageTask.CustomRunnable<PersonInfoActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<PersonInfoActivityConfig> run(CustomMessage<PersonInfoActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            PersonInfoActivityStatic.a(customMessage.getData());
-        }
-        return null;
+public class c extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId eGq = BdUniqueId.gen();
+    public long eGr;
+
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return eGq;
     }
 }

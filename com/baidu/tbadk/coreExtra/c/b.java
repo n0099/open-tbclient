@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        eo(str2);
+                        em(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        eo(str2);
+                        em(str2);
                     }
                 }
             }
@@ -68,47 +68,47 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zm() {
+    public void zf() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String zn() {
+    public String zg() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void eo(String str) {
-        String zn = zn();
-        if (!TextUtils.equals(zn, str) || !isFileExist(zn)) {
-            ah(str, zn);
+    public void em(String str) {
+        String zg = zg();
+        if (!TextUtils.equals(zg, str) || !isFileExist(zg)) {
+            ag(str, zg);
         }
     }
 
     private boolean isFileExist(String str) {
-        File cV = l.cV(aw.dB(str));
-        return cV != null && cV.exists() && cV.isFile();
+        File cS = l.cS(aw.dy(str));
+        return cS != null && cS.exists() && cS.isFile();
     }
 
-    private void ah(String str, String str2) {
+    private void ag(String str, String str2) {
         if (i.hl()) {
-            new a(str, aw.dB(str), str2).execute(new String[0]);
+            new a(str, aw.dy(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String acK;
-        private final String aqD;
-        private final String aqE;
+        private final String aqn;
+        private final String aqo;
+        private final String mFile;
         private z mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.aqD = str;
-            this.acK = str2;
-            this.aqE = str3;
+            this.aqn = str;
+            this.mFile = str2;
+            this.aqo = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,14 +117,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new z(this.aqD);
-                bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.acK) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.mNetWork = new z(this.aqn);
+                bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.mFile) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(l.i(null, String.valueOf(this.acK) + ".tmp", null, this.acK)) && !TextUtils.isEmpty(this.aqD) && !this.aqD.equals(this.aqE)) {
-                        l.dd(aw.dB(this.aqE));
+                    if (!StringUtils.isNull(l.i(null, String.valueOf(this.mFile) + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.aqn) && !this.aqn.equals(this.aqo)) {
+                        l.da(aw.dy(this.aqo));
                     }
                 } else {
-                    l.dd(String.valueOf(this.acK) + ".tmp");
+                    l.da(String.valueOf(this.mFile) + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -137,7 +137,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().zm();
+                new b().zf();
             }
         }
     }

@@ -1,15 +1,16 @@
 package com.baidu.tieba;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements Runnable {
-    final /* synthetic */ LogoActivity aQB;
+public class p implements Runnable {
+    final /* synthetic */ LogoActivity aQD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(LogoActivity logoActivity) {
-        this.aQB = logoActivity;
+        this.aQD = logoActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.aQB.Ji();
+        this.aQD.Jg();
     }
 }

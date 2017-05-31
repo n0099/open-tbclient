@@ -1,31 +1,31 @@
 package com.baidu.tbadk.data;
-
-import tbclient.Pendant;
 /* loaded from: classes.dex */
 public class i {
-    private long axT;
-    private String imgUrl;
+    private int activityId;
+    private String activityNum;
+    private int axE;
 
-    public long BT() {
-        return this.axT;
+    public int getActivityId() {
+        return this.activityId;
     }
 
-    public void O(long j) {
-        this.axT = j;
+    public void setActivityId(int i) {
+        this.activityId = i;
     }
 
-    public String pT() {
-        return this.imgUrl;
+    public int BL() {
+        return this.axE;
     }
 
-    public void cr(String str) {
-        this.imgUrl = str;
+    public void eo(int i) {
+        this.axE = i;
     }
 
-    public void a(Pendant pendant) {
-        if (pendant != null) {
-            this.axT = pendant.props_id.longValue();
-            this.imgUrl = pendant.img_url;
-        }
+    public String BM() {
+        return this.activityNum;
+    }
+
+    public void eR(String str) {
+        this.activityNum = str;
     }
 }

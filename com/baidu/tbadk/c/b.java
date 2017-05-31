@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> Qy = null;
-    protected static boolean QA = false;
-    protected String Qv = "183322726";
-    protected boolean Qz = true;
-    protected transient List<String> Qw = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> Ql = null;
+    protected static boolean Qn = false;
+    protected String Qi = "183322726";
+    protected boolean Qm = true;
+    protected transient List<String> Qj = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -27,28 +27,28 @@ public abstract class b {
     public abstract void a(TbPageContext tbPageContext, String str, String str2, String str3);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aW(int i);
+    public abstract void aX(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void nK();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void nQ();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void nR();
+
+    /* JADX INFO: Access modifiers changed from: protected */
     public abstract void nS();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nY();
+    public abstract void nT();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nZ();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void oa();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void ob();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void oc();
+    public abstract void nU();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static b b(BaseFragmentActivity baseFragmentActivity) {
@@ -70,33 +70,33 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (Qy == null) {
-            Qy = new WeakReference<>(tbPageContext);
+        if (Ql == null) {
+            Ql = new WeakReference<>(tbPageContext);
             return;
         }
-        Qy.clear();
-        Qy = null;
-        Qy = new WeakReference<>(tbPageContext);
+        Ql.clear();
+        Ql = null;
+        Ql = new WeakReference<>(tbPageContext);
     }
 
-    public boolean nX() {
-        return QA;
+    public boolean nP() {
+        return Qn;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ae(boolean z) {
-        this.Qz = z;
+    public void ad(boolean z) {
+        this.Qm = z;
     }
 
-    public boolean nR() {
-        return this.Qz;
+    public boolean nJ() {
+        return this.Qm;
     }
 
-    public void nT() {
-        if (Qy != null) {
-            Qy.get();
-            Qy.clear();
-            Qy = null;
+    public void nL() {
+        if (Ql != null) {
+            Ql.get();
+            Ql.clear();
+            Ql = null;
         }
     }
 }

@@ -16,29 +16,29 @@ import com.baidu.tieba.homepage.personalize.data.RecPersonalizeSocketResponse;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
-    private boolean bWy;
-    private a cwE;
+    private a cCW;
+    private boolean ccx;
     private com.baidu.adp.framework.listener.a mNetMessageListener;
 
     /* loaded from: classes.dex */
     public interface a {
         void b(DataRes dataRes, boolean z, boolean z2);
 
-        void z(int i, String str);
+        void s(int i, String str);
     }
 
     public RecPersonalizePageModel(com.baidu.adp.base.g<BaseFragmentActivity> gVar, BdUniqueId bdUniqueId) {
         super(gVar);
-        this.bWy = false;
+        this.ccx = false;
         this.mNetMessageListener = new g(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
         setUniqueId(bdUniqueId);
-        Rx();
-        UH();
+        RJ();
+        TH();
         registerListener(this.mNetMessageListener);
     }
 
     public void a(a aVar) {
-        this.cwE = aVar;
+        this.cCW = aVar;
     }
 
     public void d(int i, int i2, int i3, int i4, int i5) {
@@ -64,15 +64,15 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void UH() {
+    private void TH() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309264);
         bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
         bVar.m(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void Rx() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, com.baidu.tieba.tbadkCore.a.a.ax(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+    private void RJ() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, com.baidu.tieba.tbadkCore.a.a.aw(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -80,30 +80,30 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(ResponsedMessage<?> responsedMessage) {
-        if (!this.bWy) {
-            this.bWy = true;
+        if (!this.ccx) {
+            this.ccx = true;
             a(1, false, responsedMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(ResponsedMessage<?> responsedMessage) {
-        if (!this.bWy) {
-            this.bWy = true;
+        if (!this.ccx) {
+            this.ccx = true;
             a(1, true, responsedMessage);
         }
     }
 
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
-        if (aa.FK().FL() && com.baidu.tieba.homepage.framework.a.ahb().getCreateTime() > 0) {
-            long jC = com.baidu.tieba.homepage.framework.a.ahb().jC(1);
-            long createTime = com.baidu.tieba.homepage.framework.a.ahb().getCreateTime();
-            n nVar = new n(1005, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.ahb().jB(1), false, jC + createTime);
+        if (aa.FE().FF() && com.baidu.tieba.homepage.framework.a.aiq().getCreateTime() > 0) {
+            long kb = com.baidu.tieba.homepage.framework.a.aiq().kb(1);
+            long createTime = com.baidu.tieba.homepage.framework.a.aiq().getCreateTime();
+            n nVar = new n(1005, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.aiq().ka(1), false, kb + createTime);
             if (nVar != null) {
                 nVar.pageType = i;
-                nVar.FF();
+                nVar.Fz();
             }
-            com.baidu.tieba.homepage.framework.a.ahb().setCreateTime(0L);
+            com.baidu.tieba.homepage.framework.a.aiq().setCreateTime(0L);
         }
     }
 }

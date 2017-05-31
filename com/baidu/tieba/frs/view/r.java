@@ -2,44 +2,33 @@ package com.baidu.tieba.frs.view;
 
 import android.view.View;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.w;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.frs.view.q;
-import com.baidu.tieba.w;
+import com.baidu.tieba.frs.view.p;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ q cdQ;
+public class r implements View.OnLongClickListener {
+    final /* synthetic */ p cke;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(q qVar) {
-        this.cdQ = qVar;
+    public r(p pVar) {
+        this.cke = pVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        w wVar;
-        q.a aVar;
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        y yVar;
         List list;
-        w wVar2;
-        view.setPressed(false);
-        wVar = this.cdQ.cdL;
-        if (wVar != null && (view.getTag() instanceof q.a) && (aVar = (q.a) view.getTag()) != null) {
-            list = this.cdQ.aWb;
-            bk bkVar = (bk) x.c(list, aVar.position);
-            if (bkVar != null) {
-                com.baidu.tieba.tbadkCore.util.r readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory();
-                if (readThreadHistory != null) {
-                    readThreadHistory.qh(bkVar.getId());
-                    aq.i(aVar.cdT, w.e.cp_cont_c);
-                }
-                wVar2 = this.cdQ.cdL;
-                wVar2.a(view, bkVar, BdUniqueId.gen(), null, aVar.position, 0L);
-            }
+        y yVar2;
+        yVar = this.cke.ckc;
+        if (yVar == null || !(view.getTag() instanceof p.a)) {
+            return false;
         }
+        p.a aVar = (p.a) view.getTag();
+        list = this.cke.aTD;
+        yVar2 = this.cke.ckc;
+        return yVar2.b(view, (bl) x.c(list, aVar.position), BdUniqueId.gen(), null, aVar.position, 0L);
     }
 }

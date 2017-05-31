@@ -11,16 +11,16 @@ import com.baidu.tieba.w;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ac {
-    public static final void ap(Context context, String str) {
+    public static final void ao(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.k.showToast(context, w.l.download_error);
             return;
         }
-        File cV = com.baidu.tbadk.core.util.l.cV(String.valueOf(str.replace(".", "_")) + ".apk");
-        if (cV != null) {
+        File cS = com.baidu.tbadk.core.util.l.cS(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (cS != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(cV, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(cS, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -30,7 +30,7 @@ public class ac {
         return context.getPackageManager().getApplicationInfo(str, 8192) != null;
     }
 
-    public static boolean w(Activity activity) {
+    public static boolean y(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }

@@ -4,17 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ h eEy;
-    private final /* synthetic */ com.baidu.tieba.personPolymeric.c.f eEz;
+    final /* synthetic */ h eNn;
+    private final /* synthetic */ com.baidu.tieba.personPolymeric.c.g eNo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar, com.baidu.tieba.personPolymeric.c.f fVar) {
-        this.eEy = hVar;
-        this.eEz = fVar;
+    public i(h hVar, com.baidu.tieba.personPolymeric.c.g gVar) {
+        this.eNn = hVar;
+        this.eNo = gVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.eEy.b(this.eEz);
+        this.eNn.b(this.eNo);
     }
 }

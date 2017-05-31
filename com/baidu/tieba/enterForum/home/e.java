@@ -19,68 +19,68 @@ import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class e extends BaseFragment {
-    private i bGE;
-    private NoNetworkView bGF;
-    private PluginErrorTipView bGG;
-    private RelativeLayout bGH;
-    private ImageView bGI;
-    private ObservedChangeLinearLayout bGJ;
-    final CustomMessageListener bGK = new f(this, CmdConfigCustom.CMD_SYNC_FINISH);
+    private i bMt;
+    private PluginErrorTipView bMu;
+    private RelativeLayout bMv;
+    private ImageView bMw;
+    private ObservedChangeLinearLayout bMx;
+    final CustomMessageListener bMy = new f(this, CmdConfigCustom.CMD_SYNC_FINISH);
+    private NoNetworkView byr;
     private NavigationBar mNavigationBar;
 
-    public ObservedChangeLinearLayout We() {
-        return this.bGJ;
+    public ObservedChangeLinearLayout Xh() {
+        return this.bMx;
     }
 
     private void Z(View view) {
-        this.bGH = (RelativeLayout) view.findViewById(w.h.enter_root_layout);
+        this.bMv = (RelativeLayout) view.findViewById(w.h.enter_root_layout);
         aa(view);
-        this.bGF = (NoNetworkView) view.findViewById(w.h.view_no_network);
-        this.bGG = (PluginErrorTipView) view.findViewById(w.h.view_plugin_error_tip);
-        this.bGJ = (ObservedChangeLinearLayout) view.findViewById(w.h.tab_layout);
-        this.bGE = new i(this);
-        this.bGF.a(new g(this));
-        this.bGH.addView(this.bGE.getView(), 0);
+        this.byr = (NoNetworkView) view.findViewById(w.h.view_no_network);
+        this.bMu = (PluginErrorTipView) view.findViewById(w.h.view_plugin_error_tip);
+        this.bMx = (ObservedChangeLinearLayout) view.findViewById(w.h.tab_layout);
+        this.bMt = new i(this);
+        this.byr.a(new g(this));
+        this.bMv.addView(this.bMt.getView(), 0);
     }
 
     private void aa(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(w.h.enter_forum_navigation_bar);
         aq.k(this.mNavigationBar, w.e.cp_bg_line_d);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(w.l.enter_forum));
-        this.bGI = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.widget_nb_item_signall, new h(this));
+        this.bMw = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.widget_nb_item_signall, new h(this));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, com.baidu.adp.lib.util.k.g(getPageContext().getPageActivity(), w.f.ds28), 0);
-        this.bGI.setLayoutParams(layoutParams);
+        this.bMw.setLayoutParams(layoutParams);
     }
 
-    public void Wf() {
-        Wh();
-        if (this.bGE != null) {
-            this.bGE.NA();
-            if (this.bGE.Wr()) {
-                this.bGE.Wq();
+    public void Xi() {
+        Xk();
+        if (this.bMt != null) {
+            this.bMt.NJ();
+            if (this.bMt.Xu()) {
+                this.bMt.Xt();
             }
         }
     }
 
-    public boolean Wg() {
-        if (this.bGE != null) {
-            return this.bGE.Wr();
+    public boolean Xj() {
+        if (this.bMt != null) {
+            return this.bMt.Xu();
         }
         return false;
     }
 
-    private void Wh() {
-        if (this.bGE != null) {
-            this.bGE.du(true);
+    private void Xk() {
+        if (this.bMt != null) {
+            this.bMt.dL(true);
         }
     }
 
-    public void Wi() {
-        if (!Wg()) {
-            aq.b(this.bGI, w.g.icon_sign_bg_s, w.g.icon_sign_bg);
+    public void Xl() {
+        if (!Xj()) {
+            aq.b(this.bMw, w.g.icon_sign_bg_s, w.g.icon_sign_bg);
         } else {
-            aq.b(this.bGI, w.g.icon_sign_s, w.g.icon_sign_s);
+            aq.b(this.bMw, w.g.icon_sign_s, w.g.icon_sign_s);
         }
     }
 
@@ -88,9 +88,9 @@ public class e extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            Wf();
-            if (this.bGE != null) {
-                refreshImage(this.bGE.getView());
+            Xi();
+            if (this.bMt != null) {
+                refreshImage(this.bMt.getView());
             }
         }
     }
@@ -98,21 +98,21 @@ public class e extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        aq.k(this.bGH, w.e.cp_bg_line_d);
-        if (this.bGE != null) {
-            this.bGE.onChangeSkinType(i);
+        aq.k(this.bMv, w.e.cp_bg_line_d);
+        if (this.bMt != null) {
+            this.bMt.onChangeSkinType(i);
         }
-        if (this.bGF != null) {
-            this.bGF.onChangeSkinType(getPageContext(), i);
+        if (this.byr != null) {
+            this.byr.onChangeSkinType(getPageContext(), i);
         }
-        if (this.bGG != null) {
-            this.bGG.onChangeSkinType(getPageContext(), i);
+        if (this.bMu != null) {
+            this.bMu.onChangeSkinType(getPageContext(), i);
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             aq.k(this.mNavigationBar, w.e.cp_bg_line_d);
         }
-        Wi();
+        Xl();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -126,14 +126,14 @@ public class e extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bGK.setPriority(101);
-        registerListener(this.bGK);
+        this.bMy.setPriority(101);
+        registerListener(this.bMy);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.bGE != null) {
-            this.bGE.onDestroy();
+        if (this.bMt != null) {
+            this.bMt.onDestroy();
         }
         super.onDestroy();
     }
@@ -141,21 +141,21 @@ public class e extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.bGE != null) {
-            this.bGE.onPause();
+        if (this.bMt != null) {
+            this.bMt.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.bGF != null && this.bGF.getVisibility() == 0 && com.baidu.adp.lib.util.i.hk()) {
-            this.bGF.aK(false);
+        if (this.byr != null && this.byr.getVisibility() == 0 && com.baidu.adp.lib.util.i.hk()) {
+            this.byr.aJ(false);
         }
     }
 
-    public RelativeLayout Wj() {
-        return this.bGH;
+    public RelativeLayout Xm() {
+        return this.bMv;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a

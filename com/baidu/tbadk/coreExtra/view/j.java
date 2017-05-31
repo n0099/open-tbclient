@@ -24,30 +24,30 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class j {
-    private TbPageContext<?> aat;
-    private View atF = null;
-    private Dialog atG = null;
-    private EditText atH = null;
-    private RadioGroup atI = null;
-    private RadioGroup atJ = null;
-    private CompoundButton.OnCheckedChangeListener atK = null;
-    private RadioButton atL = null;
-    private RadioButton atM = null;
-    private RadioButton atN = null;
-    private TextView atO = null;
-    private c atP = null;
-    private b atQ = null;
-    private TextView atR = null;
-    private TextView atS = null;
-    private ProgressBar atT = null;
-    private TextView atU = null;
-    private String atV = null;
-    private AccountData atW = null;
-    private a atX = null;
-    private a atY = null;
-    private Drawable atZ;
-    private Drawable aua;
+    private TbPageContext<?> aas;
+    private Drawable atJ;
+    private Drawable atK;
     private int size;
+    private View atp = null;
+    private Dialog atq = null;
+    private EditText atr = null;
+    private RadioGroup ats = null;
+    private RadioGroup att = null;
+    private CompoundButton.OnCheckedChangeListener atu = null;
+    private RadioButton atv = null;
+    private RadioButton atw = null;
+    private RadioButton atx = null;
+    private TextView aty = null;
+    private c atz = null;
+    private b atA = null;
+    private TextView atB = null;
+    private TextView atC = null;
+    private ProgressBar atD = null;
+    private TextView atE = null;
+    private String atF = null;
+    private AccountData atG = null;
+    private a atH = null;
+    private a atI = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -55,183 +55,183 @@ public class j {
     }
 
     public j(TbPageContext<?> tbPageContext) {
-        this.aat = null;
-        this.atZ = null;
-        this.aua = null;
+        this.aas = null;
+        this.atJ = null;
+        this.atK = null;
         this.size = 0;
-        this.aat = tbPageContext;
-        this.atZ = aq.getDrawable(w.g.icon_tips_names_s);
-        this.aua = aq.getDrawable(w.g.icon_tips_names_n);
-        this.size = this.aat.getResources().getDimensionPixelSize(w.f.ds26);
-        this.atZ.setBounds(0, 0, this.size, this.size);
-        this.aua.setBounds(0, 0, this.size, this.size);
+        this.aas = tbPageContext;
+        this.atJ = aq.getDrawable(w.g.icon_tips_names_s);
+        this.atK = aq.getDrawable(w.g.icon_tips_names_n);
+        this.size = this.aas.getResources().getDimensionPixelSize(w.f.ds26);
+        this.atJ.setBounds(0, 0, this.size, this.size);
+        this.atK.setBounds(0, 0, this.size, this.size);
     }
 
     public void i(AccountData accountData) {
-        this.atW = accountData;
+        this.atG = accountData;
     }
 
     public void a(a aVar) {
-        this.atX = aVar;
+        this.atH = aVar;
     }
 
     public void b(a aVar) {
-        this.atY = aVar;
+        this.atI = aVar;
     }
 
-    public void AC() {
-        if (this.atG == null) {
-            this.atF = LayoutInflater.from(this.aat.getPageActivity()).inflate(w.j.main_input_username, (ViewGroup) null);
-            this.atH = (EditText) this.atF.findViewById(w.h.account);
-            this.atH.setHint(this.aat.getString(w.l.input_alias_limit_length_tip));
-            this.atO = (TextView) this.atF.findViewById(w.h.back);
-            this.atO.setOnClickListener(new k(this));
-            this.atS = (TextView) this.atF.findViewById(w.h.confirm);
-            this.atS.setOnClickListener(new l(this));
-            this.atT = (ProgressBar) this.atF.findViewById(w.h.confirm_progress);
-            this.atR = (TextView) this.atF.findViewById(w.h.error_info);
-            this.atI = (RadioGroup) this.atF.findViewById(w.h.names_group1);
-            this.atJ = (RadioGroup) this.atF.findViewById(w.h.names_group2);
-            this.atL = (RadioButton) this.atF.findViewById(w.h.name1);
-            this.atM = (RadioButton) this.atF.findViewById(w.h.name2);
-            this.atN = (RadioButton) this.atF.findViewById(w.h.name3);
-            this.atK = new m(this);
-            this.atL.setOnCheckedChangeListener(this.atK);
-            this.atM.setOnCheckedChangeListener(this.atK);
-            this.atN.setOnCheckedChangeListener(this.atK);
-            this.atU = (TextView) this.atF.findViewById(w.h.phone_info);
-            AF();
-            this.atG = new Dialog(this.aat.getPageActivity(), w.m.input_username_dialog);
-            this.atG.setCanceledOnTouchOutside(false);
-            this.atG.setCancelable(false);
-            this.atG.setCanceledOnTouchOutside(false);
+    public void Av() {
+        if (this.atq == null) {
+            this.atp = LayoutInflater.from(this.aas.getPageActivity()).inflate(w.j.main_input_username, (ViewGroup) null);
+            this.atr = (EditText) this.atp.findViewById(w.h.account);
+            this.atr.setHint(this.aas.getString(w.l.input_alias_limit_length_tip));
+            this.aty = (TextView) this.atp.findViewById(w.h.back);
+            this.aty.setOnClickListener(new k(this));
+            this.atC = (TextView) this.atp.findViewById(w.h.confirm);
+            this.atC.setOnClickListener(new l(this));
+            this.atD = (ProgressBar) this.atp.findViewById(w.h.confirm_progress);
+            this.atB = (TextView) this.atp.findViewById(w.h.error_info);
+            this.ats = (RadioGroup) this.atp.findViewById(w.h.names_group1);
+            this.att = (RadioGroup) this.atp.findViewById(w.h.names_group2);
+            this.atv = (RadioButton) this.atp.findViewById(w.h.name1);
+            this.atw = (RadioButton) this.atp.findViewById(w.h.name2);
+            this.atx = (RadioButton) this.atp.findViewById(w.h.name3);
+            this.atu = new m(this);
+            this.atv.setOnCheckedChangeListener(this.atu);
+            this.atw.setOnCheckedChangeListener(this.atu);
+            this.atx.setOnCheckedChangeListener(this.atu);
+            this.atE = (TextView) this.atp.findViewById(w.h.phone_info);
             Ay();
+            this.atq = new Dialog(this.aas.getPageActivity(), w.m.input_username_dialog);
+            this.atq.setCanceledOnTouchOutside(false);
+            this.atq.setCancelable(false);
+            this.atq.setCanceledOnTouchOutside(false);
+            Ar();
         }
-        if (!this.atG.isShowing()) {
-            this.atH.setText((CharSequence) null);
-            AF();
-            eG(null);
-            if (this.atV == null || this.atV.length() <= 0) {
-                this.atU.setText("Hi," + this.aat.getString(w.l.bar_friend));
+        if (!this.atq.isShowing()) {
+            this.atr.setText((CharSequence) null);
+            Ay();
+            eE(null);
+            if (this.atF == null || this.atF.length() <= 0) {
+                this.atE.setText("Hi," + this.aas.getString(w.l.bar_friend));
             } else {
-                this.atU.setText("Hi," + this.atV);
+                this.atE.setText("Hi," + this.atF);
             }
-            if (!this.aat.getPageActivity().isFinishing()) {
-                this.atG.setContentView(this.atF);
-                com.baidu.adp.lib.g.j.a(this.atG, this.aat);
-                if (this.aat.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) this.aat.getOrignalPage()).ShowSoftKeyPadDelay(this.atH, BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
+            if (!this.aas.getPageActivity().isFinishing()) {
+                this.atq.setContentView(this.atp);
+                com.baidu.adp.lib.g.j.a(this.atq, this.aas);
+                if (this.aas.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) this.aas.getOrignalPage()).ShowSoftKeyPadDelay(this.atr, BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
                 }
             }
         }
     }
 
-    public void AD() {
-        String editable = this.atH.getText().toString();
+    public void Aw() {
+        String editable = this.atr.getText().toString();
         if (editable == null || editable.length() <= 0) {
-            eG(this.aat.getString(w.l.input_name));
+            eE(this.aas.getString(w.l.input_name));
         } else if (UtilHelper.getFixedTextSize(editable) > 14) {
-            eG(this.aat.getString(w.l.input_alias_limit_length_tip));
+            eE(this.aas.getString(w.l.input_alias_limit_length_tip));
         } else {
-            if (this.atQ != null) {
-                this.atQ.cancel();
+            if (this.atA != null) {
+                this.atA.cancel();
             }
-            if (this.atP == null) {
-                this.atP = new c(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.INPUT_USERNAME_ADDRESS, editable);
-                this.atP.setPriority(3);
-                this.atP.execute(new String[0]);
+            if (this.atz == null) {
+                this.atz = new c(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.INPUT_USERNAME_ADDRESS, editable);
+                this.atz.setPriority(3);
+                this.atz.execute(new String[0]);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AE() {
-        if (this.atY != null) {
-            this.atY.j(null);
+    public void Ax() {
+        if (this.atI != null) {
+            this.atI.j(null);
         }
     }
 
     public void n(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() <= 0) {
-            eG(this.aat.getString(w.l.suggest_no_name));
+            eE(this.aas.getString(w.l.suggest_no_name));
             return;
         }
-        eG(this.aat.getString(w.l.suggest_some_names));
+        eE(this.aas.getString(w.l.suggest_some_names));
         int size = arrayList.size();
-        this.atI.clearCheck();
-        this.atJ.clearCheck();
-        this.atI.setVisibility(0);
-        this.atJ.setVisibility(0);
+        this.ats.clearCheck();
+        this.att.clearCheck();
+        this.ats.setVisibility(0);
+        this.att.setVisibility(0);
         if (size > 0 && arrayList.get(0) != null) {
-            this.atL.setText(arrayList.get(0));
-            this.atL.setChecked(false);
-            this.atL.setCompoundDrawables(this.aua, null, null, null);
-            this.atL.setVisibility(0);
-            this.atI.setVisibility(0);
+            this.atv.setText(arrayList.get(0));
+            this.atv.setChecked(false);
+            this.atv.setCompoundDrawables(this.atK, null, null, null);
+            this.atv.setVisibility(0);
+            this.ats.setVisibility(0);
         }
         if (size > 1 && arrayList.get(1) != null) {
-            this.atM.setText(arrayList.get(1));
-            this.atM.setChecked(false);
-            this.atM.setCompoundDrawables(this.aua, null, null, null);
-            this.atM.setVisibility(0);
+            this.atw.setText(arrayList.get(1));
+            this.atw.setChecked(false);
+            this.atw.setCompoundDrawables(this.atK, null, null, null);
+            this.atw.setVisibility(0);
         }
         if (size > 2 && arrayList.get(2) != null) {
-            this.atN.setText(arrayList.get(2));
-            this.atN.setChecked(false);
-            this.atN.setCompoundDrawables(this.aua, null, null, null);
-            this.atN.setVisibility(0);
+            this.atx.setText(arrayList.get(2));
+            this.atx.setChecked(false);
+            this.atx.setCompoundDrawables(this.atK, null, null, null);
+            this.atx.setVisibility(0);
         }
     }
 
     public void onDestroy() {
-        if (this.atP != null) {
-            this.atP.cancel();
-            this.atP = null;
+        if (this.atz != null) {
+            this.atz.cancel();
+            this.atz = null;
         }
-        if (this.atQ != null) {
-            this.atQ.cancel();
-            this.atQ = null;
+        if (this.atA != null) {
+            this.atA.cancel();
+            this.atA = null;
         }
-        AG();
+        Az();
     }
 
-    public void AF() {
-        this.atI.setVisibility(8);
-        this.atI.clearCheck();
-        this.atJ.setVisibility(8);
-        this.atJ.clearCheck();
-        this.atL.setVisibility(8);
-        this.atM.setVisibility(8);
-        this.atN.setVisibility(8);
-        this.atL.setChecked(false);
-        this.atM.setChecked(false);
-        this.atN.setChecked(false);
+    public void Ay() {
+        this.ats.setVisibility(8);
+        this.ats.clearCheck();
+        this.att.setVisibility(8);
+        this.att.clearCheck();
+        this.atv.setVisibility(8);
+        this.atw.setVisibility(8);
+        this.atx.setVisibility(8);
+        this.atv.setChecked(false);
+        this.atw.setChecked(false);
+        this.atx.setChecked(false);
     }
 
-    public void AG() {
-        if (this.atG != null && this.atG.isShowing()) {
-            com.baidu.adp.lib.g.j.b(this.atG, this.aat);
+    public void Az() {
+        if (this.atq != null && this.atq.isShowing()) {
+            com.baidu.adp.lib.g.j.b(this.atq, this.aas);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eG(String str) {
+    public void eE(String str) {
         if (str == null) {
-            this.atR.setVisibility(4);
-            this.atR.setText((CharSequence) null);
+            this.atB.setVisibility(4);
+            this.atB.setText((CharSequence) null);
             return;
         }
-        this.atR.setVisibility(0);
-        this.atR.setText(str);
+        this.atB.setVisibility(0);
+        this.atB.setText(str);
     }
 
-    public void Ay() {
-        this.aat.getLayoutMode().ai(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-        this.aat.getLayoutMode().t(this.atF);
-        this.atH.setHintTextColor(aq.getColor(w.e.cp_cont_e));
-        this.atL.setCompoundDrawables(this.aua, null, null, null);
-        this.atM.setCompoundDrawables(this.aua, null, null, null);
-        this.atN.setCompoundDrawables(this.aua, null, null, null);
+    public void Ar() {
+        this.aas.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+        this.aas.getLayoutMode().t(this.atp);
+        this.atr.setHintTextColor(aq.getColor(w.e.cp_cont_e));
+        this.atv.setCompoundDrawables(this.atK, null, null, null);
+        this.atw.setCompoundDrawables(this.atK, null, null, null);
+        this.atx.setCompoundDrawables(this.atK, null, null, null);
     }
 
     /* loaded from: classes.dex */
@@ -249,9 +249,9 @@ public class j {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            j.this.atP = null;
-            j.this.atT.setVisibility(8);
-            j.this.atS.setEnabled(true);
+            j.this.atz = null;
+            j.this.atD.setVisibility(8);
+            j.this.atC.setEnabled(true);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -260,36 +260,36 @@ public class j {
         /* renamed from: a */
         public void onPostExecute(com.baidu.tbadk.coreExtra.data.f fVar) {
             super.onPostExecute(fVar);
-            j.this.atP = null;
-            j.this.atT.setVisibility(8);
-            j.this.atS.setEnabled(true);
+            j.this.atz = null;
+            j.this.atD.setVisibility(8);
+            j.this.atC.setEnabled(true);
             if (fVar == null) {
-                j.this.eG(this.mNetwork.getErrorString());
+                j.this.eE(this.mNetwork.getErrorString());
             } else if (fVar.getUser().getUserName() != null) {
-                j.this.AG();
-                TbadkCoreApplication.setCurrentAccount(j.this.atW, j.this.aat.getPageActivity());
-                if (j.this.atX != null) {
-                    j.this.atX.j(j.this.atW);
+                j.this.Az();
+                TbadkCoreApplication.setCurrentAccount(j.this.atG, j.this.aas.getPageActivity());
+                if (j.this.atH != null) {
+                    j.this.atH.j(j.this.atG);
                 }
             } else {
-                j.this.n(fVar.xG());
+                j.this.n(fVar.xz());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            j.this.atT.setVisibility(0);
-            j.this.atS.setEnabled(false);
-            j.this.eG(null);
-            j.this.AF();
+            j.this.atD.setVisibility(0);
+            j.this.atC.setEnabled(false);
+            j.this.eE(null);
+            j.this.Ay();
             super.onPreExecute();
         }
 
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x00ab */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0097 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0045 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0097 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x00ac */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0098 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0046 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0098 */
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0001 */
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
@@ -312,7 +312,7 @@ public class j {
         public com.baidu.tbadk.coreExtra.data.f doInBackground(String... strArr) {
             String str;
             Exception e;
-            String ul;
+            String ug;
             String str2 = null;
             str2 = null;
             str2 = null;
@@ -320,15 +320,15 @@ public class j {
             try {
                 this.mNetwork = new com.baidu.tbadk.core.util.z(this.mUrl);
                 this.mNetwork.n("un", this.mAccount);
-                this.mNetwork.n("BDUSS", j.this.atW.getBDUSS());
-                this.mNetwork.uJ().vD().agA = false;
-                ul = this.mNetwork.ul();
+                this.mNetwork.n("BDUSS", j.this.atG.getBDUSS());
+                this.mNetwork.uF().vA().agr = false;
+                ug = this.mNetwork.ug();
             } catch (Exception e2) {
                 str = str2;
                 e = e2;
             }
-            if (this.mNetwork.uM()) {
-                str = this.mNetwork.uN();
+            if (this.mNetwork.uI()) {
+                str = this.mNetwork.uJ();
                 try {
                 } catch (Exception e3) {
                     e = e3;
@@ -337,7 +337,7 @@ public class j {
                 }
                 if (str == 0) {
                     com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-                    fVar.parserJson(ul);
+                    fVar.parserJson(ug);
                     String userName = fVar.getUser().getUserName();
                     String bduss = fVar.getUser().getBDUSS();
                     str = fVar;
@@ -347,22 +347,22 @@ public class j {
                     if (userName != null && bduss != null) {
                         str = fVar;
                         str2 = userName;
-                        if (j.this.atW != null) {
-                            j.this.atW.setAccount(userName);
-                            j.this.atW.setBDUSS(bduss);
-                            j.this.atW.setPortrait(fVar.getUser().getPortrait());
-                            ?? r1 = j.this.atW;
+                        if (j.this.atG != null) {
+                            j.this.atG.setAccount(userName);
+                            j.this.atG.setBDUSS(bduss);
+                            j.this.atG.setPortrait(fVar.getUser().getPortrait());
+                            ?? r1 = j.this.atG;
                             com.baidu.tbadk.core.a.b.b(r1);
                             str = fVar;
                             str2 = r1;
                         }
                     }
-                } else if (this.mNetwork.uN() == 36) {
+                } else if (this.mNetwork.uJ() == 36) {
                     com.baidu.tbadk.coreExtra.data.f fVar2 = new com.baidu.tbadk.coreExtra.data.f();
-                    fVar2.parserJson(ul);
+                    fVar2.parserJson(ug);
                     str = fVar2;
-                } else if (this.mNetwork.uN() == 1) {
-                    j.this.AG();
+                } else if (this.mNetwork.uJ() == 1) {
+                    j.this.Az();
                     str = 0;
                     return str;
                 }
@@ -375,7 +375,7 @@ public class j {
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.f> {
-        final /* synthetic */ j aub;
+        final /* synthetic */ j atL;
         private String mAccount;
         private com.baidu.tbadk.core.util.z mNetwork;
         private String mUrl;
@@ -383,7 +383,7 @@ public class j {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.aub.atQ = null;
+            this.atL.atA = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -393,12 +393,12 @@ public class j {
         public com.baidu.tbadk.coreExtra.data.f doInBackground(String... strArr) {
             this.mNetwork = new com.baidu.tbadk.core.util.z(this.mUrl);
             this.mNetwork.n("un", this.mAccount);
-            String ul = this.mNetwork.ul();
-            if (!this.mNetwork.uM() || this.mNetwork.uN() != 36) {
+            String ug = this.mNetwork.ug();
+            if (!this.mNetwork.uI() || this.mNetwork.uJ() != 36) {
                 return null;
             }
             com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-            fVar.parserJson(ul);
+            fVar.parserJson(ug);
             return fVar;
         }
 
@@ -408,26 +408,26 @@ public class j {
         /* renamed from: a */
         public void onPostExecute(com.baidu.tbadk.coreExtra.data.f fVar) {
             super.onPostExecute(fVar);
-            this.aub.atQ = null;
-            if (!this.mNetwork.uM()) {
-                this.aub.eG(this.mNetwork.getErrorString());
-            } else if (this.mNetwork.uN() == 0) {
-                this.aub.eG(this.aub.aat.getString(w.l.name_not_use));
-            } else if (this.mNetwork.uN() == 36) {
-                this.aub.eG(this.mNetwork.getErrorString());
+            this.atL.atA = null;
+            if (!this.mNetwork.uI()) {
+                this.atL.eE(this.mNetwork.getErrorString());
+            } else if (this.mNetwork.uJ() == 0) {
+                this.atL.eE(this.atL.aas.getString(w.l.name_not_use));
+            } else if (this.mNetwork.uJ() == 36) {
+                this.atL.eE(this.mNetwork.getErrorString());
                 if (fVar != null) {
-                    this.aub.n(fVar.xG());
+                    this.atL.n(fVar.xz());
                 }
             } else {
-                this.aub.eG(this.mNetwork.getErrorString());
+                this.atL.eE(this.mNetwork.getErrorString());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.aub.eG(null);
-            this.aub.AF();
+            this.atL.eE(null);
+            this.atL.Ay();
             super.onPreExecute();
         }
     }

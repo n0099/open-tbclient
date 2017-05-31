@@ -3,19 +3,19 @@ package com.baidu.tieba.write.write;
 import android.view.View;
 /* loaded from: classes.dex */
 class c implements View.OnFocusChangeListener {
-    final /* synthetic */ AtListActivity fRd;
+    final /* synthetic */ AtListActivity fYZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AtListActivity atListActivity) {
-        this.fRd = atListActivity;
+        this.fYZ = atListActivity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         if (!z) {
-            com.baidu.adp.lib.util.k.b(this.fRd.getPageContext().getPageActivity(), view);
+            com.baidu.adp.lib.util.k.b(this.fYZ.getPageContext().getPageActivity(), view);
         } else {
-            com.baidu.adp.lib.util.k.c(this.fRd.getPageContext().getPageActivity(), view);
+            com.baidu.adp.lib.util.k.c(this.fYZ.getPageContext().getPageActivity(), view);
         }
     }
 }

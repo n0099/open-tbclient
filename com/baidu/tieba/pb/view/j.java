@@ -1,49 +1,22 @@
 package com.baidu.tieba.pb.view;
-
-import android.app.Activity;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.util.TypedValue;
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.core.view.j;
-import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends PopupWindow {
-    private int etZ;
-    private com.baidu.tbadk.core.view.j mContainer;
-    private View mContentView;
+public class j implements Runnable {
+    final /* synthetic */ PbInterviewStatusView eCk;
 
-    public j(Activity activity, View view, Drawable drawable, j.a aVar) {
-        super(activity);
-        this.mContainer = null;
-        this.mContentView = null;
-        this.etZ = 0;
-        init(activity, view, drawable, aVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(PbInterviewStatusView pbInterviewStatusView) {
+        this.eCk = pbInterviewStatusView;
     }
 
-    private void init(Activity activity, View view, Drawable drawable, j.a aVar) {
-        if (activity != null) {
-            this.mContentView = view;
-            this.mContainer = new com.baidu.tbadk.core.view.j(activity, this.mContentView, aVar);
-            TypedValue typedValue = new TypedValue();
-            if (activity.getApplicationContext().getTheme() != null && activity.getApplicationContext().getTheme().resolveAttribute(16843499, typedValue, true)) {
-                this.etZ = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
-            }
-            setContentView(this.mContainer);
-            setOutsideTouchable(true);
-            setFocusable(true);
-            setHeight(-1);
-            setWidth(-1);
-            setSoftInputMode(16);
-            setFocusable(false);
-            setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(w.e.common_color_10022)));
-            setAnimationStyle(w.m.pb_more_pop_anim);
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.dialog.a aVar;
+        com.baidu.tbadk.core.dialog.a aVar2;
+        aVar = this.eCk.eCd;
+        if (aVar != null) {
+            aVar2 = this.eCk.eCd;
+            aVar2.tc();
         }
-    }
-
-    @Override // android.widget.PopupWindow
-    public View getContentView() {
-        return this.mContentView;
     }
 }

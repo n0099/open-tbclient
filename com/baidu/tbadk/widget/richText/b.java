@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b extends ClickableSpan {
-    private String aNy;
-    private int aNz;
+    private String aNv;
+    private int aNw;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -44,8 +44,8 @@ public class b extends ClickableSpan {
         this.mType = i;
     }
 
-    public void fs(int i) {
-        this.aNz = i;
+    public void ft(int i) {
+        this.aNw = i;
     }
 
     public void setColor(int i) {
@@ -56,12 +56,12 @@ public class b extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void ft(int i) {
+    public void fu(int i) {
         this.urlType = i;
     }
 
-    public void gs(String str) {
-        this.aNy = str;
+    public void gr(String str) {
+        this.aNv = str;
     }
 
     public String getLink() {
@@ -78,13 +78,13 @@ public class b extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aNz == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.aNw == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
                 textPaint.bgColor = aq.getColor(w.e.cp_bg_line_c);
             } else {
                 textPaint.bgColor = aq.getColor(w.e.cp_bg_line_z);
             }
-        } else if (this.aNz == 2) {
+        } else if (this.aNw == 2) {
             textPaint.bgColor = aq.getColor(w.e.transparent);
         }
     }
@@ -93,7 +93,7 @@ public class b extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aNy));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aNv));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -103,7 +103,7 @@ public class b extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new as("c11972").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).s("obj_type", i));
+            TiebaStatic.log(new as("c11972").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).r("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }

@@ -46,7 +46,7 @@ import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.w;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -843,6 +843,6 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public void setIsScroll(boolean z) {
     }
 
-    public void onPreLoad(BdListView bdListView) {
+    public void onPreLoad(w wVar) {
     }
 }

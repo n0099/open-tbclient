@@ -3,11 +3,11 @@ package com.baidu.audiorecorder.lib.voice;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes2.dex */
 class u implements a.b {
-    final /* synthetic */ s Lh;
+    final /* synthetic */ s KV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(s sVar) {
-        this.Lh = sVar;
+        this.KV = sVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

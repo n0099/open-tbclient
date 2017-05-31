@@ -10,6 +10,6 @@ class bn implements bb.b {
         if (tbPageContext == null) {
             return;
         }
-        WriteActivityStatic.E(tbPageContext);
+        WriteActivityStatic.A(tbPageContext);
     }
 }

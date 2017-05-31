@@ -1,12 +1,12 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class bn extends y.a {
-    public com.baidu.tbadk.i.f bQQ;
+public class bn implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId bWG = BdUniqueId.gen();
 
-    public bn(View view) {
-        super(view);
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return bWG;
     }
 }

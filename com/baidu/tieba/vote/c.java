@@ -8,20 +8,20 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ a fJL;
+    final /* synthetic */ a fRs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, int i, int i2) {
         super(i, i2);
-        this.fJL = aVar;
+        this.fRs = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
         boolean checkMessageIsBelongToCurPage;
-        this.fJL.fJI = false;
-        checkMessageIsBelongToCurPage = this.fJL.checkMessageIsBelongToCurPage(responsedMessage);
+        this.fRs.fRp = false;
+        checkMessageIsBelongToCurPage = this.fRs.checkMessageIsBelongToCurPage(responsedMessage);
         if (checkMessageIsBelongToCurPage) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                 String errorString = responsedMessage.getErrorString();
@@ -34,9 +34,9 @@ public class c extends com.baidu.adp.framework.listener.a {
                 if (!(responsedMessage instanceof AddVoteSocketResponse)) {
                     return;
                 }
-                this.fJL.blb();
+                this.fRs.bmy();
             } else {
-                this.fJL.blb();
+                this.fRs.bmy();
             }
         }
     }

@@ -1,56 +1,30 @@
 package com.baidu.tieba.tblauncher;
 
-import android.os.Handler;
 import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tieba.w;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am implements Runnable {
-    final /* synthetic */ ah fzg;
+public class am implements View.OnClickListener {
+    final /* synthetic */ ak fHb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(ah ahVar) {
-        this.fzg = ahVar;
+    public am(ak akVar) {
+        this.fHb = akVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        FragmentTabHost fragmentTabHost;
-        PopupWindow popupWindow;
-        FragmentTabHost fragmentTabHost2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        PopupWindow popupWindow2;
-        PopupWindow popupWindow3;
-        Handler handler;
-        Runnable runnable;
-        fragmentTabHost = this.fzg.bCH;
-        if (fragmentTabHost != null) {
-            popupWindow = this.fzg.fza;
-            if (popupWindow != null) {
-                fragmentTabHost2 = this.fzg.bCH;
-                FragmentTabWidget fragmentTabWidget = fragmentTabHost2.getFragmentTabWidget();
-                mainTabActivity = this.fzg.fyW;
-                int af = com.baidu.adp.lib.util.k.af(mainTabActivity.getActivity());
-                mainTabActivity2 = this.fzg.fyW;
-                int g = com.baidu.adp.lib.util.k.g(mainTabActivity2.getActivity(), w.f.ds200);
-                popupWindow2 = this.fzg.fza;
-                View contentView = popupWindow2.getContentView();
-                if (contentView != null) {
-                    contentView.measure(0, 0);
-                    int measuredWidth = contentView.getMeasuredWidth();
-                    popupWindow3 = this.fzg.fza;
-                    com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(popupWindow3, fragmentTabWidget, (af - measuredWidth) / 2, -g);
-                    com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("show_maintab_write_tips", true);
-                    this.fzg.fzb = true;
-                    handler = this.fzg.mHandler;
-                    runnable = this.fzg.fze;
-                    handler.postDelayed(runnable, 6000L);
-                }
-            }
+        if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(SignAllForumActivityConfig.class)) {
+            mainTabActivity = this.fHb.fGR;
+            mainTabActivity2 = this.fHb.fGR;
+            mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SignAllForumActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
+            TiebaStatic.log("c10085");
         }
     }
 }

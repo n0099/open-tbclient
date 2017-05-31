@@ -4,60 +4,60 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.c fvl;
-    private final int fvm = 10;
-    private final int fvn = 3000;
-    public String fvo = null;
-    public boolean ahc = false;
+    private com.baidu.adp.lib.stats.c fDd;
+    private final int fDe = 10;
+    private final int fDf = 3000;
+    public String fDg = null;
+    public boolean agT = false;
 
     public b(String str) {
-        W(str, false);
+        T(str, false);
     }
 
-    public void W(String str, boolean z) {
-        this.fvo = str;
-        this.ahc = z;
-        this.fvl = new com.baidu.adp.lib.stats.c("dbg");
-        c.j(str, getNetType(), z);
+    public void T(String str, boolean z) {
+        this.fDg = str;
+        this.agT = z;
+        this.fDd = new com.baidu.adp.lib.stats.c("dbg");
+        c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.fvl.fW();
+        this.fDd.fW();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        f bhd;
-        if (this.fvl != null && (bhd = bhd()) != null) {
+        f bix;
+        if (this.fDd != null && (bix = bix()) != null) {
             if (z) {
-                if (bhd.fvt != null) {
-                    bhd.fvt.num++;
+                if (bix.fDl != null) {
+                    bix.fDl.num++;
                     if (z2) {
-                        bhd.fvt.fvq += j2;
-                        bhd.fvt.size += j;
+                        bix.fDl.fDi += j2;
+                        bix.fDl.size += j;
                     } else {
-                        bhd.fvt.fvr++;
+                        bix.fDl.fDj++;
                     }
                 } else {
                     return;
                 }
-            } else if (bhd.fvu != null) {
-                bhd.fvu.num++;
+            } else if (bix.fDm != null) {
+                bix.fDm.num++;
                 if (z2) {
-                    bhd.fvu.fvq += j3;
-                    bhd.fvu.size += j;
+                    bix.fDm.fDi += j3;
+                    bix.fDm.size += j;
                     j2 = j3;
                 } else {
-                    bhd.fvu.fvr++;
+                    bix.fDm.fDj++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.fvl = null;
+            this.fDd = null;
             if (z2) {
-                c.a(bhd, 10);
+                c.a(bix, 10);
             }
-            if (this.fvo == "frsStat") {
+            if (this.fDg == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.c cVar = new com.baidu.adp.lib.stats.c("dbg");
                     cVar.p("act", "frs");
@@ -74,20 +74,20 @@ public class b {
     }
 
     public void destory() {
-        f bhd;
-        if (this.fvl != null && (bhd = bhd()) != null && bhd.fvv != null) {
-            long fX = this.fvl.fX();
+        f bix;
+        if (this.fDd != null && (bix = bix()) != null && bix.fDn != null) {
+            long fX = this.fDd.fX();
             if (fX > 3000) {
-                e eVar = bhd.fvv;
-                eVar.fvq = fX + eVar.fvq;
-                bhd.fvv.num++;
-                c.a(bhd, 10);
+                e eVar = bix.fDn;
+                eVar.fDi = fX + eVar.fDi;
+                bix.fDn.num++;
+                c.a(bix, 10);
             }
         }
     }
 
-    private f bhd() {
-        return c.k(this.fvo, getNetType(), this.ahc);
+    private f bix() {
+        return c.l(this.fDg, getNetType(), this.agT);
     }
 
     private String getNetType() {

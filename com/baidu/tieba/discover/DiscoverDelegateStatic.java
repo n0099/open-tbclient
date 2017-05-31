@@ -26,28 +26,28 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Eh() {
+    public com.baidu.tbadk.mainTab.c Eb() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aEi = new b();
+        cVar.aDV = new b();
         cVar.type = 10;
-        cVar.aEj = w.l.home_discover;
-        cVar.aEk = w.g.s_icon_tabbar_discover;
+        cVar.aDW = w.l.home_discover;
+        cVar.aDX = w.g.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator aS(Context context) {
-        this.aDV = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
+        this.aDI = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.aEh = this.aDV;
+        aVar.aDU = this.aDI;
         aVar.uT = k.dip2px(context, 3.0f);
-        aVar.aEf = w.g.icon_news_down_bar_one;
-        this.aDV.a("emotion", aVar);
-        return this.aDV;
+        aVar.aDS = w.g.icon_news_down_bar_one;
+        this.aDI.a("emotion", aVar);
+        return this.aDI;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Eg() {
+    public void Ea() {
         isAdded = true;
     }
 

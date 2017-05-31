@@ -3,17 +3,17 @@ package com.baidu.tieba.frs.tab;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.frs.cm;
+import com.baidu.tieba.frs.cn;
 import com.baidu.tieba.frs.tab.k;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements AdapterView.OnItemClickListener {
-    final /* synthetic */ o bZP;
+    final /* synthetic */ o cgb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(o oVar) {
-        this.bZP = oVar;
+        this.cgb = oVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,31 +21,31 @@ public class q implements AdapterView.OnItemClickListener {
         k kVar;
         BaseAdapter baseAdapter;
         k.b bVar;
-        List<cm> list;
+        List<cn> list;
         BaseAdapter baseAdapter2;
         k.b bVar2;
         k kVar2;
-        kVar = this.bZP.bZN;
+        kVar = this.cgb.cfZ;
         if (kVar != null) {
-            kVar2 = this.bZP.bZN;
-            kVar2.acx();
+            kVar2 = this.cgb.cfZ;
+            kVar2.adA();
         }
-        baseAdapter = this.bZP.bZO;
+        baseAdapter = this.cgb.cga;
         if (baseAdapter != null) {
-            bVar = this.bZP.bZp;
+            bVar = this.cgb.cfB;
             if (bVar != null) {
-                list = this.bZP.aWb;
-                for (cm cmVar : list) {
-                    if (cmVar != null) {
-                        cmVar.isSelected = false;
+                list = this.cgb.aTD;
+                for (cn cnVar : list) {
+                    if (cnVar != null) {
+                        cnVar.isSelected = false;
                     }
                 }
-                baseAdapter2 = this.bZP.bZO;
-                cm cmVar2 = (cm) baseAdapter2.getItem(i);
-                if (cmVar2 != null) {
-                    cmVar2.isSelected = true;
-                    bVar2 = this.bZP.bZp;
-                    bVar2.ix(cmVar2.bQR);
+                baseAdapter2 = this.cgb.cga;
+                cn cnVar2 = (cn) baseAdapter2.getItem(i);
+                if (cnVar2 != null) {
+                    cnVar2.isSelected = true;
+                    bVar2 = this.cgb.cfB;
+                    bVar2.iV(cnVar2.bWI);
                 }
             }
         }

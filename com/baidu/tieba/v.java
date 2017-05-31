@@ -3,17 +3,17 @@ package com.baidu.tieba;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class v implements Runnable {
-    private final /* synthetic */ TextView aQL;
-    final /* synthetic */ u aQM;
+    private final /* synthetic */ TextView aQM;
+    final /* synthetic */ u aQN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar, TextView textView) {
-        this.aQM = uVar;
-        this.aQL = textView;
+        this.aQN = uVar;
+        this.aQM = textView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.aQL.setVisibility(0);
+        this.aQM.setVisibility(0);
     }
 }

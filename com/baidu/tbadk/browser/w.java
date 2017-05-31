@@ -5,11 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 class w implements com.baidu.tbadk.core.d.l {
-    final /* synthetic */ TbWebViewActivity QF;
+    final /* synthetic */ TbWebViewActivity Qs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(TbWebViewActivity tbWebViewActivity) {
-        this.QF = tbWebViewActivity;
+        this.Qs = tbWebViewActivity;
     }
 
     @Override // com.baidu.tbadk.core.d.l

@@ -19,15 +19,15 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new ReportUserInfoModel(null);
-        this.mModel.aDh();
-        this.mModel.bN(540000L);
+        this.mModel.aEe();
+        this.mModel.bQ(540000L);
         this.mModel.a(new h(this));
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.mModel.aDf()) {
+        if (this.mModel.aEc()) {
             findLocationFromLocal();
         }
     }

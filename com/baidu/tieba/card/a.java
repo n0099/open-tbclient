@@ -9,20 +9,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
-    private String ahf;
-    protected cd<T> btJ;
-    protected cc btK;
+    private String agW;
+    protected ci<T> bvd;
+    protected ch bzq;
     public Context mContext;
     public TbPageContext<?> mTbPageContext;
     public int mSkinType = 3;
     private BdUniqueId mTag = null;
     private View mView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null, false);
 
+    public abstract void a(T t);
+
+    public abstract void d(TbPageContext<?> tbPageContext, int i);
+
     public abstract int getLayout();
-
-    public abstract void onBindDataToView(T t);
-
-    public abstract void onChangeSkinType(TbPageContext<?> tbPageContext, int i);
 
     public a(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
@@ -38,11 +38,11 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     }
 
     public String getFrom() {
-        return this.ahf;
+        return this.agW;
     }
 
     public void setFrom(String str) {
-        this.ahf = str;
+        this.agW = str;
     }
 
     public View getView() {
@@ -53,17 +53,8 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
         return this.mContext;
     }
 
-    public TbPageContext<?> getTbPageContext() {
+    public TbPageContext<?> Uc() {
         return this.mTbPageContext;
-    }
-
-    public void onStart() {
-    }
-
-    public void onPause() {
-    }
-
-    public void onDestroy() {
     }
 
     public void setVisibility(int i) {
@@ -72,15 +63,15 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
         }
     }
 
-    public void setOnSubCardOnClickListenner(cd<T> cdVar) {
-        this.btJ = cdVar;
+    public void a(ci<T> ciVar) {
+        this.bvd = ciVar;
     }
 
-    public void setOnCardStatisticsCallback(cc ccVar) {
-        this.btK = ccVar;
+    public void a(ch chVar) {
+        this.bzq = chVar;
     }
 
-    public cd<T> getOnSubCardOnClickListenner() {
-        return this.btJ;
+    public ci<T> Ud() {
+        return this.bvd;
     }
 }

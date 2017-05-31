@@ -17,13 +17,13 @@ public class k {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern fug = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern fBX = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String fue = null;
-    private SpannableStringBuilder fuf = null;
-    private boolean fud = false;
+    private String fBV = null;
+    private SpannableStringBuilder fBW = null;
+    private boolean fBU = false;
 
     public static boolean bl(int i, int i2) {
         return i == 0 && i2 != 3;
@@ -45,23 +45,23 @@ public class k {
         return this.text;
     }
 
-    public String bgw() {
+    public String bhR() {
         return this.c;
     }
 
-    public SpannableStringBuilder bgx() {
-        return this.fuf;
+    public SpannableStringBuilder bhS() {
+        return this.fBW;
     }
 
     public SpannableStringBuilder a(SpannableString spannableString) {
-        if (this.fuf == null) {
-            this.fuf = new SpannableStringBuilder();
+        if (this.fBW == null) {
+            this.fBW = new SpannableStringBuilder();
         }
-        this.fuf.append((CharSequence) spannableString);
-        return this.fuf;
+        this.fBW.append((CharSequence) spannableString);
+        return this.fBW;
     }
 
-    public SpannableString bQ(Context context) {
+    public SpannableString bR(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -121,7 +121,7 @@ public class k {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.fue = jSONObject.optString("cdn_src", null);
+                    this.fBV = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -136,7 +136,7 @@ public class k {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.fud = true;
+                        this.fBU = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");
@@ -146,7 +146,7 @@ public class k {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.DM().ff(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.DG().fd(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

@@ -25,10 +25,6 @@ public class i {
         }
     }
 
-    public String getText() {
-        return this.text;
-    }
-
     public String getUrl() {
         return this.url;
     }

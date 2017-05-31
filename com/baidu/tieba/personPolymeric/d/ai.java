@@ -1,162 +1,146 @@
 package com.baidu.tieba.personPolymeric.d;
 
-import android.util.SparseArray;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.h.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class ai extends CustomMessageListener {
-    final /* synthetic */ ab eFx;
+public class ai extends LinearLayout {
+    private LinearLayout ame;
+    private TextView eOi;
+    private TextView eOj;
+    private TextView eOk;
+    private boolean mIsLiked;
+    private int mSkinType;
+    private UserData mUserData;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ai(ab abVar, int i) {
-        super(i);
-        this.eFx = abVar;
+    public ai(Context context, UserData userData, boolean z, View.OnClickListener onClickListener) {
+        super(context);
+        this.mSkinType = 3;
+        this.mUserData = userData;
+        this.mIsLiked = z;
+        LayoutInflater.from(getContext()).inflate(w.j.person_info_relation_view, (ViewGroup) this, true);
+        bp(context);
+        R(onClickListener);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x00a3  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00cd  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00f7  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0121  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0160  */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.personPolymeric.c.n nVar;
-        com.baidu.tieba.view.z zVar;
-        com.baidu.tieba.view.z zVar2;
-        com.baidu.tieba.view.z zVar3;
-        com.baidu.tieba.personPolymeric.c.n nVar2;
-        boolean z;
-        com.baidu.tieba.personCenter.a.a aVar;
-        com.baidu.tieba.personCenter.a.a aVar2;
-        com.baidu.tieba.personPolymeric.c.n nVar3;
-        com.baidu.tieba.personCenter.a.a aVar3;
-        com.baidu.tieba.personPolymeric.c.n nVar4;
-        com.baidu.tieba.personPolymeric.c.n nVar5;
-        com.baidu.tieba.personPolymeric.c.n nVar6;
-        com.baidu.tieba.personPolymeric.c.n nVar7;
-        com.baidu.tieba.personPolymeric.c.n nVar8;
-        com.baidu.tieba.personPolymeric.c.n nVar9;
-        com.baidu.tieba.personPolymeric.c.n nVar10;
-        com.baidu.tieba.personPolymeric.c.n nVar11;
-        com.baidu.tieba.personPolymeric.c.n nVar12;
-        com.baidu.tieba.personPolymeric.c.n nVar13;
-        com.baidu.tieba.personPolymeric.c.n nVar14;
-        com.baidu.tieba.personPolymeric.c.n nVar15;
-        com.baidu.tieba.personPolymeric.c.n nVar16;
-        com.baidu.tieba.personPolymeric.c.n nVar17;
-        com.baidu.tieba.personPolymeric.c.n nVar18;
-        if (customResponsedMessage.getCmd() == 2001435 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.h.i)) {
-            SparseArray<i.a> sparseArray = ((com.baidu.tieba.h.i) customResponsedMessage.getData()).fdR;
-            if (sparseArray.size() > 0) {
-                i.a aVar4 = sparseArray.get(2);
-                if (aVar4 != null && this.eFx.fIK != null && this.eFx.fIK.fJt != null) {
-                    this.eFx.fIK.fJt.lv(aVar4.fdS);
-                }
-                i.a aVar5 = sparseArray.get(4);
-                i.a aVar6 = sparseArray.get(3);
-                i.a aVar7 = sparseArray.get(1);
-                i.a aVar8 = sparseArray.get(7);
-                i.a aVar9 = sparseArray.get(8);
-                nVar = this.eFx.eCp;
-                if (nVar != null) {
-                    nVar2 = this.eFx.eCp;
-                    if (nVar2.eDP != null) {
-                        nVar17 = this.eFx.eCp;
-                        if (nVar17.eDP.bIv != null && aVar5 != null) {
-                            nVar18 = this.eFx.eCp;
-                            nVar18.eDP.bIv.putBoolean("person_center_item_red_tip_show", aVar5.fdS);
-                            z = true;
-                            if (aVar6 != null) {
-                                nVar14 = this.eFx.eCp;
-                                if (nVar14.eDO != null) {
-                                    nVar15 = this.eFx.eCp;
-                                    if (nVar15.eDO.bIv != null) {
-                                        nVar16 = this.eFx.eCp;
-                                        nVar16.eDO.bIv.putBoolean("person_center_item_red_tip_show", aVar6.fdS);
-                                        z = true;
-                                    }
-                                }
-                            }
-                            if (aVar7 != null) {
-                                nVar11 = this.eFx.eCp;
-                                if (nVar11.eDM != null) {
-                                    nVar12 = this.eFx.eCp;
-                                    if (nVar12.eDM.bIv != null) {
-                                        nVar13 = this.eFx.eCp;
-                                        nVar13.eDM.bIv.putBoolean("person_center_item_red_tip_show", aVar7.fdS);
-                                        z = true;
-                                    }
-                                }
-                            }
-                            if (aVar8 != null) {
-                                nVar8 = this.eFx.eCp;
-                                if (nVar8.eDQ != null) {
-                                    nVar9 = this.eFx.eCp;
-                                    if (nVar9.eDQ.bIv != null) {
-                                        nVar10 = this.eFx.eCp;
-                                        nVar10.eDQ.bIv.putBoolean("person_center_item_red_tip_show", aVar8.fdS);
-                                        z = true;
-                                    }
-                                }
-                            }
-                            if (aVar9 != null) {
-                                nVar4 = this.eFx.eCp;
-                                if (nVar4.eDR != null) {
-                                    nVar5 = this.eFx.eCp;
-                                    if (nVar5.eDR.bIv != null) {
-                                        nVar6 = this.eFx.eCp;
-                                        nVar6.eDR.bIv.putBoolean("person_center_item_red_tip_show", aVar9.fdS);
-                                        nVar7 = this.eFx.eCp;
-                                        nVar7.eDR.bIv.putString("person_center_item_txt", String.valueOf(aVar9.mNum));
-                                        z = true;
-                                    }
-                                }
-                            }
-                            if (z) {
-                                aVar = this.eFx.eFr;
-                                if (aVar != null) {
-                                    aVar2 = this.eFx.eFr;
-                                    nVar3 = this.eFx.eCp;
-                                    aVar2.setData(nVar3.aPW());
-                                    aVar3 = this.eFx.eFr;
-                                    aVar3.notifyDataSetChanged();
-                                }
-                            }
-                        }
-                    }
-                    z = false;
-                    if (aVar6 != null) {
-                    }
-                    if (aVar7 != null) {
-                    }
-                    if (aVar8 != null) {
-                    }
-                    if (aVar9 != null) {
-                    }
-                    if (z) {
-                    }
-                }
-                zVar = this.eFx.fII;
-                if (zVar instanceof com.baidu.tieba.view.j) {
-                    i.a aVar10 = sparseArray.get(5);
-                    if (aVar10 != null) {
-                        zVar3 = this.eFx.fII;
-                        zVar3.G(5, aVar10.fdS);
-                    }
-                    i.a aVar11 = sparseArray.get(6);
-                    if (aVar11 != null) {
-                        zVar2 = this.eFx.fII;
-                        zVar2.G(6, aVar11.fdS);
-                    }
-                }
-            }
+    private void bp(Context context) {
+        if (context != null) {
+            this.ame = (LinearLayout) getRootView();
+            this.eOi = (TextView) this.ame.findViewById(w.h.attention_btn);
+            this.eOi.setClickable(true);
+            this.eOj = (TextView) this.ame.findViewById(w.h.chat_btn);
+            this.eOj.setClickable(true);
+            this.eOk = (TextView) this.ame.findViewById(w.h.gift_btn);
+            this.eOk.setClickable(true);
+            aRy();
+            aRx();
+            aRz();
+            onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         }
+    }
+
+    private void aRx() {
+        if (this.eOk != null) {
+            TC();
+            this.eOk.setText(UtilHelper.getSpannableIconByVertical(getContext(), getContext().getString(w.l.gift_btn), w.g.icon_gift_bar_blue, true));
+            aq.i(this.eOk, w.e.cp_link_tip_a);
+        }
+    }
+
+    public void j(boolean z, boolean z2, boolean z3) {
+        if (this.eOi != null) {
+            this.eOi.setVisibility(z ? 0 : 8);
+        }
+        if (this.eOj != null) {
+            this.eOj.setVisibility(z2 ? 0 : 8);
+        }
+        if (this.eOk != null) {
+            this.eOk.setVisibility(z3 ? 0 : 8);
+        }
+    }
+
+    private void TC() {
+        if (!TbadkCoreApplication.m9getInst().isGiftSwitchOn() || TbadkCoreApplication.m9getInst().getIntentClass(MyGiftListActivityConfig.class) == null) {
+            this.eOk.setVisibility(8);
+        } else {
+            this.eOk.setVisibility(0);
+        }
+        if (this.mUserData != null && this.mUserData.getIsOfficialAccount() == 1) {
+            this.eOk.setVisibility(8);
+        } else {
+            this.eOk.setVisibility(0);
+        }
+    }
+
+    private void R(View.OnClickListener onClickListener) {
+        if (this.eOi != null) {
+            this.eOi.setOnClickListener(onClickListener);
+        }
+        if (this.eOj != null) {
+            this.eOj.setOnClickListener(onClickListener);
+        }
+        if (this.eOk != null) {
+            this.eOk.setOnClickListener(onClickListener);
+        }
+    }
+
+    private void aRy() {
+        if (this.eOi != null) {
+            this.eOi.setVisibility(0);
+            if (this.mIsLiked) {
+                this.eOi.setText(UtilHelper.getSpannableIconByVertical(getContext(), getContext().getString(w.l.relate_forum_is_followed), w.g.icon_yiguanzhu_bar_blue, true));
+                aq.i(this.eOi, w.e.cp_cont_e);
+                return;
+            }
+            this.eOi.setText(UtilHelper.getSpannableIconByVertical(getContext(), getContext().getString(w.l.attention), w.g.icon_guanzhu_bar_blue, true));
+            aq.i(this.eOi, w.e.cp_link_tip_a);
+        }
+    }
+
+    private void aRz() {
+        if (this.eOj != null) {
+            this.eOj.setVisibility(0);
+            this.eOj.setText(UtilHelper.getSpannableIconByVertical(getContext(), getContext().getString(w.l.private_chat), w.g.icon_message_bar_blue, true));
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.mSkinType != i) {
+            aq.k(this.ame, w.e.cp_bg_line_c);
+            aq.j(this.eOi, w.g.item_person_header_attention_bg_selector);
+            aq.i(this.eOj, w.e.cp_link_tip_a);
+            aq.j(this.eOj, w.g.item_person_header_attention_bg_selector);
+            aq.j(this.eOk, w.g.item_person_header_attention_bg_selector);
+            aq.i(this.eOk, w.e.cp_link_tip_a);
+            if (this.mIsLiked) {
+                this.eOi.setText(UtilHelper.getSpannableIconByVertical(getContext(), getContext().getString(w.l.relate_forum_is_followed), w.g.icon_yiguanzhu_bar_blue, true));
+            } else {
+                this.eOi.setText(UtilHelper.getSpannableIconByVertical(getContext(), getContext().getString(w.l.attention), w.g.icon_guanzhu_bar_blue, true));
+            }
+            this.eOj.setText(UtilHelper.getSpannableIconByVertical(getContext(), getContext().getString(w.l.private_chat), w.g.icon_message_bar_blue, true));
+            this.eOk.setText(UtilHelper.getSpannableIconByVertical(getContext(), getContext().getString(w.l.gift_btn), w.g.icon_gift_bar_blue, true));
+        }
+        this.mSkinType = i;
+    }
+
+    public void a(UserData userData, boolean z) {
+        this.mUserData = userData;
+        setAttentionData(z);
+        aRx();
+        onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+    }
+
+    public void setAttentionData(boolean z) {
+        this.mIsLiked = z;
+        aRy();
     }
 }

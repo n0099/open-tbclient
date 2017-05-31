@@ -6,11 +6,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ f fMr;
+    final /* synthetic */ f fTY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.fMr = fVar;
+        this.fTY = fVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -22,23 +22,23 @@ public class h implements ViewPager.OnPageChangeListener {
         p pVar2;
         ImageView imageView;
         ImageView imageView2;
-        this.fMr.aBS = i;
-        kVar = this.fMr.fMn;
+        this.fTY.aBF = i;
+        kVar = this.fTY.fTU;
         if (kVar != null) {
-            pVar = this.fMr.fLQ;
+            pVar = this.fTY.fTx;
             if (pVar != null) {
-                kVar2 = this.fMr.fMn;
-                i2 = this.fMr.aBS;
-                ImageFileInfo sN = kVar2.sN(i2);
-                pVar2 = this.fMr.fLQ;
-                if (pVar2.isAdded(sN)) {
-                    f fVar = this.fMr;
-                    imageView2 = this.fMr.fMo;
+                kVar2 = this.fTY.fTU;
+                i2 = this.fTY.aBF;
+                ImageFileInfo ti = kVar2.ti(i2);
+                pVar2 = this.fTY.fTx;
+                if (pVar2.isAdded(ti)) {
+                    f fVar = this.fTY;
+                    imageView2 = this.fTY.fTV;
                     fVar.c(imageView2, true);
                     return;
                 }
-                f fVar2 = this.fMr;
-                imageView = this.fMr.fMo;
+                f fVar2 = this.fTY;
+                imageView = this.fTY.fTV;
                 fVar2.c(imageView, false);
             }
         }

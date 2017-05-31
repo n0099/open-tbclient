@@ -4,21 +4,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements View.OnClickListener {
-    final /* synthetic */ aq bvK;
+    final /* synthetic */ ap bBk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(aq aqVar) {
-        this.bvK = aqVar;
+    public as(ap apVar) {
+        this.bBk = apVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.card.data.l lVar;
-        cd<com.baidu.tieba.card.data.l> onSubCardOnClickListenner = this.bvK.getOnSubCardOnClickListenner();
-        if (onSubCardOnClickListenner != null) {
-            view.setTag("2");
-            lVar = this.bvK.bvE;
-            onSubCardOnClickListenner.a(view, lVar);
+        if (this.bBk.Ud() != null) {
+            ci<com.baidu.tieba.card.data.l> Ud = this.bBk.Ud();
+            lVar = this.bBk.bBi;
+            Ud.a(view, lVar);
         }
     }
 }

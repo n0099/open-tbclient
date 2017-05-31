@@ -31,45 +31,45 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e Np = null;
+    private static e Nd = null;
     public static String f = "0";
-    private Handler Ny;
+    private Handler Nm;
     private int k = 1;
-    private double Mm = 0.699999988079071d;
+    private double Ma = 0.699999988079071d;
     private String m = "3G|4G";
     private int n = 1;
     private int o = 307200;
     private int p = 15;
     private int q = 1;
-    private double MS = 3.5d;
-    private double Nq = 3.0d;
-    private double Nr = 0.5d;
+    private double MG = 3.5d;
+    private double Ne = 3.0d;
+    private double Nf = 0.5d;
     private int u = 300;
     private int v = 60;
     private int w = 0;
     private int x = 60;
     private int y = 0;
     private long z = 0;
-    private a Ns = null;
+    private a Ng = null;
     private boolean B = false;
     private boolean C = false;
     private int D = 0;
-    private float Nt = 0.0f;
-    private float Nu = 0.0f;
-    private long Nv = 0;
+    private float Nh = 0.0f;
+    private float Ni = 0.0f;
+    private long Nj = 0;
     private int H = 500;
     long a = 0;
-    Location Nw = null;
-    Location MN = null;
-    StringBuilder Nx = null;
+    Location Nk = null;
+    Location MB = null;
+    StringBuilder Nl = null;
     long e = 0;
-    private byte[] Nz = new byte[4];
-    private byte[] NA = null;
+    private byte[] Nn = new byte[4];
+    private byte[] No = null;
     private int L = 0;
-    private List<Byte> NB = null;
+    private List<Byte> Np = null;
     private boolean N = false;
     int g = 0;
-    double NC = 116.22345545d;
+    double Nq = 116.22345545d;
     double i = 40.245667323d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -78,7 +78,7 @@ public class e {
         String a = null;
 
         public a() {
-            this.PG = new HashMap();
+            this.Pt = new HashMap();
         }
 
         @Override // com.baidu.location.h.f
@@ -86,7 +86,7 @@ public class e {
             this.h = "http://loc.map.baidu.com/cc.php";
             String encode = Jni.encode(this.a);
             this.a = null;
-            this.PG.put("q", encode);
+            this.Pt.put("q", encode);
         }
 
         public void a(String str) {
@@ -105,15 +105,15 @@ public class e {
                 } catch (Exception e) {
                 }
             }
-            if (this.PG != null) {
-                this.PG.clear();
+            if (this.Pt != null) {
+                this.Pt.clear();
             }
         }
     }
 
     private e() {
-        this.Ny = null;
-        this.Ny = new Handler();
+        this.Nm = null;
+        this.Nm = new Handler();
     }
 
     private boolean a(String str, Context context) {
@@ -227,7 +227,7 @@ public class e {
     private void b(int i) {
         byte[] a2 = a(i);
         for (int i2 = 0; i2 < 4; i2++) {
-            this.NB.add(Byte.valueOf(a2[i2]));
+            this.Np.add(Byte.valueOf(a2[i2]));
         }
     }
 
@@ -292,7 +292,7 @@ public class e {
                     this.k = jSONObject.getInt("on");
                 }
                 if (jSONObject.has("bash")) {
-                    this.Mm = jSONObject.getDouble("bash");
+                    this.Ma = jSONObject.getDouble("bash");
                 }
                 if (jSONObject.has("net")) {
                     this.m = jSONObject.getString("net");
@@ -310,13 +310,13 @@ public class e {
                     this.q = jSONObject.getInt("chdron");
                 }
                 if (jSONObject.has("spsh")) {
-                    this.MS = jSONObject.getDouble("spsh");
+                    this.MG = jSONObject.getDouble("spsh");
                 }
                 if (jSONObject.has("acsh")) {
-                    this.Nq = jSONObject.getDouble("acsh");
+                    this.Ne = jSONObject.getDouble("acsh");
                 }
                 if (jSONObject.has("stspsh")) {
-                    this.Nr = jSONObject.getDouble("stspsh");
+                    this.Nf = jSONObject.getDouble("stspsh");
                 }
                 if (jSONObject.has("drstsh")) {
                     this.u = jSONObject.getInt("drstsh");
@@ -342,32 +342,32 @@ public class e {
     private void d() {
         String[] split = (0 == 0 ? "6.2.3" : null).split("\\.");
         int length = split.length;
-        this.Nz[0] = 0;
-        this.Nz[1] = 0;
-        this.Nz[2] = 0;
-        this.Nz[3] = 0;
+        this.Nn[0] = 0;
+        this.Nn[1] = 0;
+        this.Nn[2] = 0;
+        this.Nn[3] = 0;
         if (length >= 4) {
             length = 4;
         }
         for (int i = 0; i < length; i++) {
             try {
-                this.Nz[i] = (byte) (Integer.valueOf(split[i]).intValue() & MotionEventCompat.ACTION_MASK);
+                this.Nn[i] = (byte) (Integer.valueOf(split[i]).intValue() & MotionEventCompat.ACTION_MASK);
             } catch (Exception e) {
             }
         }
-        this.NA = a(com.baidu.location.h.c.c + ":" + com.baidu.location.h.c.nw().b);
+        this.No = a(com.baidu.location.h.c.c + ":" + com.baidu.location.h.c.np().b);
     }
 
     private void d(Location location) {
         if (System.currentTimeMillis() - this.a < this.H || location == null) {
             return;
         }
-        if (location != null && location.hasSpeed() && location.getSpeed() > this.Nt) {
-            this.Nt = location.getSpeed();
+        if (location != null && location.hasSpeed() && location.getSpeed() > this.Nh) {
+            this.Nh = location.getSpeed();
         }
         try {
-            if (this.NB == null) {
-                this.NB = new ArrayList();
+            if (this.Np == null) {
+                this.Np = new ArrayList();
                 h();
                 e(location);
             } else {
@@ -429,16 +429,16 @@ public class e {
         char c = location.hasBearing() ? (char) 0 : (char) 1;
         char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
         if (c > 0) {
-            this.NB.add((byte) 32);
+            this.Np.add((byte) 32);
         } else {
-            this.NB.add(Byte.valueOf((byte) (((byte) (((int) (location.getBearing() / 15.0f)) & MotionEventCompat.ACTION_MASK)) & (-33))));
+            this.Np.add(Byte.valueOf((byte) (((byte) (((int) (location.getBearing() / 15.0f)) & MotionEventCompat.ACTION_MASK)) & (-33))));
         }
         if (c2 > 0) {
-            this.NB.add(Byte.MIN_VALUE);
+            this.Np.add(Byte.MIN_VALUE);
         } else {
-            this.NB.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & MotionEventCompat.ACTION_MASK)) & Byte.MAX_VALUE)));
+            this.Np.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & MotionEventCompat.ACTION_MASK)) & Byte.MAX_VALUE)));
         }
-        this.Nw = location;
+        this.Nk = location;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -496,48 +496,48 @@ public class e {
     private boolean e() {
         if (this.B) {
             if (!this.C) {
-                if (this.Nt < this.Nr) {
+                if (this.Nh < this.Nf) {
                     this.C = true;
                     this.D = 0;
                     this.D += this.p;
                     return true;
                 }
                 return true;
-            } else if (this.Nt >= this.Nr) {
+            } else if (this.Nh >= this.Nf) {
                 this.D = 0;
                 this.C = false;
                 return true;
             } else {
                 this.D += this.p;
-                if (this.D <= this.u || System.currentTimeMillis() - this.Nv > this.v * 1000) {
+                if (this.D <= this.u || System.currentTimeMillis() - this.Nj > this.v * 1000) {
                     return true;
                 }
             }
-        } else if (this.Nt >= this.MS || this.Nu >= this.Nq) {
+        } else if (this.Nh >= this.MG || this.Ni >= this.Ne) {
             this.B = true;
             return true;
-        } else if (this.w == 1 && System.currentTimeMillis() - this.Nv > this.x * 1000) {
+        } else if (this.w == 1 && System.currentTimeMillis() - this.Nj > this.x * 1000) {
             return true;
         }
         return false;
     }
 
     private void f() {
-        this.NB = null;
+        this.Np = null;
         this.e = 0L;
         this.L = 0;
-        this.Nw = null;
-        this.MN = null;
-        this.Nt = 0.0f;
-        this.Nu = 0.0f;
+        this.Nk = null;
+        this.MB = null;
+        this.Nh = 0.0f;
+        this.Ni = 0.0f;
     }
 
     private void f(Location location) {
         if (location == null) {
             return;
         }
-        int longitude = (int) ((location.getLongitude() - this.Nw.getLongitude()) * 100000.0d);
-        int latitude = (int) ((location.getLatitude() - this.Nw.getLatitude()) * 100000.0d);
+        int longitude = (int) ((location.getLongitude() - this.Nk.getLongitude()) * 100000.0d);
+        int latitude = (int) ((location.getLatitude() - this.Nk.getLatitude()) * 100000.0d);
         char c = location.hasBearing() ? (char) 0 : (char) 1;
         char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
         char c3 = longitude > 0 ? (char) 0 : (char) 1;
@@ -545,27 +545,27 @@ public class e {
         char c4 = latitude > 0 ? (char) 0 : (char) 1;
         int abs2 = Math.abs(latitude);
         if (this.L > 1) {
-            this.MN = null;
-            this.MN = this.Nw;
+            this.MB = null;
+            this.MB = this.Nk;
         }
-        this.Nw = location;
-        if (this.Nw != null && this.MN != null && this.Nw.getTime() > this.MN.getTime() && this.Nw.getTime() - this.MN.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
-            long time = this.Nw.getTime() - this.MN.getTime();
+        this.Nk = location;
+        if (this.Nk != null && this.MB != null && this.Nk.getTime() > this.MB.getTime() && this.Nk.getTime() - this.MB.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
+            long time = this.Nk.getTime() - this.MB.getTime();
             float[] fArr = new float[2];
-            Location.distanceBetween(this.Nw.getAltitude(), this.Nw.getLongitude(), this.MN.getLatitude(), this.MN.getLongitude(), fArr);
-            double speed = (2.0f * (fArr[0] - (this.MN.getSpeed() * ((float) time)))) / ((float) (time * time));
-            if (speed > this.Nu) {
-                this.Nu = (float) speed;
+            Location.distanceBetween(this.Nk.getAltitude(), this.Nk.getLongitude(), this.MB.getLatitude(), this.MB.getLongitude(), fArr);
+            double speed = (2.0f * (fArr[0] - (this.MB.getSpeed() * ((float) time)))) / ((float) (time * time));
+            if (speed > this.Ni) {
+                this.Ni = (float) speed;
             }
         }
-        this.NB.add(Byte.valueOf((byte) (abs & MotionEventCompat.ACTION_MASK)));
-        this.NB.add(Byte.valueOf((byte) (abs2 & MotionEventCompat.ACTION_MASK)));
+        this.Np.add(Byte.valueOf((byte) (abs & MotionEventCompat.ACTION_MASK)));
+        this.Np.add(Byte.valueOf((byte) (abs2 & MotionEventCompat.ACTION_MASK)));
         if (c > 0) {
             byte b = c4 > 0 ? (byte) 96 : (byte) 32;
             if (c3 > 0) {
                 b = (byte) (b | Byte.MIN_VALUE);
             }
-            this.NB.add(Byte.valueOf(b));
+            this.Np.add(Byte.valueOf(b));
         } else {
             byte bearing = (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & MotionEventCompat.ACTION_MASK)) & 31);
             if (c4 > 0) {
@@ -574,12 +574,12 @@ public class e {
             if (c3 > 0) {
                 bearing = (byte) (bearing | Byte.MIN_VALUE);
             }
-            this.NB.add(Byte.valueOf(bearing));
+            this.Np.add(Byte.valueOf(bearing));
         }
         if (c2 > 0) {
-            this.NB.add(Byte.MIN_VALUE);
+            this.Np.add(Byte.MIN_VALUE);
         } else {
-            this.NB.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & MotionEventCompat.ACTION_MASK)) & Byte.MAX_VALUE)));
+            this.Np.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & MotionEventCompat.ACTION_MASK)) & Byte.MAX_VALUE)));
         }
     }
 
@@ -593,14 +593,14 @@ public class e {
             f();
         } else if (!a(com.baidu.location.h.c.c, com.baidu.location.f.getServiceContext())) {
             f();
-        } else if (this.NB != null) {
-            int size = this.NB.size();
-            this.NB.set(0, Byte.valueOf((byte) (size & MotionEventCompat.ACTION_MASK)));
-            this.NB.set(1, Byte.valueOf((byte) ((65280 & size) >> 8)));
-            this.NB.set(3, Byte.valueOf((byte) (this.L & MotionEventCompat.ACTION_MASK)));
+        } else if (this.Np != null) {
+            int size = this.Np.size();
+            this.Np.set(0, Byte.valueOf((byte) (size & MotionEventCompat.ACTION_MASK)));
+            this.Np.set(1, Byte.valueOf((byte) ((65280 & size) >> 8)));
+            this.Np.set(3, Byte.valueOf((byte) (this.L & MotionEventCompat.ACTION_MASK)));
             byte[] bArr = new byte[size];
             for (int i = 0; i < size; i++) {
-                bArr[i] = this.NB.get(i).byteValue();
+                bArr[i] = this.Np.get(i).byteValue();
             }
             if (Environment.getExternalStorageState().equals("mounted")) {
                 File file = new File(Environment.getExternalStorageDirectory(), "baidu/tempdata");
@@ -623,39 +623,39 @@ public class e {
                 }
             }
             f();
-            this.Nv = System.currentTimeMillis();
+            this.Nj = System.currentTimeMillis();
         }
     }
 
     private void h() {
-        this.NB.add((byte) 0);
-        this.NB.add((byte) 0);
+        this.Np.add((byte) 0);
+        this.Np.add((byte) 0);
         if (f.equals("0")) {
-            this.NB.add((byte) 110);
+            this.Np.add((byte) 110);
         } else {
-            this.NB.add((byte) 126);
+            this.Np.add((byte) 126);
         }
-        this.NB.add((byte) 0);
-        this.NB.add(Byte.valueOf(this.Nz[0]));
-        this.NB.add(Byte.valueOf(this.Nz[1]));
-        this.NB.add(Byte.valueOf(this.Nz[2]));
-        this.NB.add(Byte.valueOf(this.Nz[3]));
-        int length = this.NA.length;
-        this.NB.add(Byte.valueOf((byte) ((length + 1) & MotionEventCompat.ACTION_MASK)));
+        this.Np.add((byte) 0);
+        this.Np.add(Byte.valueOf(this.Nn[0]));
+        this.Np.add(Byte.valueOf(this.Nn[1]));
+        this.Np.add(Byte.valueOf(this.Nn[2]));
+        this.Np.add(Byte.valueOf(this.Nn[3]));
+        int length = this.No.length;
+        this.Np.add(Byte.valueOf((byte) ((length + 1) & MotionEventCompat.ACTION_MASK)));
         for (int i = 0; i < length; i++) {
-            this.NB.add(Byte.valueOf(this.NA[i]));
+            this.Np.add(Byte.valueOf(this.No[i]));
         }
     }
 
     private void i() {
         if (System.currentTimeMillis() - this.z > 86400000) {
-            if (this.Ns == null) {
-                this.Ns = new a();
+            if (this.Ng == null) {
+                this.Ng = new a();
             }
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(com.baidu.location.h.c.nw().a(false));
-            stringBuffer.append(com.baidu.location.a.a.mw().c());
-            this.Ns.a(stringBuffer.toString());
+            stringBuffer.append(com.baidu.location.h.c.np().a(false));
+            stringBuffer.append(com.baidu.location.a.a.mp().c());
+            this.Ng.a(stringBuffer.toString());
         }
         j();
     }
@@ -663,11 +663,11 @@ public class e {
     private void j() {
     }
 
-    public static e mO() {
-        if (Np == null) {
-            Np = new e();
+    public static e mH() {
+        if (Nd == null) {
+            Nd = new e();
         }
-        return Np;
+        return Nd;
     }
 
     public void b() {
@@ -681,9 +681,9 @@ public class e {
         if (!this.N) {
             c();
         }
-        if (this.k == 1 && b.mL().f() < this.Mm * 100.0d && this.m.contains(com.baidu.location.f.c.a(com.baidu.location.f.c.nm().e()))) {
+        if (this.k == 1 && b.mE().f() < this.Ma * 100.0d && this.m.contains(com.baidu.location.f.c.a(com.baidu.location.f.c.nf().e()))) {
             if (this.n != 1 || this.y <= this.o) {
-                this.Ny.post(new j(this, location));
+                this.Nm.post(new j(this, location));
             }
         }
     }

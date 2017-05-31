@@ -8,13 +8,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends CustomMessageListener {
-    final /* synthetic */ p bYz;
+    final /* synthetic */ p ceL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(p pVar, int i) {
         super(i);
-        this.bYz = pVar;
+        this.ceL = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,33 +31,33 @@ public class q extends CustomMessageListener {
         y yVar9;
         y yVar10;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-            yVar = this.bYz.bPu;
+            yVar = this.ceL.bVk;
             if (yVar != null) {
-                yVar2 = this.bYz.bPu;
-                if (yVar2.YU() != null) {
-                    yVar3 = this.bYz.bPu;
-                    if (yVar3.YU().abG() != null) {
+                yVar2 = this.ceL.bVk;
+                if (yVar2.ZY() != null) {
+                    yVar3 = this.ceL.bVk;
+                    if (yVar3.ZY().acK() != null) {
                         String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
                         if (!StringUtils.isNull(optString)) {
-                            yVar4 = this.bYz.bPu;
-                            ArrayList<com.baidu.adp.widget.ListView.v> threadList = yVar4.YU().abG().getThreadList();
-                            this.bYz.e(optString, threadList);
-                            p pVar = this.bYz;
-                            yVar5 = this.bYz.bPu;
-                            pVar.e(optString, yVar5.YZ().getListView().getData());
-                            yVar6 = this.bYz.bPu;
-                            yVar6.YU().iW(optString);
-                            yVar7 = this.bYz.bPu;
-                            if (yVar7.YZ() != null) {
-                                yVar9 = this.bYz.bPu;
-                                if (yVar9.YZ().ZO() != null) {
-                                    yVar10 = this.bYz.bPu;
-                                    yVar10.YZ().ZO().notifyDataSetChanged();
+                            yVar4 = this.ceL.bVk;
+                            ArrayList<com.baidu.adp.widget.ListView.v> threadList = yVar4.ZY().acK().getThreadList();
+                            this.ceL.e(optString, threadList);
+                            p pVar = this.ceL;
+                            yVar5 = this.ceL.bVk;
+                            pVar.e(optString, yVar5.aad().getListView().getData());
+                            yVar6 = this.ceL.bVk;
+                            yVar6.ZY().je(optString);
+                            yVar7 = this.ceL.bVk;
+                            if (yVar7.aad() != null) {
+                                yVar9 = this.ceL.bVk;
+                                if (yVar9.aad().aaR() != null) {
+                                    yVar10 = this.ceL.bVk;
+                                    yVar10.aad().aaR().notifyDataSetChanged();
                                 }
                             }
                             if (threadList != null && threadList.size() < 5) {
-                                yVar8 = this.bYz.bPu;
-                                yVar8.Zs();
+                                yVar8 = this.ceL.bVk;
+                                yVar8.LS();
                             }
                         }
                     }

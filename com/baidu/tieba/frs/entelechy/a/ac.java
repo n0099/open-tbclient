@@ -1,54 +1,36 @@
 package com.baidu.tieba.frs.entelechy.a;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.frs.bg;
+import com.baidu.tieba.frs.entelechy.view.bh;
 import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements com.baidu.adp.lib.e.c<TbImageView> {
-    final /* synthetic */ z bSW;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(z zVar) {
-        this.bSW = zVar;
+public class ac extends com.baidu.tieba.frs.p<bg, bh> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ac(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: wF */
-    public TbImageView fL() {
-        TbPageContext tbPageContext;
-        tbPageContext = this.bSW.ajr;
-        TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
-        tbImageView.setDrawBorder(true);
-        tbImageView.setBorderColor(aq.getColor(w.e.common_color_10043));
-        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1));
-        return tbImageView;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: D */
+    public bh onCreateViewHolder(ViewGroup viewGroup) {
+        return new bh(LayoutInflater.from(this.mContext).inflate(w.j.frs_read_progress_item, viewGroup, false), this.ajh.getPageActivity());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.p, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public void o(TbImageView tbImageView) {
-        tbImageView.setOnClickListener(null);
-        tbImageView.setForegroundColor(0);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public TbImageView p(TbImageView tbImageView) {
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public TbImageView q(TbImageView tbImageView) {
-        tbImageView.setOnClickListener(null);
-        tbImageView.setForegroundColor(0);
-        return tbImageView;
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bg bgVar, bh bhVar) {
+        if (bgVar != null && bhVar != null) {
+            bhVar.a(bgVar);
+        }
+        return view;
     }
 }

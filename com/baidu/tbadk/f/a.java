@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private static long Rl = 86400000;
+    private static long QY = 86400000;
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void m(File file) {

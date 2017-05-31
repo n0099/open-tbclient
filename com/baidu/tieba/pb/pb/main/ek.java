@@ -1,35 +1,49 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class ek extends dh<com.baidu.tieba.pb.data.i, com.baidu.tieba.pb.pb.a.g> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ek(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+public class ek {
+    private BaseActivity bfa;
+    private PbModel ele;
+
+    public ek(PbModel pbModel, BaseActivity baseActivity) {
+        this.ele = pbModel;
+        this.bfa = baseActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aX */
-    public com.baidu.tieba.pb.pb.a.g onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.pb.pb.a.g(LayoutInflater.from(this.mContext).inflate(w.j.pb_no_data_item_layout, viewGroup, false), this.mContext);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.dh, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.i iVar, com.baidu.tieba.pb.pb.a.g gVar) {
-        super.onFillViewHolder(i, view, viewGroup, iVar, gVar);
-        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
-        this.efF.getLayoutMode().ai(this.mSkinType == 1);
-        this.efF.getLayoutMode().t(view);
-        return view;
+    public String U(Intent intent) {
+        int length;
+        if (intent == null || intent.getData() == null) {
+            return null;
+        }
+        String dataString = intent.getDataString();
+        if (StringUtils.isNull(dataString) || !dataString.startsWith("tbpb://")) {
+            return null;
+        }
+        String decode = Uri.decode(intent.getData().getEncodedPath());
+        if (StringUtils.isNull(decode)) {
+            return null;
+        }
+        Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\\\d]+).*").matcher(decode);
+        if (matcher.find()) {
+            if ("mpush".equals(matcher.group(1))) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11895").Z("tid", matcher.group(2)));
+            } else if ("bpush".equals(matcher.group(1))) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10320").r("obj_locate", 3).r("obj_type", 1));
+            }
+            return matcher.group(2);
+        }
+        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10320").r("obj_locate", 3).r("obj_type", 1));
+        int indexOf = decode.indexOf("tid=");
+        if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
+            return null;
+        }
+        return decode.substring(length);
     }
 }

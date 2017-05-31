@@ -27,29 +27,29 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivity> {
-    private FrameLayout cIF;
-    private String cIN;
-    private boolean cIS;
+    private FrameLayout cOd;
+    private String cOl;
+    private boolean cOq;
     private int mCount;
-    private LinkedHashMap<String, String> cID = null;
+    private LinkedHashMap<String, String> cOb = null;
     private int mIndex = 0;
-    private a cIE = null;
-    private View aor = null;
+    private a cOc = null;
+    private View aob = null;
     private TextView mTextView = null;
-    private NavigationBar cIG = null;
-    private MultiImageView cIH = null;
+    private NavigationBar cOe = null;
+    private MultiImageView cOf = null;
     private View.OnClickListener mOnClickListener = null;
-    private BaseViewPager.a cII = null;
+    private BaseViewPager.a cOg = null;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = null;
-    private AlphaAnimation cIJ = null;
-    private boolean cIK = true;
-    private boolean cIL = false;
-    private String cIM = "";
+    private AlphaAnimation cOh = null;
+    private boolean cOi = true;
+    private boolean cOj = false;
+    private String cOk = "";
     private String id = "";
-    private String cIO = "";
-    private long cIP = 0;
-    private HashMap<String, Boolean> cIQ = null;
-    private int cIR = 0;
+    private String cOm = "";
+    private long cOn = 0;
+    private HashMap<String, Boolean> cOo = null;
+    private int cOp = 0;
 
     protected abstract void a(String str, ad adVar);
 
@@ -62,7 +62,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         setContentView(w.j.image_activity_2);
         initData(bundle);
         initUI();
-        akH();
+        alH();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -79,7 +79,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        akH();
+        alH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,44 +87,44 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.cIH.setBackgroundColor(com.baidu.tbadk.core.util.aq.cJ(i));
+            this.cOf.setBackgroundColor(com.baidu.tbadk.core.util.aq.cK(i));
         } else {
-            this.cIH.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+            this.cOf.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         }
-        com.baidu.tbadk.core.util.aq.k(this.cIG, w.e.common_color_10222);
-        getLayoutMode().t(this.aor);
+        com.baidu.tbadk.core.util.aq.k(this.cOe, w.e.common_color_10222);
+        getLayoutMode().t(this.aob);
         getLayoutMode().t(this.mTextView);
-        getLayoutMode().t(this.cIF);
+        getLayoutMode().t(this.cOd);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.cIH.onPause();
+        this.cOf.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.cIH.onResume();
+        this.cOf.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.cIH.onDestroy();
+        this.cOf.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        aK(this.mIndex, this.mIndex);
-        this.cIH.onDestroy();
-        if (this.cIE != null) {
-            this.cIE.cancel();
-            this.cIE = null;
+        aI(this.mIndex, this.mIndex);
+        this.cOf.onDestroy();
+        if (this.cOc != null) {
+            this.cOc.cancel();
+            this.cOc = null;
         }
     }
 
@@ -150,51 +150,51 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     private void initUI() {
         this.mOnClickListener = new com.baidu.tieba.im.chat.a(this);
         this.mOnPageChangeListener = new c(this);
-        this.cII = new d(this);
+        this.cOg = new d(this);
         f fVar = new f(this, new e(this));
-        this.cIG = (NavigationBar) findViewById(w.h.navigation_bar);
-        this.cIF = (FrameLayout) this.cIG.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.image_activity_save_button, this.mOnClickListener);
-        if (this.cIS) {
-            this.cIF.setVisibility(8);
+        this.cOe = (NavigationBar) findViewById(w.h.navigation_bar);
+        this.cOd = (FrameLayout) this.cOe.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.image_activity_save_button, this.mOnClickListener);
+        if (this.cOq) {
+            this.cOd.setVisibility(8);
         }
-        this.aor = this.cIG.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.mOnClickListener);
-        this.mTextView = this.cIG.setTitleText("");
-        this.cIH = (MultiImageView) findViewById(w.h.viewpager);
-        this.cIH.setPageMargin(com.baidu.adp.lib.util.k.dip2px(getPageContext().getContext(), 8.0f));
-        this.cIH.J(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.cIH.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.cIH.setItemOnclickListener(this.mOnClickListener);
-        this.cIH.setCurrentItem(akG(), false);
-        this.cIH.setOnScrollOutListener(this.cII);
-        this.cIH.setItemOnLongClickListener(fVar);
-        this.cIH.setHasNext(false);
-        this.cIH.setNextTitle("mNextTitle");
-        this.cIH.setIsFromCDN(true);
-        this.cIH.setAllowLocalUrl(true);
-        aK(this.mIndex, this.mIndex);
+        this.aob = this.cOe.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.mOnClickListener);
+        this.mTextView = this.cOe.setTitleText("");
+        this.cOf = (MultiImageView) findViewById(w.h.viewpager);
+        this.cOf.setPageMargin(com.baidu.adp.lib.util.k.dip2px(getPageContext().getContext(), 8.0f));
+        this.cOf.I(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.cOf.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.cOf.setItemOnclickListener(this.mOnClickListener);
+        this.cOf.setCurrentItem(alG(), false);
+        this.cOf.setOnScrollOutListener(this.cOg);
+        this.cOf.setItemOnLongClickListener(fVar);
+        this.cOf.setHasNext(false);
+        this.cOf.setNextTitle("mNextTitle");
+        this.cOf.setIsFromCDN(true);
+        this.cOf.setAllowLocalUrl(true);
+        aI(this.mIndex, this.mIndex);
         this.mTextView.setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void akF() {
-        if (this.cID != null) {
+    public void alF() {
+        if (this.cOb != null) {
             String valueOf = String.valueOf(this.mIndex + 1);
             if (this.mCount > 0) {
                 valueOf = String.valueOf(String.valueOf(valueOf) + "/") + this.mCount;
             }
-            if (this.cIH.getHasNext() && this.mIndex == this.cIH.getItemNum() - 1) {
+            if (this.cOf.getHasNext() && this.mIndex == this.cOf.getItemNum() - 1) {
                 this.mTextView.setText(getPageContext().getString(w.l.image_recommend));
-                this.cIF.setClickable(false);
+                this.cOd.setClickable(false);
                 return;
             }
             this.mTextView.setText(valueOf);
-            this.cIF.setClickable(true);
+            this.cOd.setClickable(true);
         }
     }
 
-    private int akG() {
-        if (this.cID != null && this.cID.size() > 0) {
-            int size = this.cID.size();
+    private int alG() {
+        if (this.cOb != null && this.cOb.size() > 0) {
+            int size = this.cOb.size();
             if (this.mIndex >= size) {
                 this.mIndex = size - 1;
             }
@@ -210,42 +210,42 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     private void initData(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
-            this.cIM = intent.getStringExtra(AbsMsgImageActivityConfig.CURRENT_URL);
-            this.cIN = intent.getStringExtra(AbsMsgImageActivityConfig.ASSIST_URL);
+            this.cOk = intent.getStringExtra(AbsMsgImageActivityConfig.CURRENT_URL);
+            this.cOl = intent.getStringExtra(AbsMsgImageActivityConfig.ASSIST_URL);
             this.id = intent.getStringExtra("id");
-            this.cIO = intent.getStringExtra(AbsMsgImageActivityConfig.ID_UNIQUE);
-            this.cIS = intent.getBooleanExtra("isSingle", false);
-            if (this.cIO == null) {
-                this.cIO = "";
+            this.cOm = intent.getStringExtra(AbsMsgImageActivityConfig.ID_UNIQUE);
+            this.cOq = intent.getBooleanExtra("isSingle", false);
+            if (this.cOm == null) {
+                this.cOm = "";
             }
             if (this.id == null) {
                 this.id = "";
             }
-            if (this.cIM == null) {
-                this.cIM = "";
+            if (this.cOk == null) {
+                this.cOk = "";
             }
-            this.cID = new LinkedHashMap<>();
-            this.cID.put(this.cIO, this.cIM);
-            this.cIR = intent.getIntExtra("chat_mode", 0);
+            this.cOb = new LinkedHashMap<>();
+            this.cOb.put(this.cOm, this.cOk);
+            this.cOp = intent.getIntExtra("chat_mode", 0);
             this.mIndex = 0;
         } else if (bundle != null) {
-            this.cID = (LinkedHashMap) bundle.getSerializable("url");
+            this.cOb = (LinkedHashMap) bundle.getSerializable("url");
             this.mIndex = bundle.getInt(ImageViewerConfig.INDEX, -1);
             this.id = bundle.getString("id");
-            this.cIO = bundle.getString(AbsMsgImageActivityConfig.ID_UNIQUE);
-            this.cIR = bundle.getInt("chat_mode", 0);
-            this.cIS = bundle.getBoolean("isSingle", false);
-            if (this.cIO == null) {
-                this.cIO = "";
+            this.cOm = bundle.getString(AbsMsgImageActivityConfig.ID_UNIQUE);
+            this.cOp = bundle.getInt("chat_mode", 0);
+            this.cOq = bundle.getBoolean("isSingle", false);
+            if (this.cOm == null) {
+                this.cOm = "";
             }
             if (this.id == null) {
                 this.id = "";
             }
         }
-        this.cIQ = new HashMap<>();
+        this.cOo = new HashMap<>();
     }
 
-    private void akH() {
+    private void alH() {
         if (TextUtils.isEmpty(this.id)) {
             finish();
         }
@@ -255,18 +255,18 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("url", this.cID);
+        bundle.putSerializable("url", this.cOb);
         bundle.putInt(ImageViewerConfig.INDEX, this.mIndex);
         bundle.putString("id", this.id);
-        bundle.putString(AbsMsgImageActivityConfig.ID_UNIQUE, this.cIO);
-        bundle.putInt("chat_mode", this.cIR);
-        bundle.putBoolean("isSingle", this.cIS);
+        bundle.putString(AbsMsgImageActivityConfig.ID_UNIQUE, this.cOm);
+        bundle.putInt("chat_mode", this.cOp);
+        bundle.putBoolean("isSingle", this.cOq);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.cIH.setCurrentItem(this.mIndex, true);
+        this.cOf.setCurrentItem(this.mIndex, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -289,7 +289,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.l.a(this.mUrl, this.rL, AbsMsgImageActivity.this.getPageContext().getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.l.ue();
+                    return com.baidu.tbadk.core.util.l.ua();
                 case -1:
                 default:
                     return AbsMsgImageActivity.this.getPageContext().getString(w.l.save_error);
@@ -303,8 +303,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            AbsMsgImageActivity.this.cIE = null;
-            AbsMsgImageActivity.this.cIF.setClickable(true);
+            AbsMsgImageActivity.this.cOc = null;
+            AbsMsgImageActivity.this.cOd.setClickable(true);
             AbsMsgImageActivity.this.showToast(str);
         }
 
@@ -316,20 +316,20 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AbsMsgImageActivity.this.cIE = null;
-            AbsMsgImageActivity.this.cIF.setClickable(true);
+            AbsMsgImageActivity.this.cOc = null;
+            AbsMsgImageActivity.this.cOd.setClickable(true);
             super.cancel(true);
         }
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r7v0 int)] */
     /* JADX INFO: Access modifiers changed from: private */
-    public void aK(int i, int i2) {
-        synchronized (this.cIQ) {
-            if (System.nanoTime() - this.cIP > 300000000 && this.cID != null && i < this.cID.size()) {
-                this.cIQ.put(this.cID.get(new StringBuilder().append(i).toString()), true);
+    public void aI(int i, int i2) {
+        synchronized (this.cOo) {
+            if (System.nanoTime() - this.cOn > 300000000 && this.cOb != null && i < this.cOb.size()) {
+                this.cOo.put(this.cOb.get(new StringBuilder().append(i).toString()), true);
             }
-            this.cIP = System.nanoTime();
+            this.cOn = System.nanoTime();
         }
     }
 }

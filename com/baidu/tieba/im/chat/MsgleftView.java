@@ -15,35 +15,35 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MsgleftView extends ar {
     private static final String TAG = MsgleftView.class.getName();
-    private TbPageContext<MsglistActivity<?>> aat;
-    private UserIconBox amq;
-    private HeadImageView bQk;
-    private ViewGroup cKv;
-    private ImageView cKw;
-    private final TouchType cKx;
-    View.OnLongClickListener cKy;
+    private TbPageContext<MsglistActivity<?>> aas;
+    private UserIconBox amk;
+    private HeadImageView bWb;
+    private ViewGroup cPT;
+    private ImageView cPU;
+    private final TouchType cPV;
+    View.OnLongClickListener cPW;
     private TextView mName;
 
     public MsgleftView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, w.j.msg_msgleft_view);
-        this.cKx = new TouchType();
-        this.cKy = new bh(this);
-        this.aat = tbPageContext;
+        this.cPV = new TouchType();
+        this.cPW = new bh(this);
+        this.aas = tbPageContext;
         initView();
-        this.cKw = (ImageView) findViewById(w.h.iv_live_group_host);
+        this.cPU = (ImageView) findViewById(w.h.iv_live_group_host);
         this.mName = (TextView) findViewById(w.h.tex_msgitem_name);
-        this.cKv = (ViewGroup) findViewById(w.h.box_msgitem_bubble);
-        this.bQk = (HeadImageView) findViewById(w.h.img_msgitem_photo);
-        this.bQk.setAutoChangeStyle(false);
-        this.bQk.setDrawerType(1);
-        this.bQk.setRadius(com.baidu.adp.lib.util.k.dip2px(this.aat.getContext(), 4.0f));
-        this.amq = (UserIconBox) findViewById(w.h.user_tshow_icon_box);
-        this.bQk.setOnClickListener(new bi(this));
-        this.bQk.setLongClickable(true);
-        this.bQk.setOnLongClickListener(this.cKy);
-        this.bQk.setOnTouchListener(new bj(this));
-        this.cKo.setIsLeft(true);
-        this.cKp.setIsLeft(true);
+        this.cPT = (ViewGroup) findViewById(w.h.box_msgitem_bubble);
+        this.bWb = (HeadImageView) findViewById(w.h.img_msgitem_photo);
+        this.bWb.setAutoChangeStyle(false);
+        this.bWb.setDrawerType(1);
+        this.bWb.setRadius(com.baidu.adp.lib.util.k.dip2px(this.aas.getContext(), 4.0f));
+        this.amk = (UserIconBox) findViewById(w.h.user_tshow_icon_box);
+        this.bWb.setOnClickListener(new bi(this));
+        this.bWb.setLongClickable(true);
+        this.bWb.setOnLongClickListener(this.cPW);
+        this.bWb.setOnTouchListener(new bj(this));
+        this.cPM.setIsLeft(true);
+        this.cPN.setIsLeft(true);
     }
 
     @Override // com.baidu.tieba.im.chat.ar
@@ -51,27 +51,27 @@ public class MsgleftView extends ar {
         String str = null;
         super.b(view, chatMessage);
         ArrayList<IconData> tShowInfoNew = chatMessage != null ? chatMessage.getUserInfo().getTShowInfoNew() : null;
-        alr();
-        if (this.amq != null && this.cKs) {
-            this.amq.setVisibility(0);
-            this.amq.setAutoChangedStyle(false);
-            Resources resources = this.aat.getResources();
-            this.amq.a(tShowInfoNew, 2, resources.getDimensionPixelSize(w.f.ds32), resources.getDimensionPixelSize(w.f.ds32), resources.getDimensionPixelSize(w.f.ds8), true);
+        amr();
+        if (this.amk != null && this.cPQ) {
+            this.amk.setVisibility(0);
+            this.amk.setAutoChangedStyle(false);
+            Resources resources = this.aas.getResources();
+            this.amk.a(tShowInfoNew, 2, resources.getDimensionPixelSize(w.f.ds32), resources.getDimensionPixelSize(w.f.ds32), resources.getDimensionPixelSize(w.f.ds8), true);
         }
         if (chatMessage == null) {
             this.mName.setText((CharSequence) null);
-            this.cKk.setVisibility(0);
-            this.cKk.setText(null);
-            kX(8);
-            this.cKr.getImage().setTag(null);
-            this.cKl.setVisibility(8);
-            this.cKl.setTag(null);
-            this.cKn.setVisibility(8);
-            this.cKn.setTag(null);
-            this.cKo.setVisibility(8);
-            this.cKp.setVisibility(8);
-            this.cKq.setVisibility(8);
-            this.cKw.setVisibility(8);
+            this.cPI.setVisibility(0);
+            this.cPI.setText(null);
+            lr(8);
+            this.cPP.getImage().setTag(null);
+            this.cPJ.setVisibility(8);
+            this.cPJ.setTag(null);
+            this.cPL.setVisibility(8);
+            this.cPL.setTag(null);
+            this.cPM.setVisibility(8);
+            this.cPN.setVisibility(8);
+            this.cPO.setVisibility(8);
+            this.cPU.setVisibility(8);
             return;
         }
         d(chatMessage);
@@ -81,23 +81,23 @@ public class MsgleftView extends ar {
         try {
             if (chatMessage.getUserInfo() != null) {
                 this.mName.setText(chatMessage.getUserInfo().getUserName());
-                this.bQk.setUserId(chatMessage.getUserInfo().getUserId());
+                this.bWb.setUserId(chatMessage.getUserInfo().getUserId());
                 str = chatMessage.getUserInfo().getPortrait();
             }
             if (chatMessage.getUserInfo().getUserType() == 1 || chatMessage.getUserInfo().getUserType() == 3) {
-                this.bQk.c(str, 10, false);
+                this.bWb.c(str, 10, false);
             } else {
-                this.bQk.c(str, 12, false);
+                this.bWb.c(str, 12, false);
             }
-            this.bQk.setContentDescription(chatMessage.getUserInfo().getName_show());
-            this.cKk.setVisibility(8);
-            kX(8);
-            this.cKl.setVisibility(8);
-            this.cKm.setVisibility(8);
-            this.cKn.setVisibility(8);
-            this.cKp.setVisibility(8);
-            this.cKo.setVisibility(8);
-            this.cKq.setVisibility(8);
+            this.bWb.setContentDescription(chatMessage.getUserInfo().getName_show());
+            this.cPI.setVisibility(8);
+            lr(8);
+            this.cPJ.setVisibility(8);
+            this.cPK.setVisibility(8);
+            this.cPL.setVisibility(8);
+            this.cPN.setVisibility(8);
+            this.cPM.setVisibility(8);
+            this.cPO.setVisibility(8);
             switch (chatMessage.getMsgType()) {
                 case 1:
                     a(chatMessage, TAG);
@@ -129,17 +129,17 @@ public class MsgleftView extends ar {
     }
 
     private void e(ChatMessage chatMessage) {
-        String string = com.baidu.tbadk.core.sharedPref.b.tX().getString("live_room_chat_page_author_id", "");
+        String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("live_room_chat_page_author_id", "");
         if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId().equals(string)) {
-            this.cKw.setVisibility(0);
+            this.cPU.setVisibility(0);
         } else {
-            this.cKw.setVisibility(8);
+            this.cPU.setVisibility(8);
         }
     }
 
     private void f(ChatMessage chatMessage) {
         int i;
-        if (this.cKs) {
+        if (this.cPQ) {
             if (chatMessage == null) {
                 i = 0;
             } else if (chatMessage.getUserInfo() != null) {
@@ -157,23 +157,23 @@ public class MsgleftView extends ar {
             } else {
                 i = 0;
             }
-            if (!this.cKs) {
+            if (!this.cPQ) {
                 i = 0;
             }
             this.mName.setCompoundDrawablesWithIntrinsicBounds(0, 0, i, 0);
         }
     }
 
-    public void alr() {
-        if (this.cKs) {
+    public void amr() {
+        if (this.cPQ) {
             this.mName.setVisibility(0);
-            this.amq.setVisibility(0);
+            this.amk.setVisibility(0);
             return;
         }
         this.mName.setVisibility(8);
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.cKv.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.cPT.getLayoutParams();
         marginLayoutParams.topMargin = 0;
-        this.cKv.setLayoutParams(marginLayoutParams);
-        this.amq.setVisibility(8);
+        this.cPT.setLayoutParams(marginLayoutParams);
+        this.amk.setVisibility(8);
     }
 }

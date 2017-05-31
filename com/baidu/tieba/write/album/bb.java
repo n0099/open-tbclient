@@ -5,20 +5,20 @@ import android.widget.AbsListView;
 import com.baidu.tieba.write.album.TransparentHeadGridView;
 /* loaded from: classes.dex */
 class bb implements AbsListView.OnScrollListener {
-    final /* synthetic */ TransparentHeadGridView fOm;
+    final /* synthetic */ TransparentHeadGridView fVT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(TransparentHeadGridView transparentHeadGridView) {
-        this.fOm = transparentHeadGridView;
+        this.fVT = transparentHeadGridView;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         AbsListView.OnScrollListener onScrollListener;
         AbsListView.OnScrollListener onScrollListener2;
-        onScrollListener = this.fOm.fOj;
+        onScrollListener = this.fVT.fVQ;
         if (onScrollListener != null) {
-            onScrollListener2 = this.fOm.fOj;
+            onScrollListener2 = this.fVT.fVQ;
             onScrollListener2.onScrollStateChanged(absListView, i);
         }
     }
@@ -38,44 +38,44 @@ class bb implements AbsListView.OnScrollListener {
         TransparentHeadGridView.a aVar4;
         View view2;
         if (i != 0 || absListView == null || absListView.getChildAt(0) == null || absListView.getPaddingTop() != 0) {
-            aVar = this.fOm.fNN;
+            aVar = this.fVT.fVu;
             if (aVar != null) {
-                i4 = this.fOm.fOk;
-                if (i4 != 100 && this.fOm.getPaddingTop() == 0) {
-                    aVar2 = this.fOm.fNN;
-                    aVar2.sR(100);
-                    this.fOm.fOk = 100;
+                i4 = this.fVT.fVR;
+                if (i4 != 100 && this.fVT.getPaddingTop() == 0) {
+                    aVar2 = this.fVT.fVu;
+                    aVar2.tm(100);
+                    this.fVT.fVR = 100;
                 }
             }
         } else {
             View childAt = absListView.getChildAt(0);
-            i5 = this.fOm.fOd;
+            i5 = this.fVT.fVK;
             if (i5 < 0) {
-                this.fOm.fOd = childAt.getTop();
+                this.fVT.fVK = childAt.getTop();
             }
             int top = childAt.getTop();
-            i6 = this.fOm.fOd;
+            i6 = this.fVT.fVK;
             int i8 = -(top - i6);
-            this.fOm.fOc = i8 == 0;
-            view = this.fOm.fOe;
+            this.fVT.fVJ = i8 == 0;
+            view = this.fVT.fVL;
             if (view != null) {
-                view2 = this.fOm.fOe;
+                view2 = this.fVT.fVL;
                 view2.scrollTo(0, i8);
             }
-            aVar3 = this.fOm.fNN;
-            if (aVar3 != null && childAt.getHeight() != 0 && this.fOm.getPaddingTop() == 0) {
+            aVar3 = this.fVT.fVu;
+            if (aVar3 != null && childAt.getHeight() != 0 && this.fVT.getPaddingTop() == 0) {
                 int height = (((int) (-childAt.getY())) * 100) / childAt.getHeight();
-                i7 = this.fOm.fOk;
+                i7 = this.fVT.fVR;
                 if (height != i7) {
-                    aVar4 = this.fOm.fNN;
-                    aVar4.sR(height);
-                    this.fOm.fOk = height;
+                    aVar4 = this.fVT.fVu;
+                    aVar4.tm(height);
+                    this.fVT.fVR = height;
                 }
             }
         }
-        onScrollListener = this.fOm.fOj;
+        onScrollListener = this.fVT.fVQ;
         if (onScrollListener != null) {
-            onScrollListener2 = this.fOm.fOj;
+            onScrollListener2 = this.fVT.fVQ;
             onScrollListener2.onScroll(absListView, i, i2, i3);
         }
     }

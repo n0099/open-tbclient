@@ -46,7 +46,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, 
                 this.needCache = frsRequestData.isNeedCache();
                 this.mCategoryId = frsRequestData.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = frsRequestData.abX();
+                this.mSortType = frsRequestData.adb();
                 this.mIsGood = frsRequestData.getIsGood();
                 this.mLoadType = frsRequestData.getLoadType();
             }
@@ -68,7 +68,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, 
         int g;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bfn() != null && !StringUtils.isNull(this.responseData.bfn().getBookId(), true) && !this.responseData.bfn().getBookId().equals("0") && this.responseData.bfn().pN() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.bfn().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
+        if (this.responseData.bgI() != null && !StringUtils.isNull(this.responseData.bgI().getBookId(), true) && !this.responseData.bgI().getBookId().equals("0") && this.responseData.bgI().pF() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.bgI().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
             this.responseData.d(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -77,11 +77,8 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null) {
             boolean z = com.baidu.tbadk.core.util.x.q(this.responseData.getThreadList()) >= 15;
-            if (this.needCache && this.responseData.aHE() != null && z) {
-                c.beL().a(c.beL().g(this.responseData.aHE().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
-            }
-            if ((this.mSortType == 3 || this.responseData.abX() == 3) && this.responseData.aHE() != null) {
-                com.baidu.tieba.recapp.x.aYp().aYm().at(this.responseData.aHE().getName(), this.mLoadType);
+            if (this.needCache && this.responseData.aIz() != null && z) {
+                c.bgf().a(c.bgf().g(this.responseData.aIz().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
             }
         }
     }

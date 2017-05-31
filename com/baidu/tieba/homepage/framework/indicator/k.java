@@ -5,17 +5,17 @@ import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ ScrollFragmentTabHost cua;
+    final /* synthetic */ ScrollFragmentTabHost cAs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.cua = scrollFragmentTabHost;
+        this.cAs = scrollFragmentTabHost;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
         a aVar;
-        aVar = this.cua.ctU;
+        aVar = this.cAs.cAm;
         aVar.onPageScrolled(i, f, i2);
     }
 
@@ -23,10 +23,10 @@ public class k implements ViewPager.OnPageChangeListener {
     public void onPageSelected(int i) {
         ScrollFragmentTabHost.a aVar;
         ScrollFragmentTabHost.a aVar2;
-        aVar = this.cua.ctW;
+        aVar = this.cAs.cAo;
         if (aVar != null) {
-            aVar2 = this.cua.ctW;
-            aVar2.jL(i);
+            aVar2 = this.cAs.cAo;
+            aVar2.kk(i);
         }
     }
 

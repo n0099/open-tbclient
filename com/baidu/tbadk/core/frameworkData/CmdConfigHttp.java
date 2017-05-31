@@ -9,6 +9,7 @@ public class CmdConfigHttp {
     public static final int CARD_BOX_MEMBER_PAY_CMD = 1003317;
     public static final int CDN_IPLIST_CMD = 1002600;
     public static final int CLEAR_LOCATION_INFO = 1001508;
+    public static final int CMD_ADD_LINK = 1003324;
     public static final int CMD_ADD_MSG_RECORD = 1003071;
     public static final int CMD_ADD_USER_ATTR_URL = 1003018;
     public static final int CMD_ADD_USER_BOOKMARK = 1003166;
@@ -23,11 +24,13 @@ public class CmdConfigHttp {
     public static final int CMD_APPLY_COPY_THREAD = 1003066;
     public static final int CMD_APPLY_GAME_CODE = 1003015;
     public static final int CMD_AVATAR_PENDANT_LIST = 1003178;
+    public static final int CMD_BIGV_SELECT_THREAD = 1003327;
     public static final int CMD_BUBBLE_CATEGORY = 1003039;
     public static final int CMD_BUBBLE_GROUP = 1003054;
     public static final int CMD_BUBBLE_LIST = 1003055;
     public static final int CMD_BUBBLE_SET = 1003056;
     public static final int CMD_BUILD_ORDER = 1001538;
+    public static final int CMD_CHANGE_FLOOR_AGREE = 1001604;
     public static final int CMD_CHANGE_PORTRAIT = 1003063;
     public static final int CMD_CHANNEL_ADD_VIDEOS = 1003313;
     public static final int CMD_CHANNEL_FOLLOW = 1003311;
@@ -38,6 +41,7 @@ public class CmdConfigHttp {
     public static final int CMD_CHANNEL_UPDATE_PUSH = 1003310;
     public static final int CMD_CHANNEL_VIDEO_SET_TOP = 1003305;
     public static final int CMD_CHANNEL_VIDEO_UNSET_TOP = 1003308;
+    public static final int CMD_CHECK_REAL_NAME = 1003325;
     public static final int CMD_CHECK_USER_BOOKMARK = 1003164;
     public static final int CMD_CHOSEN_PB_PRAISE = 1003007;
     public static final int CMD_CLIENT_CONFIG = 1003024;
@@ -90,6 +94,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_MY_SHELF = 1003092;
     public static final int CMD_GET_OPEN_USERINFO = 1003012;
     public static final int CMD_GET_ORDER = 1003029;
+    public static final int CMD_GET_PB_EMOTION_PID = 1003331;
     public static final int CMD_GET_PERSONAL_GIFT_LIST = 1003051;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
@@ -97,6 +102,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_STORE_REMIND_TIME = 1003067;
     public static final int CMD_GET_SUBSCRIBE_CHANNEL_LIST = 1003304;
     public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
+    public static final int CMD_GET_SUGGEST_EMOTION = 1003329;
     public static final int CMD_GET_TASK_SCORES = 1003101;
     public static final int CMD_GET_TCODE_INFO_CMD = 1003320;
     public static final int CMD_GET_USER_BOOKMARK_LIST = 1003168;
@@ -148,6 +154,7 @@ public class CmdConfigHttp {
     public static final int CMD_SAVE_GAME_STATUS = 1003059;
     public static final int CMD_SCREEN_LOCK_MESSAGE_MORE = 1003194;
     public static final int CMD_SEARCH_LIST = 1003196;
+    public static final int CMD_SEARCH_PB_EMOTION = 1003330;
     public static final int CMD_SEND_BLESS = 1003080;
     public static final int CMD_SEND_FREE_GIFT = 1003052;
     public static final int CMD_SET_COMMON_FORUM_STATE = 1003151;
@@ -172,6 +179,7 @@ public class CmdConfigHttp {
     public static final int CMD_TOPIC_RELATE_THREAD = 1003042;
     public static final int CMD_TOP_THEME_LIST = 1003031;
     public static final int CMD_USER_FREE_CHANCE = 1003047;
+    public static final int CMD_USER_MODULE_OPERATE = 1003326;
     public static final int CMD_USER_MUTE_ADD = 1003027;
     public static final int CMD_USER_MUTE_CHECK = 1003025;
     public static final int CMD_USER_MUTE_DEL = 1003028;
@@ -261,6 +269,7 @@ public class CmdConfigHttp {
     private static final int SIGNALL_HTTP_BASE_CMD = 1001200;
     public static final int SPECIAL_PAGE_HTTP_CMD = 1003200;
     public static final int SubPb_HTTP_CMD = 1002100;
+    public static final int THREAD_LIST_HTTP_CMD = 1003328;
     public static final int UPDATE_PLAYER_NUM_CMD = 1002910;
     public static final int USER_POST_HTTP_CMD = 1001503;
     public static final int VIDEO_LIST_HTTP_CMD = 1003103;

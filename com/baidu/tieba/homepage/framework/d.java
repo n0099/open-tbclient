@@ -7,13 +7,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ RecommendFrsControlFragment ctq;
+    final /* synthetic */ RecommendFrsControlFragment czI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(RecommendFrsControlFragment recommendFrsControlFragment, int i) {
         super(i);
-        this.ctq = recommendFrsControlFragment;
+        this.czI = recommendFrsControlFragment;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class d extends CustomMessageListener {
             if (updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().CB || StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
                 return;
             }
-            this.ctq.a(updateAttentionMessage);
+            this.czI.a(updateAttentionMessage);
         }
     }
 }

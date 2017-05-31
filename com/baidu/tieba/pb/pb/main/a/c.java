@@ -9,11 +9,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a epE;
+    final /* synthetic */ a ewD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.epE = aVar;
+        this.ewD = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,11 +21,11 @@ public class c implements View.OnClickListener {
         String str;
         PbActivity pbActivity;
         if (view.getTag(w.h.tag_user_id) instanceof String) {
-            str = a.epA;
+            str = a.ewz;
             String string = TbadkCoreApplication.m9getInst().getString(w.l.user_icon_web_view_title);
-            pbActivity = this.epE.efF;
+            pbActivity = this.ewD.elf;
             com.baidu.tbadk.browser.f.a(pbActivity.getApplicationContext(), string, String.valueOf(str) + "?user_id=" + ((String) view.getTag(w.h.tag_user_id)), true, true, true);
-            TiebaStatic.log(new as("c10134").s("obj_type", 2));
+            TiebaStatic.log(new as("c10134").r("obj_type", 2));
         }
     }
 }

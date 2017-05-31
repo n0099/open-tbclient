@@ -11,8 +11,8 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private ImageView ctv;
-    private CustomMessageListener ctw;
+    private ImageView czN;
+    private CustomMessageListener czO;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -20,13 +20,13 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Eh() {
+    public com.baidu.tbadk.mainTab.c Eb() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aEi = new RecommendFrsControlFragment();
+        cVar.aDV = new RecommendFrsControlFragment();
         cVar.type = 2;
-        cVar.aEj = w.l.home_recommend;
-        cVar.aEk = w.g.s_tabbar_icon_one_bg;
-        cVar.aEo = com.baidu.tbadk.mainTab.c.aEl;
+        cVar.aDW = w.l.home_recommend;
+        cVar.aDX = w.g.s_tabbar_icon_one_bg;
+        cVar.aEb = com.baidu.tbadk.mainTab.c.aDY;
         return cVar;
     }
 
@@ -37,27 +37,27 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Eg() {
-        this.ctw = new t(this, CmdConfigCustom.CMD_RECOMMEND_FRS_TIP_SHOW);
-        MessageManager.getInstance().registerListener(this.ctw);
+    public void Ea() {
+        this.czO = new t(this, CmdConfigCustom.CMD_RECOMMEND_FRS_TIP_SHOW);
+        MessageManager.getInstance().registerListener(this.czO);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator aS(Context context) {
-        this.aDV = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
-        this.ctv = new ImageView(context);
+        this.aDI = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
+        this.czN = new ImageView(context);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.aEh = this.aDV;
+        aVar.aDU = this.aDI;
         aVar.uT = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
-        aVar.view = this.ctv;
-        aVar.aEf = w.g.icon_news_down_bar_one;
-        this.ctv.setVisibility(8);
-        return this.aDV;
+        aVar.view = this.czN;
+        aVar.aDS = w.g.icon_news_down_bar_one;
+        this.czN.setVisibility(8);
+        return this.aDI;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void cB() {
         super.cB();
-        MessageManager.getInstance().unRegisterListener(this.ctw);
+        MessageManager.getInstance().unRegisterListener(this.czO);
     }
 }

@@ -1,40 +1,30 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
+import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements Runnable {
-    final /* synthetic */ q eCE;
+public class t extends CustomMessageListener {
+    final /* synthetic */ p eLo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(q qVar) {
-        this.eCE = qVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(p pVar, int i) {
+        super(i);
+        this.eLo = pVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PersonPolymericModel personPolymericModel;
-        com.baidu.tieba.personPolymeric.c.n nVar;
-        com.baidu.tieba.personPolymeric.c.n nVar2;
-        PersonPolymericModel personPolymericModel2;
-        PersonPolymericModel personPolymericModel3;
-        personPolymericModel = this.eCE.eCy;
-        if (personPolymericModel != null) {
-            nVar = this.eCE.mPersonPolymericData;
-            if (nVar != null) {
-                nVar2 = this.eCE.mPersonPolymericData;
-                if (nVar2.Nd()) {
-                    personPolymericModel2 = this.eCE.eCy;
-                    personPolymericModel2.resetData();
-                    personPolymericModel3 = this.eCE.eCy;
-                    personPolymericModel3.bZ(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) {
+            ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
+            if (responseNewFriendUpdateUiMsg.getAction() == -1) {
+                this.eLo.ju(false);
+            } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
+                this.eLo.ju(true);
             }
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PROFILE_CACHE_NEED_CHANGED));
     }
 }

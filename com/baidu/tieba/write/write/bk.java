@@ -6,11 +6,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class bk implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteActivity fSV;
+    final /* synthetic */ WriteActivity gaR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(WriteActivity writeActivity) {
-        this.fSV = writeActivity;
+        this.gaR = writeActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
@@ -32,39 +32,39 @@ class bk implements View.OnFocusChangeListener {
         EditText editText5;
         View view2;
         TextView textView2;
-        editText = this.fSV.fkx;
+        editText = this.gaR.fsp;
         if (view != editText) {
-            view2 = this.fSV.aor;
+            view2 = this.gaR.aob;
             if (view != view2) {
-                textView2 = this.fSV.mPost;
+                textView2 = this.gaR.mPost;
             }
         }
         if (!z) {
-            editText2 = this.fSV.fkx;
+            editText2 = this.gaR.fsp;
             if (view == editText2) {
-                textView = this.fSV.fkC;
+                textView = this.gaR.fsu;
                 textView.setVisibility(0);
             }
         } else {
-            this.fSV.fSQ = true;
-            this.fSV.boe();
-            jVar = this.fSV.azd;
+            this.gaR.gaM = true;
+            this.gaR.bpD();
+            jVar = this.gaR.ayP;
             if (jVar != null) {
-                jVar2 = this.fSV.azd;
-                jVar2.AN();
+                jVar2 = this.gaR.ayP;
+                jVar2.AG();
             }
-            Activity activity = this.fSV.getActivity();
-            editText3 = this.fSV.fkx;
+            Activity activity = this.gaR.getActivity();
+            editText3 = this.gaR.fsp;
             com.baidu.adp.lib.util.k.c(activity, editText3);
         }
-        editText4 = this.fSV.fkB;
+        editText4 = this.gaR.fst;
         if (view == editText4 && z) {
-            this.fSV.fSQ = false;
-            this.fSV.boe();
-            jVar3 = this.fSV.azd;
-            jVar3.AN();
-            Activity activity2 = this.fSV.getActivity();
-            editText5 = this.fSV.fkB;
+            this.gaR.gaM = false;
+            this.gaR.bpD();
+            jVar3 = this.gaR.ayP;
+            jVar3.AG();
+            Activity activity2 = this.gaR.getActivity();
+            editText5 = this.gaR.fst;
             com.baidu.adp.lib.util.k.c(activity2, editText5);
         }
     }

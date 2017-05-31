@@ -198,7 +198,7 @@ public class d {
                     return;
                 }
                 eVar.vA = String.valueOf(String.valueOf(this.ol.fC().responseCode)) + "|retryCount:" + i4;
-                boolean ag = ag(this.ol.fC().responseCode);
+                boolean ah = ah(this.ol.fC().responseCode);
                 if (this.vj <= 0 && this.vs != null) {
                     this.vj = this.vs.fo();
                 }
@@ -208,9 +208,9 @@ public class d {
                 a fl6 = a.fl();
                 if (fl6 != null) {
                     fl6.a(this.ol);
-                    z2 = ag;
+                    z2 = ah;
                 } else {
-                    z2 = ag;
+                    z2 = ah;
                 }
             } catch (Throwable th) {
                 if (this.vj <= 0 && this.vs != null) {
@@ -335,7 +335,7 @@ public class d {
                     return;
                 }
                 eVar.vA = String.valueOf(String.valueOf(this.ol.fC().responseCode)) + "|retryCount:" + i4;
-                z = ag(this.ol.fC().responseCode);
+                z = ah(this.ol.fC().responseCode);
                 this.ol.a(eVar);
                 if (this.vj <= 0 && this.vs != null) {
                     this.vj = this.vs.fo();
@@ -364,7 +364,7 @@ public class d {
         }
     }
 
-    private boolean ag(int i) {
+    private boolean ah(int i) {
         if (i == 202 || i == 201 || i == 205 || i == 304 || i == 305 || i == 408) {
             return true;
         }
@@ -486,7 +486,7 @@ public class d {
                     return;
                 }
                 eVar.vA = String.valueOf(String.valueOf(this.ol.fC().responseCode)) + "|retryCount:" + i4;
-                z = ag(this.ol.fC().responseCode);
+                z = ah(this.ol.fC().responseCode);
                 this.ol.a(eVar);
                 if (this.vj <= 0 && this.vs != null) {
                     this.vj = this.vs.fo();

@@ -6,13 +6,13 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.adp.widget.ListView.y.a;
+import com.baidu.adp.widget.ListView.z;
+import com.baidu.adp.widget.ListView.z.a;
 /* loaded from: classes.dex */
-public abstract class a<T, V extends y.a> {
-    private y mAdapter;
-    protected w mAdapterItemClickListener;
-    protected x mAdapterItemLongClickListener;
+public abstract class a<T, V extends z.a> {
+    private z mAdapter;
+    protected x mAdapterItemClickListener;
+    protected y mAdapterItemLongClickListener;
     protected Context mContext;
     protected BdUniqueId mPageId;
     protected BdUniqueId mType;
@@ -35,7 +35,7 @@ public abstract class a<T, V extends y.a> {
         this.mPageId = bdUniqueId2;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.y$a> */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.z$a> */
     /* JADX WARN: Multi-variable type inference failed */
     public View getView(int i, View view, ViewGroup viewGroup, T t) {
         View view2;
@@ -48,26 +48,26 @@ public abstract class a<T, V extends y.a> {
         } else {
             view2 = view;
         }
-        return onFillViewHolder(i, view2, viewGroup, t, (y.a) view2.getTag());
+        return onFillViewHolder(i, view2, viewGroup, t, (z.a) view2.getTag());
     }
 
     private boolean needCreateNewHolder(View view) {
         return view == null || view.getTag() == null || this.viewholder == null || !this.viewholder.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.viewholder.getClass());
     }
 
-    public void setOnAdapterItemClickListener(w wVar) {
-        this.mAdapterItemClickListener = wVar;
+    public void setOnAdapterItemClickListener(x xVar) {
+        this.mAdapterItemClickListener = xVar;
     }
 
-    public w getOnAdapterItemClickListener() {
+    public x getOnAdapterItemClickListener() {
         return this.mAdapterItemClickListener;
     }
 
-    public void setOnAdapterItemLongClickListener(x xVar) {
-        this.mAdapterItemLongClickListener = xVar;
+    public void setOnAdapterItemLongClickListener(y yVar) {
+        this.mAdapterItemLongClickListener = yVar;
     }
 
-    public x getOnAdapterItemLongClickListener() {
+    public y getOnAdapterItemLongClickListener() {
         return this.mAdapterItemLongClickListener;
     }
 
@@ -84,8 +84,8 @@ public abstract class a<T, V extends y.a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setAdapter(y yVar) {
-        this.mAdapter = yVar;
+    public void setAdapter(z zVar) {
+        this.mAdapter = zVar;
     }
 
     public void notifyDataSetChanged() {
@@ -105,7 +105,7 @@ public abstract class a<T, V extends y.a> {
         if (this.mAdapter == null || this.mType == null) {
             return -1;
         }
-        return this.mAdapter.t(i, this.mType.getId());
+        return this.mAdapter.s(i, this.mType.getId());
     }
 
     public int getCount() {

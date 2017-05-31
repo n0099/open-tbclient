@@ -93,7 +93,7 @@ public class MorePopupWindow extends PopupWindow {
     private void applaySkin(com.baidu.tbadk.core.c cVar, int i, Drawable drawable) {
         if (this.mContentView != null) {
             setBackgroundDrawable(drawable);
-            cVar.ai(i == 1);
+            cVar.ah(i == 1);
             try {
                 cVar.t(this.mContentView);
             } catch (IllegalArgumentException e) {

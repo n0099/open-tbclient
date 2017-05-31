@@ -1,30 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gc implements View.OnClickListener {
-    final /* synthetic */ fm epr;
-    private final /* synthetic */ boolean epu;
+public class gc implements Runnable {
+    final /* synthetic */ fx evi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gc(fm fmVar, boolean z) {
-        this.epr = fmVar;
-        this.epu = z;
+    public gc(fx fxVar) {
+        this.evi = fxVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        if (this.epu) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11923").s("obj_id", 2));
+    @Override // java.lang.Runnable
+    public void run() {
+        LinearLayout linearLayout;
+        ViewStub viewStub;
+        linearLayout = this.evi.eto;
+        if (linearLayout == null) {
+            this.evi.aMn();
         }
-        pbActivity = this.epr.efF;
-        if (pbActivity.egu.epB != null) {
-            pbActivity2 = this.epr.efF;
-            pbActivity2.egu.epB.onClick(view);
-        }
+        viewStub = this.evi.esJ;
+        viewStub.setVisibility(0);
     }
 }

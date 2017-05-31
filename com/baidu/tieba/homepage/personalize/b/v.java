@@ -1,101 +1,87 @@
 package com.baidu.tieba.homepage.personalize.b;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.card.ca;
-import com.baidu.tieba.w;
-import java.util.ArrayList;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.cf;
+import com.baidu.tieba.card.ci;
+import com.baidu.tieba.homepage.personalize.am;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.f, a> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public v(Context context) {
-        super(context, com.baidu.tieba.homepage.personalize.data.f.cws);
+public class v extends ci<com.baidu.tieba.card.data.n> {
+    final /* synthetic */ u cBZ;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(u uVar) {
+        this.cBZ = uVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aa */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = View.inflate(viewGroup.getContext(), w.j.interest_guide, null);
-        a aVar = new a(inflate);
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-        return aVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.f fVar, a aVar) {
-        aVar.c(fVar);
-        aVar.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        if (fVar != null && fVar.cwu != null) {
-            ca.To().a(new as("c10985").aa("obj_name", fVar.cwu));
-        }
-        return aVar.getView();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        if (fVar != null && fVar.cwt != null && fVar.cwt.size() != 0) {
-            ArrayList arrayList = new ArrayList();
-            for (com.baidu.tieba.homepage.personalize.data.g gVar : fVar.cwt) {
-                if (gVar != null && gVar.cwv && !StringUtils.isNull(gVar.TP)) {
-                    arrayList.add(gVar.TP);
+    @Override // com.baidu.tieba.card.ci
+    public void a(View view, com.baidu.tieba.card.data.n nVar) {
+        com.baidu.tieba.homepage.personalize.model.f fVar;
+        com.baidu.tieba.card.y yVar;
+        com.baidu.tieba.card.y yVar2;
+        com.baidu.tieba.card.y yVar3;
+        com.baidu.tieba.card.y yVar4;
+        com.baidu.tieba.card.y yVar5;
+        com.baidu.tieba.card.y yVar6;
+        com.baidu.tieba.card.y yVar7;
+        com.baidu.tieba.card.y yVar8;
+        com.baidu.tieba.card.y yVar9;
+        com.baidu.tieba.card.y yVar10;
+        com.baidu.tieba.homepage.personalize.model.f fVar2;
+        cf.Uw().ds(true);
+        fVar = this.cBZ.cBT;
+        if (fVar != null && nVar != null && nVar.LH() != null && !StringUtils.isNull(nVar.LH().getTid())) {
+            yVar = this.cBZ.cBY;
+            if (yVar != null) {
+                yVar2 = this.cBZ.cBY;
+                if (yVar2.getView() != null) {
+                    if ((view.getTag() instanceof String) && !am.bg(com.baidu.adp.lib.g.b.c(nVar.LH().getTid(), 0L))) {
+                        am.bf(com.baidu.adp.lib.g.b.c(nVar.LH().getTid(), 0L));
+                        fVar2 = this.cBZ.cBT;
+                        fVar2.a(com.baidu.adp.lib.g.b.c(nVar.LH().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.UB(), nVar.UD(), com.baidu.adp.lib.g.b.g((String) view.getTag(), 1));
+                    }
+                    int id = view.getId();
+                    yVar3 = this.cBZ.cBY;
+                    if (id != yVar3.getView().getId()) {
+                        yVar4 = this.cBZ.cBY;
+                        if (yVar4.bdI != null) {
+                            yVar9 = this.cBZ.cBY;
+                            if (yVar9.bdI.getBarNameTv() != null) {
+                                int id2 = view.getId();
+                                yVar10 = this.cBZ.cBY;
+                                if (id2 == yVar10.bdI.getBarNameTv().getId()) {
+                                    TiebaStatic.log(nVar.UM());
+                                    return;
+                                }
+                            }
+                        }
+                        yVar5 = this.cBZ.cBY;
+                        if (yVar5.getHeaderImg() != null) {
+                            int id3 = view.getId();
+                            yVar8 = this.cBZ.cBY;
+                            if (id3 == yVar8.getHeaderImg().getId()) {
+                                TiebaStatic.log(nVar.y(nVar.aYA));
+                                return;
+                            }
+                        }
+                        yVar6 = this.cBZ.cBY;
+                        if (yVar6.Ug() != null) {
+                            int id4 = view.getId();
+                            yVar7 = this.cBZ.cBY;
+                            if (id4 == yVar7.Ug().getId()) {
+                                TiebaStatic.log(nVar.y(nVar.aYA));
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    TiebaStatic.log(nVar.x(nVar.aYA));
                 }
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GUIDE_SET_CACHE));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RELOAD_HP_PERSONALIZED));
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class a extends y.a {
-        private int ane;
-        private View blR;
-        private TextView cvH;
-        private GridView cvI;
-        private u cvJ;
-        private AdapterView.OnItemClickListener cvK;
-
-        public a(View view) {
-            super(view);
-            this.ane = 3;
-            this.cvJ = new u();
-            this.cvK = new w(this);
-            this.cvH = (TextView) view.findViewById(w.h.interest_guide_tip);
-            this.blR = view.findViewById(w.h.interest_guide_close);
-            this.cvI = (GridView) view.findViewById(w.h.interest_guide_tags_layout);
-            this.cvI.setAdapter((ListAdapter) this.cvJ);
-            this.cvI.setOnItemClickListener(this.cvK);
-            this.blR.setOnClickListener(new x(this));
-        }
-
-        protected void onChangeSkinType(int i) {
-            if (this.ane != i) {
-                aq.k(getView(), w.e.cp_bg_line_d);
-                aq.i(this.cvH, w.e.cp_cont_d);
-                aq.j(this.blR, w.g.icon_x_normal);
-            }
-        }
-
-        protected void c(com.baidu.tieba.homepage.personalize.data.f fVar) {
-            this.cvJ.a(fVar);
         }
     }
 }

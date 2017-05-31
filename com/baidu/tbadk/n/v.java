@@ -1,14 +1,14 @@
 package com.baidu.tbadk.n;
 /* loaded from: classes.dex */
 public class v extends com.baidu.adp.lib.b.a {
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "android_immersive_switch";
+    public void X(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eQ() {
-        return null;
+    protected String getName() {
+        return "img_log";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -18,21 +18,16 @@ public class v extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eS() {
-        return 0;
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] eQ() {
+        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int eT() {
         return 10;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.b.a
-    public void X(int i) {
-        if (i == 1) {
-            com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("switch_immersive_sticky_status", true);
-        } else {
-            com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("switch_immersive_sticky_status", false);
-        }
     }
 }

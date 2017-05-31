@@ -16,7 +16,7 @@ public class PageDialogHelper {
         DIALOG,
         NORMAL;
 
-        /* JADX DEBUG: Replace access to removed values field (aJl) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aIY) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PayForm[] valuesCustom() {
             PayForm[] valuesCustom = values();
@@ -57,7 +57,7 @@ public class PageDialogHelper {
         return z;
     }
 
-    public static void s(Activity activity) {
+    public static void u(Activity activity) {
         WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         attributes.x = 0;

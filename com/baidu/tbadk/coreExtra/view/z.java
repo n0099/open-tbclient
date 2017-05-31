@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ u awi;
-    private final /* synthetic */ boolean awl;
+    final /* synthetic */ u avS;
+    private final /* synthetic */ boolean avV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(u uVar, boolean z) {
-        this.awi = uVar;
-        this.awl = z;
+        this.avS = uVar;
+        this.avV = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,33 +19,33 @@ public class z extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.b
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         boolean z;
-        this.awi.br(this.awl);
-        z = this.awi.avY;
+        this.avS.bo(this.avV);
+        z = this.avS.avI;
         if (!z) {
             if (aVar != null) {
                 Bitmap kR = aVar.kR();
                 if (kR != null) {
-                    this.awi.avX = true;
+                    this.avS.avH = true;
                     if (aVar.ef()) {
                         byte[] kW = aVar.kW();
                         if (kW == null) {
                             kW = BitmapHelper.Bitmap2Bytes(kR, 100);
                         }
-                        this.awi.avR.a(kW, kR);
-                        this.awi.avR.invalidate();
-                        this.awi.avR.play();
-                        this.awi.awd = false;
+                        this.avS.avB.a(kW, kR);
+                        this.avS.avB.invalidate();
+                        this.avS.avB.play();
+                        this.avS.avN = false;
                     } else {
-                        this.awi.avR.setImageBitmap(kR);
-                        this.awi.avR.setImageData(aVar.kW());
+                        this.avS.avB.setImageBitmap(kR);
+                        this.avS.avB.setImageData(aVar.kW());
                     }
-                    this.awi.Ba();
-                    this.awi.Bc();
-                } else if (!this.awl) {
-                    this.awi.avR.GS();
+                    this.avS.AT();
+                    this.avS.AV();
+                } else if (!this.avV) {
+                    this.avS.avB.GM();
                 }
-            } else if (!this.awl) {
-                this.awi.avR.GS();
+            } else if (!this.avV) {
+                this.avS.avB.GM();
             }
         }
     }

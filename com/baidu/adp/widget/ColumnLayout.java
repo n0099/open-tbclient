@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.adp.R;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -358,7 +359,7 @@ public class ColumnLayout extends ViewGroup {
                             view.layout(i11, ((((measuredHeight - generateDefaultLayoutParams.topMargin) - generateDefaultLayoutParams.bottomMargin) - view.getMeasuredHeight()) + i3) >> 1, measuredWidth3, ((((measuredHeight - generateDefaultLayoutParams.topMargin) - generateDefaultLayoutParams.bottomMargin) + view.getMeasuredHeight()) + i3) >> 1);
                             i2 = measuredWidth3 + generateDefaultLayoutParams.rightMargin;
                             continue;
-                        case 48:
+                        case w.n.View_onClick /* 48 */:
                             int i12 = generateDefaultLayoutParams.leftMargin + i2;
                             int measuredWidth4 = view.getMeasuredWidth() + i12;
                             view.layout(i12, generateDefaultLayoutParams.topMargin + i3, measuredWidth4, generateDefaultLayoutParams.topMargin + i3 + view.getMeasuredHeight());

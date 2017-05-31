@@ -1,22 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.frs.r;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aq implements Runnable {
-    final /* synthetic */ r.a bPq;
-    private final /* synthetic */ String bPr;
+public class aq extends CustomMessageListener {
+    final /* synthetic */ r bVb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(r.a aVar, String str) {
-        this.bPq = aVar;
-        this.bPr = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aq(r rVar, int i) {
+        super(i);
+        this.bVb = rVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.core.util.z zVar = new com.baidu.tbadk.core.util.z(this.bPr);
-        zVar.uJ().vD().mIsNeedAddCommenParam = false;
-        zVar.uJ().vD().mIsUseCurrentBDUSS = false;
-        zVar.um();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.frs.f.u uVar;
+        com.baidu.tieba.frs.entelechy.b.d dVar;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.t) && this.bVb.bTF != null) {
+            this.bVb.bTF.c((com.baidu.tieba.tbadkCore.t) customResponsedMessage.getData());
+            uVar = this.bVb.bUk;
+            uVar.f(this.bVb.bTF);
+            dVar = this.bVb.bUm;
+            dVar.a(this.bVb.bUa.getListView(), this.bVb.bTF, this.bVb.bUj.ada());
+        }
     }
 }

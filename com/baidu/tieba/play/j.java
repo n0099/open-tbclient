@@ -1,22 +1,21 @@
 package com.baidu.tieba.play;
 
 import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements a.b {
-    final /* synthetic */ c eSq;
+class j implements a.b {
+    final /* synthetic */ c fbb;
     private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(c cVar, String str) {
-        this.eSq = cVar;
+        this.fbb = cVar;
         this.val$url = str;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        c.eSa = true;
-        this.eSq.startPlay(this.val$url);
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("video_list_confirm_play_in_mobile_net", System.currentTimeMillis());
+        this.fbb.startPlay(this.val$url);
         aVar.dismiss();
     }
 }

@@ -7,8 +7,8 @@ public class d {
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String fxG;
-    private String fxH;
+    private String fFx;
+    private String fFy;
     private int isCopyTWZhibo;
     private String preMsg;
     private String threadId = null;
@@ -24,11 +24,15 @@ public class d {
         return this.errorCode != 0;
     }
 
-    public boolean bhT() {
+    public boolean bjn() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bhU() {
+    public boolean bjo() {
+        return this.errorCode == 1990055;
+    }
+
+    public boolean bjp() {
         return this.errorCode == 227001;
     }
 
@@ -44,7 +48,7 @@ public class d {
         this.errorString = str;
     }
 
-    public AntiData aup() {
+    public AntiData avj() {
         return this.antiData;
     }
 
@@ -88,19 +92,19 @@ public class d {
         return this.isCopyTWZhibo;
     }
 
-    public String bhV() {
-        return this.fxG;
+    public String bjq() {
+        return this.fFx;
     }
 
-    public void qn(String str) {
-        this.fxG = str;
+    public void qB(String str) {
+        this.fFx = str;
     }
 
-    public String bhW() {
-        return this.fxH;
+    public String bjr() {
+        return this.fFy;
     }
 
-    public void qo(String str) {
-        this.fxH = str;
+    public void qC(String str) {
+        this.fFy = str;
     }
 }

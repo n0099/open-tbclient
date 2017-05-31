@@ -33,7 +33,7 @@ public class UserData extends MetaData {
     private String bg_pic;
     private int bimg_end_time;
     private String bimg_url;
-    private c closeAdData;
+    private d closeAdData;
     private String grade;
     private int have_attention;
     private long inTime;
@@ -67,7 +67,7 @@ public class UserData extends MetaData {
     public MembershipUserInfo membershipInfo;
     private int newMarkCount;
     private String password;
-    private g payMemberInfo;
+    private h payMemberInfo;
     private Permission permission;
     private PersonPrivateData personPrivate;
     private String position;
@@ -253,19 +253,19 @@ public class UserData extends MetaData {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
-            j jVar = new j();
-            jVar.eU(getPortraitH());
-            jVar.eV(getPortrait());
-            jVar.bw(true);
-            this.mPhotoAlbum.add(jVar);
+            k kVar = new k();
+            kVar.eS(getPortraitH());
+            kVar.eT(getPortrait());
+            kVar.bt(true);
+            this.mPhotoAlbum.add(kVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
-                        j jVar2 = new j();
-                        jVar2.eU(userPics.big);
-                        jVar2.eV(userPics.small);
-                        jVar2.bw(false);
-                        this.mPhotoAlbum.add(jVar2);
+                        k kVar2 = new k();
+                        kVar2.eS(userPics.big);
+                        kVar2.eT(userPics.small);
+                        kVar2.bt(false);
+                        this.mPhotoAlbum.add(kVar2);
                     }
                 }
             }
@@ -292,7 +292,7 @@ public class UserData extends MetaData {
             }
             VipCloseAd vipCloseAd = user.vip_close_ad;
             if (vipCloseAd != null) {
-                this.closeAdData = new c();
+                this.closeAdData = new d();
                 this.closeAdData.a(vipCloseAd);
             }
             this.bg_pic = user.bg_pic;
@@ -306,7 +306,7 @@ public class UserData extends MetaData {
             }
             PayMemberInfo payMemberInfo = user.pay_member_info;
             if (payMemberInfo != null) {
-                this.payMemberInfo = new g();
+                this.payMemberInfo = new h();
                 this.payMemberInfo.a(payMemberInfo);
             }
             if (user.is_mask.intValue() == 1) {
@@ -426,7 +426,7 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("vip_close_ad");
                 if (optJSONObject3 != null) {
-                    this.closeAdData = new c();
+                    this.closeAdData = new d();
                     this.closeAdData.parseJson(optJSONObject3);
                 }
                 this.mGiftNum = jSONObject.optInt("gift_num");
@@ -437,7 +437,7 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("pay_member_info");
                 if (optJSONObject5 != null) {
-                    this.payMemberInfo = new g();
+                    this.payMemberInfo = new h();
                     this.payMemberInfo.parseJson(optJSONObject5);
                 }
                 if (jSONObject.optInt("is_mask") == 1) {
@@ -449,22 +449,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                j jVar = new j();
-                jVar.eU(getPortraitH());
-                jVar.eV(getPortrait());
-                jVar.bw(true);
-                this.mPhotoAlbum.add(jVar);
+                k kVar = new k();
+                kVar.eS(getPortraitH());
+                kVar.eT(getPortrait());
+                kVar.bt(true);
+                this.mPhotoAlbum.add(kVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            j jVar2 = new j();
-                            jVar2.eU(jSONObject2.optString("big"));
-                            jVar2.eV(jSONObject2.optString("small"));
-                            jVar2.bw(false);
-                            this.mPhotoAlbum.add(jVar2);
+                            k kVar2 = new k();
+                            kVar2.eS(jSONObject2.optString("big"));
+                            kVar2.eT(jSONObject2.optString("small"));
+                            kVar2.bt(false);
+                            this.mPhotoAlbum.add(kVar2);
                         }
                     }
                 }
@@ -582,11 +582,11 @@ public class UserData extends MetaData {
         return this.sex;
     }
 
-    public g getPayMemberInfoData() {
+    public h getPayMemberInfoData() {
         return this.payMemberInfo;
     }
 
-    public c getCloseAdData() {
+    public d getCloseAdData() {
         return this.closeAdData;
     }
 

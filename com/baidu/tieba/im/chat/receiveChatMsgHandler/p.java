@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ao;
+import com.baidu.tbadk.core.data.ap;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.chat.receiveChatMsgHandler.a;
@@ -15,29 +15,29 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class p {
-    private static p cNh;
+    private static p cSF;
 
     private p() {
     }
 
-    public static synchronized p alN() {
+    public static synchronized p amN() {
         p pVar;
         synchronized (p.class) {
-            if (cNh == null) {
-                cNh = new p();
+            if (cSF == null) {
+                cSF = new p();
             }
-            pVar = cNh;
+            pVar = cSF;
         }
         return pVar;
     }
 
-    public void n(String str, long j) {
+    public void m(String str, long j) {
         if (!TextUtils.isEmpty(str) && j > 0) {
             TbadkSettings.getInst().saveLong("tb_group_msg_" + str, j);
         }
     }
 
-    public long lc(int i) {
+    public long lw(int i) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + i, -1L);
     }
 
@@ -72,7 +72,7 @@ public class p {
                 }
                 if (TbadkCoreApplication.m9getInst().isPromotedMessageOn()) {
                     CustomMessage customMessage = new CustomMessage(CmdConfigCustom.DEAL_YY_NOTIFICATION);
-                    customMessage.setData(new ao(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
+                    customMessage.setData(new ap(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
                     MessageManager.getInstance().sendMessage(customMessage);
                 } else {
                     return;

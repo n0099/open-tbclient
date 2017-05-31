@@ -1,56 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bk implements a.b {
-    private final /* synthetic */ MarkData ehJ;
-    private final /* synthetic */ MarkData ehK;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a ehL;
-    final /* synthetic */ PbActivity ehy;
+    private final /* synthetic */ long cgy;
+    private final /* synthetic */ String cgz;
+    private final /* synthetic */ ShareFromPBMsgData dlq;
+    final /* synthetic */ PbActivity enc;
+    private final /* synthetic */ hh enm;
+    private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(PbActivity pbActivity, MarkData markData, MarkData markData2, com.baidu.tbadk.core.dialog.a aVar) {
-        this.ehy = pbActivity;
-        this.ehJ = markData;
-        this.ehK = markData2;
-        this.ehL = aVar;
+    public bk(PbActivity pbActivity, hh hhVar, long j, String str, String str2, ShareFromPBMsgData shareFromPBMsgData) {
+        this.enc = pbActivity;
+        this.enm = hhVar;
+        this.cgy = j;
+        this.val$name = str;
+        this.cgz = str2;
+        this.dlq = shareFromPBMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tbadk.baseEditMark.a aVar2;
-        com.baidu.tbadk.baseEditMark.a aVar3;
-        com.baidu.tbadk.baseEditMark.a aVar4;
-        com.baidu.tbadk.baseEditMark.a aVar5;
-        com.baidu.tbadk.baseEditMark.a aVar6;
-        com.baidu.tbadk.baseEditMark.a aVar7;
-        com.baidu.tbadk.baseEditMark.a aVar8;
+        int aJJ;
+        this.enc.HidenSoftKeyPad((InputMethodManager) this.enc.getSystemService("input_method"), this.enm.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.enc.getPageContext().getPageActivity(), this.cgy, this.val$name, this.cgz, 0, this.enm.getLeaveMsg(), this.dlq.toChatMessageContent())));
         aVar.dismiss();
-        aVar2 = this.ehy.dCb;
-        if (aVar2 != null) {
-            aVar3 = this.ehy.dCb;
-            if (aVar3.nL()) {
-                aVar7 = this.ehy.dCb;
-                aVar7.nM();
-                aVar8 = this.ehy.dCb;
-                aVar8.ad(false);
-            }
-            aVar4 = this.ehy.dCb;
-            aVar4.a(this.ehJ);
-            aVar5 = this.ehy.dCb;
-            aVar5.ad(true);
-            aVar6 = this.ehy.dCb;
-            aVar6.nN();
+        aJJ = this.enc.aJJ();
+        if (aJJ == 1) {
+            this.enc.aJP();
         }
-        this.ehK.setPostId(this.ehJ.getPostId());
-        Intent intent = new Intent();
-        intent.putExtra(PbActivityConfig.KEY_MARK, this.ehK);
-        this.ehy.setResult(-1, intent);
-        this.ehL.dismiss();
-        this.ehy.aIW();
     }
 }

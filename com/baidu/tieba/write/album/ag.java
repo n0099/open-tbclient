@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements a.InterfaceC0085a {
-    final /* synthetic */ ac fNP;
+public class ag implements a.InterfaceC0088a {
+    final /* synthetic */ ac fVw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(ac acVar) {
-        this.fNP = acVar;
+        this.fVw = acVar;
     }
 
-    @Override // com.baidu.tieba.write.view.a.InterfaceC0085a
+    @Override // com.baidu.tieba.write.view.a.InterfaceC0088a
     public void a(int i, e eVar) {
         p pVar;
         p pVar2;
@@ -27,27 +27,27 @@ public class ag implements a.InterfaceC0085a {
         String albumId = eVar.getAlbumId();
         String name = eVar.getName();
         if (!TextUtils.isEmpty(albumId)) {
-            pVar = this.fNP.fLQ;
-            if (!albumId.equals(pVar.bmr())) {
-                pVar2 = this.fNP.fLQ;
-                List<ImageFileInfo> bmu = pVar2.bmu();
+            pVar = this.fVw.fTx;
+            if (!albumId.equals(pVar.bnO())) {
+                pVar2 = this.fVw.fTx;
+                List<ImageFileInfo> bnR = pVar2.bnR();
                 if (!albumId.equals("-1")) {
                     ArrayList arrayList = new ArrayList();
-                    for (ImageFileInfo imageFileInfo : bmu) {
+                    for (ImageFileInfo imageFileInfo : bnR) {
                         if (albumId.equals(imageFileInfo.getAlbumId())) {
                             arrayList.add(imageFileInfo);
                         }
                     }
-                    bmu = arrayList;
+                    bnR = arrayList;
                 }
-                pVar3 = this.fNP.fLQ;
-                pVar3.cN(bmu);
-                pVar4 = this.fNP.fLQ;
-                pVar4.qU(albumId);
-                this.fNP.setData(bmu);
-                textView = this.fNP.bKb;
+                pVar3 = this.fVw.fTx;
+                pVar3.cP(bnR);
+                pVar4 = this.fVw.fTx;
+                pVar4.rh(albumId);
+                this.fVw.setData(bnR);
+                textView = this.fVw.bPO;
                 textView.setText(name);
-                transparentHeadGridView = this.fNP.fNo;
+                transparentHeadGridView = this.fVw.fUV;
                 transparentHeadGridView.smoothScrollToPosition(0);
             }
         }

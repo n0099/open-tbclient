@@ -6,17 +6,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 /* loaded from: classes.dex */
 public class CoreSearchRequestStatic {
-    private static EnterForumModel bGB;
+    private static EnterForumModel bMq;
 
     static {
-        Wc();
+        Xf();
     }
 
-    private static void Wc() {
-        com.baidu.tieba.tbadkCore.d.c.bhe();
-        if (bGB == null) {
-            bGB = new EnterForumModel(null);
-            bGB.a(new a());
+    private static void Xf() {
+        com.baidu.tieba.tbadkCore.d.c.biy();
+        if (bMq == null) {
+            bMq = new EnterForumModel(null);
+            bMq.a(new a());
         }
         MessageManager.getInstance().registerListener(new b(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011));
         MessageManager.getInstance().registerListener(new c(CmdConfigCustom.CMD_REQUEST_ENTER_FORUM_MESSAGE));

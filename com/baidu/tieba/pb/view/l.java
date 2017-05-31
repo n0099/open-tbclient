@@ -1,124 +1,206 @@
 package com.baidu.tieba.pb.view;
 
 import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
+import android.graphics.Rect;
+import android.os.Handler;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class l extends FrameLayout implements View.OnClickListener {
-    private boolean aOr;
-    private com.baidu.tieba.tbadkCore.data.a eua;
-    private TbImageView eub;
-    private LinearLayout euc;
-    private ImageView eud;
-    private TextView eue;
-    private Context mContext;
-    private View mRootView;
-    private TextView mTitle;
+public class l {
+    private View.OnClickListener bhc;
+    private long eCn;
+    private t eCo;
+    private long eCp;
+    private View eCq;
+    private ImageView eCs;
+    private int eCt;
+    private View eCu;
+    private boolean eCr = false;
+    private Runnable eCv = new m(this);
+    private Runnable eCw = new n(this);
+    private ViewTreeObserver.OnGlobalLayoutListener eCx = new o(this);
+    private Handler mHandler = new Handler();
 
-    public l(Context context) {
-        this(context, null, 0);
+    public l(Context context, FrameLayout frameLayout) {
+        this.eCo = new t(context);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+        layoutParams.gravity = 1;
+        frameLayout.addView(this.eCo, layoutParams);
+        this.eCo.setClickable(true);
+        this.eCs = new ImageView(context);
+        ViewGroup.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
+        this.eCs.setLayoutParams(layoutParams2);
+        frameLayout.addView(this.eCs, layoutParams2);
+        this.eCs.setBackgroundResource(w.e.black_alpha60);
+        this.eCs.setVisibility(8);
+        this.eCu = new View(context);
+        frameLayout.addView(this.eCu, new FrameLayout.LayoutParams(com.baidu.adp.lib.util.k.g(context, w.f.ds112), com.baidu.adp.lib.util.k.g(context, w.f.ds112)));
+        this.eCu.setVisibility(8);
+        this.eCu.setClickable(true);
     }
 
-    public l(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.aOr = false;
-        this.mContext = context;
-        init();
+    public void ov(int i) {
+        this.eCt = i;
+        if (i == 2) {
+            this.mHandler.postDelayed(new p(this), 200L);
+        }
     }
 
-    public com.baidu.tieba.tbadkCore.data.a getData() {
-        return this.eua;
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.bhc = onClickListener;
     }
 
-    public void Iq() {
-        this.aOr = true;
+    public void setOnTouchListener(View.OnTouchListener onTouchListener) {
+        this.eCu.setOnTouchListener(onTouchListener);
+        this.eCs.setOnTouchListener(onTouchListener);
     }
 
-    private void init() {
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(w.j.pic_show_cardview_layout, (ViewGroup) this, true);
-        this.eub = (TbImageView) findViewById(w.h.pic_img);
-        this.euc = (LinearLayout) findViewById(w.h.bottom_ll);
-        this.mTitle = (TextView) findViewById(w.h.title_ll);
-        this.eue = (TextView) findViewById(w.h.desc_ll);
-        this.eud = (ImageView) findViewById(w.h.show_pic_icon);
+    public void setAnchorView(View view) {
+        this.eCq = view;
     }
 
-    public void setIconResId(int i) {
-        aq.c(this.eud, i);
-    }
-
-    public void setData(com.baidu.tieba.tbadkCore.data.a aVar) {
-        int i;
-        if (aVar != null && this.eua != aVar) {
-            this.eua = aVar;
-            if (!StringUtils.isNULL(aVar.getTitle())) {
-                this.mTitle.setVisibility(0);
-                this.mTitle.setText(aVar.getTitle());
-            } else {
-                this.mTitle.setVisibility(8);
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        int[] iArr;
+        int[] iArr2;
+        int[] iArr3;
+        int[] iArr4;
+        int i = 3;
+        if (this.eCq == null) {
+            return false;
+        }
+        if (this.eCs.getVisibility() != 0) {
+            this.eCq.getLocationOnScreen(new int[2]);
+            switch (motionEvent.getAction()) {
+                case 0:
+                    this.eCn = System.currentTimeMillis();
+                    if (view == this.eCu) {
+                        this.eCr = true;
+                    } else {
+                        this.eCo.getLocationOnScreen(new int[2]);
+                        Rect rect = new Rect();
+                        this.eCq.getGlobalVisibleRect(rect);
+                        if (rect.contains((int) (motionEvent.getX() + iArr4[0]), (int) (iArr4[1] + motionEvent.getY()))) {
+                            this.eCr = true;
+                        } else {
+                            this.eCr = false;
+                        }
+                    }
+                    if (this.eCr) {
+                        this.mHandler.postDelayed(this.eCv, 300L);
+                        return true;
+                    }
+                    return false;
+                case 1:
+                case 3:
+                    if (System.currentTimeMillis() - this.eCn <= 300 && motionEvent.getRawY() < iArr[1] + this.eCq.getHeight() + 30 && motionEvent.getRawY() > iArr[1] + 30) {
+                        this.mHandler.removeCallbacks(this.eCv);
+                        if (this.bhc != null) {
+                            this.bhc.onClick(this.eCq);
+                            return true;
+                        }
+                        return true;
+                    } else if (this.eCr || this.eCo.ajM()) {
+                        if (this.eCo.ajM()) {
+                            this.eCo.getLocationOnScreen(new int[2]);
+                            int aW = this.eCo.aW((int) (motionEvent.getX() + iArr2[0]), (int) (iArr2[1] + motionEvent.getY()));
+                            this.eCo.aPh();
+                            if (aW != -1) {
+                                if (aW == 1) {
+                                    pd(1);
+                                    i = 1;
+                                } else if (aW != 3) {
+                                    if (aW == 4) {
+                                        i = 4;
+                                        pd(4);
+                                    } else {
+                                        i = 2;
+                                    }
+                                }
+                                as asVar = new as("c12182");
+                                asVar.r("obj_id", i);
+                                TiebaStatic.log(asVar);
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_FIRST_FLOOR_PRAISE, Integer.valueOf(i * 11)));
+                            }
+                            this.mHandler.postDelayed(new q(this), 700L);
+                        }
+                        this.eCr = false;
+                        return true;
+                    } else {
+                        return false;
+                    }
+                case 2:
+                    if (this.eCr) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        if (currentTimeMillis - this.eCn > 300) {
+                            if (motionEvent.getY() > iArr[1] + 30) {
+                                this.mHandler.removeCallbacks(this.eCv);
+                                return true;
+                            }
+                            if (!this.eCo.ajM()) {
+                                this.eCv.run();
+                            }
+                            if (currentTimeMillis - this.eCp > 800) {
+                                this.eCo.getLocationOnScreen(new int[2]);
+                                this.eCo.aV((int) (iArr3[0] + motionEvent.getX()), (int) (iArr3[1] + motionEvent.getY()));
+                                return true;
+                            }
+                            return true;
+                        }
+                        return true;
+                    }
+                    return false;
+                default:
+                    return true;
             }
-            if (!StringUtils.isNULL(aVar.getDescription())) {
-                this.eue.setVisibility(0);
-                this.eue.setText(aVar.getDescription());
-            } else {
-                this.eue.setVisibility(8);
-            }
-            if (this.aOr) {
-                this.eub.setSupportNoImage(true);
-            }
-            int imageWidth = aVar.getImageWidth();
-            int imageHeight = aVar.getImageHeight();
-            if (imageWidth > 0 && imageHeight > 0) {
-                this.eub.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.eub.setOnClickListener(this);
-                this.eub.setInterceptOnClick(true);
-                this.eub.setDefaultResource(w.g.icon_click);
-                this.eub.c(aVar.bge(), 18, false);
-                int af = com.baidu.adp.lib.util.k.af(this.mContext) - (com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds30) * 2);
-                float f = imageHeight / imageWidth;
-                if (f > 1.7777778f) {
-                    i = (int) (af * 1.7777778f);
-                } else if (f < 0.75f) {
-                    i = (int) (af * 0.75f);
-                } else {
-                    i = (int) (f * af);
+        }
+        return true;
+    }
+
+    private void pd(int i) {
+        if (TbadkCoreApplication.isLogin()) {
+            this.mHandler.postDelayed(new r(this, i), 200L);
+        }
+    }
+
+    public void cb(boolean z) {
+        if (this.eCo != null && this.eCq != null) {
+            if (z) {
+                Rect rect = new Rect();
+                this.eCq.getGlobalVisibleRect(rect);
+                if (rect.top > 0) {
+                    this.eCq.getViewTreeObserver().addOnGlobalLayoutListener(this.eCx);
+                    this.eCu.setVisibility(0);
+                    return;
                 }
-                this.eub.setLayoutParams(new FrameLayout.LayoutParams(af, i));
-                removeView(this.eub);
-                addView(this.eub);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.euc.getLayoutParams();
-                layoutParams.width = af;
-                layoutParams.height = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds110);
-                removeView(this.euc);
-                addView(this.euc, layoutParams);
+                this.eCq.getViewTreeObserver().removeGlobalOnLayoutListener(this.eCx);
+                this.eCu.setVisibility(8);
+                return;
             }
+            this.eCq.getViewTreeObserver().removeGlobalOnLayoutListener(this.eCx);
+            this.eCu.setVisibility(8);
         }
     }
 
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        tbPageContext.getLayoutMode().ai(i == 1);
-        tbPageContext.getLayoutMode().t(this.mRootView);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.eua != null) {
-            com.baidu.tbadk.browser.f.S(this.mContext, this.eua.bgf());
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aPg() {
+        if (!this.eCo.ajM()) {
+            int[] iArr = new int[2];
+            this.eCq.getLocationOnScreen(iArr);
+            this.eCu.setLayoutParams(new FrameLayout.LayoutParams(com.baidu.adp.lib.util.k.g(this.eCu.getContext(), w.f.ds112), com.baidu.adp.lib.util.k.g(this.eCu.getContext(), w.f.ds112)));
+            this.eCu.setX(iArr[0]);
+            this.eCu.setY(iArr[1]);
+            this.eCu.invalidate();
         }
-    }
-
-    public ImageView getIcon() {
-        return this.eud;
     }
 }

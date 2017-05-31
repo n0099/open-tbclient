@@ -9,9 +9,9 @@ public interface x {
 
     void af(Context context, String str);
 
-    String gU(String str);
+    String gP(String str);
 
-    String gV(String str);
+    String gQ(String str);
 
-    void gW(String str);
+    void gR(String str);
 }

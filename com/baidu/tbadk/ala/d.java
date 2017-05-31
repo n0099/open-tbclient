@@ -1,22 +1,55 @@
 package com.baidu.tbadk.ala;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.k;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class d {
-    private static View.OnClickListener Qm = new e();
-
-    public static TextView ap(Context context) {
-        if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
-            return null;
+class d implements View.OnClickListener {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
+            if (!i.hk()) {
+                k.showToast(view.getContext(), w.l.no_network_guide);
+                return;
+            }
+            a aVar = (a) view.getTag();
+            AlaUserInfoData alaUserInfoData = aVar.PW;
+            if (alaUserInfoData != null) {
+                AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+                if (alaUserInfoData.anchor_live != 0) {
+                    alaLiveInfoCoreData.setLiveID(alaUserInfoData.anchor_live);
+                } else if (alaUserInfoData.enter_live != 0) {
+                    alaLiveInfoCoreData.setLiveID(alaUserInfoData.enter_live);
+                } else {
+                    return;
+                }
+                int i = aVar.type;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                switch (i) {
+                    case 1:
+                        TiebaStatic.log(new as("c11850").Z(SapiAccountManager.SESSION_UID, currentAccount));
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                        TiebaStatic.log(new as("c11851").Z(SapiAccountManager.SESSION_UID, currentAccount));
+                        break;
+                    case 5:
+                        TiebaStatic.log(new as("c11852").Z(SapiAccountManager.SESSION_UID, currentAccount));
+                        break;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, new AlaLiveRoomActivityConfig(view.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT, (String) null, false, "")));
+            }
         }
-        TextView textView = new TextView(context);
-        textView.setBackgroundDrawable(context.getResources().getDrawable(w.g.live_tail_selector));
-        textView.setOnClickListener(Qm);
-        return textView;
     }
 }

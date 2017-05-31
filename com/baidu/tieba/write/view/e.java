@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView;
 import com.baidu.tieba.write.view.NewFrameMultiImgToolView;
 /* loaded from: classes.dex */
 class e implements NewFrameMultiImgToolView.a {
-    final /* synthetic */ NewFrameMultiImgToolView fPN;
+    final /* synthetic */ NewFrameMultiImgToolView fXJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(NewFrameMultiImgToolView newFrameMultiImgToolView) {
-        this.fPN = newFrameMultiImgToolView;
+        this.fXJ = newFrameMultiImgToolView;
     }
 
     @Override // com.baidu.tieba.write.view.NewFrameMultiImgToolView.a
@@ -35,54 +35,54 @@ class e implements NewFrameMultiImgToolView.a {
         com.baidu.tbadk.editortools.j jVar5;
         com.baidu.tbadk.editortools.j jVar6;
         int i3;
-        dragHorizonScrollView = this.fPN.azY;
-        if (!dragHorizonScrollView.bhl()) {
-            this.fPN.bj(view);
-            dragHorizonScrollView2 = this.fPN.azY;
-            int bk = dragHorizonScrollView2.bk(view);
-            if (bk >= 0) {
-                writeImagesInfo = this.fPN.aAb;
-                if (bk < writeImagesInfo.getChosedFiles().size()) {
-                    writeImagesInfo2 = this.fPN.aAb;
-                    ImageFileInfo remove = writeImagesInfo2.getChosedFiles().remove(bk);
+        dragHorizonScrollView = this.fXJ.azK;
+        if (!dragHorizonScrollView.biF()) {
+            this.fXJ.bo(view);
+            dragHorizonScrollView2 = this.fXJ.azK;
+            int bp = dragHorizonScrollView2.bp(view);
+            if (bp >= 0) {
+                writeImagesInfo = this.fXJ.azN;
+                if (bp < writeImagesInfo.getChosedFiles().size()) {
+                    writeImagesInfo2 = this.fXJ.azN;
+                    ImageFileInfo remove = writeImagesInfo2.getChosedFiles().remove(bp);
                     if (remove.isTempFile()) {
                         com.baidu.adp.lib.Disk.d.dI().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                     }
-                    dragHorizonScrollView3 = this.fPN.azY;
+                    dragHorizonScrollView3 = this.fXJ.azK;
                     int maxItemNum = dragHorizonScrollView3.getMaxItemNum();
-                    writeImagesInfo3 = this.fPN.aAb;
+                    writeImagesInfo3 = this.fXJ.azN;
                     int size = writeImagesInfo3.getChosedFiles().size();
-                    jVar = this.fPN.Kg;
+                    jVar = this.fXJ.JU;
                     if (jVar != null) {
-                        jVar2 = this.fPN.Kg;
-                        i = this.fPN.aAf;
+                        jVar2 = this.fXJ.JU;
+                        i = this.fXJ.azR;
                         jVar2.b(new com.baidu.tbadk.editortools.a(i, -1, null));
                         if (size > 0) {
-                            jVar6 = this.fPN.Kg;
-                            i3 = this.fPN.aAg;
+                            jVar6 = this.fXJ.JU;
+                            i3 = this.fXJ.azS;
                             jVar6.b(new com.baidu.tbadk.editortools.a(2, i3, String.valueOf(size)));
                         } else {
-                            jVar3 = this.fPN.Kg;
-                            i2 = this.fPN.aAg;
+                            jVar3 = this.fXJ.JU;
+                            i2 = this.fXJ.azS;
                             jVar3.b(new com.baidu.tbadk.editortools.a(2, i2, null));
                         }
                         if (maxItemNum == 1 && size == 0) {
-                            z = this.fPN.aAh;
+                            z = this.fXJ.azT;
                             if (z) {
-                                jVar5 = this.fPN.Kg;
+                                jVar5 = this.fXJ.JU;
                                 jVar5.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                             } else {
-                                NewFrameMultiImgToolView newFrameMultiImgToolView = this.fPN;
-                                writeImagesInfo5 = this.fPN.aAb;
+                                NewFrameMultiImgToolView newFrameMultiImgToolView = this.fXJ;
+                                writeImagesInfo5 = this.fXJ.azN;
                                 newFrameMultiImgToolView.a(writeImagesInfo5, true);
-                                jVar4 = this.fPN.Kg;
+                                jVar4 = this.fXJ.JU;
                                 jVar4.invalidate();
                             }
                         }
                     }
                     if (size == 0) {
-                        NewFrameMultiImgToolView newFrameMultiImgToolView2 = this.fPN;
-                        writeImagesInfo4 = this.fPN.aAb;
+                        NewFrameMultiImgToolView newFrameMultiImgToolView2 = this.fXJ;
+                        writeImagesInfo4 = this.fXJ.azN;
                         newFrameMultiImgToolView2.a(writeImagesInfo4, true);
                     }
                 }

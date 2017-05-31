@@ -1,47 +1,46 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.da;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class db extends HttpMessageListener {
-    final /* synthetic */ da eiG;
+public class db implements View.OnClickListener {
+    final /* synthetic */ cv eod;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public db(da daVar, int i) {
-        super(i);
-        this.eiG = daVar;
+    public db(cv cvVar) {
+        this.eod = cvVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        da.a aVar;
-        da.a aVar2;
-        da.a aVar3;
-        da.a aVar4;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001803) {
-            aVar = this.eiG.eiE;
-            if (aVar != null) {
-                int statusCode = httpResponsedMessage.getStatusCode();
-                int error = httpResponsedMessage.getError();
-                String errorString = httpResponsedMessage.getErrorString();
-                if (!(httpResponsedMessage instanceof HideChudianPostResponseMessage)) {
-                    aVar4 = this.eiG.eiE;
-                    aVar4.onError(error, errorString);
-                    return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.pb.data.f fVar;
+        com.baidu.tieba.pb.data.f fVar2;
+        com.baidu.tieba.pb.data.f fVar3;
+        PbActivity pbActivity;
+        com.baidu.tieba.pb.data.f fVar4;
+        com.baidu.tieba.pb.data.f fVar5;
+        PbActivity pbActivity2;
+        fVar = this.eod.ekc;
+        if (fVar.aIL() != null) {
+            fVar2 = this.eod.ekc;
+            List<Long> list = fVar2.aIL().ejv;
+            fVar3 = this.eod.ekc;
+            int count = fVar3.aIL().getCount();
+            if (list.size() != count) {
+                if (list.size() >= count + 5) {
+                    fVar5 = this.eod.ekc;
+                    fVar5.aIL().setCount(count + 5);
+                    pbActivity2 = this.eod.elf;
+                    pbActivity2.aJF().aLn().bV(list.subList(count, count + 5));
+                } else if (list.size() < count + 5) {
+                    pbActivity = this.eod.elf;
+                    pbActivity.aJF().aLn().bV(list.subList(count, list.size()));
+                    fVar4 = this.eod.ekc;
+                    fVar4.aIL().setCount(list.size());
                 }
-                HideChudianPostResponseMessage hideChudianPostResponseMessage = (HideChudianPostResponseMessage) httpResponsedMessage;
-                if (statusCode != 200 || error != 0) {
-                    aVar2 = this.eiG.eiE;
-                    aVar2.onError(error, errorString);
-                    return;
-                }
-                hideChudianPostResponseMessage.getResultFlag();
-                aVar3 = this.eiG.eiE;
-                aVar3.i(hideChudianPostResponseMessage.getResultFlag(), hideChudianPostResponseMessage.getTemplateId());
+                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c12040"));
             }
         }
     }

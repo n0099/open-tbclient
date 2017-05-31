@@ -7,11 +7,6 @@ public class ai extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "android_shouzhu_update";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected String[] eQ() {
         return null;
     }
@@ -22,12 +17,17 @@ public class ai extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eS() {
-        return 0;
+    protected int eT() {
+        return 10;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eT() {
-        return 10;
+    protected String getName() {
+        return "portrait_cdn_open";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eS() {
+        return 0;
     }
 }

@@ -4,31 +4,31 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View aDG;
-    private boolean aDH;
+    protected View aDt;
+    private boolean aDu;
 
     public a(View view) {
-        this.aDG = view;
+        this.aDt = view;
     }
 
-    public boolean DX() {
-        return this.aDH;
+    public boolean DR() {
+        return this.aDu;
     }
 
     public void c(View view, boolean z) {
-        if (view != null && this.aDG != null && this.aDG.getParent() == null) {
-            this.aDH = true;
-            d.J(view).a(view, this.aDG, z);
-            DY();
+        if (view != null && this.aDt != null && this.aDt.getParent() == null) {
+            this.aDu = true;
+            d.J(view).a(view, this.aDt, z);
+            DS();
         }
     }
 
     public void H(View view) {
-        if (view != null && this.aDG != null && this.aDG.getParent() != null && (view instanceof ViewGroup)) {
+        if (view != null && this.aDt != null && this.aDt.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                DZ();
-                ((ViewGroup) view).removeView(this.aDG);
-                this.aDH = false;
+                DT();
+                ((ViewGroup) view).removeView(this.aDt);
+                this.aDu = false;
             } catch (Exception e) {
             }
         }
@@ -39,10 +39,10 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void DY() {
+    public void DS() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void DZ() {
+    public void DT() {
     }
 }

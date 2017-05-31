@@ -8,8 +8,8 @@ public class m {
     private String d;
     private boolean c = false;
     private boolean e = false;
-    private double ML = 0.0d;
-    private double NY = 0.0d;
+    private double Mz = 0.0d;
+    private double NL = 0.0d;
     public int b = 0;
 
     public m(List<String> list, String str, String str2, String str3) {
@@ -44,8 +44,8 @@ public class m {
             }
             if (!split[2].equals("") && !split[split.length - 3].equals("") && !split[split.length - 2].equals("") && !split[split.length - 1].equals("")) {
                 try {
-                    this.ML = Double.valueOf(split[split.length - 3]).doubleValue();
-                    this.NY = Double.valueOf(split[split.length - 2]).doubleValue();
+                    this.Mz = Double.valueOf(split[split.length - 3]).doubleValue();
+                    this.NL = Double.valueOf(split[split.length - 2]).doubleValue();
                 } catch (Exception e) {
                 }
                 this.e = true;
@@ -59,10 +59,10 @@ public class m {
     }
 
     public double b() {
-        return this.ML;
+        return this.Mz;
     }
 
     public double c() {
-        return this.NY;
+        return this.NL;
     }
 }

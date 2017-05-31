@@ -8,7 +8,7 @@ public class x {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int go(String str) {
+    public static int gn(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -23,21 +23,21 @@ public class x {
         return i;
     }
 
-    public static String C(String str, int i) {
+    public static String B(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (go(str) > i) {
+        if (gn(str) > i) {
             return String.valueOf(d(str, 0, i - 2)) + "...";
         }
         return str;
     }
 
-    public static String D(String str, int i) {
+    public static String C(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (go(str) > i) {
+        if (gn(str) > i) {
             return d(str, 0, i);
         }
         return str;
@@ -75,7 +75,7 @@ public class x {
         return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ';
     }
 
-    public static String u(String str, int i) {
+    public static String t(String str, int i) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return sb.toString();

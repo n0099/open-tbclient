@@ -1,14 +1,13 @@
 package com.baidu.tieba.launcherGuide.tblauncher;
 
 import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-public class f implements Runnable {
-    final /* synthetic */ GuideActivity dmV;
+class f implements Runnable {
+    final /* synthetic */ GuideActivity dsp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(GuideActivity guideActivity) {
-        this.dmV = guideActivity;
+        this.dsp = guideActivity;
     }
 
     @Override // java.lang.Runnable

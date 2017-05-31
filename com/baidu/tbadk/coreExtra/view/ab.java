@@ -2,17 +2,17 @@ package com.baidu.tbadk.coreExtra.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ u awi;
+    final /* synthetic */ u avS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(u uVar) {
-        this.awi = uVar;
+        this.avS = uVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        this.awi.avY = true;
-        this.awi.mProgressBar.setVisibility(8);
-        this.awi.b(aVar);
+        this.avS.avI = true;
+        this.avS.mProgressBar.setVisibility(8);
+        this.avS.b(aVar);
     }
 }

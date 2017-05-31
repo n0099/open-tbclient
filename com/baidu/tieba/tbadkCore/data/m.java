@@ -7,13 +7,13 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends com.baidu.tbadk.util.i {
-    final /* synthetic */ k fuh;
+    final /* synthetic */ k fBY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(k kVar, Context context) {
         super(context);
-        this.fuh = kVar;
+        this.fBY = kVar;
     }
 
     @Override // com.baidu.tbadk.util.i, android.text.style.ClickableSpan
@@ -24,30 +24,30 @@ public class m extends com.baidu.tbadk.util.i {
         String str2;
         String str3;
         pattern = k.pbPattern0;
-        str = this.fuh.link;
+        str = this.fBY.link;
         Matcher matcher = pattern.matcher(str);
         if (matcher.find()) {
             try {
                 String group = matcher.group();
-                gg(group.substring(group.lastIndexOf("/") + 1));
+                gf(group.substring(group.lastIndexOf("/") + 1));
                 return;
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        pattern2 = k.fug;
-        str2 = this.fuh.link;
+        pattern2 = k.fBX;
+        str2 = this.fBY.link;
         Matcher matcher2 = pattern2.matcher(str2);
         if (matcher2.find()) {
             try {
                 String group2 = matcher2.group();
-                gg(group2.substring(group2.lastIndexOf("=") + 1));
+                gf(group2.substring(group2.lastIndexOf("=") + 1));
                 return;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        str3 = this.fuh.link;
-        gf(str3);
+        str3 = this.fBY.link;
+        ge(str3);
     }
 }

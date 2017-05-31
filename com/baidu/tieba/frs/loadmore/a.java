@@ -3,18 +3,20 @@ package com.baidu.tieba.frs.loadmore;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.frs.r;
+import com.baidu.tieba.recapp.s;
+import com.baidu.tieba.recapp.z;
 import com.baidu.tieba.tbadkCore.n;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ FrsLoadMoreModel bXN;
+    final /* synthetic */ FrsLoadMoreModel cdY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(FrsLoadMoreModel frsLoadMoreModel, int i, int i2) {
         super(i, i2);
-        this.bXN = frsLoadMoreModel;
+        this.cdY = frsLoadMoreModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -28,41 +30,49 @@ public class a extends com.baidu.adp.framework.listener.a {
         r rVar7;
         r rVar8;
         r rVar9;
-        rVar = this.bXN.bXK;
+        r rVar10;
+        r rVar11;
+        rVar = this.cdY.cdV;
         if (rVar != null) {
-            this.bXN.isLoading = false;
+            this.cdY.isLoading = false;
             if (responsedMessage == null) {
-                rVar8 = this.bXN.bXK;
-                rVar9 = this.bXN.bXK;
-                rVar8.iR(rVar9.getPageContext().getString(w.l.neterror));
+                rVar10 = this.cdY.cdV;
+                rVar11 = this.cdY.cdV;
+                rVar10.iZ(rVar11.getPageContext().getString(w.l.neterror));
             } else if (responsedMessage.getError() == 0) {
-                rVar2 = this.bXN.bXK;
-                n Zq = rVar2.Zq();
+                rVar2 = this.cdY.cdV;
+                n aau = rVar2.aau();
                 if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
                     LoadMoreHttpResponseMessage loadMoreHttpResponseMessage = (LoadMoreHttpResponseMessage) responsedMessage;
-                    if (Zq != null) {
-                        Zq.a(loadMoreHttpResponseMessage.getBannerListData());
+                    if (aau != null) {
+                        aau.a(loadMoreHttpResponseMessage.getBannerListData());
                     }
-                    rVar4 = this.bXN.bXK;
-                    rVar4.E(loadMoreHttpResponseMessage.getThreadList());
-                    this.bXN.a((LoadMoreHttpResponseMessage) responsedMessage);
+                    rVar6 = this.cdY.cdV;
+                    rVar6.F(loadMoreHttpResponseMessage.getThreadList());
+                    this.cdY.a((LoadMoreHttpResponseMessage) responsedMessage);
                 } else if (responsedMessage instanceof LoadMoreResponseSocketMessage) {
                     LoadMoreResponseSocketMessage loadMoreResponseSocketMessage = (LoadMoreResponseSocketMessage) responsedMessage;
-                    if (Zq != null) {
-                        Zq.a(loadMoreResponseSocketMessage.getBannerListData());
+                    if (aau != null) {
+                        aau.a(loadMoreResponseSocketMessage.getBannerListData());
                     }
-                    rVar3 = this.bXN.bXK;
-                    rVar3.E(loadMoreResponseSocketMessage.getThreadList());
-                    this.bXN.a((LoadMoreResponseSocketMessage) responsedMessage);
+                    rVar3 = this.cdY.cdV;
+                    rVar3.F(loadMoreResponseSocketMessage.getThreadList());
+                    this.cdY.a((LoadMoreResponseSocketMessage) responsedMessage);
                 }
-                this.bXN.loadIndex++;
+                rVar4 = this.cdY.cdV;
+                if (!TextUtils.isEmpty(rVar4.getForumName()) && z.aZK().aZG() != null) {
+                    s aZG = z.aZK().aZG();
+                    rVar5 = this.cdY.cdV;
+                    aZG.g(rVar5.getForumName(), 2, false);
+                }
+                this.cdY.loadIndex++;
             } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                rVar7 = this.bXN.bXK;
-                rVar7.iR(responsedMessage.getErrorString());
+                rVar9 = this.cdY.cdV;
+                rVar9.iZ(responsedMessage.getErrorString());
             } else {
-                rVar5 = this.bXN.bXK;
-                rVar6 = this.bXN.bXK;
-                rVar5.iR(rVar6.getPageContext().getString(w.l.neterror));
+                rVar7 = this.cdY.cdV;
+                rVar8 = this.cdY.cdV;
+                rVar7.iZ(rVar8.getPageContext().getString(w.l.neterror));
             }
         }
     }

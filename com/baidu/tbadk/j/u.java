@@ -3,19 +3,19 @@ package com.baidu.tbadk.j;
 public class u extends t {
     public String Hf;
     public long Hg;
-    public boolean aGB;
+    public boolean aGo;
     public boolean isSuccess;
 
-    public void FD() {
+    public void Fx() {
         ac acVar;
-        if (aa.FK().FL() && (acVar = (ac) aa.FK().fc(this.mSubType)) != null) {
+        if (aa.FE().FF() && (acVar = (ac) aa.FE().fd(this.mSubType)) != null) {
             acVar.a(this, "head");
         }
     }
 
-    public void FE() {
+    public void Fy() {
         ac acVar;
-        if (aa.FK().FL() && (acVar = (ac) aa.FK().fc(this.mSubType)) != null) {
+        if (aa.FE().FF() && (acVar = (ac) aa.FE().fd(this.mSubType)) != null) {
             acVar.a(this, "img");
         }
     }

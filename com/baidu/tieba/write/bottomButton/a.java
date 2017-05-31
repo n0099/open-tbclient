@@ -15,12 +15,12 @@ class a extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        c Ei;
+        c Ec;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
             WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
             ((d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
-            if (((d) customResponsedMessage.getData()).getContext() != null && (Ei = writeThreadDelegateStatic.Ei()) != null) {
-                Ei.aEi.setArguments(new Bundle());
+            if (((d) customResponsedMessage.getData()).getContext() != null && (Ec = writeThreadDelegateStatic.Ec()) != null) {
+                Ec.aDV.setArguments(new Bundle());
             }
         }
     }

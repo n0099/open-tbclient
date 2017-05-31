@@ -1,9 +1,9 @@
 package com.baidu.adp.widget.ListView;
 
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public interface x {
-    boolean b(View view, v vVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j);
+    void a(View view, v vVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
 }

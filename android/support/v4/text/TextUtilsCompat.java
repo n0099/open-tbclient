@@ -1,6 +1,5 @@
 package android.support.v4.text;
 
-import com.baidu.location.BDLocation;
 import com.baidu.tieba.w;
 import java.util.Locale;
 /* loaded from: classes.dex */
@@ -17,16 +16,16 @@ public class TextUtilsCompat {
                 case '\"':
                     sb.append("&quot;");
                     break;
-                case w.n.PullToRefresh_adapterViewBackground /* 38 */:
+                case '&':
                     sb.append("&amp;");
                     break;
-                case w.n.PullToRefresh_headerBackground /* 39 */:
+                case '\'':
                     sb.append("&#39;");
                     break;
-                case '<':
+                case w.n.View_verticalScrollbarPosition /* 60 */:
                     sb.append("&lt;");
                     break;
-                case BDLocation.TypeCriteriaException /* 62 */:
+                case '>':
                     sb.append("&gt;");
                     break;
                 default:

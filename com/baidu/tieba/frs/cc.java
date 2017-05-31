@@ -1,52 +1,37 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e.a;
-import com.baidu.tieba.w;
+import android.os.Handler;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cc implements a.InterfaceC0059a {
-    final /* synthetic */ ca bRg;
-    final int bnK = (int) TbadkCoreApplication.m9getInst().getResources().getDimension(w.f.ds98);
+public class cc implements Handler.Callback {
+    final /* synthetic */ cb bWW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(ca caVar) {
-        this.bRg = caVar;
+    public cc(cb cbVar) {
+        this.bWW = cbVar;
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0059a
-    public void W(int i, int i2) {
-        at atVar;
-        at atVar2;
-        if (T(i2)) {
-            this.bRg.dx(false);
-            this.bRg.Xb();
-        }
-        atVar = this.bRg.bRb;
-        if (atVar != null) {
-            atVar2 = this.bRg.bRb;
-            atVar2.dR(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.e.a.InterfaceC0059a
-    public void X(int i, int i2) {
-        at atVar;
-        at atVar2;
-        if (T(i2)) {
-            this.bRg.dx(true);
-            if (Math.abs(i2) > this.bnK) {
-                this.bRg.Xa();
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        Handler handler;
+        if ((message.what != 1 && message.what != 2) || !this.bWW.Yc()) {
+            switch (message.what) {
+                case 1:
+                    this.bWW.Yb();
+                    return true;
+                case 2:
+                    this.bWW.XZ();
+                    return true;
+                case 3:
+                    this.bWW.Ya();
+                    return true;
+                default:
+                    return false;
             }
         }
-        atVar = this.bRg.bRb;
-        if (atVar != null) {
-            atVar2 = this.bRg.bRb;
-            atVar2.dR(false);
-        }
-    }
-
-    private boolean T(float f) {
-        return Math.abs(f) >= 1.0f;
+        handler = this.bWW.mHandler;
+        handler.sendEmptyMessageDelayed(message.what, 100L);
+        return true;
     }
 }

@@ -25,27 +25,27 @@ public class g {
 
     public g() {
         b bVar = new b(this, null);
-        bVar.am(3000);
-        bVar.an(120000);
-        bVar.ao(500);
+        bVar.an(3000);
+        bVar.ao(120000);
+        bVar.ap(500);
         this.wY.put("net", bVar);
         this.wY.put("op", bVar);
         this.wY.put("stat", bVar);
         this.wY.put("crash", bVar);
         this.wY.put("pfmonitor", bVar);
         b bVar2 = new b(this, null);
-        bVar2.am(3000);
-        bVar2.an(120000);
-        bVar2.ao(1500);
+        bVar2.an(3000);
+        bVar2.ao(120000);
+        bVar2.ap(1500);
         this.wY.put("file", bVar2);
         this.wY.put("db", bVar2);
         this.wY.put("img", bVar2);
         this.wY.put("voice", bVar2);
         this.wY.put("error", bVar2);
         b bVar3 = new b(this, null);
-        bVar3.am(3000);
-        bVar3.an(120000);
-        bVar3.ao(1500);
+        bVar3.an(3000);
+        bVar3.ao(120000);
+        bVar3.ap(1500);
         this.wY.put("dbg", bVar3);
     }
 
@@ -72,7 +72,7 @@ public class g {
                 z = true;
             } else {
                 if (aVar.ge()) {
-                    aVar.al(aVar.gb() + 1);
+                    aVar.am(aVar.gb() + 1);
                     if (currentTimeMillis - aVar.ga() < bVar.gg()) {
                         if (aVar.gb() >= bVar.gh()) {
                             aVar.F(true);
@@ -82,7 +82,7 @@ public class g {
                         }
                     } else {
                         aVar.G(false);
-                        aVar.al(0);
+                        aVar.am(0);
                         aVar.f(currentTimeMillis);
                     }
                 } else if (currentTimeMillis - aVar.gd() < bVar.gf()) {
@@ -144,7 +144,7 @@ public class g {
             return this.mCount;
         }
 
-        public void al(int i) {
+        public void am(int i) {
             this.mCount = i;
         }
 
@@ -183,7 +183,7 @@ public class g {
             return this.xe;
         }
 
-        public void am(int i) {
+        public void an(int i) {
             this.xe = i;
         }
 
@@ -191,7 +191,7 @@ public class g {
             return this.xf;
         }
 
-        public void an(int i) {
+        public void ao(int i) {
             this.xf = i;
         }
 
@@ -199,7 +199,7 @@ public class g {
             return this.xg;
         }
 
-        public void ao(int i) {
+        public void ap(int i) {
             this.xg = i;
         }
     }

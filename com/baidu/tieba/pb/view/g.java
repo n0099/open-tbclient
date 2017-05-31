@@ -1,32 +1,29 @@
 package com.baidu.tieba.pb.view;
 
 import android.os.CountDownTimer;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements a.b {
-    final /* synthetic */ PbInterviewStatusView etW;
+public class g extends CountDownTimer {
+    final /* synthetic */ PbInterviewStatusView eCk;
+    private final /* synthetic */ PbActivity eCl;
+    private final /* synthetic */ com.baidu.tieba.pb.data.f eqk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(PbInterviewStatusView pbInterviewStatusView) {
-        this.etW = pbInterviewStatusView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbActivity pbActivity, com.baidu.tieba.pb.data.f fVar) {
+        super(j, j2);
+        this.eCk = pbInterviewStatusView;
+        this.eCl = pbActivity;
+        this.eqk = fVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        CountDownTimer countDownTimer;
-        com.baidu.tbadk.core.dialog.a aVar2;
-        com.baidu.tbadk.core.dialog.a aVar3;
-        CountDownTimer countDownTimer2;
-        countDownTimer = this.etW.etS;
-        if (countDownTimer != null) {
-            countDownTimer2 = this.etW.etS;
-            countDownTimer2.cancel();
-        }
-        aVar2 = this.etW.etP;
-        if (aVar2 != null) {
-            aVar3 = this.etW.etP;
-            aVar3.dismiss();
-        }
+    @Override // android.os.CountDownTimer
+    public void onTick(long j) {
+    }
+
+    @Override // android.os.CountDownTimer
+    public void onFinish() {
+        this.eCk.b(this.eCl, this.eqk);
     }
 }

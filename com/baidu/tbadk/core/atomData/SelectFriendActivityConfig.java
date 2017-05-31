@@ -7,6 +7,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class SelectFriendActivityConfig extends IntentConfig {
     public static final int KEY_FROME_WEB_GAME = 0;
     public static final String KEY_FROME_WHERE = "key_from_where";
+    public static final int KEY_FROM_WEB_DISCOVER = 1;
 
     public SelectFriendActivityConfig(Context context, int i) {
         super(context);

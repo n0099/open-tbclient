@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.util.g;
 /* loaded from: classes.dex */
 class f implements g<Integer> {
-    final /* synthetic */ d dcD;
+    final /* synthetic */ d dhZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.dcD = dVar;
+        this.dhZ = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

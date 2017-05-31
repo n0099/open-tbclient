@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bd implements View.OnClickListener {
-    final /* synthetic */ ar cKu;
+    final /* synthetic */ ar cPS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(ar arVar) {
-        this.cKu = arVar;
+        this.cPS = arVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cKu.cJM.a(view, 7, this.cKu.atD, 0L);
+        this.cPS.cPk.a(view, 7, this.cPS.atn, 0L);
     }
 }

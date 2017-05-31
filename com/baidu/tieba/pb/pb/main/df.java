@@ -1,39 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class df implements View.OnClickListener {
-    private final /* synthetic */ String eeM;
-    private final /* synthetic */ String eeN;
-    private final /* synthetic */ String eeO;
-    final /* synthetic */ dc eiI;
+public class df {
+    private BaseActivity bfa;
+    private PbModel ele;
+    private a eom = null;
+    private final HttpMessageListener eon = new dg(this, CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public df(dc dcVar, String str, String str2, String str3) {
-        this.eiI = dcVar;
-        this.eeM = str;
-        this.eeN = str2;
-        this.eeO = str3;
+    /* loaded from: classes.dex */
+    public interface a {
+        void i(int i, long j);
+
+        void onError(int i, String str);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.eeM) && !StringUtils.isNull(this.eeN)) {
-            if (com.baidu.adp.lib.util.i.hk()) {
-                context = this.eiI.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.eeM) + "," + this.eeN, this.eeO, this.eeO, context.getString(w.l.app_info_for_map));
-                context2 = this.eiI.mContext;
-                com.baidu.tbadk.browser.f.S(context2, format);
-                return;
-            }
-            this.eiI.efF.showToast(w.l.neterror);
-        }
+    public df(PbModel pbModel, BaseActivity baseActivity) {
+        this.ele = pbModel;
+        this.bfa = baseActivity;
+        aKC();
+        this.bfa.registerListener(this.eon);
+    }
+
+    public void a(a aVar) {
+        this.eom = aVar;
+    }
+
+    public void aKC() {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/b/commit/tpointhide");
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setResponsedClass(HideChudianPostResponseMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
+    }
+
+    public void ca(long j) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
+        httpMessage.addParam("template_id", String.valueOf(j));
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

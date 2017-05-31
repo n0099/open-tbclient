@@ -5,6 +5,7 @@ import java.io.Serializable;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class MuteUser extends OrmObject implements Serializable {
+    public int agreeType;
     private String nickName;
     private String secureMobil;
     private String secureeMail;
@@ -68,6 +69,7 @@ public class MuteUser extends OrmObject implements Serializable {
             this.secureeMail = simpleUser.secureemail;
             this.secureMobil = simpleUser.securemobil;
             this.nickName = simpleUser.user_nickname;
+            this.agreeType = simpleUser.agree_type.intValue();
         }
     }
 }

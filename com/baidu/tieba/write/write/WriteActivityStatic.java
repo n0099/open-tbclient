@@ -17,6 +17,7 @@ import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteUrlActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
@@ -34,8 +35,8 @@ import com.baidu.tieba.write.vcode.oldVcode.VcodeActivity;
 import com.baidu.tieba.write.video.WriteVideoActivity;
 /* loaded from: classes.dex */
 public class WriteActivityStatic {
-    private static int fSY = 11;
-    private static int fSZ = 18;
+    private static int gaU = 11;
+    private static int gaV = 18;
 
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -48,28 +49,29 @@ public class WriteActivityStatic {
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteMulitImageActivityConfig.class, WriteMultiImgsActivity.class);
         TbadkCoreApplication.m9getInst().RegisterIntent(TransmitForumActivityConfig.class, TransmitForumActivity.class);
         TbadkCoreApplication.m9getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
-        LocationModel.bhx();
-        com.baidu.tbadk.core.util.bb.vB().a("feedback:", new bn());
+        TbadkCoreApplication.m9getInst().RegisterIntent(WriteUrlActivityConfig.class, WriteUrlActivity.class);
+        LocationModel.biR();
+        com.baidu.tbadk.core.util.bb.vy().a("feedback:", new bn());
         registerListener();
         com.baidu.tieba.tbadkCore.a.a.a(309450, GetRepostForumSocketResMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void E(TbPageContext<?> tbPageContext) {
+    public static void A(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= fSZ && Build.VERSION.SDK_INT >= fSY) {
-            F(tbPageContext);
+        if (Build.VERSION.SDK_INT <= gaV && Build.VERSION.SDK_INT >= gaU) {
+            B(tbPageContext);
         } else {
-            G(tbPageContext);
+            C(tbPageContext);
         }
     }
 
-    private static void F(TbPageContext<?> tbPageContext) {
+    private static void B(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.browser.f.a(tbPageContext.getPageActivity(), TbadkCoreApplication.m9getInst().getString(w.l.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
     }
 
-    private static void G(TbPageContext<?> tbPageContext) {
+    private static void C(TbPageContext<?> tbPageContext) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             TbadkCoreApplication.m9getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(w.l.login_feedback), true, 12008)));

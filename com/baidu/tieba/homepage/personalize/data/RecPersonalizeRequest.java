@@ -70,7 +70,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.scr_h = Integer.valueOf(k.ag(TbadkCoreApplication.m9getInst()));
         builder.scr_dip = Double.valueOf(k.ah(TbadkCoreApplication.m9getInst()));
         builder.q_type = 1;
-        if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.tX().getBoolean("has_requested_new_user_guide", false)) {
+        if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("has_requested_new_user_guide", false)) {
             i = 0;
         }
         builder.need_age_module = Integer.valueOf(i);

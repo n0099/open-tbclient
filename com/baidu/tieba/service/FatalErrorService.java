@@ -141,7 +141,7 @@ public class FatalErrorService extends BdBaseService {
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
                                         this.mNetwork.n(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.mNetwork.uo();
+                                    this.mNetwork.uk();
                                     if (byteArrayOutputStream2 != null) {
                                         byteArrayOutputStream2.close();
                                         byteArrayOutputStream3 = null;
@@ -210,7 +210,7 @@ public class FatalErrorService extends BdBaseService {
                                         fileInputStream2 = fileInputStream;
                                     }
                                     try {
-                                        if (this.mNetwork.uJ().vE().isRequestSuccess()) {
+                                        if (this.mNetwork.uF().vB().isRequestSuccess()) {
                                             if (z2) {
                                                 D(file);
                                             }
@@ -381,16 +381,16 @@ public class FatalErrorService extends BdBaseService {
             File[] listFiles;
             boolean z = true;
             try {
-                a(l.cV(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
-                a(l.cV(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                aZG();
-                if (!TbConfig.getVersion().equals(com.baidu.tbadk.core.sharedPref.b.tX().getString("native_crash_dump_version", ""))) {
-                    com.baidu.tbadk.core.sharedPref.b.tX().putString("native_crash_dump_version", TbConfig.getVersion());
+                a(l.cS(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
+                a(l.cS(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
+                bba();
+                if (!TbConfig.getVersion().equals(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("native_crash_dump_version", ""))) {
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
                 }
-                File cV = l.cV(TbConfig.FATAL_ERROR_NATIVE_DIR);
-                if (cV != null) {
-                    for (File file : cV.listFiles()) {
+                File cS = l.cS(TbConfig.FATAL_ERROR_NATIVE_DIR);
+                if (cS != null) {
+                    for (File file : cS.listFiles()) {
                         if (file.length() >= IjkMediaMeta.AV_CH_SIDE_RIGHT && z) {
                             E(file);
                             a(file, TbConfig.ERROR_UPLOAD_SERVER, FatalErrorService.ERROR_TYPE_NATIVE_C, true, true);
@@ -407,11 +407,11 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void aZG() {
-            File cV = l.cV(TbConfig.FATAL_ERROR_ALERT_FILE);
-            if (cV != null) {
+        private void bba() {
+            File cS = l.cS(TbConfig.FATAL_ERROR_ALERT_FILE);
+            if (cS != null) {
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(cV)));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(cS)));
                     StringBuffer stringBuffer = new StringBuffer();
                     while (true) {
                         String readLine = bufferedReader.readLine();
@@ -421,7 +421,7 @@ public class FatalErrorService extends BdBaseService {
                             String stringBuffer2 = stringBuffer.toString();
                             BdLog.i("sendLogForAlert log = " + stringBuffer2);
                             BdStatisticsManager.getInstance().alert("alert_crash", stringBuffer2);
-                            cV.delete();
+                            cS.delete();
                             return;
                         }
                     }
@@ -435,43 +435,43 @@ public class FatalErrorService extends BdBaseService {
 
         private void E(File file) {
             FileWriter fileWriter;
-            if (file != null && file.exists() && file.isFile()) {
+            if (file != null && file.exists() && file.isFile() && this.intent != null) {
                 try {
-                    if (this.intent != null) {
+                    fileWriter = new FileWriter(file, true);
+                    try {
                         try {
-                            fileWriter = new FileWriter(file, true);
-                            try {
-                                fileWriter.append("\n##TIEBA_NATIVE##\n");
-                                a(fileWriter, au.vl(), null);
-                                a(fileWriter, "version", TbConfig.getVersion());
-                                a(fileWriter, "model", Build.MODEL);
-                                a(fileWriter, "android_version", Build.VERSION.RELEASE);
-                                a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-                                a(fileWriter, "from", TbConfig.getFrom());
-                                a(fileWriter, "current_from", TbConfig.getCurrentFrom());
-                                a(fileWriter, SapiAccountManager.SESSION_UID, this.intent.getStringExtra(SapiAccountManager.SESSION_UID));
-                                a(fileWriter, "client_id", TbadkCoreApplication.getClientId());
-                                a(fileWriter, "imei", TbadkCoreApplication.m9getInst().getImei());
-                                a(fileWriter, "uname", this.intent.getStringExtra("uname"));
-                                fileWriter.append("\n##TIEBA_NATIVE_END##\n");
-                                o.a(fileWriter);
-                            } catch (Exception e) {
-                                e = e;
-                                e.printStackTrace();
-                                o.a(fileWriter);
-                            }
-                        } catch (Exception e2) {
-                            e = e2;
-                            fileWriter = null;
-                        } catch (Throwable th) {
-                            th = th;
-                            fileWriter = null;
+                            fileWriter.append("\n##TIEBA_NATIVE##\n");
+                            a(fileWriter, au.vi(), null);
+                            a(fileWriter, "version", TbConfig.getVersion());
+                            a(fileWriter, "model", Build.MODEL);
+                            a(fileWriter, "android_version", Build.VERSION.RELEASE);
+                            a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
+                            a(fileWriter, "from", TbConfig.getFrom());
+                            a(fileWriter, "current_from", TbConfig.getCurrentFrom());
+                            a(fileWriter, SapiAccountManager.SESSION_UID, this.intent.getStringExtra(SapiAccountManager.SESSION_UID));
+                            a(fileWriter, "client_id", TbadkCoreApplication.getClientId());
+                            a(fileWriter, "imei", TbadkCoreApplication.m9getInst().getImei());
+                            a(fileWriter, "uname", this.intent.getStringExtra("uname"));
+                            fileWriter.append("\n##TIEBA_NATIVE_END##\n");
                             o.a(fileWriter);
-                            throw th;
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            o.a(fileWriter);
                         }
+                    } catch (Throwable th) {
+                        th = th;
+                        o.a(fileWriter);
+                        throw th;
                     }
+                } catch (Exception e2) {
+                    e = e2;
+                    fileWriter = null;
                 } catch (Throwable th2) {
                     th = th2;
+                    fileWriter = null;
+                    o.a(fileWriter);
+                    throw th;
                 }
             }
         }

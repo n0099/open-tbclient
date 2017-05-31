@@ -8,13 +8,13 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 /* loaded from: classes.dex */
 public class PersonCenterFragmentStatic {
     static {
-        Jx();
-        com.baidu.tieba.h.a.aZj();
+        LR();
+        com.baidu.tieba.j.a.baD();
     }
 
-    private static void Jx() {
+    private static void LR() {
         com.baidu.tieba.tbadkCore.a.a.a(303012, ProfileSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.ax("c/u/user/profile", 303012));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aw("c/u/user/profile", 303012));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

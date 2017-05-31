@@ -3,7 +3,7 @@ package com.baidu.tbadk.core;
 import com.baidu.tbadk.core.data.NewErrorData;
 /* loaded from: classes.dex */
 public class i {
-    protected NewErrorData Sa = null;
+    protected NewErrorData RM = null;
     protected com.baidu.tbadk.core.util.z mNetWork;
 
     public i() {
@@ -26,20 +26,20 @@ public class i {
     }
 
     protected String getResult() {
-        String ul = this.mNetWork.ul();
-        this.Sa = new NewErrorData();
-        this.Sa.parserJson(ul);
-        return ul;
+        String ug = this.mNetWork.ug();
+        this.RM = new NewErrorData();
+        this.RM.parserJson(ug);
+        return ug;
     }
 
     public boolean isRequestSuccess() {
         if (this.mNetWork != null) {
-            return this.mNetWork.uJ().vE().isRequestSuccess();
+            return this.mNetWork.uF().vB().isRequestSuccess();
         }
         return false;
     }
 
-    public String oT() {
+    public String oL() {
         if (this.mNetWork != null) {
             return this.mNetWork.getErrorString();
         }

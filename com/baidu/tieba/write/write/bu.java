@@ -14,9 +14,9 @@ public class bu implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.this$0.mProgress.getVisibility() != 0) {
-            if ((this.this$0.mBitmap != null || this.this$0.ezu != null) && view.getTag() != null) {
-                this.this$0.ezB = false;
-                this.this$0.rm(view.getTag().toString());
+            if ((this.this$0.mBitmap != null || this.this$0.eIg != null) && view.getTag() != null) {
+                this.this$0.eIn = false;
+                this.this$0.rA(view.getTag().toString());
             }
         }
     }

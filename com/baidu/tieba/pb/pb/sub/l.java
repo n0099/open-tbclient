@@ -9,11 +9,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements a.InterfaceC0033a {
-    final /* synthetic */ NewSubPbActivity eqU;
+    final /* synthetic */ NewSubPbActivity eye;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(NewSubPbActivity newSubPbActivity) {
-        this.eqU = newSubPbActivity;
+        this.eye = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0033a
@@ -32,51 +32,51 @@ public class l implements a.InterfaceC0033a {
         SubPbModel subPbModel5;
         com.baidu.tbadk.baseEditMark.a aVar4;
         if (z) {
-            aVar = this.eqU.dCb;
+            aVar = this.eye.dHz;
             if (aVar != null) {
-                aVar4 = this.eqU.dCb;
-                aVar4.ad(z2);
+                aVar4 = this.eye.dHz;
+                aVar4.ac(z2);
             }
-            aVar2 = this.eqU.dCb;
-            MarkData nO = aVar2.nO();
+            aVar2 = this.eye.dHz;
+            MarkData nG = aVar2.nG();
             com.baidu.tieba.pb.d dVar = new com.baidu.tieba.pb.d();
             dVar.setType(2);
             if (z2) {
-                dVar.setData(nO);
-                aVar3 = this.eqU.dCb;
+                dVar.setData(nG);
+                aVar3 = this.eye.dHz;
                 if (aVar3 != null) {
-                    if (nO != null) {
-                        subPbModel3 = this.eqU.eqD;
-                        subPbModel3.is(true);
-                        subPbModel4 = this.eqU.eqD;
-                        subPbModel5 = this.eqU.eqD;
-                        subPbModel4.nY(subPbModel5.CN());
-                        this.eqU.showToast(w.l.add_mark_on_pb);
+                    if (nG != null) {
+                        subPbModel3 = this.eye.exN;
+                        subPbModel3.iI(true);
+                        subPbModel4 = this.eye.exN;
+                        subPbModel5 = this.eye.exN;
+                        subPbModel4.om(subPbModel5.CH());
+                        this.eye.showToast(w.l.add_mark_on_pb);
                     } else {
-                        this.eqU.showToast(this.eqU.getPageContext().getString(w.l.add_mark));
+                        this.eye.showToast(this.eye.getPageContext().getString(w.l.add_mark));
                     }
-                    aoVar3 = this.eqU.eqF;
+                    aoVar3 = this.eye.exP;
                     if (aoVar3 != null) {
-                        aoVar4 = this.eqU.eqF;
-                        aoVar4.iN(true);
+                        aoVar4 = this.eye.exP;
+                        aoVar4.jf(true);
                     }
                 }
             } else {
                 dVar.setData(null);
-                subPbModel = this.eqU.eqD;
-                subPbModel.is(false);
-                subPbModel2 = this.eqU.eqD;
-                subPbModel2.nY(null);
-                this.eqU.showToast(this.eqU.getPageContext().getString(w.l.remove_mark));
-                aoVar = this.eqU.eqF;
+                subPbModel = this.eye.exN;
+                subPbModel.iI(false);
+                subPbModel2 = this.eye.exN;
+                subPbModel2.om(null);
+                this.eye.showToast(this.eye.getPageContext().getString(w.l.remove_mark));
+                aoVar = this.eye.exP;
                 if (aoVar != null) {
-                    aoVar2 = this.eqU.eqF;
-                    aoVar2.iN(false);
+                    aoVar2 = this.eye.exP;
+                    aoVar2.jf(false);
                 }
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, dVar));
             return;
         }
-        this.eqU.showToast(this.eqU.getPageContext().getString(w.l.update_mark_failed));
+        this.eye.showToast(this.eye.getPageContext().getString(w.l.update_mark_failed));
     }
 }

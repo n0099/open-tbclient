@@ -23,9 +23,11 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     public AlaUserInfoData alaUserData;
     private String fansNickName;
     private int gender;
+    private String god_intro;
+    private boolean isBigV;
     private boolean isGod;
     private int is_myfriend;
-    private i pendantData;
+    private j pendantData;
     private String virtualUserUrl;
     private boolean isLikeStatusFromNet = false;
     private int is_like = 0;
@@ -73,6 +75,14 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     @Override // com.baidu.tbadk.core.view.userLike.a
     public boolean isGod() {
         return this.isGod;
+    }
+
+    public boolean isBigV() {
+        return this.isBigV;
+    }
+
+    public void setIsBigV(boolean z) {
+        this.isBigV = z;
     }
 
     public void setIsGod(boolean z) {
@@ -142,6 +152,14 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             return this.userName;
         }
         return this.name_show;
+    }
+
+    public String getGodIntro() {
+        return this.god_intro;
+    }
+
+    public void setGodIntor(String str) {
+        this.god_intro = str;
     }
 
     public void setPortrait(String str) {
@@ -346,6 +364,8 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             if (user.god_data != null) {
                 this.godUserData.parserProtobuf(user.god_data);
                 this.isGod = this.godUserData.isGod();
+                this.isBigV = this.godUserData.isBigV();
+                this.god_intro = this.godUserData.getIntro();
             }
             if (user.tb_vip != null) {
                 this.bigVData.parserProtobuf(user.tb_vip);
@@ -354,7 +374,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
             if (user.pendant != null) {
-                this.pendantData = new i();
+                this.pendantData = new j();
                 this.pendantData.a(user.pendant);
             }
             this.isLikeStatusFromNet = true;
@@ -426,6 +446,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 if (optJSONObject != null) {
                     this.godUserData.parseJson(optJSONObject);
                     this.isGod = this.godUserData.isGod();
+                    this.isBigV = this.godUserData.isBigV();
                 }
                 if (optJSONObject2 != null) {
                     this.bigVData.parseJson(optJSONObject2);
@@ -455,12 +476,12 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.themeCard;
     }
 
-    public i getPendantData() {
+    public j getPendantData() {
         return this.pendantData;
     }
 
-    public void setPendantData(i iVar) {
-        this.pendantData = iVar;
+    public void setPendantData(j jVar) {
+        this.pendantData = jVar;
     }
 
     public String getVirtualUserUrl() {

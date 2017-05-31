@@ -7,12 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
-    private TextView alI;
-    private TextView alJ;
+    private TextView aly;
+    private TextView alz;
     private Context mContext;
 
     public ThreadViewAndCommentInfoLayout(Context context) {
@@ -27,45 +27,45 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(w.j.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.alJ = (TextView) inflate.findViewById(w.h.thread_view_num);
-        this.alI = (TextView) inflate.findViewById(w.h.thread_comment_num);
+        this.alz = (TextView) inflate.findViewById(w.h.thread_view_num);
+        this.aly = (TextView) inflate.findViewById(w.h.thread_comment_num);
         this.mContext = context;
     }
 
-    public void setData(bk bkVar) {
-        if (bkVar == null) {
+    public void setData(bl blVar) {
+        if (blVar == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        g(bkVar);
-        l(bkVar);
+        g(blVar);
+        o(blVar);
     }
 
-    private void g(bk bkVar) {
-        if (this.alJ != null && bkVar != null) {
-            if (bkVar.rs() >= 0) {
-                this.alJ.setVisibility(0);
-                this.alJ.setText(String.format(this.mContext.getString(w.l.person_view_num), com.baidu.tbadk.core.util.au.t(bkVar.rs())));
+    private void g(bl blVar) {
+        if (this.alz != null && blVar != null) {
+            if (blVar.ro() >= 0) {
+                this.alz.setVisibility(0);
+                this.alz.setText(String.format(this.mContext.getString(w.l.person_view_num), com.baidu.tbadk.core.util.au.t(blVar.ro())));
                 return;
             }
-            this.alJ.setVisibility(8);
+            this.alz.setVisibility(8);
         }
     }
 
-    private void l(bk bkVar) {
-        if (this.alI != null && bkVar != null) {
-            if (bkVar.rr() >= 0) {
-                this.alI.setVisibility(0);
-                this.alI.setText(String.format(this.mContext.getString(w.l.comment_num_tip), com.baidu.tbadk.core.util.au.t(bkVar.rr())));
+    private void o(bl blVar) {
+        if (this.aly != null && blVar != null) {
+            if (blVar.rn() >= 0) {
+                this.aly.setVisibility(0);
+                this.aly.setText(String.format(this.mContext.getString(w.l.comment_num_tip), com.baidu.tbadk.core.util.au.t(blVar.rn())));
                 return;
             }
-            this.alI.setVisibility(8);
+            this.aly.setVisibility(8);
         }
     }
 
     public void onChangeSkinType() {
-        com.baidu.tbadk.core.util.aq.i(this.alJ, w.e.cp_cont_d);
-        com.baidu.tbadk.core.util.aq.i(this.alI, w.e.cp_cont_d);
+        com.baidu.tbadk.core.util.aq.i(this.alz, w.e.cp_cont_d);
+        com.baidu.tbadk.core.util.aq.i(this.aly, w.e.cp_cont_d);
     }
 }

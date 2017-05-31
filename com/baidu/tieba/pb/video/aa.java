@@ -1,37 +1,52 @@
 package com.baidu.tieba.pb.video;
 
-import android.view.View;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements View.OnClickListener {
-    final /* synthetic */ z etu;
-    private final /* synthetic */ v etv;
+public class aa implements c.d {
+    final /* synthetic */ l eAW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar, v vVar) {
-        this.etu = zVar;
-        this.etv = vVar;
+    public aa(l lVar) {
+        this.eAW = lVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.etv == null) {
-            return;
+    @Override // com.baidu.tieba.play.c.d
+    public void aPd() {
+        PbActivity pbActivity;
+        bl blVar;
+        bl blVar2;
+        PbActivity pbActivity2;
+        bl blVar3;
+        bl blVar4;
+        bl blVar5;
+        bl blVar6;
+        pbActivity = this.eAW.elf;
+        if (pbActivity != null) {
+            blVar = this.eAW.eAC;
+            if (blVar != null) {
+                blVar2 = this.eAW.eAC;
+                if (!StringUtils.isNull(blVar2.getId())) {
+                    pbActivity2 = this.eAW.elf;
+                    blVar3 = this.eAW.eAC;
+                    pbActivity2.nN(blVar3.getId());
+                    blVar4 = this.eAW.eAB;
+                    if (blVar4 != null) {
+                        long j = 0;
+                        blVar5 = this.eAW.eAB;
+                        if (blVar5.sx() != null) {
+                            blVar6 = this.eAW.eAB;
+                            j = blVar6.sx().channelId;
+                        }
+                        TiebaStatic.log(new as("c11921").f("obj_id", j));
+                    }
+                }
+            }
         }
-        this.etu.oa(this.etv.threadId);
-        as asVar = new as("c11927");
-        asVar.s("obj_locate", this.etv.position);
-        asVar.aa("tid", this.etv.threadId);
-        asVar.g("fid", this.etv.forumId);
-        asVar.aa("obj_param1", this.etv.etg);
-        asVar.aa("obj_param2", "1");
-        asVar.g("obj_param3", System.currentTimeMillis() / 1000);
-        asVar.aa("obj_name", this.etv.ete);
-        asVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.etv.etf);
-        asVar.g("obj_id", this.etv.channelId);
-        TiebaStatic.log(asVar);
     }
 }

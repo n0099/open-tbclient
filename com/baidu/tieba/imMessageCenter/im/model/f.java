@@ -7,14 +7,14 @@ import com.baidu.tieba.im.util.h;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 class f extends v<Boolean> {
-    private final /* synthetic */ PersonalChatMessage dba;
-    final /* synthetic */ e dfM;
+    private final /* synthetic */ PersonalChatMessage dgx;
+    final /* synthetic */ e dlg;
     private final /* synthetic */ LinkedList val$list;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, PersonalChatMessage personalChatMessage, LinkedList linkedList) {
-        this.dfM = eVar;
-        this.dba = personalChatMessage;
+        this.dlg = eVar;
+        this.dgx = personalChatMessage;
         this.val$list = linkedList;
     }
 
@@ -22,6 +22,6 @@ class f extends v<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.util.v
     public Boolean doInBackground() {
-        return Boolean.valueOf(m.anD().a(h.p(this.dba), this.val$list, false));
+        return Boolean.valueOf(m.aoD().a(h.p(this.dgx), this.val$list, false));
     }
 }

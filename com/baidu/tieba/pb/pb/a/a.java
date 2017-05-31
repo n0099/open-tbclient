@@ -6,17 +6,15 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 public interface a {
     void H(View.OnClickListener onClickListener);
 
-    void a(com.baidu.tieba.pb.a.d dVar);
-
     void b(com.baidu.tieba.pb.data.f fVar);
 
-    void hL(boolean z);
+    void hZ(boolean z);
 
-    void hM(boolean z);
+    void ia(boolean z);
 
-    void hN(boolean z);
+    void ib(boolean z);
 
-    void nW(int i);
+    void op(int i);
 
     void setCommonClickListener(View.OnClickListener onClickListener);
 

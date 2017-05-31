@@ -3,15 +3,15 @@ package com.baidu.tieba.imMessageCenter.mention;
 import android.view.View;
 /* loaded from: classes2.dex */
 class ag implements View.OnClickListener {
-    final /* synthetic */ MessageCenterActivity dhe;
+    final /* synthetic */ MessageCenterActivity dmA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(MessageCenterActivity messageCenterActivity) {
-        this.dhe = messageCenterActivity;
+        this.dmA = messageCenterActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dhe.finish();
+        this.dmA.finish();
     }
 }

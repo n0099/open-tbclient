@@ -1,30 +1,47 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tieba.card.cd;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tieba.frs.n;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes.dex */
-public class al extends cd<bk> {
-    final /* synthetic */ ak bTd;
+public interface al {
+    void a(n nVar);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ak akVar) {
-        this.bTd = akVar;
-    }
+    HashMap<Integer, bl> abF();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.cd
-    public void a(View view, bk bkVar) {
-        if (view != null && bkVar != null) {
-            if (view.getId() == w.h.layout_root) {
-                com.baidu.tieba.frs.c.b.acs().a(ak.bZb, bkVar, 1);
-            } else if (view.getId() == w.h.image_user) {
-                com.baidu.tieba.frs.c.b.acs().a(ak.bZb, bkVar, 2);
-            } else if (view.getId() == w.h.header_divider) {
-                com.baidu.tieba.frs.d.o.a(ak.bZb, bkVar.rW());
-            }
-        }
-    }
+    void abG();
+
+    int abH();
+
+    int abI();
+
+    int abJ();
+
+    int abK();
+
+    int abb();
+
+    void b(ArrayList<com.baidu.adp.widget.ListView.v> arrayList, com.baidu.tieba.tbadkCore.n nVar);
+
+    void cv(boolean z);
+
+    void em(boolean z);
+
+    List<com.baidu.adp.widget.ListView.v> getDatas();
+
+    boolean k(BdUniqueId bdUniqueId);
+
+    void notifyDataSetChanged();
+
+    void onDestory();
+
+    void setForumName(String str);
+
+    void setFromCDN(boolean z);
+
+    void setOnAdapterItemClickListener(x xVar);
 }

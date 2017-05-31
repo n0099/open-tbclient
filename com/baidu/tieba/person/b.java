@@ -1,25 +1,35 @@
 package com.baidu.tieba.person;
 
-import java.util.List;
-import tbclient.DynamicInfo;
-import tbclient.ForumDynamic;
-import tbclient.Profile.TAInfo;
-import tbclient.TbBookrack;
-import tbclient.User;
-import tbclient.UserManChannelInfo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public interface b {
-    User GetUser();
+public class b extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId eGp = BdUniqueId.gen();
+    public String arq;
+    public l bvk;
+    public long bvn;
+    public String bvo;
+    public int bvp;
+    public long mUserId;
+    public String mUserName;
 
-    TbBookrack getBookrackData();
+    public void c(l lVar) {
+        if (lVar != null) {
+            this.bvn = lVar.aPT();
+            this.bvo = lVar.getModuleName();
+            UserData userData = lVar.getUserData();
+            if (userData != null) {
+                this.mUserId = com.baidu.adp.lib.g.b.c(userData.getUserId(), 0L);
+                this.mUserName = userData.getUserName();
+                this.bvp = userData.getSex();
+                this.arq = userData.getPortrait();
+            }
+            this.bvk = lVar;
+        }
+    }
 
-    List<ForumDynamic> getConcernedForumList();
-
-    List<DynamicInfo> getDynamicInfoList();
-
-    int getErrorCode();
-
-    TAInfo getTaInfo();
-
-    UserManChannelInfo getUserChannelInfo();
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return eGp;
+    }
 }

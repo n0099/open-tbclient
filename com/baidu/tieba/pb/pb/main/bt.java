@@ -1,27 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public class bt implements View.OnClickListener {
-    final /* synthetic */ PbActivity ehy;
+class bt implements com.baidu.adp.lib.e.c<GifView> {
+    final /* synthetic */ PbActivity enc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(PbActivity pbActivity) {
-        this.ehy = pbActivity;
+        this.enc = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbModel pbModel;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.ehy.getPageContext().getPageActivity(), 23007)));
-        com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c10125");
-        pbModel = this.ehy.efE;
-        TiebaStatic.log(asVar.aa("tid", pbModel.getThreadID()).s("obj_type", 1));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: aKo */
+    public GifView fL() {
+        return new GifView(this.enc.getPageContext().getPageActivity());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: g */
+    public void o(GifView gifView) {
+        gifView.onDestroy();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: h */
+    public GifView p(GifView gifView) {
+        return gifView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: i */
+    public GifView q(GifView gifView) {
+        return gifView;
     }
 }

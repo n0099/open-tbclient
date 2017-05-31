@@ -14,19 +14,19 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class PersonHeaderAttentionView extends LinearLayout {
-    private View.OnClickListener bjv;
-    private TextView cQn;
-    private p eyy;
-    private View fJb;
-    private TextView fJc;
-    private TextView fJd;
-    private View fJe;
-    private ImageView fJf;
-    private TextView fJg;
-    private View fJh;
-    private TextView fJi;
-    private TextView fJj;
+public class PersonHeaderAttentionView extends LinearLayout implements p {
+    private View.OnClickListener bkC;
+    private View bxC;
+    private TextView bxD;
+    private TextView bxE;
+    private View bxL;
+    private TextView bxM;
+    private ImageView bxN;
+    private TextView bxO;
+    private View bxP;
+    private TextView bxQ;
+    private TextView bxR;
+    private r bxW;
     private Context mContext;
     private int mSkinType;
     private UserData mUserData;
@@ -34,27 +34,27 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public PersonHeaderAttentionView(Context context) {
         super(context);
         this.mSkinType = -1;
-        this.bjv = new v(this);
+        this.bkC = new w(this);
         init(context);
-        aQb();
+        TR();
         onChangeSkinType(0);
     }
 
     public PersonHeaderAttentionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = -1;
-        this.bjv = new v(this);
+        this.bkC = new w(this);
         init(context);
-        aQb();
+        TR();
         onChangeSkinType(0);
     }
 
     public PersonHeaderAttentionView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = -1;
-        this.bjv = new v(this);
+        this.bkC = new w(this);
         init(context);
-        aQb();
+        TR();
         onChangeSkinType(0);
     }
 
@@ -63,72 +63,76 @@ public class PersonHeaderAttentionView extends LinearLayout {
         setOrientation(0);
         setGravity(16);
         LayoutInflater.from(context).inflate(w.j.item_person_header_attention_view, (ViewGroup) this, true);
-        this.fJb = findViewById(w.h.person_header_attention_container);
-        this.fJc = (TextView) findViewById(w.h.person_header_attention_num);
-        this.fJd = (TextView) findViewById(w.h.person_header_attention_des);
-        this.fJe = findViewById(w.h.person_header_fans_container);
-        this.cQn = (TextView) findViewById(w.h.person_header_fans_num);
-        this.fJf = (ImageView) findViewById(w.h.person_header_fans_red_tip);
-        this.fJg = (TextView) findViewById(w.h.person_header_fans_des);
-        this.fJh = findViewById(w.h.person_header_bar_container);
-        this.fJi = (TextView) findViewById(w.h.person_header_bar_num);
-        this.fJj = (TextView) findViewById(w.h.person_header_bar_des);
+        this.bxC = findViewById(w.h.person_header_attention_container);
+        this.bxD = (TextView) findViewById(w.h.person_header_attention_num);
+        this.bxE = (TextView) findViewById(w.h.person_header_attention_des);
+        this.bxL = findViewById(w.h.person_header_fans_container);
+        this.bxM = (TextView) findViewById(w.h.person_header_fans_num);
+        this.bxN = (ImageView) findViewById(w.h.person_header_fans_red_tip);
+        this.bxO = (TextView) findViewById(w.h.person_header_fans_des);
+        this.bxP = findViewById(w.h.person_header_bar_container);
+        this.bxQ = (TextView) findViewById(w.h.person_header_bar_num);
+        this.bxR = (TextView) findViewById(w.h.person_header_bar_des);
     }
 
-    private void aQb() {
-        this.fJb.setOnClickListener(this.bjv);
-        this.fJe.setOnClickListener(this.bjv);
-        this.fJh.setOnClickListener(this.bjv);
+    private void TR() {
+        this.bxC.setOnClickListener(this.bkC);
+        this.bxL.setOnClickListener(this.bkC);
+        this.bxP.setOnClickListener(this.bkC);
     }
 
-    public void setOnViewResponseListener(p pVar) {
-        this.eyy = pVar;
+    @Override // com.baidu.tieba.view.p
+    public void setOnViewResponseListener(r rVar) {
+        this.bxW = rVar;
     }
 
-    private void m(String str, String str2, String str3, String str4) {
-        this.fJc.setText(str);
-        this.cQn.setText(str2);
-        this.fJi.setText(str4);
+    private void k(String str, String str2, String str3, String str4) {
+        this.bxD.setText(str);
+        this.bxM.setText(str2);
+        this.bxQ.setText(str4);
     }
 
+    @Override // com.baidu.tieba.view.p
     public void setData(UserData userData) {
         this.mUserData = userData;
         if (this.mUserData.getConcernNum() >= 9999000) {
-            this.fJc.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
+            this.bxD.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
         }
         if (this.mUserData.getFansNum() >= 9999000) {
-            this.cQn.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
+            this.bxM.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
         }
         if (this.mUserData.getLike_bars() >= 9999000) {
-            this.fJi.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
+            this.bxQ.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
         }
-        m(au.y(this.mUserData.getConcernNum()), au.y(this.mUserData.getFansNum()), au.y(this.mUserData.getPosts_num()), au.y(this.mUserData.getLike_bars()));
+        k(au.y(this.mUserData.getConcernNum()), au.y(this.mUserData.getFansNum()), au.y(this.mUserData.getPosts_num()), au.y(this.mUserData.getLike_bars()));
     }
 
+    @Override // com.baidu.tieba.view.p
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            aq.c(this.fJc, w.e.cp_cont_i, 1);
-            aq.c(this.fJd, w.e.cp_cont_i_alpha60, 1);
-            aq.c(this.cQn, w.e.cp_cont_i, 1);
-            aq.c(this.fJg, w.e.cp_cont_i_alpha60, 1);
-            aq.c(this.fJf, w.g.icon_news_down_bar_one);
-            aq.c(this.fJi, w.e.cp_cont_i, 1);
-            aq.c(this.fJj, w.e.cp_cont_i_alpha60, 1);
+            aq.c(this.bxD, w.e.cp_cont_i, 1);
+            aq.c(this.bxE, w.e.cp_cont_i_alpha60, 1);
+            aq.c(this.bxM, w.e.cp_cont_i, 1);
+            aq.c(this.bxO, w.e.cp_cont_i_alpha60, 1);
+            aq.c(this.bxN, w.g.icon_news_down_bar_one);
+            aq.c(this.bxQ, w.e.cp_cont_i, 1);
+            aq.c(this.bxR, w.e.cp_cont_i_alpha60, 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sG(int i) {
-        BdToast.b(this.mContext, String.format(this.mContext.getString(w.l.person_privacy_toast), au.cR(i)), w.g.icon_toast_game_error).tl();
+    public void he(int i) {
+        BdToast.b(this.mContext, String.format(this.mContext.getString(w.l.person_privacy_toast), au.cS(i)), w.g.icon_toast_game_error).tk();
     }
 
-    public void lv(boolean z) {
-        if (this.fJf != null) {
+    @Override // com.baidu.tieba.view.p
+    public void dm(boolean z) {
+        if (this.bxN != null) {
             if (z) {
-                this.fJf.setVisibility(0);
+                this.bxN.setVisibility(0);
             } else {
-                this.fJf.setVisibility(8);
+                this.bxN.setVisibility(8);
             }
         }
     }

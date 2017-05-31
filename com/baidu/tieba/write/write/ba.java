@@ -7,11 +7,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements TextWatcher {
-    final /* synthetic */ WriteActivity fSV;
+    final /* synthetic */ WriteActivity gaR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(WriteActivity writeActivity) {
-        this.fSV = writeActivity;
+        this.gaR = writeActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -21,31 +21,31 @@ public class ba implements TextWatcher {
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         String str;
-        str = this.fSV.fSK;
+        str = this.gaR.gaG;
         if (!str.equals(charSequence.toString())) {
-            this.fSV.fSL = i + i3;
+            this.gaR.gaH = i + i3;
         }
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         String str;
-        SpannableString fY;
+        SpannableString fX;
         EditText editText;
         int i;
         EditText editText2;
         EditText editText3;
         int i2;
-        str = this.fSV.fSK;
-        if (!str.equals(editable.toString()) && (fY = com.baidu.tbadk.plugins.a.fY(editable.toString())) != null) {
-            this.fSV.fSK = fY.toString();
-            editText = this.fSV.fkx;
-            editText.setText(fY);
-            i = this.fSV.fSL;
-            editText2 = this.fSV.fkx;
+        str = this.gaR.gaG;
+        if (!str.equals(editable.toString()) && (fX = com.baidu.tbadk.plugins.a.fX(editable.toString())) != null) {
+            this.gaR.gaG = fX.toString();
+            editText = this.gaR.fsp;
+            editText.setText(fX);
+            i = this.gaR.gaH;
+            editText2 = this.gaR.fsp;
             if (i <= editText2.getText().length()) {
-                editText3 = this.fSV.fkx;
-                i2 = this.fSV.fSL;
+                editText3 = this.gaR.fsp;
+                i2 = this.gaR.gaH;
                 editText3.setSelection(i2);
             }
         }

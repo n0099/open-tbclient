@@ -1,17 +1,17 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tieba.card.divider.CardGroupDividerView;
 /* loaded from: classes.dex */
 public class p {
-    public static void a(bk bkVar, CardGroupDividerView cardGroupDividerView) {
-        if (cardGroupDividerView != null && bkVar != null) {
-            if (bkVar.needTopMargin && com.baidu.tieba.tbadkCore.util.s.bhK()) {
-                String rW = bkVar.rW();
-                cardGroupDividerView.setTitleText(rW);
-                cardGroupDividerView.B(rW, !bkVar.isFirstFloor);
+    public static void a(bl blVar, CardGroupDividerView cardGroupDividerView) {
+        if (cardGroupDividerView != null && blVar != null) {
+            if (blVar.needTopMargin && com.baidu.tieba.tbadkCore.util.s.bje()) {
+                String rS = blVar.rS();
+                cardGroupDividerView.setTitleText(rS);
+                cardGroupDividerView.y(rS, !blVar.isFirstFloor);
             } else {
-                cardGroupDividerView.TT();
+                cardGroupDividerView.UX();
             }
             cardGroupDividerView.getBotttomLine().setVisibility(8);
         }

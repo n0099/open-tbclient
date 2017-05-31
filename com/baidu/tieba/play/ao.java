@@ -1,67 +1,50 @@
 package com.baidu.tieba.play;
 
-import android.app.Activity;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.os.Handler;
-import android.provider.Settings;
-import com.baidu.tieba.play.ar;
+import android.content.Context;
+import android.view.TextureView;
+import android.view.View;
 /* loaded from: classes.dex */
-public class ao {
-    private SensorManager eSX;
-    private aa eSY;
-    private Sensor eSZ;
-    private ar eTc;
-    private Activity mActivity;
-    private boolean eTa = false;
-    private boolean eTb = false;
-    private boolean eTd = false;
-    private boolean eTe = false;
-    private Handler mHandler = new ap(this);
-    private ar.a eTf = new aq(this);
+public class ao extends TextureView {
+    private int fbo;
+    private int mVideoHeight;
+    private int mVideoWidth;
 
-    public void awo() {
-        if (this.mActivity != null) {
-            if (this.mActivity.getRequestedOrientation() == 1) {
-                this.mActivity.setRequestedOrientation(0);
-                this.eTa = true;
-                return;
+    public ao(Context context) {
+        super(context);
+        this.mVideoWidth = 0;
+        this.mVideoHeight = 0;
+        this.fbo = 0;
+    }
+
+    @Override // android.view.View
+    protected void onMeasure(int i, int i2) {
+        if (this.fbo == 90 || this.fbo == 270) {
+            i = i2;
+            i2 = i;
+        }
+        int defaultSize = View.getDefaultSize(this.mVideoWidth, i);
+        int defaultSize2 = View.getDefaultSize(this.mVideoHeight, i2);
+        if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
+            defaultSize = View.MeasureSpec.getSize(i);
+            defaultSize2 = View.MeasureSpec.getSize(i2);
+            float f = defaultSize / defaultSize2;
+            float f2 = this.mVideoWidth / this.mVideoHeight;
+            if (f2 > f) {
+                defaultSize2 = (int) (defaultSize / f2);
+            } else {
+                defaultSize = (int) (defaultSize2 * f2);
             }
-            this.mActivity.setRequestedOrientation(1);
-            this.eTb = true;
         }
+        setMeasuredDimension(defaultSize, defaultSize2);
     }
 
-    public ao(Activity activity) {
-        if (activity != null) {
-            this.mActivity = activity;
-            this.eSX = (SensorManager) activity.getSystemService("sensor");
-            this.eSZ = this.eSX.getDefaultSensor(1);
-            this.eSY = new aa(this.mHandler);
-            this.mActivity.setRequestedOrientation(1);
-            this.eTc = new ar(this.mActivity, this.mHandler);
-            this.eTc.a(this.eTf);
-            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.eTc);
+    public void N(int i, int i2, int i3) {
+        setRotation(i3);
+        this.mVideoWidth = i;
+        this.mVideoHeight = i2;
+        this.fbo = i3;
+        if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
+            requestLayout();
         }
-    }
-
-    public void start() {
-        if (this.eSX != null) {
-            this.eSX.registerListener(this.eSY, this.eSZ, 2);
-        }
-    }
-
-    public void stop() {
-        if (this.eSX != null) {
-            this.eSX.unregisterListener(this.eSY);
-        }
-        this.mHandler.removeCallbacksAndMessages(null);
-        if (this.mActivity != null) {
-            this.mActivity.getContentResolver().unregisterContentObserver(this.eTc);
-        }
-    }
-
-    public void kg(boolean z) {
-        this.eTe = z;
     }
 }

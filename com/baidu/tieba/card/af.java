@@ -1,18 +1,19 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tieba.play.QuickVideoView;
+import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements QuickVideoView.b {
-    final /* synthetic */ u bvn;
+public class af implements v.b {
+    final /* synthetic */ y bBb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(u uVar) {
-        this.bvn = uVar;
+    public af(y yVar) {
+        this.bBb = yVar;
     }
 
-    @Override // com.baidu.tieba.play.QuickVideoView.b
-    public void onSurfaceDestroyed() {
-        this.bvn.stopPlay();
+    @Override // com.baidu.tieba.play.v.b
+    public boolean onError(com.baidu.tieba.play.v vVar, int i, int i2) {
+        this.bBb.f(true, 4);
+        return true;
     }
 }

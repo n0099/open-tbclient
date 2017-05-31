@@ -9,15 +9,15 @@ import com.baidu.tbadk.util.x;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class k implements TextWatcher {
-    final /* synthetic */ c aBh;
-    private final /* synthetic */ int aBi;
-    private final /* synthetic */ EditText aBj;
+    final /* synthetic */ c aAT;
+    private final /* synthetic */ int aAU;
+    private final /* synthetic */ EditText aAV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(c cVar, int i, EditText editText) {
-        this.aBh = cVar;
-        this.aBi = i;
-        this.aBj = editText;
+        this.aAT = cVar;
+        this.aAU = i;
+        this.aAV = editText;
     }
 
     @Override // android.text.TextWatcher
@@ -32,11 +32,11 @@ class k implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         if (editable != null) {
             String editable2 = editable.toString();
-            if (!StringUtils.isNull(editable2) && x.go(editable2) > this.aBi) {
-                String d = x.d(editable2, 0, this.aBi - 1);
-                this.aBj.setText(d);
-                this.aBj.setSelection(this.aBj.getText().length());
-                UtilHelper.showToast(this.aBh.getContext().getApplication(), this.aBh.getContext().getResources().getString(w.l.edit_text_over_limit_tip, Integer.valueOf(d.length())));
+            if (!StringUtils.isNull(editable2) && x.gn(editable2) > this.aAU) {
+                String d = x.d(editable2, 0, this.aAU - 1);
+                this.aAV.setText(d);
+                this.aAV.setSelection(this.aAV.getText().length());
+                UtilHelper.showToast(this.aAT.getContext().getApplication(), this.aAT.getContext().getResources().getString(w.l.edit_text_over_limit_tip, Integer.valueOf(d.length())));
             }
         }
     }

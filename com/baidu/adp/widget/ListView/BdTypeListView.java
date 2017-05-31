@@ -4,12 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.widget.ListView.z;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView {
-    y mTypeAdapter;
+    z mTypeAdapter;
 
     public BdTypeListView(Context context) {
         super(context);
@@ -31,7 +31,7 @@ public class BdTypeListView extends BdListView {
 
     private void init() {
         if (this.mTypeAdapter == null) {
-            this.mTypeAdapter = new y();
+            this.mTypeAdapter = new z();
         }
         super.setOnItemClickListener(new t(this));
         super.setOnItemLongClickListener(new u(this));
@@ -47,7 +47,7 @@ public class BdTypeListView extends BdListView {
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
     }
 
-    public void addAdapter(a<v, y.a> aVar) {
+    public void addAdapter(a<v, z.a> aVar) {
         this.mTypeAdapter.addAdapter(aVar);
         setAdapter((ListAdapter) this.mTypeAdapter);
     }

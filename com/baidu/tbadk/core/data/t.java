@@ -4,8 +4,8 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class t implements com.baidu.tbadk.core.flow.a.a {
-    private String UW;
-    private boolean UX;
+    private String UI;
+    private boolean UJ;
     private String mImageUrl;
     private String mLinkUrl;
     private String mSubTitle;
@@ -28,27 +28,27 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String pO() {
+    public String pG() {
         return this.mLinkUrl;
     }
 
-    public String pP() {
+    public String pH() {
         return this.tagNameUrl;
     }
 
-    public float pQ() {
+    public float pI() {
         return this.tagRatio;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: pR */
+    /* renamed from: pJ */
     public t clone() {
         t tVar = new t();
         tVar.mImageUrl = this.mImageUrl;
         tVar.mLinkUrl = this.mLinkUrl;
         tVar.mTitle = this.mTitle;
         tVar.mSubTitle = this.mSubTitle;
-        tVar.UW = this.UW;
+        tVar.UI = this.UI;
         tVar.tagNameUrl = this.tagNameUrl;
         tVar.tagRatio = this.tagRatio;
         return tVar;
@@ -79,16 +79,16 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
                 this.mSubTitle = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.UW = headImgs.btn_text.trim();
+                this.UI = headImgs.btn_text.trim();
             }
         }
     }
 
-    public boolean pS() {
-        return this.UX;
+    public boolean pK() {
+        return this.UJ;
     }
 
-    public void an(boolean z) {
-        this.UX = z;
+    public void am(boolean z) {
+        this.UJ = z;
     }
 }

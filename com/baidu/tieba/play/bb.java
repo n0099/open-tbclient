@@ -1,54 +1,22 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tieba.play.ba;
+import java.util.Comparator;
+import java.util.Map;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb {
-    public String Vk;
-    public String bti;
-    public String btj;
-    public String eTt;
-    public String eTu;
-    public String eTv;
-    public String eTw;
-    public String mLocate;
-    public String mSource;
-    public String mUid;
+public class bb implements Comparator<Map.Entry<String, ba.a>> {
+    final /* synthetic */ ba fcf;
 
-    public com.baidu.tbadk.core.util.as f(com.baidu.tbadk.core.util.as asVar) {
-        if (asVar != null) {
-            if (!StringUtils.isNull(this.mLocate)) {
-                asVar.aa("obj_locate", this.mLocate);
-            }
-            if (!StringUtils.isNull(this.bti)) {
-                asVar.aa("tid", this.bti);
-            }
-            if (!StringUtils.isNull(this.btj)) {
-                asVar.aa("fid", this.btj);
-            }
-            if (!StringUtils.isNull(this.mUid)) {
-                asVar.aa(SapiAccountManager.SESSION_UID, this.mUid);
-            }
-            if (!StringUtils.isNull(this.mSource)) {
-                asVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
-            }
-            if (!StringUtils.isNull(this.eTt)) {
-                asVar.aa("obj_param1", this.eTt);
-            }
-            if (!StringUtils.isNull(this.eTu)) {
-                asVar.aa("obj_param2", this.eTu);
-            }
-            if (!StringUtils.isNull(this.eTv)) {
-                asVar.aa("obj_param3", this.eTv);
-            }
-            if (!StringUtils.isNull(this.Vk)) {
-                asVar.aa("obj_id", this.Vk);
-            }
-            if (!StringUtils.isNull(this.eTw)) {
-                asVar.aa("ab_tag", this.eTw);
-            }
-        }
-        return asVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bb(ba baVar) {
+        this.fcf = baVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: b */
+    public int compare(Map.Entry<String, ba.a> entry, Map.Entry<String, ba.a> entry2) {
+        return (int) (entry.getValue().lastUpdateTime - entry2.getValue().lastUpdateTime);
     }
 }

@@ -8,7 +8,12 @@ public class an extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "baidu_wallet_enable";
+        return "video_list_weaklock_android";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] eQ() {
+        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -19,11 +24,6 @@ public class an extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int eS() {
         return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eQ() {
-        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a

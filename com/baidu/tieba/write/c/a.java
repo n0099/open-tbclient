@@ -1,24 +1,30 @@
 package com.baidu.tieba.write.c;
-
-import com.baidu.tieba.write.a.b;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.write.a.a fOu = null;
-    private b fOv = null;
+    private static long lastClickTime = 0;
 
-    public com.baidu.tieba.write.a.a bmR() {
-        return this.fOu;
+    public static long g(CharSequence charSequence) {
+        double d = 0.0d;
+        for (int i = 0; i < charSequence.length(); i++) {
+            char charAt = charSequence.charAt(i);
+            if (charAt > ' ') {
+                if (charAt > 0 && charAt < 127) {
+                    d += 0.5d;
+                } else {
+                    d += 1.0d;
+                }
+            }
+        }
+        return Math.round(d);
     }
 
-    public void a(com.baidu.tieba.write.a.a aVar) {
-        this.fOu = aVar;
-    }
-
-    public b bmS() {
-        return this.fOv;
-    }
-
-    public void a(b bVar) {
-        this.fOv = bVar;
+    public static boolean isFastDoubleClick() {
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = currentTimeMillis - lastClickTime;
+        if (0 < j && j < 1000) {
+            return true;
+        }
+        lastClickTime = currentTimeMillis;
+        return false;
     }
 }

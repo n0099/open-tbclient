@@ -7,33 +7,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class w extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static w bFR = new w();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> bFS;
+    private static w bLG = new w();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> bLH;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized w VM() {
+    public static synchronized w WP() {
         w wVar;
         synchronized (w.class) {
-            wVar = bFR;
+            wVar = bLG;
         }
         return wVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.bFS;
+        return this.bLH;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0043a interfaceC0043a) {
-        if (this.bFS == null || this.bFS.isEmpty()) {
-            this.bFS = new LinkedList<>();
-            if (TbFaceManager.DM().CE() > 0) {
+        if (this.bLH == null || this.bLH.isEmpty()) {
+            this.bLH = new LinkedList<>();
+            if (TbFaceManager.DG().Cy() > 0) {
                 v vVar = new v();
-                this.bFS.add(vVar);
+                this.bLH.add(vVar);
                 if (interfaceC0043a != null) {
                     interfaceC0043a.a(vVar);
                     return;
@@ -42,7 +42,7 @@ public class w extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.bFS.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.bLH.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0043a != null) {
@@ -56,6 +56,6 @@ public class w extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.bFS == null || this.bFS.size() == 0;
+        return this.bLH == null || this.bLH.size() == 0;
     }
 }

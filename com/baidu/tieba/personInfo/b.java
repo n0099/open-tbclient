@@ -3,23 +3,23 @@ package com.baidu.tieba.personInfo;
 import tbclient.BookInfo;
 /* loaded from: classes.dex */
 public class b {
-    public int Ud;
-    public int Um;
+    public int TQ;
+    public int TZ;
     public String bookId;
-    public String dCm;
-    public String dVa;
-    public long eBG;
+    public String dHK;
+    public long eKs;
+    public String eaw;
     public long updateTime;
 
     public void a(BookInfo bookInfo) {
         if (bookInfo != null) {
             this.bookId = bookInfo.book_id;
-            this.dCm = bookInfo.title;
-            this.dVa = bookInfo.cover;
+            this.dHK = bookInfo.title;
+            this.eaw = bookInfo.cover;
             this.updateTime = bookInfo.update_time.intValue();
-            this.Um = bookInfo.book_type.intValue();
-            this.eBG = bookInfo.forum_id.longValue();
-            this.Ud = bookInfo.total_chapter.intValue();
+            this.TZ = bookInfo.book_type.intValue();
+            this.eKs = bookInfo.forum_id.longValue();
+            this.TQ = bookInfo.total_chapter.intValue();
         }
     }
 }

@@ -1,58 +1,58 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class i {
-    private String Qg;
-    private String aVh;
-    private boolean aVi;
-    private long aVj = -1;
-    private long aVk = -1;
-    private long aVl = 0;
+    private String PU;
+    private String aSJ;
+    private boolean aSK;
+    private long aSL = -1;
+    private long aSM = -1;
+    private long aSN = 0;
 
-    public String KS() {
-        return this.aVh;
+    public String JN() {
+        return this.aSJ;
     }
 
-    public void gN(String str) {
-        this.aVh = str;
+    public void gI(String str) {
+        this.aSJ = str;
     }
 
-    public String KT() {
-        return this.Qg;
+    public String JO() {
+        return this.PU;
     }
 
-    public void gO(String str) {
-        this.Qg = str;
+    public void gJ(String str) {
+        this.PU = str;
     }
 
-    public boolean KU() {
-        return this.aVi;
+    public boolean JP() {
+        return this.aSK;
     }
 
-    public void co(boolean z) {
-        this.aVi = z;
+    public void cl(boolean z) {
+        this.aSK = z;
     }
 
-    public long KV() {
-        return this.aVj;
+    public long JQ() {
+        return this.aSL;
     }
 
     public void aq(long j) {
-        this.aVj = j;
+        this.aSL = j;
     }
 
-    public long KW() {
-        return this.aVk;
+    public long JR() {
+        return this.aSM;
     }
 
     public void ar(long j) {
-        this.aVk = j;
+        this.aSM = j;
     }
 
     public long getTotalLength() {
-        return this.aVl;
+        return this.aSN;
     }
 
     public void M(long j) {
-        this.aVl = j;
+        this.aSN = j;
     }
 }

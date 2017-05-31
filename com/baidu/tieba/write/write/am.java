@@ -4,11 +4,11 @@ import android.app.TimePickerDialog;
 import android.widget.TimePicker;
 /* loaded from: classes.dex */
 class am implements TimePickerDialog.OnTimeSetListener {
-    final /* synthetic */ WriteActivity fSV;
+    final /* synthetic */ WriteActivity gaR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(WriteActivity writeActivity) {
-        this.fSV = writeActivity;
+        this.gaR = writeActivity;
     }
 
     @Override // android.app.TimePickerDialog.OnTimeSetListener

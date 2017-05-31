@@ -366,7 +366,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
             StringBuilder sb = new StringBuilder();
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 sb.append(entry.getKey());
-                sb.append(":");
+                sb.append(": ");
                 if (!TextUtils.isEmpty(entry.getValue())) {
                     sb.append(entry.getValue());
                 }

@@ -27,7 +27,7 @@ class a extends CustomMessageListener {
             if (SystemClock.elapsedRealtime() - this.mTimeStamp > 30000) {
                 new ClientStartStatic.a(null).execute(new Void[0]);
             }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11894").s("obj_param1", 1));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11894").r("obj_param1", 1));
         }
     }
 }

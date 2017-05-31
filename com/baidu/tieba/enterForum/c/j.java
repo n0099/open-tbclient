@@ -11,35 +11,40 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class j extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter bGb;
-    private View bHS;
-    private TextView bHT;
-    private ImageView bHU;
-    private ImageView bHV;
-    private View bHW;
-    private TextView bHX;
-    private ImageView bHY;
-    private ImageView bHZ;
-    private ImageView bIa;
-    private ImageView bIb;
+    private ViewEventCenter bLQ;
+    private View bNG;
+    private TextView bNH;
+    private ImageView bNI;
+    private ImageView bNJ;
+    private View bNK;
+    private TextView bNL;
+    private ImageView bNM;
+    private ImageView bNN;
+    private ImageView bNO;
+    private ImageView bNP;
 
     public j(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.bGb = viewEventCenter;
-        this.bHS = view.findViewById(w.h.left_container);
-        this.bHT = (TextView) this.bHS.findViewById(w.h.name);
-        this.bHU = (ImageView) this.bHS.findViewById(w.h.sign);
-        this.bHV = (ImageView) this.bHS.findViewById(w.h.grade);
-        this.bHW = view.findViewById(w.h.right_container);
-        this.bHX = (TextView) this.bHW.findViewById(w.h.name);
-        this.bHY = (ImageView) this.bHW.findViewById(w.h.sign);
-        this.bHZ = (ImageView) this.bHW.findViewById(w.h.grade);
-        this.bIa = (ImageView) view.findViewById(w.h.divide_line_middle);
-        this.bIb = (ImageView) view.findViewById(w.h.divide_line);
+        this.bLQ = viewEventCenter;
+        this.bNG = view.findViewById(w.h.left_container);
+        this.bNH = (TextView) this.bNG.findViewById(w.h.name);
+        this.bNI = (ImageView) this.bNG.findViewById(w.h.sign);
+        this.bNJ = (ImageView) this.bNG.findViewById(w.h.grade);
+        this.bNK = view.findViewById(w.h.right_container);
+        this.bNL = (TextView) this.bNK.findViewById(w.h.name);
+        this.bNM = (ImageView) this.bNK.findViewById(w.h.sign);
+        this.bNN = (ImageView) this.bNK.findViewById(w.h.grade);
+        this.bNO = (ImageView) view.findViewById(w.h.divide_line_middle);
+        this.bNP = (ImageView) view.findViewById(w.h.divide_line);
         int g = com.baidu.adp.lib.util.k.g(tbPageContext.getPageActivity(), w.f.ds20);
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.bHV.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.bNJ.getLayoutParams();
         if (marginLayoutParams != null) {
             marginLayoutParams.rightMargin = g;
+        }
+        int g2 = com.baidu.adp.lib.util.k.g(tbPageContext.getPageActivity(), w.f.ds32);
+        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.bNL.getLayoutParams();
+        if (marginLayoutParams2 != null) {
+            marginLayoutParams2.leftMargin = g2;
         }
     }
 
@@ -49,23 +54,23 @@ public class j extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, c
     public void E(com.baidu.tieba.enterForum.b.a aVar) {
         super.E(aVar);
         if (aVar != null) {
-            a(aVar.VR(), true);
-            a(aVar.VS(), false);
-            b(aVar.VR(), true);
-            b(aVar.VS(), false);
-            aq.k(this.bIa, w.e.cp_bg_line_c);
-            aq.k(this.bIb, w.e.cp_bg_line_c);
-            aq.j(this.bHU, w.g.icon_sign);
-            aq.j(this.bHY, w.g.icon_sign);
+            a(aVar.WU(), true);
+            a(aVar.WV(), false);
+            b(aVar.WU(), true);
+            b(aVar.WV(), false);
+            aq.k(this.bNO, w.e.cp_bg_line_c);
+            aq.k(this.bNP, w.e.cp_bg_line_c);
+            aq.j(this.bNI, w.g.icon_sign);
+            aq.j(this.bNM, w.g.icon_sign);
         }
     }
 
     private void a(com.baidu.tieba.enterForum.b.e eVar, boolean z) {
         if (eVar != null) {
-            View view = z ? this.bHS : this.bHW;
-            TextView textView = z ? this.bHT : this.bHX;
-            ImageView imageView = z ? this.bHU : this.bHY;
-            ImageView imageView2 = z ? this.bHV : this.bHZ;
+            View view = z ? this.bNG : this.bNK;
+            TextView textView = z ? this.bNH : this.bNL;
+            ImageView imageView = z ? this.bNI : this.bNM;
+            ImageView imageView2 = z ? this.bNJ : this.bNN;
             switch (eVar.getType()) {
                 case 1:
                     view.setVisibility(0);
@@ -84,7 +89,7 @@ public class j extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, c
                     if (eVar instanceof com.baidu.tieba.enterForum.b.g) {
                         com.baidu.tieba.enterForum.b.g gVar = (com.baidu.tieba.enterForum.b.g) eVar;
                         textView.setText(gVar.getName());
-                        imageView.setVisibility(gVar.VY() == 0 ? 8 : 0);
+                        imageView.setVisibility(gVar.Xb() == 0 ? 8 : 0);
                         if (gVar.getLevel() == 0) {
                             imageView2.setVisibility(8);
                         } else {
@@ -105,9 +110,9 @@ public class j extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, c
     private void b(com.baidu.tieba.enterForum.b.e eVar, boolean z) {
         View view;
         if (z) {
-            view = this.bHS;
+            view = this.bNG;
         } else {
-            view = this.bHW;
+            view = this.bNK;
         }
         view.setOnClickListener(new k(this, eVar));
         view.setOnLongClickListener(new l(this, eVar));

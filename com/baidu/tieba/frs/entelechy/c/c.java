@@ -4,29 +4,29 @@ import com.baidu.tieba.frs.r;
 import com.baidu.tieba.frs.tab.HorizontalTabView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements HorizontalTabView.b {
-    final /* synthetic */ a bTm;
+public class c implements HorizontalTabView.c {
+    final /* synthetic */ a bZe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bTm = aVar;
+        this.bZe = aVar;
     }
 
-    @Override // com.baidu.tieba.frs.tab.HorizontalTabView.b
-    public void hY(int i) {
+    @Override // com.baidu.tieba.frs.tab.HorizontalTabView.c
+    public void iw(int i) {
         r rVar;
-        rVar = this.bTm.bNK;
-        rVar.YZ().hN(i);
+        rVar = this.bZe.bTw;
+        rVar.aad().il(i);
     }
 
-    @Override // com.baidu.tieba.frs.tab.HorizontalTabView.b
-    public boolean hZ(int i) {
+    @Override // com.baidu.tieba.frs.tab.HorizontalTabView.c
+    public boolean ix(int i) {
         r rVar;
         r rVar2;
-        rVar = this.bTm.bNK;
+        rVar = this.bZe.bTw;
         if (rVar != null) {
-            rVar2 = this.bTm.bNK;
-            return (rVar2.Zr() && i == 1) ? false : true;
+            rVar2 = this.bZe.bTw;
+            return (rVar2.aav() && i == 1) ? false : true;
         }
         return true;
     }

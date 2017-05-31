@@ -29,19 +29,19 @@ public abstract class l {
         return null;
     }
 
-    public WifiInfo nr() {
+    public WifiInfo nk() {
         return null;
     }
 
-    public i ns() {
+    public i nl() {
         return null;
     }
 
-    public i nt() {
+    public i nm() {
         return null;
     }
 
-    public i nu() {
+    public i nn() {
         return null;
     }
 }

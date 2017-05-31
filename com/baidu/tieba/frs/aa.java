@@ -1,111 +1,61 @@
 package com.baidu.tieba.frs;
 
-import android.widget.AbsListView;
-import com.baidu.tieba.frs.e.a;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.PostSearchActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements AbsListView.OnScrollListener {
-    final /* synthetic */ r bPn;
-    private int aRG = 0;
-    private int aRF = 0;
+public class aa implements View.OnClickListener {
+    final /* synthetic */ r bVb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(r rVar) {
-        this.bPn = rVar;
+        this.bVb = rVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        com.baidu.tbadk.util.s sVar;
-        com.baidu.tieba.frs.entelechy.b.d dVar;
-        a aVar;
-        com.baidu.tieba.frs.smartsort.c cVar;
-        ca caVar;
-        ca caVar2;
-        com.baidu.tieba.frs.e.u uVar;
-        com.baidu.tieba.frs.smartsort.c cVar2;
-        a aVar2;
-        com.baidu.tieba.frs.entelechy.b.d dVar2;
-        com.baidu.tieba.frs.e.u uVar2;
-        com.baidu.tbadk.util.s sVar2;
-        sVar = this.bPn.aJs;
-        if (sVar != null && this.bPn.isPrimary()) {
-            sVar2 = this.bPn.aJs;
-            sVar2.a(absListView, this.aRG, i, i2, i3);
-        }
-        dVar = this.bPn.bOz;
-        if (dVar != null) {
-            dVar2 = this.bPn.bOz;
-            uVar2 = this.bPn.bOx;
-            dVar2.a(absListView, i, i2, i3, uVar2.ade());
-        }
-        aVar = this.bPn.bOI;
-        if (aVar != null) {
-            aVar2 = this.bPn.bOI;
-            aVar2.acC();
-        }
-        cVar = this.bPn.bOC;
-        if (cVar != null) {
-            cVar2 = this.bPn.bOC;
-            cVar2.acn();
-        }
-        caVar = this.bPn.bOE;
-        if (caVar != null) {
-            caVar2 = this.bPn.bOE;
-            uVar = this.bPn.bOx;
-            caVar2.a(absListView, i, i2, i3, uVar.ade(), false);
-        }
-        if (this.bPn.bNT != null && this.bPn.bOn != null && this.bPn.bOn.ZO() != null) {
-            this.aRG = i;
-            this.aRF = (i + i2) - 1;
-            this.bPn.bOn.aj(this.aRG, this.aRF);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        com.baidu.tieba.frs.e.u uVar;
-        com.baidu.tbadk.util.s sVar;
-        ca caVar;
-        boolean z;
-        ca caVar2;
-        com.baidu.tbadk.util.s sVar2;
-        com.baidu.tieba.frs.e.u uVar2;
-        uVar = this.bPn.bOx;
-        if (uVar != null) {
-            uVar2 = this.bPn.bOx;
-            uVar2.setScrollState(i);
-        }
-        sVar = this.bPn.aJs;
-        if (sVar != null && this.bPn.isPrimary()) {
-            sVar2 = this.bPn.aJs;
-            sVar2.onScrollStateChanged(absListView, i);
-        }
-        caVar = this.bPn.bOE;
-        if (caVar != null) {
-            caVar2 = this.bPn.bOE;
-            caVar2.a(absListView, i, 0);
-        }
-        if (i == 2 || i == 1) {
-            z = this.bPn.bOs;
-            if (!z) {
-                this.bPn.bOs = true;
-                this.bPn.bOn.ZR();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.bVb.bUa == null || view != this.bVb.bUa.aaF()) {
+            if (this.bVb.bTF != null && this.bVb.bTF.aIz() != null) {
+                if (this.bVb.bUa == null || view != this.bVb.bUa.aaL()) {
+                    if (this.bVb.bUa != null && view == this.bVb.bUa.aaM()) {
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10378").r("obj_type", 5));
+                        if (!StringUtils.isNull(this.bVb.bTF.aIz().getName())) {
+                            this.bVb.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PostSearchActivityConfig(this.bVb.getPageContext().getPageActivity(), this.bVb.bTF.aIz().getName())));
+                            return;
+                        }
+                        return;
+                    }
+                } else if (!StringUtils.isNull(this.bVb.bTF.aIz().getId())) {
+                    if (this.bVb.bTF.aIz() != null) {
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c12046").Z("fid", this.bVb.bTF.aIz().getId()).r("obj_locate", this.bVb.aaw() ? 1 : 2));
+                    }
+                    this.bVb.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.bVb.getPageContext().getPageActivity(), this.bVb.bTF.aIz().getId(), ForumDetailActivityConfig.FromType.FRS)));
+                    return;
+                } else {
+                    return;
+                }
             }
+            if (view.getId() == w.h.game_activity_egg_layout && com.baidu.adp.lib.util.k.hB()) {
+                TiebaStatic.log("c10853");
+                if (this.bVb.bUa.aaO()) {
+                    this.bVb.bUa.aaP();
+                    return;
+                }
+                String activityUrl = this.bVb.bTF.aIz().getYuleData().sV().getActivityUrl();
+                if (!StringUtils.isNull(activityUrl)) {
+                    com.baidu.tbadk.browser.f.T(this.bVb.getPageContext().getPageActivity(), activityUrl);
+                    return;
+                }
+                return;
+            }
+            return;
         }
-        if (this.bPn.bOt == null && !this.bPn.Zt()) {
-            this.bPn.bOt = new com.baidu.tbadk.j.e();
-            this.bPn.bOt.fa(1000);
-        }
-        if (i == 0) {
-            com.baidu.tieba.card.ca.To().dc(true);
-            this.bPn.bOn.ai(this.aRG, this.aRF);
-        }
-        if (this.bPn.bOt != null) {
-            this.bPn.bOt.Fr();
-        }
-        if (i == 0) {
-            com.baidu.tieba.frs.d.o.a(this.bPn.bOn, this.bPn.bNT, this.bPn.getForumId(), false, null);
-        }
+        this.bVb.getActivity().finish();
     }
 }

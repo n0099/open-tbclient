@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class bc implements NewWriteModel.d {
-    final /* synthetic */ av dhM;
+    final /* synthetic */ av dni;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(av avVar) {
-        this.dhM = avVar;
+        this.dni = avVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -20,12 +20,12 @@ public class bc implements NewWriteModel.d {
         ReplyMessageActivity replyMessageActivity;
         com.baidu.tbadk.editortools.pb.n nVar;
         ReplyMessageActivity replyMessageActivity2;
-        replyMessageActivity = this.dhM.dhv;
+        replyMessageActivity = this.dni.dmR;
         replyMessageActivity.hideProgressBar();
-        nVar = this.dhM.dhG;
-        nVar.Cs().hide();
-        if (postWriteCallBackData != null && qVar == null && !AntiHelper.rV(postWriteCallBackData.getErrorCode()) && postWriteCallBackData.getErrorCode() != 230277 && postWriteCallBackData.getErrorCode() != 230278) {
-            replyMessageActivity2 = this.dhM.dhv;
+        nVar = this.dni.dnc;
+        nVar.Cm().hide();
+        if (postWriteCallBackData != null && qVar == null && !AntiHelper.sr(postWriteCallBackData.getErrorCode()) && postWriteCallBackData.getErrorCode() != 230277 && postWriteCallBackData.getErrorCode() != 230278) {
+            replyMessageActivity2 = this.dni.dmR;
             replyMessageActivity2.showToast(postWriteCallBackData.getErrorString());
         }
     }

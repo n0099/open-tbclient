@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements a.b {
-    final /* synthetic */ WriteVideoActivity fPv;
+    final /* synthetic */ WriteVideoActivity fXr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(WriteVideoActivity writeVideoActivity) {
-        this.fPv = writeVideoActivity;
+        this.fXr = writeVideoActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

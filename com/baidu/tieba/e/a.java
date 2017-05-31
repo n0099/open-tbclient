@@ -5,28 +5,28 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0059a aRJ;
-    private float bEE;
-    private float bEF;
-    private Handler.Callback aRi = new b(this);
-    private Handler mHandler = new Handler(this.aRi);
+    private float bKt;
+    private float bKu;
+    private InterfaceC0059a bwT;
+    private Handler.Callback aRj = new b(this);
+    private Handler mHandler = new Handler(this.aRj);
 
     /* renamed from: com.baidu.tieba.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0059a {
-        void W(int i, int i2);
+        void Y(int i, int i2);
 
-        void X(int i, int i2);
+        void Z(int i, int i2);
     }
 
     public void a(InterfaceC0059a interfaceC0059a) {
-        this.aRJ = interfaceC0059a;
+        this.bwT = interfaceC0059a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.bEF = motionEvent.getRawY();
+                this.bKu = motionEvent.getRawY();
                 return true;
             case 1:
             default:
@@ -34,17 +34,17 @@ public class a {
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                int i = (int) (rawX - this.bEE);
-                int i2 = (int) (rawY - this.bEF);
-                if (this.aRJ != null) {
+                int i = (int) (rawX - this.bKt);
+                int i2 = (int) (rawY - this.bKu);
+                if (this.bwT != null) {
                     if (i2 > 0) {
                         ab(i, i2);
                     } else {
                         ac(i, i2);
                     }
                 }
-                this.bEE = rawX;
-                this.bEF = rawY;
+                this.bKt = rawX;
+                this.bKu = rawY;
                 return true;
         }
     }

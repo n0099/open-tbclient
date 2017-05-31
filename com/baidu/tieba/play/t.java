@@ -1,9 +1,9 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface t {
-    void awa();
+    void TD();
 
-    void awb();
+    void awU();
 
-    void awc();
+    void awV();
 }

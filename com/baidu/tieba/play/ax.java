@@ -1,79 +1,86 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.Iterator;
-import tbclient.VideoDesc;
-import tbclient.VideoInfo;
+import android.os.Handler;
+import android.widget.MediaController;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import com.baidu.tieba.play.av;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax {
-    private int duration;
-    private long eTo;
-    private String eTp;
-    private String videoUrl;
+public class ax implements SeekBar.OnSeekBarChangeListener {
+    final /* synthetic */ av fca;
 
-    public void a(VideoInfo videoInfo, boolean z) {
-        String str;
-        if (videoInfo != null) {
-            String str2 = videoInfo.video_url;
-            videoInfo.video_width.toString();
-            videoInfo.video_height.toString();
-            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.x.r(videoInfo.video_desc)) {
-                VideoDesc videoDesc = null;
-                Iterator<VideoDesc> it = videoInfo.video_desc.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    VideoDesc next = it.next();
-                    if (next != null && !StringUtils.isNull(next.video_url)) {
-                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.i.hl()) {
-                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.i.hm()) {
-                                videoDesc = next;
-                                break;
-                            }
-                        } else {
-                            videoDesc = next;
-                            break;
-                        }
-                    }
-                }
-                if (videoDesc != null) {
-                    str = videoDesc.video_url;
-                    String str3 = videoDesc.video_width;
-                    String str4 = videoDesc.video_height;
-                    this.videoUrl = str;
-                    this.eTo = videoInfo.video_length.intValue();
-                    this.duration = videoInfo.video_duration.intValue();
-                    this.eTp = videoInfo.video_width + "x" + videoInfo.video_height;
-                }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ax(av avVar) {
+        this.fca = avVar;
+    }
+
+    @Override // android.widget.SeekBar.OnSeekBarChangeListener
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
+        Handler handler;
+        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
+        this.fca.aUU = true;
+        onSeekBarChangeListener = this.fca.aUZ;
+        if (onSeekBarChangeListener != null) {
+            onSeekBarChangeListener2 = this.fca.aUZ;
+            onSeekBarChangeListener2.onStartTrackingTouch(seekBar);
+        }
+        handler = this.fca.mHandler;
+        handler.removeMessages(1);
+    }
+
+    @Override // android.widget.SeekBar.OnSeekBarChangeListener
+    public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+        MediaController.MediaPlayerControl mediaPlayerControl;
+        TextView textView;
+        av.a aVar;
+        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
+        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
+        int i2;
+        av.a aVar2;
+        TextView textView2;
+        int i3;
+        if (z) {
+            mediaPlayerControl = this.fca.aUR;
+            this.fca.aVa = (int) ((mediaPlayerControl.getDuration() * i) / 10000);
+            textView = this.fca.aUS;
+            if (textView != null) {
+                textView2 = this.fca.aUS;
+                i3 = this.fca.aVa;
+                textView2.setText(com.baidu.tbadk.core.util.au.cT(i3));
             }
-            str = str2;
-            this.videoUrl = str;
-            this.eTo = videoInfo.video_length.intValue();
-            this.duration = videoInfo.video_duration.intValue();
-            this.eTp = videoInfo.video_width + "x" + videoInfo.video_height;
+            aVar = this.fca.dzx;
+            if (aVar != null) {
+                aVar2 = this.fca.dzx;
+                aVar2.Kv();
+            }
+            onSeekBarChangeListener = this.fca.aUZ;
+            if (onSeekBarChangeListener != null) {
+                onSeekBarChangeListener2 = this.fca.aUZ;
+                i2 = this.fca.aVa;
+                onSeekBarChangeListener2.onProgressChanged(seekBar, i2, z);
+            }
         }
     }
 
-    public void c(VideoInfo videoInfo) {
-        a(videoInfo, false);
-    }
-
-    public void a(com.baidu.tbadk.core.data.c cVar) {
-        if (cVar != null) {
-            this.videoUrl = cVar.hls_url;
+    @Override // android.widget.SeekBar.OnSeekBarChangeListener
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        MediaController.MediaPlayerControl mediaPlayerControl;
+        int i;
+        Handler handler;
+        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
+        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
+        mediaPlayerControl = this.fca.aUR;
+        i = this.fca.aVa;
+        mediaPlayerControl.seekTo(i);
+        this.fca.aUU = false;
+        handler = this.fca.mHandler;
+        handler.sendEmptyMessageDelayed(1, 500L);
+        onSeekBarChangeListener = this.fca.aUZ;
+        if (onSeekBarChangeListener != null) {
+            onSeekBarChangeListener2 = this.fca.aUZ;
+            onSeekBarChangeListener2.onStopTrackingTouch(seekBar);
         }
-    }
-
-    public long aWK() {
-        return this.eTo;
-    }
-
-    public int getDuration() {
-        return this.duration;
-    }
-
-    public String aWL() {
-        return this.eTp;
     }
 }

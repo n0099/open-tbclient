@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.z;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    private static final String aWB = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/bawu/appeal";
+    private static final String aUd = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/bawu/appeal";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -24,18 +24,18 @@ public class f {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, AppealData> {
-        private String aWC;
-        private String aWD;
-        private String aWE;
-        private String aWF;
-        private WeakReference<b> aWG;
+        private String aUe;
+        private String aUf;
+        private String aUg;
+        private String aUh;
+        private WeakReference<b> aUi;
 
         public a(String str, String str2, String str3, String str4, b bVar) {
-            this.aWC = str;
-            this.aWD = str2;
-            this.aWE = str3;
-            this.aWF = str4;
-            this.aWG = new WeakReference<>(bVar);
+            this.aUe = str;
+            this.aUf = str2;
+            this.aUg = str3;
+            this.aUh = str4;
+            this.aUi = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -44,15 +44,15 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public AppealData doInBackground(String... strArr) {
-            z zVar = new z(f.aWB);
-            zVar.n("forum_id", this.aWC);
-            zVar.n("user_id", this.aWD);
-            zVar.n("user_name", this.aWE);
-            zVar.n("content", this.aWF);
-            String ul = zVar.ul();
-            if (zVar.uJ().vE().isRequestSuccess()) {
+            z zVar = new z(f.aUd);
+            zVar.n("forum_id", this.aUe);
+            zVar.n("user_id", this.aUf);
+            zVar.n("user_name", this.aUg);
+            zVar.n("content", this.aUh);
+            String ug = zVar.ug();
+            if (zVar.uF().vB().isRequestSuccess()) {
                 try {
-                    return (AppealData) OrmObject.objectWithJsonStr(ul, AppealData.class);
+                    return (AppealData) OrmObject.objectWithJsonStr(ug, AppealData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     AppealData appealData = new AppealData();
@@ -61,7 +61,7 @@ public class f {
                 }
             }
             AppealData appealData2 = new AppealData();
-            appealData2.errNo = zVar.uN();
+            appealData2.errNo = zVar.uJ();
             appealData2.errMsg = zVar.getErrorString();
             return appealData2;
         }
@@ -72,7 +72,7 @@ public class f {
         /* renamed from: c */
         public void onPostExecute(AppealData appealData) {
             super.onPostExecute(appealData);
-            b bVar = this.aWG.get();
+            b bVar = this.aUi.get();
             if (bVar != null) {
                 if (appealData.errNo == 0 && au.isEmpty(appealData.errMsg)) {
                     bVar.a(appealData);

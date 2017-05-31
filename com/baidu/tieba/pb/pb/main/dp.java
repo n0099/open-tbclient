@@ -1,44 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.pb.pb.main.Cdo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dp {
-    private PbModel efE;
+public class dp extends HttpMessageListener {
+    final /* synthetic */ Cdo eoK;
 
-    public dp(PbModel pbModel) {
-        this.efE = pbModel;
-        DG();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dp(Cdo cdo, int i) {
+        super(i);
+        this.eoK = cdo;
     }
 
-    private void DG() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_FLOOR_AGREE, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PB_FLOOR_AGREE_URL);
-        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    public void ao(String str, int i) {
-        if (this.efE != null && this.efE.getPbData() != null) {
-            a(str, i, 1, 2, "");
-        }
-    }
-
-    public void a(String str, int i, int i2, int i3, String str2) {
-        if (this.efE != null && this.efE.getPbData() != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-            httpMessage.addParam("post_id", str);
-            httpMessage.addParam("thread_id", this.efE.getPbData().getThreadId());
-            httpMessage.addParam(PbActivityConfig.KEY_MSG_OP_TYPE, i);
-            httpMessage.addParam("obj_type", i2);
-            httpMessage.addParam("agree_type", i3);
-            httpMessage.addParam("forum_id", str2);
-            MessageManager.getInstance().sendMessage(httpMessage);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        Cdo.a aVar;
+        Cdo.a aVar2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
+            if (httpResponsedMessage.getStatusCode() != 200) {
+                aVar = this.eoK.emW;
+                aVar.i(-1, null, null);
+                return;
+            }
+            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
+            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
+            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
+            String tid = applyCopyThreadResponseMessage.getTid();
+            if (errorCode == 0) {
+                errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
+            }
+            aVar2 = this.eoK.emW;
+            aVar2.i(errorCode, errorMessage, tid);
         }
     }
 }

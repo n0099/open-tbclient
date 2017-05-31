@@ -1,50 +1,39 @@
 package com.baidu.tieba.play;
 
-import android.content.Context;
-import android.view.TextureView;
-import android.view.View;
+import android.net.Uri;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.net.InetAddress;
 /* loaded from: classes.dex */
-public class an extends TextureView {
-    private int eSC;
-    private int mVideoHeight;
-    private int mVideoWidth;
+class an extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ ak fbJ;
 
-    public an(Context context) {
-        super(context);
-        this.mVideoWidth = 0;
-        this.mVideoHeight = 0;
-        this.eSC = 0;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public an(ak akVar) {
+        this.fbJ = akVar;
     }
 
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        if (this.eSC == 90 || this.eSC == 270) {
-            i = i2;
-            i2 = i;
-        }
-        int defaultSize = View.getDefaultSize(this.mVideoWidth, i);
-        int defaultSize2 = View.getDefaultSize(this.mVideoHeight, i2);
-        if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
-            defaultSize = View.MeasureSpec.getSize(i);
-            defaultSize2 = View.MeasureSpec.getSize(i2);
-            float f = defaultSize / defaultSize2;
-            float f2 = this.mVideoWidth / this.mVideoHeight;
-            if (f2 > f) {
-                defaultSize2 = (int) (defaultSize / f2);
-            } else {
-                defaultSize = (int) (defaultSize2 * f2);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        String str;
+        String str2;
+        str = this.fbJ.fbB;
+        if (!com.baidu.tbadk.core.util.au.isEmpty(str)) {
+            str2 = this.fbJ.fbB;
+            Uri parse = Uri.parse(str2);
+            if (parse != null) {
+                try {
+                    InetAddress byName = InetAddress.getByName(parse.getHost());
+                    this.fbJ.AA = byName.getHostAddress();
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
+            return null;
         }
-        setMeasuredDimension(defaultSize, defaultSize2);
-    }
-
-    public void N(int i, int i2, int i3) {
-        setRotation(i3);
-        this.mVideoWidth = i;
-        this.mVideoHeight = i2;
-        this.eSC = i3;
-        if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
-            requestLayout();
-        }
+        return null;
     }
 }

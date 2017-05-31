@@ -1,20 +1,32 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import android.view.ViewStub;
+import android.widget.FrameLayout;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av implements com.baidu.tbadk.widget.layout.h {
-    final /* synthetic */ at bPW;
+public class av implements Runnable {
+    final /* synthetic */ au bVN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(at atVar) {
-        this.bPW = atVar;
+    public av(au auVar) {
+        this.bVN = auVar;
     }
 
-    @Override // com.baidu.tbadk.widget.layout.h
-    public void a(View view, int i, int i2, int i3, int i4) {
-        if (i2 != i4) {
-            this.bPW.setHeaderViewHeight(i2);
+    @Override // java.lang.Runnable
+    public void run() {
+        ViewStub viewStub;
+        FrameLayout frameLayout;
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        viewStub = this.bVN.bVr;
+        if (viewStub != null) {
+            frameLayout = this.bVN.bVs;
+            frameLayout.setVisibility(0);
+            tbImageView = this.bVN.bVu;
+            tbImageView.setVisibility(0);
+            tbImageView2 = this.bVN.bVt;
+            tbImageView2.setVisibility(8);
         }
     }
 }

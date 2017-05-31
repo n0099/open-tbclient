@@ -8,21 +8,21 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.a.a<e, com.baidu.tieba.person.b.c> {
-    private TbPageContext ajr;
-    private View.OnClickListener exP;
+    private TbPageContext ajh;
+    private View.OnClickListener eGH;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ajr = tbPageContext;
+        this.ajh = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bo */
+    /* renamed from: bn */
     public com.baidu.tieba.person.b.c onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.person.b.c cVar = new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mContext).inflate(w.j.person_info_user_pics_layout, viewGroup, false), this.ajr);
-        cVar.eyl.setItemOnclickListener(this.exP);
+        com.baidu.tieba.person.b.c cVar = new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mContext).inflate(w.j.person_info_user_pics_layout, viewGroup, false), this.ajh);
+        cVar.eHd.setItemOnclickListener(this.eGH);
         return cVar;
     }
 
@@ -32,13 +32,13 @@ public class c extends com.baidu.tieba.a.a<e, com.baidu.tieba.person.b.c> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.person.b.c cVar) {
         if (eVar != null && cVar != null) {
-            cVar.aOH();
+            cVar.aPX();
             cVar.a(eVar);
         }
         return view;
     }
 
-    public void K(View.OnClickListener onClickListener) {
-        this.exP = onClickListener;
+    public void M(View.OnClickListener onClickListener) {
+        this.eGH = onClickListener;
     }
 }

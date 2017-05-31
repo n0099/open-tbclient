@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private final PbModel efE;
-    private final PbActivity efF;
-    private final CustomMessageListener cqW = new c(this, CmdConfigCustom.CMD_GRAFFITI_SEND_SUCCESS);
-    private final CustomMessageListener efG = new d(this, CmdConfigCustom.CMD_DELETE_GRAFFITI_SUCCESS);
+    private final PbModel ele;
+    private final PbActivity elf;
+    private final CustomMessageListener cxr = new c(this, CmdConfigCustom.CMD_GRAFFITI_SEND_SUCCESS);
+    private final CustomMessageListener elg = new d(this, CmdConfigCustom.CMD_DELETE_GRAFFITI_SUCCESS);
 
     public b(PbModel pbModel, PbActivity pbActivity) {
-        this.efE = pbModel;
-        this.efF = pbActivity;
-        this.efF.registerListener(this.cqW);
-        this.efF.registerListener(this.efG);
+        this.ele = pbModel;
+        this.elf = pbActivity;
+        this.elf.registerListener(this.cxr);
+        this.elf.registerListener(this.elg);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -58,9 +58,9 @@ public class b {
             String stringExtra = intent.getStringExtra(GraffitiPaintActivityConfig.GRAFFITO_FILE_NAME);
             int intExtra = intent.getIntExtra("from", -1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new com.baidu.tieba.graffiti.i(stringExtra, intExtra)));
-            if (!TextUtils.isEmpty(stringExtra) && this.efE != null && this.efE.getPbData() != null) {
+            if (!TextUtils.isEmpty(stringExtra) && this.ele != null && this.ele.getPbData() != null) {
                 if (intExtra == 3 || intExtra == 2) {
-                    new GraffitiTabActivityConfig(this.efF.getPageContext().getPageActivity(), this.efE.getPbData().getThreadId(), this.efE.getPbData().getForumId(), stringExtra).start();
+                    new GraffitiTabActivityConfig(this.elf.getPageContext().getPageActivity(), this.ele.getPbData().getThreadId(), this.ele.getPbData().getForumId(), stringExtra).start();
                 }
             }
         }

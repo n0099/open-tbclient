@@ -5,34 +5,34 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class d {
-    private static d aJb = new d();
-    private b aJc;
-    private a aJd;
+    private static d aIO = new d();
+    private b aIP;
+    private a aIQ;
 
     /* loaded from: classes.dex */
     public interface a {
-        void am(boolean z);
+        void al(boolean z);
     }
 
     private d() {
     }
 
-    public static d Gn() {
-        return aJb;
+    public static d Gh() {
+        return aIO;
     }
 
     public void a(a aVar) {
-        this.aJd = aVar;
-        if (this.aJc != null) {
-            this.aJc.cancel();
+        this.aIQ = aVar;
+        if (this.aIP != null) {
+            this.aIP.cancel();
         }
-        this.aJc = new b(this, null);
-        this.aJc.setPriority(4);
-        this.aJc.execute(new String[0]);
+        this.aIP = new b(this, null);
+        this.aIP.setPriority(4);
+        this.aIP.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Go() {
+    public boolean Gi() {
         int i;
         long j = 0;
         byte[] au = com.baidu.adp.lib.util.e.au("crash_hour_record.log");
@@ -72,15 +72,15 @@ public class d {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(d.this.Go());
+            return Boolean.valueOf(d.this.Gi());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (d.this.aJd != null && bool != null) {
-                d.this.aJd.am(bool.booleanValue());
+            if (d.this.aIQ != null && bool != null) {
+                d.this.aIQ.al(bool.booleanValue());
             }
         }
     }

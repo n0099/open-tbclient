@@ -3,15 +3,15 @@ package com.baidu.tieba.selectpoi;
 import android.view.View;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    final /* synthetic */ NavigationBarActivity feQ;
+    final /* synthetic */ NavigationBarActivity fmI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(NavigationBarActivity navigationBarActivity) {
-        this.feQ = navigationBarActivity;
+        this.fmI = navigationBarActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.feQ.finish();
+        this.fmI.finish();
     }
 }

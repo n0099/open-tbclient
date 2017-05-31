@@ -1,29 +1,27 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af extends CustomMessageListener {
-    final /* synthetic */ r bPn;
+public class af implements NoNetworkView.a {
+    final /* synthetic */ r bVb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public af(r rVar, int i) {
-        super(i);
-        this.bPn = rVar;
+    public af(r rVar) {
+        this.bVb = rVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001118) {
-            com.baidu.tieba.frs.d.c.a(customResponsedMessage, this.bPn.bOn, this.bPn.bNT);
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aK(boolean z) {
+        if (this.bVb.bUj.acU() == 1 && z && !this.bVb.bUa.aav()) {
+            if (this.bVb.bTF == null || com.baidu.tbadk.core.util.x.r(this.bVb.bTF.getThreadList())) {
+                this.bVb.hideNetRefreshView(this.bVb.bUa.TK());
+                this.bVb.showLoadingView(this.bVb.bUa.TK(), true);
+                this.bVb.bUa.ef(false);
+                this.bVb.refresh();
+                return;
+            }
+            this.bVb.bUa.aaH();
         }
     }
 }

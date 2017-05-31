@@ -1,30 +1,25 @@
 package com.baidu.tieba.frs.entelechy.view;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
-import com.baidu.tieba.card.cd;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements View.OnClickListener {
-    final /* synthetic */ as bUd;
+    final /* synthetic */ as bZW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.bUd = asVar;
+        this.bZW = asVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ThreadGodReplyLayout threadGodReplyLayout;
-        bk bkVar;
-        if (this.bUd.getOnSubCardOnClickListenner() != null) {
-            cd<bk> onSubCardOnClickListenner = this.bUd.getOnSubCardOnClickListenner();
-            bkVar = this.bUd.ahV;
-            onSubCardOnClickListenner.a(view, bkVar);
+        if (this.bZW.Ud() != null) {
+            this.bZW.Ud().a(view, this.bZW.ahM);
         }
-        as asVar = this.bUd;
-        threadGodReplyLayout = this.bUd.bvD;
-        asVar.da(view == threadGodReplyLayout);
+        as asVar = this.bZW;
+        threadGodReplyLayout = this.bZW.bzD;
+        asVar.dr(view == threadGodReplyLayout);
     }
 }

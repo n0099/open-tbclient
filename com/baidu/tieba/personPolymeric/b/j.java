@@ -1,43 +1,21 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
-import com.baidu.tieba.w;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ h eCv;
+public class j implements View.OnClickListener {
+    final /* synthetic */ i eKZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(h hVar, int i) {
-        super(i);
-        this.eCv = hVar;
+    public j(i iVar) {
+        this.eKZ = iVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        TbPageContext tbPageContext;
-        TbPageContext tbPageContext2;
-        if (socketResponsedMessage instanceof ResponseDeleteFriendMessage) {
-            ResponseDeleteFriendMessage responseDeleteFriendMessage = (ResponseDeleteFriendMessage) socketResponsedMessage;
-            int error = responseDeleteFriendMessage.getError();
-            String errorString = responseDeleteFriendMessage.getErrorString();
-            if (error != 0) {
-                if (StringUtils.isNull(responseDeleteFriendMessage.getErrorString())) {
-                    tbPageContext = this.eCv.ajr;
-                    errorString = tbPageContext.getResources().getString(w.l.neterror);
-                } else {
-                    errorString = responseDeleteFriendMessage.getErrorString();
-                }
-            } else {
-                this.eCv.ja(false);
-            }
-            tbPageContext2 = this.eCv.ajr;
-            tbPageContext2.showToast(errorString);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TiebaStatic.eventStat(this.eKZ.aas.getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
+        bh.aL(this.eKZ.aas.getPageActivity());
     }
 }

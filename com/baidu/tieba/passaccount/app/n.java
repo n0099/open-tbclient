@@ -5,11 +5,11 @@ import com.baidu.sapi2.SapiWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements Runnable {
-    final /* synthetic */ LoginActivity dZQ;
+    final /* synthetic */ LoginActivity efm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(LoginActivity loginActivity) {
-        this.dZQ = loginActivity;
+        this.efm = loginActivity;
     }
 
     @Override // java.lang.Runnable
@@ -17,11 +17,11 @@ public class n implements Runnable {
         SapiWebView sapiWebView;
         SapiWebView sapiWebView2;
         try {
-            sapiWebView = this.dZQ.dZI;
+            sapiWebView = this.efm.efe;
             if (sapiWebView != null) {
-                sapiWebView2 = this.dZQ.dZI;
+                sapiWebView2 = this.efm.efe;
                 sapiWebView2.destroy();
-                this.dZQ.dZI = null;
+                this.efm.efe = null;
             }
         } catch (Throwable th) {
             BdLog.e(th);

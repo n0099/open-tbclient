@@ -16,13 +16,13 @@ public class WriteThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c Eh() {
+    public c Eb() {
         c cVar = new c();
-        cVar.aEi = new b();
+        cVar.aDV = new b();
         cVar.type = 9;
-        cVar.aEj = w.l.home_write;
-        cVar.aEk = w.g.home_bottom_selector;
-        cVar.aEo = c.aEl;
+        cVar.aDW = w.l.home_write;
+        cVar.aDX = w.g.home_bottom_selector;
+        cVar.aEb = c.aDY;
         return cVar;
     }
 
@@ -34,8 +34,8 @@ public class WriteThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator aS(Context context) {
-        this.aDV = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
-        this.aDV.setTextSize(2.0f);
-        return this.aDV;
+        this.aDI = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
+        this.aDI.setTextSize(2.0f);
+        return this.aDI;
     }
 }
