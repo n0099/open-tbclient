@@ -4,20 +4,20 @@ import android.view.ViewTreeObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements ViewTreeObserver.OnGlobalLayoutListener {
-    final /* synthetic */ PagerSlidingTabStrip akW;
+    final /* synthetic */ PagerSlidingTabStrip akM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(PagerSlidingTabStrip pagerSlidingTabStrip) {
-        this.akW = pagerSlidingTabStrip;
+        this.akM = pagerSlidingTabStrip;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
         int i;
-        this.akW.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-        this.akW.currentPosition = this.akW.akE.getCurrentItem();
-        PagerSlidingTabStrip pagerSlidingTabStrip = this.akW;
-        i = this.akW.currentPosition;
-        pagerSlidingTabStrip.E(i, 0);
+        this.akM.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+        this.akM.currentPosition = this.akM.aku.getCurrentItem();
+        PagerSlidingTabStrip pagerSlidingTabStrip = this.akM;
+        i = this.akM.currentPosition;
+        pagerSlidingTabStrip.D(i, 0);
     }
 }

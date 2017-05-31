@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes2.dex */
 public class PushStatic {
-    private static void boQ() {
-        bW(TbadkApplication.getInst());
+    private static void bqD() {
+        bX(TbadkApplication.getInst());
     }
 
-    private static void boR() {
-        bX(TbadkCoreApplication.m9getInst());
+    private static void bqE() {
+        bY(TbadkCoreApplication.m9getInst());
     }
 
-    private static void bW(Context context) {
+    private static void bX(Context context) {
         Log.e("BaiduYunPush", "start push");
         Log.e("BaiduYunPush", "start push1");
         PushManager.enableHuaweiProxy(context, true);
@@ -29,31 +29,31 @@ public class PushStatic {
         Log.e("BaiduYunPush", "start push4 ");
     }
 
-    private static void bX(Context context) {
+    private static void bY(Context context) {
         Log.e("BaiduYunPush", "stop push");
-        if (com.baidu.tbadk.core.sharedPref.b.tX().getBoolean(String.valueOf(TbConfig.getVersion()) + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
+        if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean(String.valueOf(TbConfig.getVersion()) + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
             Log.e("BaiduYunPush", "stop push pushservice is working");
             PushManager.stopWork(context);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void boS() {
+    public static void bqF() {
         if (TbadkCoreApplication.m9getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.m9getInst().isBaiduYunPushAvailable()) {
                 Log.e("BaiduYunPush", "switch available");
-                boQ();
+                bqD();
                 return;
             }
             Log.e("BaiduYunPush", "switch close");
-            boR();
+            bqE();
         }
     }
 
     static {
         Log.e("BaiduYunPush", "push static init load static " + System.currentTimeMillis());
         registerListener();
-        DG();
+        DA();
         if (TbadkCoreApplication.m9getInst().isMainProcess(false)) {
             new Thread(new a()).start();
         }
@@ -69,7 +69,7 @@ public class PushStatic {
         MessageManager.getInstance().registerListener(new i(CmdConfigCustom.CMD_PUSH_REGISTRATIONRECEIVER_ONRECEIVE));
     }
 
-    private static void DG() {
+    private static void DA() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_PUSH_PUSHSERVICE_ONSTARTCOMMAND, new j());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

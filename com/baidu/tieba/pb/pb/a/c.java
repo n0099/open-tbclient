@@ -9,16 +9,21 @@ import com.baidu.tbadk.core.data.p;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<p, d> {
+    public boolean alE;
+
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.alE = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aS */
+    /* renamed from: aT */
     public d onCreateViewHolder(ViewGroup viewGroup) {
-        return new d(LayoutInflater.from(this.mContext).inflate(w.j.pb_declare_area, (ViewGroup) null), this.mContext);
+        d dVar = new d(LayoutInflater.from(this.mContext).inflate(w.j.pb_declare_area, (ViewGroup) null), this.mContext);
+        dVar.alE = this.alE;
+        return dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

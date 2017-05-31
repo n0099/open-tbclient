@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
-    private String VP;
+    private String VC;
+    private int aNA;
     private int aNB;
-    private String aNC;
-    private int aND;
-    private int aNE;
+    private int aNy;
+    private String aNz;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class e {
     public void a(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.VP = pbContent.src;
+            this.VC = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aNB = pbContent.e_type.intValue();
-            this.aNC = pbContent.text;
+            this.aNy = pbContent.e_type.intValue();
+            this.aNz = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aND = pbContent.count.intValue();
-            this.aNE = pbContent.origin_size.intValue();
+            this.aNA = pbContent.count.intValue();
+            this.aNB = pbContent.origin_size.intValue();
         }
     }
 
@@ -32,8 +32,8 @@ public class e {
         return this.videoUrl;
     }
 
-    public String qc() {
-        return this.VP;
+    public String getThumbUrl() {
+        return this.VC;
     }
 
     public int getWidth() {
@@ -44,23 +44,23 @@ public class e {
         return this.height;
     }
 
-    public String Im() {
-        return this.aNC;
+    public String Ih() {
+        return this.aNz;
     }
 
-    public boolean In() {
-        return this.aNB == 15;
+    public boolean Ii() {
+        return this.aNy == 15;
     }
 
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 
-    public int Io() {
-        return this.aND;
+    public int Ij() {
+        return this.aNA;
     }
 
-    public void fw(int i) {
-        this.aND = i;
+    public void fx(int i) {
+        this.aNA = i;
     }
 }

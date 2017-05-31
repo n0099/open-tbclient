@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements Animation.AnimationListener {
-    final /* synthetic */ LogoActivity aQB;
+    final /* synthetic */ LogoActivity aQD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(LogoActivity logoActivity) {
-        this.aQB = logoActivity;
+        this.aQD = logoActivity;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -29,20 +29,20 @@ public class q implements Animation.AnimationListener {
         int i;
         int i2;
         RelativeLayout relativeLayout2;
-        relativeLayout = this.aQB.mRootView;
+        relativeLayout = this.aQD.mRootView;
         if (relativeLayout != null) {
-            relativeLayout2 = this.aQB.mRootView;
+            relativeLayout2 = this.aQD.mRootView;
             relativeLayout2.setVisibility(8);
         }
-        i = this.aQB.aQt;
+        i = this.aQD.aQu;
         if (i >= 0) {
-            LogoActivity logoActivity = this.aQB;
-            MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this.aQB.getPageContext().getPageActivity());
-            i2 = this.aQB.aQt;
+            LogoActivity logoActivity = this.aQD;
+            MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this.aQD.getPageContext().getPageActivity());
+            i2 = this.aQD.aQu;
             logoActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig.createNormalCfg(i2)));
         } else {
-            this.aQB.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.aQB.getPageContext().getPageActivity()).createNormalCfg(2)));
+            this.aQD.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.aQD.getPageContext().getPageActivity()).createNormalCfg(2)));
         }
-        this.aQB.finish();
+        this.aQD.finish();
     }
 }

@@ -26,20 +26,20 @@ public class q extends CustomMessageListener {
         List<com.baidu.tieba.homepage.b.a.a> list;
         DataRes.Builder builder2;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            builder = this.this$0.cuG;
+            builder = this.this$0.cAY;
             if (builder != null && (list = (List) customResponsedMessage.getData()) != null) {
                 ArrayList arrayList = new ArrayList();
                 for (com.baidu.tieba.homepage.b.a.a aVar : list) {
-                    if (aVar != null && aVar.cxb != -1 && aVar.cxb != -2 && !StringUtils.isNull(aVar.cxa)) {
+                    if (aVar != null && aVar.cDs != -1 && aVar.cDs != -2 && !StringUtils.isNull(aVar.cDr)) {
                         SimpleForum.Builder builder3 = new SimpleForum.Builder();
-                        builder3.name = aVar.cxa;
+                        builder3.name = aVar.cDr;
                         builder3.level_id = Integer.valueOf(aVar.level);
                         arrayList.add(builder3.build(true));
                     }
                 }
-                builder2 = this.this$0.cuG;
+                builder2 = this.this$0.cAY;
                 builder2.like_forums = arrayList;
-                this.this$0.ahF();
+                this.this$0.aiU();
             }
         }
     }

@@ -11,32 +11,32 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.bb;
-import com.baidu.tieba.frs.bx;
 import com.baidu.tieba.frs.by;
-import com.baidu.tieba.frs.cd;
+import com.baidu.tieba.frs.bz;
+import com.baidu.tieba.frs.ce;
 import com.baidu.tieba.frs.r;
 import com.baidu.tieba.frs.tab.HorizontalTabView;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements bx {
-    final /* synthetic */ a bTm;
+public class b implements by {
+    final /* synthetic */ a bZe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bTm = aVar;
+        this.bZe = aVar;
     }
 
-    @Override // com.baidu.tieba.frs.bx
-    public void a(by byVar) {
+    @Override // com.baidu.tieba.frs.by
+    public void a(bz bzVar) {
     }
 
-    @Override // com.baidu.tieba.frs.bx
-    public void a(int i, int i2, cd cdVar) {
+    @Override // com.baidu.tieba.frs.by
+    public void a(int i, int i2, ce ceVar) {
         r rVar;
         com.baidu.tieba.frs.entelechy.c.a.a aVar;
-        bx bxVar;
-        bx bxVar2;
+        by byVar;
+        by byVar2;
         com.baidu.tieba.frs.entelechy.c.a.a aVar2;
         r rVar2;
         r rVar3;
@@ -46,70 +46,76 @@ public class b implements bx {
         r rVar7;
         r rVar8;
         r rVar9;
+        r rVar10;
+        if (i == 101) {
+            as asVar = new as("c12103");
+            rVar10 = this.bZe.bTw;
+            TiebaStatic.log(asVar.Z("fid", rVar10.getForumId()));
+        }
         if (i > 100) {
-            if (cdVar != null && (cdVar.bRh instanceof String)) {
-                this.bTm.aL((String) cdVar.bRh, "c10079");
+            if (ceVar != null && (ceVar.bWX instanceof String)) {
+                this.bZe.aJ((String) ceVar.bWX, "c10079");
             }
         } else {
-            as asVar = new as("c10074");
-            asVar.s("obj_type", i);
-            rVar = this.bTm.bNK;
-            asVar.aa("fid", rVar.getForumId());
-            TiebaStatic.log(asVar);
+            as asVar2 = new as("c10074");
+            asVar2.r("obj_type", i);
+            rVar = this.bZe.bTw;
+            asVar2.Z("fid", rVar.getForumId());
+            TiebaStatic.log(asVar2);
             if (i == 99) {
-                as asVar2 = new as("c11500");
-                asVar2.aa("obj_param1", "2").aa("obj_param2", "1");
-                TiebaStatic.log(asVar2);
+                as asVar3 = new as("c11500");
+                asVar3.Z("obj_param1", "2").Z("obj_param2", "1");
+                TiebaStatic.log(asVar3);
             }
         }
-        if (HorizontalTabView.iw(i) && cdVar != null) {
-            String str = (String) cdVar.bRh;
+        if (HorizontalTabView.iU(i) && ceVar != null) {
+            String str = (String) ceVar.bWX;
             if (!StringUtils.isNull(str)) {
                 if ((str.contains("nohead:url") || str.contains("booktown")) && !TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    rVar8 = this.bTm.bNK;
+                    rVar8 = this.bZe.bTw;
                     k.showToast(rVar8.getPageContext().getPageActivity(), w.l.book_plugin_not_install_tip);
                     return;
                 }
-                bb vB = bb.vB();
-                rVar9 = this.bTm.bNK;
-                vB.c(rVar9.getPageContext(), new String[]{str});
+                bb vy = bb.vy();
+                rVar9 = this.bZe.bTw;
+                vy.c(rVar9.getPageContext(), new String[]{str});
             }
         } else if (i == 301) {
-            rVar2 = this.bTm.bNK;
+            rVar2 = this.bZe.bTw;
             if (rVar2 != null) {
-                rVar3 = this.bTm.bNK;
+                rVar3 = this.bZe.bTw;
                 if (rVar3.getPageContext() != null) {
-                    rVar4 = this.bTm.bNK;
+                    rVar4 = this.bZe.bTw;
                     if (rVar4.getPageContext().getPageActivity() != null) {
-                        rVar5 = this.bTm.bNK;
-                        rVar6 = this.bTm.bNK;
+                        rVar5 = this.bZe.bTw;
+                        rVar6 = this.bZe.bTw;
                         FrsGoodActivityConfig frsGoodActivityConfig = new FrsGoodActivityConfig(rVar6.getPageContext().getPageActivity());
-                        rVar7 = this.bTm.bNK;
-                        rVar5.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, frsGoodActivityConfig.createNormalCfg(rVar7.bOf, FrsActivityConfig.FRS_FROM_LIKE)));
+                        rVar7 = this.bZe.bTw;
+                        rVar5.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, frsGoodActivityConfig.createNormalCfg(rVar7.bTS, FrsActivityConfig.FRS_FROM_LIKE)));
                     }
                 }
             }
         } else {
             if (i == 1) {
-                aVar2 = this.bTm.bTf;
-                aVar2.aaV();
+                aVar2 = this.bZe.bYX;
+                aVar2.abZ();
             } else {
-                aVar = this.bTm.bTf;
-                aVar.aaW();
+                aVar = this.bZe.bYX;
+                aVar.aca();
             }
-            bxVar = this.bTm.bTg;
-            if (bxVar != null) {
-                bxVar2 = this.bTm.bTg;
-                bxVar2.a(i, i2, cdVar);
+            byVar = this.bZe.bYY;
+            if (byVar != null) {
+                byVar2 = this.bZe.bYY;
+                byVar2.a(i, i2, ceVar);
             }
         }
     }
 
-    @Override // com.baidu.tieba.frs.bx
+    @Override // com.baidu.tieba.frs.by
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.bx
-    public void ML() {
+    @Override // com.baidu.tieba.frs.by
+    public void MT() {
     }
 }

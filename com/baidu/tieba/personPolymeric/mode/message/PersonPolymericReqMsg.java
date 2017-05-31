@@ -5,13 +5,12 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.r;
-import com.baidu.tbadk.util.o;
-import com.baidu.tieba.personPolymeric.c.n;
+import com.baidu.tieba.personPolymeric.c.o;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
 /* loaded from: classes.dex */
 public class PersonPolymericReqMsg extends NetMessage {
-    private n mPersonPolymericData;
+    private o mPersonPolymericData;
     private int pn;
     private long uid;
 
@@ -35,11 +34,11 @@ public class PersonPolymericReqMsg extends NetMessage {
         return this.pn;
     }
 
-    public void setPersonPolymericData(n nVar) {
-        this.mPersonPolymericData = nVar;
+    public void setPersonPolymericData(o oVar) {
+        this.mPersonPolymericData = oVar;
     }
 
-    public n getPersonPolymericData() {
+    public o getPersonPolymericData() {
         return this.mPersonPolymericData;
     }
 
@@ -50,10 +49,10 @@ public class PersonPolymericReqMsg extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.scr_w = Integer.valueOf(k.af(TbadkCoreApplication.m9getInst().getApp()));
         builder.scr_h = Integer.valueOf(k.ag(TbadkCoreApplication.m9getInst().getApp()));
-        builder.q_type = Integer.valueOf(r.oV().getViewImageQuality());
+        builder.q_type = Integer.valueOf(r.oN().getViewImageQuality());
         builder.scr_dip = Double.valueOf(k.ah(TbadkCoreApplication.m9getInst().getApp()));
         if (z) {
-            o.bindCommonParamsToProtobufData(builder, true);
+            com.baidu.tbadk.util.o.bindCommonParamsToProtobufData(builder, true);
         }
         PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
         builder2.data = builder.build(false);

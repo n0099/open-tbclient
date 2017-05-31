@@ -10,17 +10,17 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    private final /* synthetic */ String eeM;
-    private final /* synthetic */ String eeN;
-    private final /* synthetic */ String eeO;
-    final /* synthetic */ a fJL;
+    private final /* synthetic */ String ekm;
+    private final /* synthetic */ String ekn;
+    private final /* synthetic */ String eko;
+    final /* synthetic */ a fRs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar, String str, String str2, String str3) {
-        this.fJL = aVar;
-        this.eeM = str;
-        this.eeN = str2;
-        this.eeO = str3;
+        this.fRs = aVar;
+        this.ekm = str;
+        this.ekn = str2;
+        this.eko = str3;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,15 +28,15 @@ public class e implements View.OnClickListener {
         g gVar;
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.eeM) && !StringUtils.isNull(this.eeN)) {
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.ekm) && !StringUtils.isNull(this.ekn)) {
             if (i.hk()) {
-                gVar = this.fJL.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.eeM) + "," + this.eeN, this.eeO, this.eeO, gVar.getString(w.l.app_info_for_map));
-                pbActivity = this.fJL.efF;
+                gVar = this.fRs.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.ekm) + "," + this.ekn, this.eko, this.eko, gVar.getString(w.l.app_info_for_map));
+                pbActivity = this.fRs.elf;
                 com.baidu.tbadk.browser.f.S(pbActivity.getPageContext().getPageActivity(), format);
                 return;
             }
-            pbActivity2 = this.fJL.efF;
+            pbActivity2 = this.fRs.elf;
             pbActivity2.showToast(w.l.neterror);
         }
     }

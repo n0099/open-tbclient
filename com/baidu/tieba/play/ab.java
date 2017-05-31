@@ -18,21 +18,21 @@ public class ab {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static void a(String str, String str2, String str3, bb bbVar) {
+    public static void a(String str, String str2, String str3, bc bcVar) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_PLAY_STATISTICS_CMD);
         httpMessage.addParam("video_md5", str);
         httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("obj_param2", str2);
         httpMessage.addParam("obj_type", str3);
-        if (bbVar != null) {
-            httpMessage.addParam("tid", bbVar.bti);
-            httpMessage.addParam("fid", bbVar.btj);
-            httpMessage.addParam("obj_to", bbVar.eTt);
-            httpMessage.addParam("obj_id", bbVar.Vk);
-            httpMessage.addParam("obj_param3", bbVar.eTu);
-            httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mSource);
-            httpMessage.addParam("obj_locate", bbVar.mLocate);
-            httpMessage.addParam("obj_param1", bbVar.eTv);
+        if (bcVar != null) {
+            httpMessage.addParam("tid", bcVar.buq);
+            httpMessage.addParam("fid", bcVar.bur);
+            httpMessage.addParam("obj_to", bcVar.fcg);
+            httpMessage.addParam("obj_id", bcVar.UX);
+            httpMessage.addParam("obj_param3", bcVar.fch);
+            httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bcVar.mSource);
+            httpMessage.addParam("obj_locate", bcVar.mLocate);
+            httpMessage.addParam("obj_param1", bcVar.fci);
         }
         MessageManager.getInstance().sendMessage(httpMessage);
     }

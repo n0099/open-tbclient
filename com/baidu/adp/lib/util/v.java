@@ -57,7 +57,7 @@ public class v {
         return cipher.doFinal(bArr, i, i2);
     }
 
-    public static String at(int i) {
+    public static String au(int i) {
         String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
         if (bigInteger.length() > i) {
             return bigInteger.substring(0, bigInteger.length());

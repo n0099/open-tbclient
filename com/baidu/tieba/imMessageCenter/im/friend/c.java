@@ -6,11 +6,11 @@ import com.baidu.tieba.im.model.BlackListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class c implements a.b {
-    final /* synthetic */ IMBlackListActivity deS;
+    final /* synthetic */ IMBlackListActivity dkm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(IMBlackListActivity iMBlackListActivity) {
-        this.deS = iMBlackListActivity;
+        this.dkm = iMBlackListActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -18,12 +18,12 @@ public class c implements a.b {
         BlackListItemData blackListItemData;
         BlackListModel blackListModel;
         BlackListItemData blackListItemData2;
-        aVar.td();
-        blackListItemData = this.deS.deR;
+        aVar.tc();
+        blackListItemData = this.dkm.dkl;
         if (blackListItemData != null) {
-            this.deS.asr();
-            blackListModel = this.deS.deP;
-            blackListItemData2 = this.deS.deR;
+            this.dkm.Pd();
+            blackListModel = this.dkm.dkj;
+            blackListItemData2 = this.dkm.dkl;
             blackListModel.removeFromBlackList(blackListItemData2.getUserId());
         }
     }

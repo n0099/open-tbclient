@@ -12,13 +12,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends CustomMessageListener {
-    final /* synthetic */ RecommendFrsControlFragment ctq;
+    final /* synthetic */ RecommendFrsControlFragment czI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(RecommendFrsControlFragment recommendFrsControlFragment, int i) {
         super(i);
-        this.ctq = recommendFrsControlFragment;
+        this.czI = recommendFrsControlFragment;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,20 +29,20 @@ public class l extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a)) {
             c.a aVar = (c.a) customResponsedMessage.getData();
             ArrayList<com.baidu.tieba.homepage.b.a.a> arrayList = new ArrayList();
-            scrollFragmentTabHost = this.ctq.ctc;
+            scrollFragmentTabHost = this.czI.czu;
             if (!x.r(scrollFragmentTabHost.getTagList())) {
-                scrollFragmentTabHost2 = this.ctq.ctc;
+                scrollFragmentTabHost2 = this.czI.czu;
                 arrayList.addAll(scrollFragmentTabHost2.getTagList());
             }
             com.baidu.tieba.homepage.b.a.a aVar2 = new com.baidu.tieba.homepage.b.a.a();
-            aVar2.cxa = aVar.forumName;
+            aVar2.cDr = aVar.forumName;
             aVar2.isSelected = false;
             aVar2.level = aVar.level;
             arrayList.add(aVar2);
             ArrayList arrayList2 = new ArrayList();
             for (com.baidu.tieba.homepage.b.a.a aVar3 : arrayList) {
-                if (aVar3 != null && !StringUtils.isNull(aVar3.cxa) && aVar3.cxb != -1 && aVar3.cxb != -2) {
-                    arrayList2.add(new c.a(aVar3.cxa, aVar3.level));
+                if (aVar3 != null && !StringUtils.isNull(aVar3.cDr) && aVar3.cDs != -1 && aVar3.cDs != -2) {
+                    arrayList2.add(new c.a(aVar3.cDr, aVar3.level));
                 }
             }
             com.baidu.tbadk.util.c.B(arrayList2);

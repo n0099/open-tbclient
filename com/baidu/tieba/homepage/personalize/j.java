@@ -4,28 +4,28 @@ import com.baidu.tbadk.core.view.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements ae.c {
-    final /* synthetic */ b cuC;
+    final /* synthetic */ b cAU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(b bVar) {
-        this.cuC = bVar;
+        this.cAU = bVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ae.c
-    public void aN(boolean z) {
+    public void aL(boolean z) {
         o oVar;
         o oVar2;
         o oVar3;
         o oVar4;
-        oVar = this.cuC.cuu;
+        oVar = this.cAU.cAM;
         if (oVar != null) {
-            oVar2 = this.cuC.cuu;
-            if (oVar2.Kq() != null) {
-                oVar4 = this.cuC.cuu;
-                oVar4.Kq().ajv();
+            oVar2 = this.cAU.cAM;
+            if (oVar2.aaC() != null) {
+                oVar4 = this.cAU.cAM;
+                oVar4.aaC().akv();
             }
-            oVar3 = this.cuC.cuu;
-            oVar3.eM(false);
+            oVar3 = this.cAU.cAM;
+            oVar3.fc(false);
         }
     }
 }

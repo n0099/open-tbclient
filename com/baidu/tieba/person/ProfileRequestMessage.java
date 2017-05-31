@@ -1,7 +1,6 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.r;
@@ -126,12 +125,12 @@ public class ProfileRequestMessage extends NetMessage {
             builder.pn = get_pn();
             builder.rn = get_rn();
             builder.has_plist = get_has_plist();
-            int af = k.af(TbadkCoreApplication.m9getInst().getApp());
-            int ag = k.ag(TbadkCoreApplication.m9getInst().getApp());
-            int viewImageQuality = r.oV().getViewImageQuality();
+            int af = com.baidu.adp.lib.util.k.af(TbadkCoreApplication.m9getInst().getApp());
+            int ag = com.baidu.adp.lib.util.k.ag(TbadkCoreApplication.m9getInst().getApp());
+            int viewImageQuality = r.oN().getViewImageQuality();
             builder.scr_w = Integer.valueOf(af);
             builder.scr_h = Integer.valueOf(ag);
-            builder.scr_dip = Double.valueOf(k.ah(TbadkCoreApplication.m9getInst().getApp()));
+            builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.k.ah(TbadkCoreApplication.m9getInst().getApp()));
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
                 o.bindCommonParamsToProtobufData(builder, true);

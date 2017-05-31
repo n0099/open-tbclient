@@ -17,22 +17,22 @@ class n extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ah ahVar;
-        ah ahVar2;
-        ah ahVar3;
+        ak akVar;
+        ak akVar2;
+        ak akVar3;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
             int oldSkinType = TbadkCoreApplication.m9getInst().getOldSkinType();
             if (!((intValue == 2 || oldSkinType == 2) ? false : true)) {
                 if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
-                    ahVar3 = this.this$0.fyv;
-                    ahVar3.biC().cv(1);
+                    akVar3 = this.this$0.fGm;
+                    akVar3.bka().cw(1);
                 } else if (TbadkCoreApplication.m9getInst().isThemeIconCover()) {
-                    ahVar2 = this.this$0.fyv;
-                    ahVar2.biC().cv(2);
+                    akVar2 = this.this$0.fGm;
+                    akVar2.bka().cw(2);
                 } else {
-                    ahVar = this.this$0.fyv;
-                    ahVar.biC().cv(1);
+                    akVar = this.this$0.fGm;
+                    akVar.bka().cw(1);
                 }
             }
         }

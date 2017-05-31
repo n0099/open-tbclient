@@ -1,26 +1,21 @@
 package com.baidu.tieba.pb.pb.main.view;
 
+import android.view.View;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements Runnable {
-    final /* synthetic */ f eqj;
+public class i implements View.OnClickListener {
+    final /* synthetic */ h exs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(f fVar) {
-        this.eqj = fVar;
+    public i(h hVar) {
+        this.exs = hVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.pb.view.j jVar;
-        com.baidu.tieba.pb.view.j jVar2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         PbActivity pbActivity;
-        jVar = this.eqj.eqf;
-        if (jVar != null) {
-            jVar2 = this.eqj.eqf;
-            pbActivity = this.eqj.efF;
-            com.baidu.adp.lib.g.j.a(jVar2, pbActivity.getPageContext().getPageActivity());
-        }
+        pbActivity = this.exs.elf;
+        pbActivity.aat();
     }
 }

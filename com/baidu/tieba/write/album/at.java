@@ -6,5 +6,5 @@ import java.util.List;
 public interface at {
     void a(List<e> list, List<ImageFileInfo> list2, String str);
 
-    void lm();
+    void onPreLoad();
 }

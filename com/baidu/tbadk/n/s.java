@@ -1,33 +1,10 @@
 package com.baidu.tbadk.n;
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.lib.b.a {
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.b.a
-    public void X(int i) {
-    }
+public class s extends j {
+    private static final s aIl = new s();
 
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eQ() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eR() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eS() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eT() {
-        return 10;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.tbadk.n.j, com.baidu.adp.lib.b.a
     protected String getName() {
-        return "is_call_test_https";
+        return "graffiti_android";
     }
 }

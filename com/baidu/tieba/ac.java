@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class ac implements View.OnClickListener {
-    final /* synthetic */ y aUy;
+    final /* synthetic */ y aSa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(y yVar) {
-        this.aUy = yVar;
+        this.aSa = yVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,24 +20,24 @@ class ac implements View.OnClickListener {
         boolean z2;
         TextView textView;
         TextView textView2;
-        z = this.aUy.aTZ;
+        z = this.aSa.aRB;
         if (!z) {
-            z2 = this.aUy.aTY;
+            z2 = this.aSa.aRA;
             if (z2) {
                 Drawable drawable = aq.getDrawable(w.g.btn_dailog_choose_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                textView2 = this.aUy.aUg;
+                textView2 = this.aSa.aRI;
                 textView2.setCompoundDrawables(drawable, null, null, null);
-                this.aUy.aTX = false;
-                this.aUy.aTY = false;
+                this.aSa.aRz = false;
+                this.aSa.aRA = false;
                 return;
             }
             Drawable drawable2 = aq.getDrawable(w.g.btn_dailog_choose_s);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            textView = this.aUy.aUg;
+            textView = this.aSa.aRI;
             textView.setCompoundDrawables(drawable2, null, null, null);
-            this.aUy.aTX = true;
-            this.aUy.aTY = true;
+            this.aSa.aRz = true;
+            this.aSa.aRA = true;
         }
     }
 }

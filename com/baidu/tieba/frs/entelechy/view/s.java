@@ -8,55 +8,55 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.card.cd;
+import com.baidu.tieba.card.ci;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ q bTB;
+    final /* synthetic */ q bZt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q qVar) {
-        this.bTB = qVar;
+        this.bZt = qVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bk bkVar;
-        bk bkVar2;
-        bk bkVar3;
-        bk bkVar4;
-        bk bkVar5;
+        bl blVar;
+        bl blVar2;
+        bl blVar3;
+        bl blVar4;
+        bl blVar5;
         TbPageContext tbPageContext;
-        bk bkVar6;
-        bk bkVar7;
-        bk bkVar8;
-        bk bkVar9;
-        bkVar = this.bTB.ahV;
-        if (bkVar != null) {
-            bkVar2 = this.bTB.ahV;
-            if (bkVar2.getAuthor() != null) {
-                bkVar3 = this.bTB.ahV;
-                if (!StringUtils.isNull(bkVar3.getAuthor().getName_show())) {
-                    bkVar4 = this.bTB.ahV;
-                    if (!StringUtils.isNull(bkVar4.getAuthor().getUserId())) {
-                        bkVar5 = this.bTB.ahV;
-                        if (bkVar5.rD() != null) {
-                            if (this.bTB.getOnSubCardOnClickListenner() != null) {
-                                cd<bk> onSubCardOnClickListenner = this.bTB.getOnSubCardOnClickListenner();
-                                bkVar9 = this.bTB.ahV;
-                                onSubCardOnClickListenner.a(view, bkVar9);
+        bl blVar6;
+        bl blVar7;
+        bl blVar8;
+        bl blVar9;
+        blVar = this.bZt.ahM;
+        if (blVar != null) {
+            blVar2 = this.bZt.ahM;
+            if (blVar2.getAuthor() != null) {
+                blVar3 = this.bZt.ahM;
+                if (!StringUtils.isNull(blVar3.getAuthor().getName_show())) {
+                    blVar4 = this.bZt.ahM;
+                    if (!StringUtils.isNull(blVar4.getAuthor().getUserId())) {
+                        blVar5 = this.bZt.ahM;
+                        if (blVar5.rz() != null) {
+                            if (this.bZt.Ud() != null) {
+                                ci<bl> Ud = this.bZt.Ud();
+                                blVar9 = this.bZt.ahM;
+                                Ud.a(view, blVar9);
                             }
                             MessageManager messageManager = MessageManager.getInstance();
-                            tbPageContext = this.bTB.ajr;
+                            tbPageContext = this.bZt.ajh;
                             Activity pageActivity = tbPageContext.getPageActivity();
-                            bkVar6 = this.bTB.ahV;
-                            String userId = bkVar6.getAuthor().getUserId();
-                            bkVar7 = this.bTB.ahV;
-                            String name_show = bkVar7.getAuthor().getName_show();
-                            bkVar8 = this.bTB.ahV;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, bkVar8.rD(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                            blVar6 = this.bZt.ahM;
+                            String userId = blVar6.getAuthor().getUserId();
+                            blVar7 = this.bZt.ahM;
+                            String name_show = blVar7.getAuthor().getName_show();
+                            blVar8 = this.bZt.ahM;
+                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, blVar8.rz(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                         }
                     }
                 }

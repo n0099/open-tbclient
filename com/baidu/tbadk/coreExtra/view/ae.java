@@ -8,11 +8,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements com.baidu.tbadk.download.d {
-    final /* synthetic */ u awi;
+    final /* synthetic */ u avS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(u uVar) {
-        this.awi = uVar;
+        this.avS = uVar;
     }
 
     @Override // com.baidu.tbadk.download.d
@@ -28,23 +28,23 @@ public class ae implements com.baidu.tbadk.download.d {
         ImageUrlData imageUrlData4;
         ImageUrlData imageUrlData5;
         if (downloadData != null) {
-            imageUrlData = this.awi.awa;
+            imageUrlData = this.avS.avK;
             if (imageUrlData != null) {
-                imageUrlData4 = this.awi.awa;
+                imageUrlData4 = this.avS.avK;
                 if (imageUrlData4.originalProcess != -1) {
-                    imageUrlData5 = this.awi.awa;
+                    imageUrlData5 = this.avS.avK;
                     imageUrlData5.originalProcess = downloadData.getProcess();
                 }
             }
-            imageUrlData2 = this.awi.awa;
+            imageUrlData2 = this.avS.avK;
             if (imageUrlData2 != null) {
-                imageUrlData3 = this.awi.awa;
+                imageUrlData3 = this.avS.avK;
                 if (imageUrlData3.originalProcess == -1) {
                     return;
                 }
             }
-            this.awi.avS.setText(String.valueOf(downloadData.getProcess()) + "%");
-            this.awi.avS.setCompoundDrawablesWithIntrinsicBounds(0, 0, w.g.icon_close_yuantu, 0);
+            this.avS.avC.setText(String.valueOf(downloadData.getProcess()) + "%");
+            this.avS.avC.setCompoundDrawablesWithIntrinsicBounds(0, 0, w.g.icon_close_yuantu, 0);
         }
     }
 
@@ -56,18 +56,18 @@ public class ae implements com.baidu.tbadk.download.d {
     @Override // com.baidu.tbadk.download.d
     public void onFileDownloadSucceed(DownloadData downloadData) {
         Runnable runnable;
-        boolean bt;
-        this.awi.avS.setText(this.awi.getResources().getString(w.l.done));
-        this.awi.avS.setClickable(false);
-        this.awi.avS.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        boolean bq;
+        this.avS.avC.setText(this.avS.getResources().getString(w.l.done));
+        this.avS.avC.setClickable(false);
+        this.avS.avC.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable = this.awi.awg;
+        runnable = this.avS.avQ;
         fS.postDelayed(runnable, 1500L);
-        this.awi.awc = false;
-        u uVar = this.awi;
-        bt = this.awi.bt(false);
-        uVar.awb = bt;
-        this.awi.Bd();
+        this.avS.avM = false;
+        u uVar = this.avS;
+        bq = this.avS.bq(false);
+        uVar.avL = bq;
+        this.avS.AW();
     }
 
     @Override // com.baidu.tbadk.download.d
@@ -77,22 +77,22 @@ public class ae implements com.baidu.tbadk.download.d {
         String str2;
         String str3;
         ImageUrlData imageUrlData3;
-        this.awi.awc = false;
-        BdToast.a(this.awi.mContext, str).tj().tl();
-        imageUrlData = this.awi.awa;
+        this.avS.avM = false;
+        BdToast.a(this.avS.mContext, str).ti().tk();
+        imageUrlData = this.avS.avK;
         imageUrlData.originalProcess = -1;
-        imageUrlData2 = this.awi.awa;
+        imageUrlData2 = this.avS.avK;
         if (imageUrlData2.originalSize > 0) {
-            TextView textView = this.awi.avS;
-            str3 = u.avQ;
+            TextView textView = this.avS.avC;
+            str3 = u.avA;
             StringBuilder append = new StringBuilder(String.valueOf(str3)).append("(");
-            imageUrlData3 = this.awi.awa;
+            imageUrlData3 = this.avS.avK;
             textView.setText(append.append(au.F(imageUrlData3.originalSize)).append(")").toString());
         } else {
-            TextView textView2 = this.awi.avS;
-            str2 = u.avQ;
+            TextView textView2 = this.avS.avC;
+            str2 = u.avA;
             textView2.setText(str2);
         }
-        this.awi.avS.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        this.avS.avC.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
     }
 }

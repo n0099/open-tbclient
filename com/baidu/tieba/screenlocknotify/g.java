@@ -27,26 +27,26 @@ public class g implements AbsListView.OnScrollListener {
         TextView textView5;
         TextView textView6;
         TextView textView7;
-        textView = this.this$0.fdZ;
+        textView = this.this$0.flR;
         if (textView != null) {
-            textView2 = this.this$0.fdZ;
+            textView2 = this.this$0.flR;
             if (textView2.getParent() != null) {
-                int height = this.this$0.fdV.getHeight();
-                i4 = this.this$0.fdY;
+                int height = this.this$0.flN.getHeight();
+                i4 = this.this$0.flQ;
                 if (height != i4) {
-                    textView3 = this.this$0.fdZ;
+                    textView3 = this.this$0.flR;
                     textView3.setText(this.this$0.getResources().getString(w.l.click_load_more));
-                    textView4 = this.this$0.fdZ;
+                    textView4 = this.this$0.flR;
                     textView4.setEnabled(true);
                 } else if (i + i2 == i3) {
-                    textView5 = this.this$0.fdZ;
+                    textView5 = this.this$0.flR;
                     if (textView5.isEnabled()) {
-                        textView6 = this.this$0.fdZ;
+                        textView6 = this.this$0.flR;
                         textView6.setText(this.this$0.getResources().getString(w.l.loading));
-                        textView7 = this.this$0.fdZ;
+                        textView7 = this.this$0.flR;
                         textView7.setEnabled(false);
                     }
-                    this.this$0.JC();
+                    this.this$0.MC();
                 }
             }
         }

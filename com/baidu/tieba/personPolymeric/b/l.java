@@ -1,30 +1,21 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends CustomMessageListener {
-    final /* synthetic */ h eCv;
+public class l implements View.OnClickListener {
+    final /* synthetic */ i eKZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l(h hVar, int i) {
-        super(i);
-        this.eCv = hVar;
+    public l(i iVar) {
+        this.eKZ = iVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) {
-            ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
-            if (responseNewFriendUpdateUiMsg.getAction() == -1) {
-                this.eCv.ja(false);
-            } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                this.eCv.ja(true);
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TiebaStatic.eventStat(this.eKZ.aas.getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
+        bh.aM(this.eKZ.aas.getPageActivity());
     }
 }

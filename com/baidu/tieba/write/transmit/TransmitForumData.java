@@ -6,23 +6,23 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
 /* loaded from: classes.dex */
 public class TransmitForumData implements Parcelable, v {
-    public boolean aaP;
+    public boolean aaO;
     public long forumId;
     public String forumName;
     public int type;
-    public static final BdUniqueId fOQ = BdUniqueId.gen();
+    public static final BdUniqueId fWM = BdUniqueId.gen();
     public static final Parcelable.Creator<TransmitForumData> CREATOR = new g();
 
     public TransmitForumData(long j, String str, boolean z, int i) {
         this.forumName = str;
-        this.aaP = z;
+        this.aaO = z;
         this.forumId = j;
         this.type = i;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return fOQ;
+        return fWM;
     }
 
     @Override // android.os.Parcelable
@@ -34,7 +34,7 @@ public class TransmitForumData implements Parcelable, v {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.forumName);
         parcel.writeLong(this.forumId);
-        parcel.writeByte(this.aaP ? (byte) 1 : (byte) 0);
+        parcel.writeByte(this.aaO ? (byte) 1 : (byte) 0);
         parcel.writeInt(this.type);
     }
 
@@ -42,7 +42,7 @@ public class TransmitForumData implements Parcelable, v {
     public TransmitForumData(Parcel parcel) {
         this.forumName = parcel.readString();
         this.forumId = parcel.readLong();
-        this.aaP = parcel.readByte() != 0;
+        this.aaO = parcel.readByte() != 0;
         this.type = parcel.readInt();
     }
 }

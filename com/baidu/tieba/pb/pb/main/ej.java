@@ -1,27 +1,19 @@
 package com.baidu.tieba.pb.pb.main;
-
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.data.PostData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ej extends PostData {
-    public static final BdUniqueId elo = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.as elp;
-    public com.baidu.tbadk.core.data.as elq;
-    public com.baidu.tbadk.core.data.as elr;
+public class ej implements Runnable {
+    final /* synthetic */ PbModel eqh;
+    private final /* synthetic */ com.baidu.tieba.pb.data.f eql;
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return elo;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ej(PbModel pbModel, com.baidu.tieba.pb.data.f fVar) {
+        this.eqh = pbModel;
+        this.eql = fVar;
     }
 
-    public boolean hasData() {
-        if (this.elp == null || StringUtils.isNull(this.elp.summary)) {
-            if (this.elq == null || StringUtils.isNull(this.elq.summary)) {
-                return (this.elr == null || StringUtils.isNull(this.elr.summary)) ? false : true;
-            }
-            return true;
-        }
-        return true;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.eqh.a(this.eql, 3, false, 0, "", false, 0, 0L, 0L, true);
+        this.eqh.isLoading = false;
     }
 }

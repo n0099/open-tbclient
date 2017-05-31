@@ -1,25 +1,25 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class aa implements bb.a {
-    @Override // com.baidu.tbadk.core.util.bb.a
-    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        if (tbPageContext == null || strArr == null || strArr.length == 0) {
-            return 3;
+class aa extends CustomMessageListener {
+    final /* synthetic */ MainTabActivity this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.this$0 = mainTabActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && com.baidu.tbadk.core.f.b.tP() == null) {
+            aj ajVar = new aj();
+            ajVar.a(this.this$0);
+            com.baidu.tbadk.core.f.b.a(ajVar);
         }
-        String str = strArr[0];
-        if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
-            if (str.contains("jump_enter_forum=1")) {
-                com.baidu.tbadk.core.f.b.b(tbPageContext.getPageActivity(), 1, true);
-                return 1;
-            } else if (str.contains("jump_chosen_post=1")) {
-                com.baidu.tbadk.core.f.b.b(tbPageContext.getPageActivity(), 2, true);
-                return 1;
-            }
-        }
-        return 3;
     }
 }

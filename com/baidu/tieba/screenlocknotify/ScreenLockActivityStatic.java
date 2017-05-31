@@ -9,7 +9,7 @@ public class ScreenLockActivityStatic {
     static {
         TbadkApplication.getInst().RegisterIntent(ScreenLockActivityConfig.class, ScreenLockActivity.class);
         try {
-            i.aZv();
+            i.baP();
             new IntentConfig(TbadkApplication.getInst()).startService(ScreenLockNotifyService.class);
         } catch (Exception e) {
             BdLog.e(e);

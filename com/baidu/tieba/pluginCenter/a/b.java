@@ -7,19 +7,19 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.w;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<String, com.baidu.tbadk.mvc.d.b> {
-    private TextView ciW;
+    private TextView cpu;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.ciW = (TextView) view.findViewById(w.h.text);
+        this.cpu = (TextView) view.findViewById(w.h.text);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
-    /* renamed from: oV */
+    /* renamed from: pm */
     public void E(String str) {
         super.E(str);
-        this.ciW.setText(str);
+        this.cpu.setText(str);
     }
 
     @Override // com.baidu.tieba.tbadkCore.q

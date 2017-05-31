@@ -6,19 +6,19 @@ import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class b {
     private boolean CB;
-    private boolean aDn;
-    private int bGl;
-    private int bGm;
-    private String bGn;
-    private f bGo;
+    private boolean aDa;
+    private int bMa;
+    private int bMb;
+    private String bMc;
+    private f bMd;
     private int isLogin;
     private int isMem;
     private int time = 0;
-    private h bGj = new h();
-    private k bGk = new k();
+    private h bLY = new h();
+    private k bLZ = new k();
 
-    public void dq(boolean z) {
-        this.aDn = z;
+    public void dH(boolean z) {
+        this.aDa = z;
     }
 
     public b() {
@@ -30,7 +30,7 @@ public class b {
         this.time = i;
     }
 
-    public void hn(int i) {
+    public void hL(int i) {
         this.isLogin = i;
     }
 
@@ -38,20 +38,20 @@ public class b {
         this.isMem = i;
     }
 
-    public void ho(int i) {
-        this.bGl = i;
+    public void hM(int i) {
+        this.bMa = i;
     }
 
-    public void hp(int i) {
-        this.bGm = i;
+    public void hN(int i) {
+        this.bMb = i;
     }
 
-    public void it(String str) {
-        this.bGn = str;
+    public void iB(String str) {
+        this.bMc = str;
     }
 
     public f getHotSearchInfoData() {
-        return this.bGo;
+        return this.bMd;
     }
 
     public void a(DataRes dataRes) {
@@ -63,22 +63,22 @@ public class b {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                ho(dataRes.msign_valid.intValue());
-                hp(dataRes.msign_level.intValue());
-                hn(dataRes.is_login.intValue());
-                it(dataRes.msign_text);
+                hM(dataRes.msign_valid.intValue());
+                hN(dataRes.msign_level.intValue());
+                hL(dataRes.is_login.intValue());
+                iB(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.bGj.setLevel(this.bGm);
+                this.bLY.setLevel(this.bMb);
                 if (dataRes.like_forum != null) {
-                    this.bGj.ad(dataRes.like_forum);
+                    this.bLY.ad(dataRes.like_forum);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.bGk.ae(dataRes.recommend_forum_info);
+                    this.bLZ.ae(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.bGo = new f();
-                    this.bGo.a(dataRes.hot_search);
+                    this.bMd = new f();
+                    this.bMd.a(dataRes.hot_search);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -86,23 +86,23 @@ public class b {
         }
     }
 
-    public h VT() {
-        return this.bGj;
+    public h WW() {
+        return this.bLY;
     }
 
     public void a(h hVar) {
-        this.bGj = hVar;
+        this.bLY = hVar;
     }
 
     public void a(k kVar) {
-        this.bGk = kVar;
+        this.bLZ = kVar;
     }
 
-    public k VU() {
-        return this.bGk;
+    public k WX() {
+        return this.bLZ;
     }
 
-    public void az(boolean z) {
+    public void ay(boolean z) {
         this.CB = z;
     }
 
@@ -110,11 +110,11 @@ public class b {
         return this.CB;
     }
 
-    public boolean VV() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.d.axt.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.axt.longValue();
+    public boolean WY() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.e.axf.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.e.axf.longValue();
     }
 
     public void a(f fVar) {
-        this.bGo = fVar;
+        this.bMd = fVar;
     }
 }

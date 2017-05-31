@@ -1,23 +1,22 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tieba.w;
+import com.baidu.tieba.frs.r;
 /* loaded from: classes.dex */
-public class ar extends y.a {
-    public TextView alE;
-    public TextView alH;
-    public int ane;
-    public TextView bPs;
-    public TextView bPt;
+class ar implements Runnable {
+    final /* synthetic */ r.a bVg;
+    private final /* synthetic */ String bVh;
 
-    public ar(View view) {
-        super(view);
-        this.ane = 3;
-        this.alE = (TextView) getView().findViewById(w.h.frs_god_lv_reply_time);
-        this.alH = (TextView) getView().findViewById(w.h.frs_god_praise_num);
-        this.bPt = (TextView) getView().findViewById(w.h.frs_god_reply_num);
-        this.bPs = (TextView) getView().findViewById(w.h.frs_god_item_location_address);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ar(r.a aVar, String str) {
+        this.bVg = aVar;
+        this.bVh = str;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.util.z zVar = new com.baidu.tbadk.core.util.z(this.bVh);
+        zVar.uF().vA().mIsNeedAddCommenParam = false;
+        zVar.uF().vA().mIsUseCurrentBDUSS = false;
+        zVar.uh();
     }
 }

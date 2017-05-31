@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.entelechy;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tieba.frs.entelechy.a.am;
+import com.baidu.tieba.frs.entelechy.a.al;
 import com.baidu.tieba.frs.r;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.a {
@@ -12,7 +12,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b aal() {
+    public com.baidu.tieba.frs.entelechy.b.b abn() {
         return new j();
     }
 
@@ -22,27 +22,27 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
             return null;
         }
         c cVar = new c(rVar, null, null, i);
-        cVar.a(rVar.YR());
+        cVar.a(rVar.ZV());
         return cVar;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public am a(r rVar, BdTypeListView bdTypeListView, boolean z) {
+    public al a(r rVar, BdTypeListView bdTypeListView, boolean z) {
         return new com.baidu.tieba.frs.entelechy.a.b(rVar, bdTypeListView, z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
-    public com.baidu.tieba.frs.e.i c(r rVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (rVar.Zt()) {
+    public com.baidu.tieba.frs.f.i c(r rVar, NoPressedRelativeLayout noPressedRelativeLayout) {
+        if (rVar.aaw()) {
             return null;
         }
-        return new com.baidu.tieba.frs.e.i(rVar, noPressedRelativeLayout);
+        return new com.baidu.tieba.frs.f.i(rVar, noPressedRelativeLayout);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
     public com.baidu.tieba.frs.entelechy.b.c b(r rVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        return new com.baidu.tieba.frs.e.d(rVar, noPressedRelativeLayout);
+        return new com.baidu.tieba.frs.f.d(rVar, noPressedRelativeLayout);
     }
 }

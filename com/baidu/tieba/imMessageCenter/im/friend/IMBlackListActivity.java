@@ -8,67 +8,67 @@ import com.baidu.tieba.im.model.BlackListModel;
 import com.baidu.tieba.w;
 /* loaded from: classes2.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
-    private com.baidu.tbadk.core.dialog.a La;
-    private com.baidu.adp.framework.listener.e cIY = new a(this, 0);
-    private BlackListModel deP;
-    private h deQ;
-    private BlackListItemData deR;
+    private com.baidu.tbadk.core.dialog.a KO;
+    private com.baidu.adp.framework.listener.e cOw = new a(this, 0);
+    private BlackListModel dkj;
+    private h dkk;
+    private BlackListItemData dkl;
 
     private void initView() {
-        this.deQ = new h(this);
+        this.dkk = new h(this);
     }
 
     private void bj() {
-        this.deP = new BlackListModel(getPageContext());
-        this.deP.setUniqueId(getUniqueId());
+        this.dkj = new BlackListModel(getPageContext());
+        this.dkj.setUniqueId(getUniqueId());
     }
 
-    private void NA() {
-        this.deP.loadBlackList();
-        this.deQ.Dy();
+    private void NJ() {
+        this.dkj.loadBlackList();
+        this.dkk.Ds();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(104103, this.cIY);
-        registerListener(104102, this.cIY);
+        registerListener(104103, this.cOw);
+        registerListener(104102, this.cOw);
         initView();
         bj();
-        NA();
+        NJ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.deP != null) {
-            this.deP.cancelLoadData();
+        if (this.dkj != null) {
+            this.dkj.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void asr() {
+    public void Pd() {
         showLoadingDialog((String) null, new b(this));
     }
 
     private void a(BlackListItemData blackListItemData) {
-        lf(String.format(getPageContext().getString(w.l.black_list_ensure_toremove_text), blackListItemData.getUserName()));
-        this.La.td();
+        lp(String.format(getPageContext().getString(w.l.black_list_ensure_toremove_text), blackListItemData.getUserName()));
+        this.KO.tc();
     }
 
-    private void lf(String str) {
-        this.La = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.La.cC(str);
-        this.La.a(w.l.confirm, new c(this));
-        this.La.b(w.l.alert_no_button, new d(this));
-        this.La.b(getPageContext());
+    private void lp(String str) {
+        this.KO = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+        this.KO.cB(str);
+        this.KO.a(w.l.confirm, new c(this));
+        this.KO.b(w.l.alert_no_button, new d(this));
+        this.KO.b(getPageContext());
     }
 
     public void a(View view, BlackListItemData blackListItemData) {
         if (blackListItemData != null && blackListItemData.getUserId() > 0) {
-            this.deR = blackListItemData;
+            this.dkl = blackListItemData;
             a(blackListItemData);
         }
     }

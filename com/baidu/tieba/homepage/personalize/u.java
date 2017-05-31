@@ -3,13 +3,13 @@ package com.baidu.tieba.homepage.personalize;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 /* loaded from: classes.dex */
 class u implements Runnable {
-    private final /* synthetic */ int aak;
-    final /* synthetic */ t cvi;
+    private final /* synthetic */ int aaj;
+    final /* synthetic */ t cBA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar, int i) {
-        this.cvi = tVar;
-        this.aak = i;
+        this.cBA = tVar;
+        this.aaj = i;
     }
 
     @Override // java.lang.Runnable
@@ -20,16 +20,16 @@ class u implements Runnable {
         BdTypeListView bdTypeListView2;
         o oVar3;
         BdTypeListView bdTypeListView3;
-        oVar = this.cvi.this$0;
+        oVar = this.cBA.this$0;
         bdTypeListView = oVar.mListView;
         bdTypeListView.requestFocusFromTouch();
-        int i = this.aak;
-        oVar2 = this.cvi.this$0;
+        int i = this.aaj;
+        oVar2 = this.cBA.this$0;
         bdTypeListView2 = oVar2.mListView;
         if (i <= bdTypeListView2.getCount() - 1) {
-            oVar3 = this.cvi.this$0;
+            oVar3 = this.cBA.this$0;
             bdTypeListView3 = oVar3.mListView;
-            bdTypeListView3.setSelection(this.aak);
+            bdTypeListView3.setSelection(this.aaj);
         }
     }
 }

@@ -1,120 +1,87 @@
 package com.baidu.tieba.personPolymeric.b;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONArray;
 /* loaded from: classes.dex */
-public class ai implements PersonPostModel.a {
-    final /* synthetic */ ab eCS;
-    private final /* synthetic */ boolean eCT;
-    private final /* synthetic */ boolean eCU;
-    private final /* synthetic */ com.baidu.tieba.person.data.c eCV;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ab abVar, boolean z, boolean z2, com.baidu.tieba.person.data.c cVar) {
-        this.eCS = abVar;
-        this.eCT = z;
-        this.eCU = z2;
-        this.eCV = cVar;
+public class ai {
+    public static String g(TbPageContext tbPageContext, String str) {
+        if (tbPageContext == null || StringUtils.isNull(str)) {
+            return null;
+        }
+        if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
+            return "http://himg.baidu.com/sys/portraith/item/" + str;
+        }
+        return "http://himg.baidu.com/sys/portraitl/item/" + str;
     }
 
-    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.a
-    public void b(PersonPostModel personPostModel, boolean z) {
-        com.baidu.tieba.personPolymeric.d.ab abVar;
-        List list;
-        com.baidu.tieba.personPolymeric.d.ab abVar2;
-        com.baidu.tieba.personPolymeric.d.ab abVar3;
-        com.baidu.tieba.personPolymeric.d.ab abVar4;
-        com.baidu.tieba.personPolymeric.d.ab abVar5;
-        List list2;
-        List list3;
-        com.baidu.tieba.personPolymeric.d.ab abVar6;
-        com.baidu.tieba.personPolymeric.d.ab abVar7;
-        com.baidu.tieba.personPolymeric.d.ab abVar8;
-        com.baidu.tieba.personPolymeric.d.ab abVar9;
-        com.baidu.tieba.personPolymeric.d.ab abVar10;
-        com.baidu.tieba.personPolymeric.d.ab abVar11;
-        com.baidu.tieba.personPolymeric.d.ab abVar12;
-        com.baidu.tieba.personPolymeric.d.ab abVar13;
-        com.baidu.tieba.personPolymeric.d.ab abVar14;
-        com.baidu.tieba.personPolymeric.d.ab abVar15;
-        TbPageContext tbPageContext;
-        if (personPostModel.getErrorCode() != 0) {
-            tbPageContext = this.eCS.aat;
-            com.baidu.adp.lib.util.k.showToast(tbPageContext.getContext(), personPostModel.getErrorString());
+    public static void a(com.baidu.tbadk.data.k kVar, BdUniqueId bdUniqueId) {
+        if (kVar != null && !StringUtils.isNull(kVar.BO()) && com.baidu.tbadk.core.util.x.r(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
+            httpMessage.addParam("pic_url", kVar.BO());
+            httpMessage.setTag(bdUniqueId);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        abVar = this.eCS.eCL;
-        abVar.acw();
-        if (this.eCT) {
-            list2 = this.eCS.mList;
-            com.baidu.tieba.person.data.c cVar = (com.baidu.tieba.person.data.c) list2.get(1);
-            if (!z) {
-                list3 = this.eCS.mList;
-                ArrayList<com.baidu.adp.widget.ListView.v> aOG = ((com.baidu.tieba.person.data.c) list3.get(1)).aOG();
-                if (com.baidu.tbadk.core.util.x.r(aOG)) {
-                    abVar12 = this.eCS.eCL;
-                    abVar12.UA();
-                    return;
-                } else if (com.baidu.tbadk.core.util.x.q(personPostModel.postList) == 0 || (com.baidu.tbadk.core.util.x.q(personPostModel.postList) == 1 && (personPostModel.postList.get(0) instanceof com.baidu.tieba.personPolymeric.c.h))) {
-                    cVar.iW(false);
-                    abVar6 = this.eCS.eCL;
-                    abVar6.an(aOG);
-                    abVar7 = this.eCS.eCL;
-                    abVar7.dk(true);
-                    return;
-                } else if (ab.bZ(personPostModel.postList) == 0) {
-                    cVar.iW(false);
-                    abVar10 = this.eCS.eCL;
-                    abVar10.an(aOG);
-                    abVar11 = this.eCS.eCL;
-                    abVar11.dk(true);
-                    return;
-                } else {
-                    aOG.addAll(personPostModel.postList);
-                    abVar8 = this.eCS.eCL;
-                    abVar8.wp();
-                    cVar.al(aOG);
-                    abVar9 = this.eCS.eCL;
-                    abVar9.an(aOG);
-                    return;
+    }
+
+    public static void a(com.baidu.tbadk.data.k kVar, List<com.baidu.adp.widget.ListView.v> list) {
+        com.baidu.tbadk.data.k kVar2;
+        if (kVar != null && !com.baidu.tbadk.core.util.x.r(list) && !StringUtils.isNull(kVar.BO())) {
+            JSONArray jSONArray = new JSONArray();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                com.baidu.adp.widget.ListView.v vVar = list.get(i);
+                if ((vVar instanceof com.baidu.tbadk.data.k) && (kVar2 = (com.baidu.tbadk.data.k) vVar) != kVar && !kVar2.BP()) {
+                    jSONArray.put(kVar2.BO());
                 }
             }
-            cVar.iW(true);
-            cVar.al(personPostModel.postList);
-            cVar.oP(0);
-            abVar13 = this.eCS.eCL;
-            abVar13.an(personPostModel.postList);
-            if (!this.eCU) {
-                abVar15 = this.eCS.eCL;
-                abVar15.bkV();
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+            httpMessage.addParam("pic_list", jSONArray.toString());
+            if (jSONArray.length() <= 0) {
+                httpMessage.addParam("truncat", 1);
+            } else {
+                httpMessage.addParam("truncat", 0);
             }
-            if (cVar.aOG() != null && cVar.aOG().size() == 1 && (cVar.aOG().get(0) instanceof com.baidu.tieba.personPolymeric.c.h)) {
-                abVar14 = this.eCS.eCL;
-                abVar14.UA();
-                return;
-            }
-            return;
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        list = this.eCS.mList;
-        ArrayList<com.baidu.adp.widget.ListView.v> aOG2 = ((com.baidu.tieba.person.data.c) list.get(0)).aOG();
-        if (!com.baidu.tbadk.core.util.x.r(aOG2)) {
-            if (com.baidu.tbadk.core.util.x.q(personPostModel.postList) == 0 || (com.baidu.tbadk.core.util.x.q(personPostModel.postList) == 1 && (personPostModel.postList.get(0) instanceof com.baidu.tieba.personPolymeric.c.h))) {
-                this.eCV.iW(false);
-                abVar2 = this.eCS.eCL;
-                abVar2.an(aOG2);
-                abVar3 = this.eCS.eCL;
-                abVar3.dk(true);
-                return;
+    }
+
+    public static void j(String str, List<com.baidu.adp.widget.ListView.v> list) {
+        if (!StringUtils.isNull(str)) {
+            if (list == null) {
+                list = new ArrayList<>();
             }
-            aOG2.addAll(personPostModel.threadList);
-            this.eCV.iW(true);
-            this.eCV.al(aOG2);
-            abVar4 = this.eCS.eCL;
-            abVar4.wp();
-            abVar5 = this.eCS.eCL;
-            abVar5.cK(aOG2);
+            JSONArray jSONArray = new JSONArray();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                com.baidu.adp.widget.ListView.v vVar = list.get(i);
+                if (vVar instanceof com.baidu.tbadk.data.k) {
+                    com.baidu.tbadk.data.k kVar = (com.baidu.tbadk.data.k) vVar;
+                    if (!kVar.BP()) {
+                        jSONArray.put(kVar.BO());
+                    }
+                }
+            }
+            jSONArray.put(str);
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+            httpMessage.addParam("pic_list", jSONArray.toString());
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public static void y(TbPageContext tbPageContext) {
+        if (tbPageContext != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditHeadActivityConfig(tbPageContext.getPageActivity(), 12001, 12010, null, TbadkCoreApplication.getCurrentAccountObj(), 1.0f)));
         }
     }
 }

@@ -1,9 +1,10 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import protobuf.ConfigVersion;
 /* loaded from: classes.dex */
-class w extends CustomMessageListener {
+class w extends com.baidu.adp.framework.listener.e {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,22 +16,14 @@ class w extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ah ahVar;
-        ah ahVar2;
-        ah ahVar3;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007013) {
-            this.this$0.aDs();
-            ahVar = this.this$0.fyv;
-            if (ahVar != null) {
-                ahVar2 = this.this$0.fyv;
-                if (ahVar2.biC() != null) {
-                    MainTabActivity mainTabActivity = this.this$0;
-                    ahVar3 = this.this$0.fyv;
-                    mainTabActivity.fyq = ahVar3.biC().getCurrentTabType();
-                }
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ConfigVersion configVersion;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+            if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
+                return;
             }
-            this.this$0.fyr = true;
+            this.this$0.qE(configVersion.sync);
         }
     }
 }

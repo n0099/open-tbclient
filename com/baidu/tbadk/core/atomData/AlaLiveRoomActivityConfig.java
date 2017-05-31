@@ -20,6 +20,11 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_PERSON_AUTO_PLAY = "person_auto_play";
     public static final String FROM_TYPE_PERSON_PLAY = "person_play";
     public static final String FROM_TYPE_SHARE_PLAY = "share_play";
+    public static final String FROM_TYPE_SQUARE_DYNAMIC = "square_dynamic";
+    public static final String FROM_TYPE_SQUARE_LIVE = "square_live";
+    public static final String FROM_TYPE_SQUARE_LIVE_BANNER = "square_live_banner";
+    public static final String FROM_TYPE_SQUARE_RECOMMEND = "square_recommend";
+    public static final String FROM_TYPE_SQUARE_SUB_LIVE = "square_sub_live";
     public static final String FROM_TYPE_TAIL_LIGHT = "tail_light_play";
     public static final String FROM_TYPE_VIDEO_AUTO_PLAY = "video_auto_play";
     public static final String FROM_TYPE_VIDEO_PLAY = "video_play";

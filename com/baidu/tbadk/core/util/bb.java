@@ -16,11 +16,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class bb {
-    private static bb agh = new bc();
-    private static final Pattern agl = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final List<a> agi;
-    private final ConcurrentHashMap<String, b> agj;
-    private c agk;
+    private static bb afX = new bc();
+    private static final Pattern agb = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private final List<a> afY;
+    private final ConcurrentHashMap<String, b> afZ;
+    private c aga;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -42,9 +42,9 @@ public class bb {
     }
 
     private bb() {
-        this.agi = new LinkedList();
-        this.agj = new ConcurrentHashMap<>();
-        this.agk = null;
+        this.afY = new LinkedList();
+        this.afZ = new ConcurrentHashMap<>();
+        this.aga = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -54,7 +54,7 @@ public class bb {
 
     public static SpannableString V(Context context, String str) {
         int start;
-        Matcher matcher = agl.matcher(str);
+        Matcher matcher = agb.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -68,8 +68,8 @@ public class bb {
         return spannableString;
     }
 
-    public static bb vB() {
-        return agh;
+    public static bb vy() {
+        return afX;
     }
 
     public void a(a aVar) {
@@ -82,13 +82,13 @@ public class bb {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a aVar) {
-        if (!this.agi.contains(aVar)) {
-            this.agi.add(aVar);
+        if (!this.afY.contains(aVar)) {
+            this.afY.add(aVar);
         }
     }
 
     public void a(c cVar) {
-        this.agk = cVar;
+        this.aga = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -100,12 +100,12 @@ public class bb {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.agj.get(dI(str));
+        b bVar = this.afZ.get(dF(str));
         if (bVar != null) {
-            bVar.a(tbPageContext, dH(dG(str)));
+            bVar.a(tbPageContext, dE(dD(str)));
             return 0;
         }
-        for (a aVar : this.agi) {
+        for (a aVar : this.afY) {
             if (aVar != null) {
                 Log.e("+-->", "--listener---" + aVar);
                 int a2 = aVar.a(tbPageContext, strArr);
@@ -124,12 +124,12 @@ public class bb {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.agj.get(dI(str2));
+        b bVar = this.afZ.get(dF(str2));
         if (bVar != null) {
-            bVar.a(tbPageContext, dH(dG(str2)));
+            bVar.a(tbPageContext, dE(dD(str2)));
             return true;
         }
-        Iterator<a> it = this.agi.iterator();
+        Iterator<a> it = this.afY.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z3 = false;
@@ -141,7 +141,7 @@ public class bb {
                 break;
             }
         }
-        if (!z3 && this.agk != null) {
+        if (!z3 && this.aga != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -152,7 +152,7 @@ public class bb {
         return z4;
     }
 
-    public static Map<String, String> dE(String str) {
+    public static Map<String, String> dB(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -170,7 +170,7 @@ public class bb {
         return null;
     }
 
-    public static String dF(String str) {
+    public static String dC(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -178,7 +178,7 @@ public class bb {
         return split[1];
     }
 
-    private String dG(String str) {
+    private String dD(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -196,7 +196,7 @@ public class bb {
         }
     }
 
-    private Map<String, String> dH(String str) {
+    private Map<String, String> dE(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -220,7 +220,7 @@ public class bb {
         return hashMap;
     }
 
-    private String dI(String str) {
+    private String dF(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -242,21 +242,21 @@ public class bb {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (agl.matcher(str2).find()) {
-            this.agk.a(tbPageContext, str, str2, z, dVar, z2);
+        if (agb.matcher(str2).find()) {
+            this.aga.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str) && bVar != null) {
-            String dI = dI(str);
-            if (!StringUtils.isNull(dI)) {
-                this.agj.put(dI, bVar);
+            String dF = dF(str);
+            if (!StringUtils.isNull(dF)) {
+                this.afZ.put(dF, bVar);
             }
         }
     }
 
-    public boolean dJ(String str) {
-        return agl.matcher(str).find();
+    public boolean dG(String str) {
+        return agb.matcher(str).find();
     }
 }

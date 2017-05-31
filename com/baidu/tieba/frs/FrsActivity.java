@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class FrsActivity extends BaseFragmentActivity {
-    private FragmentTransaction bGD;
-    private r bNK;
+    private FragmentTransaction bMs;
+    private r bTw;
     private FragmentManager mFragmentManager;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.bNK == null) {
-            this.bNK = new r();
-            this.bNK.setArguments(bundle);
+        if (this.bTw == null) {
+            this.bTw = new r();
+            this.bTw.setArguments(bundle);
             this.mFragmentManager = getSupportFragmentManager();
-            this.bGD = this.mFragmentManager.beginTransaction();
-            this.bGD.add(16908290, this.bNK);
-            this.bGD.commitAllowingStateLoss();
+            this.bMs = this.mFragmentManager.beginTransaction();
+            this.bMs.add(16908290, this.bTw);
+            this.bMs.commitAllowingStateLoss();
         }
     }
 
@@ -31,8 +31,8 @@ public class FrsActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.bNK != null) {
-            this.bNK.onNewIntent(intent);
+        if (this.bTw != null) {
+            this.bTw.onNewIntent(intent);
         }
     }
 
@@ -40,8 +40,8 @@ public class FrsActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.bNK != null) {
-            this.bNK.setPrimary(true);
+        if (this.bTw != null) {
+            this.bTw.setPrimary(true);
         }
     }
 
@@ -49,8 +49,8 @@ public class FrsActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.bNK != null) {
-            this.bNK.setPrimary(false);
+        if (this.bTw != null) {
+            this.bTw.setPrimary(false);
         }
     }
 
@@ -63,8 +63,8 @@ public class FrsActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
-        if (this.bNK != null) {
-            this.bNK.onChangeSkinType(i);
+        if (this.bTw != null) {
+            this.bTw.onChangeSkinType(i);
         }
     }
 
@@ -73,15 +73,15 @@ public class FrsActivity extends BaseFragmentActivity {
         return TbadkCoreApplication.m9getInst().isGpuOpen();
     }
 
-    public r YF() {
-        return this.bNK;
+    public r ZI() {
+        return this.bTw;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.bNK != null && !this.bNK.onKeyDown(i, keyEvent)) {
-                this.bNK.closeActivity();
+            if (this.bTw != null && !this.bTw.onKeyDown(i, keyEvent)) {
+                this.bTw.closeActivity();
             }
             return true;
         }
@@ -91,8 +91,8 @@ public class FrsActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.bNK != null) {
-            this.bNK.onActivityResult(i, i2, intent);
+        if (this.bTw != null) {
+            this.bTw.onActivityResult(i, i2, intent);
         }
     }
 }

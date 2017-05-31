@@ -8,7 +8,7 @@ public class l extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "switch_crab_sdk";
+        return "isConveneThreadOpen";
     }
 
     @Override // com.baidu.adp.lib.b.a

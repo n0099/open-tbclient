@@ -33,7 +33,7 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
-import com.baidu.location.BDLocation;
+import com.baidu.tieba.w;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -1219,7 +1219,7 @@ public class ViewPager extends ViewGroup {
                             i8 = paddingTop;
                             i9 = i16;
                             break;
-                        case 48:
+                        case w.n.View_onClick /* 48 */:
                             int measuredHeight2 = childAt.getMeasuredHeight() + paddingTop;
                             int i17 = paddingTop;
                             i9 = paddingBottom;
@@ -1944,7 +1944,7 @@ public class ViewPager extends ViewGroup {
                 return arrowScroll(17);
             case 22:
                 return arrowScroll(66);
-            case BDLocation.TypeGpsLocation /* 61 */:
+            case 61:
                 if (Build.VERSION.SDK_INT < 11) {
                     return false;
                 }

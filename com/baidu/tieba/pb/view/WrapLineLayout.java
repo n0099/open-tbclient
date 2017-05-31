@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WrapLineLayout extends ViewGroup {
-    private List<List<View>> eup;
-    private List<Integer> euq;
+    private List<List<View>> eDs;
+    private List<Integer> eDt;
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eup = new ArrayList();
-        this.euq = new ArrayList();
+        this.eDs = new ArrayList();
+        this.eDt = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -83,8 +83,8 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.eup.clear();
-        this.euq.clear();
+        this.eDs.clear();
+        this.eDt.clear();
         int width = getWidth();
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
@@ -97,8 +97,8 @@ public class WrapLineLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                this.euq.add(Integer.valueOf(i5));
-                this.eup.add(arrayList);
+                this.eDt.add(Integer.valueOf(i5));
+                this.eDs.add(arrayList);
                 i6 = 0;
                 arrayList = new ArrayList();
             }
@@ -109,15 +109,15 @@ public class WrapLineLayout extends ViewGroup {
             i5 = max;
             i6 = i8;
         }
-        this.euq.add(Integer.valueOf(i5));
-        this.eup.add(arrayList);
-        int size = this.eup.size();
+        this.eDt.add(Integer.valueOf(i5));
+        this.eDs.add(arrayList);
+        int size = this.eDs.size();
         int i9 = 0;
         int i10 = 0;
         int i11 = 0;
         while (i9 < size) {
-            List<View> list = this.eup.get(i9);
-            int intValue = this.euq.get(i9).intValue();
+            List<View> list = this.eDs.get(i9);
+            int intValue = this.eDt.get(i9).intValue();
             int i12 = 0;
             while (true) {
                 int i13 = i12;

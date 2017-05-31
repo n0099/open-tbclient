@@ -5,29 +5,29 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    final /* synthetic */ BdListView Ih;
+    final /* synthetic */ BdListView Ib;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(BdListView bdListView) {
-        this.Ih = bdListView;
+        this.Ib = bdListView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         com.baidu.adp.base.j jVar;
         com.baidu.adp.base.j X;
-        int childCount = this.Ih.getChildCount();
+        int childCount = this.Ib.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            refreshImage(this.Ih.getChildAt(i));
+            refreshImage(this.Ib.getChildAt(i));
         }
-        jVar = this.Ih.mScrollable;
+        jVar = this.Ib.mScrollable;
         if (jVar != null) {
-            X = this.Ih.mScrollable;
+            X = this.Ib.mScrollable;
         } else {
-            X = com.baidu.adp.base.k.X(this.Ih.getContext());
+            X = com.baidu.adp.base.k.X(this.Ib.getContext());
         }
         if (X != null) {
-            X.onPreLoad(this.Ih);
+            X.onPreLoad(this.Ib);
         }
     }
 

@@ -1,18 +1,29 @@
 package com.baidu.tieba.frs;
 
-import java.util.ArrayList;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements by {
-    final /* synthetic */ r bPn;
+public class ag extends CustomMessageListener {
+    final /* synthetic */ r bVb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(r rVar) {
-        this.bPn = rVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ag(r rVar, int i) {
+        super(i);
+        this.bVb = rVar;
     }
 
-    @Override // com.baidu.tieba.frs.by
-    public void a(int i, int i2, cg cgVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
-        com.baidu.adp.lib.g.h.fS().post(new ah(this));
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        onMessage2((CustomResponsedMessage) customResponsedMessage);
+    }
+
+    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001118) {
+            com.baidu.tieba.frs.e.c.a(customResponsedMessage, this.bVb.bUa, this.bVb.bTF);
+        }
     }
 }

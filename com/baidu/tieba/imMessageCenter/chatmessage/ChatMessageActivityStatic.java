@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.util.bb;
 public class ChatMessageActivityStatic {
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(ChatMessageActivityConfig.class, ChatMessageActivity.class);
-        Jy();
+        aks();
     }
 
-    private static void Jy() {
-        bb.vB().a(new b());
+    private static void aks() {
+        bb.vy().a(new b());
     }
 }

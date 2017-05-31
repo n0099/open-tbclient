@@ -1,18 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
-
-import java.util.Comparator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cy implements Comparator<Integer> {
-    final /* synthetic */ cq eiw;
+public class cy implements Runnable {
+    final /* synthetic */ cx eoe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(cq cqVar) {
-        this.eiw = cqVar;
+    public cy(cx cxVar) {
+        this.eoe = cxVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    public int compare(Integer num, Integer num2) {
-        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
+    @Override // java.lang.Runnable
+    public void run() {
+        cv cvVar;
+        cvVar = this.eoe.eod;
+        cvVar.notifyDataSetChanged();
     }
 }

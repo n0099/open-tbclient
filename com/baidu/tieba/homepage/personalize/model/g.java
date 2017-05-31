@@ -9,13 +9,13 @@ import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ RecPersonalizePageModel cwF;
+    final /* synthetic */ RecPersonalizePageModel cCX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(RecPersonalizePageModel recPersonalizePageModel, int i, int i2) {
         super(i, i2);
-        this.cwF = recPersonalizePageModel;
+        this.cCX = recPersonalizePageModel;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x0035  */
@@ -33,7 +33,7 @@ public class g extends com.baidu.adp.framework.listener.a {
         RecPersonalizePageModel.a aVar3;
         boolean z2 = false;
         if (responsedMessage != null) {
-            aVar = this.cwF.cwE;
+            aVar = this.cCX.cCW;
             if (aVar != null) {
                 if (responsedMessage.getOrginalMessage() != null) {
                     Object extra = responsedMessage.getOrginalMessage().getExtra();
@@ -42,8 +42,8 @@ public class g extends com.baidu.adp.framework.listener.a {
                         z = recPersonalizeRequest.getLoadType() == 1;
                         z2 = recPersonalizeRequest.getNeedForumlist() == 1;
                         if (responsedMessage.getError() == 0) {
-                            aVar3 = this.cwF.cwE;
-                            aVar3.z(responsedMessage.getError(), responsedMessage.getErrorString());
+                            aVar3 = this.cCX.cCW;
+                            aVar3.s(responsedMessage.getError(), responsedMessage.getErrorString());
                         } else {
                             DataRes dataRes = null;
                             if (responsedMessage instanceof RecPersonalizeSocketResponse) {
@@ -51,17 +51,17 @@ public class g extends com.baidu.adp.framework.listener.a {
                             } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
                                 dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                             }
-                            aVar2 = this.cwF.cwE;
+                            aVar2 = this.cCX.cCW;
                             aVar2.b(dataRes, z, z2);
                         }
                         if (responsedMessage instanceof RecPersonalizeSocketResponse) {
                             if (!(responsedMessage instanceof RecPersonalizeHttpResponse)) {
                                 return;
                             }
-                            this.cwF.g(responsedMessage);
+                            this.cCX.g(responsedMessage);
                             return;
                         }
-                        this.cwF.f(responsedMessage);
+                        this.cCX.f(responsedMessage);
                         return;
                     }
                 }

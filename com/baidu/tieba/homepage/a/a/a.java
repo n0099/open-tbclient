@@ -12,9 +12,9 @@ import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes.dex */
 public class a implements b, j {
-    protected List<Object> cwX;
-    protected List<Object> cwY;
+    protected List<Object> cDp;
     protected boolean mHasMore;
+    protected List<Object> mThreadList;
     protected int pn;
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -31,16 +31,16 @@ public class a implements b, j {
         ExcFrsPageResIdl excFrsPageResIdl;
         if ((message instanceof ExcFrsPageResIdl) && (excFrsPageResIdl = (ExcFrsPageResIdl) message) != null && excFrsPageResIdl.error != null && excFrsPageResIdl.error.errorno.intValue() == 0 && excFrsPageResIdl.data != null) {
             if (excFrsPageResIdl.data.thread_list != null) {
-                this.cwX = new ArrayList();
-                this.cwX.addAll(excFrsPageResIdl.data.thread_list);
+                this.mThreadList = new ArrayList();
+                this.mThreadList.addAll(excFrsPageResIdl.data.thread_list);
             }
             this.mHasMore = excFrsPageResIdl.data.has_more.intValue() == 1;
             this.pn = excFrsPageResIdl.data.pn.intValue();
             if (excFrsPageResIdl.data.tag_list != null) {
-                this.cwY = new ArrayList();
+                this.cDp = new ArrayList();
                 for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
                     if (excellentTagInfo != null) {
-                        this.cwY.add(excellentTagInfo);
+                        this.cDp.add(excellentTagInfo);
                     }
                 }
             }
@@ -48,7 +48,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Ej() {
+    public byte[] Ed() {
         return null;
     }
 

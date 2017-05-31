@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements HorizontalTabView.a {
-    final /* synthetic */ a bTm;
+    final /* synthetic */ a bZe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bTm = aVar;
+        this.bZe = aVar;
     }
 
     @Override // com.baidu.tieba.frs.tab.HorizontalTabView.a
@@ -20,13 +20,13 @@ public class d implements HorizontalTabView.a {
         n nVar;
         n nVar2;
         n nVar3;
-        nVar = this.bTm.bTj;
+        nVar = this.bZe.bZb;
         if (nVar != null) {
-            nVar2 = this.bTm.bTj;
-            if (nVar2.aHE() != null) {
+            nVar2 = this.bZe.bZb;
+            if (nVar2.aIz() != null) {
                 as asVar = new as("c12047");
-                nVar3 = this.bTm.bTj;
-                TiebaStatic.log(asVar.aa("fid", nVar3.aHE().getId()));
+                nVar3 = this.bZe.bZb;
+                TiebaStatic.log(asVar.Z("fid", nVar3.aIz().getId()));
             }
         }
     }

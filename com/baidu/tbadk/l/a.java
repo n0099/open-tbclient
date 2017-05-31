@@ -110,8 +110,8 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String netType = j.getNetType();
         if (netType != null) {
-            if (com.baidu.tbadk.coreExtra.b.a.xm().xn()) {
-                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xm().xo()));
+            if (com.baidu.tbadk.coreExtra.b.a.xf().xg()) {
+                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xf().xh()));
             }
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m9getInst().getKeepaliveWifi() == 1) {
@@ -159,18 +159,18 @@ public class a extends com.baidu.adp.framework.a.d {
     }
 
     private void d(HttpMessage httpMessage) {
-        ad.a uT = ad.uT();
-        if (uT != null) {
-            httpMessage.addParam("stTime", String.valueOf(uT.mTime));
-            httpMessage.addParam("stSize", String.valueOf(uT.aeT));
-            httpMessage.addParam("stTimesNum", String.valueOf(uT.aeU));
-            httpMessage.addParam("stMode", String.valueOf(uT.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(uT.aeS));
+        ad.a uQ = ad.uQ();
+        if (uQ != null) {
+            httpMessage.addParam("stTime", String.valueOf(uQ.mTime));
+            httpMessage.addParam("stSize", String.valueOf(uQ.aeK));
+            httpMessage.addParam("stTimesNum", String.valueOf(uQ.aeL));
+            httpMessage.addParam("stMode", String.valueOf(uQ.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(uQ.aeJ));
         }
-        int cC = ad.cC(0);
-        if (cC == 0 && uT != null) {
-            cC = uT.aeU;
+        int cD = ad.cD(0);
+        if (cD == 0 && uQ != null) {
+            cD = uQ.aeL;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cC));
+        httpMessage.addParam("stErrorNums", String.valueOf(cD));
     }
 }

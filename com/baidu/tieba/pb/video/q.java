@@ -1,52 +1,35 @@
 package com.baidu.tieba.pb.video;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.play.c;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.guide.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements c.d {
-    final /* synthetic */ g esY;
+public class q implements g.a {
+    final /* synthetic */ l eAW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(g gVar) {
-        this.esY = gVar;
+    public q(l lVar) {
+        this.eAW = lVar;
     }
 
-    @Override // com.baidu.tieba.play.c.d
-    public void aNP() {
-        PbActivity pbActivity;
-        bk bkVar;
-        bk bkVar2;
-        PbActivity pbActivity2;
-        bk bkVar3;
-        bk bkVar4;
-        bk bkVar5;
-        bk bkVar6;
-        pbActivity = this.esY.efF;
-        if (pbActivity != null) {
-            bkVar = this.esY.esQ;
-            if (bkVar != null) {
-                bkVar2 = this.esY.esQ;
-                if (!StringUtils.isNull(bkVar2.getId())) {
-                    pbActivity2 = this.esY.efF;
-                    bkVar3 = this.esY.esQ;
-                    pbActivity2.nB(bkVar3.getId());
-                    bkVar4 = this.esY.esP;
-                    if (bkVar4 != null) {
-                        long j = 0;
-                        bkVar5 = this.esY.esP;
-                        if (bkVar5.sC() != null) {
-                            bkVar6 = this.esY.esP;
-                            j = bkVar6.sC().channelId;
-                        }
-                        TiebaStatic.log(new as("c11921").g("obj_id", j));
-                    }
-                }
+    @Override // com.baidu.adp.lib.guide.g.a
+    public void fd() {
+    }
+
+    @Override // com.baidu.adp.lib.guide.g.a
+    public void onDismiss() {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        this.eAW.eAS = null;
+        bitmap = this.eAW.eAT;
+        if (bitmap != null) {
+            bitmap2 = this.eAW.eAT;
+            if (!bitmap2.isRecycled()) {
+                bitmap3 = this.eAW.eAT;
+                bitmap3.recycle();
             }
         }
+        this.eAW.eAT = null;
     }
 }

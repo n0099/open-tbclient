@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.card.data.CardHListViewData;
@@ -14,21 +14,21 @@ import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends w {
-    private l bOJ;
+    private l bUw;
 
     public a(com.baidu.tieba.frs.r rVar) {
         super(rVar);
-        this.bOJ = this.bNK.YS();
+        this.bUw = this.bTw.ZW();
     }
 
-    private void abK() {
-        if (this.bOJ == null) {
-            this.bOJ = this.bNK.YS();
+    private void acO() {
+        if (this.bUw == null) {
+            this.bUw = this.bTw.ZW();
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        abK();
+        acO();
         if (i2 == -1) {
             c(i, intent);
         } else if (i2 == 0) {
@@ -45,33 +45,33 @@ public class a extends w {
     }
 
     private void c(int i, Intent intent) {
-        bk pR;
+        bl qf;
         PostWriteCallBackData postWriteCallBackData;
-        com.baidu.tieba.tbadkCore.n Zq = this.bNK.Zq();
+        com.baidu.tieba.tbadkCore.n aau = this.bTw.aau();
         switch (i) {
             case 11001:
-                this.bNK.hJ(0);
+                this.bTw.ih(0);
                 return;
             case 11002:
-                this.bOx.ej(true);
+                this.bUk.ez(true);
                 return;
             case 11011:
-                com.baidu.tieba.frs.d.p.a(this.bNK, this.bNK.getThreadId(), this.bNK.aSs, this.bNK.Zb());
+                com.baidu.tieba.frs.e.p.a(this.bTw, this.bTw.getThreadId(), this.bTw.bbF, this.bTw.aaf());
                 return;
             case 11012:
-                com.baidu.tieba.frs.d.p.b(this.bNK, this.bNK.getThreadId(), this.bNK.aSs, this.bNK.Zb());
+                com.baidu.tieba.frs.e.p.b(this.bTw, this.bTw.getThreadId(), this.bTw.bbF, this.bTw.aaf());
                 return;
             case 11014:
-                this.bOx.adc();
+                this.bUk.aef();
                 return;
             case 11016:
-                this.bOn.ZG();
+                this.bUa.aaJ();
                 return;
             case 11033:
             default:
                 return;
             case 11036:
-                this.bOx.adb();
+                this.bUk.aee();
                 return;
             case 13003:
                 if (intent != null) {
@@ -80,56 +80,56 @@ public class a extends w {
                     } catch (Exception e) {
                         postWriteCallBackData = null;
                     }
-                    if (this.bOJ != null) {
-                        this.bOJ.a(postWriteCallBackData);
+                    if (this.bUw != null) {
+                        this.bUw.a(postWriteCallBackData);
                         return;
                     }
                     return;
                 }
                 return;
             case 18003:
-                this.bOn.ZO().notifyDataSetChanged();
-                if (this.bOx != null) {
-                    this.bOx.aak();
+                this.bUa.aaR().notifyDataSetChanged();
+                if (this.bUk != null) {
+                    this.bUk.abm();
                 }
                 int intExtra = intent.getIntExtra("type", -1);
                 if (intExtra == 4) {
-                    this.bNK.ch(6);
+                    this.bTw.ci(6);
                     return;
                 }
                 String stringExtra = intent.getStringExtra("tid");
-                if (stringExtra != null && (pR = Zq.pR(stringExtra)) != null) {
+                if (stringExtra != null && (qf = aau.qf(stringExtra)) != null) {
                     if (intExtra == 2) {
-                        pR.bS(intent.getIntExtra(PbActivityConfig.KEY_INTENT_GOOD_DATA, 0));
-                        pR.sg();
+                        qf.bT(intent.getIntExtra(PbActivityConfig.KEY_INTENT_GOOD_DATA, 0));
+                        qf.sc();
                     } else if (intExtra == 0) {
-                        Zq.M(pR);
-                        this.bOn.ZH();
-                        if (com.baidu.tieba.tbadkCore.c.beL() != null) {
-                            com.baidu.tieba.tbadkCore.c.beL().V(this.bNK.getForumName(), false);
+                        aau.W(qf);
+                        this.bUa.aaK();
+                        if (com.baidu.tieba.tbadkCore.c.bgf() != null) {
+                            com.baidu.tieba.tbadkCore.c.bgf().S(this.bTw.getForumName(), false);
                         }
                     }
-                    a(Zq, intent, stringExtra);
+                    a(aau, intent, stringExtra);
                     return;
                 }
                 return;
             case 18004:
-                com.baidu.tieba.frs.d.p.a(this.bNK.getPageContext(), Zq);
+                com.baidu.tieba.frs.e.p.a(this.bTw.getPageContext(), aau);
                 return;
             case 23003:
-                if (intent != null && Zq != null) {
-                    com.baidu.tieba.frs.d.h.a(this.bNK, Zq, intent.getIntExtra("group_id", 0), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
+                if (intent != null && aau != null) {
+                    com.baidu.tieba.frs.e.h.a(this.bTw, aau, intent.getIntExtra("group_id", 0), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
                     return;
                 }
                 return;
             case 23007:
-                com.baidu.tieba.frs.d.h.a(this.bNK, Zq, intent);
+                com.baidu.tieba.frs.e.h.a(this.bTw, aau, intent);
                 return;
             case 23013:
-                com.baidu.tieba.frs.d.p.y(this.bNK);
+                com.baidu.tieba.frs.e.p.y(this.bTw);
                 return;
             case 23019:
-                com.baidu.tieba.frs.d.p.a(this.bNK, this.bNK.bOe);
+                com.baidu.tieba.frs.e.p.a(this.bTw, this.bTw.bTR);
                 return;
             case 24002:
                 if (intent != null) {
@@ -137,8 +137,8 @@ public class a extends w {
                     int intExtra3 = intent.getIntExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, 0);
                     int intExtra4 = intent.getIntExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, 0);
                     int intExtra5 = intent.getIntExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, 0);
-                    if (intExtra2 == com.baidu.adp.lib.g.b.g(this.bNK.getForumId(), 0)) {
-                        this.bOx.t(intExtra3, intExtra4, intExtra5);
+                    if (intExtra2 == com.baidu.adp.lib.g.b.g(this.bTw.getForumId(), 0)) {
+                        this.bUk.t(intExtra3, intExtra4, intExtra5);
                         return;
                     }
                     return;
@@ -149,29 +149,29 @@ public class a extends w {
 
     private void a(com.baidu.tieba.tbadkCore.n nVar, Intent intent, String str) {
         ArrayList<com.baidu.adp.widget.ListView.v> dataList;
-        if (nVar != null && intent != null && !TextUtils.isEmpty(str) && this.bOw != null) {
+        if (nVar != null && intent != null && !TextUtils.isEmpty(str) && this.bUj != null) {
             int intExtra = intent.getIntExtra(PbActivityConfig.KEY_SMART_FRS_POSITION, -1);
-            if (this.bOw.acb()) {
+            if (this.bUj.adf()) {
                 Serializable serializableExtra = intent.getSerializableExtra(PbActivityConfig.KEY_INTENT_GUESS_LIKE_DATA);
-                if ((serializableExtra instanceof CardHListViewData) && (dataList = this.bYE.getDataList()) != null) {
+                if ((serializableExtra instanceof CardHListViewData) && (dataList = this.ceQ.getDataList()) != null) {
                     CardHListViewData cardHListViewData = (CardHListViewData) serializableExtra;
                     cardHListViewData.threadId = str;
                     if (com.baidu.tieba.frs.smartsort.d.a(dataList, str, cardHListViewData, intExtra)) {
                         nVar.ay(dataList);
-                        this.bOn.a(dataList, nVar);
-                        aN(str, this.bNK.getForumId());
+                        this.bUa.a(dataList, nVar);
+                        aL(str, this.bTw.getForumId());
                     }
                 }
             }
         }
     }
 
-    public static void aN(String str, String str2) {
+    public static void aL(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             as asVar = new as("c11959");
-            asVar.aa("tid", str);
-            asVar.aa("fid", str2);
-            asVar.s("obj_type", 1);
+            asVar.Z("tid", str);
+            asVar.Z("fid", str2);
+            asVar.r("obj_type", 1);
             TiebaStatic.log(asVar);
         }
     }

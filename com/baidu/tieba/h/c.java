@@ -1,42 +1,19 @@
 package com.baidu.tieba.h;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
-public class c extends CustomMessageListener {
-    final /* synthetic */ a fdP;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(a aVar, int i) {
-        super(i);
-        this.fdP = aVar;
+public class c extends com.baidu.adp.framework.a.c {
+    public c() {
+        super(0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        int i;
-        boolean z;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001176 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
-            ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
-            if (responseUnreadPointNum.getNum() > 0) {
-                i = this.fdP.fdx;
-                if (i < responseUnreadPointNum.getNum()) {
-                    this.fdP.fdz = true;
-                    a aVar = this.fdP;
-                    z = this.fdP.fdz;
-                    aVar.fdo = z ? true : this.fdP.fdo;
-                    this.fdP.fdx = responseUnreadPointNum.getNum();
-                    this.fdP.aZn();
-                    this.fdP.aZm();
-                }
-            }
-            this.fdP.fdx = responseUnreadPointNum.getNum();
-            this.fdP.fdz = false;
-            this.fdP.aZm();
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: b */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !a.jL(httpResponsedMessage.getCmd())) {
+            a.agz();
         }
+        return httpResponsedMessage;
     }
 }

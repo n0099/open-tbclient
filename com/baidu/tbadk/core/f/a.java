@@ -13,7 +13,7 @@ public interface a {
 
     void i(Context context, int i);
 
-    Class<?> tQ();
+    Class<?> tP();
 
-    String tR();
+    String tQ();
 }

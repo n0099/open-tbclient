@@ -6,11 +6,11 @@ import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements Runnable {
-    final /* synthetic */ j fIG;
+    final /* synthetic */ j fQz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.fIG = jVar;
+        this.fQz = jVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,14 +19,14 @@ public class k implements Runnable {
         PopupWindow popupWindow;
         Handler handler;
         Runnable runnable;
-        imageView = this.fIG.fIC;
+        imageView = this.fQz.fQv;
         if (imageView != null) {
-            popupWindow = this.fIG.fIE;
+            popupWindow = this.fQz.fQx;
             com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(popupWindow, imageView);
-            com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("show_person_tab_feedback_tips", true);
-            this.fIG.fIF = true;
-            handler = this.fIG.mHandler;
-            runnable = this.fIG.fze;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_person_tab_feedback_tips", true);
+            this.fQz.fQy = true;
+            handler = this.fQz.mHandler;
+            runnable = this.fQz.fGZ;
             handler.postDelayed(runnable, 3000L);
         }
     }

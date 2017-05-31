@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ ReplyLinearLayout eyU;
+    final /* synthetic */ ReplyLinearLayout eHG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ReplyLinearLayout replyLinearLayout) {
-        this.eyU = replyLinearLayout;
+        this.eHG = replyLinearLayout;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,14 +28,14 @@ public class a implements View.OnClickListener {
         boolean z2;
         String[] strArr = (String[]) view.getTag();
         as asVar = new as("c12043");
-        z = this.eyU.bdp;
-        TiebaStatic.log(asVar.s("obj_type", z ? 1 : 2));
+        z = this.eHG.beq;
+        TiebaStatic.log(asVar.r("obj_type", z ? 1 : 2));
         if (strArr != null) {
-            Context context = this.eyU.getContext();
+            Context context = this.eHG.getContext();
             if (strArr.length < 6 || strArr[5] == null || b.g(strArr[5], 0) != 33) {
                 z2 = false;
             } else if ("0".equals(strArr[3])) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context, strArr[1]).pl()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context, strArr[1]).pd()));
                 z2 = true;
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(context).createPhotoLiveCommentActivityConfig(strArr[1], strArr[2], false)));

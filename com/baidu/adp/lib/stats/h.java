@@ -23,7 +23,7 @@ class h extends Handler {
                 if ((message.obj instanceof g.a) && (aVar = (g.a) message.obj) != null) {
                     aVar.F(false);
                     aVar.G(false);
-                    aVar.al(0);
+                    aVar.am(0);
                     aVar.f(System.currentTimeMillis());
                     return;
                 }

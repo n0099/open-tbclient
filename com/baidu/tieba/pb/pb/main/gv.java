@@ -1,41 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.ep;
+import com.baidu.tieba.pb.a.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class gv extends CustomMessageListener {
-    final /* synthetic */ ReaderPbService epy;
+public class gv implements a.InterfaceC0071a {
+    final /* synthetic */ fx evi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gv(ReaderPbService readerPbService, int i) {
-        super(i);
-        this.epy = readerPbService;
+    public gv(fx fxVar) {
+        this.evi = fxVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ep.a aVar;
-        ep.a aVar2;
-        ep epVar;
-        ep epVar2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            if (intValue == 1) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10833").aa("obj_locate", "1"));
-                aVar2 = this.epy.mRefreshCallback;
-                epVar = this.epy.mReaderManager;
-                int i = epVar.elN;
-                epVar2 = this.epy.mReaderManager;
-                aVar2.aW(i, epVar2.aKU());
-            } else if (intValue == 2) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10833").aa("obj_locate", "2"));
-                aVar = this.epy.mRefreshCallback;
-                aVar.aKX();
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0071a
+    public void aaY() {
+        PbLandscapeListView pbLandscapeListView;
+        com.baidu.tieba.pb.video.l lVar;
+        PbLandscapeListView pbLandscapeListView2;
+        com.baidu.tieba.pb.video.l lVar2;
+        pbLandscapeListView = this.evi.esK;
+        if (pbLandscapeListView != null) {
+            lVar = this.evi.esB;
+            if (lVar != null) {
+                lVar2 = this.evi.esB;
+                lVar2.aOY();
             }
+            pbLandscapeListView2 = this.evi.esK;
+            pbLandscapeListView2.smoothScrollToPosition(0);
         }
+    }
+
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0071a
+    public void aaX() {
+        PbActivity pbActivity;
+        pbActivity = this.evi.elf;
+        pbActivity.aat();
     }
 }

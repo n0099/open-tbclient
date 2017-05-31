@@ -1,90 +1,88 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
-import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ev extends y.a {
-    private TbPageContext aat;
-    View.OnClickListener akc;
-    public View devider;
-    public TextView emc;
-    public TextView emd;
-    public TbImageView eme;
-    public TextView emf;
-    public TextView emg;
-    public TextView emh;
-    public TextView emi;
-    public TbImageView emj;
-    public LinearLayout emk;
-    private com.baidu.tbadk.core.data.at eml;
+public class ev implements View.OnClickListener {
+    final /* synthetic */ eu ery;
 
-    public ev(TbPageContext tbPageContext, View view) {
-        super(view);
-        this.akc = new ew(this);
-        this.aat = tbPageContext;
-        this.emc = (TextView) view.findViewById(w.h.textview_recommend_title);
-        this.emd = (TextView) view.findViewById(w.h.textview_recommend_option_btn);
-        this.eme = (TbImageView) view.findViewById(w.h.novel_cover);
-        this.emf = (TextView) view.findViewById(w.h.novel_title);
-        this.emg = (TextView) view.findViewById(w.h.novel_author);
-        this.emh = (TextView) view.findViewById(w.h.novel_read_number);
-        this.emi = (TextView) view.findViewById(w.h.novel_read_btn);
-        this.emk = (LinearLayout) view.findViewById(w.h.novel_recommend_item_layout);
-        this.emj = (TbImageView) view.findViewById(w.h.novel_subscription);
-        this.emj.setDefaultResource(w.g.transparent_bg);
-        this.emj.setDefaultBgResource(w.g.transparent_bg);
-        this.emj.setDefaultErrorResource(w.g.transparent_bg);
-        this.devider = view.findViewById(w.h.recommend_devider);
-        this.emi.setOnClickListener(this.akc);
-        this.emk.setOnClickListener(this.akc);
-        this.emd.setOnClickListener(this.akc);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ev(eu euVar) {
+        this.ery = euVar;
     }
 
-    public void a(com.baidu.tbadk.core.data.at atVar) {
-        if (atVar != null) {
-            this.eml = atVar;
-            this.emc.setText(atVar.WA);
-            this.emd.setText(atVar.WB);
-            this.emj.c(atVar.WF, 10, false);
-            this.eme.c(atVar.UK, 10, false);
-            this.emi.setText(atVar.WE);
-            this.emf.setText(atVar.UJ);
-            List<String> list = atVar.WD;
-            if (list != null) {
-                switch (list.size()) {
-                    case 1:
-                        if (list.get(0) != null) {
-                            this.emg.setText(list.get(0));
-                            break;
-                        }
-                        break;
-                    case 2:
-                        if (list.get(0) != null) {
-                            this.emg.setText(list.get(0));
-                        }
-                        if (list.get(1) != null) {
-                            this.emh.setText(list.get(1));
-                            break;
-                        }
-                        break;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        com.baidu.tbadk.core.data.at atVar;
+        com.baidu.tbadk.core.data.at atVar2;
+        TbPageContext tbPageContext2;
+        com.baidu.tbadk.core.data.at atVar3;
+        com.baidu.tbadk.core.data.at atVar4;
+        com.baidu.tbadk.core.data.at atVar5;
+        com.baidu.tbadk.core.data.at atVar6;
+        com.baidu.tbadk.core.data.at atVar7;
+        TbPageContext tbPageContext3;
+        com.baidu.tbadk.core.data.at atVar8;
+        com.baidu.tbadk.core.data.at atVar9;
+        com.baidu.tbadk.core.data.at atVar10;
+        com.baidu.tbadk.core.data.at atVar11;
+        TbPageContext tbPageContext4;
+        com.baidu.tbadk.core.data.at atVar12;
+        com.baidu.tbadk.core.data.at atVar13;
+        tbPageContext = this.ery.aas;
+        if (com.baidu.tbadk.core.util.bh.aN(tbPageContext.getPageActivity()) && com.baidu.adp.lib.util.k.hB()) {
+            if (view == this.ery.erj) {
+                atVar10 = this.ery.erv;
+                if (atVar10 != null) {
+                    atVar11 = this.ery.erv;
+                    if (!TextUtils.isEmpty(atVar11.Wr)) {
+                        com.baidu.tbadk.core.util.bb vy = com.baidu.tbadk.core.util.bb.vy();
+                        tbPageContext4 = this.ery.aas;
+                        atVar12 = this.ery.erv;
+                        vy.c((TbPageContext) com.baidu.adp.base.k.Z(tbPageContext4.getPageActivity()), new String[]{atVar12.Wr});
+                        com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c11410");
+                        atVar13 = this.ery.erv;
+                        TiebaStatic.log(asVar.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, atVar13.Wr));
+                    }
+                }
+            } else if (view == this.ery.ero) {
+                StringBuilder sb = new StringBuilder("link: ");
+                atVar5 = this.ery.erw;
+                BdLog.e(sb.append(atVar5.Wr).toString());
+                atVar6 = this.ery.erw;
+                if (atVar6 != null) {
+                    atVar7 = this.ery.erw;
+                    if (!TextUtils.isEmpty(atVar7.Wr)) {
+                        com.baidu.tbadk.core.util.bb vy2 = com.baidu.tbadk.core.util.bb.vy();
+                        tbPageContext3 = this.ery.aas;
+                        atVar8 = this.ery.erw;
+                        vy2.c((TbPageContext) com.baidu.adp.base.k.Z(tbPageContext3.getPageActivity()), new String[]{atVar8.Wr});
+                        com.baidu.tbadk.core.util.as asVar2 = new com.baidu.tbadk.core.util.as("c11409");
+                        atVar9 = this.ery.erw;
+                        TiebaStatic.log(asVar2.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, atVar9.Wr));
+                    }
+                }
+            } else if (view == this.ery.err) {
+                atVar = this.ery.erx;
+                if (atVar != null) {
+                    atVar2 = this.ery.erx;
+                    if (!TextUtils.isEmpty(atVar2.Wr)) {
+                        com.baidu.tbadk.core.util.bb vy3 = com.baidu.tbadk.core.util.bb.vy();
+                        tbPageContext2 = this.ery.aas;
+                        atVar3 = this.ery.erx;
+                        vy3.c((TbPageContext) com.baidu.adp.base.k.Z(tbPageContext2.getPageActivity()), new String[]{atVar3.Wr});
+                        com.baidu.tbadk.core.util.as asVar3 = new com.baidu.tbadk.core.util.as("c11408");
+                        atVar4 = this.ery.erx;
+                        TiebaStatic.log(asVar3.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, atVar4.Wr));
+                    }
                 }
             }
-            com.baidu.tbadk.core.util.aq.c(this.emc, w.e.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aq.c(this.emd, w.e.cp_link_tip_a, 1);
-            com.baidu.tbadk.core.util.aq.c(this.emf, w.e.cp_cont_b, 1);
-            com.baidu.tbadk.core.util.aq.c(this.emg, w.e.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aq.c(this.emh, w.e.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aq.c(this.emi, w.e.cp_link_tip_a, 1);
-            com.baidu.tbadk.core.util.aq.k(this.devider, w.e.cp_bg_line_b);
-            com.baidu.tbadk.core.util.aq.j(this.emi, w.g.btn_pb_novel_recommend_read);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11441").aa("obj_id", this.eml.bookId));
         }
     }
 }

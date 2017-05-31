@@ -14,23 +14,23 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
-    private com.baidu.tbadk.img.b awf;
-    private String fMI;
-    private int fMJ;
-    private AlbumActivity fMg;
+    private com.baidu.tbadk.img.b avP;
+    private AlbumActivity fTN;
+    private String fUp;
+    private int fUq;
     private List<e> mList;
     private int mWidth;
 
     public m(AlbumActivity albumActivity) {
-        this.fMg = albumActivity;
-        this.awf = albumActivity.afY();
-        this.mWidth = (int) this.fMg.getResources().getDimension(w.f.ds120);
-        this.fMJ = com.baidu.adp.lib.util.k.af(this.fMg.getPageContext().getPageActivity()) / 2;
+        this.fTN = albumActivity;
+        this.avP = albumActivity.ahn();
+        this.mWidth = (int) this.fTN.getResources().getDimension(w.f.ds120);
+        this.fUq = com.baidu.adp.lib.util.k.af(this.fTN.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<e> list, String str) {
         this.mList = list;
-        this.fMI = str;
+        this.fUp = str;
     }
 
     @Override // android.widget.Adapter
@@ -43,7 +43,7 @@ public class m extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sP */
+    /* renamed from: tk */
     public e getItem(int i) {
         if (this.mList == null || i < 0 || i >= this.mList.size()) {
             return null;
@@ -62,57 +62,57 @@ public class m extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.fMg.getPageContext().getPageActivity()).inflate(w.j.album_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.fTN.getPageContext().getPageActivity()).inflate(w.j.album_list_item, viewGroup, false);
             a aVar2 = new a(this, null);
-            aVar2.fML = (HeadImageView) view.findViewById(w.h.item_head);
-            aVar2.fMM = (TextView) view.findViewById(w.h.item_name);
-            aVar2.fMN = (ImageView) view.findViewById(w.h.item_arrow);
+            aVar2.fUs = (HeadImageView) view.findViewById(w.h.item_head);
+            aVar2.fUt = (TextView) view.findViewById(w.h.item_name);
+            aVar2.fUu = (ImageView) view.findViewById(w.h.item_arrow);
             view.setTag(aVar2);
             aVar = aVar2;
         }
-        aVar.fML.setTag(null);
-        aVar.fML.setDefaultResource(w.g.pic_image_h_not);
-        aVar.fML.c(null, 12, false);
-        aVar.fML.invalidate();
+        aVar.fUs.setTag(null);
+        aVar.fUs.setDefaultResource(w.g.pic_image_h_not);
+        aVar.fUs.c(null, 12, false);
+        aVar.fUs.invalidate();
         e item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.getName())) {
                 item.getName();
-                aVar.fMM.setText(String.valueOf(com.baidu.adp.lib.util.k.a(aVar.fMM.getPaint(), item.getName(), this.fMJ)) + "(" + item.bmi() + ")");
+                aVar.fUt.setText(String.valueOf(com.baidu.adp.lib.util.k.a(aVar.fUt.getPaint(), item.getName(), this.fUq)) + "(" + item.bnF() + ")");
             } else {
-                aVar.fMM.setText("");
+                aVar.fUt.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.fMI)) {
-                aVar.fMN.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.fUp)) {
+                aVar.fUu.setVisibility(0);
             } else {
-                aVar.fMN.setVisibility(8);
+                aVar.fUu.setVisibility(8);
             }
-            ImageFileInfo bmj = item.bmj();
-            if (bmj != null) {
-                bmj.clearPageActions();
-                bmj.addPageAction(com.baidu.tbadk.img.effect.d.M(this.mWidth, this.mWidth));
-                com.baidu.adp.widget.a.a a2 = this.awf.a(bmj, false);
-                aVar.fML.setTag(bmj.toCachedKey(false));
+            ImageFileInfo bnG = item.bnG();
+            if (bnG != null) {
+                bnG.clearPageActions();
+                bnG.addPageAction(com.baidu.tbadk.img.effect.d.L(this.mWidth, this.mWidth));
+                com.baidu.adp.widget.a.a a2 = this.avP.a(bnG, false);
+                aVar.fUs.setTag(bnG.toCachedKey(false));
                 if (a2 != null) {
-                    aVar.fML.invalidate();
+                    aVar.fUs.invalidate();
                 } else {
-                    this.awf.a(bmj, new n(this, viewGroup), false, this.fMg.isScroll());
+                    this.avP.a(bnG, new n(this, viewGroup), false, this.fTN.isScroll());
                 }
             }
         } else {
-            aVar.fMM.setText("");
+            aVar.fUt.setText("");
         }
-        this.fMg.getLayoutMode().ai(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-        this.fMg.getLayoutMode().t(view);
+        this.fTN.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+        this.fTN.getLayoutMode().t(view);
         return view;
     }
 
     /* loaded from: classes.dex */
     private class a {
-        HeadImageView fML;
-        TextView fMM;
-        ImageView fMN;
+        HeadImageView fUs;
+        TextView fUt;
+        ImageView fUu;
 
         private a() {
         }

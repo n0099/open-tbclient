@@ -27,11 +27,11 @@ public interface v {
         void onPrepared(v vVar);
     }
 
-    boolean Jk();
-
-    void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture);
+    boolean Jh();
 
     void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, int i);
+
+    void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, String str);
 
     void a(c cVar);
 

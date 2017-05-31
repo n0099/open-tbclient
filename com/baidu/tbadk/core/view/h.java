@@ -12,40 +12,40 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class h {
-    private View aiZ;
-    private TextView aja;
-    private ImageView ajb;
+    private View aiP;
+    private TextView aiQ;
+    private ImageView aiR;
     private Context mContext;
     private Toast zd;
-    public long aiW = 3000;
-    private int aiX = -1;
-    private int aiY = -1;
-    private Runnable ajd = new i(this);
-    private Handler ajc = new Handler();
+    public long aiM = 3000;
+    private int aiN = -1;
+    private int aiO = -1;
+    private Runnable aiT = new i(this);
+    private Handler aiS = new Handler();
 
     public h() {
         this.mContext = null;
-        this.aiZ = null;
-        this.aja = null;
-        this.ajb = null;
+        this.aiP = null;
+        this.aiQ = null;
+        this.aiR = null;
         this.mContext = TbadkCoreApplication.m9getInst().getContext();
-        this.aiZ = LayoutInflater.from(this.mContext).inflate(w.j.image_toast_view, (ViewGroup) null);
-        this.aja = (TextView) this.aiZ.findViewById(w.h.tip_text);
-        this.ajb = (ImageView) this.aiZ.findViewById(w.h.tip_iamge);
+        this.aiP = LayoutInflater.from(this.mContext).inflate(w.j.image_toast_view, (ViewGroup) null);
+        this.aiQ = (TextView) this.aiP.findViewById(w.h.tip_text);
+        this.aiR = (ImageView) this.aiP.findViewById(w.h.tip_iamge);
     }
 
     public void showToast(int i, int i2) {
-        this.aja.setText(i2);
-        this.ajb.setImageResource(i);
-        A(this.aiZ);
+        this.aiQ.setText(i2);
+        this.aiR.setImageResource(i);
+        A(this.aiP);
     }
 
     public void A(View view) {
-        this.ajc.removeCallbacks(this.ajd);
+        this.aiS.removeCallbacks(this.aiT);
         if (this.zd == null) {
             this.zd = new Toast(this.mContext);
         }
-        this.ajc.postDelayed(this.ajd, this.aiW);
+        this.aiS.postDelayed(this.aiT, this.aiM);
         this.zd.setView(view);
         this.zd.setDuration(1);
         this.zd.setGravity(17, 0, 0);
@@ -53,18 +53,18 @@ public class h {
     }
 
     public void c(CharSequence charSequence) {
-        this.aja.setText(charSequence);
-        this.ajb.setImageResource(w.g.icon_toast_game_ok);
-        A(this.aiZ);
+        this.aiQ.setText(charSequence);
+        this.aiR.setImageResource(w.g.icon_toast_game_ok);
+        A(this.aiP);
     }
 
     public void d(CharSequence charSequence) {
-        this.aja.setText(charSequence);
-        this.ajb.setImageResource(w.g.icon_toast_game_error);
-        A(this.aiZ);
+        this.aiQ.setText(charSequence);
+        this.aiR.setImageResource(w.g.icon_toast_game_error);
+        A(this.aiP);
     }
 
-    public void vZ() {
+    public void vW() {
         if (this.zd != null) {
             this.zd.cancel();
         }

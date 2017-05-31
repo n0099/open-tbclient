@@ -42,8 +42,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static volatile b Nd;
-    private PublicKey Nc;
+    private static volatile b MR;
+    private PublicKey MQ;
     private final Context a;
     private int b = 0;
 
@@ -250,7 +250,7 @@ public final class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.Nc);
+                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.MQ);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.location.b.a.d.a(a2))) {
                                                 aVar.c = true;
                                             }
@@ -280,7 +280,7 @@ public final class c {
             th = th;
         }
         try {
-            this.Nc = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+            this.MQ = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
             if (byteArrayInputStream != null) {
                 try {
                     byteArrayInputStream.close();
@@ -390,16 +390,16 @@ public final class c {
     }
 
     private static b ao(Context context) {
-        if (Nd == null) {
+        if (MR == null) {
             synchronized (b.class) {
-                if (Nd == null) {
+                if (MR == null) {
                     SystemClock.uptimeMillis();
-                    Nd = new c(context).mH();
+                    MR = new c(context).mA();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return Nd;
+        return MR;
     }
 
     public static String b(Context context) {
@@ -610,7 +610,7 @@ public final class c {
         return (str == null || !str.contains(":")) ? str : "";
     }
 
-    private b mH() {
+    private b mA() {
         boolean z;
         b bVar;
         b bVar2;
@@ -671,13 +671,13 @@ public final class c {
         boolean c = c("android.permission.READ_EXTERNAL_STORAGE");
         if (bVar == null && c) {
             this.b |= 2;
-            bVar2 = mJ();
+            bVar2 = mC();
         } else {
             bVar2 = bVar;
         }
         if (bVar2 == null) {
             this.b |= 8;
-            bVar2 = mI();
+            bVar2 = mB();
         }
         if (bVar2 == null && c) {
             this.b |= 1;
@@ -735,7 +735,7 @@ public final class c {
         return bVar3;
     }
 
-    private b mI() {
+    private b mB() {
         String b2 = b("com.baidu.deviceid");
         String b3 = b("bd_setting_i");
         if (TextUtils.isEmpty(b3)) {
@@ -756,7 +756,7 @@ public final class c {
         return bVar;
     }
 
-    private b mJ() {
+    private b mC() {
         File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
             String a2 = a(file);

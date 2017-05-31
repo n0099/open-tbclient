@@ -11,90 +11,90 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class h extends a {
-    protected TbImageView aDO;
-    protected TextView aDP;
-    protected TextView aDQ;
-    protected TextView aDR;
+    protected TbImageView aDB;
+    protected TextView aDC;
+    protected TextView aDD;
+    protected TextView aDE;
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(w.j.net_refresh_view_layout, (ViewGroup) null));
-        this.aDO = (TbImageView) this.aDG.findViewById(w.h.net_refresh_image);
-        this.aDP = (TextView) this.aDG.findViewById(w.h.net_refresh_desc);
-        this.aDQ = (TextView) this.aDG.findViewById(w.h.net_refresh_title);
-        this.aDR = (TextView) this.aDG.findViewById(w.h.net_refresh_button);
-        this.aDR.setOnClickListener(onClickListener);
-        this.aDG.setOnClickListener(null);
+        this.aDB = (TbImageView) this.aDt.findViewById(w.h.net_refresh_image);
+        this.aDC = (TextView) this.aDt.findViewById(w.h.net_refresh_desc);
+        this.aDD = (TextView) this.aDt.findViewById(w.h.net_refresh_title);
+        this.aDE = (TextView) this.aDt.findViewById(w.h.net_refresh_button);
+        this.aDE.setOnClickListener(onClickListener);
+        this.aDt.setOnClickListener(null);
     }
 
-    public void fQ(String str) {
+    public void fP(String str) {
         if (str == null) {
-            this.aDP.setVisibility(8);
+            this.aDC.setVisibility(8);
             return;
         }
-        this.aDP.setVisibility(0);
-        this.aDP.setText(str);
+        this.aDC.setVisibility(0);
+        this.aDC.setText(str);
     }
 
     public void setTitle(String str) {
         if (str != null) {
-            this.aDQ.setText(str);
+            this.aDD.setText(str);
         }
     }
 
-    public void fR(String str) {
+    public void fQ(String str) {
         if (str != null) {
-            this.aDR.setText(str);
+            this.aDE.setText(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.i.a
-    public void DY() {
-        super.DY();
+    public void DS() {
+        super.DS();
         onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.i.a
-    public void DZ() {
-        super.DZ();
-        this.aDO.setImageResource(0);
+    public void DT() {
+        super.DT();
+        this.aDB.setImageResource(0);
     }
 
-    public void eR(int i) {
-        ViewGroup.LayoutParams layoutParams = this.aDO.getLayoutParams();
+    public void eS(int i) {
+        ViewGroup.LayoutParams layoutParams = this.aDB.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.aDO.setLayoutParams(marginLayoutParams);
+            this.aDB.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void Ee() {
-        this.aDR.setVisibility(0);
-        this.aDQ.setVisibility(0);
-        aq.c(this.aDP, w.e.cp_cont_d, 1);
+    public void DY() {
+        this.aDE.setVisibility(0);
+        this.aDD.setVisibility(0);
+        aq.c(this.aDC, w.e.cp_cont_d, 1);
     }
 
-    public void Ef() {
-        this.aDR.setVisibility(8);
-        this.aDQ.setVisibility(8);
-        aq.c(this.aDP, w.e.cp_cont_b, 1);
+    public void DZ() {
+        this.aDE.setVisibility(8);
+        this.aDD.setVisibility(8);
+        aq.c(this.aDC, w.e.cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
-        if (DX()) {
+        if (DR()) {
             int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-            aq.c(this.aDO, w.g.net_refresh_emotion);
-            aq.b(this.aDP, w.e.cp_cont_d, 1, skinType);
-            aq.b(this.aDQ, w.e.cp_cont_b, 1, skinType);
-            aq.b(this.aDR, w.e.cp_cont_g, 1, skinType);
-            aq.d(this.aDR, w.g.btn_appdownload, skinType);
-            aq.k(this.aDG, w.e.cp_bg_line_d);
+            aq.c(this.aDB, w.g.net_refresh_emotion);
+            aq.b(this.aDC, w.e.cp_cont_d, 1, skinType);
+            aq.b(this.aDD, w.e.cp_cont_b, 1, skinType);
+            aq.b(this.aDE, w.e.cp_cont_g, 1, skinType);
+            aq.d(this.aDE, w.g.btn_appdownload, skinType);
+            aq.k(this.aDt, w.e.cp_bg_line_d);
         }
     }
 
-    public View Ed() {
-        return this.aDG;
+    public View DX() {
+        return this.aDt;
     }
 }

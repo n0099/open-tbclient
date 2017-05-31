@@ -12,7 +12,7 @@ class bc implements com.baidu.adp.lib.e.c<HeadImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: wH */
+    /* renamed from: wD */
     public HeadImageView fL() {
         return new HeadImageView(this.val$context);
     }

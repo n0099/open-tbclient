@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
 class am extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity eqU;
+    final /* synthetic */ NewSubPbActivity eye;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public am(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.eqU = newSubPbActivity;
+        this.eye = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,35 +32,35 @@ class am extends CustomMessageListener {
         SubPbModel subPbModel10;
         SubPbModel subPbModel11;
         SubPbModel subPbModel12;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.i)) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
-                com.baidu.tbadk.data.i iVar = (com.baidu.tbadk.data.i) customResponsedMessage.getData();
-                subPbModel = this.eqU.eqD;
-                if (subPbModel.aNe() != null) {
-                    subPbModel2 = this.eqU.eqD;
-                    if (subPbModel2.aNe().aIr() != null) {
-                        subPbModel3 = this.eqU.eqD;
-                        if (subPbModel3.aNe().aIr().getAuthor() != null) {
-                            subPbModel4 = this.eqU.eqD;
-                            if (currentAccount.equals(subPbModel4.aNe().aIr().getAuthor().getUserId())) {
-                                subPbModel5 = this.eqU.eqD;
-                                if (subPbModel5.aNe().aIr().getAuthor().getPendantData() != null) {
-                                    subPbModel6 = this.eqU.eqD;
-                                    subPbModel6.aNe().aIr().getAuthor().getPendantData().cr(iVar.pT());
-                                    subPbModel7 = this.eqU.eqD;
-                                    subPbModel7.aNe().aIr().getAuthor().getPendantData().O(iVar.BT());
-                                    aoVar = this.eqU.eqF;
-                                    subPbModel8 = this.eqU.eqD;
-                                    PostData aIr = subPbModel8.aNe().aIr();
-                                    subPbModel9 = this.eqU.eqD;
-                                    boolean aqM = subPbModel9.aNe().aqM();
-                                    subPbModel10 = this.eqU.eqD;
-                                    boolean nL = subPbModel10.aNe().nL();
-                                    subPbModel11 = this.eqU.eqD;
-                                    int aHR = subPbModel11.aHR();
-                                    subPbModel12 = this.eqU.eqD;
-                                    aoVar.a(aIr, aqM, nL, aHR, subPbModel12.aNu() != null);
+                com.baidu.tbadk.data.j jVar = (com.baidu.tbadk.data.j) customResponsedMessage.getData();
+                subPbModel = this.eye.exN;
+                if (subPbModel.aOn() != null) {
+                    subPbModel2 = this.eye.exN;
+                    if (subPbModel2.aOn().aJj() != null) {
+                        subPbModel3 = this.eye.exN;
+                        if (subPbModel3.aOn().aJj().getAuthor() != null) {
+                            subPbModel4 = this.eye.exN;
+                            if (currentAccount.equals(subPbModel4.aOn().aJj().getAuthor().getUserId())) {
+                                subPbModel5 = this.eye.exN;
+                                if (subPbModel5.aOn().aJj().getAuthor().getPendantData() != null) {
+                                    subPbModel6 = this.eye.exN;
+                                    subPbModel6.aOn().aJj().getAuthor().getPendantData().cq(jVar.pL());
+                                    subPbModel7 = this.eye.exN;
+                                    subPbModel7.aOn().aJj().getAuthor().getPendantData().O(jVar.BN());
+                                    aoVar = this.eye.exP;
+                                    subPbModel8 = this.eye.exN;
+                                    PostData aJj = subPbModel8.aOn().aJj();
+                                    subPbModel9 = this.eye.exN;
+                                    boolean arL = subPbModel9.aOn().arL();
+                                    subPbModel10 = this.eye.exN;
+                                    boolean nD = subPbModel10.aOn().nD();
+                                    subPbModel11 = this.eye.exN;
+                                    int aIM = subPbModel11.aIM();
+                                    subPbModel12 = this.eye.exN;
+                                    aoVar.a(aJj, arL, nD, aIM, subPbModel12.aOD() != null);
                                 }
                             }
                         }

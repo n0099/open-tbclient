@@ -5,11 +5,11 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class u implements Animation.AnimationListener {
-    final /* synthetic */ PersonalChatView ddP;
+    final /* synthetic */ PersonalChatView djk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(PersonalChatView personalChatView) {
-        this.ddP = personalChatView;
+        this.djk = personalChatView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -23,7 +23,7 @@ public class u implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         LinearLayout linearLayout;
-        linearLayout = this.ddP.ddH;
+        linearLayout = this.djk.djc;
         linearLayout.setVisibility(8);
     }
 }

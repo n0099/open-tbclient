@@ -1,49 +1,42 @@
 package com.baidu.tieba.pb.view;
 
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
-import android.widget.LinearLayout;
+import android.os.CountDownTimer;
 import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.w;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import java.util.concurrent.TimeUnit;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k {
-    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
-        if (smallTailInfo != null && smallTailInfo.tailSpannable != null && smallTailInfo.tailSpannable.length() != 0 && textView != null) {
-            smallTailInfo.updateShowInfo();
-            b(smallTailInfo, textView, z, z2, z3);
-        }
+public class k extends CountDownTimer {
+    final /* synthetic */ PbInterviewStatusView eCk;
+    private final /* synthetic */ PbActivity eCl;
+    private final /* synthetic */ TextView eCm;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(PbInterviewStatusView pbInterviewStatusView, long j, long j2, TextView textView, PbActivity pbActivity) {
+        super(j, j2);
+        this.eCk = pbInterviewStatusView;
+        this.eCm = textView;
+        this.eCl = pbActivity;
     }
 
-    private static void b(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
-        if (smallTailInfo != null && textView != null) {
-            Resources resources = TbadkCoreApplication.m9getInst().getResources();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-            if (z2 && z3) {
-                layoutParams.setMargins((int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds8), (int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds18));
-            } else if (z) {
-                layoutParams.setMargins(0, (int) resources.getDimension(w.f.ds8), 0, 0);
-            } else if (!z2) {
-                layoutParams.setMargins((int) resources.getDimension(w.f.ds116), (int) resources.getDimension(w.f.ds8), (int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds14));
-            } else {
-                layoutParams.setMargins((int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds8), (int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds14));
-            }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) "icon");
-            spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-            Drawable drawable = aq.getDrawable(w.g.icon_pb_tail);
-            int g = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds32);
-            drawable.setBounds(0, 0, g, g);
-            com.baidu.tbadk.widget.h hVar = new com.baidu.tbadk.widget.h(drawable);
-            hVar.fj(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds4));
-            spannableStringBuilder.setSpan(hVar, 0, 4, 33);
-            textView.setLayoutParams(layoutParams);
-            textView.setText(spannableStringBuilder);
-            textView.setTextColor(smallTailInfo.showColorId);
-            textView.setVisibility(0);
+    @Override // android.os.CountDownTimer
+    public void onTick(long j) {
+        this.eCm.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
+    }
+
+    @Override // android.os.CountDownTimer
+    public void onFinish() {
+        com.baidu.tbadk.core.dialog.a aVar;
+        com.baidu.tbadk.core.dialog.a aVar2;
+        aVar = this.eCk.eCd;
+        if (aVar != null) {
+            aVar2 = this.eCk.eCd;
+            aVar2.dismiss();
+        }
+        if (this.eCl != null) {
+            this.eCl.aKd();
         }
     }
 }

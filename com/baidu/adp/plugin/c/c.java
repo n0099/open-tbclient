@@ -19,18 +19,18 @@ public class c implements d<Message<?>> {
         if (message == null) {
             return false;
         }
-        String aC = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().aC(message.getCmd());
-        if (TextUtils.isEmpty(aC) || com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().bq(aC)) {
+        String aD = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().aD(message.getCmd());
+        if (TextUtils.isEmpty(aD) || com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().bq(aD)) {
             return false;
         }
-        if (PluginCenter.getInstance().hasInstance(aC)) {
-            if (PluginCenter.getInstance().isLoaded(aC)) {
+        if (PluginCenter.getInstance().hasInstance(aD)) {
+            if (PluginCenter.getInstance().isLoaded(aD)) {
                 return false;
             }
-            this.DO.a(aC, message);
+            this.DO.a(aD, message);
             return true;
         }
-        this.DO.a(aC, message);
-        return PluginCenter.getInstance().launch(aC).CB;
+        this.DO.a(aD, message);
+        return PluginCenter.getInstance().launch(aD).CB;
     }
 }

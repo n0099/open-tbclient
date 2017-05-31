@@ -1,43 +1,41 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.Topic;
+import tbclient.FrsPage.TopNotice;
 /* loaded from: classes.dex */
 public class bp {
-    private int Zq = 0;
-    private int Zr = 0;
-    private String link = "";
+    private String title = null;
+    private String title_link = null;
+    private String author = null;
+    private int id = 0;
 
-    public int sQ() {
-        return this.Zq;
+    public String getTitle() {
+        return this.title;
     }
 
-    public int sR() {
-        return this.Zr;
-    }
-
-    public String getLink() {
-        return this.link;
+    public String sO() {
+        return this.title_link;
     }
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.Zq = jSONObject.optInt("is_lpost", 0);
-                this.Zr = jSONObject.optInt("topic_type", 0);
-                this.link = jSONObject.optString("link", "");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        try {
+            this.title = jSONObject.getString(VrPlayerActivityConfig.TITLE);
+            this.title_link = jSONObject.getString("title_link");
+            this.author = jSONObject.getString("author");
+            this.id = jSONObject.getInt("id");
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public void a(Topic topic) {
-        if (topic != null) {
-            this.Zq = topic.is_lpost.intValue();
-            this.Zr = topic.topic_type.intValue();
-            this.link = topic.link;
+    public void a(TopNotice topNotice) {
+        if (topNotice != null) {
+            this.title = topNotice.title;
+            this.title_link = topNotice.title_link;
+            this.author = topNotice.author;
+            this.id = topNotice.id.intValue();
         }
     }
 }

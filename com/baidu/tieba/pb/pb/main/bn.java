@@ -1,44 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements DialogInterface.OnCancelListener {
-    private final /* synthetic */ MarkData ehK;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a ehL;
-    final /* synthetic */ PbActivity ehy;
+public class bn implements a.b {
+    private final /* synthetic */ int cgB;
+    private final /* synthetic */ String cgC;
+    private final /* synthetic */ long cgD;
+    private final /* synthetic */ ShareFromPBMsgData dlq;
+    final /* synthetic */ PbActivity enc;
+    private final /* synthetic */ hh enm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(PbActivity pbActivity, MarkData markData, com.baidu.tbadk.core.dialog.a aVar) {
-        this.ehy = pbActivity;
-        this.ehK = markData;
-        this.ehL = aVar;
+    public bn(PbActivity pbActivity, hh hhVar, int i, String str, long j, ShareFromPBMsgData shareFromPBMsgData) {
+        this.enc = pbActivity;
+        this.enm = hhVar;
+        this.cgB = i;
+        this.cgC = str;
+        this.cgD = j;
+        this.dlq = shareFromPBMsgData;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        fm fmVar;
-        fm fmVar2;
-        fm fmVar3;
-        dialogInterface.dismiss();
-        int[] iArr = new int[2];
-        fmVar = this.ehy.egt;
-        if (fmVar != null) {
-            fmVar2 = this.ehy.egt;
-            if (fmVar2.getView() != null) {
-                fmVar3 = this.ehy.egt;
-                fmVar3.getView().getLocationOnScreen(iArr);
-            }
-        }
-        if (iArr[0] > 0) {
-            Intent intent = new Intent();
-            intent.putExtra(PbActivityConfig.KEY_MARK, this.ehK);
-            this.ehy.setResult(-1, intent);
-            this.ehL.dismiss();
-            this.ehy.aIW();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        int aJJ;
+        this.enc.HidenSoftKeyPad((InputMethodManager) this.enc.getSystemService("input_method"), this.enm.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.enc.getPageContext().getPageActivity(), this.cgB, this.cgC, this.cgD, "from_share", this.enm.getLeaveMsg(), this.dlq.toChatMessageContent())));
+        aVar.dismiss();
+        aJJ = this.enc.aJJ();
+        if (aJJ == 1) {
+            this.enc.aJP();
         }
     }
 }

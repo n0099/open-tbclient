@@ -10,9 +10,9 @@ public interface a {
 
     void bz(String str);
 
-    void lU();
+    void lM();
 
-    boolean lV();
+    boolean lN();
 
     void release();
 

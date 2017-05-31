@@ -1,54 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.inputmethod.InputMethodManager;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class gq implements View.OnClickListener {
-    final /* synthetic */ fm epr;
+class gq implements Runnable {
+    final /* synthetic */ gp evk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gq(fm fmVar) {
-        this.epr = fmVar;
+    public gq(gp gpVar) {
+        this.evk = gpVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // java.lang.Runnable
+    public void run() {
+        fx fxVar;
         PbActivity pbActivity;
+        fx fxVar2;
         PbActivity pbActivity2;
-        PbActivity pbActivity3;
-        PbActivity pbActivity4;
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            boolean booleanValue = sparseArray.get(w.h.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_should_manage_visible)).booleanValue() : false;
-            boolean booleanValue2 = sparseArray.get(w.h.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_user_mute_visible)).booleanValue() : false;
-            boolean booleanValue3 = sparseArray.get(w.h.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_should_delete_visible)).booleanValue() : false;
-            if (booleanValue) {
-                if (com.baidu.tieba.c.a.SJ()) {
-                    pbActivity3 = this.epr.efF;
-                    Context baseContext = pbActivity3.getBaseContext();
-                    pbActivity4 = this.epr.efF;
-                    if (com.baidu.tieba.c.a.a(baseContext, pbActivity4.aIN().getThreadID(), (String) sparseArray.get(w.h.tag_subpb_main_floor_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue())) {
-                        return;
-                    }
-                }
-                if (booleanValue2) {
-                    sparseArray.put(w.h.tag_from, 1);
-                    pbActivity2 = this.epr.efF;
-                    pbActivity2.d(sparseArray);
-                    return;
-                }
-                this.epr.aW(view);
-            } else if (booleanValue2) {
-                sparseArray.put(w.h.tag_from, 0);
-                sparseArray.put(w.h.tag_check_mute_from, 1);
-                pbActivity = this.epr.efF;
-                pbActivity.d(sparseArray);
-            } else if (booleanValue3) {
-                this.epr.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
-            }
-        }
+        fx fxVar3;
+        RelativeLayout relativeLayout;
+        fxVar = this.evk.evi;
+        pbActivity = fxVar.elf;
+        fxVar2 = this.evk.evi;
+        pbActivity2 = fxVar2.elf;
+        fxVar3 = this.evk.evi;
+        relativeLayout = fxVar3.bMv;
+        pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
     }
 }

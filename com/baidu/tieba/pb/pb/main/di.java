@@ -1,38 +1,43 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import android.content.Context;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class di {
-    private BaseActivity bdY;
-    private PbModel efE;
-    private a ehs = null;
-    protected final HttpMessageListener eja = new dj(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+public class di implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.layout.c> {
+    final /* synthetic */ dh eor;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void i(int i, String str, String str2);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public di(dh dhVar) {
+        this.eor = dhVar;
     }
 
-    public di(PbModel pbModel, BaseActivity baseActivity) {
-        this.efE = pbModel;
-        this.bdY = baseActivity;
-        this.bdY.registerListener(this.eja);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: abN */
+    public com.baidu.tbadk.widget.layout.c fL() {
+        Context context;
+        context = this.eor.mContext;
+        return new com.baidu.tbadk.widget.layout.c(context);
     }
 
-    public void a(a aVar) {
-        this.ehs = aVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public void o(com.baidu.tbadk.widget.layout.c cVar) {
+        cVar.removeAllViews();
     }
 
-    public void od(int i) {
-        if (this.efE != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-            httpMessage.addParam("thread_id", this.efE.getThreadID());
-            httpMessage.addParam("status", String.valueOf(i));
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: d */
+    public com.baidu.tbadk.widget.layout.c p(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: e */
+    public com.baidu.tbadk.widget.layout.c q(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
     }
 }

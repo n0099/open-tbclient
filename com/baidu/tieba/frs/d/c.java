@@ -1,50 +1,33 @@
 package com.baidu.tieba.frs.d;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.frs.at;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import java.util.HashSet;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c {
-    public static void j(at atVar) {
-        HashMap<Integer, bk> aaC;
-        if (atVar != null && atVar.ZO() != null && (aaC = atVar.ZO().aaC()) != null) {
-            ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bk> entry : aaC.entrySet()) {
-                bk value = entry.getValue();
-                if (value != null && (value instanceof AdvertAppInfo)) {
-                    arrayList.add((AdvertAppInfo) value);
-                }
-            }
-            com.baidu.tieba.recapp.c.a.aYt().o(arrayList);
-        }
+public class c extends CustomMessageListener {
+    final /* synthetic */ b cfj;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(b bVar, int i) {
+        super(i);
+        this.cfj = bVar;
     }
 
-    public static void a(ResponsedMessage<?> responsedMessage, at atVar, com.baidu.tieba.tbadkCore.n nVar) {
-        List<DownloadData> data;
-        boolean z;
-        if (nVar != null && atVar != null && (responsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) responsedMessage).getData()) != null) {
-            Iterator<DownloadData> it = data.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = false;
-                    break;
-                } else if (it.next().getStatus() == 0) {
-                    z = true;
-                    break;
-                }
-            }
-            if (z) {
-                com.baidu.adp.lib.g.h.fS().postDelayed(new d(atVar), TimeUnit.SECONDS.toMillis(2L));
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        HashSet hashSet;
+        HashSet hashSet2;
+        if (customResponsedMessage == null) {
+            return;
         }
+        hashSet = this.cfj.cfh;
+        if (hashSet == null) {
+            return;
+        }
+        hashSet2 = this.cfj.cfh;
+        hashSet2.clear();
     }
 }

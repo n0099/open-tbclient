@@ -9,15 +9,15 @@ import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class NoPressedRelativeLayout extends RelativeLayout {
-    float HJ;
-    int HP;
-    private View aks;
-    private View akt;
-    float aku;
-    private Rect akv;
-    private boolean akw;
-    private a akx;
-    private boolean aky;
+    float HI;
+    int HO;
+    private View aki;
+    private View akj;
+    float akk;
+    private Rect akl;
+    private boolean akm;
+    private a akn;
+    private boolean ako;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -25,17 +25,17 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     }
 
     public void setDispathEventAction(a aVar) {
-        this.akx = aVar;
+        this.akn = aVar;
     }
 
     public NoPressedRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.HJ = 0.0f;
-        this.HP = 0;
-        this.aku = 0.0f;
-        this.akw = false;
-        this.aky = false;
-        this.HP = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.HI = 0.0f;
+        this.HO = 0;
+        this.akk = 0.0f;
+        this.akm = false;
+        this.ako = false;
+        this.HO = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,35 +45,35 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.akx != null) {
-            this.akx.j(motionEvent);
+        if (this.akn != null) {
+            this.akn.j(motionEvent);
         }
-        if (this.aks != null) {
+        if (this.aki != null) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.HJ = motionEvent.getRawY();
-                    this.aku = 0.0f;
+                    this.HI = motionEvent.getRawY();
+                    this.akk = 0.0f;
                     if (getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                        this.akw = true;
+                        this.akm = true;
                         setBottomViewClickEventEnabled(false);
                     } else {
-                        this.akw = false;
+                        this.akm = false;
                         setBottomViewClickEventEnabled(true);
                     }
                     return super.dispatchTouchEvent(motionEvent);
                 case 1:
                 case 3:
-                    if (this.akw && Math.abs(this.HJ - motionEvent.getRawY()) < this.HP && this.aku < this.HP && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                    if (this.akm && Math.abs(this.HI - motionEvent.getRawY()) < this.HO && this.akk < this.HO && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
                         setBottomViewClickEventEnabled(false);
-                        if (this.aks.isClickable()) {
-                            this.aks.performClick();
+                        if (this.aki.isClickable()) {
+                            this.aki.performClick();
                         }
                         return true;
                     }
                     break;
                 case 2:
-                    this.aku = this.aku > Math.abs(this.HJ - motionEvent.getRawY()) ? this.aku : Math.abs(this.HJ - motionEvent.getRawY());
-                    if (this.akw && this.aku < this.HP) {
+                    this.akk = this.akk > Math.abs(this.HI - motionEvent.getRawY()) ? this.akk : Math.abs(this.HI - motionEvent.getRawY());
+                    if (this.akm && this.akk < this.HO) {
                         setBottomViewClickEventEnabled(false);
                     } else {
                         setBottomViewClickEventEnabled(true);
@@ -86,50 +86,50 @@ public class NoPressedRelativeLayout extends RelativeLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.aky) {
+        if (this.ako) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setNeedInterceptTouchEvent(boolean z) {
-        this.aky = z;
+        this.ako = z;
     }
 
     public void setTopOrderView(View view) {
-        this.aks = view;
+        this.aki = view;
     }
 
-    private boolean wi() {
-        if (this.aks == null) {
+    private boolean wf() {
+        if (this.aki == null) {
             return false;
         }
-        if (this.akv == null) {
+        if (this.akl == null) {
             return true;
         }
-        return this.akv.width() <= 0 || this.akv.height() <= 0;
+        return this.akl.width() <= 0 || this.akl.height() <= 0;
     }
 
     private Rect getTopViewRect() {
-        if (wi()) {
+        if (wf()) {
             int[] iArr = new int[2];
-            if (this.aks != null) {
-                this.aks.getLocationOnScreen(iArr);
-                this.akv = new Rect(iArr[0], iArr[1], iArr[0] + this.aks.getWidth(), iArr[1] + this.aks.getHeight());
+            if (this.aki != null) {
+                this.aki.getLocationOnScreen(iArr);
+                this.akl = new Rect(iArr[0], iArr[1], iArr[0] + this.aki.getWidth(), iArr[1] + this.aki.getHeight());
             }
         }
-        return this.akv;
+        return this.akl;
     }
 
     private void setBottomViewClickEventEnabled(boolean z) {
-        if (this.akt != null) {
-            this.akt.setEnabled(z);
-            this.akt.setClickable(z);
-            this.akt.setLongClickable(z);
+        if (this.akj != null) {
+            this.akj.setEnabled(z);
+            this.akj.setClickable(z);
+            this.akj.setLongClickable(z);
         }
     }
 
     public void setBottomOrderView(View view) {
-        this.akt = view;
+        this.akj = view;
     }
 }

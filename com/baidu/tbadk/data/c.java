@@ -1,31 +1,44 @@
 package com.baidu.tbadk.data;
 
-import org.json.JSONObject;
-import tbclient.VipCloseAd;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class c {
-    private int axo = 1;
-    private int axp;
+public class c extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId awY = BdUniqueId.gen();
+    public String awZ;
+    private com.baidu.tbadk.core.data.UserData mUserData;
+    public long mUserId;
+    private int size;
+    public String userName;
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.axo = jSONObject.optInt("is_open");
-            this.axp = jSONObject.optInt("vip_close");
+    public c() {
+        if (this.mUserData != null) {
+            this.mUserId = com.baidu.adp.lib.g.b.c(this.mUserData.getUserId(), 0L);
+            this.userName = this.mUserData.getUserName();
+            this.awZ = TbadkCoreApplication.m9getInst().getResources().getString(w.l.my_module);
         }
     }
 
-    public void a(VipCloseAd vipCloseAd) {
-        if (vipCloseAd != null) {
-            this.axo = vipCloseAd.is_open.intValue();
-            this.axp = vipCloseAd.vip_close.intValue();
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return awY;
+    }
+
+    public void a(com.baidu.tbadk.core.data.UserData userData) {
+        if (userData != null) {
+            this.mUserData = userData;
+            this.mUserId = com.baidu.adp.lib.g.b.c(this.mUserData.getUserId(), 0L);
+            this.userName = this.mUserData.getUserName();
+            this.awZ = TbadkCoreApplication.m9getInst().getResources().getString(w.l.my_module);
         }
     }
 
-    public int BK() {
-        return this.axo;
+    public int getSize() {
+        return this.size;
     }
 
-    public int BL() {
-        return this.axp;
+    public void setSize(int i) {
+        this.size = i;
     }
 }

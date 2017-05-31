@@ -1,28 +1,22 @@
 package com.baidu.tieba.frs.e;
 
-import com.baidu.tbadk.core.data.BlockPopInfoData;
+import android.view.inputmethod.InputMethodManager;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.bb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements a.b {
-    final /* synthetic */ i cbx;
-    private final /* synthetic */ BlockPopInfoData cby;
+    private final /* synthetic */ com.baidu.tieba.frs.r cgw;
+    private final /* synthetic */ com.baidu.tieba.frs.view.i cgx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(i iVar, BlockPopInfoData blockPopInfoData) {
-        this.cbx = iVar;
-        this.cby = blockPopInfoData;
+    public l(com.baidu.tieba.frs.r rVar, com.baidu.tieba.frs.view.i iVar) {
+        this.cgw = rVar;
+        this.cgx = iVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.frs.r rVar;
-        bb vB = bb.vB();
-        rVar = this.cbx.bPw;
-        vB.c(rVar.getPageContext(), new String[]{this.cby.ahead_url});
-        if (aVar != null) {
-            aVar.dismiss();
-        }
+        this.cgw.HidenSoftKeyPad((InputMethodManager) this.cgw.getActivity().getSystemService("input_method"), this.cgx.getChatMsgView());
+        aVar.dismiss();
     }
 }

@@ -1,105 +1,139 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class el extends y.a {
-    private TbPageContext aat;
-    View.OnClickListener bjv;
-    public TextView elA;
-    public LinearLayout elB;
-    public ImageView elC;
-    public TextView elD;
-    public LinearLayout elE;
-    public ImageView elF;
-    public TextView elG;
-    public View elH;
-    private com.baidu.tbadk.core.data.as elI;
-    private com.baidu.tbadk.core.data.as elJ;
-    private com.baidu.tbadk.core.data.as elK;
-    public LinearLayout elu;
-    public View elv;
-    public RelativeLayout elw;
-    public TbImageView elx;
-    public TextView ely;
-    public TextView elz;
-    private int mSkinType;
+public class el extends com.baidu.tbadk.core.dialog.c {
+    private TbPageContext<?> aas;
+    private View.OnClickListener bTd;
+    private TextView buw;
+    private TextView eqm;
+    private TextView eqn;
+    private TextView eqo;
+    private TextView eqp;
+    private TextView eqq;
+    private boolean eqr;
+    private boolean eqs;
 
-    public el(TbPageContext tbPageContext, View view) {
-        super(view);
-        this.mSkinType = 3;
-        this.bjv = new em(this);
-        this.aat = tbPageContext;
-        this.elu = (LinearLayout) view.findViewById(w.h.pb_news_info_layout);
-        this.elv = view.findViewById(w.h.pb_list_item_top_line);
-        this.elw = (RelativeLayout) view.findViewById(w.h.pb_top_code);
-        this.elx = (TbImageView) view.findViewById(w.h.top_code_img);
-        this.ely = (TextView) view.findViewById(w.h.top_code_get_btn);
-        this.elz = (TextView) view.findViewById(w.h.top_code_detail_summary_text);
-        this.elA = (TextView) view.findViewById(w.h.top_code_detail_subtitle_text);
-        this.elB = (LinearLayout) view.findViewById(w.h.news_info);
-        this.elC = (ImageView) view.findViewById(w.h.news_info_img);
-        this.elD = (TextView) view.findViewById(w.h.news_info_text);
-        this.elE = (LinearLayout) view.findViewById(w.h.game_info);
-        this.elF = (ImageView) view.findViewById(w.h.game_info_img);
-        this.elG = (TextView) view.findViewById(w.h.game_info_text);
-        this.elH = view.findViewById(w.h.pb_news_info_divider);
-        setOnClickListener(this.bjv);
+    public el(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
+        super(tbPageContext.getPageActivity());
+        this.eqs = false;
+        this.aas = tbPageContext;
+        this.bTd = onClickListener;
+        aLz();
     }
 
-    public void a(ej ejVar) {
-        if (ejVar != null) {
-            this.elI = ejVar.elp;
-            this.elJ = ejVar.elq;
-            this.elK = ejVar.elr;
-            if (this.elI != null) {
-                this.elx.c(this.elI.Wy, 10, false);
-                this.elz.setText(this.elI.summary);
-                this.elA.setText(this.elI.subtitle);
-                this.ely.setText(this.elI.buttonText);
-                com.baidu.tbadk.core.util.aq.j(this.ely, w.g.selector_star_btn_like);
-                com.baidu.tbadk.core.util.aq.i(this.ely, w.g.news_text_color_selector);
-            } else {
-                this.elw.setVisibility(8);
-            }
-            if (this.elJ != null) {
-                this.elD.setText(this.elJ.summary);
-                com.baidu.tbadk.core.util.aq.j(this.elC, w.g.icon_frs_news);
-            } else {
-                this.elB.setVisibility(8);
-                this.elD.setVisibility(8);
-                this.elC.setVisibility(8);
-            }
-            if (this.elK != null) {
-                this.elG.setText(this.elK.summary);
-                com.baidu.tbadk.core.util.aq.j(this.elF, w.g.icon_frs_game);
-            } else {
-                this.elE.setVisibility(8);
-                this.elG.setVisibility(8);
-                this.elG.setVisibility(8);
-            }
-            this.elu.setTag(ejVar);
+    public TextView aLt() {
+        return this.eqm;
+    }
+
+    public TextView aLu() {
+        return this.eqn;
+    }
+
+    public TextView aLv() {
+        return this.buw;
+    }
+
+    public TextView aLw() {
+        return this.eqo;
+    }
+
+    public TextView aLx() {
+        return this.eqq;
+    }
+
+    public TextView aLy() {
+        return this.eqp;
+    }
+
+    private void aLz() {
+        a(new CharSequence[]{this.aas.getString(w.l.reply_current_floor), this.aas.getString(w.l.no_interesting), this.aas.getString(w.l.mark), this.aas.getString(w.l.mute), this.aas.getString(w.l.report_text), this.aas.getString(w.l.delete)}, new em(this));
+        d(this.aas);
+        this.eqp = ap(cf(0));
+        this.eqq = ap(cf(1));
+        this.eqm = ap(cf(2));
+        this.eqn = ap(cf(3));
+        this.buw = ap(cf(4));
+        this.eqo = ap(cf(5));
+    }
+
+    public void showDialog() {
+        tf();
+    }
+
+    private TextView ap(View view) {
+        return (TextView) view.findViewById(w.h.dialog_item_btn);
+    }
+
+    private View aV(View view) {
+        if (view == null) {
+            return null;
         }
+        return view.findViewById(w.h.line);
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            this.aat.getLayoutMode().ai(i == 1);
-            this.aat.getLayoutMode().t(getView());
-            this.mSkinType = i;
+    public void iw(boolean z) {
+        this.buw.setVisibility(z ? 0 : 8);
+    }
+
+    public void ix(boolean z) {
+        this.eqr = z;
+    }
+
+    public boolean aLA() {
+        return this.eqs;
+    }
+
+    public void iy(boolean z) {
+        this.eqs = z;
+    }
+
+    public void refreshUI() {
+        View view;
+        TextView ap;
+        int itemCount = getItemCount();
+        ArrayList arrayList = new ArrayList();
+        boolean z = true;
+        for (int i = itemCount - 1; i >= 0; i--) {
+            View cf = cf(i);
+            if (cf != null) {
+                TextView ap2 = ap(cf(i));
+                View aV = aV(cf(i));
+                if (ap2 != null) {
+                    if (ap2.getVisibility() == 8) {
+                        aV.setVisibility(8);
+                    } else {
+                        arrayList.add(cf);
+                        if (z) {
+                            aV.setVisibility(8);
+                            com.baidu.tbadk.core.util.aq.j(cf, w.g.dialog_single_button_bg_selector);
+                            z = false;
+                        } else {
+                            aV.setVisibility(0);
+                        }
+                    }
+                }
+            }
         }
-    }
-
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.elw.setOnClickListener(onClickListener);
-        this.elB.setOnClickListener(onClickListener);
-        this.elE.setOnClickListener(onClickListener);
+        int i2 = 0;
+        while (true) {
+            if (i2 >= itemCount) {
+                break;
+            }
+            View cf2 = cf(i2);
+            if (cf2 == null || (ap = ap(cf(i2))) == null || ap.getVisibility() != 0) {
+                i2++;
+            } else {
+                com.baidu.tbadk.core.util.aq.j(cf2, w.g.dialog_single_button_first_bg_selector);
+                break;
+            }
+        }
+        if (com.baidu.tbadk.core.util.x.q(arrayList) == 1 && (view = (View) arrayList.get(0)) != null) {
+            com.baidu.tbadk.core.util.aq.j(view, w.g.dialog_single_button_only_one_bg_selector);
+        }
     }
 }

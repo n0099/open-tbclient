@@ -5,27 +5,27 @@ import com.baidu.adp.widget.ListView.v;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b implements v {
-    public static final BdUniqueId exW = BdUniqueId.gen();
-    public boolean ckU;
-    public String exX;
-    public String exY;
-    public String exZ;
-    public String eya;
-    public int eyb;
-    public List<com.baidu.tieba.personInfo.b> eyc;
+    public static final BdUniqueId eGO = BdUniqueId.gen();
+    public boolean crt;
+    public String eGP;
+    public String eGQ;
+    public String eGR;
+    public String eGS;
+    public int eGT;
+    public List<com.baidu.tieba.personInfo.b> eGU;
 
     public b(boolean z, com.baidu.tieba.personInfo.a aVar) {
-        this.ckU = z;
-        this.exY = aVar.icon;
-        this.exX = aVar.title;
-        this.exZ = aVar.booktown;
-        this.eya = aVar.tip;
-        this.eyc = aVar.dRc;
-        this.eyb = aVar.eBF;
+        this.crt = z;
+        this.eGQ = aVar.icon;
+        this.eGP = aVar.title;
+        this.eGR = aVar.booktown;
+        this.eGS = aVar.tip;
+        this.eGU = aVar.dWx;
+        this.eGT = aVar.eKr;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return exW;
+        return eGO;
     }
 }

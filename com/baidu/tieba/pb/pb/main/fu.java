@@ -1,50 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.animation.Animation;
+import android.graphics.drawable.Drawable;
+import android.text.Html;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fu implements Animation.AnimationListener {
-    final /* synthetic */ fm epr;
+public class fu implements Html.ImageGetter {
+    final /* synthetic */ ft est;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fu(fm fmVar) {
-        this.epr = fmVar;
+    public fu(ft ftVar) {
+        this.est = ftVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.j jVar2;
-        View view;
-        boolean z2;
-        z = this.epr.eot;
-        if (!z) {
-            jVar = this.epr.Kg;
-            if (jVar != null) {
-                jVar2 = this.epr.Kg;
-                jVar2.lW();
-                return;
-            }
-            return;
+    @Override // android.text.Html.ImageGetter
+    public Drawable getDrawable(String str) {
+        int parseInt = Integer.parseInt(str);
+        Drawable drawable = TbadkCoreApplication.m9getInst().getResources().getDrawable(w.g.praise_01);
+        try {
+            drawable = TbadkCoreApplication.m9getInst().getResources().getDrawable(parseInt);
+        } catch (Exception e) {
         }
-        view = this.epr.eoo;
-        if (view != null) {
-            z2 = this.epr.dlE;
-            if (z2) {
-                this.epr.go(false);
-            } else {
-                this.epr.gp(false);
-            }
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+        drawable.setBounds(0, 0, com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst(), w.f.ds36), com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst(), w.f.ds36));
+        return drawable;
     }
 }

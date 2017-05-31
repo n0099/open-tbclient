@@ -1,39 +1,27 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.message.ResponseReportUserInfoMessage;
-import com.baidu.tieba.model.ReportUserInfoModel;
+import com.baidu.tbadk.core.a.a;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.model.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends HttpMessageListener {
-    final /* synthetic */ ReportUserInfoModel dON;
+public class e implements a.InterfaceC0035a {
+    final /* synthetic */ c.a dUh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(ReportUserInfoModel reportUserInfoModel, int i) {
-        super(i);
-        this.dON = reportUserInfoModel;
+    public e(c.a aVar) {
+        this.dUh = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        ReportUserInfoModel.a aVar;
-        ReportUserInfoModel.a aVar2;
-        ReportUserInfoModel.a aVar3;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522) {
-            aVar = this.dON.dOL;
-            if (aVar != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
-                ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
-                if (responseReportUserInfoMessage.getErrorCode() == 0) {
-                    aVar3 = this.dON.dOL;
-                    aVar3.nv(responseReportUserInfoMessage.getTimeInterval());
-                    return;
-                }
-                aVar2 = this.dON.dOL;
-                aVar2.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
-            }
-        }
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
+    public void cf(String str) {
+    }
+
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
+    public void a(AccountData accountData) {
+    }
+
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
+    public void b(String str, int i, String str2) {
     }
 }

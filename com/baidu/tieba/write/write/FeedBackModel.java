@@ -9,23 +9,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class FeedBackModel extends BdBaseModel<WriteActivity> {
-    private a fRl;
-    private ArrayList<com.baidu.tbadk.core.data.bk> fRm;
-    private WriteActivity fRn;
+    private a fZh;
+    private ArrayList<com.baidu.tbadk.core.data.bl> fZi;
+    private WriteActivity fZj;
     private int mErrCode;
 
     public FeedBackModel(WriteActivity writeActivity) {
         super(writeActivity.getPageContext());
-        this.fRl = null;
-        this.fRm = null;
+        this.fZh = null;
+        this.fZi = null;
         this.mErrCode = 0;
-        this.fRn = writeActivity;
-        this.fRm = new ArrayList<>();
+        this.fZj = writeActivity;
+        this.fZi = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.bk> bnW() {
-        return this.fRm;
+    public ArrayList<com.baidu.tbadk.core.data.bl> bpv() {
+        return this.fZi;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,11 +34,11 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ri(String str) {
-        if (this.fRl == null) {
-            this.fRl = new a(this, null);
-            this.fRl.setPriority(3);
-            this.fRl.execute(str);
+    public void rw(String str) {
+        if (this.fZh == null) {
+            this.fZh = new a(this, null);
+            this.fZh.setPriority(3);
+            this.fZh.execute(str);
         }
     }
 
@@ -57,17 +57,17 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: F */
+        /* renamed from: D */
         public FeedBackModel doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
             this.mNetWork = new com.baidu.tbadk.core.util.z(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
             this.mNetWork.n("kw", obj);
-            String ul = this.mNetWork.ul();
-            if (!this.mNetWork.uJ().vE().isRequestSuccess()) {
+            String ug = this.mNetWork.ug();
+            if (!this.mNetWork.uF().vB().isRequestSuccess()) {
                 return null;
             }
-            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.fRn);
-            feedBackModel.parserJson(ul);
+            FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.fZj);
+            feedBackModel.parserJson(ug);
             return feedBackModel;
         }
 
@@ -77,14 +77,14 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.fRl = null;
+            FeedBackModel.this.fZh = null;
             FeedBackModel.this.mLoadDataCallBack.g(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.fRl = null;
+            FeedBackModel.this.fZh = null;
             if (this.mNetWork != null) {
                 this.mNetWork.fs();
             }
@@ -108,9 +108,9 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            com.baidu.tbadk.core.data.bk bkVar = new com.baidu.tbadk.core.data.bk();
-                            bkVar.parserJson(jSONObject2);
-                            this.fRm.add(bkVar);
+                            com.baidu.tbadk.core.data.bl blVar = new com.baidu.tbadk.core.data.bl();
+                            blVar.parserJson(jSONObject2);
+                            this.fZi.add(blVar);
                         }
                     }
                 }
@@ -127,8 +127,8 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.fRl != null) {
-            this.fRl.cancel();
+        if (this.fZh != null) {
+            this.fZh.cancel();
             return true;
         }
         return true;

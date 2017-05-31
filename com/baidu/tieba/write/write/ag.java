@@ -7,11 +7,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity fSV;
+    final /* synthetic */ WriteActivity gaR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(WriteActivity writeActivity) {
-        this.fSV = writeActivity;
+        this.gaR = writeActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -21,16 +21,16 @@ public class ag implements View.OnTouchListener {
         com.baidu.tbadk.editortools.j jVar2;
         EditText editText2;
         if (motionEvent.getAction() == 2) {
-            editText = this.fSV.fkB;
+            editText = this.gaR.fst;
             if (editText != null) {
-                Context context = this.fSV.getPageContext().getContext();
-                editText2 = this.fSV.fkB;
+                Context context = this.gaR.getPageContext().getContext();
+                editText2 = this.gaR.fst;
                 com.baidu.adp.lib.util.k.b(context, editText2);
             }
-            jVar = this.fSV.azd;
+            jVar = this.gaR.ayP;
             if (jVar != null) {
-                jVar2 = this.fSV.azd;
-                jVar2.AN();
+                jVar2 = this.gaR.ayP;
+                jVar2.AG();
                 return false;
             }
             return false;

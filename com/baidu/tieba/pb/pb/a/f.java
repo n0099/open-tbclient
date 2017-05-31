@@ -7,46 +7,46 @@ import com.baidu.tieba.pb.pb.a.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Animator.AnimatorListener {
-    final /* synthetic */ d eep;
-    private final /* synthetic */ d.a eeq;
-    private final /* synthetic */ long eer;
+    final /* synthetic */ d ejP;
+    private final /* synthetic */ d.a ejQ;
+    private final /* synthetic */ long ejR;
     private final /* synthetic */ View val$v;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar, d.a aVar, long j, View view) {
-        this.eep = dVar;
-        this.eeq = aVar;
-        this.eer = j;
+        this.ejP = dVar;
+        this.ejQ = aVar;
+        this.ejR = j;
         this.val$v = view;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationStart(Animator animator) {
         boolean z;
-        z = this.eep.eek;
+        z = this.ejP.ejK;
         if (!z) {
-            if (this.eeq.eew != null) {
-                this.eeq.bW(this.eeq.eew.UD);
+            if (this.ejQ.ejW != null) {
+                this.ejQ.bZ(this.ejQ.ejW.Up);
             }
-            ObjectAnimator.ofFloat(this.eep.eej, "alpha", 1.0f, 0.0f).setDuration(this.eer / 3).start();
+            ObjectAnimator.ofFloat(this.ejP.ejJ, "alpha", 1.0f, 0.0f).setDuration(this.ejR / 3).start();
         }
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
         boolean z;
-        z = this.eep.eek;
+        z = this.ejP.ejK;
         if (!z) {
-            this.eep.hO(true);
-            this.eep.eek = true;
+            this.ejP.ic(true);
+            this.ejP.ejK = true;
         } else {
             this.val$v.setClickable(true);
-            this.eeq.aIE();
-            this.eep.aID();
-            ObjectAnimator.ofFloat(this.eep.eej, "alpha", 0.0f, 1.0f).setDuration(this.eer / 3).start();
-            this.eep.eek = false;
+            this.ejQ.aJw();
+            this.ejP.aJv();
+            ObjectAnimator.ofFloat(this.ejP.ejJ, "alpha", 0.0f, 1.0f).setDuration(this.ejR / 3).start();
+            this.ejP.ejK = false;
         }
-        this.eep.eeo = false;
+        this.ejP.ejO = false;
     }
 
     @Override // android.animation.Animator.AnimatorListener

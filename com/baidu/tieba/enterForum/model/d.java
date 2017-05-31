@@ -12,31 +12,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private TbPageContext<?> aat;
-    private ViewEventCenter bGb;
-    private SoftReference<m> bHv;
-    private com.baidu.tieba.enterForum.a.d bHw;
+    private TbPageContext<?> aas;
+    private ViewEventCenter bLQ;
+    private SoftReference<m> bNj;
+    private com.baidu.tieba.enterForum.a.d bNk;
 
     public d(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        this.aat = tbPageContext;
-        this.bGb = viewEventCenter;
+        this.aas = tbPageContext;
+        this.bLQ = viewEventCenter;
     }
 
-    public m WE() {
-        if (this.bHv == null) {
+    public m XH() {
+        if (this.bNj == null) {
             return null;
         }
-        return this.bHv.get();
+        return this.bNj.get();
     }
 
-    public void WF() {
-        m mVar = new m(this.aat.getPageActivity());
-        mVar.setEventCenter(this.bGb);
-        this.bHv = new SoftReference<>(mVar);
+    public void XI() {
+        m mVar = new m(this.aas.getPageActivity());
+        mVar.setEventCenter(this.bLQ);
+        this.bNj = new SoftReference<>(mVar);
     }
 
     public List<g> getDataList() {
-        return TbadkCoreApplication.m9getInst().getSkinType() != 2 ? d(this.bHw.getDataList(), false) : this.bHw.getDataList();
+        return TbadkCoreApplication.m9getInst().getSkinType() != 2 ? d(this.bNk.getDataList(), false) : this.bNk.getDataList();
     }
 
     public void b(g gVar) {
@@ -44,17 +44,17 @@ public class d {
         if (dataList != null) {
             dataList.remove(gVar);
             if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                this.bHw.x(d(dataList, true));
+                this.bNk.x(d(dataList, true));
             } else {
-                this.bHw.x(dataList);
+                this.bNk.x(dataList);
             }
         }
     }
 
     public void ag(List<g> list) {
         m mVar;
-        if (this.bHv != null && list != null && (mVar = this.bHv.get()) != null) {
-            mVar.WS();
+        if (this.bNj != null && list != null && (mVar = this.bNj.get()) != null) {
+            mVar.XV();
             ah(list);
         }
     }
@@ -79,33 +79,33 @@ public class d {
     }
 
     public void ah(List<g> list) {
-        m mVar = this.bHv.get();
+        m mVar = this.bNj.get();
         if (mVar != null) {
-            if (this.bHw == null) {
-                WG();
+            if (this.bNk == null) {
+                XJ();
             }
-            mVar.setGridAdapterIfNeeded(this.bHw);
+            mVar.setGridAdapterIfNeeded(this.bNk);
             if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                this.bHw.x(d(list, true));
+                this.bNk.x(d(list, true));
             } else {
-                this.bHw.x(list);
+                this.bNk.x(list);
             }
-            this.bHw.b(this.aat, TbadkCoreApplication.m9getInst().getSkinType());
+            this.bNk.b(this.aas, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
-    private void WG() {
-        this.bHw = new com.baidu.tieba.enterForum.a.d(this.aat, o.class, w.j.home_like_item_in_edit_grid, this.bGb);
-        this.bHw.bV(false);
+    private void XJ() {
+        this.bNk = new com.baidu.tieba.enterForum.a.d(this.aas, o.class, w.j.home_like_item_in_edit_grid, this.bLQ);
+        this.bNk.bS(false);
     }
 
-    public void o(TbPageContext<?> tbPageContext) {
+    public void n(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.bHv.get() != null) {
-                this.bHv.get().o(tbPageContext);
+            if (this.bNj.get() != null) {
+                this.bNj.get().n(tbPageContext);
             }
-            if (this.bHw != null) {
-                this.bHw.b(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
+            if (this.bNk != null) {
+                this.bNk.b(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
             }
         }
     }

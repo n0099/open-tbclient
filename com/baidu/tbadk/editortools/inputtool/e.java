@@ -5,17 +5,17 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableStringBuilder;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ InputView aAB;
-    private final /* synthetic */ SpannableStringBuilder aAE;
-    private final /* synthetic */ int aAF;
-    private final /* synthetic */ int aAG;
+    final /* synthetic */ InputView aAn;
+    private final /* synthetic */ SpannableStringBuilder aAq;
+    private final /* synthetic */ int aAr;
+    private final /* synthetic */ int aAs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(InputView inputView, SpannableStringBuilder spannableStringBuilder, int i, int i2) {
-        this.aAB = inputView;
-        this.aAE = spannableStringBuilder;
-        this.aAF = i;
-        this.aAG = i2;
+        this.aAn = inputView;
+        this.aAq = spannableStringBuilder;
+        this.aAr = i;
+        this.aAs = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +29,7 @@ class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
             int width = (int) (0.5d * kR.getWidth());
             bitmapDrawable.setBounds(0, 0, width, width);
             bitmapDrawable.setGravity(119);
-            this.aAE.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), this.aAF, this.aAG, 33);
+            this.aAq.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), this.aAr, this.aAs, 33);
         }
     }
 }

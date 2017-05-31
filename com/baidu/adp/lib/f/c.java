@@ -102,7 +102,7 @@ public class c {
         }
     }
 
-    public boolean ak(int i) {
+    public boolean al(int i) {
         e<?> eVar = this.wj.get(i);
         if (eVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);

@@ -7,11 +7,11 @@ import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ c eSq;
+    final /* synthetic */ c fbb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(c cVar) {
-        this.eSq = cVar;
+        this.fbb = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,66 +20,73 @@ public class q implements View.OnClickListener {
         ImageView imageView;
         ImageView imageView2;
         ImageView imageView3;
+        int i;
         c.f fVar;
         String str;
         c.f fVar2;
         c.d dVar;
         c.d dVar2;
         int id = view.getId();
-        view2 = this.eSq.aTG;
+        view2 = this.fbb.bCL;
         if (id != view2.getId()) {
-            if (view.getId() != this.eSq.aTB.getId()) {
+            if (view.getId() != this.fbb.bCH.getId()) {
                 int id2 = view.getId();
-                imageView = this.eSq.dqF;
+                imageView = this.fbb.dvX;
                 if (id2 != imageView.getId()) {
-                    if (view.getId() != this.eSq.eSh.getId()) {
-                        if (view.getId() == this.eSq.eSg.getId()) {
-                            fVar = this.eSq.eSo;
+                    if (view.getId() != this.fbb.faR.getId()) {
+                        if (view.getId() == this.fbb.faQ.getId()) {
+                            fVar = this.fbb.faY;
                             if (fVar != null) {
-                                fVar2 = this.eSq.eSo;
-                                fVar2.aNQ();
+                                fVar2 = this.fbb.faY;
+                                fVar2.aOZ();
                             }
-                            c cVar = this.eSq;
-                            str = this.eSq.mVideoUrl;
+                            c cVar = this.fbb;
+                            str = this.fbb.mVideoUrl;
                             cVar.startPlay(str);
                             return;
                         }
                         int id3 = view.getId();
-                        imageView2 = this.eSq.dqG;
+                        imageView2 = this.fbb.dvY;
                         if (id3 == imageView2.getId()) {
-                            if (this.eSq.cCa) {
+                            if (this.fbb.cHz) {
                                 TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11714"));
                             } else {
                                 TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11710"));
                             }
-                            this.eSq.awo();
+                            this.fbb.axh();
                             return;
                         }
                         int id4 = view.getId();
-                        imageView3 = this.eSq.dqN;
+                        imageView3 = this.fbb.dwf;
                         if (id4 == imageView3.getId()) {
                             TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11713"));
-                            this.eSq.awo();
+                            this.fbb.axh();
                             return;
-                        } else if (view.getId() != this.eSq.dqy.getId() || !this.eSq.dqP) {
-                            return;
+                        } else if (view.getId() == this.fbb.dvQ.getId() && this.fbb.dwh) {
+                            i = this.fbb.akf;
+                            if (i == 2) {
+                                this.fbb.aOR();
+                                return;
+                            } else {
+                                this.fbb.aXF();
+                                return;
+                            }
                         } else {
-                            this.eSq.aWo();
                             return;
                         }
                     }
-                    dVar = this.eSq.eSn;
+                    dVar = this.fbb.faX;
                     if (dVar != null) {
-                        dVar2 = this.eSq.eSn;
-                        dVar2.aNP();
+                        dVar2 = this.fbb.faX;
+                        dVar2.aPd();
                         return;
                     }
                     return;
                 }
             }
-            this.eSq.aNM();
+            this.fbb.aOR();
             return;
         }
-        this.eSq.aWn();
+        this.fbb.aXE();
     }
 }

@@ -1,18 +1,9 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import com.baidu.tbadk.core.view.NavigationBar;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
 public interface z {
-    void G(int i, boolean z);
+    void onScroll(AbsListView absListView, int i, int i2, int i3);
 
-    void a(Context context, NavigationBar navigationBar);
-
-    void bkU();
-
-    void c(float f, boolean z);
-
-    void onChangeSkinType(int i);
-
-    void setOnViewResponseListener(p pVar);
+    void onScrollStateChanged(AbsListView absListView, int i);
 }

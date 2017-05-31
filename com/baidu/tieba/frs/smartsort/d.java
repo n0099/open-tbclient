@@ -8,16 +8,6 @@ import com.baidu.tieba.tbadkCore.FrsRequestData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public static void c(int i, FrsRequestData frsRequestData) {
-        if (frsRequestData != null) {
-            if (i == 3 || i == 6) {
-                frsRequestData.setLoadType(1);
-            } else {
-                frsRequestData.setLoadType(2);
-            }
-        }
-    }
-
     public static boolean b(FrsRequestData frsRequestData) {
         return frsRequestData != null && frsRequestData.getLoadType() == 1;
     }

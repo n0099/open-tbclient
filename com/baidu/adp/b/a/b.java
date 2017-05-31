@@ -47,7 +47,7 @@ public abstract class b extends ImageView implements i {
         this.BS = Integer.MAX_VALUE;
         this.mMaxHeight = Integer.MAX_VALUE;
         this.BT = new d();
-        b((AttributeSet) null);
+        init(null);
     }
 
     public b(Context context, AttributeSet attributeSet) {
@@ -65,10 +65,10 @@ public abstract class b extends ImageView implements i {
         this.BS = Integer.MAX_VALUE;
         this.mMaxHeight = Integer.MAX_VALUE;
         this.BT = new d();
-        b(attributeSet);
+        init(attributeSet);
     }
 
-    private void b(AttributeSet attributeSet) {
+    private void init(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
             this.BF.mRadius = obtainStyledAttributes.getDimensionPixelSize(0, com.baidu.adp.lib.util.k.dip2px(getContext(), 4.0f));
@@ -96,7 +96,7 @@ public abstract class b extends ImageView implements i {
                 this.BF.Ci = getResources().getDrawable(R.drawable.icon_gif);
             }
         }
-        this.BM = f.iH().aA(this.BJ);
+        this.BM = f.iH().aB(this.BJ);
         this.BM.a(this.BF);
     }
 
@@ -323,7 +323,7 @@ public abstract class b extends ImageView implements i {
     public void setDrawerType(int i) {
         if (this.BJ != i) {
             this.BJ = i;
-            this.BM = f.iH().aA(this.BJ);
+            this.BM = f.iH().aB(this.BJ);
             this.BM.a(this.BF);
             this.BP = true;
             invalidate();

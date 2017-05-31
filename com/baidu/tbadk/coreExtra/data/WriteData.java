@@ -28,7 +28,10 @@ public class WriteData implements Serializable {
     private boolean canNoForum;
     private boolean isAd;
     private boolean isBabaoPosted;
+    private boolean isLinkThread;
     private boolean isUserFeedback;
+    private String linkUrl;
+    private String linkUrlCode;
     private long mBarrageTime;
     private int mBigEmtionCount;
     private int mCategoryFrom;
@@ -117,6 +120,7 @@ public class WriteData implements Serializable {
         this.mVideoReviewType = 0;
         this.callFrom = "2";
         this.mBigEmtionCount = 0;
+        this.isLinkThread = false;
         this.mType = 0;
         this.mForumId = null;
         this.mForumName = null;
@@ -157,6 +161,7 @@ public class WriteData implements Serializable {
         this.mVideoReviewType = 0;
         this.callFrom = "2";
         this.mBigEmtionCount = 0;
+        this.isLinkThread = false;
         this.mType = i;
         this.mTitle = null;
         this.mContent = null;
@@ -762,5 +767,29 @@ public class WriteData implements Serializable {
 
     public void setmBigEmtionCount(int i) {
         this.mBigEmtionCount = i;
+    }
+
+    public String getLinkUrl() {
+        return this.linkUrl;
+    }
+
+    public void setLinkUrl(String str) {
+        this.linkUrl = str;
+    }
+
+    public String getLinkUrlCode() {
+        return this.linkUrlCode;
+    }
+
+    public void setLinkUrlCode(String str) {
+        this.linkUrlCode = str;
+    }
+
+    public boolean isLinkThread() {
+        return this.isLinkThread;
+    }
+
+    public void setIsLinkThread(boolean z) {
+        this.isLinkThread = z;
     }
 }

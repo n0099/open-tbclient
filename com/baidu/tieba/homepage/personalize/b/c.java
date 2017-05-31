@@ -3,73 +3,73 @@ package com.baidu.tieba.homepage.personalize.b;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.bf;
-import com.baidu.tieba.card.ca;
-import com.baidu.tieba.card.cd;
+import com.baidu.tieba.card.bj;
+import com.baidu.tieba.card.cf;
+import com.baidu.tieba.card.ci;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends cd<com.baidu.tieba.card.data.m> {
-    final /* synthetic */ b cvo;
+public class c extends ci<com.baidu.tieba.card.data.m> {
+    final /* synthetic */ b cBG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cvo = bVar;
+        this.cBG = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.cd
+    @Override // com.baidu.tieba.card.ci
     public void a(View view, com.baidu.tieba.card.data.m mVar) {
-        bf bfVar;
-        bf bfVar2;
-        bf bfVar3;
-        bf bfVar4;
-        bf bfVar5;
-        bf bfVar6;
-        bf bfVar7;
-        bf bfVar8;
-        bf bfVar9;
-        bf bfVar10;
-        ca.To().db(true);
+        bj bjVar;
+        bj bjVar2;
+        bj bjVar3;
+        bj bjVar4;
+        bj bjVar5;
+        bj bjVar6;
+        bj bjVar7;
+        bj bjVar8;
+        bj bjVar9;
+        bj bjVar10;
+        cf.Uw().ds(true);
         if (view != null) {
-            bfVar = this.cvo.cvn;
-            if (bfVar != null) {
-                bfVar2 = this.cvo.cvn;
-                if (bfVar2.getView() != null) {
-                    bfVar3 = this.cvo.cvn;
-                    if (bfVar3.bvW != null && mVar != null && mVar.JB() != null && !StringUtils.isNull(mVar.JB().getTid())) {
+            bjVar = this.cBG.cBF;
+            if (bjVar != null) {
+                bjVar2 = this.cBG.cBF;
+                if (bjVar2.getView() != null) {
+                    bjVar3 = this.cBG.cBF;
+                    if (bjVar3.bBG != null && mVar != null && mVar.LH() != null && !StringUtils.isNull(mVar.LH().getTid())) {
                         int id = view.getId();
-                        bfVar4 = this.cvo.cvn;
-                        if (id != bfVar4.getView().getId()) {
-                            bfVar5 = this.cvo.cvn;
-                            if (bfVar5.Tn() != null) {
+                        bjVar4 = this.cBG.cBF;
+                        if (id != bjVar4.getView().getId()) {
+                            bjVar5 = this.cBG.cBF;
+                            if (bjVar5.Uv() != null) {
                                 int id2 = view.getId();
-                                bfVar10 = this.cvo.cvn;
-                                if (id2 == bfVar10.Tn().getId()) {
-                                    TiebaStatic.log(mVar.TP());
+                                bjVar10 = this.cBG.cBF;
+                                if (id2 == bjVar10.Uv().getId()) {
+                                    TiebaStatic.log(mVar.UT());
                                     return;
                                 }
                             }
-                            bfVar6 = this.cvo.cvn;
-                            if (bfVar6.getHeaderImg() != null) {
+                            bjVar6 = this.cBG.cBF;
+                            if (bjVar6.getHeaderImg() != null) {
                                 int id3 = view.getId();
-                                bfVar9 = this.cvo.cvn;
-                                if (id3 == bfVar9.getHeaderImg().getId()) {
-                                    TiebaStatic.log(mVar.TQ());
+                                bjVar9 = this.cBG.cBF;
+                                if (id3 == bjVar9.getHeaderImg().getId()) {
+                                    TiebaStatic.log(mVar.UU());
                                     return;
                                 }
                             }
-                            bfVar7 = this.cvo.cvn;
-                            if (bfVar7.Tg() != null) {
-                                bfVar8 = this.cvo.cvn;
-                                if (bfVar8.Tg().getId() == view.getId()) {
-                                    TiebaStatic.log(mVar.TQ());
+                            bjVar7 = this.cBG.cBF;
+                            if (bjVar7.Ug() != null) {
+                                bjVar8 = this.cBG.cBF;
+                                if (bjVar8.Ug().getId() == view.getId()) {
+                                    TiebaStatic.log(mVar.UU());
                                     return;
                                 }
                                 return;
                             }
                             return;
                         }
-                        TiebaStatic.log(mVar.TN());
+                        TiebaStatic.log(mVar.UR());
                     }
                 }
             }

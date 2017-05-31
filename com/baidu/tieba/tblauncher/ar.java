@@ -1,47 +1,56 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.os.Handler;
+import android.view.View;
+import android.widget.PopupWindow;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements a.b {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a awm;
-    final /* synthetic */ ah fzg;
-    private final /* synthetic */ int val$type;
+public class ar implements Runnable {
+    final /* synthetic */ ak fHb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(ah ahVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.fzg = ahVar;
-        this.awm = aVar;
-        this.val$type = i;
+    public ar(ak akVar) {
+        this.fHb = akVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // java.lang.Runnable
+    public void run() {
+        FragmentTabHost fragmentTabHost;
+        PopupWindow popupWindow;
+        FragmentTabHost fragmentTabHost2;
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        MainTabActivity mainTabActivity3;
-        this.awm.dismiss();
-        String str = null;
-        if (this.val$type == 0) {
-            str = "4006001000";
-            mainTabActivity3 = this.fzg.fyW;
-            TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "user_overdue_pay", "click", 1, new Object[0]);
-        } else if (this.val$type == 1) {
-            str = "4005001000";
-            mainTabActivity = this.fzg.fyW;
-            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_pay", "click", 1, new Object[0]);
+        PopupWindow popupWindow2;
+        PopupWindow popupWindow3;
+        Handler handler;
+        Runnable runnable;
+        fragmentTabHost = this.fHb.aYf;
+        if (fragmentTabHost != null) {
+            popupWindow = this.fHb.fGV;
+            if (popupWindow != null) {
+                fragmentTabHost2 = this.fHb.aYf;
+                FragmentTabWidget fragmentTabWidget = fragmentTabHost2.getFragmentTabWidget();
+                mainTabActivity = this.fHb.fGR;
+                int af = com.baidu.adp.lib.util.k.af(mainTabActivity.getActivity());
+                mainTabActivity2 = this.fHb.fGR;
+                int g = com.baidu.adp.lib.util.k.g(mainTabActivity2.getActivity(), w.f.ds200);
+                popupWindow2 = this.fHb.fGV;
+                View contentView = popupWindow2.getContentView();
+                if (contentView != null) {
+                    contentView.measure(0, 0);
+                    int measuredWidth = contentView.getMeasuredWidth();
+                    popupWindow3 = this.fHb.fGV;
+                    com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(popupWindow3, fragmentTabWidget, (af - measuredWidth) / 2, -g);
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_maintab_write_tips", true);
+                    this.fHb.fGW = true;
+                    handler = this.fHb.mHandler;
+                    runnable = this.fHb.fGZ;
+                    handler.postDelayed(runnable, 6000L);
+                }
+            }
         }
-        mainTabActivity2 = this.fzg.fyW;
-        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(mainTabActivity2.getPageContext().getPageActivity(), 2);
-        if (!StringUtils.isNULL(str)) {
-            memberPayActivityConfig.setSceneId(str);
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
     }
 }

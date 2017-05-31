@@ -14,7 +14,7 @@ public class aw implements com.baidu.adp.lib.e.c<TbImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: wF */
+    /* renamed from: wB */
     public TbImageView fL() {
         return new TbImageView(this.val$context);
     }

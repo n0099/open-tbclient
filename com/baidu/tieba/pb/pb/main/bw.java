@@ -1,50 +1,36 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.LinearLayout;
-import com.baidu.tieba.w;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class bw implements com.baidu.adp.lib.e.c<LinearLayout> {
-    final /* synthetic */ PbActivity ehy;
+class bw extends CustomMessageListener {
+    final /* synthetic */ PbActivity enc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(PbActivity pbActivity) {
-        this.ehy = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bw(PbActivity pbActivity, int i) {
+        super(i);
+        this.enc = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: aJv */
-    public LinearLayout fL() {
-        LinearLayout linearLayout = new LinearLayout(this.ehy.getPageContext().getPageActivity());
-        linearLayout.setId(w.h.pb_text_voice_layout);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setGravity(16);
-        linearLayout.setBaselineAligned(true);
-        linearLayout.setOrientation(1);
-        linearLayout.setLayoutParams(layoutParams);
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public void o(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public LinearLayout p(LinearLayout linearLayout) {
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: d */
-    public LinearLayout q(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-        return linearLayout;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        fx fxVar;
+        fx fxVar2;
+        fx fxVar3;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            fxVar = this.enc.elU;
+            if (fxVar != null) {
+                if (booleanValue) {
+                    fxVar3 = this.enc.elU;
+                    fxVar3.aqn();
+                    return;
+                }
+                fxVar2 = this.enc.elU;
+                fxVar2.aqm();
+            }
+        }
     }
 }

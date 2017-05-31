@@ -4,53 +4,52 @@ import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.card.ai;
-import com.baidu.tieba.card.ca;
-import com.baidu.tieba.card.cd;
-import com.baidu.tieba.homepage.personalize.am;
+import com.baidu.tieba.card.am;
+import com.baidu.tieba.card.cf;
+import com.baidu.tieba.card.ci;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends cd {
-    final /* synthetic */ k cvx;
+public class l extends ci {
+    final /* synthetic */ k cBP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.cvx = kVar;
+        this.cBP = kVar;
     }
 
-    @Override // com.baidu.tieba.card.cd
+    @Override // com.baidu.tieba.card.ci
     public void a(View view, com.baidu.tieba.card.data.b bVar) {
-        ai aiVar;
+        am amVar;
         com.baidu.tieba.homepage.personalize.model.f fVar;
-        ai aiVar2;
+        am amVar2;
         com.baidu.tieba.homepage.personalize.model.f fVar2;
-        ca.To().db(true);
-        aiVar = this.cvx.cvw;
-        if (aiVar != null && view != null && bVar != null && (bVar instanceof com.baidu.tieba.card.data.n)) {
-            fVar = this.cvx.cvu;
+        cf.Uw().ds(true);
+        amVar = this.cBP.cBO;
+        if (amVar != null && view != null && bVar != null && (bVar instanceof com.baidu.tieba.card.data.n)) {
+            fVar = this.cBP.cBM;
             if (fVar != null) {
                 com.baidu.tieba.card.data.n nVar = (com.baidu.tieba.card.data.n) bVar;
-                if (nVar.bcB != null) {
-                    if ((view.getTag() instanceof String) && nVar.JB() != null && nVar.JB().getId() != null && !am.bd(com.baidu.adp.lib.g.b.c(nVar.JB().getTid(), 0L))) {
-                        am.bc(com.baidu.adp.lib.g.b.c(nVar.JB().getTid(), 0L));
-                        fVar2 = this.cvx.cvu;
-                        fVar2.a(com.baidu.adp.lib.g.b.c(nVar.JB().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.Tq(), nVar.Ts(), com.baidu.adp.lib.g.b.g((String) view.getTag(), 1));
+                if (nVar.aYA != null) {
+                    if ((view.getTag() instanceof String) && nVar.LH() != null && nVar.LH().getId() != null && !com.baidu.tieba.homepage.personalize.am.bg(com.baidu.adp.lib.g.b.c(nVar.LH().getTid(), 0L))) {
+                        com.baidu.tieba.homepage.personalize.am.bf(com.baidu.adp.lib.g.b.c(nVar.LH().getTid(), 0L));
+                        fVar2 = this.cBP.cBM;
+                        fVar2.a(com.baidu.adp.lib.g.b.c(nVar.LH().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.UB(), nVar.UD(), com.baidu.adp.lib.g.b.g((String) view.getTag(), 1));
                     }
                     if (view instanceof TbImageView) {
-                        TiebaStatic.log(new as("c11004").aa("tid", nVar.bcB.getTid()));
+                        TiebaStatic.log(new as("c11004").Z("tid", nVar.aYA.getTid()));
                         return;
                     }
                     int id = view.getId();
-                    aiVar2 = this.cvx.cvw;
-                    if (id == aiVar2.getView().getId()) {
-                        if (nVar.bcB.sC() != null && nVar.bcB.sC().channelId > 0) {
-                            nVar.A("c11929", true);
+                    amVar2 = this.cBP.cBO;
+                    if (id == amVar2.getView().getId()) {
+                        if (nVar.aYA.sx() != null && nVar.aYA.sx().channelId > 0) {
+                            nVar.x("c11929", true);
                         }
-                        TiebaStatic.log(new as("c11004").aa("tid", nVar.bcB.getTid()));
-                        TiebaStatic.log(new as("c10806").s("obj_locate", 1).aa("tid", nVar.bcB.getId()));
+                        TiebaStatic.log(new as("c11004").Z("tid", nVar.aYA.getTid()));
+                        TiebaStatic.log(new as("c10806").r("obj_locate", 1).Z("tid", nVar.aYA.getId()));
                         return;
                     }
-                    TiebaStatic.log(new as("c11004").aa("tid", nVar.bcB.getTid()));
+                    TiebaStatic.log(new as("c11004").Z("tid", nVar.aYA.getTid()));
                 }
             }
         }

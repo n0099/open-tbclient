@@ -1,30 +1,45 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.pb.a.d;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ds extends y.a {
-    public HeadImageView bXq;
-    public TextView but;
-    public TextView cLo;
-    public TextView ciW;
-    public TbImageView ejp;
-    public TextView ejq;
-    public int mSkinType;
+public class ds implements d.a {
+    final /* synthetic */ dr eoS;
 
-    public ds(View view) {
-        super(view);
-        this.mSkinType = 3;
-        this.bXq = (HeadImageView) view.findViewById(w.h.photo);
-        this.bXq.setRadius(com.baidu.adp.lib.util.k.g(view.getContext(), w.f.ds30));
-        this.but = (TextView) view.findViewById(w.h.user_name);
-        this.cLo = (TextView) view.findViewById(w.h.time);
-        this.ciW = (TextView) view.findViewById(w.h.text);
-        this.ejp = (TbImageView) view.findViewById(w.h.god_pic);
-        this.ejq = (TextView) view.findViewById(w.h.god_btn);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ds(dr drVar) {
+        this.eoS = drVar;
+    }
+
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean a(View view, MotionEvent motionEvent) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_FIRST_FLOOR_PRAISE, 2));
+        return true;
+    }
+
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean c(View view, MotionEvent motionEvent) {
+        com.baidu.tieba.pb.a.d dVar;
+        com.baidu.tieba.pb.a.d dVar2;
+        com.baidu.tieba.pb.a.d dVar3;
+        dVar = this.eoS.aOc;
+        if (dVar != null) {
+            dVar2 = this.eoS.aOc;
+            dVar2.aQ(view);
+            dVar3 = this.eoS.aOc;
+            dVar3.onSingleTapConfirmed(motionEvent);
+            return true;
+        }
+        return true;
     }
 }

@@ -7,17 +7,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.util.o;
+import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
 /* loaded from: classes.dex */
 public class LoadMoreRequestMessage extends NetMessage {
     private String forumName;
     private long forum_id;
+    private int loadCount;
     private long mLastClickTid;
     private int mPageType;
     private int mSortType;
     private int need_abstract;
     private int pn;
+    private int refreshCount;
     private int st_type;
     private String thread_ids;
 
@@ -72,14 +75,18 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(ag);
         builder.scr_w = Integer.valueOf(af);
-        builder.q_type = Integer.valueOf(av.vo().vq() ? 2 : 1);
+        builder.q_type = Integer.valueOf(av.vl().vn() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
         o.bindCommonParamsToProtobufData(builder, true, false, true);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.aYU().aYX();
-        ThreadListReqIdl.Builder builder2 = new ThreadListReqIdl.Builder();
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+        builder.app_pos = com.baidu.tieba.recapp.d.a.ban().baq();
+        AdParam.Builder builder2 = new AdParam.Builder();
+        builder2.load_count = Integer.valueOf(this.loadCount);
+        builder2.refresh_count = Integer.valueOf(this.refreshCount);
+        builder.ad_param = builder2.build(false);
+        ThreadListReqIdl.Builder builder3 = new ThreadListReqIdl.Builder();
+        builder3.data = builder.build(false);
+        return builder3.build(false);
     }
 
     public void setPageType(int i) {
@@ -88,5 +95,13 @@ public class LoadMoreRequestMessage extends NetMessage {
 
     public int getPageType() {
         return this.mPageType;
+    }
+
+    public void setLoadCount(int i) {
+        this.loadCount = i;
+    }
+
+    public void setRefreshCount(int i) {
+        this.refreshCount = i;
     }
 }

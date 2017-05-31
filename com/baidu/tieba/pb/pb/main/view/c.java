@@ -1,94 +1,91 @@
 package com.baidu.tieba.pb.pb.main.view;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.pb.data.l;
-import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
-import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
-import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
+import android.os.Handler;
+import android.widget.ImageView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbFakeFloorModel epT;
+public class c {
+    private int[] ewN;
+    private SoftReference<ImageView> ewP;
+    private int ewQ;
+    private a ewR;
+    private int ewS;
+    private BitmapFactory.Options ewU;
+    private Bitmap mBitmap;
+    private int ewT = 1;
+    private Handler mHandler = new Handler();
+    private int mIndex = -1;
+    private boolean ewO = false;
+    private boolean mIsRunning = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(PbFakeFloorModel pbFakeFloorModel, int i, int i2) {
-        super(i, i2);
-        this.epT = pbFakeFloorModel;
+    /* loaded from: classes.dex */
+    public interface a {
+        void aNu();
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        BdUniqueId bdUniqueId;
-        PbFakeFloorModel.a aVar;
-        PbFakeFloorModel.a aVar2;
-        l lVar;
-        l lVar2;
-        l lVar3;
-        TbPageContext tbPageContext;
-        l lVar4;
-        l lVar5;
-        String errorString;
-        TbPageContext tbPageContext2;
-        TbPageContext tbPageContext3;
-        boolean z = false;
-        if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-            bdUniqueId = this.epT.unique_id;
-            if (bdUniqueId == responsedMessage.getOrginalMessage().getTag()) {
-                this.epT.epP = false;
-                if (responsedMessage.hasError()) {
-                    if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        tbPageContext3 = this.epT.ajr;
-                        errorString = tbPageContext3.getPageActivity().getResources().getString(w.l.neterror);
-                    } else {
-                        errorString = responsedMessage.getErrorString();
-                    }
-                    tbPageContext2 = this.epT.ajr;
-                    tbPageContext2.showToast(errorString);
-                    return;
-                }
-                l lVar6 = null;
-                if (responsedMessage instanceof SubPbHttpResponseMessage) {
-                    lVar6 = ((SubPbHttpResponseMessage) responsedMessage).pbFloorData;
-                } else if (responsedMessage instanceof SubPbSocketResponseMessage) {
-                    lVar6 = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
-                }
-                if (lVar6 != null && lVar6.aIv() != null) {
-                    PostData postData = (PostData) x.c(lVar6.aIv(), lVar6.aIv().size() - 1);
-                    if (postData != null) {
-                        lVar = this.epT.epO;
-                        if (lVar != null) {
-                            lVar2 = this.epT.epO;
-                            if (lVar2.aIr() != null) {
-                                lVar3 = this.epT.epO;
-                                if (lVar3.JB() != null) {
-                                    lVar4 = this.epT.epO;
-                                    if (lVar4.JB().getAuthor() != null && postData.getAuthor() != null) {
-                                        lVar5 = this.epT.epO;
-                                        String userId = lVar5.JB().getAuthor().getUserId();
-                                        if (userId != null && userId.equals(postData.getAuthor().getUserId())) {
-                                            z = true;
-                                        }
-                                    }
-                                }
-                                tbPageContext = this.epT.ajr;
-                                postData.a(tbPageContext, z);
-                            }
-                        }
-                    }
-                    aVar = this.epT.epR;
-                    if (aVar != null) {
-                        aVar2 = this.epT.epR;
-                        aVar2.j(postData);
-                    }
-                }
-            }
+    public static c b(ImageView imageView, int i, int i2, int i3) {
+        return new c(imageView, i, i2, i3);
+    }
+
+    public c(ImageView imageView, int i, int i2, int i3) {
+        this.mBitmap = null;
+        this.ewN = oO(i);
+        this.ewP = new SoftReference<>(imageView);
+        this.ewQ = 1000 / i2;
+        this.ewS = i3;
+        imageView.setImageResource(this.ewN[0]);
+        if (Build.VERSION.SDK_INT >= 11) {
+            Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+            this.mBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+            this.ewU = new BitmapFactory.Options();
+            this.ewU.inBitmap = this.mBitmap;
+            this.ewU.inMutable = true;
+            this.ewU.inSampleSize = 1;
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int aNt() {
+        this.mIndex++;
+        if (this.mIndex + 1 >= this.ewN.length) {
+            this.ewT++;
+        }
+        if (this.mIndex >= this.ewN.length) {
+            this.mIndex = 0;
+        }
+        return this.ewN[this.mIndex];
+    }
+
+    public synchronized void start() {
+        this.ewO = true;
+        if (!this.mIsRunning) {
+            this.mHandler.post(new d(this));
+        }
+    }
+
+    public synchronized void stop() {
+        this.ewO = false;
+        this.ewP.clear();
+    }
+
+    public void a(a aVar) {
+        this.ewR = aVar;
+    }
+
+    private int[] oO(int i) {
+        TypedArray obtainTypedArray = TbadkCoreApplication.m9getInst().getResources().obtainTypedArray(i);
+        int length = obtainTypedArray.length();
+        int[] iArr = new int[obtainTypedArray.length()];
+        for (int i2 = 0; i2 < length; i2++) {
+            iArr[i2] = obtainTypedArray.getResourceId(i2, 0);
+        }
+        obtainTypedArray.recycle();
+        return iArr;
     }
 }

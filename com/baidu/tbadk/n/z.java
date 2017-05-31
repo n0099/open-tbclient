@@ -1,8 +1,6 @@
 package com.baidu.tbadk.n;
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.lib.b.a {
-    public static final String[] aIz = {"cn.jingling.lib"};
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void X(int i) {
@@ -10,12 +8,12 @@ public class z extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "motu_sdk";
+        return "switch_low_version_login_passv6";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] eQ() {
-        return aIz;
+        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a

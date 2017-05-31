@@ -9,48 +9,48 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends GetTplStokenCallback {
-    private final /* synthetic */ h.a SA;
-    final /* synthetic */ h Sz;
+    final /* synthetic */ h Sm;
+    private final /* synthetic */ h.a Sn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, h.a aVar) {
-        this.Sz = hVar;
-        this.SA = aVar;
+        this.Sm = hVar;
+        this.Sn = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     public void onSuccess(GetTplStokenResult getTplStokenResult) {
         if (getTplStokenResult == null) {
-            if (this.SA != null) {
-                this.SA.onFailed();
+            if (this.Sn != null) {
+                this.Sn.onFailed();
                 return;
             }
             return;
         }
         Map<String, String> map = getTplStokenResult.tplStokenMap;
         if (map == null || map.size() <= 0) {
-            if (this.SA != null) {
-                this.SA.onFailed();
+            if (this.Sn != null) {
+                this.Sn.onFailed();
                 return;
             }
             return;
         }
         String str = map.get(TbConfig.PassConfig.TPL);
         if (StringUtils.isNULL(str)) {
-            if (this.SA != null) {
-                this.SA.onFailed();
+            if (this.Sn != null) {
+                this.Sn.onFailed();
             }
-        } else if (this.SA != null) {
-            this.SA.onSuccess(str);
+        } else if (this.Sn != null) {
+            this.Sn.onSuccess(str);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     public void onFailure(GetTplStokenResult getTplStokenResult) {
-        if (this.SA != null) {
-            this.SA.onFailed();
+        if (this.Sn != null) {
+            this.Sn.onFailed();
         }
     }
 

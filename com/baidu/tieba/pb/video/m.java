@@ -1,18 +1,18 @@
 package com.baidu.tieba.pb.video;
 
-import com.baidu.tieba.play.c;
+import com.baidu.tieba.pb.view.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements c.e {
-    final /* synthetic */ g esY;
+public class m implements d.a {
+    final /* synthetic */ l eAW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(g gVar) {
-        this.esY = gVar;
+    public m(l lVar) {
+        this.eAW = lVar;
     }
 
-    @Override // com.baidu.tieba.play.c.e
-    public void aNN() {
-        this.esY.aNJ();
+    @Override // com.baidu.tieba.pb.view.d.a
+    public void onAnimationEnd() {
+        this.eAW.jk(false);
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.tieba.play.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends Handler {
-    final /* synthetic */ y eSt;
+    final /* synthetic */ y fbe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(y yVar, Looper looper) {
         super(looper);
-        this.eSt = yVar;
+        this.fbe = yVar;
     }
 
     @Override // android.os.Handler
@@ -29,31 +29,31 @@ public class z extends Handler {
         y.a aVar;
         y.a aVar2;
         if (message != null && message.what == 1) {
-            mediaPlayerControl = this.eSt.aXp;
+            mediaPlayerControl = this.fbe.aUR;
             if (mediaPlayerControl != null) {
-                mediaPlayerControl2 = this.eSt.aXp;
+                mediaPlayerControl2 = this.fbe.aUR;
                 if (mediaPlayerControl2.isPlaying()) {
-                    mediaPlayerControl3 = this.eSt.aXp;
+                    mediaPlayerControl3 = this.fbe.aUR;
                     int currentPosition = mediaPlayerControl3.getCurrentPosition();
-                    i = this.eSt.eSr;
+                    i = this.fbe.fbc;
                     if (currentPosition >= i) {
-                        i2 = this.eSt.eSr;
+                        i2 = this.fbe.fbc;
                         if (currentPosition == i2) {
-                            bVar = this.eSt.eSs;
+                            bVar = this.fbe.fbd;
                             if (bVar != null) {
-                                bVar2 = this.eSt.eSs;
-                                bVar2.aWu();
+                                bVar2 = this.fbe.fbd;
+                                bVar2.aXK();
                             }
                         }
                     } else {
-                        aVar = this.eSt.aSO;
+                        aVar = this.fbe.bAZ;
                         if (aVar != null) {
-                            aVar2 = this.eSt.aSO;
-                            aVar2.JW();
+                            aVar2 = this.fbe.bAZ;
+                            aVar2.Uo();
                         }
                     }
-                    this.eSt.eSr = currentPosition;
-                    this.eSt.aWt();
+                    this.fbe.fbc = currentPosition;
+                    this.fbe.aXJ();
                 }
             }
         }

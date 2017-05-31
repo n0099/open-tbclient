@@ -7,11 +7,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ c bHP;
+    final /* synthetic */ c bND;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(c cVar) {
-        this.bHP = cVar;
+        this.bND = cVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b

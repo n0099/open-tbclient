@@ -1,139 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.w;
-import java.util.ArrayList;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
-public class ec extends com.baidu.tbadk.core.dialog.c {
-    private TbPageContext<?> aat;
-    private View.OnClickListener bNq;
-    private TextView btq;
-    private TextView ekA;
-    private TextView ekB;
-    private TextView ekC;
-    private TextView ekD;
-    private boolean ekE;
-    private boolean ekF;
-    private TextView ekz;
+public class ec {
+    private BaseActivity bfa;
+    private PbModel ele;
+    private final CustomMessageListener epd = new ed(this, CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS);
+    private final CustomMessageListener epe = new ee(this, CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS);
 
-    public ec(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
-        super(tbPageContext.getPageActivity());
-        this.ekF = false;
-        this.aat = tbPageContext;
-        this.bNq = onClickListener;
-        aKE();
+    public ec(PbModel pbModel, BaseActivity baseActivity) {
+        this.ele = pbModel;
+        this.bfa = baseActivity;
+        this.bfa.registerListener(this.epd);
+        this.bfa.registerListener(this.epe);
     }
 
-    public TextView aKy() {
-        return this.ekz;
-    }
-
-    public TextView aKz() {
-        return this.ekA;
-    }
-
-    public TextView aKA() {
-        return this.btq;
-    }
-
-    public TextView aKB() {
-        return this.ekB;
-    }
-
-    public TextView aKC() {
-        return this.ekD;
-    }
-
-    public TextView aKD() {
-        return this.ekC;
-    }
-
-    private void aKE() {
-        a(new CharSequence[]{this.aat.getString(w.l.reply_current_floor), this.aat.getString(w.l.no_interesting), this.aat.getString(w.l.mark), this.aat.getString(w.l.mute), this.aat.getString(w.l.report_text), this.aat.getString(w.l.delete)}, new ed(this));
-        d(this.aat);
-        this.ekC = ap(ce(0));
-        this.ekD = ap(ce(1));
-        this.ekz = ap(ce(2));
-        this.ekA = ap(ce(3));
-        this.btq = ap(ce(4));
-        this.ekB = ap(ce(5));
-    }
-
-    public void showDialog() {
-        tg();
-    }
-
-    private TextView ap(View view) {
-        return (TextView) view.findViewById(w.h.dialog_item_btn);
-    }
-
-    private View aU(View view) {
-        if (view == null) {
+    public com.baidu.tbadk.core.data.af aKH() {
+        if (!aKI() || this.ele == null || this.ele.getPbData() == null) {
             return null;
         }
-        return view.findViewById(w.h.line);
+        return this.ele.getPbData().aIx();
     }
 
-    public void ih(boolean z) {
-        this.btq.setVisibility(z ? 0 : 8);
+    public boolean aKI() {
+        return com.baidu.tieba.graffiti.c.agC() && aKJ();
     }
 
-    public void ii(boolean z) {
-        this.ekE = z;
-    }
-
-    public boolean aKF() {
-        return this.ekF;
-    }
-
-    public void ij(boolean z) {
-        this.ekF = z;
-    }
-
-    public void refreshUI() {
-        View view;
-        TextView ap;
-        int itemCount = getItemCount();
-        ArrayList arrayList = new ArrayList();
-        boolean z = true;
-        for (int i = itemCount - 1; i >= 0; i--) {
-            View ce = ce(i);
-            if (ce != null) {
-                TextView ap2 = ap(ce(i));
-                View aU = aU(ce(i));
-                if (ap2 != null) {
-                    if (ap2.getVisibility() == 8) {
-                        aU.setVisibility(8);
-                    } else {
-                        arrayList.add(ce);
-                        if (z) {
-                            aU.setVisibility(8);
-                            com.baidu.tbadk.core.util.aq.j(ce, w.g.dialog_single_button_bg_selector);
-                            z = false;
-                        } else {
-                            aU.setVisibility(0);
-                        }
-                    }
-                }
-            }
+    private boolean aKJ() {
+        if (this.ele == null || this.ele.getPbData() == null) {
+            return false;
         }
-        int i2 = 0;
-        while (true) {
-            if (i2 >= itemCount) {
-                break;
+        PostData postData = (PostData) com.baidu.tbadk.core.util.x.c(this.ele.getPbData().aID(), 0);
+        return postData != null && (postData.getType() == PostData.fCb || postData.getType() == PostData.Xr || postData.getType() == PostData.fCe);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+            String str = (String) customResponsedMessage.getData();
+            if (this.ele != null && this.ele.getPbData() != null && this.ele.getPbData().aIx() != null && str.equals(this.ele.getThreadID())) {
+                this.ele.getPbData().aIx().an(true);
             }
-            View ce2 = ce(i2);
-            if (ce2 == null || (ap = ap(ce(i2))) == null || ap.getVisibility() != 0) {
-                i2++;
-            } else {
-                com.baidu.tbadk.core.util.aq.j(ce2, w.g.dialog_single_button_first_bg_selector);
-                break;
-            }
-        }
-        if (com.baidu.tbadk.core.util.x.q(arrayList) == 1 && (view = (View) arrayList.get(0)) != null) {
-            com.baidu.tbadk.core.util.aq.j(view, w.g.dialog_single_button_only_one_bg_selector);
         }
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.PraiseModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab extends HttpMessageListener {
-    final /* synthetic */ PraiseModel ftp;
+    final /* synthetic */ PraiseModel fBg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ab(PraiseModel praiseModel, int i) {
         super(i);
-        this.ftp = praiseModel;
+        this.fBg = praiseModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,24 +26,24 @@ public class ab extends HttpMessageListener {
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
             int statusCode = httpResponsedMessage.getStatusCode();
             if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                aVar = this.ftp.fto;
+                aVar = this.fBg.fBf;
                 if (aVar != null) {
-                    aVar2 = this.ftp.fto;
-                    aVar2.x(statusCode, null);
+                    aVar2 = this.fBg.fBf;
+                    aVar2.y(statusCode, null);
                     return;
                 }
                 return;
             }
             PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
             if (praiseResponseMessage.getError() == 0) {
-                aVar5 = this.ftp.fto;
-                aVar5.hk(praiseResponseMessage.getErrMsg());
+                aVar5 = this.fBg.fBf;
+                aVar5.hg(praiseResponseMessage.getErrMsg());
                 return;
             }
-            aVar3 = this.ftp.fto;
+            aVar3 = this.fBg.fBf;
             if (aVar3 != null) {
-                aVar4 = this.ftp.fto;
-                aVar4.x(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                aVar4 = this.fBg.fBf;
+                aVar4.y(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
             }
         }
     }

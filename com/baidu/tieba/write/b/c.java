@@ -5,18 +5,18 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a fOt;
+    final /* synthetic */ a fWl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.fOt = aVar;
+        this.fWl = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditorInfoView editorInfoView;
-        editorInfoView = this.fOt.fOs;
+        editorInfoView = this.fWl.fWk;
         editorInfoView.setVisibility(8);
-        this.fOt.b(new com.baidu.tbadk.editortools.a(45, -1, null));
+        this.fWl.b(new com.baidu.tbadk.editortools.a(45, -1, null));
     }
 }

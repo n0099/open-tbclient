@@ -1,47 +1,53 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import android.content.Context;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class gy implements PbModel.a {
-    final /* synthetic */ ReaderPbService epy;
+public class gy implements View.OnClickListener {
+    final /* synthetic */ fx evi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gy(ReaderPbService readerPbService) {
-        this.epy = readerPbService;
+    public gy(fx fxVar) {
+        this.evi = fxVar;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
-    public void c(com.baidu.tieba.pb.data.f fVar) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
-    public void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
-    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4) {
-        boolean z2;
-        ep epVar;
-        es esVar;
-        ep epVar2;
-        es esVar2;
-        es esVar3;
-        es esVar4;
-        z2 = this.epy.isAlive;
-        if (!z2) {
-            epVar = this.epy.mReaderManager;
-            if (epVar != null) {
-                esVar = this.epy.mReaderModel;
-                if (esVar != null) {
-                    epVar2 = this.epy.mReaderManager;
-                    esVar2 = this.epy.mReaderModel;
-                    com.baidu.tieba.pb.data.f pbData = esVar2.getPbData();
-                    esVar3 = this.epy.mReaderModel;
-                    boolean aKZ = esVar3.aKZ();
-                    esVar4 = this.epy.mReaderModel;
-                    epVar2.b(pbData, aKZ, i2, esVar4.aLa());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        PbActivity pbActivity3;
+        PbActivity pbActivity4;
+        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            boolean booleanValue = sparseArray.get(w.h.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_should_manage_visible)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(w.h.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_user_mute_visible)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(w.h.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_should_delete_visible)).booleanValue() : false;
+            if (booleanValue) {
+                if (com.baidu.tieba.c.a.SV()) {
+                    pbActivity3 = this.evi.elf;
+                    Context baseContext = pbActivity3.getBaseContext();
+                    pbActivity4 = this.evi.elf;
+                    if (com.baidu.tieba.c.a.a(baseContext, pbActivity4.aJF().getThreadID(), (String) sparseArray.get(w.h.tag_subpb_main_floor_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue())) {
+                        return;
+                    }
                 }
+                if (booleanValue2) {
+                    sparseArray.put(w.h.tag_from, 1);
+                    pbActivity2 = this.evi.elf;
+                    pbActivity2.d(sparseArray);
+                    return;
+                }
+                this.evi.aX(view);
+            } else if (booleanValue2) {
+                sparseArray.put(w.h.tag_from, 0);
+                sparseArray.put(w.h.tag_check_mute_from, 1);
+                pbActivity = this.evi.elf;
+                pbActivity.d(sparseArray);
+            } else if (booleanValue3) {
+                this.evi.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
             }
         }
     }

@@ -1,86 +1,15 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.pb.ThreadSkinView;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import com.baidu.adp.widget.ListView.z;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class bc extends y.a {
-    public TextView alE;
-    public TextView alH;
-    public UserIconBox amq;
-    public UserIconBox amr;
-    public int ane;
-    public TextView bPs;
-    public TextView bPt;
-    public int bQb;
-    public FrameLayout bQc;
-    public LinearLayout bQd;
-    public RelativeLayout bQe;
-    public TbImageView bQf;
-    public TextView bQg;
-    public PlayVoiceBnt bQh;
-    public FrsCommonImageLayout bQi;
-    public TextView bQj;
-    public HeadImageView bQk;
-    public TextView bQl;
-    public TextView bQm;
-    public RelativeLayout bQn;
-    public LinearLayout bQo;
-    public LinearLayout bQp;
-    public LinearLayout bQq;
-    public View bQr;
-    public TbImageView bQs;
-    public RelativeLayout bQt;
-    public TbImageView bQu;
-    public TextView bQv;
-    public ThreadSkinView bct;
-    public TextView mTitle;
+public class bc extends z.a {
+    public TextView bVR;
 
-    public bc(View view, int i) {
+    public bc(View view) {
         super(view);
-        this.ane = 3;
-        this.bQb = 0;
-        this.bQb = i;
-        this.bQc = (FrameLayout) view.findViewById(w.h.frs_list);
-        this.bQn = (RelativeLayout) view.findViewById(w.h.frs_item_user_info_view);
-        this.bQo = (LinearLayout) view.findViewById(w.h.frs_item_base_user_info);
-        this.bQd = (LinearLayout) view.findViewById(w.h.frs_list_item_top_linear_layout);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bQd.getLayoutParams();
-        layoutParams.topMargin = i;
-        this.bQd.setLayoutParams(layoutParams);
-        this.bQe = (RelativeLayout) view.findViewById(w.h.frs_list_item_top_card);
-        this.bQf = (TbImageView) view.findViewById(w.h.frs_normal_item_theme_card);
-        this.bQk = (HeadImageView) view.findViewById(w.h.frs_photo);
-        this.amq = (UserIconBox) view.findViewById(w.h.frs_user_tshow_icon_box);
-        this.amr = (UserIconBox) view.findViewById(w.h.frs_user_icon_box);
-        this.bQj = (TextView) view.findViewById(w.h.frs_lv_author);
-        this.alE = (TextView) view.findViewById(w.h.frs_lv_reply_time);
-        this.mTitle = (TextView) view.findViewById(w.h.frs_lv_title);
-        this.bQg = (TextView) view.findViewById(w.h.abstract_text);
-        this.bQh = (PlayVoiceBnt) view.findViewById(w.h.abstract_voice);
-        this.bQi = (FrsCommonImageLayout) view.findViewById(w.h.abstract_img_layout);
-        this.alH = (TextView) view.findViewById(w.h.frs_praise_num);
-        this.bQl = (TextView) view.findViewById(w.h.action_button);
-        this.bPt = (TextView) view.findViewById(w.h.frs_reply_num);
-        this.bQm = (TextView) view.findViewById(w.h.frs_more_abstract);
-        this.bQp = (LinearLayout) view.findViewById(w.h.frs_item_num);
-        this.bQq = (LinearLayout) view.findViewById(w.h.frs_item_loc_view);
-        this.bPs = (TextView) view.findViewById(w.h.frs_item_location_address);
-        this.bQr = view.findViewById(w.h.frs_item_location_sep);
-        this.bQs = (TbImageView) view.findViewById(w.h.game_activity_banner);
-        this.bQu = (TbImageView) view.findViewById(w.h.app_code_banner);
-        this.bQv = (TextView) view.findViewById(w.h.app_code_btn);
-        this.bQt = (RelativeLayout) view.findViewById(w.h.app_code_wrapper);
-        this.bct = (ThreadSkinView) view.findViewById(w.h.frs_thread_skin);
+        this.bVR = (TextView) view.findViewById(w.h.no_data_tips);
     }
 }

@@ -8,11 +8,11 @@ import com.baidu.tieba.play.QuickVideoView;
 import java.util.Map;
 /* loaded from: classes.dex */
 class ae implements TextureView.SurfaceTextureListener {
-    final /* synthetic */ QuickVideoView eSL;
+    final /* synthetic */ QuickVideoView fby;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(QuickVideoView quickVideoView) {
-        this.eSL = quickVideoView;
+        this.fby = quickVideoView;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -30,32 +30,34 @@ class ae implements TextureView.SurfaceTextureListener {
         Context context2;
         Uri uri2;
         Map<String, String> map2;
-        z = this.eSL.eSB;
+        Uri uri3;
+        z = this.fby.fbn;
         if (!z) {
-            vVar = this.eSL.eSx;
+            vVar = this.fby.fbj;
             if (vVar != null) {
-                z2 = this.eSL.eSF;
+                z2 = this.fby.fbr;
                 if (z2) {
-                    vVar2 = this.eSL.eSx;
-                    context = this.eSL.mContext;
-                    uri = this.eSL.mUri;
-                    map = this.eSL.AN;
-                    i3 = this.eSL.eSE;
+                    vVar2 = this.fby.fbj;
+                    context = this.fby.mContext;
+                    uri = this.fby.mUri;
+                    map = this.fby.AN;
+                    i3 = this.fby.fbq;
                     vVar2.a(context, uri, map, surfaceTexture, i3);
                 }
             }
         } else {
-            this.eSL.eSB = false;
-            vVar3 = this.eSL.eSx;
+            this.fby.fbn = false;
+            vVar3 = this.fby.fbj;
             if (vVar3 != null) {
-                vVar4 = this.eSL.eSx;
-                context2 = this.eSL.mContext;
-                uri2 = this.eSL.mUri;
-                map2 = this.eSL.AN;
-                vVar4.a(context2, uri2, map2, surfaceTexture);
+                vVar4 = this.fby.fbj;
+                context2 = this.fby.mContext;
+                uri2 = this.fby.mUri;
+                map2 = this.fby.AN;
+                uri3 = this.fby.mUri;
+                vVar4.a(context2, uri2, map2, surfaceTexture, uri3.getHost());
             }
         }
-        this.eSL.eSG = surfaceTexture;
+        this.fby.fbs = surfaceTexture;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -71,25 +73,25 @@ class ae implements TextureView.SurfaceTextureListener {
         QuickVideoView.b bVar2;
         QuickVideoView.a aVar2;
         v vVar2;
-        vVar = this.eSL.eSx;
+        vVar = this.fby.fbj;
         if (vVar != null) {
-            vVar2 = this.eSL.eSx;
+            vVar2 = this.fby.fbj;
             vVar2.release();
         }
-        z = this.eSL.eSB;
+        z = this.fby.fbn;
         if (!z) {
-            aVar = this.eSL.eSA;
+            aVar = this.fby.fbm;
             if (aVar != null) {
-                aVar2 = this.eSL.eSA;
+                aVar2 = this.fby.fbm;
                 aVar2.onStop();
             }
-            bVar = this.eSL.aTQ;
+            bVar = this.fby.bAV;
             if (bVar != null) {
-                bVar2 = this.eSL.aTQ;
+                bVar2 = this.fby.bAV;
                 bVar2.onSurfaceDestroyed();
             }
         }
-        this.eSL.eSG = null;
+        this.fby.fbs = null;
         return false;
     }
 

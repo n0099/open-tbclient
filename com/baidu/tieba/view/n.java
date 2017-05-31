@@ -10,21 +10,21 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ j fIG;
+    final /* synthetic */ j fQz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(j jVar) {
-        this.fIG = jVar;
+        this.fQz = jVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        this.fIG.G(6, false);
-        com.baidu.tieba.h.a.aZj().D(6, false);
+        this.fQz.l(6, false);
+        com.baidu.tieba.j.a.baD().C(6, false);
         TiebaStatic.log(new as("c10601"));
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.fIG.mContext;
+        context = this.fQz.mContext;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new DressupCenterActivityConfig(context)));
     }
 }

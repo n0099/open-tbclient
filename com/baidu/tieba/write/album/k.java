@@ -15,19 +15,19 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class k extends PagerAdapter {
     private int BS;
-    private com.baidu.tbadk.img.b awf;
-    private Map<Integer, Boolean> fME = new HashMap();
-    private ColorDrawable fMF;
-    private AlbumActivity fMg;
+    private com.baidu.tbadk.img.b avP;
+    private AlbumActivity fTN;
+    private Map<Integer, Boolean> fUl = new HashMap();
+    private ColorDrawable fUm;
     private List<ImageFileInfo> mList;
     private int mMaxHeight;
 
     public k(AlbumActivity albumActivity, com.baidu.tbadk.img.b bVar) {
-        this.fMg = albumActivity;
-        this.awf = bVar;
-        this.BS = com.baidu.adp.lib.util.k.af(this.fMg.getPageContext().getContext());
-        this.mMaxHeight = com.baidu.adp.lib.util.k.ag(this.fMg.getPageContext().getContext()) - ((int) this.fMg.getResources().getDimension(w.f.ds166));
-        this.fMF = new ColorDrawable(this.fMg.getResources().getColor(w.e.black_alpha100));
+        this.fTN = albumActivity;
+        this.avP = bVar;
+        this.BS = com.baidu.adp.lib.util.k.af(this.fTN.getPageContext().getContext());
+        this.mMaxHeight = com.baidu.adp.lib.util.k.ag(this.fTN.getPageContext().getContext()) - ((int) this.fTN.getResources().getDimension(w.f.ds166));
+        this.fUm = new ColorDrawable(this.fTN.getResources().getColor(w.e.black_alpha100));
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -53,37 +53,37 @@ public class k extends PagerAdapter {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public ImageFileInfo sN(int i) {
+    public ImageFileInfo ti(int i) {
         return (ImageFileInfo) com.baidu.tbadk.core.util.x.c(this.mList, i);
     }
 
-    public boolean sO(int i) {
-        if (this.fME.get(Integer.valueOf(i)) == null) {
+    public boolean tj(int i) {
+        if (this.fUl.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.fME.get(Integer.valueOf(i)).booleanValue();
+        return this.fUl.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(this.fMg.getPageContext().getContext()).inflate(w.j.album_big_image_item, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.fTN.getPageContext().getContext()).inflate(w.j.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(w.h.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setDefaultBgResource(w.e.black_alpha100);
-        tbImageView.setBg(this.fMF);
-        ImageFileInfo sN = sN(i);
-        this.fME.put(Integer.valueOf(i), false);
-        if (sN != null) {
-            sN.clearPageActions();
-            sN.addPageAction(com.baidu.tbadk.img.effect.d.M(this.BS, this.mMaxHeight));
-            tbImageView.setTag(sN.toCachedKey(false));
-            if (this.awf.a(sN, false) != null) {
+        tbImageView.setBg(this.fUm);
+        ImageFileInfo ti = ti(i);
+        this.fUl.put(Integer.valueOf(i), false);
+        if (ti != null) {
+            ti.clearPageActions();
+            ti.addPageAction(com.baidu.tbadk.img.effect.d.L(this.BS, this.mMaxHeight));
+            tbImageView.setTag(ti.toCachedKey(false));
+            if (this.avP.a(ti, false) != null) {
                 tbImageView.invalidate();
-                this.fME.put(Integer.valueOf(i), true);
+                this.fUl.put(Integer.valueOf(i), true);
             } else {
-                this.awf.a(sN, new l(this, viewGroup, i), false);
+                this.avP.a(ti, new l(this, viewGroup, i), false);
             }
         }
         ((ViewPager) viewGroup).addView(inflate, 0);

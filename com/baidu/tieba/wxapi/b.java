@@ -3,15 +3,15 @@ package com.baidu.tieba.wxapi;
 import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes.dex */
 class b implements SapiWebView.OnBackCallback {
-    final /* synthetic */ WXEntryActivity fTG;
+    final /* synthetic */ WXEntryActivity gci;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(WXEntryActivity wXEntryActivity) {
-        this.fTG = wXEntryActivity;
+        this.gci = wXEntryActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
     public void onBack() {
-        this.fTG.closeActivity();
+        this.gci.closeActivity();
     }
 }

@@ -9,12 +9,12 @@ public class f extends al implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Em() {
+    public String Eg() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean fT(String str) {
+    public boolean fS(String str) {
         try {
             m(new JSONObject(str));
             return true;

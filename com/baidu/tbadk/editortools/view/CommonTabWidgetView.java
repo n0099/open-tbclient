@@ -13,13 +13,13 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CommonTabWidgetView extends LinearLayout {
-    private j Kg;
-    private CommonTabHorizonScrollView aCe;
-    private ImageView aCf;
+    private j JU;
+    private CommonTabHorizonScrollView aBR;
+    private ImageView aBS;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eM(int i);
+        void eN(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -33,20 +33,20 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void setEditorTools(j jVar) {
-        this.Kg = jVar;
+        this.JU = jVar;
     }
 
     private void init(Context context) {
         setVisibility(8);
         removeAllViews();
         LayoutInflater.from(context).inflate(w.j.common_tab_widget, (ViewGroup) this, true);
-        this.aCe = (CommonTabHorizonScrollView) findViewById(w.h.privilege_tab_scroll_view);
-        this.aCf = (ImageView) findViewById(w.h.privilege_tab_delete);
-        this.aCf.setOnClickListener(new e(this));
+        this.aBR = (CommonTabHorizonScrollView) findViewById(w.h.privilege_tab_scroll_view);
+        this.aBS = (ImageView) findViewById(w.h.privilege_tab_delete);
+        this.aBS.setOnClickListener(new e(this));
     }
 
     public void setDatas(ArrayList<b> arrayList) {
-        this.aCe.setDatas(arrayList);
+        this.aBR.setDatas(arrayList);
         if (arrayList == null || arrayList.size() <= 1) {
             setVisibility(8);
         } else {
@@ -55,33 +55,33 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void c(b.C0044b c0044b) {
-        this.aCe.c(c0044b);
+        this.aBR.c(c0044b);
     }
 
     public void setCurrentTab(int i) {
-        this.aCe.setCurrentTab(i);
+        this.aBR.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.aCe.setOnTabSelectedListener(aVar);
+        this.aBR.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.aCe.reset();
+        this.aBR.reset();
     }
 
     public void onChangeSkinType(int i) {
         aq.k(this, w.e.common_color_10223);
-        this.aCe.dm(i);
-        aq.c(this.aCf, w.g.but_face_close);
-        aq.k(this.aCf, w.e.common_color_10224);
+        this.aBR.dn(i);
+        aq.c(this.aBS, w.g.but_face_close);
+        aq.k(this.aBS, w.e.common_color_10224);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.aCf.setVisibility(0);
+            this.aBS.setVisibility(0);
         } else {
-            this.aCf.setVisibility(8);
+            this.aBS.setVisibility(8);
         }
     }
 }

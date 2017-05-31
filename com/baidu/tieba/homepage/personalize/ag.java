@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.personalize;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.frs.ch;
+import com.baidu.tieba.frs.ci;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements View.OnClickListener {
@@ -15,18 +15,18 @@ public class ag implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ch chVar;
+        ci ciVar;
         int i;
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
         BdTypeListView bdTypeListView3;
-        ch chVar2;
-        chVar = this.this$0.cuM;
-        if (chVar != null) {
-            chVar2 = this.this$0.cuM;
-            chVar2.hideTip();
+        ci ciVar2;
+        ciVar = this.this$0.cBe;
+        if (ciVar != null) {
+            ciVar2 = this.this$0.cBe;
+            ciVar2.hideTip();
         }
-        i = this.this$0.cuJ;
+        i = this.this$0.cBb;
         if (i == 1) {
             bdTypeListView = this.this$0.mListView;
             if (bdTypeListView != null) {

@@ -1,24 +1,21 @@
 package com.baidu.tbadk.n;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.lib.b.a {
+    public static final String[] aIj = {"com.baidu.browser"};
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void X(int i) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_BAIDU_YUN_PUSH_SWITCH_CHANGE));
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_baiduyun_push";
+        return "baidu_webview";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] eQ() {
-        return null;
+        return aIj;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,7 +25,7 @@ public class h extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eS() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -12,30 +12,30 @@ import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.data.UserTbVipInfoData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ThreadCommentAndPraiseInfoLayoutNew extends LinearLayout {
-    private bk ahV;
-    private TbPageContext ajr;
-    private TextView alE;
-    private TextView alI;
-    private TextView alK;
-    private FrameLayout alL;
-    private List<CharSequence> alM;
-    private List<String> alN;
-    private boolean alR;
-    private View.OnClickListener amc;
-    public ClickableHeaderImageView amf;
-    public TextView amg;
-    public ViewStub amh;
-    public TbImageView ami;
-    private boolean amj;
-    private View.OnClickListener amk;
-    private View.OnClickListener aml;
+    private bl ahM;
+    private TbPageContext ajh;
+    private TextView alA;
+    private FrameLayout alB;
+    private List<CharSequence> alC;
+    private List<String> alD;
+    private boolean alH;
+    private View.OnClickListener alS;
+    public ClickableHeaderImageView alV;
+    public TextView alW;
+    public ViewStub alX;
+    public TbImageView alY;
+    private boolean alZ;
+    private TextView alu;
+    private TextView aly;
+    private View.OnClickListener ama;
+    private View.OnClickListener amb;
     private Context mContext;
     private int mFrom;
 
@@ -45,173 +45,173 @@ public class ThreadCommentAndPraiseInfoLayoutNew extends LinearLayout {
 
     public ThreadCommentAndPraiseInfoLayoutNew(Context context) {
         super(context);
-        this.alR = true;
-        this.amj = false;
+        this.alH = true;
+        this.alZ = false;
         this.mFrom = 1;
-        this.amc = new ao(this);
-        this.aml = new ap(this);
+        this.alS = new ao(this);
+        this.amb = new ap(this);
         init(context);
     }
 
     public ThreadCommentAndPraiseInfoLayoutNew(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.alR = true;
-        this.amj = false;
+        this.alH = true;
+        this.alZ = false;
         this.mFrom = 1;
-        this.amc = new ao(this);
-        this.aml = new ap(this);
+        this.alS = new ao(this);
+        this.amb = new ap(this);
         init(context);
     }
 
     public ThreadCommentAndPraiseInfoLayoutNew(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.alR = true;
-        this.amj = false;
+        this.alH = true;
+        this.alZ = false;
         this.mFrom = 1;
-        this.amc = new ao(this);
-        this.aml = new ap(this);
+        this.alS = new ao(this);
+        this.amb = new ap(this);
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(w.j.thread_comment_and_praise_info_layout_new, (ViewGroup) this, true);
-        this.amf = (ClickableHeaderImageView) inflate.findViewById(w.h.card_home_page_normal_thread_user_header);
-        this.amh = (ViewStub) inflate.findViewById(w.h.viewstub_headimage_mask);
-        this.amg = (TextView) inflate.findViewById(w.h.card_home_page_normal_thread_user_name);
-        this.alE = (TextView) inflate.findViewById(w.h.thread_info_reply_time);
-        this.alI = (TextView) inflate.findViewById(w.h.thread_info_commont_num);
-        this.alK = (TextView) inflate.findViewById(w.h.thread_info_more);
-        this.alL = (FrameLayout) inflate.findViewById(w.h.thread_info_more_frame);
+        this.alV = (ClickableHeaderImageView) inflate.findViewById(w.h.card_home_page_normal_thread_user_header);
+        this.alX = (ViewStub) inflate.findViewById(w.h.viewstub_headimage_mask);
+        this.alW = (TextView) inflate.findViewById(w.h.card_home_page_normal_thread_user_name);
+        this.alu = (TextView) inflate.findViewById(w.h.thread_info_reply_time);
+        this.aly = (TextView) inflate.findViewById(w.h.thread_info_commont_num);
+        this.alA = (TextView) inflate.findViewById(w.h.thread_info_more);
+        this.alB = (FrameLayout) inflate.findViewById(w.h.thread_info_more_frame);
         setVerticalGravity(16);
         this.mContext = context;
-        wC();
-        this.amg.setOnClickListener(this.aml);
+        wy();
+        this.alW.setOnClickListener(this.amb);
     }
 
-    public boolean a(bk bkVar) {
-        if (bkVar == null) {
+    public boolean a(bl blVar) {
+        if (blVar == null) {
             setVisibility(8);
             return false;
         }
-        this.ahV = bkVar;
-        h(bkVar);
-        i(bkVar);
-        e(bkVar);
-        c(bkVar);
+        this.ahM = blVar;
+        h(blVar);
+        i(blVar);
+        e(blVar);
+        c(blVar);
         setVisibility(0);
         return true;
     }
 
-    private void wC() {
-        if (this.amf != null) {
-            this.amf.setDefaultResource(17170445);
-            this.amf.setDefaultErrorResource(w.g.icon_default_avatar100);
-            this.amf.setDefaultBgResource(w.e.cp_bg_line_e);
-            this.amf.setIsRound(true);
-            this.amf.setAfterClickListener(this.amk);
+    private void wy() {
+        if (this.alV != null) {
+            this.alV.setDefaultResource(17170445);
+            this.alV.setDefaultErrorResource(w.g.icon_default_avatar100);
+            this.alV.setDefaultBgResource(w.e.cp_bg_line_e);
+            this.alV.setIsRound(true);
+            this.alV.setAfterClickListener(this.ama);
         }
     }
 
-    private void h(bk bkVar) {
-        if (this.amf != null && bkVar != null) {
-            if (this.amj) {
-                this.amf.setVisibility(8);
+    private void h(bl blVar) {
+        if (this.alV != null && blVar != null) {
+            if (this.alZ) {
+                this.alV.setVisibility(8);
                 return;
             }
-            this.amf.setVisibility(0);
-            this.amf.setData(bkVar);
-            UserTbVipInfoData rz = bkVar.rz();
-            if (rz != null && rz.getvipV_url() != null && this.amh != null) {
-                if (this.ami == null) {
-                    this.amh.inflate();
-                    this.ami = (TbImageView) findViewById(w.h.user_head_mask);
+            this.alV.setVisibility(0);
+            this.alV.setData(blVar);
+            UserTbVipInfoData rv = blVar.rv();
+            if (rv != null && rv.getvipV_url() != null && this.alX != null) {
+                if (this.alY == null) {
+                    this.alX.inflate();
+                    this.alY = (TbImageView) findViewById(w.h.user_head_mask);
                 }
-                this.ami.c(rz.getvipV_url(), 10, false);
-                this.amf.setIsBigV(true);
+                this.alY.c(rv.getvipV_url(), 10, false);
+                this.alV.setIsBigV(true);
             }
         }
     }
 
-    private void i(bk bkVar) {
-        if (this.amg != null && bkVar != null && !StringUtils.isNull(this.ahV.getAuthor().getName_show())) {
-            this.amg.setText(com.baidu.tbadk.core.util.au.getFixedText(this.ahV.getAuthor().getName_show(), 8, true));
+    private void i(bl blVar) {
+        if (this.alW != null && blVar != null && !StringUtils.isNull(this.ahM.getAuthor().getName_show())) {
+            this.alW.setText(com.baidu.tbadk.core.util.au.getFixedText(this.ahM.getAuthor().getName_show(), 8, true));
         }
     }
 
-    private void c(bk bkVar) {
+    private void c(bl blVar) {
         String r;
-        if (this.alE != null && bkVar != null) {
-            if (bkVar.rt() <= 0 || !this.alR) {
-                this.alE.setVisibility(8);
+        if (this.alu != null && blVar != null) {
+            if (blVar.rp() <= 0 || !this.alH) {
+                this.alu.setVisibility(8);
                 return;
             }
-            this.alE.setVisibility(0);
+            this.alu.setVisibility(0);
             if (this.mFrom == 2) {
-                r = com.baidu.tbadk.core.util.au.p(bkVar.rt());
+                r = com.baidu.tbadk.core.util.au.p(blVar.rp());
             } else {
-                r = com.baidu.tbadk.core.util.au.r(bkVar.rt() * 1000);
+                r = com.baidu.tbadk.core.util.au.r(blVar.rp() * 1000);
             }
-            this.alE.setText(r);
+            this.alu.setText(r);
         }
     }
 
-    private void e(bk bkVar) {
-        if (this.alI != null && bkVar != null) {
-            if (bkVar.rr() >= 0) {
-                this.alI.setVisibility(0);
-                this.alI.setText(String.format(this.mContext.getString(w.l.comment_num_tip), com.baidu.tbadk.core.util.au.t(bkVar.rr())));
+    private void e(bl blVar) {
+        if (this.aly != null && blVar != null) {
+            if (blVar.rn() >= 0) {
+                this.aly.setVisibility(0);
+                this.aly.setText(String.format(this.mContext.getString(w.l.comment_num_tip), com.baidu.tbadk.core.util.au.t(blVar.rn())));
                 return;
             }
-            this.alI.setVisibility(8);
+            this.aly.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wB() {
-        if (this.ajr != null) {
-            com.baidu.tbadk.core.dialog.c cVar = new com.baidu.tbadk.core.dialog.c(this.ajr.getPageActivity());
-            cVar.ca(w.l.operation);
-            cVar.a(this.alM, new aq(this));
-            cVar.d(this.ajr);
-            cVar.tg();
+    public void wx() {
+        if (this.ajh != null) {
+            com.baidu.tbadk.core.dialog.c cVar = new com.baidu.tbadk.core.dialog.c(this.ajh.getPageActivity());
+            cVar.cb(w.l.operation);
+            cVar.a(this.alC, new aq(this));
+            cVar.d(this.ajh);
+            cVar.tf();
         }
     }
 
     public void onChangeSkinType() {
-        com.baidu.tbadk.core.util.aq.i(this.amg, w.e.cp_cont_d);
-        com.baidu.tbadk.core.util.aq.i(this.alE, w.e.cp_cont_d);
-        com.baidu.tbadk.core.util.aq.i(this.alI, w.e.cp_cont_d);
-        com.baidu.tbadk.core.util.aq.j(this.alK, w.g.btn_frs_more_selector);
+        com.baidu.tbadk.core.util.aq.i(this.alW, w.e.cp_cont_d);
+        com.baidu.tbadk.core.util.aq.i(this.alu, w.e.cp_cont_d);
+        com.baidu.tbadk.core.util.aq.i(this.aly, w.e.cp_cont_d);
+        com.baidu.tbadk.core.util.aq.j(this.alA, w.g.btn_frs_more_selector);
     }
 
     public void setReplyTimeVisible(boolean z) {
-        this.alR = z;
+        this.alH = z;
     }
 
     public View getCommentNumView() {
-        return this.alI;
+        return this.aly;
     }
 
     public void setCommentNumClickListener(View.OnClickListener onClickListener) {
-        this.alI.setOnClickListener(onClickListener);
+        this.aly.setOnClickListener(onClickListener);
     }
 
     public void setIsSimpleThread(boolean z) {
-        this.amj = z;
+        this.alZ = z;
     }
 
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
-        this.amk = onClickListener;
+        this.ama = onClickListener;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.amf != null) {
-            this.amf.setPageId(bdUniqueId);
+        if (this.alV != null) {
+            this.alV.setPageId(bdUniqueId);
         }
     }
 
-    public void wD() {
-        this.amf.setClickable(false);
-        this.amg.setClickable(false);
+    public void wz() {
+        this.alV.setClickable(false);
+        this.alW.setClickable(false);
     }
 }

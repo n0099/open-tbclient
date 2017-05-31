@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements b {
-    final /* synthetic */ RecommendFrsControlFragment ctq;
+    final /* synthetic */ RecommendFrsControlFragment czI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.ctq = recommendFrsControlFragment;
+        this.czI = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tieba.homepage.framework.b
@@ -20,23 +20,23 @@ public class p implements b {
         boolean z;
         q qVar;
         int i3 = TbadkCoreApplication.isLogin() ? 1 : 0;
-        z = this.ctq.cth;
+        z = this.czI.czz;
         int i4 = z ? 0 : i3;
-        qVar = this.ctq.ctd;
+        qVar = this.czI.czv;
         qVar.d(1, i, 1, i2, i4);
-        this.ctq.cth = false;
+        this.czI.czz = false;
         if (com.baidu.adp.lib.util.i.gY()) {
-            TiebaStatic.log(new as("c11032").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
+            TiebaStatic.log(new as("c11032").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
         }
     }
 
     @Override // com.baidu.tieba.homepage.framework.b
     public void u(int i, int i2, int i3) {
         q qVar;
-        qVar = this.ctq.ctd;
+        qVar = this.czI.czv;
         qVar.d(2, i2, i, i3, 0);
         if (com.baidu.adp.lib.util.i.gY()) {
-            TiebaStatic.log(new as("c11032").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 2));
+            TiebaStatic.log(new as("c11032").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 2));
         }
     }
 
@@ -45,11 +45,11 @@ public class p implements b {
         if (TbadkCoreApplication.isLogin() && !z) {
             return;
         }
-        this.ctq.aQ(list);
+        this.czI.aQ(list);
     }
 
     @Override // com.baidu.tieba.homepage.framework.b
-    public void ahc() {
-        this.ctq.ahe();
+    public void air() {
+        this.czI.ait();
     }
 }

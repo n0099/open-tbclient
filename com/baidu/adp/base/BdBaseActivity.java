@@ -13,7 +13,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.w;
 import com.baidu.megapp.ma.MAActivity;
 /* loaded from: classes.dex */
 public abstract class BdBaseActivity<T> extends MAActivity implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, h<T>, j {
@@ -161,7 +161,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.app.Activity
     public void onStop() {
         super.onStop();
-        BdListView onGetPreLoadListView = onGetPreLoadListView();
+        w onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
             onGetPreLoadListView.cancelRefresh();
         }
@@ -178,10 +178,10 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     }
 
     @Override // com.baidu.adp.base.j
-    public void onPreLoad(BdListView bdListView) {
+    public void onPreLoad(w wVar) {
     }
 
-    public BdListView onGetPreLoadListView() {
+    public w onGetPreLoadListView() {
         return null;
     }
 

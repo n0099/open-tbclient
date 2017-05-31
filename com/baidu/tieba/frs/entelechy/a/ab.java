@@ -1,43 +1,54 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.layout.c> {
-    final /* synthetic */ z bSW;
+public class ab implements com.baidu.adp.lib.e.c<TbImageView> {
+    final /* synthetic */ y bYO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(z zVar) {
-        this.bSW = zVar;
+    public ab(y yVar) {
+        this.bYO = yVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: aaJ */
-    public com.baidu.tbadk.widget.layout.c fL() {
+    /* renamed from: wB */
+    public TbImageView fL() {
         TbPageContext tbPageContext;
-        tbPageContext = this.bSW.ajr;
-        return new com.baidu.tbadk.widget.layout.c(tbPageContext.getPageActivity());
+        tbPageContext = this.bYO.ajh;
+        TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
+        tbImageView.setDrawBorder(true);
+        tbImageView.setBorderColor(aq.getColor(w.e.common_color_10043));
+        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1));
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void o(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public TbImageView p(TbImageView tbImageView) {
+        return tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: c */
-    public void o(com.baidu.tbadk.widget.layout.c cVar) {
-        cVar.removeAllViews();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: d */
-    public com.baidu.tbadk.widget.layout.c p(com.baidu.tbadk.widget.layout.c cVar) {
-        return cVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: e */
-    public com.baidu.tbadk.widget.layout.c q(com.baidu.tbadk.widget.layout.c cVar) {
-        return cVar;
+    public TbImageView q(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
+        return tbImageView;
     }
 }

@@ -1,21 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.FloatingLayout;
+import android.widget.Toast;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cm implements com.baidu.tbadk.ala.f {
-    @Override // com.baidu.tbadk.ala.f
-    public View aq(Context context) {
-        TextView ap = com.baidu.tbadk.ala.d.ap(context);
-        if (ap != null) {
-            FloatingLayout.a aVar = new FloatingLayout.a(-2, -2);
-            aVar.gravity = 16;
-            aVar.setMargins(com.baidu.adp.lib.util.k.g(context, w.f.ds6), -com.baidu.adp.lib.util.k.g(context, w.f.ds8), -com.baidu.adp.lib.util.k.g(context, w.f.ds4), 0);
-            ap.setLayoutParams(aVar);
-        }
-        return ap;
+public class cm implements a.b {
+    final /* synthetic */ PbActivity enc;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cm(PbActivity pbActivity) {
+        this.enc = pbActivity;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        Toast.makeText(this.enc.getPageContext().getPageActivity(), this.enc.getPageContext().getResources().getString(w.l.channel_no_push), 1).show();
     }
 }

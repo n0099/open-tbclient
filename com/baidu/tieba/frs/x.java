@@ -1,26 +1,46 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.b;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends CustomMessageListener {
-    final /* synthetic */ r bPn;
+public class x implements View.OnTouchListener {
+    final /* synthetic */ r bVb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(r rVar, int i) {
-        super(i);
-        this.bPn = rVar;
+    public x(r rVar) {
+        this.bVb = rVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && b.tX().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "photolive_hostLevel", -1) != -1 && this.bPn.bNT.aHE() != null) {
-            this.bPn.bNT.aHE().setCanAddPhotoLivePost(true);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        View.OnTouchListener onTouchListener;
+        cb cbVar;
+        com.baidu.tieba.frs.f.u uVar;
+        com.baidu.tieba.frs.f.u uVar2;
+        cb cbVar2;
+        cb cbVar3;
+        View.OnTouchListener onTouchListener2;
+        onTouchListener = this.bVb.bUF;
+        if (onTouchListener != null) {
+            onTouchListener2 = this.bVb.bUF;
+            onTouchListener2.onTouch(view, motionEvent);
         }
+        cbVar = this.bVb.bUr;
+        if (cbVar != null) {
+            cbVar2 = this.bVb.bUr;
+            if (cbVar2.abg() != null) {
+                cbVar3 = this.bVb.bUr;
+                cbVar3.abg().onTouchEvent(motionEvent);
+            }
+        }
+        this.bVb.bUS = true;
+        uVar = this.bVb.bUk;
+        if (uVar != null) {
+            uVar2 = this.bVb.bUk;
+            uVar2.onTouchEvent(motionEvent);
+            return false;
+        }
+        return false;
     }
 }

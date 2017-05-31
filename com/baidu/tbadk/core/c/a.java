@@ -11,71 +11,71 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a extends CustomMessageListener {
-    private static HashMap<String, o<byte[]>> ZA;
-    private static HashMap<String, o<String>> ZB;
-    public static a Zx = null;
-    private static HashMap<String, Integer> Zy = new HashMap<>();
-    private static ArrayList<String> Zz;
+    private static HashMap<String, o<String>> ZA;
+    public static a Zw = null;
+    private static HashMap<String, Integer> Zx = new HashMap<>();
+    private static ArrayList<String> Zy;
+    private static HashMap<String, o<byte[]>> Zz;
 
     static {
-        Zy.put("tb.pb_mark", 50);
-        Zy.put("tb.pb_history", 300);
-        Zy.put("tb.pb_normal", 1);
-        Zy.put("tb.pb_editor", 50);
-        Zy.put("tb.live_hotlist", 20);
-        Zy.put("tb.live_hotlist", 20);
-        Zy.put("tb.my_pages", 5);
-        Zy.put("tb.my_forums", 3);
-        Zy.put("tb.my_bookmarks", 3);
-        Zy.put("tb.my_posts", 3);
-        Zy.put("tb.im_frsgroup", 50);
-        Zy.put("tb.im_hotgroup", 30);
-        Zy.put("tb.im_groupinfo", 50);
-        Zy.put("tb.im_groupactivity", 50);
-        Zy.put("tb.im_entergroup", 10);
-        Zy.put("tb.im_enterforum_groupinfo", 10);
-        Zy.put("tb.im_group_setting", 3);
-        Zy.put("tb.im_personal_chat_setting", 3);
-        Zy.put("tb.im_official_chat_setting", 3);
-        Zy.put("tb.im_group_search_history", 50);
-        Zy.put("tb.im_official_history", 50);
-        Zy.put("tb.im_recommend_detail", 10);
-        Zy.put("tb.square", 1);
-        Zy.put("tb.first_dir", 1);
-        Zy.put("tb.forum_rank", 20);
-        Zy.put("tb.pic_gif", 50);
-        Zy.put("tb.official_bar_menu", 1000);
-        Zy.put("tb.friend_feed", 20);
-        Zy.put("net_err_record", 30);
-        Zy.put("tb_face_package", 30);
-        Zy.put("tb.recommend_friend", 10);
-        Zy.put("tb.searchperson_history", 5);
-        Zy.put("tb.game_center_home", 20);
-        Zy.put("tb.game_center_list", 20);
-        Zy.put("tb.person_wallet_new", 10);
-        Zz = new ArrayList<>();
-        Zz.add("tb.ala.gift_list");
-        Zz.add("tb.square");
-        Zz.add("tb.first_dir");
-        Zz.add("tb.forum_rank");
-        Zz.add("tb.im_group_setting");
-        Zz.add("tb.im_personal_chat_setting");
-        Zz.add("tb.im_official_chat_setting");
-        Zz.add("net_err_record");
-        Zz.add("tb_user_profile");
-        Zz.add("tb_forum_recommend");
-        Zz.add("tb.ad_killer_tags");
-        Zz.add("tb.manga.settings");
-        ZB = new HashMap<>();
+        Zx.put("tb.pb_mark", 50);
+        Zx.put("tb.pb_history", 300);
+        Zx.put("tb.pb_normal", 1);
+        Zx.put("tb.pb_editor", 50);
+        Zx.put("tb.live_hotlist", 20);
+        Zx.put("tb.live_hotlist", 20);
+        Zx.put("tb.my_pages", 5);
+        Zx.put("tb.my_forums", 3);
+        Zx.put("tb.my_bookmarks", 3);
+        Zx.put("tb.my_posts", 3);
+        Zx.put("tb.im_frsgroup", 50);
+        Zx.put("tb.im_hotgroup", 30);
+        Zx.put("tb.im_groupinfo", 50);
+        Zx.put("tb.im_groupactivity", 50);
+        Zx.put("tb.im_entergroup", 10);
+        Zx.put("tb.im_enterforum_groupinfo", 10);
+        Zx.put("tb.im_group_setting", 3);
+        Zx.put("tb.im_personal_chat_setting", 3);
+        Zx.put("tb.im_official_chat_setting", 3);
+        Zx.put("tb.im_group_search_history", 50);
+        Zx.put("tb.im_official_history", 50);
+        Zx.put("tb.im_recommend_detail", 10);
+        Zx.put("tb.square", 1);
+        Zx.put("tb.first_dir", 1);
+        Zx.put("tb.forum_rank", 20);
+        Zx.put("tb.pic_gif", 50);
+        Zx.put("tb.official_bar_menu", 1000);
+        Zx.put("tb.friend_feed", 20);
+        Zx.put("net_err_record", 30);
+        Zx.put("tb_face_package", 30);
+        Zx.put("tb.recommend_friend", 10);
+        Zx.put("tb.searchperson_history", 5);
+        Zx.put("tb.game_center_home", 20);
+        Zx.put("tb.game_center_list", 20);
+        Zx.put("tb.person_wallet_new", 10);
+        Zy = new ArrayList<>();
+        Zy.add("tb.ala.gift_list");
+        Zy.add("tb.square");
+        Zy.add("tb.first_dir");
+        Zy.add("tb.forum_rank");
+        Zy.add("tb.im_group_setting");
+        Zy.add("tb.im_personal_chat_setting");
+        Zy.add("tb.im_official_chat_setting");
+        Zy.add("net_err_record");
+        Zy.add("tb_user_profile");
+        Zy.add("tb_forum_recommend");
+        Zy.add("tb.ad_killer_tags");
+        Zy.add("tb.manga.settings");
         ZA = new HashMap<>();
+        Zz = new HashMap<>();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KV_CACHE_SUCC));
     }
 
-    public static a sZ() {
-        if (Zx == null) {
-            Zx = new a();
+    public static a sY() {
+        if (Zw == null) {
+            Zw = new a();
         }
-        return Zx;
+        return Zw;
     }
 
     private a() {
@@ -83,11 +83,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public o<byte[]> cy(String str) {
+    public o<byte[]> cx(String str) {
         return L(str, null);
     }
 
-    public o<String> cz(String str) {
+    public o<String> cy(String str) {
         return M(str, null);
     }
 
@@ -96,13 +96,13 @@ public class a extends CustomMessageListener {
             return null;
         }
         String str3 = str2 != null ? String.valueOf(str) + str2 : str;
-        o<byte[]> oVar = ZA.get(str3);
+        o<byte[]> oVar = Zz.get(str3);
         if (oVar == null || !(oVar instanceof o)) {
             BdCacheService eI = BdCacheService.eI();
-            Integer num = Zy.get(str);
+            Integer num = Zx.get(str);
             num = (num == null || num.intValue() == 0) ? 20 : 20;
             BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-            if (Zz.contains(str)) {
+            if (Zy.contains(str)) {
                 cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
             }
             try {
@@ -110,7 +110,7 @@ public class a extends CustomMessageListener {
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            ZA.put(str3, oVar);
+            Zz.put(str3, oVar);
             return oVar;
         }
         return oVar;
@@ -121,12 +121,12 @@ public class a extends CustomMessageListener {
             return null;
         }
         String str3 = str2 != null ? String.valueOf(str) + str2 : str;
-        o<String> oVar = ZB.get(str3);
+        o<String> oVar = ZA.get(str3);
         BdCacheService eI = BdCacheService.eI();
-        Integer num = Zy.get(str);
+        Integer num = Zx.get(str);
         num = (num == null || num.intValue() == 0) ? 20 : 20;
         BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-        if (Zz.contains(str)) {
+        if (Zy.contains(str)) {
             cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
         }
         try {
@@ -142,11 +142,11 @@ public class a extends CustomMessageListener {
             if (str2 != null) {
                 str = String.valueOf(str) + str2;
             }
-            o<String> oVar = ZB.get(str);
+            o<String> oVar = ZA.get(str);
             if (oVar != null) {
                 try {
                     BdCacheService.eI().a(oVar);
-                    ZB.remove(str);
+                    ZA.remove(str);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -154,14 +154,14 @@ public class a extends CustomMessageListener {
         }
     }
 
-    public void cA(String str) {
+    public void cz(String str) {
         N(str, null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Zz.clear();
         ZA.clear();
-        ZB.clear();
     }
 }

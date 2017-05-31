@@ -16,7 +16,7 @@ public class g implements Runnable {
     public void run() {
         TbPageContext tbPageContext;
         NetModel netModel = this.this$0;
-        tbPageContext = this.this$0.ajr;
+        tbPageContext = this.this$0.ajh;
         netModel.p(-1, tbPageContext.getString(w.l.neterror));
     }
 }

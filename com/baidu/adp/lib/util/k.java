@@ -154,7 +154,7 @@ public class k {
         }
     }
 
-    public static int m(Activity activity) {
+    public static int n(Activity activity) {
         Rect rect = new Rect();
         activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
         int i = rect.top;
@@ -189,8 +189,14 @@ public class k {
     }
 
     public static int[] ai(Context context) {
+        int[] iArr = new int[2];
+        if (context == null) {
+            return iArr;
+        }
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
-        return new int[]{defaultDisplay.getWidth(), defaultDisplay.getHeight()};
+        iArr[0] = defaultDisplay.getWidth();
+        iArr[1] = defaultDisplay.getHeight();
+        return iArr;
     }
 
     public static Field e(Object obj, String str) {
@@ -227,7 +233,7 @@ public class k {
         }
     }
 
-    public static DisplayMetrics n(Activity activity) {
+    public static DisplayMetrics o(Activity activity) {
         DisplayMetrics displayMetrics;
         Exception e;
         try {

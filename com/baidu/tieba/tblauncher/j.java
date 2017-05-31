@@ -1,56 +1,33 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.tbadk.widget.layout.GridLayout;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnClickListener {
-    private final /* synthetic */ LinearLayout fyS;
-    private final /* synthetic */ TbImageView fyT;
+public class j implements Runnable {
+    private final /* synthetic */ GridLayout fGP;
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(MainTabActivity mainTabActivity, LinearLayout linearLayout, TbImageView tbImageView) {
+    public j(MainTabActivity mainTabActivity, GridLayout gridLayout) {
         this.this$0 = mainTabActivity;
-        this.fyS = linearLayout;
-        this.fyT = tbImageView;
+        this.fGP = gridLayout;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PopupWindow popupWindow;
-        int i;
-        MainTabActivity mainTabActivity = this.this$0;
-        popupWindow = this.this$0.ajs;
-        mainTabActivity.a(popupWindow, this.fyS, this.fyT);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MAINTAB_FORUM_INFO, ForumWriteData.class);
-        String str = "0";
-        String str2 = null;
-        PostPrefixData postPrefixData = null;
-        AntiData antiData = null;
-        if (runTask == null || runTask.getData() == null) {
-            i = -1;
-        } else {
-            ForumWriteData forumWriteData = (ForumWriteData) runTask.getData();
-            str = forumWriteData.forumId;
-            str2 = forumWriteData.forumName;
-            postPrefixData = forumWriteData.prefixData;
-            antiData = forumWriteData.antiData;
-            i = forumWriteData.forumLevel;
-        }
-        WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.this$0.getPageContext().getPageActivity(), 0, str, str2, null, null, 0, antiData, 0, false, false, null, false, false, null, null, postPrefixData, 0);
-        writeActivityConfig.setCallFrom("1");
-        writeActivityConfig.setForumLevel(i);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
+    @Override // java.lang.Runnable
+    public void run() {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.this$0.getBaseContext(), w.a.home_write_bgin);
+        loadAnimation.setFillAfter(true);
+        this.fGP.setVisibility(0);
+        this.fGP.startAnimation(loadAnimation);
+        tbImageView = this.this$0.fGB;
+        tbImageView.setVisibility(0);
+        tbImageView2 = this.this$0.fGB;
+        tbImageView2.startAnimation(AnimationUtils.loadAnimation(this.this$0.getBaseContext(), w.a.write_thread_anim));
     }
 }

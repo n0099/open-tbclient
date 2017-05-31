@@ -10,13 +10,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ b efH;
+    final /* synthetic */ b elh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, int i) {
         super(i);
-        this.efH = bVar;
+        this.elh = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,26 +27,26 @@ public class d extends CustomMessageListener {
         PbModel pbModel3;
         PbModel pbModel4;
         int e;
-        pbModel = this.efH.efE;
+        pbModel = this.elh.ele;
         if (pbModel != null) {
-            pbModel2 = this.efH.efE;
-            if (pbModel2.aKp() != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.graffiti.b)) {
+            pbModel2 = this.elh.ele;
+            if (pbModel2.aLj() != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.graffiti.b)) {
                 com.baidu.tieba.graffiti.b bVar = (com.baidu.tieba.graffiti.b) customResponsedMessage.getData();
                 String threadId = bVar.getThreadId();
-                com.baidu.tbadk.core.data.ae afm = bVar.afm();
-                if (afm != null && !TextUtils.isEmpty(threadId)) {
-                    pbModel3 = this.efH.efE;
+                com.baidu.tbadk.core.data.ae agB = bVar.agB();
+                if (agB != null && !TextUtils.isEmpty(threadId)) {
+                    pbModel3 = this.elh.ele;
                     if (threadId.equals(pbModel3.getThreadID())) {
-                        pbModel4 = this.efH.efE;
-                        com.baidu.tbadk.core.data.af aJN = pbModel4.aKp().aJN();
-                        if (aJN != null) {
-                            List<com.baidu.tbadk.core.data.ae> items = aJN.getItems();
+                        pbModel4 = this.elh.ele;
+                        com.baidu.tbadk.core.data.af aKH = pbModel4.aLj().aKH();
+                        if (aKH != null) {
+                            List<com.baidu.tbadk.core.data.ae> items = aKH.getItems();
                             if (items == null) {
                                 items = new ArrayList<>();
                             }
-                            e = this.efH.e(afm.getGid(), items);
+                            e = this.elh.e(agB.getGid(), items);
                             if (e >= 0 && com.baidu.tbadk.core.util.x.d(items, e) != null) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_LIST_CHANGED, aJN));
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_LIST_CHANGED, aKH));
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
                             }
                         }

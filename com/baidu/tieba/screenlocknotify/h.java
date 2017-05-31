@@ -17,10 +17,10 @@ public class h implements View.OnClickListener {
     public void onClick(View view) {
         TextView textView;
         TextView textView2;
-        textView = this.this$0.fdZ;
+        textView = this.this$0.flR;
         textView.setText(this.this$0.getResources().getString(w.l.loading));
-        textView2 = this.this$0.fdZ;
+        textView2 = this.this$0.flR;
         textView2.setEnabled(false);
-        this.this$0.JC();
+        this.this$0.MC();
     }
 }

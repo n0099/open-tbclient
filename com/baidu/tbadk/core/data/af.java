@@ -10,16 +10,17 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class af extends PostData {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private int VR;
-    private int VS;
-    private List<ae> VT = new ArrayList();
-    private List<UserData> VU;
-    private int VV;
-    private int VW;
-    private boolean VX;
-    private int VY;
+    private int VE;
+    private int VF;
+    private List<UserData> VH;
+    private int VI;
+    private int VJ;
+    private boolean VK;
+    private int VL;
     private String mForumId;
     private String mThreadId;
+    public boolean VM = false;
+    private List<ae> VG = new ArrayList();
 
     public void setThreadId(String str) {
         this.mThreadId = str;
@@ -38,63 +39,63 @@ public class af extends PostData {
     }
 
     public List<ae> getItems() {
-        return this.VT;
+        return this.VG;
     }
 
     public void k(List<ae> list) {
-        this.VT = list;
+        this.VG = list;
     }
 
-    public int qf() {
-        return this.VV;
+    public int pW() {
+        return this.VI;
     }
 
-    public boolean qg() {
-        return this.VX;
+    public boolean pX() {
+        return this.VK;
     }
 
-    public void ao(boolean z) {
-        this.VX = z;
+    public void an(boolean z) {
+        this.VK = z;
     }
 
     public int getRole() {
-        return this.VY;
+        return this.VL;
     }
 
-    public void bD(int i) {
-        this.VY = i;
+    public void bE(int i) {
+        this.VL = i;
     }
 
     public void a(GraffitiRankListInfo graffitiRankListInfo) {
         if (graffitiRankListInfo != null) {
-            this.VR = graffitiRankListInfo.has_more.intValue();
-            this.VS = graffitiRankListInfo.total.intValue();
-            this.VV = graffitiRankListInfo.show_list_count.intValue();
-            this.VW = graffitiRankListInfo.quick_list_count.intValue();
-            this.VX = graffitiRankListInfo.has_state.intValue() == 1;
-            if (this.VT == null) {
-                this.VT = new ArrayList();
+            this.VE = graffitiRankListInfo.has_more.intValue();
+            this.VF = graffitiRankListInfo.total.intValue();
+            this.VI = graffitiRankListInfo.show_list_count.intValue();
+            this.VJ = graffitiRankListInfo.quick_list_count.intValue();
+            this.VK = graffitiRankListInfo.has_state.intValue() == 1;
+            if (this.VG == null) {
+                this.VG = new ArrayList();
             }
-            this.VT.clear();
+            this.VG.clear();
             List<GraffitiRankItem> list = graffitiRankListInfo.list;
             if (list != null) {
                 for (GraffitiRankItem graffitiRankItem : list) {
                     ae aeVar = new ae();
                     aeVar.a(graffitiRankItem);
-                    if (aeVar.qe()) {
-                        this.VT.add(aeVar);
+                    if (aeVar.pV()) {
+                        this.VG.add(aeVar);
                     }
                 }
             }
-            if (this.VU == null) {
-                this.VU = new ArrayList();
+            if (this.VH == null) {
+                this.VH = new ArrayList();
             }
-            this.VU.clear();
+            this.VH.clear();
             if (graffitiRankListInfo.consent_list != null) {
                 for (User user : graffitiRankListInfo.consent_list) {
                     UserData userData = new UserData();
                     userData.parserProtobuf(user);
-                    this.VU.add(userData);
+                    this.VH.add(userData);
                 }
             }
         }

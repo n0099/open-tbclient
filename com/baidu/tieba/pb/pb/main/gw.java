@@ -1,65 +1,55 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.b.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class gw extends CustomMessageListener {
-    final /* synthetic */ ReaderPbService epy;
+public class gw implements View.OnClickListener {
+    final /* synthetic */ fx evi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gw(ReaderPbService readerPbService, int i) {
-        super(i);
-        this.epy = readerPbService;
+    public gw(fx fxVar) {
+        this.evi = fxVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ep epVar;
-        ep epVar2;
-        ep epVar3;
-        ep epVar4;
-        ep epVar5;
-        ep epVar6;
-        BdUniqueId bdUniqueId;
-        es esVar;
-        BdUniqueId bdUniqueId2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof eo)) {
-            eo eoVar = (eo) customResponsedMessage.getData();
-            BdUniqueId bdUniqueId3 = eoVar.tag;
-            if (bdUniqueId3 != null) {
-                bdUniqueId = this.epy.mTagId;
-                if (bdUniqueId.getId() != bdUniqueId3.getId()) {
-                    this.epy.mTagId = bdUniqueId3;
-                    esVar = this.epy.mReaderModel;
-                    bdUniqueId2 = this.epy.mTagId;
-                    esVar.o(bdUniqueId2);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        com.baidu.tieba.pb.data.f fVar;
+        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.j jVar2;
+        PbActivity pbActivity2;
+        com.baidu.tbadk.editortools.j jVar3;
+        a.InterfaceC0080a interfaceC0080a;
+        com.baidu.tieba.pb.data.f fVar2;
+        String str;
+        pbActivity = this.evi.elf;
+        if (pbActivity.checkUpIsLogin()) {
+            fVar = this.evi.epx;
+            if (fVar != null) {
+                fVar2 = this.evi.epx;
+                if (com.baidu.tieba.pb.e.M(fVar2.aIB())) {
+                    return;
                 }
             }
-            this.epy.threadId = eoVar.threadId;
-            this.epy.postId = eoVar.postId;
-            this.epy.isAlive = eoVar.isAlive;
-            this.epy.setReadModel(eoVar);
-            if (eoVar.elN >= 0) {
-                epVar2 = this.epy.mReaderManager;
-                epVar2.a(eoVar.pbData, eoVar.isSquence, eoVar.loadType, eoVar.elM, false);
-                epVar3 = this.epy.mReaderManager;
-                int aKT = epVar3.aKT();
-                if (aKT == 1 || aKT == 3) {
-                    epVar4 = this.epy.mReaderManager;
-                    epVar4.om(0);
-                } else {
-                    epVar6 = this.epy.mReaderManager;
-                    epVar6.om(1);
-                }
-                epVar5 = this.epy.mReaderManager;
-                epVar5.z(eoVar.elN, eoVar.elP);
-                return;
+            jVar = this.evi.JU;
+            if (jVar != null) {
+                this.evi.aMs();
             }
-            epVar = this.epy.mReaderManager;
-            epVar.a(eoVar.pbData, eoVar.isSquence, eoVar.loadType, eoVar.elM, true);
+            jVar2 = this.evi.JU;
+            if (jVar2 != null) {
+                this.evi.euh = false;
+                pbActivity2 = this.evi.elf;
+                jVar3 = this.evi.JU;
+                interfaceC0080a = this.evi.euI;
+                com.baidu.tieba.tbadkCore.b.a.a(pbActivity2, (View) jVar3.ey(2).ayJ, false, interfaceC0080a);
+            }
+            this.evi.aMP();
+            return;
         }
+        com.baidu.tbadk.core.util.as r = new com.baidu.tbadk.core.util.as("c10517").r("obj_locate", 2);
+        str = this.evi.mForumId;
+        TiebaStatic.log(r.Z("fid", str));
     }
 }

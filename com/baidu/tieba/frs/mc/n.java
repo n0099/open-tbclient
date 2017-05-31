@@ -8,13 +8,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ l bYt;
+    final /* synthetic */ l ceF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(l lVar, int i, int i2) {
         super(i, i2);
-        this.bYt = lVar;
+        this.ceF = lVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -24,19 +24,19 @@ public class n extends com.baidu.adp.framework.listener.a {
         if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
             GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
             if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                errorString2 = this.bYt.bNK.getResources().getString(w.l.neterror);
+                errorString2 = this.ceF.bTw.getResources().getString(w.l.neterror);
             } else {
                 errorString2 = getMyPostHttpResponseMessage.getErrorString();
             }
-            this.bYt.a(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
+            this.ceF.a(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
         } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
             GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
             if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                errorString = this.bYt.bNK.getResources().getString(w.l.neterror);
+                errorString = this.ceF.bTw.getResources().getString(w.l.neterror);
             } else {
                 errorString = getMyPostSocketResponseMessage.getErrorString();
             }
-            this.bYt.a(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
+            this.ceF.a(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
         }
     }
 }

@@ -5,23 +5,23 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    final /* synthetic */ h.a abM;
+    final /* synthetic */ h.a abL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h.a aVar) {
-        this.abM = aVar;
+        this.abL = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         l lVar;
-        List<Long> tF;
+        List<Long> tE;
         h.b bVar;
-        lVar = this.abM.abL;
-        tF = this.abM.tF();
-        lVar.j(tF);
-        bVar = this.abM.abK;
+        lVar = this.abL.abK;
+        tE = this.abL.tE();
+        lVar.j(tE);
+        bVar = this.abL.abJ;
         bVar.destroy();
-        this.abM.destroy();
+        this.abL.destroy();
     }
 }

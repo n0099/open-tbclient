@@ -5,32 +5,32 @@ import tbclient.FrsPage.ActivityHead;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class r {
-    private String UG;
-    private int UH;
-    private ArrayList<t> UI = new ArrayList<>();
+    private String Us;
+    private int Ut;
+    private ArrayList<t> Uu = new ArrayList<>();
     private int height;
     private String obj_id;
     private int width;
 
-    public ArrayList<t> pM() {
-        return this.UI;
+    public ArrayList<t> pE() {
+        return this.Uu;
     }
 
     public void f(ArrayList<t> arrayList) {
-        this.UI = arrayList;
+        this.Uu = arrayList;
     }
 
     public void a(ActivityHead activityHead) {
         if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
-            this.UH = activityHead.activity_type.intValue();
-            this.UG = activityHead.activity_title;
+            this.Ut = activityHead.activity_type.intValue();
+            this.Us = activityHead.activity_title;
             this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
             this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
             this.obj_id = activityHead.obj_id;
             for (HeadImgs headImgs : activityHead.head_imgs) {
                 t tVar = new t();
                 tVar.a(headImgs);
-                this.UI.add(tVar);
+                this.Uu.add(tVar);
             }
         }
     }

@@ -7,6 +7,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class AccountData implements Serializable {
     private static final long serialVersionUID = 4126203103788833116L;
+    private boolean isBigV;
     private int liveLevel;
     private String mDisplayName;
     private int mGodType;
@@ -208,5 +209,13 @@ public class AccountData implements Serializable {
 
     public void setLiveLevel(int i) {
         this.liveLevel = i;
+    }
+
+    public boolean isBigV() {
+        return this.isBigV;
+    }
+
+    public void setIsBigV(boolean z) {
+        this.isBigV = z;
     }
 }

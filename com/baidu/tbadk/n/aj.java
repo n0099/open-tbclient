@@ -4,11 +4,12 @@ public class aj extends com.baidu.adp.lib.b.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void X(int i) {
+        this.ue = 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "both_video_download";
+        return "uninstall_feed_back_switch";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -18,12 +19,12 @@ public class aj extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eR() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int eS() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a

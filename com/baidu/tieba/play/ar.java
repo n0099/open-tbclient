@@ -1,44 +1,18 @@
 package com.baidu.tieba.play;
 
-import android.content.Context;
-import android.database.ContentObserver;
-import android.os.Handler;
-import android.provider.Settings;
+import com.baidu.tieba.play.as;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar extends ContentObserver {
-    private a eTf;
-    private Context mContext;
+public class ar implements as.a {
+    final /* synthetic */ ap fbT;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void onChange(boolean z);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ar(ap apVar) {
+        this.fbT = apVar;
     }
 
-    public ar(Context context, Handler handler) {
-        super(handler);
-        this.mContext = context;
-    }
-
-    @Override // android.database.ContentObserver
+    @Override // com.baidu.tieba.play.as.a
     public void onChange(boolean z) {
-        aWD();
-    }
-
-    private void aWD() {
-        if (this.mContext != null) {
-            try {
-                int i = Settings.System.getInt(this.mContext.getContentResolver(), "accelerometer_rotation");
-                if (this.eTf != null) {
-                    this.eTf.onChange(i == 1);
-                }
-            } catch (Settings.SettingNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void a(a aVar) {
-        this.eTf = aVar;
-        aWD();
+        this.fbT.fbQ = z;
     }
 }

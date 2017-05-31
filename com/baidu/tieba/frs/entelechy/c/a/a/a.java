@@ -6,58 +6,58 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.frs.bo;
+import com.baidu.tieba.frs.bp;
 import com.baidu.tieba.frs.r;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends c {
-    private c.b aaa;
-    private r bPw;
-    private int bTv;
-    private List<bo> mDatas;
+    private c.b ZZ;
+    private r bVm;
+    private int bZn;
+    private List<bp> mDatas;
 
     public a(r rVar, c.b bVar) {
         super(rVar.getActivity());
-        this.bTv = 0;
+        this.bZn = 0;
         if (rVar != null && bVar != null) {
-            this.bPw = rVar;
-            this.aaa = bVar;
+            this.bVm = rVar;
+            this.ZZ = bVar;
         }
     }
 
-    public void setData(List<bo> list) {
+    public void setData(List<bp> list) {
         if (!x.r(list)) {
             this.mDatas = new ArrayList();
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
-                bo boVar = new bo();
-                boVar.name = this.bPw.getResources().getString(w.l.attention_users_thread);
-                boVar.bQR = 6;
-                this.mDatas.add(boVar);
+                bp bpVar = new bp();
+                bpVar.name = this.bVm.getResources().getString(w.l.attention_users_thread);
+                bpVar.bWI = 6;
+                this.mDatas.add(bpVar);
             }
             ArrayList arrayList = new ArrayList();
-            for (bo boVar2 : this.mDatas) {
-                if (boVar2 != null) {
-                    arrayList.add(boVar2.name);
+            for (bp bpVar2 : this.mDatas) {
+                if (bpVar2 != null) {
+                    arrayList.add(bpVar2.name);
                 }
             }
             reset();
-            a(arrayList, this.aaa);
+            a(arrayList, this.ZZ);
         }
     }
 
-    public List<bo> aaX() {
+    public List<bp> acb() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c
-    public c tg() {
-        View ce;
-        super.tg();
-        if (this.mDatas != null && (ce = ce(this.mDatas.size())) != null && (ce.findViewById(w.h.dialog_item_btn) instanceof TextView)) {
-            aq.i((TextView) ce.findViewById(w.h.dialog_item_btn), w.e.cp_link_tip_a);
+    public c tf() {
+        View cf;
+        super.tf();
+        if (this.mDatas != null && (cf = cf(this.mDatas.size())) != null && (cf.findViewById(w.h.dialog_item_btn) instanceof TextView)) {
+            aq.i((TextView) cf.findViewById(w.h.dialog_item_btn), w.e.cp_link_tip_a);
         }
         return this;
     }

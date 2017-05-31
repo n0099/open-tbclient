@@ -1,44 +1,34 @@
 package com.baidu.tieba.card;
 
-import android.widget.TextView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tieba.card.data.CardHListViewNormalItemData;
+import com.baidu.tieba.card.r;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends CustomMessageListener {
-    final /* synthetic */ p buU;
+public class s implements View.OnClickListener {
+    final /* synthetic */ r.c bAu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(p pVar, int i) {
-        super(i);
-        this.buU = pVar;
+    public s(r.c cVar) {
+        this.bAu = cVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.card.data.k kVar;
-        com.baidu.tieba.card.data.k kVar2;
-        com.baidu.tieba.card.data.k kVar3;
-        com.baidu.tieba.card.data.k kVar4;
-        com.baidu.tieba.card.data.k kVar5;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            kVar = this.buU.buM;
-            if (kVar != null) {
-                kVar2 = this.buU.buM;
-                if (kVar2.bcB != null) {
-                    kVar3 = this.buU.buM;
-                    if (kVar3.bcB.getTid() != null && this.buU.mTextTitle != null) {
-                        kVar4 = this.buU.buM;
-                        if (((String) customResponsedMessage.getData()).equals(kVar4.bcB.getTid())) {
-                            TextView textView = this.buU.mTextTitle;
-                            kVar5 = this.buU.buM;
-                            ap.a(textView, kVar5.bcB.getId(), w.e.cp_cont_d, w.e.cp_cont_d);
-                        }
-                    }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ci ciVar;
+        ci ciVar2;
+        ci ciVar3;
+        ciVar = this.bAu.bvd;
+        if (ciVar != null) {
+            if (view.getId() == w.h.hlistview_item_layout_root) {
+                if (view.getTag(w.h.hlistview_item_layout_root) instanceof CardHListViewNormalItemData) {
+                    ciVar3 = this.bAu.bvd;
+                    ciVar3.a(view, null, (CardHListViewNormalItemData) view.getTag(w.h.hlistview_item_layout_root));
                 }
+            } else if (view.getId() == w.h.fourm_name && (view.getTag(w.h.fourm_name) instanceof CardHListViewNormalItemData)) {
+                ciVar2 = this.bAu.bvd;
+                ciVar2.a(view, null, (CardHListViewNormalItemData) view.getTag(w.h.fourm_name));
             }
         }
     }

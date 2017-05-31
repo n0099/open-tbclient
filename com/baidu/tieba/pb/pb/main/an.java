@@ -1,59 +1,43 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.w;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class an implements View.OnLongClickListener {
-    final /* synthetic */ PbActivity ehy;
+class an implements BdListView.e {
+    final /* synthetic */ PbActivity enc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PbActivity pbActivity) {
-        this.ehy = pbActivity;
+        this.enc = pbActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        SparseArray sparseArray;
-        com.baidu.tbadk.baseEditMark.a aVar;
-        com.baidu.tbadk.baseEditMark.a aVar2;
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void onScrollToBottom() {
         boolean z;
-        fm fmVar;
-        c.b bVar;
+        boolean z2;
         PbModel pbModel;
-        try {
-            sparseArray = (SparseArray) view.getTag();
-        } catch (ClassCastException e) {
-            e.printStackTrace();
-            sparseArray = null;
+        PbModel pbModel2;
+        fx fxVar;
+        fx fxVar2;
+        z = this.enc.emO;
+        if (z && this.enc.aJX()) {
+            this.enc.aJZ();
         }
-        if (sparseArray != null) {
-            this.ehy.eho = (PostData) sparseArray.get(w.h.tag_clip_board);
-            if (this.ehy.eho != null) {
-                aVar = this.ehy.dCb;
-                if (aVar != null) {
-                    aVar2 = this.ehy.dCb;
-                    if (aVar2.nL() && this.ehy.eho.getId() != null) {
-                        String id = this.ehy.eho.getId();
-                        pbModel = this.ehy.efE;
-                        if (id.equals(pbModel.rH())) {
-                            z = true;
-                            boolean booleanValue = ((Boolean) sparseArray.get(w.h.tag_is_subpb)).booleanValue();
-                            fmVar = this.ehy.egt;
-                            bVar = this.ehy.ehp;
-                            fmVar.a(bVar, z, booleanValue);
-                        }
-                    }
-                    z = false;
-                    boolean booleanValue2 = ((Boolean) sparseArray.get(w.h.tag_is_subpb)).booleanValue();
-                    fmVar = this.ehy.egt;
-                    bVar = this.ehy.ehp;
-                    fmVar.a(bVar, z, booleanValue2);
+        z2 = this.enc.mIsLogin;
+        if (z2) {
+            pbModel = this.enc.ele;
+            if (!pbModel.ir(false)) {
+                pbModel2 = this.enc.ele;
+                if (pbModel2.getPbData() != null) {
+                    fxVar = this.enc.elU;
+                    fxVar.aMN();
                 }
+            } else {
+                fxVar2 = this.enc.elU;
+                fxVar2.aMA();
+                TiebaStatic.eventStat(this.enc.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
             }
+            this.enc.emO = true;
         }
-        return true;
     }
 }

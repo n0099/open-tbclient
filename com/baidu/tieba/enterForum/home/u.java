@@ -13,11 +13,11 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements CustomMessageTask.CustomRunnable<ai> {
-    final /* synthetic */ i bGZ;
+    final /* synthetic */ i bMN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(i iVar) {
-        this.bGZ = iVar;
+        this.bMN = iVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
@@ -30,16 +30,16 @@ public class u implements CustomMessageTask.CustomRunnable<ai> {
         EnterForumModel enterForumModel5;
         ai aiVar = new ai();
         ArrayList arrayList = new ArrayList();
-        enterForumModel = this.bGZ.bGO;
+        enterForumModel = this.bMN.bMC;
         if (enterForumModel != null) {
-            enterForumModel2 = this.bGZ.bGO;
-            if (enterForumModel2.WB() != null) {
-                enterForumModel3 = this.bGZ.bGO;
-                if (enterForumModel3.WB().VT() != null) {
-                    enterForumModel4 = this.bGZ.bGO;
-                    if (x.q(enterForumModel4.WB().VT().VZ()) > 0) {
-                        enterForumModel5 = this.bGZ.bGO;
-                        Iterator<com.baidu.tieba.enterForum.b.g> it = enterForumModel5.WB().VT().VZ().iterator();
+            enterForumModel2 = this.bMN.bMC;
+            if (enterForumModel2.XE() != null) {
+                enterForumModel3 = this.bMN.bMC;
+                if (enterForumModel3.XE().WW() != null) {
+                    enterForumModel4 = this.bMN.bMC;
+                    if (x.q(enterForumModel4.XE().WW().Xc()) > 0) {
+                        enterForumModel5 = this.bMN.bMC;
+                        Iterator<com.baidu.tieba.enterForum.b.g> it = enterForumModel5.XE().WW().Xc().iterator();
                         while (it.hasNext()) {
                             com.baidu.tieba.enterForum.b.g next = it.next();
                             if (next != null) {

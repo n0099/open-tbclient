@@ -6,11 +6,11 @@ import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class e {
     private static Toast zd;
-    private boolean adD;
+    private boolean adv;
     private static Handler mHandler = new Handler();
-    private static Runnable adC = new f();
+    private static Runnable adu = new f();
 
-    public static e ud() {
+    public static e tZ() {
         return new e();
     }
 
@@ -18,17 +18,17 @@ public class e {
     }
 
     public void b(String str, int i, int i2) {
-        if (!this.adD && str != null) {
+        if (!this.adv && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
-                mHandler.removeCallbacks(adC);
+                mHandler.removeCallbacks(adu);
                 if (zd != null) {
                     zd.setText(trim);
                 } else {
                     zd = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
                     zd.setGravity(17, 0, i2);
                 }
-                mHandler.postDelayed(adC, i);
+                mHandler.postDelayed(adu, i);
                 zd.show();
             }
         }
@@ -51,17 +51,17 @@ public class e {
     }
 
     public void onPause() {
-        this.adD = true;
+        this.adv = true;
         cancel();
     }
 
     public void onResume() {
-        this.adD = false;
+        this.adv = false;
     }
 
     public static void cancel() {
         if (zd != null) {
-            mHandler.removeCallbacks(adC);
+            mHandler.removeCallbacks(adu);
             zd.cancel();
             zd = null;
         }

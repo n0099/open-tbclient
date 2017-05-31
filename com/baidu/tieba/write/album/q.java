@@ -13,29 +13,29 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class q {
-    private static q fMS;
-    private ContentObserver fMT;
+    private static q fUz;
+    private ContentObserver fUA;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<a> jr = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable fMU = new r(this);
+    private Runnable fUB = new r(this);
 
     /* loaded from: classes.dex */
     public interface a {
-        void lC(boolean z);
+        void lV(boolean z);
     }
 
-    public static q bmx() {
-        if (fMS == null) {
+    public static q bnU() {
+        if (fUz == null) {
             synchronized (q.class) {
-                if (fMS == null) {
-                    fMS = new q();
-                    fMS.init(TbadkCoreApplication.m9getInst());
+                if (fUz == null) {
+                    fUz = new q();
+                    fUz.init(TbadkCoreApplication.m9getInst());
                 }
             }
         }
-        return fMS;
+        return fUz;
     }
 
     private q() {
@@ -43,7 +43,7 @@ public class q {
 
     private void init(Context context) {
         this.mReceiver = new s(this);
-        this.fMT = new t(this, this.mHandler);
+        this.fUA = new t(this, this.mHandler);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -52,23 +52,23 @@ public class q {
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
         context.registerReceiver(this.mReceiver, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.fMT);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.fUA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Z(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            lB(true);
+            lU(true);
             return;
         }
-        this.handler.removeCallbacks(this.fMU);
-        this.handler.postDelayed(this.fMU, 2000L);
+        this.handler.removeCallbacks(this.fUB);
+        this.handler.postDelayed(this.fUB, 2000L);
     }
 
-    public void lB(boolean z) {
+    public void lU(boolean z) {
         Iterator<a> it = this.jr.iterator();
         while (it.hasNext()) {
-            it.next().lC(z);
+            it.next().lV(z);
         }
     }
 
@@ -92,8 +92,8 @@ public class q {
         removeAllListeners();
         TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
         m9getInst.unregisterReceiver(this.mReceiver);
-        m9getInst.getContentResolver().unregisterContentObserver(this.fMT);
-        this.handler.removeCallbacks(this.fMU);
-        fMS = null;
+        m9getInst.getContentResolver().unregisterContentObserver(this.fUA);
+        this.handler.removeCallbacks(this.fUB);
+        fUz = null;
     }
 }

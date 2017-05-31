@@ -8,22 +8,22 @@ public class u extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "img_log";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eR() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eS() {
-        return 1;
+        return "hybridSwitch";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] eQ() {
         return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eR() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eS() {
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a

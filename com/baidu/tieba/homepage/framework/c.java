@@ -5,19 +5,19 @@ import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements NoNetworkView.a {
-    final /* synthetic */ RecommendFrsControlFragment ctq;
+    final /* synthetic */ RecommendFrsControlFragment czI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.ctq = recommendFrsControlFragment;
+        this.czI = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aL(boolean z) {
+    public void aK(boolean z) {
         ScrollFragmentTabHost scrollFragmentTabHost;
-        if (z && this.ctq.isPrimary()) {
-            scrollFragmentTabHost = this.ctq.ctc;
-            scrollFragmentTabHost.ahk();
+        if (z && this.czI.isPrimary()) {
+            scrollFragmentTabHost = this.czI.czu;
+            scrollFragmentTabHost.aiz();
         }
     }
 }

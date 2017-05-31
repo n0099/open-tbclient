@@ -7,11 +7,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements AdapterView.OnItemClickListener {
-    final /* synthetic */ BdListView Ih;
+    final /* synthetic */ BdListView Ib;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(BdListView bdListView) {
-        this.Ih = bdListView;
+        this.Ib = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -30,50 +30,50 @@ public class m implements AdapterView.OnItemClickListener {
         BdListView.b bVar2;
         c cVar5;
         c cVar6;
-        eVar = this.Ih.mBdListAdpter;
+        eVar = this.Ib.mBdListAdpter;
         int headersCount = eVar.getHeadersCount();
         if (i < headersCount) {
-            cVar4 = this.Ih.mPrePage;
+            cVar4 = this.Ib.mPrePage;
             if (cVar4 != null) {
-                cVar5 = this.Ih.mPrePage;
+                cVar5 = this.Ib.mPrePage;
                 if (view == cVar5.getView()) {
-                    cVar6 = this.Ih.mPrePage;
+                    cVar6 = this.Ib.mPrePage;
                     cVar6.onClick();
                     return;
                 }
             }
-            bVar = this.Ih.mOnHeaderClickListener;
+            bVar = this.Ib.mOnHeaderClickListener;
             if (bVar != null) {
-                bVar2 = this.Ih.mOnHeaderClickListener;
+                bVar2 = this.Ib.mOnHeaderClickListener;
                 bVar2.onClick(view);
                 return;
             }
             return;
         }
         int i2 = i - headersCount;
-        eVar2 = this.Ih.mBdListAdpter;
+        eVar2 = this.Ib.mBdListAdpter;
         ListAdapter wrappedAdapter = eVar2.getWrappedAdapter();
         if (wrappedAdapter != null && i2 < wrappedAdapter.getCount()) {
-            onItemClickListener = this.Ih.mOnItemClickListener;
+            onItemClickListener = this.Ib.mOnItemClickListener;
             if (onItemClickListener != null) {
-                onItemClickListener2 = this.Ih.mOnItemClickListener;
+                onItemClickListener2 = this.Ib.mOnItemClickListener;
                 onItemClickListener2.onItemClick(adapterView, view, i2, j);
                 return;
             }
             return;
         }
-        cVar = this.Ih.mNextPage;
+        cVar = this.Ib.mNextPage;
         if (cVar != null) {
-            cVar2 = this.Ih.mNextPage;
+            cVar2 = this.Ib.mNextPage;
             if (view == cVar2.getView()) {
-                cVar3 = this.Ih.mNextPage;
+                cVar3 = this.Ib.mNextPage;
                 cVar3.onClick();
                 return;
             }
         }
-        aVar = this.Ih.mOnFooterClickListener;
+        aVar = this.Ib.mOnFooterClickListener;
         if (aVar != null) {
-            aVar2 = this.Ih.mOnFooterClickListener;
+            aVar2 = this.Ib.mOnFooterClickListener;
             aVar2.onClick(view);
         }
     }

@@ -31,7 +31,7 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
             for (Post post : list) {
                 PostData postData = new PostData();
                 postData.a(post, TbadkCoreApplication.m9getInst());
-                postData.fuS = SapiSafeFacade.SAPIWEBVIEW_BACK;
+                postData.fCJ = SapiSafeFacade.SAPIWEBVIEW_BACK;
                 this.list.add(postData);
             }
         }

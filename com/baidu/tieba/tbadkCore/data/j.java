@@ -6,30 +6,30 @@ import org.json.JSONObject;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String ftY;
-    private int ftZ;
-    private String fua;
-    private String fub;
-    private String fuc;
+    private String fBP;
+    private int fBQ;
+    private String fBR;
+    private String fBS;
+    private String fBT;
     private int height;
     private String subTitle;
     private int width;
 
     public j(Timgs timgs) {
-        this.ftY = null;
-        this.ftZ = 0;
-        this.fua = null;
-        this.fub = null;
-        this.fuc = null;
+        this.fBP = null;
+        this.fBQ = 0;
+        this.fBR = null;
+        this.fBS = null;
+        this.fBT = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.ftY = timgs.img_url;
-            this.ftZ = timgs.flag.intValue();
-            this.fua = timgs.url;
-            this.fub = timgs.big_cdn_url;
-            this.fuc = timgs.des_main;
+            this.fBP = timgs.img_url;
+            this.fBQ = timgs.flag.intValue();
+            this.fBR = timgs.url;
+            this.fBS = timgs.big_cdn_url;
+            this.fBT = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -51,21 +51,21 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
     }
 
     public j(JSONObject jSONObject) {
-        this.ftY = null;
-        this.ftZ = 0;
-        this.fua = null;
-        this.fub = null;
-        this.fuc = null;
+        this.fBP = null;
+        this.fBQ = 0;
+        this.fBR = null;
+        this.fBS = null;
+        this.fBT = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (jSONObject != null) {
             try {
-                this.ftY = jSONObject.optString("img_url");
-                this.ftZ = jSONObject.optInt(FrsActivityConfig.FLAG);
-                this.fua = jSONObject.optString("url");
-                this.fub = jSONObject.optString("big_cdn_url");
-                this.fuc = jSONObject.optString("des_main");
+                this.fBP = jSONObject.optString("img_url");
+                this.fBQ = jSONObject.optInt(FrsActivityConfig.FLAG);
+                this.fBR = jSONObject.optString("url");
+                this.fBS = jSONObject.optString("big_cdn_url");
+                this.fBT = jSONObject.optString("des_main");
                 this.subTitle = jSONObject.optString("des_sub");
                 String optString = jSONObject.optString("bsize");
                 if (optString != null && optString.length() > 0) {
@@ -89,35 +89,19 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.ftY;
+        return this.fBP;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String pO() {
-        return this.fua;
+    public String pG() {
+        return this.fBR;
     }
 
-    public String bgt() {
-        return this.ftY;
+    public String bhP() {
+        return this.fBP;
     }
 
-    public String bgu() {
-        return this.fuc;
-    }
-
-    public String getSubTitle() {
-        return this.subTitle;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public String bgv() {
-        return this.fub;
+    public String bhQ() {
+        return this.fBS;
     }
 }

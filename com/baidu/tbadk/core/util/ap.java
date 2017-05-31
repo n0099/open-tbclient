@@ -15,15 +15,15 @@ public class ap {
         try {
             if (!l.dH()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.ue());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.ua());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.ue());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.ua());
                 }
             } else {
-                File cZ = l.cZ("camera.jpg");
-                if (cZ != null) {
+                File cW = l.cW("camera.jpg");
+                if (cW != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(cZ, intent, tbPageContext.getPageActivity()));
+                    intent.putExtra("output", UtilHelper.getUriFromFile(cW, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(w.l.error_sd_error));
@@ -41,17 +41,17 @@ public class ap {
         try {
             if (!l.dH()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.ue());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.ua());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.ue());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.ua());
                     return;
                 } else {
                     return;
                 }
             }
             boolean z = false;
-            if (l.cS(l.yu + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+            if (l.cP(l.yu + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
                 File file = new File(String.valueOf(str2) + "/" + str);
                 if (!file.exists()) {
                     z = file.createNewFile();
@@ -76,11 +76,11 @@ public class ap {
         }
     }
 
-    public static void p(Activity activity) {
-        q(activity);
+    public static void q(Activity activity) {
+        r(activity);
     }
 
-    public static void q(Activity activity) {
+    public static void r(Activity activity) {
         try {
             Intent intent = new Intent();
             intent.setType("image/*");

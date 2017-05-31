@@ -9,11 +9,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements ae.a {
-    final /* synthetic */ b cuC;
+    final /* synthetic */ b cAU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(b bVar) {
-        this.cuC = bVar;
+        this.cAU = bVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ae.a
@@ -26,24 +26,24 @@ public class l implements ae.a {
         boolean z3;
         o oVar2;
         o oVar3;
-        oVar = this.cuC.cuu;
+        oVar = this.cAU.cAM;
         if (oVar != null) {
-            oVar2 = this.cuC.cuu;
-            oVar2.eM(true);
-            oVar3 = this.cuC.cuu;
-            oVar3.ahA();
+            oVar2 = this.cAU.cAM;
+            oVar2.fc(true);
+            oVar3 = this.cAU.cAM;
+            oVar3.aiP();
         }
-        bVar = this.cuC.cut;
+        bVar = this.cAU.cAL;
         if (bVar != null) {
-            z2 = this.cuC.cux;
+            z2 = this.cAU.cAP;
             if (z2) {
-                bVar2 = this.cuC.cut;
-                list = this.cuC.ctV;
-                z3 = this.cuC.cuy;
+                bVar2 = this.cAU.cAL;
+                list = this.cAU.cAn;
+                z3 = this.cAU.cAQ;
                 bVar2.i(list, z3);
             }
         }
-        this.cuC.cux = false;
+        this.cAU.cAP = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_FINISH_REFRESH, true));
     }
 }

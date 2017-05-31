@@ -4,11 +4,11 @@ import android.view.View;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ a bwW;
+    final /* synthetic */ a bCT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.bwW = aVar;
+        this.bCT = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -16,10 +16,10 @@ class e implements Runnable {
         View view;
         View view2;
         Animation animation;
-        view = this.bwW.aTA;
+        view = this.bCT.bCG;
         if (view != null) {
-            view2 = this.bwW.aTA;
-            animation = this.bwW.aTE;
+            view2 = this.bCT.bCG;
+            animation = this.bCT.bCJ;
             view2.startAnimation(animation);
         }
     }

@@ -10,11 +10,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements AdapterView.OnItemClickListener {
-    final /* synthetic */ HotTopicChangeFourmActivity fOy;
+    final /* synthetic */ HotTopicChangeFourmActivity fWu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.fOy = hotTopicChangeFourmActivity;
+        this.fWu = hotTopicChangeFourmActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -23,11 +23,11 @@ public class a implements AdapterView.OnItemClickListener {
         List list2;
         Intent intent = new Intent();
         intent.putExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, i);
-        list = this.fOy.mList;
+        list = this.fWu.mList;
         intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) list.get(i)).getForumId());
-        list2 = this.fOy.mList;
+        list2 = this.fWu.mList;
         intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) list2.get(i)).getForumName());
-        this.fOy.setResult(-1, intent);
-        this.fOy.finish();
+        this.fWu.setResult(-1, intent);
+        this.fWu.finish();
     }
 }

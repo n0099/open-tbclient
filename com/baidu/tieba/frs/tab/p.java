@@ -8,18 +8,18 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.frs.cm;
+import com.baidu.tieba.frs.cn;
 import com.baidu.tieba.frs.tab.k;
 import com.baidu.tieba.w;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BaseAdapter {
-    final /* synthetic */ o bZP;
+    final /* synthetic */ o cgb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.bZP = oVar;
+        this.cgb = oVar;
     }
 
     @Override // android.widget.Adapter
@@ -29,32 +29,32 @@ public class p extends BaseAdapter {
             view.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(w.f.ds80)));
             k.c cVar = new k.c();
             cVar.name = (TextView) view.findViewById(w.h.tab_menu_name);
-            cVar.bZJ = (ImageView) view.findViewById(w.h.tab_menu_check);
-            cVar.bZK = view.findViewById(w.h.tab_menu_line_s);
-            cVar.bZL = view.findViewById(w.h.tab_menu_line_f);
+            cVar.cfV = (ImageView) view.findViewById(w.h.tab_menu_check);
+            cVar.cfW = view.findViewById(w.h.tab_menu_line_s);
+            cVar.cfX = view.findViewById(w.h.tab_menu_line_f);
             view.setTag(cVar);
         }
         aq.j(view, w.e.cp_bg_line_d);
         k.c cVar2 = (k.c) view.getTag();
-        cm item = getItem(i);
+        cn item = getItem(i);
         if (item != null) {
             cVar2.name.setText(item.name);
             if (item.isSelected) {
                 aq.c(cVar2.name, w.e.cp_link_tip_a, 1);
-                aq.c(cVar2.bZJ, w.g.chx_tips_list_ok);
-                cVar2.bZJ.setVisibility(0);
+                aq.c(cVar2.cfV, w.g.chx_tips_list_ok);
+                cVar2.cfV.setVisibility(0);
             } else {
                 aq.c(cVar2.name, w.e.cp_cont_c, 1);
-                cVar2.bZJ.setVisibility(8);
+                cVar2.cfV.setVisibility(8);
             }
             if (i >= 0 && i == getCount() - 1) {
-                cVar2.bZL.setVisibility(0);
-                cVar2.bZK.setVisibility(8);
-                aq.k(cVar2.bZL, w.e.cp_bg_line_b);
+                cVar2.cfX.setVisibility(0);
+                cVar2.cfW.setVisibility(8);
+                aq.k(cVar2.cfX, w.e.cp_bg_line_b);
             } else {
-                cVar2.bZK.setVisibility(0);
-                cVar2.bZL.setVisibility(8);
-                aq.k(cVar2.bZK, w.e.cp_bg_line_b);
+                cVar2.cfW.setVisibility(0);
+                cVar2.cfX.setVisibility(8);
+                aq.k(cVar2.cfW, w.e.cp_bg_line_b);
             }
         }
         return view;
@@ -67,14 +67,14 @@ public class p extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: iy */
-    public cm getItem(int i) {
+    /* renamed from: iW */
+    public cn getItem(int i) {
         List list;
         List list2;
-        list = this.bZP.aWb;
+        list = this.cgb.aTD;
         if (list != null) {
-            list2 = this.bZP.aWb;
-            return (cm) list2.get(i);
+            list2 = this.cgb.aTD;
+            return (cn) list2.get(i);
         }
         return null;
     }
@@ -83,9 +83,9 @@ public class p extends BaseAdapter {
     public int getCount() {
         List list;
         List list2;
-        list = this.bZP.aWb;
+        list = this.cgb.aTD;
         if (list != null) {
-            list2 = this.bZP.aWb;
+            list2 = this.cgb.aTD;
             return list2.size();
         }
         return 0;

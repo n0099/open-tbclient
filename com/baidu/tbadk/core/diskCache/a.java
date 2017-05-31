@@ -8,7 +8,7 @@ import com.baidu.adp.lib.g.i;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean aaQ = false;
+    private static boolean aaP = false;
     private static Handler oA = new b();
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -20,8 +20,8 @@ public class a {
         i.g(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
-    public static void az(boolean z) {
-        aaQ = z;
+    public static void ay(boolean z) {
+        aaP = z;
     }
 
     public static void init() {

@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class j implements a.b {
-    private final /* synthetic */ Activity aIl;
-    private final /* synthetic */ TbPageContext aIm;
+    private final /* synthetic */ Activity aHY;
+    private final /* synthetic */ TbPageContext aHZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(Activity activity, TbPageContext tbPageContext) {
-        this.aIl = activity;
-        this.aIm = tbPageContext;
+        this.aHY = activity;
+        this.aHZ = tbPageContext;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aIm.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.aIl, XiaoyingUtil.PKG_NAME_VIDEO)));
+        this.aHZ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.aHY, XiaoyingUtil.PKG_NAME_VIDEO)));
         aVar.dismiss();
     }
 }

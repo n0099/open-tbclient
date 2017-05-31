@@ -7,13 +7,13 @@ import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class x extends CustomMessageListener {
-    final /* synthetic */ l dgY;
+    final /* synthetic */ l dmu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(l lVar, int i) {
         super(i);
-        this.dgY = lVar;
+        this.dmu = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,22 +30,22 @@ public class x extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            imMessageCenterModel = this.dgY.ddV;
-                            aVar = this.dgY.cMz;
+                            imMessageCenterModel = this.dmu.djq;
+                            aVar = this.dmu.cRX;
                             imMessageCenterModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            messageAggregationListAdapter3 = this.dgY.dgR;
+                            messageAggregationListAdapter3 = this.dmu.dmn;
                             if (messageAggregationListAdapter3 != null) {
-                                messageAggregationListAdapter4 = this.dgY.dgR;
+                                messageAggregationListAdapter4 = this.dmu.dmn;
                                 messageAggregationListAdapter4.notifyDataSetChanged();
                                 return;
                             }
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            messageAggregationListAdapter = this.dgY.dgR;
+                            messageAggregationListAdapter = this.dmu.dmn;
                             if (messageAggregationListAdapter != null) {
-                                messageAggregationListAdapter2 = this.dgY.dgR;
+                                messageAggregationListAdapter2 = this.dmu.dmn;
                                 messageAggregationListAdapter2.notifyDataSetChanged();
                                 return;
                             }
@@ -54,13 +54,13 @@ public class x extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.dgY.f(customResponsedMessage);
+                    this.dmu.f(customResponsedMessage);
                     return;
                 }
-                this.dgY.e(customResponsedMessage);
+                this.dmu.e(customResponsedMessage);
                 return;
             }
-            this.dgY.d(customResponsedMessage);
+            this.dmu.d(customResponsedMessage);
         }
     }
 }

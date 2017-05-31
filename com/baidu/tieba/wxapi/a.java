@@ -1,15 +1,15 @@
 package com.baidu.tieba.wxapi;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ WXEntryActivity fTG;
+    final /* synthetic */ WXEntryActivity gci;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WXEntryActivity wXEntryActivity) {
-        this.fTG = wXEntryActivity;
+        this.gci = wXEntryActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.fTG.closeActivity();
+        this.gci.closeActivity();
     }
 }

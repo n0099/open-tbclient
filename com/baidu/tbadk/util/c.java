@@ -21,12 +21,12 @@ public class c {
                     return;
                 }
             }
-            com.baidu.tbadk.core.sharedPref.b.tX().putString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), sb.toString());
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), sb.toString());
         }
     }
 
-    public static String[] Gk() {
-        String string = com.baidu.tbadk.core.sharedPref.b.tX().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+    public static String[] Ge() {
+        String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
         }
@@ -34,9 +34,9 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a gb = a.gb(str);
-                if (gb != null && !StringUtils.isNull(gb.forumName)) {
-                    arrayList.add(gb.forumName);
+                a ga = a.ga(str);
+                if (ga != null && !StringUtils.isNull(ga.forumName)) {
+                    arrayList.add(ga.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -44,8 +44,8 @@ public class c {
         return null;
     }
 
-    public static a[] Gl() {
-        String string = com.baidu.tbadk.core.sharedPref.b.tX().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+    public static a[] Gf() {
+        String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new a[0];
         }
@@ -53,9 +53,9 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a gb = a.gb(str);
-                if (gb != null && !StringUtils.isNull(gb.forumName)) {
-                    arrayList.add(gb);
+                a ga = a.ga(str);
+                if (ga != null && !StringUtils.isNull(ga.forumName)) {
+                    arrayList.add(ga);
                 }
             }
             return (a[]) arrayList.toArray(new a[arrayList.size()]);
@@ -83,7 +83,7 @@ public class c {
             return String.valueOf(this.forumName) + "#" + this.level;
         }
 
-        public static a gb(String str) {
+        public static a ga(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

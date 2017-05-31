@@ -5,16 +5,16 @@ import com.baidu.tieba.pb.account.forbid.ForbidActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ ForbidActivity.a ebn;
+    final /* synthetic */ ForbidActivity.a egK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ForbidActivity.a aVar) {
-        this.ebn = aVar;
+        this.egK = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.ebn.cnh = ((ForbidActivity.b) view.getTag()).mIndex;
-        this.ebn.notifyDataSetChanged();
+        this.egK.ctF = ((ForbidActivity.b) view.getTag()).mIndex;
+        this.egK.notifyDataSetChanged();
     }
 }

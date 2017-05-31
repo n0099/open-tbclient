@@ -1,167 +1,94 @@
 package com.baidu.tieba.frs.f;
 
-import android.text.Html;
-import android.view.LayoutInflater;
+import android.app.Activity;
+import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.data.z;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.frs.c.e;
-import com.baidu.tieba.frs.p;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class a extends p<bk, c> implements e {
-    public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+public class a implements View.OnClickListener {
+    private TbPageContext ajh;
+    private boolean cgM;
+    private boolean cgN;
+    private View cgO;
+    private PopupWindow cgP;
+    private int cgL = w.l.attention_post_update_tip;
+    private Handler mHandler = new Handler();
+    private Runnable cgQ = new b(this);
+
+    public a(TbPageContext tbPageContext, boolean z) {
+        this.ajh = tbPageContext;
+        this.cgN = z;
     }
 
-    private View a(int i, View view, bk bkVar, c cVar) {
-        String str;
-        String str2;
-        if (bkVar == null || !(bkVar instanceof z)) {
-            return null;
-        }
-        if (this.mSkinType == 1) {
-            aq.k(cVar.mRootView, w.e.cp_bg_line_d_1);
-            aq.k(cVar.cdW, w.e.cp_bg_line_c_1);
-            aq.i(cVar.cdZ, w.e.cp_cont_e);
-            aq.i(cVar.ceb, w.e.cp_cont_e);
-            aq.i(cVar.cdY, w.e.cp_cont_b);
-            aq.i(cVar.cea, w.e.cp_cont_b);
-            str = "#4f93ef";
-        } else {
-            aq.k(cVar.mRootView, w.e.cp_bg_line_d);
-            aq.k(cVar.cdW, w.e.cp_bg_line_c);
-            aq.i(cVar.cdZ, w.e.common_color_10139);
-            aq.i(cVar.ceb, w.e.common_color_10139);
-            aq.i(cVar.cdY, w.e.cp_bg_line_k);
-            aq.i(cVar.cea, w.e.cp_bg_line_k);
-            str = "#3385ff";
-        }
-        z zVar = (z) bkVar;
-        String str3 = zVar.Vt;
-        if (!StringUtils.isNull(str3)) {
-            cVar.cdX.setVisibility(0);
-            cVar.buV.setVisibility(8);
-            cVar.cdX.setIsRound(true);
-            cVar.cdX.setUserId(bkVar.getAuthor().getUserId());
-            cVar.cdX.setImageDrawable(null);
-            cVar.cdX.c(str3, 10, false);
-        }
-        cVar.cdY.setText(zVar.userName);
-        cVar.cdZ.setText(zVar.tips);
-        if (StringUtils.isNull(zVar.type)) {
-            str2 = zVar.title;
-        } else {
-            str2 = "<font color='" + str + "'>" + zVar.type + "·</font>" + zVar.title;
-        }
-        cVar.cea.setText(Html.fromHtml(str2));
-        cVar.ceb.setText(zVar.Vu);
-        if (zVar.pics != null) {
-            int size = zVar.pics.size();
-            if (size == 1) {
-                cVar.ceh.setVisibility(0);
-                cVar.cec.setVisibility(8);
-                cVar.ced.setVisibility(8);
-                cVar.cee.setVisibility(8);
-                cVar.cef.setVisibility(8);
-                cVar.ceg.setVisibility(8);
-                cVar.ceh.c(zVar.pics.get(0), 10, false);
-            } else if (size == 2) {
-                cVar.ceh.setVisibility(8);
-                cVar.cec.setVisibility(8);
-                cVar.ced.setVisibility(8);
-                cVar.cee.setVisibility(8);
-                cVar.cef.setVisibility(0);
-                cVar.ceg.setVisibility(8);
-                cVar.cer.c(zVar.pics.get(0), 10, false);
-                cVar.ces.c(zVar.pics.get(1), 10, false);
-            } else if (size == 3) {
-                cVar.ceh.setVisibility(8);
-                cVar.cec.setVisibility(0);
-                cVar.ced.setVisibility(8);
-                cVar.cee.setVisibility(8);
-                cVar.cef.setVisibility(8);
-                cVar.ceg.setVisibility(8);
-                cVar.cei.c(zVar.pics.get(0), 10, false);
-                cVar.cej.c(zVar.pics.get(1), 10, false);
-                cVar.cek.c(zVar.pics.get(2), 10, false);
-            } else if (size == 4) {
-                cVar.ceh.setVisibility(8);
-                cVar.cec.setVisibility(8);
-                cVar.ced.setVisibility(8);
-                cVar.cee.setVisibility(8);
-                cVar.cef.setVisibility(0);
-                cVar.ceg.setVisibility(0);
-                cVar.cer.c(zVar.pics.get(0), 10, false);
-                cVar.ces.c(zVar.pics.get(1), 10, false);
-                cVar.cet.c(zVar.pics.get(2), 10, false);
-                cVar.ceu.c(zVar.pics.get(3), 10, false);
-            } else if (size == 5) {
-                cVar.ceh.setVisibility(8);
-                cVar.cec.setVisibility(0);
-                cVar.ced.setVisibility(8);
-                cVar.cee.setVisibility(8);
-                cVar.cef.setVisibility(0);
-                cVar.ceg.setVisibility(8);
-                cVar.cer.c(zVar.pics.get(0), 10, false);
-                cVar.ces.c(zVar.pics.get(1), 10, false);
-                cVar.cei.c(zVar.pics.get(2), 10, false);
-                cVar.cej.c(zVar.pics.get(3), 10, false);
-                cVar.cek.c(zVar.pics.get(4), 10, false);
-            } else if (size >= 6 && size < 9) {
-                cVar.ceh.setVisibility(8);
-                cVar.cec.setVisibility(0);
-                cVar.ced.setVisibility(0);
-                cVar.cee.setVisibility(8);
-                cVar.cef.setVisibility(8);
-                cVar.ceg.setVisibility(8);
-                cVar.cei.c(zVar.pics.get(0), 10, false);
-                cVar.cej.c(zVar.pics.get(1), 10, false);
-                cVar.cek.c(zVar.pics.get(2), 10, false);
-                cVar.cel.c(zVar.pics.get(3), 10, false);
-                cVar.cem.c(zVar.pics.get(4), 10, false);
-                cVar.cen.c(zVar.pics.get(5), 10, false);
-            } else if (size >= 9) {
-                cVar.ceh.setVisibility(8);
-                cVar.cec.setVisibility(0);
-                cVar.ced.setVisibility(0);
-                cVar.cee.setVisibility(0);
-                cVar.cef.setVisibility(8);
-                cVar.ceg.setVisibility(8);
-                cVar.cei.c(zVar.pics.get(0), 10, false);
-                cVar.cej.c(zVar.pics.get(1), 10, false);
-                cVar.cek.c(zVar.pics.get(2), 10, false);
-                cVar.cel.c(zVar.pics.get(3), 10, false);
-                cVar.cem.c(zVar.pics.get(4), 10, false);
-                cVar.cen.c(zVar.pics.get(5), 10, false);
-                cVar.ceo.c(zVar.pics.get(6), 10, false);
-                cVar.cep.c(zVar.pics.get(7), 10, false);
-                cVar.ceq.c(zVar.pics.get(8), 10, false);
+    public void ah(View view) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (this.ajh != null && view != null && !StringUtils.isNull(currentAccount)) {
+            this.cgO = view;
+            if (this.cgM) {
+                this.cgL = w.l.smart_frs_tip;
+                String str = "smart_frs_smart_sort_tip_show_counts_" + currentAccount;
+                int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str, 0);
+                if (i < 1) {
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str, i + 1);
+                    this.mHandler.postDelayed(this.cgQ, 500L);
+                    return;
+                }
+            }
+            if (this.cgN) {
+                this.cgL = w.l.attention_post_update_tip;
+                String str2 = String.valueOf(currentAccount) + "frs_god_new_post_tip_count";
+                int i2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
+                if (i2 >= 3) {
+                    this.cgN = false;
+                    return;
+                }
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str2, i2 + 1);
+                this.cgN = false;
+                this.mHandler.postDelayed(this.cgQ, 500L);
             }
         }
-        cVar.mRootView.setOnClickListener(new b(this, zVar));
-        return view;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: R */
-    public c onCreateViewHolder(ViewGroup viewGroup) {
-        return new c(this.ajr, LayoutInflater.from(this.mContext).inflate(w.j.frs_wefan_item, (ViewGroup) null), this.mPageId);
+    /* JADX INFO: Access modifiers changed from: private */
+    public View e(Activity activity, int i) {
+        TextView textView = new TextView(activity);
+        int g = com.baidu.adp.lib.util.k.g(activity, w.f.ds20);
+        textView.setPadding(g, 0 - activity.getResources().getDimensionPixelSize(w.f.ds12), g, 0);
+        textView.setHeight(activity.getResources().getDimensionPixelSize(w.f.ds76));
+        textView.setGravity(17);
+        textView.setTextSize(0, com.baidu.adp.lib.util.k.g(activity, w.f.fontsize28));
+        textView.setText(i);
+        textView.setOnClickListener(this);
+        aq.j(textView, w.g.bg_tip_blue_left);
+        aq.i(textView, w.e.cp_cont_i);
+        textView.setOnClickListener(this);
+        return textView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.p, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bk bkVar, c cVar) {
-        super.onFillViewHolder(i, view, viewGroup, bkVar, cVar);
-        return a(i, view, bkVar, cVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        adF();
+    }
+
+    public void adF() {
+        if (this.cgP != null) {
+            this.cgP.dismiss();
+            this.cgP = null;
+        }
+    }
+
+    public void ce(boolean z) {
+        this.cgM = z;
+    }
+
+    public void destory() {
+        this.mHandler.removeCallbacksAndMessages(null);
+        adF();
     }
 }

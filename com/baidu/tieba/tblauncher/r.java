@@ -1,6 +1,11 @@
 package com.baidu.tieba.tblauncher;
+
+import android.content.Intent;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r extends com.baidu.tbadk.pageStayDuration.b {
+public class r implements a.b {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,18 +13,13 @@ class r extends com.baidu.tbadk.pageStayDuration.b {
         this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean EZ() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.pageStayDuration.b
-    public int Fa() {
-        return com.baidu.tbadk.pageStayDuration.e.Ff().Fh();
-    }
-
-    @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean a(com.baidu.tbadk.pageStayDuration.d dVar) {
-        return false;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        try {
+            this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
+            aVar.dismiss();
+        } catch (Exception e) {
+            this.this$0.showToast(w.l.goto_developActivity_error_toast);
+        }
     }
 }

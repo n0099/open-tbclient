@@ -1,46 +1,26 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import android.widget.AbsListView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements com.baidu.tieba.view.y {
-    final /* synthetic */ ab eCS;
+public class ac extends CustomMessageListener {
+    final /* synthetic */ y eLx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(ab abVar) {
-        this.eCS = abVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac(y yVar, int i) {
+        super(i);
+        this.eLx = yVar;
     }
 
-    @Override // com.baidu.tieba.view.y
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        aj ajVar;
-        aj ajVar2;
-        aj ajVar3;
-        ajVar = this.eCS.eCN;
-        if (ajVar != null) {
-            ajVar2 = this.eCS.eCN;
-            if (ajVar2.eCX != null) {
-                ajVar3 = this.eCS.eCN;
-                ajVar3.eCX.onScrollStateChanged(absListView, i);
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PersonChangeData)) {
+            return;
         }
-        if (i != 0) {
-            this.eCS.aPP();
-        }
-    }
-
-    @Override // com.baidu.tieba.view.y
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        aj ajVar;
-        aj ajVar2;
-        aj ajVar3;
-        ajVar = this.eCS.eCN;
-        if (ajVar != null) {
-            ajVar2 = this.eCS.eCN;
-            if (ajVar2.eCX != null) {
-                ajVar3 = this.eCS.eCN;
-                ajVar3.eCX.onScroll(absListView, i, i2, i3);
-            }
-        }
+        this.eLx.a((PersonChangeData) customResponsedMessage.getData());
     }
 }

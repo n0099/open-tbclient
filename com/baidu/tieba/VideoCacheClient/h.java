@@ -7,33 +7,33 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class h implements ServiceConnection {
-    final /* synthetic */ f aVI;
+    final /* synthetic */ f aTk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.aVI = fVar;
+        this.aTk = fVar;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Runnable runnable;
-        this.aVI.aQW = true;
+        this.aTk.aQX = true;
         com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable = this.aVI.aQY;
+        runnable = this.aTk.aQZ;
         fS.removeCallbacks(runnable);
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
         Runnable runnable;
-        File file = new File(d.aVs);
+        File file = new File(d.aSU);
         if (file.exists()) {
             file.delete();
         }
-        c.Ld().Lf();
-        this.aVI.aQW = false;
+        c.JY().Ka();
+        this.aTk.aQX = false;
         com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable = this.aVI.aQY;
+        runnable = this.aTk.aQZ;
         fS.postDelayed(runnable, 1000L);
     }
 }

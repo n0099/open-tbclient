@@ -1,37 +1,20 @@
 package com.baidu.tieba.h;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.a.j;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
-public class d extends CustomMessageListener {
-    final /* synthetic */ a fdP;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(a aVar, int i) {
-        super(i);
-        this.fdP = aVar;
+public class d extends j {
+    public d() {
+        super(0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            if (booleanValue) {
-                if (TbadkCoreApplication.isLogin()) {
-                    if (TbadkCoreApplication.m9getInst().getLastUpdateMemberCenterTime() <= com.baidu.tbadk.core.sharedPref.b.tX().getLong("maintab_member_center_red_tip_" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
-                        booleanValue = false;
-                    }
-                } else {
-                    booleanValue = false;
-                }
-            }
-            this.fdP.fdE = true;
-            this.fdP.fdr = booleanValue;
-            this.fdP.aZn();
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: d */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && socketResponsedMessage.getError() == 1990055 && !a.jL(socketResponsedMessage.getCmd())) {
+            a.agz();
         }
+        return socketResponsedMessage;
     }
 }

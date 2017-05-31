@@ -1,34 +1,44 @@
 package com.baidu.tieba.play;
+
+import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.provider.Settings;
 /* loaded from: classes.dex */
-public class as {
-    private int epw = 0;
-    private int eTh = 0;
-    private boolean eTi = false;
-    private boolean eTj = true;
+public class as extends ContentObserver {
+    private a fbS;
+    private Context mContext;
 
-    public int aWE() {
-        return this.epw;
+    /* loaded from: classes.dex */
+    public interface a {
+        void onChange(boolean z);
     }
 
-    public int aWF() {
-        return this.eTh;
+    public as(Context context, Handler handler) {
+        super(handler);
+        this.mContext = context;
     }
 
-    public boolean aWG() {
-        return this.eTi;
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        aXU();
     }
 
-    public boolean aWH() {
-        return this.eTj;
+    private void aXU() {
+        if (this.mContext != null) {
+            try {
+                int i = Settings.System.getInt(this.mContext.getContentResolver(), "accelerometer_rotation");
+                if (this.fbS != null) {
+                    this.fbS.onChange(i == 1);
+                }
+            } catch (Settings.SettingNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    public void h(int i, int i2, boolean z) {
-        this.epw = i;
-        this.eTh = i2;
-        this.eTi = z;
-    }
-
-    public void gx(boolean z) {
-        this.eTj = z;
+    public void a(a aVar) {
+        this.fbS = aVar;
+        aXU();
     }
 }

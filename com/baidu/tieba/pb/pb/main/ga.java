@@ -1,41 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.CompoundButton;
-import java.util.List;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tieba.pb.pb.main.emotion.view.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ga implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ fm epr;
+public class ga implements a.b {
+    final /* synthetic */ fx evi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ga(fm fmVar) {
-        this.epr = fmVar;
+    public ga(fx fxVar) {
+        this.evi = fxVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        List list;
-        List<com.baidu.tieba.pb.pb.main.view.a> list2;
-        String str;
-        String str2;
-        if (z) {
-            this.epr.eoi = (String) compoundButton.getTag();
-            list = this.epr.emW;
-            if (list != null) {
-                list2 = this.epr.emW;
-                for (com.baidu.tieba.pb.pb.main.view.a aVar : list2) {
-                    String str3 = (String) aVar.getTag();
-                    if (str3 != null) {
-                        str = this.epr.eoi;
-                        if (str != null) {
-                            str2 = this.epr.eoi;
-                            if (!str3.equals(str2)) {
-                                aVar.setChecked(false);
-                            }
-                        }
-                    }
-                }
-            }
+    @Override // com.baidu.tieba.pb.pb.main.emotion.view.a.b
+    public void aa(float f) {
+        View view;
+        View view2;
+        int i;
+        int i2;
+        int i3;
+        ViewGroup viewGroup;
+        View view3;
+        view = this.evi.euc;
+        if (view != null) {
+            view2 = this.evi.euc;
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            i = this.evi.euk;
+            i2 = this.evi.euj;
+            i3 = this.evi.euj;
+            layoutParams.height = (int) (((i - i2) * f) + i3);
+            viewGroup = this.evi.eue;
+            viewGroup.setAlpha(1.0f - f);
+            view3 = this.evi.euc;
+            view3.setLayoutParams(layoutParams);
+            this.evi.eul = layoutParams.height;
         }
     }
 }

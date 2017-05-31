@@ -4,45 +4,45 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class t implements m {
-    final /* synthetic */ s acg;
-    private final /* synthetic */ int ach;
+    final /* synthetic */ s acf;
+    private final /* synthetic */ int acg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar, int i) {
-        this.acg = sVar;
-        this.ach = i;
+        this.acf = sVar;
+        this.acg = i;
     }
 
     @Override // com.baidu.tbadk.core.d.m
     public void a(o oVar, JSONObject jSONObject) {
-        this.acg.a(oVar, this.ach);
+        this.acf.a(oVar, this.acg);
     }
 
     @Override // com.baidu.tbadk.core.d.m
     public void a(int i, Throwable th) {
         int[] iArr;
-        String tM;
+        String tL;
         int[] iArr2;
         int[] iArr3;
         if (i == 1) {
-            int i2 = this.ach;
-            iArr = s.acf;
+            int i2 = this.acg;
+            iArr = s.ace;
             if (i2 < iArr.length) {
-                this.acg.tN();
+                this.acf.tM();
             }
-            if (this.ach >= 0) {
-                int i3 = this.ach;
-                iArr2 = s.acf;
+            if (this.acg >= 0) {
+                int i3 = this.acg;
+                iArr2 = s.ace;
                 if (i3 < iArr2.length) {
-                    s sVar = this.acg;
-                    iArr3 = s.acf;
-                    sVar.R(String.valueOf(iArr3[this.ach]), "");
+                    s sVar = this.acf;
+                    iArr3 = s.ace;
+                    sVar.R(String.valueOf(iArr3[this.acg]), "");
                     return;
                 }
             }
-            BdLog.e("pingIndex " + this.ach + " out of bounds.");
-            tM = this.acg.tM();
-            e.k(tM, "103", "ping timeout for index " + this.ach);
+            BdLog.e("pingIndex " + this.acg + " out of bounds.");
+            tL = this.acf.tL();
+            e.k(tL, "103", "ping timeout for index " + this.acg);
         }
     }
 }

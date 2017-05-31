@@ -1,40 +1,53 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.di;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dj extends HttpMessageListener {
-    final /* synthetic */ di ejb;
+public class dj implements com.baidu.adp.lib.e.c<TbImageView> {
+    final /* synthetic */ dh eor;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dj(di diVar, int i) {
-        super(i);
-        this.ejb = diVar;
+    public dj(dh dhVar) {
+        this.eor = dhVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        di.a aVar;
-        di.a aVar2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
-            if (httpResponsedMessage.getStatusCode() != 200) {
-                aVar = this.ejb.ehs;
-                aVar.i(-1, null, null);
-                return;
-            }
-            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
-            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
-            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
-            String tid = applyCopyThreadResponseMessage.getTid();
-            if (errorCode == 0) {
-                errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
-            }
-            aVar2 = this.ejb.ehs;
-            aVar2.i(errorCode, errorMessage, tid);
-        }
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: wB */
+    public TbImageView fL() {
+        Context context;
+        context = this.eor.mContext;
+        TbImageView tbImageView = new TbImageView(context);
+        tbImageView.setDrawBorder(true);
+        tbImageView.setBorderColor(com.baidu.tbadk.core.util.aq.getColor(w.e.common_color_10043));
+        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1));
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void o(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public TbImageView p(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public TbImageView q(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
+        return tbImageView;
     }
 }

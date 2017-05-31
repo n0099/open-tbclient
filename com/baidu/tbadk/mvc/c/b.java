@@ -5,56 +5,56 @@ import com.baidu.adp.BdUniqueId;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private int aEp;
-    private boolean aEq = true;
-    private com.baidu.tbadk.mvc.b.a aEr;
-    private com.baidu.tbadk.mvc.d.b aEs;
-    private com.baidu.tbadk.mvc.a.a aEt;
-    private int aEu;
-    private Object aEv;
-    private WeakReference<View> aEw;
+    private int aEc;
+    private boolean aEd = true;
+    private com.baidu.tbadk.mvc.b.a aEe;
+    private com.baidu.tbadk.mvc.d.b aEf;
+    private com.baidu.tbadk.mvc.a.a aEg;
+    private int aEh;
+    private Object aEi;
+    private WeakReference<View> aEj;
     private BdUniqueId uniqueId;
 
     public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.d.b bVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.aEp = i;
-        this.aEr = aVar;
-        this.aEs = bVar;
-        this.aEt = aVar2;
+        this.aEc = i;
+        this.aEe = aVar;
+        this.aEf = bVar;
+        this.aEg = aVar2;
     }
 
-    public int Ep() {
-        return this.aEp;
+    public int Ej() {
+        return this.aEc;
     }
 
-    public com.baidu.tbadk.mvc.b.a Eq() {
-        return this.aEr;
+    public com.baidu.tbadk.mvc.b.a Ek() {
+        return this.aEe;
     }
 
     public Object getExtra() {
-        return this.aEv;
+        return this.aEi;
     }
 
     public void setExtra(Object obj) {
-        this.aEv = obj;
+        this.aEi = obj;
     }
 
     public View getView() {
-        if (this.aEw != null) {
-            return this.aEw.get();
+        if (this.aEj != null) {
+            return this.aEj.get();
         }
         return null;
     }
 
     public void setView(View view) {
-        this.aEw = new WeakReference<>(view);
+        this.aEj = new WeakReference<>(view);
     }
 
-    public void eS(int i) {
-        this.aEu = i;
+    public void eT(int i) {
+        this.aEh = i;
     }
 
-    public boolean Er() {
-        return this.aEq;
+    public boolean El() {
+        return this.aEd;
     }
 
     public BdUniqueId getUniqueId() {

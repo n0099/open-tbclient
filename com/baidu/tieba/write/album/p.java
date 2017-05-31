@@ -7,145 +7,145 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p {
-    private int aBS;
-    private WriteImagesInfo eAQ;
-    private List<e> fMA;
-    private String fMI;
-    private List<ImageFileInfo> fMO;
-    private List<ImageFileInfo> fMP;
-    private String fMQ;
-    private boolean fMR = false;
-    private final AlbumActivity fMg;
+    private int aBF;
+    private WriteImagesInfo eJC;
+    private final AlbumActivity fTN;
+    private List<e> fUh;
+    private String fUp;
+    private List<ImageFileInfo> fUv;
+    private List<ImageFileInfo> fUw;
+    private String fUx;
+    private boolean fUy = false;
 
     public p(AlbumActivity albumActivity) {
-        this.fMg = albumActivity;
+        this.fTN = albumActivity;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.eAQ == null) {
-            this.eAQ = new WriteImagesInfo();
+        if (this.eJC == null) {
+            this.eJC = new WriteImagesInfo();
         }
-        this.eAQ.addChooseFile(imageFileInfo);
+        this.eJC.addChooseFile(imageFileInfo);
     }
 
     public void delChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.eAQ != null) {
-            this.eAQ.delChooseFile(imageFileInfo);
+        if (this.eJC != null) {
+            this.eJC.delChooseFile(imageFileInfo);
         }
     }
 
     public boolean isAdded(ImageFileInfo imageFileInfo) {
-        if (this.eAQ == null) {
+        if (this.eJC == null) {
             return false;
         }
-        return this.eAQ.isAdded(imageFileInfo);
+        return this.eJC.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> bmq() {
-        if (this.eAQ != null) {
-            return this.eAQ.getChosedFiles();
+    public List<ImageFileInfo> bnN() {
+        if (this.eJC != null) {
+            return this.eJC.getChosedFiles();
         }
         return null;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {
-        return this.eAQ;
+        return this.eJC;
     }
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
-        this.eAQ = writeImagesInfo;
+        this.eJC = writeImagesInfo;
     }
 
     public String getLastAlbumId() {
-        if (this.eAQ != null) {
-            return this.eAQ.getLastAlbumId();
+        if (this.eJC != null) {
+            return this.eJC.getLastAlbumId();
         }
         return null;
     }
 
     public void setLastAlbumId(String str) {
-        if (this.eAQ == null) {
-            this.eAQ = new WriteImagesInfo();
+        if (this.eJC == null) {
+            this.eJC = new WriteImagesInfo();
         }
-        this.eAQ.setLastAlbumId(str);
+        this.eJC.setLastAlbumId(str);
     }
 
     public int getMaxImagesAllowed() {
-        if (this.eAQ != null) {
-            return this.eAQ.getMaxImagesAllowed();
+        if (this.eJC != null) {
+            return this.eJC.getMaxImagesAllowed();
         }
         return 0;
     }
 
-    public String bmr() {
-        return this.fMI;
+    public String bnO() {
+        return this.fUp;
     }
 
-    public void qU(String str) {
-        this.fMI = str;
+    public void rh(String str) {
+        this.fUp = str;
     }
 
-    public List<ImageFileInfo> bms() {
-        return this.fMO;
-    }
-
-    public void cN(List<ImageFileInfo> list) {
-        this.fMO = list;
-    }
-
-    public int getCurrentIndex() {
-        return this.aBS;
-    }
-
-    public void sJ(int i) {
-        this.aBS = i;
-    }
-
-    public List<e> bmt() {
-        return this.fMA;
-    }
-
-    public void cO(List<e> list) {
-        this.fMA = list;
-    }
-
-    public List<ImageFileInfo> bmu() {
-        return this.fMP;
+    public List<ImageFileInfo> bnP() {
+        return this.fUv;
     }
 
     public void cP(List<ImageFileInfo> list) {
-        this.fMP = list;
+        this.fUv = list;
+    }
+
+    public int getCurrentIndex() {
+        return this.aBF;
+    }
+
+    public void te(int i) {
+        this.aBF = i;
+    }
+
+    public List<e> bnQ() {
+        return this.fUh;
+    }
+
+    public void cQ(List<e> list) {
+        this.fUh = list;
+    }
+
+    public List<ImageFileInfo> bnR() {
+        return this.fUw;
+    }
+
+    public void cR(List<ImageFileInfo> list) {
+        this.fUw = list;
     }
 
     public int size() {
-        if (this.eAQ == null) {
+        if (this.eJC == null) {
             return 0;
         }
-        return this.eAQ.size();
+        return this.eJC.size();
     }
 
-    public String bmv() {
-        return this.fMQ;
+    public String bnS() {
+        return this.fUx;
     }
 
-    public void qV(String str) {
-        this.fMQ = str;
+    public void ri(String str) {
+        this.fUx = str;
     }
 
     public void setOriginalImg(boolean z) {
-        this.eAQ.setOriginalImg(z);
+        this.eJC.setOriginalImg(z);
     }
 
     public boolean isOriginalImg() {
-        return this.eAQ.isOriginalImg();
+        return this.eJC.isOriginalImg();
     }
 
-    public void lA(boolean z) {
-        this.fMR = z;
+    public void lT(boolean z) {
+        this.fUy = z;
     }
 
-    public List<ay> bmw() {
-        List<ImageFileInfo> list = this.fMO;
+    public List<ay> bnT() {
+        List<ImageFileInfo> list = this.fUv;
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 3; i++) {
             ay ayVar = new ay();
@@ -159,7 +159,7 @@ public class p {
             ayVar2.a(list.get(i2));
             arrayList.add(ayVar2);
         }
-        int ag = ((((com.baidu.adp.lib.util.k.ag(this.fMg.getPageContext().getPageActivity()) - this.fMg.getResources().getDimensionPixelSize(w.f.ds300)) / (com.baidu.adp.lib.util.k.af(this.fMg.getPageContext().getPageActivity()) / 3)) + 1) * 3) - q;
+        int ag = ((((com.baidu.adp.lib.util.k.ag(this.fTN.getPageContext().getPageActivity()) - this.fTN.getResources().getDimensionPixelSize(w.f.ds300)) / (com.baidu.adp.lib.util.k.af(this.fTN.getPageContext().getPageActivity()) / 3)) + 1) * 3) - q;
         if (ag < 0) {
             ag = q % 3 == 0 ? 0 : 3 - (q % 3);
         }

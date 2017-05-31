@@ -36,17 +36,17 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class AccountActivity extends BaseActivity<AccountActivity> {
     private NavigationBar mNavigationBar;
-    private List<AccountData> aVL = null;
-    private l aVM = null;
+    private List<AccountData> aTn = null;
+    private l aTo = null;
     private ListView mList = null;
-    private RelativeLayout aVN = null;
-    private TextView aVO = null;
-    private View.OnClickListener aVP = null;
-    private d aVQ = null;
-    private a aVR = null;
-    private com.baidu.tbadk.coreExtra.view.j aDA = null;
-    private BdAsyncTask<?, ?, ?> aVS = null;
-    private CustomMessageListener aVT = new com.baidu.tieba.account.a(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private RelativeLayout aTp = null;
+    private TextView aTq = null;
+    private View.OnClickListener aTr = null;
+    private d aTs = null;
+    private a aTt = null;
+    private com.baidu.tbadk.coreExtra.view.j aDn = null;
+    private BdAsyncTask<?, ?, ?> aTu = null;
+    private CustomMessageListener aTv = new com.baidu.tieba.account.a(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
     private Handler mHandler = new com.baidu.tieba.account.b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -54,9 +54,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(w.j.account_activity);
-        Lj();
-        Lk();
-        registerListener(this.aVT);
+        Ke();
+        Kf();
+        registerListener(this.aTv);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,77 +64,77 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        getLayoutMode().ai(i == 1);
-        getLayoutMode().t(this.aVN);
-        this.aVM.notifyDataSetChanged();
+        getLayoutMode().ah(i == 1);
+        getLayoutMode().t(this.aTp);
+        this.aTo.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lj() {
+    public void Ke() {
         if (TbadkCoreApplication.m9getInst().isAccountsDataFromPass()) {
-            this.aVL = com.baidu.tbadk.coreExtra.a.a.xi().xl();
+            this.aTn = com.baidu.tbadk.coreExtra.a.a.xb().xe();
         } else {
-            this.aVL = com.baidu.tbadk.core.a.b.pi();
+            this.aTn = com.baidu.tbadk.core.a.b.pa();
         }
     }
 
-    private void Lk() {
-        this.aVN = (RelativeLayout) findViewById(w.h.account_container);
-        this.aVP = new com.baidu.tieba.account.c(this);
+    private void Kf() {
+        this.aTp = (RelativeLayout) findViewById(w.h.account_container);
+        this.aTr = new com.baidu.tieba.account.c(this);
         this.mNavigationBar = (NavigationBar) findViewById(w.h.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(w.l.account_manager));
         View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.navigation_right_button_layout, (View.OnClickListener) null);
-        this.aVO = (TextView) addCustomView.findViewById(w.h.right_textview);
-        this.aVO.setText(getPageContext().getString(w.l.edit));
-        aq.c(this.aVO, w.e.navi_op_text, 1);
+        this.aTq = (TextView) addCustomView.findViewById(w.h.right_textview);
+        this.aTq.setText(getPageContext().getString(w.l.edit));
+        aq.c(this.aTq, w.e.navi_op_text, 1);
         addCustomView.setOnClickListener(new e(this));
-        this.aVM = new l(this, this.aVP);
-        this.aVM.setData(this.aVL);
+        this.aTo = new l(this, this.aTr);
+        this.aTo.setData(this.aTn);
         this.mList = (ListView) findViewById(w.h.list);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
         this.mList.addHeaderView(textView);
-        this.mList.setAdapter((ListAdapter) this.aVM);
+        this.mList.setAdapter((ListAdapter) this.aTo);
         this.mList.setOnItemClickListener(new f(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(AccountData accountData) {
-        if (this.aDA == null) {
-            this.aDA = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
-            this.aDA.a(new g(this));
+        if (this.aDn == null) {
+            this.aDn = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
+            this.aDn.a(new g(this));
         }
-        this.aDA.AG();
-        this.aDA.i(accountData);
-        this.aDA.AC();
+        this.aDn.Az();
+        this.aDn.i(accountData);
+        this.aDn.Av();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(AccountData accountData) {
-        if (this.aVQ == null) {
-            gZ("account changed");
+        if (this.aTs == null) {
+            gU("account changed");
             showLoadingDialog(getPageContext().getString(w.l.account_logining), new h(this));
-            if (this.aVS != null) {
-                this.aVS.cancel();
+            if (this.aTu != null) {
+                this.aTu.cancel();
             }
-            this.aVS = com.baidu.tbadk.core.a.a.pd().a(accountData.getAccount(), accountData.getBDUSS(), "", accountData.getStoken(), new c(accountData));
+            this.aTu = com.baidu.tbadk.core.a.a.oV().a(accountData.getAccount(), accountData.getBDUSS(), "", accountData.getStoken(), new c(accountData));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m(AccountData accountData) {
-        this.aVQ = new d(accountData);
-        this.aVQ.setPriority(3);
-        if (this.aVQ != null) {
-            if (Lm()) {
+        this.aTs = new d(accountData);
+        this.aTs.setPriority(3);
+        if (this.aTs != null) {
+            if (Kh()) {
                 this.mHandler.removeMessages(2);
                 Message obtainMessage = this.mHandler.obtainMessage(2);
                 obtainMessage.obj = accountData;
                 this.mHandler.sendMessageDelayed(obtainMessage, 200L);
                 return;
             }
-            this.aVQ.execute(new Object[0]);
+            this.aTs.execute(new Object[0]);
         }
     }
 
@@ -166,9 +166,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 }
                 this.mAccount.setIsActive(1);
                 com.baidu.tbadk.core.a.b.b(this.mAccount);
-                com.baidu.tbadk.coreExtra.a.c xi = com.baidu.tbadk.coreExtra.a.a.xi();
-                if (xi != null) {
-                    xi.g(this.mAccount);
+                com.baidu.tbadk.coreExtra.a.c xb = com.baidu.tbadk.coreExtra.a.a.xb();
+                if (xb != null) {
+                    xb.g(this.mAccount);
                 }
             } catch (Exception e2) {
                 BdLog.detailException(e2);
@@ -187,10 +187,10 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c implements a.InterfaceC0035a {
-        private AccountData atW;
+        private AccountData atG;
 
         public c(AccountData accountData) {
-            this.atW = accountData;
+            this.atG = accountData;
         }
 
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
@@ -208,9 +208,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "account_change_cslogin_fail", i, str2, "uname", str);
             AccountActivity.this.closeLoadingDialog();
             AccountActivity.this.showToast(str2);
-            if (i == 1 && this.atW != null) {
-                ReloginManager.tS().f(this.atW);
-                AccountActivity.this.a(false, this.atW);
+            if (i == 1 && this.atG != null) {
+                ReloginManager.tR().f(this.atG);
+                AccountActivity.this.a(false, this.atG);
             }
         }
     }
@@ -223,46 +223,46 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         TbadkCoreApplication.m9getInst().onUserChanged();
         com.baidu.tbadk.core.f.b.c(getPageContext().getPageActivity(), 1, false);
-        this.aVQ = null;
+        this.aTs = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, AccountData accountData) {
-        if (this.aVR == null) {
+        if (this.aTt == null) {
             boolean z2 = (accountData == null || accountData.getID() == null || !accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (z2) {
-                gZ("account delete");
+                gU("account delete");
             }
             showLoadingDialog(getPageContext().getString(w.l.deleting), new i(this, z2));
-            this.aVR = new a(z, accountData);
-            this.aVR.setPriority(3);
-            Ll();
+            this.aTt = new a(z, accountData);
+            this.aTt.setPriority(3);
+            Kg();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ll() {
-        if (this.aVR != null) {
-            if (Lm()) {
+    public void Kg() {
+        if (this.aTt != null) {
+            if (Kh()) {
                 this.mHandler.removeMessages(1);
                 this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 200L);
                 return;
             }
-            this.aVR.execute(new Object[0]);
+            this.aTt.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, AccountData> {
-        private AccountData aVX;
-        private boolean aVY;
+        private boolean aTA;
+        private AccountData aTz;
         private int mType = 0;
 
         public a(boolean z, AccountData accountData) {
-            this.aVY = false;
-            this.aVX = accountData;
-            this.aVY = z;
+            this.aTA = false;
+            this.aTz = accountData;
+            this.aTA = z;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -273,32 +273,32 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: n */
+        /* renamed from: l */
         public AccountData doInBackground(Object... objArr) {
             try {
-                if (this.aVX != null) {
+                if (this.aTz != null) {
                     try {
                         Thread.sleep(1000L);
                     } catch (Exception e) {
                         BdLog.detailException(e);
                     }
-                    if (this.aVY) {
-                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, this.aVX.getID()));
+                    if (this.aTA) {
+                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, this.aTz.getID()));
                     }
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_ACCOUNT, this.aVX.getID()));
-                    m.deleteAccountAllInfo(this.aVX.getID());
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_ACCOUNT, this.aTz.getID()));
+                    m.deleteAccountAllInfo(this.aTz.getID());
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    com.baidu.tbadk.core.sharedPref.b.tX().remove("get_addresslist_switch" + this.aVX.getID());
-                    if (this.aVX.getID().equals(currentAccount)) {
-                        com.baidu.tbadk.coreExtra.a.c xi = com.baidu.tbadk.coreExtra.a.a.xi();
-                        if (xi != null) {
-                            xi.xk();
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().remove("get_addresslist_switch" + this.aTz.getID());
+                    if (this.aTz.getID().equals(currentAccount)) {
+                        com.baidu.tbadk.coreExtra.a.c xb = com.baidu.tbadk.coreExtra.a.a.xb();
+                        if (xb != null) {
+                            xb.xd();
                         }
                         this.mType = 2;
                     } else {
-                        com.baidu.tbadk.coreExtra.a.c xi2 = com.baidu.tbadk.coreExtra.a.a.xi();
-                        if (xi2 != null) {
-                            xi2.h(this.aVX);
+                        com.baidu.tbadk.coreExtra.a.c xb2 = com.baidu.tbadk.coreExtra.a.a.xb();
+                        if (xb2 != null) {
+                            xb2.h(this.aTz);
                         }
                         this.mType = 0;
                     }
@@ -314,9 +314,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public void onPostExecute(AccountData accountData) {
-            if (this.aVX != null) {
-                com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "account_change_delete_success", 0, "", "type", Integer.valueOf(this.mType), "delete_uid", this.aVX.getID());
-                new b(this.aVX.getBDUSS(), com.baidu.tbadk.core.a.h.d(this.aVX)).start();
+            if (this.aTz != null) {
+                com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "account_change_delete_success", 0, "", "type", Integer.valueOf(this.mType), "delete_uid", this.aTz.getID());
+                new b(this.aTz.getBDUSS(), com.baidu.tbadk.core.a.h.d(this.aTz)).start();
             }
             AccountActivity.this.closeLoadingDialog();
             if (this.mType != 0) {
@@ -325,9 +325,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             switch (this.mType) {
                 case 0:
                     AccountActivity.this.showToast(AccountActivity.this.getPageContext().getString(w.l.success));
-                    AccountActivity.this.aVL.remove(this.aVX);
-                    this.aVX = null;
-                    AccountActivity.this.aVM.notifyDataSetChanged();
+                    AccountActivity.this.aTn.remove(this.aTz);
+                    this.aTz = null;
+                    AccountActivity.this.aTo.notifyDataSetChanged();
                     break;
                 case 2:
                     TbadkCoreApplication.m9getInst().onUserChanged();
@@ -336,11 +336,11 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, loginActivityConfig));
                     break;
             }
-            AccountActivity.this.aVR = null;
+            AccountActivity.this.aTt = null;
         }
     }
 
-    private void gZ(String str) {
+    private void gU(String str) {
         BdSocketLinkService.setHasAbsoluteClose(true);
         MessageManager.getInstance().getSocketClient().cR();
         BdSocketLinkService.setAvailable(false);
@@ -348,7 +348,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ha(String str) {
+    public void gV(String str) {
         BdSocketLinkService.setHasAbsoluteClose(false);
         BdSocketLinkService.setAvailable(true);
         BdSocketLinkService.startService(true, str);
@@ -371,17 +371,17 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public void run() {
             super.run();
             z zVar = new z(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/logout");
-            zVar.uJ().vD().agA = false;
-            zVar.uJ().vD().mIsUseCurrentBDUSS = false;
+            zVar.uF().vA().agr = false;
+            zVar.uF().vA().mIsUseCurrentBDUSS = false;
             zVar.n("BDUSS", this.mBduss);
             zVar.n("stoken", this.mStoken);
             zVar.n("channel_id", TbadkCoreApplication.m9getInst().getPushChannelId());
             zVar.n("channel_uid", TbadkCoreApplication.m9getInst().getPushChannelUserId());
-            zVar.ul();
+            zVar.ug();
         }
     }
 
-    private boolean Lm() {
+    private boolean Kh() {
         return MessageManager.getInstance().getSocketClient().cU() > 0;
     }
 
@@ -392,8 +392,8 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
         this.mHandler.removeCallbacksAndMessages(null);
-        if (this.aVS != null) {
-            this.aVS.cancel();
+        if (this.aTu != null) {
+            this.aTu.cancel();
         }
     }
 }

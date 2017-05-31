@@ -47,7 +47,7 @@ import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.adp.plugin.util.f;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.w;
 import com.baidu.megapp.ma.MAActivity;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -1602,9 +1602,9 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, h, j,
     }
 
     @Override // com.baidu.adp.base.j
-    public void onPreLoad(BdListView bdListView) {
+    public void onPreLoad(w wVar) {
         if (this.mEntity != null) {
-            this.mEntity.onPreLoad(bdListView);
+            this.mEntity.onPreLoad(wVar);
         }
     }
 

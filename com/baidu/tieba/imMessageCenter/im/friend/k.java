@@ -7,26 +7,26 @@ import com.baidu.tieba.im.message.ResponseCommitInviteMessage;
 import com.baidu.tieba.w;
 /* loaded from: classes2.dex */
 class k extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ InviteFriendListActivity dfj;
+    final /* synthetic */ InviteFriendListActivity dkD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(InviteFriendListActivity inviteFriendListActivity, int i) {
         super(i);
-        this.dfj = inviteFriendListActivity;
+        this.dkD = inviteFriendListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        this.dfj.closeLoadingDialog();
+        this.dkD.closeLoadingDialog();
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205002 && (socketResponsedMessage instanceof ResponseCommitInviteMessage)) {
             ResponseCommitInviteMessage responseCommitInviteMessage = (ResponseCommitInviteMessage) socketResponsedMessage;
             if (responseCommitInviteMessage.getError() != 0) {
-                this.dfj.showToast(StringUtils.isNull(responseCommitInviteMessage.getErrorString()) ? this.dfj.getResources().getString(w.l.neterror) : responseCommitInviteMessage.getErrorString());
+                this.dkD.showToast(StringUtils.isNull(responseCommitInviteMessage.getErrorString()) ? this.dkD.getResources().getString(w.l.neterror) : responseCommitInviteMessage.getErrorString());
                 return;
             }
-            this.dfj.showToast(this.dfj.getPageContext().getString(w.l.send_success), false);
+            this.dkD.showToast(this.dkD.getPageContext().getString(w.l.send_success), false);
             new Handler().postDelayed(new l(this), 400L);
         }
     }

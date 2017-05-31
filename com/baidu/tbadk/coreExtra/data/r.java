@@ -3,67 +3,97 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class r {
+    private String apA;
+    private String apB;
     private String apC;
-    private String apD;
-    private String apE;
-    private String apF;
-    private String apG;
-    private String apH;
-    private String apI;
-    private String apJ;
-    private int apK;
-    private int apL;
-    private long apM;
-    private int apN;
-    private String apQ;
-    private String apR;
-    private String apS;
-    public int apU;
+    public int apE;
+    private String apl;
+    private String apm;
+    private String apn;
+    private String apo;
+    private String apq;
+    private String apr;
+    private String aps;
+    private String apt;
+    private int apu;
+    private int apv;
+    private long apw;
+    private int apx;
     private String infoIconUrl;
     private String infoTargetUrl;
     private long infoTimeStamp;
     private long lastUpdateTime;
-    private int apO = 0;
-    private int apP = 0;
-    private int apT = 2;
-    private String apV = "";
+    private String uegVoiceWarning;
+    private int apy = 0;
+    private int apz = 0;
+    private int apD = 2;
+    private String apF = "";
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.apC = jSONObject.optString("drop_pic");
-                this.apD = jSONObject.optString("drop_pic_md5");
-                this.apE = jSONObject.optString("drop_pic_num");
-                this.apF = jSONObject.optString("drop_bg_color_day");
-                this.apG = jSONObject.optString("drop_bg_color_night");
-                this.apH = jSONObject.optString("apply_vip_live_room_pid");
-                this.apQ = jSONObject.optString("max_cache");
-                this.apR = jSONObject.optString("frs_max_cache");
-                this.apS = jSONObject.optString("frs_pn");
-                this.apI = jSONObject.optString("tail_link");
-                this.apJ = jSONObject.optString("bubble_link");
-                this.apK = jSONObject.optInt("xiaoying_time");
+                this.apl = jSONObject.optString("drop_pic");
+                this.apm = jSONObject.optString("drop_pic_md5");
+                this.apn = jSONObject.optString("drop_pic_num");
+                this.apo = jSONObject.optString("drop_bg_color_day");
+                this.apq = jSONObject.optString("drop_bg_color_night");
+                this.apr = jSONObject.optString("apply_vip_live_room_pid");
+                this.apA = jSONObject.optString("max_cache");
+                this.apB = jSONObject.optString("frs_max_cache");
+                this.apC = jSONObject.optString("frs_pn");
+                this.aps = jSONObject.optString("tail_link");
+                this.apt = jSONObject.optString("bubble_link");
+                this.apu = jSONObject.optInt("xiaoying_time");
                 this.lastUpdateTime = jSONObject.optLong("last_update_time", 0L);
-                this.apL = jSONObject.optInt("new_resign", 0);
-                this.apM = jSONObject.optLong("personalized_cache_seconds", 43200L);
-                this.apN = jSONObject.optInt("personalized_max_count", 300);
+                this.apv = jSONObject.optInt("new_resign", 0);
+                this.apw = jSONObject.optLong("personalized_cache_seconds", 43200L);
+                this.apx = jSONObject.optInt("personalized_max_count", 300);
                 this.infoIconUrl = jSONObject.optString("info_icon_url");
                 this.infoTimeStamp = jSONObject.optLong("info_time_stamp", 0L);
                 this.infoTargetUrl = jSONObject.optString("info_target_url");
-                this.apO = jSONObject.optInt("read_thread_switch", 0);
-                this.apT = jSONObject.optInt("localvideo_open", 2);
-                this.apU = jSONObject.optInt("card_show_statistic", 200);
-                this.apV = jSONObject.optString("clean_smart_frs_cookie");
-                com.baidu.tbadk.pageStayDuration.e.Ff().eW(jSONObject.optInt("statlog_path_max", 3));
-                this.apP = jSONObject.optInt("photo_cache_num", 30);
+                this.apy = jSONObject.optInt("read_thread_switch", 0);
+                this.apD = jSONObject.optInt("localvideo_open", 2);
+                this.apE = jSONObject.optInt("card_show_statistic", 200);
+                this.apF = jSONObject.optString("clean_smart_frs_cookie");
+                com.baidu.tbadk.pageStayDuration.e.EZ().eX(jSONObject.optInt("statlog_path_max", 3));
+                this.apz = jSONObject.optInt("photo_cache_num", 30);
+                this.uegVoiceWarning = jSONObject.optString("ueg_voice_warning");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+    public String xQ() {
+        return this.apr;
+    }
+
+    public String xR() {
+        return this.apl;
+    }
+
+    public String xS() {
+        return this.apm;
+    }
+
+    public String xT() {
+        return this.apn;
+    }
+
+    public String xU() {
+        return this.apo;
+    }
+
+    public String xV() {
+        return this.apq;
+    }
+
+    public String xW() {
+        return this.apA;
+    }
+
     public String xX() {
-        return this.apH;
+        return this.apB;
     }
 
     public String xY() {
@@ -71,86 +101,62 @@ public class r {
     }
 
     public String xZ() {
-        return this.apD;
+        return this.aps;
     }
 
     public String ya() {
-        return this.apE;
+        return this.apt;
     }
 
-    public String yb() {
-        return this.apF;
+    public int yb() {
+        return this.apu;
     }
 
-    public String yc() {
-        return this.apG;
-    }
-
-    public String yd() {
-        return this.apQ;
-    }
-
-    public String ye() {
-        return this.apR;
-    }
-
-    public String yf() {
-        return this.apS;
-    }
-
-    public String yg() {
-        return this.apI;
-    }
-
-    public String yh() {
-        return this.apJ;
-    }
-
-    public int yi() {
-        return this.apK;
-    }
-
-    public long yj() {
+    public long yc() {
         return this.lastUpdateTime;
     }
 
-    public long yk() {
-        return this.apM;
+    public long yd() {
+        return this.apw;
     }
 
-    public int yl() {
-        return this.apN;
+    public int ye() {
+        return this.apx;
     }
 
-    public int ym() {
-        return this.apL;
+    public int yf() {
+        return this.apv;
     }
 
-    public String yn() {
+    public String yg() {
         return this.infoIconUrl;
     }
 
-    public String yo() {
+    public String yh() {
         return this.infoTargetUrl;
     }
 
-    public long yp() {
+    public long yi() {
         return this.infoTimeStamp;
     }
 
-    public int yq() {
-        return this.apO;
+    public int yj() {
+        return this.apy;
     }
 
-    public String yr() {
-        return this.apV;
+    public String yk() {
+        return this.apF;
     }
 
-    public boolean ys() {
-        return this.apT == 1;
+    public boolean yl() {
+        return this.apD == 1;
     }
 
-    public int yt() {
-        return this.apP;
+    public int ym() {
+        return this.apz;
+    }
+
+    public String getUegVoiceWarning() {
+        return this.uegVoiceWarning;
     }
 }

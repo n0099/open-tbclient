@@ -12,12 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class bk {
-    private List<ChatMessage> aWb;
-    private TbPageContext<MsglistActivity<?>> aat;
-    private MsgLeftViewItemAdapter cKA;
-    private MsgRightViewItemAdapter cKB;
-    private MsgMidViewItemAdapter cKC;
-    private CustomMessageListener cKD;
+    private List<ChatMessage> aTD;
+    private TbPageContext<MsglistActivity<?>> aas;
+    private MsgLeftViewItemAdapter cPY;
+    private MsgRightViewItemAdapter cPZ;
+    private MsgMidViewItemAdapter cQa;
+    private CustomMessageListener cQb;
     private List<ao> mAdapters;
     private BdTypeListView mListView;
 
@@ -26,54 +26,54 @@ public class bk {
     }
 
     public bk(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
-        this.aWb = null;
+        this.aTD = null;
         this.mAdapters = new ArrayList();
-        this.cKD = new bl(this, CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN);
-        this.aat = tbPageContext;
+        this.cQb = new bl(this, CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN);
+        this.aas = tbPageContext;
         this.mListView = bdTypeListView;
         initAdapters();
-        this.cKA.kW(i);
-        this.cKB.kW(i);
+        this.cPY.lq(i);
+        this.cPZ.lq(i);
     }
 
     private void initAdapters() {
-        this.cKA = new MsgLeftViewItemAdapter(this.aat, ChatMessage.TYPE_MSG_LEFT);
-        this.cKA.fa(true);
-        this.cKA.eZ(true);
-        this.cKB = new MsgRightViewItemAdapter(this.aat, ChatMessage.TYPE_MSG_RIGHT);
-        this.cKB.fa(true);
-        this.cKB.eZ(true);
-        this.cKC = new MsgMidViewItemAdapter(this.aat, ChatMessage.TYPE_MSG_MID);
-        this.mAdapters.add(this.cKA);
-        this.mAdapters.add(this.cKB);
-        this.mAdapters.add(this.cKC);
+        this.cPY = new MsgLeftViewItemAdapter(this.aas, ChatMessage.TYPE_MSG_LEFT);
+        this.cPY.fo(true);
+        this.cPY.fn(true);
+        this.cPZ = new MsgRightViewItemAdapter(this.aas, ChatMessage.TYPE_MSG_RIGHT);
+        this.cPZ.fo(true);
+        this.cPZ.fn(true);
+        this.cQa = new MsgMidViewItemAdapter(this.aas, ChatMessage.TYPE_MSG_MID);
+        this.mAdapters.add(this.cPY);
+        this.mAdapters.add(this.cPZ);
+        this.mAdapters.add(this.cQa);
         initListener();
         MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.cJS = new ArrayList();
-        aVar.context = this.aat;
+        aVar.cPq = new ArrayList();
+        aVar.context = this.aas;
         MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
     }
 
     private void initListener() {
-        this.cKD.setPriority(Integer.MAX_VALUE);
-        this.aat.registerListener(this.cKD);
+        this.cQb.setPriority(Integer.MAX_VALUE);
+        this.aas.registerListener(this.cQb);
     }
 
-    public void fb(boolean z) {
-        if (this.cKA != null) {
-            this.cKA.fb(z);
+    public void fp(boolean z) {
+        if (this.cPY != null) {
+            this.cPY.fp(z);
         }
     }
 
-    public void fc(boolean z) {
-        if (this.cKB != null) {
-            this.cKB.fc(z);
+    public void fq(boolean z) {
+        if (this.cPZ != null) {
+            this.cPZ.fq(z);
         }
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
         for (ao aoVar : this.mAdapters) {
-            if (aoVar.alp()) {
+            if (aoVar.amp()) {
                 aoVar.a(aVar);
             }
         }
@@ -81,14 +81,14 @@ public class bk {
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
         for (ao aoVar : this.mAdapters) {
-            if (aoVar.alo()) {
+            if (aoVar.amo()) {
                 aoVar.setOnItemViewLongClickListener(bVar);
             }
         }
     }
 
     public List<ChatMessage> getData() {
-        return this.aWb;
+        return this.aTD;
     }
 
     public void g(ChatMessage chatMessage) {
@@ -110,9 +110,9 @@ public class bk {
     }
 
     public void setData(List<ChatMessage> list) {
-        this.aWb = list;
+        this.aTD = list;
         ArrayList arrayList = new ArrayList();
-        if (this.aWb != null) {
+        if (this.aTD != null) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 if (i > 0) {
@@ -122,15 +122,15 @@ public class bk {
                     list.get(i).getCacheData().setLastMsgTime(list.get(i - 1).getTime());
                 }
             }
-            arrayList.addAll(this.aWb);
+            arrayList.addAll(this.aTD);
         }
         this.mListView.setData(arrayList);
     }
 
     public void onDestory() {
-        if (this.cKD != null) {
-            MessageManager.getInstance().unRegisterListener(this.cKD);
-            this.cKD = null;
+        if (this.cQb != null) {
+            MessageManager.getInstance().unRegisterListener(this.cQb);
+            this.cQb = null;
         }
     }
 }

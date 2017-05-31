@@ -18,10 +18,10 @@ public class ab extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            this.this$0.cXj = null;
-            com.baidu.tieba.im.sendmessage.a.lM(0);
-            com.baidu.tieba.im.sendmessage.a.lN(0);
-            b.apX().init();
+            this.this$0.dcI = null;
+            com.baidu.tieba.im.sendmessage.a.mg(0);
+            com.baidu.tieba.im.sendmessage.a.mh(0);
+            b.aqX().init();
         }
     }
 }

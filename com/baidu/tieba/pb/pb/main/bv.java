@@ -1,36 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.pb.FileDownloader;
+import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bv extends CustomMessageListener {
-    final /* synthetic */ PbActivity ehy;
+public class bv implements a.b {
+    final /* synthetic */ PbActivity enc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bv(PbActivity pbActivity, int i) {
-        super(i);
-        this.ehy = pbActivity;
+    public bv(PbActivity pbActivity) {
+        this.enc = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        fm fmVar;
-        fm fmVar2;
-        fm fmVar3;
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            fmVar = this.ehy.egt;
-            if (fmVar != null) {
-                if (booleanValue) {
-                    fmVar3 = this.ehy.egt;
-                    fmVar3.apn();
-                    return;
-                }
-                fmVar2 = this.ehy.egt;
-                fmVar2.apm();
-            }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        if (!com.baidu.tbadk.core.util.l.dH()) {
+            this.enc.showToast(com.baidu.tbadk.core.util.l.ua());
+        } else {
+            FileDownloader.download(this.enc.getPageContext().getPageActivity(), "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.enc.getPageContext().getString(w.l.download_baidu_video));
         }
     }
 }

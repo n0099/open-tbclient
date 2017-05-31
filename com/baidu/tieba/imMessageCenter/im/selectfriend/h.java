@@ -1,148 +1,21 @@
 package com.baidu.tieba.imMessageCenter.im.selectfriend;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.w;
-import java.util.List;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes2.dex */
-public class h extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> aYe;
-    private int aYh = w.e.cp_cont_b;
-    private int aYi = w.e.cp_cont_c;
-    private Context mContext;
+class h implements a.b {
+    private final /* synthetic */ com.baidu.tieba.im.widget.b deQ;
+    final /* synthetic */ SelectFriendActivity dlo;
 
-    public h(Context context) {
-        this.mContext = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(SelectFriendActivity selectFriendActivity, com.baidu.tieba.im.widget.b bVar) {
+        this.dlo = selectFriendActivity;
+        this.deQ = bVar;
     }
 
-    public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.aYe = list;
-        notifyDataSetChanged();
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.aYe == null) {
-            return 0;
-        }
-        return this.aYe.size();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: fK */
-    public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.aYe == null || i < 0 || i >= this.aYe.size()) {
-            return null;
-        }
-        return this.aYe.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 3;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        com.baidu.tbadk.coreExtra.relationship.a item = getItem(i);
-        if (item == null) {
-            return 2;
-        }
-        if (!TextUtils.isEmpty(item.Ai()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.Ah())) {
-            return 0;
-        }
-        return 1;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        a aVar;
-        b bVar;
-        if (getItemViewType(i) == 2) {
-            return null;
-        }
-        TbadkCoreApplication.m9getInst().getSkinType();
-        com.baidu.tbadk.coreExtra.relationship.a item = getItem(i);
-        if (getItemViewType(i) == 0) {
-            if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
-                view = LayoutInflater.from(this.mContext).inflate(w.j.select_friend_group_item, (ViewGroup) null);
-                b bVar2 = new b(this, null);
-                bVar2.aYq = (TextView) view.findViewById(w.h.addresslist_group_item_key);
-                bVar2.aaN = view.findViewById(w.h.addresslist_group_item_divider);
-                view.setTag(bVar2);
-                bVar = bVar2;
-            } else {
-                bVar = (b) view.getTag();
-            }
-            if (item.Ai() != null) {
-                bVar.aYq.setText(item.Ai());
-            }
-            aq.c(bVar.aYq, this.aYi, 1);
-            aq.k(bVar.aaN, w.e.cp_bg_line_b);
-            return view;
-        } else if (getItemViewType(i) == 1) {
-            if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
-                a aVar2 = new a(this, null);
-                view = LayoutInflater.from(this.mContext).inflate(w.j.select_friend_child_item, (ViewGroup) null);
-                aVar2.aYf = (HeadImageView) view.findViewById(w.h.addresslist_child_item_icon);
-                aVar2.aYg = (TextView) view.findViewById(w.h.addresslist_child_item_name);
-                aVar2.aaN = view.findViewById(w.h.addresslist_child_item_divider);
-                view.setTag(aVar2);
-                aVar = aVar2;
-            } else {
-                aVar = (a) view.getTag();
-            }
-            if (item.getUserName() != null) {
-                aVar.aYg.setText(item.getUserName());
-                aVar.aYf.c(item.Ah(), 12, false);
-            }
-            aq.c(aVar.aYg, this.aYh, 1);
-            aq.j(aVar.aaN, w.e.cp_bg_line_b);
-            aq.j(view, w.g.select_friend_item_bg);
-            return view;
-        } else {
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    private class b {
-        TextView aYq;
-        View aaN;
-
-        private b() {
-        }
-
-        /* synthetic */ b(h hVar, b bVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    private class a {
-        HeadImageView aYf;
-        TextView aYg;
-        View aaN;
-
-        private a() {
-        }
-
-        /* synthetic */ a(h hVar, a aVar) {
-            this();
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        ((InputMethodManager) this.dlo.getPageContext().getPageActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.deQ.getWindowToken(), 2);
+        aVar.dismiss();
     }
 }

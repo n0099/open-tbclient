@@ -3,7 +3,6 @@ package com.baidu.tieba.personPolymeric.d;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -25,28 +24,27 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
-    com.baidu.tieba.personPolymeric.event.a eFh = new com.baidu.tieba.personPolymeric.event.a();
-    final /* synthetic */ w eFi;
+    com.baidu.tieba.personPolymeric.event.a bxk = new com.baidu.tieba.personPolymeric.event.a();
+    final /* synthetic */ w eNY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.eFi = wVar;
+        this.eNY = wVar;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x018c, code lost:
-        if (r0.getIsFriend() != 1) goto L46;
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x0168, code lost:
+        if (r0.getIsFriend() != 1) goto L43;
      */
     @Override // android.view.View.OnClickListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onClick(View view) {
-        com.baidu.tieba.view.p pVar;
+        com.baidu.tieba.view.r rVar;
         HeadPendantView headPendantView;
         UserIconBox userIconBox;
         UserIconBox userIconBox2;
         BdExpandImageView bdExpandImageView;
-        ImageView imageView;
         TextView textView;
         TextView textView2;
         View view2;
@@ -75,126 +73,116 @@ public class x implements View.OnClickListener {
         UserData userData17;
         UserData userData18;
         UserData userData19;
+        com.baidu.tieba.view.r rVar2;
         UserData userData20;
-        com.baidu.tieba.view.p pVar2;
-        UserData userData21;
-        pVar = this.eFi.eyy;
-        if (pVar != null) {
-            this.eFh.bIu = -1;
-            headPendantView = this.eFi.fJn;
+        rVar = this.eNY.bxW;
+        if (rVar != null) {
+            this.bxk.bOi = -1;
+            headPendantView = this.eNY.fQU;
             if (headPendantView != view) {
-                userIconBox = this.eFi.fJp;
+                userIconBox = this.eNY.fQW;
                 if (userIconBox != view) {
-                    userIconBox2 = this.eFi.fJq;
+                    userIconBox2 = this.eNY.fQX;
                     if (userIconBox2 != view) {
-                        bdExpandImageView = this.eFi.fJm;
+                        bdExpandImageView = this.eNY.fQT;
                         if (bdExpandImageView != view) {
-                            imageView = this.eFi.bjm;
-                            if (imageView != view) {
-                                textView = this.eFi.fJs;
-                                if (textView != view) {
-                                    textView2 = this.eFi.eEZ;
-                                    if (textView2 != view) {
-                                        view2 = this.eFi.eFb;
-                                        if (view2 == view) {
-                                            userData = this.eFi.mUserData;
-                                            if (userData != null) {
-                                                if (!com.baidu.adp.lib.util.i.hk()) {
-                                                    context5 = this.eFi.mContext;
-                                                    com.baidu.adp.lib.util.k.showToast(context5, w.l.neterror);
-                                                    return;
-                                                }
-                                                as asVar = new as("c11855");
-                                                asVar.aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-                                                userData2 = this.eFi.mUserData;
-                                                asVar.aa("click_uid", userData2.getUserId());
-                                                userData3 = this.eFi.mUserData;
-                                                asVar.s("live_status", userData3.getLiveStatus());
-                                                TiebaStatic.log(asVar);
-                                                userData4 = this.eFi.mUserData;
-                                                if (userData4.getPersonPrivate().BQ() != 3) {
-                                                    userData6 = this.eFi.mUserData;
-                                                    if (userData6.getPersonPrivate().BQ() == 2) {
-                                                        userData16 = this.eFi.mUserData;
-                                                    }
-                                                    userData7 = this.eFi.mUserData;
-                                                    if (userData7.getLiveStatus() != 1) {
-                                                        context3 = this.eFi.mContext;
-                                                        userData8 = this.eFi.mUserData;
-                                                        String userId = userData8.getUserId();
-                                                        userData9 = this.eFi.mUserData;
-                                                        String userName = userData9.getUserName();
-                                                        userData10 = this.eFi.mUserData;
-                                                        String portrait = userData10.getPortrait();
-                                                        userData11 = this.eFi.mUserData;
-                                                        int sex = userData11.getSex();
-                                                        z = this.eFi.bdp;
-                                                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(context3, userId, userName, portrait, sex, z)));
-                                                    } else {
-                                                        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                                                        userData12 = this.eFi.mUserData;
-                                                        alaLiveInfoCoreData.setLiveID(Long.parseLong(userData12.getLiveId()));
-                                                        userData13 = this.eFi.mUserData;
-                                                        alaLiveInfoCoreData.setUserID(Long.parseLong(userData13.getUserId()));
-                                                        userData14 = this.eFi.mUserData;
-                                                        alaLiveInfoCoreData.setUserName(userData14.getUserName());
-                                                        context4 = this.eFi.mContext;
-                                                        userData15 = this.eFi.mUserData;
-                                                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context4, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, userData15.getUserId(), false, "")));
-                                                    }
-                                                }
-                                                context = this.eFi.mContext;
-                                                context2 = this.eFi.mContext;
-                                                String string = context2.getString(w.l.person_privacy_toast);
-                                                userData5 = this.eFi.mUserData;
-                                                BdToast.b(context, String.format(string, au.cR(userData5.getSex())), w.g.icon_toast_game_error).tl();
+                            textView = this.eNY.fQZ;
+                            if (textView != view) {
+                                textView2 = this.eNY.eNN;
+                                if (textView2 != view) {
+                                    view2 = this.eNY.eNQ;
+                                    if (view2 == view) {
+                                        userData = this.eNY.mUserData;
+                                        if (userData != null) {
+                                            if (!com.baidu.adp.lib.util.i.hk()) {
+                                                context5 = this.eNY.mContext;
+                                                com.baidu.adp.lib.util.k.showToast(context5, w.l.neterror);
                                                 return;
                                             }
+                                            as asVar = new as("c11855");
+                                            asVar.Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                                            userData2 = this.eNY.mUserData;
+                                            asVar.Z("click_uid", userData2.getUserId());
+                                            userData3 = this.eNY.mUserData;
+                                            asVar.r("live_status", userData3.getLiveStatus());
+                                            TiebaStatic.log(asVar);
+                                            userData4 = this.eNY.mUserData;
+                                            if (userData4.getPersonPrivate().BK() != 3) {
+                                                userData6 = this.eNY.mUserData;
+                                                if (userData6.getPersonPrivate().BK() == 2) {
+                                                    userData16 = this.eNY.mUserData;
+                                                }
+                                                userData7 = this.eNY.mUserData;
+                                                if (userData7.getLiveStatus() != 1) {
+                                                    context3 = this.eNY.mContext;
+                                                    userData8 = this.eNY.mUserData;
+                                                    String userId = userData8.getUserId();
+                                                    userData9 = this.eNY.mUserData;
+                                                    String userName = userData9.getUserName();
+                                                    userData10 = this.eNY.mUserData;
+                                                    String portrait = userData10.getPortrait();
+                                                    userData11 = this.eNY.mUserData;
+                                                    int sex = userData11.getSex();
+                                                    z = this.eNY.beq;
+                                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(context3, userId, userName, portrait, sex, z)));
+                                                } else {
+                                                    AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+                                                    userData12 = this.eNY.mUserData;
+                                                    alaLiveInfoCoreData.setLiveID(Long.parseLong(userData12.getLiveId()));
+                                                    userData13 = this.eNY.mUserData;
+                                                    alaLiveInfoCoreData.setUserID(Long.parseLong(userData13.getUserId()));
+                                                    userData14 = this.eNY.mUserData;
+                                                    alaLiveInfoCoreData.setUserName(userData14.getUserName());
+                                                    context4 = this.eNY.mContext;
+                                                    userData15 = this.eNY.mUserData;
+                                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context4, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, userData15.getUserId(), false, "")));
+                                                }
+                                            }
+                                            context = this.eNY.mContext;
+                                            context2 = this.eNY.mContext;
+                                            String string = context2.getString(w.l.person_privacy_toast);
+                                            userData5 = this.eNY.mUserData;
+                                            BdToast.b(context, String.format(string, au.cS(userData5.getSex())), w.g.icon_toast_game_error).tk();
                                             return;
                                         }
-                                    } else {
-                                        this.eFh.bIu = 14;
+                                        return;
                                     }
                                 } else {
-                                    this.eFh.bIu = 13;
+                                    this.bxk.bOi = 14;
                                 }
                             } else {
-                                this.eFh.bIu = 12;
-                                this.eFh.bIv = new Bundle();
-                                Bundle bundle = this.eFh.bIv;
-                                userData17 = this.eFi.mUserData;
-                                bundle.putSerializable(UserData.TYPE_USER, userData17);
+                                this.bxk.bOi = 13;
                             }
                         } else {
-                            this.eFh.bIu = 10;
-                            this.eFh.bIv = new Bundle();
-                            Bundle bundle2 = this.eFh.bIv;
-                            userData18 = this.eFi.mUserData;
-                            bundle2.putSerializable(UserData.TYPE_USER, userData18);
+                            this.bxk.bOi = 10;
+                            this.bxk.bOj = new Bundle();
+                            Bundle bundle = this.bxk.bOj;
+                            userData17 = this.eNY.mUserData;
+                            bundle.putSerializable(UserData.TYPE_USER, userData17);
                         }
                     } else {
-                        this.eFh.bIu = 3;
-                        this.eFh.bIv = new Bundle();
-                        Bundle bundle3 = this.eFh.bIv;
-                        userData19 = this.eFi.mUserData;
-                        bundle3.putSerializable(UserData.TYPE_USER, userData19);
+                        this.bxk.bOi = 3;
+                        this.bxk.bOj = new Bundle();
+                        Bundle bundle2 = this.bxk.bOj;
+                        userData18 = this.eNY.mUserData;
+                        bundle2.putSerializable(UserData.TYPE_USER, userData18);
                     }
                 } else {
-                    this.eFh.bIu = 2;
-                    this.eFh.bIv = new Bundle();
-                    Bundle bundle4 = this.eFh.bIv;
-                    userData20 = this.eFi.mUserData;
-                    bundle4.putString("vip_user_jump", userData20.getTShowInfo().get(0).getUrl());
+                    this.bxk.bOi = 2;
+                    this.bxk.bOj = new Bundle();
+                    Bundle bundle3 = this.bxk.bOj;
+                    userData19 = this.eNY.mUserData;
+                    bundle3.putString("vip_user_jump", userData19.getTShowInfo().get(0).getUrl());
                 }
             } else {
-                this.eFh.bIu = 1;
-                this.eFh.bIv = new Bundle();
-                Bundle bundle5 = this.eFh.bIv;
-                userData21 = this.eFi.mUserData;
-                bundle5.putSerializable(UserData.TYPE_USER, userData21);
+                this.bxk.bOi = 1;
+                this.bxk.bOj = new Bundle();
+                Bundle bundle4 = this.bxk.bOj;
+                userData20 = this.eNY.mUserData;
+                bundle4.putSerializable(UserData.TYPE_USER, userData20);
             }
-            pVar2 = this.eFi.eyy;
-            pVar2.a(view, this.eFh);
+            rVar2 = this.eNY.bxW;
+            rVar2.a(view, this.bxk);
         }
     }
 }

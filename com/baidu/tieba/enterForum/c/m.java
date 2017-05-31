@@ -17,13 +17,13 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class m extends LinearLayout {
-    private ViewEventCenter bGb;
-    private int bIe;
-    private TextView bIf;
-    private LinearLayout bIg;
-    private TextView bIh;
-    private ImageView bIi;
-    private a bIj;
+    private ViewEventCenter bLQ;
+    private int bNS;
+    private TextView bNT;
+    private LinearLayout bNU;
+    private TextView bNV;
+    private ImageView bNW;
+    private a bNX;
 
     public m(Context context) {
         this(context, null);
@@ -34,49 +34,49 @@ public class m extends LinearLayout {
         init();
     }
 
-    public void WS() {
-        if (this.bIj == null) {
-            WT();
+    public void XV() {
+        if (this.bNX == null) {
+            XW();
         }
-        if (this.bIj.getParent() == null) {
-            addView(this.bIj);
+        if (this.bNX.getParent() == null) {
+            addView(this.bNX);
         }
     }
 
-    private void WT() {
-        this.bIj = new a(getContext());
-        this.bIj.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-        this.bIj.setNumColumns(2);
-        this.bIj.setPadding(this.bIe, 0, this.bIe, 0);
-        this.bIj.setSelector(new ColorDrawable(0));
-        this.bIj.setCacheColorHint(0);
-        this.bIj.setFadingEdgeLength(0);
-        this.bIj.setFocusable(false);
-        this.bIj.setFocusableInTouchMode(false);
-        this.bIj.setVerticalScrollBarEnabled(false);
+    private void XW() {
+        this.bNX = new a(getContext());
+        this.bNX.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+        this.bNX.setNumColumns(2);
+        this.bNX.setPadding(this.bNS, 0, this.bNS, 0);
+        this.bNX.setSelector(new ColorDrawable(0));
+        this.bNX.setCacheColorHint(0);
+        this.bNX.setFadingEdgeLength(0);
+        this.bNX.setFocusable(false);
+        this.bNX.setFocusableInTouchMode(false);
+        this.bNX.setVerticalScrollBarEnabled(false);
     }
 
     public void setSelection(int i) {
-        if (this.bIj != null) {
-            this.bIj.setSelection(i);
+        if (this.bNX != null) {
+            this.bNX.setSelection(i);
         }
     }
 
     public void setSelectionFromTop(int i, int i2) {
-        if (this.bIj != null) {
-            this.bIj.setSelection(i);
-            this.bIj.setPadding(this.bIe, 0, this.bIe, 0);
+        if (this.bNX != null) {
+            this.bNX.setSelection(i);
+            this.bNX.setPadding(this.bNS, 0, this.bNS, 0);
         }
     }
 
     public void setGridAdapterIfNeeded(BaseAdapter baseAdapter) {
-        if (this.bIj != null && this.bIj.getAdapter() != baseAdapter) {
-            this.bIj.setAdapter((ListAdapter) baseAdapter);
+        if (this.bNX != null && this.bNX.getAdapter() != baseAdapter) {
+            this.bNX.setAdapter((ListAdapter) baseAdapter);
         }
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.bGb = viewEventCenter;
+        this.bLQ = viewEventCenter;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -86,22 +86,22 @@ public class m extends LinearLayout {
     }
 
     private void init() {
-        this.bIe = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds40);
+        this.bNS = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds40);
         LayoutInflater.from(getContext()).inflate(w.j.enter_forum_edit_view, this);
         setOrientation(1);
-        this.bIg = (LinearLayout) findViewById(w.h.search_container);
-        this.bIg.setVisibility(0);
-        this.bIf = (TextView) findViewById(w.h.view_edit_forum_ok);
-        this.bIf.setOnClickListener(new n(this));
-        this.bIh = (TextView) findViewById(w.h.search_text);
-        this.bIi = (ImageView) findViewById(w.h.search_icon);
+        this.bNU = (LinearLayout) findViewById(w.h.search_container);
+        this.bNU.setVisibility(0);
+        this.bNT = (TextView) findViewById(w.h.view_edit_forum_ok);
+        this.bNT.setOnClickListener(new n(this));
+        this.bNV = (TextView) findViewById(w.h.search_text);
+        this.bNW = (ImageView) findViewById(w.h.search_icon);
     }
 
-    public void o(TbPageContext<?> tbPageContext) {
+    public void n(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.m.a.a(tbPageContext, this);
         setBackgroundColor(aq.getColor(w.e.cp_bg_line_d));
-        aq.c(this.bIi, w.g.icon_enterforum_search);
-        aq.i(this.bIh, w.e.enter_forum_search_text_color);
-        aq.j(this.bIg, w.g.enter_forum_search_frame);
+        aq.c(this.bNW, w.g.icon_enterforum_search);
+        aq.i(this.bNV, w.e.enter_forum_search_text_color);
+        aq.j(this.bNU, w.g.enter_forum_search_frame);
     }
 }

@@ -909,7 +909,7 @@ public class PluginPackageManager {
         }
     }
 
-    public void aB(int i) {
+    public void aC(int i) {
         this.Eo = i;
     }
 

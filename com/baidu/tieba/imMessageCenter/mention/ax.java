@@ -4,11 +4,11 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class ax implements AbsListView.OnScrollListener {
-    final /* synthetic */ av dhM;
+    final /* synthetic */ av dni;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(av avVar) {
-        this.dhM = avVar;
+        this.dni = avVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -20,10 +20,10 @@ public class ax implements AbsListView.OnScrollListener {
         com.baidu.tbadk.editortools.pb.n nVar;
         com.baidu.tbadk.editortools.pb.n nVar2;
         if (i != 0) {
-            nVar = this.dhM.dhG;
+            nVar = this.dni.dnc;
             if (nVar != null) {
-                nVar2 = this.dhM.dhG;
-                nVar2.Dq();
+                nVar2 = this.dni.dnc;
+                nVar2.Dk();
             }
         }
     }

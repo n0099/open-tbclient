@@ -26,11 +26,11 @@ public class ah extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         MemoryClearUnreadCountMessage.a data;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016006 && (customResponsedMessage instanceof MemoryClearUnreadCountMessage) && (data = ((MemoryClearUnreadCountMessage) customResponsedMessage).getData()) != null) {
-            ImMessageCenterPojo Z = b.apX().Z(data.id, data.customGroupType);
+            ImMessageCenterPojo Z = b.aqX().Z(data.id, data.customGroupType);
             if (Z == null) {
                 BdLog.e("ClearUnreadCountMessage:  not find memery pojo");
             } else if (Z.getUnread_count() != 0) {
-                b.apX().ac(data.id, data.customGroupType);
+                b.aqX().ac(data.id, data.customGroupType);
                 CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ai(this));
                 customMessageTask.setParallel(TiebaIMConfig.getParallel());
                 customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

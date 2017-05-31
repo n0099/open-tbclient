@@ -1,28 +1,27 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
-    private final /* synthetic */ LinearLayout fyS;
-    private final /* synthetic */ TbImageView fyT;
+class h extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(MainTabActivity mainTabActivity, LinearLayout linearLayout, TbImageView tbImageView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
-        this.fyS = linearLayout;
-        this.fyT = tbImageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PopupWindow popupWindow;
-        MainTabActivity mainTabActivity = this.this$0;
-        popupWindow = this.this$0.ajs;
-        mainTabActivity.a(popupWindow, this.fyS, this.fyT);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ak akVar;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("game_is_show_tip", booleanValue);
+            akVar = this.this$0.fGm;
+            akVar.lC(booleanValue);
+        }
     }
 }

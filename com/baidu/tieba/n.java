@@ -1,22 +1,40 @@
 package com.baidu.tieba;
 
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.LogoActivity;
+import com.baidu.tieba.s;
 /* loaded from: classes.dex */
-class n implements Runnable {
-    final /* synthetic */ LogoActivity aQB;
+class n implements s.a {
+    final /* synthetic */ m aQG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(LogoActivity logoActivity) {
-        this.aQB = logoActivity;
+    public n(m mVar) {
+        this.aQG = mVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        RelativeLayout relativeLayout;
-        TbPageContext pageContext = this.aQB.getPageContext();
-        o oVar = new o(this);
-        relativeLayout = this.aQB.mRootView;
-        s.a(pageContext, oVar, relativeLayout);
+    @Override // com.baidu.tieba.s.a
+    public void onCompleted() {
+        LogoActivity logoActivity;
+        boolean Jc;
+        LogoActivity logoActivity2;
+        LogoActivity.a aVar;
+        LogoActivity logoActivity3;
+        LogoActivity logoActivity4;
+        logoActivity = this.aQG.aQD;
+        Jc = logoActivity.Jc();
+        if (Jc) {
+            MessageManager messageManager = MessageManager.getInstance();
+            logoActivity3 = this.aQG.aQD;
+            messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_VR_LOGO_OPEN, logoActivity3.getPageContext()));
+            logoActivity4 = this.aQG.aQD;
+            logoActivity4.finish();
+            return;
+        }
+        com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
+        logoActivity2 = this.aQG.aQD;
+        aVar = logoActivity2.aQx;
+        fS.post(aVar);
     }
 }

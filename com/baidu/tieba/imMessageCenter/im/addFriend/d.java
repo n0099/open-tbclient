@@ -9,11 +9,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ AddFriendActivity ddp;
+    final /* synthetic */ AddFriendActivity diL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AddFriendActivity addFriendActivity) {
-        this.ddp = addFriendActivity;
+        this.diL = addFriendActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,15 +21,15 @@ public class d implements View.OnClickListener {
         InputMethodManager inputMethodManager;
         EditText editText;
         EditText editText2;
-        AddFriendActivity addFriendActivity = this.ddp;
-        inputMethodManager = this.ddp.ciK;
-        editText = this.ddp.ddj;
+        AddFriendActivity addFriendActivity = this.diL;
+        inputMethodManager = this.diL.cpi;
+        editText = this.diL.diF;
         addFriendActivity.HidenSoftKeyPad(inputMethodManager, editText);
         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
-            editText2 = this.ddp.ddj;
-            this.ddp.hn(editText2.getText().toString());
+            editText2 = this.diL.diF;
+            this.diL.hj(editText2.getText().toString());
             return;
         }
-        this.ddp.showToast(w.l.plugin_not_install);
+        this.diL.showToast(w.l.plugin_not_install);
     }
 }

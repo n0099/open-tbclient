@@ -1,26 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.ViewStub;
-import android.widget.LinearLayout;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fp implements Runnable {
-    final /* synthetic */ fm epr;
+public class fp implements View.OnClickListener {
+    final /* synthetic */ fn esm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fp(fm fmVar) {
-        this.epr = fmVar;
+    public fp(fn fnVar) {
+        this.esm = fnVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        LinearLayout linearLayout;
-        ViewStub viewStub;
-        linearLayout = this.epr.enz;
-        if (linearLayout == null) {
-            this.epr.aLr();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View.OnClickListener onClickListener;
+        View.OnClickListener onClickListener2;
+        int i;
+        if (com.baidu.adp.lib.util.i.hk()) {
+            this.esm.aMb();
+            i = this.esm.esi;
+            view.setTag(Boolean.valueOf(i == 0));
         }
-        viewStub = this.epr.emV;
-        viewStub.setVisibility(0);
+        onClickListener = this.esm.esj;
+        if (onClickListener != null) {
+            onClickListener2 = this.esm.esj;
+            onClickListener2.onClick(view);
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.tieba.frs.ch;
+import com.baidu.tieba.frs.ci;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -13,14 +13,14 @@ public class x implements ScrollFragmentTabHost.a {
     }
 
     @Override // com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.a
-    public void jL(int i) {
-        ch chVar;
-        ch chVar2;
+    public void kk(int i) {
+        ci ciVar;
+        ci ciVar2;
         if (i > 0) {
-            chVar = this.this$0.cuM;
-            if (chVar != null) {
-                chVar2 = this.this$0.cuM;
-                chVar2.hideTip();
+            ciVar = this.this$0.cBe;
+            if (ciVar != null) {
+                ciVar2 = this.this$0.cBe;
+                ciVar2.hideTip();
             }
         }
     }

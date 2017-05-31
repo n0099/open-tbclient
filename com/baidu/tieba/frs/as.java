@@ -1,40 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.InjectPlugin.b;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.z;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class as {
-    private TbPageContext aat;
-    private com.baidu.tieba.frs.mc.y bPu;
+public class as extends z.a {
+    public TextView alu;
+    public TextView alx;
+    public int ana;
+    public TextView bVi;
+    public TextView bVj;
 
-    public as(TbPageContext tbPageContext, com.baidu.tieba.frs.mc.y yVar) {
-        this.aat = tbPageContext;
-        this.bPu = yVar;
-    }
-
-    public void b(b bVar) {
-        if (this.bPu != null && this.bPu.YU() != null && this.bPu.YU().abG() != null && this.bPu.YZ() != null && bVar != null && this.bPu.YZ().getListView() != null && this.bPu.YW() != null) {
-            BdTypeListView listView = this.bPu.YZ().getListView();
-            switch (bVar.what) {
-                case 2:
-                    if (bVar.getView() != null) {
-                        listView.removeHeaderView(bVar.getView());
-                        listView.addHeaderView(bVar.getView(), listView.getHeaderViewsCount() - 1);
-                        this.bPu.YW().iH(8);
-                        return;
-                    }
-                    return;
-                case 3:
-                    if (bVar.getView() != null) {
-                        listView.removeHeaderView(bVar.getView());
-                        this.bPu.YW().iH(0);
-                        return;
-                    }
-                    return;
-                default:
-                    return;
-            }
-        }
+    public as(View view) {
+        super(view);
+        this.ana = 3;
+        this.alu = (TextView) getView().findViewById(w.h.frs_god_lv_reply_time);
+        this.alx = (TextView) getView().findViewById(w.h.frs_god_praise_num);
+        this.bVj = (TextView) getView().findViewById(w.h.frs_god_reply_num);
+        this.bVi = (TextView) getView().findViewById(w.h.frs_god_item_location_address);
     }
 }

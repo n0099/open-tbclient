@@ -1,26 +1,23 @@
 package com.baidu.tieba.homepage.personalize.b;
 
 import android.view.View;
-import com.baidu.tieba.homepage.personalize.b.y;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.homepage.personalize.b.aa;
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
-    final /* synthetic */ y.a cvW;
+class ab implements View.OnClickListener {
+    final /* synthetic */ aa.a cCp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(y.a aVar) {
-        this.cvW = aVar;
+    public ab(aa.a aVar) {
+        this.cCp = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.homepage.personalize.data.h hVar;
-        com.baidu.tieba.homepage.personalize.data.h hVar2;
-        hVar = this.cvW.cvR;
-        if (hVar != null) {
-            y.a aVar = this.cvW;
-            hVar2 = this.cvW.cvR;
-            aVar.a(hVar2.cwy, view, 2);
-        }
+        TiebaStatic.log("c10984");
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLOSE_NEW_USER_GUIDE));
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.entelechy;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class f implements a.b {
-    final /* synthetic */ c bRN;
+    final /* synthetic */ c bXE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.bRN = cVar;
+        this.bXE = cVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

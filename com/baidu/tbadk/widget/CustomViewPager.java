@@ -6,27 +6,27 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class CustomViewPager extends TbViewPager {
-    private boolean aJB;
-    private int aJC;
+    private boolean aJo;
+    private int aJp;
     private boolean isScrolling;
     private int mDirection;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
 
     public CustomViewPager(Context context) {
         super(context);
-        this.aJB = true;
+        this.aJo = true;
         this.mDirection = 0;
         this.isScrolling = false;
-        this.aJC = -1;
+        this.aJp = -1;
         init();
     }
 
     public CustomViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aJB = true;
+        this.aJo = true;
         this.mDirection = 0;
         this.isScrolling = false;
-        this.aJC = -1;
+        this.aJp = -1;
         init();
     }
 
@@ -35,7 +35,7 @@ public class CustomViewPager extends TbViewPager {
     }
 
     public void setScrollable(boolean z) {
-        this.aJB = z;
+        this.aJo = z;
     }
 
     @Override // android.support.v4.view.ViewPager
@@ -49,7 +49,7 @@ public class CustomViewPager extends TbViewPager {
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.aJB) {
+        if (this.aJo) {
             if (getCurrentItem() != 0) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }

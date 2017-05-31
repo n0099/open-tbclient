@@ -9,79 +9,79 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
-    private TextView eER;
-    private TextView eES;
-    private View eET;
-    private View eEU;
-    private ab eEV;
+    private TextView eNG;
+    private TextView eNH;
+    private View eNI;
+    private View eNJ;
+    private ac eNK;
     private Context mContext;
     private View mRootView;
     private int mCurrentPage = 0;
-    private int akJ = aq.getColor(w.e.cp_cont_b);
-    private int akK = aq.getColor(w.e.cp_cont_f);
+    private int akz = aq.getColor(w.e.cp_cont_b);
+    private int akA = aq.getColor(w.e.cp_cont_f);
 
-    public v(Context context, ab abVar) {
+    public v(Context context, ac acVar) {
         this.mContext = context;
-        this.eEV = abVar;
+        this.eNK = acVar;
     }
 
-    public View UK() {
+    public View VN() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(w.j.person_button_header_view, (ViewGroup) null);
-        this.eER = (TextView) this.mRootView.findViewById(w.h.fourm_name_btn);
-        this.eES = (TextView) this.mRootView.findViewById(w.h.reply_btn);
-        this.eET = this.mRootView.findViewById(w.h.fourm_name_divider);
-        this.eEU = this.mRootView.findViewById(w.h.reply_btn_divider);
-        aQb();
-        this.eER.setTextColor(this.akJ);
-        this.eES.setTextColor(this.akK);
+        this.eNG = (TextView) this.mRootView.findViewById(w.h.fourm_name_btn);
+        this.eNH = (TextView) this.mRootView.findViewById(w.h.reply_btn);
+        this.eNI = this.mRootView.findViewById(w.h.fourm_name_divider);
+        this.eNJ = this.mRootView.findViewById(w.h.reply_btn_divider);
+        TR();
+        this.eNG.setTextColor(this.akz);
+        this.eNH.setTextColor(this.akA);
         return this.mRootView;
     }
 
-    private void aQb() {
-        this.eER.setOnClickListener(this);
-        this.eES.setOnClickListener(this);
+    private void TR() {
+        this.eNG.setOnClickListener(this);
+        this.eNH.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == w.h.fourm_name_btn) {
             this.mCurrentPage = 0;
-            this.eEV.pa(0);
-            this.eET.setVisibility(0);
-            this.eEU.setVisibility(4);
-            this.eER.setTextColor(this.akJ);
-            this.eES.setTextColor(this.akK);
+            this.eNK.pz(0);
+            this.eNI.setVisibility(0);
+            this.eNJ.setVisibility(4);
+            this.eNG.setTextColor(this.akz);
+            this.eNH.setTextColor(this.akA);
         } else if (view.getId() == w.h.reply_btn) {
-            this.eEV.pa(1);
-            this.eET.setVisibility(4);
-            this.eEU.setVisibility(0);
-            this.eER.setTextColor(this.akK);
-            this.eES.setTextColor(this.akJ);
+            this.eNK.pz(1);
+            this.eNI.setVisibility(4);
+            this.eNJ.setVisibility(0);
+            this.eNG.setTextColor(this.akA);
+            this.eNH.setTextColor(this.akz);
             this.mCurrentPage = 1;
         }
     }
 
     public void onChangeSkinType() {
-        this.akJ = aq.getColor(w.e.cp_cont_b);
-        this.akK = aq.getColor(w.e.cp_cont_f);
+        this.akz = aq.getColor(w.e.cp_cont_b);
+        this.akA = aq.getColor(w.e.cp_cont_f);
         aq.j(this.mRootView, w.g.item_person_header_attention_bg_selector);
-        aq.k(this.eET, w.e.cp_cont_b);
-        aq.k(this.eEU, w.e.cp_cont_b);
-        oh(this.mCurrentPage);
+        aq.k(this.eNI, w.e.cp_cont_b);
+        aq.k(this.eNJ, w.e.cp_cont_b);
+        oA(this.mCurrentPage);
     }
 
-    public void oh(int i) {
+    public void oA(int i) {
         this.mCurrentPage = i;
         if (i == 0) {
-            this.eET.setVisibility(0);
-            this.eEU.setVisibility(4);
-            this.eER.setTextColor(this.akJ);
-            this.eES.setTextColor(this.akK);
+            this.eNI.setVisibility(0);
+            this.eNJ.setVisibility(4);
+            this.eNG.setTextColor(this.akz);
+            this.eNH.setTextColor(this.akA);
         } else if (i == 1) {
-            this.eET.setVisibility(4);
-            this.eEU.setVisibility(0);
-            this.eER.setTextColor(this.akK);
-            this.eES.setTextColor(this.akJ);
+            this.eNI.setVisibility(4);
+            this.eNJ.setVisibility(0);
+            this.eNG.setTextColor(this.akA);
+            this.eNH.setTextColor(this.akz);
         }
     }
 }

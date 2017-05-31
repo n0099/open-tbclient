@@ -10,13 +10,13 @@ import android.view.Surface;
 import com.baidu.tieba.QuickPlayer.c;
 /* loaded from: classes.dex */
 public interface b extends IInterface {
-    boolean Jk() throws RemoteException;
+    boolean Jh() throws RemoteException;
 
-    void a(Uri uri, Surface surface) throws RemoteException;
+    void a(Uri uri, Surface surface, String str) throws RemoteException;
 
     void a(c cVar) throws RemoteException;
 
-    void ck(boolean z) throws RemoteException;
+    void ch(boolean z) throws RemoteException;
 
     int getCurrentPosition() throws RemoteException;
 
@@ -69,14 +69,14 @@ public interface b extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayer");
-                    ck(parcel.readInt() != 0);
+                    ch(parcel.readInt() != 0);
                     parcel2.writeNoException();
                     return true;
                 case 2:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayer");
                     Uri uri = parcel.readInt() != 0 ? (Uri) Uri.CREATOR.createFromParcel(parcel) : null;
                     Surface surface = parcel.readInt() != 0 ? (Surface) Surface.CREATOR.createFromParcel(parcel) : null;
-                    a(uri, surface);
+                    a(uri, surface, parcel.readString());
                     parcel2.writeNoException();
                     if (surface != null) {
                         parcel2.writeInt(1);
@@ -158,9 +158,9 @@ public interface b extends IInterface {
                     return true;
                 case 16:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayer");
-                    boolean Jk = Jk();
+                    boolean Jh = Jh();
                     parcel2.writeNoException();
-                    parcel2.writeInt(Jk ? 1 : 0);
+                    parcel2.writeInt(Jh ? 1 : 0);
                     return true;
                 case 1598968902:
                     parcel2.writeString("com.baidu.tieba.QuickPlayer.IQuickMediaPlayer");
@@ -185,7 +185,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.b
-            public void ck(boolean z) throws RemoteException {
+            public void ch(boolean z) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -200,7 +200,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.b
-            public void a(Uri uri, Surface surface) throws RemoteException {
+            public void a(Uri uri, Surface surface, String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -217,6 +217,7 @@ public interface b extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
+                    obtain.writeString(str);
                     this.mRemote.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
@@ -422,7 +423,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.b
-            public boolean Jk() throws RemoteException {
+            public boolean Jh() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {

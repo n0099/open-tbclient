@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements View.OnClickListener {
-    final /* synthetic */ ac fNP;
+    final /* synthetic */ ac fVw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ac acVar) {
-        this.fNP = acVar;
+        this.fVw = acVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -42,79 +42,79 @@ public class al implements View.OnClickListener {
         int i2;
         TextView textView2;
         int id = view.getId();
-        textView = this.fNP.bKb;
+        textView = this.fVw.bPO;
         if (id == textView.getId()) {
-            aVar = this.fNP.fNn;
-            pVar5 = this.fNP.fLQ;
-            List<e> bmt = pVar5.bmt();
-            pVar6 = this.fNP.fLQ;
-            aVar.b(bmt, pVar6.bmr());
-            aVar2 = this.fNP.fNn;
-            view7 = this.fNP.aTA;
+            aVar = this.fVw.fUU;
+            pVar5 = this.fVw.fTx;
+            List<e> bnQ = pVar5.bnQ();
+            pVar6 = this.fVw.fTx;
+            aVar.b(bnQ, pVar6.bnO());
+            aVar2 = this.fVw.fUU;
+            view7 = this.fVw.bCG;
             aVar2.aC(view7);
-            i = this.fNP.fNC;
+            i = this.fVw.fVj;
             if (i <= 50) {
                 i2 = w.g.d_ic_post_gallery_spread_s;
             } else {
                 i2 = w.g.ic_post_gallery_spread_s;
             }
-            Drawable drawable = this.fNP.getResources().getDrawable(i2);
+            Drawable drawable = this.fVw.getResources().getDrawable(i2);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            textView2 = this.fNP.bKb;
+            textView2 = this.fVw.bPO;
             textView2.setCompoundDrawables(null, null, drawable, null);
             return;
         }
         int id2 = view.getId();
-        view2 = this.fNP.fNt;
+        view2 = this.fVw.fVa;
         if (id2 == view2.getId()) {
-            this.fNP.lE(true);
-            this.fNP.bmy();
+            this.fVw.lX(true);
+            this.fVw.bnV();
             return;
         }
         int id3 = view.getId();
-        view3 = this.fNP.fNu;
+        view3 = this.fVw.fVb;
         if (id3 == view3.getId()) {
-            pVar = this.fNP.fLQ;
+            pVar = this.fVw.fTx;
             int maxImagesAllowed = pVar.getMaxImagesAllowed();
-            pVar2 = this.fNP.fLQ;
+            pVar2 = this.fVw.fTx;
             if (pVar2.size() >= maxImagesAllowed) {
-                albumActivity2 = this.fNP.fMg;
-                if (!albumActivity2.blT()) {
-                    this.fNP.showToast(String.format(this.fNP.getPageContext().getString(w.l.album_beyond_max_choose), Integer.valueOf(maxImagesAllowed)));
+                albumActivity2 = this.fVw.fTN;
+                if (!albumActivity2.bnq()) {
+                    this.fVw.showToast(String.format(this.fVw.getPageContext().getString(w.l.album_beyond_max_choose), Integer.valueOf(maxImagesAllowed)));
                     return;
                 }
             }
-            pVar3 = this.fNP.fLQ;
-            pVar3.qV(String.valueOf(System.currentTimeMillis()));
-            albumActivity = this.fNP.fMg;
-            pVar4 = this.fNP.fLQ;
-            albumActivity.hA(pVar4.bmv());
+            pVar3 = this.fVw.fTx;
+            pVar3.ri(String.valueOf(System.currentTimeMillis()));
+            albumActivity = this.fVw.fTN;
+            pVar4 = this.fVw.fTx;
+            albumActivity.hB(pVar4.bnS());
             return;
         }
         int id4 = view.getId();
-        view4 = this.fNP.fNv;
+        view4 = this.fVw.fVc;
         if (id4 == view4.getId()) {
-            tbCameraView3 = this.fNP.fNr;
+            tbCameraView3 = this.fVw.fUY;
             if (tbCameraView3 != null) {
-                tbCameraView4 = this.fNP.fNr;
-                tbCameraView4.bmJ();
+                tbCameraView4 = this.fVw.fUY;
+                tbCameraView4.bog();
                 return;
             }
             return;
         }
         int id5 = view.getId();
-        view5 = this.fNP.fNy;
+        view5 = this.fVw.fVf;
         if (id5 == view5.getId()) {
-            this.fNP.bmz();
+            this.fVw.bnW();
             return;
         }
         int id6 = view.getId();
-        view6 = this.fNP.fNx;
+        view6 = this.fVw.fVe;
         if (id6 == view6.getId()) {
-            tbCameraView = this.fNP.fNr;
+            tbCameraView = this.fVw.fUY;
             if (tbCameraView != null) {
-                tbCameraView2 = this.fNP.fNr;
-                tbCameraView2.bmL();
+                tbCameraView2 = this.fVw.fUY;
+                tbCameraView2.boi();
             }
         }
     }

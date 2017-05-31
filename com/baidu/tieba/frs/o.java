@@ -4,15 +4,15 @@ import android.graphics.drawable.Drawable;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class o {
-    private HashMap<String, Drawable> bNP = new HashMap<>();
+    private HashMap<String, Drawable> bTB = new HashMap<>();
 
-    public Drawable v(int i, int i2) {
+    public Drawable u(int i, int i2) {
         String ah = ah(i, i2);
-        Drawable drawable = this.bNP.get(ah);
+        Drawable drawable = this.bTB.get(ah);
         if (drawable == null) {
-            Drawable v = com.baidu.tbadk.core.util.aq.v(i2, i);
-            this.bNP.put(ah, v);
-            return v.getConstantState().newDrawable();
+            Drawable u = com.baidu.tbadk.core.util.aq.u(i2, i);
+            this.bTB.put(ah, u);
+            return u.getConstantState().newDrawable();
         }
         return drawable.getConstantState().newDrawable();
     }
@@ -22,8 +22,8 @@ public class o {
     }
 
     public void destory() {
-        if (!this.bNP.isEmpty()) {
-            this.bNP.clear();
+        if (!this.bTB.isEmpty()) {
+            this.bTB.clear();
         }
     }
 }

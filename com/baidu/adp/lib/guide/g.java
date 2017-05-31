@@ -39,6 +39,17 @@ public class g {
         return this;
     }
 
+    public g ae(int i) {
+        if (this.uI) {
+            throw new BuildException("Already created. rebuild a new one.");
+        }
+        if (i <= 0) {
+            throw new BuildException("Illegal view id.");
+        }
+        this.uB.uu = i;
+        return this;
+    }
+
     public g y(boolean z) {
         if (this.uI) {
             throw new BuildException("Already created, rebuild a new one.");
@@ -60,6 +71,14 @@ public class g {
             throw new BuildException("Already created, rebuild a new one.");
         }
         this.uJ.add(bVar);
+        return this;
+    }
+
+    public g b(a aVar) {
+        if (this.uI) {
+            throw new BuildException("Already created, rebuild a new one.");
+        }
+        this.uF = aVar;
         return this;
     }
 

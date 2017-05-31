@@ -22,19 +22,19 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class i {
-    public static boolean QB = true;
+    public static boolean Qo = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new j(0));
-        bb.vB().a(new k());
+        bb.vy().a(new k());
         com.baidu.adp.lib.b.e.eZ().a(new com.baidu.adp.lib.b.c("switch_mbaidu_startup", 1, null));
-        og();
-        oi();
-        oj();
+        nY();
+        oa();
+        ob();
     }
 
-    private static void og() {
-        bb.vB().a(new l());
+    private static void nY() {
+        bb.vy().a(new l());
     }
 
     private static String bQ(String str) {
@@ -102,7 +102,7 @@ public class i {
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
         String bQ = bQ(str);
-        if (!bT(bQ) && oh() && bV("com.baidu.searchbox") && bU(bQ) && QB) {
+        if (!bT(bQ) && nZ() && bV("com.baidu.searchbox") && bU(bQ) && Qo) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -114,7 +114,7 @@ public class i {
         return WhiteListData.createBySP().checkUrl(str);
     }
 
-    private static boolean oh() {
+    private static boolean nZ() {
         return com.baidu.adp.lib.b.e.eZ().Y("switch_mbaidu_startup") == 1;
     }
 
@@ -161,12 +161,12 @@ public class i {
         }
     }
 
-    private static void oi() {
-        bb.vB().a(new o());
+    private static void oa() {
+        bb.vy().a(new o());
     }
 
-    private static void oj() {
-        bb.vB().a(new p());
+    private static void ob() {
+        bb.vy().a(new p());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

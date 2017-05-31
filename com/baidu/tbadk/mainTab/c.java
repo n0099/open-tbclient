@@ -3,12 +3,12 @@ package com.baidu.tbadk.mainTab;
 import android.support.v4.app.Fragment;
 /* loaded from: classes.dex */
 public class c {
-    public static int aEl = 1;
-    public static int aEm = 2;
-    public static int aEn = 3;
-    public Fragment aEi;
-    public int aEj;
-    public int aEk;
-    public int aEo = aEl;
+    public static int aDY = 1;
+    public static int aDZ = 2;
+    public static int aEa = 3;
+    public Fragment aDV;
+    public int aDW;
+    public int aDX;
+    public int aEb = aDY;
     public int type;
 }

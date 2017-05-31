@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs.mc;
 
-import com.baidu.tieba.frs.at;
+import com.baidu.tieba.frs.au;
 /* loaded from: classes.dex */
 public interface y {
-    FrsModelController YU();
+    void LS();
 
-    h YV();
+    FrsModelController ZY();
 
-    com.baidu.tieba.frs.e.u YW();
+    h ZZ();
 
-    at YZ();
+    com.baidu.tieba.frs.f.u aaa();
 
-    void Zs();
+    au aad();
 }

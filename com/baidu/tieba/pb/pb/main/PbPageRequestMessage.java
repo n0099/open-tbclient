@@ -4,6 +4,7 @@ import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
+import tbclient.PbPage.AdParam;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
 /* loaded from: classes.dex */
@@ -24,6 +25,7 @@ public class PbPageRequestMessage extends NetMessage {
     private long kz;
     private Integer last;
     private String lastids;
+    private int loadCount;
     private Integer lz;
     private String mLocate;
     private Integer mark;
@@ -41,6 +43,7 @@ public class PbPageRequestMessage extends NetMessage {
     private Integer pn;
     private Integer q_type;
     private Integer r;
+    private int refreshCount;
     private Integer rn;
     private Integer s_model;
     private double scr_dip;
@@ -62,6 +65,22 @@ public class PbPageRequestMessage extends NetMessage {
         this.objParam1 = "";
         this.obj_source = "";
         this.fromSmartFrs = 0;
+    }
+
+    public int getRefreshCount() {
+        return this.refreshCount;
+    }
+
+    public void setRefreshCount(int i) {
+        this.refreshCount = i;
+    }
+
+    public int getLoadCount() {
+        return this.loadCount;
+    }
+
+    public void setLoadCount(int i) {
+        this.loadCount = i;
     }
 
     public Context getContext() {
@@ -414,13 +433,17 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.aYU().aYX();
+            builder.app_pos = com.baidu.tieba.recapp.d.a.ban().baq();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
+            AdParam.Builder builder2 = new AdParam.Builder();
+            builder2.refresh_count = Integer.valueOf(this.refreshCount);
+            builder2.load_count = Integer.valueOf(this.loadCount);
+            builder.ad_param = builder2.build(false);
             com.baidu.tbadk.util.o.bindCommonParamsToProtobufData(builder, true, false, true);
-            PbPageReqIdl.Builder builder2 = new PbPageReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
+            PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
+            builder3.data = builder.build(false);
+            return builder3.build(false);
         } catch (Exception e) {
             return null;
         }

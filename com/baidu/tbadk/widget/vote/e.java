@@ -15,15 +15,15 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class e extends FrameLayout {
-    private ProgressBar aOR;
-    private com.baidu.tbadk.widget.vote.a aPf;
-    private TbImageView aPg;
+    private ProgressBar aOQ;
+    private com.baidu.tbadk.widget.vote.a aPe;
+    private TbImageView aPf;
+    private TextView aPg;
     private TextView aPh;
     private TextView aPi;
-    private TextView aPj;
-    private ImageView aPk;
-    private a aPl;
-    private View.OnClickListener aPm;
+    private ImageView aPj;
+    private a aPk;
+    private View.OnClickListener aPl;
     private boolean isSelected;
     private int position;
 
@@ -40,22 +40,22 @@ public class e extends FrameLayout {
     public e(Context context) {
         super(context);
         this.isSelected = false;
-        this.aPm = new f(this);
+        this.aPl = new f(this);
         init(context);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(w.j.vote_selected_pic_item, this);
-        this.aPg = (TbImageView) findViewById(w.h.vote_photo_image);
-        this.aOR = (ProgressBar) findViewById(w.h.vote_photo_progress);
-        this.aPh = (TextView) findViewById(w.h.vote_photo_number);
-        this.aPi = (TextView) findViewById(w.h.vote_photo_percent);
-        this.aPj = (TextView) findViewById(w.h.vote_photo_name);
-        this.aPk = (ImageView) findViewById(w.h.vote_photo_check_image);
-        this.aPg.setDrawBorder(true);
-        this.aPg.setBorderColor(aq.getColor(w.e.common_color_10043));
-        this.aPg.setBorderWidth(getResources().getDimensionPixelSize(w.f.ds1));
-        setOnClickListener(this.aPm);
+        this.aPf = (TbImageView) findViewById(w.h.vote_photo_image);
+        this.aOQ = (ProgressBar) findViewById(w.h.vote_photo_progress);
+        this.aPg = (TextView) findViewById(w.h.vote_photo_number);
+        this.aPh = (TextView) findViewById(w.h.vote_photo_percent);
+        this.aPi = (TextView) findViewById(w.h.vote_photo_name);
+        this.aPj = (ImageView) findViewById(w.h.vote_photo_check_image);
+        this.aPf.setDrawBorder(true);
+        this.aPf.setBorderColor(aq.getColor(w.e.common_color_10043));
+        this.aPf.setBorderWidth(getResources().getDimensionPixelSize(w.f.ds1));
+        setOnClickListener(this.aPl);
         onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
@@ -63,108 +63,108 @@ public class e extends FrameLayout {
     public void setSelected(boolean z) {
         this.isSelected = z;
         if (z) {
-            aq.c(this.aPk, w.g.chx_pic_add_s);
+            aq.c(this.aPj, w.g.chx_pic_add_s);
         } else {
-            aq.c(this.aPk, w.g.chx_pic_add_n);
+            aq.c(this.aPj, w.g.chx_pic_add_n);
         }
     }
 
     public void setOnItemCheckChangeListener(a aVar) {
-        this.aPl = aVar;
+        this.aPk = aVar;
     }
 
     public void a(com.baidu.tbadk.widget.vote.a aVar, int i, int i2, boolean z, boolean z2) {
         if (aVar != null) {
             this.isSelected = z;
-            this.aPf = aVar;
+            this.aPe = aVar;
             this.position = i;
-            if (StringUtils.isNull(aVar.BW())) {
-                this.aPj.setVisibility(4);
-                this.aPj.setText((CharSequence) null);
+            if (StringUtils.isNull(aVar.BQ())) {
+                this.aPi.setVisibility(4);
+                this.aPi.setText((CharSequence) null);
             } else {
-                this.aPj.setVisibility(0);
-                this.aPj.setText(UtilHelper.getFixedText(aVar.BW(), 10, false));
+                this.aPi.setVisibility(0);
+                this.aPi.setText(UtilHelper.getFixedText(aVar.BQ(), 10, false));
             }
             if (i2 == 2) {
                 setOnClickListener(null);
                 b(aVar);
             } else if (i2 == 1 || i2 == 3) {
-                setOnClickListener(this.aPm);
-                cg(z);
+                setOnClickListener(this.aPl);
+                cd(z);
             }
-            this.aPg.c(aVar.Cb(), 17, false);
+            this.aPf.c(aVar.BV(), 17, false);
         }
     }
 
     public void setNameVisibility(int i) {
-        this.aPj.setVisibility(i);
+        this.aPi.setVisibility(i);
     }
 
-    private void cg(boolean z) {
+    private void cd(boolean z) {
         setProgressGroupVisible(false);
-        this.aPk.setVisibility(0);
+        this.aPj.setVisibility(0);
         if (z) {
-            aq.c(this.aPk, w.g.chx_pic_add_s);
+            aq.c(this.aPj, w.g.chx_pic_add_s);
         } else {
-            aq.c(this.aPk, w.g.chx_pic_add_n);
+            aq.c(this.aPj, w.g.chx_pic_add_n);
         }
     }
 
     private void b(com.baidu.tbadk.widget.vote.a aVar) {
         setProgressGroupVisible(true);
-        this.aPk.setVisibility(8);
+        this.aPj.setVisibility(8);
         if (aVar != null) {
-            if (StringUtils.isNull(aVar.BX())) {
+            if (StringUtils.isNull(aVar.BR())) {
+                this.aPg.setVisibility(8);
+                this.aPg.setText((CharSequence) null);
+            } else {
+                this.aPg.setVisibility(0);
+                this.aPg.setText(aVar.BR());
+            }
+            if (StringUtils.isNull(aVar.BS())) {
                 this.aPh.setVisibility(8);
                 this.aPh.setText((CharSequence) null);
-            } else {
-                this.aPh.setVisibility(0);
-                this.aPh.setText(aVar.BX());
-            }
-            if (StringUtils.isNull(aVar.BY())) {
-                this.aPi.setVisibility(8);
-                this.aPi.setText((CharSequence) null);
                 return;
             }
-            this.aPi.setVisibility(0);
-            this.aPi.setText(aVar.BY());
+            this.aPh.setVisibility(0);
+            this.aPh.setText(aVar.BS());
         }
     }
 
     private void setProgressGroupVisible(boolean z) {
         if (z) {
+            this.aPg.setVisibility(0);
             this.aPh.setVisibility(0);
-            this.aPi.setVisibility(0);
-            this.aOR.setVisibility(0);
+            this.aOQ.setVisibility(0);
             return;
         }
+        this.aPg.setVisibility(8);
         this.aPh.setVisibility(8);
-        this.aPi.setVisibility(8);
-        this.aOR.setVisibility(8);
+        this.aOQ.setVisibility(8);
     }
 
     public void setProgress(float f) {
-        if (f >= 0.0f && this.aPf != null) {
-            int Ca = (int) (this.aPf.Ca() * f);
+        if (f >= 0.0f && this.aPe != null) {
+            int BU = (int) (this.aPe.BU() * f);
             if (this.isSelected) {
-                this.aOR.setProgress(Ca);
-                this.aOR.setSecondaryProgress(0);
+                this.aOQ.setProgress(BU);
+                this.aOQ.setSecondaryProgress(0);
                 return;
             }
-            this.aOR.setProgress(0);
-            this.aOR.setSecondaryProgress(Ca);
+            this.aOQ.setProgress(0);
+            this.aOQ.setSecondaryProgress(BU);
         }
     }
 
     public void onChangeSkinType(int i) {
-        aq.b(this.aPj, w.e.cp_cont_b, 1, i);
+        aq.b(this.aPi, w.e.cp_cont_b, 1, i);
+        aq.b(this.aPg, w.e.cp_cont_g, 1, i);
         aq.b(this.aPh, w.e.cp_cont_g, 1, i);
-        aq.b(this.aPi, w.e.cp_cont_g, 1, i);
-        this.aOR.setProgressDrawable(aq.v(i, w.g.vote_photo_progress_drawable));
+        this.aOQ.setProgressDrawable(aq.u(i, w.g.vote_photo_progress_drawable));
         if (this.isSelected) {
-            aq.c(this.aPk, w.g.chx_pic_add_s);
+            aq.c(this.aPj, w.g.chx_pic_add_s);
         } else {
-            aq.c(this.aPk, w.g.chx_pic_add_n);
+            aq.c(this.aPj, w.g.chx_pic_add_n);
         }
     }
 }

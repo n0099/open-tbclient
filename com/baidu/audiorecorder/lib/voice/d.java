@@ -4,11 +4,11 @@ import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class d implements Runnable {
-    final /* synthetic */ c JB;
+    final /* synthetic */ c Jp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.JB = cVar;
+        this.Jp = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,10 +17,10 @@ public class d implements Runnable {
         Handler handler;
         Runnable runnable;
         long currentTimeMillis = System.currentTimeMillis();
-        j = this.JB.Jz;
-        this.JB.aM((int) (currentTimeMillis - j));
-        handler = this.JB.zD;
-        runnable = this.JB.mRecordTimeThread;
+        j = this.Jp.Jn;
+        this.Jp.aN((int) (currentTimeMillis - j));
+        handler = this.Jp.zD;
+        runnable = this.Jp.mRecordTimeThread;
         handler.postDelayed(runnable, 200L);
     }
 }

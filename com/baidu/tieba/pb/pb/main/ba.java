@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class ba extends CustomMessageListener {
-    final /* synthetic */ PbActivity ehy;
+    final /* synthetic */ PbActivity enc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ba(PbActivity pbActivity, int i) {
         super(i);
-        this.ehy = pbActivity;
+        this.enc = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,25 +18,25 @@ class ba extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         PbModel pbModel;
         com.baidu.tbadk.editortools.pb.c cVar;
-        fm fmVar;
+        fx fxVar;
         com.baidu.tbadk.editortools.pb.c cVar2;
-        fm fmVar2;
-        fm fmVar3;
+        fx fxVar2;
+        fx fxVar3;
         com.baidu.tbadk.editortools.pb.c cVar3;
-        pbModel = this.ehy.efE;
+        pbModel = this.enc.ele;
         if (pbModel != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            cVar = this.ehy.egG;
+            cVar = this.enc.emh;
             if (cVar != null) {
-                fmVar3 = this.ehy.egt;
-                cVar3 = this.ehy.egG;
-                fmVar3.gm(cVar3.CY());
+                fxVar3 = this.enc.elU;
+                cVar3 = this.enc.emh;
+                fxVar3.gz(cVar3.CS());
             }
-            fmVar = this.ehy.egt;
-            fmVar.aLl();
-            cVar2 = this.ehy.egG;
-            cVar2.Db();
-            fmVar2 = this.ehy.egt;
-            fmVar2.auE();
+            fxVar = this.enc.elU;
+            fxVar.aKn();
+            cVar2 = this.enc.emh;
+            cVar2.CV();
+            fxVar2 = this.enc.elU;
+            fxVar2.avy();
         }
     }
 }

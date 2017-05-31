@@ -1,68 +1,42 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
 public class bc {
-    private al Xb;
-    private List<e> Xc;
-    private String Xd;
-    private List<f> Xe;
-    private String Xf;
-    private List<ak> Xg;
+    private String uid = "";
+    private String uname = "";
+    private String portrait = "";
+    private String institute = "";
+    private int isLike = -1;
 
-    public al qO() {
-        return this.Xb;
-    }
-
-    public List<e> qP() {
-        return this.Xc;
-    }
-
-    public String qQ() {
-        return this.Xd;
-    }
-
-    public List<f> qR() {
-        return this.Xe;
-    }
-
-    public String qS() {
-        return this.Xf;
-    }
-
-    public List<ak> qT() {
-        return this.Xg;
-    }
-
-    public void a(SeniorLottery seniorLottery) {
-        if (seniorLottery != null) {
-            this.Xb = new al();
-            this.Xb.a(seniorLottery.theme);
-            this.Xc = new ArrayList();
-            int size = seniorLottery.award_info.size();
-            for (int i = 0; i < size; i++) {
-                e eVar = new e();
-                eVar.a(seniorLottery.award_info.get(i));
-                this.Xc.add(eVar);
-            }
-            this.Xd = seniorLottery.myaward;
-            this.Xe = new ArrayList();
-            int size2 = seniorLottery.luck_users.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                f fVar = new f();
-                fVar.a(seniorLottery.luck_users.get(i2));
-                this.Xe.add(fVar);
-            }
-            this.Xf = seniorLottery.act_desc;
-            this.Xg = new ArrayList();
-            int size3 = seniorLottery.act_regular.size();
-            for (int i3 = 0; i3 < size3; i3++) {
-                ak akVar = new ak();
-                akVar.a(seniorLottery.act_regular.get(i3));
-                this.Xg.add(akVar);
-            }
+    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
+        if (schoolRecomUserInfo != null) {
+            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
+            this.uname = schoolRecomUserInfo.uname;
+            this.portrait = schoolRecomUserInfo.portrait;
+            this.institute = schoolRecomUserInfo.institute;
+            this.isLike = schoolRecomUserInfo.is_liked.intValue();
         }
+    }
+
+    public String getUid() {
+        return this.uid;
+    }
+
+    public String qI() {
+        return this.uname;
+    }
+
+    public String getPortrait() {
+        return this.portrait;
+    }
+
+    public String qJ() {
+        return this.institute;
+    }
+
+    public int getIsLike() {
+        return this.isLike;
     }
 }

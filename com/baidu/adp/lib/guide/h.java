@@ -11,6 +11,7 @@ import android.support.v4.widget.ExploreByTouchHelper;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends ViewGroup {
@@ -133,7 +134,7 @@ public class h extends ViewGroup {
                 rectF.right = (this.uK.width() + view.getMeasuredWidth()) / 2.0f;
                 rectF.offset(this.uK.left, 0.0f);
                 return;
-            case 48:
+            case w.n.View_onClick /* 48 */:
                 rectF.right = this.uK.right;
                 rectF.left = rectF.right - view.getMeasuredWidth();
                 return;
@@ -153,7 +154,7 @@ public class h extends ViewGroup {
                 rectF.bottom = (this.uK.width() + view.getMeasuredHeight()) / 2.0f;
                 rectF.offset(0.0f, this.uK.top);
                 return;
-            case 48:
+            case w.n.View_onClick /* 48 */:
                 rectF.bottom = this.uK.bottom;
                 rectF.top = this.uK.bottom - view.getMeasuredHeight();
                 return;
@@ -181,12 +182,12 @@ public class h extends ViewGroup {
         invalidate();
     }
 
-    public void ae(int i) {
+    public void af(int i) {
         this.uN.setAlpha(i);
         invalidate();
     }
 
-    public void af(int i) {
+    public void ag(int i) {
         this.uN.setColor(i);
         invalidate();
     }

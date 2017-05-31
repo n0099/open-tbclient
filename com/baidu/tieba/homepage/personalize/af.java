@@ -12,12 +12,12 @@ public class af implements a.InterfaceC0059a {
     }
 
     @Override // com.baidu.tieba.e.a.InterfaceC0059a
-    public void W(int i, int i2) {
-        this.this$0.aRE = true;
+    public void Y(int i, int i2) {
+        this.this$0.bVC = true;
     }
 
     @Override // com.baidu.tieba.e.a.InterfaceC0059a
-    public void X(int i, int i2) {
-        this.this$0.aRE = false;
+    public void Z(int i, int i2) {
+        this.this$0.bVC = false;
     }
 }

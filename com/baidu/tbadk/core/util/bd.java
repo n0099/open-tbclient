@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.util.bb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bd implements Runnable {
-    final /* synthetic */ bb agm;
-    private final /* synthetic */ bb.a agn;
+    final /* synthetic */ bb agc;
+    private final /* synthetic */ bb.a agd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(bb bbVar, bb.a aVar) {
-        this.agm = bbVar;
-        this.agn = aVar;
+        this.agc = bbVar;
+        this.agd = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.agm.b(this.agn);
+        this.agc.b(this.agd);
     }
 }

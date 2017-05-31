@@ -4,7 +4,7 @@ import android.webkit.WebView;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes.dex */
 public interface c {
-    void c(NewWriteModel.d dVar);
+    void d(NewWriteModel.d dVar);
 
     void onDestroy();
 

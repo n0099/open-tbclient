@@ -10,59 +10,59 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class d implements com.baidu.adp.lib.guide.b {
-    private final /* synthetic */ BaseActivity cQj;
-    private final /* synthetic */ int ftA;
-    private final /* synthetic */ boolean fty;
-    private final /* synthetic */ SpannableString ftz;
+    private final /* synthetic */ BaseActivity cVH;
+    private final /* synthetic */ boolean fBp;
+    private final /* synthetic */ SpannableString fBq;
+    private final /* synthetic */ int fBr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(BaseActivity baseActivity, boolean z, SpannableString spannableString, int i) {
-        this.cQj = baseActivity;
-        this.fty = z;
-        this.ftz = spannableString;
-        this.ftA = i;
+        this.cVH = baseActivity;
+        this.fBp = z;
+        this.fBq = spannableString;
+        this.fBr = i;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        TextView textView = new TextView(this.cQj.getPageContext().getPageActivity());
-        if (this.fty) {
+        TextView textView = new TextView(this.cVH.getPageContext().getPageActivity());
+        if (this.fBp) {
             textView.setBackgroundResource(w.g.pop_float_top);
         } else {
             textView.setBackgroundResource(w.g.pop_float);
         }
-        int dimensionPixelSize = this.cQj.getResources().getDimensionPixelSize(w.f.ds32);
-        int dimensionPixelSize2 = this.cQj.getResources().getDimensionPixelSize(w.f.ds22);
-        if (this.fty) {
+        int dimensionPixelSize = this.cVH.getResources().getDimensionPixelSize(w.f.ds32);
+        int dimensionPixelSize2 = this.cVH.getResources().getDimensionPixelSize(w.f.ds22);
+        if (this.fBp) {
             textView.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2);
         } else {
             textView.setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize);
         }
         textView.setGravity(17);
-        textView.setText(this.ftz);
+        textView.setText(this.fBq);
         textView.setCompoundDrawablePadding(dimensionPixelSize);
-        textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aq.getDrawable(this.ftA), (Drawable) null);
-        textView.setOnClickListener(new e(this, this.cQj));
+        textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aq.getDrawable(this.fBr), (Drawable) null);
+        textView.setOnClickListener(new e(this, this.cVH));
         return textView;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public int fa() {
-        return this.fty ? 4 : 2;
+        return this.fBp ? 4 : 2;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public int fb() {
-        return this.fty ? 32 : 16;
+        return this.fBp ? 32 : 16;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public int getXOffset() {
-        return this.fty ? 0 : 4;
+        return this.fBp ? 0 : 4;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public int getYOffset() {
-        return this.fty ? 5 : 30;
+        return this.fBp ? 5 : 30;
     }
 }

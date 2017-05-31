@@ -7,14 +7,14 @@ import java.io.File;
 public class o {
     private static final String TAG = o.class.getSimpleName();
 
-    public static long gQ(String str) {
+    public static long gL(String str) {
         long j;
         long j2 = 0;
-        long gR = gR(str);
+        long gM = gM(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
-            File file = new File(String.valueOf(j.aVr) + str);
+            File file = new File(String.valueOf(j.aST) + str);
             if (file == null || !file.exists() || !file.isDirectory()) {
                 return 0L;
             }
@@ -25,15 +25,15 @@ public class o {
                 j2 = file3.length();
             }
         }
-        return j + j2 + gR;
+        return j + j2 + gM;
     }
 
-    public static long gR(String str) {
+    public static long gM(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(String.valueOf(j.aVr) + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(String.valueOf(file.getAbsolutePath()) + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(String.valueOf(j.aST) + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(String.valueOf(file.getAbsolutePath()) + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -43,7 +43,7 @@ public class o {
         return j;
     }
 
-    public static long KZ() {
+    public static long JU() {
         if ("mounted".equals(Environment.getExternalStorageState())) {
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();
@@ -82,7 +82,7 @@ public class o {
         }
     }
 
-    public static String gS(String str) {
+    public static String gN(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

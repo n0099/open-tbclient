@@ -3,17 +3,17 @@ package com.baidu.tieba.passaccount.app;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class q implements Runnable {
-    private final /* synthetic */ AccountData dZS;
-    final /* synthetic */ o dZW;
+    private final /* synthetic */ AccountData efo;
+    final /* synthetic */ o efs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(o oVar, AccountData accountData) {
-        this.dZW = oVar;
-        this.dZS = accountData;
+        this.efs = oVar;
+        this.efo = accountData;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.core.a.b.b(this.dZS);
+        com.baidu.tbadk.core.a.b.b(this.efo);
     }
 }

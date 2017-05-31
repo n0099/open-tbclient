@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class q implements a.InterfaceC0035a {
-    final /* synthetic */ NotLoginGuideActivity aWp;
+    final /* synthetic */ NotLoginGuideActivity aTR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(NotLoginGuideActivity notLoginGuideActivity) {
-        this.aWp = notLoginGuideActivity;
+        this.aTR = notLoginGuideActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
     public void cf(String str) {
-        if (this.aWp.getLoadingDialog() == null || !this.aWp.getLoadingDialog().isShowing()) {
-            this.aWp.showLoadingDialog(this.aWp.getPageContext().getString(w.l.sapi_logining), new r(this));
+        if (this.aTR.getLoadingDialog() == null || !this.aTR.getLoadingDialog().isShowing()) {
+            this.aTR.showLoadingDialog(this.aTR.getPageContext().getString(w.l.sapi_logining), new r(this));
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
     public void a(AccountData accountData) {
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_success", 0, "", new Object[0]);
-        this.aWp.closeLoadingDialog();
+        this.aTR.closeLoadingDialog();
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            this.aWp.k(accountData);
+            this.aTR.k(accountData);
         } else {
-            this.aWp.p(accountData);
+            this.aTR.p(accountData);
         }
     }
 
@@ -37,16 +37,16 @@ class q implements a.InterfaceC0035a {
         int i2;
         int i3;
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_fail", i, str2, new Object[0]);
-        this.aWp.closeLoadingDialog();
-        i2 = this.aWp.aWn;
+        this.aTR.closeLoadingDialog();
+        i2 = this.aTR.aTP;
         if (i2 != 1) {
-            i3 = this.aWp.aWn;
+            i3 = this.aTR.aTP;
             if (i3 != 2) {
                 return;
             }
-            this.aWp.Lt();
+            this.aTR.Ko();
             return;
         }
-        this.aWp.Ls();
+        this.aTR.Kn();
     }
 }

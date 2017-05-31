@@ -1,18 +1,15 @@
 package com.baidu.tieba.view;
-
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
 /* loaded from: classes.dex */
-public abstract class u extends ClickableSpan {
-    private boolean fJa;
+class u implements Runnable {
+    final /* synthetic */ s fQQ;
 
-    public abstract void a(TextPaint textPaint, boolean z);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(s sVar) {
+        this.fQQ = sVar;
+    }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        super.updateDrawState(textPaint);
-        a(textPaint, this.fJa);
-        textPaint.setUnderlineText(false);
-        textPaint.clearShadowLayer();
+    @Override // java.lang.Runnable
+    public void run() {
+        this.fQQ.eKW.smoothScrollToPosition(4);
     }
 }

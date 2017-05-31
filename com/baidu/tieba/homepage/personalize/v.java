@@ -31,8 +31,8 @@ public class v extends CustomMessageListener {
         DataRes.Builder builder3;
         DataRes.Builder builder4;
         DataRes.Builder builder5;
-        com.baidu.tieba.homepage.personalize.b.ad adVar;
-        com.baidu.tieba.homepage.personalize.b.ad adVar2;
+        com.baidu.tieba.homepage.personalize.b.af afVar;
+        com.baidu.tieba.homepage.personalize.b.af afVar2;
         List list3;
         DataRes.Builder builder6;
         DataRes.Builder builder7;
@@ -40,15 +40,15 @@ public class v extends CustomMessageListener {
         List list4;
         List list5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-            builder = this.this$0.cuG;
+            builder = this.this$0.cAY;
             if (builder != null) {
-                builder2 = this.this$0.cuG;
+                builder2 = this.this$0.cAY;
                 if (com.baidu.tbadk.core.util.x.q(builder2.thread_list) != 0) {
-                    list = this.this$0.aSY;
+                    list = this.this$0.mDataList;
                     if (com.baidu.tbadk.core.util.x.q(list) != 0) {
                         String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
                         if (!StringUtils.isNull(optString)) {
-                            list2 = this.this$0.aSY;
+                            list2 = this.this$0.mDataList;
                             Iterator it = list2.iterator();
                             while (true) {
                                 if (!it.hasNext()) {
@@ -57,34 +57,34 @@ public class v extends CustomMessageListener {
                                 com.baidu.adp.widget.ListView.v vVar = (com.baidu.adp.widget.ListView.v) it.next();
                                 if (vVar instanceof com.baidu.tieba.card.data.c) {
                                     com.baidu.tieba.card.data.c cVar = (com.baidu.tieba.card.data.c) vVar;
-                                    if (cVar.JB() != null && cVar.JB().getTid() != null && cVar.JB().getTid().equals(optString)) {
+                                    if (cVar.LH() != null && cVar.LH().getTid() != null && cVar.LH().getTid().equals(optString)) {
                                         it.remove();
-                                        list5 = this.this$0.aSY;
+                                        list5 = this.this$0.mDataList;
                                         com.baidu.tieba.homepage.personalize.model.c.aX(list5);
                                         break;
                                     }
                                 }
                             }
-                            builder3 = this.this$0.cuG;
+                            builder3 = this.this$0.cAY;
                             if (builder3 != null) {
-                                builder4 = this.this$0.cuG;
+                                builder4 = this.this$0.cAY;
                                 if (builder4.thread_list != null) {
                                     long c = com.baidu.adp.lib.g.b.c(optString, 0L);
                                     int i = 0;
                                     while (true) {
                                         int i2 = i;
-                                        builder5 = this.this$0.cuG;
+                                        builder5 = this.this$0.cAY;
                                         if (i2 < builder5.thread_list.size()) {
-                                            builder6 = this.this$0.cuG;
+                                            builder6 = this.this$0.cAY;
                                             ThreadInfo threadInfo = builder6.thread_list.get(i2);
                                             if (threadInfo != null && threadInfo.tid != null && threadInfo.tid.longValue() == c) {
-                                                builder7 = this.this$0.cuG;
+                                                builder7 = this.this$0.cAY;
                                                 builder7.thread_list.remove(i2);
-                                                this.this$0.ahF();
+                                                this.this$0.aiU();
                                                 long longValue = threadInfo.tid.longValue();
-                                                builder8 = this.this$0.cuG;
+                                                builder8 = this.this$0.cAY;
                                                 List<ThreadInfo> list6 = builder8.thread_list;
-                                                list4 = this.this$0.aSY;
+                                                list4 = this.this$0.mDataList;
                                                 com.baidu.tieba.homepage.personalize.c.f.a(longValue, i2, list6, list4);
                                                 break;
                                             }
@@ -93,11 +93,11 @@ public class v extends CustomMessageListener {
                                             break;
                                         }
                                     }
-                                    adVar = this.this$0.cuL;
-                                    if (adVar != null) {
-                                        adVar2 = this.this$0.cuL;
-                                        list3 = this.this$0.aSY;
-                                        adVar2.aV(new ArrayList(list3));
+                                    afVar = this.this$0.cBd;
+                                    if (afVar != null) {
+                                        afVar2 = this.this$0.cBd;
+                                        list3 = this.this$0.mDataList;
+                                        afVar2.aV(new ArrayList(list3));
                                     }
                                 }
                             }

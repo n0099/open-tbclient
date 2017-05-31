@@ -14,7 +14,7 @@ public class ay {
         this.type = i;
     }
 
-    public ImageFileInfo afy() {
+    public ImageFileInfo agN() {
         return this.imageFileInfo;
     }
 

@@ -6,21 +6,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class av {
-    private ArrayList<UserData> WG = new ArrayList<>();
-    private ArrayList<UserData> WH = new ArrayList<>();
-    private aq WI = new aq();
-    private int WJ = 0;
-    private int WK = 0;
-    public int WL;
-    public boolean hasMore;
-    public int pageNum;
+    private ArrayList<UserData> WB = new ArrayList<>();
+    private ArrayList<UserData> WC = new ArrayList<>();
+    private ar WD = new ar();
+    private int WE = 0;
+    private int WF = 0;
 
-    public ArrayList<UserData> qC() {
-        return this.WG;
+    public void a(ar arVar) {
+        this.WD = arVar;
     }
 
-    public ArrayList<UserData> qD() {
-        return this.WH;
+    public ar qx() {
+        return this.WD;
+    }
+
+    public ArrayList<UserData> qy() {
+        return this.WB;
+    }
+
+    public ArrayList<UserData> qz() {
+        return this.WC;
+    }
+
+    public int qA() {
+        return this.WE;
+    }
+
+    public int qB() {
+        return this.WF;
     }
 
     public void parserJson(String str) {
@@ -34,55 +47,27 @@ public class av {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                if (jSONObject.optJSONObject("page") != null) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            UserData userData = new UserData();
-                            userData.parserJson(optJSONArray.getJSONObject(i));
-                            this.WG.add(userData);
-                        }
-                    }
-                    if (optJSONArray2 != null) {
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            UserData userData2 = new UserData();
-                            userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                            userData2.mAttentionType = 1;
-                            this.WH.add(userData2);
-                        }
-                    }
-                    this.WI.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.WI != null) {
-                        this.pageNum = this.WI.qv();
-                        this.WL = this.WI.qt();
-                        this.hasMore = this.WI.qx() == 1;
-                    }
-                    this.WJ = jSONObject.optInt("tafriendnum", 0);
-                    this.WK = jSONObject.optInt("commonfriendnum", 0);
-                    return;
-                }
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
-                JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
-                if (optJSONArray3 != null) {
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        UserData userData3 = new UserData();
-                        userData3.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.WG.add(userData3);
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        userData.mAttentionType = 2;
+                        this.WB.add(userData);
                     }
                 }
-                if (optJSONArray4 != null) {
-                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        UserData userData4 = new UserData();
-                        userData4.parserJson(optJSONArray4.getJSONObject(i4));
-                        userData4.mAttentionType = 1;
-                        userData4.setHave_attention(1);
-                        this.WH.add(userData4);
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        UserData userData2 = new UserData();
+                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        userData2.mAttentionType = 1;
+                        this.WC.add(userData2);
                     }
                 }
-                this.pageNum = jSONObject.optInt("pn");
-                this.WL = jSONObject.optInt("total_follow_num", 0);
-                this.hasMore = jSONObject.optInt("has_more", 0) == 1;
+                this.WD.parserJson(jSONObject.optJSONObject("page"));
+                this.WE = jSONObject.optInt("tafriendnum", 0);
+                this.WF = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

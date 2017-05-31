@@ -21,7 +21,7 @@ public class x {
             }
             return;
         }
-        new b(pV(str), aVar).execute(new String[0]);
+        new b(qj(str), aVar).execute(new String[0]);
     }
 
     public static void b(String str, a aVar) {
@@ -32,7 +32,7 @@ public class x {
             }
             return;
         }
-        new b(pU(str), aVar).execute(new String[0]);
+        new b(qi(str), aVar).execute(new String[0]);
     }
 
     public static void c(String str, a aVar) {
@@ -43,7 +43,7 @@ public class x {
             }
             return;
         }
-        new b(pW(str), aVar).execute(new String[0]);
+        new b(qk(str), aVar).execute(new String[0]);
     }
 
     public static void a(String str, String str2, a aVar) {
@@ -59,11 +59,11 @@ public class x {
 
     public static void a(String str, String str2, WriteData writeData) {
         if (!au.isEmpty(str) && !au.isEmpty(str2)) {
-            com.baidu.adp.lib.cache.o<String> cz = com.baidu.tbadk.core.c.a.sZ().cz("tb.pb_editor");
+            com.baidu.adp.lib.cache.o<String> cy = com.baidu.tbadk.core.c.a.sY().cy("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
-                cz.b(bZ(str, str2), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+                cy.b(bZ(str, str2), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
-                cz.Q(bZ(str, str2));
+                cy.Q(bZ(str, str2));
             }
         }
     }
@@ -87,17 +87,17 @@ public class x {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static String pU(String str) {
+    public static String qi(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@subpb" + str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static String pV(String str) {
+    public static String qj(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@pb" + str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static String pW(String str) {
+    public static String qk(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@frs";
     }
 
@@ -108,11 +108,11 @@ public class x {
     /* loaded from: classes.dex */
     private static class b extends BdAsyncTask<String, String, WriteData> {
         private final String cacheKey;
-        private final a ftn;
+        private final a fBe;
 
         public b(String str, a aVar) {
             setPriority(3);
-            this.ftn = aVar;
+            this.fBe = aVar;
             this.cacheKey = str;
         }
 
@@ -123,7 +123,7 @@ public class x {
         public WriteData doInBackground(String... strArr) {
             String str;
             try {
-                str = com.baidu.tbadk.core.c.a.sZ().cz("tb.pb_editor").get(this.cacheKey);
+                str = com.baidu.tbadk.core.c.a.sY().cy("tb.pb_editor").get(this.cacheKey);
             } catch (Exception e) {
                 str = null;
             }
@@ -136,8 +136,8 @@ public class x {
         /* renamed from: c */
         public void onPostExecute(WriteData writeData) {
             super.onPostExecute(writeData);
-            if (this.ftn != null) {
-                this.ftn.a(writeData);
+            if (this.fBe != null) {
+                this.fBe.a(writeData);
             }
         }
     }

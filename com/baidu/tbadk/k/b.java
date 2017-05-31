@@ -5,21 +5,21 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ a aIb;
+    final /* synthetic */ a aHO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.aIb = aVar;
+        this.aHO = aVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         super.handleMessage(message);
-        if (message.what == 900002 && message.arg2 > 0 && a.aHZ != null) {
-            a.aHZ.setLength(message.arg1);
-            a.aHZ.setSize(message.arg2);
-            if (a.aHZ.getCallback() != null) {
-                a.aHZ.getCallback().e(a.aHZ);
+        if (message.what == 900002 && message.arg2 > 0 && a.aHM != null) {
+            a.aHM.setLength(message.arg1);
+            a.aHM.setSize(message.arg2);
+            if (a.aHM.getCallback() != null) {
+                a.aHM.getCallback().e(a.aHM);
             }
         }
     }

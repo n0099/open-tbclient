@@ -24,12 +24,12 @@ public class d {
     public void j(byte[] bArr) {
         try {
             PublicKey p = v.p(bArr);
-            String at = v.at(32);
-            byte[] bArr2 = new byte[at.length()];
-            for (int i = 0; i < at.length(); i++) {
-                bArr2[i] = (byte) at.charAt(i);
+            String au = v.au(32);
+            byte[] bArr2 = new byte[au.length()];
+            for (int i = 0; i < au.length(); i++) {
+                bArr2[i] = (byte) au.charAt(i);
             }
-            this.qi = v.aJ(at);
+            this.qi = v.aJ(au);
             this.qj = v.a(p, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

@@ -5,68 +5,68 @@ import android.view.View;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 public class s {
-    private View aJp;
-    private int aJq;
-    private boolean aJr;
+    private View aJc;
+    private int aJd;
+    private boolean aJe;
     private final Handler mHandler;
 
-    public void Gy() {
+    public void Gs() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void Gz() {
+    public void Gt() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void GA() {
+    public void Gu() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public void cd(boolean z) {
-        if (this.aJp != null) {
-            if (z || this.aJp.getVisibility() != 8) {
-                Gz();
+    public void ca(boolean z) {
+        if (this.aJc != null) {
+            if (z || this.aJc.getVisibility() != 8) {
+                Gt();
             }
         }
     }
 
-    public void ce(boolean z) {
-        if (this.aJp != null) {
-            if (z || this.aJp.getVisibility() != 0) {
-                Gy();
+    public void cb(boolean z) {
+        if (this.aJc != null) {
+            if (z || this.aJc.getVisibility() != 0) {
+                Gs();
             }
         }
     }
 
     public void a(AbsListView absListView, int i, int i2, int i3, int i4) {
-        if (this.aJp != null) {
-            if (i != 0 && i2 > i && this.aJp.getVisibility() != 8) {
-                cd(false);
-            } else if ((i == 0 || i2 < i) && this.aJp.getVisibility() != 0) {
-                ce(false);
+        if (this.aJc != null) {
+            if (i != 0 && i2 > i && this.aJc.getVisibility() != 8) {
+                ca(false);
+            } else if ((i == 0 || i2 < i) && this.aJc.getVisibility() != 0) {
+                cb(false);
             }
-            this.aJq = i;
+            this.aJd = i;
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (absListView != null && i == 0) {
             int firstVisiblePosition = absListView.getFirstVisiblePosition();
-            if (firstVisiblePosition > this.aJq) {
-                cd(true);
-            } else if (firstVisiblePosition < this.aJq) {
-                ce(true);
-            } else if (firstVisiblePosition == this.aJq) {
-                if (firstVisiblePosition == 0 || !this.aJr) {
-                    ce(true);
+            if (firstVisiblePosition > this.aJd) {
+                ca(true);
+            } else if (firstVisiblePosition < this.aJd) {
+                cb(true);
+            } else if (firstVisiblePosition == this.aJd) {
+                if (firstVisiblePosition == 0 || !this.aJe) {
+                    cb(true);
                 } else {
-                    cd(true);
+                    ca(true);
                 }
             }
         }

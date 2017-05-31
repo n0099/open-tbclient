@@ -1,23 +1,30 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
-    final /* synthetic */ u bvn;
+public class ag implements TbImageView.a {
+    final /* synthetic */ y bBb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(u uVar) {
-        this.bvn = uVar;
+    public ag(y yVar) {
+        this.bBb = yVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.card.data.n nVar;
-        if (this.bvn.getOnSubCardOnClickListenner() != null) {
-            cd<com.baidu.tieba.card.data.n> onSubCardOnClickListenner = this.bvn.getOnSubCardOnClickListenner();
-            nVar = this.bvn.bvd;
-            onSubCardOnClickListenner.a(view, nVar);
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void s(String str, boolean z) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        if (z) {
+            tbImageView = this.bBb.bvZ;
+            if (tbImageView != null) {
+                tbImageView2 = this.bBb.bvZ;
+                tbImageView2.setDefaultBgResource(0);
+            }
         }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

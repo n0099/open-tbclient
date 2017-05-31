@@ -1,27 +1,55 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.LotteryRegular;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ak {
-    private String Wh;
-    private List<Integer> Wi;
+    private ArrayList<String> Wb;
+    private int smsCodeTime = 0;
+    private UserData VZ = new UserData();
+    private AntiData Wa = new AntiData();
 
-    public String qm() {
-        return this.Wh;
+    public ak() {
+        this.Wb = null;
+        this.Wb = new ArrayList<>();
+        setSmsCodeTime(0);
     }
 
-    public List<Integer> qn() {
-        return this.Wi;
+    public UserData getUser() {
+        return this.VZ;
     }
 
-    public void a(LotteryRegular lotteryRegular) {
-        this.Wh = lotteryRegular.regular;
-        this.Wi = new ArrayList();
-        int size = lotteryRegular.chance.size();
-        for (int i = 0; i < size; i++) {
-            this.Wi.add(lotteryRegular.chance.get(i));
+    public AntiData qh() {
+        return this.Wa;
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.VZ.parserJson(jSONObject.optJSONObject("user"));
+            this.Wa.parserJson(jSONObject.optJSONObject("anti"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.Wb.add(optJSONArray.optString(i, null));
+                }
+            }
+            setSmsCodeTime(jSONObject.optInt("retrytime"));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void setSmsCodeTime(int i) {
+        this.smsCodeTime = i;
     }
 }

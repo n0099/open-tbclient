@@ -15,39 +15,39 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private List<HotTopicBussinessData> aWb;
-    private ViewGroup dfn = null;
-    private HotTopicChangeFourmActivity fOz;
+    private List<HotTopicBussinessData> aTD;
+    private ViewGroup dkH = null;
+    private HotTopicChangeFourmActivity fWv;
     private final Context mContext;
 
     public b(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.fOz = hotTopicChangeFourmActivity;
-        this.mContext = this.fOz.getPageContext().getContext();
+        this.fWv = hotTopicChangeFourmActivity;
+        this.mContext = this.fWv.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
-        this.aWb = list;
+        this.aTD = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (x.r(this.aWb)) {
+        if (x.r(this.aTD)) {
             return 0;
         }
-        return this.aWb.size();
+        return this.aTD.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sU */
+    /* renamed from: tp */
     public HotTopicBussinessData getItem(int i) {
-        if (this.aWb != null && i < this.aWb.size()) {
-            return this.aWb.get(i);
+        if (this.aTD != null && i < this.aTD.size()) {
+            return this.aTD.get(i);
         }
         return null;
     }
 
-    private String qY(String str) {
+    private String rm(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -65,8 +65,8 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        if (this.dfn == null) {
-            this.dfn = viewGroup;
+        if (this.dkH == null) {
+            this.dkH = viewGroup;
         }
         HotTopicBussinessData item = getItem(i);
         if (item != null) {
@@ -83,29 +83,29 @@ public class b extends BaseAdapter {
     private a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         a aVar;
         if (obj == null) {
-            aVar = bmT();
+            aVar = bos();
         } else {
             aVar = (a) obj;
         }
-        aVar.fOB.setText(qY(hotTopicBussinessData.mForumName));
-        aVar.fOA.c(hotTopicBussinessData.mForumAvatar, 10, false);
+        aVar.fWx.setText(rm(hotTopicBussinessData.mForumName));
+        aVar.fWw.c(hotTopicBussinessData.mForumAvatar, 10, false);
         aq.j(aVar.mRootView, w.g.select_forum_item_bg);
-        aq.i(aVar.fOB, w.e.cp_cont_b);
-        aq.k(aVar.bUe, w.e.cp_bg_line_e);
+        aq.i(aVar.fWx, w.e.cp_cont_b);
+        aq.k(aVar.bZY, w.e.cp_bg_line_e);
         return aVar;
     }
 
-    private a bmT() {
+    private a bos() {
         a aVar = new a(this, null);
         aVar.mRootView = LayoutInflater.from(this.mContext).inflate(w.j.hot_topic_change_item, (ViewGroup) null);
         aq.j(aVar.mRootView, w.g.select_forum_item_bg);
-        aq.i(aVar.fOB, w.e.cp_cont_b);
-        aVar.fOB = (TextView) aVar.mRootView.findViewById(w.h.fourm_tv);
-        aVar.bUe = aVar.mRootView.findViewById(w.h.line_view);
-        aVar.fOA = (TbImageView) aVar.mRootView.findViewById(w.h.icon_img);
-        aVar.fOA.setDefaultBgResource(w.e.cp_bg_line_e);
-        aVar.fOA.setDefaultResource(w.g.transparent_bg);
-        aVar.fOA.setDefaultErrorResource(w.g.icon_default_ba_120);
+        aq.i(aVar.fWx, w.e.cp_cont_b);
+        aVar.fWx = (TextView) aVar.mRootView.findViewById(w.h.fourm_tv);
+        aVar.bZY = aVar.mRootView.findViewById(w.h.line_view);
+        aVar.fWw = (TbImageView) aVar.mRootView.findViewById(w.h.icon_img);
+        aVar.fWw.setDefaultBgResource(w.e.cp_bg_line_e);
+        aVar.fWw.setDefaultResource(w.g.transparent_bg);
+        aVar.fWw.setDefaultErrorResource(w.g.icon_default_ba_120);
         aVar.mRootView.setTag(aVar);
         return aVar;
     }
@@ -113,9 +113,9 @@ public class b extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public View bUe;
-        public TbImageView fOA;
-        public TextView fOB;
+        public View bZY;
+        public TbImageView fWw;
+        public TextView fWx;
         public View mRootView;
 
         private a() {

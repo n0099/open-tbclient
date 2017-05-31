@@ -28,24 +28,24 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class RecommendFrsControlFragment extends BaseFragment {
-    private com.baidu.tbadk.h.a bOH;
-    private ScrollFragmentTabHost ctc;
-    private q ctd;
-    private com.baidu.tbadk.i.f cte;
-    private com.baidu.tieba.homepage.personalize.a.a ctf;
-    private boolean cth;
+    private com.baidu.tbadk.h.a bUu;
+    private ScrollFragmentTabHost czu;
+    private q czv;
+    private com.baidu.tbadk.i.f czw;
+    private com.baidu.tieba.homepage.personalize.a.a czx;
+    private boolean czz;
     private com.baidu.tbadk.i.h refreshView;
-    private Boolean ctg = null;
-    private NoNetworkView.a byG = new c(this);
-    private CustomMessageTask cti = new CustomMessageTask(CmdConfigCustom.CMD_GET_MAINTAB_FORUM_INFO, new i(this));
-    private CustomMessageListener ctj = new j(this, CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK);
-    private CustomMessageListener ctk = new k(this, CmdConfigCustom.MAINTAB_CHANGE_SUB_TAB);
-    private CustomMessageListener ctl = new l(this, CmdConfigCustom.CMD_LIKE_FORUM_NAME);
-    private CustomMessageListener ctm = new m(this, CmdConfigCustom.CMD_UNLIKE_FORUM_NAME);
-    private final CustomMessageListener bOZ = new n(this, CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE);
-    private final CustomMessageListener ctn = new o(this, CmdConfigCustom.CMD_FRS_UPDATE_USER_LEVEL);
-    private b cto = new p(this);
-    private CustomMessageListener ctp = new d(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+    private Boolean czy = null;
+    private NoNetworkView.a bEB = new c(this);
+    private CustomMessageTask czA = new CustomMessageTask(CmdConfigCustom.CMD_GET_MAINTAB_FORUM_INFO, new i(this));
+    private CustomMessageListener czB = new j(this, CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK);
+    private CustomMessageListener czC = new k(this, CmdConfigCustom.MAINTAB_CHANGE_SUB_TAB);
+    private CustomMessageListener czD = new l(this, CmdConfigCustom.CMD_LIKE_FORUM_NAME);
+    private CustomMessageListener czE = new m(this, CmdConfigCustom.CMD_UNLIKE_FORUM_NAME);
+    private final CustomMessageListener bUN = new n(this, CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE);
+    private final CustomMessageListener czF = new o(this, CmdConfigCustom.CMD_FRS_UPDATE_USER_LEVEL);
+    private b czG = new p(this);
+    private CustomMessageListener czH = new d(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -60,10 +60,10 @@ public class RecommendFrsControlFragment extends BaseFragment {
     public void a(UpdateAttentionMessage updateAttentionMessage) {
         Message<?> message;
         if (updateAttentionMessage != null && updateAttentionMessage.isAttention() && updateAttentionMessage.isGod() && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(getUniqueId())) {
-            if (this.bOH == null) {
-                this.bOH = new com.baidu.tbadk.h.a(getPageContext());
+            if (this.bUu == null) {
+                this.bUu = new com.baidu.tbadk.h.a(getPageContext());
             }
-            this.bOH.ao(updateAttentionMessage.getData().toUid, null);
+            this.bUu.an(updateAttentionMessage.getData().toUid, null);
         }
     }
 
@@ -79,83 +79,83 @@ public class RecommendFrsControlFragment extends BaseFragment {
         super.onPrimary();
         if (isPrimary()) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "c10702", "click");
-            if (this.ctc != null && this.ctc.ahn()) {
-                this.ctc.ahj();
+            if (this.czu != null && this.czu.aiC()) {
+                this.czu.aiy();
                 g(false, getResources().getDimensionPixelSize(w.f.ds520));
             }
         } else {
-            VoiceManager bU = com.baidu.tieba.tbadkCore.voice.b.bU(getActivity());
-            if (bU != null) {
-                bU.stopPlay();
+            VoiceManager bV = com.baidu.tieba.tbadkCore.voice.b.bV(getActivity());
+            if (bV != null) {
+                bV.stopPlay();
             }
         }
-        if (this.ctc != null) {
-            this.ctc.setPrimary(isPrimary());
+        if (this.czu != null) {
+            this.czu.setPrimary(isPrimary());
         }
-        this.ctc.ahp();
+        this.czu.aiE();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
-        this.ctc.notifyDataSetChanged();
+        this.czu.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         bj();
-        this.ctc = (ScrollFragmentTabHost) getView().findViewById(w.h.recommend_frs_tab_host);
-        this.ctc.a(getPageContext(), this.byG);
-        this.ctc.a(getChildFragmentManager(), this.cto);
-        this.ctc.setPageUniqueId(getUniqueId());
+        this.czu = (ScrollFragmentTabHost) getView().findViewById(w.h.recommend_frs_tab_host);
+        this.czu.a(getPageContext(), this.bEB);
+        this.czu.a(getChildFragmentManager(), this.czG);
+        this.czu.setPageUniqueId(getUniqueId());
         onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        a.ahb().setCreateTime(System.currentTimeMillis() - a.ahb().jA(1));
+        a.aiq().setCreateTime(System.currentTimeMillis() - a.aiq().jZ(1));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a.ahb().b(System.currentTimeMillis(), 1);
-        registerListener(this.ctj);
-        registerListener(this.ctk);
-        registerListener(this.ctl);
-        registerListener(this.ctm);
-        registerListener(this.ctp);
-        registerListener(this.bOZ);
-        registerListener(this.ctn);
-        this.cti.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.cti);
-        ahd();
-        this.ctf = new com.baidu.tieba.homepage.personalize.a.a();
+        a.aiq().c(System.currentTimeMillis(), 1);
+        registerListener(this.czB);
+        registerListener(this.czC);
+        registerListener(this.czD);
+        registerListener(this.czE);
+        registerListener(this.czH);
+        registerListener(this.bUN);
+        registerListener(this.czF);
+        this.czA.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.czA);
+        ais();
+        this.czx = new com.baidu.tieba.homepage.personalize.a.a();
     }
 
-    private void ahd() {
+    private void ais() {
         PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(getPageContext());
         pbHistoryCacheModel.setUniqueId(getUniqueId());
         pbHistoryCacheModel.a(new e(this));
-        pbHistoryCacheModel.Et();
+        pbHistoryCacheModel.En();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.homepage.framework.a.a.ahr().onDestory();
+        com.baidu.tieba.homepage.framework.a.a.aiG().onDestory();
         MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_GET_MAINTAB_FORUM_INFO);
-        if (this.bOH != null) {
-            this.bOH.destory();
+        if (this.bUu != null) {
+            this.bUu.destory();
         }
-        if (this.ctf != null) {
-            this.ctf.onDestroy();
+        if (this.czx != null) {
+            this.czx.onDestroy();
         }
-        this.ctc.onDestroy();
+        this.czu.onDestroy();
     }
 
     private void bj() {
-        com.baidu.tieba.homepage.framework.a.a.ahr().m(getUniqueId());
-        this.ctd = new q(getPageContext(), getUniqueId());
-        this.ctd.a(new f(this));
-        MessageManager.getInstance().sendMessage(new ControlModelMessage(this.ctd));
+        com.baidu.tieba.homepage.framework.a.a.aiG().l(getUniqueId());
+        this.czv = new q(getPageContext(), getUniqueId());
+        this.czv.a(new f(this));
+        MessageManager.getInstance().sendMessage(new ControlModelMessage(this.czv));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -168,10 +168,10 @@ public class RecommendFrsControlFragment extends BaseFragment {
             } else {
                 arrayList.addAll(list);
             }
-            if (this.ctc != null && !this.ctc.aT(arrayList)) {
-                this.ctc.aS(arrayList);
-                this.ctc.g(0, false);
-                this.ctc.ahq();
+            if (this.czu != null && !this.czu.aT(arrayList)) {
+                this.czu.aS(arrayList);
+                this.czu.g(0, false);
+                this.czu.aiF();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new ReadCacheRespMsg(CmdConfigCustom.CMD_UPDATE_LIKE_FORUMS_IN_HOME_RECOMMEND, list));
         }
@@ -179,44 +179,44 @@ public class RecommendFrsControlFragment extends BaseFragment {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(boolean z, int i) {
-        if (this.cte == null) {
+        if (this.czw == null) {
             if (i < 0) {
-                this.cte = new com.baidu.tbadk.i.f(getActivity());
+                this.czw = new com.baidu.tbadk.i.f(getActivity());
             } else {
-                this.cte = new com.baidu.tbadk.i.f(getActivity(), i);
+                this.czw = new com.baidu.tbadk.i.f(getActivity(), i);
             }
-            this.cte.onChangeSkinType();
+            this.czw.onChangeSkinType();
         }
-        if (this.ctc != null && this.ctc.getFrameLayout() != null) {
-            this.cte.c(this.ctc.getFrameLayout(), z);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ahe() {
-        if (this.cte != null && this.ctc != null && this.ctc.getFrameLayout() != null) {
-            this.cte.H(this.ctc.getFrameLayout());
-            this.cte = null;
+        if (this.czu != null && this.czu.getFrameLayout() != null) {
+            this.czw.c(this.czu.getFrameLayout(), z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void H(String str, boolean z) {
+    public void ait() {
+        if (this.czw != null && this.czu != null && this.czu.getFrameLayout() != null) {
+            this.czw.H(this.czu.getFrameLayout());
+            this.czw = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void E(String str, boolean z) {
         if (this.refreshView == null) {
             this.refreshView = new com.baidu.tbadk.i.h(getPageContext().getPageActivity(), new g(this));
         }
-        this.refreshView.eR(getResources().getDimensionPixelSize(w.f.ds280));
-        this.refreshView.fQ(str);
-        if (this.ctc != null && this.ctc.getFrameLayout() != null) {
-            this.refreshView.c(this.ctc.getFrameLayout(), z);
+        this.refreshView.eS(getResources().getDimensionPixelSize(w.f.ds280));
+        this.refreshView.fP(str);
+        if (this.czu != null && this.czu.getFrameLayout() != null) {
+            this.refreshView.c(this.czu.getFrameLayout(), z);
         }
-        this.refreshView.Ee();
+        this.refreshView.DY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JR() {
-        if (this.refreshView != null && this.ctc != null && this.ctc.getFrameLayout() != null) {
-            this.refreshView.H(this.ctc.getFrameLayout());
+    public void Mx() {
+        if (this.refreshView != null && this.czu != null && this.czu.getFrameLayout() != null) {
+            this.refreshView.H(this.czu.getFrameLayout());
             this.refreshView = null;
         }
     }
@@ -224,8 +224,8 @@ public class RecommendFrsControlFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ctc != null) {
-            this.ctc.onChangeSkinType(i);
+        if (this.czu != null) {
+            this.czu.onChangeSkinType(i);
         }
         if (this.refreshView != null) {
             this.refreshView.onChangeSkinType();
@@ -242,7 +242,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
                     if (stringExtra != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANGE_CARD_TITILE_COLOR, stringExtra));
                         if (intent.getIntExtra("type", -1) == 4 && isPrimary()) {
-                            this.ctc.ahk();
+                            this.czu.aiz();
                             return;
                         }
                         return;
@@ -257,8 +257,8 @@ public class RecommendFrsControlFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.ctc != null) {
-            this.ctc.setPrimary(isPrimary());
+        if (this.czu != null) {
+            this.czu.setPrimary(isPrimary());
         }
     }
 
@@ -266,17 +266,17 @@ public class RecommendFrsControlFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         boolean z = false;
-        if (this.ctg == null) {
-            this.ctg = Boolean.valueOf(com.baidu.tbadk.core.r.oV().pb());
+        if (this.czy == null) {
+            this.czy = Boolean.valueOf(com.baidu.tbadk.core.r.oN().oT());
         } else {
-            z = this.ctg.booleanValue() ^ com.baidu.tbadk.core.r.oV().pb();
-            this.ctg = Boolean.valueOf(com.baidu.tbadk.core.r.oV().pb());
+            z = this.czy.booleanValue() ^ com.baidu.tbadk.core.r.oN().oT();
+            this.czy = Boolean.valueOf(com.baidu.tbadk.core.r.oN().oT());
         }
         if (z) {
-            this.ctc.ahl();
+            this.czu.aiA();
         }
-        if (this.ctc != null) {
-            this.ctc.setPrimary(isPrimary());
+        if (this.czu != null) {
+            this.czu.setPrimary(isPrimary());
         }
     }
 
@@ -287,8 +287,8 @@ public class RecommendFrsControlFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
     public String getCurrentPageKey() {
-        if (this.ctc != null) {
-            return this.ctc.getCurrentPageKey();
+        if (this.czu != null) {
+            return this.czu.getCurrentPageKey();
         }
         return null;
     }

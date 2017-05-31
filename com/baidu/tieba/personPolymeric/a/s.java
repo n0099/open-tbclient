@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    private r eBQ;
-    private c eBR;
-    private k eBS;
-    private a eBT;
-    private e eBU;
-    private j eBV;
-    private o eBW;
-    private g eBX;
-    private p eBY;
-    private f eBZ;
-    private com.baidu.tieba.person.a.c eCa;
-    private u eCb;
-    private com.baidu.tieba.personCenter.a.b exS;
+    private j buZ;
+    private com.baidu.tieba.personCenter.a.b eGK;
+    private r eKD;
+    private c eKE;
+    private k eKF;
+    private a eKG;
+    private e eKH;
+    private o eKI;
+    private g eKJ;
+    private p eKK;
+    private f eKL;
+    private com.baidu.tieba.person.a.c eKM;
+    private u eKN;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdUniqueId mBdUniqueId;
 
@@ -31,43 +31,43 @@ public class s {
     }
 
     private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.eBQ = new r(tbPageContext);
-        this.eBR = new c(tbPageContext);
-        this.eBS = new k(tbPageContext);
-        this.eBT = new a(tbPageContext);
-        this.eBU = new e(tbPageContext);
-        this.eBV = new j(tbPageContext);
-        this.eBW = new o(tbPageContext);
-        this.eBX = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.f.eDi);
-        this.eBY = new p(tbPageContext);
-        this.eBZ = new f(tbPageContext);
-        this.eCa = new com.baidu.tieba.person.a.c(tbPageContext, com.baidu.tieba.person.a.e.exT);
-        this.exS = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.b.b.eyF);
-        this.eCb = new u(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-        this.mAdapters.add(this.eBQ);
-        this.mAdapters.add(this.eBR);
-        this.mAdapters.add(this.eBS);
-        this.mAdapters.add(this.eBT);
-        this.mAdapters.add(this.eBU);
-        this.mAdapters.add(this.eBV);
-        this.mAdapters.add(this.eBW);
-        this.mAdapters.add(this.eBX);
-        this.mAdapters.add(this.eBY);
-        this.mAdapters.add(this.eBZ);
-        this.mAdapters.add(this.eCa);
-        this.mAdapters.add(this.exS);
-        this.mAdapters.add(this.eCb);
+        this.eKD = new r(tbPageContext);
+        this.eKE = new c(tbPageContext);
+        this.eKF = new k(tbPageContext);
+        this.eKG = new a(tbPageContext);
+        this.eKH = new e(tbPageContext);
+        this.buZ = new j(tbPageContext, tbPageContext.getUniqueId());
+        this.eKI = new o(tbPageContext);
+        this.eKJ = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.g.eMv);
+        this.eKK = new p(tbPageContext);
+        this.eKL = new f(tbPageContext);
+        this.eKM = new com.baidu.tieba.person.a.c(tbPageContext, com.baidu.tieba.person.a.e.eGL);
+        this.eGK = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.person.h.eGy);
+        this.eKN = new u(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
+        this.mAdapters.add(this.eKD);
+        this.mAdapters.add(this.eKE);
+        this.mAdapters.add(this.eKF);
+        this.mAdapters.add(this.eKG);
+        this.mAdapters.add(this.eKH);
+        this.mAdapters.add(this.buZ);
+        this.mAdapters.add(this.eKI);
+        this.mAdapters.add(this.eKJ);
+        this.mAdapters.add(this.eKK);
+        this.mAdapters.add(this.eKL);
+        this.mAdapters.add(this.eKM);
+        this.mAdapters.add(this.eGK);
+        this.mAdapters.add(this.eKN);
         bdPersonListView.addAdapters(this.mAdapters);
     }
 
-    public void M(View.OnClickListener onClickListener) {
-        if (this.eCa != null) {
-            this.eCa.K(onClickListener);
+    public void O(View.OnClickListener onClickListener) {
+        if (this.eKM != null) {
+            this.eKM.M(onClickListener);
         }
     }
 
     public void setIsHost(boolean z) {
-        this.eCb.setIsHost(z);
-        this.eBS.setIsHost(z);
+        this.eKN.setIsHost(z);
+        this.eKF.setIsHost(z);
     }
 }

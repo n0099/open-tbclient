@@ -4,17 +4,17 @@ import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements v.b {
-    final /* synthetic */ a bTA;
+    final /* synthetic */ a bZs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar) {
-        this.bTA = aVar;
+        this.bZs = aVar;
     }
 
     @Override // com.baidu.tieba.play.v.b
     public boolean onError(com.baidu.tieba.play.v vVar, int i, int i2) {
-        this.bTA.Sa();
-        this.bTA.f(true, 4);
+        this.bZs.Sm();
+        this.bZs.f(true, 4);
         return true;
     }
 }

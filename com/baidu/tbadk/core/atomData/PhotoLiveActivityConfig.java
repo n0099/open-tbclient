@@ -114,12 +114,12 @@ public class PhotoLiveActivityConfig extends IntentConfig {
             return this;
         }
 
-        public a bz(int i) {
+        public a bA(int i) {
             this.requestCode = i;
             return this;
         }
 
-        public PhotoLiveActivityConfig pl() {
+        public PhotoLiveActivityConfig pd() {
             return new PhotoLiveActivityConfig(this, null);
         }
     }

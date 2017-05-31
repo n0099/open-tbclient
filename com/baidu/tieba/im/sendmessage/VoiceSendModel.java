@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a dbh;
-    private b dbi;
+    private a dgE;
+    private b dgF;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,33 +29,33 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.dbh = new a(str, chatMessage);
-        this.dbh.execute(new Object[0]);
+        this.dgE = new a(str, chatMessage);
+        this.dgE.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.dbi = bVar;
+        this.dgF = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String dbj;
-        private ChatMessage dbk;
-        private ac dbl = new ac();
+        private String dgG;
+        private ChatMessage dgH;
+        private ac dgI = new ac();
 
         public a(String str, ChatMessage chatMessage) {
-            this.dbj = str;
-            this.dbk = chatMessage;
+            this.dgG = str;
+            this.dgH = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: u */
+        /* renamed from: s */
         public String doInBackground(Object... objArr) {
             try {
-                return this.dbl.kT(this.dbj);
+                return this.dgI.ld(this.dgG);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.dbi != null) {
-                VoiceSendModel.this.dbi.a(str, this.dbk);
+            if (VoiceSendModel.this.dgF != null) {
+                VoiceSendModel.this.dgF.a(str, this.dgH);
             }
         }
     }

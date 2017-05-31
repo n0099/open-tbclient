@@ -12,13 +12,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends CustomMessageListener {
-    final /* synthetic */ RecommendFrsControlFragment ctq;
+    final /* synthetic */ RecommendFrsControlFragment czI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(RecommendFrsControlFragment recommendFrsControlFragment, int i) {
         super(i);
-        this.ctq = recommendFrsControlFragment;
+        this.czI = recommendFrsControlFragment;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,11 +34,11 @@ public class m extends CustomMessageListener {
             String str2 = data instanceof String ? (String) data : null;
             if (!StringUtils.isNull(str2)) {
                 ArrayList<com.baidu.tieba.homepage.b.a.a> arrayList = new ArrayList();
-                scrollFragmentTabHost = this.ctq.ctc;
+                scrollFragmentTabHost = this.czI.czu;
                 if (!x.r(scrollFragmentTabHost.getTagList())) {
-                    scrollFragmentTabHost2 = this.ctq.ctc;
+                    scrollFragmentTabHost2 = this.czI.czu;
                     arrayList.addAll(scrollFragmentTabHost2.getTagList());
-                    int i2 = com.baidu.tieba.homepage.framework.a.a.ahr().cue;
+                    int i2 = com.baidu.tieba.homepage.framework.a.a.aiG().cAw;
                     int size = arrayList.size();
                     int i3 = 0;
                     while (true) {
@@ -48,7 +48,7 @@ public class m extends CustomMessageListener {
                             break;
                         }
                         com.baidu.tieba.homepage.b.a.a aVar = (com.baidu.tieba.homepage.b.a.a) arrayList.get(i3);
-                        String str3 = aVar != null ? aVar.cxa : str;
+                        String str3 = aVar != null ? aVar.cDr : str;
                         if (!str2.equals(str3)) {
                             i3++;
                             str = str3;
@@ -63,8 +63,8 @@ public class m extends CustomMessageListener {
                     }
                     ArrayList arrayList2 = new ArrayList();
                     for (com.baidu.tieba.homepage.b.a.a aVar2 : arrayList) {
-                        if (aVar2 != null && !StringUtils.isNull(aVar2.cxa) && aVar2.cxb != -1 && aVar2.cxb != -2) {
-                            arrayList2.add(new c.a(aVar2.cxa, aVar2.level));
+                        if (aVar2 != null && !StringUtils.isNull(aVar2.cDr) && aVar2.cDs != -1 && aVar2.cDs != -2) {
+                            arrayList2.add(new c.a(aVar2.cDr, aVar2.level));
                         }
                     }
                     com.baidu.tbadk.util.c.B(arrayList2);

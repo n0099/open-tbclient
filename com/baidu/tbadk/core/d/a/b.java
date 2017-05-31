@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.d.n;
 import com.baidu.tbadk.core.d.p;
 import com.baidu.tbadk.core.d.q;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.h;
+import com.baidu.tbadk.data.i;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -17,7 +17,7 @@ public class b extends p {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.d.p
-    public String of() {
+    public String nX() {
         return "TBHY_EXT_FocusFeed";
     }
 
@@ -27,11 +27,11 @@ public class b extends p {
             int optInt = jSONObject.optInt("activityId");
             int optInt2 = jSONObject.optInt("state");
             String optString = jSONObject.optString("curNum");
-            h hVar = new h();
-            hVar.setActivityId(optInt);
-            hVar.en(optInt2);
-            hVar.eT(optString);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_ADCARD, hVar));
+            i iVar = new i();
+            iVar.setActivityId(optInt);
+            iVar.eo(optInt2);
+            iVar.eR(optString);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_ADCARD, iVar));
         }
     }
 }

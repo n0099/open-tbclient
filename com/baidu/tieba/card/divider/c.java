@@ -8,24 +8,24 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private View bys;
-    private View byt;
+    private View bEn;
+    private View bEo;
     private TextView mTitle;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
         getView().setOnClickListener(this);
-        this.bys = getView().findViewById(w.h.card_divider_top_margin);
+        this.bEn = getView().findViewById(w.h.card_divider_top_margin);
         this.mTitle = (TextView) getView().findViewById(w.h.card_divider_tv);
-        this.byt = getView().findViewById(w.h.bottom_line);
+        this.bEo = getView().findViewById(w.h.bottom_line);
     }
 
     @Override // com.baidu.tieba.card.a
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public void d(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             aq.i(this.mTitle, w.e.cp_cont_d);
-            aq.k(this.byt, w.e.cp_bg_line_b);
-            aq.k(this.bys, w.e.cp_bg_line_c);
+            aq.k(this.bEo, w.e.cp_bg_line_b);
+            aq.k(this.bEn, w.e.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
@@ -37,16 +37,15 @@ public class c extends com.baidu.tieba.card.a<b> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
-    /* renamed from: a */
-    public void onBindDataToView(b bVar) {
+    public void a(b bVar) {
         if (bVar != null) {
             if (bVar.needTopMargin) {
-                this.bys.setVisibility(0);
+                this.bEn.setVisibility(0);
             } else {
-                this.bys.setVisibility(8);
+                this.bEn.setVisibility(8);
             }
             this.mTitle.setText(bVar.title);
-            onChangeSkinType(null, TbadkCoreApplication.m9getInst().getSkinType());
+            d(null, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 

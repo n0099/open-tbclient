@@ -1,14 +1,33 @@
 package com.baidu.tbadk.n;
 /* loaded from: classes.dex */
-public class o extends i {
-    private static final o aIx = new o();
-
-    public static boolean Gd() {
-        return aIx.fV();
+public class o extends com.baidu.adp.lib.b.a {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.b.a
+    public void X(int i) {
     }
 
-    @Override // com.baidu.tbadk.n.i, com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "is_auto_play_forumheadvideo";
+        return "android_bottle_enable";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] eQ() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eR() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eS() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eT() {
+        return 10;
     }
 }

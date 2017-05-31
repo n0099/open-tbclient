@@ -88,7 +88,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         SPEAKER,
         HEADSET;
 
-        /* JADX DEBUG: Replace access to removed values field (anB) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (anl) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PlayMode[] valuesCustom() {
             PlayMode[] valuesCustom = values();
@@ -101,7 +101,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     /* loaded from: classes.dex */
     public interface b {
-        void aO(int i);
+        void aP(int i);
 
         void b(VoiceData.VoiceModel voiceModel);
 
@@ -109,7 +109,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
         VoiceData.VoiceModel getVoiceModel();
 
-        void md();
+        void lV();
 
         void onShowErr(int i, String str);
     }
@@ -124,7 +124,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public static synchronized void initConfig() {
         synchronized (VoiceManager.class) {
             if (!bInitConfig) {
-                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.tX().getBoolean("voice_use_soft_decoder", l.hP());
+                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("voice_use_soft_decoder", l.hP());
             }
         }
     }
@@ -135,7 +135,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     public static void setVoiceUseSoftDecoder(boolean z) {
         bVoiceUseSoftDecoder = true;
-        com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("voice_use_soft_decoder", bVoiceUseSoftDecoder);
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("voice_use_soft_decoder", bVoiceUseSoftDecoder);
     }
 
     public static VoiceManager instance() {
@@ -226,14 +226,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (this.mResourceCall == null) {
                 this.mResourceCall = new h(this);
             }
-            Object dW = i.dW(voiceModel.getId());
-            if (dW == null) {
+            Object dU = i.dU(voiceModel.getId());
+            if (dU == null) {
                 if (this.context != null && (this.context.getOrignalPage() instanceof j)) {
                     bdUniqueId = ((j) this.context.getOrignalPage()).getUniqueId();
                 }
-                dW = com.baidu.adp.lib.f.c.fM().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                dU = com.baidu.adp.lib.f.c.fM().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
             }
-            if (voiceModel.isLocal && dW == null) {
+            if (voiceModel.isLocal && dU == null) {
                 if (this.mPlayCall == null) {
                     this.mPlayCall = new d(this, null);
                 }
@@ -244,8 +244,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     kVar.n("from", voiceModel.from);
                 }
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "VoiceManager.setDownloading() error : record file not exists", kVar.toString());
-            } else if (dW != null) {
-                setPlaying(voiceModel, (String) dW);
+            } else if (dU != null) {
+                setPlaying(voiceModel, (String) dU);
             } else {
                 voiceModel.voice_status = 2;
                 b playView = getPlayView();
@@ -384,14 +384,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
 
         @Override // com.baidu.adp.lib.voice.i
-        public void ax(int i) {
+        public void ay(int i) {
         }
 
         @Override // com.baidu.adp.lib.voice.f
-        public void aw(int i) {
+        public void ax(int i) {
             b playView = VoiceManager.this.getPlayView();
             if (playView != null) {
-                playView.aO(i);
+                playView.aP(i);
             }
             if (VoiceManager.this.mCurPlayModel != null) {
                 VoiceManager.this.mCurPlayModel.elapse = i;

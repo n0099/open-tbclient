@@ -1,22 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
-
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj implements a.b {
-    private final /* synthetic */ gz ehH;
-    final /* synthetic */ PbActivity ehy;
+class bj implements Runnable {
+    final /* synthetic */ PbActivity enc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(PbActivity pbActivity, gz gzVar) {
-        this.ehy = pbActivity;
-        this.ehH = gzVar;
+    public bj(PbActivity pbActivity) {
+        this.enc = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.ehy.HidenSoftKeyPad((InputMethodManager) this.ehy.getSystemService("input_method"), this.ehH.getChatMsgView());
-        aVar.dismiss();
+    @Override // java.lang.Runnable
+    public void run() {
+        PbModel pbModel;
+        PbModel pbModel2;
+        pbModel = this.enc.ele;
+        if (pbModel != null) {
+            pbModel2 = this.enc.ele;
+            pbModel2.LoadData();
+        }
     }
 }

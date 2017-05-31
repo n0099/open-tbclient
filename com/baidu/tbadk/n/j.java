@@ -1,6 +1,9 @@
 package com.baidu.tbadk.n;
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.lib.b.a {
+public abstract class j extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected abstract String getName();
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void X(int i) {
@@ -13,7 +16,7 @@ public class j extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eR() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -26,8 +29,7 @@ public class j extends com.baidu.adp.lib.b.a {
         return 10;
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "is_video_batch";
+    public boolean fV() {
+        return com.baidu.adp.lib.b.e.eZ().Y(getName()) == eR();
     }
 }

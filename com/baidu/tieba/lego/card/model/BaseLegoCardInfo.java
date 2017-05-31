@@ -210,6 +210,6 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
 
     @Override // com.baidu.tieba.lego.card.model.ICardInfo
     public boolean isReusable(ICardInfo iCardInfo) {
-        return false;
+        return getCardType() == iCardInfo.getCardType();
     }
 }

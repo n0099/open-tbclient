@@ -7,17 +7,17 @@ import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.card.data.g implements r {
-    private CardForum cwp;
+    private CardForum cCI;
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0088: IGET  (r6v1 java.lang.Long A[REMOVE]) = (r0v10 tbclient.Personalized.PersonalForum) tbclient.Personalized.PersonalForum.forum_id java.lang.Long)] */
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.cwp = cardForum;
+            this.cCI = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(String.valueOf(TE()) + cardForum.position.intValue());
+                setYuelaouLocate(String.valueOf(UI()) + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(String.valueOf(TE()) + 0);
+                setYuelaouLocate(String.valueOf(UI()) + 0);
             }
             if (x.q(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
@@ -36,35 +36,35 @@ public class b extends com.baidu.tieba.card.data.g implements r {
 
     @Override // com.baidu.tieba.card.data.r
     public int getPosition() {
-        if (this.cwp != null) {
-            return this.cwp.position.intValue();
+        if (this.cCI != null) {
+            return this.cCI.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public boolean Tv() {
+    public boolean UG() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void dd(boolean z) {
+    public void du(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.r
-    public void de(boolean z) {
+    public void dv(boolean z) {
         this.showBottomDivider = z;
     }
 
-    public boolean pv() {
+    public boolean ajf() {
         if (x.q(getDataList()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean jR(int i) {
+    public static boolean kp(int i) {
         return i == 1;
     }
 }

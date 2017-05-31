@@ -22,7 +22,7 @@ import com.baidu.tieba.w;
 public class l implements bb.a {
     @Override // com.baidu.tbadk.core.util.bb.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        Bundle gp;
+        Bundle go;
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;
         }
@@ -40,7 +40,7 @@ public class l implements bb.a {
             String substring = str.substring(4);
             String str4 = "";
             if (str.contains("body=")) {
-                str4 = com.baidu.tbadk.util.aa.ar(str, "body=");
+                str4 = com.baidu.tbadk.util.aa.aq(str, "body=");
                 int indexOf = substring.indexOf("?");
                 if (indexOf >= 1) {
                     substring = substring.substring(0, indexOf - 1);
@@ -75,10 +75,10 @@ public class l implements bb.a {
             tbPageContext.getPageActivity().finish();
             return 1;
         } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("bunding_phone=1")) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, com.baidu.tbadk.util.aa.ar(str, "bindid=")));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, com.baidu.tbadk.util.aa.aq(str, "bindid=")));
             tbPageContext.getPageActivity().finish();
             return 1;
-        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gp = com.baidu.tbadk.util.aa.gp(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gp.getString("path"))) {
+        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (go = com.baidu.tbadk.util.aa.go(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(go.getString("path"))) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
             return 0;
         } else {

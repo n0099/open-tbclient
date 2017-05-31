@@ -37,10 +37,13 @@ public class d implements View.OnClickListener, View.OnKeyListener {
     }
 
     public void j(Activity activity) {
+        a((ViewGroup) activity.findViewById(16908290), activity);
+    }
+
+    private void a(ViewGroup viewGroup, Activity activity) {
         if (this.uC == null) {
-            this.uC = k(activity);
+            this.uC = l(activity);
         }
-        ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
         if (this.uC.getParent() == null) {
             viewGroup.addView(this.uC);
             if (this.uB.uz != -1) {
@@ -54,6 +57,10 @@ public class d implements View.OnClickListener, View.OnKeyListener {
                 this.uF.fd();
             }
         }
+    }
+
+    public void k(Activity activity) {
+        a((ViewGroup) activity.getWindow().getDecorView(), activity);
     }
 
     public void dismiss() {
@@ -84,10 +91,10 @@ public class d implements View.OnClickListener, View.OnKeyListener {
         this.uE = z;
     }
 
-    private h k(Activity activity) {
+    private h l(Activity activity) {
         h hVar = new h(activity);
-        hVar.af(activity.getResources().getColor(this.uB.uv));
-        hVar.ae(this.uB.mAlpha);
+        hVar.ag(activity.getResources().getColor(this.uB.uv));
+        hVar.af(this.uB.mAlpha);
         hVar.B(this.uB.ux);
         hVar.setOnKeyListener(this);
         int[] iArr = new int[2];

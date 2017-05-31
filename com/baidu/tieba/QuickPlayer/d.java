@@ -8,7 +8,7 @@ import android.os.RemoteException;
 import com.baidu.tieba.QuickPlayer.b;
 /* loaded from: classes.dex */
 public interface d extends IInterface {
-    b Jn() throws RemoteException;
+    b Jk() throws RemoteException;
 
     /* loaded from: classes.dex */
     public static abstract class a extends Binder implements d {
@@ -37,9 +37,9 @@ public interface d extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerService");
-                    b Jn = Jn();
+                    b Jk = Jk();
                     parcel2.writeNoException();
-                    parcel2.writeStrongBinder(Jn != null ? Jn.asBinder() : null);
+                    parcel2.writeStrongBinder(Jk != null ? Jk.asBinder() : null);
                     return true;
                 case 1598968902:
                     parcel2.writeString("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerService");
@@ -64,7 +64,7 @@ public interface d extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.d
-            public b Jn() throws RemoteException {
+            public b Jk() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {

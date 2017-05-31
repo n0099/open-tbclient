@@ -10,44 +10,44 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class a {
-    public static Domain aou = Domain.DOMAIN_ONLINE;
-    private static boolean aov = true;
-    public static c aow = null;
+    public static Domain aoe = Domain.DOMAIN_ONLINE;
+    private static boolean aof = true;
+    public static c aog = null;
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (aow == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
-            aow = (c) runTask.getData();
+        if (aog == null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_PASS_MANAGER, c.class)) != null && runTask.getData() != null) {
+            aog = (c) runTask.getData();
         }
     }
 
-    public static c xi() {
-        return aow;
+    public static c xb() {
+        return aog;
     }
 
-    public static boolean xj() {
-        return aov;
+    public static boolean xc() {
+        return aof;
     }
 
     public static void checkPassV6Switch() {
         if (TbConfig.USE_OLD_LOGIN) {
-            aov = true;
+            aof = true;
             return;
         }
         if (Build.VERSION.SDK_INT < 9) {
             if (TbadkCoreApplication.m9getInst().isLowVersionPassV6ShouldOpen()) {
-                aov = false;
+                aof = false;
             } else {
-                aov = true;
+                aof = true;
             }
         } else if (TbadkCoreApplication.m9getInst().isPassportV6ShouldOpen()) {
-            aov = false;
+            aof = false;
         } else {
-            aov = true;
+            aof = true;
         }
-        if (Build.VERSION.SDK_INT <= 10 && !aov && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.m9getInst().getContext())) {
+        if (Build.VERSION.SDK_INT <= 10 && !aof && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.m9getInst().getContext())) {
             TbadkCoreApplication.m9getInst().incPassportV6CrashCount();
-            aov = true;
+            aof = true;
         }
     }
 }

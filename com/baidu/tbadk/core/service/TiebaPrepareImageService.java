@@ -105,7 +105,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String acu = null;
+        String act = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -136,15 +136,15 @@ public class TiebaPrepareImageService extends BdBaseService {
                         }
                         Bitmap resizeBitmap = BitmapHelper.resizeBitmap(a, i);
                         if (resizeBitmap == null || l.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 80) == null) {
-                            this.acu = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
+                            this.act = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
                             z = false;
                         }
                     } else {
-                        this.acu = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
+                        this.act = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
                         z = false;
                     }
                 } else {
-                    this.acu = TiebaPrepareImageService.this.getString(w.l.pic_parser_error);
+                    this.act = TiebaPrepareImageService.this.getString(w.l.pic_parser_error);
                     z = false;
                 }
                 TiebaPrepareImageService.IS_DECODING = false;
@@ -171,8 +171,8 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute((a) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.acu != null) {
-                intent.putExtra("error", this.acu);
+            if (this.act != null) {
+                intent.putExtra("error", this.act);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

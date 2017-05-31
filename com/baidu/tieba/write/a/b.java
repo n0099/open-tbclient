@@ -1,5 +1,6 @@
 package com.baidu.tieba.write.a;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.MetaData;
 import java.util.ArrayList;
@@ -8,59 +9,50 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private final ArrayList<MetaData> fOq = new ArrayList<>();
+    private final ArrayList<MetaData> fWg = new ArrayList<>();
+    private HashMap<String, String> fWh = null;
 
-    public void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
-        String str;
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("uname");
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < optJSONArray.length()) {
-                    MetaData metaData = new MetaData();
-                    String optString = optJSONArray.optString(i2);
-                    metaData.setUserName(optString);
-                    metaData.setName_show(optString);
-                    if (hashMap != null && (str = hashMap.get(metaData.getUserName())) != null) {
-                        metaData.setPortrait(str);
+    public void b(JSONObject jSONObject, boolean z) {
+        if (jSONObject != null) {
+            if (z) {
+                try {
+                    if (this.fWh == null) {
+                        this.fWh = new HashMap<>();
                     }
-                    this.fOq.add(metaData);
-                    i = i2 + 1;
-                } else {
+                } catch (Exception e) {
+                    BdLog.detailException(e);
                     return;
                 }
             }
-        } catch (Exception e) {
-            BdLog.detailException(e);
+            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    MetaData metaData = new MetaData();
+                    metaData.parserJson(optJSONArray.getJSONObject(i));
+                    if (!TextUtils.isEmpty(metaData.getName_show())) {
+                        this.fWg.add(metaData);
+                        if (z) {
+                            this.fWh.put(metaData.getName_show(), metaData.getPortrait());
+                        }
+                    }
+                }
+            }
         }
     }
 
-    public void e(String str, HashMap<String, String> hashMap) {
+    public void rk(String str) {
         try {
-            a(new JSONObject(str), hashMap);
+            b(new JSONObject(str), true);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
     }
 
-    public void k(HashMap<String, String> hashMap) {
-        if (hashMap != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.fOq.size()) {
-                    MetaData metaData = this.fOq.get(i2);
-                    metaData.setPortrait(hashMap.get(metaData.getUserName()));
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
-        }
+    public ArrayList<MetaData> bol() {
+        return this.fWg;
     }
 
-    public ArrayList<MetaData> bmQ() {
-        return this.fOq;
+    public HashMap<String, String> bom() {
+        return this.fWh;
     }
 }

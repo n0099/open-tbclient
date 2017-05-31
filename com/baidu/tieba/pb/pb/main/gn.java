@@ -1,39 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.pb.a.a;
+import android.view.View;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gn implements a.InterfaceC0071a {
-    final /* synthetic */ fm epr;
+public class gn implements View.OnClickListener {
+    final /* synthetic */ fx evi;
+    private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gn(fm fmVar) {
-        this.epr = fmVar;
+    public gn(fx fxVar, String str) {
+        this.evi = fxVar;
+        this.val$url = str;
     }
 
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0071a
-    public void ZW() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        com.baidu.tieba.pb.video.g gVar;
-        com.baidu.tieba.pb.video.g gVar2;
-        bdTypeListView = this.epr.mListView;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.epr.mListView;
-            bdTypeListView2.setSelection(0);
-            gVar = this.epr.emL;
-            if (gVar != null) {
-                gVar2 = this.epr.emL;
-                gVar2.aNJ();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0071a
-    public void ZV() {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         PbActivity pbActivity;
-        pbActivity = this.epr.efF;
-        pbActivity.Zp();
+        PbActivity pbActivity2;
+        PbActivity pbActivity3;
+        if (!com.baidu.adp.lib.util.k.hB()) {
+            pbActivity = this.evi.elf;
+            pbActivity.showToast(w.l.neterror);
+            return;
+        }
+        com.baidu.tbadk.core.util.bb vy = com.baidu.tbadk.core.util.bb.vy();
+        pbActivity2 = this.evi.elf;
+        vy.c(pbActivity2.getPageContext(), new String[]{this.val$url});
+        pbActivity3 = this.evi.elf;
+        pbActivity3.finish();
     }
 }

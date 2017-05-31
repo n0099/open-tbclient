@@ -7,11 +7,11 @@ import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements q.a {
-    final /* synthetic */ RecommendFrsControlFragment ctq;
+    final /* synthetic */ RecommendFrsControlFragment czI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.ctq = recommendFrsControlFragment;
+        this.czI = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tieba.homepage.framework.q.a
@@ -22,23 +22,23 @@ public class f implements q.a {
     public void a(String str, String str2, int i, boolean z) {
         ScrollFragmentTabHost scrollFragmentTabHost;
         ScrollFragmentTabHost scrollFragmentTabHost2;
-        this.ctq.ahe();
-        scrollFragmentTabHost = this.ctq.ctc;
-        if (scrollFragmentTabHost.aho()) {
-            scrollFragmentTabHost2 = this.ctq.ctc;
+        this.czI.ait();
+        scrollFragmentTabHost = this.czI.czu;
+        if (scrollFragmentTabHost.aiD()) {
+            scrollFragmentTabHost2 = this.czI.czu;
             scrollFragmentTabHost2.M(str2, i);
-        } else if (this.ctq.getPageContext() == null || this.ctq.getPageContext().getResources() == null) {
+        } else if (this.czI.getPageContext() == null || this.czI.getPageContext().getResources() == null) {
         } else {
-            this.ctq.H(this.ctq.getPageContext().getResources().getString(w.l.net_error_text, str2, Integer.valueOf(i)), false);
+            this.czI.E(this.czI.getPageContext().getResources().getString(w.l.net_error_text, str2, Integer.valueOf(i)), false);
         }
     }
 
     @Override // com.baidu.tieba.homepage.framework.q.a
     public void a(DataRes dataRes, boolean z, boolean z2) {
         ScrollFragmentTabHost scrollFragmentTabHost;
-        this.ctq.ahe();
-        this.ctq.JR();
-        scrollFragmentTabHost = this.ctq.ctc;
+        this.czI.ait();
+        this.czI.Mx();
+        scrollFragmentTabHost = this.czI.czu;
         scrollFragmentTabHost.c(dataRes, z, z2);
     }
 }

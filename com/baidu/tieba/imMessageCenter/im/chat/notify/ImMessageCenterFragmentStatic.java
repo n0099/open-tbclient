@@ -6,10 +6,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes2.dex */
 public class ImMessageCenterFragmentStatic {
     static {
-        asi();
+        atf();
     }
 
-    private static void asi() {
+    private static void atf() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT, new r());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

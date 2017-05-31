@@ -3,8 +3,9 @@ package com.baidu.tbadk.browser;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j extends CustomMessageListener {
+public class j extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(int i) {
         super(i);

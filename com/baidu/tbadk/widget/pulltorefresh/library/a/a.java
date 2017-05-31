@@ -12,12 +12,12 @@ import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a extends b {
-    private static /* synthetic */ int[] aMj;
-    private final Animation aMx;
-    private final Animation aMy;
+    private static /* synthetic */ int[] aMg;
+    private final Animation aMu;
+    private final Animation aMv;
 
-    static /* synthetic */ int[] Hs() {
-        int[] iArr = aMj;
+    static /* synthetic */ int[] Hn() {
+        int[] iArr = aMg;
         if (iArr == null) {
             iArr = new int[PullToRefreshBase.Mode.valuesCustom().length];
             try {
@@ -40,7 +40,7 @@ public class a extends b {
                 iArr[PullToRefreshBase.Mode.PULL_FROM_START.ordinal()] = 2;
             } catch (NoSuchFieldError e5) {
             }
-            aMj = iArr;
+            aMg = iArr;
         }
         return iArr;
     }
@@ -48,14 +48,14 @@ public class a extends b {
     public a(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
         int i = mode == PullToRefreshBase.Mode.PULL_FROM_START ? -180 : 180;
-        this.aMx = new RotateAnimation(0.0f, i, 1, 0.5f, 1, 0.5f);
-        this.aMx.setInterpolator(aMz);
-        this.aMx.setDuration(150L);
-        this.aMx.setFillAfter(true);
-        this.aMy = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.aMy.setInterpolator(aMz);
-        this.aMy.setDuration(150L);
-        this.aMy.setFillAfter(true);
+        this.aMu = new RotateAnimation(0.0f, i, 1, 0.5f, 1, 0.5f);
+        this.aMu.setInterpolator(aMw);
+        this.aMu.setDuration(150L);
+        this.aMu.setFillAfter(true);
+        this.aMv = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.aMv.setInterpolator(aMw);
+        this.aMv.setDuration(150L);
+        this.aMv.setFillAfter(true);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
@@ -63,46 +63,46 @@ public class a extends b {
         if (drawable != null) {
             int intrinsicHeight = drawable.getIntrinsicHeight();
             int intrinsicWidth = drawable.getIntrinsicWidth();
-            ViewGroup.LayoutParams layoutParams = this.aMB.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aMy.getLayoutParams();
             int max = Math.max(intrinsicHeight, intrinsicWidth);
             layoutParams.height = max;
             layoutParams.width = max;
-            this.aMB.requestLayout();
-            this.aMB.setScaleType(ImageView.ScaleType.MATRIX);
+            this.aMy.requestLayout();
+            this.aMy.setScaleType(ImageView.ScaleType.MATRIX);
             Matrix matrix = new Matrix();
             matrix.postTranslate((layoutParams.width - intrinsicWidth) / 2.0f, (layoutParams.height - intrinsicHeight) / 2.0f);
             matrix.postRotate(getDrawableRotationAngle(), layoutParams.width / 2.0f, layoutParams.height / 2.0f);
-            this.aMB.setImageMatrix(matrix);
+            this.aMy.setImageMatrix(matrix);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void R(float f) {
+    protected void Q(float f) {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Hv() {
-        if (this.aMx == this.aMB.getAnimation()) {
-            this.aMB.startAnimation(this.aMy);
+    protected void Hq() {
+        if (this.aMu == this.aMy.getAnimation()) {
+            this.aMy.startAnimation(this.aMv);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Hw() {
-        this.aMB.setVisibility(0);
-        this.aMC.setVisibility(8);
+    protected void Hr() {
+        this.aMy.setVisibility(0);
+        this.aMz.setVisibility(8);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Hx() {
-        this.aMB.startAnimation(this.aMx);
+    protected void Hs() {
+        this.aMy.startAnimation(this.aMu);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Hy() {
-        this.aMB.clearAnimation();
-        this.aMC.setVisibility(8);
-        this.aMB.setVisibility(0);
+    protected void Ht() {
+        this.aMy.clearAnimation();
+        this.aMz.setVisibility(8);
+        this.aMy.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
@@ -111,14 +111,14 @@ public class a extends b {
     }
 
     private float getDrawableRotationAngle() {
-        switch (Hs()[this.aLR.ordinal()]) {
+        switch (Hn()[this.aLO.ordinal()]) {
             case 2:
-                if (this.aMG != PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.aMD != PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 0.0f;
                 }
                 return 270.0f;
             case 3:
-                if (this.aMG == PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.aMD == PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 90.0f;
                 }
                 return 180.0f;

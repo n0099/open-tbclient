@@ -1,43 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Comparator;
 /* loaded from: classes.dex */
-public class dd implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.layout.c> {
-    final /* synthetic */ dc eiI;
+class dd implements Comparator<Integer> {
+    final /* synthetic */ cv eod;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dd(dc dcVar) {
-        this.eiI = dcVar;
+    public dd(cv cvVar) {
+        this.eod = cvVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: aaJ */
-    public com.baidu.tbadk.widget.layout.c fL() {
-        Context context;
-        context = this.eiI.mContext;
-        return new com.baidu.tbadk.widget.layout.c(context);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public void o(com.baidu.tbadk.widget.layout.c cVar) {
-        cVar.removeAllViews();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: d */
-    public com.baidu.tbadk.widget.layout.c p(com.baidu.tbadk.widget.layout.c cVar) {
-        return cVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: e */
-    public com.baidu.tbadk.widget.layout.c q(com.baidu.tbadk.widget.layout.c cVar) {
-        return cVar;
+    @Override // java.util.Comparator
+    public int compare(Integer num, Integer num2) {
+        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
     }
 }

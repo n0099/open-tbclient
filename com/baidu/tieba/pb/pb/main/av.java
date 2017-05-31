@@ -1,31 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.e.c;
 /* loaded from: classes.dex */
-class av extends CustomMessageListener {
-    final /* synthetic */ PbActivity ehy;
+class av implements c.a {
+    final /* synthetic */ PbActivity enc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public av(PbActivity pbActivity, int i) {
-        super(i);
-        this.ehy = pbActivity;
+    public av(PbActivity pbActivity) {
+        this.enc = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            String str = (String) customResponsedMessage.getData();
-            if (!TextUtils.isEmpty(str)) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11455").aa("obj_locate", "pb"));
-                com.baidu.tbadk.core.util.bb.vB().c(this.ehy.getPageContext(), new String[]{str});
-            }
+    @Override // com.baidu.tieba.e.c.a
+    public void dG(boolean z) {
+        if (z) {
+            com.baidu.tieba.pb.a.c.aJs();
+        } else {
+            com.baidu.tieba.pb.a.c.aJr();
         }
     }
 }

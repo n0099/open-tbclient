@@ -1,22 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.webkit.WebView;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* loaded from: classes.dex */
-public class du extends CustomMessageListener {
-    final /* synthetic */ dt ejt;
+class du implements BaseWebView.b {
+    final /* synthetic */ dr eoS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public du(dt dtVar, int i) {
-        super(i);
-        this.ejt = dtVar;
+    public du(dr drVar) {
+        this.eoS = drVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.ejt.h(customResponsedMessage);
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        return true;
     }
 }

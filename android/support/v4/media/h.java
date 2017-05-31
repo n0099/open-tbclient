@@ -1,8 +1,9 @@
 package android.support.v4.media;
 
 import android.media.AudioManager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements AudioManager.OnAudioFocusChangeListener {
+public class h implements AudioManager.OnAudioFocusChangeListener {
     final /* synthetic */ d this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */

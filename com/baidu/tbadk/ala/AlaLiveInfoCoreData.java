@@ -7,6 +7,7 @@ import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
 public class AlaLiveInfoCoreData extends i implements Serializable {
     private static final long serialVersionUID = 5768965545624138312L;
+    private long audienceCount;
     private long groupID;
     private String hslUrl;
     private String liveCover;
@@ -89,6 +90,10 @@ public class AlaLiveInfoCoreData extends i implements Serializable {
         return this.hslUrl;
     }
 
+    public long getAudienceCount() {
+        return this.audienceCount;
+    }
+
     @Override // com.baidu.tbadk.core.data.i
     public void parserJson(JSONObject jSONObject) {
     }
@@ -106,6 +111,7 @@ public class AlaLiveInfoCoreData extends i implements Serializable {
             this.liveCover = alaLiveInfo.cover;
             this.rtmpUrl = alaLiveInfo.rtmp_url;
             this.hslUrl = alaLiveInfo.hls_url;
+            this.audienceCount = alaLiveInfo.audience_count.intValue();
         }
     }
 }

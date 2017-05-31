@@ -73,6 +73,10 @@ public class GodUserData extends OrmObject implements Serializable {
         return this.type == 2;
     }
 
+    public boolean isBigV() {
+        return this.type == 2 || this.type == 1;
+    }
+
     public void setIsFromNetWork(boolean z) {
         this.isFromNetWork = z;
     }

@@ -9,17 +9,17 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.InterfaceC0035a {
-    final /* synthetic */ QALoginActivity dZV;
+    final /* synthetic */ QALoginActivity efr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(QALoginActivity qALoginActivity) {
-        this.dZV = qALoginActivity;
+        this.efr = qALoginActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
     public void cf(String str) {
-        if (this.dZV.getLoadingDialog() == null || !this.dZV.getLoadingDialog().isShowing()) {
-            this.dZV.showLoadingDialog(this.dZV.getPageContext().getString(w.l.sapi_logining), new p(this));
+        if (this.efr.getLoadingDialog() == null || !this.efr.getLoadingDialog().isShowing()) {
+            this.efr.showLoadingDialog(this.efr.getPageContext().getString(w.l.sapi_logining), new p(this));
         }
     }
 
@@ -27,31 +27,31 @@ public class o implements a.InterfaceC0035a {
     public void a(AccountData accountData) {
         int i;
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
-        this.dZV.closeLoadingDialog();
+        this.efr.closeLoadingDialog();
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            this.dZV.showToast("用户名为空");
+            this.efr.showToast("用户名为空");
             return;
         }
         q(accountData);
-        i = this.dZV.mFrom;
+        i = this.efr.mFrom;
         if (i == 4) {
-            this.dZV.Lp();
+            this.efr.Kk();
         } else {
-            this.dZV.aGG();
+            this.efr.aHC();
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
     public void b(String str, int i, String str2) {
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
-        this.dZV.closeLoadingDialog();
-        this.dZV.showToast(str2);
-        this.dZV.finish();
+        this.efr.closeLoadingDialog();
+        this.efr.showToast(str2);
+        this.efr.finish();
     }
 
     private void q(AccountData accountData) {
         com.baidu.adp.lib.g.k.fT().e(new q(this, accountData));
-        TbadkCoreApplication.setCurrentAccount(accountData, this.dZV.getPageContext().getPageActivity());
+        TbadkCoreApplication.setCurrentAccount(accountData, this.efr.getPageContext().getPageActivity());
         com.baidu.tbadk.browser.f.ar(TbadkCoreApplication.m9getInst());
     }
 }

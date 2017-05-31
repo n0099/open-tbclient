@@ -5,6 +5,12 @@ import com.baidu.adp.lib.util.i;
 public class e {
     private int[] ra;
 
+    public e(int i) {
+        this.ra = null;
+        this.ra = new int[1];
+        this.ra[0] = i;
+    }
+
     public e(int i, int i2, int i3) {
         this.ra = null;
         this.ra = new int[3];

@@ -1,26 +1,18 @@
 package com.baidu.tieba.i;
+
+import java.io.File;
+import java.io.FileFilter;
 /* loaded from: classes.dex */
-public class c {
-    private static volatile c frb = null;
-    private b frc;
+class c implements FileFilter {
+    private final /* synthetic */ String dUo;
 
-    private c() {
-        this.frc = null;
-        this.frc = b.fra;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(String str) {
+        this.dUo = str;
     }
 
-    public static c beJ() {
-        if (frb == null) {
-            synchronized (c.class) {
-                if (frb == null) {
-                    frb = new c();
-                }
-            }
-        }
-        return frb;
-    }
-
-    public b beK() {
-        return this.frc;
+    @Override // java.io.FileFilter
+    public boolean accept(File file) {
+        return !file.getName().startsWith(this.dUo);
     }
 }

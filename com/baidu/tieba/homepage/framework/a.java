@@ -3,42 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class a {
-    private static a csW = new a();
-    private long csX = 0;
-    private SparseArray<Long> csY = new SparseArray<>();
-    private SparseArray<Long> csZ = new SparseArray<>();
-    private SparseArray<Long> cta = new SparseArray<>();
-    private SparseArray<Long> ctb = new SparseArray<>();
+    private static a czo = new a();
+    private long czp = 0;
+    private SparseArray<Long> czq = new SparseArray<>();
+    private SparseArray<Long> czr = new SparseArray<>();
+    private SparseArray<Long> czs = new SparseArray<>();
+    private SparseArray<Long> czt = new SparseArray<>();
 
     private a() {
     }
 
-    public static a ahb() {
-        return csW;
+    public static a aiq() {
+        return czo;
     }
 
     public long getCreateTime() {
-        return this.csX;
+        return this.czp;
     }
 
     public void setCreateTime(long j) {
-        this.csX = j;
+        this.czp = j;
     }
 
-    public long jA(int i) {
-        Long l = this.csZ.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void b(long j, int i) {
-        this.csZ.put(i, Long.valueOf(j));
-    }
-
-    public long jB(int i) {
-        Long l = this.csY.get(i);
+    public long jZ(int i) {
+        Long l = this.czr.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +34,11 @@ public class a {
     }
 
     public void c(long j, int i) {
-        this.csY.put(i, Long.valueOf(j));
+        this.czr.put(i, Long.valueOf(j));
     }
 
-    public long jC(int i) {
-        Long l = this.cta.get(i);
+    public long ka(int i) {
+        Long l = this.czq.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +46,11 @@ public class a {
     }
 
     public void d(long j, int i) {
-        this.cta.put(i, Long.valueOf(j));
+        this.czq.put(i, Long.valueOf(j));
     }
 
-    public long jD(int i) {
-        Long l = this.ctb.get(i);
+    public long kb(int i) {
+        Long l = this.czs.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +58,18 @@ public class a {
     }
 
     public void e(long j, int i) {
-        this.ctb.put(i, Long.valueOf(j));
+        this.czs.put(i, Long.valueOf(j));
+    }
+
+    public long kc(int i) {
+        Long l = this.czt.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void f(long j, int i) {
+        this.czt.put(i, Long.valueOf(j));
     }
 }

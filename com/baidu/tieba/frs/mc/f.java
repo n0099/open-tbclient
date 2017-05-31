@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.mc;
 /* loaded from: classes.dex */
 class f extends com.baidu.adp.base.f {
-    final /* synthetic */ d bXR;
+    final /* synthetic */ d cec;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.bXR = dVar;
+        this.cec = dVar;
     }
 
     @Override // com.baidu.adp.base.f

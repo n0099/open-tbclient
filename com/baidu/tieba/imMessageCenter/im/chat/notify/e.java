@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes2.dex */
 class e extends CustomMessageListener {
-    final /* synthetic */ ImMessageCenterDelegateStatic ddU;
+    final /* synthetic */ ImMessageCenterDelegateStatic djp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, int i) {
         super(i);
-        this.ddU = imMessageCenterDelegateStatic;
+        this.djp = imMessageCenterDelegateStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,12 +23,12 @@ class e extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage)) {
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
             int a = s.a(newsNotifyMessage);
-            textView = this.ddU.avK;
+            textView = this.djp.avu;
             if (textView != null) {
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.yR().zl()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.yK().ze()) {
                     a -= newsNotifyMessage.getMsgOfficialMerge();
                 }
-                textView2 = this.ddU.avK;
+                textView2 = this.djp.avu;
                 ImMessageCenterDelegateStatic.n(textView2, a);
             }
         }

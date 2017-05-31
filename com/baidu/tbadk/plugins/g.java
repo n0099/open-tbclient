@@ -23,7 +23,7 @@ class g extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
             boolean z = true;
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.aIn;
+            String[] strArr = Static.aIa;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -35,7 +35,7 @@ class g extends CustomMessageListener {
                     i++;
                 } else {
                     com.baidu.adp.plugin.b.a.jk().aV("plugin_crash_inflate");
-                    com.baidu.tbadk.core.sharedPref.b.tX().putBoolean("is_plugin_resource_open_local", false);
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("is_plugin_resource_open_local", false);
                     z = false;
                     break;
                 }
@@ -49,7 +49,7 @@ class g extends CustomMessageListener {
                                 for (StackTraceElement stackTraceElement : stackTrace) {
                                     try {
                                         plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                        com.baidu.tbadk.core.sharedPref.b.tX().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.tX().getInt("plugin_patch_hook_failed_count", 0) + 1);
+                                        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("plugin_patch_hook_failed_count", 0) + 1);
                                         break;
                                     } catch (ClassNotFoundException e) {
                                     }

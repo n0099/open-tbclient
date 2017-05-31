@@ -4,6 +4,7 @@ import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class g {
     protected int aPY;
+    protected b aPZ;
     protected TbPageContext pageContext;
 
     public g(TbPageContext tbPageContext, int i) {
@@ -11,11 +12,20 @@ public class g {
         this.aPY = i;
     }
 
+    public g(b bVar, int i) {
+        this.aPZ = bVar;
+        this.aPY = i;
+    }
+
     public TbPageContext getPageContext() {
         return this.pageContext;
     }
 
-    public int IL() {
+    public b IG() {
+        return this.aPZ;
+    }
+
+    public int IH() {
         return this.aPY;
     }
 }

@@ -4,17 +4,17 @@ import android.view.View;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class ab implements View.OnClickListener {
-    final /* synthetic */ y aUy;
+    final /* synthetic */ y aSa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(y yVar) {
-        this.aUy = yVar;
+        this.aSa = yVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         y.a aVar;
-        aVar = this.aUy.aUt;
-        aVar.KB();
+        aVar = this.aSa.aRV;
+        aVar.Jw();
     }
 }

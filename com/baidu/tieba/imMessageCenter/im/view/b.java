@@ -3,11 +3,11 @@ package com.baidu.tieba.imMessageCenter.im.view;
 import android.view.animation.Animation;
 /* loaded from: classes2.dex */
 class b implements Animation.AnimationListener {
-    final /* synthetic */ ShutDownValidateTipView dgy;
+    final /* synthetic */ ShutDownValidateTipView dlU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ShutDownValidateTipView shutDownValidateTipView) {
-        this.dgy = shutDownValidateTipView;
+        this.dlU = shutDownValidateTipView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -20,6 +20,6 @@ class b implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.dgy.setVisibility(8);
+        this.dlU.setVisibility(8);
     }
 }

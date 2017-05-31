@@ -8,7 +8,7 @@ public class ae extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_stoken_new";
+        return "forum_mask_stat";
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -5,22 +5,22 @@ import com.baidu.tbadk.util.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends v<Void> {
-    private final /* synthetic */ PersonalSettingItemData dbA;
-    final /* synthetic */ j dbz;
+    final /* synthetic */ j dgW;
+    private final /* synthetic */ PersonalSettingItemData dgX;
     private final /* synthetic */ String val$key;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar, PersonalSettingItemData personalSettingItemData, String str) {
-        this.dbz = jVar;
-        this.dbA = personalSettingItemData;
+        this.dgW = jVar;
+        this.dgX = personalSettingItemData;
         this.val$key = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.v
-    /* renamed from: LK */
+    /* renamed from: KF */
     public Void doInBackground() {
-        this.dbz.arq().k(this.val$key, OrmObject.jsonStrWithObject(this.dbA));
+        this.dgW.aso().k(this.val$key, OrmObject.jsonStrWithObject(this.dgX));
         return null;
     }
 }

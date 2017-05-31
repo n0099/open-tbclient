@@ -4,11 +4,11 @@ import com.baidu.tieba.pb.account.forbid.f;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class b implements f.b {
-    final /* synthetic */ a ebl;
+    final /* synthetic */ a egI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.ebl = aVar;
+        this.egI = aVar;
     }
 
     @Override // com.baidu.tieba.pb.account.forbid.f.b
@@ -16,10 +16,10 @@ class b implements f.b {
         ForbidActivity forbidActivity;
         ForbidActivity forbidActivity2;
         ForbidActivity forbidActivity3;
-        forbidActivity = this.ebl.ebk;
-        forbidActivity2 = this.ebl.ebk;
+        forbidActivity = this.egI.egH;
+        forbidActivity2 = this.egI.egH;
         forbidActivity.showToast(forbidActivity2.getPageContext().getString(w.l.forbid_success));
-        forbidActivity3 = this.ebl.ebk;
+        forbidActivity3 = this.egI.egH;
         forbidActivity3.finish();
     }
 
@@ -27,8 +27,8 @@ class b implements f.b {
     public void b(ForbidResultData forbidResultData) {
         ForbidActivity forbidActivity;
         ForbidActivity forbidActivity2;
-        forbidActivity = this.ebl.ebk;
-        forbidActivity2 = this.ebl.ebk;
+        forbidActivity = this.egI.egH;
+        forbidActivity2 = this.egI.egH;
         forbidActivity.showToast(forbidActivity2.getPageContext().getString(w.l.forbid_failure));
     }
 }

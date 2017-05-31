@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a eaa = null;
-    private final a.InterfaceC0035a eab = new b(this);
+    private static a efw = null;
+    private final a.InterfaceC0035a efx = new b(this);
 
     private a() {
     }
 
-    public static a aGL() {
-        if (eaa == null) {
-            eaa = new a();
+    public static a aHH() {
+        if (efw == null) {
+            efw = new a();
         }
-        return eaa;
+        return efw;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -33,7 +33,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                     try {
                         bVar.mBduss = split[0];
                         if (split.length >= 2) {
-                            bVar.Su = split[1];
+                            bVar.Sh = split[1];
                             return bVar;
                         }
                         return bVar;
@@ -52,21 +52,21 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public void pe() {
+    public void oW() {
         AccountData currentAccountObj;
         a.b ce;
         if (i.hk() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (ce = ce(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ce.mBduss, ce.Su, currentAccountObj.getStoken(), this.eab);
+            com.baidu.tieba.model.c.a(currentAccountObj.getAccount(), ce.mBduss, ce.Sh, currentAccountObj.getStoken(), this.efx);
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a
     public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0035a interfaceC0035a) {
-        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0035a);
+        return com.baidu.tieba.model.c.a(str, str2, str3, str4, interfaceC0035a);
     }
 
     @Override // com.baidu.tbadk.core.a.a
     public AccountData h(String str, String str2, String str3, String str4) {
-        return com.baidu.tieba.model.b.A(str, str2, str3);
+        return com.baidu.tieba.model.c.B(str, str2, str3);
     }
 }

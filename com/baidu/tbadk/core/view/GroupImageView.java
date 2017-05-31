@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class GroupImageView extends com.baidu.tbadk.widget.e {
-    private int ahN;
-    private int ahO;
+    private int ahE;
+    private int ahF;
 
     public GroupImageView(Context context) {
         this(context, null, 0);
@@ -18,8 +18,8 @@ public class GroupImageView extends com.baidu.tbadk.widget.e {
 
     public GroupImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ahN = w.g.transparent_bg;
-        this.ahO = w.e.cp_bg_line_e;
+        this.ahE = w.g.transparent_bg;
+        this.ahF = w.e.cp_bg_line_e;
         init();
     }
 
@@ -27,8 +27,8 @@ public class GroupImageView extends com.baidu.tbadk.widget.e {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultResource(this.ahN);
+        setDefaultResource(this.ahE);
         setDefaultErrorResource(w.g.icon_default_group_120);
-        setDefaultBgResource(this.ahO);
+        setDefaultBgResource(this.ahF);
     }
 }

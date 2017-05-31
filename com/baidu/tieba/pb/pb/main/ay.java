@@ -1,22 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class ay implements Runnable {
-    private final /* synthetic */ Intent Dy;
-    final /* synthetic */ PbActivity ehy;
+class ay extends CustomMessageListener {
+    final /* synthetic */ PbActivity enc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(PbActivity pbActivity, Intent intent) {
-        this.ehy = pbActivity;
-        this.Dy = intent;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ay(PbActivity pbActivity, int i) {
+        super(i);
+        this.enc = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        fm fmVar;
-        fmVar = this.ehy.egt;
-        fmVar.nP("@" + this.Dy.getStringExtra(PbActivityConfig.BIG_PIC_NAME) + " ");
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            String str = (String) customResponsedMessage.getData();
+            if (!TextUtils.isEmpty(str)) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11455").Z("obj_locate", "pb"));
+                com.baidu.tbadk.core.util.bb.vy().c(this.enc.getPageContext(), new String[]{str});
+            }
+        }
     }
 }

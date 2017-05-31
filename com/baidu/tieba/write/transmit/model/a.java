@@ -7,9 +7,9 @@ import java.util.List;
 import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.adp.framework.listener.a crw = new b(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
-    private List<SimpleForum> dwN;
-    private InterfaceC0083a fOW;
+    private com.baidu.adp.framework.listener.a byl = new b(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+    private List<SimpleForum> dCm;
+    private InterfaceC0086a fWS;
     private String forumId;
     private BdUniqueId mBdUniqueId;
     private String recommendExt;
@@ -18,19 +18,19 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.transmit.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0083a {
-        void bna();
+    public interface InterfaceC0086a {
+        void boz();
 
         void onSuccess(List<SimpleForum> list);
     }
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.crw.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.crw);
+        this.byl.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.byl);
     }
 
-    public void NA() {
+    public void NJ() {
         GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
         getRepostForumReqMessage.setThreadTitle(this.threadTitle);
         getRepostForumReqMessage.setThreadContent(this.threadContent);
@@ -39,8 +39,9 @@ public class a {
         MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
     }
 
-    public void aWS() {
-        MessageManager.getInstance().removeMessage(this.mBdUniqueId);
+    public void aYl() {
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, this.mBdUniqueId);
+        MessageManager.getInstance().removeMessage(309450, this.mBdUniqueId);
     }
 
     public void setThreadTitle(String str) {
@@ -59,11 +60,11 @@ public class a {
         return this.recommendExt;
     }
 
-    public void a(InterfaceC0083a interfaceC0083a) {
-        this.fOW = interfaceC0083a;
+    public void a(InterfaceC0086a interfaceC0086a) {
+        this.fWS = interfaceC0086a;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.crw);
+        MessageManager.getInstance().unRegisterListener(this.byl);
     }
 }

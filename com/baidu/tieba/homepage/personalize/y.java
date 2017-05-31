@@ -17,9 +17,9 @@ public class y extends com.baidu.tbadk.util.v<DataRes> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.v
-    /* renamed from: ahL */
+    /* renamed from: aja */
     public DataRes doInBackground() {
-        com.baidu.adp.lib.cache.o<byte[]> L = com.baidu.tbadk.core.c.a.sZ().L("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
+        com.baidu.adp.lib.cache.o<byte[]> L = com.baidu.tbadk.core.c.a.sY().L("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
         if (L == null) {
             return null;
         }
