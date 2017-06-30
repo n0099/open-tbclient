@@ -1,14 +1,14 @@
 package com.baidu.tbadk.editortools.d;
 /* loaded from: classes.dex */
 public class a {
-    public boolean aAt;
+    public boolean aBw;
     public String addr;
     public int state;
 
     public a(int i, boolean z, String str) {
-        this.aAt = true;
+        this.aBw = true;
         this.state = i;
-        this.aAt = z;
+        this.aBw = z;
         this.addr = str;
     }
 }

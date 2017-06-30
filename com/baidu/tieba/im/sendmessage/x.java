@@ -9,18 +9,18 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tbadk.util.g<LinkedHashMap<String, String>> {
-    private final /* synthetic */ ad dgC;
-    final /* synthetic */ a dgr;
+public class x implements com.baidu.tbadk.util.h<LinkedHashMap<String, String>> {
+    final /* synthetic */ a don;
+    private final /* synthetic */ ad doy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(a aVar, ad adVar) {
-        this.dgr = aVar;
-        this.dgC = adVar;
+        this.don = aVar;
+        this.doy = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.g
+    @Override // com.baidu.tbadk.util.h
     /* renamed from: b */
     public void onReturnDataInUI(LinkedHashMap<String, String> linkedHashMap) {
         LinkedHashMap<String, String> linkedHashMap2 = new LinkedHashMap<>();
@@ -35,19 +35,19 @@ public class x implements com.baidu.tbadk.util.g<LinkedHashMap<String, String>> 
             while (it.hasNext()) {
                 String str2 = (String) it.next();
                 String str3 = linkedHashMap.get(str2);
-                String F = com.baidu.tieba.im.util.h.F(str3, true);
-                if (F != null) {
-                    linkedHashMap2.put(str2, F);
+                String K = com.baidu.tieba.im.util.h.K(str3, true);
+                if (K != null) {
+                    linkedHashMap2.put(str2, K);
                 }
-                String F2 = com.baidu.tieba.im.util.h.F(str3, false);
-                if (!TextUtils.isEmpty(F2) && !TextUtils.isEmpty(F)) {
+                String K2 = com.baidu.tieba.im.util.h.K(str3, false);
+                if (!TextUtils.isEmpty(K2) && !TextUtils.isEmpty(K)) {
                     ImageUrlData imageUrlData = new ImageUrlData();
-                    imageUrlData.imageUrl = F2;
+                    imageUrlData.imageUrl = K2;
                     imageUrlData.urlType = 10;
-                    hashMap.put(F, imageUrlData);
+                    hashMap.put(K, imageUrlData);
                 }
             }
         }
-        this.dgC.a(linkedHashMap2, hashMap);
+        this.doy.a(linkedHashMap2, hashMap);
     }
 }

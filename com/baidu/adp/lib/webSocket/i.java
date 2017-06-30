@@ -16,12 +16,12 @@ public class i implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void x(String str) {
+    public void C(String str) {
         ArrayList arrayList;
         arrayList = this.Ag.Ae;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            ((g.a) it.next()).x(str);
+            ((g.a) it.next()).C(str);
         }
     }
 
@@ -77,12 +77,12 @@ public class i implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void hW() {
+    public void hV() {
         ArrayList arrayList;
         arrayList = this.Ag.Ae;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            ((g.a) it.next()).hW();
+            ((g.a) it.next()).hV();
         }
     }
 

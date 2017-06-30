@@ -1,11 +1,10 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.person.m;
+import com.baidu.tbadk.core.util.z;
+import com.baidu.tieba.person.o;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Anti;
@@ -16,6 +15,7 @@ import tbclient.ForumDynamic;
 import tbclient.Highlist;
 import tbclient.ModuleInfo;
 import tbclient.PostInfoList;
+import tbclient.Profile.NicknameInfo;
 import tbclient.Profile.ProfileResIdl;
 import tbclient.Profile.TAInfo;
 import tbclient.Profile.UserAgreeInfo;
@@ -37,11 +37,12 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     private boolean isSelf;
     private AlaLiveInfoCoreData liveInfoData;
     private ModuleInfo moduleInfo;
+    private NicknameInfo nicknameInfo;
     private int pageNum;
     private List<PostInfoList> post_list;
     private TAInfo taInfo;
     private TAInfo tainfo;
-    public m ucCardData;
+    public o ucCardData;
     private User user;
     private UserAgreeInfo userAgreeInfo;
     private UserGodInfo userGodInfo;
@@ -72,7 +73,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
         return this.error_hint;
     }
 
-    public m getUcCardData() {
+    public o getUcCardData() {
         return this.ucCardData;
     }
 
@@ -102,6 +103,11 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     @Override // com.baidu.tieba.person.f
     public UserAgreeInfo getUserAgreeInfo() {
         return this.userAgreeInfo;
+    }
+
+    @Override // com.baidu.tieba.person.f
+    public NicknameInfo getNicknameInfo() {
+        return this.nicknameInfo;
     }
 
     @Override // com.baidu.tieba.person.f
@@ -148,7 +154,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
             this.tainfo = profileResIdl.data.tainfo;
             this.post_list = profileResIdl.data.post_list;
             if (profileResIdl.data.uc_card != null) {
-                this.ucCardData = new m();
+                this.ucCardData = new o();
                 this.ucCardData.a(profileResIdl.data.uc_card);
             }
             this.bookrack = profileResIdl.data.tbbookrack;
@@ -164,23 +170,24 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                 this.liveInfoData.parserProtoBuf(profileResIdl.data.ala_live_info);
             }
             this.userAgreeInfo = profileResIdl.data.user_agree_info;
+            this.nicknameInfo = profileResIdl.data.nickname_info;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        o<String> M;
+        com.baidu.adp.lib.cache.o<String> M;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.sY().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<m.a> list = this.ucCardData.eGE;
-            if (x.q(list) > 4) {
+        if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.sW().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<o.a> list = this.ucCardData.eQu;
+            if (z.s(list) > 4) {
                 list.get(4).timeStamp = 8L;
-                for (m.a aVar : list) {
+                for (o.a aVar : list) {
                     if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(M.get(aVar.title), 0L)) {
-                        aVar.eGF = true;
+                        aVar.eQv = true;
                     } else {
-                        aVar.eGF = false;
+                        aVar.eQv = false;
                     }
                 }
             }
@@ -190,7 +197,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<byte[]> L = com.baidu.tbadk.core.c.a.sY().L("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        com.baidu.adp.lib.cache.o<byte[]> L = com.baidu.tbadk.core.c.a.sW().L("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             L.k(PROFILE_CACHE_KEY, bArr);
         }

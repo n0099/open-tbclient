@@ -46,7 +46,7 @@ public class i {
                 this.nA = new HashSet<>();
             }
             if (this.nA.contains(str)) {
-                com.baidu.adp.plugin.b.a.jk().e("plugin_load", "repeat_inject_res", str, str2);
+                com.baidu.adp.plugin.b.a.jj().e("plugin_load", "repeat_inject_res", str, str2);
             }
             this.nA.add(str);
         }
@@ -55,7 +55,7 @@ public class i {
         }
         if (!this.nz.contains(str2)) {
             if (Build.VERSION.SDK_INT >= 24) {
-                com.baidu.adp.plugin.util.f.a(this.ny.getAssets(), "addAssetPath", new Object[]{str2});
+                com.baidu.adp.plugin.util.f.c(this.ny.getAssets(), "addAssetPath", new Object[]{str2});
                 if (TextUtils.isEmpty(this.nB)) {
                     try {
                         Method declaredMethod = Class.forName("android.webkit.WebViewFactory").getDeclaredMethod("getWebViewContextAndSetProvider", new Class[0]);
@@ -79,17 +79,17 @@ public class i {
                     }
                 }
             } else if (Build.VERSION.SDK_INT >= 20) {
-                com.baidu.adp.plugin.util.f.a(this.ny.getAssets(), "addAssetPath", new Object[]{str2});
+                com.baidu.adp.plugin.util.f.c(this.ny.getAssets(), "addAssetPath", new Object[]{str2});
             } else {
                 AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
                 if (this.nz.size() > 0) {
                     Iterator<String> it = this.nz.iterator();
                     while (it.hasNext()) {
-                        com.baidu.adp.plugin.util.f.a(assetManager, "addAssetPath", new Object[]{it.next()});
+                        com.baidu.adp.plugin.util.f.c(assetManager, "addAssetPath", new Object[]{it.next()});
                     }
                 }
-                com.baidu.adp.plugin.util.f.a(assetManager, "addAssetPath", new Object[]{str2});
-                com.baidu.adp.plugin.util.f.a(assetManager, "addAssetPath", new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
+                com.baidu.adp.plugin.util.f.c(assetManager, "addAssetPath", new Object[]{str2});
+                com.baidu.adp.plugin.util.f.c(assetManager, "addAssetPath", new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
                 this.ny = new Resources(assetManager, this.ny.getDisplayMetrics(), this.ny.getConfiguration());
             }
             this.nz.add(str2);

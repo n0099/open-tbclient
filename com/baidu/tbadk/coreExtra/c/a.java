@@ -10,11 +10,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private C0039a aql;
+    private C0041a arm;
     private f mLoadDataCallBack;
 
     public a(f fVar) {
@@ -34,37 +34,37 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.aql == null) {
-            this.aql = new C0039a(this, null);
-            this.aql.setPriority(2);
-            this.aql.bg(z);
-            this.aql.setPortrait(str);
-            this.aql.setToUid(str2);
-            this.aql.setIsGod(z2);
-            this.aql.setFrom(str3);
-            this.aql.setPageId(bdUniqueId);
-            this.aql.setForumId(str4);
-            this.aql.setInLive(str5);
-            this.aql.execute(new Integer[0]);
+        if (this.arm == null) {
+            this.arm = new C0041a(this, null);
+            this.arm.setPriority(2);
+            this.arm.bh(z);
+            this.arm.setPortrait(str);
+            this.arm.setToUid(str2);
+            this.arm.setIsGod(z2);
+            this.arm.setFrom(str3);
+            this.arm.setPageId(bdUniqueId);
+            this.arm.setForumId(str4);
+            this.arm.setInLive(str5);
+            this.arm.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0039a extends BdAsyncTask<Integer, Integer, String> {
+    public class C0041a extends BdAsyncTask<Integer, Integer, String> {
         private String forumId;
         private String from;
         private String inLive;
         private boolean isAttention;
         private boolean isGod;
-        private z mNetwork;
+        private ab mNetwork;
         private BdUniqueId pageId;
         private String portrait;
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0039a() {
+        private C0041a() {
             this.mNetwork = null;
             this.isGod = false;
             this.from = "0";
@@ -73,7 +73,7 @@ public class a {
             this.showToastAfterAttentionSuc = false;
         }
 
-        /* synthetic */ C0039a(a aVar, C0039a c0039a) {
+        /* synthetic */ C0041a(a aVar, C0041a c0041a) {
             this();
         }
 
@@ -85,7 +85,7 @@ public class a {
             this.toUid = str;
         }
 
-        public void bg(boolean z) {
+        public void bh(boolean z) {
             this.isAttention = z;
         }
 
@@ -118,7 +118,7 @@ public class a {
         public String doInBackground(Integer... numArr) {
             try {
                 if (this.portrait != null) {
-                    this.mNetwork = new z();
+                    this.mNetwork = new ab();
                     if (this.isAttention) {
                         this.mNetwork.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
                     } else {
@@ -132,8 +132,8 @@ public class a {
                         this.mNetwork.n("forum_id", this.forumId);
                     }
                     this.mNetwork.n("in_live", this.inLive);
-                    this.mNetwork.uF().vA().mIsNeedTbs = true;
-                    return this.mNetwork.ug();
+                    this.mNetwork.uV().vR().mIsNeedTbs = true;
+                    return this.mNetwork.uy();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -145,16 +145,16 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0039a) str);
-            a.this.aql = null;
+            super.onPostExecute((C0041a) str);
+            a.this.arm = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.CB = this.mNetwork.uF().vB().isRequestSuccess();
+                aVar.CB = this.mNetwork.uV().vS().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
-                aVar.k(str, this.showToastAfterAttentionSuc);
+                aVar.l(str, this.showToastAfterAttentionSuc);
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                 updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                 MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
@@ -165,12 +165,12 @@ public class a {
         public void cancel() {
             super.cancel(true);
             if (this.mNetwork != null) {
-                this.mNetwork.fs();
+                this.mNetwork.fr();
                 this.mNetwork = null;
             }
-            if (a.this.aql != null) {
-                a.this.aql.cancel();
-                a.this.aql = null;
+            if (a.this.arm != null) {
+                a.this.arm.cancel();
+                a.this.arm = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.g(false);
@@ -179,8 +179,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.aql != null) {
-            this.aql.cancel();
+        if (this.arm != null) {
+            this.arm.cancel();
         }
     }
 }

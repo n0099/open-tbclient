@@ -1,57 +1,54 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.SimpleForum;
 /* loaded from: classes.dex */
-public class bf extends bl {
-    public static final BdUniqueId Xc = BdUniqueId.gen();
-    private PhotoLiveCardData Xd;
+public class bf {
+    private String avatar;
+    private String forumId;
+    private int forumLevel;
+    private String forumName;
 
-    public PhotoLiveCardData b(bl blVar, int i) {
-        if (this.Xd == null) {
-            if (blVar == null) {
-                return null;
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public int qN() {
+        return this.forumLevel;
+    }
+
+    public void setForumName(String str) {
+        this.forumName = str;
+    }
+
+    public void setForumLevel(int i) {
+        this.forumLevel = i;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.forumId = String.valueOf(jSONObject.optLong("id", 0L));
+                this.forumName = jSONObject.optString("name");
+                this.avatar = jSONObject.optString("avatar");
+                this.forumLevel = jSONObject.optInt("level_id");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            this.Xd = new PhotoLiveCardData();
-            MetaData author = blVar.getAuthor();
-            if (author != null) {
-                this.Xd.setAuthorName(author.getUserName());
-                this.Xd.setAuthorPortrait(author.getPortrait());
-                this.Xd.setFansNum(author.getFansNum());
-                this.Xd.setNickName(author.getFansNickName());
-                this.Xd.setAuthorId(author.getUserId());
-                this.Xd.setGodInfo(author.getGodInfo());
-            }
-            PraiseData rk = blVar.rk();
-            if (rk != null) {
-                this.Xd.setPraiseNum((int) rk.getNum());
-            }
-            this.Xd.setDiscussNum(blVar.rn());
-            this.Xd.setPostNum(blVar.getPost_num());
-            this.Xd.setTitle(blVar.getTitle());
-            this.Xd.setLastModifiedTime(blVar.rp());
-            this.Xd.setPhotoLiveCover(blVar.getPhotoLiveCover());
-            this.Xd.setContent(blVar.rC());
-            this.Xd.setThreadId(com.baidu.adp.lib.g.b.c(blVar.getTid(), 0L));
-            this.Xd.setHeadlive(blVar.isHeadLive());
-            this.Xd.setExpressionDatas(blVar.rN());
-            if (this.Xd.getShowStyle() < 0) {
-                this.Xd.setShowStyle(PhotoLiveCardData.getRandom(3, i));
-            }
-            this.Xd.setShowExpressionViewIndexList(this.Xd.getExpressionDatas());
         }
-        co(blVar.getTid());
-        setId(blVar.getId());
-        setThreadType(blVar.getThreadType());
-        cs(blVar.rz());
-        return this.Xd;
     }
 
-    public PhotoLiveCardData qR() {
-        return this.Xd;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bl, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return Xc;
+    public void parserProtobuf(SimpleForum simpleForum) {
+        if (simpleForum != null) {
+            this.forumId = String.valueOf(simpleForum.id);
+            this.forumName = simpleForum.name;
+            this.avatar = simpleForum.avatar;
+            this.forumLevel = simpleForum.level_id.intValue();
+        }
     }
 }

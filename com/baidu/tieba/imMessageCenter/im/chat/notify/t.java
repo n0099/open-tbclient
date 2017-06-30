@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.ah;
 import com.baidu.tieba.w;
 /* loaded from: classes2.dex */
@@ -12,16 +12,16 @@ public class t extends ah {
     }
 
     @Override // com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d
-    public View le() {
-        View le = super.le();
-        this.ala.setVisibility(4);
-        return le;
+    public View lc() {
+        View lc = super.lc();
+        this.alO.setVisibility(4);
+        return lc;
     }
 
     @Override // com.baidu.tbadk.core.view.ah, com.baidu.tbadk.core.view.ae
-    public void dj(int i) {
-        super.dj(i);
-        aq.k(this.akZ, w.e.cp_bg_line_d);
+    public void dl(int i) {
+        super.dl(i);
+        as.k(this.alN, w.e.cp_bg_line_d);
     }
 
     @Override // com.baidu.tbadk.core.view.ah, com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d
@@ -29,11 +29,11 @@ public class t extends ah {
     }
 
     @Override // com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d
-    public void lf() {
+    public void ld() {
     }
 
     @Override // com.baidu.tbadk.core.view.ah, com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d
-    public void lg() {
+    public void le() {
     }
 
     @Override // com.baidu.tbadk.core.view.ah, com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d

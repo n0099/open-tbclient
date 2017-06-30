@@ -6,25 +6,25 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements o.a<String> {
-    final /* synthetic */ a ceU;
+    final /* synthetic */ a cnj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.ceU = aVar;
+        this.cnj = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.cache.o.a
-    /* renamed from: aM */
+    /* renamed from: aT */
     public void m(String str, String str2) {
-        ArrayList jj;
+        ArrayList kg;
         HashMap hashMap;
         if (str2 != null) {
-            jj = this.ceU.jj(str2);
-            String adm = this.ceU.adm();
-            hashMap = this.ceU.ceS;
-            hashMap.put(adm, jj);
+            kg = this.cnj.kg(str2);
+            String ahe = this.cnj.ahe();
+            hashMap = this.cnj.cnh;
+            hashMap.put(ahe, kg);
         }
-        this.ceU.ceR = true;
+        this.cnj.cng = true;
     }
 }

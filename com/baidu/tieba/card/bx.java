@@ -8,13 +8,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bx extends CustomMessageListener {
-    final /* synthetic */ bu bCs;
+    final /* synthetic */ bu bDl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bx(bu buVar, int i) {
         super(i);
-        this.bCs = buVar;
+        this.bDl = buVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,29 +25,29 @@ public class bx extends CustomMessageListener {
         TextView textView;
         TextView textView2;
         CardPersonDynamicThreadData cardPersonDynamicThreadData3;
-        boolean Uh;
+        boolean Vw;
         TextView textView3;
         CardPersonDynamicThreadData cardPersonDynamicThreadData4;
         TextView textView4;
         CardPersonDynamicThreadData cardPersonDynamicThreadData5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            cardPersonDynamicThreadData = this.bCs.bCh;
+            cardPersonDynamicThreadData = this.bDl.bDa;
             if (cardPersonDynamicThreadData != null) {
-                cardPersonDynamicThreadData2 = this.bCs.bCh;
+                cardPersonDynamicThreadData2 = this.bDl.bDa;
                 if (cardPersonDynamicThreadData2.threadId != null) {
-                    textView = this.bCs.mTitle;
+                    textView = this.bDl.mTitle;
                     if (textView != null) {
-                        textView2 = this.bCs.bCm;
+                        textView2 = this.bDl.bDf;
                         if (textView2 != null) {
-                            cardPersonDynamicThreadData3 = this.bCs.bCh;
+                            cardPersonDynamicThreadData3 = this.bDl.bDa;
                             if (((String) customResponsedMessage.getData()).equals(cardPersonDynamicThreadData3.threadId)) {
-                                Uh = this.bCs.Uh();
-                                if (!Uh) {
-                                    textView3 = this.bCs.mTitle;
-                                    cardPersonDynamicThreadData4 = this.bCs.bCh;
+                                Vw = this.bDl.Vw();
+                                if (!Vw) {
+                                    textView3 = this.bDl.mTitle;
+                                    cardPersonDynamicThreadData4 = this.bDl.bDa;
                                     at.a(textView3, cardPersonDynamicThreadData4.threadId, w.e.cp_cont_b, w.e.cp_cont_d);
-                                    textView4 = this.bCs.bCm;
-                                    cardPersonDynamicThreadData5 = this.bCs.bCh;
+                                    textView4 = this.bDl.bDf;
+                                    cardPersonDynamicThreadData5 = this.bDl.bDa;
                                     at.a(textView4, cardPersonDynamicThreadData5.threadId, w.e.cp_cont_j, w.e.cp_cont_d);
                                 }
                             }

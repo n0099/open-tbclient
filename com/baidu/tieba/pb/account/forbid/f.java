@@ -4,12 +4,12 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.aw;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    private static final String egN = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
+    private static final String epK = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -25,8 +25,8 @@ public class f {
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidResultData> {
         private String AF;
-        private WeakReference<b> aUi;
-        private String egO;
+        private WeakReference<b> aVB;
+        private String epL;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -38,10 +38,10 @@ public class f {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.egO = str6;
+            this.epL = str6;
             this.AF = str7;
             this.mPostId = str5;
-            this.aUi = new WeakReference<>(bVar);
+            this.aVB = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -50,20 +50,20 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: y */
         public ForbidResultData doInBackground(String... strArr) {
-            z zVar = new z(f.egN);
-            zVar.n("day", this.egO);
-            zVar.n("un", this.mUserName);
-            zVar.n("fid", this.mForumId);
-            zVar.n("word", this.mForumName);
-            zVar.n("z", this.mThreadId);
-            zVar.n("reason", this.AF);
-            zVar.n("ntn", "banid");
-            zVar.n("post_id", this.mPostId);
-            zVar.uF().vA().mIsNeedTbs = true;
-            String ug = zVar.ug();
-            if (zVar.uF().vB().isRequestSuccess()) {
+            ab abVar = new ab(f.epK);
+            abVar.n("day", this.epL);
+            abVar.n("un", this.mUserName);
+            abVar.n("fid", this.mForumId);
+            abVar.n("word", this.mForumName);
+            abVar.n("z", this.mThreadId);
+            abVar.n("reason", this.AF);
+            abVar.n("ntn", "banid");
+            abVar.n("post_id", this.mPostId);
+            abVar.uV().vR().mIsNeedTbs = true;
+            String uy = abVar.uy();
+            if (abVar.uV().vS().isRequestSuccess()) {
                 try {
-                    return (ForbidResultData) OrmObject.objectWithJsonStr(ug, ForbidResultData.class);
+                    return (ForbidResultData) OrmObject.objectWithJsonStr(uy, ForbidResultData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidResultData forbidResultData = new ForbidResultData();
@@ -72,8 +72,8 @@ public class f {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = zVar.uJ();
-            forbidResultData2.error_msg = zVar.getErrorString();
+            forbidResultData2.error_code = abVar.uZ();
+            forbidResultData2.error_msg = abVar.getErrorString();
             return forbidResultData2;
         }
 
@@ -83,9 +83,9 @@ public class f {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.aUi.get();
+            b bVar = this.aVB.get();
             if (bVar != null) {
-                if (forbidResultData.error_code == 0 && au.isEmpty(forbidResultData.error_msg)) {
+                if (forbidResultData.error_code == 0 && aw.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);
                 } else {
                     bVar.b(forbidResultData);

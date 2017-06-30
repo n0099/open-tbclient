@@ -1,16 +1,20 @@
 package com.baidu.tbadk.browser;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bb;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class k implements bb.c {
-    @Override // com.baidu.tbadk.core.util.bb.c
-    public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, bb.d dVar, boolean z2) {
-        if (!z2) {
-            i.a(tbPageContext, str2, str, z, true, true, true);
-        } else {
-            i.c(tbPageContext, str2, null, false, true, true, true);
+class k extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
+            g.ar(TbadkCoreApplication.m9getInst());
         }
     }
 }

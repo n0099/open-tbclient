@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements bb.a {
-    @Override // com.baidu.tbadk.core.util.bb.a
+public class j implements be.a {
+    @Override // com.baidu.tbadk.core.util.be.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        String qY;
+        String rW;
         if (strArr == null || strArr.length == 0) {
             return 3;
         }
         String str = strArr[0];
         if (str.startsWith(TbConfig.URL_JUMP_TAG_WALLET)) {
-            qY = i.qY(str);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, qY));
+            rW = i.rW(str);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, rW));
             if (tbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
                 ((BaseWebViewActivity) tbPageContext.getOrignalPage()).finish();
             }

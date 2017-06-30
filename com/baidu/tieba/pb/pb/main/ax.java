@@ -1,79 +1,69 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.Toast;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.b.a;
+import com.baidu.tieba.e.a;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class ax extends CustomMessageListener {
-    final /* synthetic */ PbActivity enc;
+class ax implements a.InterfaceC0062a {
+    final int bsH;
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax(PbActivity pbActivity, int i) {
-        super(i);
-        this.enc = pbActivity;
+    public ax(PbActivity pbActivity) {
+        this.ewh = pbActivity;
+        this.bsH = (int) pbActivity.getResources().getDimension(w.f.ds98);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        fx fxVar;
-        fx fxVar2;
-        fx fxVar3;
-        fx fxVar4;
-        fx fxVar5;
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.b.a)) {
-            com.baidu.tbadk.core.b.a aVar = (com.baidu.tbadk.core.b.a) customResponsedMessage.getData();
-            boolean z = aVar.Sq == this.enc.getUniqueId();
-            if (aVar instanceof a.C0036a) {
-                if (aVar.Sr != null && !aVar.Sr.hasError() && aVar.Sr.getError() == 0) {
-                    fxVar4 = this.enc.elU;
-                    if (fxVar4 != null) {
-                        fxVar5 = this.enc.elU;
-                        fxVar5.v(((a.C0036a) aVar).channelId, 1);
-                    }
-                    if (z) {
-                        this.enc.aKj();
-                    }
-                } else if (z) {
-                    if (aVar.Sr != null && aVar.Sr.getErrorString() != null) {
-                        this.enc.showToast(aVar.Sr.getErrorString());
-                    } else {
-                        this.enc.showToast(w.l.fail_order_video_channel);
-                    }
-                }
-            } else if (aVar instanceof a.c) {
-                if (aVar.Sr != null && !aVar.Sr.hasError() && aVar.Sr.getError() == 0) {
-                    fxVar = this.enc.elU;
-                    if (fxVar != null) {
-                        fxVar2 = this.enc.elU;
-                        if (fxVar2 != null) {
-                            fxVar3 = this.enc.elU;
-                            fxVar3.v(((a.C0036a) aVar).channelId, 2);
-                        }
-                    }
-                } else if (z) {
-                    if (aVar.Sr != null && aVar.Sr.getErrorString() != null) {
-                        this.enc.showToast(aVar.Sr.getErrorString());
-                    } else {
-                        this.enc.showToast(w.l.fail_cancle_order_video_channel);
-                    }
-                }
-            } else if (aVar instanceof a.b) {
-                if (aVar.Sr == null || aVar.Sr.hasError() || aVar.Sr.getError() != 0) {
-                    if (z) {
-                        if (aVar.Sr != null && aVar.Sr.getErrorString() != null) {
-                            this.enc.showToast(aVar.Sr.getErrorString());
-                        } else {
-                            this.enc.showToast(w.l.fail_open_channel_push);
-                        }
-                    }
-                } else if (z) {
-                    Toast.makeText(this.enc.getPageContext().getPageActivity(), this.enc.getPageContext().getResources().getString(w.l.channel_need_push), 1).show();
+    @Override // com.baidu.tieba.e.a.InterfaceC0062a
+    public void ah(int i, int i2) {
+        gg ggVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar2;
+        com.baidu.tieba.pb.pb.main.a.f fVar3;
+        if (Y(i2)) {
+            ggVar = this.ewh.euU;
+            if (ggVar != null) {
+                fVar = this.ewh.euw;
+                if (fVar != null) {
+                    fVar2 = this.ewh.euw;
+                    fVar2.ee(false);
+                    fVar3 = this.ewh.euw;
+                    fVar3.showFloatingView();
                 }
             }
         }
+    }
+
+    @Override // com.baidu.tieba.e.a.InterfaceC0062a
+    public void ai(int i, int i2) {
+        gg ggVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar2;
+        gg ggVar2;
+        gg ggVar3;
+        com.baidu.tieba.pb.pb.main.a.f fVar3;
+        if (Y(i2)) {
+            ggVar = this.ewh.euU;
+            if (ggVar != null) {
+                fVar = this.ewh.euw;
+                if (fVar != null) {
+                    fVar2 = this.ewh.euw;
+                    fVar2.ee(true);
+                    if (Math.abs(i2) > this.bsH) {
+                        fVar3 = this.ewh.euw;
+                        fVar3.hideFloatingView();
+                    }
+                    if (this.ewh.aNU()) {
+                        ggVar2 = this.ewh.euU;
+                        ggVar2.aQn();
+                        ggVar3 = this.ewh.euU;
+                        ggVar3.aQo();
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean Y(float f) {
+        return Math.abs(f) >= 1.0f;
     }
 }

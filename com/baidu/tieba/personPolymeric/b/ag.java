@@ -1,39 +1,34 @@
 package com.baidu.tieba.personPolymeric.b;
 
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements c.b {
-    private final /* synthetic */ int bGw;
-    final /* synthetic */ y eLx;
-    private final /* synthetic */ com.baidu.tbadk.data.k eLy;
-    private final /* synthetic */ List eLz;
+    private final /* synthetic */ int bHp;
+    final /* synthetic */ z eVB;
+    private final /* synthetic */ com.baidu.tbadk.data.k eVC;
+    private final /* synthetic */ List eVD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(y yVar, com.baidu.tbadk.data.k kVar, List list, int i) {
-        this.eLx = yVar;
-        this.eLy = kVar;
-        this.eLz = list;
-        this.bGw = i;
+    public ag(z zVar, com.baidu.tbadk.data.k kVar, List list, int i) {
+        this.eVB = zVar;
+        this.eVC = kVar;
+        this.eVD = list;
+        this.bHp = i;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        TbPageContext tbPageContext;
         switch (i) {
             case 0:
-                this.eLx.d(this.eLy, this.eLz, this.bGw);
+                this.eVB.d(this.eVC, this.eVD, this.bHp);
                 break;
             case 1:
-                com.baidu.tbadk.data.k kVar = this.eLy;
-                tbPageContext = this.eLx.ajh;
-                ai.a(kVar, tbPageContext.getUniqueId());
-                break;
-            case 2:
-                ai.a(this.eLy, this.eLz);
+                TiebaStatic.log(new com.baidu.tbadk.core.util.au("c11616").r("obj_type", 2));
+                this.eVB.aVr();
                 break;
         }
         cVar.dismiss();

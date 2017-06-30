@@ -4,16 +4,16 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class z implements View.OnClickListener {
-    final /* synthetic */ y aSa;
+    final /* synthetic */ y aTt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(y yVar) {
-        this.aSa = yVar;
+        this.aTt = yVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,18 +24,18 @@ class z implements View.OnClickListener {
         boolean z2;
         TextView textView2;
         TiebaStatic.log("c10003");
-        textView = this.aSa.aRK;
+        textView = this.aTt.aTd;
         textView.setEnabled(false);
-        this.aSa.aRB = true;
-        z = this.aSa.aRA;
+        this.aTt.aSU = true;
+        z = this.aTt.aST;
         if (z) {
-            Drawable drawable = aq.getDrawable(w.g.btn_dailog_choose_d);
+            Drawable drawable = as.getDrawable(w.g.btn_dailog_choose_d);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            textView2 = this.aSa.aRI;
+            textView2 = this.aTt.aTb;
             textView2.setCompoundDrawables(drawable, null, null, null);
         }
-        aVar = this.aSa.aRV;
-        z2 = this.aSa.aRA;
-        aVar.cj(z2);
+        aVar = this.aTt.aTo;
+        z2 = this.aTt.aST;
+        aVar.cl(z2);
     }
 }

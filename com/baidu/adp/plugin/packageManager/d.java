@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.util.Util;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,7 +14,7 @@ public class d {
     private ArrayList<String> DR = new ArrayList<>();
     private a Ed;
 
-    public static d jv() {
+    public static d ju() {
         if (Ec == null) {
             synchronized (d.class) {
                 if (Ec == null) {
@@ -45,12 +46,12 @@ public class d {
             if (!z) {
                 this.DR.add(pluginSetting.packageName);
             }
-            jr();
+            jq();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jr() {
+    public void jq() {
         if (this.DR.size() > 0 && this.Ed == null) {
             this.Ed = new a(this.DR.get(0));
             this.Ed.execute(new String[0]);
@@ -71,7 +72,7 @@ public class d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
             if (this.packageName != null) {
-                aX(this.packageName);
+                bc(this.packageName);
             }
             return true;
         }
@@ -95,22 +96,22 @@ public class d {
                     }
                 }
             }
-            d.this.jr();
+            d.this.jq();
         }
 
-        private void aX(String str) {
+        private void bc(String str) {
             File[] listFiles;
-            File kl = Util.kl();
-            String bx = Util.bx(str);
-            if (kl != null && kl.exists() && (listFiles = kl.listFiles()) != null) {
+            File kj = Util.kj();
+            String bC = Util.bC(str);
+            if (kj != null && kj.exists() && (listFiles = kj.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
-                    if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bx)) {
+                    if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bC)) {
                         try {
-                            com.baidu.adp.lib.util.e.h(listFiles[i]);
-                            com.baidu.adp.plugin.b.a.jk().e("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
+                            com.baidu.adp.lib.util.e.i(listFiles[i]);
+                            com.baidu.adp.plugin.b.a.jj().e("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
-                            com.baidu.adp.plugin.b.a.jk().f("plugin_del_temp", "deltmp_fail", str, String.valueOf(listFiles[i].getName()) + "-" + th.getMessage());
+                            com.baidu.adp.plugin.b.a.jj().f("plugin_del_temp", "deltmp_fail", str, String.valueOf(listFiles[i].getName()) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
                         }
                     }
                 }

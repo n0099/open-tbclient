@@ -11,13 +11,13 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends Handler {
-    final /* synthetic */ a dfq;
+    final /* synthetic */ a dnl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, Looper looper) {
         super(looper);
-        this.dfq = aVar;
+        this.dnl = aVar;
     }
 
     @Override // android.os.Handler
@@ -30,12 +30,12 @@ public class c extends Handler {
                 return;
             case IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND /* 10002 */:
                 MessageManager messageManager = MessageManager.getInstance();
-                customMessageListener = this.dfq.dez;
+                customMessageListener = this.dnl.dmu;
                 messageManager.registerListener(customMessageListener);
                 return;
             case IjkMediaPlayer.FFP_PROP_FLOAT_PLAYBACK_RATE /* 10003 */:
                 if (message.getData() != null && message.getData().containsKey("groupId")) {
-                    vector = this.dfq.dfp;
+                    vector = this.dnl.dnk;
                     vector.remove(Long.valueOf(message.getData().getLong("groupId")));
                     return;
                 }

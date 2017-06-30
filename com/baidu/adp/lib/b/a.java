@@ -4,46 +4,46 @@ import com.baidu.adp.lib.b.c;
 /* loaded from: classes.dex */
 public abstract class a {
     protected String mName;
-    protected String[] ud;
-    protected int ue = 0;
-    protected int uf = 1;
-    protected int ug = 10;
-    protected c.a uh = new b(this);
+    protected String[] uc;
+    protected int ud = 0;
+    protected int ue = 1;
+    protected int uf = 10;
+    protected c.a ug = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void X(int i);
 
-    protected abstract String[] eQ();
+    protected abstract String[] eP();
+
+    protected abstract int eQ();
 
     protected abstract int eR();
 
     protected abstract int eS();
 
-    protected abstract int eT();
-
     protected abstract String getName();
 
-    protected String[] eU() {
+    protected String[] eT() {
         return null;
     }
 
-    protected void eV() {
-        c cVar = new c(this.mName, this.ue, this.uh);
-        cVar.a(this.ug, this.ud, this.uf);
-        cVar.g(eU());
-        e.eZ().a(cVar);
+    protected void eU() {
+        c cVar = new c(this.mName, this.ud, this.ug);
+        cVar.a(this.uf, this.uc, this.ue);
+        cVar.g(eT());
+        e.eY().a(cVar);
     }
 
     public a() {
         initData();
-        eV();
+        eU();
     }
 
     protected void initData() {
         this.mName = getName();
+        this.uc = eP();
         this.ud = eQ();
         this.ue = eR();
         this.uf = eS();
-        this.ug = eT();
     }
 }

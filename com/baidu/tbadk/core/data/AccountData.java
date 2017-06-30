@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import android.text.TextUtils;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.data.UserVipInfoData;
 import java.io.Serializable;
@@ -19,6 +20,7 @@ public class AccountData implements Serializable {
     private int mSex;
     private List<IconData> mUserIcons;
     private UserVipInfoData mVipInfo;
+    private String nameShow;
     private String personalBgUrl;
     private String portrait;
     private String mID = null;
@@ -217,5 +219,19 @@ public class AccountData implements Serializable {
 
     public void setIsBigV(boolean z) {
         this.isBigV = z;
+    }
+
+    public void setNameShow(String str) {
+        this.nameShow = str;
+    }
+
+    public String getAccountNameShow() {
+        if (!TextUtils.isEmpty(this.nameShow)) {
+            return this.nameShow;
+        }
+        if (!TextUtils.isEmpty(this.mDisplayName)) {
+            return this.mDisplayName;
+        }
+        return this.mAccount;
     }
 }

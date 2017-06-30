@@ -46,9 +46,16 @@ public class ErrorData implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.error_code = jSONObject.optInt("error_code", 0);
-                this.error_msg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-                this.error_data = jSONObject.optString("error_data");
+                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                if (optJSONObject == null) {
+                    this.error_code = jSONObject.optInt("error_code", 0);
+                    this.error_msg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+                    this.error_data = jSONObject.optString("error_data");
+                } else {
+                    this.error_code = optJSONObject.optInt("errno", 0);
+                    this.error_msg = optJSONObject.optString("errmsg");
+                    this.error_data = optJSONObject.optString("usermsg");
+                }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

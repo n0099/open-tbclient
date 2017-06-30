@@ -9,15 +9,15 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ e eNj;
+    final /* synthetic */ e eXs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.eNj = eVar;
+        this.eXs = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,14 +25,14 @@ public class f implements View.OnClickListener {
         boolean z;
         TbPageContext tbPageContext;
         if (view != null) {
-            z = this.eNj.bld;
+            z = this.eXs.boT;
             if (!z) {
-                TiebaStatic.log(new as("c11595"));
+                TiebaStatic.log(new au("c11595"));
             }
             if (view.getTag() instanceof UserData) {
                 UserData userData = (UserData) view.getTag();
                 MessageManager messageManager = MessageManager.getInstance();
-                tbPageContext = this.eNj.ajh;
+                tbPageContext = this.eXs.ajP;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), null, AddFriendActivityConfig.TYPE_FOCUS)));
             }
         }

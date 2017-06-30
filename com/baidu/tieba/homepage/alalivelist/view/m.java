@@ -6,37 +6,37 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class m implements View.OnClickListener {
-    final /* synthetic */ ThreadLiveAndRecordUserInfoLayout czn;
+    final /* synthetic */ ThreadLiveAndRecordUserInfoLayout cGZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ThreadLiveAndRecordUserInfoLayout threadLiveAndRecordUserInfoLayout) {
-        this.czn = threadLiveAndRecordUserInfoLayout;
+        this.cGZ = threadLiveAndRecordUserInfoLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bl blVar;
-        bl blVar2;
+        bm bmVar;
+        bm bmVar2;
         Context context;
-        bl blVar3;
+        bm bmVar3;
         View.OnClickListener onClickListener;
         View.OnClickListener onClickListener2;
-        blVar = this.czn.bbF;
-        if (blVar != null) {
-            blVar2 = this.czn.bbF;
-            if (!StringUtils.isNull(blVar2.rz())) {
+        bmVar = this.cGZ.bdI;
+        if (bmVar != null) {
+            bmVar2 = this.cGZ.bdI;
+            if (!StringUtils.isNull(bmVar2.rw())) {
                 MessageManager messageManager = MessageManager.getInstance();
-                context = this.czn.mContext;
+                context = this.cGZ.mContext;
                 FrsActivityConfig frsActivityConfig = new FrsActivityConfig(context);
-                blVar3 = this.czn.bbF;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createJumpLiveTabCfg(blVar3.rz(), FrsActivityConfig.FRS_FROM_RECOMMEND, true)));
-                onClickListener = this.czn.alO;
+                bmVar3 = this.cGZ.bdI;
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createJumpLiveTabCfg(bmVar3.rw(), FrsActivityConfig.FRS_FROM_RECOMMEND, true)));
+                onClickListener = this.cGZ.amF;
                 if (onClickListener != null) {
-                    onClickListener2 = this.czn.alO;
+                    onClickListener2 = this.cGZ.amF;
                     onClickListener2.onClick(view);
                 }
             }

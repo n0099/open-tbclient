@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.w;
@@ -26,7 +26,7 @@ public class aj {
                     str = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("apk_md5", "");
                 } else {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("version_name", versionName);
-                    String d = aw.d(TbadkCoreApplication.m9getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 0));
+                    String d = ay.d(TbadkCoreApplication.m9getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 0));
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("apk_md5", d);
                     str = d;
                 }
@@ -56,7 +56,7 @@ public class aj {
     public static void a(Context context, VersionData versionData) {
         String str = "-1";
         try {
-            str = aw.b(TbadkCoreApplication.m9getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 64));
+            str = ay.b(TbadkCoreApplication.m9getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 64));
         } catch (PackageManager.NameNotFoundException e) {
             BdLog.detailException(e);
         } catch (NumberFormatException e2) {
@@ -76,7 +76,7 @@ public class aj {
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
         bundle.putString("iconurl", versionData.getTiebaIconUrl());
-        bundle.putString("updatetime", au.d(new Date(System.currentTimeMillis())));
+        bundle.putString("updatetime", aw.d(new Date(System.currentTimeMillis())));
         bundle.putString("size", versionData.getSize());
         bundle.putString("signmd5", str);
         bundle.putString("tj", String.valueOf(str) + context.getString(w.l.app_name));

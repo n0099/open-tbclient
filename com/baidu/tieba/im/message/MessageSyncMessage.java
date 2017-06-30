@@ -131,7 +131,7 @@ public class MessageSyncMessage extends TbSocketMessage {
         if (builder.groupMids == null) {
             builder.groupMids = new ArrayList();
         }
-        int gid = com.baidu.tieba.im.push.f.arU().getGid();
+        int gid = com.baidu.tieba.im.push.f.avF().getGid();
         boolean z = false;
         for (int i = 0; i < this.mMids.size(); i++) {
             int keyAt = this.mMids.keyAt(i);
@@ -142,16 +142,16 @@ public class MessageSyncMessage extends TbSocketMessage {
                 builder2.lastMsgId = valueAt;
                 if (gid == keyAt) {
                     z = true;
-                    builder2.excludeMid = com.baidu.tieba.im.push.f.arU().arW();
+                    builder2.excludeMid = com.baidu.tieba.im.push.f.avF().avH();
                 }
                 builder.groupMids.add(builder2.build(false));
             }
         }
-        if (!z && com.baidu.tieba.im.push.f.arU().arY()) {
+        if (!z && com.baidu.tieba.im.push.f.avF().avJ()) {
             GroupLastId.Builder builder3 = new GroupLastId.Builder();
             builder3.groupId = Integer.valueOf(gid);
-            builder3.lastMsgId = com.baidu.tieba.im.push.f.arU().arV();
-            builder3.excludeMid = com.baidu.tieba.im.push.f.arU().arW();
+            builder3.lastMsgId = com.baidu.tieba.im.push.f.avF().avG();
+            builder3.excludeMid = com.baidu.tieba.im.push.f.avF().avH();
             builder.groupMids.add(builder3.build(false));
         }
         builder.newpushRepire = getNewpushRepire();

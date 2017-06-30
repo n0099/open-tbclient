@@ -5,11 +5,11 @@ import com.baidu.tieba.frs.tab.HorizontalTabView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ HorizontalTabView cfF;
+    final /* synthetic */ HorizontalTabView cnV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(HorizontalTabView horizontalTabView) {
-        this.cfF = horizontalTabView;
+        this.cnV = horizontalTabView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,36 +22,36 @@ public class c implements View.OnClickListener {
         h hVar3;
         HorizontalTabView.a aVar;
         HorizontalTabView.a aVar2;
-        z = this.cfF.cfy;
+        z = this.cnV.cnO;
         if (z) {
             if ((view instanceof TabItemView) && ((TabItemView) view).getTabId() == 1) {
-                aVar = this.cfF.cfz;
+                aVar = this.cnV.cnP;
                 if (aVar != null) {
-                    aVar2 = this.cfF.cfz;
-                    aVar2.a(this.cfF.iP(1));
+                    aVar2 = this.cnV.cnP;
+                    aVar2.a(this.cnV.jb(1));
                 }
-                this.cfF.ady();
+                this.cnV.ahq();
                 return;
             }
             return;
         }
         if (view instanceof TabItemView) {
-            this.cfF.a((TabItemView) view, false);
+            this.cnV.a((TabItemView) view, false);
         }
-        hVar = this.cfF.cfs;
+        hVar = this.cnV.cnI;
         if (hVar != null) {
-            if (!(view instanceof TabItemView) || !HorizontalTabView.iU(((TabItemView) view).getTabId())) {
-                tabItemView = this.cfF.cfr;
+            if (!(view instanceof TabItemView) || !HorizontalTabView.jg(((TabItemView) view).getTabId())) {
+                tabItemView = this.cnV.cnH;
                 if (tabItemView != null) {
-                    hVar2 = this.cfF.cfs;
-                    tabItemView2 = this.cfF.cfr;
-                    hVar2.iS(tabItemView2.getTabId());
+                    hVar2 = this.cnV.cnI;
+                    tabItemView2 = this.cnV.cnH;
+                    hVar2.je(tabItemView2.getTabId());
                     return;
                 }
                 return;
             }
-            hVar3 = this.cfF.cfs;
-            hVar3.iS(((TabItemView) view).getTabId());
+            hVar3 = this.cnV.cnI;
+            hVar3.je(((TabItemView) view).getTabId());
         }
     }
 }

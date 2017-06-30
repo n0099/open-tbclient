@@ -1,67 +1,66 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.util.au;
 /* loaded from: classes.dex */
 public class n extends c {
-    public bl aYA;
-    public static final BdUniqueId bDy = BdUniqueId.gen();
-    public static final BdUniqueId bDz = BdUniqueId.gen();
-    public static String bDA = "";
-    public static String bDB = "";
-    public static String bDC = "";
-    public static String bDD = "";
-    public static String bDE = "";
-    public static String bDF = "";
-    public static String bDG = "";
-    public boolean bDt = false;
-    public boolean bDH = true;
+    public static final BdUniqueId bEr = BdUniqueId.gen();
+    public static final BdUniqueId bEs = BdUniqueId.gen();
+    public static String bEt = "";
+    public static String bEu = "";
+    public static String bEv = "";
+    public static String bEw = "";
+    public static String bEx = "";
+    public static String bEy = "";
+    public static String bEz = "";
+    public bm bai;
+    public boolean bEm = false;
+    public boolean bEA = true;
     public int sourceType = 0;
 
-    public n(bl blVar) {
-        this.aYA = blVar;
+    public n(bm bmVar) {
+        this.bai = bmVar;
     }
 
-    public static boolean w(bl blVar) {
-        return (blVar == null || blVar.rL() == null) ? false : true;
+    public static boolean x(bm bmVar) {
+        return (bmVar == null || bmVar.rI() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.aYA == null) {
-            return bDy;
+        if (this.bai == null) {
+            return bEr;
         }
-        if (this.aYA.rx() || this.aYA.ry()) {
-            return bDz;
+        if (this.bai.ru() || this.bai.rv()) {
+            return bEs;
         }
-        return bDy;
+        return bEr;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bl LH() {
-        return this.aYA;
+    public bm Mv() {
+        return this.bai;
     }
 
-    public as UK() {
-        as x = x(bDD, true);
-        if (x != null && LH() != null) {
-            x.r("obj_name", LH().sG() != null && LH().sG().avd() != null && !au.isEmpty(LH().sG().bU(TbadkCoreApplication.m9getInst())) ? 1 : 0);
+    public au Wb() {
+        au v = v(bEw, true);
+        if (v != null && Mv() != null) {
+            bm Mv = Mv();
+            v.r("obj_name", Mv.sE() != null && (Mv.sE().azb() != null || Mv.sE().Ic() != null) ? 1 : 0);
         }
-        return x;
+        return v;
     }
 
-    public as x(bl blVar) {
-        return (blVar.sx() == null || blVar.sx().channelId <= 0) ? x(bDE, true) : x(bDF, true);
+    public au y(bm bmVar) {
+        return (bmVar.sv() == null || bmVar.sv().channelId <= 0) ? v(bEx, true) : v(bEy, true);
     }
 
-    public as UM() {
-        return x(bDB, true);
+    public au Wd() {
+        return v(bEu, true);
     }
 
-    public as y(bl blVar) {
-        return (blVar.sx() == null || blVar.sx().channelId <= 0) ? x(bDA, true) : x(bDG, true);
+    public au z(bm bmVar) {
+        return (bmVar.sv() == null || bmVar.sv().channelId <= 0) ? v(bEt, true) : v(bEz, true);
     }
 }

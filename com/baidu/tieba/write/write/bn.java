@@ -1,15 +1,52 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bb;
-import java.util.Map;
+import android.content.Intent;
+import android.view.View;
+import java.util.Date;
 /* loaded from: classes.dex */
-class bn implements bb.b {
-    @Override // com.baidu.tbadk.core.util.bb.b
-    public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
-        if (tbPageContext == null) {
-            return;
+class bn implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bn(WriteImageActivity writeImageActivity) {
+        this.this$0 = writeImageActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        int i;
+        boolean z2;
+        boolean sB;
+        z = this.this$0.eyC;
+        if (!z) {
+            i = this.this$0.requestCode;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                if (this.this$0.mProgress.getVisibility() != 0) {
+                    z2 = this.this$0.eSb;
+                    if (z2 && this.this$0.eRU != null && !this.this$0.eRU.isRecycled()) {
+                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                        sB = this.this$0.sB(str);
+                        if (sB) {
+                            intent.putExtra("change", true);
+                            intent.putExtra("file_name", str);
+                        } else {
+                            intent.putExtra("change", false);
+                        }
+                    } else {
+                        intent.putExtra("change", false);
+                    }
+                    this.this$0.setResult(-1, intent);
+                } else {
+                    return;
+                }
+            } else {
+                this.this$0.setResult(0, new Intent());
+            }
+        } else {
+            this.this$0.setResult(0, new Intent());
         }
-        WriteActivityStatic.A(tbPageContext);
+        this.this$0.finish();
     }
 }

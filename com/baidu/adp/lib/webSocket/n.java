@@ -37,15 +37,15 @@ public class n {
         this.Ab = nVar.Ab;
     }
 
-    public boolean im() {
+    public boolean il() {
         return this.AR;
     }
 
-    public int in() {
+    public int im() {
         return this.AP;
     }
 
-    public int io() {
+    public int in() {
         return this.AQ;
     }
 
@@ -53,27 +53,27 @@ public class n {
         return this.AS;
     }
 
-    public int ip() {
+    public int io() {
         return this.AT;
     }
 
-    public int iq() {
+    public int ip() {
         return this.AU;
     }
 
-    public boolean ir() {
+    public boolean iq() {
         return this.AV;
     }
 
-    public boolean is() {
+    public boolean ir() {
         return this.AW;
     }
 
-    public String it() {
+    public String is() {
         return this.Ab;
     }
 
-    public void aL(String str) {
+    public void aQ(String str) {
         this.Ab = str;
     }
 }

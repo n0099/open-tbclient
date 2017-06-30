@@ -1,50 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import android.webkit.WebView;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* loaded from: classes.dex */
-public class ec {
-    private BaseActivity bfa;
-    private PbModel ele;
-    private final CustomMessageListener epd = new ed(this, CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS);
-    private final CustomMessageListener epe = new ee(this, CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS);
+class ec implements BaseWebView.c {
+    final /* synthetic */ dy exY;
 
-    public ec(PbModel pbModel, BaseActivity baseActivity) {
-        this.ele = pbModel;
-        this.bfa = baseActivity;
-        this.bfa.registerListener(this.epd);
-        this.bfa.registerListener(this.epe);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ec(dy dyVar) {
+        this.exY = dyVar;
     }
 
-    public com.baidu.tbadk.core.data.af aKH() {
-        if (!aKI() || this.ele == null || this.ele.getPbData() == null) {
-            return null;
-        }
-        return this.ele.getPbData().aIx();
-    }
-
-    public boolean aKI() {
-        return com.baidu.tieba.graffiti.c.agC() && aKJ();
-    }
-
-    private boolean aKJ() {
-        if (this.ele == null || this.ele.getPbData() == null) {
-            return false;
-        }
-        PostData postData = (PostData) com.baidu.tbadk.core.util.x.c(this.ele.getPbData().aID(), 0);
-        return postData != null && (postData.getType() == PostData.fCb || postData.getType() == PostData.Xr || postData.getType() == PostData.fCe);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void h(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            String str = (String) customResponsedMessage.getData();
-            if (this.ele != null && this.ele.getPbData() != null && this.ele.getPbData().aIx() != null && str.equals(this.ele.getThreadID())) {
-                this.ele.getPbData().aIx().an(true);
-            }
-        }
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
+    public void onPageFinished(WebView webView, String str) {
+        webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
     }
 }

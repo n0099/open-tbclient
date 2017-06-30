@@ -6,11 +6,11 @@ import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    final /* synthetic */ d dUt;
+    final /* synthetic */ d ecQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.dUt = dVar;
+        this.ecQ = dVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,12 +18,12 @@ public class e implements Runnable {
         RelativeLayout relativeLayout;
         Context context;
         RelativeLayout relativeLayout2;
-        relativeLayout = this.dUt.dUp;
+        relativeLayout = this.ecQ.ecM;
         if (relativeLayout != null) {
-            context = this.dUt.mContext;
-            relativeLayout2 = this.dUt.dUp;
+            context = this.ecQ.mContext;
+            relativeLayout2 = this.ecQ.ecM;
             ((WindowManager) context.getSystemService("window")).removeViewImmediate(relativeLayout2);
-            this.dUt.clean();
+            this.ecQ.clean();
         }
     }
 }

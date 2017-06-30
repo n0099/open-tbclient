@@ -5,10 +5,10 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tbadk.util.u;
-import com.baidu.tieba.frs.bp;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.util.v;
+import com.baidu.tieba.frs.bq;
 import com.baidu.tieba.frs.mc.FrsModelController;
 import com.baidu.tieba.frs.r;
 import com.baidu.tieba.frs.smartsort.e;
@@ -17,11 +17,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements c.b {
-    final /* synthetic */ a bZm;
+    final /* synthetic */ a chv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bZm = aVar;
+        this.chv = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -42,55 +42,55 @@ public class c implements c.b {
         r rVar8;
         String str;
         r rVar9;
-        if (!i.gY()) {
-            rVar9 = this.bZm.bVm;
+        if (!i.gX()) {
+            rVar9 = this.chv.cdv;
             rVar9.showToast(w.l.neterror);
             cVar.dismiss();
             return;
         }
-        aVar = this.bZm.bZh;
-        bp bpVar = (bp) x.c(aVar.acb(), i);
-        if (bpVar != null) {
-            i2 = this.bZm.bZi;
-            if (i2 != bpVar.bWI) {
-                this.bZm.bZj = true;
-                textView = this.bZm.bZf;
-                textView.setText(bpVar.name);
-                i3 = this.bZm.bZi;
+        aVar = this.chv.chq;
+        bq bqVar = (bq) z.c(aVar.afT(), i);
+        if (bqVar != null) {
+            i2 = this.chv.chr;
+            if (i2 != bqVar.ceQ) {
+                this.chv.chs = true;
+                textView = this.chv.cho;
+                textView.setText(bqVar.name);
+                i3 = this.chv.chr;
                 if (i3 == 7) {
-                    as asVar = new as("c11437");
-                    asVar.r("obj_locate", bpVar.bWI);
-                    str = this.bZm.bur;
-                    asVar.Z("fid", str);
-                    TiebaStatic.log(asVar);
+                    au auVar = new au("c11437");
+                    auVar.r("obj_locate", bqVar.ceQ);
+                    str = this.chv.bxM;
+                    auVar.Z("fid", str);
+                    TiebaStatic.log(auVar);
                 }
-                rVar = this.bZm.bVm;
-                if (rVar.ZY() != null) {
-                    rVar2 = this.bZm.bVm;
-                    FrsModelController ZY = rVar2.ZY();
-                    i4 = this.bZm.bZi;
-                    ZY.iL(i4);
-                    this.bZm.bZi = bpVar.bWI;
+                rVar = this.chv.cdv;
+                if (rVar.adP() != null) {
+                    rVar2 = this.chv.cdv;
+                    FrsModelController adP = rVar2.adP();
+                    i4 = this.chv.chr;
+                    adP.iX(i4);
+                    this.chv.chr = bqVar.ceQ;
                     cVar.dismiss();
-                    i5 = this.bZm.bZi;
+                    i5 = this.chv.chr;
                     if (i5 != 7) {
-                        u.Gy();
-                        s.bjd();
+                        v.GV();
+                        s.bnr();
                     } else {
-                        s.bjc();
+                        s.bnq();
                     }
-                    rVar3 = this.bZm.bVm;
-                    if (rVar3.ZY() != null) {
-                        rVar4 = this.bZm.bVm;
-                        if (rVar4.aad() != null) {
-                            rVar5 = this.bZm.bVm;
-                            rVar5.ZY().iK(bpVar.bWI);
-                            rVar6 = this.bZm.bVm;
-                            rVar6.aad().startPullRefresh();
-                            rVar7 = this.bZm.bVm;
-                            rVar7.ZY().eu(true);
-                            rVar8 = this.bZm.bVm;
-                            e.ads().f(rVar8.ZY().getForumName(), bpVar.bWI, bpVar.name);
+                    rVar3 = this.chv.cdv;
+                    if (rVar3.adP() != null) {
+                        rVar4 = this.chv.cdv;
+                        if (rVar4.adU() != null) {
+                            rVar5 = this.chv.cdv;
+                            rVar5.adP().iW(bqVar.ceQ);
+                            rVar6 = this.chv.cdv;
+                            rVar6.adU().startPullRefresh();
+                            rVar7 = this.chv.cdv;
+                            rVar7.adP().eM(true);
+                            rVar8 = this.chv.cdv;
+                            e.ahk().f(rVar8.adP().getForumName(), bqVar.ceQ, bqVar.name);
                             return;
                         }
                         return;

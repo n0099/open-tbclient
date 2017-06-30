@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.w;
@@ -17,23 +17,23 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class u extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoList, com.baidu.tieba.personCenter.d.b> {
-    private TbPageContext<PersonPolymericActivity> aas;
-    private boolean bld;
-    private String eKR;
+    private TbPageContext<PersonPolymericActivity> aat;
+    private boolean boT;
+    private String eUQ;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.TbPageContext<?> */
     /* JADX WARN: Multi-variable type inference failed */
     public u(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aas = tbPageContext;
+        this.aat = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bp */
+    /* renamed from: br */
     public com.baidu.tieba.personCenter.d.b onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.personCenter.d.b(LayoutInflater.from(this.aas.getPageActivity()).inflate(w.j.person_polymeric_item_reply, viewGroup, false), this.aas, this.bld);
+        return new com.baidu.tieba.personCenter.d.b(LayoutInflater.from(this.aat.getPageActivity()).inflate(w.j.person_polymeric_item_reply, viewGroup, false), this.aat, this.boT);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,10 +42,10 @@ public class u extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, com.baidu.tieba.personCenter.d.b bVar) {
         if (postInfoList != null && bVar != null) {
-            if (this.eKR == null) {
-                this.eKR = postInfoList.user_portrait;
+            if (this.eUQ == null) {
+                this.eUQ = postInfoList.user_portrait;
             }
-            bVar.a(postInfoList, false, this.eKR);
+            bVar.a(postInfoList, false, this.eUQ);
             ArrayList<String[]> arrayList = new ArrayList<>();
             int length = postInfoList.content.length;
             for (int i2 = 0; i2 < length; i2++) {
@@ -58,35 +58,35 @@ public class u extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
                     for (int i3 = 0; i3 < length2; i3++) {
                         stringBuffer.append(postInfoList.content[i2].post_content[i3].text);
                     }
-                    arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(postInfoList.thread_id), String.valueOf(postInfoList.content[i2].post_id), String.valueOf(postInfoList.content[i2].post_type), au.q(postInfoList.content[i2].create_time * 1000), String.valueOf(postInfoList.thread_type)});
+                    arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(postInfoList.thread_id), String.valueOf(postInfoList.content[i2].post_id), String.valueOf(postInfoList.content[i2].post_type), aw.q(postInfoList.content[i2].create_time * 1000), String.valueOf(postInfoList.thread_type)});
                 }
             }
-            bVar.eHt.setContent(arrayList);
+            bVar.eRh.setContent(arrayList);
             if (Pattern.compile("^回复：").matcher(postInfoList.title).find()) {
-                bVar.eHu.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
+                bVar.eRi.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
             } else {
-                bVar.eHu.setText(postInfoList.title);
+                bVar.eRi.setText(postInfoList.title);
             }
-            TextView textView = bVar.eHu;
+            TextView textView = bVar.eRi;
             String[] strArr = new String[4];
             strArr[0] = String.valueOf(postInfoList.thread_id);
             strArr[3] = String.valueOf(postInfoList.thread_type);
             textView.setTag(strArr);
             if (postInfoList.thread_type == 33) {
-                bVar.eHu.setCompoundDrawablesWithIntrinsicBounds(aq.getDrawable(w.g.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+                bVar.eRi.setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(w.g.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                bVar.eHu.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                bVar.eRi.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            aq.j(bVar.eHu, w.g.person_post_line);
-            aq.c(bVar.eHu, w.e.common_color_10039, 1);
+            as.j(bVar.eRi, w.g.person_post_line);
+            as.c(bVar.eRi, w.e.common_color_10039, 1);
             int dimensionPixelSize = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds20);
-            bVar.eHu.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-            bVar.dj(TbadkCoreApplication.m9getInst().getSkinType());
+            bVar.eRi.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+            bVar.dl(TbadkCoreApplication.m9getInst().getSkinType());
         }
         return view;
     }
 
     public void setIsHost(boolean z) {
-        this.bld = z;
+        this.boT = z;
     }
 }

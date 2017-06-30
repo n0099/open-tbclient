@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity eye;
+    final /* synthetic */ NewSubPbActivity eHC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NewSubPbActivity newSubPbActivity) {
-        this.eye = newSubPbActivity;
+        this.eHC = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
@@ -26,14 +26,14 @@ public class m implements NewSubPbActivity.a {
         SubPbModel subPbModel7;
         Object[] objArr = (Object[]) obj;
         String str = "";
-        subPbModel = this.eye.exN;
-        if (subPbModel.aOn() != null) {
-            subPbModel5 = this.eye.exN;
-            if (subPbModel5.aOn().LH() != null) {
-                subPbModel6 = this.eye.exN;
-                if (subPbModel6.aOn().LH().getAuthor() != null) {
-                    subPbModel7 = this.eye.exN;
-                    str = String.valueOf(subPbModel7.aOn().LH().getAuthor().getUserId());
+        subPbModel = this.eHC.eHl;
+        if (subPbModel.aSm() != null) {
+            subPbModel5 = this.eHC.eHl;
+            if (subPbModel5.aSm().Mv() != null) {
+                subPbModel6 = this.eHC.eHl;
+                if (subPbModel6.aSm().Mv().getAuthor() != null) {
+                    subPbModel7 = this.eHC.eHl;
+                    str = String.valueOf(subPbModel7.aSm().Mv().getAuthor().getUserId());
                 }
             }
         }
@@ -45,13 +45,13 @@ public class m implements NewSubPbActivity.a {
         if (objArr.length > 2) {
             str3 = String.valueOf(objArr[2]);
         }
-        NewSubPbActivity newSubPbActivity = this.eye;
-        Activity pageActivity = this.eye.getPageContext().getPageActivity();
-        subPbModel2 = this.eye.exN;
-        String id = subPbModel2.aOn().aJp().getId();
-        subPbModel3 = this.eye.exN;
-        String name = subPbModel3.aOn().aJp().getName();
-        subPbModel4 = this.eye.exN;
-        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, subPbModel4.aOn().LH().getId(), str, str2, str3)));
+        NewSubPbActivity newSubPbActivity = this.eHC;
+        Activity pageActivity = this.eHC.getPageContext().getPageActivity();
+        subPbModel2 = this.eHC.eHl;
+        String id = subPbModel2.aSm().aNj().getId();
+        subPbModel3 = this.eHC.eHl;
+        String name = subPbModel3.aSm().aNj().getName();
+        subPbModel4 = this.eHC.eHl;
+        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, subPbModel4.aSm().Mv().getId(), str, str2, str3)));
     }
 }

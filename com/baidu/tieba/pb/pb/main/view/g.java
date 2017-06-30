@@ -1,27 +1,23 @@
 package com.baidu.tieba.pb.pb.main.view;
 
-import android.view.View;
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import android.view.animation.AlphaAnimation;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
-    final /* synthetic */ f exh;
+public class g implements Runnable {
+    final /* synthetic */ PbFloorAgreeView eGD;
+    private final /* synthetic */ AlphaAnimation eGE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.exh = fVar;
+    public g(PbFloorAgreeView pbFloorAgreeView, AlphaAnimation alphaAnimation) {
+        this.eGD = pbFloorAgreeView;
+        this.eGE = alphaAnimation;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        if (view == this.exh.aIp) {
-            pbActivity = this.exh.elf;
-            if (pbActivity != null) {
-                pbActivity2 = this.exh.elf;
-                pbActivity2.finish();
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        TextView textView;
+        textView = this.eGD.eGA;
+        textView.startAnimation(this.eGE);
     }
 }

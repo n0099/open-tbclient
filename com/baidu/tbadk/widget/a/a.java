@@ -1,4 +1,6 @@
 package com.baidu.tbadk.widget.a;
+
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class a {
     public String forumAvatar;
@@ -20,11 +22,11 @@ public class a {
 
     public String toString() {
         StringBuilder sb = new StringBuilder("[HotForumInfoData:");
-        sb.append("rank=").append(this.rank).append(",");
-        sb.append("forumAvatar=").append(this.forumAvatar).append(",");
-        sb.append("forumName=").append(this.forumName).append(",");
-        sb.append("forumId=").append(this.forumId).append(",");
-        sb.append("isLiked=").append(this.isLiked).append(",");
+        sb.append("rank=").append(this.rank).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("forumAvatar=").append(this.forumAvatar).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("forumName=").append(this.forumName).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("forumId=").append(this.forumId).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("isLiked=").append(this.isLiked).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         sb.append("]");
         return sb.toString();
     }

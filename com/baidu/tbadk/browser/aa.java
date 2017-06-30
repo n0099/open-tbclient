@@ -1,24 +1,19 @@
 package com.baidu.tbadk.browser;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.browser.TbWebViewActivity;
 /* loaded from: classes.dex */
-public class aa implements View.OnClickListener {
-    final /* synthetic */ z QN;
+class aa implements Runnable {
+    final /* synthetic */ TbWebViewActivity.a Qp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar) {
-        this.QN = zVar;
+    public aa(TbWebViewActivity.a aVar) {
+        this.Qp = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseWebViewActivity baseWebViewActivity;
-        BaseWebViewActivity baseWebViewActivity2;
-        baseWebViewActivity = this.QN.Qw;
-        if (baseWebViewActivity != null) {
-            baseWebViewActivity2 = this.QN.Qw;
-            baseWebViewActivity2.finish();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        TbWebViewActivity tbWebViewActivity;
+        tbWebViewActivity = TbWebViewActivity.this;
+        tbWebViewActivity.mView.of();
     }
 }

@@ -17,8 +17,10 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_HOME_REC_PLAY = "home_rec_play";
     public static final String FROM_TYPE_PB_AUTO_PLAY = "pb_auto_play";
     public static final String FROM_TYPE_PB_PLAY = "pb_play";
+    public static final String FROM_TYPE_PERSON_ATTENTION = "person_attention";
     public static final String FROM_TYPE_PERSON_AUTO_PLAY = "person_auto_play";
     public static final String FROM_TYPE_PERSON_PLAY = "person_play";
+    public static final String FROM_TYPE_SEARCH = "search";
     public static final String FROM_TYPE_SHARE_PLAY = "share_play";
     public static final String FROM_TYPE_SQUARE_DYNAMIC = "square_dynamic";
     public static final String FROM_TYPE_SQUARE_LIVE = "square_live";
@@ -29,8 +31,10 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_VIDEO_AUTO_PLAY = "video_auto_play";
     public static final String FROM_TYPE_VIDEO_PLAY = "video_play";
     public static final String LIVE_ENTRY_LIVE_URL = "live_entry_live_url";
+    public static final String LIVE_ENTRY_NAME = "live_entry_name";
     public static final String LIVE_FORUM_ID = "live_forum_id";
     public static final String LIVE_FORUM_NAME = "live_forum_name";
+    public static final String LIVE_FROM_FORUM_ID = "live_from_forum_id";
     public static final String LIVE_FROM_TYPE = "live_from_type";
     public static final String LIVE_ID = "live_id";
     public static final String LIVE_INFO = "live_info_core";
@@ -58,6 +62,17 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         getIntent().putExtra(LIVE_INFO, alaLiveInfoCoreData);
         getIntent().putExtra(LIVE_FROM_TYPE, str);
         getIntent().putExtra(LIVE_INFO_LIST, alaLiveInfoListCoreData);
+    }
+
+    public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, AlaLiveInfoListCoreData alaLiveInfoListCoreData, String str, String str2, boolean z, String str3, String str4) {
+        super(context);
+        getIntent().putExtra("user_id", str2);
+        getIntent().putExtra(LIVE_IS_HOST, z);
+        getIntent().putExtra(LIVE_INFO, alaLiveInfoCoreData);
+        getIntent().putExtra(LIVE_FROM_TYPE, str);
+        getIntent().putExtra(LIVE_INFO_LIST, alaLiveInfoListCoreData);
+        getIntent().putExtra(LIVE_ENTRY_NAME, str3);
+        getIntent().putExtra(LIVE_FROM_FORUM_ID, str4);
     }
 
     public AlaLiveRoomActivityConfig(Context context, String str, String str2, String str3) {

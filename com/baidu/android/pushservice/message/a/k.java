@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
-import com.baidu.android.pushservice.h.u;
+import com.baidu.android.pushservice.j.q;
 /* loaded from: classes2.dex */
 public class k {
     private static final String a = k.class.getSimpleName();
@@ -32,13 +32,13 @@ public class k {
             case MSG_TYPE_ALARM_MESSAGE:
             case MSG_TYPE_ALARM_NOTIFICATION:
             case MSG_TYPE_ALARM_AD_NOTIFICATION:
-                com.baidu.android.pushservice.e.a.c(a, ">>> MSG_TYPE_ALARM msg_type : " + lVar);
+                com.baidu.android.pushservice.g.a.c(a, ">>> MSG_TYPE_ALARM msg_type : " + lVar);
                 return new a(this.b);
             case MSG_TYPE_ULTRON_COMMAND:
                 return new n(this.b);
             default:
-                com.baidu.android.pushservice.e.a.e(a, ">>> Unknown msg_type : " + lVar);
-                u.b(">>> Unknown msg_type : " + lVar, this.b);
+                com.baidu.android.pushservice.g.a.e(a, ">>> Unknown msg_type : " + lVar);
+                q.b(">>> Unknown msg_type : " + lVar, this.b);
                 return null;
         }
     }

@@ -7,67 +7,67 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class i extends LinearLayout {
-    private LinearLayout ame;
-    private EditText cjG;
-    private HeadImageView cjH;
-    private TextView cjI;
-    private TextView cjJ;
-    private ShareFromFrsMsgData cjK;
+    private LinearLayout aJF;
     private Context context;
+    private EditText crG;
+    private HeadImageView crH;
+    private TextView crI;
+    private TextView crJ;
+    private ShareFromFrsMsgData crK;
     private TextView name;
 
     public EditText getChatMsgView() {
-        return this.cjG;
+        return this.crG;
     }
 
-    public void D(String str, boolean z) {
-        if (this.cjH != null) {
-            this.cjH.c(str, 15, false);
+    public void I(String str, boolean z) {
+        if (this.crH != null) {
+            this.crH.c(str, 15, false);
         }
     }
 
     public i(Context context) {
         super(context);
         this.context = context;
-        bp(context);
+        bj(context);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.cjH.setPageId(bdUniqueId);
+        this.crH.setPageId(bdUniqueId);
     }
 
-    private void bp(Context context) {
+    private void bj(Context context) {
         LayoutInflater.from(context).inflate(w.j.frs_share_card_view, this);
         setOrientation(1);
-        this.ame = (LinearLayout) findViewById(w.h.share_content);
+        this.aJF = (LinearLayout) findViewById(w.h.share_content);
         this.name = (TextView) findViewById(w.h.frs_card_name);
-        this.cjG = (EditText) findViewById(w.h.chat_msg);
-        this.cjH = (HeadImageView) findViewById(w.h.frs_card_img);
-        this.cjJ = (TextView) findViewById(w.h.frs_card_member_num);
-        this.cjI = (TextView) findViewById(w.h.frs_card_post_num);
-        aq.c(this.name, w.e.cp_cont_b, 1);
-        aq.c(this.cjG, w.e.cp_cont_b, 2);
-        this.cjG.setHintTextColor(aq.getColor(w.e.cp_cont_e));
-        this.cjG.setPadding(context.getResources().getDimensionPixelSize(w.f.ds20), 0, 0, 0);
-        aem();
+        this.crG = (EditText) findViewById(w.h.chat_msg);
+        this.crH = (HeadImageView) findViewById(w.h.frs_card_img);
+        this.crJ = (TextView) findViewById(w.h.frs_card_member_num);
+        this.crI = (TextView) findViewById(w.h.frs_card_post_num);
+        as.c(this.name, w.e.cp_cont_b, 1);
+        as.c(this.crG, w.e.cp_cont_b, 2);
+        this.crG.setHintTextColor(as.getColor(w.e.cp_cont_e));
+        this.crG.setPadding(context.getResources().getDimensionPixelSize(w.f.ds20), 0, 0, 0);
+        aia();
     }
 
-    public void aem() {
-        this.ame.setFocusable(true);
-        this.ame.setFocusableInTouchMode(true);
-        this.ame.requestFocus();
+    public void aia() {
+        this.aJF.setFocusable(true);
+        this.aJF.setFocusableInTouchMode(true);
+        this.aJF.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.cjG != null) {
-            return com.baidu.adp.lib.util.j.a(this.cjG.getText(), null);
+        if (this.crG != null) {
+            return com.baidu.adp.lib.util.j.a(this.crG.getText(), null);
         }
         return null;
     }
@@ -78,19 +78,19 @@ public class i extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.cjK = shareFromFrsMsgData;
-        we();
+        this.crK = shareFromFrsMsgData;
+        ww();
     }
 
-    private void we() {
-        this.name.setText(dA(this.cjK.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.cjK.getImageUrl());
-        this.cjH.c(this.cjK.getImageUrl(), 15, false);
-        this.cjJ.setText(au.x(this.cjK.getMemberNum()));
-        this.cjI.setText(au.x(this.cjK.getPostNum()));
+    private void ww() {
+        this.name.setText(dU(this.crK.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.crK.getImageUrl());
+        this.crH.c(this.crK.getImageUrl(), 15, false);
+        this.crJ.setText(aw.y(this.crK.getMemberNum()));
+        this.crI.setText(aw.y(this.crK.getPostNum()));
     }
 
-    private String dA(String str) {
-        return String.valueOf(au.j(str, 18)) + this.context.getString(w.l.forum);
+    private String dU(String str) {
+        return String.valueOf(aw.j(str, 18)) + this.context.getString(w.l.forum);
     }
 }

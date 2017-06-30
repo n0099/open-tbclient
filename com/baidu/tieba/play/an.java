@@ -5,11 +5,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import java.net.InetAddress;
 /* loaded from: classes.dex */
 class an extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ ak fbJ;
+    final /* synthetic */ ak flZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(ak akVar) {
-        this.fbJ = akVar;
+        this.flZ = akVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,14 +18,14 @@ class an extends BdAsyncTask<Void, Void, Void> {
     public Void doInBackground(Void... voidArr) {
         String str;
         String str2;
-        str = this.fbJ.fbB;
-        if (!com.baidu.tbadk.core.util.au.isEmpty(str)) {
-            str2 = this.fbJ.fbB;
+        str = this.flZ.flR;
+        if (!com.baidu.tbadk.core.util.aw.isEmpty(str)) {
+            str2 = this.flZ.flR;
             Uri parse = Uri.parse(str2);
             if (parse != null) {
                 try {
                     InetAddress byName = InetAddress.getByName(parse.getHost());
-                    this.fbJ.AA = byName.getHostAddress();
+                    this.flZ.AA = byName.getHostAddress();
                     return null;
                 } catch (Exception e) {
                     e.printStackTrace();

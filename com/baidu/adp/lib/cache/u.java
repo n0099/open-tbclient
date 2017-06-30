@@ -21,9 +21,9 @@ public class u<T> extends p<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.p, com.baidu.adp.lib.cache.o
-    public o.c<T> P(String str) {
+    public o.c<T> U(String str) {
         try {
-            return super.P(str);
+            return super.U(str);
         } catch (Throwable th) {
             if (BdLog.isDebugMode()) {
                 BdLog.e(th);

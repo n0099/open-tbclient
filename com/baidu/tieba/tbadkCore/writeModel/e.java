@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
@@ -39,18 +39,18 @@ public class e {
         e(context, inflate);
     }
 
-    public static void a(z zVar, WriteData writeData) {
+    public static void a(ab abVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
-            zVar.n("is_location", "2");
-            Address C = com.baidu.adp.lib.d.a.fg().C(false);
+            abVar.n("is_location", "2");
+            Address C = com.baidu.adp.lib.d.a.ff().C(false);
             if (C != null) {
-                zVar.n("lat", String.valueOf(C.getLatitude()));
-                zVar.n("lng", String.valueOf(C.getLongitude()));
+                abVar.n("lat", String.valueOf(C.getLatitude()));
+                abVar.n("lng", String.valueOf(C.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.d.biM().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.d.bna().getLocationData();
             if (locationData != null) {
-                zVar.n("name", locationData.biI());
-                zVar.n("sn", locationData.biK());
+                abVar.n("name", locationData.bmW());
+                abVar.n("sn", locationData.bmY());
             }
         }
     }

@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,10 +31,10 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).SY)) {
-                sb.append(this.advertAppList.get(i).SY);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).ST)) {
+                sb.append(this.advertAppList.get(i).ST);
                 if (i != size - 1) {
-                    sb.append(",");
+                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
             }
         }
@@ -74,7 +75,7 @@ public class BannerListData implements Serializable {
                     }
                 }
             }
-            Collections.sort(this.advertAppList, new h(this));
+            Collections.sort(this.advertAppList, new i(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {
                 for (int i2 = 0; i2 < list2.size(); i2++) {
@@ -86,9 +87,9 @@ public class BannerListData implements Serializable {
                 }
             }
             if (bannerList.hot_topic != null) {
-                bb bbVar = new bb();
-                bbVar.a(bannerList.hot_topic);
-                this.recomTopicData = bbVar.qF();
+                bc bcVar = new bc();
+                bcVar.a(bannerList.hot_topic);
+                this.recomTopicData = bcVar.qC();
             }
         }
     }

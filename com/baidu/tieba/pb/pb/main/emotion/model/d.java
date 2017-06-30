@@ -1,39 +1,39 @@
 package com.baidu.tieba.pb.pb.main.emotion.model;
 
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.pb.main.emotion.data.EmotionImageData;
-import com.baidu.tieba.pb.pb.main.emotion.model.GetEmotionPidModel;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.pb.pb.main.emotion.message.SearchEmotionResponseMessage;
+import com.baidu.tieba.pb.pb.main.emotion.model.SearchEmotionModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements GetEmotionPidModel.a {
-    private final /* synthetic */ com.baidu.tieba.pb.data.f eqk;
-    private final /* synthetic */ EmotionImageData evF;
-    final /* synthetic */ b evX;
-    private final /* synthetic */ PbModel evY;
+public class d extends HttpMessageListener {
+    final /* synthetic */ SearchEmotionModel eFn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(b bVar, EmotionImageData emotionImageData, PbModel pbModel, com.baidu.tieba.pb.data.f fVar) {
-        this.evX = bVar;
-        this.evF = emotionImageData;
-        this.evY = pbModel;
-        this.eqk = fVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(SearchEmotionModel searchEmotionModel, int i) {
+        super(i);
+        this.eFn = searchEmotionModel;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.emotion.model.GetEmotionPidModel.a
-    public void onSuccess(String str) {
-        this.evF.setPicId(str);
-        this.evX.b(this.evF, this.evY, this.eqk);
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.emotion.model.GetEmotionPidModel.a
-    public void onFail(int i, String str) {
-        NewWriteModel.d dVar;
-        NewWriteModel.d dVar2;
-        dVar = this.evX.evS;
-        if (dVar != null) {
-            dVar2 = this.evX.evS;
-            dVar2.callback(false, null, null, null, null);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        SearchEmotionModel.a aVar;
+        SearchEmotionModel.a aVar2;
+        SearchEmotionModel.a aVar3;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003330 && (httpResponsedMessage instanceof SearchEmotionResponseMessage)) {
+            aVar = this.eFn.eES;
+            if (aVar != null) {
+                SearchEmotionResponseMessage searchEmotionResponseMessage = (SearchEmotionResponseMessage) httpResponsedMessage;
+                if (searchEmotionResponseMessage.getData() != null) {
+                    aVar3 = this.eFn.eES;
+                    aVar3.a(searchEmotionResponseMessage.getData());
+                    return;
+                }
+                aVar2 = this.eFn.eES;
+                aVar2.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
+            }
         }
     }
 }

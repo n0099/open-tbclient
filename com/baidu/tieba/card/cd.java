@@ -5,23 +5,23 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cd implements com.baidu.tbadk.widget.layout.g {
-    private final /* synthetic */ LinkedList bBv;
-    private final /* synthetic */ com.baidu.tbadk.core.data.bl bBw;
-    final /* synthetic */ bu bCs;
+    private final /* synthetic */ LinkedList bCo;
+    private final /* synthetic */ com.baidu.tbadk.core.data.bm bCp;
+    final /* synthetic */ bu bDl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(bu buVar, LinkedList linkedList, com.baidu.tbadk.core.data.bl blVar) {
-        this.bCs = buVar;
-        this.bBv = linkedList;
-        this.bBw = blVar;
+    public cd(bu buVar, LinkedList linkedList, com.baidu.tbadk.core.data.bm bmVar) {
+        this.bDl = buVar;
+        this.bCo = linkedList;
+        this.bCp = bmVar;
     }
 
     @Override // com.baidu.tbadk.widget.layout.g
     public void c(View view, int i, boolean z) {
         if (z) {
-            this.bCs.Ur();
+            this.bDl.VI();
         } else {
-            this.bCs.a(this.bBv, i, this.bBw);
+            this.bDl.a(this.bCo, i, this.bCp);
         }
     }
 }

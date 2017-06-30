@@ -36,11 +36,11 @@ public class f {
         Fq.put(Double.TYPE, Double.TYPE);
     }
 
-    public static <T> T a(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        return (T) b(obj, str, objArr);
+    public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        return (T) d(obj, str, objArr);
     }
 
-    public static <T> T b(Object obj, String str, Object[] objArr) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+    public static <T> T d(Object obj, String str, Object[] objArr) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
         return (T) e(obj.getClass(), str, f(objArr)).invoke(obj, g(objArr));
     }
 
@@ -51,14 +51,14 @@ public class f {
     }
 
     private static Method e(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException, SecurityException {
-        Method a2 = a(cls.getDeclaredMethods(), str, clsArr);
-        if (a2 != null) {
-            a2.setAccessible(true);
+        Method b = b(cls.getDeclaredMethods(), str, clsArr);
+        if (b != null) {
+            b.setAccessible(true);
         }
-        return a2;
+        return b;
     }
 
-    private static Method a(Method[] methodArr, String str, Class<?>[] clsArr) throws NoSuchMethodException {
+    private static Method b(Method[] methodArr, String str, Class<?>[] clsArr) throws NoSuchMethodException {
         if (str == null) {
             throw new NullPointerException("Method name must not be null.");
         }

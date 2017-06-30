@@ -1,10 +1,24 @@
 package com.baidu.android.pushservice.f;
+
+import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class a {
-    public String a;
-    public long b;
-    public long c;
-    public long d;
-    public int e = 1;
-    public int f = 1;
+    private InputStream a;
+    private int b;
+
+    public InputStream a() {
+        return this.a;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public void a(InputStream inputStream) {
+        this.a = inputStream;
+    }
+
+    public int b() {
+        return this.b;
+    }
 }

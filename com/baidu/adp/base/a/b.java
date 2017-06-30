@@ -55,7 +55,7 @@ public class b {
         }
     }
 
-    public boolean r(String str) {
+    public boolean y(String str) {
         SQLiteDatabase ch = ch();
         if (ch != null) {
             try {

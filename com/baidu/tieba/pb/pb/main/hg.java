@@ -1,48 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.pb.a.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class hg implements PbModel.a {
-    final /* synthetic */ ReaderPbService evn;
+public class hg implements a.InterfaceC0074a {
+    final /* synthetic */ gg eEv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public hg(ReaderPbService readerPbService) {
-        this.evn = readerPbService;
+    public hg(gg ggVar) {
+        this.eEv = ggVar;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
-    public void c(com.baidu.tieba.pb.data.f fVar) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
-    public void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
-    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4) {
-        boolean z2;
-        ey eyVar;
-        fb fbVar;
-        ey eyVar2;
-        fb fbVar2;
-        fb fbVar3;
-        fb fbVar4;
-        z2 = this.evn.isAlive;
-        if (!z2) {
-            eyVar = this.evn.mReaderManager;
-            if (eyVar != null) {
-                fbVar = this.evn.mReaderModel;
-                if (fbVar != null) {
-                    eyVar2 = this.evn.mReaderManager;
-                    fbVar2 = this.evn.mReaderModel;
-                    com.baidu.tieba.pb.data.f pbData = fbVar2.getPbData();
-                    fbVar3 = this.evn.mReaderModel;
-                    boolean aLV = fbVar3.aLV();
-                    fbVar4 = this.evn.mReaderModel;
-                    eyVar2.b(pbData, aLV, i2, fbVar4.aLW());
-                }
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0074a
+    public void aeP() {
+        PbLandscapeListView pbLandscapeListView;
+        com.baidu.tieba.pb.video.l lVar;
+        PbLandscapeListView pbLandscapeListView2;
+        com.baidu.tieba.pb.video.l lVar2;
+        pbLandscapeListView = this.eEv.eBV;
+        if (pbLandscapeListView != null) {
+            lVar = this.eEv.eBM;
+            if (lVar != null) {
+                lVar2 = this.eEv.eBM;
+                lVar2.aSX();
             }
+            pbLandscapeListView2 = this.eEv.eBV;
+            pbLandscapeListView2.smoothScrollToPosition(0);
         }
+    }
+
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0074a
+    public void aeO() {
+        PbActivity pbActivity;
+        pbActivity = this.eEv.euf;
+        pbActivity.aej();
     }
 }

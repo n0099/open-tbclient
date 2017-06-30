@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    private j buZ;
-    private com.baidu.tieba.personCenter.a.b eGK;
-    private r eKD;
-    private c eKE;
-    private k eKF;
-    private a eKG;
-    private e eKH;
-    private o eKI;
-    private g eKJ;
-    private p eKK;
-    private f eKL;
-    private com.baidu.tieba.person.a.c eKM;
-    private u eKN;
+    private com.baidu.tieba.personCenter.a.b eQz;
+    private r eUB;
+    private c eUC;
+    private k eUD;
+    private a eUE;
+    private e eUF;
+    private j eUG;
+    private o eUH;
+    private g eUI;
+    private p eUJ;
+    private f eUK;
+    private com.baidu.tieba.person.a.c eUL;
+    private u eUM;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdUniqueId mBdUniqueId;
 
@@ -31,43 +31,43 @@ public class s {
     }
 
     private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.eKD = new r(tbPageContext);
-        this.eKE = new c(tbPageContext);
-        this.eKF = new k(tbPageContext);
-        this.eKG = new a(tbPageContext);
-        this.eKH = new e(tbPageContext);
-        this.buZ = new j(tbPageContext, tbPageContext.getUniqueId());
-        this.eKI = new o(tbPageContext);
-        this.eKJ = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.g.eMv);
-        this.eKK = new p(tbPageContext);
-        this.eKL = new f(tbPageContext);
-        this.eKM = new com.baidu.tieba.person.a.c(tbPageContext, com.baidu.tieba.person.a.e.eGL);
-        this.eGK = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.person.h.eGy);
-        this.eKN = new u(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-        this.mAdapters.add(this.eKD);
-        this.mAdapters.add(this.eKE);
-        this.mAdapters.add(this.eKF);
-        this.mAdapters.add(this.eKG);
-        this.mAdapters.add(this.eKH);
-        this.mAdapters.add(this.buZ);
-        this.mAdapters.add(this.eKI);
-        this.mAdapters.add(this.eKJ);
-        this.mAdapters.add(this.eKK);
-        this.mAdapters.add(this.eKL);
-        this.mAdapters.add(this.eKM);
-        this.mAdapters.add(this.eGK);
-        this.mAdapters.add(this.eKN);
+        this.eUB = new r(tbPageContext);
+        this.eUC = new c(tbPageContext);
+        this.eUD = new k(tbPageContext);
+        this.eUE = new a(tbPageContext);
+        this.eUF = new e(tbPageContext);
+        this.eUG = new j(tbPageContext, tbPageContext.getUniqueId());
+        this.eUH = new o(tbPageContext);
+        this.eUI = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.g.eWE);
+        this.eUJ = new p(tbPageContext);
+        this.eUK = new f(tbPageContext);
+        this.eUL = new com.baidu.tieba.person.a.c(tbPageContext, com.baidu.tieba.person.a.e.eQA);
+        this.eQz = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.person.h.eQg);
+        this.eUM = new u(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
+        this.mAdapters.add(this.eUB);
+        this.mAdapters.add(this.eUC);
+        this.mAdapters.add(this.eUD);
+        this.mAdapters.add(this.eUE);
+        this.mAdapters.add(this.eUF);
+        this.mAdapters.add(this.eUG);
+        this.mAdapters.add(this.eUH);
+        this.mAdapters.add(this.eUI);
+        this.mAdapters.add(this.eUJ);
+        this.mAdapters.add(this.eUK);
+        this.mAdapters.add(this.eUL);
+        this.mAdapters.add(this.eQz);
+        this.mAdapters.add(this.eUM);
         bdPersonListView.addAdapters(this.mAdapters);
     }
 
-    public void O(View.OnClickListener onClickListener) {
-        if (this.eKM != null) {
-            this.eKM.M(onClickListener);
+    public void P(View.OnClickListener onClickListener) {
+        if (this.eUL != null) {
+            this.eUL.N(onClickListener);
         }
     }
 
     public void setIsHost(boolean z) {
-        this.eKN.setIsHost(z);
-        this.eKF.setIsHost(z);
+        this.eUM.setIsHost(z);
+        this.eUD.setIsHost(z);
     }
 }

@@ -1,37 +1,39 @@
 package com.baidu.tbadk.browser;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-class u extends com.baidu.tbadk.core.d.p {
-    final /* synthetic */ TbWebViewActivity Qs;
+class u extends com.baidu.tbadk.core.hybrid.w {
+    final /* synthetic */ TbWebViewActivity Qm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.d.n nVar) {
-        super(nVar);
-        this.Qs = tbWebViewActivity;
+    public u(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.hybrid.s sVar) {
+        super(sVar);
+        this.Qm = tbWebViewActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.d.p
-    public String nX() {
-        return "TBHY_COMMON_UISwitch";
+    @Override // com.baidu.tbadk.core.hybrid.w
+    public String nT() {
+        return "TBHY_COMMON_Share";
     }
 
-    @com.baidu.tbadk.core.d.q(tK = false, value = "viewHideSwitch")
-    private void viewHideSwitch(JSONObject jSONObject) {
-        boolean z;
+    @com.baidu.tbadk.core.hybrid.x(tN = false, value = TbConfig.TMP_SHARE_DIR_NAME)
+    private void share(JSONObject jSONObject) {
         if (jSONObject != null) {
-            String optString = jSONObject.optJSONObject(TbConfig.TMP_SHARE_DIR_NAME).optString("value");
-            if ("1".equals(optString)) {
-                this.Qs.mShowShareItem = true;
-            } else if ("0".equals(optString)) {
-                this.Qs.mShowShareItem = false;
+            String optString = jSONObject.optString(VrPlayerActivityConfig.TITLE);
+            String optString2 = jSONObject.optString("desc");
+            String optString3 = jSONObject.optString("img");
+            String optString4 = jSONObject.optString("url");
+            String optString5 = jSONObject.optString("bid");
+            if (!StringUtils.isNULL(optString5)) {
+                this.Qm.mShareResultToFe = true;
+                this.Qm.mBid = optString5;
             }
-            z zVar = this.Qs.mView;
-            z = this.Qs.mShowShareItem;
-            zVar.ae(z);
+            com.baidu.adp.lib.g.h.fR().post(new v(this, this.Qm.createShareContent(optString, optString4, optString2, optString3)));
         }
     }
 }

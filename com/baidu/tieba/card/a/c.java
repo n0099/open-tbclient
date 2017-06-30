@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ a bCT;
+    final /* synthetic */ a bDM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bCT = aVar;
+        this.bDM = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,22 +23,22 @@ class c implements View.OnClickListener {
         TbPageContext<?> tbPageContext3;
         View.OnClickListener onClickListener2;
         int id = view.getId();
-        view2 = this.bCT.mView;
+        view2 = this.bDM.mView;
         if (id == view2.getId()) {
-            if (!com.baidu.adp.lib.util.i.hk()) {
-                tbPageContext = this.bCT.aas;
+            if (!com.baidu.adp.lib.util.i.hj()) {
+                tbPageContext = this.bDM.aat;
                 Activity pageActivity = tbPageContext.getPageActivity();
-                tbPageContext2 = this.bCT.aas;
-                com.baidu.adp.lib.util.k.E(pageActivity, tbPageContext2.getString(w.l.no_network_guide));
+                tbPageContext2 = this.bDM.aat;
+                com.baidu.adp.lib.util.k.F(pageActivity, tbPageContext2.getString(w.l.no_network_guide));
                 return;
             }
-            onClickListener = this.bCT.bCQ;
+            onClickListener = this.bDM.bDJ;
             if (onClickListener != null) {
-                onClickListener2 = this.bCT.bCQ;
+                onClickListener2 = this.bDM.bDJ;
                 onClickListener2.onClick(view);
             }
-            jVar = this.bCT.bCD;
-            tbPageContext3 = this.bCT.aas;
+            jVar = this.bDM.bDw;
+            tbPageContext3 = this.bDM.aat;
             jVar.h(tbPageContext3);
         }
     }

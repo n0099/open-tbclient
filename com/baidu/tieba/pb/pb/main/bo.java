@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.pb.pb.main.PbFloorAgreeModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements a.b {
-    final /* synthetic */ PbActivity enc;
-    private final /* synthetic */ hh enm;
+public class bo implements PbFloorAgreeModel.a {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(PbActivity pbActivity, hh hhVar) {
-        this.enc = pbActivity;
-        this.enm = hhVar;
+    public bo(PbActivity pbActivity) {
+        this.ewh = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.enc.HidenSoftKeyPad((InputMethodManager) this.enc.getSystemService("input_method"), this.enm.getChatMsgView());
-        aVar.dismiss();
+    @Override // com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.a
+    public void oK(int i) {
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.a
+    public void oN(String str) {
+        com.baidu.tieba.pb.d.a(this.ewh.getPageContext(), str);
     }
 }

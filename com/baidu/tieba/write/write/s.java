@@ -6,24 +6,24 @@ import com.baidu.tieba.write.write.q;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ q.b fZw;
+    final /* synthetic */ q.b gkv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q.b bVar) {
-        this.fZw = bVar;
+        this.gkv = bVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         TbImageView tbImageView;
         TbImageView tbImageView2;
-        this.fZw.mb(true);
+        this.gkv.mC(true);
         if (aVar != null) {
-            tbImageView2 = this.fZw.aPf;
+            tbImageView2 = this.gkv.aQx;
             aVar.e(tbImageView2);
             return;
         }
-        tbImageView = this.fZw.aPf;
+        tbImageView = this.gkv.aQx;
         tbImageView.setDefaultResource(w.g.image_group_load_f);
     }
 }

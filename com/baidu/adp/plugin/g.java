@@ -9,7 +9,7 @@ public class g {
     private static volatile g CV;
     private Map<String, a> CW;
 
-    public static g iO() {
+    public static g iN() {
         if (CV == null) {
             synchronized (g.class) {
                 if (CV == null) {
@@ -29,15 +29,15 @@ public class g {
         this.CW.put(str, aVar);
     }
 
-    public synchronized a aN(String str) {
+    public synchronized a aS(String str) {
         return this.CW.get(str);
     }
 
-    public synchronized void aO(String str) {
+    public synchronized void aT(String str) {
         this.CW.remove(str);
     }
 
-    public int iP() {
+    public int iO() {
         return this.CW.size();
     }
 

@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.util.w;
+import com.baidu.tbadk.util.x;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 class m implements CustomMessageTask.CustomRunnable<PersonalChatActivityConfig> {
@@ -15,7 +15,7 @@ class m implements CustomMessageTask.CustomRunnable<PersonalChatActivityConfig> 
         if (customMessage != null && customMessage.getData() != null && (userData = customMessage.getData().getUserData()) != null) {
             LinkedList linkedList = new LinkedList();
             linkedList.add(String.valueOf(userData.getUserId()));
-            w.b(new n(this, linkedList), new o(this, customMessage));
+            x.b(new n(this, linkedList), new o(this, customMessage));
         }
         return null;
     }

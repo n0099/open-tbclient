@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 /* loaded from: classes.dex */
 public class b {
 
@@ -22,7 +22,7 @@ public class b {
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
         if (j > 0) {
-            as Z = new as("ad_tpoint").Z("obj_id", String.valueOf(j)).Z("obj_name", str);
+            au Z = new au("ad_tpoint").Z("obj_id", String.valueOf(j)).Z("obj_name", str);
             if (str3 != null) {
                 Z = Z.Z("page", str3);
             }
@@ -50,7 +50,7 @@ public class b {
             if (str11 != null) {
                 Z = Z.Z("tid", str11);
             }
-            as Z2 = Z.Z("line", "PT").Z("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).Z("obj_throw_type", "BY_POST").Z("client_type", "MOBILE_APP").Z("user_timestamp", String.valueOf(System.currentTimeMillis())).Z("os", "android").Z("os_version", Build.VERSION.RELEASE).Z("log_ver", "1.1");
+            au Z2 = Z.Z("line", "PT").Z("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).Z("obj_throw_type", "BY_POST").Z("client_type", "MOBILE_APP").Z("user_timestamp", String.valueOf(System.currentTimeMillis())).Z("os", "android").Z("os_version", Build.VERSION.RELEASE).Z("log_ver", "1.1");
             if (str2 != null) {
                 Z2 = Z2.Z("link", str2);
             }

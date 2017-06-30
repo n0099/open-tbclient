@@ -8,32 +8,32 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
-public class c implements bv {
-    public static final AtomicReference<bv> bTu = new AtomicReference<>(null);
-    private static final bv bTv = new c();
+public class c implements bw {
+    public static final AtomicReference<bw> cbC = new AtomicReference<>(null);
+    private static final bw cbD = new c();
 
     private c() {
     }
 
-    public static bv ZH() {
-        bv bvVar = bTu.get();
-        return bvVar == null ? bTv : bvVar;
+    public static bw ady() {
+        bw bwVar = cbC.get();
+        return bwVar == null ? cbD : bwVar;
     }
 
-    @Override // com.baidu.tieba.frs.bv
+    @Override // com.baidu.tieba.frs.bw
     public p<ICardInfo, ? extends z.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }
 
-    @Override // com.baidu.tieba.frs.bv
-    public a<? extends com.baidu.tbadk.core.data.bl, ? extends z.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+    @Override // com.baidu.tieba.frs.bw
+    public a<? extends com.baidu.tbadk.core.data.bm, ? extends z.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }
 
-    @Override // com.baidu.tieba.frs.bv
-    public a<? extends com.baidu.tbadk.core.data.bl, ? extends z.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+    @Override // com.baidu.tieba.frs.bw
+    public a<? extends com.baidu.tbadk.core.data.bm, ? extends z.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.PublicKey;
@@ -12,23 +12,23 @@ import java.security.PublicKey;
 public class ai {
     public static boolean c(String str, File file) {
         if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
-            TiebaStatic.log(new as("c10836").Z("obj_type", "checkRSA input args is null"));
+            TiebaStatic.log(new au("c10836").Z("obj_type", "checkRSA input args is null"));
             return false;
         }
         try {
             PublicKey p = com.baidu.adp.lib.util.v.p(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
             if (p == null) {
-                TiebaStatic.log(new as("c10836").Z("obj_type", "publicKeyCode is null").Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+                TiebaStatic.log(new au("c10836").Z("obj_type", "publicKeyCode is null").Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] gx = gx(str);
-            if (gx == null || gx.length <= 0) {
-                TiebaStatic.log(new as("c10836").Z("obj_type", "server_data is null").Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+            byte[] gU = gU(str);
+            if (gU == null || gU.length <= 0) {
+                TiebaStatic.log(new au("c10836").Z("obj_type", "server_data is null").Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] b = com.baidu.adp.lib.util.v.b(p, gx);
+            byte[] b = com.baidu.adp.lib.util.v.b(p, gU);
             if (b == null || b.length <= 0) {
-                TiebaStatic.log(new as("c10836").Z("obj_type", "des is null").Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+                TiebaStatic.log(new au("c10836").Z("obj_type", "des is null").Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
             String trim = new String(b, "UTF-8").trim();
@@ -37,17 +37,17 @@ public class ai {
                 k = k.trim();
             }
             if (TextUtils.isEmpty(k) || TextUtils.isEmpty(trim)) {
-                TiebaStatic.log(new as("c10836").Z("obj_type", "apkMd5 or serverMD5 is null").Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+                TiebaStatic.log(new au("c10836").Z("obj_type", "apkMd5 or serverMD5 is null").Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             } else if (k.equalsIgnoreCase(trim)) {
                 return true;
             } else {
-                TiebaStatic.log(new as("c10836").Z("obj_type", "apkMd5 != serverMD5").Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+                TiebaStatic.log(new au("c10836").Z("obj_type", "apkMd5 != serverMD5").Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
                 return false;
             }
         } catch (Exception e) {
-            TiebaStatic.log(new as("c10836").Z("obj_type", "exception:" + e.getMessage()).Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+            TiebaStatic.log(new au("c10836").Z("obj_type", "exception:" + e.getMessage()).Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
             BdLog.e("download MD5 RSA ERROR！Exception:" + e.getMessage() + " ; file:" + file.getName());
             return false;
         }
@@ -61,7 +61,7 @@ public class ai {
         return digit;
     }
 
-    public static byte[] gx(String str) {
+    public static byte[] gU(String str) {
         int i = 0;
         if (str == null) {
             throw new IllegalArgumentException("binary string is null");

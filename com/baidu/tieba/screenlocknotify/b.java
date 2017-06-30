@@ -7,10 +7,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.im.util.MessageUtils;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 class b implements View.OnClickListener {
     final /* synthetic */ ScreenLockActivity this$0;
@@ -27,32 +28,32 @@ class b implements View.OnClickListener {
         com.baidu.tieba.screenlocknotify.a.a aVar3;
         com.baidu.tieba.screenlocknotify.a.a aVar4;
         com.baidu.tieba.screenlocknotify.a.a aVar5;
-        aVar = this.this$0.flT;
+        aVar = this.this$0.fwh;
         if (aVar != null) {
-            aVar2 = this.this$0.flT;
+            aVar2 = this.this$0.fwh;
             if (!StringUtils.isNull(aVar2.getInputMsg())) {
-                aVar3 = this.this$0.flT;
+                aVar3 = this.this$0.fwh;
                 s data = aVar3.getData();
                 if (data != null) {
                     if (data.customGroupType == 4) {
-                        TiebaStatic.log(new as("c11703").f(PbActivityConfig.KEY_MSG_ID, data.msgId / 100).f(InterviewLiveActivityConfig.KEY_TASK_ID, data.taskId).Z("url", data.url).Z("app_version", TbConfig.getVersion()));
+                        TiebaStatic.log(new au("c11703").f(PbActivityConfig.KEY_MSG_ID, data.msgId / 100).f(InterviewLiveActivityConfig.KEY_TASK_ID, data.taskId).Z("obj_to", data.url).Z(Constants.EXTRA_KEY_APP_VERSION, TbConfig.getVersion()));
                     }
                     if (data.customGroupType == 1) {
                         long c = com.baidu.adp.lib.g.b.c(data.groupId, 0L);
-                        aVar5 = this.this$0.flT;
+                        aVar5 = this.this$0.fwh;
                         MessageUtils.createGroupChatMessage(1, aVar5.getInputMsg(), c);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.yn().ej(data.groupId);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.yG().eD(data.groupId);
                         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.groupId, 1)));
                     } else if (data.customGroupType == 2) {
                         long c2 = com.baidu.adp.lib.g.b.c(data.groupId, 0L);
-                        aVar4 = this.this$0.flT;
-                        MessageUtils.createPersonalChatMessage(1, aVar4.getInputMsg(), c2, data.userName, data.fmu);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.yn().ej(data.groupId);
+                        aVar4 = this.this$0.fwh;
+                        MessageUtils.createPersonalChatMessage(1, aVar4.getInputMsg(), c2, data.userName, data.fwI);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.yG().eD(data.groupId);
                         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.groupId, 2)));
                         MessageUtils.sendHasReadMessage(data.groupId, 2);
                     }
-                    new an("lockscreen_reply", true).start();
-                    i.baP().fma.baU();
+                    new ap("lockscreen_reply", true).start();
+                    i.bfe().fwo.bfj();
                     this.this$0.finish();
                 }
             }

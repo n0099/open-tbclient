@@ -6,49 +6,49 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ c dco;
+    final /* synthetic */ c dkm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, int i) {
         super(i);
-        this.dco = cVar;
+        this.dkm = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        boolean aqO;
+        boolean auz;
         String str;
         String str2;
         String str3;
         String str4;
         List list;
-        aqO = this.dco.aqO();
-        if (aqO && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
+        auz = this.dkm.auz();
+        if (auz && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
             PushNotifyMessage pushNotifyMessage = (PushNotifyMessage) socketResponsedMessage;
             if (pushNotifyMessage.getType() != 3 && pushNotifyMessage.getType() != 4) {
                 b bVar = new b();
                 bVar.emitTime = ((PushNotifyMessage) socketResponsedMessage).getEmitTime();
-                bVar.netType = this.dco.aqJ();
-                bVar.dca = this.dco.aqL();
-                str = this.dco.dcg;
+                bVar.netType = this.dkm.auu();
+                bVar.djY = this.dkm.auw();
+                str = this.dkm.dke;
                 if (str == null) {
-                    this.dco.dcg = bVar.emitTime;
+                    this.dkm.dke = bVar.emitTime;
                 }
-                str2 = this.dco.dch;
+                str2 = this.dkm.dkf;
                 if (str2 == null) {
-                    this.dco.dch = bVar.emitTime;
+                    this.dkm.dkf = bVar.emitTime;
                 }
-                str3 = this.dco.dch;
+                str3 = this.dkm.dkf;
                 if (com.baidu.adp.lib.g.b.c(str3, 0L) < com.baidu.adp.lib.g.b.c(bVar.emitTime, 0L)) {
-                    this.dco.dch = bVar.emitTime;
+                    this.dkm.dkf = bVar.emitTime;
                 }
-                str4 = this.dco.dcg;
+                str4 = this.dkm.dke;
                 if (com.baidu.adp.lib.g.b.c(str4, 0L) > com.baidu.adp.lib.g.b.c(bVar.emitTime, 0L)) {
-                    this.dco.dcg = bVar.emitTime;
+                    this.dkm.dke = bVar.emitTime;
                 }
-                list = this.dco.dce;
+                list = this.dkm.dkc;
                 list.add(bVar);
             }
         }

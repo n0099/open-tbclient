@@ -1,28 +1,29 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.view.View;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aOF;
-    private final /* synthetic */ TbRichTextData aOG;
+    final /* synthetic */ TbRichTextView aPX;
+    private final /* synthetic */ TbRichTextData aPZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
-        this.aOF = tbRichTextView;
-        this.aOG = tbRichTextData;
+        this.aPX = tbRichTextView;
+        this.aPZ = tbRichTextData;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TbRichTextView.d dVar;
-        TbRichTextView.d dVar2;
-        dVar = this.aOF.aOl;
-        if (dVar != null) {
-            TbRichTextEmotionInfo HI = this.aOG.HI();
-            dVar2 = this.aOF.aOl;
-            dVar2.a(view, HI.mGifInfo.mGid, HI.mGifInfo.mPackageName, HI.mGifInfo.mIcon, HI.mGifInfo.mStaticUrl, HI.mGifInfo.mDynamicUrl, HI.mGifInfo.mSharpText, HI.mGifInfo.mGifWidth, HI.mGifInfo.mGifHeight);
+        if (this.aPZ.Ib() != null) {
+            if (this.aPX.getContext() instanceof d) {
+                ((d) this.aPX.getContext()).ab(this.aPX.getContext(), this.aPZ.Ib().toString());
+                return;
+            }
+            com.baidu.adp.base.g<?> Z = com.baidu.adp.base.k.Z(this.aPX.getContext());
+            if (Z != null && (Z.getOrignalPage() instanceof d)) {
+                ((d) Z.getOrignalPage()).ab(this.aPX.getContext(), this.aPZ.Ib().toString());
+            }
         }
     }
 }

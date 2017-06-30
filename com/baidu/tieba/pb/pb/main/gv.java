@@ -1,38 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.a.a;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gv implements a.InterfaceC0071a {
-    final /* synthetic */ fx evi;
+public class gv extends CustomMessageListener {
+    final /* synthetic */ gg eEv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gv(fx fxVar) {
-        this.evi = fxVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gv(gg ggVar, int i) {
+        super(i);
+        this.eEv = ggVar;
     }
 
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0071a
-    public void aaY() {
-        PbLandscapeListView pbLandscapeListView;
-        com.baidu.tieba.pb.video.l lVar;
-        PbLandscapeListView pbLandscapeListView2;
-        com.baidu.tieba.pb.video.l lVar2;
-        pbLandscapeListView = this.evi.esK;
-        if (pbLandscapeListView != null) {
-            lVar = this.evi.esB;
-            if (lVar != null) {
-                lVar2 = this.evi.esB;
-                lVar2.aOY();
-            }
-            pbLandscapeListView2 = this.evi.esK;
-            pbLandscapeListView2.smoothScrollToPosition(0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            this.eEv.eDs = false;
         }
-    }
-
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0071a
-    public void aaX() {
-        PbActivity pbActivity;
-        pbActivity = this.evi.elf;
-        pbActivity.aat();
     }
 }

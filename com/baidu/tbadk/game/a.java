@@ -10,23 +10,23 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private static a aBV = new a();
-    private GameInfoData aBW;
-    private final e aBX = new b(this, 303009);
+    private static a aCY = new a();
+    private GameInfoData aCZ;
+    private final e aDa = new b(this, 303009);
     private String mUrl;
 
     private a() {
-        MessageManager.getInstance().registerListener(this.aBX);
+        MessageManager.getInstance().registerListener(this.aDa);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, new c(this));
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static a Du() {
-        return aBV;
+    public static a DO() {
+        return aCY;
     }
 
-    private GameInfoData Dv() {
+    private GameInfoData DP() {
         GameInfoData gameInfoData = new GameInfoData();
         gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(w.l.default_share_to_game_title));
         gameInfoData.setGameLink(this.mUrl);
@@ -36,19 +36,19 @@ public class a {
         return gameInfoData;
     }
 
-    public GameInfoData Dw() {
-        return this.aBW == null ? Dv() : this.aBW;
+    public GameInfoData DQ() {
+        return this.aCZ == null ? DP() : this.aCZ;
     }
 
-    public ShareFromGameCenterMsgData Dx() {
-        GameInfoData Dw = Dw();
+    public ShareFromGameCenterMsgData DR() {
+        GameInfoData DQ = DQ();
         ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
-        shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? Dw.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
-        shareFromGameCenterMsgData.setContent(StringUtils.isNull(GameShareJsBridge.getInstance().getShareContent(), true) ? Dw.getIntroduce() : GameShareJsBridge.getInstance().getShareContent());
-        shareFromGameCenterMsgData.setImageUrl(StringUtils.isNull(GameShareJsBridge.getInstance().getShareImage(), true) ? Dw.getIconUrl() : GameShareJsBridge.getInstance().getShareImage());
-        shareFromGameCenterMsgData.setShareSource(StringUtils.isNull(GameShareJsBridge.getInstance().getShareName(), true) ? Dw.getGameName() : GameShareJsBridge.getInstance().getShareName());
-        shareFromGameCenterMsgData.setShareSourceIcon(StringUtils.isNull(GameShareJsBridge.getInstance().getIconUrl(), true) ? Dw.getIconUrl() : GameShareJsBridge.getInstance().getIconUrl());
-        String gameId = StringUtils.isNull(GameShareJsBridge.getInstance().getGameId(), true) ? Dw.getGameId() : GameShareJsBridge.getInstance().getGameId();
+        shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? DQ.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
+        shareFromGameCenterMsgData.setContent(StringUtils.isNull(GameShareJsBridge.getInstance().getShareContent(), true) ? DQ.getIntroduce() : GameShareJsBridge.getInstance().getShareContent());
+        shareFromGameCenterMsgData.setImageUrl(StringUtils.isNull(GameShareJsBridge.getInstance().getShareImage(), true) ? DQ.getIconUrl() : GameShareJsBridge.getInstance().getShareImage());
+        shareFromGameCenterMsgData.setShareSource(StringUtils.isNull(GameShareJsBridge.getInstance().getShareName(), true) ? DQ.getGameName() : GameShareJsBridge.getInstance().getShareName());
+        shareFromGameCenterMsgData.setShareSourceIcon(StringUtils.isNull(GameShareJsBridge.getInstance().getIconUrl(), true) ? DQ.getIconUrl() : GameShareJsBridge.getInstance().getIconUrl());
+        String gameId = StringUtils.isNull(GameShareJsBridge.getInstance().getGameId(), true) ? DQ.getGameId() : GameShareJsBridge.getInstance().getGameId();
         if ("default".equals(gameId)) {
             shareFromGameCenterMsgData.setShareSourceUrl(gameId);
         } else {
@@ -56,7 +56,7 @@ public class a {
         }
         String shareContentUrl = GameShareJsBridge.getInstance().getShareContentUrl();
         if (StringUtils.isNull(shareContentUrl)) {
-            shareContentUrl = Dw.getGameLink();
+            shareContentUrl = DQ.getGameLink();
         }
         if (StringUtils.isNull(shareContentUrl, true)) {
             shareContentUrl = "";

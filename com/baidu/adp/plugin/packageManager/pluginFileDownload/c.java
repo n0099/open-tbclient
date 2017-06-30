@@ -6,7 +6,7 @@ public class c {
     private static volatile c EC;
     private b ED;
 
-    public static c jS() {
+    public static c jQ() {
         if (EC == null) {
             synchronized (c.class) {
                 if (EC == null) {
@@ -34,9 +34,9 @@ public class c {
         }
     }
 
-    public void bk(String str) {
+    public void bp(String str) {
         if (this.ED != null) {
-            this.ED.bj(str);
+            this.ED.bo(str);
         }
     }
 
@@ -44,12 +44,12 @@ public class c {
         this.ED = bVar;
     }
 
-    public boolean bh(String str) {
+    public boolean bm(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         if (this.ED != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.ED.jR()) {
+            for (BdFileDownloadData bdFileDownloadData : this.ED.jP()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

@@ -171,7 +171,7 @@ public class TbErrInfo {
     }
 
     public static int getFileHelperSDErr() {
-        switch (com.baidu.adp.lib.util.e.gT()) {
+        switch (com.baidu.adp.lib.util.e.gS()) {
             case 1:
                 return -23;
             case 2:

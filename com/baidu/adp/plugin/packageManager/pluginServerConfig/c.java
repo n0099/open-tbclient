@@ -7,11 +7,11 @@ import org.apache.http.message.BasicNameValuePair;
 public class c {
     private List<BasicNameValuePair> EE = new ArrayList();
 
-    public List<BasicNameValuePair> jT() {
+    public List<BasicNameValuePair> jR() {
         return this.EE;
     }
 
-    public void f(List<BasicNameValuePair> list) {
+    public void h(List<BasicNameValuePair> list) {
         this.EE = list;
     }
 }

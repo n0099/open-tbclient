@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -36,9 +37,9 @@ public class k {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aH(String str);
+        void aM(String str);
 
-        View hH();
+        View hG();
     }
 
     public static void ae(Context context) {
@@ -89,21 +90,21 @@ public class k {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
             if (zd == null) {
-                if (ze == null || ze.hH() == null) {
+                if (ze == null || ze.hG() == null) {
                     zd = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
                     zd = new Toast(BdBaseApplication.getInst().getApp());
                     zd.setDuration(0);
-                    ze.aH(str);
-                    zd.setView(ze.hH());
+                    ze.aM(str);
+                    zd.setView(ze.hG());
                 }
                 zd.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
                 if (!str.equals(zf)) {
-                    if (ze == null || ze.hH() == null) {
+                    if (ze == null || ze.hG() == null) {
                         zd.setText(str);
                     } else {
-                        ze.aH(str);
+                        ze.aM(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -126,12 +127,12 @@ public class k {
         showToast(context, context.getResources().getString(i));
     }
 
-    public static void E(Context context, String str) {
+    public static void F(Context context, String str) {
         showToast(context, str, 3500);
     }
 
     public static void f(Context context, int i) {
-        E(context, context.getResources().getString(i));
+        F(context, context.getResources().getString(i));
     }
 
     public static void b(Context context, View view) {
@@ -304,7 +305,7 @@ public class k {
         return context.getResources().getDimensionPixelSize(i);
     }
 
-    public static boolean F(Context context, String str) {
+    public static boolean G(Context context, String str) {
         List<PackageInfo> installedPackages;
         if (str == null || str.length() == 0 || (installedPackages = context.getPackageManager().getInstalledPackages(0)) == null) {
             return false;
@@ -317,9 +318,9 @@ public class k {
         return false;
     }
 
-    public static void hz() {
+    public static void hy() {
         if (BdBaseApplication.getInst().isDebugMode()) {
-            if (hA() ? false : true) {
+            if (hz() ? false : true) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
@@ -336,12 +337,12 @@ public class k {
         }
     }
 
-    public static boolean hA() {
+    public static boolean hz() {
         return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
-    public static boolean hB() {
-        return i.hk();
+    public static boolean hA() {
+        return i.hj();
     }
 
     public static void a(Context context, View view, int i, int i2, int i3, int i4) {
@@ -353,7 +354,7 @@ public class k {
         view2.post(new m(view, dip2px3, dip2px, dip2px4, dip2px2, view2));
     }
 
-    public static String hC() {
+    public static String hB() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -362,16 +363,16 @@ public class k {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns1").getInputStream()));
                 try {
                     str = bufferedReader.readLine();
-                    o.a(bufferedReader);
+                    o.b((Reader) bufferedReader);
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    o.a(bufferedReader);
+                    o.b((Reader) bufferedReader);
                     return str;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                o.a(bufferedReader);
+                o.b((Reader) bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
@@ -380,13 +381,13 @@ public class k {
         } catch (Throwable th3) {
             bufferedReader = null;
             th = th3;
-            o.a(bufferedReader);
+            o.b((Reader) bufferedReader);
             throw th;
         }
         return str;
     }
 
-    public static String hD() {
+    public static String hC() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -395,16 +396,16 @@ public class k {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns2").getInputStream()));
                 try {
                     str = bufferedReader.readLine();
-                    o.a(bufferedReader);
+                    o.b((Reader) bufferedReader);
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    o.a(bufferedReader);
+                    o.b((Reader) bufferedReader);
                     return str;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                o.a(bufferedReader);
+                o.b((Reader) bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
@@ -413,18 +414,18 @@ public class k {
         } catch (Throwable th3) {
             bufferedReader = null;
             th = th3;
-            o.a(bufferedReader);
+            o.b((Reader) bufferedReader);
             throw th;
         }
         return str;
     }
 
-    public static boolean hE() {
-        String aG;
+    public static boolean hD() {
+        String aL;
         String str = Build.DISPLAY;
-        if (str != null && str.contains("Flyme") && (aG = aG(str)) != null && aG.length() >= 3) {
-            int g = com.baidu.adp.lib.g.b.g(aG(aG.substring(0, 1)), 0);
-            int g2 = com.baidu.adp.lib.g.b.g(aG(aG.substring(1, 2)), 0);
+        if (str != null && str.contains("Flyme") && (aL = aL(str)) != null && aL.length() >= 3) {
+            int g = com.baidu.adp.lib.g.b.g(aL(aL.substring(0, 1)), 0);
+            int g2 = com.baidu.adp.lib.g.b.g(aL(aL.substring(1, 2)), 0);
             if (g > 3) {
                 return true;
             }
@@ -435,14 +436,14 @@ public class k {
         return false;
     }
 
-    public static String aG(String str) {
+    public static String aL(String str) {
         if (str == null) {
             return null;
         }
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a hF() {
+    public static a hE() {
         return ze;
     }
 

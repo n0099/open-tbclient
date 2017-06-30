@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class p {
-    public void gR() {
+    public void gQ() {
         new a(null).execute(new String[0]);
     }
 
@@ -25,11 +25,11 @@ public class p {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            gR();
+            gQ();
             return null;
         }
 
-        private void gR() {
+        private void gQ() {
             int i;
             ArrayList<com.baidu.adp.lib.stats.base.c> I = com.baidu.adp.lib.stats.base.b.I(true);
             if (I != null && I.size() != 0) {

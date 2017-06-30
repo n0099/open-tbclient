@@ -5,23 +5,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes2.dex */
 class aq implements View.OnClickListener {
-    final /* synthetic */ am dmP;
+    final /* synthetic */ am duL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(am amVar) {
-        this.dmP = amVar;
+        this.duL = amVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i;
-        ViewEventCenter ES;
-        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9486, this.dmP.getData(), null, null);
-        bVar.setView(this.dmP.getRootView());
-        i = this.dmP.position;
-        bVar.eT(i);
-        ES = this.dmP.ES();
-        ES.dispatchMvcEvent(bVar);
+        ViewEventCenter Fp;
+        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9486, this.duL.getData(), null, null);
+        bVar.setView(this.duL.getRootView());
+        i = this.duL.position;
+        bVar.eV(i);
+        Fp = this.duL.Fp();
+        Fp.dispatchMvcEvent(bVar);
         TiebaStatic.log("c10096");
     }
 }

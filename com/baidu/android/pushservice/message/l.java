@@ -14,7 +14,7 @@ public class l extends c {
         eVar.e = true;
         g gVar = new g();
         gVar.a(0);
-        com.baidu.android.pushservice.e.a.b(b, "handleMessage: server heart beat type - " + ((int) eVar.a));
+        com.baidu.android.pushservice.g.a.b(b, "handleMessage: server heart beat type - " + ((int) eVar.a));
         return gVar;
     }
 }

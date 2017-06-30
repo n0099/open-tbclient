@@ -1,41 +1,34 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.ey;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class hd extends CustomMessageListener {
-    final /* synthetic */ ReaderPbService evn;
+public class hd implements Animation.AnimationListener {
+    final /* synthetic */ gg eEv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hd(ReaderPbService readerPbService, int i) {
-        super(i);
-        this.evn = readerPbService;
+    public hd(gg ggVar) {
+        this.eEv = ggVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ey.a aVar;
-        ey.a aVar2;
-        ey eyVar;
-        ey eyVar2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            if (intValue == 1) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10833").Z("obj_locate", "1"));
-                aVar2 = this.evn.mRefreshCallback;
-                eyVar = this.evn.mReaderManager;
-                int i = eyVar.erA;
-                eyVar2 = this.evn.mReaderManager;
-                aVar2.aU(i, eyVar2.aLQ());
-            } else if (intValue == 2) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10833").Z("obj_locate", "2"));
-                aVar = this.evn.mRefreshCallback;
-                aVar.aLT();
-            }
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TextView textView;
+        ScaleAnimation scaleAnimation = new ScaleAnimation(2.0f, 1.0f, 2.0f, 1.0f, 1, 0.5f, 1, 0.5f);
+        scaleAnimation.setDuration(300L);
+        scaleAnimation.setStartOffset(300L);
+        scaleAnimation.setAnimationListener(new he(this));
+        textView = this.eEv.eDE;
+        textView.startAnimation(scaleAnimation);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 /* loaded from: classes2.dex */
 public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
-    private BdUniqueId dmQ;
-    private ReplyMessageActivity dmR;
-    private a dmS;
+    private BdUniqueId duM;
+    private ReplyMessageActivity duN;
+    private a duO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -20,9 +20,9 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
 
     public ReplyMeModel(ReplyMessageActivity replyMessageActivity) {
         super(com.baidu.adp.base.k.Z(replyMessageActivity.getPageContext().getPageActivity()));
-        this.dmQ = BdUniqueId.gen();
-        this.dmR = replyMessageActivity;
-        aug();
+        this.duM = BdUniqueId.gen();
+        this.duN = replyMessageActivity;
+        axN();
     }
 
     public void a(long j, int i, String str) {
@@ -30,15 +30,15 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
         checkPostRequestMessage.setPid(j);
         checkPostRequestMessage.setPostType(i);
         checkPostRequestMessage.setForumName(str);
-        checkPostRequestMessage.setTag(this.dmR.getUniqueId());
+        checkPostRequestMessage.setTag(this.duN.getUniqueId());
         sendMessage(checkPostRequestMessage);
     }
 
-    public void aug() {
+    public void axN() {
         ar arVar = new ar(this, 303010);
-        arVar.setTag(this.dmR.getUniqueId());
+        arVar.setTag(this.duN.getUniqueId());
         arVar.setSelfListener(true);
-        this.dmR.registerListener(arVar);
+        this.duN.registerListener(arVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -52,6 +52,6 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
     }
 
     public void a(a aVar) {
-        this.dmS = aVar;
+        this.duO = aVar;
     }
 }

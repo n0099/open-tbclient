@@ -10,22 +10,22 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements com.baidu.tieba.tbadkCore.p {
-    final /* synthetic */ r bVb;
+    final /* synthetic */ r cdl;
     private long startTime = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(r rVar) {
-        this.bVb = rVar;
+        this.cdl = rVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.p
-    public void ii(int i) {
+    public void iu(int i) {
         this.startTime = System.nanoTime();
-        if (this.bVb.bUa != null) {
+        if (this.cdl.ccj != null) {
             switch (i) {
                 case 1:
                 case 2:
-                    this.bVb.bUa.aaH();
+                    this.cdl.ccj.aey();
                     return;
                 case 3:
                 case 4:
@@ -47,121 +47,121 @@ public class t implements com.baidu.tieba.tbadkCore.p {
         com.baidu.tieba.frs.mc.h hVar;
         com.baidu.tieba.tbadkCore.data.e eVar;
         com.baidu.tieba.frs.mc.h hVar2;
-        z2 = this.bVb.bwA;
+        z2 = this.cdl.bHe;
         if (z2) {
-            this.bVb.bwA = false;
-            com.baidu.tieba.frs.e.o.a(this.bVb.bUa, this.bVb.bTF, this.bVb.getForumId(), false, null);
+            this.cdl.bHe = false;
+            com.baidu.tieba.frs.e.o.a(this.cdl.ccj, this.cdl.cbN, this.cdl.getForumId(), false, null);
         }
-        this.bVb.aag();
-        this.bVb.bUe = true;
+        this.cdl.adX();
+        this.cdl.ccn = true;
         if (aVar != null && aVar.isSuccess) {
-            this.bVb.bUa.aaR().em(com.baidu.tbadk.core.util.av.vl().vn());
-            r.bUb = 0L;
-            r.bUc = 0L;
-            r.bUd = 0;
+            this.cdl.ccj.aeI().eE(com.baidu.tbadk.core.util.ax.vA().vC());
+            r.cck = 0L;
+            r.ccl = 0L;
+            r.ccm = 0;
         } else {
-            r.bUd = 1;
+            r.ccm = 1;
         }
-        if (!this.bVb.bUj.adf() && (i == 3 || i == 6)) {
-            hVar2 = this.bVb.bUx;
+        if (!this.cdl.ccs.agY() && (i == 3 || i == 6)) {
+            hVar2 = this.cdl.ccF;
             hVar2.resetData();
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.bVb.bUj.acK() != null) {
-            this.bVb.bTF = this.bVb.bUj.acK();
+        if (this.cdl.ccs.agC() != null) {
+            this.cdl.cbN = this.cdl.ccs.agC();
         }
         if (i != 7) {
-            if (this.bVb.bTF.qx() != null) {
-                this.bVb.setHasMore(this.bVb.bTF.qx().qt());
+            if (this.cdl.cbN.qu() != null) {
+                this.cdl.setHasMore(this.cdl.cbN.qu().qq());
             }
-            this.bVb.aah();
+            this.cdl.adY();
             if (i != 4) {
                 switch (i) {
                     case 1:
-                        this.bVb.bUa.aaH();
+                        this.cdl.ccj.aey();
                         break;
                     case 2:
-                        this.bVb.bUa.aaH();
+                        this.cdl.ccj.aey();
                         break;
                     case 3:
                     case 6:
-                        if (this.bVb.bTF != null) {
-                            this.bVb.bTF.bgY();
+                        if (this.cdl.cbN != null) {
+                            this.cdl.cbN.blm();
                         }
-                        if (this.bVb.bUB != null) {
-                            this.bVb.bUB.refresh();
+                        if (this.cdl.ccJ != null) {
+                            this.cdl.ccJ.refresh();
                             break;
                         }
                         break;
                 }
-                this.bVb.aai();
+                this.cdl.adZ();
                 if (aVar == null || aVar.errorCode == 0) {
-                    if (this.bVb.bTF != null) {
-                        this.bVb.bUa.ik(i);
-                        this.bVb.p(false, i == 5);
-                        r.bUb = (System.nanoTime() - this.startTime) / 1000000;
+                    if (this.cdl.cbN != null) {
+                        this.cdl.ccj.iw(i);
+                        this.cdl.q(false, i == 5);
+                        r.cck = (System.nanoTime() - this.startTime) / 1000000;
                         if (aVar != null) {
-                            r.bUc = aVar.fze;
+                            r.ccl = aVar.fJi;
                         }
                     } else {
                         return;
                     }
-                } else if (this.bVb.bTF == null || com.baidu.tbadk.core.util.x.r(this.bVb.bTF.getThreadList())) {
-                    this.bVb.a(aVar, false);
-                } else if (aVar.fzd) {
-                    this.bVb.showToast(this.bVb.getPageContext().getResources().getString(w.l.net_error_text, aVar.errorMsg, Integer.valueOf(aVar.errorCode)));
+                } else if (this.cdl.cbN == null || com.baidu.tbadk.core.util.z.t(this.cdl.cbN.getThreadList())) {
+                    this.cdl.a(aVar, false);
+                } else if (aVar.fJh) {
+                    this.cdl.showToast(this.cdl.getPageContext().getResources().getString(w.l.net_error_text, aVar.errorMsg, Integer.valueOf(aVar.errorCode)));
                 }
-                if (this.bVb.bTF.bgl() == 1) {
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11384"));
+                if (this.cdl.cbN.bkz() == 1) {
+                    TiebaStatic.log(new com.baidu.tbadk.core.util.au("c11384"));
                 }
-                if (this.bVb.bMF > -1) {
-                    com.baidu.tieba.frs.e.o.a(this.bVb.bUj, this.bVb.bMF);
-                    this.bVb.bMF = -1L;
+                if (this.cdl.bTh > -1) {
+                    com.baidu.tieba.frs.e.o.a(this.cdl.ccs, this.cdl.bTh);
+                    this.cdl.bTh = -1L;
                 }
-                z3 = this.bVb.bTX;
+                z3 = this.cdl.ccg;
                 if (z3) {
-                    dVar = this.bVb.bUm;
+                    dVar = this.cdl.ccu;
                     if (dVar instanceof a) {
-                        dVar2 = this.bVb.bUm;
-                        if (((a) dVar2).abX() != null) {
-                            dVar3 = this.bVb.bUm;
-                            ((a) dVar3).abX().iS(49);
-                            this.bVb.bTX = false;
+                        dVar2 = this.cdl.ccu;
+                        if (((a) dVar2).afP() != null) {
+                            dVar3 = this.cdl.ccu;
+                            ((a) dVar3).afP().je(49);
+                            this.cdl.ccg = false;
                         }
                     }
                 }
-                this.bVb.aGx = System.currentTimeMillis() - currentTimeMillis;
+                this.cdl.aHL = System.currentTimeMillis() - currentTimeMillis;
                 System.gc();
                 return;
             }
-            if (!this.bVb.bUj.adf() && TbadkCoreApplication.m9getInst().isRecAppExist() && this.bVb.bUj.acU() == 1) {
-                this.bVb.bTF.a(this.bVb);
+            if (!this.cdl.ccs.agY() && TbadkCoreApplication.m9getInst().isRecAppExist() && this.cdl.ccs.agN() == 1) {
+                this.cdl.cbN.a(this.cdl);
             }
-            hVar = this.bVb.bUx;
-            ArrayList<com.baidu.adp.widget.ListView.v> threadList = this.bVb.bTF.getThreadList();
-            eVar = this.bVb.bTW;
+            hVar = this.cdl.ccF;
+            ArrayList<com.baidu.adp.widget.ListView.v> threadList = this.cdl.cbN.getThreadList();
+            eVar = this.cdl.ccf;
             ArrayList<com.baidu.adp.widget.ListView.v> a = hVar.a(false, false, threadList, eVar);
             if (a != null) {
-                this.bVb.bTF.ay(a);
-                this.bVb.bTF.bha();
-                this.bVb.bUa.a(a, this.bVb.bTF);
+                this.cdl.cbN.az(a);
+                this.cdl.cbN.blo();
+                this.cdl.ccj.a(a, this.cdl.cbN);
             }
-            if (this.bVb.bUj != null) {
-                b.a(this.bVb.bTF, this.bVb.bUj.ada(), 2);
+            if (this.cdl.ccs != null) {
+                b.a(this.cdl.cbN, this.cdl.ccs.agT(), 2);
                 return;
             }
             return;
         }
-        this.bVb.ig(this.bVb.bTF.bgG());
+        this.cdl.is(this.cdl.cbN.bkU());
     }
 
     @Override // com.baidu.tieba.tbadkCore.p
     public void b(com.baidu.tieba.tbadkCore.l lVar) {
         if (lVar != null) {
-            if (!"normal_page".equals(this.bVb.bUj.acQ()) && !"frs_page".equals(this.bVb.bUj.acQ()) && !"book_page".equals(this.bVb.bUj.acQ())) {
+            if (!"normal_page".equals(this.cdl.ccs.agJ()) && !"frs_page".equals(this.cdl.ccs.agJ()) && !"book_page".equals(this.cdl.ccs.agJ())) {
                 return;
             }
-            this.bVb.a(lVar);
+            this.cdl.a(lVar);
         }
     }
 }

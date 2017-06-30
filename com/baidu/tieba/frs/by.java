@@ -1,11 +1,23 @@
 package com.baidu.tieba.frs;
+
+import android.content.Intent;
 /* loaded from: classes.dex */
 public interface by {
-    void MT();
+    void K(Intent intent);
 
-    void a(int i, int i2, ce ceVar);
+    void aeb();
 
-    void a(bz bzVar);
+    void aec();
 
-    void init();
+    void aen();
+
+    ForumWriteData aeo();
+
+    void setHeaderViewHeight(int i);
+
+    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.u uVar);
+
+    void showFloatingView();
+
+    void wK();
 }

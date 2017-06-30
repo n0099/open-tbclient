@@ -7,38 +7,38 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements LocationModel.a {
-    final /* synthetic */ c aAT;
+    final /* synthetic */ c aBW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.aAT = cVar;
+        this.aBW = cVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-    public void Dd() {
+    public void Dx() {
         BaseActivity baseActivity;
-        baseActivity = this.aAT.mContext;
+        baseActivity = this.aBW.mContext;
         baseActivity.showToast(w.l.no_network_guide);
-        this.aAT.b(0, false, null);
+        this.aBW.b(0, false, null);
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-    public void fw(String str) {
+    public void fQ(String str) {
         BaseActivity baseActivity;
-        baseActivity = this.aAT.mContext;
+        baseActivity = this.aBW.mContext;
         if (StringUtils.isNull(str)) {
-            str = this.aAT.Cm().getContext().getString(w.l.location_fail);
+            str = this.aBW.CG().getContext().getString(w.l.location_fail);
         }
         baseActivity.showToast(str);
-        this.aAT.b(0, false, null);
+        this.aBW.b(0, false, null);
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
     public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-        if (aVar == null || StringUtils.isNull(aVar.biI())) {
-            fw(null);
+        if (aVar == null || StringUtils.isNull(aVar.bmW())) {
+            fQ(null);
         } else {
-            this.aAT.b(2, true, aVar.biI());
+            this.aBW.b(2, true, aVar.bmW());
         }
     }
 }

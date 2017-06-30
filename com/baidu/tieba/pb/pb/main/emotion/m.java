@@ -5,23 +5,23 @@ import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements Runnable {
-    final /* synthetic */ l evI;
+    final /* synthetic */ l eEY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.evI = lVar;
+        this.eEY = lVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Set set;
         Set<String> set2;
-        set = this.evI.evG;
+        set = this.eEY.eEW;
         if (set != null) {
-            set2 = this.evI.evG;
+            set2 = this.eEY.eEW;
             for (String str : set2) {
                 if (!TextUtils.isEmpty(str)) {
-                    com.baidu.tbadk.imageManager.c.DH().fI(str);
+                    com.baidu.tbadk.imageManager.c.Eb().gc(str);
                 }
             }
         }

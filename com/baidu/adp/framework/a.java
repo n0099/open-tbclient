@@ -25,15 +25,15 @@ public class a {
         this.oc = new SparseArray<>();
     }
 
-    public void c(List<String> list) {
+    public void e(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                t(str);
+                A(str);
             }
         }
     }
 
-    private void t(String str) {
+    private void A(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();

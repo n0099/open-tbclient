@@ -79,7 +79,7 @@ public class j {
         return pN;
     }
 
-    public static void y(String str) {
+    public static void D(String str) {
         pN = str;
     }
 

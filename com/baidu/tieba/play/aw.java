@@ -8,13 +8,13 @@ import com.baidu.tieba.play.av;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw extends Handler {
-    final /* synthetic */ av fca;
+    final /* synthetic */ av fmq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aw(av avVar, Looper looper) {
         super(looper);
-        this.fca = avVar;
+        this.fmq = avVar;
     }
 
     @Override // android.os.Handler
@@ -23,33 +23,33 @@ public class aw extends Handler {
         boolean z2;
         MediaController.MediaPlayerControl mediaPlayerControl;
         MediaController.MediaPlayerControl mediaPlayerControl2;
-        int Ku;
+        int KS;
         av.b bVar;
         int i;
         int i2;
         av.b bVar2;
         switch (message.what) {
             case 1:
-                z = this.fca.aUU;
+                z = this.fmq.aWn;
                 if (!z) {
-                    z2 = this.fca.aUV;
+                    z2 = this.fmq.aWo;
                     if (z2) {
-                        mediaPlayerControl = this.fca.aUR;
+                        mediaPlayerControl = this.fmq.aWk;
                         if (mediaPlayerControl != null) {
-                            mediaPlayerControl2 = this.fca.aUR;
+                            mediaPlayerControl2 = this.fmq.aWk;
                             if (!mediaPlayerControl2.isPlaying()) {
                                 return;
                             }
-                            Ku = this.fca.Ku();
-                            bVar = this.fca.dzw;
+                            KS = this.fmq.KS();
+                            bVar = this.fmq.dIi;
                             if (bVar != null) {
-                                bVar2 = this.fca.dzw;
-                                bVar2.fJ(Ku);
+                                bVar2 = this.fmq.dIi;
+                                bVar2.fL(KS);
                             }
                             Message obtainMessage = obtainMessage(1);
-                            i = this.fca.aUQ;
-                            i2 = this.fca.aUQ;
-                            sendMessageDelayed(obtainMessage, i - (Ku % i2));
+                            i = this.fmq.aWj;
+                            i2 = this.fmq.aWj;
+                            sendMessageDelayed(obtainMessage, i - (KS % i2));
                             return;
                         }
                         return;

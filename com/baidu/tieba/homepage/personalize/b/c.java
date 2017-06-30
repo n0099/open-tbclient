@@ -9,11 +9,11 @@ import com.baidu.tieba.card.ci;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends ci<com.baidu.tieba.card.data.m> {
-    final /* synthetic */ b cBG;
+    final /* synthetic */ b cJD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cBG = bVar;
+        this.cJD = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,47 +29,47 @@ public class c extends ci<com.baidu.tieba.card.data.m> {
         bj bjVar8;
         bj bjVar9;
         bj bjVar10;
-        cf.Uw().ds(true);
+        cf.VN().cw(true);
         if (view != null) {
-            bjVar = this.cBG.cBF;
+            bjVar = this.cJD.cJC;
             if (bjVar != null) {
-                bjVar2 = this.cBG.cBF;
+                bjVar2 = this.cJD.cJC;
                 if (bjVar2.getView() != null) {
-                    bjVar3 = this.cBG.cBF;
-                    if (bjVar3.bBG != null && mVar != null && mVar.LH() != null && !StringUtils.isNull(mVar.LH().getTid())) {
+                    bjVar3 = this.cJD.cJC;
+                    if (bjVar3.bCz != null && mVar != null && mVar.Mv() != null && !StringUtils.isNull(mVar.Mv().getTid())) {
                         int id = view.getId();
-                        bjVar4 = this.cBG.cBF;
+                        bjVar4 = this.cJD.cJC;
                         if (id != bjVar4.getView().getId()) {
-                            bjVar5 = this.cBG.cBF;
-                            if (bjVar5.Uv() != null) {
+                            bjVar5 = this.cJD.cJC;
+                            if (bjVar5.VM() != null) {
                                 int id2 = view.getId();
-                                bjVar10 = this.cBG.cBF;
-                                if (id2 == bjVar10.Uv().getId()) {
-                                    TiebaStatic.log(mVar.UT());
+                                bjVar10 = this.cJD.cJC;
+                                if (id2 == bjVar10.VM().getId()) {
+                                    TiebaStatic.log(mVar.Wk());
                                     return;
                                 }
                             }
-                            bjVar6 = this.cBG.cBF;
+                            bjVar6 = this.cJD.cJC;
                             if (bjVar6.getHeaderImg() != null) {
                                 int id3 = view.getId();
-                                bjVar9 = this.cBG.cBF;
+                                bjVar9 = this.cJD.cJC;
                                 if (id3 == bjVar9.getHeaderImg().getId()) {
-                                    TiebaStatic.log(mVar.UU());
+                                    TiebaStatic.log(mVar.Wl());
                                     return;
                                 }
                             }
-                            bjVar7 = this.cBG.cBF;
-                            if (bjVar7.Ug() != null) {
-                                bjVar8 = this.cBG.cBF;
-                                if (bjVar8.Ug().getId() == view.getId()) {
-                                    TiebaStatic.log(mVar.UU());
+                            bjVar7 = this.cJD.cJC;
+                            if (bjVar7.Vv() != null) {
+                                bjVar8 = this.cJD.cJC;
+                                if (bjVar8.Vv().getId() == view.getId()) {
+                                    TiebaStatic.log(mVar.Wl());
                                     return;
                                 }
                                 return;
                             }
                             return;
                         }
-                        TiebaStatic.log(mVar.UR());
+                        TiebaStatic.log(mVar.Wi());
                     }
                 }
             }

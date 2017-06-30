@@ -5,20 +5,20 @@ import com.baidu.tbadk.editortools.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ CommonTabWidgetView aBT;
+    final /* synthetic */ CommonTabWidgetView aCW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(CommonTabWidgetView commonTabWidgetView) {
-        this.aBT = commonTabWidgetView;
+        this.aCW = commonTabWidgetView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         j jVar;
         j jVar2;
-        jVar = this.aBT.JU;
+        jVar = this.aCW.JT;
         if (jVar != null) {
-            jVar2 = this.aBT.JU;
+            jVar2 = this.aCW.JT;
             jVar2.b(new com.baidu.tbadk.editortools.a(3, 3, null));
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.e;
 /* loaded from: classes.dex */
 public interface c<T> {
-    T fL();
+    T fK();
 
     void o(T t);
 

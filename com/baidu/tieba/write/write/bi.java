@@ -1,39 +1,71 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.app.Activity;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class bi extends CustomMessageListener {
-    final /* synthetic */ WriteActivity gaR;
+class bi implements View.OnFocusChangeListener {
+    final /* synthetic */ WriteActivity glP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bi(WriteActivity writeActivity, int i) {
-        super(i);
-        this.gaR = writeActivity;
+    public bi(WriteActivity writeActivity) {
+        this.glP = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        LocationModel locationModel;
-        LocationModel locationModel2;
-        LocationModel locationModel3;
-        if (customResponsedMessage instanceof ResponsedSelectLocation) {
-            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
-            if (responsedSelectLocation.isShowLocation()) {
-                locationModel2 = this.gaR.aAA;
-                locationModel2.lv(false);
-                locationModel3 = this.gaR.aAA;
-                locationModel3.cd(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.gaR.b(2, true, responsedSelectLocation.getName());
-                return;
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
+        if (r4 == r0) goto L15;
+     */
+    @Override // android.view.View.OnFocusChangeListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onFocusChange(View view, boolean z) {
+        EditText editText;
+        EditText editText2;
+        TextView textView;
+        com.baidu.tbadk.editortools.j jVar;
+        EditText editText3;
+        com.baidu.tbadk.editortools.j jVar2;
+        EditText editText4;
+        com.baidu.tbadk.editortools.j jVar3;
+        EditText editText5;
+        View view2;
+        TextView textView2;
+        editText = this.glP.fCz;
+        if (view != editText) {
+            view2 = this.glP.apb;
+            if (view != view2) {
+                textView2 = this.glP.mPost;
             }
-            locationModel = this.gaR.aAA;
-            locationModel.lv(true);
-            this.gaR.b(0, true, null);
+        }
+        if (!z) {
+            editText2 = this.glP.fCz;
+            if (view == editText2) {
+                textView = this.glP.fCE;
+                textView.setVisibility(0);
+            }
+        } else {
+            this.glP.glL = true;
+            this.glP.bub();
+            jVar = this.glP.azR;
+            if (jVar != null) {
+                jVar2 = this.glP.azR;
+                jVar2.Bb();
+            }
+            Activity activity = this.glP.getActivity();
+            editText3 = this.glP.fCz;
+            com.baidu.adp.lib.util.k.c(activity, editText3);
+        }
+        editText4 = this.glP.fCD;
+        if (view == editText4 && z) {
+            this.glP.glL = false;
+            this.glP.bub();
+            jVar3 = this.glP.azR;
+            jVar3.Bb();
+            Activity activity2 = this.glP.getActivity();
+            editText5 = this.glP.fCD;
+            com.baidu.adp.lib.util.k.c(activity2, editText5);
         }
     }
 }

@@ -16,8 +16,8 @@ class f extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             int g = b.g(customResponsedMessage.getData().toString(), 1);
             if (g == 1 || g == 0) {
-                FrsActivityStatic.bTy = false;
-                FrsActivityStatic.bTx = false;
+                FrsActivityStatic.cbG = false;
+                FrsActivityStatic.cbF = false;
             }
         }
     }

@@ -5,21 +5,21 @@ import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ c bzJ;
+    final /* synthetic */ c bAC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.bzJ = cVar;
+        this.bAC = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ThreadGodReplyLayout threadGodReplyLayout;
-        if (this.bzJ.Ud() != null) {
-            this.bzJ.Ud().a(view, this.bzJ.bzH);
+        if (this.bAC.Vs() != null) {
+            this.bAC.Vs().a(view, this.bAC.bAA);
         }
-        c cVar = this.bzJ;
-        threadGodReplyLayout = this.bzJ.bzD;
-        cVar.dr(view == threadGodReplyLayout);
+        c cVar = this.bAC;
+        threadGodReplyLayout = this.bAC.bAw;
+        cVar.du(view == threadGodReplyLayout);
     }
 }

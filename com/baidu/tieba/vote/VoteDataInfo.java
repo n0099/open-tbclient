@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.tbadkCore.data.PostData;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -116,7 +117,7 @@ public class VoteDataInfo implements v, Serializable {
             if (TextUtils.isEmpty(this.mPolledValue)) {
                 strArr = null;
             } else {
-                strArr = this.mPolledValue.split(",");
+                strArr = this.mPolledValue.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
             List<PollOption> list = pollInfo.options;
             if (list != null) {
@@ -133,7 +134,7 @@ public class VoteDataInfo implements v, Serializable {
                         if (this.mTotalPoll > 0) {
                             fVar.cg((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
                         }
-                        if (a(strArr, String.valueOf(pollOption2.id))) {
+                        if (b(strArr, String.valueOf(pollOption2.id))) {
                             fVar.setSelected(true);
                         }
                         this.mOptions.add(fVar);
@@ -143,7 +144,7 @@ public class VoteDataInfo implements v, Serializable {
         }
     }
 
-    private boolean a(String[] strArr, String str) {
+    private boolean b(String[] strArr, String str) {
         if (strArr == null || TextUtils.isEmpty(str)) {
             return false;
         }
@@ -157,6 +158,6 @@ public class VoteDataInfo implements v, Serializable {
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return PostData.fCe;
+        return PostData.fMi;
     }
 }

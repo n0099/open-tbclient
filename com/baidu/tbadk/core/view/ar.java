@@ -1,43 +1,43 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import java.lang.ref.WeakReference;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
+import java.util.ArrayList;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar extends ImageSpan {
-    private WeakReference<Drawable> FT;
-    private int offset;
+public class ar implements View.OnClickListener {
+    private final /* synthetic */ int acD;
+    final /* synthetic */ ThreadGodReplyLayout and;
 
-    public ar(Drawable drawable) {
-        super(drawable);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ar(ThreadGodReplyLayout threadGodReplyLayout, int i) {
+        this.and = threadGodReplyLayout;
+        this.acD = i;
     }
 
-    public void setOffset(int i) {
-        this.offset = i;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable ku = ku();
-        canvas.save();
-        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - ku.getBounds().height()) / 2) + this.offset);
-        ku.draw(canvas);
-        canvas.restore();
-    }
-
-    private Drawable ku() {
-        WeakReference<Drawable> weakReference = this.FT;
-        Drawable drawable = null;
-        if (weakReference != null) {
-            drawable = weakReference.get();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        List list;
+        List list2;
+        List<TbRichTextImageInfo> list3;
+        list = this.and.mImageList;
+        if (list != null) {
+            list2 = this.and.mImageList;
+            if (list2.size() != 0) {
+                ArrayList<String> arrayList = new ArrayList<>();
+                list3 = this.and.mImageList;
+                for (TbRichTextImageInfo tbRichTextImageInfo : list3) {
+                    arrayList.add(tbRichTextImageInfo.Im());
+                }
+                ImageViewerConfig createConfig = new ImageViewerConfig(this.and.getContext()).createConfig(arrayList, this.acD, null, "", "", true, arrayList.get(0), true);
+                createConfig.getIntent().putExtra("from", ImageViewerConfig.FROM_DISCOVER_BEAUTY);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
+            }
         }
-        if (drawable == null) {
-            Drawable drawable2 = getDrawable();
-            this.FT = new WeakReference<>(drawable2);
-            return drawable2;
-        }
-        return drawable;
     }
 }

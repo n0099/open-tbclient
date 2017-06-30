@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.data.AccountData;
 public class d implements CustomMessageTask.CustomRunnable<AccountData> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
-        if (k.hA()) {
-            a.yn().yr();
+        if (k.hz()) {
+            a.yG().yK();
             return null;
         } else if (TbadkCoreApplication.m9getInst() != null) {
             TbadkCoreApplication.m9getInst().handler.post(new e(this));

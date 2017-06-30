@@ -6,20 +6,21 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.w;
+import com.xiaomi.mipush.sdk.Constants;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ i ekl;
-    private final /* synthetic */ String ekm;
-    private final /* synthetic */ String ekn;
-    private final /* synthetic */ String eko;
+    final /* synthetic */ i etk;
+    private final /* synthetic */ String etl;
+    private final /* synthetic */ String etm;
+    private final /* synthetic */ String etn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar, String str, String str2, String str3) {
-        this.ekl = iVar;
-        this.ekm = str;
-        this.ekn = str2;
-        this.eko = str3;
+        this.etk = iVar;
+        this.etl = str;
+        this.etm = str2;
+        this.etn = str3;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,16 +28,16 @@ public class j implements View.OnClickListener {
         Context context;
         Context context2;
         PbActivity pbActivity;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.ekm) && !StringUtils.isNull(this.ekn)) {
-            if (!com.baidu.adp.lib.util.i.hk()) {
-                pbActivity = this.ekl.elf;
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.etl) && !StringUtils.isNull(this.etm)) {
+            if (!com.baidu.adp.lib.util.i.hj()) {
+                pbActivity = this.etk.euf;
                 pbActivity.showToast(w.l.neterror);
                 return;
             }
-            context = this.ekl.mContext;
-            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.ekm) + "," + this.ekn, this.eko, this.eko, context.getString(w.l.app_info_for_map));
-            context2 = this.ekl.mContext;
-            com.baidu.tbadk.browser.f.S(context2, format);
+            context = this.etk.mContext;
+            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.etl) + Constants.ACCEPT_TIME_SEPARATOR_SP + this.etm, this.etn, this.etn, context.getString(w.l.app_info_for_map));
+            context2 = this.etk.mContext;
+            com.baidu.tbadk.browser.g.T(context2, format);
         }
     }
 }

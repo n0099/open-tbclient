@@ -8,22 +8,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class f extends a {
-    private ImageView aDv;
-    private String[] aDw;
-    private TextView aDx;
-    private final int aDy;
-    private Runnable aDz;
-    private TextView avt;
+    private ImageView aEJ;
+    private String[] aEK;
+    private TextView aEL;
+    private final int aEM;
+    private Runnable aEN;
+    private TextView aww;
     private int currentIndex;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int DU() {
+    public int Er() {
         this.currentIndex++;
-        if (this.currentIndex >= this.aDy) {
+        if (this.currentIndex >= this.aEM) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
@@ -36,81 +36,81 @@ public class f extends a {
     public f(Context context, int i) {
         super(LayoutInflater.from(context).inflate(w.j.loading_view_layout, (ViewGroup) null));
         this.currentIndex = 0;
-        this.aDz = new g(this);
-        this.aDv = (ImageView) this.aDt.findViewById(w.h.loading_animate_view);
+        this.aEN = new g(this);
+        this.aEJ = (ImageView) this.aEH.findViewById(w.h.loading_animate_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.aDv.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aEJ.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.aDv.setLayoutParams(marginLayoutParams);
+                this.aEJ.setLayoutParams(marginLayoutParams);
             }
         }
-        this.avt = (TextView) this.aDt.findViewById(w.h.loading_anim_ellipsis);
-        this.aDx = (TextView) this.aDt.findViewById(w.h.loading_text);
-        this.aDw = context.getResources().getStringArray(w.b.loading_anim_text_array);
-        this.aDy = this.aDw.length;
+        this.aww = (TextView) this.aEH.findViewById(w.h.loading_anim_ellipsis);
+        this.aEL = (TextView) this.aEH.findViewById(w.h.loading_text);
+        this.aEK = context.getResources().getStringArray(w.b.loading_anim_text_array);
+        this.aEM = this.aEK.length;
     }
 
-    private void DV() {
-        if (this.aDv != null && (this.aDv.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.aDv.getBackground()).start();
+    private void Es() {
+        if (this.aEJ != null && (this.aEJ.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.aEJ.getBackground()).start();
         }
     }
 
-    private void DW() {
-        if (this.aDv != null && (this.aDv.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.aDv.getBackground()).stop();
+    private void Et() {
+        if (this.aEJ != null && (this.aEJ.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.aEJ.getBackground()).stop();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.i.a
-    public void DS() {
-        aq.j(this.aDv, w.g.loading_animation);
-        DV();
-        aq.c(this.avt, w.e.cp_cont_c, 1);
-        aq.c(this.aDx, w.e.cp_cont_c, 1);
-        aq.k(this.aDt, w.e.cp_bg_line_d);
-        this.avt.setText(this.aDw[0]);
-        TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.aDz);
-        TbadkCoreApplication.m9getInst().handler.postDelayed(this.aDz, 200L);
-        this.aDt.setClickable(true);
+    public void Ep() {
+        as.j(this.aEJ, w.g.loading_animation);
+        Es();
+        as.c(this.aww, w.e.cp_cont_c, 1);
+        as.c(this.aEL, w.e.cp_cont_c, 1);
+        as.k(this.aEH, w.e.cp_bg_line_d);
+        this.aww.setText(this.aEK[0]);
+        TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.aEN);
+        TbadkCoreApplication.m9getInst().handler.postDelayed(this.aEN, 200L);
+        this.aEH.setClickable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.i.a
-    public void DT() {
+    public void Eq() {
         release();
     }
 
     public void release() {
-        DW();
-        TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.aDz);
-        this.aDv.setBackgroundResource(0);
+        Et();
+        TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.aEN);
+        this.aEJ.setBackgroundResource(0);
     }
 
     public void onChangeSkinType() {
-        if (DR()) {
-            aq.j(this.aDv, w.g.loading_animation);
-            DV();
-            aq.c(this.avt, w.e.cp_cont_c, 1);
-            aq.c(this.aDx, w.e.cp_cont_c, 1);
-            aq.k(this.aDt, w.e.cp_bg_line_d);
+        if (Eo()) {
+            as.j(this.aEJ, w.g.loading_animation);
+            Es();
+            as.c(this.aww, w.e.cp_cont_c, 1);
+            as.c(this.aEL, w.e.cp_cont_c, 1);
+            as.k(this.aEH, w.e.cp_bg_line_d);
         }
     }
 
-    public View DX() {
-        return this.aDt;
+    public View Eu() {
+        return this.aEH;
     }
 
     public void setTopMargin(int i) {
-        if (this.aDv != null) {
-            ViewGroup.LayoutParams layoutParams = this.aDv.getLayoutParams();
+        if (this.aEJ != null) {
+            ViewGroup.LayoutParams layoutParams = this.aEJ.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.aDv.setLayoutParams(marginLayoutParams);
+                this.aEJ.setLayoutParams(marginLayoutParams);
             }
         }
     }

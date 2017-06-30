@@ -47,6 +47,8 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private String bawu_type = null;
     private int concernNum = -1;
     private int fansNum = -1;
+    private int threadNum = -1;
+    private int likeNum = -1;
     private boolean mHadConcerned = false;
     @Deprecated
     private GodInfo godInfo = null;
@@ -261,6 +263,22 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.fansNum;
     }
 
+    public void setLikeNum(int i) {
+        this.likeNum = i;
+    }
+
+    public int getLikeNum() {
+        return this.likeNum;
+    }
+
+    public void setThreadNum(int i) {
+        this.threadNum = i;
+    }
+
+    public int getThreadNum() {
+        return this.threadNum;
+    }
+
     public boolean hadConcerned() {
         return this.mHadConcerned;
     }
@@ -327,6 +345,8 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.mHadConcerned = user.has_concerned.intValue() == 1;
             this.fansNickName = user.fans_nickname;
             this.fansNum = user.fans_num.intValue();
+            this.likeNum = user.agree_num.intValue();
+            this.threadNum = user.thread_num.intValue();
             if (this.userName != null && this.userName.length() <= 0) {
                 this.userName = null;
             }
@@ -417,6 +437,8 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
                 this.portraith = jSONObject.optString("portraith");
                 this.fansNum = jSONObject.optInt(PersonInfoActivityConfig.FANS_NUM);
+                this.likeNum = jSONObject.optInt("my_like_num");
+                this.threadNum = jSONObject.optInt("post_num");
                 JSONArray optJSONArray = jSONObject.optJSONArray("iconinfo");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("tshow_icon");
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("new_tshow_icon");

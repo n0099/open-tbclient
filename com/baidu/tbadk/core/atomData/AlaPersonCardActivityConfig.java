@@ -13,6 +13,7 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
     public static final String PERSON_LEVEL = "PERSON_LEVEL";
     public static final String PERSON_LIVE_ID = "PERSON_LIVE_ID";
     public static final String PERSON_LIVE_OWNER_FLAG = "PERSON_LIVE_OWNER_FLAG";
+    public static final String PERSON_LIVE_OWNER_UID = "PERSON_LIVE_OWNER_UID";
     public static final String PERSON_LOCATION = "PERSON_LOCATION";
     public static final String PERSON_PORTRAIT_URL = "PERSON_PORTRAIT_URL";
     public static final String PERSON_SEND_COUNT = "PERSON_SEND_COUNT";
@@ -26,7 +27,7 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.Activity);
     }
 
-    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, int i3, long j, long j2, int i4, String str6, String str7, boolean z) {
+    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, int i3, long j, long j2, int i4, String str6, String str7, boolean z, String str8) {
         super(context);
         getIntent().putExtra(PERSON_USER_ID, str);
         getIntent().putExtra(PERSON_USER_NAME, str2);
@@ -42,6 +43,7 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         getIntent().putExtra(PERSON_GROUP_ID, str6);
         getIntent().putExtra(PERSON_LIVE_ID, str7);
         getIntent().putExtra(PERSON_LIVE_OWNER_FLAG, z);
+        getIntent().putExtra(PERSON_LIVE_OWNER_UID, str8);
         setRequestCode(25014);
         setIntentAction(IntentAction.ActivityForResult);
     }

@@ -32,10 +32,10 @@ public class d implements Runnable {
                 }
             } catch (NullPointerException e) {
             }
-            int hN = this.zG.hN() + 0;
+            int hM = this.zG.hM() + 0;
             i = this.zG.mElapsedTime;
-            if (hN != i) {
-                this.zG.mElapsedTime = hN;
+            if (hM != i) {
+                this.zG.mElapsedTime = hM;
                 handler2 = this.zG.mHandler;
                 Message obtainMessage = handler2.obtainMessage(6);
                 i2 = this.zG.mElapsedTime;

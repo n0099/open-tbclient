@@ -4,20 +4,21 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ap implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ ao ddE;
-    private final /* synthetic */ ImMessageCenterPojo ddF;
+public class ap implements CustomMessageTask.CustomRunnable<String> {
+    final /* synthetic */ ao dlA;
+    private final /* synthetic */ ImMessageCenterPojo dlB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(ao aoVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.ddE = aoVar;
-        this.ddF = imMessageCenterPojo;
+        this.dlA = aoVar;
+        this.dlB = imMessageCenterPojo;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        com.baidu.tieba.im.db.j.aox().c(this.ddF);
+        com.baidu.tieba.im.db.j.asi().c(this.dlB);
         return null;
     }
 }

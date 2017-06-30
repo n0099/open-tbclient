@@ -1,37 +1,53 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dq {
-    public long Ul;
-    public long eoL;
-    public long eoM;
-    public int eoN;
-    public long mForumId;
+public class dq implements com.baidu.adp.lib.e.c<TbImageView> {
+    final /* synthetic */ Cdo exx;
 
-    public dq() {
-        DA();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dq(Cdo cdo) {
+        this.exx = cdo;
     }
 
-    public void aKD() {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_SET_DECLARE);
-        httpMessage.addParam("tid", this.Ul);
-        httpMessage.addParam("author_uid", this.eoL);
-        httpMessage.addParam("declare_id", this.eoM);
-        httpMessage.addParam("forum_id", this.mForumId);
-        httpMessage.addParam("operation", this.eoN);
-        MessageManager.getInstance().sendMessage(httpMessage);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: wT */
+    public TbImageView fK() {
+        Context context;
+        context = this.exx.mContext;
+        TbImageView tbImageView = new TbImageView(context);
+        tbImageView.setDrawBorder(true);
+        tbImageView.setBorderColor(com.baidu.tbadk.core.util.as.getColor(w.e.common_color_10043));
+        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1));
+        return tbImageView;
     }
 
-    private void DA() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_SET_DECLARE, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PB_SET_DECLARE_URL);
-        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void o(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public TbImageView p(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public TbImageView q(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
+        return tbImageView;
     }
 }

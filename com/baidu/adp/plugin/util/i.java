@@ -1,4 +1,6 @@
 package com.baidu.adp.plugin.util;
+
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class i implements Comparable<i> {
     int Ft;
@@ -18,7 +20,7 @@ public class i implements Comparable<i> {
     }
 
     public String toString() {
-        return String.valueOf(this.Ft) + "-" + this.Fu + "-" + this.Fv + " " + this.Fw + ":" + this.Fx + ":" + this.Fy;
+        return String.valueOf(this.Ft) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Fu + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Fv + " " + this.Fw + ":" + this.Fx + ":" + this.Fy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

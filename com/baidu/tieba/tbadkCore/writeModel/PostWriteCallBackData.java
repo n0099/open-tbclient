@@ -14,6 +14,7 @@ public class PostWriteCallBackData implements Serializable {
     private int errorCode;
     private String errorString;
     private int isCopyTWZhibo;
+    private String mNickNameActivityMoney;
     private String preMsg;
     private String threadId = null;
     private String postId = null;
@@ -91,5 +92,13 @@ public class PostWriteCallBackData implements Serializable {
 
     public void setAccessState(AccessState accessState) {
         this.accessState = accessState;
+    }
+
+    public String getNickNameActivityMoney() {
+        return this.mNickNameActivityMoney;
+    }
+
+    public void setNickNameActivityMoney(String str) {
+        this.mNickNameActivityMoney = str;
     }
 }

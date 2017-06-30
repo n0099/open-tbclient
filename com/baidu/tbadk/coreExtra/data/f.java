@@ -21,7 +21,7 @@ public class f {
         return this.mUser;
     }
 
-    public ArrayList<String> xz() {
+    public ArrayList<String> xQ() {
         return this.Wb;
     }
 

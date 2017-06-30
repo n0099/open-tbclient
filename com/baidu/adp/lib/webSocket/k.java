@@ -45,7 +45,7 @@ public class k extends Handler {
             aVar21 = this.Ay.Ar;
             if (aVar21 != null) {
                 aVar22 = this.Ay.Ar;
-                aVar22.x(sVar.AO);
+                aVar22.C(sVar.AO);
             }
         } else if (message.obj instanceof m.C0008m) {
             m.C0008m c0008m = (m.C0008m) message.obj;
@@ -74,7 +74,7 @@ public class k extends Handler {
             aVar15 = this.Ay.Ar;
             if (aVar15 != null) {
                 aVar16 = this.Ay.Ar;
-                aVar16.hW();
+                aVar16.hV();
             }
         } else if (message.obj instanceof m.c) {
             this.Ay.close(1, null);

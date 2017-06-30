@@ -1,22 +1,31 @@
 package com.baidu.tieba.discover;
 
-import android.view.View;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tieba.w;
+import android.webkit.WebView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements View.OnClickListener {
-    final /* synthetic */ d bJp;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.h bJq;
+public class h implements BaseWebView.b {
+    final /* synthetic */ e bPN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(d dVar, com.baidu.tbadk.coreExtra.share.h hVar) {
-        this.bJp = dVar;
-        this.bJq = hVar;
+    public h(e eVar) {
+        this.bPN = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.lib.util.a.ao(this.bJq.linkUrl);
-        k.showToast(this.bJp.ajh.getPageActivity(), view.getResources().getString(w.l.copy_pb_url_success));
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        boolean ja;
+        this.bPN.iZ(str);
+        if (StringUtils.isNull(str) || str.contains("jump_webview_type=2")) {
+            return false;
+        }
+        ja = this.bPN.ja(str);
+        if (ja) {
+            return true;
+        }
+        be.vP().c(this.bPN.ajP, new String[]{str});
+        return true;
     }
 }

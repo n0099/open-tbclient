@@ -9,12 +9,12 @@ class p extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         if (action.equals("android.intent.action.SCREEN_ON")) {
-            i.baP().fmb = 1;
+            i.bfe().fwp = 1;
         } else if (action.equals("android.intent.action.SCREEN_OFF")) {
-            i.baP().fmb = 1;
-            i.baP().fma.baU();
+            i.bfe().fwp = 1;
+            i.bfe().fwo.bfj();
         } else if (action.equals("android.intent.action.USER_PRESENT")) {
-            i.baP().fmb = 0;
+            i.bfe().fwp = 0;
         }
     }
 }

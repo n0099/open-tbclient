@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.provider.Settings;
 /* loaded from: classes.dex */
 public class as extends ContentObserver {
-    private a fbS;
+    private a fmi;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -21,15 +21,15 @@ public class as extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        aXU();
+        bcf();
     }
 
-    private void aXU() {
+    private void bcf() {
         if (this.mContext != null) {
             try {
                 int i = Settings.System.getInt(this.mContext.getContentResolver(), "accelerometer_rotation");
-                if (this.fbS != null) {
-                    this.fbS.onChange(i == 1);
+                if (this.fmi != null) {
+                    this.fmi.onChange(i == 1);
                 }
             } catch (Settings.SettingNotFoundException e) {
                 e.printStackTrace();
@@ -38,7 +38,7 @@ public class as extends ContentObserver {
     }
 
     public void a(a aVar) {
-        this.fbS = aVar;
-        aXU();
+        this.fmi = aVar;
+        bcf();
     }
 }

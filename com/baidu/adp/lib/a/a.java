@@ -14,36 +14,36 @@ import java.net.UnknownHostException;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class a {
-    private static a tX = null;
-    private final String tY = "c.tieba.baidu.com";
-    private long tZ;
-    private String ub;
-    private long uc;
+    private static a tW = null;
+    private final String tX = "c.tieba.baidu.com";
+    private long tY;
+    private String tZ;
+    private long ub;
 
-    public static final a eP() {
-        if (tX == null) {
+    public static final a eO() {
+        if (tW == null) {
             synchronized (a.class) {
-                if (tX == null) {
-                    tX = new a();
+                if (tW == null) {
+                    tW = new a();
                 }
             }
         }
-        return tX;
+        return tW;
     }
 
     private a() {
-        this.tZ = 0L;
-        this.ub = null;
-        this.uc = 0L;
+        this.tY = 0L;
+        this.tZ = null;
+        this.ub = 0L;
         SharedPreferences config = getConfig();
-        this.tZ = config.getLong(U("c.tieba.baidu.com"), 0L);
-        this.ub = config.getString(V("c.tieba.baidu.com"), null);
-        this.uc = config.getLong(W("c.tieba.baidu.com"), 0L);
+        this.tY = config.getLong(Z("c.tieba.baidu.com"), 0L);
+        this.tZ = config.getString(aa("c.tieba.baidu.com"), null);
+        this.ub = config.getLong(ab("c.tieba.baidu.com"), 0L);
     }
 
     public void b(String str, String str2, boolean z, boolean z2) {
         String host;
-        if (!TextUtils.isEmpty(str) && i.hk()) {
+        if (!TextUtils.isEmpty(str) && i.hj()) {
             try {
                 URL url = new URL(str);
                 String host2 = url.getHost();
@@ -55,9 +55,9 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.tZ;
-                    long j2 = this.uc;
-                    String str3 = this.ub;
+                    long j = this.tY;
+                    long j2 = this.ub;
+                    String str3 = this.tZ;
                     if (currentTimeMillis - j > 43200000) {
                         a(host, host2, z, "12hour", z2);
                         return;
@@ -70,12 +70,12 @@ public class a {
                         a(host, host2, z, "newday", z2);
                     } else if (System.currentTimeMillis() - j2 > 3600000) {
                         if (TextUtils.isEmpty(host2)) {
-                            host2 = T(host);
+                            host2 = Y(host);
                         }
                         if (!TextUtils.equals(host2, str3) || str3 == null) {
                             a(host, host2, z, "ipchange", z2);
                         } else {
-                            this.uc = System.currentTimeMillis();
+                            this.ub = System.currentTimeMillis();
                         }
                     }
                 }
@@ -87,7 +87,7 @@ public class a {
     private void a(String str, String str2, boolean z, String str3, boolean z2) {
         if (!TextUtils.isEmpty(str)) {
             if (str2 == null) {
-                str2 = T(str);
+                str2 = Y(str);
             }
             if (str2 != null) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -97,24 +97,24 @@ public class a {
                 statsItem.p("hostip", str2);
                 statsItem.d("issuc", Boolean.valueOf(z));
                 statsItem.d("isuseip", Boolean.valueOf(z2));
-                Address b = com.baidu.adp.lib.d.a.fg().b(false, false);
+                Address b = com.baidu.adp.lib.d.a.ff().b(false, false);
                 if (b != null) {
                     statsItem.d("lati", Double.valueOf(b.getLatitude()));
                     statsItem.d("longi", Double.valueOf(b.getLongitude()));
                 }
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
                 SharedPreferences config = getConfig();
-                EditorHelper.putLong(config, U(str), currentTimeMillis);
-                EditorHelper.putString(config, V(str), str2);
-                EditorHelper.putLong(config, W(str), currentTimeMillis2);
-                this.tZ = currentTimeMillis;
-                this.uc = currentTimeMillis2;
-                this.ub = str2;
+                EditorHelper.putLong(config, Z(str), currentTimeMillis);
+                EditorHelper.putString(config, aa(str), str2);
+                EditorHelper.putLong(config, ab(str), currentTimeMillis2);
+                this.tY = currentTimeMillis;
+                this.ub = currentTimeMillis2;
+                this.tZ = str2;
             }
         }
     }
 
-    private String T(String str) {
+    private String Y(String str) {
         try {
             return InetAddress.getByName(str).getHostAddress();
         } catch (UnknownHostException e) {
@@ -128,15 +128,15 @@ public class a {
         return BdBaseApplication.getInst().getSharedPreferences("adp", 0);
     }
 
-    private String U(String str) {
+    private String Z(String str) {
         return String.valueOf(str) + "-lastLogTime";
     }
 
-    private String V(String str) {
+    private String aa(String str) {
         return String.valueOf(str) + "-lastIpAddress";
     }
 
-    private String W(String str) {
+    private String ab(String str) {
         return String.valueOf(str) + "-lastGetIpTime";
     }
 }

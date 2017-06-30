@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class aa {
@@ -34,11 +34,11 @@ public class aa {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) "icon");
             spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-            Drawable drawable = aq.getDrawable(w.g.icon_pb_tail);
+            Drawable drawable = as.getDrawable(w.g.icon_pb_tail);
             int g = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds32);
             drawable.setBounds(0, 0, g, g);
             com.baidu.tbadk.widget.i iVar = new com.baidu.tbadk.widget.i(drawable);
-            iVar.fk(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds4));
+            iVar.fm(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds4));
             spannableStringBuilder.setSpan(iVar, 0, 4, 33);
             textView.setLayoutParams(layoutParams);
             textView.setText(spannableStringBuilder);

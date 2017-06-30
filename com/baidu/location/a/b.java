@@ -23,16 +23,16 @@ public class b {
     private static Method f = null;
     private static Method g = null;
     private static Class<?> h = null;
-    private LocationClientOption LT;
-    private InterfaceC0020b LU;
+    private LocationClientOption LS;
+    private InterfaceC0022b LT;
     private Context b;
     private TelephonyManager c;
     private WifiManager i;
     private String k;
-    private a LR = new a();
-    private d LS = null;
+    private a LQ = new a();
+    private d LR = null;
     private String n = null;
-    c LV = new c();
+    c LU = new c();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -92,7 +92,7 @@ public class b {
 
     /* renamed from: com.baidu.location.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0020b {
+    public interface InterfaceC0022b {
         void onReceiveLocation(BDLocation bDLocation);
     }
 
@@ -102,7 +102,7 @@ public class b {
         String a = null;
 
         c() {
-            this.Pt = new HashMap();
+            this.k = new HashMap();
         }
 
         @Override // com.baidu.location.h.f
@@ -110,13 +110,13 @@ public class b {
             this.h = com.baidu.location.h.i.c();
             String encodeTp4 = Jni.encodeTp4(this.a);
             this.a = null;
-            this.Pt.put("bloc", encodeTp4);
+            this.k.put("bloc", encodeTp4);
             StringBuffer stringBuffer = new StringBuffer(512);
             stringBuffer.append(String.format(Locale.CHINA, "&ki=%s&sn=%s", com.baidu.location.h.a.b(b.this.b), com.baidu.location.h.a.a(b.this.b)));
             if (stringBuffer.length() > 0) {
-                this.Pt.put("ext", Jni.encode(stringBuffer.toString()));
+                this.k.put("ext", Jni.encode(stringBuffer.toString()));
             }
-            this.Pt.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
+            this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
         }
 
         public void a(String str) {
@@ -136,14 +136,14 @@ public class b {
                         bDLocation.setLocType(63);
                     }
                     if (bDLocation != null && bDLocation.getLocType() == 161) {
-                        bDLocation.setCoorType(b.this.LT.coorType);
-                        b.this.LU.onReceiveLocation(bDLocation);
+                        bDLocation.setCoorType(b.this.LS.coorType);
+                        b.this.LT.onReceiveLocation(bDLocation);
                     }
                 } catch (Exception e2) {
                 }
             }
-            if (this.Pt != null) {
-                this.Pt.clear();
+            if (this.k != null) {
+                this.k.clear();
             }
         }
     }
@@ -233,7 +233,7 @@ public class b {
         }
     }
 
-    public b(Context context, LocationClientOption locationClientOption, InterfaceC0020b interfaceC0020b) {
+    public b(Context context, LocationClientOption locationClientOption, InterfaceC0022b interfaceC0022b) {
         String str;
         String str2;
         this.b = null;
@@ -241,8 +241,8 @@ public class b {
         this.i = null;
         this.k = null;
         this.b = context.getApplicationContext();
-        this.LT = locationClientOption;
-        this.LU = interfaceC0020b;
+        this.LS = locationClientOption;
+        this.LT = interfaceC0022b;
         String packageName = this.b.getPackageName();
         try {
             this.c = (TelephonyManager) this.b.getSystemService("phone");
@@ -256,9 +256,9 @@ public class b {
             str2 = null;
         }
         if (str2 != null) {
-            this.k = "&prod=" + this.LT.prodName + ":" + packageName + "|&cu=" + str2 + "&coor=" + locationClientOption.getCoorType();
+            this.k = "&prod=" + this.LS.prodName + ":" + packageName + "|&cu=" + str2 + "&coor=" + locationClientOption.getCoorType();
         } else {
-            this.k = "&prod=" + this.LT.prodName + ":" + packageName + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
+            this.k = "&prod=" + this.LS.prodName + ":" + packageName + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
         }
         StringBuffer stringBuffer = new StringBuffer(256);
         stringBuffer.append("&fw=");
@@ -302,14 +302,14 @@ public class b {
         }
         try {
             a(this.c.getCellLocation());
-            str = this.LR.b();
+            str = this.LQ.b();
         } catch (Exception e2) {
             str = null;
         }
         try {
-            this.LS = null;
-            this.LS = new d(this.i.getScanResults());
-            str2 = this.LS.a(i);
+            this.LR = null;
+            this.LR = new d(this.i.getScanResults());
+            str2 = this.LR.a(i);
         } catch (Exception e3) {
             str2 = null;
         }
@@ -339,7 +339,7 @@ public class b {
                 if (networkOperator.length() >= 3) {
                     int intValue = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
                     if (intValue < 0) {
-                        intValue = this.LR.c;
+                        intValue = this.LQ.c;
                     }
                     aVar.c = intValue;
                 }
@@ -352,7 +352,7 @@ public class b {
                 }
                 int intValue2 = Integer.valueOf(substring.substring(0, i)).intValue();
                 if (intValue2 < 0) {
-                    intValue2 = this.LR.d;
+                    intValue2 = this.LQ.d;
                 }
                 aVar.d = intValue2;
             } catch (Exception e2) {
@@ -379,7 +379,7 @@ public class b {
                 try {
                     int intValue3 = ((Integer) g.invoke(cellLocation, new Object[0])).intValue();
                     if (intValue3 < 0) {
-                        intValue3 = this.LR.d;
+                        intValue3 = this.LQ.d;
                     }
                     aVar.d = intValue3;
                     aVar.b = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
@@ -390,7 +390,7 @@ public class b {
             }
         }
         if (aVar.d()) {
-            this.LR = aVar;
+            this.LQ = aVar;
         }
     }
 
@@ -419,31 +419,31 @@ public class b {
         if (this.n == null) {
             return;
         }
-        if (this.LR == null || this.LR.a() == 1) {
-            if (this.i == null || this.LT.scanSpan < 1000 || this.LT.getAddrType().equals("all") || this.LT.isNeedAptag || this.LT.isNeedAptagd) {
+        if (this.LQ == null || this.LQ.a() == 1) {
+            if (this.i == null || this.LS.scanSpan < 1000 || this.LS.getAddrType().equals("all") || this.LS.isNeedAptag || this.LS.isNeedAptagd) {
                 bDLocation = null;
             } else {
                 try {
-                    bDLocation = com.baidu.location.e.a.mL().a(this.LR.c(), this.i.getScanResults(), false);
-                    if (!this.LT.coorType.equals("gcj02")) {
+                    bDLocation = com.baidu.location.e.a.mJ().a(this.LQ.c(), this.i.getScanResults(), false);
+                    if (!this.LS.coorType.equals("gcj02")) {
                         double longitude = bDLocation.getLongitude();
                         double latitude = bDLocation.getLatitude();
                         if (longitude != Double.MIN_VALUE && latitude != Double.MIN_VALUE) {
-                            double[] coorEncrypt = Jni.coorEncrypt(longitude, latitude, this.LT.coorType);
+                            double[] coorEncrypt = Jni.coorEncrypt(longitude, latitude, this.LS.coorType);
                             bDLocation.setLongitude(coorEncrypt[0]);
                             bDLocation.setLatitude(coorEncrypt[1]);
-                            bDLocation.setCoorType(this.LT.coorType);
+                            bDLocation.setCoorType(this.LS.coorType);
                         }
                     }
                     if (bDLocation.getLocType() == 66) {
-                        this.LU.onReceiveLocation(bDLocation);
+                        this.LT.onReceiveLocation(bDLocation);
                     }
                 } catch (Exception e2) {
                     bDLocation = null;
                 }
             }
             if (bDLocation == null) {
-                this.LV.a(this.n);
+                this.LU.a(this.n);
             }
         }
     }

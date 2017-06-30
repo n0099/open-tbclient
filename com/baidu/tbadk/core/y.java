@@ -4,6 +4,6 @@ package com.baidu.tbadk.core;
 public class y implements com.baidu.adp.framework.client.socket.link.g {
     @Override // com.baidu.adp.framework.client.socket.link.g
     public void dn() {
-        com.baidu.tbadk.util.d.Gh().a(new z(this));
+        com.baidu.tbadk.util.e.GE().a(new z(this));
     }
 }

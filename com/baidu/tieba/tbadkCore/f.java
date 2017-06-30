@@ -14,8 +14,8 @@ class f implements com.baidu.adp.lib.e.c<TbImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: wB */
-    public TbImageView fL() {
+    /* renamed from: wT */
+    public TbImageView fK() {
         TbImageView tbImageView = new TbImageView(this.val$context);
         tbImageView.setSupportNoImage(true);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);

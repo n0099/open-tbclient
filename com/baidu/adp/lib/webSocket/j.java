@@ -55,8 +55,8 @@ public class j implements g {
                     try {
                         if (j.this.Ak.isConnected()) {
                             j.this.Aw = System.currentTimeMillis() - currentTimeMillis;
-                            j.this.ih();
                             j.this.ig();
+                            j.this.m5if();
                             m.b bVar = new m.b(String.valueOf(j.this.An) + ":" + j.this.Ao);
                             bVar.mPath = j.this.Ap;
                             bVar.AB = j.this.Aq;
@@ -86,7 +86,7 @@ public class j implements g {
     }
 
     public j() {
-        m5if();
+        ie();
     }
 
     public boolean sendMessage(c cVar) {
@@ -201,8 +201,7 @@ public class j implements g {
         this.Ah.sendMessage(obtainMessage);
     }
 
-    /* renamed from: if  reason: not valid java name */
-    protected void m5if() {
+    protected void ie() {
         this.Ah = new k(this);
     }
 
@@ -210,22 +209,23 @@ public class j implements g {
     public void s(Object obj) {
     }
 
-    protected void ig() {
+    /* renamed from: if  reason: not valid java name */
+    protected void m5if() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
         this.Aj = new q(handlerThread.getLooper(), this.Ah, this.Ak, this.As);
     }
 
-    protected void ih() {
+    protected void ig() {
         this.Ai = new o(this.Ah, this.Ak, this.As, "WebSocketReader");
         this.Ai.start();
     }
 
-    public boolean ii() {
+    public boolean ih() {
         return this.Ax != null;
     }
 
-    public boolean ib() {
+    public boolean ia() {
         return this.Au;
     }
 
@@ -238,9 +238,9 @@ public class j implements g {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void ic() {
+    public void ib() {
         if (this.Aj != null) {
-            this.Aj.ic();
+            this.Aj.ib();
         }
     }
 
@@ -251,9 +251,9 @@ public class j implements g {
         return 0L;
     }
 
-    public void id() {
+    public void ic() {
         if (this.Ai != null) {
-            this.Ai.id();
+            this.Ai.ic();
         }
     }
 
@@ -264,34 +264,34 @@ public class j implements g {
         return 0L;
     }
 
-    public long ij() {
+    public long ii() {
         if (this.Ak != null) {
-            return this.Ak.hU();
+            return this.Ak.hT();
         }
         return 0L;
     }
 
-    public String ik() {
+    public String ij() {
         if (this.Ak != null) {
-            return this.Ak.hT();
+            return this.Ak.hS();
         }
         return null;
     }
 
-    public long il() {
+    public long ik() {
         return this.Aw;
+    }
+
+    public String hB() {
+        if (this.Ak != null) {
+            return this.Ak.hB();
+        }
+        return null;
     }
 
     public String hC() {
         if (this.Ak != null) {
             return this.Ak.hC();
-        }
-        return null;
-    }
-
-    public String hD() {
-        if (this.Ak != null) {
-            return this.Ak.hD();
         }
         return null;
     }

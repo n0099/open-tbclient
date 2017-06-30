@@ -7,46 +7,46 @@ import tbclient.RecommendForumListForBottle.ForumInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ a dCo;
+    final /* synthetic */ a dKI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i, int i2) {
         super(i, i2);
-        this.dCo = aVar;
+        this.dKI = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
-        a.InterfaceC0070a interfaceC0070a;
-        a.InterfaceC0070a interfaceC0070a2;
+        a.InterfaceC0073a interfaceC0073a;
+        a.InterfaceC0073a interfaceC0073a2;
         List<ForumInfo> list;
-        a.InterfaceC0070a interfaceC0070a3;
-        a.InterfaceC0070a interfaceC0070a4;
+        a.InterfaceC0073a interfaceC0073a3;
+        a.InterfaceC0073a interfaceC0073a4;
         if (responsedMessage != null) {
             if ((responsedMessage instanceof GetBottleForumListHttpResMessage) || (responsedMessage instanceof GetBottleForumListSocketResMessage)) {
                 if (responsedMessage.hasError()) {
-                    interfaceC0070a3 = this.dCo.dCn;
-                    if (interfaceC0070a3 != null) {
-                        interfaceC0070a4 = this.dCo.dCn;
-                        interfaceC0070a4.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                    interfaceC0073a3 = this.dKI.dKH;
+                    if (interfaceC0073a3 != null) {
+                        interfaceC0073a4 = this.dKI.dKH;
+                        interfaceC0073a4.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
                         return;
                     }
                     return;
                 }
                 if (responsedMessage instanceof GetBottleForumListHttpResMessage) {
-                    this.dCo.dCm = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
+                    this.dKI.dKG = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
                 }
                 if (responsedMessage instanceof GetBottleForumListSocketResMessage) {
-                    this.dCo.dCm = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
+                    this.dKI.dKG = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
                 }
-                interfaceC0070a = this.dCo.dCn;
-                if (interfaceC0070a != null) {
-                    interfaceC0070a2 = this.dCo.dCn;
+                interfaceC0073a = this.dKI.dKH;
+                if (interfaceC0073a != null) {
+                    interfaceC0073a2 = this.dKI.dKH;
                     int error = responsedMessage.getError();
                     String errorString = responsedMessage.getErrorString();
-                    list = this.dCo.dCm;
-                    interfaceC0070a2.a(true, error, errorString, list);
+                    list = this.dKI.dKG;
+                    interfaceC0073a2.a(true, error, errorString, list);
                 }
             }
         }

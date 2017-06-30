@@ -6,11 +6,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements Animator.AnimatorListener {
-    final /* synthetic */ t eCW;
+    final /* synthetic */ t eMt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.eCW = tVar;
+        this.eMt = tVar;
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -22,16 +22,16 @@ public class u implements Animator.AnimatorListener {
         boolean z;
         List list;
         List list2;
-        this.eCW.eCP = true;
-        z = this.eCW.eCH;
+        this.eMt.eMm = true;
+        z = this.eMt.eMe;
         if (!z) {
-            this.eCW.setVisibility(8);
+            this.eMt.setVisibility(8);
             int i = 0;
             while (true) {
                 int i2 = i;
-                list = this.eCW.eCJ;
+                list = this.eMt.eMg;
                 if (i2 < list.size()) {
-                    list2 = this.eCW.eCJ;
+                    list2 = this.eMt.eMg;
                     ImageView imageView = (ImageView) list2.get(i2);
                     if (imageView.getTag() != null) {
                         ((com.baidu.tieba.pb.pb.main.view.c) imageView.getTag()).stop();
@@ -48,9 +48,9 @@ public class u implements Animator.AnimatorListener {
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
         boolean z;
-        z = this.eCW.eCH;
+        z = this.eMt.eMe;
         if (!z) {
-            this.eCW.setVisibility(8);
+            this.eMt.setVisibility(8);
         }
     }
 

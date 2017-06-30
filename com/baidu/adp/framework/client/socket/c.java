@@ -30,14 +30,14 @@ public class c {
         }
     }
 
-    public static int a(LinkedList<e> linkedList) {
+    public static int b(LinkedList<e> linkedList) {
         if (linkedList == null) {
             return 0;
         }
         return linkedList.size();
     }
 
-    public static e b(LinkedList<e> linkedList) {
+    public static e c(LinkedList<e> linkedList) {
         if (linkedList == null) {
             return null;
         }
@@ -71,14 +71,14 @@ public class c {
         return i;
     }
 
-    public static e c(LinkedList<e> linkedList) {
+    public static e d(LinkedList<e> linkedList) {
         if (linkedList == null || linkedList.size() <= 0) {
             return null;
         }
         return linkedList.peek();
     }
 
-    public static e d(LinkedList<e> linkedList) {
+    public static e e(LinkedList<e> linkedList) {
         if (linkedList == null || linkedList.size() <= 0) {
             return null;
         }
@@ -93,7 +93,7 @@ public class c {
         return true;
     }
 
-    public static boolean e(LinkedList<e> linkedList) {
+    public static boolean f(LinkedList<e> linkedList) {
         if (linkedList == null) {
             return false;
         }
@@ -110,7 +110,7 @@ public class c {
         return false;
     }
 
-    public static void f(LinkedList<e> linkedList) {
+    public static void g(LinkedList<e> linkedList) {
         if (linkedList != null) {
             Iterator<e> it = linkedList.iterator();
             while (it.hasNext()) {

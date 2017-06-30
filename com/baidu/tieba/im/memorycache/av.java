@@ -24,13 +24,13 @@ public class av extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205006 && (socketResponsedMessage instanceof ResponsedPersonalMsgReadMessage)) {
             ResponsedPersonalMsgReadMessage responsedPersonalMsgReadMessage = (ResponsedPersonalMsgReadMessage) socketResponsedMessage;
-            if (!responsedPersonalMsgReadMessage.hasError() && responsedPersonalMsgReadMessage.getGroupId() == com.baidu.tieba.im.sendmessage.a.dgj && responsedPersonalMsgReadMessage.getToUserType() == 0) {
-                ImMessageCenterPojo Z = b.aqX().Z(String.valueOf(responsedPersonalMsgReadMessage.getToUid()), 2);
-                if (Z != null) {
-                    long bA = com.baidu.tieba.im.util.g.bA(responsedPersonalMsgReadMessage.getHasSentMsgId());
-                    if (bA > Z.getSent_msgId()) {
-                        Z.setSent_msgId(bA);
-                        CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new aw(this, Z));
+            if (!responsedPersonalMsgReadMessage.hasError() && responsedPersonalMsgReadMessage.getGroupId() == com.baidu.tieba.im.sendmessage.a.dof && responsedPersonalMsgReadMessage.getToUserType() == 0) {
+                ImMessageCenterPojo ab = b.auI().ab(String.valueOf(responsedPersonalMsgReadMessage.getToUid()), 2);
+                if (ab != null) {
+                    long bO = com.baidu.tieba.im.util.g.bO(responsedPersonalMsgReadMessage.getHasSentMsgId());
+                    if (bO > ab.getSent_msgId()) {
+                        ab.setSent_msgId(bO);
+                        CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new aw(this, ab));
                         customMessageTask.setParallel(TiebaIMConfig.getParallel());
                         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
                         customMessageTask.setPriority(4);

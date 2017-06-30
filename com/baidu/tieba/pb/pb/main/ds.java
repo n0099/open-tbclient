@@ -1,45 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.MotionEvent;
+import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.a.d;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w;
+import com.xiaomi.mipush.sdk.Constants;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ds implements d.a {
-    final /* synthetic */ dr eoS;
+public class ds implements View.OnClickListener {
+    private final /* synthetic */ String etl;
+    private final /* synthetic */ String etm;
+    private final /* synthetic */ String etn;
+    final /* synthetic */ Cdo exx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ds(dr drVar) {
-        this.eoS = drVar;
+    public ds(Cdo cdo, String str, String str2, String str3) {
+        this.exx = cdo;
+        this.etl = str;
+        this.etm = str2;
+        this.etn = str3;
     }
 
-    @Override // com.baidu.tieba.pb.a.d.a
-    public boolean a(View view, MotionEvent motionEvent) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_FIRST_FLOOR_PRAISE, 2));
-        return true;
-    }
-
-    @Override // com.baidu.tieba.pb.a.d.a
-    public boolean b(View view, MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.pb.a.d.a
-    public boolean c(View view, MotionEvent motionEvent) {
-        com.baidu.tieba.pb.a.d dVar;
-        com.baidu.tieba.pb.a.d dVar2;
-        com.baidu.tieba.pb.a.d dVar3;
-        dVar = this.eoS.aOc;
-        if (dVar != null) {
-            dVar2 = this.eoS.aOc;
-            dVar2.aQ(view);
-            dVar3 = this.eoS.aOc;
-            dVar3.onSingleTapConfirmed(motionEvent);
-            return true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.etl) && !StringUtils.isNull(this.etm)) {
+            if (com.baidu.adp.lib.util.i.hj()) {
+                context = this.exx.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.etl) + Constants.ACCEPT_TIME_SEPARATOR_SP + this.etm, this.etn, this.etn, context.getString(w.l.app_info_for_map));
+                context2 = this.exx.mContext;
+                com.baidu.tbadk.browser.g.T(context2, format);
+                return;
+            }
+            this.exx.euf.showToast(w.l.neterror);
         }
-        return true;
     }
 }

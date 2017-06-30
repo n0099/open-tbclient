@@ -54,9 +54,9 @@ public class k implements com.baidu.adp.plugin.packageManager.pluginFileDownload
             eVar5 = this.this$0.Er;
             eVar5.b(bdFileDownloadData);
         }
-        if (bdFileDownloadData != null && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().findPluginSetting((id = bdFileDownloadData.getId()))) != null) {
-            com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().n(id, a.b.EL);
-            com.baidu.adp.plugin.b.a.jk().A("plugin_download", bdFileDownloadData.getId());
+        if (bdFileDownloadData != null && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().findPluginSetting((id = bdFileDownloadData.getId()))) != null) {
+            com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().n(id, a.b.EL);
+            com.baidu.adp.plugin.b.a.jj().A("plugin_download", bdFileDownloadData.getId());
             if (Util.k(findPluginSetting.size)) {
                 eVar2 = this.this$0.Er;
                 if (eVar2 != null) {
@@ -70,7 +70,7 @@ public class k implements com.baidu.adp.plugin.packageManager.pluginFileDownload
                 this.this$0.D(Util.f(findPluginSetting), findPluginSetting.packageName);
                 return;
             }
-            com.baidu.adp.plugin.install.l.d(bdFileDownloadData.getPath(), id, "rom_size", String.valueOf(Util.km()));
+            com.baidu.adp.plugin.install.l.d(bdFileDownloadData.getPath(), id, "rom_size", String.valueOf(Util.kk()));
             eVar3 = this.this$0.Er;
             if (eVar3 != null) {
                 eVar4 = this.this$0.Er;
@@ -92,7 +92,7 @@ public class k implements com.baidu.adp.plugin.packageManager.pluginFileDownload
             eVar2.c(bdFileDownloadData);
         }
         if (bdFileDownloadData != null) {
-            com.baidu.adp.plugin.b.a.jk().f("plugin_download", String.valueOf(i), bdFileDownloadData.getId(), str2);
+            com.baidu.adp.plugin.b.a.jj().f("plugin_download", String.valueOf(i), bdFileDownloadData.getId(), str2);
         }
     }
 }

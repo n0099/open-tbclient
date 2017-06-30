@@ -6,20 +6,20 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements PbFakeFloorModel.a {
-    final /* synthetic */ NewSubPbActivity eye;
+    final /* synthetic */ NewSubPbActivity eHC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(NewSubPbActivity newSubPbActivity) {
-        this.eye = newSubPbActivity;
+        this.eHC = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel.a
-    public void j(PostData postData) {
+    public void l(PostData postData) {
         ao aoVar;
         ao aoVar2;
-        aoVar = this.eye.exP;
-        aoVar.l(postData);
-        aoVar2 = this.eye.exP;
+        aoVar = this.eHC.eHn;
+        aoVar.n(postData);
+        aoVar2 = this.eHC.eHn;
         aoVar2.a((BdListView.e) null);
     }
 }

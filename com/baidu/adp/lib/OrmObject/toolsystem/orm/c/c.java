@@ -3,10 +3,10 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import android.os.Bundle;
 /* loaded from: classes.dex */
 public class c implements h {
-    private Bundle sB;
+    private Bundle sA;
 
     public c(Bundle bundle) {
-        this.sB = bundle;
+        this.sA = bundle;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h

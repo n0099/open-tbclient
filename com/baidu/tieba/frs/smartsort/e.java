@@ -3,62 +3,62 @@ package com.baidu.tieba.frs.smartsort;
 import android.text.TextUtils;
 import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static volatile e ceZ;
-    private boolean ceR = false;
-    private final HashMap<String, ArrayList<h>> ceY = new HashMap<>();
+    private static volatile e cno;
+    private boolean cng = false;
+    private final HashMap<String, ArrayList<h>> cnn = new HashMap<>();
 
     private e() {
     }
 
-    public static e ads() {
-        if (ceZ == null) {
+    public static e ahk() {
+        if (cno == null) {
             synchronized (e.class) {
-                if (ceZ == null) {
-                    ceZ = new e();
+                if (cno == null) {
+                    cno = new e();
                 }
             }
         }
-        return ceZ;
+        return cno;
     }
 
-    public String adm() {
+    public String ahe() {
         return "frs_sorttype_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     public synchronized void f(String str, int i, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String adm = adm();
-            ArrayList<h> arrayList = this.ceY.get(adm);
+            String ahe = ahe();
+            ArrayList<h> arrayList = this.cnn.get(ahe);
             ArrayList<h> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            h jk = jk(str);
+            h kh = kh(str);
             boolean z = false;
-            if (jk != null) {
-                if (jk.cfb != i) {
-                    jk.cfb = i;
+            if (kh != null) {
+                if (kh.cnq != i) {
+                    kh.cnq = i;
                     z = true;
                 }
             } else {
                 h hVar = new h();
                 hVar.forumName = str;
-                hVar.cfb = i;
+                hVar.cnq = i;
                 arrayList2.add(hVar);
                 z = true;
             }
             if (z) {
-                f(adm, arrayList2);
+                f(ahe, arrayList2);
             }
         }
     }
 
     private synchronized void f(String str, ArrayList<h> arrayList) {
-        JSONObject adv;
+        JSONObject ahn;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -66,26 +66,26 @@ public class e {
             ArrayList<h> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 h hVar = arrayList.get(i);
-                if (hVar != null && !TextUtils.isEmpty(hVar.forumName) && (adv = hVar.adv()) != null) {
-                    jSONArray.put(adv);
+                if (hVar != null && !TextUtils.isEmpty(hVar.forumName) && (ahn = hVar.ahn()) != null) {
+                    jSONArray.put(ahn);
                     arrayList2.add(hVar);
                 }
             }
-            if (!x.r(arrayList2)) {
-                this.ceY.put(str, arrayList2);
-                if (!this.ceR) {
-                    adt();
+            if (!z.t(arrayList2)) {
+                this.cnn.put(str, arrayList2);
+                if (!this.cng) {
+                    ahl();
                 } else {
-                    jl(jSONArray.toString());
+                    ki(jSONArray.toString());
                 }
             }
         }
     }
 
-    public synchronized h jk(String str) {
+    public synchronized h kh(String str) {
         h hVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<h> arrayList = this.ceY.get(adm());
+            ArrayList<h> arrayList = this.cnn.get(ahe());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -110,26 +110,26 @@ public class e {
         return hVar;
     }
 
-    private void jl(String str) {
-        o<String> ado = ado();
-        if (ado != null) {
-            ado.l("frs_sortType", str);
+    private void ki(String str) {
+        o<String> ahg = ahg();
+        if (ahg != null) {
+            ahg.l("frs_sortType", str);
         }
     }
 
-    public void adt() {
-        o<String> ado = ado();
-        if (ado != null) {
-            ado.a("frs_sortType", new f(this));
+    public void ahl() {
+        o<String> ahg = ahg();
+        if (ahg != null) {
+            ahg.a("frs_sortType", new f(this));
         }
     }
 
-    private o<String> ado() {
-        return com.baidu.tbadk.core.c.a.sY().M("frs_sortType", TbadkCoreApplication.getCurrentAccount());
+    private o<String> ahg() {
+        return com.baidu.tbadk.core.c.a.sW().M("frs_sortType", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<h> jj(String str) {
+    public ArrayList<h> kg(String str) {
         ArrayList<h> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -144,8 +144,8 @@ public class e {
         return arrayList;
     }
 
-    public void adu() {
-        jl("");
-        this.ceY.remove(adm());
+    public void ahm() {
+        ki("");
+        this.cnn.remove(ahe());
     }
 }

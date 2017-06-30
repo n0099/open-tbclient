@@ -571,11 +571,11 @@ public final class c {
     }
 
     public int x() {
-        return b(a, 0);
+        return b("app_version_code", 0);
     }
 
     public void a(int i2) {
-        a(a, i2);
+        a("app_version_code", i2);
     }
 
     public long y() {

@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs.tab;
 
-import com.baidu.tieba.frs.by;
+import com.baidu.tieba.frs.bz;
 import com.baidu.tieba.frs.tab.k;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements k.b {
-    final /* synthetic */ HorizontalTabView cfF;
+    final /* synthetic */ HorizontalTabView cnV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(HorizontalTabView horizontalTabView) {
-        this.cfF = horizontalTabView;
+        this.cnV = horizontalTabView;
     }
 
     @Override // com.baidu.tieba.frs.tab.k.b
-    public void iV(int i) {
+    public void jh(int i) {
         TabItemView tabItemView;
         h hVar;
         h hVar2;
-        by byVar;
-        by byVar2;
-        by byVar3;
+        bz bzVar;
+        bz bzVar2;
+        bz bzVar3;
         TabItemView tabItemView2;
-        tabItemView = this.cfF.cfr;
+        tabItemView = this.cnV.cnH;
         if (tabItemView != null) {
-            byVar = this.cfF.cfD;
-            if (byVar != null) {
-                byVar2 = this.cfF.cfD;
-                if (byVar2 != null) {
-                    byVar3 = this.cfF.cfD;
-                    tabItemView2 = this.cfF.cfr;
-                    byVar3.a(tabItemView2.getTabId(), i, null);
+            bzVar = this.cnV.cnT;
+            if (bzVar != null) {
+                bzVar2 = this.cnV.cnT;
+                if (bzVar2 != null) {
+                    bzVar3 = this.cnV.cnT;
+                    tabItemView2 = this.cnV.cnH;
+                    bzVar3.a(tabItemView2.getTabId(), i, null);
                 }
             }
         }
-        hVar = this.cfF.cfs;
+        hVar = this.cnV.cnI;
         if (hVar != null) {
-            hVar2 = this.cfF.cfs;
-            hVar2.iT(i);
+            hVar2 = this.cnV.cnI;
+            hVar2.jf(i);
         }
     }
 }

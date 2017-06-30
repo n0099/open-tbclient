@@ -6,15 +6,15 @@ import com.baidu.tieba.play.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements y.a {
-    final /* synthetic */ y bBb;
+    final /* synthetic */ y bBU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(y yVar) {
-        this.bBb = yVar;
+        this.bBU = yVar;
     }
 
     @Override // com.baidu.tieba.play.y.a
-    public void Uo() {
+    public void VF() {
         com.baidu.tieba.card.data.n nVar;
         com.baidu.tieba.card.data.n nVar2;
         com.baidu.tieba.card.data.n nVar3;
@@ -28,40 +28,40 @@ public class ac implements y.a {
         com.baidu.tieba.card.data.n nVar11;
         com.baidu.tieba.card.data.n nVar12;
         com.baidu.tieba.card.data.n nVar13;
-        nVar = this.bBb.bAK;
+        nVar = this.bBU.bBD;
         if (nVar != null) {
-            nVar2 = this.bBb.bAK;
-            if (nVar2.aYA != null) {
-                nVar3 = this.bBb.bAK;
-                if (nVar3.aYA.rL() != null) {
+            nVar2 = this.bBU.bBD;
+            if (nVar2.bai != null) {
+                nVar3 = this.bBU.bBD;
+                if (nVar3.bai.rI() != null) {
                     com.baidu.tieba.play.bc bcVar = new com.baidu.tieba.play.bc();
-                    nVar4 = this.bBb.bAK;
+                    nVar4 = this.bBU.bBD;
                     bcVar.mLocate = nVar4.sourceType == 0 ? ImageViewerConfig.INDEX : "hot_juhe";
-                    nVar5 = this.bBb.bAK;
-                    bcVar.buq = nVar5.aYA.getTid();
-                    nVar6 = this.bBb.bAK;
-                    bcVar.bur = new StringBuilder(String.valueOf(nVar6.aYA.getFid())).toString();
+                    nVar5 = this.bBU.bBD;
+                    bcVar.bxL = nVar5.bai.getTid();
+                    nVar6 = this.bBU.bBD;
+                    bcVar.bxM = new StringBuilder(String.valueOf(nVar6.bai.getFid())).toString();
                     bcVar.mUid = TbadkCoreApplication.getCurrentAccount();
-                    nVar7 = this.bBb.bAK;
-                    bcVar.mSource = nVar7.aYA.YM;
-                    nVar8 = this.bBb.bAK;
-                    bcVar.fcg = nVar8.aYA.YO;
-                    nVar9 = this.bBb.bAK;
-                    bcVar.fch = nVar9.aYA.YN;
-                    bcVar.fci = "";
-                    nVar10 = this.bBb.bAK;
-                    if (nVar10.aYA.sx() != null) {
-                        nVar12 = this.bBb.bAK;
-                        if (nVar12.aYA.sx().channelId > 0) {
-                            nVar13 = this.bBb.bAK;
-                            bcVar.UX = new StringBuilder(String.valueOf(nVar13.aYA.sx().channelId)).toString();
-                            nVar11 = this.bBb.bAK;
-                            com.baidu.tieba.play.ab.a(nVar11.aYA.rL().video_md5, "", "1", bcVar);
+                    nVar7 = this.bBU.bBD;
+                    bcVar.mSource = nVar7.bai.YN;
+                    nVar8 = this.bBU.bBD;
+                    bcVar.fmw = nVar8.bai.YP;
+                    nVar9 = this.bBU.bBD;
+                    bcVar.fmx = nVar9.bai.YO;
+                    bcVar.fmy = "";
+                    nVar10 = this.bBU.bBD;
+                    if (nVar10.bai.sv() != null) {
+                        nVar12 = this.bBU.bBD;
+                        if (nVar12.bai.sv().channelId > 0) {
+                            nVar13 = this.bBU.bBD;
+                            bcVar.UW = new StringBuilder(String.valueOf(nVar13.bai.sv().channelId)).toString();
+                            nVar11 = this.bBU.bBD;
+                            com.baidu.tieba.play.ab.a(nVar11.bai.rI().video_md5, "", "1", bcVar);
                         }
                     }
-                    bcVar.UX = "0";
-                    nVar11 = this.bBb.bAK;
-                    com.baidu.tieba.play.ab.a(nVar11.aYA.rL().video_md5, "", "1", bcVar);
+                    bcVar.UW = "0";
+                    nVar11 = this.bBU.bBD;
+                    com.baidu.tieba.play.ab.a(nVar11.bai.rI().video_md5, "", "1", bcVar);
                 }
             }
         }

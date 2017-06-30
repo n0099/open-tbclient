@@ -22,12 +22,12 @@ public class w extends CustomMessageListener {
             MemoryItemRemoveMessage.a aVar = (MemoryItemRemoveMessage.a) customResponsedMessage.getData();
             if (aVar.customGroupType != 1) {
                 if (aVar.customGroupType == 3) {
-                    b.aqX().ab(aVar.id, 3);
+                    b.auI().ad(aVar.id, 3);
                     return;
                 }
                 return;
             }
-            this.this$0.kZ(aVar.id);
+            this.this$0.lY(aVar.id);
         }
     }
 }

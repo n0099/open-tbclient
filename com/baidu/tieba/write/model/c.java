@@ -4,31 +4,31 @@ import com.baidu.tieba.write.model.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ a fWp;
+    final /* synthetic */ a ghe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.fWp = aVar;
+        this.ghe = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String str;
-        a.InterfaceC0085a interfaceC0085a;
-        a.InterfaceC0085a interfaceC0085a2;
+        a.InterfaceC0087a interfaceC0087a;
+        a.InterfaceC0087a interfaceC0087a2;
         com.baidu.tieba.write.a.a aVar;
-        this.fWp.boo();
+        this.ghe.bsM();
         com.baidu.tieba.write.a.a aVar2 = new com.baidu.tieba.write.a.a();
-        aVar2.fVV = false;
-        str = this.fWp.mLinkUrl;
+        aVar2.ggG = false;
+        str = this.ghe.mLinkUrl;
         aVar2.linkUrl = str;
-        aVar2.fVW = 1;
-        this.fWp.fWn = aVar2;
-        interfaceC0085a = this.fWp.fWm;
-        if (interfaceC0085a != null) {
-            interfaceC0085a2 = this.fWp.fWm;
-            aVar = this.fWp.fWn;
-            interfaceC0085a2.a(aVar);
+        aVar2.ggH = 1;
+        this.ghe.ghc = aVar2;
+        interfaceC0087a = this.ghe.ghb;
+        if (interfaceC0087a != null) {
+            interfaceC0087a2 = this.ghe.ghb;
+            aVar = this.ghe.ghc;
+            interfaceC0087a2.a(aVar);
         }
     }
 }

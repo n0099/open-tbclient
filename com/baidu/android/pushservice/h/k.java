@@ -1,99 +1,99 @@
 package com.baidu.android.pushservice.h;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import java.util.HashMap;
+import android.text.TextUtils;
+import com.baidu.android.pushservice.j.q;
 /* loaded from: classes2.dex */
 public class k {
-    private static ConnectivityManager a = null;
-
-    public static boolean a(Context context) {
-        NetworkInfo c = c(context);
-        if (c != null) {
-            return c.isConnectedOrConnecting();
-        }
-        return false;
-    }
-
-    public static boolean b(Context context) {
-        NetworkInfo c = c(context);
-        return c != null && c.getType() == 1;
-    }
-
-    public static NetworkInfo c(Context context) {
-        NetworkInfo networkInfo = null;
-        try {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext == null) {
-                com.baidu.android.pushservice.e.a.d("NetworkCheck", "context is null !!!");
-            }
-            ConnectivityManager f = f(applicationContext);
-            if (f != null) {
-                networkInfo = f.getActiveNetworkInfo();
-                if (networkInfo == null) {
-                    com.baidu.android.pushservice.e.a.d("NetworkCheck", "networkInfo is null !!!");
-                }
-            } else {
-                com.baidu.android.pushservice.e.a.d("NetworkCheck", "connManager is null !!!");
-            }
-        } catch (Exception e) {
-            com.baidu.android.pushservice.e.a.e("NetworkCheck", "exp: " + e.getMessage());
-        }
-        return networkInfo;
-    }
-
-    public static String d(Context context) {
-        if (a(context)) {
-            NetworkInfo c = c(context);
-            switch (c != null ? c.getType() : -1) {
-                case 0:
-                    return "mobile";
-                case 1:
-                    return "wifi";
-                case 2:
-                    return "mobile_mms";
-                case 3:
-                    return "mobile_supl";
-                case 4:
-                    return "mobile_dun";
-                case 5:
-                    return "mobile_hipri";
-                case 6:
-                    return "wimax";
-                default:
-                    return "connectionless";
-            }
-        }
-        return "connectionless";
-    }
-
-    public static boolean e(Context context) {
-        boolean a2 = a(context);
-        if (a2 || !u.s(context, "android.permission.INTERNET")) {
-            return a2;
+    private static void a(Context context, com.baidu.android.pushservice.b.f fVar, j jVar, i iVar) {
+        if (fVar != null) {
+            iVar.d(fVar.c());
+            iVar = q.a(iVar, context, fVar.c());
         }
         try {
-            com.baidu.android.pushservice.d.a a3 = com.baidu.android.pushservice.d.b.a(com.baidu.android.pushservice.h.a(), "GET", (HashMap<String, String>) null);
-            if (a3.b() != 0) {
-                if (a3.a() != null) {
-                    return true;
-                }
-                return a2;
-            }
-            return a2;
+            p.a(context, jVar);
+            p.a(context, iVar);
         } catch (Exception e) {
-            return a2;
+            com.baidu.android.pushservice.g.a.b("PushBehaviorHelper", "MH insert db exception");
         }
     }
 
-    private static ConnectivityManager f(Context context) {
-        if (context == null) {
-            return a;
+    public static void a(Context context, String str, String str2, int i, byte[] bArr, int i2, int i3) {
+        j jVar = new j();
+        jVar.d = "010101";
+        jVar.a = str2;
+        jVar.e = System.currentTimeMillis();
+        jVar.f = com.baidu.android.pushservice.h.a.b.c(context);
+        jVar.b = new String(bArr).length();
+        jVar.g = i2;
+        jVar.c = i;
+        jVar.h = str;
+        i iVar = new i(str);
+        iVar.c(i3);
+        com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str);
+        if (d != null) {
+            iVar.c(q.a(d.f));
+            iVar.b(d.f);
+            iVar.d(d.c());
+        } else {
+            iVar.c("0");
+            iVar.b("0");
+            iVar.d("NP");
         }
-        if (a == null) {
-            a = (ConnectivityManager) context.getSystemService("connectivity");
+        a(context, d, jVar, iVar);
+    }
+
+    public static void a(Context context, String str, String str2, String str3) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
         }
-        return a;
+        try {
+            j jVar = new j();
+            String str4 = null;
+            if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(str3)) {
+                str4 = "010601";
+            } else if ("com.baidu.android.pushservice.action.passthrough.notification.DELETE".equals(str3)) {
+                str4 = "010602";
+            } else if ("com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED".equals(str3)) {
+                str4 = "010603";
+            }
+            jVar.d = str4;
+            jVar.a = str;
+            jVar.e = System.currentTimeMillis();
+            jVar.f = com.baidu.android.pushservice.h.a.b.c(context);
+            jVar.c = com.baidu.android.pushservice.message.a.l.MSG_TYPE_PRIVATE_MESSAGE.a();
+            jVar.h = str2;
+            com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str2);
+            if (d != null) {
+                a(context, d, jVar, new i(str2));
+            }
+        } catch (Exception e) {
+            com.baidu.android.pushservice.g.a.e("PushBehaviorHelper", "error " + e.getMessage());
+        }
+    }
+
+    public static void b(Context context, String str, String str2, int i, byte[] bArr, int i2, int i3) {
+        j jVar = new j();
+        jVar.d = "019901";
+        jVar.a = str2;
+        jVar.e = System.currentTimeMillis();
+        jVar.f = com.baidu.android.pushservice.h.a.b.c(context);
+        jVar.b = new String(bArr).length();
+        jVar.g = i2;
+        jVar.c = i;
+        jVar.h = str;
+        i iVar = new i(str);
+        iVar.c(i3);
+        com.baidu.android.pushservice.b.f d = com.baidu.android.pushservice.b.b.a(context).d(str);
+        if (d != null) {
+            iVar.c(q.a(d.f));
+            iVar.b(d.f);
+            iVar.d(d.c());
+        } else {
+            iVar.c("0");
+            iVar.b("0");
+            iVar.d("NP");
+        }
+        a(context, d, jVar, iVar);
     }
 }

@@ -12,7 +12,7 @@ class l implements com.baidu.tbadk.ala.e {
         TextView ap = com.baidu.tbadk.ala.c.ap(context);
         if (ap != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            com.baidu.tbadk.core.util.aq.i(ap, w.e.cp_cont_f);
+            com.baidu.tbadk.core.util.as.i(ap, w.e.cp_cont_f);
             layoutParams.setMargins(com.baidu.adp.lib.util.k.g(context, w.f.ds16), 0, 0, 0);
             layoutParams.gravity = 16;
             ap.setLayoutParams(layoutParams);

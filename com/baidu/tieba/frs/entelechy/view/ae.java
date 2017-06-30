@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs.entelechy.view;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tieba.card.ci;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements com.baidu.tbadk.widget.layout.g {
-    private final /* synthetic */ LinkedList bBv;
-    private final /* synthetic */ bl bBw;
-    final /* synthetic */ x bZy;
+    private final /* synthetic */ LinkedList bCo;
+    private final /* synthetic */ bm bCp;
+    final /* synthetic */ x chH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(x xVar, LinkedList linkedList, bl blVar) {
-        this.bZy = xVar;
-        this.bBv = linkedList;
-        this.bBw = blVar;
+    public ae(x xVar, LinkedList linkedList, bm bmVar) {
+        this.chH = xVar;
+        this.bCo = linkedList;
+        this.bCp = bmVar;
     }
 
     @Override // com.baidu.tbadk.widget.layout.g
     public void c(View view, int i, boolean z) {
-        bl blVar;
-        bl blVar2;
-        ci<bl> Ud = this.bZy.Ud();
+        bm bmVar;
+        bm bmVar2;
+        ci<bm> Vs = this.chH.Vs();
         if (z) {
-            if (Ud != null) {
-                Ud.aQf = true;
-                blVar2 = this.bZy.ahM;
-                Ud.a(view, blVar2);
+            if (Vs != null) {
+                Vs.aRx = true;
+                bmVar2 = this.chH.aiu;
+                Vs.a(view, bmVar2);
             }
-            this.bZy.Ur();
+            this.chH.VI();
             return;
         }
-        if (Ud != null) {
-            Ud.aQf = false;
-            blVar = this.bZy.ahM;
-            Ud.a(view, blVar);
+        if (Vs != null) {
+            Vs.aRx = false;
+            bmVar = this.chH.aiu;
+            Vs.a(view, bmVar);
         }
-        this.bZy.a(this.bBv, i, this.bBw);
+        this.chH.a(this.bCo, i, this.bCp);
     }
 }

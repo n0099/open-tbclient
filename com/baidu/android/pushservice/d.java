@@ -73,10 +73,10 @@ public class d {
         PushNotificationBuilder pushNotificationBuilder;
         Exception e;
         ObjectInputStream objectInputStream;
-        com.baidu.android.pushservice.e.a.c(a, "getBuilder id=" + i);
+        com.baidu.android.pushservice.g.a.c(a, "getBuilder id=" + i);
         String string = context.getSharedPreferences(b, 0).getString("" + i, null);
         if (string != null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(com.baidu.android.pushservice.i.b.a(string.getBytes()));
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(com.baidu.android.pushservice.k.b.a(string.getBytes()));
             try {
                 objectInputStream = new ObjectInputStream(byteArrayInputStream);
                 pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
@@ -90,7 +90,7 @@ public class d {
                 return pushNotificationBuilder;
             } catch (Exception e3) {
                 e = e3;
-                com.baidu.android.pushservice.e.a.a(a, e);
+                com.baidu.android.pushservice.g.a.a(a, e);
                 return pushNotificationBuilder;
             }
         }
@@ -103,14 +103,14 @@ public class d {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
-                String a2 = com.baidu.android.pushservice.i.b.a(byteArrayOutputStream.toByteArray(), "US-ASCII");
+                String a2 = com.baidu.android.pushservice.k.b.a(byteArrayOutputStream.toByteArray(), "US-ASCII");
                 SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
                 edit.putString("" + i, a2);
                 edit.commit();
                 byteArrayOutputStream.close();
                 objectOutputStream.close();
             } catch (Exception e) {
-                com.baidu.android.pushservice.e.a.a(a, "setNotificationBuilder write object error", e);
+                com.baidu.android.pushservice.g.a.a(a, "setNotificationBuilder write object error", e);
             }
         }
     }
@@ -121,15 +121,15 @@ public class d {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
-                String a2 = com.baidu.android.pushservice.i.b.a(byteArrayOutputStream.toByteArray(), "US-ASCII");
+                String a2 = com.baidu.android.pushservice.k.b.a(byteArrayOutputStream.toByteArray(), "US-ASCII");
                 SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
                 edit.putString("" + d, a2);
                 edit.commit();
                 byteArrayOutputStream.close();
                 objectOutputStream.close();
             } catch (Exception e) {
-                com.baidu.android.pushservice.e.a.e(a, "setDefaultNotificationBuilder write object error");
-                com.baidu.android.pushservice.e.a.e(a, "error " + e.getMessage());
+                com.baidu.android.pushservice.g.a.e(a, "setDefaultNotificationBuilder write object error");
+                com.baidu.android.pushservice.g.a.e(a, "error " + e.getMessage());
             }
         }
     }
@@ -141,7 +141,7 @@ public class d {
         if (string == null) {
             return a(context);
         }
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(com.baidu.android.pushservice.i.b.a(string.getBytes()));
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(com.baidu.android.pushservice.k.b.a(string.getBytes()));
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
             pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
@@ -151,7 +151,7 @@ public class d {
                 return pushNotificationBuilder;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.android.pushservice.e.a.a(a, "getDefaultBuilder read object error", e);
+                com.baidu.android.pushservice.g.a.a(a, "getDefaultBuilder read object error", e);
                 return pushNotificationBuilder;
             }
         } catch (Exception e3) {

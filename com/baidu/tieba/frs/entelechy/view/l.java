@@ -4,22 +4,22 @@ import com.baidu.tieba.play.QuickVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements Runnable {
-    final /* synthetic */ a bZs;
+    final /* synthetic */ a chB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(a aVar) {
-        this.bZs = aVar;
+        this.chB = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         QuickVideoView quickVideoView;
         QuickVideoView quickVideoView2;
-        quickVideoView = this.bZs.bAC;
+        quickVideoView = this.chB.bBv;
         if (quickVideoView != null) {
-            quickVideoView2 = this.bZs.bAC;
+            quickVideoView2 = this.chB.bBv;
             if (!quickVideoView2.isPlaying()) {
-                this.bZs.f(true, 1);
+                this.chB.f(true, 1);
             }
         }
     }

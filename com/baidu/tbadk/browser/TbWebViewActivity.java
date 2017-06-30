@@ -11,9 +11,11 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.webkit.DownloadListener;
 import android.webkit.ValueCallback;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -21,8 +23,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.hybrid.HybridManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -37,14 +40,15 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public static final int FILECHOOSER_RESULTCODE = 1;
     private com.baidu.tieba.tbadkCore.e.a jsBridge;
     private String mBid;
-    private com.baidu.tbadk.core.d.n mHybridBridge;
+    private com.baidu.tbadk.core.hybrid.s mHybridBridge;
     private ValueCallback<Uri> mUploadMessage;
     private static boolean sFrameLostTracked = false;
     private static HashMap<String, String> mShareToTypes = new HashMap<>();
-    protected com.baidu.tbadk.core.d.f mWebView = null;
-    private com.baidu.tieba.tbadkCore.e.c jsCallback = new q(this);
+    protected com.baidu.tbadk.core.hybrid.f mWebView = null;
+    private com.baidu.tieba.tbadkCore.e.c jsCallback = new r(this);
     private boolean mShowShareItem = true;
     private boolean isShowFullScreen = false;
+    CustomMessageListener htmlLoadMessageListener = new s(this, CmdConfigCustom.CMD_HTML_LOADED);
 
     static {
         mShareToTypes.put("weixin_timeline", "weixin_timeline");
@@ -65,11 +69,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         MessageManager.getInstance().runTask(CmdConfigCustom.CMD_WEBVIEW_PROXY, (Class) null);
         this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
         this.jsBridge.a(new XiubaTbJsBridge(getPageContext()));
-        this.jsBridge.a(new g(getPageContext()));
+        this.jsBridge.a(new h(getPageContext()));
         this.jsBridge.a(buildGameDownloadJSPrompt());
         if (this.mNeedCookie) {
             initCookie();
         }
+        registerListener(this.htmlLoadMessageListener);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -115,7 +120,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public View createWebView() {
         if (this.mWebView == null) {
-            this.mWebView = new com.baidu.tbadk.core.d.f(getPageContext().getPageActivity());
+            this.mWebView = new com.baidu.tbadk.core.hybrid.f(getPageContext().getPageActivity());
             this.mWebView.getSettings().setJavaScriptEnabled(true);
             this.mWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
             this.mWebView.getSettings().setAllowFileAccess(true);
@@ -140,16 +145,16 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             }
             CompatibleUtile.getInstance().removeJavascriptInterface(this.mWebView);
             boolean isHybridBridgeEnabled = TbadkCoreApplication.m9getInst().isHybridBridgeEnabled();
-            com.baidu.tbadk.core.d.n a2 = com.baidu.tbadk.core.d.s.a(isHybridBridgeEnabled, this.mWebView, (com.baidu.tbadk.core.d.b) null);
+            com.baidu.tbadk.core.hybrid.s a2 = com.baidu.tbadk.core.hybrid.aa.a(isHybridBridgeEnabled, this.mWebView, (com.baidu.tbadk.core.hybrid.b) null);
             this.mHybridBridge = a2;
             if (isHybridBridgeEnabled) {
-                a2.a(new r(this, a2));
-                a2.a(new com.baidu.tbadk.core.d.a.a(a2));
-                a2.a(new com.baidu.tbadk.core.d.a.c(a2));
-                a2.a(new com.baidu.tbadk.core.d.a.b(a2));
-                a2.a(new s(this, a2));
+                a2.a(new t(this, a2));
+                a2.a(new com.baidu.tbadk.core.hybrid.a.a(a2));
+                a2.a(new com.baidu.tbadk.core.hybrid.a.c(a2));
+                a2.a(new com.baidu.tbadk.core.hybrid.a.b(a2));
                 a2.a(new u(this, a2));
-                a2.a(new h(a2));
+                a2.a(new w(this, a2));
+                a2.a(new i(a2));
             }
         }
         return this.mWebView;
@@ -187,7 +192,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 hashMap.put("bid", this.mBid);
                 hashMap.put("result", Boolean.valueOf(z));
                 hashMap.put("channel", str);
-                com.baidu.tbadk.core.d.o a2 = com.baidu.tbadk.core.d.o.a("TBJS_COMMON_Share", "onShareResult", (Map<String, Object>) hashMap, 0L, false);
+                com.baidu.tbadk.core.hybrid.t a2 = com.baidu.tbadk.core.hybrid.t.a("TBJS_COMMON_Share", "onShareResult", (Map<String, Object>) hashMap, 0L, false);
                 if (this.mHybridBridge != null) {
                     this.mHybridBridge.a(a2);
                 }
@@ -220,7 +225,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     }
                 }
                 hashMap.put(TbConfig.LOCAL_PIC_DIR, jSONArray);
-                com.baidu.tbadk.core.d.o a2 = com.baidu.tbadk.core.d.o.a("TBJS_COMMON_Image", "onImageUploadFinish", (Map<String, Object>) hashMap, 0L, false);
+                com.baidu.tbadk.core.hybrid.t a2 = com.baidu.tbadk.core.hybrid.t.a("TBJS_COMMON_Image", "onImageUploadFinish", (Map<String, Object>) hashMap, 0L, false);
                 if (this.mHybridBridge != null) {
                     this.mHybridBridge.a(a2);
                 }
@@ -255,12 +260,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.biH();
+            this.jsBridge.bmV();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
             this.mWebView.setVisibility(8);
-            com.baidu.adp.lib.g.h.fS().postDelayed(new v(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+            com.baidu.adp.lib.g.h.fR().postDelayed(new x(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
     }
 
@@ -280,7 +285,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     TbWebViewActivity.this.mUrlTitle = title;
                 }
                 if (!TbWebViewActivity.this.isShowFullScreen) {
-                    TbWebViewActivity.this.mView.bY(TbWebViewActivity.this.mUrlTitle);
+                    TbWebViewActivity.this.mView.ce(TbWebViewActivity.this.mUrlTitle);
                 }
                 TbWebViewActivity.this.mView.setNavBarVisibility(TbWebViewActivity.this.mIsShowNavBar);
                 TbWebViewActivity.this.mView.ae(TbWebViewActivity.this.isNeedShowShareItem());
@@ -316,7 +321,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int b = bb.vy().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
+            int b = be.vP().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
             if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -326,11 +331,20 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 TbWebViewActivity.this.mUrl = str;
                 if (TbWebViewActivity.this.isShowFullScreen) {
                     TbWebViewActivity.this.isShowFullScreen = false;
-                    TbWebViewActivity.this.runOnUiThread(new y(this));
+                    TbWebViewActivity.this.runOnUiThread(new aa(this));
                 }
                 TbWebViewActivity.this.refresh();
                 return true;
             }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
+            WebResourceResponse shouldInterceptRequest = HybridManager.tF().shouldInterceptRequest(webView, str);
+            if (shouldInterceptRequest == null) {
+                return super.shouldInterceptRequest(webView, str);
+            }
+            return shouldInterceptRequest;
         }
     }
 
@@ -365,7 +379,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void initCookie() {
-        f.ar(getApplicationContext());
+        g.ar(getApplicationContext());
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
@@ -410,7 +424,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void trackFPS() {
         if (!sFrameLostTracked) {
             sFrameLostTracked = true;
-            com.baidu.tbadk.core.d.h.tA().a(16, new w(this));
+            com.baidu.tbadk.core.hybrid.i.ty().a(16, new y(this));
         }
     }
 
@@ -418,7 +432,22 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     protected void setFullScreen() {
         this.isShowFullScreen = true;
         if (this.isShowFullScreen && this.mView != null) {
-            runOnUiThread(new x(this));
+            runOnUiThread(new z(this));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.browser.BaseWebViewActivity
+    public void onWebViewLogin(boolean z) {
+        super.onWebViewLogin(z);
+        if (this.mWebView != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("no", z ? "1" : "0");
+                loadUrl("javascript:tiebaClientLoginCallBack(" + jSONObject.toString() + ")");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

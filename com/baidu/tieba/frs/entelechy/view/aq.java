@@ -4,17 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements View.OnClickListener {
-    final /* synthetic */ ao bZV;
+    final /* synthetic */ ao cif;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(ao aoVar) {
-        this.bZV = aoVar;
+        this.cif = aoVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bZV.Ud() != null) {
-            this.bZV.Ud().a(view, this.bZV.ahM);
+        if (this.cif.Vs() != null) {
+            this.cif.Vs().a(view, this.cif.aiu);
         }
     }
 }

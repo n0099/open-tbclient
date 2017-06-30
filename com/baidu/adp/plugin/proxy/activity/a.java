@@ -17,7 +17,7 @@ class a implements com.baidu.adp.plugin.install.b {
     }
 
     @Override // com.baidu.adp.plugin.install.b
-    public void aQ(String str) {
+    public void aV(String str) {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(str);
         if (plugin2 != null) {
             plugin2.asyncInit(str, new b(this, plugin2));

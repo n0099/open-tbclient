@@ -16,11 +16,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements NewWriteModel.d {
-    final /* synthetic */ n aBg;
+    final /* synthetic */ n aCj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.aBg = nVar;
+        this.aCj = nVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -32,16 +32,16 @@ public class o implements NewWriteModel.d {
         NewWriteModel newWriteModel3;
         DataModel dataModel;
         NewWriteModel.d dVar2;
-        dVar = this.aBg.aBf;
+        dVar = this.aCj.aCi;
         if (dVar != null) {
-            dVar2 = this.aBg.aBf;
+            dVar2 = this.aCj.aCi;
             dVar2.callback(z, postWriteCallBackData, qVar, writeData, antiData);
         }
         if (z) {
-            this.aBg.aAx = null;
-            this.aBg.aBb = null;
-            this.aBg.bI(true);
-            this.aBg.Di();
+            this.aCj.aBA = null;
+            this.aCj.aCe = null;
+            this.aCj.bK(true);
+            this.aCj.DC();
         }
         int i = -1;
         String str = "";
@@ -50,34 +50,34 @@ public class o implements NewWriteModel.d {
             str = postWriteCallBackData.getErrorString();
         }
         if (z) {
-            newWriteModel = this.aBg.aAB;
+            newWriteModel = this.aCj.aBE;
             WriteData writeData2 = newWriteModel.getWriteData();
-            newWriteModel2 = this.aBg.aAB;
+            newWriteModel2 = this.aCj.aBE;
             newWriteModel2.setWriteData(null);
-            newWriteModel3 = this.aBg.aAB;
-            newWriteModel3.lx(false);
-            this.aBg.aAy = null;
+            newWriteModel3 = this.aCj.aBE;
+            newWriteModel3.lW(false);
+            this.aCj.aBB = null;
             if (writeData2 != null && writeData2 != null && writeData2.getType() == 2) {
-                dataModel = this.aBg.aBd;
-                dataModel.CG();
+                dataModel = this.aCj.aCg;
+                dataModel.Da();
             }
-        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.sr(i)) {
-            this.aBg.m(i, str);
+        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.sK(i)) {
+            this.aCj.m(i, str);
         } else if (qVar != null && writeData != null && !StringUtils.isNull(qVar.getVcode_pic_url())) {
             writeData.setVcodeMD5(qVar.getVcode_md5());
             writeData.setVcodeUrl(qVar.getVcode_pic_url());
-            writeData.setVcodeExtra(qVar.xO());
-            if (com.baidu.tbadk.o.a.gq(qVar.xN())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.aBg.xw().getPageActivity(), 12006, writeData, false, qVar.xN())));
+            writeData.setVcodeExtra(qVar.yf());
+            if (com.baidu.tbadk.o.a.gN(qVar.ye())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.aCj.xN().getPageActivity(), 12006, writeData, false, qVar.ye())));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.aBg.xw().getPageActivity(), writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.aCj.xN().getPageActivity(), writeData, 12006)));
             }
         } else if (postWriteCallBackData != null && i == 227001) {
             MessageManager messageManager = MessageManager.getInstance();
-            tbPageContext = this.aBg.aas;
+            tbPageContext = this.aCj.aat;
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(tbPageContext.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
         } else {
-            this.aBg.xw().showToast(str);
+            this.aCj.xN().showToast(str);
         }
     }
 }

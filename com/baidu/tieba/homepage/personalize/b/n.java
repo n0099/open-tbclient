@@ -9,11 +9,11 @@ import com.baidu.tieba.card.ci;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends ci<com.baidu.tieba.card.data.l> {
-    final /* synthetic */ m cBR;
+    final /* synthetic */ m cJO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.cBR = mVar;
+        this.cJO = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,58 +31,58 @@ public class n extends ci<com.baidu.tieba.card.data.l> {
         bt btVar10;
         bt btVar11;
         bt btVar12;
-        cf.Uw().ds(true);
+        cf.VN().cw(true);
         if (view != null) {
-            btVar = this.cBR.cBQ;
+            btVar = this.cJO.cJN;
             if (btVar != null) {
-                btVar2 = this.cBR.cBQ;
-                if (btVar2.getView() != null && lVar != null && lVar.LH() != null && !StringUtils.isNull(lVar.LH().getTid())) {
+                btVar2 = this.cJO.cJN;
+                if (btVar2.getView() != null && lVar != null && lVar.Mv() != null && !StringUtils.isNull(lVar.Mv().getTid())) {
                     int id = view.getId();
-                    btVar3 = this.cBR.cBQ;
+                    btVar3 = this.cJO.cJN;
                     if (id != btVar3.getView().getId()) {
-                        btVar4 = this.cBR.cBQ;
+                        btVar4 = this.cJO.cJN;
                         if (btVar4.getHeaderImg() != null) {
                             int id2 = view.getId();
-                            btVar12 = this.cBR.cBQ;
+                            btVar12 = this.cJO.cJN;
                             if (id2 == btVar12.getHeaderImg().getId()) {
-                                TiebaStatic.log(lVar.ij("c12191"));
+                                TiebaStatic.log(lVar.iR("c12191"));
                                 return;
                             }
                         }
-                        btVar5 = this.cBR.cBQ;
-                        if (btVar5.Ug() != null) {
+                        btVar5 = this.cJO.cJN;
+                        if (btVar5.Vv() != null) {
                             int id3 = view.getId();
-                            btVar11 = this.cBR.cBQ;
-                            if (id3 == btVar11.Ug().getId()) {
-                                TiebaStatic.log(lVar.ij("c12191"));
+                            btVar11 = this.cJO.cJN;
+                            if (id3 == btVar11.Vv().getId()) {
+                                TiebaStatic.log(lVar.iR("c12191"));
                                 return;
                             }
                         }
-                        btVar6 = this.cBR.cBQ;
-                        if (btVar6.bdI != null) {
-                            btVar9 = this.cBR.cBQ;
-                            if (btVar9.bdI.getBarNameTv() != null) {
+                        btVar6 = this.cJO.cJN;
+                        if (btVar6.bgF != null) {
+                            btVar9 = this.cJO.cJN;
+                            if (btVar9.bgF.getBarNameTv() != null) {
                                 int id4 = view.getId();
-                                btVar10 = this.cBR.cBQ;
-                                if (id4 == btVar10.bdI.getBarNameTv().getId()) {
-                                    TiebaStatic.log(lVar.UM());
+                                btVar10 = this.cJO.cJN;
+                                if (id4 == btVar10.bgF.getBarNameTv().getId()) {
+                                    TiebaStatic.log(lVar.Wd());
                                     return;
                                 }
                             }
                         }
-                        btVar7 = this.cBR.cBQ;
-                        if (btVar7.Uf() != null) {
+                        btVar7 = this.cJO.cJN;
+                        if (btVar7.Vu() != null) {
                             int id5 = view.getId();
-                            btVar8 = this.cBR.cBQ;
-                            if (id5 == btVar8.Uf().getId()) {
-                                TiebaStatic.log(lVar.ik("c12202"));
+                            btVar8 = this.cJO.cJN;
+                            if (id5 == btVar8.Vu().getId()) {
+                                TiebaStatic.log(lVar.iS("c12202"));
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    TiebaStatic.log(lVar.ij("c12192"));
+                    TiebaStatic.log(lVar.iR("c12192"));
                 }
             }
         }

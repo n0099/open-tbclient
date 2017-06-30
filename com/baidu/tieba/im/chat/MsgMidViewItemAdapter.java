@@ -16,18 +16,18 @@ public class MsgMidViewItemAdapter extends ao<ap> {
     @Override // com.baidu.tieba.im.chat.ao
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ao.a<ap> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        aVar.amq().setData(chatMessage);
-        this.ajh.getLayoutMode().ah(false);
-        this.ajh.getLayoutMode().t(view);
+        aVar.aqb().setData(chatMessage);
+        this.ajP.getLayoutMode().ah(false);
+        this.ajP.getLayoutMode().t(view);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ao */
+    /* renamed from: aq */
     public ao.a<ap> onCreateViewHolder(ViewGroup viewGroup) {
-        ap apVar = new ap(this.ajh);
+        ap apVar = new ap(this.ajP);
         return new a(apVar.cf(), apVar);
     }
 

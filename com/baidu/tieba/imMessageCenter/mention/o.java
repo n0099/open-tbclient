@@ -4,15 +4,15 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class o implements NoNetworkView.a {
-    final /* synthetic */ l dmu;
+    final /* synthetic */ l duq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(l lVar) {
-        this.dmu = lVar;
+        this.duq = lVar;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aK(boolean z) {
-        this.dmu.gp(z);
+    public void aL(boolean z) {
+        this.duq.gH(z);
     }
 }

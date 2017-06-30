@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.h.u;
+import com.baidu.android.pushservice.j.q;
 import com.baidu.android.pushservice.message.PublicMsg;
 /* loaded from: classes2.dex */
 public class e extends c {
@@ -15,7 +15,7 @@ public class e extends c {
     }
 
     public static PublicMsg a(Context context, String str, String str2, byte[] bArr, byte[] bArr2) {
-        if (u.a(context, bArr, str, str2, bArr2)) {
+        if (q.a(context, bArr, str, str2, bArr2)) {
             PublicMsg a = j.a(context, str2, str, bArr2);
             a.mPkgName = context.getPackageName();
             if (TextUtils.isEmpty(a.mTitle)) {
@@ -38,22 +38,22 @@ public class e extends c {
         PublicMsg a = j.a(this.a, str2, str, bArr2);
         if (a != null && !TextUtils.isEmpty(a.mDescription)) {
             com.baidu.android.pushservice.b.d a2 = com.baidu.android.pushservice.b.d.a(this.a, str);
-            if (TextUtils.isEmpty(str3) || !u.c(this.a, str3)) {
+            if (TextUtils.isEmpty(str3) || !q.c(this.a, str3)) {
                 if (a2.a() == com.baidu.android.pushservice.b.c.PUSH_CLIENT) {
                     a.mPkgName = a2.a.c();
                 } else if (a2.a() == com.baidu.android.pushservice.b.c.SDK_CLIENT) {
                     a.mPkgName = a2.b.c();
                 }
-                com.baidu.android.pushservice.e.a.c(b, "Notification Message PackageName is from  PushClient");
+                com.baidu.android.pushservice.g.a.c(b, "Notification Message PackageName is from  PushClient");
             } else {
                 a.mPkgName = str3;
-                com.baidu.android.pushservice.e.a.c(b, "Notification Message has PackageName = " + str3);
+                com.baidu.android.pushservice.g.a.c(b, "Notification Message has PackageName = " + str3);
             }
-            u.a(this.a, a);
+            q.a(this.a, a);
             switch (a2.a()) {
                 case PUSH_CLIENT:
                 case SDK_CLIENT:
-                    byte[] a3 = u.a(this.a, str2, bArr2, bArr, a.mPkgName);
+                    byte[] a3 = q.a(this.a, str2, bArr2, bArr, a.mPkgName);
                     PackageManager packageManager = this.a.getPackageManager();
                     try {
                         ApplicationInfo applicationInfo = packageManager.getApplicationInfo(a.mPkgName, 128);
@@ -63,12 +63,12 @@ public class e extends c {
                         if (!str.equals("8965186")) {
                             f.a(this.a, a, str2, str, i, a3, bArr2);
                         }
-                        com.baidu.android.pushservice.e.a.c(b, ">>> Show pMsg private Notification!");
-                        u.b(">>> Show pMsg private Notification!", this.a);
+                        com.baidu.android.pushservice.g.a.c(b, ">>> Show pMsg private Notification!");
+                        q.b(">>> Show pMsg private Notification!", this.a);
                         i2 = 1;
                         break;
                     } catch (PackageManager.NameNotFoundException e) {
-                        com.baidu.android.pushservice.e.a.a(b, e);
+                        com.baidu.android.pushservice.g.a.a(b, e);
                         if (a2.a() == com.baidu.android.pushservice.b.c.PUSH_CLIENT) {
                             f.a(this.a, str);
                         } else if (a2.a() == com.baidu.android.pushservice.b.c.SDK_CLIENT) {
@@ -82,20 +82,20 @@ public class e extends c {
                         a.mTitle = str;
                     }
                     f.a(this.a, a, str2, str);
-                    com.baidu.android.pushservice.e.a.c(b, ">>> Show pMsg private web Notification!");
-                    u.b(">>> Show pMsg private Notification!", this.a);
+                    com.baidu.android.pushservice.g.a.c(b, ">>> Show pMsg private web Notification!");
+                    q.b(">>> Show pMsg private Notification!", this.a);
                     i2 = 1;
                     break;
                 default:
-                    com.baidu.android.pushservice.e.a.c(b, ">>> Don't Show pMsg private Notification! package name is null");
+                    com.baidu.android.pushservice.g.a.c(b, ">>> Don't Show pMsg private Notification! package name is null");
                     f.a(this.a, str);
-                    u.b(b + "*BBind*>>> Don't Show pMsg private Notification! package name is null", this.a);
+                    q.b(b + "*BBind*>>> Don't Show pMsg private Notification! package name is null", this.a);
                     i2 = 7;
                     break;
             }
         } else {
-            com.baidu.android.pushservice.e.a.e(b, ">>> pMsg JSON parsing error!");
-            u.b(b + "*BBind*>>> pMsg JSON parsing error!", this.a);
+            com.baidu.android.pushservice.g.a.e(b, ">>> pMsg JSON parsing error!");
+            q.b(b + "*BBind*>>> pMsg JSON parsing error!", this.a);
             i2 = 2;
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

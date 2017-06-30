@@ -2,24 +2,24 @@ package com.baidu.tieba.frs.tab;
 
 import android.view.View;
 import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tieba.frs.co;
+import com.baidu.tieba.frs.cp;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements c.b {
-    final /* synthetic */ HorizontalTabView cfF;
-    private final /* synthetic */ co cfG;
+    final /* synthetic */ HorizontalTabView cnV;
+    private final /* synthetic */ cp cnW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(HorizontalTabView horizontalTabView, co coVar) {
-        this.cfF = horizontalTabView;
-        this.cfG = coVar;
+    public d(HorizontalTabView horizontalTabView, cp cpVar) {
+        this.cnV = horizontalTabView;
+        this.cnW = cpVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        if (this.cfG.bWM.size() > i && this.cfG.bWM.get(i) != null) {
+        if (this.cnW.ceU.size() > i && this.cnW.ceU.get(i) != null) {
             cVar.dismiss();
-            this.cfF.c(this.cfF.iP(this.cfG.bWM.get(i).bWI));
+            this.cnV.c(this.cnV.jb(this.cnW.ceU.get(i).ceQ));
         }
     }
 }

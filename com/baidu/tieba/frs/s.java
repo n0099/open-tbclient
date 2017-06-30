@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends CustomMessageListener {
-    final /* synthetic */ r bVb;
+    final /* synthetic */ r cdl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(r rVar, int i) {
         super(i);
-        this.bVb = rVar;
+        this.cdl = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,8 +19,8 @@ public class s extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage.getCmd() == 2016495) {
             Object data = customResponsedMessage.getData();
-            if (data instanceof com.baidu.tbadk.core.data.bl) {
-                com.baidu.tieba.frs.e.o.a(this.bVb.bUa, this.bVb.bTF, this.bVb.getForumId(), true, (com.baidu.tbadk.core.data.bl) data);
+            if (data instanceof com.baidu.tbadk.core.data.bm) {
+                com.baidu.tieba.frs.e.o.a(this.cdl.ccj, this.cdl.cbN, this.cdl.getForumId(), true, (com.baidu.tbadk.core.data.bm) data);
             }
         }
     }

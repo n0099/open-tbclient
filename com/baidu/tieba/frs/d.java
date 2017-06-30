@@ -16,12 +16,12 @@ class d extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
             int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
             if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
-                FrsActivityStatic.bTy = true;
-                FrsActivityStatic.bTx = true;
+                FrsActivityStatic.cbG = true;
+                FrsActivityStatic.cbF = true;
                 return;
             }
-            FrsActivityStatic.bTy = false;
-            FrsActivityStatic.bTx = false;
+            FrsActivityStatic.cbG = false;
+            FrsActivityStatic.cbF = false;
         }
     }
 }

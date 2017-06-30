@@ -2,23 +2,23 @@ package com.baidu.tieba.QuickPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements Runnable {
-    final /* synthetic */ m aRa;
+    final /* synthetic */ m aSt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(m mVar) {
-        this.aRa = mVar;
+        this.aSt = mVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
         Runnable runnable;
-        z = this.aRa.aQX;
+        z = this.aSt.aSq;
         if (!z) {
-            this.aRa.Jp();
-            com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-            runnable = this.aRa.aQZ;
-            fS.postDelayed(runnable, 1000L);
+            this.aSt.JN();
+            com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
+            runnable = this.aSt.aSs;
+            fR.postDelayed(runnable, 1000L);
         }
     }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import tbclient.DynamicInfo;
 import tbclient.ForumDynamic;
 import tbclient.ModuleInfo;
+import tbclient.Profile.NicknameInfo;
 import tbclient.Profile.TAInfo;
 import tbclient.Profile.UserAgreeInfo;
 import tbclient.Profile.UserGodInfo;
@@ -26,6 +27,8 @@ public interface f {
     AlaLiveInfoCoreData getLiveInfo();
 
     ModuleInfo getModuleInfo();
+
+    NicknameInfo getNicknameInfo();
 
     TAInfo getTaInfo();
 

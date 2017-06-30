@@ -8,11 +8,11 @@ import com.baidu.tieba.frs.r;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class h implements View.OnClickListener {
-    final /* synthetic */ c bXE;
+    final /* synthetic */ c cfN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(c cVar) {
-        this.bXE = cVar;
+        this.cfN = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,14 +22,14 @@ class h implements View.OnClickListener {
         r rVar;
         TbPageContext tbPageContext2;
         TbPageContext tbPageContext3;
-        popupWindow = this.bXE.ciI;
-        tbPageContext = this.bXE.aas;
+        popupWindow = this.cfN.cqI;
+        tbPageContext = this.cfN.aat;
         com.baidu.adp.lib.g.j.a(popupWindow, tbPageContext.getPageActivity());
-        rVar = this.bXE.bVm;
-        rVar.bTN = false;
-        tbPageContext2 = this.bXE.aas;
+        rVar = this.cfN.cdv;
+        rVar.cbW = false;
+        tbPageContext2 = this.cfN.aat;
         String string = tbPageContext2.getResources().getString(w.l.experion_speed);
-        tbPageContext3 = this.bXE.aas;
-        com.baidu.tbadk.browser.f.a(tbPageContext3.getPageActivity(), string, String.valueOf(com.baidu.tbadk.data.e.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
+        tbPageContext3 = this.cfN.aat;
+        com.baidu.tbadk.browser.g.a(tbPageContext3.getPageActivity(), string, String.valueOf(com.baidu.tbadk.data.e.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
     }
 }

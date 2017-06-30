@@ -1,20 +1,25 @@
 package com.baidu.tieba.write.transmit;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-class g implements Parcelable.Creator<TransmitForumData> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: n */
-    public TransmitForumData createFromParcel(Parcel parcel) {
-        return new TransmitForumData(parcel);
+class g implements Animation.AnimationListener {
+    final /* synthetic */ TransmitForumActivity ghI;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(TransmitForumActivity transmitForumActivity) {
+        this.ghI = transmitForumActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: tq */
-    public TransmitForumData[] newArray(int i) {
-        return new TransmitForumData[i];
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.ghI.finish();
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -13,7 +13,7 @@ public class TiebaIMConfig {
     public static final String PROTOBUF_VERSION = "1.0.3";
     private static final String PUBLIC_KEY_BASE64 = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwQpwBZxXJV/JVRF/uNfyMSdu7YWwRNLM8+2xbniGp2iIQHOikPpTYQjlQgMi1uvq1kZpJ32rHo3hkwjy2l0lFwr3u4Hk2Wk7vnsqYQjAlYlK0TCzjpmiI+OiPOUNVtbWHQiLiVqFtzvpvi4AU7C1iKGvc/4IS45WjHxeScHhnZZ7njS4S1UgNP/GflRIbzgbBhyZ9kEW5/OO5YfG1fy6r4KSlDJw4o/mw5XhftyIpL+5ZBVBC6E1EIiP/dd9AbK62VV1PByfPMHMixpxI3GM2qwcmFsXcCcgvUXJBa9k6zP8dDQ3csCM2QNT+CQAOxthjtp/TFWaD7MzOdsIYb3THwIDAQAB";
     public static final String SEARCH_DOUBLE_FOLLOW_LIST = "c/u/user/search_double_follows";
-    public static final String wsExtensions = "im_version=2.1";
+    public static final String wsExtensions = "im_version=2.3";
     public static final BdUniqueId IM_ASYCTASK_UNIQUEID = BdUniqueId.gen();
     private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, IM_ASYCTASK_UNIQUEID);
     public static final String defaultUrl = "ws://im.tieba.baidu.com:8000";

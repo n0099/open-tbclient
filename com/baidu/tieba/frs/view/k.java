@@ -1,160 +1,130 @@
 package com.baidu.tieba.frs.view;
 
-import android.graphics.drawable.ColorDrawable;
+import android.content.Context;
+import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.z;
+import com.baidu.tieba.tbadkCore.util.r;
+import com.baidu.tieba.view.aa;
 import com.baidu.tieba.w;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class k extends PopupWindow implements View.OnClickListener {
-    private ViewGroup ZN;
-    private View aVz;
-    private final TbPageContext<?> ajh;
-    private final a cjQ;
-    private ViewGroup cjR;
-    private ViewGroup cjS;
-    private ImageView cjT;
-    private final List<View> cjU;
-    private final List<b> mDataList;
+public class k extends BaseAdapter implements com.baidu.tieba.frs.d.e {
+    private List<bm> aUW;
+    private x crQ;
+    private y crT;
+    private Context mContext;
+    private boolean crR = false;
+    private View.OnClickListener crS = new l(this);
+    private View.OnLongClickListener crU = new m(this);
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void iZ(int i);
+    public k(Context context) {
+        this.mContext = context;
     }
 
-    public k(TbPageContext<?> tbPageContext, View view, a aVar) {
-        super(tbPageContext.getPageActivity());
-        this.mDataList = new ArrayList();
-        this.cjU = new ArrayList();
-        this.ajh = tbPageContext;
-        this.cjQ = aVar;
-        this.aVz = view;
-        initView();
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return z.s(this.aUW);
     }
 
-    private void initView() {
-        this.ZN = (ViewGroup) LayoutInflater.from(this.ajh.getPageActivity()).inflate(w.j.frs_write_popup, (ViewGroup) null);
-        setContentView(this.ZN);
-        this.cjR = (ViewGroup) this.ZN.findViewById(w.h.frs_write_popup_item_container);
-        this.cjS = (ViewGroup) this.ZN.findViewById(w.h.frs_write_popup_board);
-        this.cjT = (ImageView) this.ZN.findViewById(w.h.image_frs_write_popup_close);
-        setBackgroundDrawable(new ColorDrawable(this.ajh.getResources().getColor(w.e.common_color_10262)));
-        this.ajh.getLayoutMode().t(this.ZN);
-        this.cjS.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
-        setWidth(-1);
-        setHeight(-1);
-        setFocusable(true);
-        this.ZN.setOnClickListener(this);
-        this.cjT.setOnClickListener(this);
-        this.cjS.setOnClickListener(this);
-        this.ZN.setOnKeyListener(new l(this));
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return z.c(this.aUW, i);
     }
 
-    public void f(boolean z, boolean z2, boolean z3) {
-        g(z, z2, z3);
-        aep();
-        aeq();
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
     }
 
-    private void g(boolean z, boolean z2, boolean z3) {
-        this.mDataList.add(new b(0, this.ajh.getPageActivity().getString(w.l.topic_thread), w.g.write_popup_normal_item_selector));
-        if (z2) {
-            this.mDataList.add(new b(3, this.ajh.getPageActivity().getString(w.l.msglist_video), w.g.write_popup_video_item_selector));
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        boolean z = false;
+        if (view == null) {
+            aVar = new a(this, null);
+            view = LayoutInflater.from(this.mContext).inflate(w.j.frs_header_top_item, (ViewGroup) null);
+            aVar.crW = view;
+            aVar.crX = (TextView) view.findViewById(w.h.top_item_type);
+            aVar.crY = (TextView) view.findViewById(w.h.top_item_title);
+            aVar.aaN = view.findViewById(w.h.top_item_divider);
+            view.setTag(aVar);
+        } else {
+            aVar = (a) view.getTag();
         }
-        if (z3) {
-            this.mDataList.add(new b(5, this.ajh.getPageActivity().getString(w.l.ala_live_write_title), w.g.write_popup_live_video_item_selector));
-        }
-    }
-
-    private void aep() {
-        LinearLayout linearLayout;
-        int i = 0;
-        LinearLayout linearLayout2 = null;
-        while (i < this.mDataList.size()) {
-            b bVar = this.mDataList.get(i);
-            if (bVar == null) {
-                linearLayout = linearLayout2;
+        bm bmVar = (bm) z.c(this.aUW, i);
+        if (bmVar != null) {
+            aVar.crX.setText(TbadkCoreApplication.m9getInst().getString(w.l.top));
+            bmVar.sb();
+            SpannableStringBuilder rR = bmVar.rR();
+            aVar.crY.setOnTouchListener(new aa(rR));
+            aVar.crY.setText(rR);
+            aVar.crW.setOnClickListener(this.crS);
+            aVar.crW.setOnLongClickListener(this.crU);
+            if (this.crR && i == 0) {
+                aVar.aaN.setVisibility(8);
             } else {
-                View inflate = LayoutInflater.from(this.ajh.getPageActivity()).inflate(w.j.frs_write_popup_item, (ViewGroup) null);
-                TextView textView = (TextView) inflate.findViewById(w.h.text_frs_write_popup_item);
-                aq.i(textView, w.e.cp_cont_b);
-                textView.setText(bVar.mTitle);
-                aq.c((ImageView) inflate.findViewById(w.h.image_frs_write_popup_item), bVar.cjY);
-                inflate.setOnClickListener(new m(this, bVar));
-                int dimensionPixelOffset = this.ajh.getResources().getDimensionPixelOffset(w.f.ds100);
-                if (i != 0 && i % 2 == 0) {
-                    dimensionPixelOffset = 0;
-                }
-                inflate.setPadding(0, 0, dimensionPixelOffset, 0);
-                if (i % 3 == 0) {
-                    linearLayout = new LinearLayout(this.ajh.getPageActivity());
-                    linearLayout.setPadding(this.ajh.getResources().getDimensionPixelOffset(w.f.ds80), 0, this.ajh.getResources().getDimensionPixelOffset(w.f.ds80), 0);
-                    this.cjR.addView(linearLayout);
-                } else {
-                    linearLayout = linearLayout2;
-                }
-                inflate.setTag(bVar);
-                this.cjU.add(inflate);
-                if (linearLayout != null) {
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    if (i >= 3) {
-                        layoutParams.topMargin = this.ajh.getResources().getDimensionPixelOffset(w.f.ds76);
-                        layoutParams.bottomMargin = this.ajh.getResources().getDimensionPixelOffset(w.f.ds76);
-                    }
-                    linearLayout.addView(inflate, layoutParams);
-                }
+                aVar.aaN.setVisibility(0);
             }
-            i++;
-            linearLayout2 = linearLayout;
+            r readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory();
+            if (readThreadHistory != null && readThreadHistory.ru(bmVar.getId())) {
+                z = true;
+            }
+            a(aVar, z);
+        }
+        aVar.position = i;
+        com.baidu.tieba.frs.d.b.aho().a(cnC, bmVar);
+        return view;
+    }
+
+    private void a(a aVar, boolean z) {
+        if (aVar != null) {
+            as.i(aVar.crX, w.e.cp_link_tip_c);
+            if (z) {
+                as.i(aVar.crY, w.e.cp_cont_c);
+            } else {
+                as.i(aVar.crY, w.e.cp_cont_b);
+            }
+            as.j(aVar.crW, w.g.home_thread_card_item_bg);
+            as.j(aVar.aaN, w.e.cp_bg_line_c);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.ZN == view || this.cjT == view) {
-            aer();
-        }
+    public void b(x xVar) {
+        this.crQ = xVar;
     }
 
-    private void aeq() {
-        long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_frs_videolive_last_popup_time", 0L);
-        com.baidu.adp.lib.g.j.showPopupWindowAtLocation(this, this.aVz, 0, 0, 1);
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.ajh.getPageActivity(), w.a.write_popup_in);
-        if (j == 0 && this.cjU != null && this.cjU.size() > 0) {
-            loadAnimation.setAnimationListener(new n(this));
-        }
-        this.cjS.startAnimation(loadAnimation);
+    public void setData(List<bm> list) {
+        this.aUW = list;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aer() {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.ajh.getPageActivity(), w.a.write_popup_out);
-        loadAnimation.setAnimationListener(new o(this));
-        this.cjS.startAnimation(loadAnimation);
+    public void eU(boolean z) {
+        this.crR = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class b {
-        public int cjX;
-        public int cjY;
-        public String mTitle;
+    public class a {
+        View aaN;
+        View crW;
+        TextView crX;
+        TextView crY;
+        int position;
 
-        public b(int i, String str, int i2) {
-            this.cjX = i;
-            this.mTitle = str;
-            this.cjY = i2;
+        private a() {
+        }
+
+        /* synthetic */ a(k kVar, a aVar) {
+            this();
         }
     }
 }

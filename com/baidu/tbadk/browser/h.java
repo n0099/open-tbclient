@@ -1,74 +1,63 @@
 package com.baidu.tbadk.browser;
 
-import android.os.Build;
-import com.baidu.android.pushservice.PushConstants;
+import android.content.Context;
+import android.webkit.JsPromptResult;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.xiuba.JSResultData;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class h extends com.baidu.tbadk.core.d.p {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public h(com.baidu.tbadk.core.d.n nVar) {
-        super(nVar);
+public class h implements com.baidu.tieba.tbadkCore.e.b {
+    private final TbPageContext<?> mTbPageContext;
+
+    public h(TbPageContext<?> tbPageContext) {
+        this.mTbPageContext = tbPageContext;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.d.p
-    public String nX() {
-        return "TBHY_COMMON_Utils";
+    private String nS() {
+        TbadkCoreApplication.m9getInst().login(this.mTbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.mTbPageContext.getPageActivity(), true)));
+        JSResultData jSResultData = new JSResultData();
+        jSResultData.setStatus(1);
+        jSResultData.setErrorCode("0");
+        jSResultData.setErrorMsg("");
+        return OrmObject.jsonStrWithObject(jSResultData);
     }
 
-    @com.baidu.tbadk.core.d.q(tK = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString(PushConstants.EXTRA_PUSH_MESSAGE)).tk();
-        }
+    private void bV(String str) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_WEBVIEW_LOGIN, str));
     }
 
-    @com.baidu.tbadk.core.d.q(tK = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
-        JSONObject jSONObject = new JSONObject();
-        int i = 0;
-        String str = "NotReachable";
-        if (com.baidu.adp.lib.util.i.hl()) {
-            i = 1;
-            str = "WIFI";
-        } else if (com.baidu.adp.lib.util.i.hp()) {
-            i = 3;
-            str = "2G";
-        } else if (com.baidu.adp.lib.util.i.ho()) {
-            i = 4;
-            str = "3G";
-        } else if (com.baidu.adp.lib.util.i.hn()) {
-            i = 5;
-            str = "4G";
+    @Override // com.baidu.tieba.tbadkCore.e.b
+    public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        if ("CommonJSBridge".equals(str)) {
+            if ("startLoginModule".equals(str2)) {
+                try {
+                    new JSONObject(str3);
+                    jsPromptResult.confirm(nS());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if ("hideWebLoading".equals(str2)) {
+                try {
+                    String optString = new JSONObject(str3).optString("url");
+                    if (!StringUtils.isNull(optString)) {
+                        bV(optString);
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
         }
-        try {
-            jSONObject.put("netStatus", i);
-            jSONObject.put("netDesc", str);
-        } catch (JSONException e) {
-        }
-        return jSONObject;
-    }
-
-    @com.baidu.tbadk.core.d.q(tK = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
-        JSONObject jSONObject = new JSONObject();
-        String cuid = TbadkCoreApplication.m9getInst().getCuid();
-        String str = Build.VERSION.RELEASE;
-        String str2 = Build.MODEL;
-        String str3 = String.valueOf(String.valueOf(com.baidu.adp.lib.util.k.af(getContext()))) + "," + String.valueOf(com.baidu.adp.lib.util.k.ag(getContext()));
-        String versionName = TbadkCoreApplication.m9getInst().getVersionName();
-        try {
-            jSONObject.put("systemName", "android");
-            jSONObject.put("systemVersion", str);
-            jSONObject.put("model", str2);
-            jSONObject.put("cuid", cuid);
-            jSONObject.put("resolution", str3);
-            jSONObject.put("appVersion", versionName);
-        } catch (JSONException e) {
-        }
-        return jSONObject;
+        return false;
     }
 }

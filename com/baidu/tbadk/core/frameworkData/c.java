@@ -13,7 +13,7 @@ import java.util.Enumeration;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static final String abo = "code_cache" + File.separator + "secondary-dexes";
+    private static final String abp = "code_cache" + File.separator + "secondary-dexes";
 
     private static SharedPreferences av(Context context) {
         int i;
@@ -28,7 +28,7 @@ public class c {
     public static List<String> aw(Context context) throws PackageManager.NameNotFoundException, IOException {
         ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
         File file = new File(applicationInfo.sourceDir);
-        File file2 = new File(applicationInfo.dataDir, abo);
+        File file2 = new File(applicationInfo.dataDir, abp);
         ArrayList arrayList = new ArrayList();
         arrayList.add(applicationInfo.sourceDir);
         String str = String.valueOf(file.getName()) + ".classes";

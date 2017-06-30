@@ -2,6 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -70,7 +71,7 @@ public class PhotoUrlData implements Serializable {
 
     public void setToServerPhotoInfo(String str) {
         this.toServerPhotoInfo = str;
-        eg(str);
+        eA(str);
     }
 
     public JSONObject toJson() {
@@ -92,13 +93,13 @@ public class PhotoUrlData implements Serializable {
         this.bigurl = jSONObject.optString("bigurl", "");
         this.picId = jSONObject.optString("picId", "");
         this.toServerPhotoInfo = jSONObject.optString("toServerPhotoInfo", "");
-        eg(this.toServerPhotoInfo);
+        eA(this.toServerPhotoInfo);
     }
 
-    private void eg(String str) {
+    private void eA(String str) {
         if (!StringUtils.isNull(str)) {
             str.replaceAll("#\\(|\\)", "");
-            String[] split = str.split(",");
+            String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split != null && split.length == 4) {
                 this.pic = split[0];
                 this.picId = split[1];

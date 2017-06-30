@@ -7,79 +7,113 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private TbPageContext ajh;
-    private boolean bJd;
-    private String bJe;
+    private TbPageContext ajP;
+    private boolean bJV;
+    private String bJW;
+    private int bKc;
+    private int bKd;
+    private int bKe;
+    private int bKf;
+    private View.OnClickListener bKg;
     private View jv;
     private String mMessage;
     private Handler mHandler = null;
-    private com.baidu.adp.lib.guide.d bJc = null;
-    private int bJf = w.g.pic_sign_tip;
-    private int bJg = 0;
-    private int bJh = 1;
-    private int bJi = 1000;
-    private int bJj = 3000;
-    private int ajo = 5;
-    private int mYOffset = 0;
-    private Runnable bln = new b(this);
-    private Runnable bJk = new d(this);
+    private com.baidu.adp.lib.guide.d bJU = null;
+    private int bJX = w.g.pic_sign_tip;
+    private int bJY = 0;
+    private int bJZ = 1;
+    private int bKa = 1000;
+    private int bKb = 3000;
+    private int ajW = 5;
+    private int ajX = 0;
+    private Runnable bpd = new b(this);
+    private Runnable bKh = new d(this);
 
     public a(TbPageContext tbPageContext, View view) {
-        this.ajh = tbPageContext;
+        this.bKc = 0;
+        this.bKd = 0;
+        this.bKe = 0;
+        this.bKf = 0;
+        this.ajP = tbPageContext;
         this.jv = view;
+        this.bKc = this.ajP.getResources().getDimensionPixelSize(w.f.ds24);
+        this.bKd = this.ajP.getResources().getDimensionPixelSize(w.f.ds24);
+        this.bKe = this.ajP.getResources().getDimensionPixelSize(w.f.ds24);
+        this.bKf = this.ajP.getResources().getDimensionPixelSize(w.f.ds10);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Wd() {
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(this.bJe, this.bJg + 1);
+    public void Xu() {
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(this.bJW, this.bJY + 1);
     }
 
-    public void aB(String str, String str2) {
+    public void aG(String str, String str2) {
         f(str, str2, false);
     }
 
     public void f(String str, String str2, boolean z) {
-        if (!this.bJd && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.jv != null && this.jv.getVisibility() == 0) {
+        if (!this.bJV && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.jv != null && this.jv.getVisibility() == 0) {
             this.mMessage = str;
-            this.bJe = str2;
-            this.bJg = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
-            if (this.bJg < this.bJh) {
+            this.bJW = str2;
+            this.bJY = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
+            if (this.bJY < this.bJZ) {
                 if (z) {
-                    Wd();
-                    this.bJd = true;
+                    Xu();
+                    this.bJV = true;
                 }
                 if (this.mHandler == null) {
                     this.mHandler = new Handler();
                 }
-                this.mHandler.postDelayed(this.bln, this.bJi);
+                this.mHandler.postDelayed(this.bpd, this.bKa);
             }
         }
     }
 
-    public void We() {
-        if (this.bJc != null) {
-            this.bJc.dismiss();
-            this.bJc = null;
+    public void Xv() {
+        if (this.bJU != null) {
+            this.bJU.dismiss();
+            this.bJU = null;
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.bln);
-            this.mHandler.removeCallbacks(this.bJk);
+            this.mHandler.removeCallbacks(this.bpd);
+            this.mHandler.removeCallbacks(this.bKh);
         }
     }
 
-    public void hy(int i) {
+    public void hB(int i) {
         if (i > 0) {
-            this.bJj = i;
+            this.bJX = i;
         }
     }
 
-    public void hz(int i) {
+    public void hC(int i) {
         if (i > 0) {
-            this.bJh = i;
+            this.bKb = i;
         }
     }
 
-    public void hA(int i) {
-        this.ajo = i;
+    public void hD(int i) {
+        if (i > 0) {
+            this.bJZ = i;
+        }
+    }
+
+    public void hE(int i) {
+        this.ajW = i;
+    }
+
+    public void hF(int i) {
+        this.ajX = i;
+    }
+
+    public void i(int i, int i2, int i3, int i4) {
+        this.bKc = i;
+        this.bKd = i2;
+        this.bKe = i3;
+        this.bKf = i4;
+    }
+
+    public void o(View.OnClickListener onClickListener) {
+        this.bKg = onClickListener;
     }
 }

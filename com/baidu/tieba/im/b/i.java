@@ -5,6 +5,7 @@ import com.baidu.adp.framework.a.k;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tieba.im.message.MessageSyncMessage;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class i extends k {
     public i() {
@@ -20,11 +21,11 @@ public class i extends k {
             SparseArray<Long> groupMids = ((MessageSyncMessage) socketMessage).getGroupMids();
             for (int i = 0; i < groupMids.size(); i++) {
                 sb.append(groupMids.keyAt(i));
-                sb.append("-");
+                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 sb.append(groupMids.valueAt(i));
                 sb.append("|");
             }
-            com.baidu.tbadk.core.e.a.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + ((MessageSyncMessage) socketMessage).getSyncTypeString(), "comment", sb.toString());
+            com.baidu.tbadk.core.d.a.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + ((MessageSyncMessage) socketMessage).getSyncTypeString(), "comment", sb.toString());
         }
         return socketMessage;
     }

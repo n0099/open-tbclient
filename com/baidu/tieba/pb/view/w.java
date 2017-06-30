@@ -4,21 +4,21 @@ import android.animation.Animator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements Animator.AnimatorListener {
-    final /* synthetic */ t eCW;
+    final /* synthetic */ t eMt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(t tVar) {
-        this.eCW = tVar;
+        this.eMt = tVar;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationStart(Animator animator) {
-        this.eCW.eCM = true;
+        this.eMt.eMj = true;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
-        this.eCW.eCM = false;
+        this.eMt.eMj = false;
     }
 
     @Override // android.animation.Animator.AnimatorListener

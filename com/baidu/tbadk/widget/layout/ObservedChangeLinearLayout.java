@@ -5,14 +5,14 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class ObservedChangeLinearLayout extends LinearLayout {
-    private h aLH;
+    private h aMX;
 
     public void setOnSizeChangeListener(h hVar) {
-        this.aLH = hVar;
+        this.aMX = hVar;
     }
 
     public h getOnSizeChangeListener() {
-        return this.aLH;
+        return this.aMX;
     }
 
     public ObservedChangeLinearLayout(Context context) {
@@ -26,8 +26,8 @@ public class ObservedChangeLinearLayout extends LinearLayout {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.aLH != null) {
-            this.aLH.a(this, i, i2, i3, i4);
+        if (this.aMX != null) {
+            this.aMX.a(this, i, i2, i3, i4);
         }
     }
 }

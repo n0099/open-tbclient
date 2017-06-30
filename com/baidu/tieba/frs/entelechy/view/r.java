@@ -4,15 +4,15 @@ import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements CommonUserLikeButton.a {
-    final /* synthetic */ q bZt;
+    final /* synthetic */ q chC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.bZt = qVar;
+        this.chC = qVar;
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
-    public void dq(int i) {
-        this.bZt.hj(i);
+    public void ds(int i) {
+        this.chC.hm(i);
     }
 }

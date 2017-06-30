@@ -126,6 +126,7 @@ import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -2969,7 +2970,7 @@ public final class b {
                     voiceCheckResult.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                     voiceCheckResult.signUp = "1".equals(jSONObject.optString("voice"));
                     voiceCheckResult.needVerify = "1".equals(jSONObject.optString("needverify"));
-                    voiceCheckResult.authToken = jSONObject.optString("token");
+                    voiceCheckResult.authToken = jSONObject.optString(Constants.EXTRA_KEY_TOKEN);
                     if (!TextUtils.isEmpty(jSONObject.optString("loginswitch")) && jSONObject.optString("loginswitch").equals("1")) {
                         voiceCheckResult.switchState = Switch.ON;
                     } else {
@@ -4832,7 +4833,7 @@ public final class b {
             sapiCallback.onFailure(fastRegResult);
         } else {
             final boolean[] zArr = {false};
-            String str = UUID.randomUUID().toString() + "-" + System.currentTimeMillis() + ",点击发送直接登录";
+            String str = UUID.randomUUID().toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + System.currentTimeMillis() + Constants.ACCEPT_TIME_SEPARATOR_SP + "点击发送直接登录";
             final Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.44
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {

@@ -23,11 +23,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private RelativeLayout dUp;
-    private TextView dUq;
-    private Runnable dUr;
-    private Runnable dUs;
-    private volatile boolean dyg;
+    private volatile boolean dGT;
+    private RelativeLayout ecM;
+    private TextView ecN;
+    private Runnable ecO;
+    private Runnable ecP;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
@@ -41,8 +41,8 @@ public class d {
         this.mContext = context;
     }
 
-    public void aEh() {
-        if (!this.dyg && isMainProcess() && aEi()) {
+    public void aHZ() {
+        if (!this.dGT && isMainProcess() && aIa()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -50,60 +50,60 @@ public class d {
             if (this.mHandler == null) {
                 this.mHandler = new Handler(this.mHandlerThread.getLooper());
             }
-            if (this.dUr == null) {
-                this.dUr = new e(this);
+            if (this.ecO == null) {
+                this.ecO = new e(this);
             }
-            if (this.dUs == null) {
-                this.dUs = new f(this);
+            if (this.ecP == null) {
+                this.ecP = new f(this);
             }
-            this.mHandler.removeCallbacks(this.dUs);
-            this.mHandler.postAtFrontOfQueue(this.dUs);
-            this.dyg = true;
-            this.mHandler.postDelayed(this.dUr, 20000L);
+            this.mHandler.removeCallbacks(this.ecP);
+            this.mHandler.postAtFrontOfQueue(this.ecP);
+            this.dGT = true;
+            this.mHandler.postDelayed(this.ecO, 20000L);
         }
     }
 
     public void hide() {
-        if (this.dUp != null && this.dUq != null) {
-            this.mHandler.removeCallbacks(this.dUr);
-            this.mHandler.post(this.dUr);
+        if (this.ecM != null && this.ecN != null) {
+            this.mHandler.removeCallbacks(this.ecO);
+            this.mHandler.post(this.ecO);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clean() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.dUr);
-            this.mHandler.removeCallbacks(this.dUs);
-            this.dUs = null;
-            this.dUr = null;
+            this.mHandler.removeCallbacks(this.ecO);
+            this.mHandler.removeCallbacks(this.ecP);
+            this.ecP = null;
+            this.ecO = null;
             this.mHandler = null;
         }
         if (this.mHandlerThread != null) {
             this.mHandlerThread.quit();
         }
-        if (this.dUq != null) {
-            this.dUq = null;
+        if (this.ecN != null) {
+            this.ecN = null;
         }
-        if (this.dUp != null) {
-            this.dUp = null;
+        if (this.ecM != null) {
+            this.ecM = null;
         }
-        this.dyg = false;
+        this.dGT = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mP(String str) {
-        if (this.dUq == null) {
-            this.dUq = new b(this.mContext);
-            this.dUq.setTextSize(1, 18.0f);
+    public void nE(String str) {
+        if (this.ecN == null) {
+            this.ecN = new b(this.mContext);
+            this.ecN.setTextSize(1, 18.0f);
         }
-        this.dUq.setText(str);
-        this.dUp = new RelativeLayout(this.mContext);
-        this.dUp.setBackgroundResource(w.g.bg_splash_logo);
+        this.ecN.setText(str);
+        this.ecM = new RelativeLayout(this.mContext);
+        this.ecM.setBackgroundResource(w.g.bg_splash_logo);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
         layoutParams.addRule(15);
-        this.dUp.addView(this.dUq, layoutParams);
+        this.ecM.addView(this.ecN, layoutParams);
         WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
         layoutParams2.type = 2005;
         layoutParams2.format = 1;
@@ -112,8 +112,8 @@ public class d {
         layoutParams2.y = 0;
         layoutParams2.width = -1;
         layoutParams2.height = -1;
-        layoutParams2.flags = 256;
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.dUp, layoutParams2);
+        layoutParams2.flags = 1280;
+        ((WindowManager) this.mContext.getSystemService("window")).addView(this.ecM, layoutParams2);
     }
 
     private boolean isMainProcess() {
@@ -136,15 +136,15 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean aEi() {
-        List<String> bI = bI(this.mContext);
-        if (bI == null || bI.size() == 0) {
+    private boolean aIa() {
+        List<String> bC = bC(this.mContext);
+        if (bC == null || bC.size() == 0) {
             return false;
         }
         ActivityManager.RunningTaskInfo runningTaskInfo = ((ActivityManager) this.mContext.getSystemService("activity")).getRunningTasks(1).get(0);
         String shortString = runningTaskInfo.baseActivity.toShortString();
         String shortString2 = runningTaskInfo.topActivity.toShortString();
-        for (String str : bI) {
+        for (String str : bC) {
             if (shortString.equals(str) || shortString2.equals(str)) {
                 return true;
             }
@@ -154,7 +154,7 @@ public class d {
         return false;
     }
 
-    private List<String> bI(Context context) {
+    private List<String> bC(Context context) {
         PackageManager packageManager = context.getPackageManager();
         Intent intent = new Intent("com.baidu.tieba.SPLASH_PIPELINE_ACTION");
         intent.setPackage(context.getPackageName());
@@ -173,9 +173,9 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends TextView {
-        private LinearGradient dUu;
-        private Matrix dUv;
-        private int dUw;
+        private LinearGradient ecR;
+        private Matrix ecS;
+        private int ecT;
         private boolean mAnimating;
         private Paint mPaint;
         private int mViewWidth;
@@ -183,20 +183,20 @@ public class d {
         public b(Context context) {
             super(context);
             this.mViewWidth = 0;
-            this.dUw = 0;
+            this.ecT = 0;
             this.mAnimating = true;
         }
 
         @Override // android.widget.TextView, android.view.View
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.mAnimating && this.dUv != null) {
-                this.dUw += this.mViewWidth / 10;
-                if (this.dUw > this.mViewWidth * 2) {
-                    this.dUw = -this.mViewWidth;
+            if (this.mAnimating && this.ecS != null) {
+                this.ecT += this.mViewWidth / 10;
+                if (this.ecT > this.mViewWidth * 2) {
+                    this.ecT = -this.mViewWidth;
                 }
-                this.dUv.setTranslate(this.dUw, 0.0f);
-                this.dUu.setLocalMatrix(this.dUv);
+                this.ecS.setTranslate(this.ecT, 0.0f);
+                this.ecR.setLocalMatrix(this.ecS);
                 postInvalidateDelayed(50L);
             }
         }
@@ -208,9 +208,9 @@ public class d {
                 this.mViewWidth = getMeasuredWidth();
                 if (this.mViewWidth > 0) {
                     this.mPaint = getPaint();
-                    this.dUu = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, Integer.MAX_VALUE, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
-                    this.mPaint.setShader(this.dUu);
-                    this.dUv = new Matrix();
+                    this.ecR = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, Integer.MAX_VALUE, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
+                    this.mPaint.setShader(this.ecR);
+                    this.ecS = new Matrix();
                 }
             }
         }

@@ -1,16 +1,31 @@
 package com.baidu.android.pushservice.c;
-
-import android.content.Context;
 /* loaded from: classes2.dex */
-public abstract class e extends a {
-    public e(l lVar, Context context) {
-        super(lVar, context);
+public class e {
+    private String a;
+    private String b;
+    private int c;
+
+    public String a() {
+        return this.a;
     }
 
-    @Override // com.baidu.android.pushservice.c.a
-    public boolean c() {
-        com.baidu.android.pushservice.e.a.b("SendApiProcessor", "networkConnect");
-        this.c += "channel";
-        return super.c();
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public void a(String str) {
+        this.a = str;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public void b(String str) {
+        this.b = str;
+    }
+
+    public int c() {
+        return this.c;
     }
 }

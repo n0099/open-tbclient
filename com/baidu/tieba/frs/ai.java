@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class ai implements Runnable {
-    final /* synthetic */ ah bVf;
+    final /* synthetic */ ah cdo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(ah ahVar) {
-        this.bVf = ahVar;
+        this.cdo = ahVar;
     }
 
     @Override // java.lang.Runnable
@@ -13,12 +13,12 @@ class ai implements Runnable {
         r rVar;
         r rVar2;
         r rVar3;
-        rVar = this.bVf.bVb;
-        if (rVar.bUa != null) {
-            rVar2 = this.bVf.bVb;
-            if (rVar2.bUa.Vs()) {
-                rVar3 = this.bVf.bVb;
-                rVar3.LS();
+        rVar = this.cdo.cdl;
+        if (rVar.ccj != null) {
+            rVar2 = this.cdo.cdl;
+            if (rVar2.ccj.WJ()) {
+                rVar3 = this.cdo.cdl;
+                rVar3.MG();
             }
         }
     }

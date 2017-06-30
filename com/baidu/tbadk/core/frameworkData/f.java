@@ -14,7 +14,7 @@ class f extends j {
     /* renamed from: d */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null) {
-            com.baidu.tbadk.coreExtra.websocketBase.d.Bl().em(socketResponsedMessage.getCmd());
+            com.baidu.tbadk.coreExtra.websocketBase.d.BG().eo(socketResponsedMessage.getCmd());
         }
         return socketResponsedMessage;
     }

@@ -1,56 +1,47 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import java.lang.ref.WeakReference;
+import android.content.Context;
 /* loaded from: classes.dex */
-public class bd extends ImageSpan {
-    private WeakReference<Drawable> FT;
+class bd implements com.baidu.adp.lib.e.c<HeadImageView> {
+    private final /* synthetic */ Context val$context;
 
-    public bd(Drawable drawable) {
-        super(drawable);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bd(Context context) {
+        this.val$context = context;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Rect bounds = ku().getBounds();
-        if (fontMetricsInt != null) {
-            Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-            int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-            int i4 = bounds.bottom - bounds.top;
-            int i5 = (i4 / 2) - (i3 / 4);
-            int i6 = (i3 / 4) + (i4 / 2);
-            fontMetricsInt.ascent = -i6;
-            fontMetricsInt.top = -i6;
-            fontMetricsInt.bottom = i5;
-            fontMetricsInt.descent = i5;
-        }
-        return bounds.right;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: wV */
+    public HeadImageView fK() {
+        return new HeadImageView(this.val$context);
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable ku = ku();
-        canvas.save();
-        canvas.translate(f, ((i5 - ku.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
-        ku.draw(canvas);
-        canvas.restore();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void o(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
     }
 
-    private Drawable ku() {
-        WeakReference<Drawable> weakReference = this.FT;
-        Drawable drawable = null;
-        if (weakReference != null) {
-            drawable = weakReference.get();
-        }
-        if (drawable == null) {
-            Drawable drawable2 = getDrawable();
-            this.FT = new WeakReference<>(drawable2);
-            return drawable2;
-        }
-        return drawable;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public HeadImageView p(HeadImageView headImageView) {
+        return headImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public HeadImageView q(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
+        return headImageView;
     }
 }

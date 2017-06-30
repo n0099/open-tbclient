@@ -27,7 +27,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
                 String string = context.getString(w.l.sign_notification_content);
                 String string2 = context.getString(w.l.app_name);
-                com.baidu.tbadk.coreExtra.messageCenter.a.yn().F(com.baidu.tbadk.coreExtra.messageCenter.a.yn().dG(12), 12);
+                com.baidu.tbadk.coreExtra.messageCenter.a.yG().F(com.baidu.tbadk.coreExtra.messageCenter.a.yG().dI(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
             } catch (Throwable th) {
                 try {
@@ -35,7 +35,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    com.baidu.tbadk.coreExtra.messageCenter.c.yK().updateSignAlarm();
+                    com.baidu.tbadk.coreExtra.messageCenter.c.zd().updateSignAlarm();
                 }
             }
         }

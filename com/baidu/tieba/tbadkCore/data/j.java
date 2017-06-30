@@ -2,39 +2,40 @@ package com.baidu.tieba.tbadkCore.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String fBP;
-    private int fBQ;
-    private String fBR;
-    private String fBS;
-    private String fBT;
+    private String fLT;
+    private int fLU;
+    private String fLV;
+    private String fLW;
+    private String fLX;
     private int height;
     private String subTitle;
     private int width;
 
     public j(Timgs timgs) {
-        this.fBP = null;
-        this.fBQ = 0;
-        this.fBR = null;
-        this.fBS = null;
-        this.fBT = null;
+        this.fLT = null;
+        this.fLU = 0;
+        this.fLV = null;
+        this.fLW = null;
+        this.fLX = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.fBP = timgs.img_url;
-            this.fBQ = timgs.flag.intValue();
-            this.fBR = timgs.url;
-            this.fBS = timgs.big_cdn_url;
-            this.fBT = timgs.des_main;
+            this.fLT = timgs.img_url;
+            this.fLU = timgs.flag.intValue();
+            this.fLV = timgs.url;
+            this.fLW = timgs.big_cdn_url;
+            this.fLX = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
                 try {
-                    String[] split = str.split(",");
+                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     this.width = com.baidu.adp.lib.g.b.g(split[0], 1);
                     this.height = com.baidu.adp.lib.g.b.g(split[1], 1);
                 } catch (Exception e) {
@@ -51,25 +52,25 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
     }
 
     public j(JSONObject jSONObject) {
-        this.fBP = null;
-        this.fBQ = 0;
-        this.fBR = null;
-        this.fBS = null;
-        this.fBT = null;
+        this.fLT = null;
+        this.fLU = 0;
+        this.fLV = null;
+        this.fLW = null;
+        this.fLX = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (jSONObject != null) {
             try {
-                this.fBP = jSONObject.optString("img_url");
-                this.fBQ = jSONObject.optInt(FrsActivityConfig.FLAG);
-                this.fBR = jSONObject.optString("url");
-                this.fBS = jSONObject.optString("big_cdn_url");
-                this.fBT = jSONObject.optString("des_main");
+                this.fLT = jSONObject.optString("img_url");
+                this.fLU = jSONObject.optInt(FrsActivityConfig.FLAG);
+                this.fLV = jSONObject.optString("url");
+                this.fLW = jSONObject.optString("big_cdn_url");
+                this.fLX = jSONObject.optString("des_main");
                 this.subTitle = jSONObject.optString("des_sub");
                 String optString = jSONObject.optString("bsize");
                 if (optString != null && optString.length() > 0) {
-                    String[] split = optString.split(",");
+                    String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     if (split.length > 1) {
                         this.width = Integer.valueOf(split[0]).intValue();
                         this.height = Integer.valueOf(split[1]).intValue();
@@ -89,19 +90,19 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.fBP;
+        return this.fLT;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String pG() {
-        return this.fBR;
+    public String pD() {
+        return this.fLV;
     }
 
-    public String bhP() {
-        return this.fBP;
+    public String bmd() {
+        return this.fLT;
     }
 
-    public String bhQ() {
-        return this.fBS;
+    public String bme() {
+        return this.fLW;
     }
 }

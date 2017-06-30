@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ b bYg;
+    final /* synthetic */ b cgp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(b bVar, int i) {
         super(i);
-        this.bYg = bVar;
+        this.cgp = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class e extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
         if (updateAttentionMessage != null && updateAttentionMessage.getData() != null && updateAttentionMessage.getData().CB) {
-            this.bYg.P(updateAttentionMessage.getData());
+            this.cgp.R(updateAttentionMessage.getData());
         }
     }
 }

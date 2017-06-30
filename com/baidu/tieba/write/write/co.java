@@ -1,42 +1,25 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.w;
-import java.util.regex.Pattern;
+import com.baidu.tieba.write.transmit.model.a;
+import java.util.List;
+import tbclient.SimpleForum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co implements View.OnClickListener {
-    final /* synthetic */ cm gbK;
+public class co implements a.InterfaceC0088a {
+    final /* synthetic */ ck gmI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(cm cmVar) {
-        this.gbK = cmVar;
+    public co(ck ckVar) {
+        this.gmI = ckVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        cs csVar;
-        Pattern pattern;
-        cs csVar2;
-        com.baidu.tieba.write.model.a aVar;
-        cs csVar3;
-        if (view != null && view.getId() == w.h.url_add) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c12163"));
-            csVar = this.gbK.gbH;
-            String bqz = csVar.bqz();
-            pattern = cm.gbG;
-            if (pattern.matcher(bqz).matches()) {
-                this.gbK.bqo();
-                aVar = this.gbK.gbI;
-                aVar.rl(bqz);
-                csVar3 = this.gbK.gbH;
-                csVar3.a(null, true);
-                return;
-            }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c12164"));
-            csVar2 = this.gbK.gbH;
-            csVar2.bqA();
-        }
+    @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0088a
+    public void brw() {
+        this.gmI.di(null);
+    }
+
+    @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0088a
+    public void ci(List<SimpleForum> list) {
+        this.gmI.di(list);
     }
 }

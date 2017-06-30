@@ -1,105 +1,32 @@
 package com.baidu.android.pushservice.h;
-
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
 /* loaded from: classes2.dex */
-public class m {
-    public static String a(Context context, String str) {
-        return context.getSharedPreferences("pst", 0).getString(str, "");
+public class m extends d {
+    public static int l = -1;
+    public static int m = 0;
+    public static int n = 1;
+    public static int o = 2;
+    public static int p = 3;
+    public static String q = "01";
+    public static String r = "02";
+    public static String s = "03";
+    public static String t = "04";
+
+    public m() {
     }
 
-    public static void a(Context context, String str, int i) {
-        try {
-            SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
-            edit.putInt(str, i);
-            edit.apply();
-        } catch (Exception e) {
-            com.baidu.android.pushservice.e.a.a("PrivateParams", e);
-        }
+    public m(m mVar) {
+        this.d = mVar.d;
+        this.e = mVar.e;
+        this.g = mVar.g;
+        this.f = mVar.f;
+        this.j = mVar.j;
     }
 
-    public static void a(Context context, String str, long j) {
-        try {
-            SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
-            edit.putLong(str, j);
-            edit.apply();
-        } catch (Exception e) {
-            com.baidu.android.pushservice.e.a.a("PrivateParams", e);
-        }
-    }
-
-    public static void a(Context context, String str, String str2, String str3, String str4, boolean z, int i, long j, String str5, String str6) {
-        try {
-            SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
-            if (j != 0) {
-                edit.putLong("currbindtime", j);
-            }
-            if (!TextUtils.isEmpty(str5)) {
-                edit.putString("access_token", str5);
-            }
-            if (!TextUtils.isEmpty(str6)) {
-                edit.putString("secret_key", str6);
-            }
-            edit.putString("appid", str);
-            edit.putString("channel_id", str2);
-            edit.putString("request_id", str3);
-            edit.putString("user_id", str4);
-            edit.putBoolean("bind_status", true);
-            edit.putLong("version_code", u.d(context, context.getPackageName()));
-            edit.apply();
-        } catch (Exception e) {
-            com.baidu.android.pushservice.e.a.a("PrivateParams", e);
-        }
-    }
-
-    public static boolean a(Context context, String str, String str2) {
-        try {
-            SharedPreferences.Editor edit = context.getSharedPreferences("pst", 4).edit();
-            edit.putString(str, str2);
-            edit.apply();
-            return true;
-        } catch (Exception e) {
-            com.baidu.android.pushservice.e.a.a("PrivateParams", e);
-            return false;
-        }
-    }
-
-    public static int b(Context context, String str, int i) {
-        return context.getSharedPreferences("pst", 0).getInt(str, i);
-    }
-
-    public static String b(Context context, String str) {
-        return context.getSharedPreferences("pst", 4).getString(str, "");
-    }
-
-    public static boolean b(Context context, String str, String str2) {
-        try {
-            SharedPreferences.Editor edit = context.getSharedPreferences("pst", 4).edit();
-            edit.putString(str, str2);
-            edit.apply();
-            return true;
-        } catch (Exception e) {
-            com.baidu.android.pushservice.e.a.a("PrivateParams", e);
-            return false;
-        }
-    }
-
-    public static long c(Context context, String str) {
-        return context.getSharedPreferences("pst", 0).getLong(str, 0L);
-    }
-
-    public static void c(Context context, String str, int i) {
-        try {
-            SharedPreferences.Editor edit = context.getSharedPreferences("pst", 4).edit();
-            edit.putInt(str, i);
-            edit.apply();
-        } catch (Exception e) {
-            com.baidu.android.pushservice.e.a.a("PrivateParams", e);
-        }
-    }
-
-    public static int d(Context context, String str, int i) {
-        return context.getSharedPreferences("pst", 4).getInt(str, i);
+    public m(String str, long j, String str2, int i, String str3) {
+        this.d = str;
+        this.e = j;
+        this.f = str2;
+        this.g = i;
+        this.h = str3;
     }
 }

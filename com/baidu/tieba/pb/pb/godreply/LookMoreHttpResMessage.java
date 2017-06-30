@@ -32,7 +32,7 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
             for (Post post : list) {
                 PostData postData = new PostData();
                 postData.a(post, TbadkCoreApplication.m9getInst());
-                postData.fCJ = SapiSafeFacade.SAPIWEBVIEW_BACK;
+                postData.fMO = SapiSafeFacade.SAPIWEBVIEW_BACK;
                 this.list.add(postData);
             }
         }

@@ -6,12 +6,13 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu.tbadk.core.util.ah, com.baidu.tbadk.core.util.w, TbCheckBox.b {
+public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu.tbadk.core.util.aj, com.baidu.tbadk.core.util.y, TbCheckBox.b {
     public static final int TYPE_COMMON_ATTENTION = 1;
     public static final int TYPE_NORMAL_USER = 0;
     public static final int TYPE_OHTER_ATTENTION = 2;
     public static final int TYPE_OTHER_TITLE = 0;
     public static final String TYPE_USER = "type_user";
+    public static final String TYPE_USER_NICKNAME_LEFT_DAYS = "type_user_nickname_left_days";
     private static final long serialVersionUID = -2636990595209169859L;
     public int mAttentionType;
     private boolean mIsChecked;
@@ -71,7 +72,7 @@ public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu
         this.mIsChecked = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.ah
+    @Override // com.baidu.tbadk.core.util.aj
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();

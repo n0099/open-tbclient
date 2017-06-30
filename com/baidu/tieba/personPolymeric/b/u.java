@@ -1,25 +1,26 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.newFriends.ResponseApplyMessage;
-import com.baidu.tieba.w;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ p eLo;
+public class u extends CustomMessageListener {
+    final /* synthetic */ r eVs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(p pVar, int i) {
+    public u(r rVar, int i) {
         super(i);
-        this.eLo = pVar;
+        this.eVs = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if ((socketResponsedMessage instanceof ResponseApplyMessage) && ((ResponseApplyMessage) socketResponsedMessage).getError() != 0) {
-            this.eLo.ajh.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.eLo.ajh.getResources().getString(w.l.neterror) : socketResponsedMessage.getErrorString());
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (!(customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) || ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() != 0) {
+            return;
         }
+        this.eVs.jU(true);
     }
 }

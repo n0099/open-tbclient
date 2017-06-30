@@ -21,10 +21,10 @@ public class j implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             if (pluginNetConfigInfos.getConfigs() != null && pluginNetConfigInfos.getConfigs().size() > 0) {
                 List<PluginNetConfigInfos.PluginConfig> configs = pluginNetConfigInfos.getConfigs();
                 this.this$0.a(cVar, configs);
-                str = this.this$0.e(configs);
+                str = this.this$0.g(configs);
             }
-            com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().setForbiddenFeatures(str);
+            com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().setForbiddenFeatures(str);
         }
-        this.this$0.jI();
+        this.this$0.jG();
     }
 }

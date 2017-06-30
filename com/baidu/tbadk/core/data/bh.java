@@ -1,22 +1,31 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class bh {
-    private int Wk;
-    private Object data;
+    protected String img_url = null;
+    protected String link = null;
+    protected String Xe = null;
 
-    public int qV() {
-        return this.Wk;
+    public String pI() {
+        return this.img_url;
     }
 
-    public void bN(int i) {
-        this.Wk = i;
+    public void cw(String str) {
+        this.img_url = str;
     }
 
-    public Object getData() {
-        return this.data;
+    public String getLink() {
+        return this.link;
     }
 
-    public void setData(Object obj) {
-        this.data = obj;
+    public void setLink(String str) {
+        this.link = str;
+    }
+
+    public String qR() {
+        return this.Xe;
+    }
+
+    public void cx(String str) {
+        this.Xe = str;
     }
 }

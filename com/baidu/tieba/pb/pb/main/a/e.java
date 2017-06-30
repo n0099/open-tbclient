@@ -9,20 +9,20 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements TbRichTextView.d {
-    final /* synthetic */ a ewD;
+    final /* synthetic */ a eFZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.ewD = aVar;
+        this.eFZ = aVar;
     }
 
     @Override // com.baidu.tbadk.widget.richText.TbRichTextView.d
     public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        pbActivity = this.ewD.elf;
+        pbActivity = this.eFZ.euf;
         EmotionImageActivityConfig emotionImageActivityConfig = new EmotionImageActivityConfig(pbActivity.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2);
-        pbActivity2 = this.ewD.elf;
+        pbActivity2 = this.eFZ.euf;
         pbActivity2.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_EMOTIONIMAGE, emotionImageActivityConfig));
     }
 }

@@ -3,39 +3,79 @@ package com.baidu.tieba.write.write;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.TextView;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements View.OnClickListener {
-    final /* synthetic */ WriteActivity gaR;
+    final /* synthetic */ WriteActivity glP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(WriteActivity writeActivity) {
-        this.gaR = writeActivity;
+        this.glP = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TextView textView;
-        com.baidu.tieba.write.b bVar;
-        com.baidu.tbadk.editortools.j jVar;
         InputMethodManager inputMethodManager;
-        EditText bpW;
+        EditText but;
         InputMethodManager inputMethodManager2;
-        EditText bpV;
-        textView = this.gaR.fsu;
-        textView.setSelected(true);
-        bVar = this.gaR.fsv;
-        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.gaR.getPageContext().getPageActivity(), 1.0f));
-        jVar = this.gaR.ayP;
-        jVar.AG();
-        WriteActivity writeActivity = this.gaR;
-        inputMethodManager = this.gaR.mInputManager;
-        bpW = this.gaR.bpW();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, bpW);
-        WriteActivity writeActivity2 = this.gaR;
-        inputMethodManager2 = this.gaR.mInputManager;
-        bpV = this.gaR.bpV();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, bpV);
+        EditText bus;
+        com.baidu.tbadk.editortools.j jVar;
+        WriteData writeData;
+        boolean z;
+        WriteData writeData2;
+        com.baidu.tieba.write.a aVar;
+        com.baidu.tieba.write.a aVar2;
+        String threadTitle;
+        String buA;
+        String str;
+        if (!com.baidu.adp.lib.util.i.hj()) {
+            this.glP.showToast(w.l.neterror);
+        }
+        if (!com.baidu.tieba.write.c.a.isFastDoubleClick()) {
+            WriteActivity writeActivity = this.glP;
+            inputMethodManager = this.glP.mInputManager;
+            but = this.glP.but();
+            writeActivity.HidenSoftKeyPad(inputMethodManager, but);
+            WriteActivity writeActivity2 = this.glP;
+            inputMethodManager2 = this.glP.mInputManager;
+            bus = this.glP.bus();
+            writeActivity2.HidenSoftKeyPad(inputMethodManager2, bus);
+            jVar = this.glP.azR;
+            jVar.Bb();
+            writeData = this.glP.mData;
+            if (writeData.getType() != 7) {
+                z = this.glP.gky;
+                if (!z) {
+                    com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au("c12102");
+                    writeData2 = this.glP.mData;
+                    auVar.r("obj_type", StringUtils.isNull(writeData2.getForumName()) ? 1 : 2);
+                    TiebaStatic.log(auVar);
+                    aVar = this.glP.glw;
+                    if (!aVar.brv()) {
+                        this.glP.glx = true;
+                        aVar2 = this.glP.glw;
+                        threadTitle = this.glP.getThreadTitle();
+                        buA = this.glP.buA();
+                        aVar2.ck(threadTitle, buA);
+                    } else {
+                        this.glP.buB();
+                    }
+                } else {
+                    this.glP.btA();
+                    BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
+                }
+            } else {
+                TiebaStatic.log("c12015");
+                this.glP.btA();
+            }
+            com.baidu.tbadk.core.util.au auVar2 = new com.baidu.tbadk.core.util.au("c12262");
+            str = this.glP.ggZ;
+            TiebaStatic.log(auVar2.Z("obj_locate", str));
+        }
     }
 }

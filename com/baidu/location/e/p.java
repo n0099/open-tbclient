@@ -1,6 +1,7 @@
 package com.baidu.location.e;
 
 import com.baidu.location.e.m;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -39,9 +40,9 @@ enum p extends m.b {
                         Double valueOf = jSONObject2.has("x") ? Double.valueOf(jSONObject2.getDouble("x")) : null;
                         Double valueOf2 = jSONObject2.has("y") ? Double.valueOf(jSONObject2.getDouble("y")) : null;
                         if (stringBuffer2.length() > 0) {
-                            stringBuffer2.append(",");
+                            stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         }
-                        stringBuffer2.append("(NULL,\"").append(next).append("\",\"").append(string).append("\",\"").append(string2).append("\",").append(valueOf).append(",").append(valueOf2).append(")");
+                        stringBuffer2.append("(NULL,\"").append(next).append("\",\"").append(string).append("\",\"").append(string2).append("\",").append(valueOf).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf2).append(")");
                     } catch (JSONException e2) {
                     }
                     if (i2 % 50 == 49 && stringBuffer2.length() > 0) {

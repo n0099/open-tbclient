@@ -7,11 +7,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax implements View.OnClickListener {
-    final /* synthetic */ ao eyO;
+    final /* synthetic */ ao eIl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(ao aoVar) {
-        this.eyO = aoVar;
+        this.eIl = aoVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,18 +20,18 @@ public class ax implements View.OnClickListener {
         Dialog dialog2;
         Dialog dialog3;
         NewSubPbActivity newSubPbActivity;
-        dialog = this.eyO.etD;
+        dialog = this.eIl.eCN;
         if (dialog != null) {
-            dialog2 = this.eyO.etD;
+            dialog2 = this.eIl.eCN;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.eyO.etD;
-                newSubPbActivity = this.eyO.eyk;
+                dialog3 = this.eIl.eCN;
+                newSubPbActivity = this.eIl.eHI;
                 com.baidu.adp.lib.g.j.b(dialog3, newSubPbActivity.getPageContext());
             }
         }
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            this.eyO.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
+            this.eIl.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
         }
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ a cAz;
+    final /* synthetic */ a cIl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.cAz = aVar;
+        this.cIl = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ class b extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (updateAttentionMessage.isSucc() && !updateAttentionMessage.isAttention() && updateAttentionMessage.isGod()) {
-                this.cAz.cAx = true;
+                this.cIl.cIj = true;
             }
         }
     }

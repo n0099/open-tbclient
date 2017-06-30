@@ -5,104 +5,104 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.data.bs;
+import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.bt;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class k {
-    private BaseActivity bfa;
-    private d eAq;
-    private e eAr;
-    private com.baidu.tieba.d.a eAs;
+    private BaseActivity bhX;
+    private d eJO;
+    private e eJP;
+    private com.baidu.tieba.d.a eJQ;
     private int mSkinType = 3;
 
     public k(BaseActivity baseActivity) {
-        this.bfa = baseActivity;
+        this.bhX = baseActivity;
     }
 
-    public void a(bs bsVar, bl blVar, int i) {
-        S(blVar);
-        b(bsVar, blVar, i);
+    public void a(bt btVar, bm bmVar, int i) {
+        T(bmVar);
+        b(btVar, bmVar, i);
     }
 
-    private void S(bl blVar) {
-        if (blVar != null) {
-            if (this.eAq == null) {
-                this.eAq = new d(LayoutInflater.from(this.bfa.getPageContext().getPageActivity()).inflate(w.j.pb_header_video_abstract_layout, (ViewGroup) null));
+    private void T(bm bmVar) {
+        if (bmVar != null) {
+            if (this.eJO == null) {
+                this.eJO = new d(LayoutInflater.from(this.bhX.getPageContext().getPageActivity()).inflate(w.j.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.eAq.P(blVar);
+            this.eJO.Q(bmVar);
         }
     }
 
-    public View aOO() {
-        if (this.eAq == null) {
+    public View aSN() {
+        if (this.eJO == null) {
             return null;
         }
-        return this.eAq.mRootView;
+        return this.eJO.mRootView;
     }
 
-    private void b(bs bsVar, bl blVar, int i) {
-        if (bsVar != null && blVar != null) {
-            if (this.eAr == null) {
-                this.eAr = new e(this.bfa, LayoutInflater.from(this.bfa.getPageContext().getPageActivity()).inflate(w.j.video_pb_video_channel_info_layout, (ViewGroup) null));
+    private void b(bt btVar, bm bmVar, int i) {
+        if (btVar != null && bmVar != null) {
+            if (this.eJP == null) {
+                this.eJP = new e(this.bhX, LayoutInflater.from(this.bhX.getPageContext().getPageActivity()).inflate(w.j.video_pb_video_channel_info_layout, (ViewGroup) null));
             }
-            bsVar.Zs = i;
-            this.eAr.Q(blVar);
-            blVar.a(bsVar);
+            btVar.Zu = i;
+            this.eJP.R(bmVar);
+            bmVar.a(btVar);
         }
     }
 
-    public View aOP() {
-        if (this.eAr == null) {
+    public View aSO() {
+        if (this.eJP == null) {
             return null;
         }
-        return this.eAr.getRootView();
+        return this.eJP.getRootView();
     }
 
-    public void T(bl blVar) {
-        if (this.eAr != null && blVar != null && blVar.sx() != null && blVar.sx().Zs == 2) {
-            if (this.eAs == null) {
-                this.eAs = new com.baidu.tieba.d.a(this.bfa.getPageContext(), this.eAr.aOL());
-                this.eAs.hy(5000);
+    public void U(bm bmVar) {
+        if (this.eJP != null && bmVar != null && bmVar.sv() != null && bmVar.sv().Zu == 2) {
+            if (this.eJQ == null) {
+                this.eJQ = new com.baidu.tieba.d.a(this.bhX.getPageContext(), this.eJP.aSK());
+                this.eJQ.hC(5000);
             }
-            this.eAs.f(this.bfa.getResources().getString(w.l.pb_order_channel_tip), "pb_show_order_channel_tip", true);
+            this.eJQ.f(this.bhX.getResources().getString(w.l.pb_order_channel_tip), "pb_show_order_channel_tip", true);
         }
     }
 
-    public void v(long j, int i) {
-        if (this.eAr != null && j > 0) {
-            this.eAr.j(i, j);
+    public void w(long j, int i) {
+        if (this.eJP != null && j > 0) {
+            this.eJP.j(i, j);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.eAq != null) {
-                this.eAq.Ar();
+            if (this.eJO != null) {
+                this.eJO.AM();
             }
-            if (this.eAr != null) {
-                this.eAr.Ar();
+            if (this.eJP != null) {
+                this.eJP.AM();
             }
             this.mSkinType = i;
         }
     }
 
     public void e(BdTypeListView bdTypeListView) {
-        if (this.eAq != null) {
-            bdTypeListView.removeHeaderView(this.eAq.mRootView);
+        if (this.eJO != null) {
+            bdTypeListView.removeHeaderView(this.eJO.mRootView);
         }
-        if (this.eAr != null) {
-            bdTypeListView.removeHeaderView(this.eAr.getRootView());
+        if (this.eJP != null) {
+            bdTypeListView.removeHeaderView(this.eJP.getRootView());
         }
     }
 
     public void onDestroy() {
-        aOQ();
+        aSP();
     }
 
-    public void aOQ() {
-        if (this.eAs != null) {
-            this.eAs.We();
+    public void aSP() {
+        if (this.eJQ != null) {
+            this.eJQ.Xv();
         }
     }
 }

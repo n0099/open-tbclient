@@ -2,20 +2,20 @@ package com.baidu.tieba.im.sendmessage;
 
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
-class aa extends com.baidu.tbadk.util.v<LinkedHashMap<String, String>> {
-    private final /* synthetic */ String dgD;
-    final /* synthetic */ a dgr;
+class aa extends com.baidu.tbadk.util.w<LinkedHashMap<String, String>> {
+    final /* synthetic */ a don;
+    private final /* synthetic */ String doz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(a aVar, String str) {
-        this.dgr = aVar;
-        this.dgD = str;
+        this.don = aVar;
+        this.doz = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.v
-    /* renamed from: asn */
+    @Override // com.baidu.tbadk.util.w
+    /* renamed from: avY */
     public LinkedHashMap<String, String> doInBackground() {
-        return com.baidu.tieba.im.db.l.aoC().a(this.dgD, 2, null, 1000);
+        return com.baidu.tieba.im.db.l.asn().a(this.doz, 2, null, 1000);
     }
 }

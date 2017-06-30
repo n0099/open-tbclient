@@ -1,47 +1,28 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tieba.pb.a.d;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements d.a {
-    final /* synthetic */ TbRichTextView aOF;
+public class i implements View.OnClickListener {
+    final /* synthetic */ TbRichTextView aPX;
+    private final /* synthetic */ TbRichTextData aPZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(TbRichTextView tbRichTextView) {
-        this.aOF = tbRichTextView;
+    public i(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
+        this.aPX = tbRichTextView;
+        this.aPZ = tbRichTextData;
     }
 
-    @Override // com.baidu.tieba.pb.a.d.a
-    public boolean a(View view, MotionEvent motionEvent) {
-        com.baidu.tieba.pb.a.d dVar;
-        com.baidu.tieba.pb.a.d dVar2;
-        com.baidu.tieba.pb.a.d dVar3;
-        dVar = this.aOF.aOc;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbRichTextView.d dVar;
+        TbRichTextView.d dVar2;
+        dVar = this.aPX.aPB;
         if (dVar != null) {
-            dVar2 = this.aOF.aOc;
-            dVar2.aQ(view);
-            dVar3 = this.aOF.aOc;
-            return dVar3.onDoubleTap(motionEvent);
+            TbRichTextEmotionInfo If = this.aPZ.If();
+            dVar2 = this.aPX.aPB;
+            dVar2.a(view, If.mGifInfo.mGid, If.mGifInfo.mPackageName, If.mGifInfo.mIcon, If.mGifInfo.mStaticUrl, If.mGifInfo.mDynamicUrl, If.mGifInfo.mSharpText, If.mGifInfo.mGifWidth, If.mGifInfo.mGifHeight);
         }
-        return false;
-    }
-
-    @Override // com.baidu.tieba.pb.a.d.a
-    public boolean b(View view, MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.pb.a.d.a
-    public boolean c(View view, MotionEvent motionEvent) {
-        View.OnClickListener onClickListener;
-        View.OnClickListener onClickListener2;
-        onClickListener = this.aOF.mOnClickListener;
-        if (onClickListener != null) {
-            onClickListener2 = this.aOF.mOnClickListener;
-            onClickListener2.onClick(view);
-            return true;
-        }
-        return false;
     }
 }

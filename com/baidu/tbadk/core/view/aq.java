@@ -8,23 +8,23 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements c.b {
-    final /* synthetic */ ThreadCommentAndPraiseInfoLayoutNew amc;
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayoutNew amU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(ThreadCommentAndPraiseInfoLayoutNew threadCommentAndPraiseInfoLayoutNew) {
-        this.amc = threadCommentAndPraiseInfoLayoutNew;
+        this.amU = threadCommentAndPraiseInfoLayoutNew;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
         List list;
         TbPageContext<?> tbPageContext;
-        list = this.amc.alD;
-        String str = (String) com.baidu.tbadk.core.util.x.c(list, i);
+        list = this.amU.ams;
+        String str = (String) com.baidu.tbadk.core.util.z.c(list, i);
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.bb vy = com.baidu.tbadk.core.util.bb.vy();
-            tbPageContext = this.amc.ajh;
-            vy.c(tbPageContext, new String[]{str});
+            com.baidu.tbadk.core.util.be vP = com.baidu.tbadk.core.util.be.vP();
+            tbPageContext = this.amU.ajP;
+            vP.c(tbPageContext, new String[]{str});
         }
         cVar.dismiss();
     }

@@ -10,9 +10,11 @@ import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.hybrid.HybridManager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
@@ -25,6 +27,7 @@ public class BaseWebView extends WebView {
     private d mOnPageStartedListener;
     private e mOnReceivedErrorListener;
     private f mOnReceivedSslErrorListener;
+    private g mWebChromeClient;
     private WebViewClient mWebViewClient;
 
     /* loaded from: classes.dex */
@@ -54,16 +57,42 @@ public class BaseWebView extends WebView {
 
     public BaseWebView(Context context) {
         super(context);
-        this.mOnLoadUrlListener = null;
         this.mContext = null;
+        this.mIsLoaded = false;
         this.mDownloadListener = null;
+        this.mOnLoadUrlListener = null;
         this.mOnPageStartedListener = null;
         this.mOnPageFinishedListener = null;
         this.mOnReceivedErrorListener = null;
         this.mOnReceivedSslErrorListener = null;
-        this.mIsLoaded = false;
         this.mContext = context;
         init();
+    }
+
+    public BaseWebView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.mContext = null;
+        this.mIsLoaded = false;
+        this.mDownloadListener = null;
+        this.mOnLoadUrlListener = null;
+        this.mOnPageStartedListener = null;
+        this.mOnPageFinishedListener = null;
+        this.mOnReceivedErrorListener = null;
+        this.mOnReceivedSslErrorListener = null;
+        this.mContext = context;
+        init();
+    }
+
+    @Override // android.webkit.WebView
+    public void loadUrl(String str) {
+        super.loadUrl(fixStaticsParam(str));
+    }
+
+    private String fixStaticsParam(String str) {
+        if ((str == null || !str.contains("tieba.baidu.com/n")) && !str.contains("tiebac.baidu.com/n")) {
+            return str;
+        }
+        return String.valueOf(str) + (str.contains("?") ? "&" : "?") + "_webview_time=" + System.currentTimeMillis();
     }
 
     public void setDownloadEnabled(boolean z) {
@@ -77,36 +106,33 @@ public class BaseWebView extends WebView {
         setOnLoadUrlListener(null);
     }
 
-    public BaseWebView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mOnLoadUrlListener = null;
-        this.mContext = null;
-        this.mDownloadListener = null;
-        this.mOnPageStartedListener = null;
-        this.mOnPageFinishedListener = null;
-        this.mOnReceivedErrorListener = null;
-        this.mOnReceivedSslErrorListener = null;
-        this.mIsLoaded = false;
-        this.mContext = context;
-        init();
-    }
-
     public void setOnJsPromptCallback(com.baidu.tieba.tbadkCore.e.c cVar) {
         this.jsCallback = cVar;
     }
 
-    public void init() {
+    private void init() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
         getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
-        com.baidu.tbadk.browser.f.WebViewNoDataBase(getSettings());
+        com.baidu.tbadk.browser.g.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new a();
+        this.mWebChromeClient = new g(this, null);
         setWebViewClient(this.mWebViewClient);
-        setWebChromeClient(new g(this, null));
+        setWebChromeClient(this.mWebChromeClient);
         if (Build.VERSION.SDK_INT >= 11) {
             removeJavascriptInterface("searchBoxJavaBridge_");
         }
-        com.baidu.tbadk.browser.f.ar(getContext());
+        com.baidu.tbadk.browser.g.ar(getContext());
+    }
+
+    @Override // android.webkit.WebView
+    public void setWebViewClient(WebViewClient webViewClient) {
+        super.setWebViewClient(webViewClient);
+    }
+
+    @Override // android.webkit.WebView
+    public void setWebChromeClient(WebChromeClient webChromeClient) {
+        super.setWebChromeClient(webChromeClient);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -184,10 +210,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (BaseWebView.this.mOnLoadUrlListener != null) {
-                return BaseWebView.this.mOnLoadUrlListener.shouldOverrideUrlLoading(webView, str);
-            }
-            return super.shouldOverrideUrlLoading(webView, str);
+            return BaseWebView.this.mOnLoadUrlListener != null ? BaseWebView.this.mOnLoadUrlListener.shouldOverrideUrlLoading(webView, str) : super.shouldOverrideUrlLoading(webView, str);
         }
 
         @Override // android.webkit.WebViewClient
@@ -206,6 +229,15 @@ public class BaseWebView extends WebView {
             if (BaseWebView.this.mOnReceivedSslErrorListener != null) {
                 BaseWebView.this.mOnReceivedSslErrorListener.onReceivedSslError(webView, sslErrorHandler, sslError);
             }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
+            WebResourceResponse shouldInterceptRequest = HybridManager.tF().shouldInterceptRequest(webView, str);
+            if (shouldInterceptRequest == null) {
+                return super.shouldInterceptRequest(webView, str);
+            }
+            return shouldInterceptRequest;
         }
     }
 
@@ -240,10 +272,11 @@ public class BaseWebView extends WebView {
     @Override // android.webkit.WebView
     public void destroy() {
         super.destroy();
-        this.mWebViewClient = null;
-        this.mOnLoadUrlListener = null;
         this.mContext = null;
+        this.mWebViewClient = null;
+        this.mWebChromeClient = null;
         this.mDownloadListener = null;
+        this.mOnLoadUrlListener = null;
         this.mOnPageStartedListener = null;
         this.mOnPageFinishedListener = null;
         this.mOnReceivedErrorListener = null;

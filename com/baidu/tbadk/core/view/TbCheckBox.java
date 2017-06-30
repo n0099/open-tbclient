@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a akW;
+    private a alK;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,44 +22,44 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        ws();
+        wK();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        wr();
+        wJ();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        wr();
+        wJ();
     }
 
-    private void wr() {
+    private void wJ() {
         setOnClickListener(new ad(this));
-        ws();
+        wK();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.akW = aVar;
+        this.alK = aVar;
     }
 
-    public void ws() {
-        if (wt()) {
-            com.baidu.tbadk.core.util.aq.c(this, w.g.icon_set_list_ok_s);
+    public void wK() {
+        if (wL()) {
+            com.baidu.tbadk.core.util.as.c(this, w.g.icon_set_list_ok_s);
             setContentDescription(getResources().getString(w.l.check_box_checked));
             return;
         }
-        com.baidu.tbadk.core.util.aq.c(this, w.g.icon_set_list_ok_n);
+        com.baidu.tbadk.core.util.as.c(this, w.g.icon_set_list_ok_n);
         setContentDescription(getResources().getString(w.l.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return wt();
+        return wL();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean wt() {
+    public boolean wL() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -72,9 +72,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        ws();
-        if (this.akW != null) {
-            this.akW.a(this, z, getTag());
+        wK();
+        if (this.alK != null) {
+            this.alK.a(this, z, getTag());
         }
     }
 }

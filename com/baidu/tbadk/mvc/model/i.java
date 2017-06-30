@@ -21,13 +21,13 @@ public class i extends HttpMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         this.this$0.isLoading = false;
-        if (this.this$0.aEC != null) {
-            com.baidu.adp.lib.g.h.fS().removeCallbacks(this.this$0.aEC);
+        if (this.this$0.aFQ != null) {
+            com.baidu.adp.lib.g.h.fR().removeCallbacks(this.this$0.aFQ);
         }
         if (httpResponsedMessage instanceof MvcJsonHttpResponsedMessage) {
             if (httpResponsedMessage.getOrginalMessage() instanceof MvcHttpMessage) {
-                if (this.this$0.aEt != null) {
-                    this.this$0.aEt.a((MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
+                if (this.this$0.aFH != null) {
+                    this.this$0.aFH.a((MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
                 }
             } else if (TbadkCoreApplication.m9getInst().isDebugMode()) {
                 throw new RuntimeException("mvc netmodel HttpListener jsonHttpResponsedMessage originaMessage error");

@@ -5,11 +5,11 @@ import android.view.ViewTreeObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements ViewTreeObserver.OnGlobalLayoutListener {
-    final /* synthetic */ l eCy;
+    final /* synthetic */ l eLV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(l lVar) {
-        this.eCy = lVar;
+        this.eLV = lVar;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -20,15 +20,15 @@ public class o implements ViewTreeObserver.OnGlobalLayoutListener {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        i = this.eCy.eCt;
+        i = this.eLV.eLQ;
         if (i == 2) {
-            tVar = this.eCy.eCo;
-            if (!tVar.ajM()) {
-                handler = this.eCy.mHandler;
-                runnable = this.eCy.eCw;
+            tVar = this.eLV.eLL;
+            if (!tVar.anx()) {
+                handler = this.eLV.mHandler;
+                runnable = this.eLV.eLT;
                 handler.removeCallbacks(runnable);
-                handler2 = this.eCy.mHandler;
-                runnable2 = this.eCy.eCw;
+                handler2 = this.eLV.mHandler;
+                runnable2 = this.eLV.eLT;
                 handler2.postDelayed(runnable2, 200L);
             }
         }

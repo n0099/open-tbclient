@@ -2,23 +2,29 @@ package com.baidu.tieba.enterForum.b;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.z;
+import java.util.ArrayList;
+import java.util.List;
 import tbclient.ForumRecommend.DataRes;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class b {
     private boolean CB;
-    private boolean aDa;
-    private int bMa;
-    private int bMb;
-    private String bMc;
-    private f bMd;
+    private boolean aEl;
+    private List<com.baidu.tieba.enterForum.multiConcern.g> bSA;
+    private int bSB;
+    private int bSC;
+    private String bSD;
+    private f bSE;
     private int isLogin;
     private int isMem;
     private int time = 0;
-    private h bLY = new h();
-    private k bLZ = new k();
+    private h bSy = new h();
+    private k bSz = new k();
 
-    public void dH(boolean z) {
-        this.aDa = z;
+    public void dW(boolean z) {
+        this.aEl = z;
     }
 
     public b() {
@@ -30,7 +36,7 @@ public class b {
         this.time = i;
     }
 
-    public void hL(int i) {
+    public void hU(int i) {
         this.isLogin = i;
     }
 
@@ -38,20 +44,20 @@ public class b {
         this.isMem = i;
     }
 
-    public void hM(int i) {
-        this.bMa = i;
+    public void hV(int i) {
+        this.bSB = i;
     }
 
-    public void hN(int i) {
-        this.bMb = i;
+    public void hW(int i) {
+        this.bSC = i;
     }
 
-    public void iB(String str) {
-        this.bMc = str;
+    public void jq(String str) {
+        this.bSD = str;
     }
 
     public f getHotSearchInfoData() {
-        return this.bMd;
+        return this.bSE;
     }
 
     public void a(DataRes dataRes) {
@@ -63,46 +69,81 @@ public class b {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                hM(dataRes.msign_valid.intValue());
-                hN(dataRes.msign_level.intValue());
-                hL(dataRes.is_login.intValue());
-                iB(dataRes.msign_text);
+                hV(dataRes.msign_valid.intValue());
+                hW(dataRes.msign_level.intValue());
+                hU(dataRes.is_login.intValue());
+                jq(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.bLY.setLevel(this.bMb);
+                this.bSy.setLevel(this.bSC);
                 if (dataRes.like_forum != null) {
-                    this.bLY.ad(dataRes.like_forum);
+                    this.bSy.ai(dataRes.like_forum);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.bLZ.ae(dataRes.recommend_forum_info);
+                    this.bSz.aj(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.bMd = new f();
-                    this.bMd.a(dataRes.hot_search);
+                    this.bSE = new f();
+                    this.bSE.a(dataRes.hot_search);
                 }
+                if (!z.t(dataRes.tag_recommend_forum)) {
+                    if (this.bSA == null) {
+                        this.bSA = new ArrayList();
+                    } else {
+                        this.bSA.clear();
+                    }
+                    int i = 0;
+                    for (RecommendForumInfo recommendForumInfo : dataRes.tag_recommend_forum) {
+                        if (i < 4) {
+                            if (recommendForumInfo != null && recommendForumInfo.forum_id.longValue() > 0 && !StringUtils.isNull(recommendForumInfo.forum_name)) {
+                                com.baidu.tieba.enterForum.multiConcern.g gVar = new com.baidu.tieba.enterForum.multiConcern.g();
+                                gVar.avatar = recommendForumInfo.avatar;
+                                gVar.forumId = recommendForumInfo.forum_id.longValue();
+                                gVar.forumName = recommendForumInfo.forum_name;
+                                gVar.followNum = recommendForumInfo.member_count.intValue();
+                                gVar.threadNum = recommendForumInfo.thread_count.intValue();
+                                gVar.isSelected = true;
+                                this.bSA.add(gVar);
+                                i++;
+                            }
+                        } else {
+                            return;
+                        }
+                    }
+                    return;
+                }
+                this.bSA = null;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public h WW() {
-        return this.bLY;
+    public h aas() {
+        return this.bSy;
     }
 
     public void a(h hVar) {
-        this.bLY = hVar;
+        this.bSy = hVar;
     }
 
     public void a(k kVar) {
-        this.bLZ = kVar;
+        this.bSz = kVar;
     }
 
-    public k WX() {
-        return this.bLZ;
+    public k aat() {
+        return this.bSz;
     }
 
-    public void ay(boolean z) {
+    public List<com.baidu.tieba.enterForum.multiConcern.g> aau() {
+        return this.bSA;
+    }
+
+    public void ah(List<com.baidu.tieba.enterForum.multiConcern.g> list) {
+        this.bSA = list;
+    }
+
+    public void az(boolean z) {
         this.CB = z;
     }
 
@@ -110,11 +151,11 @@ public class b {
         return this.CB;
     }
 
-    public boolean WY() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.e.axf.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.e.axf.longValue();
+    public boolean aav() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.e.ayh.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.e.ayh.longValue();
     }
 
     public void a(f fVar) {
-        this.bMd = fVar;
+        this.bSE = fVar;
     }
 }

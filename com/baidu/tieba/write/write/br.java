@@ -1,11 +1,14 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Intent;
-import android.view.View;
-import java.util.Date;
+import android.widget.CompoundButton;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements View.OnClickListener {
+public class br implements CompoundButton.OnCheckedChangeListener {
     final /* synthetic */ WriteImageActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,41 +16,36 @@ public class br implements View.OnClickListener {
         this.this$0 = writeImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        boolean rB;
-        z = this.this$0.eps;
-        if (!z) {
-            i = this.this$0.requestCode;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                if (this.this$0.mProgress.getVisibility() != 0) {
-                    z2 = this.this$0.eIn;
-                    if (z2 && this.this$0.eIg != null && !this.this$0.eIg.isRecycled()) {
-                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        rB = this.this$0.rB(str);
-                        if (rB) {
-                            intent.putExtra("change", true);
-                            intent.putExtra("file_name", str);
-                        } else {
-                            intent.putExtra("change", false);
-                        }
-                    } else {
-                        intent.putExtra("change", false);
-                    }
-                    this.this$0.setResult(-1, intent);
-                } else {
-                    return;
-                }
-            } else {
-                this.this$0.setResult(0, new Intent());
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        HorizontalScrollView horizontalScrollView;
+        LinearLayout linearLayout;
+        TextView textView;
+        HorizontalScrollView horizontalScrollView2;
+        LinearLayout linearLayout2;
+        TextView textView2;
+        if (z) {
+            radioButton = this.this$0.eRP;
+            if (compoundButton == radioButton) {
+                horizontalScrollView2 = this.this$0.eRM;
+                horizontalScrollView2.setVisibility(0);
+                linearLayout2 = this.this$0.eRR;
+                linearLayout2.setVisibility(8);
+                textView2 = this.this$0.bWL;
+                textView2.setText(this.this$0.getPageContext().getString(w.l.beautify));
+                return;
             }
-        } else {
-            this.this$0.setResult(0, new Intent());
+            radioButton2 = this.this$0.eRQ;
+            if (compoundButton == radioButton2) {
+                horizontalScrollView = this.this$0.eRM;
+                horizontalScrollView.setVisibility(8);
+                linearLayout = this.this$0.eRR;
+                linearLayout.setVisibility(0);
+                textView = this.this$0.bWL;
+                textView.setText(this.this$0.getPageContext().getString(w.l.rotate));
+            }
         }
-        this.this$0.finish();
     }
 }

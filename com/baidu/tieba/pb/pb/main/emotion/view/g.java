@@ -1,63 +1,51 @@
 package com.baidu.tieba.pb.pb.main.emotion.view;
 
-import android.view.MotionEvent;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.k;
+import com.baidu.tbadk.gif.GifInfo;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class g implements View.OnTouchListener {
-    final /* synthetic */ PbEmotionView ewx;
+public class g extends LinearLayout {
+    private ImageView eFL;
+    private int mImageWidth;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(PbEmotionView pbEmotionView) {
-        this.ewx = pbEmotionView;
+    public g(Context context) {
+        super(context);
+        init();
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        boolean z;
-        boolean z2;
-        View.OnClickListener onClickListener;
-        View.OnClickListener onClickListener2;
-        float f;
-        float f2;
-        z = this.ewx.ewv;
-        if (z) {
-            switch (motionEvent.getAction()) {
-                case 0:
-                    this.ewx.ewt = true;
-                    this.ewx.FG = motionEvent.getRawX();
-                    this.ewx.bkY = motionEvent.getRawY();
-                    PbEmotionView pbEmotionView = this.ewx;
-                    f = this.ewx.FG;
-                    pbEmotionView.mCurrentX = f;
-                    PbEmotionView pbEmotionView2 = this.ewx;
-                    f2 = this.ewx.bkY;
-                    pbEmotionView2.mCurrentY = f2;
-                    this.ewx.postDelayed(new h(this), 500L);
-                    return true;
-                case 1:
-                    this.ewx.ewt = false;
-                    z2 = this.ewx.ewu;
-                    if (!z2) {
-                        onClickListener = this.ewx.bhc;
-                        if (onClickListener != null) {
-                            onClickListener2 = this.ewx.bhc;
-                            onClickListener2.onClick(this.ewx);
-                            return true;
-                        }
-                        return true;
-                    }
-                    this.ewx.stopPreview();
-                    return true;
-                case 2:
-                default:
-                    return true;
-                case 3:
-                    this.ewx.ewt = false;
-                    this.ewx.stopPreview();
-                    return true;
+    private void init() {
+        setBackgroundResource(w.g.bg_expression_bubble);
+        int g = k.g(getContext(), w.f.ds20);
+        setPadding(g, g, g, k.g(getContext(), w.f.ds40));
+        this.mImageWidth = k.g(getContext(), w.f.ds200);
+    }
+
+    public void h(String str, String str2, boolean z) {
+        if (!TextUtils.isEmpty(str)) {
+            removeAllViews();
+            if (z) {
+                this.eFL = new GifView(getContext());
+                ((GifView) this.eFL).setSupportNoImage(false);
+                GifInfo gifInfo = new GifInfo();
+                gifInfo.mSharpText = str;
+                gifInfo.mDynamicUrl = str;
+                gifInfo.mStaticUrl = str2;
+                this.eFL.setTag(gifInfo.mSharpText);
+                ((GifView) this.eFL).a(gifInfo);
+            } else {
+                this.eFL = new TbImageView(getContext());
+                ((TbImageView) this.eFL).setGifIconSupport(false);
+                ((TbImageView) this.eFL).c(str, 10, true);
             }
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mImageWidth, this.mImageWidth);
+            layoutParams.gravity = 17;
+            addView(this.eFL, layoutParams);
         }
-        return false;
     }
 }

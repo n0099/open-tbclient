@@ -9,7 +9,7 @@ public class PluginInstallTask extends OrmObject {
     protected long De;
     protected String apkFilePath;
 
-    public long iR() {
+    public long iQ() {
         return Math.max(Math.min(this.De * 80, 240000L), (long) TbConfig.USE_TIME_INTERVAL);
     }
 }

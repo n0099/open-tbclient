@@ -5,11 +5,11 @@ import com.baidu.adp.widget.ListView.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends DataSetObserver {
-    final /* synthetic */ e Ia;
+    final /* synthetic */ e HZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.Ia = eVar;
+        this.HZ = eVar;
     }
 
     @Override // android.database.DataSetObserver
@@ -19,14 +19,14 @@ public class f extends DataSetObserver {
         e.a aVar2;
         DataSetObserver dataSetObserver2;
         super.onChanged();
-        dataSetObserver = this.Ia.mDataSetObserver;
+        dataSetObserver = this.HZ.mDataSetObserver;
         if (dataSetObserver != null) {
-            dataSetObserver2 = this.Ia.mDataSetObserver;
+            dataSetObserver2 = this.HZ.mDataSetObserver;
             dataSetObserver2.onChanged();
         }
-        aVar = this.Ia.mListPreLoad;
+        aVar = this.HZ.mListPreLoad;
         if (aVar != null) {
-            aVar2 = this.Ia.mListPreLoad;
+            aVar2 = this.HZ.mListPreLoad;
             aVar2.onPreLoad();
         }
     }
@@ -36,9 +36,9 @@ public class f extends DataSetObserver {
         DataSetObserver dataSetObserver;
         DataSetObserver dataSetObserver2;
         super.onInvalidated();
-        dataSetObserver = this.Ia.mDataSetObserver;
+        dataSetObserver = this.HZ.mDataSetObserver;
         if (dataSetObserver != null) {
-            dataSetObserver2 = this.Ia.mDataSetObserver;
+            dataSetObserver2 = this.HZ.mDataSetObserver;
             dataSetObserver2.onInvalidated();
         }
     }

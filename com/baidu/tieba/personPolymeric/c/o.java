@@ -1,6 +1,6 @@
 package com.baidu.tieba.personPolymeric.c;
 
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 /* loaded from: classes.dex */
 public class o extends a {
     public o(boolean z) {
@@ -8,16 +8,16 @@ public class o extends a {
     }
 
     @Override // com.baidu.tieba.personPolymeric.c.a
-    public void Tr() {
-        this.eMa.clear();
-        if (this.eLY != null) {
-            this.eMa.add(this.eLY);
+    public void UT() {
+        this.eWi.clear();
+        if (this.eWg != null) {
+            this.eWi.add(this.eWg);
         }
-        if (this.mCardNullPolymericData != null && this.eLY == null) {
-            this.eMa.add(this.mCardNullPolymericData);
+        if (this.mCardNullPolymericData != null && this.eWg == null) {
+            this.eWi.add(this.mCardNullPolymericData);
         }
-        if (!x.r(this.eLZ)) {
-            this.eMa.addAll(this.eLZ);
+        if (!z.t(this.eWh)) {
+            this.eWi.addAll(this.eWh);
         }
     }
 }

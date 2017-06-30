@@ -11,7 +11,7 @@ public class d {
     private PluginNetConfigInfos EG = new PluginNetConfigInfos();
     private b EH;
 
-    public static d jU() {
+    public static d jS() {
         if (EF == null) {
             synchronized (d.class) {
                 if (EF == null) {
@@ -40,11 +40,11 @@ public class d {
                 }
             }
         }
-        cVar.f(arrayList);
+        cVar.h(arrayList);
         return cVar;
     }
 
-    public PluginNetConfigInfos jV() {
+    public PluginNetConfigInfos jT() {
         return this.EG;
     }
 

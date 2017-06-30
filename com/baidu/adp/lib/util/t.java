@@ -52,7 +52,7 @@ public class t {
         return str;
     }
 
-    public static String aI(String str) {
+    public static String aN(String str) {
         if (str == null) {
             return null;
         }

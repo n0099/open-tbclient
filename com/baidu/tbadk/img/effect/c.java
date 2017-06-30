@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c aDi = new c();
-    private final HashMap<String, Class<? extends b>> aDj = new HashMap<>();
+    private static c aEw = new c();
+    private final HashMap<String, Class<? extends b>> aEx = new HashMap<>();
 
-    public static c DO() {
-        return aDi;
+    public static c El() {
+        return aEw;
     }
 
     private c() {
@@ -99,20 +99,20 @@ public class c {
         } else {
             dVar = null;
         }
-        Bitmap fM = dVar != null ? dVar.fM(str) : null;
+        Bitmap gh = dVar != null ? dVar.gh(str) : null;
         if (list == null) {
-            return fM;
+            return gh;
         }
         while (true) {
-            Bitmap bitmap = fM;
+            Bitmap bitmap = gh;
             if (i2 < list.size()) {
                 b a = a(list.get(i2));
                 if (a == null) {
-                    fM = bitmap;
+                    gh = bitmap;
                 } else if (bitmap == null) {
-                    fM = a.fM(str);
+                    gh = a.gh(str);
                 } else {
-                    fM = a.b(bitmap, true);
+                    gh = a.b(bitmap, true);
                 }
                 i2++;
             } else {
@@ -123,7 +123,7 @@ public class c {
 
     protected b a(ImageOperation imageOperation) {
         b k;
-        Class<? extends b> cls = this.aDj.get(imageOperation.actionName);
+        Class<? extends b> cls = this.aEx.get(imageOperation.actionName);
         if (cls != null && (k = k(cls)) != null) {
             k.setParams(imageOperation.actionParam);
             return k;
@@ -134,7 +134,7 @@ public class c {
     private void j(Class<? extends b> cls) {
         b k = k(cls);
         if (k != null) {
-            this.aDj.put(k.getActionName(), cls);
+            this.aEx.put(k.getActionName(), cls);
         }
     }
 

@@ -5,12 +5,12 @@ import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class d extends DiskFileOperate {
     private String mContent;
-    private String se;
+    private String sd;
 
     public d(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mContent = null;
-        this.se = "UTF-8";
+        this.sd = "UTF-8";
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -19,7 +19,7 @@ public class d extends DiskFileOperate {
             return false;
         }
         try {
-            this.mContent = new String(bArr, this.se);
+            this.mContent = new String(bArr, this.sd);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -31,7 +31,7 @@ public class d extends DiskFileOperate {
     public byte[] dS() {
         if (this.mContent != null) {
             try {
-                return this.mContent.getBytes(this.se);
+                return this.mContent.getBytes(this.sd);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return null;

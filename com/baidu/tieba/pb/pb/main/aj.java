@@ -1,179 +1,112 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.AbsListView;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.ArrayList;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class aj implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity enc;
+class aj extends CustomMessageListener {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(PbActivity pbActivity) {
-        this.enc = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aj(PbActivity pbActivity, int i) {
+        super(i);
+        this.ewh = pbActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        int i2;
-        boolean oq;
-        fx fxVar;
-        com.baidu.tieba.pb.pb.main.a.f fVar;
-        com.baidu.tbadk.j.e eVar;
-        com.baidu.tbadk.j.e eVar2;
-        com.baidu.tbadk.j.e eVar3;
-        PbModel pbModel;
-        fx fxVar2;
-        com.baidu.tbadk.j.e eVar4;
-        fx fxVar3;
-        PbModel pbModel2;
-        PbModel pbModel3;
-        PbModel pbModel4;
-        com.baidu.tbadk.j.e eVar5;
-        com.baidu.tieba.pb.pb.main.a.f fVar2;
-        boolean oq2;
-        fx fxVar4;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        fx fxVar5;
-        fx fxVar6;
-        com.baidu.tbadk.editortools.pb.c cVar;
-        fx fxVar7;
-        fx fxVar8;
-        fx fxVar9;
-        com.baidu.tbadk.editortools.pb.c cVar2;
-        boolean z2 = true;
-        PbActivity pbActivity = this.enc;
-        i2 = this.enc.mLastScrollState;
-        oq = pbActivity.oq(i2);
-        if (!oq) {
-            oq2 = this.enc.oq(i);
-            if (oq2) {
-                fxVar4 = this.enc.elU;
-                if (fxVar4 != null) {
-                    fxVar6 = this.enc.elU;
-                    fxVar6.avy();
-                    cVar = this.enc.emh;
-                    if (cVar != null) {
-                        fxVar8 = this.enc.elU;
-                        if (!fxVar8.aMh()) {
-                            fxVar9 = this.enc.elU;
-                            cVar2 = this.enc.emh;
-                            fxVar9.gz(cVar2.CS());
-                        }
-                    }
-                    fxVar7 = this.enc.elU;
-                    fxVar7.aKn();
-                }
-                z = this.enc.elE;
-                if (!z) {
-                    this.enc.elE = true;
-                    fxVar5 = this.enc.elU;
-                    fxVar5.aMO();
-                }
-            }
-        }
-        fxVar = this.enc.elU;
-        fxVar.onScrollStateChanged(absListView, i);
-        fVar = this.enc.elw;
-        if (fVar != null) {
-            fVar2 = this.enc.elw;
-            fVar2.onScrollStateChanged(absListView, i);
-        }
-        eVar = this.enc.elF;
-        if (eVar == null) {
-            this.enc.elF = new com.baidu.tbadk.j.e();
-            eVar5 = this.enc.elF;
-            eVar5.fb(1001);
-        }
-        if (i == 0) {
-            pbModel = this.enc.ele;
-            if (pbModel != null) {
-                pbModel2 = this.enc.ele;
-                if (pbModel2.getPbData() != null) {
-                    pbModel3 = this.enc.ele;
-                    if (pbModel3.getPbData().aIB() != null) {
-                        pbModel4 = this.enc.ele;
-                        if (pbModel4.getPbData().aIB().sh()) {
-                            z2 = false;
-                        }
-                    }
-                }
-            }
-            fxVar2 = this.enc.elU;
-            if (fxVar2.aMu() != null && z2) {
-                fxVar3 = this.enc.elU;
-                fxVar3.aMu().notifyDataSetChanged();
-            }
-            eVar4 = this.enc.elF;
-            eVar4.Fl();
-        } else if (i == 1) {
-            eVar3 = this.enc.elF;
-            eVar3.Fl();
-        } else {
-            eVar2 = this.enc.elF;
-            eVar2.Fl();
-        }
-        this.enc.mLastScrollState = i;
-        if (i == 0) {
-            this.enc.a(false, (PostData) null);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         PbModel pbModel;
+        int i;
+        gg ggVar;
         PbModel pbModel2;
-        fx fxVar;
-        fx fxVar2;
-        fx fxVar3;
-        com.baidu.tieba.pb.pb.main.a.f fVar;
         PbModel pbModel3;
         PbModel pbModel4;
-        fx fxVar4;
+        boolean z2;
+        gg ggVar2;
+        gg ggVar3;
+        gg ggVar4;
         PbModel pbModel5;
-        boolean z;
-        com.baidu.tieba.pb.pb.main.a.f fVar2;
-        pbModel = this.enc.ele;
-        if (pbModel != null) {
-            pbModel2 = this.enc.ele;
-            if (pbModel2.getPbData() != null) {
-                fxVar = this.enc.elU;
-                if (fxVar != null) {
-                    fxVar2 = this.enc.elU;
-                    if (fxVar2.aMu() != null) {
-                        fxVar3 = this.enc.elU;
-                        fxVar3.onScroll(absListView, i, i2, i3);
-                        fVar = this.enc.elw;
-                        if (fVar != null) {
-                            fVar2 = this.enc.elw;
-                            fVar2.onScroll(absListView, i, i2, i3);
-                        }
-                        pbModel3 = this.enc.ele;
-                        if (pbModel3.aLc()) {
-                            pbModel4 = this.enc.ele;
-                            ArrayList<PostData> aID = pbModel4.getPbData().aID();
-                            if (aID != null && !aID.isEmpty()) {
-                                fxVar4 = this.enc.elU;
-                                int aKx = ((i + i2) - fxVar4.aMu().aKx()) - 1;
-                                pbModel5 = this.enc.ele;
-                                com.baidu.tieba.pb.data.f pbData = pbModel5.getPbData();
-                                if (pbData != null) {
-                                    if (pbData.aIE() != null && pbData.aIE().hasData()) {
-                                        aKx--;
-                                    }
-                                    if (pbData.aIF() != null && pbData.aIF().hasData()) {
-                                        aKx--;
-                                    }
-                                    z = this.enc.elH;
-                                    if (z) {
-                                        aKx--;
-                                    }
-                                    int size = aID.size();
-                                    if (aKx < 0 || aKx >= size) {
-                                    }
+        String aNT;
+        boolean z3;
+        PbModel pbModel6;
+        PbModel pbModel7;
+        gg ggVar5;
+        gg ggVar6;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.pb.b.a)) {
+            com.baidu.tieba.pb.b.a aVar = (com.baidu.tieba.pb.b.a) customResponsedMessage.getData();
+            if (aVar.tag == this.ewh.getUniqueId()) {
+                switch (aVar.eIX) {
+                    case 0:
+                        z3 = this.ewh.mIsLogin;
+                        if (z3) {
+                            pbModel6 = this.ewh.eue;
+                            if (!pbModel6.iN(false)) {
+                                pbModel7 = this.ewh.eue;
+                                if (pbModel7.getPbData() != null) {
+                                    ggVar5 = this.ewh.euU;
+                                    ggVar5.aQL();
+                                    return;
                                 }
+                                return;
                             }
+                            ggVar6 = this.ewh.euU;
+                            ggVar6.aQy();
+                            return;
                         }
-                    }
+                        return;
+                    case 1:
+                        z2 = this.ewh.mIsLoading;
+                        if (!z2) {
+                            this.ewh.mIsLoading = true;
+                            ggVar2 = this.ewh.euU;
+                            ggVar2.eBR.eGI.setEnabled(false);
+                            ggVar3 = this.ewh.euU;
+                            ggVar3.atY();
+                            this.ewh.aei();
+                            ggVar4 = this.ewh.euU;
+                            ggVar4.aQx();
+                            pbModel5 = this.ewh.eue;
+                            aNT = this.ewh.aNT();
+                            pbModel5.oP(aNT);
+                            return;
+                        }
+                        return;
+                    case 2:
+                        z = this.ewh.euy;
+                        if (z) {
+                            pbModel2 = this.ewh.eue;
+                            boolean hostMode = pbModel2.getHostMode();
+                            pbModel3 = this.ewh.eue;
+                            boolean aOK = pbModel3.aOK();
+                            pbModel4 = this.ewh.eue;
+                            String threadID = pbModel4.getThreadID();
+                            String str = aVar.postId;
+                            int i2 = aVar.eIY;
+                            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.ewh.getPageContext().getPageActivity());
+                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, aOK, null);
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
+                            this.ewh.eva = false;
+                            this.ewh.finish();
+                            return;
+                        }
+                        int i3 = aVar.eIY;
+                        pbModel = this.ewh.eue;
+                        if (pbModel.getHostMode()) {
+                            i = i3 + 3;
+                        } else {
+                            i = i3 + 2;
+                        }
+                        ggVar = this.ewh.euU;
+                        ggVar.getListView().setSelection(i);
+                        return;
+                    default:
+                        return;
                 }
             }
         }

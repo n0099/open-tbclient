@@ -6,47 +6,47 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class q implements a.InterfaceC0035a {
-    final /* synthetic */ NotLoginGuideActivity aTR;
+class q implements a.InterfaceC0037a {
+    final /* synthetic */ NotLoginGuideActivity aVk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(NotLoginGuideActivity notLoginGuideActivity) {
-        this.aTR = notLoginGuideActivity;
+        this.aVk = notLoginGuideActivity;
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
-    public void cf(String str) {
-        if (this.aTR.getLoadingDialog() == null || !this.aTR.getLoadingDialog().isShowing()) {
-            this.aTR.showLoadingDialog(this.aTR.getPageContext().getString(w.l.sapi_logining), new r(this));
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0037a
+    public void cl(String str) {
+        if (this.aVk.getLoadingDialog() == null || !this.aVk.getLoadingDialog().isShowing()) {
+            this.aVk.showLoadingDialog(this.aVk.getPageContext().getString(w.l.sapi_logining), new r(this));
         }
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0037a
     public void a(AccountData accountData) {
-        com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_success", 0, "", new Object[0]);
-        this.aTR.closeLoadingDialog();
+        com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_success", 0, "", new Object[0]);
+        this.aVk.closeLoadingDialog();
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            this.aTR.k(accountData);
+            this.aVk.k(accountData);
         } else {
-            this.aTR.p(accountData);
+            this.aVk.p(accountData);
         }
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0037a
     public void b(String str, int i, String str2) {
         int i2;
         int i3;
-        com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_fail", i, str2, new Object[0]);
-        this.aTR.closeLoadingDialog();
-        i2 = this.aTR.aTP;
+        com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_fail", i, str2, new Object[0]);
+        this.aVk.closeLoadingDialog();
+        i2 = this.aVk.aVi;
         if (i2 != 1) {
-            i3 = this.aTR.aTP;
+            i3 = this.aVk.aVi;
             if (i3 != 2) {
                 return;
             }
-            this.aTR.Ko();
+            this.aVk.KM();
             return;
         }
-        this.aTR.Kn();
+        this.aVk.KL();
     }
 }

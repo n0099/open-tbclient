@@ -5,30 +5,30 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb implements com.baidu.tbadk.widget.layout.g {
-    final /* synthetic */ au bBu;
-    private final /* synthetic */ LinkedList bBv;
-    private final /* synthetic */ com.baidu.tbadk.core.data.bl bBw;
+    final /* synthetic */ au bCn;
+    private final /* synthetic */ LinkedList bCo;
+    private final /* synthetic */ com.baidu.tbadk.core.data.bm bCp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(au auVar, LinkedList linkedList, com.baidu.tbadk.core.data.bl blVar) {
-        this.bBu = auVar;
-        this.bBv = linkedList;
-        this.bBw = blVar;
+    public bb(au auVar, LinkedList linkedList, com.baidu.tbadk.core.data.bm bmVar) {
+        this.bCn = auVar;
+        this.bCo = linkedList;
+        this.bCp = bmVar;
     }
 
     @Override // com.baidu.tbadk.widget.layout.g
     public void c(View view, int i, boolean z) {
         com.baidu.tieba.card.data.l lVar;
-        ci<com.baidu.tieba.card.data.l> Ud = this.bBu.Ud();
-        if (Ud != null) {
+        ci<com.baidu.tieba.card.data.l> Vs = this.bCn.Vs();
+        if (Vs != null) {
             view.setTag("1");
-            lVar = this.bBu.bzH;
-            Ud.a(view, lVar);
+            lVar = this.bCn.bAA;
+            Vs.a(view, lVar);
         }
         if (!z) {
-            this.bBu.a(this.bBv, i, this.bBw);
+            this.bCn.a(this.bCo, i, this.bCp);
         } else {
-            this.bBu.Ur();
+            this.bCn.VI();
         }
     }
 }

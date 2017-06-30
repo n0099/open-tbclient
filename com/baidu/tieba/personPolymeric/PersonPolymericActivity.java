@@ -6,25 +6,25 @@ import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity {
-    private com.baidu.tieba.personCenter.a eKw;
+    private com.baidu.tieba.personCenter.a eUu;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(w.j.person_new_fragment_view);
-        this.eKw = new com.baidu.tieba.personCenter.a();
+        this.eUu = new com.baidu.tieba.personCenter.a();
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE, true);
-        this.eKw.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().add(w.h.fragment_container, this.eKw).commit();
+        this.eUu.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().add(w.h.fragment_container, this.eUu).commit();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
-        if (this.eKw != null) {
-            this.eKw.onChangeSkinType(i);
+        if (this.eUu != null) {
+            this.eUu.onChangeSkinType(i);
         }
     }
 

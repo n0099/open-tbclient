@@ -1,25 +1,25 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class h {
-    private g aoI;
+    private g apJ;
     private int mErrorCode;
     private String mErrorString;
-    private boolean rM;
+    private boolean rL;
 
-    public g xB() {
-        return this.aoI;
+    public g xS() {
+        return this.apJ;
     }
 
     public void b(g gVar) {
-        this.aoI = gVar;
+        this.apJ = gVar;
     }
 
     public boolean isSuccess() {
-        return this.rM;
+        return this.rL;
     }
 
-    public void ay(boolean z) {
-        this.rM = z;
+    public void az(boolean z) {
+        this.rL = z;
     }
 
     public int getErrorCode() {

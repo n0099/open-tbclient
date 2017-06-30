@@ -5,53 +5,53 @@ import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<BaseFragmentActivity> {
-    private String fTL;
-    private String fTM;
-    private AlbumActivity fTN;
-    private Fragment[] fTO;
-    private String[] fTP;
-    private ac fTQ;
-    private f fTR;
+    private ac geA;
+    private f geB;
+    private String gev;
+    private String gew;
+    private AlbumActivity gex;
+    private Fragment[] gey;
+    private String[] gez;
 
     public d(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.fTL = "tag_image";
-        this.fTM = "tag_b_image";
-        this.fTN = albumActivity;
+        this.gev = "tag_image";
+        this.gew = "tag_b_image";
+        this.gex = albumActivity;
     }
 
-    public void bnw() {
-        this.fTO = new Fragment[2];
-        this.fTP = new String[2];
-        this.fTQ = new ac();
-        this.fTO[0] = this.fTQ;
-        this.fTP[0] = this.fTL;
-        this.fTR = new f();
-        this.fTO[1] = this.fTR;
-        this.fTP[1] = this.fTM;
+    public void brT() {
+        this.gey = new Fragment[2];
+        this.gez = new String[2];
+        this.geA = new ac();
+        this.gey[0] = this.geA;
+        this.gez[0] = this.gev;
+        this.geB = new f();
+        this.gey[1] = this.geB;
+        this.gez[1] = this.gew;
     }
 
-    public Fragment tg(int i) {
+    public Fragment tB(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.fTO[i];
+        return this.gey[i];
     }
 
-    public String th(int i) {
+    public String tC(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.fTP[i];
+        return this.gez[i];
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.fTO.length) {
-                if (this.fTO[i3] != null && (this.fTO[i3] instanceof ac)) {
-                    ((ac) this.fTO[i3]).onChangeSkinType(i);
+            if (i3 < this.gey.length) {
+                if (this.gey[i3] != null && (this.gey[i3] instanceof ac)) {
+                    ((ac) this.gey[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -60,59 +60,59 @@ public class d extends com.baidu.adp.base.e<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView bnx() {
-        if (this.fTQ == null) {
+    public TbCameraView brU() {
+        if (this.geA == null) {
             return null;
         }
-        return this.fTQ.bnx();
+        return this.geA.brU();
     }
 
-    public View bny() {
-        if (this.fTQ == null) {
+    public View brV() {
+        if (this.geA == null) {
             return null;
         }
-        return this.fTQ.bcK();
+        return this.geA.bgZ();
     }
 
-    public View bnz() {
-        if (this.fTQ == null) {
+    public View brW() {
+        if (this.geA == null) {
             return null;
         }
-        return this.fTQ.bnZ();
+        return this.geA.bsw();
     }
 
-    public View bnA() {
-        if (this.fTR == null) {
+    public View brX() {
+        if (this.geB == null) {
             return null;
         }
-        return this.fTR.bcK();
+        return this.geB.bgZ();
     }
 
-    public View bnB() {
-        if (this.fTR == null) {
+    public View brY() {
+        if (this.geB == null) {
             return null;
         }
-        return this.fTR.bnJ();
+        return this.geB.bsg();
     }
 
-    public View bnC() {
-        if (this.fTR == null) {
+    public View brZ() {
+        if (this.geB == null) {
             return null;
         }
-        return this.fTR.bnC();
+        return this.geB.brZ();
     }
 
     public void onDestroy() {
-        if (this.fTN.ahn() != null) {
-            this.fTN.ahn().DN();
+        if (this.gex.akX() != null) {
+            this.gex.akX().Ek();
         }
     }
 
-    public f bnD() {
-        return this.fTR;
+    public f bsa() {
+        return this.geB;
     }
 
-    public ac bnE() {
-        return this.fTQ;
+    public ac bsb() {
+        return this.geA;
     }
 }

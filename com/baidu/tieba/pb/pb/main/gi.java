@@ -1,41 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.CompoundButton;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbSearchEmotionActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.pb.pb.main.emotion.data.EmotionImageData;
+import com.baidu.tieba.pb.pb.main.emotion.view.a;
+import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gi implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ fx evi;
+public class gi implements a.InterfaceC0075a {
+    final /* synthetic */ gg eEv;
+    private final /* synthetic */ com.baidu.tieba.pb.pb.main.emotion.a eEw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gi(fx fxVar) {
-        this.evi = fxVar;
+    public gi(gg ggVar, com.baidu.tieba.pb.pb.main.emotion.a aVar) {
+        this.eEv = ggVar;
+        this.eEw = aVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        List list;
-        List<com.baidu.tieba.pb.pb.main.view.a> list2;
-        String str;
-        String str2;
-        if (z) {
-            this.evi.etW = (String) compoundButton.getTag();
-            list = this.evi.esL;
-            if (list != null) {
-                list2 = this.evi.esL;
-                for (com.baidu.tieba.pb.pb.main.view.a aVar : list2) {
-                    String str3 = (String) aVar.getTag();
-                    if (str3 != null) {
-                        str = this.evi.etW;
-                        if (str != null) {
-                            str2 = this.evi.etW;
-                            if (!str3.equals(str2)) {
-                                aVar.setChecked(false);
-                            }
-                        }
-                    }
-                }
-            }
+    @Override // com.baidu.tieba.pb.pb.main.emotion.view.a.InterfaceC0075a
+    public void c(EmotionImageData emotionImageData) {
+        if (this.eEw != null) {
+            this.eEw.b(emotionImageData);
         }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.emotion.view.a.InterfaceC0075a
+    public void cl(List<String> list) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        pbActivity = this.eEv.euf;
+        CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbSearchEmotionActivityConfig(pbActivity.getPageContext().getPageActivity(), 25016, (ArrayList) list));
+        pbActivity2 = this.eEv.euf;
+        pbActivity2.sendMessage(customMessage);
     }
 }

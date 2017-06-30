@@ -12,7 +12,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b abn() {
+    public com.baidu.tieba.frs.entelechy.b.b afe() {
         return new j();
     }
 
@@ -22,7 +22,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
             return null;
         }
         c cVar = new c(rVar, null, null, i);
-        cVar.a(rVar.ZV());
+        cVar.a(rVar.adM());
         return cVar;
     }
 
@@ -35,7 +35,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
     public com.baidu.tieba.frs.f.i c(r rVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (rVar.aaw()) {
+        if (rVar.aem()) {
             return null;
         }
         return new com.baidu.tieba.frs.f.i(rVar, noPressedRelativeLayout);

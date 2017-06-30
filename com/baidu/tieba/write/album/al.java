@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements View.OnClickListener {
-    final /* synthetic */ ac fVw;
+    final /* synthetic */ ac ggh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ac acVar) {
-        this.fVw = acVar;
+        this.ggh = acVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -42,79 +42,79 @@ public class al implements View.OnClickListener {
         int i2;
         TextView textView2;
         int id = view.getId();
-        textView = this.fVw.bPO;
+        textView = this.ggh.bWL;
         if (id == textView.getId()) {
-            aVar = this.fVw.fUU;
-            pVar5 = this.fVw.fTx;
-            List<e> bnQ = pVar5.bnQ();
-            pVar6 = this.fVw.fTx;
-            aVar.b(bnQ, pVar6.bnO());
-            aVar2 = this.fVw.fUU;
-            view7 = this.fVw.bCG;
-            aVar2.aC(view7);
-            i = this.fVw.fVj;
+            aVar = this.ggh.gfF;
+            pVar5 = this.ggh.gei;
+            List<e> bsn = pVar5.bsn();
+            pVar6 = this.ggh.gei;
+            aVar.c(bsn, pVar6.bsl());
+            aVar2 = this.ggh.gfF;
+            view7 = this.ggh.bDz;
+            aVar2.aE(view7);
+            i = this.ggh.gfU;
             if (i <= 50) {
                 i2 = w.g.d_ic_post_gallery_spread_s;
             } else {
                 i2 = w.g.ic_post_gallery_spread_s;
             }
-            Drawable drawable = this.fVw.getResources().getDrawable(i2);
+            Drawable drawable = this.ggh.getResources().getDrawable(i2);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            textView2 = this.fVw.bPO;
+            textView2 = this.ggh.bWL;
             textView2.setCompoundDrawables(null, null, drawable, null);
             return;
         }
         int id2 = view.getId();
-        view2 = this.fVw.fVa;
+        view2 = this.ggh.gfL;
         if (id2 == view2.getId()) {
-            this.fVw.lX(true);
-            this.fVw.bnV();
+            this.ggh.my(true);
+            this.ggh.bss();
             return;
         }
         int id3 = view.getId();
-        view3 = this.fVw.fVb;
+        view3 = this.ggh.gfM;
         if (id3 == view3.getId()) {
-            pVar = this.fVw.fTx;
+            pVar = this.ggh.gei;
             int maxImagesAllowed = pVar.getMaxImagesAllowed();
-            pVar2 = this.fVw.fTx;
+            pVar2 = this.ggh.gei;
             if (pVar2.size() >= maxImagesAllowed) {
-                albumActivity2 = this.fVw.fTN;
-                if (!albumActivity2.bnq()) {
-                    this.fVw.showToast(String.format(this.fVw.getPageContext().getString(w.l.album_beyond_max_choose), Integer.valueOf(maxImagesAllowed)));
+                albumActivity2 = this.ggh.gex;
+                if (!albumActivity2.brN()) {
+                    this.ggh.showToast(String.format(this.ggh.getPageContext().getString(w.l.album_beyond_max_choose), Integer.valueOf(maxImagesAllowed)));
                     return;
                 }
             }
-            pVar3 = this.fVw.fTx;
-            pVar3.ri(String.valueOf(System.currentTimeMillis()));
-            albumActivity = this.fVw.fTN;
-            pVar4 = this.fVw.fTx;
-            albumActivity.hB(pVar4.bnS());
+            pVar3 = this.ggh.gei;
+            pVar3.sh(String.valueOf(System.currentTimeMillis()));
+            albumActivity = this.ggh.gex;
+            pVar4 = this.ggh.gei;
+            albumActivity.ia(pVar4.bsp());
             return;
         }
         int id4 = view.getId();
-        view4 = this.fVw.fVc;
+        view4 = this.ggh.gfN;
         if (id4 == view4.getId()) {
-            tbCameraView3 = this.fVw.fUY;
+            tbCameraView3 = this.ggh.gfJ;
             if (tbCameraView3 != null) {
-                tbCameraView4 = this.fVw.fUY;
-                tbCameraView4.bog();
+                tbCameraView4 = this.ggh.gfJ;
+                tbCameraView4.bsD();
                 return;
             }
             return;
         }
         int id5 = view.getId();
-        view5 = this.fVw.fVf;
+        view5 = this.ggh.gfQ;
         if (id5 == view5.getId()) {
-            this.fVw.bnW();
+            this.ggh.bst();
             return;
         }
         int id6 = view.getId();
-        view6 = this.fVw.fVe;
+        view6 = this.ggh.gfP;
         if (id6 == view6.getId()) {
-            tbCameraView = this.fVw.fUY;
+            tbCameraView = this.ggh.gfJ;
             if (tbCameraView != null) {
-                tbCameraView2 = this.fVw.fUY;
-                tbCameraView2.boi();
+                tbCameraView2 = this.ggh.gfJ;
+                tbCameraView2.bsF();
             }
         }
     }

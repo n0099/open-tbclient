@@ -1,10 +1,10 @@
 package com.baidu.android.pushservice.jni;
 
 import android.content.Context;
-import com.baidu.android.pushservice.e.a;
-import com.baidu.android.pushservice.h.u;
-import com.baidu.android.pushservice.i.b;
-import com.baidu.android.pushservice.i.e;
+import com.baidu.android.pushservice.g.a;
+import com.baidu.android.pushservice.j.q;
+import com.baidu.android.pushservice.k.b;
+import com.baidu.android.pushservice.k.e;
 /* loaded from: classes2.dex */
 public class BaiduAppSSOJni {
     private static final String TAG = "BaiduAppSSOJni";
@@ -24,7 +24,19 @@ public class BaiduAppSSOJni {
     public static native byte[] encryptAES(String str, int i);
 
     public static String getDecrypted(Context context, String str, String str2) {
-        String str3;
+        try {
+            byte[] decrypted = getDecrypted(context, str, b.a(str2.getBytes()));
+            if (decrypted != null && decrypted.length > 0) {
+                return new String(decrypted, "utf-8");
+            }
+        } catch (Exception e) {
+            a.a(TAG, "getDecrypted: " + e);
+        }
+        return null;
+    }
+
+    public static byte[] getDecrypted(Context context, String str, byte[] bArr) {
+        byte[] bArr2 = null;
         if (str == null) {
             str = "";
         }
@@ -32,28 +44,32 @@ public class BaiduAppSSOJni {
             byte[] key = getKey(str);
             if (key == null) {
                 a.a(TAG, "keyInfo null");
-                return null;
-            }
-            byte[] a = b.a(str2.getBytes());
-            String str4 = new String(key, "utf-8");
-            if (str4 == null || str4.length() <= 0) {
-                str3 = null;
             } else {
-                str3 = new String(com.baidu.android.pushservice.i.a.b(str4.substring(16), str4.substring(0, 16), a), "utf-8");
+                String str2 = new String(key, "utf-8");
+                if (str2.length() > 0) {
+                    bArr2 = com.baidu.android.pushservice.k.a.b(str2.substring(16), str2.substring(0, 16), bArr);
+                }
             }
-            return str3;
         } catch (Exception e) {
             a.a(TAG, "getDecrypted: " + e);
-            return null;
         } catch (UnsatisfiedLinkError e2) {
-            a.e(TAG, "UnsatisfiedLinkError getDecrypted " + str2);
-            u.b("UnsatisfiedLinkError getDecrypted " + str2, context);
+            a.e(TAG, "UnsatisfiedLinkError getDecrypted ");
+            q.b("UnsatisfiedLinkError getDecrypted ", context);
+        }
+        return bArr2;
+    }
+
+    public static String getEncrypted(Context context, String str, String str2) {
+        try {
+            return b.a(getEncrypted(context, str, str2.getBytes()), "utf-8");
+        } catch (Exception e) {
+            a.a(TAG, "getEncrypted: " + e);
             return null;
         }
     }
 
-    public static String getEncrypted(Context context, String str, String str2) {
-        String str3 = null;
+    public static byte[] getEncrypted(Context context, String str, byte[] bArr) {
+        byte[] bArr2 = null;
         if (str == null) {
             str = "";
         }
@@ -62,19 +78,18 @@ public class BaiduAppSSOJni {
             if (key == null) {
                 a.a(TAG, "keyInfo null");
             } else {
-                byte[] bytes = str2.getBytes();
-                String str4 = new String(key, "utf-8");
-                if (str4 != null && str4.length() > 0) {
-                    str3 = b.a(com.baidu.android.pushservice.i.a.a(str4.substring(16), str4.substring(0, 16), bytes), "utf-8");
+                String str2 = new String(key, "utf-8");
+                if (str2.length() > 0) {
+                    bArr2 = com.baidu.android.pushservice.k.a.a(str2.substring(16), str2.substring(0, 16), bArr);
                 }
             }
         } catch (Exception e) {
             a.a(TAG, "getEncrypted: " + e);
         } catch (UnsatisfiedLinkError e2) {
-            a.e(TAG, "UnsatisfiedLinkError getEncrypted " + str2);
-            u.b("UnsatisfiedLinkError getEncrypted " + str2, context);
+            a.e(TAG, "UnsatisfiedLinkError getEncrypted " + bArr);
+            q.b("UnsatisfiedLinkError getEncrypted " + bArr, context);
         }
-        return str3;
+        return bArr2;
     }
 
     private static native byte[] getKey(String str);
@@ -84,7 +99,7 @@ public class BaiduAppSSOJni {
             return null;
         }
         String str4 = str3 == null ? "other" : str3;
-        String q = u.q(context.getApplicationContext(), str);
+        String q = q.q(context.getApplicationContext(), str);
         if (q == null) {
             a.c(TAG, "can not get singInfo for: " + str);
             return null;

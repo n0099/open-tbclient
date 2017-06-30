@@ -1,40 +1,43 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.Cdo;
+import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dp extends HttpMessageListener {
-    final /* synthetic */ Cdo eoK;
+public class dp implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.layout.c> {
+    final /* synthetic */ Cdo exx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dp(Cdo cdo, int i) {
-        super(i);
-        this.eoK = cdo;
+    public dp(Cdo cdo) {
+        this.exx = cdo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        Cdo.a aVar;
-        Cdo.a aVar2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
-            if (httpResponsedMessage.getStatusCode() != 200) {
-                aVar = this.eoK.emW;
-                aVar.i(-1, null, null);
-                return;
-            }
-            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
-            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
-            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
-            String tid = applyCopyThreadResponseMessage.getTid();
-            if (errorCode == 0) {
-                errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
-            }
-            aVar2 = this.eoK.emW;
-            aVar2.i(errorCode, errorMessage, tid);
-        }
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: afE */
+    public com.baidu.tbadk.widget.layout.c fK() {
+        Context context;
+        context = this.exx.mContext;
+        return new com.baidu.tbadk.widget.layout.c(context);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public void o(com.baidu.tbadk.widget.layout.c cVar) {
+        cVar.removeAllViews();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: d */
+    public com.baidu.tbadk.widget.layout.c p(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: e */
+    public com.baidu.tbadk.widget.layout.c q(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
     }
 }

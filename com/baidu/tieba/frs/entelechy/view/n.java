@@ -4,15 +4,15 @@ import com.baidu.tieba.play.QuickVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements QuickVideoView.b {
-    final /* synthetic */ a bZs;
+    final /* synthetic */ a chB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(a aVar) {
-        this.bZs = aVar;
+        this.chB = aVar;
     }
 
     @Override // com.baidu.tieba.play.QuickVideoView.b
     public void onSurfaceDestroyed() {
-        this.bZs.stopPlay();
+        this.chB.stopPlay();
     }
 }

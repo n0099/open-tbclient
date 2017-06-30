@@ -1,44 +1,44 @@
 package com.baidu.tieba.frs.entelechy.view;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tieba.card.ci;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements com.baidu.tbadk.widget.layout.g {
-    private final /* synthetic */ LinkedList bBv;
-    private final /* synthetic */ bl bBw;
-    final /* synthetic */ aw bZX;
+    private final /* synthetic */ LinkedList bCo;
+    private final /* synthetic */ bm bCp;
+    final /* synthetic */ aw cih;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(aw awVar, LinkedList linkedList, bl blVar) {
-        this.bZX = awVar;
-        this.bBv = linkedList;
-        this.bBw = blVar;
+    public ba(aw awVar, LinkedList linkedList, bm bmVar) {
+        this.cih = awVar;
+        this.bCo = linkedList;
+        this.bCp = bmVar;
     }
 
     @Override // com.baidu.tbadk.widget.layout.g
     public void c(View view, int i, boolean z) {
-        bl blVar;
-        bl blVar2;
-        ci<bl> Ud = this.bZX.Ud();
+        bm bmVar;
+        bm bmVar2;
+        ci<bm> Vs = this.cih.Vs();
         if (z) {
-            if (Ud != null) {
+            if (Vs != null) {
                 view.setTag("1");
-                Ud.aQf = true;
-                blVar2 = this.bZX.ahM;
-                Ud.a(view, blVar2);
+                Vs.aRx = true;
+                bmVar2 = this.cih.aiu;
+                Vs.a(view, bmVar2);
             }
-            this.bZX.dr(false);
+            this.cih.du(false);
             return;
         }
-        if (Ud != null) {
+        if (Vs != null) {
             view.setTag("1");
-            Ud.aQf = false;
-            blVar = this.bZX.ahM;
-            Ud.a(view, blVar);
+            Vs.aRx = false;
+            bmVar = this.cih.aiu;
+            Vs.a(view, bmVar);
         }
-        this.bZX.a(this.bBv, i, this.bBw);
+        this.cih.a(this.bCo, i, this.bCp);
     }
 }

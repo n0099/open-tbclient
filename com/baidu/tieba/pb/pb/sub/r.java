@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements c.b {
-    final /* synthetic */ NewSubPbActivity eye;
+    final /* synthetic */ NewSubPbActivity eHC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(NewSubPbActivity newSubPbActivity) {
-        this.eye = newSubPbActivity;
+        this.eHC = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -19,16 +19,16 @@ public class r implements c.b {
         SubPbModel subPbModel2;
         cVar.dismiss();
         PostData postData = null;
-        subPbModel = this.eye.exN;
-        if (subPbModel.aOn() != null) {
-            subPbModel2 = this.eye.exN;
-            postData = subPbModel2.aOn().aJj();
+        subPbModel = this.eHC.eHl;
+        if (subPbModel.aSm() != null) {
+            subPbModel2 = this.eHC.eHl;
+            postData = subPbModel2.aSm().aNd();
         }
         if (postData != null) {
             if (i == 0) {
-                postData.bT(this.eye.getPageContext().getPageActivity());
+                postData.bN(this.eHC.getPageContext().getPageActivity());
             } else if (i == 1) {
-                this.eye.g(postData);
+                this.eHC.h(postData);
             }
         }
     }

@@ -6,16 +6,16 @@ import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tieba.play.a.b;
 import com.baidu.tieba.play.v;
 /* loaded from: classes.dex */
-class aj implements b.InterfaceC0077b {
-    final /* synthetic */ QuickVideoView fby;
+class aj implements b.InterfaceC0080b {
+    final /* synthetic */ QuickVideoView flO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(QuickVideoView quickVideoView) {
-        this.fby = quickVideoView;
+        this.flO = quickVideoView;
     }
 
-    @Override // com.baidu.tieba.play.a.b.InterfaceC0077b
-    public void bO(String str, String str2) {
+    @Override // com.baidu.tieba.play.a.b.InterfaceC0080b
+    public void bS(String str, String str2) {
         v.b bVar;
         v.b bVar2;
         v.b bVar3;
@@ -24,26 +24,26 @@ class aj implements b.InterfaceC0077b {
         Uri uri2;
         try {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                uri = this.fby.mUri;
+                uri = this.flO.mUri;
                 if (uri != null) {
-                    uri2 = this.fby.mUri;
+                    uri2 = this.flO.mUri;
                     if (str2.equals(uri2.getHost())) {
-                        this.fby.bN(str, str2);
+                        this.flO.bR(str, str2);
                     }
                 }
-                this.fby.fbi = null;
+                this.flO.fly = null;
             } else {
-                bVar3 = this.fby.aRf;
+                bVar3 = this.flO.aSy;
                 if (bVar3 != null) {
-                    bVar4 = this.fby.aRf;
+                    bVar4 = this.flO.aSy;
                     bVar4.onError(null, -400, SapiErrorCode.NETWORK_FAILED);
                 }
             }
         } catch (Throwable th) {
             th.printStackTrace();
-            bVar = this.fby.aRf;
+            bVar = this.flO.aSy;
             if (bVar != null) {
-                bVar2 = this.fby.aRf;
+                bVar2 = this.flO.aSy;
                 bVar2.onError(null, -400, SapiErrorCode.NETWORK_FAILED);
             }
         }

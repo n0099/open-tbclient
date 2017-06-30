@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.tbadk.TbConfig;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -642,7 +643,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         mediaInfo.mMediaPlayerName = "ijkplayer";
         String _getVideoCodecInfo = _getVideoCodecInfo();
         if (!TextUtils.isEmpty(_getVideoCodecInfo)) {
-            String[] split = _getVideoCodecInfo.split(",");
+            String[] split = _getVideoCodecInfo.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length >= 2) {
                 mediaInfo.mVideoDecoder = split[0];
                 mediaInfo.mVideoDecoderImpl = split[1];
@@ -653,7 +654,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         }
         String _getAudioCodecInfo = _getAudioCodecInfo();
         if (!TextUtils.isEmpty(_getAudioCodecInfo)) {
-            String[] split2 = _getAudioCodecInfo.split(",");
+            String[] split2 = _getAudioCodecInfo.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split2.length >= 2) {
                 mediaInfo.mAudioDecoder = split2[0];
                 mediaInfo.mAudioDecoderImpl = split2[1];

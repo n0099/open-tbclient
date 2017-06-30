@@ -1,22 +1,36 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ee extends CustomMessageListener {
-    final /* synthetic */ ec epf;
+public class ee implements Runnable {
+    final /* synthetic */ dy exY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ee(ec ecVar, int i) {
-        super(i);
-        this.epf = ecVar;
+    public ee(dy dyVar) {
+        this.exY = dyVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.epf.h(customResponsedMessage);
+    @Override // java.lang.Runnable
+    public void run() {
+        z.a aVar;
+        z.a aVar2;
+        z.a aVar3;
+        z.a aVar4;
+        try {
+            aVar = this.exY.viewholder;
+            if (aVar != null) {
+                aVar2 = this.exY.viewholder;
+                if (((ef) aVar2).eye != null) {
+                    aVar3 = this.exY.viewholder;
+                    ((ef) aVar3).eye.destroy();
+                    aVar4 = this.exY.viewholder;
+                    ((ef) aVar4).eye = null;
+                }
+            }
+        } catch (Throwable th) {
+            BdLog.e(th);
+        }
     }
 }

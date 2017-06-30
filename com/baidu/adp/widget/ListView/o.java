@@ -6,11 +6,11 @@ import android.widget.ListAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ BdListView Ib;
+    final /* synthetic */ BdListView Ia;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(BdListView bdListView) {
-        this.Ib = bdListView;
+        this.Ia = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -19,20 +19,20 @@ public class o implements AdapterView.OnItemLongClickListener {
         e eVar2;
         AdapterView.OnItemLongClickListener onItemLongClickListener;
         AdapterView.OnItemLongClickListener onItemLongClickListener2;
-        eVar = this.Ib.mBdListAdpter;
+        eVar = this.Ia.mBdListAdpter;
         int headersCount = eVar.getHeadersCount();
         if (i < headersCount) {
             return true;
         }
         int i2 = i - headersCount;
-        eVar2 = this.Ib.mBdListAdpter;
+        eVar2 = this.Ia.mBdListAdpter;
         ListAdapter wrappedAdapter = eVar2.getWrappedAdapter();
         if (wrappedAdapter == null || i2 >= wrappedAdapter.getCount()) {
             return true;
         }
-        onItemLongClickListener = this.Ib.mOnItemLongClickListener;
+        onItemLongClickListener = this.Ia.mOnItemLongClickListener;
         if (onItemLongClickListener != null) {
-            onItemLongClickListener2 = this.Ib.mOnItemLongClickListener;
+            onItemLongClickListener2 = this.Ia.mOnItemLongClickListener;
             return onItemLongClickListener2.onItemLongClick(adapterView, view, i2, j);
         }
         return false;

@@ -1,21 +1,36 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ExceptionData;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.core.view.NavigationBar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bo extends CustomMessageListener {
+public class bo implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity this$0;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(int i) {
-        super(i);
+    public bo(WriteImageActivity writeImageActivity) {
+        this.this$0 = writeImageActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && com.baidu.tbadk.core.util.ba.vw() != null && com.baidu.tbadk.core.util.ba.vw().indexOf("NewVcode") != -1) {
-            TbadkCoreApplication.m9getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.m9getInst().getNewVcodeWebviewCrashCount() + 1);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        NavigationBar navigationBar;
+        NavigationBar navigationBar2;
+        LinearLayout linearLayout;
+        NavigationBar navigationBar3;
+        LinearLayout linearLayout2;
+        navigationBar = this.this$0.mNavigationBar;
+        if (navigationBar.getVisibility() == 0) {
+            navigationBar3 = this.this$0.mNavigationBar;
+            navigationBar3.setVisibility(8);
+            linearLayout2 = this.this$0.eRS;
+            linearLayout2.setVisibility(8);
+            return;
         }
+        navigationBar2 = this.this$0.mNavigationBar;
+        navigationBar2.setVisibility(0);
+        linearLayout = this.this$0.eRS;
+        linearLayout.setVisibility(0);
     }
 }

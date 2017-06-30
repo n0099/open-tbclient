@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.widget.richText.TbRichText;
 /* loaded from: classes.dex */
 class q extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ p fCQ;
-    private final /* synthetic */ com.baidu.adp.widget.e fCR;
+    final /* synthetic */ p fMV;
+    private final /* synthetic */ com.baidu.adp.widget.e fMW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar, com.baidu.adp.widget.e eVar) {
-        this.fCQ = pVar;
-        this.fCR = eVar;
+        this.fMV = pVar;
+        this.fMW = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,11 +23,11 @@ class q extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
         PostData postData2;
         TbRichText tbRichText;
         super.onLoaded((q) aVar, str, i);
-        if (aVar != null && aVar.kS()) {
-            postData = this.fCQ.fCN;
-            this.fCR.setDrawable(postData.g(aVar));
-            postData2 = this.fCQ.fCN;
-            tbRichText = postData2.dqh;
+        if (aVar != null && aVar.kQ()) {
+            postData = this.fMV.fMS;
+            this.fMW.setDrawable(postData.g(aVar));
+            postData2 = this.fMV.fMS;
+            tbRichText = postData2.dyV;
             tbRichText.isChanged = true;
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ADAPTER_CHANGE_CMD));
         }

@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<e> aSk = new ArrayList();
-    private long aSl = 0;
+    private List<e> aTD = new ArrayList();
+    private long aTE = 0;
 
-    public List<e> JB() {
-        return this.aSk;
+    public List<e> JZ() {
+        return this.aTD;
     }
 
-    public long JC() {
-        return this.aSl;
+    public long Ka() {
+        return this.aTE;
     }
 
     public void a(e eVar) {
-        if (this.aSk != null) {
-            this.aSk.add(eVar);
+        if (this.aTD != null) {
+            this.aTD.add(eVar);
             if (eVar != null) {
-                this.aSl += eVar.JJ();
+                this.aTE += eVar.Kh();
             }
         }
     }
 
     public void b(e eVar) {
-        if (this.aSk != null) {
-            this.aSk.remove(eVar);
+        if (this.aTD != null) {
+            this.aTD.remove(eVar);
             if (eVar != null) {
-                this.aSl -= eVar.JJ();
+                this.aTE -= eVar.Kh();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.aSk != null) {
-            e eVar = this.aSk.get(i);
+        if (this.aTD != null) {
+            e eVar = this.aTD.get(i);
             if (eVar != null) {
-                this.aSl -= eVar.JJ();
+                this.aTE -= eVar.Kh();
             }
-            this.aSk.remove(i);
+            this.aTD.remove(i);
         }
     }
 
-    public int JD() {
-        if (this.aSk != null) {
-            return this.aSk.size();
+    public int Kb() {
+        if (this.aTD != null) {
+            return this.aTD.size();
         }
         return 0;
     }
 
-    public e fH(int i) {
-        if (this.aSk != null) {
-            return this.aSk.get(i);
+    public e fJ(int i) {
+        if (this.aTD != null) {
+            return this.aTD.get(i);
         }
         return null;
     }

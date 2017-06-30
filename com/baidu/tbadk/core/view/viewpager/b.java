@@ -16,14 +16,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b<T extends v, V extends a> extends PagerAdapter implements View.OnClickListener {
     private Context context;
-    private HashMap<BdUniqueId, c<T, V>> amY = new HashMap<>();
+    private HashMap<BdUniqueId, c<T, V>> anY = new HashMap<>();
     private List<v> mListData = new ArrayList();
-    private List<View> amZ = new ArrayList();
+    private List<View> anZ = new ArrayList();
     private int mChildCount = 0;
 
     public void a(Context context, c<T, V> cVar) {
         if (cVar != null && cVar.getType() != null) {
-            this.amY.put(cVar.getType(), cVar);
+            this.anY.put(cVar.getType(), cVar);
         }
     }
 
@@ -34,9 +34,9 @@ public class b<T extends v, V extends a> extends PagerAdapter implements View.On
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         c<T, V> cVar;
-        a C = C(view);
-        if (C != null && C.wH() != null && C.wH().getType() != null && (cVar = this.amY.get(C.wH().getType())) != null && cVar.wI() != null) {
-            cVar.wI().c(C, C.wH());
+        a D = D(view);
+        if (D != null && D.wZ() != null && D.wZ().getType() != null && (cVar = this.anY.get(D.wZ().getType())) != null && cVar.xa() != null) {
+            cVar.xa().c(D, D.wZ());
         }
     }
 
@@ -44,8 +44,8 @@ public class b<T extends v, V extends a> extends PagerAdapter implements View.On
         if (list != null && list.size() > 0) {
             destory();
             this.mListData = list;
-            if (this.amZ == null) {
-                this.amZ = new ArrayList();
+            if (this.anZ == null) {
+                this.anZ = new ArrayList();
             }
             int i = 0;
             while (true) {
@@ -55,7 +55,7 @@ public class b<T extends v, V extends a> extends PagerAdapter implements View.On
                     if (vVar != null) {
                         View a2 = a(vVar);
                         a2.setOnClickListener(this);
-                        this.amZ.add(a2);
+                        this.anZ.add(a2);
                     }
                     i = i2 + 1;
                 } else {
@@ -66,7 +66,7 @@ public class b<T extends v, V extends a> extends PagerAdapter implements View.On
     }
 
     private View a(v vVar) {
-        c<T, V> cVar = this.amY.get(vVar.getType());
+        c<T, V> cVar = this.anY.get(vVar.getType());
         if (cVar != null) {
             V b = cVar.b(null);
             if (BdBaseApplication.getInst().isDebugMode()) {
@@ -109,7 +109,7 @@ public class b<T extends v, V extends a> extends PagerAdapter implements View.On
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         View view;
-        if (this.amZ.size() > 0 && i >= 0 && i < this.amZ.size() && (view = this.amZ.get(i)) != null) {
+        if (this.anZ.size() > 0 && i >= 0 && i < this.anZ.size() && (view = this.anZ.get(i)) != null) {
             viewGroup.removeView(view);
         }
     }
@@ -119,21 +119,21 @@ public class b<T extends v, V extends a> extends PagerAdapter implements View.On
         if (i >= this.mListData.size()) {
             return null;
         }
-        View dr = dr(i);
-        if (dr != null && dr.getParent() != viewGroup) {
-            viewGroup.addView(dr);
-            return dr;
+        View dt = dt(i);
+        if (dt != null && dt.getParent() != viewGroup) {
+            viewGroup.addView(dt);
+            return dt;
         }
-        return dr;
+        return dt;
     }
 
-    public View dr(int i) {
-        if (i >= this.amZ.size() || i >= this.mListData.size()) {
+    public View dt(int i) {
+        if (i >= this.anZ.size() || i >= this.mListData.size()) {
             return null;
         }
-        View view = this.amZ.get(i);
-        a C = C(view);
-        if (C != null && C.wH() == null) {
+        View view = this.anZ.get(i);
+        a D = D(view);
+        if (D != null && D.wZ() == null) {
             a((a) view.getTag(), this.mListData.get(i));
             return view;
         }
@@ -142,13 +142,13 @@ public class b<T extends v, V extends a> extends PagerAdapter implements View.On
 
     private void a(a aVar, v vVar) {
         c<T, V> cVar;
-        if (aVar != null && vVar != null && (cVar = this.amY.get(vVar.getType())) != null) {
+        if (aVar != null && vVar != null && (cVar = this.anY.get(vVar.getType())) != null) {
             aVar.b(vVar);
             cVar.a(null, aVar, vVar);
         }
     }
 
-    private a C(View view) {
+    private a D(View view) {
         if (view == null || !(view.getTag() instanceof a)) {
             return null;
         }
@@ -162,15 +162,15 @@ public class b<T extends v, V extends a> extends PagerAdapter implements View.On
 
     public void destory() {
         c<T, V> cVar;
-        if (this.amZ != null) {
-            for (View view : this.amZ) {
-                a C = C(view);
-                if (C != null && C.wH() != null && (cVar = this.amY.get(C.wH().getType())) != null) {
-                    cVar.b(C, C.wH());
+        if (this.anZ != null) {
+            for (View view : this.anZ) {
+                a D = D(view);
+                if (D != null && D.wZ() != null && (cVar = this.anY.get(D.wZ().getType())) != null) {
+                    cVar.b(D, D.wZ());
                 }
             }
-            this.amZ.clear();
-            this.amZ = null;
+            this.anZ.clear();
+            this.anZ = null;
         }
         if (this.mListData != null) {
             this.mListData.clear();
@@ -179,8 +179,8 @@ public class b<T extends v, V extends a> extends PagerAdapter implements View.On
 
     /* loaded from: classes.dex */
     public static class a {
-        public int ana = 3;
-        private v anb = null;
+        public int aoa = 3;
+        private v aob = null;
         private View view;
 
         public a(View view) {
@@ -196,12 +196,12 @@ public class b<T extends v, V extends a> extends PagerAdapter implements View.On
             return this.view;
         }
 
-        public v wH() {
-            return this.anb;
+        public v wZ() {
+            return this.aob;
         }
 
         public void b(v vVar) {
-            this.anb = vVar;
+            this.aob = vVar;
         }
     }
 }

@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.e.a;
 import com.baidu.android.pushservice.f;
-import com.baidu.android.pushservice.h.u;
+import com.baidu.android.pushservice.g.a;
+import com.baidu.android.pushservice.j.q;
 /* loaded from: classes2.dex */
 public class HwNotifyActivity extends Activity {
     @Override // android.app.Activity
@@ -25,7 +25,7 @@ public class HwNotifyActivity extends Activity {
                     boolean a = f.a(getApplicationContext(), c, d);
                     a.c("HwNotifyActivity", "hwMessageVerify = " + a);
                     if (a) {
-                        u.a(getApplicationContext(), intent);
+                        q.a(getApplicationContext(), intent);
                     }
                 }
             }

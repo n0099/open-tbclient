@@ -6,11 +6,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements x {
-    final /* synthetic */ ac fVw;
+    final /* synthetic */ ac ggh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(ac acVar) {
-        this.fVw = acVar;
+        this.ggh = acVar;
     }
 
     @Override // com.baidu.tieba.write.album.x
@@ -23,21 +23,21 @@ public class ah implements x {
         p pVar;
         AlbumActivity albumActivity4;
         if (!z) {
-            albumActivity = this.fVw.fTN;
+            albumActivity = this.ggh.gex;
             d = albumActivity.d(imageFileInfo);
         } else {
-            textView = this.fVw.fUT;
-            albumActivity2 = this.fVw.fTN;
+            textView = this.ggh.gfE;
+            albumActivity2 = this.ggh.gex;
             textView.setText(albumActivity2.getResources().getText(w.l.next_step));
-            albumActivity3 = this.fVw.fTN;
+            albumActivity3 = this.ggh.gex;
             d = albumActivity3.c(imageFileInfo);
-            pVar = this.fVw.fTx;
+            pVar = this.ggh.gei;
             if (pVar.isOriginalImg()) {
-                albumActivity4 = this.fVw.fTN;
-                albumActivity4.bnu();
+                albumActivity4 = this.ggh.gex;
+                albumActivity4.brR();
             }
         }
-        this.fVw.bnX();
+        this.ggh.bsu();
         return d;
     }
 }

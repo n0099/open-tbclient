@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
@@ -37,7 +37,7 @@ public class s {
         layoutParams.addRule(12);
         relativeLayout.addView(textView, layoutParams);
         ImageView imageView = new ImageView(tbPageContext.getPageActivity());
-        aq.j(imageView, w.g.circle_shape);
+        as.j(imageView, w.g.circle_shape);
         int dimensionPixelSize = tbPageContext.getResources().getDimensionPixelSize(w.f.ds140);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
         layoutParams2.topMargin = tbPageContext.getResources().getDimensionPixelSize(w.f.ds374);

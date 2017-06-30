@@ -4,15 +4,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
 /* loaded from: classes.dex */
 public class a implements v {
-    public static final BdUniqueId eGM = BdUniqueId.gen();
-    private int eGN = 0;
+    public static final BdUniqueId eQB = BdUniqueId.gen();
+    private int eQC = 0;
 
-    public int aPU() {
-        return this.eGN;
+    public int aTV() {
+        return this.eQC;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eGM;
+        return eQB;
     }
 }

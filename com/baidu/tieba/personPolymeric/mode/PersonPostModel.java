@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.squareup.wire.Wire;
@@ -39,9 +39,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     private com.baidu.adp.framework.listener.e pageSocketListener;
     public final ArrayList<v> postList;
     public final ArrayList<v> threadList;
-    private static int eKo = 0;
-    private static int eMM = 1;
-    private static String eKp = "";
+    private static int eUm = 0;
+    private static int eWV = 1;
+    private static String eUn = "";
 
     /* loaded from: classes.dex */
     public interface a {
@@ -94,32 +94,32 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        eMM = 1;
+        eWV = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(eKp)) {
-                eKo = 1;
-                eKp = str;
+            if (z || !str.equals(eUn)) {
+                eUm = 1;
+                eUn = str;
             } else {
-                eKo++;
+                eUm++;
             }
         } else {
-            if (z || !str.equals(eKp)) {
-                eMM = 1;
-                eKp = str;
+            if (z || !str.equals(eUn)) {
+                eWV = 1;
+                eUn = str;
             }
-            eMM++;
+            eWV++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(eKp);
+        userPostPageRequestMessage.setUid(eUn);
         if (z3) {
-            userPostPageRequestMessage.setPn(eKo);
+            userPostPageRequestMessage.setPn(eUm);
         } else {
-            userPostPageRequestMessage.setPn(eMM);
+            userPostPageRequestMessage.setPn(eWV);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -128,7 +128,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         int af = k.af(TbadkCoreApplication.m9getInst().getApp());
         int ag = k.ag(TbadkCoreApplication.m9getInst().getApp());
         float f = TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = av.vl().vn() ? 2 : 1;
+        int i2 = ax.vA().vC() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(af);
         userPostPageRequestMessage.set_scr_h(ag);
         userPostPageRequestMessage.set_scr_dip(f);
@@ -140,7 +140,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public void parseProtobuf(DataRes dataRes) {
         if (dataRes != null) {
             this.hide_post = dataRes.hide_post.intValue();
-            if (x.r(dataRes.post_list)) {
+            if (z.t(dataRes.post_list)) {
                 this.mCardNullPolymericData = new com.baidu.tieba.personPolymeric.c.i();
                 this.postList.add(this.mCardNullPolymericData);
                 return;
@@ -152,7 +152,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 this.mLastChooseStyle = random;
                 cardPersonDynamicThreadData.parseProtobuf(postInfoList, random);
                 postInfoList2.parseProtobuf(postInfoList, random);
-                if (cardPersonDynamicThreadData.bDS != 33) {
+                if (cardPersonDynamicThreadData.bEK != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 } else if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
@@ -199,9 +199,10 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes.dex */
-    public static class PostInfoList extends OrmObject implements v, ah, Serializable {
+    public static class PostInfoList extends OrmObject implements v, aj, Serializable {
         public static final BdUniqueId POST_INFO = BdUniqueId.gen();
         public boolean isDeal;
+        public String name_show;
         public long forum_id = 0;
         public long thread_id = 0;
         public long post_id = 0;
@@ -235,6 +236,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 this.forum_name = postInfoList.forum_name;
                 this.title = postInfoList.title;
                 this.user_name = postInfoList.user_name;
+                this.name_show = postInfoList.name_show;
                 this.user_id = postInfoList.user_id.longValue();
                 this.user_portrait = postInfoList.user_portrait;
                 this.thread_type = postInfoList.thread_type.longValue();
@@ -275,7 +277,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.ah
+        @Override // com.baidu.tbadk.core.util.aj
         public ArrayList<PreLoadImageInfo> getImages() {
             Media[] mediaArr;
             ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();

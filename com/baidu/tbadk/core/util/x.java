@@ -1,81 +1,47 @@
 package com.baidu.tbadk.core.util;
-
-import java.util.List;
 /* loaded from: classes.dex */
 public class x {
-    public static <T> void p(List<T> list) {
-        if (list != null) {
-            list.clear();
+    private static x aeR;
+    private long aeM = 0;
+    private long aeN = 0;
+    private String aeO = "";
+    private String aeP = "";
+    private final long aeQ = 120000;
+
+    public static x uM() {
+        if (aeR == null) {
+            synchronized (x.class) {
+                if (aeR == null) {
+                    aeR = new x();
+                }
+            }
         }
+        return aeR;
     }
 
-    public static <T> int q(List<T> list) {
-        if (list == null || list.isEmpty()) {
-            return 0;
+    public String uN() {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.aeM > 120000) {
+            if (com.baidu.adp.lib.util.k.hz()) {
+                return "";
+            }
+            this.aeM = currentTimeMillis;
+            this.aeO = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
         }
-        return list.size();
+        return this.aeO;
     }
 
-    public static <T> T c(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-            return null;
+    public String dE(String str) {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.aeN > 120000) {
+            int indexOf = str.indexOf("hiphotos.baidu.com");
+            if (indexOf <= 0 || com.baidu.adp.lib.util.k.hz()) {
+                return "";
+            }
+            this.aeN = currentTimeMillis;
+            this.aeP = UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
+            return this.aeP;
         }
-        return list.get(i);
-    }
-
-    public static <T> int a(List<T> list, T t) {
-        if (list == null || list.isEmpty() || t == null) {
-            return -1;
-        }
-        return list.indexOf(t);
-    }
-
-    public static <T> boolean r(List<T> list) {
-        return q(list) <= 0;
-    }
-
-    public static <T> T d(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-            return null;
-        }
-        return list.remove(i);
-    }
-
-    public static <T> boolean b(List<T> list, T t) {
-        if (list == null) {
-            return false;
-        }
-        return list.add(t);
-    }
-
-    public static <T> boolean a(List<T> list, int i, T t) {
-        if (list == null || i > list.size() || i < 0) {
-            return false;
-        }
-        list.add(i, t);
-        return true;
-    }
-
-    public static <T> boolean a(List<T> list, int i, List<T> list2) {
-        if (list == null || i > list.size() || i < 0 || list2 == null || list2.size() <= 0) {
-            return false;
-        }
-        list.addAll(i, list2);
-        return true;
-    }
-
-    public static <T> List<T> a(List<T> list, int i, int i2) {
-        int q = q(list);
-        if (q > 0 && i >= 0 && i2 <= q) {
-            return list.subList(i, i2);
-        }
-        return null;
-    }
-
-    public static <T> void b(List<T> list, int i, int i2) {
-        int q = q(list);
-        if (q > 0 && i >= 0 && i2 <= q) {
-            p(list.subList(i, i2));
-        }
+        return this.aeP;
     }
 }

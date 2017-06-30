@@ -19,7 +19,7 @@ public class d {
     private Context mContext = null;
     private Bitmap.Config ys = Bitmap.Config.RGB_565;
 
-    public static synchronized d gS() {
+    public static synchronized d gR() {
         d dVar;
         synchronized (d.class) {
             if (yr == null) {
@@ -41,7 +41,7 @@ public class d {
         this.mBitmapHash.clear();
     }
 
-    public Bitmap ap(String str) {
+    public Bitmap au(String str) {
         return BitmapFactory.decodeFile(str);
     }
 

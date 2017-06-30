@@ -6,24 +6,24 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ PbSearchEmotionActivity evD;
-    private final /* synthetic */ String evE;
+    final /* synthetic */ PbSearchEmotionActivity eET;
+    private final /* synthetic */ String eEU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PbSearchEmotionActivity pbSearchEmotionActivity, String str) {
-        this.evD = pbSearchEmotionActivity;
-        this.evE = str;
+        this.eET = pbSearchEmotionActivity;
+        this.eEU = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
         EditText editText2;
-        editText = this.evD.dCP;
-        editText.setText(this.evE);
-        editText2 = this.evD.dCP;
-        editText2.setSelection(this.evE.length());
-        this.evD.og(this.evE);
+        editText = this.eET.dLj;
+        editText.setText(this.eEU);
+        editText2 = this.eET.dLj;
+        editText2.setSelection(this.eEU.length());
+        this.eET.pa(this.eEU);
         TiebaStatic.log("c12178");
     }
 }

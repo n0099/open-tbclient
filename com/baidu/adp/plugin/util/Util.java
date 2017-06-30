@@ -11,6 +11,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -36,7 +37,7 @@ public final class Util {
         }
     }
 
-    public static boolean kk() {
+    public static boolean ki() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -71,20 +72,20 @@ public final class Util {
     }
 
     public static final boolean k(long j) {
-        long km = km();
+        long kk = kk();
         if (j <= 0) {
-            return km <= 0 || km >= 31457280;
+            return kk <= 0 || kk >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < km;
+        return (j2 <= 31457280 ? j2 : 31457280L) < kk;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [159=4, 161=4, 162=4, 163=4, 164=4, 166=4, 169=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [160=4, 162=4, 163=4, 164=4, 165=4, 167=4, 170=4] */
     public static String a(InputStream inputStream, File file) {
         if (inputStream == null || file == null) {
             return "illegal_param";
@@ -152,9 +153,9 @@ public final class Util {
         }
     }
 
-    public static void i(File file) {
+    public static void j(File file) {
         if (file != null && file.exists()) {
-            g(file);
+            h(file);
             try {
                 file.delete();
             } catch (Exception e) {
@@ -163,14 +164,14 @@ public final class Util {
         }
     }
 
-    public static void g(File file) {
+    public static void h(File file) {
         if (file != null && file.exists() && file.isDirectory()) {
             try {
                 File[] listFiles = file.listFiles();
                 if (listFiles != null) {
                     for (File file2 : listFiles) {
                         try {
-                            h(file2);
+                            i(file2);
                         } catch (Exception e) {
                             BdLog.e(e);
                         }
@@ -182,10 +183,10 @@ public final class Util {
         }
     }
 
-    public static void h(File file) {
+    public static void i(File file) {
         if (file != null) {
             if (file.isDirectory()) {
-                i(file);
+                j(file);
             } else if (file.exists()) {
                 try {
                     file.delete();
@@ -196,7 +197,7 @@ public final class Util {
         }
     }
 
-    public static int a(Signature[] signatureArr, Signature[] signatureArr2) {
+    public static int b(Signature[] signatureArr, Signature[] signatureArr2) {
         if (signatureArr == null) {
             return signatureArr2 == null ? 1 : -1;
         } else if (signatureArr2 == null) {
@@ -214,15 +215,15 @@ public final class Util {
         }
     }
 
-    public static File bw(String str) {
-        PluginSetting aZ = PluginPackageManager.jx().aZ(str);
-        if (aZ == null || aZ.apkPath == null || aZ.apkPath.length() <= ".apk".length()) {
+    public static File bB(String str) {
+        PluginSetting be = PluginPackageManager.jw().be(str);
+        if (be == null || be.apkPath == null || be.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(aZ.apkPath.substring(0, aZ.apkPath.length() - ".apk".length()));
+        return new File(be.apkPath.substring(0, be.apkPath.length() - ".apk".length()));
     }
 
-    public static File kl() {
+    public static File kj() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -253,7 +254,7 @@ public final class Util {
                 sb = new StringBuilder();
             }
             sb.append(string);
-            sb.append(",");
+            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             i = i2;
         }
         if (sb == null || sb.length() <= 0) {
@@ -345,7 +346,7 @@ public final class Util {
         return String.valueOf(pluginSetting.packageName) + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bx(String str) {
+    public static String bC(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -356,16 +357,24 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return kl() + File.separator + e(pluginSetting);
+        return kj() + File.separator + e(pluginSetting);
     }
 
-    public static long km() {
+    public static long kk() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();
         } catch (Exception e) {
             BdLog.e(e);
             return 0L;
+        }
+    }
+
+    public static boolean isPreview() {
+        try {
+            return Build.VERSION.class.getField("PREVIEW_SDK_INT").getInt(null) > 0;
+        } catch (Exception e) {
+            return false;
         }
     }
 }

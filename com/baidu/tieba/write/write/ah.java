@@ -1,24 +1,21 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import android.widget.EditText;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ImageProblemActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements View.OnClickListener {
-    final /* synthetic */ WriteActivity gaR;
+    final /* synthetic */ WriteActivity glP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(WriteActivity writeActivity) {
-        this.gaR = writeActivity;
+        this.glP = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        EditText editText;
-        com.baidu.tbadk.editortools.j jVar;
-        editText = this.gaR.fst;
-        editText.requestFocus();
-        jVar = this.gaR.ayP;
-        jVar.AG();
+        this.glP.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ImageProblemActivityConfig(this.glP.getPageContext().getPageActivity())));
     }
 }

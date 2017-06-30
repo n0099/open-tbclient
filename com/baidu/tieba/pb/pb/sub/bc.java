@@ -11,13 +11,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bc extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SubPbModel ezA;
+    final /* synthetic */ SubPbModel eIW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bc(SubPbModel subPbModel, int i, int i2) {
         super(i, i2);
-        this.ezA = subPbModel;
+        this.eIW = subPbModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -59,11 +59,11 @@ public class bc extends com.baidu.adp.framework.listener.a {
         TbPageContext tbPageContext2;
         long j4 = 0;
         String str5 = null;
-        bdUniqueId = this.ezA.unique_id;
+        bdUniqueId = this.eIW.unique_id;
         if (bdUniqueId == responsedMessage.getOrginalMessage().getTag()) {
-            this.ezA.isLoading = false;
+            this.eIW.isLoading = false;
             if (responsedMessage.hasError() && responsedMessage.getError() == 4) {
-                tbPageContext2 = this.ezA.aas;
+                tbPageContext2 = this.eIW.aat;
                 tbPageContext2.getPageActivity().finish();
             }
             if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -72,7 +72,7 @@ public class bc extends com.baidu.adp.framework.listener.a {
                 SubPbHttpResponseMessage subPbHttpResponseMessage = (SubPbHttpResponseMessage) responsedMessage;
                 if (subPbHttpResponseMessage.isTreatDelPage()) {
                     if (!subPbHttpResponseMessage.hasError()) {
-                        this.ezA.g(subPbHttpResponseMessage.pbFloorData);
+                        this.eIW.g(subPbHttpResponseMessage.pbFloorData);
                         return;
                     }
                     return;
@@ -89,44 +89,44 @@ public class bc extends com.baidu.adp.framework.listener.a {
                 SubPbSocketResponseMessage subPbSocketResponseMessage = (SubPbSocketResponseMessage) responsedMessage;
                 if (subPbSocketResponseMessage.isTreatDelPage()) {
                     if (!subPbSocketResponseMessage.hasError()) {
-                        this.ezA.g(subPbSocketResponseMessage.pbFloorData);
+                        this.eIW.g(subPbSocketResponseMessage.pbFloorData);
                         return;
                     }
                     return;
                 }
             }
-            arrayList = this.ezA.ezs;
+            arrayList = this.eIW.eIO;
             if (arrayList != null) {
-                arrayList4 = this.ezA.ezs;
+                arrayList4 = this.eIW.eIO;
                 if (arrayList4.size() > 0) {
                     try {
-                        arrayList6 = this.ezA.ezs;
+                        arrayList6 = this.eIW.eIO;
                         for (int size = arrayList6.size() - 1; size >= 0; size--) {
-                            arrayList7 = this.ezA.ezs;
+                            arrayList7 = this.eIW.eIO;
                             com.baidu.tieba.pb.data.n nVar5 = (com.baidu.tieba.pb.data.n) arrayList7.get(size);
-                            z4 = this.ezA.ezu;
+                            z4 = this.eIW.eIQ;
                             if (z4) {
-                                nVar4 = this.ezA.ewW;
+                                nVar4 = this.eIW.eGs;
                                 nVar4.c(nVar5, true);
                             } else {
-                                nVar3 = this.ezA.ewW;
+                                nVar3 = this.eIW.eGs;
                                 nVar3.b(nVar5, true);
                             }
                         }
                     } catch (Exception e) {
                         BdLog.detailException(e);
                     }
-                    arrayList5 = this.ezA.ezs;
+                    arrayList5 = this.eIW.eIO;
                     arrayList5.clear();
                 }
             }
             int error = responsedMessage.getError();
             String errorString = responsedMessage.getErrorString();
-            bVar = this.ezA.bNa;
+            bVar = this.eIW.bTD;
             if (bVar == null) {
-                this.ezA.bNa = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
+                this.eIW.bTD = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
             }
-            bVar2 = this.ezA.bNa;
+            bVar2 = this.eIW.bTD;
             if (bVar2 != null) {
                 if (error == 0) {
                     if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -144,15 +144,15 @@ public class bc extends com.baidu.adp.framework.listener.a {
                         j3 = j;
                         i = downSize2;
                     }
-                    bVar3 = this.ezA.bNa;
+                    bVar3 = this.eIW.bTD;
                     bVar3.a(z, true, error, errorString, i, j3, j2);
-                    this.ezA.bNa = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
-                    this.ezA.bNa = null;
+                    this.eIW.bTD = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
+                    this.eIW.bTD = null;
                 }
                 if (responsedMessage == null || ((!(responsedMessage instanceof SubPbSocketResponseMessage) && !(responsedMessage instanceof SubPbHttpResponseMessage)) || responsedMessage.getError() != 0)) {
-                    aVar = this.ezA.ezo;
+                    aVar = this.eIW.eIK;
                     if (aVar != null) {
-                        aVar2 = this.ezA.ezo;
+                        aVar2 = this.eIW.eIK;
                         aVar2.a(false, error, errorString, null);
                     }
                 } else if (responsedMessage.getCmd() == 302002 || responsedMessage.getCmd() == 1002100) {
@@ -161,64 +161,64 @@ public class bc extends com.baidu.adp.framework.listener.a {
                     } else {
                         nVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
                     }
-                    if (nVar.aJi().errorno.intValue() != 0) {
-                        aVar5 = this.ezA.ezo;
+                    if (nVar.aNc().errorno.intValue() != 0) {
+                        aVar5 = this.eIW.eIK;
                         if (aVar5 != null) {
-                            aVar6 = this.ezA.ezo;
-                            aVar6.a(false, nVar.ejt.errorno.intValue(), nVar.ejt.errmsg, null);
+                            aVar6 = this.eIW.eIK;
+                            aVar6.a(false, nVar.esr.errorno.intValue(), nVar.esr.errmsg, null);
                             return;
                         }
                         return;
                     }
-                    if (nVar.LH() != null && nVar.LH().getAuthor() != null) {
-                        str5 = nVar.LH().getAuthor().getUserId();
-                        if (com.baidu.tbadk.core.util.x.r(nVar.aJj().getAuthor().getIconInfo())) {
-                            arrayList2 = this.ezA.ezq;
+                    if (nVar.Mv() != null && nVar.Mv().getAuthor() != null) {
+                        str5 = nVar.Mv().getAuthor().getUserId();
+                        if (com.baidu.tbadk.core.util.z.t(nVar.aNd().getAuthor().getIconInfo())) {
+                            arrayList2 = this.eIW.eIM;
                             if (arrayList2 != null) {
-                                MetaData author = nVar.aJj().getAuthor();
-                                arrayList3 = this.ezA.ezq;
+                                MetaData author = nVar.aNd().getAuthor();
+                                arrayList3 = this.eIW.eIM;
                                 author.setIconInfo(arrayList3);
                             }
                         }
                     }
-                    z2 = this.ezA.ezu;
+                    z2 = this.eIW.eIQ;
                     if (!z2) {
-                        for (int i2 = 0; i2 < nVar.aJn().size(); i2++) {
-                            boolean equals = str5.equals(nVar.aJn().get(i2).getAuthor().getUserId());
-                            tbPageContext = this.ezA.aas;
-                            nVar.aJn().get(i2).a(tbPageContext, equals);
+                        for (int i2 = 0; i2 < nVar.aNh().size(); i2++) {
+                            boolean equals = str5.equals(nVar.aNh().get(i2).getAuthor().getUserId());
+                            tbPageContext = this.eIW.aat;
+                            nVar.aNh().get(i2).a(tbPageContext, equals);
                         }
                     }
-                    if (nVar.aJj() != null) {
-                        this.ezA.postID = nVar.aJj().getId();
+                    if (nVar.aNd() != null) {
+                        this.eIW.postID = nVar.aNd().getId();
                     }
-                    if (nVar.LH() != null) {
-                        this.ezA.threadID = nVar.LH().getId();
-                        this.ezA.ejs = nVar.nD();
-                        this.ezA.ezn = nVar.LH().rD();
+                    if (nVar.Mv() != null) {
+                        this.eIW.threadID = nVar.Mv().getId();
+                        this.eIW.esq = nVar.nz();
+                        this.eIW.eIJ = nVar.Mv().rA();
                     }
-                    str = this.ezA.ezn;
+                    str = this.eIW.eIJ;
                     if (str != null) {
-                        str2 = this.ezA.postID;
+                        str2 = this.eIW.postID;
                         if (str2 != null) {
-                            str3 = this.ezA.ezn;
-                            str4 = this.ezA.postID;
+                            str3 = this.eIW.eIJ;
+                            str4 = this.eIW.postID;
                             if (str3.equals(str4)) {
-                                this.ezA.ejs = true;
+                                this.eIW.esq = true;
                             }
                         }
                     }
-                    z3 = this.ezA.ezu;
+                    z3 = this.eIW.eIQ;
                     if (!z3) {
-                        this.ezA.e(nVar);
+                        this.eIW.e(nVar);
                     } else {
-                        this.ezA.f(nVar);
+                        this.eIW.f(nVar);
                     }
-                    aVar3 = this.ezA.ezo;
+                    aVar3 = this.eIW.eIK;
                     if (aVar3 != null) {
-                        boolean z5 = this.ezA.aOo();
-                        aVar4 = this.ezA.ezo;
-                        nVar2 = this.ezA.ewW;
+                        boolean z5 = this.eIW.aSn();
+                        aVar4 = this.eIW.eIK;
+                        nVar2 = this.eIW.eGs;
                         aVar4.a(z5, error, errorString, nVar2);
                     }
                 }

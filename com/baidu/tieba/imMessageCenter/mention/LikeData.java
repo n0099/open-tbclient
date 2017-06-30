@@ -2,12 +2,14 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.data.GodUserData;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.User;
 /* loaded from: classes2.dex */
 public class LikeData implements Serializable {
     private static final long serialVersionUID = 1250162253971653314L;
+    private GodUserData mGodData;
     private int mIsMyFriend;
     private String mId = "";
     private String mName = "";
@@ -42,10 +44,18 @@ public class LikeData implements Serializable {
                 this.mNameShow = user.name_show;
                 this.mPortrait = user.portrait;
                 this.mIsMyFriend = user.is_friend.intValue();
+                if (user.god_data != null) {
+                    this.mGodData = new GodUserData();
+                    this.mGodData.parserProtobuf(user.god_data);
+                }
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
+    }
+
+    public boolean isBigV() {
+        return this.mGodData != null && this.mGodData.isBigV();
     }
 
     public String getId() {

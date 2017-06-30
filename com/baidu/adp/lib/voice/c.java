@@ -23,7 +23,7 @@ public class c implements Runnable {
     private final Runnable mPlayTimeThread = new d(this);
     private final Runnable zF = new e(this);
 
-    public int hN() {
+    public int hM() {
         if (this.mAudioTrack == null) {
             return 0;
         }
@@ -224,7 +224,7 @@ public class c implements Runnable {
         }
     }
 
-    public void aK(String str) {
+    public void aP(String str) {
         this.zz = str;
     }
 

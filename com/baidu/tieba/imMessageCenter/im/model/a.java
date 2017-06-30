@@ -7,13 +7,13 @@ import com.baidu.tieba.im.message.LoadHistoryMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class a extends CustomMessageListener {
-    final /* synthetic */ PersonalMsglistModel dlf;
+    final /* synthetic */ PersonalMsglistModel dtb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(PersonalMsglistModel personalMsglistModel, int i) {
         super(i);
-        this.dlf = personalMsglistModel;
+        this.dtb = personalMsglistModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,13 +23,13 @@ public class a extends CustomMessageListener {
         ak callback;
         if (customResponsedMessage != null) {
             if (customResponsedMessage.getCmd() == 2012121) {
-                this.dlf.processServerMsg(customResponsedMessage);
+                this.dtb.processServerMsg(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2001143) {
-                this.dlf.processDraft(customResponsedMessage);
+                this.dtb.processDraft(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2001146) {
-                processHistory = this.dlf.processHistory(customResponsedMessage);
+                processHistory = this.dtb.processHistory(customResponsedMessage);
                 if ((customResponsedMessage.getOrginalMessage() instanceof LoadHistoryMessage) && processHistory && (callback = ((LoadHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                    callback.amm();
+                    callback.apX();
                 }
             }
         }

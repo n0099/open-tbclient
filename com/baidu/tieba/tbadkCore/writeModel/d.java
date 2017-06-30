@@ -7,9 +7,10 @@ public class d {
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String fFx;
-    private String fFy;
+    private String fPC;
+    private String fPD;
     private int isCopyTWZhibo;
+    private String mNickNameActivityMoney;
     private String preMsg;
     private String threadId = null;
     private String postId = null;
@@ -24,15 +25,15 @@ public class d {
         return this.errorCode != 0;
     }
 
-    public boolean bjn() {
+    public boolean bnB() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bjo() {
+    public boolean bnC() {
         return this.errorCode == 1990055;
     }
 
-    public boolean bjp() {
+    public boolean bnD() {
         return this.errorCode == 227001;
     }
 
@@ -48,7 +49,7 @@ public class d {
         this.errorString = str;
     }
 
-    public AntiData avj() {
+    public AntiData azh() {
         return this.antiData;
     }
 
@@ -92,19 +93,27 @@ public class d {
         return this.isCopyTWZhibo;
     }
 
-    public String bjq() {
-        return this.fFx;
+    public String bnE() {
+        return this.fPC;
     }
 
-    public void qB(String str) {
-        this.fFx = str;
+    public void rz(String str) {
+        this.fPC = str;
     }
 
-    public String bjr() {
-        return this.fFy;
+    public String bnF() {
+        return this.fPD;
     }
 
-    public void qC(String str) {
-        this.fFy = str;
+    public void rA(String str) {
+        this.fPD = str;
+    }
+
+    public String getNickNameActivityMoney() {
+        return this.mNickNameActivityMoney;
+    }
+
+    public void setNickNameActivityMoney(String str) {
+        this.mNickNameActivityMoney = str;
     }
 }

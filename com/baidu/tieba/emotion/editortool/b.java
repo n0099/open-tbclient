@@ -16,7 +16,11 @@ class b extends CustomMessageListener {
             com.baidu.tbadk.editortools.j jVar = (com.baidu.tbadk.editortools.j) customResponsedMessage.getData();
             int indexOf = jVar.getCollectTools().indexOf(5);
             if (indexOf != -1) {
-                jVar.b(new t(jVar.getContext(), indexOf + 1));
+                if (jVar.CM()) {
+                    jVar.b(new v(jVar.getContext(), indexOf + 1, false));
+                } else {
+                    jVar.b(new v(jVar.getContext(), indexOf + 1));
+                }
             }
         }
     }

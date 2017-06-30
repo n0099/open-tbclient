@@ -1,17 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.tbadkCore.b.a;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fy implements a.InterfaceC0080a {
-    final /* synthetic */ fx evi;
+public class fy implements View.OnClickListener {
+    final /* synthetic */ fw eBx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fy(fx fxVar) {
-        this.evi = fxVar;
+    public fy(fw fwVar) {
+        this.eBx = fwVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0080a
-    public void ld() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View.OnClickListener onClickListener;
+        View.OnClickListener onClickListener2;
+        int i;
+        if (com.baidu.adp.lib.util.i.hj()) {
+            this.eBx.aPZ();
+            i = this.eBx.eBt;
+            view.setTag(Boolean.valueOf(i == 0));
+        }
+        onClickListener = this.eBx.eBu;
+        if (onClickListener != null) {
+            onClickListener2 = this.eBx.eBu;
+            onClickListener2.onClick(view);
+        }
     }
 }

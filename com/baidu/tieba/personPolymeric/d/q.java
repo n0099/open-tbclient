@@ -2,18 +2,18 @@ package com.baidu.tieba.personPolymeric.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements com.baidu.adp.lib.e.c<s> {
-    final /* synthetic */ p eNu;
+    final /* synthetic */ p eXD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.eNu = pVar;
+        this.eXD = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: aQR */
-    public s fL() {
-        return new s(this.eNu.eNs);
+    /* renamed from: aUW */
+    public s fK() {
+        return new s(this.eXD.eXB);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -1,17 +1,17 @@
 package com.baidu.audiorecorder.lib.voice;
 /* loaded from: classes2.dex */
 class i implements Runnable {
-    final /* synthetic */ g JM;
-    private final /* synthetic */ String JN;
+    final /* synthetic */ g JL;
+    private final /* synthetic */ String JM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar, String str) {
-        this.JM = gVar;
-        this.JN = str;
+        this.JL = gVar;
+        this.JM = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.core.voice.i.delFile(com.baidu.tbadk.core.voice.i.dU(this.JN));
+        com.baidu.tbadk.core.voice.i.delFile(com.baidu.tbadk.core.voice.i.eo(this.JM));
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.adp.lib.voice.l;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.k;
+import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.core.voice.service.MediaService;
 import com.baidu.tieba.w;
@@ -43,12 +43,12 @@ public class g extends BroadcastReceiver {
                             playView.b(this.this$0.mCurPlayModel);
                         }
                     } catch (Exception e) {
-                        k kVar = new k();
+                        m mVar = new m();
                         if (this.this$0.mCurPlayModel != null) {
-                            kVar.n("id", this.this$0.mCurPlayModel.getId());
-                            kVar.n("from", this.this$0.mCurPlayModel.from);
+                            mVar.n("id", this.this$0.mCurPlayModel.getId());
+                            mVar.n("from", this.this$0.mCurPlayModel.from);
                         }
-                        TiebaStatic.voiceError(TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), kVar.toString());
+                        TiebaStatic.voiceError(TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), mVar.toString());
                     }
                 }
             } else if (action.equals("com.baidu.playElapsedTime")) {
@@ -105,7 +105,7 @@ public class g extends BroadcastReceiver {
                 }
                 VoiceManager.b playView5 = this.this$0.getPlayView();
                 if (playView5 != null) {
-                    playView5.lV();
+                    playView5.lT();
                 }
                 MediaService.startPlay(context);
             } else {

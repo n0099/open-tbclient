@@ -3,9 +3,9 @@ package com.baidu.android.pushservice;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.c.a;
-import com.baidu.android.pushservice.c.x;
-import com.baidu.android.pushservice.h.m;
+import com.baidu.android.pushservice.e.a;
+import com.baidu.android.pushservice.e.x;
+import com.baidu.android.pushservice.j.n;
 /* loaded from: classes2.dex */
 public final class j {
     private static j a;
@@ -18,7 +18,7 @@ public final class j {
     private j(Context context) {
         this.b = null;
         this.c = null;
-        this.c = m.a(context, "com.baidu.pushservice.channel_token");
+        this.c = n.a(context, "com.baidu.pushservice.channel_token");
         this.b = PushSettings.a(context);
         this.f = context;
     }
@@ -38,9 +38,9 @@ public final class j {
         return this.b;
     }
 
-    public void a(Context context, boolean z, a.C0016a c0016a) {
+    public void a(Context context, boolean z, a.C0018a c0018a) {
         if (this.d == null || !this.d.isAlive()) {
-            x xVar = new x(context, c0016a);
+            x xVar = new x(context, c0018a);
             if (!z) {
                 xVar.a(0);
             }
@@ -53,7 +53,7 @@ public final class j {
         this.b = str;
         this.c = str2;
         PushSettings.a(this.f, str);
-        m.a(this.f, "com.baidu.pushservice.channel_token", str2);
+        n.a(this.f, "com.baidu.pushservice.channel_token", str2);
     }
 
     public String b() {
@@ -62,10 +62,10 @@ public final class j {
 
     public boolean c() {
         if (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c)) {
-            com.baidu.android.pushservice.e.a.c("TokenManager", "isChannelTokenAvailable false mChannelId = " + this.b + " mChannelToken =  " + this.c);
+            com.baidu.android.pushservice.g.a.c("TokenManager", "isChannelTokenAvailable false mChannelId = " + this.b + " mChannelToken =  " + this.c);
             return false;
         }
-        com.baidu.android.pushservice.e.a.c("TokenManager", "isChannelTokenAvailable true mChannelId = " + this.b + " mChannelToken =  " + this.c);
+        com.baidu.android.pushservice.g.a.c("TokenManager", "isChannelTokenAvailable true mChannelId = " + this.b + " mChannelToken =  " + this.c);
         return true;
     }
 
@@ -74,16 +74,16 @@ public final class j {
         try {
             sharedPreferences = this.f.getSharedPreferences("pushclient", 0);
         } catch (Exception e) {
-            com.baidu.android.pushservice.e.a.a("TokenManager", e);
+            com.baidu.android.pushservice.g.a.a("TokenManager", e);
         }
         if (sharedPreferences.getInt("isFirstReqChannelIDVcode", 0) == a.a()) {
-            com.baidu.android.pushservice.e.a.c("TokenManager", "not first REQChannelID");
+            com.baidu.android.pushservice.g.a.c("TokenManager", "not first REQChannelID");
             return false;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
         edit.putInt("isFirstReqChannelIDVcode", a.a());
         edit.commit();
-        com.baidu.android.pushservice.e.a.c("TokenManager", " first REQChannelID");
+        com.baidu.android.pushservice.g.a.c("TokenManager", " first REQChannelID");
         return true;
     }
 }

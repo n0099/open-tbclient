@@ -13,11 +13,13 @@ class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!com.baidu.adp.lib.util.i.hk()) {
+        if (!com.baidu.adp.lib.util.i.hj()) {
             this.this$0.showToast(w.l.neterror);
             return;
         }
-        this.this$0.mView.hideNoDataView();
+        if (this.this$0.mView != null) {
+            this.this$0.mView.hideNoDataView();
+        }
         this.this$0.refresh();
     }
 }

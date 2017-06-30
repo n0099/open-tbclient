@@ -1,24 +1,29 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tieba.write.transmit.model.a;
-import java.util.List;
-import tbclient.SimpleForum;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements a.InterfaceC0086a {
-    final /* synthetic */ WriteActivity gaR;
+public class v implements a.b {
+    final /* synthetic */ WriteActivity glP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(WriteActivity writeActivity) {
-        this.gaR = writeActivity;
+        this.glP = writeActivity;
     }
 
-    @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0086a
-    public void boz() {
-        this.gaR.cT(null);
-    }
-
-    @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0086a
-    public void onSuccess(List<SimpleForum> list) {
-        this.gaR.cT(list);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        LocationModel.a aVar2;
+        LocationModel locationModel;
+        if (!com.baidu.adp.lib.util.i.hj()) {
+            aVar2 = this.glP.aBS;
+            aVar2.Dx();
+        } else {
+            this.glP.b(1, true, null);
+            locationModel = this.glP.aBD;
+            locationModel.SC();
+        }
+        aVar.dismiss();
     }
 }

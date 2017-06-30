@@ -5,19 +5,19 @@ import android.view.ViewTreeObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnAttachStateChangeListener {
-    final /* synthetic */ a bZs;
+    final /* synthetic */ a chB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.bZs = aVar;
+        this.chB = aVar;
     }
 
     @Override // android.view.View.OnAttachStateChangeListener
     public void onViewAttachedToWindow(View view) {
         ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener;
-        if (this.bZs.bvY != null) {
-            ViewTreeObserver viewTreeObserver = this.bZs.bvY.getViewTreeObserver();
-            onGlobalLayoutListener = this.bZs.bZr;
+        if (this.chB.byJ != null) {
+            ViewTreeObserver viewTreeObserver = this.chB.byJ.getViewTreeObserver();
+            onGlobalLayoutListener = this.chB.chA;
             viewTreeObserver.addOnGlobalLayoutListener(onGlobalLayoutListener);
         }
     }
@@ -25,9 +25,9 @@ public class g implements View.OnAttachStateChangeListener {
     @Override // android.view.View.OnAttachStateChangeListener
     public void onViewDetachedFromWindow(View view) {
         ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener;
-        if (this.bZs.bvY != null) {
-            ViewTreeObserver viewTreeObserver = this.bZs.bvY.getViewTreeObserver();
-            onGlobalLayoutListener = this.bZs.bZr;
+        if (this.chB.byJ != null) {
+            ViewTreeObserver viewTreeObserver = this.chB.byJ.getViewTreeObserver();
+            onGlobalLayoutListener = this.chB.chA;
             viewTreeObserver.removeGlobalOnLayoutListener(onGlobalLayoutListener);
         }
     }

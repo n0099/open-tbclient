@@ -1,44 +1,56 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.app.Activity;
+import android.view.View;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends com.baidu.adp.base.f {
-    final /* synthetic */ i bMN;
+public class r extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ i bTq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(i iVar) {
-        this.bMN = iVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(i iVar, int i, int i2) {
+        super(i, i2);
+        this.bTq = iVar;
     }
 
-    @Override // com.baidu.adp.base.f
-    public void g(Object obj) {
-        LikeModel likeModel;
-        LikeModel likeModel2;
-        LikeModel likeModel3;
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
         EnterForumModel enterForumModel;
-        String str;
-        LikeModel likeModel4;
-        likeModel = this.bMN.bzS;
-        if (AntiHelper.sr(likeModel.getErrorCode())) {
-            Activity pageActivity = this.bMN.aVu.getPageContext().getPageActivity();
-            likeModel4 = this.bMN.bzS;
-            AntiHelper.ap(pageActivity, likeModel4.getErrorString());
-        } else if (obj != null) {
-            enterForumModel = this.bMN.bMC;
-            str = this.bMN.bME;
-            enterForumModel.dM(!StringUtils.isNull(str));
-        } else {
-            likeModel2 = this.bMN.bzS;
-            if (!StringUtils.isNull(likeModel2.getErrorString())) {
-                TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
-                likeModel3 = this.bMN.bzS;
-                com.baidu.adp.lib.util.k.showToast(m9getInst, likeModel3.getErrorString());
+        EnterForumModel enterForumModel2;
+        EnterForumModel enterForumModel3;
+        String errorString;
+        View view;
+        if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
+            enterForumModel = this.bTq.bTd;
+            if (enterForumModel.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
+                this.bTq.bTc.abq();
+                if (responsedMessage.hasError()) {
+                    if (StringUtils.isNull(responsedMessage.getErrorString())) {
+                        errorString = this.bTq.aWN.getResources().getString(w.l.neterror);
+                    } else {
+                        errorString = responsedMessage.getErrorString();
+                    }
+                    this.bTq.aWN.showToast(errorString);
+                    if (this.bTq.bTc.isEmpty()) {
+                        com.baidu.tieba.enterForum.c.c cVar = this.bTq.bTc;
+                        view = this.bTq.mRootView;
+                        cVar.ad(view);
+                        return;
+                    }
+                    return;
+                }
+                if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
+                    enterForumModel3 = this.bTq.bTd;
+                    enterForumModel3.a((forumRecommendSocketResponseMessage) responsedMessage);
+                }
+                if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
+                    enterForumModel2 = this.bTq.bTd;
+                    enterForumModel2.a((forumRecommendHttpResponseMessage) responsedMessage);
+                }
             }
         }
     }

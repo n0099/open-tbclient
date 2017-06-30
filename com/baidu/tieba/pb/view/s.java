@@ -4,15 +4,15 @@ import android.widget.ImageView;
 import com.baidu.tieba.pb.pb.main.view.c;
 /* loaded from: classes.dex */
 class s implements c.a {
-    final /* synthetic */ r eCz;
+    final /* synthetic */ r eLW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar) {
-        this.eCz = rVar;
+        this.eLW = rVar;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.view.c.a
-    public void aNu() {
+    public void aRu() {
         l lVar;
         ImageView imageView;
         l lVar2;
@@ -21,18 +21,18 @@ class s implements c.a {
         ImageView imageView3;
         l lVar4;
         ImageView imageView4;
-        lVar = this.eCz.eCy;
-        imageView = lVar.eCs;
+        lVar = this.eLW.eLV;
+        imageView = lVar.eLP;
         imageView.setVisibility(8);
-        lVar2 = this.eCz.eCy;
-        imageView2 = lVar2.eCs;
+        lVar2 = this.eLW.eLV;
+        imageView2 = lVar2.eLP;
         if (imageView2.getTag() != null) {
-            lVar4 = this.eCz.eCy;
-            imageView4 = lVar4.eCs;
+            lVar4 = this.eLW.eLV;
+            imageView4 = lVar4.eLP;
             ((com.baidu.tieba.pb.pb.main.view.c) imageView4.getTag()).stop();
         }
-        lVar3 = this.eCz.eCy;
-        imageView3 = lVar3.eCs;
+        lVar3 = this.eLW.eLV;
+        imageView3 = lVar3.eLP;
         imageView3.setTag(null);
     }
 }

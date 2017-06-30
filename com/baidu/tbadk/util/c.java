@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    public static void B(List<a> list) {
+    public static void D(List<a> list) {
         if (list != null) {
             StringBuilder sb = new StringBuilder();
             HashMap hashMap = new HashMap();
@@ -25,7 +25,7 @@ public class c {
         }
     }
 
-    public static String[] Ge() {
+    public static String[] GB() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
@@ -34,9 +34,9 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a ga = a.ga(str);
-                if (ga != null && !StringUtils.isNull(ga.forumName)) {
-                    arrayList.add(ga.forumName);
+                a gv = a.gv(str);
+                if (gv != null && !StringUtils.isNull(gv.forumName)) {
+                    arrayList.add(gv.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -44,7 +44,7 @@ public class c {
         return null;
     }
 
-    public static a[] Gf() {
+    public static a[] GC() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new a[0];
@@ -53,9 +53,9 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a ga = a.ga(str);
-                if (ga != null && !StringUtils.isNull(ga.forumName)) {
-                    arrayList.add(ga);
+                a gv = a.gv(str);
+                if (gv != null && !StringUtils.isNull(gv.forumName)) {
+                    arrayList.add(gv);
                 }
             }
             return (a[]) arrayList.toArray(new a[arrayList.size()]);
@@ -83,7 +83,7 @@ public class c {
             return String.valueOf(this.forumName) + "#" + this.level;
         }
 
-        public static a ga(String str) {
+        public static a gv(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

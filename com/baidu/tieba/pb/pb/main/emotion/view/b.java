@@ -8,24 +8,24 @@ import com.baidu.tieba.pb.pb.main.emotion.view.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    private final /* synthetic */ EmotionImageData evF;
-    final /* synthetic */ a ewn;
+    private final /* synthetic */ EmotionImageData eEV;
+    final /* synthetic */ a eFJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, EmotionImageData emotionImageData) {
-        this.ewn = aVar;
-        this.evF = emotionImageData;
+        this.eFJ = aVar;
+        this.eEV = emotionImageData;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        a.InterfaceC0072a interfaceC0072a;
-        a.InterfaceC0072a interfaceC0072a2;
-        if (((FrameLayout.LayoutParams) this.ewn.getLayoutParams()).leftMargin <= 0) {
-            interfaceC0072a = this.ewn.ewl;
-            if (interfaceC0072a != null) {
-                interfaceC0072a2 = this.ewn.ewl;
-                interfaceC0072a2.c(this.evF);
+        a.InterfaceC0075a interfaceC0075a;
+        a.InterfaceC0075a interfaceC0075a2;
+        if (((FrameLayout.LayoutParams) this.eFJ.getLayoutParams()).leftMargin <= 0) {
+            interfaceC0075a = this.eFJ.eFz;
+            if (interfaceC0075a != null) {
+                interfaceC0075a2 = this.eFJ.eFz;
+                interfaceC0075a2.c(this.eEV);
             }
             TiebaStatic.log("c12176");
         }

@@ -2,6 +2,7 @@ package com.baidu.adp.a.a;
 
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
+import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -97,7 +98,7 @@ public class b {
                 } else {
                     stringBuffer.append(String.valueOf(str) + " = [");
                     for (int i3 = 0; i3 < Array.getLength(obj) - 1; i3++) {
-                        stringBuffer.append(j(Array.get(obj, i3)) + ",");
+                        stringBuffer.append(j(Array.get(obj, i3)) + Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
                     stringBuffer.append(Array.get(obj, Array.getLength(obj) - 1) + "]\n");
                 }

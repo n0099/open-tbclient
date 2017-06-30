@@ -8,6 +8,7 @@ import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -49,7 +50,7 @@ public final class StatService {
                     hashMap.put("name", str);
                     hashMap.put("tpl", sapiConfiguration.tpl);
                     hashMap.put("clientfrom", "mobilesdk_enhanced");
-                    hashMap.put("app_version", SapiUtils.getVersionName(sapiConfiguration.context));
+                    hashMap.put(Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(sapiConfiguration.context));
                     hashMap.put("sdk_version", SapiAccountManager.VERSION_NAME);
                     if (!TextUtils.isEmpty(sapiConfiguration.clientId)) {
                         hashMap.put("cuid", sapiConfiguration.clientId);

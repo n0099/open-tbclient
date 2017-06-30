@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,27 +14,32 @@ import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.personPolymeric.b.ai;
-import com.baidu.tieba.personPolymeric.b.n;
+import com.baidu.tieba.personPolymeric.b.aj;
+import com.baidu.tieba.personPolymeric.b.o;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a extends BaseFragment implements VoiceManager.c {
-    private VoiceManager eHi;
-    private n eHj;
+    private o bzs;
+    private VoiceManager eQW;
     private long userId;
     private boolean isSelf = true;
+    @Deprecated
     private boolean isBigV = false;
-    private boolean bxh = false;
-    private boolean bVl = false;
-    private CustomMessageListener dJg = new b(this, CmdConfigCustom.CMD_REFRESH_PERSONAL);
+    private boolean bzn = false;
+    private boolean cdu = false;
+    private long euG = 0;
+    private CustomMessageListener dRF = new b(this, CmdConfigCustom.CMD_REFRESH_PERSONAL);
+    private CustomMessageListener cdk = new c(this, CmdConfigCustom.CMD_MODIFY_NICKNAME_SUCCEED);
 
     @Override // android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.mIsLogin = TbadkCoreApplication.isLogin();
         if (getArguments() != null) {
-            this.bxh = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
+            this.bzn = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
         }
     }
 
@@ -44,16 +50,17 @@ public class a extends BaseFragment implements VoiceManager.c {
         if (this.userId <= 0 && TbadkCoreApplication.getCurrentAccount() != null) {
             this.userId = com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
         }
-        this.eHj = new n(this, inflate, getUniqueId(), this.userId, this.isSelf, this.bxh);
-        this.eHi = VoiceManager.instance();
-        this.dJg.setTag(getUniqueId());
-        registerListener(this.dJg);
+        this.bzs = new o(this, inflate, getUniqueId(), this.userId, this.isSelf, this.bzn);
+        this.eQW = VoiceManager.instance();
+        this.dRF.setTag(getUniqueId());
+        registerListener(this.dRF);
+        registerListener(this.cdk);
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
     public String getCurrentPageKey() {
-        if (this.bxh) {
+        if (this.bzn) {
             return null;
         }
         return "a011";
@@ -62,38 +69,47 @@ public class a extends BaseFragment implements VoiceManager.c {
     @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.eHi.onStart(getPageContext());
+        this.eQW.onStart(getPageContext());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isAdded()) {
-            this.eHj.dj(isPrimary());
+            this.bzs.dq(isPrimary());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.eHi.onResume(getPageContext());
-        this.eHj.onResume();
-        if (this.bVl && this.eHj.aQV() != null) {
-            this.eHj.aQV().Tu();
-            this.bVl = false;
+        this.eQW.onResume(getPageContext());
+        this.bzs.onResume();
+        if (!this.isSelf && this.isBigV) {
+            this.euG = System.currentTimeMillis();
+        } else {
+            this.euG = -1L;
+        }
+        if (this.cdu && this.bzs.aVb() != null) {
+            this.bzs.aVb().UW();
+            this.cdu = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.eHi.onPause(getPageContext());
+        this.eQW.onPause(getPageContext());
+        if (this.euG > 0) {
+            TiebaStatic.log(new au("c12263").Z("obj_duration", String.valueOf((System.currentTimeMillis() - this.euG) / 1000)).r("obj_type", 2));
+            this.euG = 0L;
+        }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        this.eHi.onStop(getPageContext());
+        this.eQW.onStop(getPageContext());
     }
 
     private void t(Bundle bundle) {
@@ -112,9 +128,10 @@ public class a extends BaseFragment implements VoiceManager.c {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.eHi.onDestory(getPageContext());
-        if (this.eHj != null) {
-            this.eHj.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.cdk);
+        this.eQW.onDestory(getPageContext());
+        if (this.bzs != null) {
+            this.bzs.onDestroy();
         }
     }
 
@@ -139,19 +156,19 @@ public class a extends BaseFragment implements VoiceManager.c {
         if (i2 == -1) {
             switch (i) {
                 case 101:
-                    if (this.eHj.aQV() instanceof com.baidu.tieba.model.b) {
-                        ((com.baidu.tieba.model.b) this.eHj.aQV()).resetData();
-                        ((com.baidu.tieba.model.b) this.eHj.aQV()).NJ();
+                    if (this.bzs.aVb() instanceof com.baidu.tieba.model.b) {
+                        ((com.baidu.tieba.model.b) this.bzs.aVb()).resetData();
+                        ((com.baidu.tieba.model.b) this.bzs.aVb()).OZ();
                         return;
                     }
                     return;
                 case 12002:
                     if (intent != null) {
                         if (intent.getBooleanExtra(AlbumActivityConfig.CAMERA_RESULT, false)) {
-                            ai.y(getPageContext());
+                            aj.y(getPageContext());
                             return;
-                        } else if (this.eHj.aQW() != null) {
-                            this.eHj.aQW().Q(intent);
+                        } else if (this.bzs.aVc() != null) {
+                            this.bzs.aVc().Q(intent);
                             return;
                         } else {
                             return;
@@ -163,14 +180,14 @@ public class a extends BaseFragment implements VoiceManager.c {
                     if (intent != null) {
                         int intExtra = intent.getIntExtra("upload_image_type", 0);
                         if (intExtra == 1) {
-                            if (this.eHj.aQW() != null) {
-                                this.eHj.aQW().aRg();
-                                this.eHj.aQW().aRh();
+                            if (this.bzs.aVc() != null) {
+                                this.bzs.aVc().aVn();
+                                this.bzs.aVc().aVo();
                                 return;
                             }
                             return;
-                        } else if (intExtra == 2 && this.eHj.aQW() != null) {
-                            this.eHj.aQW().aRi();
+                        } else if (intExtra == 2 && this.bzs.aVc() != null) {
+                            this.bzs.aVc().aVp();
                             return;
                         } else {
                             return;
@@ -181,14 +198,14 @@ public class a extends BaseFragment implements VoiceManager.c {
                     if (intent != null) {
                         int intExtra2 = intent.getIntExtra("upload_image_type", 0);
                         if (intExtra2 == 1) {
-                            if (this.eHj.aQW() != null) {
-                                this.eHj.aQW().aRg();
-                                this.eHj.aQW().aRh();
+                            if (this.bzs.aVc() != null) {
+                                this.bzs.aVc().aVn();
+                                this.bzs.aVc().aVo();
                                 return;
                             }
                             return;
-                        } else if (intExtra2 == 2 && this.eHj.aQW() != null) {
-                            this.eHj.aQW().aRi();
+                        } else if (intExtra2 == 2 && this.bzs.aVc() != null) {
+                            this.bzs.aVc().aVp();
                             return;
                         } else {
                             return;
@@ -196,9 +213,9 @@ public class a extends BaseFragment implements VoiceManager.c {
                     }
                     return;
                 case 24001:
-                    if (intent != null && (this.eHj.aQV() instanceof com.baidu.tieba.model.b)) {
-                        ((com.baidu.tieba.model.b) this.eHj.aQV()).resetData();
-                        ((com.baidu.tieba.model.b) this.eHj.aQV()).NJ();
+                    if (intent != null && (this.bzs.aVb() instanceof com.baidu.tieba.model.b)) {
+                        ((com.baidu.tieba.model.b) this.bzs.aVb()).resetData();
+                        ((com.baidu.tieba.model.b) this.bzs.aVb()).OZ();
                         return;
                     }
                     return;
@@ -210,7 +227,7 @@ public class a extends BaseFragment implements VoiceManager.c {
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        return this.eHi;
+        return this.eQW;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -221,8 +238,8 @@ public class a extends BaseFragment implements VoiceManager.c {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eHj != null) {
-            this.eHj.onChangeSkinType(i);
+        if (this.bzs != null) {
+            this.bzs.onChangeSkinType(i);
         }
     }
 }

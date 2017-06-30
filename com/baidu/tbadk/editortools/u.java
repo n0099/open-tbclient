@@ -8,10 +8,10 @@ public class u extends x {
     public u(Context context) {
         super(context, null, 2, 0);
         this.name = TbadkCoreApplication.m9getInst().getString(w.l.more_function);
-        this.azt = w.g.selector_editor_btn_more;
-        this.ayJ = new q(context);
-        this.azx = true;
-        this.azw = 6;
-        this.azy = new int[]{1};
+        this.aAw = w.g.selector_editor_btn_more;
+        this.azL = new q(context);
+        this.aAA = true;
+        this.aAz = 6;
+        this.aAB = new int[]{1};
     }
 }

@@ -1,29 +1,21 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements a.b {
-    final /* synthetic */ WriteActivity gaR;
+public class x implements View.OnClickListener {
+    final /* synthetic */ WriteActivity glP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(WriteActivity writeActivity) {
-        this.gaR = writeActivity;
+        this.glP = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        LocationModel.a aVar2;
-        LocationModel locationModel;
-        if (!com.baidu.adp.lib.util.i.hk()) {
-            aVar2 = this.gaR.aAP;
-            aVar2.Dd();
-        } else {
-            this.gaR.b(1, true, null);
-            locationModel = this.gaR.aAA;
-            locationModel.QK();
-        }
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        WriteActivity writeActivity = this.glP;
+        str = this.glP.aBJ;
+        writeActivity.showToast(str);
     }
 }

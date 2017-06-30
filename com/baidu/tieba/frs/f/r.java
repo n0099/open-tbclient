@@ -1,53 +1,39 @@
 package com.baidu.tieba.frs.f;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.frs.view.k;
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.ae;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements k.a {
-    final /* synthetic */ i chJ;
+public class r implements a.b {
+    final /* synthetic */ m cpZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(i iVar) {
-        this.chJ = iVar;
+    public r(m mVar) {
+        this.cpZ = mVar;
     }
 
-    @Override // com.baidu.tieba.frs.view.k.a
-    public void iZ(int i) {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tieba.frs.r rVar;
         com.baidu.tieba.frs.r rVar2;
-        com.baidu.tieba.frs.r rVar3;
-        com.baidu.tieba.frs.r rVar4;
-        com.baidu.tieba.frs.r rVar5;
-        com.baidu.tieba.frs.r rVar6;
-        com.baidu.tieba.frs.r rVar7;
-        switch (i) {
-            case 0:
-                rVar5 = this.chJ.bVm;
-                com.baidu.tieba.tbadkCore.n aau = rVar5.aau();
-                rVar6 = this.chJ.bVm;
-                TbPageContext<BaseFragmentActivity> pageContext = rVar6.getPageContext();
-                rVar7 = this.chJ.bVm;
-                com.baidu.tieba.frs.e.q.a(aau, pageContext, rVar7.ZY());
-                return;
-            case 1:
-            case 2:
-            case 4:
-            default:
-                return;
-            case 3:
-                rVar3 = this.chJ.bVm;
-                com.baidu.tieba.tbadkCore.n aau2 = rVar3.aau();
-                rVar4 = this.chJ.bVm;
-                com.baidu.tieba.frs.e.q.b(aau2, rVar4.getPageContext());
-                return;
-            case 5:
-                rVar = this.chJ.bVm;
-                com.baidu.tieba.tbadkCore.n aau3 = rVar.aau();
-                rVar2 = this.chJ.bVm;
-                com.baidu.tieba.frs.e.q.a(aau3, rVar2.getPageContext());
-                return;
+        ae aeVar;
+        aVar.dismiss();
+        rVar = this.cpZ.cbE;
+        com.baidu.tieba.tbadkCore.n aek = rVar.aek();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
+            rVar2 = this.cpZ.cbE;
+            m9getInst.login(rVar2.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cpZ.getPageContext().getPageActivity(), this.cpZ.getPageContext().getString(w.l.login_to_use), true, 11036)));
+        } else if (aek != null && aek.aMt() != null) {
+            aeVar = this.cpZ.cpS;
+            aeVar.r(aek.aMt().getName(), com.baidu.adp.lib.g.b.c(aek.aMt().getId(), 0L));
         }
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements v.b {
-    final /* synthetic */ c fbb;
+    final /* synthetic */ c flr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(c cVar) {
-        this.fbb = cVar;
+        this.flr = cVar;
     }
 
     @Override // com.baidu.tieba.play.v.b
@@ -19,17 +19,17 @@ public class n implements v.b {
         View view3;
         v.b bVar;
         v.b bVar2;
-        view = this.fbb.bCL;
+        view = this.flr.bDE;
         view.setVisibility(0);
-        view2 = this.fbb.cKz;
+        view2 = this.flr.cSw;
         view2.setVisibility(8);
-        view3 = this.fbb.faN;
+        view3 = this.flr.fld;
         view3.setVisibility(8);
-        this.fbb.akf = 4;
-        this.fbb.bCE.setRecoveryState(4);
-        bVar = this.fbb.faU;
+        this.flr.akS = 4;
+        this.flr.bDx.setRecoveryState(4);
+        bVar = this.flr.flk;
         if (bVar != null) {
-            bVar2 = this.fbb.faU;
+            bVar2 = this.flr.flk;
             bVar2.onError(vVar, i, i2);
             return true;
         }

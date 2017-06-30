@@ -10,87 +10,87 @@ import java.util.ArrayList;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class a implements c {
-    private Bundle sh;
+    private Bundle sg;
 
     public a(Bundle bundle) {
-        this.sh = bundle;
+        this.sg = bundle;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public Set<String> ei() {
-        return this.sh.keySet();
+    public Set<String> eh() {
+        return this.sg.keySet();
     }
 
     public Object getObject(String str) {
-        return this.sh.get(str);
+        return this.sg.get(str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void j(String str, Object obj) {
         if (obj instanceof Boolean) {
-            this.sh.putBoolean(str, ((Boolean) obj).booleanValue());
+            this.sg.putBoolean(str, ((Boolean) obj).booleanValue());
         } else if (obj instanceof Byte) {
-            this.sh.putByte(str, ((Byte) obj).byteValue());
+            this.sg.putByte(str, ((Byte) obj).byteValue());
         } else if (obj instanceof Short) {
-            this.sh.putShort(str, ((Short) obj).shortValue());
+            this.sg.putShort(str, ((Short) obj).shortValue());
         } else if (obj instanceof Integer) {
-            this.sh.putInt(str, ((Integer) obj).intValue());
+            this.sg.putInt(str, ((Integer) obj).intValue());
         } else if (obj instanceof Character) {
-            this.sh.putChar(str, ((Character) obj).charValue());
+            this.sg.putChar(str, ((Character) obj).charValue());
         } else if (obj instanceof Long) {
-            this.sh.putLong(str, ((Long) obj).longValue());
+            this.sg.putLong(str, ((Long) obj).longValue());
         } else if (obj instanceof Float) {
-            this.sh.putFloat(str, ((Float) obj).floatValue());
+            this.sg.putFloat(str, ((Float) obj).floatValue());
         } else if (obj instanceof Double) {
-            this.sh.putDouble(str, ((Double) obj).doubleValue());
+            this.sg.putDouble(str, ((Double) obj).doubleValue());
         } else if (obj instanceof String) {
-            this.sh.putString(str, (String) obj);
+            this.sg.putString(str, (String) obj);
         } else if (obj instanceof Bundle) {
-            this.sh.putBundle(str, (Bundle) obj);
+            this.sg.putBundle(str, (Bundle) obj);
         } else if (obj instanceof ArrayList) {
             ArrayList arrayList = (ArrayList) obj;
             if (arrayList != null && arrayList.size() > 0) {
                 Object obj2 = arrayList.get(0);
                 if (obj2 instanceof String) {
-                    this.sh.putStringArrayList(str, (ArrayList) obj);
+                    this.sg.putStringArrayList(str, (ArrayList) obj);
                 } else if (obj2 instanceof Integer) {
-                    this.sh.putIntegerArrayList(str, (ArrayList) obj);
+                    this.sg.putIntegerArrayList(str, (ArrayList) obj);
                 } else if (obj2 instanceof Parcelable) {
-                    this.sh.putParcelableArrayList(str, (ArrayList) obj);
+                    this.sg.putParcelableArrayList(str, (ArrayList) obj);
                 }
             }
         } else if (obj instanceof SparseArray) {
-            this.sh.putSparseParcelableArray(str, (SparseArray) obj);
+            this.sg.putSparseParcelableArray(str, (SparseArray) obj);
         } else if (obj.getClass().isArray()) {
             Class<?> componentType = obj.getClass().getComponentType();
             if (componentType == Boolean.TYPE) {
-                this.sh.putBooleanArray(str, (boolean[]) obj);
+                this.sg.putBooleanArray(str, (boolean[]) obj);
             } else if (componentType == Byte.TYPE) {
-                this.sh.putByteArray(str, (byte[]) obj);
+                this.sg.putByteArray(str, (byte[]) obj);
             } else if (componentType == Character.TYPE) {
-                this.sh.putCharArray(str, (char[]) obj);
+                this.sg.putCharArray(str, (char[]) obj);
             } else if (componentType == Double.TYPE) {
-                this.sh.putDoubleArray(str, (double[]) obj);
+                this.sg.putDoubleArray(str, (double[]) obj);
             } else if (componentType == Float.TYPE) {
-                this.sh.putFloatArray(str, (float[]) obj);
+                this.sg.putFloatArray(str, (float[]) obj);
             } else if (componentType == Integer.TYPE) {
-                this.sh.putIntArray(str, (int[]) obj);
+                this.sg.putIntArray(str, (int[]) obj);
             } else if (componentType == Long.TYPE) {
-                this.sh.putLongArray(str, (long[]) obj);
+                this.sg.putLongArray(str, (long[]) obj);
             } else if (componentType == Short.TYPE) {
-                this.sh.putShortArray(str, (short[]) obj);
+                this.sg.putShortArray(str, (short[]) obj);
             } else if (componentType == String.class) {
-                this.sh.putStringArray(str, (String[]) obj);
+                this.sg.putStringArray(str, (String[]) obj);
             } else if (com.baidu.adp.lib.OrmObject.a.a.e(componentType, Parcelable.class)) {
-                this.sh.putParcelableArray(str, (Parcelable[]) obj);
+                this.sg.putParcelableArray(str, (Parcelable[]) obj);
             }
         } else if (obj instanceof CharSequence) {
-            this.sh.putCharSequence(str, (CharSequence) obj);
+            this.sg.putCharSequence(str, (CharSequence) obj);
         } else if (!(obj instanceof IBinder)) {
             if (obj instanceof Parcelable) {
-                this.sh.putParcelable(str, (Parcelable) obj);
+                this.sg.putParcelable(str, (Parcelable) obj);
             } else if (obj instanceof Serializable) {
-                this.sh.putSerializable(str, (Serializable) obj);
+                this.sg.putSerializable(str, (Serializable) obj);
             }
         }
     }

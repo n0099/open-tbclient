@@ -11,6 +11,6 @@ class g implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.valueOf(x.WQ().iA(customMessage.getData())));
+        return new CustomResponsedMessage<>(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.valueOf(z.aam().jm(customMessage.getData())));
     }
 }

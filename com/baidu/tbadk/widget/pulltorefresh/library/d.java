@@ -4,15 +4,15 @@ import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements PullToRefreshBase.d {
-    final /* synthetic */ PullToRefreshBase aMh;
+    final /* synthetic */ PullToRefreshBase aNx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PullToRefreshBase pullToRefreshBase) {
-        this.aMh = pullToRefreshBase;
+        this.aNx = pullToRefreshBase;
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase.d
-    public void Ho() {
-        this.aMh.Hj();
+    public void HL() {
+        this.aNx.HG();
     }
 }

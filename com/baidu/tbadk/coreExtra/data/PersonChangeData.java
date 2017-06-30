@@ -10,6 +10,8 @@ public class PersonChangeData implements Serializable {
     private String mName = null;
     private String mPortrait = null;
     private boolean mPhotoChanged = false;
+    private String mNameShow = null;
+    private int mNickNameLeftDays = -1;
 
     public String getIntro() {
         return this.mIntro;
@@ -49,5 +51,21 @@ public class PersonChangeData implements Serializable {
 
     public String getPortrait() {
         return this.mPortrait;
+    }
+
+    public String getNameShow() {
+        return this.mNameShow;
+    }
+
+    public void setNameShow(String str) {
+        this.mNameShow = str;
+    }
+
+    public int getNickNameLeftDays() {
+        return this.mNickNameLeftDays;
+    }
+
+    public void setNickNameLeftDays(int i) {
+        this.mNickNameLeftDays = i;
     }
 }

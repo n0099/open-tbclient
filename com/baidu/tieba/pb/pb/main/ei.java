@@ -1,92 +1,70 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.pb.pb.main.PbModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
 /* loaded from: classes.dex */
-public class ei extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbModel eqh;
+public class ei {
+    private TbPageContext ajP;
+    private RelativeLayout bSW;
+    private com.baidu.tbadk.editortools.pb.n eyi;
+    private PbFakeFloorModel eyj;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ei(PbModel pbModel, int i, int i2) {
-        super(i, i2);
-        this.eqh = pbModel;
+    public ei(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
+        this.ajP = tbPageContext;
+        this.bSW = relativeLayout;
+        this.eyj = pbFakeFloorModel;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        PbModel.a aVar;
-        PbModel.a aVar2;
-        boolean z4;
-        long j;
-        boolean z5;
-        long j2;
-        BaseActivity baseActivity;
-        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.eqh.getUniqueId()) {
-            if (responsedMessage.hasError() && responsedMessage.getError() != 4 && com.baidu.adp.lib.util.i.hk()) {
-                baseActivity = this.eqh.bfa;
-                baseActivity.showToast(responsedMessage.getErrorString());
-            }
-            if (responsedMessage instanceof pbPageSocketResponseMessage) {
-                pbPageSocketResponseMessage pbpagesocketresponsemessage = (pbPageSocketResponseMessage) responsedMessage;
-                this.eqh.a(pbpagesocketresponsemessage);
-                pbpagesocketresponsemessage.getDownSize();
-            }
-            if (!(responsedMessage instanceof pbPageHttpResponseMessage)) {
-                z = false;
-            } else {
-                pbPageHttpResponseMessage pbpagehttpresponsemessage = (pbPageHttpResponseMessage) responsedMessage;
-                this.eqh.a(pbpagehttpresponsemessage);
-                pbpagehttpresponsemessage.getDownSize();
-                z = true;
-            }
-            if (responsedMessage.getError() != 0) {
-                if (z) {
-                    j2 = 0;
-                } else {
-                    j2 = ((pbPageSocketResponseMessage) responsedMessage).sequenceID;
-                }
-                PbPageRequestMessage pbPageRequestMessage = (PbPageRequestMessage) responsedMessage.getOrginalMessage().getExtra();
-                long clientLogID = responsedMessage.getOrginalMessage().getClientLogID();
-                int cmd = responsedMessage.getOrginalMessage().getCmd();
-                int error = responsedMessage.getError();
-                String errorString = responsedMessage.getErrorString();
-                Object[] objArr = new Object[6];
-                objArr[0] = "updateType";
-                objArr[1] = pbPageRequestMessage != null ? String.valueOf(pbPageRequestMessage.getUpdateType()) : null;
-                objArr[2] = "ThreadId";
-                objArr[3] = pbPageRequestMessage != null ? String.valueOf(pbPageRequestMessage.get_kz()) : null;
-                objArr[4] = "seq_id";
-                objArr[5] = Long.valueOf(j2);
-                com.baidu.tbadk.core.e.a.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
-            }
-            z2 = this.eqh.epJ;
-            if (z2) {
-                z5 = this.eqh.epK;
-                if (z5) {
-                    return;
-                }
-            }
-            z3 = this.eqh.epJ;
-            if (!z3) {
-                this.eqh.epJ = true;
-            } else {
-                this.eqh.epK = true;
-            }
-            aVar = this.eqh.epD;
-            if (aVar != null) {
-                aVar2 = this.eqh.epD;
-                int aKK = this.eqh.aKK();
-                z4 = this.eqh.epL;
-                long currentTimeMillis = System.currentTimeMillis();
-                j = this.eqh.cdX;
-                aVar2.a(aKK, z, responsedMessage, z4, currentTimeMillis - j);
-            }
+    public void aOB() {
+        if (this.eyi != null) {
+            this.eyi.DE();
+        }
+    }
+
+    private void aOC() {
+        if (this.bSW != null && this.eyi == null) {
+            this.eyi = (com.baidu.tbadk.editortools.pb.n) new com.baidu.tbadk.editortools.pb.r().aQ(this.ajP.getPageActivity());
+            this.eyi.a(this.ajP);
+            this.eyi.b(this.eyj);
+            this.eyi.CG().bB(true);
+            this.eyi.f(this.ajP);
+            aOD();
+        }
+    }
+
+    public void bK(String str, String str2) {
+        aOC();
+        this.eyi.setReplyId(str);
+        this.eyi.fW(str2);
+    }
+
+    private void aOD() {
+        if (this.bSW != null && this.eyi != null && this.eyi.CG() != null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams.addRule(12);
+            this.bSW.addView(this.eyi.CG(), layoutParams);
+            onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+        }
+    }
+
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (this.eyi != null) {
+            this.eyi.onActivityResult(i, i2, intent);
+        }
+    }
+
+    public void onStop() {
+        if (this.eyi != null) {
+            this.eyi.onStop();
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.eyi != null && this.eyi.CG() != null) {
+            this.eyi.CG().onChangeSkinType(i);
         }
     }
 }

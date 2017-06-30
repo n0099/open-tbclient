@@ -5,75 +5,76 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.frs.view.AdapterLinearLayout;
-import com.baidu.tieba.frs.view.p;
+import com.baidu.tieba.frs.view.k;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a extends com.baidu.tieba.frs.view.b {
-    protected x bUZ;
-    protected AdapterLinearLayout bXv;
-    protected p bXw;
-    protected TextView bXx;
-    protected ViewGroup bXy;
+    protected x cdi;
+    protected AdapterLinearLayout cfE;
+    protected k cfF;
+    protected TextView cfG;
+    protected ViewGroup cfH;
 
-    public void abj() {
-        this.bXv = (AdapterLinearLayout) this.cis.findViewById(w.h.top_layout);
-        this.bXx = (TextView) this.cis.findViewById(w.h.top_item_type);
-        this.bXx.setText(TbadkCoreApplication.m9getInst().getString(w.l.game));
-        this.bXw = new p(this.aas.getPageActivity());
+    public void afa() {
+        this.cfE = (AdapterLinearLayout) this.cqs.findViewById(w.h.top_layout);
+        this.cfG = (TextView) this.cqs.findViewById(w.h.top_item_type);
+        this.cfG.setText(TbadkCoreApplication.m9getInst().getString(w.l.game));
+        this.cfF = new k(this.aat.getPageActivity());
     }
 
     public void a(x xVar) {
-        this.bUZ = xVar;
+        this.cdi = xVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void abk() {
-        if (this.bVm != null && this.bVm.aau() != null && this.bXw != null) {
+    public void afb() {
+        if (this.cdv != null && this.cdv.aek() != null && this.cfF != null) {
             ArrayList arrayList = new ArrayList();
-            List<v> bhl = this.bVm.aau().bhl();
-            if (bhl != null) {
-                for (int i = 0; i < com.baidu.tbadk.core.util.x.q(bhl); i++) {
-                    v vVar = (v) com.baidu.tbadk.core.util.x.c(bhl, i);
-                    if (vVar instanceof bl) {
-                        arrayList.add((bl) vVar);
+            List<v> blz = this.cdv.aek().blz();
+            if (blz != null) {
+                for (int i = 0; i < z.s(blz); i++) {
+                    v vVar = (v) z.c(blz, i);
+                    if (vVar instanceof bm) {
+                        arrayList.add((bm) vVar);
                     }
                 }
             }
-            this.bXv.setAdapter(this.bXw);
-            if (this.bXw instanceof com.baidu.tieba.frs.d.e) {
-                p pVar = this.bXw;
-                if (com.baidu.tieba.frs.d.e.cfm != null && this.bVm.aau() != null) {
-                    if (this.bVm.aau().fzF == 1) {
-                        com.baidu.tieba.frs.d.e.cfm.cfc = true;
+            this.cfE.setAdapter(this.cfF);
+            if (this.cfF instanceof com.baidu.tieba.frs.d.e) {
+                k kVar = this.cfF;
+                if (com.baidu.tieba.frs.d.e.cnC != null && this.cdv.aek() != null) {
+                    if (this.cdv.aek().fJJ == 1) {
+                        com.baidu.tieba.frs.d.e.cnC.cnr = true;
                     } else {
-                        com.baidu.tieba.frs.d.e.cfm.cfc = false;
+                        com.baidu.tieba.frs.d.e.cnC.cnr = false;
                     }
-                    if (this.bVm.aau().aIz() != null) {
-                        com.baidu.tieba.frs.d.e.cfm.cfe = this.bVm.aau().aIz().getId();
+                    if (this.cdv.aek().aMt() != null) {
+                        com.baidu.tieba.frs.d.e.cnC.cnu = this.cdv.aek().aMt().getId();
                     }
                 }
             }
-            this.bXw.b(this.bUZ);
-            this.bXw.setData(arrayList);
-            this.bXw.notifyDataSetChanged();
+            this.cfF.b(this.cdi);
+            this.cfF.setData(arrayList);
+            this.cfF.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void abl() {
-        if (this.bXw != null) {
-            this.bXw.notifyDataSetChanged();
+    public void afc() {
+        if (this.cfF != null) {
+            this.cfF.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.view.b
-    public void abm() {
-        if (this.bXw != null) {
-            this.bXw.notifyDataSetChanged();
+    public void afd() {
+        if (this.cfF != null) {
+            this.cfF.notifyDataSetChanged();
         }
     }
 }

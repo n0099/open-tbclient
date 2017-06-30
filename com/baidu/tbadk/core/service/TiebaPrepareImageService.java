@@ -10,8 +10,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.l;
-import com.baidu.tbadk.util.ac;
+import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.util.ad;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class TiebaPrepareImageService extends BdBaseService {
@@ -105,7 +105,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String act = null;
+        String adc = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -127,24 +127,24 @@ public class TiebaPrepareImageService extends BdBaseService {
             boolean z = true;
             TiebaPrepareImageService.IS_DECODING = true;
             try {
-                Bitmap a = ac.a(this.mRequestCode, TiebaPrepareImageService.this, this.mUri, this.mFileName, TiebaPrepareImageService.this.mMaxSize);
+                Bitmap a = ad.a(this.mRequestCode, TiebaPrepareImageService.this, this.mUri, this.mFileName, TiebaPrepareImageService.this.mMaxSize);
                 if (a != null) {
-                    if (l.a(null, TbConfig.IMAGE_RESIZED_FILE, a, 80) != null) {
+                    if (n.a(null, TbConfig.IMAGE_RESIZED_FILE, a, 80) != null) {
                         int i = 100;
                         if (TiebaPrepareImageService.this.mDisplaySize > 0) {
                             i = TiebaPrepareImageService.this.mDisplaySize;
                         }
                         Bitmap resizeBitmap = BitmapHelper.resizeBitmap(a, i);
-                        if (resizeBitmap == null || l.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 80) == null) {
-                            this.act = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
+                        if (resizeBitmap == null || n.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 80) == null) {
+                            this.adc = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
                             z = false;
                         }
                     } else {
-                        this.act = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
+                        this.adc = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
                         z = false;
                     }
                 } else {
-                    this.act = TiebaPrepareImageService.this.getString(w.l.pic_parser_error);
+                    this.adc = TiebaPrepareImageService.this.getString(w.l.pic_parser_error);
                     z = false;
                 }
                 TiebaPrepareImageService.IS_DECODING = false;
@@ -171,8 +171,8 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute((a) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.act != null) {
-                intent.putExtra("error", this.act);
+            if (this.adc != null) {
+                intent.putExtra("error", this.adc);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

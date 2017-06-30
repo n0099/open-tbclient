@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,101 +11,88 @@ import tbclient.ModuleInfo;
 import tbclient.ThreadModule;
 /* loaded from: classes.dex */
 public class g {
-    private boolean beq;
-    private ArrayList<v> bvg = new ArrayList<>();
-    private ArrayList<l> eGv;
-    private int eGw;
-    private int eGx;
+    private boolean bhl;
+    private ArrayList<v> byq = new ArrayList<>();
+    private ArrayList<n> eQd;
+    private int eQe;
+    private int eQf;
     private UserData mUserData;
 
     public g(boolean z) {
-        this.beq = z;
+        this.bhl = z;
     }
 
     public void a(ModuleInfo moduleInfo) {
         if (moduleInfo != null) {
-            this.eGw = moduleInfo.max_module_num.intValue();
-            this.eGx = moduleInfo.max_module_thread_num.intValue();
-            if (!x.r(moduleInfo.module_list)) {
-                this.eGv = new ArrayList<>();
+            this.eQe = moduleInfo.max_module_num.intValue();
+            this.eQf = moduleInfo.max_module_thread_num.intValue();
+            if (!z.t(moduleInfo.module_list)) {
+                this.eQd = new ArrayList<>();
                 for (ThreadModule threadModule : moduleInfo.module_list) {
                     if (threadModule != null) {
-                        l lVar = new l();
-                        lVar.a(threadModule);
-                        lVar.a(this.mUserData);
-                        this.eGv.add(lVar);
+                        n nVar = new n();
+                        nVar.a(threadModule);
+                        nVar.d(this.mUserData);
+                        this.eQd.add(nVar);
                     }
                 }
             }
         }
     }
 
-    public void aPR() {
-        this.bvg.clear();
-        if (!x.r(this.eGv)) {
-            Iterator<l> it = this.eGv.iterator();
+    public void aTQ() {
+        this.byq.clear();
+        if (!z.t(this.eQd)) {
+            Iterator<n> it = this.eQd.iterator();
             while (it.hasNext()) {
-                l next = it.next();
+                n next = it.next();
                 if (next != null) {
-                    if (!x.r(next.getThreadList())) {
-                        if (next.aPT() == -1) {
-                            this.bvg.add(next);
-                            this.bvg.addAll(next.getThreadList());
+                    if (!z.t(next.getThreadList())) {
+                        if (next.aTU() == -1) {
+                            this.byq.add(next);
+                            this.byq.addAll(next.getThreadList());
                             b bVar = new b();
-                            bVar.c(next);
-                            this.bvg.add(bVar);
+                            bVar.b(next);
+                            this.byq.add(bVar);
                         } else if (next.mHasMore) {
-                            this.bvg.add(next);
-                            this.bvg.addAll(next.getThreadList().subList(0, 3));
+                            this.byq.add(next);
+                            this.byq.addAll(next.getThreadList().subList(0, 3));
                             b bVar2 = new b();
-                            bVar2.c(next);
-                            this.bvg.add(bVar2);
+                            bVar2.b(next);
+                            this.byq.add(bVar2);
                         } else {
-                            this.bvg.add(next);
-                            this.bvg.addAll(next.getThreadList());
+                            this.byq.add(next);
+                            this.byq.addAll(next.getThreadList());
                         }
-                        this.bvg.add(aX(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
-                    } else if (this.beq) {
-                        this.bvg.add(next);
+                        this.byq.add(bg(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
+                    } else if (this.bhl) {
+                        this.byq.add(next);
                         c cVar = new c();
-                        cVar.eGr = next.aPT();
-                        this.bvg.add(cVar);
-                        this.bvg.add(aX(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
+                        cVar.ePZ = next.aTU();
+                        this.byq.add(cVar);
+                        this.byq.add(bg(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
                     }
                 }
             }
         }
     }
 
-    public void cc(long j) {
-        if (!x.r(this.eGv)) {
-            Iterator<l> it = this.eGv.iterator();
-            while (it.hasNext()) {
-                l next = it.next();
-                if (next != null && next.aPT() == j) {
-                    this.eGv.remove(next);
-                    return;
-                }
-            }
-        }
-    }
-
-    private h aX(int i, int i2) {
+    private h bg(int i, int i2) {
         h hVar = new h();
-        hVar.eDj = i;
-        hVar.eGz = i2;
+        hVar.eMR = i;
+        hVar.eQh = i2;
         return hVar;
     }
 
     public ArrayList<v> getDataList() {
-        return this.bvg;
+        return this.byq;
     }
 
-    public ArrayList<l> getThreadList() {
-        return this.eGv;
+    public ArrayList<n> getThreadList() {
+        return this.eQd;
     }
 
-    public void a(UserData userData) {
+    public void d(UserData userData) {
         if (userData != null) {
             this.mUserData = userData;
         }

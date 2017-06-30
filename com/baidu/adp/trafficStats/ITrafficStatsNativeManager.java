@@ -11,7 +11,7 @@ public abstract class ITrafficStatsNativeManager extends OrmObject {
 
     public abstract void a(String str, long j, long j2, String str2);
 
-    public static ITrafficStatsNativeManager kn() {
+    public static ITrafficStatsNativeManager kl() {
         if (FA == null) {
             BdLog.e("trafficStatsManaer");
             FA = new com.baidu.adp.trafficStats.a();
@@ -31,7 +31,7 @@ public abstract class ITrafficStatsNativeManager extends OrmObject {
         }
     }
 
-    public void a(String str, long j, long j2) {
+    public void c(String str, long j, long j2) {
         a(str, j, j2, null);
     }
 

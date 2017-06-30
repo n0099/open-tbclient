@@ -7,17 +7,17 @@ import android.net.Proxy;
 import java.util.Map;
 /* loaded from: classes.dex */
 public abstract class f {
+    public String h = null;
+    public int i = 3;
+    public String j = null;
+    public Map<String, Object> k = null;
+    public String l = null;
+    public byte[] m = null;
+    public String n = null;
     public static int g = b.g;
     private static String a = "10.0.0.172";
     private static int b = 80;
     protected static int o = 0;
-    public String h = null;
-    public int i = 3;
-    public String j = null;
-    public Map<String, Object> Pt = null;
-    public String l = null;
-    public byte[] m = null;
-    public String n = null;
 
     private static int a(Context context, NetworkInfo networkInfo) {
         String lowerCase;

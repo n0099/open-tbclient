@@ -1,21 +1,19 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tieba.tbadkCore.b.a;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w implements a.InterfaceC0080a {
-    final /* synthetic */ WriteActivity gaR;
+public class w implements a.b {
+    final /* synthetic */ WriteActivity glP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(WriteActivity writeActivity) {
-        this.gaR = writeActivity;
+        this.glP = writeActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0080a
-    public void ld() {
-        com.baidu.tbadk.editortools.j jVar;
-        this.gaR.dJM = null;
-        this.gaR.mc(false);
-        jVar = this.gaR.ayP;
-        jVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.glP.b(0, true, null);
+        aVar.dismiss();
     }
 }

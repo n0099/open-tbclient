@@ -6,24 +6,24 @@ import java.io.FileInputStream;
 /* loaded from: classes2.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private long aSn;
-    private long aSo;
-    private long aSp;
-    private long aSq;
-    private long aSr;
-    private FileInputStream aSs;
-    private String aSy;
+    private long aTG;
+    private long aTH;
+    private long aTI;
+    private long aTJ;
+    private long aTK;
+    private FileInputStream aTL;
+    private String aTR;
     private Context mContext;
     private String mVideoUrl;
-    private boolean aSt = false;
-    private String aSu = "";
+    private boolean aTM = false;
+    private String aTN = "";
     private Object mLock = new Object();
-    private boolean aSv = false;
-    private long aSw = -1;
-    boolean aSx = false;
-    private long aoG = 0;
-    private Runnable aSA = new d(this);
-    private byte[] aSz = new byte[10240];
+    private boolean aTO = false;
+    private long aTP = -1;
+    boolean aTQ = false;
+    private long apH = 0;
+    private Runnable aTT = new d(this);
+    private byte[] aTS = new byte[10240];
 
     public c(Context context) {
         this.mContext = context;
@@ -33,18 +33,18 @@ public class c {
         this.mVideoUrl = str;
     }
 
-    public void M(long j) {
-        this.aoG = j;
+    public void N(long j) {
+        this.apH = j;
     }
 
     public void b(long j, long j2) {
         k.log(TAG, "open *************************************************************" + this);
         if (this.mVideoUrl != null) {
-            this.aSn = j;
-            this.aSo = j2;
-            this.aSy = o.gN(this.mVideoUrl);
-            if (this.aSy != null) {
-                File file = new File(String.valueOf(j.aST) + this.aSy);
+            this.aTG = j;
+            this.aTH = j2;
+            this.aTR = o.hk(this.mVideoUrl);
+            if (this.aTR != null) {
+                File file = new File(String.valueOf(j.aUm) + this.aTR);
                 File file2 = new File(String.valueOf(file.getAbsolutePath()) + "/segments");
                 if (file != null && file2 != null) {
                     if (!file.exists()) {
@@ -53,15 +53,15 @@ public class c {
                     if (!file2.exists()) {
                         file2.mkdir();
                     }
-                    this.aSu = file2.getAbsolutePath();
-                    this.aSr = this.aSn;
-                    this.aSq = this.aSn;
-                    this.aSp = this.aSn;
-                    this.aSt = false;
-                    this.aSv = false;
-                    this.aSw = -1L;
-                    this.aSx = false;
-                    n.JT().g(this.aSA);
+                    this.aTN = file2.getAbsolutePath();
+                    this.aTK = this.aTG;
+                    this.aTJ = this.aTG;
+                    this.aTI = this.aTG;
+                    this.aTM = false;
+                    this.aTO = false;
+                    this.aTP = -1L;
+                    this.aTQ = false;
+                    n.Kr().g(this.aTT);
                 }
             }
         }
@@ -73,36 +73,36 @@ public class c {
 
     public void close() {
         k.log(TAG, "close ***********************************************************************" + this);
-        this.aSt = true;
+        this.aTM = true;
         synchronized (this.mLock) {
             this.mLock.notify();
         }
         try {
-            if (this.aSs != null) {
-                this.aSs.close();
+            if (this.aTL != null) {
+                this.aTL.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        File file = new File(String.valueOf(j.aST) + this.aSy + "/completed");
-        if (this.aSx) {
+        File file = new File(String.valueOf(j.aUm) + this.aTR + "/completed");
+        if (this.aTQ) {
             return;
         }
         if (file == null || !file.exists()) {
-            l.JS().gK(this.mVideoUrl);
+            l.Kq().hh(this.mVideoUrl);
         }
     }
 
     public boolean canRead() {
-        return !this.aSt && this.aSq <= this.aSo;
+        return !this.aTM && this.aTJ <= this.aTH;
     }
 
     public int e(byte[] bArr, int i) {
-        if (this.aSt) {
+        if (this.aTM) {
             return 0;
         }
         do {
-            if (this.aSq == this.aSr || !this.aSv) {
+            if (this.aTJ == this.aTK || !this.aTO) {
                 synchronized (this.mLock) {
                     try {
                         this.mLock.wait(1000L);
@@ -112,9 +112,9 @@ public class c {
                 }
             } else {
                 try {
-                    int read = this.aSs.read(bArr, 0, (int) (this.aSq + ((long) i) < this.aSr ? i : this.aSr - this.aSq));
+                    int read = this.aTL.read(bArr, 0, (int) (this.aTJ + ((long) i) < this.aTK ? i : this.aTK - this.aTJ));
                     if (read >= 0) {
-                        this.aSq += read;
+                        this.aTJ += read;
                         return read;
                     }
                 } catch (Exception e2) {
@@ -122,7 +122,7 @@ public class c {
                 }
                 return 0;
             }
-        } while (!this.aSt);
+        } while (!this.aTM);
         return 0;
     }
 }

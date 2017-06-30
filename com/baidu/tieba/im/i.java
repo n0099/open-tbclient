@@ -6,6 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.message.MemoryItemRemoveMessage;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 class i extends com.baidu.adp.framework.listener.e {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,7 +22,7 @@ class i extends com.baidu.adp.framework.listener.e {
         String id;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103112 && (socketResponsedMessage instanceof ResponseRemoveMembersMessage)) {
             ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) socketResponsedMessage;
-            if (responseRemoveMembersMessage.getError() == 0 && responseRemoveMembersMessage.getOrginalMessage() != null && (responseRemoveMembersMessage.getOrginalMessage() instanceof RequestRemoveMembersMessage) && (userIds = ((RequestRemoveMembersMessage) responseRemoveMembersMessage.getOrginalMessage()).getUserIds()) != null && userIds.length() != 0 && (split = userIds.split(",")) != null && split.length != 0 && (id = TbadkCoreApplication.getCurrentAccountObj().getID()) != null && id.length() != 0) {
+            if (responseRemoveMembersMessage.getError() == 0 && responseRemoveMembersMessage.getOrginalMessage() != null && (responseRemoveMembersMessage.getOrginalMessage() instanceof RequestRemoveMembersMessage) && (userIds = ((RequestRemoveMembersMessage) responseRemoveMembersMessage.getOrginalMessage()).getUserIds()) != null && userIds.length() != 0 && (split = userIds.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length != 0 && (id = TbadkCoreApplication.getCurrentAccountObj().getID()) != null && id.length() != 0) {
                 for (String str : split) {
                     if (id.equals(str)) {
                         MemoryItemRemoveMessage.a aVar = new MemoryItemRemoveMessage.a();

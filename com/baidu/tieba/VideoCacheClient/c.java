@@ -13,25 +13,25 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class c implements x {
     public static final String TAG = c.class.getSimpleName();
-    private static c aTh;
-    private int aTi = 0;
+    private static c aUA;
+    private int aUB = 0;
 
     private c() {
-        a.JW();
+        a.Ku();
     }
 
-    public static c JY() {
-        if (aTh == null) {
+    public static c Kw() {
+        if (aUA == null) {
             synchronized (c.class) {
-                if (aTh == null) {
-                    aTh = new c();
+                if (aUA == null) {
+                    aUA = new c();
                 }
             }
         }
-        return aTh;
+        return aUA;
     }
 
-    private static long JU() {
+    private static long Ks() {
         if ("mounted".equals(Environment.getExternalStorageState())) {
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();
@@ -39,56 +39,56 @@ public class c implements x {
         return 0L;
     }
 
-    private boolean JZ() {
-        e.log(TAG, "sdcard avalible size " + ((JU() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M");
-        return JU() > 314572800 && getPort() > 0;
+    private boolean Kx() {
+        e.log(TAG, "sdcard avalible size " + ((Ks() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M");
+        return Ks() > 314572800 && getPort() > 0;
     }
 
     public void aX(Context context) {
         if (context != null) {
-            f.aZ(context).Jp();
+            f.aZ(context).JN();
         }
     }
 
     @Override // com.baidu.tieba.play.x
-    public String gP(String str) {
-        if (JZ()) {
-            String gQ = gQ(str);
-            if (gQ == null) {
-                String gN = gN(str);
-                if (gN != null && new File(String.valueOf(d.aST) + gN + "/header_downloaded").exists()) {
+    public String hm(String str) {
+        if (Kx()) {
+            String hn = hn(str);
+            if (hn == null) {
+                String hk = hk(str);
+                if (hk != null && new File(String.valueOf(d.aUm) + hk + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
             }
-            return gQ;
+            return hn;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.x
-    public String gQ(String str) {
-        String gN;
+    public String hn(String str) {
+        String hk;
         File file;
-        if (str == null || !str.contains("/") || (gN = gN(str)) == null || (file = new File(String.valueOf(d.aST) + gN + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (hk = hk(str)) == null || (file = new File(String.valueOf(d.aUm) + hk + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
     }
 
     @Override // com.baidu.tieba.play.x
-    public void ae(Context context, String str) {
-        f.aZ(context).gS(str);
-    }
-
-    @Override // com.baidu.tieba.play.x
     public void af(Context context, String str) {
-        f.aZ(context).gT(str);
+        f.aZ(context).hp(str);
     }
 
     @Override // com.baidu.tieba.play.x
-    public void gR(String str) {
-        a.JW().gO(str);
+    public void ag(Context context, String str) {
+        f.aZ(context).hq(str);
+    }
+
+    @Override // com.baidu.tieba.play.x
+    public void ho(String str) {
+        a.Ku().hl(str);
     }
 
     @Override // com.baidu.tieba.play.x
@@ -96,7 +96,7 @@ public class c implements x {
         f.aZ(context).clearCache();
     }
 
-    public static String gN(String str) {
+    public static String hk(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -118,8 +118,8 @@ public class c implements x {
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        if (this.aTi == 0) {
-            File file = new File(d.aSU);
+        if (this.aUB == 0) {
+            File file = new File(d.aUn);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -163,7 +163,7 @@ public class c implements x {
                                         e5.printStackTrace();
                                     }
                                 }
-                                return this.aTi;
+                                return this.aUB;
                             } catch (Throwable th) {
                                 th = th;
                                 fileInputStream = fileInputStream2;
@@ -209,10 +209,10 @@ public class c implements x {
                 }
             }
         }
-        return this.aTi;
+        return this.aUB;
     }
 
-    public void Ka() {
-        this.aTi = 0;
+    public void Ky() {
+        this.aUB = 0;
     }
 }

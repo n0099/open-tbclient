@@ -96,7 +96,7 @@ public abstract class a {
     }
 
     public void a(Canvas canvas, d dVar, ImageView imageView) {
-        iB();
+        iA();
         int save = canvas.save();
         int scrollX = imageView.getScrollX();
         int scrollY = imageView.getScrollY();
@@ -114,8 +114,8 @@ public abstract class a {
         if (this.BF.Cj != null) {
             canvas.concat(this.BF.Cj);
         }
-        if (dVar.Ca != null && dVar.Ca.kY()) {
-            if ((dVar.Ca.kR().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.Ca.kR().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.Bz != null) {
+        if (dVar.Ca != null && dVar.Ca.kW()) {
+            if ((dVar.Ca.kP().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.Ca.kP().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.Bz != null) {
                 canvas.concat(this.Bz);
             }
             this.BE.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
@@ -124,7 +124,7 @@ public abstract class a {
             b(canvas, dVar, imageView);
         }
         canvas.restoreToCount(save2);
-        if (this.BF.Ch && this.BF.Ci != null && dVar.ef()) {
+        if (this.BF.Ch && this.BF.Ci != null && dVar.isGif()) {
             if (!this.BF.Cl) {
                 this.BF.Ci.setBounds(0, 0, this.BF.Ci.getIntrinsicWidth(), this.BF.Ci.getIntrinsicHeight());
                 this.BF.Ci.draw(canvas);
@@ -160,7 +160,7 @@ public abstract class a {
         this.BF = eVar;
     }
 
-    public Matrix iz() {
+    public Matrix iy() {
         return this.Bz;
     }
 
@@ -168,11 +168,11 @@ public abstract class a {
         this.Bz = matrix;
     }
 
-    public RectF iA() {
+    public RectF iz() {
         return this.BA;
     }
 
-    private void iB() {
+    private void iA() {
         this.mPaint.setAlpha((int) (255.0f * this.BF.mAlpha));
         if (this.BF.Cf) {
             this.mPaint.setColorFilter(Bw);

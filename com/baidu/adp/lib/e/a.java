@@ -119,6 +119,18 @@ public class a<K, V> {
         return 1;
     }
 
+    public final void evictAll() {
+        trimToSize(-1);
+    }
+
+    public final synchronized void clear() {
+        evictAll();
+        this.putCount = 0;
+        this.evictionCount = 0;
+        this.hitCount = 0;
+        this.missCount = 0;
+    }
+
     public final synchronized int size() {
         return this.size;
     }

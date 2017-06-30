@@ -5,27 +5,27 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.widget.layout.g {
-    final /* synthetic */ x bZy;
+    final /* synthetic */ x chH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(x xVar) {
-        this.bZy = xVar;
+        this.chH = xVar;
     }
 
     @Override // com.baidu.tbadk.widget.layout.g
     public void c(View view, int i, boolean z) {
-        bl blVar;
+        bm bmVar;
         TbPageContext tbPageContext;
-        blVar = this.bZy.ahM;
-        com.baidu.tbadk.core.data.n sq = blVar.sq();
-        long cartoonId = sq.getCartoonId();
-        int chapterId = sq.getChapterId();
-        tbPageContext = this.bZy.ajh;
+        bmVar = this.chH.aiu;
+        com.baidu.tbadk.core.data.o sn = bmVar.sn();
+        long cartoonId = sn.getCartoonId();
+        int chapterId = sn.getChapterId();
+        tbPageContext = this.chH.ajP;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(tbPageContext.getPageActivity(), cartoonId, chapterId, 2)));
     }
 }

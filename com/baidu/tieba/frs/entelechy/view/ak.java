@@ -5,20 +5,20 @@ import com.baidu.tieba.card.ci;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements View.OnClickListener {
-    final /* synthetic */ ai bZG;
+    final /* synthetic */ ai chP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ai aiVar) {
-        this.bZG = aiVar;
+        this.chP = aiVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.ax axVar;
-        if (this.bZG.Ud() != null) {
-            ci<com.baidu.tbadk.core.data.ax> Ud = this.bZG.Ud();
-            axVar = this.bZG.bZE;
-            Ud.a(view, axVar);
+        com.baidu.tbadk.core.data.ay ayVar;
+        if (this.chP.Vs() != null) {
+            ci<com.baidu.tbadk.core.data.ay> Vs = this.chP.Vs();
+            ayVar = this.chP.chN;
+            Vs.a(view, ayVar);
         }
     }
 }

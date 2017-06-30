@@ -3,11 +3,11 @@ package com.baidu.tieba.personPolymeric.a;
 import com.baidu.tieba.tbadkCore.ae;
 /* loaded from: classes.dex */
 class b implements ae.a {
-    final /* synthetic */ a eKy;
+    final /* synthetic */ a eUw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.eKy = aVar;
+        this.eUw = aVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.ae.a

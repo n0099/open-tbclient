@@ -7,11 +7,11 @@ import com.baidu.tbadk.widget.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ b aJZ;
+    final /* synthetic */ b aLo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.aJZ = bVar;
+        this.aLo = bVar;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -19,12 +19,12 @@ public class d extends GestureDetector.SimpleOnGestureListener {
         int i;
         b.a aVar;
         b.a aVar2;
-        i = this.aJZ.agt;
+        i = this.aLo.ahb;
         if (i != 2 && (Math.abs(f) > 200.0f || Math.abs(f2) > 200.0f)) {
-            aVar = this.aJZ.aJC;
+            aVar = this.aLo.aKR;
             aVar.e(f, f2);
-            b bVar = this.aJZ;
-            aVar2 = this.aJZ.aJC;
+            b bVar = this.aLo;
+            aVar2 = this.aLo.aKR;
             bVar.startAnimation(aVar2);
         }
         return super.onFling(motionEvent, motionEvent2, f, f2);
@@ -39,27 +39,27 @@ public class d extends GestureDetector.SimpleOnGestureListener {
         float f3;
         float f4;
         float f5;
-        i = this.aJZ.agt;
+        i = this.aLo.ahb;
         if (i != 1) {
-            i2 = this.aJZ.agt;
+            i2 = this.aLo.ahb;
             if (i2 != 2) {
-                this.aJZ.mMode = 2;
-                f = this.aJZ.mCurrentScale;
-                f2 = this.aJZ.aJu;
+                this.aLo.mMode = 2;
+                f = this.aLo.mCurrentScale;
+                f2 = this.aLo.aKJ;
                 if (f > f2) {
-                    b bVar = this.aJZ;
-                    f4 = this.aJZ.aJu;
+                    b bVar = this.aLo;
+                    f4 = this.aLo.aKJ;
                     bVar.mCurrentScale = f4;
-                    b bVar2 = this.aJZ;
-                    f5 = this.aJZ.mCurrentScale;
-                    bVar2.aJw = f5;
-                    this.aJZ.GQ();
+                    b bVar2 = this.aLo;
+                    f5 = this.aLo.mCurrentScale;
+                    bVar2.aKL = f5;
+                    this.aLo.Hn();
                     return true;
                 }
-                b bVar3 = this.aJZ;
-                f3 = this.aJZ.aJu;
+                b bVar3 = this.aLo;
+                f3 = this.aLo.aKJ;
                 bVar3.mCurrentScale = f3 * 2.0f;
-                this.aJZ.e(true, (int) motionEvent.getX(), (int) motionEvent.getY());
+                this.aLo.e(true, (int) motionEvent.getX(), (int) motionEvent.getY());
                 return true;
             }
         }
@@ -71,12 +71,12 @@ public class d extends GestureDetector.SimpleOnGestureListener {
         View.OnClickListener onClickListener;
         boolean z;
         View.OnClickListener onClickListener2;
-        onClickListener = this.aJZ.aJB;
+        onClickListener = this.aLo.aKQ;
         if (onClickListener != null) {
-            z = this.aJZ.aJE;
+            z = this.aLo.aKT;
             if (!z) {
-                onClickListener2 = this.aJZ.aJB;
-                onClickListener2.onClick(this.aJZ);
+                onClickListener2 = this.aLo.aKQ;
+                onClickListener2.onClick(this.aLo);
             }
         }
         return super.onSingleTapConfirmed(motionEvent);
@@ -94,51 +94,51 @@ public class d extends GestureDetector.SimpleOnGestureListener {
         int i3;
         int i4;
         boolean z;
-        this.aJZ.aJE = true;
-        i = this.aJZ.aJz;
+        this.aLo.aKT = true;
+        i = this.aLo.aKO;
         if (i == 0) {
-            z = this.aJZ.aJF;
+            z = this.aLo.aKU;
             if (z) {
                 return false;
             }
         }
-        int scrollX = this.aJZ.getScrollX();
-        if (this.aJZ.aJr >= this.aJZ.getWidth()) {
+        int scrollX = this.aLo.getScrollX();
+        if (this.aLo.aKG >= this.aLo.getWidth()) {
             scrollX = (int) (scrollX + f);
-            i4 = this.aJZ.aJz;
+            i4 = this.aLo.aKO;
             if (i4 == 0) {
                 i2 = scrollX >= 0 ? scrollX : 0;
-                if (this.aJZ.getWidth() + i2 > this.aJZ.aJr) {
-                    i2 = (int) (this.aJZ.aJr - this.aJZ.getWidth());
+                if (this.aLo.getWidth() + i2 > this.aLo.aKG) {
+                    i2 = (int) (this.aLo.aKG - this.aLo.getWidth());
                 }
-                scrollY = this.aJZ.getScrollY();
-                if (this.aJZ.aJs + this.aJZ.mTop + this.aJZ.mBottom >= this.aJZ.getHeight()) {
+                scrollY = this.aLo.getScrollY();
+                if (this.aLo.aKH + this.aLo.mTop + this.aLo.mBottom >= this.aLo.getHeight()) {
                     scrollY = (int) (scrollY + f2);
-                    i3 = this.aJZ.aJz;
+                    i3 = this.aLo.aKO;
                     if (i3 == 0) {
-                        if (scrollY < (-this.aJZ.aJJ)) {
-                            scrollY = -this.aJZ.aJJ;
+                        if (scrollY < (-this.aLo.aKY)) {
+                            scrollY = -this.aLo.aKY;
                         }
-                        if (this.aJZ.getHeight() + scrollY > this.aJZ.aJs + this.aJZ.mBottom + this.aJZ.aJK) {
-                            scrollY = (int) ((this.aJZ.aJs - this.aJZ.getHeight()) + this.aJZ.mBottom + this.aJZ.aJK);
+                        if (this.aLo.getHeight() + scrollY > this.aLo.aKH + this.aLo.mBottom + this.aLo.aKZ) {
+                            scrollY = (int) ((this.aLo.aKH - this.aLo.getHeight()) + this.aLo.mBottom + this.aLo.aKZ);
                         }
                     }
                 }
-                if (i2 == this.aJZ.getScrollX() || scrollY != this.aJZ.getScrollY()) {
-                    this.aJZ.scrollTo(i2, scrollY);
-                    this.aJZ.invalidate();
+                if (i2 == this.aLo.getScrollX() || scrollY != this.aLo.getScrollY()) {
+                    this.aLo.scrollTo(i2, scrollY);
+                    this.aLo.invalidate();
                 }
                 return true;
             }
         }
         i2 = scrollX;
-        scrollY = this.aJZ.getScrollY();
-        if (this.aJZ.aJs + this.aJZ.mTop + this.aJZ.mBottom >= this.aJZ.getHeight()) {
+        scrollY = this.aLo.getScrollY();
+        if (this.aLo.aKH + this.aLo.mTop + this.aLo.mBottom >= this.aLo.getHeight()) {
         }
-        if (i2 == this.aJZ.getScrollX()) {
+        if (i2 == this.aLo.getScrollX()) {
         }
-        this.aJZ.scrollTo(i2, scrollY);
-        this.aJZ.invalidate();
+        this.aLo.scrollTo(i2, scrollY);
+        this.aLo.invalidate();
         return true;
     }
 
@@ -147,12 +147,12 @@ public class d extends GestureDetector.SimpleOnGestureListener {
         View.OnLongClickListener onLongClickListener;
         boolean z;
         View.OnLongClickListener onLongClickListener2;
-        onLongClickListener = this.aJZ.atb;
+        onLongClickListener = this.aLo.aue;
         if (onLongClickListener != null) {
-            z = this.aJZ.aJE;
+            z = this.aLo.aKT;
             if (!z) {
-                onLongClickListener2 = this.aJZ.atb;
-                onLongClickListener2.onLongClick(this.aJZ);
+                onLongClickListener2 = this.aLo.aue;
+                onLongClickListener2.onLongClick(this.aLo);
             }
         }
         super.onLongPress(motionEvent);

@@ -1,39 +1,74 @@
 package com.baidu.android.pushservice.e;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.android.pushservice.PushSettings;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes2.dex */
-public class b {
-    public static void a(String str, String str2, Context context) {
-        if (!PushSettings.c(context) || str2 == null) {
-            return;
+public final class b {
+    public static String a(HashMap<String, String> hashMap) {
+        if (hashMap == null || hashMap.isEmpty()) {
+            return "params is null or empty";
         }
-        Log.d("BDPushSDK-" + str, str2);
+        StringBuffer stringBuffer = new StringBuffer();
+        Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (!it.hasNext()) {
+                return stringBuffer.toString();
+            }
+            if (i2 != 0) {
+                stringBuffer.append(", ");
+            }
+            Map.Entry<String, String> next = it.next();
+            String key = next.getKey();
+            stringBuffer.append((Object) key).append("=").append((Object) next.getValue());
+            i = i2 + 1;
+        }
     }
 
-    public static void a(String str, Throwable th, Context context) {
-        b(str, a.a(th), context);
+    public static void a(Context context) {
+        a(context, (ArrayList) com.baidu.android.pushservice.b.b.a(context).a.clone());
     }
 
-    public static void b(String str, String str2, Context context) {
-        if (!PushSettings.c(context) || str2 == null) {
+    private static void a(Context context, ArrayList<com.baidu.android.pushservice.b.f> arrayList) {
+        if (arrayList == null) {
             return;
         }
-        Log.e("BDPushSDK-" + str, str2);
+        PackageManager packageManager = context.getPackageManager();
+        synchronized (arrayList) {
+            Iterator<com.baidu.android.pushservice.b.f> it = arrayList.iterator();
+            while (it.hasNext()) {
+                com.baidu.android.pushservice.b.f next = it.next();
+                if (next != null) {
+                    String c = next.c();
+                    try {
+                        packageManager.getPackageInfo(c, 0);
+                    } catch (Exception e) {
+                        if (!TextUtils.isEmpty(c)) {
+                            com.baidu.android.pushservice.g.a.d("ApiUtils", c + " not found at packageManager");
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    public static void c(String str, String str2, Context context) {
-        if (!PushSettings.c(context) || str2 == null) {
-            return;
+    public static void b(HashMap<String, String> hashMap) {
+        long currentTimeMillis = System.currentTimeMillis() / 1000;
+        hashMap.put("timestamp", currentTimeMillis + "");
+        hashMap.put("expires", (86400 + currentTimeMillis) + "");
+        hashMap.put("v", "1");
+        try {
+            hashMap.put("vcode", com.baidu.android.pushservice.k.f.a(URLEncoder.encode(currentTimeMillis + "bccs", "UTF-8").getBytes(), false));
+        } catch (UnsupportedEncodingException e) {
+            com.baidu.android.pushservice.g.a.a("ApiUtils", e);
         }
-        Log.i("BDPushSDK-" + str, str2);
-    }
-
-    public static void d(String str, String str2, Context context) {
-        if (!PushSettings.c(context) || str2 == null) {
-            return;
-        }
-        Log.w("BDPushSDK-" + str, str2);
     }
 }

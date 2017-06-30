@@ -1,31 +1,16 @@
 package com.baidu.tieba.recapp;
 
-import android.content.Context;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.a;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.tbadkCore.d.a;
-import java.util.List;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public interface x {
-    a<?, ?> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
+    void a(AdvertAppInfo advertAppInfo, String str);
 
-    a<?, ?> a(w wVar, BdUniqueId bdUniqueId);
+    void aeh();
 
-    void a(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5);
+    String getFid();
 
-    s aZG();
+    int getPageNum();
 
-    u aZH();
-
-    com.baidu.tieba.k.a aZI();
-
-    q aZJ();
-
-    p bO(Context context);
-
-    com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
-
-    void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4);
+    TbPageContext<?> xN();
 }

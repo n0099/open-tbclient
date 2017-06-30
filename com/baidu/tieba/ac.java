@@ -3,15 +3,15 @@ package com.baidu.tieba;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class ac implements View.OnClickListener {
-    final /* synthetic */ y aSa;
+    final /* synthetic */ y aTt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(y yVar) {
-        this.aSa = yVar;
+        this.aTt = yVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,24 +20,24 @@ class ac implements View.OnClickListener {
         boolean z2;
         TextView textView;
         TextView textView2;
-        z = this.aSa.aRB;
+        z = this.aTt.aSU;
         if (!z) {
-            z2 = this.aSa.aRA;
+            z2 = this.aTt.aST;
             if (z2) {
-                Drawable drawable = aq.getDrawable(w.g.btn_dailog_choose_n);
+                Drawable drawable = as.getDrawable(w.g.btn_dailog_choose_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                textView2 = this.aSa.aRI;
+                textView2 = this.aTt.aTb;
                 textView2.setCompoundDrawables(drawable, null, null, null);
-                this.aSa.aRz = false;
-                this.aSa.aRA = false;
+                this.aTt.aSS = false;
+                this.aTt.aST = false;
                 return;
             }
-            Drawable drawable2 = aq.getDrawable(w.g.btn_dailog_choose_s);
+            Drawable drawable2 = as.getDrawable(w.g.btn_dailog_choose_s);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            textView = this.aSa.aRI;
+            textView = this.aTt.aTb;
             textView.setCompoundDrawables(drawable2, null, null, null);
-            this.aSa.aRz = true;
-            this.aSa.aRA = true;
+            this.aTt.aSS = true;
+            this.aTt.aST = true;
         }
     }
 }

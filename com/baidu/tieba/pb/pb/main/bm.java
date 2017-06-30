@@ -1,22 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+import com.baidu.tieba.pb.pb.main.PbFloorAgreeModel;
+import com.baidu.tieba.pb.pb.main.view.PbFloorAgreeView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm implements a.b {
-    final /* synthetic */ PbActivity enc;
-    private final /* synthetic */ hh enm;
+public class bm implements PbFloorAgreeModel.a {
+    final /* synthetic */ PbActivity ewh;
+    private final /* synthetic */ int ewm;
+    private final /* synthetic */ View val$v;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(PbActivity pbActivity, hh hhVar) {
-        this.enc = pbActivity;
-        this.enm = hhVar;
+    public bm(PbActivity pbActivity, int i, View view) {
+        this.ewh = pbActivity;
+        this.ewm = i;
+        this.val$v = view;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.enc.HidenSoftKeyPad((InputMethodManager) this.enc.getSystemService("input_method"), this.enm.getChatMsgView());
-        aVar.dismiss();
+    @Override // com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.a
+    public void oK(int i) {
+        if (i > 0 && this.ewm == 0) {
+            ((PbFloorAgreeView) this.val$v).ph(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.a
+    public void oN(String str) {
+        com.baidu.tieba.pb.d.a(this.ewh.getPageContext(), str);
     }
 }

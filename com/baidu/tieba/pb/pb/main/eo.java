@@ -1,50 +1,43 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.List;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.pb.pb.main.PbModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class eo extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ en eqv;
+public class eo extends CustomMessageListener {
+    final /* synthetic */ PbModel ezs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eo(en enVar, int i, int i2) {
-        super(i, i2);
-        this.eqv = enVar;
+    public eo(PbModel pbModel, int i) {
+        super(i);
+        this.ezs = pbModel;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage != null) {
-            if (responsedMessage instanceof LookMoreHttpResMessage) {
-                LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
-                List<PostData> data = lookMoreHttpResMessage.getData();
-                String errorString = lookMoreHttpResMessage.getErrorString();
-                int error = lookMoreHttpResMessage.getError();
-                if (error == 0) {
-                    if (!com.baidu.tbadk.core.util.x.r(data)) {
-                        this.eqv.emq.onSuccess(data);
-                        return;
-                    }
-                    return;
-                }
-                this.eqv.emq.d(error, errorString, "");
-            } else if (responsedMessage instanceof LookMoreSocketResMessage) {
-                LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
-                List<PostData> data2 = lookMoreSocketResMessage.getData();
-                String errorString2 = lookMoreSocketResMessage.getErrorString();
-                int error2 = lookMoreSocketResMessage.getError();
-                if (error2 == 0) {
-                    if (data2 != null) {
-                        this.eqv.emq.onSuccess(data2);
-                        return;
-                    }
-                    return;
-                }
-                this.eqv.emq.d(error2, errorString2, "");
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage;
+        com.baidu.tieba.pb.data.f pbData;
+        PbModel.a aVar;
+        this.ezs.eyW = true;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId = this.ezs.unique_id;
+            if (tag != bdUniqueId || (pbData = (pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage).getPbData()) == null) {
+                return;
+            }
+            this.ezs.j(pbData);
+            this.ezs.e(pbData);
+            if (pbData.aMv() != null) {
+                pbData.aMv().bP(0);
+            }
+            aVar = this.ezs.eyN;
+            if (aVar != null && pbData != null) {
+                com.baidu.adp.lib.g.h.fR().post(new ep(this, pbPageReadLocalResponseMessage, pbData));
             }
         }
     }

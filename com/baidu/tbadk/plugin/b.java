@@ -7,13 +7,13 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ PluginErrorTipView aHJ;
+    final /* synthetic */ PluginErrorTipView aIX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(PluginErrorTipView pluginErrorTipView, int i) {
         super(i);
-        this.aHJ = pluginErrorTipView;
+        this.aIX = pluginErrorTipView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class b extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         LinkedList linkedList;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof PluginStatus)) {
-            linkedList = this.aHJ.aHG;
+            linkedList = this.aIX.aIU;
             linkedList.add((PluginStatus) customResponsedMessage.getData());
-            this.aHJ.update();
+            this.aIX.update();
         }
     }
 }

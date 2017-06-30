@@ -1,41 +1,49 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.app.Activity;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi implements Runnable {
-    final /* synthetic */ PbActivity enc;
-    private final /* synthetic */ int[] eni;
-    private final /* synthetic */ int enj;
-    private final /* synthetic */ String enk;
-    private final /* synthetic */ String enl;
+public class bi implements PbActivity.a {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(PbActivity pbActivity, int[] iArr, int i, String str, String str2) {
-        this.enc = pbActivity;
-        this.eni = iArr;
-        this.enj = i;
-        this.enk = str;
-        this.enl = str2;
+    public bi(PbActivity pbActivity) {
+        this.ewh = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int g;
-        int ag = (com.baidu.adp.lib.util.k.ag(this.enc.getPageContext().getPageActivity()) - this.eni[1]) - this.enj;
-        if (TbadkCoreApplication.m9getInst().getKeyboardHeight() > 0) {
-            g = TbadkCoreApplication.m9getInst().getKeyboardHeight() + com.baidu.adp.lib.util.k.g(this.enc.getPageContext().getPageActivity(), w.f.ds120);
-        } else {
-            g = com.baidu.adp.lib.util.k.g(this.enc.getPageContext().getPageActivity(), w.f.ds640);
+    @Override // com.baidu.tieba.pb.pb.main.PbActivity.a
+    public void g(Object obj) {
+        PbModel pbModel;
+        PbModel pbModel2;
+        PbModel pbModel3;
+        PbModel pbModel4;
+        if (!com.baidu.adp.lib.util.i.hj()) {
+            this.ewh.showToast(w.l.network_not_available);
+            return;
         }
-        int i = g - ag;
-        if (i > 0) {
-            this.enc.aJE().getListView().smoothScrollBy(i, 0);
+        Object[] objArr = (Object[]) obj;
+        pbModel = this.ewh.eue;
+        String valueOf = String.valueOf(pbModel.getPbData().getUserData().getUserId());
+        String str = "";
+        if (objArr.length > 1) {
+            str = String.valueOf(objArr[1]);
         }
-        if (this.enc.aJE().aMg() != null) {
-            this.enc.aJE().aMg().bH(this.enk, this.enl);
+        String str2 = "";
+        if (objArr.length > 2) {
+            str2 = String.valueOf(objArr[2]);
         }
-        this.enc.aJE().aMP();
+        PbActivity pbActivity = this.ewh;
+        Activity pageActivity = this.ewh.getPageContext().getPageActivity();
+        pbModel2 = this.ewh.eue;
+        String id = pbModel2.getPbData().aMt().getId();
+        pbModel3 = this.ewh.eue;
+        String name = pbModel3.getPbData().aMt().getName();
+        pbModel4 = this.ewh.eue;
+        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, pbModel4.getPbData().aMv().getId(), valueOf, str, str2)));
     }
 }

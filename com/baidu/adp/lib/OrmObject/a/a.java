@@ -103,13 +103,13 @@ public class a {
     }
 
     public static final Object a(String str, Object obj, Class<?> cls) {
-        Method a = a(cls, str, new Object[0]);
-        if (a == null) {
+        Method b = b(cls, str, new Object[0]);
+        if (b == null) {
             return null;
         }
         try {
-            a.setAccessible(true);
-            return a.invoke(obj, new Object[0]);
+            b.setAccessible(true);
+            return b.invoke(obj, new Object[0]);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             return null;
@@ -141,7 +141,7 @@ public class a {
         }
     }
 
-    public static final Method a(Class<?> cls, String str, Object... objArr) {
+    public static final Method b(Class<?> cls, String str, Object... objArr) {
         Method method;
         Method method2 = null;
         while (cls != Object.class && method2 == null) {

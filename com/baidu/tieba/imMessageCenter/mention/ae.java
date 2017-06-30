@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class ae extends CustomMessageListener {
-    final /* synthetic */ ad dmz;
+    final /* synthetic */ ad duv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(ad adVar, int i) {
         super(i);
-        this.dmz = adVar;
+        this.duv = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,18 +25,18 @@ public class ae extends CustomMessageListener {
         l lVar4;
         l lVar5;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            lVar = this.dmz.dmw;
+            lVar = this.duv.dus;
             if (lVar != null) {
-                lVar5 = this.dmz.dmw;
-                lVar5.gr(true);
+                lVar5 = this.duv.dus;
+                lVar5.gJ(true);
             }
             MentionActivityConfig.newJumpIn = true;
-            lVar2 = this.dmz.dmw;
+            lVar2 = this.duv.dus;
             if (lVar2 != null) {
-                lVar3 = this.dmz.dmw;
-                lVar3.abW();
-                lVar4 = this.dmz.dmw;
-                lVar4.u(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
+                lVar3 = this.duv.dus;
+                lVar3.afN();
+                lVar4 = this.duv.dus;
+                lVar4.v(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
             }
         }
     }

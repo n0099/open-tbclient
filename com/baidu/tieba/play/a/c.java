@@ -6,11 +6,11 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 class c implements HostnameVerifier {
-    final /* synthetic */ b.a fcr;
+    final /* synthetic */ b.a fmH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b.a aVar) {
-        this.fcr = aVar;
+        this.fmH = aVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier

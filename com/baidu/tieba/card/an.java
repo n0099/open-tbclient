@@ -10,45 +10,45 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements View.OnClickListener {
-    final /* synthetic */ am bBf;
+    final /* synthetic */ am bBY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(am amVar) {
-        this.bBf = amVar;
+        this.bBY = amVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.bl blVar;
-        com.baidu.tbadk.core.data.bl blVar2;
-        com.baidu.tbadk.core.data.bl blVar3;
-        com.baidu.tbadk.core.data.bl blVar4;
-        com.baidu.tbadk.core.data.bl blVar5;
+        com.baidu.tbadk.core.data.bm bmVar;
+        com.baidu.tbadk.core.data.bm bmVar2;
+        com.baidu.tbadk.core.data.bm bmVar3;
+        com.baidu.tbadk.core.data.bm bmVar4;
+        com.baidu.tbadk.core.data.bm bmVar5;
         TbPageContext tbPageContext;
-        com.baidu.tbadk.core.data.bl blVar6;
-        com.baidu.tbadk.core.data.bl blVar7;
+        com.baidu.tbadk.core.data.bm bmVar6;
+        com.baidu.tbadk.core.data.bm bmVar7;
         com.baidu.tieba.card.data.n nVar;
-        blVar = this.bBf.ahM;
-        if (blVar != null) {
-            blVar2 = this.bBf.ahM;
-            if (blVar2.getAuthor() != null) {
-                blVar3 = this.bBf.ahM;
-                if (!StringUtils.isNull(blVar3.getAuthor().getName_show())) {
-                    blVar4 = this.bBf.ahM;
-                    if (!StringUtils.isNull(blVar4.getAuthor().getUserId())) {
-                        blVar5 = this.bBf.ahM;
-                        if (blVar5.rz() != null) {
-                            if (this.bBf.Ud() != null) {
-                                ci<com.baidu.tieba.card.data.n> Ud = this.bBf.Ud();
-                                nVar = this.bBf.bBc;
-                                Ud.a(view, nVar);
+        bmVar = this.bBY.aiu;
+        if (bmVar != null) {
+            bmVar2 = this.bBY.aiu;
+            if (bmVar2.getAuthor() != null) {
+                bmVar3 = this.bBY.aiu;
+                if (!StringUtils.isNull(bmVar3.getAuthor().getName_show())) {
+                    bmVar4 = this.bBY.aiu;
+                    if (!StringUtils.isNull(bmVar4.getAuthor().getUserId())) {
+                        bmVar5 = this.bBY.aiu;
+                        if (bmVar5.rw() != null) {
+                            if (this.bBY.Vs() != null) {
+                                ci<com.baidu.tieba.card.data.n> Vs = this.bBY.Vs();
+                                nVar = this.bBY.bBV;
+                                Vs.a(view, nVar);
                             }
-                            tbPageContext = this.bBf.ajh;
+                            tbPageContext = this.bBY.ajP;
                             PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(tbPageContext.getPageActivity());
-                            blVar6 = this.bBf.ahM;
-                            long c = com.baidu.adp.lib.g.b.c(blVar6.getAuthor().getUserId(), 0L);
-                            blVar7 = this.bBf.ahM;
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, personPolymericActivityConfig.createNormalConfig(c, false, blVar7.getAuthor().isBigV())));
+                            bmVar6 = this.bBY.aiu;
+                            long c = com.baidu.adp.lib.g.b.c(bmVar6.getAuthor().getUserId(), 0L);
+                            bmVar7 = this.bBY.aiu;
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, personPolymericActivityConfig.createNormalConfig(c, false, bmVar7.getAuthor().isBigV())));
                         }
                     }
                 }

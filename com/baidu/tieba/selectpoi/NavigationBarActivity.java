@@ -13,63 +13,63 @@ import com.baidu.tbadk.core.view.y;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
-    protected y aEX;
-    protected NavigationBar aWS;
-    private RelativeLayout egQ;
-    protected NoNetworkView fmG;
-    private RelativeLayout fmH;
+    protected y aGl;
+    protected NavigationBar aYl;
+    private RelativeLayout epN;
+    protected NoNetworkView fwU;
+    private RelativeLayout fwV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         super.setContentView(w.j.nevigationbar_layout);
-        this.aWS = (NavigationBar) findViewById(w.h.navigation_bar);
-        this.egQ = (RelativeLayout) findViewById(w.h.navigation_bar_root);
-        this.aWS.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-        if (baZ()) {
-            this.fmG = (NoNetworkView) ((ViewStub) findViewById(w.h.no_network_viewstub)).inflate();
+        this.aYl = (NavigationBar) findViewById(w.h.navigation_bar);
+        this.epN = (RelativeLayout) findViewById(w.h.navigation_bar_root);
+        this.aYl.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+        if (bfo()) {
+            this.fwU = (NoNetworkView) ((ViewStub) findViewById(w.h.no_network_viewstub)).inflate();
         }
     }
 
     @Override // android.app.Activity
     public void setContentView(View view) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        baZ();
-        this.fmH = new RelativeLayout(getPageContext().getContext());
-        this.fmH.addView(view, new ViewGroup.LayoutParams(-1, -1));
-        this.egQ.addView(this.fmH, 0, layoutParams);
+        bfo();
+        this.fwV = new RelativeLayout(getPageContext().getContext());
+        this.fwV.addView(view, new ViewGroup.LayoutParams(-1, -1));
+        this.epN.addView(this.fwV, 0, layoutParams);
     }
 
-    protected boolean baZ() {
+    protected boolean bfo() {
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void setContentView(int i) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (baZ()) {
+        if (bfo()) {
             layoutParams.addRule(3, w.h.no_network_view);
         } else {
             layoutParams.addRule(3, w.h.no_network_viewstub);
         }
-        this.fmH = new RelativeLayout(getPageContext().getContext());
-        this.fmH.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
-        this.egQ.addView(this.fmH, layoutParams);
+        this.fwV = new RelativeLayout(getPageContext().getContext());
+        this.fwV.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
+        this.epN.addView(this.fwV, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.aWS.onChangeSkinType(getPageContext(), i);
-        if (this.fmG != null) {
-            this.fmG.onChangeSkinType(getPageContext(), i);
+        this.aYl.onChangeSkinType(getPageContext(), i);
+        if (this.fwU != null) {
+            this.fwU.onChangeSkinType(getPageContext(), i);
         }
-        if (this.aEX != null) {
-            this.aEX.onChangeSkinType(getPageContext(), i);
+        if (this.aGl != null) {
+            this.aGl.onChangeSkinType(getPageContext(), i);
         }
         getLayoutMode().ah(i == 1);
-        getLayoutMode().t(this.egQ);
+        getLayoutMode().t(this.epN);
     }
 }

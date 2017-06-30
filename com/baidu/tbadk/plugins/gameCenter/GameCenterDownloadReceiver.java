@@ -7,8 +7,8 @@ import android.content.Intent;
 public class GameCenterDownloadReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (a.FV() != null) {
-            a.FV().onReceive(context, intent);
+        if (a.Gs() != null) {
+            a.Gs().onReceive(context, intent);
         }
     }
 }

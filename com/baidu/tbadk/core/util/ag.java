@@ -1,100 +1,190 @@
 package com.baidu.tbadk.core.util;
 
-import android.text.TextUtils;
-import android.widget.ListAdapter;
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import android.content.Context;
+import android.support.v4.util.ArrayMap;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.widget.richText.TbRichTextEmotionInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ag {
-    public static void a(com.baidu.adp.widget.ListView.w wVar, BdUniqueId bdUniqueId) {
-        ListAdapter adapter;
-        ArrayList<PreLoadImageInfo> images;
-        int pbImageSize;
-        if (wVar != null && com.baidu.adp.lib.util.i.hl() && (adapter = wVar.getAdapter()) != null) {
-            int i = 0;
-            int i2 = 0;
-            int i3 = 0;
-            int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean vv = av.vv();
-            int firstVisiblePosition = wVar.getFirstVisiblePosition();
-            int lastVisiblePosition = wVar.getLastVisiblePosition();
-            com.baidu.adp.lib.f.c.fM().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
-            while (true) {
-                int i4 = firstVisiblePosition;
-                if (i4 < adapter.getCount()) {
-                    Object item = adapter.getItem(i4);
-                    if ((item instanceof ah) && (images = ((ah) item).getImages()) != null && images.size() != 0) {
-                        Iterator<PreLoadImageInfo> it = images.iterator();
-                        int i5 = i3;
-                        int i6 = i;
-                        int i7 = i2;
-                        while (it.hasNext()) {
-                            PreLoadImageInfo next = it.next();
-                            if (com.baidu.adp.lib.f.c.fM().al(next.procType)) {
-                                if (12 == next.procType || 28 == next.procType) {
-                                    int i8 = i5 + 1;
-                                    if (i8 <= 30 && i4 > lastVisiblePosition && !TextUtils.isEmpty(next.imgUrl)) {
-                                        if (12 == next.procType) {
-                                            com.baidu.adp.lib.f.c.fM().a(next.imgUrl, 12, null, bdUniqueId);
-                                            i5 = i8;
-                                        } else if (28 == next.procType) {
-                                            com.baidu.adp.lib.f.c.fM().a(next.imgUrl, 28, null, bdUniqueId);
-                                            i5 = i8;
-                                        }
-                                    }
-                                    i5 = i8;
-                                } else {
-                                    int i9 = next.width * next.height;
-                                    if (i9 > 0) {
-                                        if (next.bigEmotion != null) {
-                                            pbImageSize = i7 + (i9 * 4);
-                                        } else {
-                                            pbImageSize = i7 + (i9 * 2);
-                                        }
-                                    } else if (next.bigEmotion != null) {
-                                        BdLog.e("missing big emotion image width and height!");
-                                        pbImageSize = i7 + TbConfig.getBigEmotionsSize();
-                                    } else {
-                                        pbImageSize = i7 + TbConfig.getPbImageSize();
-                                    }
-                                    int i10 = i6 + 1;
-                                    if (i10 <= 13 && pbImageSize < bigImageMaxUsedMemory && i4 > lastVisiblePosition) {
-                                        if (next.bigEmotion != null) {
-                                            TbRichTextEmotionInfo tbRichTextEmotionInfo = next.bigEmotion;
-                                            String str = vv ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
-                                            if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.c.fM().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, 0, 0, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(vv), str);
-                                                i7 = pbImageSize;
-                                                i6 = i10;
-                                            }
-                                        } else {
-                                            String str2 = next.imgUrl;
-                                            if (!TextUtils.isEmpty(str2)) {
-                                                com.baidu.adp.lib.f.c.fM().a(str2, next.procType, null, bdUniqueId);
-                                            }
-                                        }
-                                    }
-                                    i7 = pbImageSize;
-                                    i6 = i10;
-                                }
-                            }
-                        }
-                        if ((i6 > 13 || i7 >= bigImageMaxUsedMemory) && i5 > 30) {
-                            return;
-                        }
-                        i3 = i5;
-                        i2 = i7;
-                        i = i6;
-                    }
-                    firstVisiblePosition = i4 + 1;
-                } else {
-                    return;
+    public static boolean aB(Context context) {
+        boolean z;
+        boolean z2;
+        if (com.baidu.a.a.np()) {
+            if (context == null) {
+                return false;
+            }
+            try {
+                z = com.baidu.a.a.a.R(context, "android.permission.READ_PHONE_STATE");
+            } catch (Exception e) {
+                e = e;
+                z = false;
+            }
+            try {
+                z2 = aC(context);
+            } catch (Exception e2) {
+                e = e2;
+                BdLog.e(e.getMessage());
+                z2 = false;
+                if (z2) {
                 }
             }
+            return !z2 && z;
         }
+        return true;
+    }
+
+    public static boolean aC(Context context) {
+        if (com.baidu.a.a.np()) {
+            if (context == null) {
+                return false;
+            }
+            try {
+                if (com.baidu.a.a.a.R(context, "android.permission.ACCESS_FINE_LOCATION")) {
+                    return true;
+                }
+                return com.baidu.a.a.a.R(context, "android.permission.ACCESS_COARSE_LOCATION");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean aD(Context context) {
+        if (!com.baidu.a.a.np()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.a.a.a.R(context, "android.permission.CAMERA");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean aE(Context context) {
+        if (!com.baidu.a.a.np()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.a.a.a.R(context, "android.permission.RECORD_AUDIO");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean aF(Context context) {
+        Context aJ = aJ(context);
+        if (aJ == null) {
+            return true;
+        }
+        try {
+            if (com.baidu.a.a.np() && com.baidu.a.a.a.S(aJ, "android.permission.RECORD_AUDIO")) {
+                com.baidu.adp.lib.util.k.showToast(aJ, w.l.record_audio_permission_denied_fun_disable);
+                return true;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+        return false;
+    }
+
+    public static boolean aG(Context context) {
+        if (!com.baidu.a.a.np()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.a.a.a.R(context, "android.permission.READ_PHONE_STATE");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean aH(Context context) {
+        if (!com.baidu.a.a.np()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.a.a.a.R(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean aI(Context context) {
+        Context aJ = aJ(context);
+        if (aJ == null) {
+            return true;
+        }
+        try {
+            if (com.baidu.a.a.np() && com.baidu.a.a.a.S(aJ, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                com.baidu.adp.lib.util.k.showToast(aJ, w.l.write_external_storage_permission_denied_fun_disable);
+                return true;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+        return false;
+    }
+
+    public static Context aJ(Context context) {
+        return context == null ? TbadkCoreApplication.m9getInst().getContext() : context;
+    }
+
+    public static void c(Activity activity, int i) {
+        try {
+            com.baidu.a.a.a.a(activity, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, i);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public static ArrayMap<String, Boolean> a(String[] strArr, int[] iArr) {
+        if (strArr == null || strArr.length == 0 || iArr == null || iArr.length == 0) {
+            return null;
+        }
+        ArrayMap<String, Boolean> arrayMap = new ArrayMap<>(strArr.length);
+        for (int i = 0; i < strArr.length && i < iArr.length; i++) {
+            arrayMap.put(strArr[i], Boolean.valueOf(iArr[i] == 0));
+        }
+        return arrayMap;
+    }
+
+    public static boolean d(Activity activity, int i) {
+        ArrayList arrayList = new ArrayList(2);
+        if (!aH(activity.getApplicationContext())) {
+            arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
+        }
+        if (!aD(activity.getApplicationContext())) {
+            arrayList.add("android.permission.CAMERA");
+        }
+        if (arrayList.size() == 0) {
+            return false;
+        }
+        try {
+            com.baidu.a.a.a.a(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+        return true;
     }
 }

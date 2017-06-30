@@ -6,27 +6,27 @@ import com.baidu.tieba.model.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements h.a {
-    private final /* synthetic */ c.a dUb;
-    private final /* synthetic */ a.InterfaceC0035a dUc;
-    private final /* synthetic */ String dUd;
+    private final /* synthetic */ String ecA;
+    private final /* synthetic */ c.a ecy;
+    private final /* synthetic */ a.InterfaceC0037a ecz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c.a aVar, a.InterfaceC0035a interfaceC0035a, String str) {
-        this.dUb = aVar;
-        this.dUc = interfaceC0035a;
-        this.dUd = str;
+    public d(c.a aVar, a.InterfaceC0037a interfaceC0037a, String str) {
+        this.ecy = aVar;
+        this.ecz = interfaceC0037a;
+        this.ecA = str;
     }
 
     @Override // com.baidu.tbadk.core.a.h.a
     public void onSuccess(String str) {
-        this.dUb.setStoken(str);
-        this.dUb.execute(new String[0]);
+        this.ecy.setStoken(str);
+        this.ecy.execute(new String[0]);
     }
 
     @Override // com.baidu.tbadk.core.a.h.a
     public void onFailed() {
-        if (this.dUc != null) {
-            this.dUc.b(this.dUd, 1, null);
+        if (this.ecz != null) {
+            this.ecz.b(this.ecA, 1, null);
         }
     }
 }

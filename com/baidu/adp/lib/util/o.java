@@ -41,7 +41,7 @@ public class o {
         }
     }
 
-    public static void a(Writer writer) {
+    public static void b(Writer writer) {
         if (writer != null) {
             try {
                 writer.close();
@@ -51,7 +51,7 @@ public class o {
         }
     }
 
-    public static void a(Reader reader) {
+    public static void b(Reader reader) {
         if (reader != null) {
             try {
                 reader.close();
@@ -61,7 +61,7 @@ public class o {
         }
     }
 
-    public static void a(Cursor cursor) {
+    public static void e(Cursor cursor) {
         if (cursor != null) {
             try {
                 cursor.close();
@@ -71,7 +71,7 @@ public class o {
         }
     }
 
-    public static void h(SQLiteDatabase sQLiteDatabase) {
+    public static void i(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.close();

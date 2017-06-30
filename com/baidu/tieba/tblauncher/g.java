@@ -16,9 +16,12 @@ class g extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ad adVar;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            com.baidu.tbadk.core.util.p.adB = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            this.this$0.bjJ();
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("game_is_show_tip", booleanValue);
+            adVar = this.this$0.fQq;
+            adVar.mb(booleanValue);
         }
     }
 }

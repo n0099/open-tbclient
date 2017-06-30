@@ -2,7 +2,7 @@ package com.baidu.tieba.write.transmit.model;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.util.p;
 import tbclient.GetRepostRecommendForum.DataReq;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumReqIdl;
 /* loaded from: classes.dex */
@@ -20,7 +20,7 @@ public class GetRepostForumReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                o.bindCommonParamsToProtobufData(builder, true);
+                p.bindCommonParamsToProtobufData(builder, true);
             }
             builder.title = this.threadTitle;
             builder.content = this.threadContent;

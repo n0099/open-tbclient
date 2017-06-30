@@ -7,17 +7,17 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class t implements Animation.AnimationListener {
-    private final /* synthetic */ String cPo;
-    final /* synthetic */ PersonalChatView djk;
-    private final /* synthetic */ Animation djl;
-    private final /* synthetic */ String djm;
+    private final /* synthetic */ String cXk;
+    final /* synthetic */ PersonalChatView drg;
+    private final /* synthetic */ Animation drh;
+    private final /* synthetic */ String dri;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PersonalChatView personalChatView, String str, String str2, Animation animation) {
-        this.djk = personalChatView;
-        this.cPo = str;
-        this.djm = str2;
-        this.djl = animation;
+        this.drg = personalChatView;
+        this.cXk = str;
+        this.dri = str2;
+        this.drh = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -35,14 +35,14 @@ public class t implements Animation.AnimationListener {
         PersonalChatActivity personalChatActivity;
         TextView textView2;
         LinearLayout linearLayout2;
-        linearLayout = this.djk.djd;
+        linearLayout = this.drg.dqZ;
         linearLayout.clearAnimation();
-        textView = this.djk.dje;
-        personalChatActivity = this.djk.djb;
-        textView.setText(personalChatActivity.getResources().getString(w.l.add_friend_agree_title, this.cPo));
-        textView2 = this.djk.djf;
-        textView2.setText(this.djm);
-        linearLayout2 = this.djk.djd;
-        linearLayout2.setAnimation(this.djl);
+        textView = this.drg.dra;
+        personalChatActivity = this.drg.dqX;
+        textView.setText(personalChatActivity.getResources().getString(w.l.add_friend_agree_title, this.cXk));
+        textView2 = this.drg.drb;
+        textView2.setText(this.dri);
+        linearLayout2 = this.drg.dqZ;
+        linearLayout2.setAnimation(this.drh);
     }
 }

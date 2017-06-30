@@ -1,26 +1,45 @@
 package com.baidu.tieba.enterForum.home;
 
+import android.app.Activity;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.ae;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
+import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements ae.b {
-    final /* synthetic */ i bMN;
+public class t extends com.baidu.adp.base.f {
+    final /* synthetic */ i bTq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(i iVar) {
-        this.bMN = iVar;
+        this.bTq = iVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.ae.b
-    public void onListPullRefresh(boolean z) {
+    @Override // com.baidu.adp.base.f
+    public void g(Object obj) {
+        LikeModel likeModel;
+        LikeModel likeModel2;
+        LikeModel likeModel3;
         EnterForumModel enterForumModel;
         String str;
-        enterForumModel = this.bMN.bMC;
-        str = this.bMN.bME;
-        enterForumModel.dM(!StringUtils.isNull(str));
-        TbadkCoreApplication.m9getInst().setLikeBarChanged(false);
+        LikeModel likeModel4;
+        likeModel = this.bTq.bAL;
+        if (AntiHelper.sK(likeModel.getErrorCode())) {
+            Activity pageActivity = this.bTq.aWN.getPageContext().getPageActivity();
+            likeModel4 = this.bTq.bAL;
+            AntiHelper.ar(pageActivity, likeModel4.getErrorString());
+        } else if (obj != null) {
+            enterForumModel = this.bTq.bTd;
+            str = this.bTq.bTg;
+            enterForumModel.eb(!StringUtils.isNull(str));
+        } else {
+            likeModel2 = this.bTq.bAL;
+            if (!StringUtils.isNull(likeModel2.getErrorString())) {
+                TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
+                likeModel3 = this.bTq.bAL;
+                com.baidu.adp.lib.util.k.showToast(m9getInst, likeModel3.getErrorString());
+            }
+        }
     }
 }

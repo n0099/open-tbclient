@@ -11,17 +11,17 @@ import com.baidu.tieba.w;
 public class b extends x {
     public b(Context context) {
         super(context, TbadkCoreApplication.m9getInst().getResources().getString(w.l.editor_record), 6);
-        this.azt = w.g.btn_pb_add_microphone;
-        this.azw = 6;
-        this.azx = true;
-        this.ayJ = s.aj(context);
-        this.azy = new int[]{1, 9};
+        this.aAw = w.g.btn_pb_add_microphone;
+        this.aAz = 6;
+        this.aAA = true;
+        this.azL = s.aj(context);
+        this.aAB = new int[]{1, 9};
     }
 
     @Override // com.baidu.tbadk.editortools.x
-    public boolean lX() {
+    public boolean lV() {
         if (TbadkCoreApplication.m9getInst().isAudioRecorderOpen()) {
-            return super.lX();
+            return super.lV();
         }
         String uegVoiceWarning = TbadkCoreApplication.m9getInst().getUegVoiceWarning();
         if (StringUtils.isNull(uegVoiceWarning)) {

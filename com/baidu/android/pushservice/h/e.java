@@ -1,91 +1,123 @@
 package com.baidu.android.pushservice.h;
 
-import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class e {
-    private static int c = 1000;
-    private static final Object f = new Object();
-    private long a = System.currentTimeMillis();
-    private c b;
-    private Context d;
-    private Intent e;
-    private Intent g;
+    private int a;
+    private String b;
+    private long c;
+    private String d;
+    private int e;
+    private String f;
+    private int g;
+    private String h;
+    private String i;
+    private int j;
+    private int k;
+    private String l;
+    private String m;
+    private String n;
 
-    public e(Context context, Intent intent) {
-        this.d = context;
-        this.e = intent;
+    public String a() {
+        return this.b;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long a() {
-        return this.a;
+    public void a(int i) {
+        this.a = i;
     }
 
-    public void a(Intent intent) {
-        if (this.b != null) {
-            this.b.a(0, intent);
-        }
-        this.g = intent;
-        synchronized (f) {
-            f.notifyAll();
-        }
+    public void a(long j) {
+        this.c = j;
     }
 
-    public com.baidu.android.pushservice.message.g b() {
-        this.e.putExtra("bd.cross.request.SOURCE_PACKAGE", this.d.getPackageName());
-        this.e.putExtra("bd.cross.request.ID", this.a);
-        this.e.putExtra("bd.cross.request.NEED_CALLBACK", true);
-        this.e.putExtra("bd.cross.request.SENDING", true);
-        d.a(this);
-        try {
-            this.d.startService(this.e);
-        } catch (Exception e) {
-            com.baidu.android.pushservice.e.a.a("CrossAppRequest", e);
-        }
-        com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-        com.baidu.android.pushservice.e.a.c("CrossAppRequest", "send crossapprequest: " + this.e.toUri(0));
-        com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("timeOutRunnable-" + this.a, (short) 50) { // from class: com.baidu.android.pushservice.h.e.1
-            @Override // com.baidu.android.pushservice.g.c
-            public void a() {
-                try {
-                    Thread.sleep(e.c);
-                    synchronized (e.f) {
-                        e.f.notifyAll();
-                    }
-                } catch (InterruptedException e2) {
-                    com.baidu.android.pushservice.e.a.a("CrossAppRequest", "result return, interrupted by callback");
-                }
-            }
-        });
-        if (this.b == null) {
-            synchronized (f) {
-                try {
-                    f.wait();
-                } catch (Exception e2) {
-                    com.baidu.android.pushservice.e.a.a("CrossAppRequest", "wait exception: " + e2);
-                }
-            }
-            c();
-            if (this.g != null) {
-                gVar.a(this.g.getIntExtra("bd.cross.request.RESULT_CODE", 10));
-                if (this.g.hasExtra("bd.cross.request.RESULT_DATA")) {
-                    String stringExtra = this.g.getStringExtra("bd.cross.request.RESULT_DATA");
-                    if (!TextUtils.isEmpty(stringExtra)) {
-                        gVar.a(stringExtra.getBytes());
-                    }
-                }
-            } else {
-                gVar.a(11);
-            }
-        }
-        return gVar;
+    public void a(String str) {
+        this.b = str;
     }
 
-    synchronized void c() {
-        this.b = null;
-        this.d = null;
-        d.a(this.a);
+    public String b() {
+        return this.l;
+    }
+
+    public void b(int i) {
+        this.e = i;
+    }
+
+    public void b(String str) {
+        this.d = str;
+    }
+
+    public m c() {
+        return new m(this.b, this.c, this.d, this.k, this.l);
+    }
+
+    public void c(int i) {
+        this.g = i;
+    }
+
+    public void c(String str) {
+        this.f = str;
+    }
+
+    public h d() {
+        h hVar = new h(c());
+        hVar.a = this.j;
+        hVar.j = this.h;
+        hVar.b = this.f;
+        hVar.c = this.n;
+        return hVar;
+    }
+
+    public void d(int i) {
+        this.j = i;
+    }
+
+    public void d(String str) {
+        this.h = str;
+    }
+
+    public j e() {
+        j jVar = new j(c());
+        jVar.c = this.e;
+        jVar.a = this.f;
+        jVar.b = this.g;
+        String str = this.n;
+        if (!TextUtils.isEmpty(str)) {
+            jVar.k = str;
+        }
+        return jVar;
+    }
+
+    public void e(int i) {
+        this.k = i;
+    }
+
+    public void e(String str) {
+        this.i = str;
+    }
+
+    public b f() {
+        b bVar = new b(c());
+        bVar.a = this.h;
+        bVar.b = this.i;
+        bVar.c = this.m;
+        return bVar;
+    }
+
+    public void f(String str) {
+        this.l = str;
+    }
+
+    public f g() {
+        f fVar = new f(c());
+        fVar.a = this.h;
+        return fVar;
+    }
+
+    public void g(String str) {
+        this.m = str;
+    }
+
+    public void h(String str) {
+        this.n = str;
     }
 }

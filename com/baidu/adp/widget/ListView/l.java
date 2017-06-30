@@ -4,22 +4,22 @@ import com.baidu.adp.widget.ListView.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements e.a {
-    final /* synthetic */ BdListView Ib;
+    final /* synthetic */ BdListView Ia;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(BdListView bdListView) {
-        this.Ib = bdListView;
+        this.Ia = bdListView;
     }
 
     @Override // com.baidu.adp.widget.ListView.e.a
     public void onPreLoad() {
         Runnable runnable;
         Runnable runnable2;
-        BdListView bdListView = this.Ib;
-        runnable = this.Ib.preLoadRunnable;
+        BdListView bdListView = this.Ia;
+        runnable = this.Ia.preLoadRunnable;
         bdListView.removeCallbacks(runnable);
-        BdListView bdListView2 = this.Ib;
-        runnable2 = this.Ib.preLoadRunnable;
+        BdListView bdListView2 = this.Ia;
+        runnable2 = this.Ia.preLoadRunnable;
         bdListView2.postDelayed(runnable2, 100L);
     }
 }

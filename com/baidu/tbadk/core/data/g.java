@@ -1,31 +1,35 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.Badges;
+import tbclient.AwardUser;
 /* loaded from: classes.dex */
 public class g {
-    private int TL;
-    private String badge_url;
-    private String webview;
+    private String TH;
+    private int TJ;
+    private long mUserId;
+    private String mUserName;
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.TL = jSONObject.optInt("badge_id", 0);
-                this.badge_url = jSONObject.optString("badge_url", "");
-                this.webview = jSONObject.optString("webview");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    public long getUserId() {
+        return this.mUserId;
     }
 
-    public void a(Badges badges) {
-        if (badges != null) {
-            this.TL = badges.badge_id.intValue();
-            this.badge_url = badges.badge_url;
-            this.webview = badges.webview;
+    public String getUserName() {
+        return this.mUserName;
+    }
+
+    public String pq() {
+        return this.TH;
+    }
+
+    public int ps() {
+        return this.TJ;
+    }
+
+    public void a(AwardUser awardUser) {
+        if (awardUser != null) {
+            this.mUserId = awardUser.user_id.longValue();
+            this.mUserName = awardUser.user_name;
+            this.TH = awardUser.award_name;
+            this.TJ = awardUser.award_time.intValue();
         }
     }
 }

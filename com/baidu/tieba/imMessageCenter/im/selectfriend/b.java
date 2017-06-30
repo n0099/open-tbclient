@@ -8,13 +8,13 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ SelectFriendActivity dlo;
+    final /* synthetic */ SelectFriendActivity dtk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(SelectFriendActivity selectFriendActivity, int i) {
         super(i);
-        this.dlo = selectFriendActivity;
+        this.dtk = selectFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,13 +28,13 @@ class b extends CustomMessageListener {
                 contacts = new LinkedList<>();
             }
             if (contacts.size() > 0) {
-                yVar2 = this.dlo.mNoDataView;
+                yVar2 = this.dtk.mNoDataView;
                 yVar2.setVisibility(8);
-                this.dlo.dlj.setContacts(contacts);
-                this.dlo.dlj.notifyDataSetChanged();
+                this.dtk.dtf.setContacts(contacts);
+                this.dtk.dtf.notifyDataSetChanged();
                 return;
             }
-            yVar = this.dlo.mNoDataView;
+            yVar = this.dtk.mNoDataView;
             yVar.setVisibility(0);
         }
     }

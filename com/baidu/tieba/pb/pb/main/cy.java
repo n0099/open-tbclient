@@ -1,18 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class cy implements Runnable {
-    final /* synthetic */ cx eoe;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(cx cxVar) {
-        this.eoe = cxVar;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        cv cvVar;
-        cvVar = this.eoe.eod;
-        cvVar.notifyDataSetChanged();
+class cy implements com.baidu.tbadk.ala.e {
+    @Override // com.baidu.tbadk.ala.e
+    public View aq(Context context) {
+        TextView ap = com.baidu.tbadk.ala.c.ap(context);
+        if (ap != null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(com.baidu.adp.lib.util.k.g(context, w.f.ds16), com.baidu.adp.lib.util.k.g(context, w.f.ds2), 0, 0);
+            layoutParams.gravity = 16;
+            ap.setLayoutParams(layoutParams);
+        }
+        return ap;
     }
 }

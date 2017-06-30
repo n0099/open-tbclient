@@ -2,6 +2,7 @@ package com.baidu.adp.plugin.packageManager.pluginSettings;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PluginSetting implements Serializable, Cloneable {
@@ -55,13 +56,13 @@ public class PluginSetting implements Serializable, Cloneable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = bl(str);
+        this.cmdRangeInt = bq(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] bl(String str) {
+    private int[] bq(String str) {
         String[] split;
-        if (TextUtils.isEmpty(str) || (split = str.split(",")) == null) {
+        if (TextUtils.isEmpty(str) || (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) == null) {
             return null;
         }
         int length = split.length;
@@ -71,7 +72,7 @@ public class PluginSetting implements Serializable, Cloneable {
                 BdLog.e("cmdRange2Int is null");
                 return null;
             }
-            String[] split2 = split[i].split("-");
+            String[] split2 = split[i].split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             if (split2 == null || split2.length != 2) {
                 BdLog.e("cmdRange2Int split by '-' error");
                 return null;
@@ -146,7 +147,7 @@ public class PluginSetting implements Serializable, Cloneable {
             if (TextUtils.isEmpty(this.abandon_apk_path)) {
                 this.abandon_apk_path = str;
             } else {
-                this.abandon_apk_path = String.valueOf(this.abandon_apk_path) + "," + str;
+                this.abandon_apk_path = String.valueOf(this.abandon_apk_path) + Constants.ACCEPT_TIME_SEPARATOR_SP + str;
             }
         }
     }

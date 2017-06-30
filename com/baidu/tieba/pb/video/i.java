@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ h eAp;
+    final /* synthetic */ h eJN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.eAp = hVar;
+        this.eJN = hVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,26 +21,26 @@ public class i implements View.OnClickListener {
         TextView textView;
         ImageView imageView2;
         TextView textView2;
-        imageView = this.eAp.eAe;
+        imageView = this.eJN.eJC;
         if (view != imageView) {
-            headImageView = this.eAp.ezZ;
+            headImageView = this.eJN.eJx;
             if (view != headImageView) {
-                textView = this.eAp.eAa;
+                textView = this.eJN.eJy;
                 if (view != textView) {
-                    imageView2 = this.eAp.eAf;
+                    imageView2 = this.eJN.eJD;
                     if (view != imageView2) {
-                        textView2 = this.eAp.eAc;
+                        textView2 = this.eJN.eJA;
                         if (view != textView2) {
                             return;
                         }
-                        this.eAp.aOM();
+                        this.eJN.aSL();
                         return;
                     }
                 }
             }
-            this.eAp.bc(view);
+            this.eJN.bf(view);
             return;
         }
-        this.eAp.bb(view);
+        this.eJN.be(view);
     }
 }

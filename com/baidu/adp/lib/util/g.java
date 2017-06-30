@@ -7,6 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,7 +20,7 @@ import java.util.zip.ZipInputStream;
 public class g {
     private static g yw = null;
 
-    public static g gW() {
+    public static g gV() {
         g gVar;
         if (yw == null) {
             synchronized (g.class) {
@@ -49,11 +50,11 @@ public class g {
             if (z2) {
                 z = z2;
             } else {
-                String az = az(str);
-                File file = new File(az);
+                String aE = aE(str);
+                File file = new File(aE);
                 if (file.exists()) {
                     if (file.length() > 0) {
-                        boolean loadSoLibrary = loadSoLibrary(az, sb);
+                        boolean loadSoLibrary = loadSoLibrary(aE, sb);
                         if (loadSoLibrary) {
                             sb.append("-Succ2-");
                             z = loadSoLibrary;
@@ -66,7 +67,7 @@ public class g {
                         z = z2;
                     }
                 } else {
-                    a aVar = new a(str, az, sb, hVar);
+                    a aVar = new a(str, aE, sb, hVar);
                     aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
                     aVar.execute(new Object[0]);
                     return false;
@@ -98,11 +99,11 @@ public class g {
             }
         }
         if (!z2) {
-            String az = az(str);
-            File file = new File(az);
+            String aE = aE(str);
+            File file = new File(aE);
             if (file.exists()) {
                 if (file.length() > 0) {
-                    boolean loadSoLibrary = loadSoLibrary(az, sb);
+                    boolean loadSoLibrary = loadSoLibrary(aE, sb);
                     if (loadSoLibrary) {
                         sb.append("-Succ2-");
                         z = loadSoLibrary;
@@ -125,7 +126,7 @@ public class g {
     }
 
     private boolean a(String str, StringBuilder sb) {
-        boolean loadSoLibrary = loadSoLibrary(ay(str), sb);
+        boolean loadSoLibrary = loadSoLibrary(aD(str), sb);
         if (!loadSoLibrary) {
             try {
                 System.loadLibrary(str);
@@ -133,8 +134,8 @@ public class g {
                 return true;
             } catch (Throwable th) {
                 sb.append("-Error3:");
-                sb.append(String.valueOf(th.getClass().getName()) + "-" + th.getMessage());
-                sb.append("-");
+                sb.append(String.valueOf(th.getClass().getName()) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
+                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 return loadSoLibrary;
             }
         }
@@ -153,17 +154,17 @@ public class g {
             return true;
         } catch (Throwable th) {
             sb.append("-Error2:");
-            sb.append(String.valueOf(th.getClass().getName()) + "-" + th.getMessage());
-            sb.append("-");
+            sb.append(String.valueOf(th.getClass().getName()) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
+            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             return false;
         }
     }
 
-    private String ay(String str) {
+    private String aD(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + Plugin.SO_LIB_DIR_NAME + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
-    private String az(String str) {
+    private String aE(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
@@ -215,9 +216,9 @@ public class g {
                                     }
                                 }
                                 byteArrayOutputStream.flush();
-                                String az = az(str2);
-                                a(az, byteArrayOutputStream.toByteArray(), sb);
-                                if (loadSoLibrary(az, sb)) {
+                                String aE = aE(str2);
+                                a(aE, byteArrayOutputStream.toByteArray(), sb);
+                                if (loadSoLibrary(aE, sb)) {
                                     sb.append("-Succ5-");
                                     z = true;
                                     com.baidu.adp.lib.g.a.d(byteArrayOutputStream);
@@ -236,8 +237,8 @@ public class g {
                     e = e4;
                     zipInputStream2 = zipInputStream;
                     sb.append("-Error5:");
-                    sb.append(String.valueOf(e.getClass().getName()) + "-" + e.getMessage());
-                    sb.append("-");
+                    sb.append(String.valueOf(e.getClass().getName()) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
+                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                     com.baidu.adp.lib.g.a.j(zipInputStream2);
                     return z;
                 } catch (Throwable th3) {
@@ -265,8 +266,8 @@ public class g {
                 } catch (Exception e) {
                     e = e;
                     sb.append("-Error4:");
-                    sb.append(String.valueOf(e.getClass().getName()) + "-" + e.getMessage());
-                    sb.append("-");
+                    sb.append(String.valueOf(e.getClass().getName()) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
+                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                     com.baidu.adp.lib.g.a.d(fileOutputStream);
                 }
             } catch (Throwable th) {

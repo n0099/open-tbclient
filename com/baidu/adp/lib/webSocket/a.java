@@ -21,7 +21,7 @@ public class a extends OutputStream {
         this.mBuffer.clear();
     }
 
-    public ByteBuffer hQ() {
+    public ByteBuffer hP() {
         return this.mBuffer;
     }
 
@@ -74,7 +74,7 @@ public class a extends OutputStream {
         write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void hR() throws IOException {
+    public synchronized void hQ() throws IOException {
         write(13);
         write(10);
     }

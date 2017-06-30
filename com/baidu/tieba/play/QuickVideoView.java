@@ -21,44 +21,44 @@ import java.net.URI;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class QuickVideoView extends FrameLayout implements MediaController.MediaPlayerControl {
-    private static w fbk;
+    private static w flA;
     private Map<String, String> AN;
-    private v.a aRd;
-    private v.d aRe;
-    private v.b aRf;
-    private v.c aRg;
-    private b bAV;
-    private ao fbh;
-    private String fbi;
-    private v fbj;
-    private boolean fbl;
-    private a fbm;
-    private boolean fbn;
-    private int fbo;
-    private boolean fbp;
-    private int fbq;
-    private boolean fbr;
-    private SurfaceTexture fbs;
-    private TextureView.SurfaceTextureListener fbt;
-    private v.d fbu;
-    private v.a fbv;
-    private v.b fbw;
-    private b.InterfaceC0077b fbx;
+    private v.a aSw;
+    private v.d aSx;
+    private v.b aSy;
+    private v.c aSz;
+    private b bBO;
+    private boolean flB;
+    private a flC;
+    private boolean flD;
+    private int flE;
+    private boolean flF;
+    private int flG;
+    private boolean flH;
+    private SurfaceTexture flI;
+    private TextureView.SurfaceTextureListener flJ;
+    private v.d flK;
+    private v.a flL;
+    private v.b flM;
+    private b.InterfaceC0080b flN;
+    private ao flx;
+    private String fly;
+    private v flz;
     private Context mContext;
     private Uri mUri;
     private PowerManager.WakeLock mWakeLock;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Ji();
+        void JG();
 
-        void Jj();
+        void JH();
 
-        String aXO();
+        String bbZ();
 
-        y aXP();
+        y bca();
 
-        String gP(String str);
+        String hm(String str);
 
         void onPause();
 
@@ -75,78 +75,78 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     static {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_QUICK_PLAYER_FACTORY, w.class);
         if (runTask != null) {
-            fbk = (w) runTask.getData();
+            flA = (w) runTask.getData();
         }
     }
 
     public QuickVideoView(Context context) {
         super(context);
-        this.fbl = false;
-        this.fbn = false;
-        this.fbo = 0;
-        this.fbp = false;
-        this.fbq = -1;
-        this.fbr = false;
-        this.fbs = null;
-        this.fbt = new ae(this);
-        this.fbu = new af(this);
-        this.fbv = new ag(this);
-        this.fbw = new ah(this);
-        this.aRg = new ai(this);
-        this.fbx = new aj(this);
+        this.flB = false;
+        this.flD = false;
+        this.flE = 0;
+        this.flF = false;
+        this.flG = -1;
+        this.flH = false;
+        this.flI = null;
+        this.flJ = new ae(this);
+        this.flK = new af(this);
+        this.flL = new ag(this);
+        this.flM = new ah(this);
+        this.aSz = new ai(this);
+        this.flN = new aj(this);
         init(context);
     }
 
     public QuickVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fbl = false;
-        this.fbn = false;
-        this.fbo = 0;
-        this.fbp = false;
-        this.fbq = -1;
-        this.fbr = false;
-        this.fbs = null;
-        this.fbt = new ae(this);
-        this.fbu = new af(this);
-        this.fbv = new ag(this);
-        this.fbw = new ah(this);
-        this.aRg = new ai(this);
-        this.fbx = new aj(this);
+        this.flB = false;
+        this.flD = false;
+        this.flE = 0;
+        this.flF = false;
+        this.flG = -1;
+        this.flH = false;
+        this.flI = null;
+        this.flJ = new ae(this);
+        this.flK = new af(this);
+        this.flL = new ag(this);
+        this.flM = new ah(this);
+        this.aSz = new ai(this);
+        this.flN = new aj(this);
         init(context);
     }
 
     public QuickVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fbl = false;
-        this.fbn = false;
-        this.fbo = 0;
-        this.fbp = false;
-        this.fbq = -1;
-        this.fbr = false;
-        this.fbs = null;
-        this.fbt = new ae(this);
-        this.fbu = new af(this);
-        this.fbv = new ag(this);
-        this.fbw = new ah(this);
-        this.aRg = new ai(this);
-        this.fbx = new aj(this);
+        this.flB = false;
+        this.flD = false;
+        this.flE = 0;
+        this.flF = false;
+        this.flG = -1;
+        this.flH = false;
+        this.flI = null;
+        this.flJ = new ae(this);
+        this.flK = new af(this);
+        this.flL = new ag(this);
+        this.flM = new ah(this);
+        this.aSz = new ai(this);
+        this.flN = new aj(this);
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        this.fbh = new ao(context);
-        this.fbh.setSurfaceTextureListener(this.fbt);
-        if (fbk != null) {
-            this.fbj = fbk.Jr();
+        this.flx = new ao(context);
+        this.flx.setSurfaceTextureListener(this.flJ);
+        if (flA != null) {
+            this.flz = flA.JP();
         }
-        if (this.fbj != null) {
-            this.fbj.setOnPreparedListener(this.fbu);
-            this.fbj.setOnCompletionListener(this.fbv);
-            this.fbj.setOnErrorListener(this.fbw);
-            this.fbj.a(this.aRg);
+        if (this.flz != null) {
+            this.flz.setOnPreparedListener(this.flK);
+            this.flz.setOnCompletionListener(this.flL);
+            this.flz.setOnErrorListener(this.flM);
+            this.flz.a(this.aSz);
         }
-        com.baidu.tbadk.core.util.aq.k(this, w.e.cp_bg_line_k);
+        com.baidu.tbadk.core.util.as.k(this, w.e.cp_bg_line_k);
         try {
             PowerManager powerManager = (PowerManager) context.getSystemService("power");
             if (powerManager != null) {
@@ -159,13 +159,13 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     public void setVideoPath(String str) {
-        if (this.fbm != null) {
-            str = this.fbm.gP(str);
-            if (this.fbm.aXP() != null) {
-                this.fbm.aXP().setPlayer(this);
+        if (this.flC != null) {
+            str = this.flC.hm(str);
+            if (this.flC.bca() != null) {
+                this.flC.bca().setPlayer(this);
             }
         }
-        if (!com.baidu.tbadk.core.util.au.isEmpty(str)) {
+        if (!com.baidu.tbadk.core.util.aw.isEmpty(str)) {
             setVideoURI(Uri.parse(str));
         }
     }
@@ -175,21 +175,21 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     public void a(Uri uri, Map<String, String> map) {
-        aXL();
-        this.fbn = true;
+        bbW();
+        this.flD = true;
         this.mUri = uri;
         this.AN = map;
-        this.fbo = 0;
-        removeView(this.fbh);
-        addView(this.fbh, new FrameLayout.LayoutParams(-2, -2, 17));
-        com.baidu.tbadk.core.util.aq.k(this, w.e.cp_bg_line_k);
+        this.flE = 0;
+        removeView(this.flx);
+        addView(this.flx, new FrameLayout.LayoutParams(-2, -2, 17));
+        com.baidu.tbadk.core.util.as.k(this, w.e.cp_bg_line_k);
     }
 
-    private void aXL() {
-        this.fbn = false;
-        this.fbl = false;
-        if (this.fbj != null) {
-            this.fbj.release();
+    private void bbW() {
+        this.flD = false;
+        this.flB = false;
+        if (this.flz != null) {
+            this.flz.release();
         }
         try {
             if (this.mWakeLock != null && this.mWakeLock.isHeld()) {
@@ -201,41 +201,41 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     public void stopPlayback() {
-        this.fbi = null;
-        aXL();
-        this.fbp = false;
-        if (this.fbm != null) {
-            this.fbm.onStop();
+        this.fly = null;
+        bbW();
+        this.flF = false;
+        if (this.flC != null) {
+            this.flC.onStop();
         }
-        com.baidu.tieba.play.a.b.aYf().a((b.InterfaceC0077b) null);
+        com.baidu.tieba.play.a.b.bcq().a((b.InterfaceC0080b) null);
     }
 
     public void setOnPreparedListener(v.d dVar) {
-        this.aRe = dVar;
+        this.aSx = dVar;
     }
 
     public void setOnCompletionListener(v.a aVar) {
-        this.aRd = aVar;
+        this.aSw = aVar;
     }
 
     public void setOnErrorListener(v.b bVar) {
-        this.aRf = bVar;
+        this.aSy = bVar;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void start() {
-        this.fbl = true;
-        if (this.fbj != null) {
-            if (this.fbs != null && this.fbr && !this.fbj.Jh()) {
-                this.fbj.a(this.mContext, this.mUri, this.AN, this.fbs, this.fbq);
+        this.flB = true;
+        if (this.flz != null) {
+            if (this.flI != null && this.flH && !this.flz.JF()) {
+                this.flz.a(this.mContext, this.mUri, this.AN, this.flI, this.flG);
                 return;
             } else {
-                this.fbj.start();
+                this.flz.start();
                 MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.CMD_VEDIO_START_PLAY));
             }
         }
-        if (this.fbm != null) {
-            this.fbm.onStart();
+        if (this.flC != null) {
+            this.flC.onStart();
         }
         try {
             if (this.mWakeLock != null && !this.mWakeLock.isHeld()) {
@@ -248,13 +248,13 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void pause() {
-        if (this.fbj != null) {
-            this.fbj.pause();
+        if (this.flz != null) {
+            this.flz.pause();
         }
-        if (this.fbm != null) {
-            this.fbm.onPause();
+        if (this.flC != null) {
+            this.flC.onPause();
         }
-        this.fbl = false;
+        this.flB = false;
         try {
             if (this.mWakeLock != null && this.mWakeLock.isHeld()) {
                 this.mWakeLock.release();
@@ -266,59 +266,59 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getDuration() {
-        if (this.fbj != null) {
-            return this.fbj.getDuration();
+        if (this.flz != null) {
+            return this.flz.getDuration();
         }
         return 0;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getCurrentPosition() {
-        if (this.fbj != null) {
-            return this.fbj.getCurrentPosition();
+        if (this.flz != null) {
+            return this.flz.getCurrentPosition();
         }
         return 0;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void seekTo(int i) {
-        if (this.fbj != null) {
-            this.fbj.seekTo(i);
+        if (this.flz != null) {
+            this.flz.seekTo(i);
         }
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public boolean isPlaying() {
-        if (this.fbj != null) {
-            return this.fbj.isPlaying();
+        if (this.flz != null) {
+            return this.flz.isPlaying();
         }
         return false;
     }
 
     public void setVolume(float f, float f2) {
-        if (this.fbj != null) {
-            this.fbj.setVolume(f, f2);
+        if (this.flz != null) {
+            this.flz.setVolume(f, f2);
         }
     }
 
     public void setRecoveryState(int i) {
-        this.fbq = i;
+        this.flG = i;
     }
 
     public int getRecoveryState() {
-        return this.fbq;
+        return this.flG;
     }
 
     public void setNeedRecovery(boolean z) {
-        this.fbr = z;
+        this.flH = z;
     }
 
     public void setLooping(boolean z) {
-        this.fbp = z;
+        this.flF = z;
     }
 
-    public boolean aXM() {
-        return this.fbl;
+    public boolean bbX() {
+        return this.flB;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
@@ -342,17 +342,17 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     public void setOnSurfaceDestroyedListener(b bVar) {
-        this.bAV = bVar;
+        this.bBO = bVar;
     }
 
     public void setBusiness(a aVar) {
-        this.fbm = aVar;
+        this.flC = aVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.fbp = false;
+        this.flF = false;
         try {
             if (this.mWakeLock != null && this.mWakeLock.isHeld()) {
                 this.mWakeLock.release();
@@ -363,28 +363,28 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     public v getPlayer() {
-        return this.fbj;
+        return this.flz;
     }
 
-    private boolean aXN() {
-        return (com.baidu.adp.lib.b.e.eZ().Y("android_video_http_dns_open") == 0 || !com.baidu.adp.lib.util.i.hk() || this.fbj == null || CustomPlayerSwitchStatic.aXB() == 0) ? false : true;
+    private boolean bbY() {
+        return (com.baidu.adp.lib.b.e.eY().ad("android_video_http_dns_open") == 0 || !com.baidu.adp.lib.util.i.hj() || this.flz == null || CustomPlayerSwitchStatic.bbM() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b(v vVar, int i, int i2) {
-        if (!aXN() || i2 == -100 || this.mUri == null || TextUtils.isEmpty(this.mUri.getHost())) {
+        if (!bbY() || i2 == -100 || this.mUri == null || TextUtils.isEmpty(this.mUri.getHost())) {
             return false;
         }
-        com.baidu.tieba.play.a.b.aYf().a(this.fbx);
-        return com.baidu.tieba.play.a.b.aYf().pj(this.mUri.getHost());
+        com.baidu.tieba.play.a.b.bcq().a(this.flN);
+        return com.baidu.tieba.play.a.b.bcq().qg(this.mUri.getHost());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bN(String str, String str2) throws Exception {
-        if (getCurrentPosition() <= 0 || this.fbj == null || this.fbs == null) {
-            this.fbi = str;
+    public void bR(String str, String str2) throws Exception {
+        if (getCurrentPosition() <= 0 || this.flz == null || this.flI == null) {
+            this.fly = str;
             URI uri = new URI(this.mUri.toString());
-            this.fbj.a(this.mContext, Uri.parse(new URI(uri.getScheme(), str, uri.getPath(), uri.getFragment()).toString()), this.AN, this.fbs, this.mUri.getHost());
+            this.flz.a(this.mContext, Uri.parse(new URI(uri.getScheme(), str, uri.getPath(), uri.getFragment()).toString()), this.AN, this.flI, this.mUri.getHost());
             start();
         }
     }

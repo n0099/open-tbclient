@@ -1,26 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.pb.pb.main.dv;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dw implements View.OnClickListener {
-    private final /* synthetic */ String bMP;
-    private final /* synthetic */ String cVG;
-    final /* synthetic */ dr eoS;
+public class dw extends HttpMessageListener {
+    final /* synthetic */ dv exQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dw(dr drVar, String str, String str2) {
-        this.eoS = drVar;
-        this.cVG = str;
-        this.bMP = str2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dw(dv dvVar, int i) {
+        super(i);
+        this.exQ = dvVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.eoS.nM(this.cVG);
-        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c12041").Z("fid", this.bMP));
-        if (this.eoS.ekc != null && this.eoS.ekc.aIB() != null && this.eoS.ekc.aIB().getThreadType() == 40) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c12123").Z("fid", this.eoS.ekc.getForumId()).Z("obj_param1", this.cVG));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        dv.a aVar;
+        dv.a aVar2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
+            if (httpResponsedMessage.getStatusCode() != 200) {
+                aVar = this.exQ.ewb;
+                aVar.i(-1, null, null);
+                return;
+            }
+            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
+            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
+            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
+            String tid = applyCopyThreadResponseMessage.getTid();
+            if (errorCode == 0) {
+                errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
+            }
+            aVar2 = this.exQ.ewb;
+            aVar2.i(errorCode, errorMessage, tid);
         }
     }
 }

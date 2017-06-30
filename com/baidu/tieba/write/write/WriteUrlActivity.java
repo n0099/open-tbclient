@@ -9,47 +9,47 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
-    private com.baidu.tieba.write.model.a gbA;
-    private WriteUrlModel gbB;
-    private com.baidu.tieba.write.a.a gbC;
-    private cm gbD;
-    private cs gbz;
+    private com.baidu.tieba.write.a.a gmA;
+    private ck gmB;
+    private cq gmx;
+    private com.baidu.tieba.write.model.a gmy;
+    private WriteUrlModel gmz;
     private boolean isLoading = false;
-    private Runnable gbE = new ch(this);
-    private View.OnClickListener bhc = new ci(this);
+    private Runnable gmC = new cf(this);
+    private View.OnClickListener bkk = new cg(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        this.gbz = new cs(this, this.bhc);
+        this.gmx = new cq(this, this.bkk);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.gbA = new com.baidu.tieba.write.model.a(getUniqueId());
-        this.gbA.a(new cj(this));
-        this.gbB = new WriteUrlModel(getPageContext());
-        this.gbB.af(getIntent());
-        this.gbD = new cm(getPageContext(), this.gbz, this.gbA, this.gbB);
+        this.gmy = new com.baidu.tieba.write.model.a(getUniqueId());
+        this.gmy.a(new ch(this));
+        this.gmz = new WriteUrlModel(getPageContext());
+        this.gmz.ah(getIntent());
+        this.gmB = new ck(getPageContext(), this.gmx, this.gmy, this.gmz);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gbz != null) {
-            this.gbz.onChangeSkinType(i);
+        if (this.gmx != null) {
+            this.gmx.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.gbz != null && this.gbz.bqB() != null && this.gbz.bqB().getVisibility() == 0) {
-                this.gbz.bqy();
+            if (this.gmx != null && this.gmx.bvc() != null && this.gmx.bvc().getVisibility() == 0) {
+                this.gmx.buZ();
                 return true;
-            } else if (this.gbC != null || (this.gbz != null && !StringUtils.isNull(this.gbz.bqs()))) {
-                bcE();
+            } else if (this.gmA != null || (this.gmx != null && !StringUtils.isNull(this.gmx.buT()))) {
+                bgT();
                 return true;
             }
         }
@@ -57,13 +57,13 @@ public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bcE() {
+    public void bgT() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
         aVar.bY(w.l.tip_draft_no_publish);
-        aVar.b(w.l.cancel, new ck(this));
-        aVar.a(w.l.confirm, new cl(this));
+        aVar.b(w.l.cancel, new ci(this));
+        aVar.a(w.l.confirm, new cj(this));
         aVar.b(getPageContext());
-        aVar.tc();
+        aVar.ta();
     }
 
     public void setIsLoading(boolean z) {
@@ -73,16 +73,16 @@ public class WriteUrlActivity extends BaseActivity<WriteUrlActivity> {
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.gbD.a(this, i, i2, intent);
+        this.gmB.a(this, i, i2, intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.gbD.destroy();
-        if (this.gbz != null) {
-            this.gbz.destroy();
+        this.gmB.destroy();
+        if (this.gmx != null) {
+            this.gmx.destroy();
         }
     }
 

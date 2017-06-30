@@ -1,32 +1,18 @@
 package com.baidu.tieba.recapp;
 
-import android.content.Context;
-import java.util.Map;
+import android.view.View;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public interface q {
+    View getAdCloseView();
 
-    /* loaded from: classes.dex */
-    public interface a {
-        int c(Context context, String[] strArr);
-    }
+    int getCloseViewHeight();
 
-    /* loaded from: classes.dex */
-    public interface b {
-        int d(Context context, Map<String, String> map);
-    }
+    int getCloseViewWidth();
 
-    /* loaded from: classes.dex */
-    public interface c {
-        int b(Context context, String str, String str2, boolean z, d dVar, boolean z2);
-    }
+    void onChangeSkinType();
 
-    /* loaded from: classes.dex */
-    public interface d {
-    }
+    void setData(AdvertAppInfo advertAppInfo);
 
-    void a(Context context, String[] strArr, boolean z);
-
-    boolean b(Context context, String[] strArr);
-
-    boolean gW(String str);
+    void setPage(int i);
 }

@@ -1,20 +1,46 @@
 package com.baidu.tieba.homepage.personalize;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.ArrayList;
+import java.util.List;
 import tbclient.Personalized.DataRes;
+import tbclient.SimpleForum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements com.baidu.tbadk.util.g<DataRes> {
-    final /* synthetic */ o this$0;
+public class z extends CustomMessageListener {
+    final /* synthetic */ x this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(o oVar) {
-        this.this$0 = oVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z(x xVar, int i) {
+        super(i);
+        this.this$0 = xVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.g
-    /* renamed from: b */
-    public void onReturnDataInUI(DataRes dataRes) {
-        this.this$0.a(dataRes);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        DataRes.Builder builder;
+        List<com.baidu.tieba.homepage.b.a.a> list;
+        DataRes.Builder builder2;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            builder = this.this$0.cIV;
+            if (builder != null && (list = (List) customResponsedMessage.getData()) != null) {
+                ArrayList arrayList = new ArrayList();
+                for (com.baidu.tieba.homepage.b.a.a aVar : list) {
+                    if (aVar != null && aVar.cLp != -1 && aVar.cLp != -2 && !StringUtils.isNull(aVar.cLo)) {
+                        SimpleForum.Builder builder3 = new SimpleForum.Builder();
+                        builder3.name = aVar.cLo;
+                        builder3.level_id = Integer.valueOf(aVar.level);
+                        arrayList.add(builder3.build(true));
+                    }
+                }
+                builder2 = this.this$0.cIV;
+                builder2.like_forums = arrayList;
+                this.this$0.amG();
+            }
+        }
     }
 }

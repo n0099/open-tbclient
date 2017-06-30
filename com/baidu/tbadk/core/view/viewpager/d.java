@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<v> and;
-    private List<v> ane;
-    private boolean anf;
-    private boolean ang;
-    private int ani;
-    private int anh = 2;
-    private int anj = 1;
+    private List<v> aod;
+    private List<v> aoe;
+    private boolean aof;
+    private boolean aog;
+    private int aoi;
+    private int aoh = 2;
+    private int aoj = 1;
 
     public d(List<v> list, boolean z, int i) {
-        this.ani = 2;
-        this.and = list;
-        this.ang = z;
-        this.ani = i;
-        s(list);
+        this.aoi = 2;
+        this.aod = list;
+        this.aog = z;
+        this.aoi = i;
+        u(list);
     }
 
-    public void s(List<v> list) {
-        if (list != null && list.size() >= this.anh && list.size() <= this.ani) {
-            this.anf = true;
-        } else if (list.size() > this.ani && this.ang) {
-            this.anf = true;
+    public void u(List<v> list) {
+        if (list != null && list.size() >= this.aoh && list.size() <= this.aoi) {
+            this.aof = true;
+        } else if (list.size() > this.aoi && this.aog) {
+            this.aof = true;
         } else {
-            this.anf = false;
+            this.aof = false;
         }
-        this.ane = wJ();
+        this.aoe = xb();
     }
 
-    private List<v> wJ() {
+    private List<v> xb() {
         ArrayList arrayList = new ArrayList();
-        if (this.and != null) {
-            if (this.anf) {
-                if (this.and.size() > this.ani && this.and.size() >= this.anj) {
-                    arrayList.addAll(this.and.subList(0, this.ani));
-                    arrayList.addAll(0, this.and.subList(this.ani - this.anj, this.ani));
-                    arrayList.addAll(this.and.subList(0, this.anj));
+        if (this.aod != null) {
+            if (this.aof) {
+                if (this.aod.size() > this.aoi && this.aod.size() >= this.aoj) {
+                    arrayList.addAll(this.aod.subList(0, this.aoi));
+                    arrayList.addAll(0, this.aod.subList(this.aoi - this.aoj, this.aoi));
+                    arrayList.addAll(this.aod.subList(0, this.aoj));
                 } else {
-                    arrayList.addAll(this.and);
-                    arrayList.addAll(0, this.and.subList(this.and.size() - this.anj, this.and.size()));
-                    arrayList.addAll(this.and.subList(0, this.anj));
+                    arrayList.addAll(this.aod);
+                    arrayList.addAll(0, this.aod.subList(this.aod.size() - this.aoj, this.aod.size()));
+                    arrayList.addAll(this.aod.subList(0, this.aoj));
                 }
-            } else if (this.and != null && this.and.size() > 0 && this.and.size() >= this.anj) {
-                arrayList.addAll(this.and.subList(0, this.anj));
+            } else if (this.aod != null && this.aod.size() > 0 && this.aod.size() >= this.aoj) {
+                arrayList.addAll(this.aod.subList(0, this.aoj));
             }
         }
         return arrayList;
     }
 
-    public int ds(int i) {
-        if (this.anf) {
-            int size = this.ane.size();
+    public int du(int i) {
+        if (this.aof) {
+            int size = this.aoe.size();
             if (i == 0) {
-                return (size - 1) - this.anj;
+                return (size - 1) - this.aoj;
             }
-            if (i == size - this.anj) {
-                return this.anj;
+            if (i == size - this.aoj) {
+                return this.aoj;
             }
             return i;
         }
         return i;
     }
 
-    public int dt(int i) {
-        if (this.anf) {
-            return i - this.anj;
+    public int dv(int i) {
+        if (this.aof) {
+            return i - this.aoj;
         }
         return i;
     }
 
-    public int wK() {
-        if (this.and == null) {
+    public int xc() {
+        if (this.aod == null) {
             return 0;
         }
-        return this.and.size();
+        return this.aod.size();
     }
 
-    public int wL() {
-        if (this.anf) {
-            return this.anj;
+    public int xd() {
+        if (this.aof) {
+            return this.aoj;
         }
         return 0;
     }
 
-    public void du(int i) {
-        this.ani = i;
-        s(this.and);
-    }
-
-    public void dv(int i) {
-        this.anh = i;
-        s(this.and);
-    }
-
-    public List<v> wM() {
-        return this.ane;
-    }
-
     public void dw(int i) {
-        this.anj = i;
-        s(this.and);
+        this.aoi = i;
+        u(this.aod);
+    }
+
+    public void dx(int i) {
+        this.aoh = i;
+        u(this.aod);
+    }
+
+    public List<v> xe() {
+        return this.aoe;
+    }
+
+    public void dy(int i) {
+        this.aoj = i;
+        u(this.aod);
     }
 }

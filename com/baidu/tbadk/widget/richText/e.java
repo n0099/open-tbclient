@@ -5,10 +5,10 @@ import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
     private String VC;
-    private int aNA;
-    private int aNB;
-    private int aNy;
-    private String aNz;
+    private int aOO;
+    private String aOP;
+    private int aOQ;
+    private int aOR;
     private int duration;
     private int height;
     private String videoUrl;
@@ -20,11 +20,11 @@ public class e {
             this.VC = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aNy = pbContent.e_type.intValue();
-            this.aNz = pbContent.text;
+            this.aOO = pbContent.e_type.intValue();
+            this.aOP = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aNA = pbContent.count.intValue();
-            this.aNB = pbContent.origin_size.intValue();
+            this.aOQ = pbContent.count.intValue();
+            this.aOR = pbContent.origin_size.intValue();
         }
     }
 
@@ -44,23 +44,23 @@ public class e {
         return this.height;
     }
 
-    public String Ih() {
-        return this.aNz;
+    public String IF() {
+        return this.aOP;
     }
 
-    public boolean Ii() {
-        return this.aNy == 15;
+    public boolean IG() {
+        return this.aOO == 15;
     }
 
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 
-    public int Ij() {
-        return this.aNA;
+    public int IH() {
+        return this.aOQ;
     }
 
-    public void fx(int i) {
-        this.aNA = i;
+    public void fz(int i) {
+        this.aOQ = i;
     }
 }

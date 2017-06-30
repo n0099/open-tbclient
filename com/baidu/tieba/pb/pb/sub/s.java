@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
 class s implements NewWriteModel.d {
-    final /* synthetic */ NewSubPbActivity eye;
+    final /* synthetic */ NewSubPbActivity eHC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(NewSubPbActivity newSubPbActivity) {
-        this.eye = newSubPbActivity;
+        this.eHC = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -23,22 +23,22 @@ class s implements NewWriteModel.d {
         SubPbModel subPbModel;
         SubPbModel subPbModel2;
         if (z) {
-            nVar = this.eye.dnc;
+            nVar = this.eHC.duY;
             if (nVar != null) {
-                nVar2 = this.eye.dnc;
-                if (nVar2.Cm() != null) {
-                    nVar3 = this.eye.dnc;
-                    nVar3.Cm().hide();
-                    subPbModel = this.eye.exN;
-                    if (subPbModel.aOu()) {
-                        com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c10367");
-                        subPbModel2 = this.eye.exN;
-                        TiebaStatic.log(asVar.Z("post_id", subPbModel2.CH()));
+                nVar2 = this.eHC.duY;
+                if (nVar2.CG() != null) {
+                    nVar3 = this.eHC.duY;
+                    nVar3.CG().hide();
+                    subPbModel = this.eHC.eHl;
+                    if (subPbModel.aSt()) {
+                        com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au("c10367");
+                        subPbModel2 = this.eHC.eHl;
+                        TiebaStatic.log(auVar.Z("post_id", subPbModel2.Db()));
                     }
                 }
             }
         }
-        aoVar = this.eye.exP;
-        aoVar.aOb();
+        aoVar = this.eHC.eHn;
+        aoVar.aSa();
     }
 }

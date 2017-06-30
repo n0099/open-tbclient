@@ -12,7 +12,7 @@ import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes.dex */
 public class a implements b, j {
-    protected List<Object> cDp;
+    protected List<Object> cLm;
     protected boolean mHasMore;
     protected List<Object> mThreadList;
     protected int pn;
@@ -23,7 +23,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void m(JSONObject jSONObject) {
+    public void n(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -37,10 +37,10 @@ public class a implements b, j {
             this.mHasMore = excFrsPageResIdl.data.has_more.intValue() == 1;
             this.pn = excFrsPageResIdl.data.pn.intValue();
             if (excFrsPageResIdl.data.tag_list != null) {
-                this.cDp = new ArrayList();
+                this.cLm = new ArrayList();
                 for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
                     if (excellentTagInfo != null) {
-                        this.cDp.add(excellentTagInfo);
+                        this.cLm.add(excellentTagInfo);
                     }
                 }
             }
@@ -48,7 +48,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Ed() {
+    public byte[] EA() {
         return null;
     }
 

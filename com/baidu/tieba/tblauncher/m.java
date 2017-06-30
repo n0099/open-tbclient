@@ -1,54 +1,25 @@
 package com.baidu.tieba.tblauncher;
-
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.GridLayout;
-import com.baidu.tieba.frs.ForumWriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    private final /* synthetic */ GridLayout fGP;
+class m extends com.baidu.tbadk.pageStayDuration.b {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(MainTabActivity mainTabActivity, GridLayout gridLayout) {
+    public m(MainTabActivity mainTabActivity) {
         this.this$0 = mainTabActivity;
-        this.fGP = gridLayout;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbImageView tbImageView;
-        int i;
-        MainTabActivity mainTabActivity = this.this$0;
-        GridLayout gridLayout = this.fGP;
-        tbImageView = this.this$0.fGB;
-        mainTabActivity.d(gridLayout, tbImageView);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MAINTAB_FORUM_INFO, ForumWriteData.class);
-        String str = "0";
-        String str2 = null;
-        PostPrefixData postPrefixData = null;
-        AntiData antiData = null;
-        if (runTask == null || runTask.getData() == null) {
-            i = -1;
-        } else {
-            ForumWriteData forumWriteData = (ForumWriteData) runTask.getData();
-            str = forumWriteData.forumId;
-            str2 = forumWriteData.forumName;
-            postPrefixData = forumWriteData.prefixData;
-            antiData = forumWriteData.antiData;
-            i = forumWriteData.forumLevel;
-        }
-        WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.this$0.getPageContext().getPageActivity(), 0, str, str2, null, null, 0, antiData, 0, false, false, null, false, false, null, null, postPrefixData, 0);
-        writeActivityConfig.setCallFrom("1");
-        writeActivityConfig.setForumLevel(i);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public boolean Fq() {
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public int Fr() {
+        return com.baidu.tbadk.pageStayDuration.e.Fw().Fy();
+    }
+
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public boolean a(com.baidu.tbadk.pageStayDuration.d dVar) {
+        return false;
     }
 }

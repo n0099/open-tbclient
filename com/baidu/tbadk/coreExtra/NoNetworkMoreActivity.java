@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
-    private View aob;
-    private TextView aoc;
-    private TextView aod;
+    private View apb;
+    private TextView apc;
+    private TextView apd;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,24 +28,24 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
 
     protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(w.h.view_navigation_bar);
-        this.aob = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.aob.setOnClickListener(this);
+        this.apb = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.apb.setOnClickListener(this);
         this.mNavigationBar.setTitleText(w.l.no_network);
-        this.aoc = (TextView) findViewById(w.h.more_item1);
+        this.apc = (TextView) findViewById(w.h.more_item1);
         SpannableString spannableString = new SpannableString(getPageContext().getString(w.l.no_network_guide_content1));
         spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.aoc.setText(spannableString);
-        this.aod = (TextView) findViewById(w.h.more_item2);
+        this.apc.setText(spannableString);
+        this.apd = (TextView) findViewById(w.h.more_item2);
         SpannableString spannableString2 = new SpannableString(getPageContext().getString(w.l.no_network_guide_content2));
         spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.aod.setText(spannableString2);
+        this.apd.setText(spannableString2);
         ((Button) findViewById(w.h.network_setting_btn)).setOnClickListener(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (view == this.aob) {
+        if (view == this.apb) {
             finish();
         } else if (id == w.h.network_setting_btn) {
             startActivity(new Intent("android.settings.SETTINGS"));

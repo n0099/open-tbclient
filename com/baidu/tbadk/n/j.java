@@ -10,26 +10,26 @@ public abstract class j extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eQ() {
+    protected String[] eP() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eR() {
+    protected int eQ() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eS() {
+    protected int eR() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eT() {
+    protected int eS() {
         return 10;
     }
 
-    public boolean fV() {
-        return com.baidu.adp.lib.b.e.eZ().Y(getName()) == eR();
+    public boolean fU() {
+        return com.baidu.adp.lib.b.e.eY().ad(getName()) == eQ();
     }
 }

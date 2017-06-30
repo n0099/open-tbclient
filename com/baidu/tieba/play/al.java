@@ -4,31 +4,31 @@ import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements Runnable {
-    final /* synthetic */ ak fbJ;
+    final /* synthetic */ ak flZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ak akVar) {
-        this.fbJ = akVar;
+        this.flZ = akVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        boolean aXT;
+        boolean bce;
         boolean z;
         String str;
         Context context;
         String str2;
-        aXT = this.fbJ.aXT();
-        if (aXT) {
-            context = this.fbJ.mContext;
-            str2 = this.fbJ.fbB;
-            au.ae(context, str2);
+        bce = this.flZ.bce();
+        if (bce) {
+            context = this.flZ.mContext;
+            str2 = this.flZ.flR;
+            au.af(context, str2);
             return;
         }
-        z = this.fbJ.fbC;
+        z = this.flZ.flS;
         if (!z) {
-            str = this.fbJ.fbB;
-            au.gR(str);
+            str = this.flZ.flR;
+            au.ho(str);
         }
     }
 }

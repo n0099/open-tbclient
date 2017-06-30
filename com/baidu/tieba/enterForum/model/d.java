@@ -4,39 +4,39 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.enterForum.b.g;
-import com.baidu.tieba.enterForum.c.m;
-import com.baidu.tieba.enterForum.c.o;
+import com.baidu.tieba.enterForum.c.l;
+import com.baidu.tieba.enterForum.c.n;
 import com.baidu.tieba.w;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private TbPageContext<?> aas;
-    private ViewEventCenter bLQ;
-    private SoftReference<m> bNj;
-    private com.baidu.tieba.enterForum.a.d bNk;
+    private TbPageContext<?> aat;
+    private ViewEventCenter bSq;
+    private SoftReference<l> bTM;
+    private com.baidu.tieba.enterForum.a.d bTN;
 
     public d(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        this.aas = tbPageContext;
-        this.bLQ = viewEventCenter;
+        this.aat = tbPageContext;
+        this.bSq = viewEventCenter;
     }
 
-    public m XH() {
-        if (this.bNj == null) {
+    public l abf() {
+        if (this.bTM == null) {
             return null;
         }
-        return this.bNj.get();
+        return this.bTM.get();
     }
 
-    public void XI() {
-        m mVar = new m(this.aas.getPageActivity());
-        mVar.setEventCenter(this.bLQ);
-        this.bNj = new SoftReference<>(mVar);
+    public void abg() {
+        l lVar = new l(this.aat.getPageActivity());
+        lVar.setEventCenter(this.bSq);
+        this.bTM = new SoftReference<>(lVar);
     }
 
     public List<g> getDataList() {
-        return TbadkCoreApplication.m9getInst().getSkinType() != 2 ? d(this.bNk.getDataList(), false) : this.bNk.getDataList();
+        return TbadkCoreApplication.m9getInst().getSkinType() != 2 ? e(this.bTN.getDataList(), false) : this.bTN.getDataList();
     }
 
     public void b(g gVar) {
@@ -44,22 +44,22 @@ public class d {
         if (dataList != null) {
             dataList.remove(gVar);
             if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                this.bNk.x(d(dataList, true));
+                this.bTN.z(e(dataList, true));
             } else {
-                this.bNk.x(dataList);
+                this.bTN.z(dataList);
             }
         }
     }
 
-    public void ag(List<g> list) {
-        m mVar;
-        if (this.bNj != null && list != null && (mVar = this.bNj.get()) != null) {
-            mVar.XV();
-            ah(list);
+    public void am(List<g> list) {
+        l lVar;
+        if (this.bTM != null && list != null && (lVar = this.bTM.get()) != null) {
+            lVar.abw();
+            an(list);
         }
     }
 
-    private List<g> d(List<g> list, boolean z) {
+    private List<g> e(List<g> list, boolean z) {
         ArrayList arrayList = new ArrayList();
         if (list == null) {
             return null;
@@ -78,34 +78,34 @@ public class d {
         return arrayList;
     }
 
-    public void ah(List<g> list) {
-        m mVar = this.bNj.get();
-        if (mVar != null) {
-            if (this.bNk == null) {
-                XJ();
+    public void an(List<g> list) {
+        l lVar = this.bTM.get();
+        if (lVar != null) {
+            if (this.bTN == null) {
+                abh();
             }
-            mVar.setGridAdapterIfNeeded(this.bNk);
+            lVar.setGridAdapterIfNeeded(this.bTN);
             if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                this.bNk.x(d(list, true));
+                this.bTN.z(e(list, true));
             } else {
-                this.bNk.x(list);
+                this.bTN.z(list);
             }
-            this.bNk.b(this.aas, TbadkCoreApplication.m9getInst().getSkinType());
+            this.bTN.b(this.aat, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
-    private void XJ() {
-        this.bNk = new com.baidu.tieba.enterForum.a.d(this.aas, o.class, w.j.home_like_item_in_edit_grid, this.bLQ);
-        this.bNk.bS(false);
+    private void abh() {
+        this.bTN = new com.baidu.tieba.enterForum.a.d(this.aat, n.class, w.j.home_like_item_in_edit_grid, this.bSq);
+        this.bTN.bU(false);
     }
 
     public void n(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.bNj.get() != null) {
-                this.bNj.get().n(tbPageContext);
+            if (this.bTM.get() != null) {
+                this.bTM.get().n(tbPageContext);
             }
-            if (this.bNk != null) {
-                this.bNk.b(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
+            if (this.bTN != null) {
+                this.bTN.b(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
             }
         }
     }

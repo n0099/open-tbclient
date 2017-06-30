@@ -2,15 +2,16 @@ package com.baidu.tieba.write.album;
 
 import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ f fTY;
+    final /* synthetic */ f geI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.fTY = fVar;
+        this.geI = fVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -21,25 +22,34 @@ public class h implements ViewPager.OnPageChangeListener {
         int i2;
         p pVar2;
         ImageView imageView;
+        TextView textView;
+        TextView textView2;
         ImageView imageView2;
-        this.fTY.aBF = i;
-        kVar = this.fTY.fTU;
+        this.geI.aCI = i;
+        kVar = this.geI.geE;
         if (kVar != null) {
-            pVar = this.fTY.fTx;
+            pVar = this.geI.gei;
             if (pVar != null) {
-                kVar2 = this.fTY.fTU;
-                i2 = this.fTY.aBF;
-                ImageFileInfo ti = kVar2.ti(i2);
-                pVar2 = this.fTY.fTx;
-                if (pVar2.isAdded(ti)) {
-                    f fVar = this.fTY;
-                    imageView2 = this.fTY.fTV;
+                kVar2 = this.geI.geE;
+                i2 = this.geI.aCI;
+                ImageFileInfo tD = kVar2.tD(i2);
+                pVar2 = this.geI.gei;
+                if (pVar2.isAdded(tD)) {
+                    f fVar = this.geI;
+                    imageView2 = this.geI.geF;
                     fVar.c(imageView2, true);
+                } else {
+                    f fVar2 = this.geI;
+                    imageView = this.geI.geF;
+                    fVar2.c(imageView, false);
+                }
+                if (tD.isGif()) {
+                    textView2 = this.geI.geH;
+                    textView2.setVisibility(8);
                     return;
                 }
-                f fVar2 = this.fTY;
-                imageView = this.fTY.fTV;
-                fVar2.c(imageView, false);
+                textView = this.geI.geH;
+                textView.setVisibility(0);
             }
         }
     }

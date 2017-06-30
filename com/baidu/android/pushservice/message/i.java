@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.message;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushManager;
-import com.baidu.android.pushservice.h.m;
+import com.baidu.android.pushservice.j.n;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,8 +43,8 @@ public class i {
             }
             return publicMsg;
         } catch (Exception e) {
-            com.baidu.android.pushservice.e.b.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e.getMessage(), context.getApplicationContext());
-            com.baidu.android.pushservice.e.a.a("ProxyPushMessage", e);
+            com.baidu.android.pushservice.g.b.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e.getMessage(), context.getApplicationContext());
+            com.baidu.android.pushservice.g.a.a("ProxyPushMessage", e);
             return null;
         }
     }
@@ -63,24 +63,24 @@ public class i {
                             str2 = null;
                         } else {
                             str2 = jSONObject2.getString("custom_content");
-                            com.baidu.android.pushservice.e.a.c("ProxyPushMessage", "customcontent = " + str2);
+                            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "customcontent = " + str2);
                         }
                         if (jSONObject2.isNull("hwsigninfo")) {
-                            m.a(context, "bdpush_hwsignresult", 0);
-                            com.baidu.android.pushservice.e.a.c("ProxyPushMessage", " passthrough message has not hwsigninfo!");
+                            n.a(context, "bdpush_hwsignresult", 0);
+                            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", " passthrough message has not hwsigninfo!");
                             return null;
                         }
                         String string = jSONObject2.getString("hwsigninfo");
-                        com.baidu.android.pushservice.e.a.c("ProxyPushMessage", "hwsigninfo_passthrough = " + string);
+                        com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "hwsigninfo_passthrough = " + string);
                         if (!TextUtils.isEmpty(string)) {
                             String str3 = this.m + str2;
                             if (!PushManager.hwMessageVerify(context, string, str3)) {
-                                m.a(context, "bdpush_hwsignresult", 0);
-                                com.baidu.android.pushservice.e.a.c("ProxyPushMessage", "hwsigninfo_passthrough check not pass   " + str3);
+                                n.a(context, "bdpush_hwsignresult", 0);
+                                com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "hwsigninfo_passthrough check not pass   " + str3);
                                 return null;
                             }
-                            com.baidu.android.pushservice.e.a.c("ProxyPushMessage", "hwsigninfo_passthrough check pass " + str3);
-                            m.a(context, "bdpush_hwsignresult", 1);
+                            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "hwsigninfo_passthrough check pass " + str3);
+                            n.a(context, "bdpush_hwsignresult", 1);
                         }
                         return str2;
                     }
@@ -89,8 +89,8 @@ public class i {
             str2 = null;
             return str2;
         } catch (JSONException e) {
-            com.baidu.android.pushservice.e.a.c("ProxyPushMessage", "not receive correct huawei passthrough message");
-            m.a(context, "bdpush_hwsignresult", 0);
+            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "not receive correct huawei passthrough message");
+            n.a(context, "bdpush_hwsignresult", 0);
             return null;
         }
     }
@@ -118,9 +118,33 @@ public class i {
                     this.o = jSONObject.getString("msgBody");
                 }
             } catch (Exception e) {
-                com.baidu.android.pushservice.e.a.a("ProxyPushMessage", e);
+                com.baidu.android.pushservice.g.a.a("ProxyPushMessage", e);
                 return;
             }
+        }
+    }
+
+    public String b(Context context, String str) {
+        JSONArray jSONArray;
+        try {
+            if (!TextUtils.isEmpty(str)) {
+                JSONObject jSONObject = new JSONObject(str);
+                if (!jSONObject.isNull("extras") && (jSONArray = jSONObject.getJSONArray("extras")) != null) {
+                    a(jSONArray);
+                    if (!TextUtils.isEmpty(this.o)) {
+                        JSONObject jSONObject2 = new JSONObject(new String(this.o));
+                        if (!jSONObject2.isNull("custom_content")) {
+                            String string = jSONObject2.getString("custom_content");
+                            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "customcontent = " + string);
+                            return string;
+                        }
+                    }
+                }
+            }
+            return null;
+        } catch (JSONException e) {
+            com.baidu.android.pushservice.g.a.c("ProxyPushMessage", "not receive correct xiaomi passthrough message");
+            return null;
         }
     }
 }

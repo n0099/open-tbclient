@@ -5,6 +5,6 @@ import android.content.DialogInterface;
 class t implements DialogInterface.OnCancelListener {
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        q.adC();
+        q.ahv();
     }
 }

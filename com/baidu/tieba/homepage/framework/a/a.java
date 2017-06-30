@@ -6,34 +6,34 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class a {
-    private static a cAy;
-    public BdUniqueId aKZ;
-    public int cAw = -1;
-    public boolean cAx = false;
-    private CustomMessageListener amV = new b(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+    private static a cIk;
+    public BdUniqueId aMp;
+    public int cIi = -1;
+    public boolean cIj = false;
+    private CustomMessageListener anV = new b(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
 
-    public static synchronized a aiG() {
+    public static synchronized a amr() {
         a aVar;
         synchronized (a.class) {
-            if (cAy == null) {
-                cAy = new a();
+            if (cIk == null) {
+                cIk = new a();
             }
-            aVar = cAy;
+            aVar = cIk;
         }
         return aVar;
     }
 
     public void onDestory() {
-        if (this.aKZ != null) {
-            MessageManager.getInstance().unRegisterListener(this.aKZ);
+        if (this.aMp != null) {
+            MessageManager.getInstance().unRegisterListener(this.aMp);
         }
     }
 
     public void l(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.aKZ = bdUniqueId;
-            this.amV.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.amV);
+            this.aMp = bdUniqueId;
+            this.anV.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.anV);
         }
     }
 }

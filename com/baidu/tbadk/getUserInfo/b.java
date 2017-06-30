@@ -14,28 +14,28 @@ import com.baidu.tbadk.data.d;
 import com.baidu.tbadk.data.h;
 /* loaded from: classes.dex */
 public class b {
-    private static b aCa;
+    private static b aDd;
 
     private b() {
     }
 
-    public static b Dz() {
-        if (aCa == null) {
+    public static b DT() {
+        if (aDd == null) {
             synchronized (b.class) {
-                if (aCa == null) {
-                    aCa = new b();
+                if (aDd == null) {
+                    aDd = new b();
                 }
             }
         }
-        return aCa;
+        return aDd;
     }
 
-    public void DA() {
+    public void DU() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void DB() {
+    public void DV() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -64,6 +64,7 @@ public class b {
                 currentAccountObj.setGodType(userData.getGodUserData().getType());
             }
             currentAccountObj.setIsBigV(userData.isBigV());
+            currentAccountObj.setNameShow(userData.getName_show());
             TbadkCoreApplication.m9getInst().setDefaultBubble(userData.getBimg_url());
             h payMemberInfoData = userData.getPayMemberInfoData();
             if (currentAccountObj.getVipInfo() != null) {
@@ -73,12 +74,12 @@ public class b {
             }
             d closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.BD());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.BE());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.BY());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.BZ());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            k.fT().e(new c(this, currentAccountObj));
+            k.fS().e(new c(this, currentAccountObj));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED, payMemberInfoData));
         }
     }

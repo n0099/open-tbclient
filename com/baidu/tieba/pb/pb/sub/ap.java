@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements b.a {
-    final /* synthetic */ ao eyO;
+    final /* synthetic */ ao eIl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(ao aoVar) {
-        this.eyO = aoVar;
+        this.eIl = aoVar;
     }
 
     @Override // com.baidu.tieba.pb.b.a
@@ -24,26 +24,26 @@ public class ap implements b.a {
         com.baidu.tieba.pb.data.n nVar4;
         com.baidu.tieba.pb.data.n nVar5;
         com.baidu.tieba.pb.data.n nVar6;
-        nVar = this.eyO.ewW;
+        nVar = this.eIl.eGs;
         if (nVar != null) {
-            postData = this.eyO.ejm;
+            postData = this.eIl.esk;
             if (postData != null) {
-                nVar2 = this.eyO.ewW;
-                if (nVar2.aJp() != null) {
-                    nVar3 = this.eyO.ewW;
-                    if (nVar3.LH() != null) {
-                        postData2 = this.eyO.ejm;
-                        if (postData2.bio() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
-                            postData3 = this.eyO.ejm;
-                            long templateId = postData3.bio().getTemplateId();
-                            postData4 = this.eyO.ejm;
-                            String bhO = postData4.bio().bhO();
-                            nVar4 = this.eyO.ewW;
-                            String id = nVar4.aJp().getId();
-                            nVar5 = this.eyO.ewW;
-                            String name = nVar5.aJp().getName();
-                            nVar6 = this.eyO.ewW;
-                            com.baidu.tieba.pb.b.a(templateId, bhO, str, "PB", str2, str3, "tpoint", str4, str5, id, name, nVar6.LH().getTid());
+                nVar2 = this.eIl.eGs;
+                if (nVar2.aNj() != null) {
+                    nVar3 = this.eIl.eGs;
+                    if (nVar3.Mv() != null) {
+                        postData2 = this.eIl.esk;
+                        if (postData2.bmC() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
+                            postData3 = this.eIl.esk;
+                            long templateId = postData3.bmC().getTemplateId();
+                            postData4 = this.eIl.esk;
+                            String bmc = postData4.bmC().bmc();
+                            nVar4 = this.eIl.eGs;
+                            String id = nVar4.aNj().getId();
+                            nVar5 = this.eIl.eGs;
+                            String name = nVar5.aNj().getName();
+                            nVar6 = this.eIl.eGs;
+                            com.baidu.tieba.pb.b.a(templateId, bmc, str, "PB", str2, str3, "tpoint", str4, str5, id, name, nVar6.Mv().getTid());
                         }
                     }
                 }

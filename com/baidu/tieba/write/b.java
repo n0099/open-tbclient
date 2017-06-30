@@ -1,110 +1,26 @@
 package com.baidu.tieba.write;
 
-import android.content.Context;
-import android.support.v4.widget.ExploreByTouchHelper;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ScrollView;
-import com.baidu.adp.lib.util.k;
-import java.lang.reflect.Method;
+import com.baidu.tieba.write.transmit.model.a;
+import java.util.List;
+import tbclient.SimpleForum;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends PopupWindow {
-    private int aBF;
-    private LinearLayout avs;
-    private Context context;
-    private int count;
-    private a fTm;
-    private int maxHeight;
+public class b implements a.InterfaceC0088a {
+    final /* synthetic */ a gdz;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void rP(int i);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.gdz = aVar;
     }
 
-    public b(Context context) {
-        super(context);
-        this.aBF = -1;
-        this.context = context;
-        init(context);
+    @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0088a
+    public void brw() {
     }
 
-    private void init(Context context) {
-        ScrollView scrollView = new ScrollView(context);
-        scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.avs = new LinearLayout(context);
-        this.avs.setOrientation(1);
-        this.avs.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.avs);
-        scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        scrollView.setPadding(0, 0, k.dip2px(context, 1.0f), k.dip2px(context, 1.0f));
-        scrollView.setFadingEdgeLength(0);
-        scrollView.setScrollbarFadingEnabled(false);
-        try {
-            Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(scrollView, 2);
-        } catch (Exception e) {
-        }
-        setContentView(scrollView);
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i, int i2) {
-        getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().widthPixels, ExploreByTouchHelper.INVALID_ID), View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().heightPixels, ExploreByTouchHelper.INVALID_ID));
-        int measuredWidth = getContentView().getMeasuredWidth();
-        if (measuredWidth < view.getWidth()) {
-            measuredWidth = view.getWidth();
-        }
-        int measuredHeight = getContentView().getMeasuredHeight();
-        if (measuredHeight > this.maxHeight) {
-            measuredHeight = this.maxHeight;
-        }
-        setWidth(measuredWidth);
-        setHeight(measuredHeight);
-        super.showAsDropDown(view, i, i2);
-    }
-
-    public void addView(View view) {
-        view.setOnClickListener(new View$OnClickListenerC0084b(this.count, this.fTm));
-        this.avs.addView(view);
-        this.count++;
-    }
-
-    public void setMaxHeight(int i) {
-        this.maxHeight = i;
-    }
-
-    public void te(int i) {
-        if (this.aBF != -1) {
-            this.avs.getChildAt(this.aBF).setSelected(false);
-        }
-        this.aBF = i;
-        this.avs.getChildAt(this.aBF).setSelected(true);
-    }
-
-    public void a(a aVar) {
-        this.fTm = aVar;
-    }
-
-    /* renamed from: com.baidu.tieba.write.b$b  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class View$OnClickListenerC0084b implements View.OnClickListener {
-        private a fTn;
-        private int position;
-
-        public View$OnClickListenerC0084b(int i, a aVar) {
-            this.position = i;
-            this.fTn = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (this.fTn != null) {
-                this.fTn.rP(this.position);
-            }
-        }
+    @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0088a
+    public void ci(List<SimpleForum> list) {
+        this.gdz.gds = true;
+        this.gdz.gdv = list;
+        this.gdz.brs();
     }
 }

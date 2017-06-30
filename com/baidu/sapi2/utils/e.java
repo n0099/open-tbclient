@@ -8,6 +8,7 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiSafeFacade;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +52,7 @@ public class e {
         arrayList.add(SapiUtils.getClientId(context));
         arrayList.add(SapiAccountManager.getInstance().getSapiConfiguration().tpl);
         arrayList.add(String.valueOf(SapiAccountManager.getInstance().getShareAccounts().size()));
-        arrayList.add(TextUtils.join(",", c()));
+        arrayList.add(TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, c()));
         if (str == null) {
             str = "";
         }
@@ -76,7 +77,7 @@ public class e {
         arrayList.add(SapiUtils.getInternalAvailableMemorySize() + "");
         arrayList.add(SapiUtils.getTimeSinceBoot() + "");
         arrayList.add(SapiUtils.getGPSInfo(context));
-        arrayList.add(TextUtils.join(",", SapiUtils.getPackageList(context)));
+        arrayList.add(TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, SapiUtils.getPackageList(context)));
         arrayList.add(SapiUtils.getLocalIpAddress() != null ? SapiUtils.getLocalIpAddress() : "");
         arrayList.add(SapiUtils.getBlueToothDeviceName(context));
         arrayList.add(SapiUtils.getLocation(context));

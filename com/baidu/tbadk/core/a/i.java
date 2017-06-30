@@ -9,48 +9,48 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends GetTplStokenCallback {
-    final /* synthetic */ h Sm;
-    private final /* synthetic */ h.a Sn;
+    final /* synthetic */ h Sh;
+    private final /* synthetic */ h.a Si;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, h.a aVar) {
-        this.Sm = hVar;
-        this.Sn = aVar;
+        this.Sh = hVar;
+        this.Si = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     public void onSuccess(GetTplStokenResult getTplStokenResult) {
         if (getTplStokenResult == null) {
-            if (this.Sn != null) {
-                this.Sn.onFailed();
+            if (this.Si != null) {
+                this.Si.onFailed();
                 return;
             }
             return;
         }
         Map<String, String> map = getTplStokenResult.tplStokenMap;
         if (map == null || map.size() <= 0) {
-            if (this.Sn != null) {
-                this.Sn.onFailed();
+            if (this.Si != null) {
+                this.Si.onFailed();
                 return;
             }
             return;
         }
         String str = map.get(TbConfig.PassConfig.TPL);
         if (StringUtils.isNULL(str)) {
-            if (this.Sn != null) {
-                this.Sn.onFailed();
+            if (this.Si != null) {
+                this.Si.onFailed();
             }
-        } else if (this.Sn != null) {
-            this.Sn.onSuccess(str);
+        } else if (this.Si != null) {
+            this.Si.onSuccess(str);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     public void onFailure(GetTplStokenResult getTplStokenResult) {
-        if (this.Sn != null) {
-            this.Sn.onFailed();
+        if (this.Si != null) {
+            this.Si.onFailed();
         }
     }
 

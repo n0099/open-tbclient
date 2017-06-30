@@ -1,43 +1,22 @@
 package com.baidu.tbadk.core.util;
-
-import com.baidu.adp.lib.util.BdLog;
-import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao {
-    private static final ao afq = new ao();
-    private final HashMap<Class<?>, Class<?>> afr = new HashMap<>();
+public class ao implements Runnable {
+    final /* synthetic */ ak afO;
+    private final /* synthetic */ String afP;
+    private final /* synthetic */ String afS;
+    private final /* synthetic */ int afT;
 
-    public static final ao vd() {
-        return afq;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ao(ak akVar, String str, String str2, int i) {
+        this.afO = akVar;
+        this.afS = str;
+        this.afP = str2;
+        this.afT = i;
     }
 
-    private ao() {
-    }
-
-    public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
-        this.afr.put(cls, cls2);
-    }
-
-    public void RegisterIntent(Class<?> cls, Class<?> cls2) {
-        if (!this.afr.containsKey(cls)) {
-            this.afr.put(cls, cls2);
-        } else {
-            BdLog.e("register Intent failed, " + cls.getName() + " exist");
-        }
-    }
-
-    public boolean appResponseToIntentClass(Class<?> cls) {
-        return getIntentClass(cls) != null;
-    }
-
-    public int ve() {
-        return this.afr.size();
-    }
-
-    public Class<?> getIntentClass(Class<?> cls) {
-        if (this.afr != null) {
-            return this.afr.get(cls);
-        }
-        return null;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.afO.c(this.afS, this.afP, this.afT);
     }
 }

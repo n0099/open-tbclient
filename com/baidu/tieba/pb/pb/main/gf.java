@@ -1,46 +1,65 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import android.content.Context;
+import android.content.Intent;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.card.at;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class gf implements View.OnClickListener {
-    final /* synthetic */ fx evi;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public gf(fx fxVar) {
-        this.evi = fxVar;
+public class gf {
+    public static Intent ah(Context context, String str) {
+        if (TextUtils.isEmpty(str) || context == null) {
+            return null;
+        }
+        Intent intent = new Intent(context, DealIntentService.class);
+        intent.putExtra("class", 1);
+        intent.putExtra("id", str);
+        intent.putExtra("from", "nas");
+        return intent;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        PbActivity.a aVar;
-        PbActivity.a aVar2;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.evi.etD;
-        if (dialog != null) {
-            dialog2 = this.evi.etD;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.evi.etD;
-                pbActivity = this.evi.elf;
-                com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
-            }
+    public static boolean k(PostData postData) {
+        if (postData == null || postData.bmC() == null) {
+            return false;
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray == null) {
-            return;
+        com.baidu.tieba.tbadkCore.data.h bmC = postData.bmC();
+        if (bmC.fLN) {
+            int bmb = bmC.bmb();
+            return bmb == 2 || bmb == 1 || bmb == 3;
         }
-        aVar = this.evi.euZ;
-        if (aVar == null) {
-            return;
+        return false;
+    }
+
+    public static SpannableStringBuilder i(Context context, String str, String str2) {
+        ArrayList arrayList = new ArrayList();
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        if (str2 != null && str != null) {
+            arrayList.add(new at.a(str));
+            return com.baidu.tieba.card.at.a(context, str2, (ArrayList<at.a>) arrayList, true);
         }
-        aVar2 = this.evi.euZ;
-        aVar2.g(new Object[]{sparseArray.get(w.h.tag_manage_user_identity), sparseArray.get(w.h.tag_forbid_user_name), sparseArray.get(w.h.tag_forbid_user_post_id)});
+        return spannableStringBuilder;
+    }
+
+    public static String a(MetaData metaData) {
+        if (metaData == null || metaData.getGodUserData() == null) {
+            return "";
+        }
+        String forumName = metaData.getGodUserData().getForumName();
+        String godIntro = metaData.getGodIntro();
+        if (metaData.getGodUserData().getType() != 2 || TextUtils.isEmpty(forumName)) {
+            return getString(w.l.user_certification_intro, godIntro);
+        }
+        return getString(w.l.user_certification_intro_with_barname, UtilHelper.getForumNameWithBar(forumName), godIntro);
+    }
+
+    public static String getString(int i, Object... objArr) {
+        return TbadkCoreApplication.m9getInst().getString(i, objArr);
     }
 }

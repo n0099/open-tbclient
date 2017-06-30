@@ -11,7 +11,7 @@ public class d {
     private static int wA = 0;
     private static Object wB = new Object();
 
-    public static com.baidu.adp.lib.stats.c fN() {
+    public static com.baidu.adp.lib.stats.c fM() {
         return BdStatisticsManager.getInstance().getStatsItem("dbg");
     }
 
@@ -19,15 +19,15 @@ public class d {
         if (cVar != null || cVar2 != null) {
             synchronized (wB) {
                 if (cVar != null) {
-                    wx = (int) (wx + cVar.fX());
+                    wx = (int) (wx + cVar.fW());
                 }
                 if (cVar2 != null) {
-                    ww = (int) (ww + cVar2.fX());
+                    ww = (int) (ww + cVar2.fW());
                 }
                 int i = wv + 1;
                 wv = i;
                 if (i + wy > 100) {
-                    fO();
+                    fN();
                 }
             }
         }
@@ -37,32 +37,32 @@ public class d {
         if (cVar != null || cVar2 != null) {
             synchronized (wB) {
                 if (cVar != null) {
-                    wA = (int) (wA + cVar.fX());
+                    wA = (int) (wA + cVar.fW());
                 }
                 if (cVar2 != null) {
-                    wz = (int) (wz + cVar2.fX());
+                    wz = (int) (wz + cVar2.fW());
                 }
                 int i = wy + 1;
                 wy = i;
                 if (i + wv > 100) {
-                    fO();
+                    fN();
                 }
             }
         }
     }
 
-    public static void fO() {
+    public static void fN() {
         if (wv + wy > 10) {
-            com.baidu.adp.lib.stats.c fN = fN();
-            fN.p("act", "allStat");
-            fN.p("diskTaskCostTime", String.valueOf(wx));
-            fN.p("diskCostTime", String.valueOf(ww));
-            fN.p("diskNum", String.valueOf(wv));
-            fN.p("netTaskCostTime", String.valueOf(wA));
-            fN.p("netCostTime", String.valueOf(wz));
-            fN.p("netNum", String.valueOf(wy));
-            fN.p("isWifi", "1");
-            BdStatisticsManager.getInstance().debug("img", fN);
+            com.baidu.adp.lib.stats.c fM = fM();
+            fM.p("act", "allStat");
+            fM.p("diskTaskCostTime", String.valueOf(wx));
+            fM.p("diskCostTime", String.valueOf(ww));
+            fM.p("diskNum", String.valueOf(wv));
+            fM.p("netTaskCostTime", String.valueOf(wA));
+            fM.p("netCostTime", String.valueOf(wz));
+            fM.p("netNum", String.valueOf(wy));
+            fM.p("isWifi", "1");
+            BdStatisticsManager.getInstance().debug("img", fM);
             ww = 0;
             wv = 0;
             wz = 0;

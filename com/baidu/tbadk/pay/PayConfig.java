@@ -4,9 +4,11 @@ import com.baidu.tbadk.util.PageDialogHelper;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PayConfig implements Serializable {
+    public static final String PAYMENT_POS_KEY_MANGA = "37";
     public static final int PAYTYPE_MEMBER = 1;
     public static final int PAYTYPE_PAY_DIRECT = 3;
     public static final int PAYTYPE_TDOU = 2;
+    public static final int PAYTYPE_TYPE_CARDBOX = 4;
     private static final long serialVersionUID = 1473520404420820966L;
     private int isAutoPay;
     public long mCategoryId;
@@ -24,7 +26,7 @@ public class PayConfig implements Serializable {
     private String mPropsMon;
     private String mTitle;
     public float mTotalPrice;
-    public String packetId;
+    public String paymentPosKey;
     private int tBeanNum;
 
     public PayConfig(int i, String str, String str2, String str3, String str4, boolean z) {
@@ -35,6 +37,7 @@ public class PayConfig implements Serializable {
         this.mOrderInfo = "";
         this.mCategoryId = 0L;
         this.mNeedPayDetail = false;
+        this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.mPayType = i;
         this.mIsLeft = str;
@@ -52,6 +55,7 @@ public class PayConfig implements Serializable {
         this.mOrderInfo = "";
         this.mCategoryId = 0L;
         this.mNeedPayDetail = false;
+        this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.mPayType = i;
         this.mIsLeft = str;
@@ -81,6 +85,7 @@ public class PayConfig implements Serializable {
         this.mOrderInfo = "";
         this.mCategoryId = 0L;
         this.mNeedPayDetail = false;
+        this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.mPayType = i;
         this.mIsLeft = str;
@@ -108,6 +113,7 @@ public class PayConfig implements Serializable {
         this.mOrderInfo = "";
         this.mCategoryId = 0L;
         this.mNeedPayDetail = false;
+        this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.mPayType = i;
         this.mOrderId = str;
@@ -124,6 +130,7 @@ public class PayConfig implements Serializable {
         this.mOrderInfo = "";
         this.mCategoryId = 0L;
         this.mNeedPayDetail = false;
+        this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.mPayType = i;
         this.mCategoryId = j;

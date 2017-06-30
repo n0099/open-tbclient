@@ -6,11 +6,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ f fTY;
+    final /* synthetic */ f geI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.fTY = fVar;
+        this.geI = fVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,41 +31,41 @@ public class g implements View.OnClickListener {
         ImageView imageView2;
         AlbumActivity albumActivity5;
         int i4;
-        kVar = this.fTY.fTU;
+        kVar = this.geI.geE;
         if (kVar != null) {
-            pVar = this.fTY.fTx;
+            pVar = this.geI.gei;
             if (pVar != null) {
-                albumActivity = this.fTY.fTN;
+                albumActivity = this.geI.gex;
                 if (albumActivity != null) {
-                    kVar2 = this.fTY.fTU;
-                    i = this.fTY.aBF;
-                    if (kVar2.tj(i)) {
-                        kVar3 = this.fTY.fTU;
-                        i2 = this.fTY.aBF;
-                        ImageFileInfo ti = kVar3.ti(i2);
-                        pVar2 = this.fTY.fTx;
-                        if (pVar2.isAdded(ti)) {
-                            albumActivity4 = this.fTY.fTN;
-                            if (albumActivity4.d(ti)) {
-                                f fVar = this.fTY;
-                                imageView2 = this.fTY.fTV;
+                    kVar2 = this.geI.geE;
+                    i = this.geI.aCI;
+                    if (kVar2.tE(i)) {
+                        kVar3 = this.geI.geE;
+                        i2 = this.geI.aCI;
+                        ImageFileInfo tD = kVar3.tD(i2);
+                        pVar2 = this.geI.gei;
+                        if (pVar2.isAdded(tD)) {
+                            albumActivity4 = this.geI.gex;
+                            if (albumActivity4.d(tD)) {
+                                f fVar = this.geI;
+                                imageView2 = this.geI.geF;
                                 fVar.c(imageView2, false);
-                                albumActivity5 = this.fTY.fTN;
-                                i4 = this.fTY.aBF;
+                                albumActivity5 = this.geI.gex;
+                                i4 = this.geI.aCI;
                                 albumActivity5.G(i4, false);
                             }
                         } else {
-                            albumActivity2 = this.fTY.fTN;
-                            if (albumActivity2.c(ti)) {
-                                f fVar2 = this.fTY;
-                                imageView = this.fTY.fTV;
+                            albumActivity2 = this.geI.gex;
+                            if (albumActivity2.c(tD)) {
+                                f fVar2 = this.geI;
+                                imageView = this.geI.geF;
                                 fVar2.c(imageView, true);
-                                albumActivity3 = this.fTY.fTN;
-                                i3 = this.fTY.aBF;
+                                albumActivity3 = this.geI.gex;
+                                i3 = this.geI.aCI;
                                 albumActivity3.G(i3, true);
                             }
                         }
-                        this.fTY.bnH();
+                        this.geI.bse();
                     }
                 }
             }

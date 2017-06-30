@@ -8,11 +8,11 @@ import com.baidu.tieba.play.QuickVideoView;
 import com.baidu.tieba.play.v;
 /* loaded from: classes.dex */
 class af implements v.d {
-    final /* synthetic */ QuickVideoView fby;
+    final /* synthetic */ QuickVideoView flO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(QuickVideoView quickVideoView) {
-        this.fby = quickVideoView;
+        this.flO = quickVideoView;
     }
 
     @Override // com.baidu.tieba.play.v.d
@@ -34,54 +34,54 @@ class af implements v.d {
         int i;
         QuickVideoView.a aVar2;
         v.d dVar2;
-        dVar = this.fby.aRe;
+        dVar = this.flO.aSx;
         if (dVar != null) {
-            dVar2 = this.fby.aRe;
+            dVar2 = this.flO.aSx;
             dVar2.onPrepared(vVar);
         }
-        aVar = this.fby.fbm;
+        aVar = this.flO.flC;
         if (aVar != null) {
-            aVar2 = this.fby.fbm;
-            aVar2.Ji();
+            aVar2 = this.flO.flC;
+            aVar2.JG();
         }
-        z = this.fby.fbl;
+        z = this.flO.flB;
         if (z) {
-            this.fby.start();
+            this.flO.start();
         }
-        aoVar = this.fby.fbh;
+        aoVar = this.flO.flx;
         if (aoVar != null && vVar != null) {
-            aoVar2 = this.fby.fbh;
+            aoVar2 = this.flO.flx;
             int videoWidth = vVar.getVideoWidth();
             int videoHeight = vVar.getVideoHeight();
-            i = this.fby.fbo;
-            aoVar2.N(videoWidth, videoHeight, i);
+            i = this.flO.flE;
+            aoVar2.O(videoWidth, videoHeight, i);
         }
-        str = this.fby.fbi;
+        str = this.flO.fly;
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c12199");
-            uri = this.fby.mUri;
+            com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au("c12199");
+            uri = this.flO.mUri;
             if (uri == null) {
                 uri3 = "null";
             } else {
-                uri2 = this.fby.mUri;
+                uri2 = this.flO.mUri;
                 uri3 = uri2.toString();
             }
-            com.baidu.tbadk.core.util.as Z = asVar.Z("obj_param1", uri3);
-            str2 = this.fby.fbi;
+            com.baidu.tbadk.core.util.au Z = auVar.Z("obj_param1", uri3);
+            str2 = this.flO.fly;
             TiebaStatic.log(Z.Z("obj_param2", str2).Z("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
             BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
             Object[] objArr = new Object[6];
             objArr[0] = "url";
-            uri4 = this.fby.mUri;
+            uri4 = this.flO.mUri;
             if (uri4 == null) {
                 uri6 = "null";
             } else {
-                uri5 = this.fby.mUri;
+                uri5 = this.flO.mUri;
                 uri6 = uri5.toString();
             }
             objArr[1] = uri6;
             objArr[2] = "dnsIP";
-            str3 = this.fby.fbi;
+            str3 = this.flO.fly;
             objArr[3] = str3;
             objArr[4] = "clientip";
             objArr[5] = com.baidu.tbadk.core.util.d.getIp();

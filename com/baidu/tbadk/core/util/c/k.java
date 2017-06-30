@@ -31,18 +31,18 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vN() {
+    public boolean we() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vO() {
+    public boolean wf() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.c.a
-    public com.baidu.adp.lib.Disk.ops.c dL(String str) {
+    public com.baidu.adp.lib.Disk.ops.c eg(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -78,7 +78,7 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int vP() {
+    public int wg() {
         return this.procType;
     }
 }

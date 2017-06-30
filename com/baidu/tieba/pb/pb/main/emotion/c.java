@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.pb.main.emotion;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class c implements a.b {
-    final /* synthetic */ PbSearchEmotionActivity evD;
+    final /* synthetic */ PbSearchEmotionActivity eET;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PbSearchEmotionActivity pbSearchEmotionActivity) {
-        this.evD = pbSearchEmotionActivity;
+        this.eET = pbSearchEmotionActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

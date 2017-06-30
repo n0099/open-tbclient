@@ -12,61 +12,61 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private TbPageContext<?> aas;
-    private AlertDialog ahJ;
-    private DialogInterface.OnCancelListener ahL;
+    private TbPageContext<?> aat;
+    private AlertDialog air;
+    private DialogInterface.OnCancelListener ait;
     private Activity mActivity;
-    private String ahK = null;
-    private TextView aaJ = null;
+    private String ais = null;
+    private TextView aaK = null;
 
     public a(TbPageContext<?> tbPageContext) {
-        this.aas = null;
+        this.aat = null;
         this.mActivity = null;
-        this.aas = tbPageContext;
-        if (this.aas != null && this.aas.getPageActivity() != null) {
-            this.mActivity = this.aas.getPageActivity();
+        this.aat = tbPageContext;
+        if (this.aat != null && this.aat.getPageActivity() != null) {
+            this.mActivity = this.aat.getPageActivity();
         }
     }
 
     private a b(DialogInterface.OnCancelListener onCancelListener) {
         if (this.mActivity != null) {
-            this.ahJ = new AlertDialog.Builder(this.mActivity).create();
-            com.baidu.adp.lib.g.j.a(this.ahJ, this.mActivity);
+            this.air = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.g.j.a(this.air, this.mActivity);
             View inflate = LayoutInflater.from(this.mActivity).inflate(w.j.custom_loading_toast, (ViewGroup) null);
-            this.aaJ = (TextView) inflate.findViewById(w.h.custom_loading_text);
-            if (!StringUtils.isNull(this.ahK) && this.aaJ != null) {
-                this.aaJ.setText(this.ahK);
+            this.aaK = (TextView) inflate.findViewById(w.h.custom_loading_text);
+            if (!StringUtils.isNull(this.ais) && this.aaK != null) {
+                this.aaK.setText(this.ais);
             }
-            if (this.ahJ != null && this.ahJ.getWindow() != null) {
-                this.ahJ.getWindow().setContentView(inflate);
+            if (this.air != null && this.air.getWindow() != null) {
+                this.air.getWindow().setContentView(inflate);
                 if (onCancelListener != null) {
-                    this.ahJ.setCancelable(true);
-                    this.ahJ.setCanceledOnTouchOutside(true);
-                    this.ahJ.setOnCancelListener(onCancelListener);
+                    this.air.setCancelable(true);
+                    this.air.setCanceledOnTouchOutside(true);
+                    this.air.setOnCancelListener(onCancelListener);
                 } else {
-                    this.ahJ.setCanceledOnTouchOutside(false);
-                    this.ahJ.setCancelable(false);
+                    this.air.setCanceledOnTouchOutside(false);
+                    this.air.setCancelable(false);
                 }
             }
         }
         return this;
     }
 
-    public void aH(boolean z) {
+    public void aI(boolean z) {
         if (z) {
-            b(this.ahL);
+            b(this.ait);
         } else {
-            com.baidu.adp.lib.g.j.b(this.ahJ, this.mActivity);
+            com.baidu.adp.lib.g.j.b(this.air, this.mActivity);
         }
     }
 
-    public void cW(int i) {
+    public void cY(int i) {
         if (this.mActivity != null) {
-            this.ahK = this.mActivity.getString(i);
+            this.ais = this.mActivity.getString(i);
         }
     }
 
     public void c(DialogInterface.OnCancelListener onCancelListener) {
-        this.ahL = onCancelListener;
+        this.ait = onCancelListener;
     }
 }

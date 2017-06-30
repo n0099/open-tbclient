@@ -12,7 +12,7 @@ public class g {
     private HashMap<String, b> wY = new HashMap<>();
     private Handler mHandler = new h(this, Looper.getMainLooper());
 
-    public static g fY() {
+    public static g fX() {
         if (wZ == null) {
             synchronized (g.class) {
                 if (wZ == null) {
@@ -49,7 +49,7 @@ public class g {
         this.wY.put("dbg", bVar3);
     }
 
-    public synchronized boolean ag(String str) {
+    public synchronized boolean al(String str) {
         a aVar;
         boolean z;
         b bVar = this.wY.get(str);
@@ -68,13 +68,13 @@ public class g {
             } else {
                 aVar = aVar2;
             }
-            if (aVar.fZ()) {
+            if (aVar.fY()) {
                 z = true;
             } else {
-                if (aVar.ge()) {
-                    aVar.am(aVar.gb() + 1);
-                    if (currentTimeMillis - aVar.ga() < bVar.gg()) {
-                        if (aVar.gb() >= bVar.gh()) {
+                if (aVar.gd()) {
+                    aVar.am(aVar.ga() + 1);
+                    if (currentTimeMillis - aVar.fZ() < bVar.gf()) {
+                        if (aVar.ga() >= bVar.gg()) {
                             aVar.F(true);
                             BdStatisticsManager.getInstance().op(false, "d", "logfast", null, 0L, 99999, str, new Object[0]);
                             a(aVar);
@@ -85,7 +85,7 @@ public class g {
                         aVar.am(0);
                         aVar.f(currentTimeMillis);
                     }
-                } else if (currentTimeMillis - aVar.gd() < bVar.gf()) {
+                } else if (currentTimeMillis - aVar.gb() < bVar.ge()) {
                     aVar.G(true);
                     aVar.e(currentTimeMillis);
                 } else {
@@ -124,7 +124,7 @@ public class g {
             this();
         }
 
-        public boolean fZ() {
+        public boolean fY() {
             return this.xd;
         }
 
@@ -132,7 +132,7 @@ public class g {
             this.xd = z;
         }
 
-        public long ga() {
+        public long fZ() {
             return this.xc;
         }
 
@@ -140,7 +140,7 @@ public class g {
             this.xc = j;
         }
 
-        public int gb() {
+        public int ga() {
             return this.mCount;
         }
 
@@ -148,7 +148,7 @@ public class g {
             this.mCount = i;
         }
 
-        public long gd() {
+        public long gb() {
             return this.xb;
         }
 
@@ -156,7 +156,7 @@ public class g {
             this.xb = j;
         }
 
-        public boolean ge() {
+        public boolean gd() {
             return this.mIsRunning;
         }
 
@@ -179,7 +179,7 @@ public class g {
             this();
         }
 
-        public int gf() {
+        public int ge() {
             return this.xe;
         }
 
@@ -187,7 +187,7 @@ public class g {
             this.xe = i;
         }
 
-        public int gg() {
+        public int gf() {
             return this.xf;
         }
 
@@ -195,7 +195,7 @@ public class g {
             this.xf = i;
         }
 
-        public int gh() {
+        public int gg() {
             return this.xg;
         }
 

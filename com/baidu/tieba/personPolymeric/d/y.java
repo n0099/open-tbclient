@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class y implements Animation.AnimationListener {
-    final /* synthetic */ w eNY;
+    final /* synthetic */ w eYj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(w wVar) {
-        this.eNY = wVar;
+        this.eYj = wVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -39,42 +39,42 @@ class y implements Animation.AnimationListener {
         TextView textView5;
         TextView textView6;
         Context context3;
-        view = this.eNY.eNQ;
-        animation2 = this.eNY.eNW;
+        view = this.eYj.eYa;
+        animation2 = this.eYj.eYg;
         view.setAnimation(animation2);
-        i = this.eNY.eNS;
+        i = this.eYj.eYc;
         if (i % 2 == 1) {
-            userData = this.eNY.mUserData;
+            userData = this.eYj.mUserData;
             if (userData.getLiveStatus() == 1) {
-                view4 = this.eNY.eNQ;
+                view4 = this.eYj.eYa;
                 view4.findViewById(w.h.person_polymeric_header_livepoint).setVisibility(0);
-                textView5 = this.eNY.eNU;
+                textView5 = this.eYj.eYe;
                 textView5.setVisibility(8);
-                textView6 = this.eNY.eNT;
-                context3 = this.eNY.mContext;
+                textView6 = this.eYj.eYd;
+                context3 = this.eYj.mContext;
                 textView6.setText(context3.getResources().getString(w.l.person_polymeric_ala_entry_live));
             } else {
-                view3 = this.eNY.eNQ;
+                view3 = this.eYj.eYa;
                 view3.findViewById(w.h.person_polymeric_header_livepoint).setVisibility(8);
-                textView3 = this.eNY.eNU;
+                textView3 = this.eYj.eYe;
                 textView3.setVisibility(0);
-                textView4 = this.eNY.eNT;
-                context2 = this.eNY.mContext;
+                textView4 = this.eYj.eYd;
+                context2 = this.eYj.mContext;
                 textView4.setText(context2.getResources().getString(w.l.go_to_live_post_prefix));
             }
         } else {
-            view2 = this.eNY.eNQ;
+            view2 = this.eYj.eYa;
             view2.findViewById(w.h.person_polymeric_header_livepoint).setVisibility(8);
-            textView = this.eNY.eNU;
+            textView = this.eYj.eYe;
             textView.setVisibility(0);
-            textView2 = this.eNY.eNT;
-            context = this.eNY.mContext;
+            textView2 = this.eYj.eYd;
+            context = this.eYj.mContext;
             textView2.setText(context.getResources().getString(w.l.person_polymeric_ala_live_title));
         }
-        w wVar = this.eNY;
-        i2 = wVar.eNS;
-        wVar.eNS = i2 + 1;
-        animation3 = this.eNY.eNW;
+        w wVar = this.eYj;
+        i2 = wVar.eYc;
+        wVar.eYc = i2 + 1;
+        animation3 = this.eYj.eYg;
         animation3.start();
     }
 

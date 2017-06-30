@@ -7,6 +7,7 @@ import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ForumWriteData implements Serializable {
     public final AntiData antiData;
+    public String avatar;
     public final String forumId;
     public final String forumName;
     public int mem_type;
@@ -36,5 +37,9 @@ public class ForumWriteData implements Serializable {
 
     public void setForumLevel(int i) {
         this.forumLevel = i;
+    }
+
+    public void setAvatar(String str) {
+        this.avatar = str;
     }
 }

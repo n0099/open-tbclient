@@ -1,43 +1,40 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.tbadkCore.v;
-import com.baidu.tieba.view.BdExpandListView;
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tbadk.core.view.UserPhotoLayout;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay implements v.a {
-    final /* synthetic */ au bVN;
+public class ay implements AbsListView.RecyclerListener {
+    final /* synthetic */ av cdV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(au auVar) {
-        this.bVN = auVar;
+    public ay(av avVar) {
+        this.cdV = avVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.v.a
-    public void aaX() {
-        r rVar;
-        rVar = this.bVN.bVm;
-        rVar.aat();
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.v.a
-    public void aaY() {
-        BdExpandListView bdExpandListView;
-        BdExpandListView bdExpandListView2;
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
         com.baidu.tieba.play.ac acVar;
         com.baidu.tieba.play.ac acVar2;
-        int i;
-        int i2;
-        bdExpandListView = this.bVN.bVv;
-        if (bdExpandListView != null) {
-            bdExpandListView2 = this.bVN.bVv;
-            bdExpandListView2.setSelection(0);
-            acVar = this.bVN.bVJ;
-            if (acVar != null) {
-                acVar2 = this.bVN.bVJ;
-                i = this.bVN.bVc;
-                i2 = this.bVN.bVd;
-                acVar2.a(i, i2, false, true);
-            }
+        acVar = this.cdV.cdS;
+        if (acVar != null) {
+            acVar2 = this.cdV.cdS;
+            acVar2.aL(view);
+        }
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(w.h.abstract_voice);
+        if (playVoiceBnt != null) {
+            playVoiceBnt.reset();
+        }
+        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(w.h.abstract_img_layout);
+        if (frsCommonImageLayout != null) {
+            frsCommonImageLayout.reset();
+        }
+        if (view instanceof UserPhotoLayout) {
+            ((UserPhotoLayout) view).reset();
         }
     }
 }

@@ -40,7 +40,7 @@ public class ContentResolverProxy extends ContentResolver {
             if (ContentProviderProxy.queryContentProvider(str) != null) {
                 str = ContentProviderProxy.PROVIDER_AUTHOR;
             }
-            return (IContentProvider) f.a(this.mContentResolver, "acquireProvider", new Object[]{context, str});
+            return (IContentProvider) f.c(this.mContentResolver, "acquireProvider", new Object[]{context, str});
         } catch (Exception e) {
             BdLog.e(e);
             return null;
@@ -52,7 +52,7 @@ public class ContentResolverProxy extends ContentResolver {
             if (ContentProviderProxy.queryContentProvider(str) != null) {
                 str = ContentProviderProxy.PROVIDER_AUTHOR;
             }
-            return (IContentProvider) f.a(this.mContentResolver, "acquireExistingProvider", new Object[]{context, str});
+            return (IContentProvider) f.c(this.mContentResolver, "acquireExistingProvider", new Object[]{context, str});
         } catch (Exception e) {
             BdLog.e(e);
             return null;
@@ -61,7 +61,7 @@ public class ContentResolverProxy extends ContentResolver {
 
     public boolean releaseProvider(IContentProvider iContentProvider) {
         try {
-            return ((Boolean) f.a(this.mContentResolver, "releaseProvider", new Object[]{iContentProvider})).booleanValue();
+            return ((Boolean) f.c(this.mContentResolver, "releaseProvider", new Object[]{iContentProvider})).booleanValue();
         } catch (Exception e) {
             BdLog.e(e);
             return false;
@@ -73,7 +73,7 @@ public class ContentResolverProxy extends ContentResolver {
             str = ContentProviderProxy.PROVIDER_AUTHOR;
         }
         try {
-            return (IContentProvider) f.a(this.mContentResolver, "acquireUnstableProvider", new Object[]{context, str});
+            return (IContentProvider) f.c(this.mContentResolver, "acquireUnstableProvider", new Object[]{context, str});
         } catch (Exception e) {
             BdLog.e(e);
             return null;
@@ -82,7 +82,7 @@ public class ContentResolverProxy extends ContentResolver {
 
     public boolean releaseUnstableProvider(IContentProvider iContentProvider) {
         try {
-            return ((Boolean) f.a(this.mContentResolver, "releaseUnstableProvider", new Object[]{iContentProvider})).booleanValue();
+            return ((Boolean) f.c(this.mContentResolver, "releaseUnstableProvider", new Object[]{iContentProvider})).booleanValue();
         } catch (Exception e) {
             BdLog.e(e);
             return false;
@@ -91,7 +91,7 @@ public class ContentResolverProxy extends ContentResolver {
 
     public void unstableProviderDied(IContentProvider iContentProvider) {
         try {
-            f.a(this.mContentResolver, "unstableProviderDied", new Object[]{iContentProvider});
+            f.c(this.mContentResolver, "unstableProviderDied", new Object[]{iContentProvider});
         } catch (Exception e) {
             BdLog.e(e);
         }

@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ b aPP;
+    final /* synthetic */ b aRh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(b bVar, int i) {
         super(i);
-        this.aPP = bVar;
+        this.aRh = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,9 +23,9 @@ public class f extends CustomMessageListener {
             if (data instanceof Boolean) {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
                 if (((Boolean) data).booleanValue()) {
-                    b bVar = this.aPP;
-                    j = this.aPP.aPG;
-                    bVar.aPH = currentTimeMillis - j <= 1;
+                    b bVar = this.aRh;
+                    j = this.aRh.aQY;
+                    bVar.aQZ = currentTimeMillis - j <= 1;
                 }
             }
         }

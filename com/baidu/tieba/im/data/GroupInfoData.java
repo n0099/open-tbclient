@@ -5,11 +5,11 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.ah;
+import com.baidu.tbadk.core.util.aj;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class GroupInfoData extends AbstractImageProvider implements v, ah, Serializable {
+public class GroupInfoData extends AbstractImageProvider implements v, aj, Serializable {
     public static final BdUniqueId TYPE_FRS_GROUP = BdUniqueId.gen();
     private static final long serialVersionUID = 5616188082014345808L;
     private long authorId;
@@ -160,7 +160,7 @@ public class GroupInfoData extends AbstractImageProvider implements v, ah, Seria
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.util.ah
+    @Override // com.baidu.tbadk.core.util.aj
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();

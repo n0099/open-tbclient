@@ -13,11 +13,11 @@ class a implements com.baidu.adp.plugin.util.e {
 
     @Override // com.baidu.adp.plugin.util.e
     public void a(Plugin.b bVar, String str) {
-        if (PluginPackageManager.jx().isMainProcess()) {
+        if (PluginPackageManager.jw().isMainProcess()) {
             if (bVar.CB) {
-                com.baidu.adp.plugin.b.a.jk().A("plugin_load", str);
+                com.baidu.adp.plugin.b.a.jj().A("plugin_load", str);
             } else {
-                com.baidu.adp.plugin.b.a.jk().aV("plugin_loaded_failed");
+                com.baidu.adp.plugin.b.a.jj().ba("plugin_loaded_failed");
             }
         }
     }

@@ -1,20 +1,21 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae extends CustomMessageListener {
+public class ae implements FragmentTabHost.b {
+    final /* synthetic */ ad fQS;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(int i) {
-        super(i);
+    public ae(ad adVar) {
+        this.fQS = adVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001120) {
-            return;
-        }
-        MainTabActivityStatic.h(customResponsedMessage);
+    @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b
+    public void f(int i, boolean z) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, Integer.valueOf(i)));
     }
 }

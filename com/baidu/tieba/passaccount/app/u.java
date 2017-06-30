@@ -6,27 +6,27 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends AuthorizationListener {
-    final /* synthetic */ SapiFastRegActivity efv;
+    final /* synthetic */ SapiFastRegActivity eoq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(SapiFastRegActivity sapiFastRegActivity) {
-        this.efv = sapiFastRegActivity;
+        this.eoq = sapiFastRegActivity;
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onSuccess() {
-        com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_success", 0, "", new Object[0]);
-        this.efv.aHG();
+        com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_success", 0, "", new Object[0]);
+        this.eoq.aLz();
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onFailed(int i, String str) {
-        com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_fail", i, str, new Object[0]);
+        com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_fail", i, str, new Object[0]);
         if (str != null && !"".equals(str)) {
-            this.efv.showToast(str);
+            this.eoq.showToast(str);
         } else {
-            this.efv.showToast(w.l.data_load_error);
+            this.eoq.showToast(w.l.data_load_error);
         }
-        this.efv.finish();
+        this.eoq.finish();
     }
 }

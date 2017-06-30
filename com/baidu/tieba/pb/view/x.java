@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.view.j;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class x extends PopupWindow {
-    private int byU;
+    private int eMu;
     private com.baidu.tbadk.core.view.j mContainer;
     private View mContentView;
 
@@ -18,7 +18,7 @@ public class x extends PopupWindow {
         super(activity);
         this.mContainer = null;
         this.mContentView = null;
-        this.byU = 0;
+        this.eMu = 0;
         init(activity, view, drawable, aVar);
     }
 
@@ -28,7 +28,7 @@ public class x extends PopupWindow {
             this.mContainer = new com.baidu.tbadk.core.view.j(activity, this.mContentView, aVar);
             TypedValue typedValue = new TypedValue();
             if (activity.getApplicationContext().getTheme() != null && activity.getApplicationContext().getTheme().resolveAttribute(16843499, typedValue, true)) {
-                this.byU = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
+                this.eMu = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
             }
             setContentView(this.mContainer);
             setOutsideTouchable(true);

@@ -9,20 +9,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.MorePopupWindow;
-import com.baidu.tieba.frs.co;
+import com.baidu.tieba.frs.cp;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class k {
-    private MorePopupWindow QG;
-    private LinearLayout bOS;
-    private b cfB;
-    private a cfC;
-    private co cfP;
-    private View cfQ;
-    private SparseArray<g> cfR = new SparseArray<>();
-    private g cfS;
+    private MorePopupWindow QA;
+    private LinearLayout bVP;
+    private b cnR;
+    private a cnS;
+    private cp cof;
+    private View cog;
+    private SparseArray<g> coh = new SparseArray<>();
+    private g coi;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -32,44 +32,46 @@ public class k {
 
     /* loaded from: classes.dex */
     public interface b {
-        void iV(int i);
+        void jh(int i);
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        public ImageView cfV;
-        public View cfW;
-        public View cfX;
+        public ImageView col;
+
+        /* renamed from: com  reason: collision with root package name */
+        public View f1com;
+        public View con;
         public TextView name;
     }
 
     public k(Context context, b bVar, a aVar) {
         this.mContext = context;
-        this.cfB = bVar;
-        this.cfC = aVar;
-        this.bOS = new LinearLayout(context);
-        this.bOS.setOrientation(1);
-        this.bOS.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.cfQ = new View(context);
-        this.cfQ.setOnClickListener(new l(this));
+        this.cnR = bVar;
+        this.cnS = aVar;
+        this.bVP = new LinearLayout(context);
+        this.bVP.setOrientation(1);
+        this.bVP.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.cog = new View(context);
+        this.cog.setOnClickListener(new l(this));
     }
 
     private void a(Activity activity, View view, TabItemView tabItemView) {
-        if (this.QG == null) {
-            this.QG = new MorePopupWindow(activity, this.bOS, view, aq.getDrawable(w.g.transparent_bg), new m(this));
+        if (this.QA == null) {
+            this.QA = new MorePopupWindow(activity, this.bVP, view, as.getDrawable(w.g.transparent_bg), new m(this));
         }
-        this.QG.setOnDismissListener(new n(this, tabItemView));
+        this.QA.setOnDismissListener(new n(this, tabItemView));
     }
 
-    public void a(Activity activity, View view, TabItemView tabItemView, co coVar) {
-        this.cfP = coVar;
-        this.cfS = this.cfR.get(this.cfP.bWL);
-        if (this.cfS == null) {
-            this.cfS = t.iX(this.cfP.bWL);
-            this.cfS.a(this.mContext, this);
-            this.cfR.put(this.cfP.bWL, this.cfS);
+    public void a(Activity activity, View view, TabItemView tabItemView, cp cpVar) {
+        this.cof = cpVar;
+        this.coi = this.coh.get(this.cof.ceT);
+        if (this.coi == null) {
+            this.coi = t.jj(this.cof.ceT);
+            this.coi.a(this.mContext, this);
+            this.coh.put(this.cof.ceT, this.coi);
         }
-        this.cfS.setData(coVar.bWM);
+        this.coi.setData(cpVar.ceU);
         if (view instanceof HorizontalTabView) {
             HorizontalTabView horizontalTabView = (HorizontalTabView) view;
             if (horizontalTabView.getmShowMenuCallBack() != null) {
@@ -77,50 +79,50 @@ public class k {
                 horizontalTabView.getLocationInWindow(iArr);
                 com.baidu.adp.lib.util.k.ae(horizontalTabView.getContext());
                 int ag = com.baidu.adp.lib.util.k.ag(horizontalTabView.getContext());
-                int adz = this.cfS.adz();
+                int ahr = this.coi.ahr();
                 int measuredHeight = (ag - iArr[1]) - horizontalTabView.getMeasuredHeight();
-                if (measuredHeight < adz) {
-                    horizontalTabView.getmShowMenuCallBack().iw(adz - measuredHeight);
+                if (measuredHeight < ahr) {
+                    horizontalTabView.getmShowMenuCallBack().iI(ahr - measuredHeight);
                 }
             }
         }
-        this.bOS.removeAllViews();
-        this.bOS.addView(this.cfS.getView());
+        this.bVP.removeAllViews();
+        this.bVP.addView(this.coi.getView());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        aq.j(this.cfQ, w.e.common_color_10050);
-        this.bOS.addView(this.cfQ, layoutParams);
+        as.j(this.cog, w.e.common_color_10050);
+        this.bVP.addView(this.cog, layoutParams);
         a(activity, view, tabItemView);
-        if (this.QG != null) {
-            this.QG.refresh();
-            this.QG.setWidthAsWidthOfDeviceScreen(activity);
-            this.QG.setHeight(-1);
-            this.QG.showWindowInCustomPosition(0, 0);
+        if (this.QA != null) {
+            this.QA.refresh();
+            this.QA.setWidthAsWidthOfDeviceScreen(activity);
+            this.QA.setHeight(-1);
+            this.QA.showWindowInCustomPosition(0, 0);
         }
     }
 
-    public void adA() {
-        if (this.QG != null) {
+    public void aht() {
+        if (this.QA != null) {
             try {
-                this.QG.dismiss();
+                this.QA.dismiss();
             } catch (Exception e) {
                 BdLog.e(e);
             }
         }
     }
 
-    public void ws() {
-        if (this.cfS != null) {
-            this.cfS.ws();
+    public void wK() {
+        if (this.coi != null) {
+            this.coi.wK();
         }
-        if (this.cfQ != null) {
-            aq.j(this.cfQ, w.e.common_color_10050);
+        if (this.cog != null) {
+            as.j(this.cog, w.e.common_color_10050);
         }
-        if (this.QG != null) {
-            this.QG.setBackgroundDrawable(aq.getDrawable(w.g.transparent_bg));
+        if (this.QA != null) {
+            this.QA.setBackgroundDrawable(as.getDrawable(w.g.transparent_bg));
         }
     }
 
-    public b adB() {
-        return this.cfB;
+    public b ahu() {
+        return this.cnR;
     }
 }

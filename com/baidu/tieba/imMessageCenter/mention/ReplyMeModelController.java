@@ -20,78 +20,78 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> implements CacheModel.a<au>, NetModel.b<at, au> {
-    private com.baidu.tbadk.mvc.d.a bHR;
-    private ReplyMessageActivity dmU;
-    private at dmV;
-    private ReplyMeNetModel dmW;
-    private ReplyMeCacheModel dmX;
-    private FeedData dma;
-    private ac dmb;
+    private com.baidu.tbadk.mvc.d.a bIK;
+    private FeedData dtW;
+    private ac dtX;
+    private ReplyMessageActivity duQ;
+    private at duR;
+    private ReplyMeNetModel duS;
+    private ReplyMeCacheModel duT;
     final CustomMessageListener mNetworkChangedMessageListener;
 
     public ReplyMeModelController(ReplyMessageActivity replyMessageActivity) {
         super(com.baidu.adp.base.k.Z(replyMessageActivity.getPageContext().getPageActivity()));
         this.mNetworkChangedMessageListener = new as(this, 2000994);
-        this.dmU = replyMessageActivity;
+        this.duQ = replyMessageActivity;
     }
 
     public void f(Bundle bundle) {
-        this.dmV = new at();
-        this.dmW = new ReplyMeNetModel((TbPageContext) com.baidu.adp.base.k.Z(this.dmU.getPageContext().getPageActivity()), this.dmV);
-        this.dmW.a(this);
-        this.dmW.setUniqueId(getUniqueId());
-        this.dmW.registerListener(this.mNetworkChangedMessageListener);
-        this.dmX = new ReplyMeCacheModel((TbPageContext) com.baidu.adp.base.k.Z(this.dmU.getPageContext().getPageActivity()));
-        this.dmX.a(this);
-        this.dmX.setUniqueId(getUniqueId());
-        this.dmb = new ac();
-        this.bHR = new com.baidu.tbadk.mvc.d.a();
+        this.duR = new at();
+        this.duS = new ReplyMeNetModel((TbPageContext) com.baidu.adp.base.k.Z(this.duQ.getPageContext().getPageActivity()), this.duR);
+        this.duS.a(this);
+        this.duS.setUniqueId(getUniqueId());
+        this.duS.registerListener(this.mNetworkChangedMessageListener);
+        this.duT = new ReplyMeCacheModel((TbPageContext) com.baidu.adp.base.k.Z(this.duQ.getPageContext().getPageActivity()));
+        this.duT.a(this);
+        this.duT.setUniqueId(getUniqueId());
+        this.dtX = new ac();
+        this.bIK = new com.baidu.tbadk.mvc.d.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean VL() {
-        if (!this.dmW.wq() && this.bHR.EL() && atV()) {
-            this.bHR.bP(true);
-            this.bHR.bR(true);
-            this.dmV.g(this.dma);
-            this.dmW.setNeedCache(false);
-            this.dmW.EA();
-            this.dmU.b(this.bHR);
+    public boolean Xc() {
+        if (!this.duS.wI() && this.bIK.Fi() && axD()) {
+            this.bIK.bR(true);
+            this.bIK.bT(true);
+            this.duR.g(this.dtW);
+            this.duS.setNeedCache(false);
+            this.duS.EX();
+            this.duQ.b(this.bIK);
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean dC(boolean z) {
-        if (this.dmW.wq() || !atV()) {
+    public boolean dE(boolean z) {
+        if (this.duS.wI() || !axD()) {
             return false;
         }
-        this.dma = null;
-        this.dmV.reset();
-        this.dmW.setNeedCache(true);
-        this.dmW.EA();
+        this.dtW = null;
+        this.duR.reset();
+        this.duS.setNeedCache(true);
+        this.duS.EX();
         return true;
     }
 
-    protected boolean atV() {
+    protected boolean axD() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.dmb != null && this.dmb.dmI != null) {
-            this.dmb.dmI.clear();
+        if (this.dtX != null && this.dtX.duE != null) {
+            this.dtX.duE.clear();
         }
-        this.dmU.atW();
-        this.dmU.a(this.dmb);
+        this.duQ.axE();
+        this.duQ.a(this.dtX);
         return false;
     }
 
-    public boolean VK() {
-        if (atV()) {
-            if (this.dmU != null) {
-                this.dmU.atX();
+    public boolean Xb() {
+        if (axD()) {
+            if (this.duQ != null) {
+                this.duQ.axF();
             }
-            this.dmX.a((com.baidu.tbadk.mvc.b.e) this.dmV);
+            this.duT.a((com.baidu.tbadk.mvc.b.e) this.duR);
             return true;
         }
         return true;
@@ -99,42 +99,42 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
 
     protected boolean a(at atVar, au auVar) {
         if (atVar.getUpdateType() != 4) {
-            this.dmb.auf().clear();
+            this.dtX.axM().clear();
         }
-        this.dmb.a(auVar);
-        if (auVar != null && auVar.auf() != null && auVar.auf().size() > 0) {
-            this.dma = auVar.auf().get(auVar.auf().size() - 1);
-            if (this.dmb.qx() != null) {
-                this.bHR.bQ(this.dmb.qx().qt() == 1);
+        this.dtX.a(auVar);
+        if (auVar != null && auVar.axM() != null && auVar.axM().size() > 0) {
+            this.dtW = auVar.axM().get(auVar.axM().size() - 1);
+            if (this.dtX.qu() != null) {
+                this.bIK.bS(this.dtX.qu().qq() == 1);
             } else {
-                this.bHR.bQ(true);
+                this.bIK.bS(true);
             }
             if (atVar != null) {
                 atVar.toNextPage();
             }
-            this.bHR.bR(true);
+            this.bIK.bT(true);
         } else {
-            this.dma = null;
-            this.bHR.bQ(false);
-            this.bHR.bR(false);
+            this.dtW = null;
+            this.bIK.bS(false);
+            this.bIK.bT(false);
         }
-        this.bHR.bP(false);
-        this.bHR.bO(false);
-        com.baidu.tbadk.coreExtra.messageCenter.a.yn().yC();
-        this.dmU.a(this.dmb);
-        this.dmU.b(this.bHR);
+        this.bIK.bR(false);
+        this.bIK.bQ(false);
+        com.baidu.tbadk.coreExtra.messageCenter.a.yG().yV();
+        this.duQ.a(this.dtX);
+        this.duQ.b(this.bIK);
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
     public void a(ReadCacheRespMsg<List<au>> readCacheRespMsg, ReadCacheMessage<au> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.dmV, readCacheRespMsg.getData().get(0));
+            a(this.duR, readCacheRespMsg.getData().get(0));
         }
-        this.dma = null;
-        this.dmV.reset();
-        this.dmW.setNeedCache(true);
-        this.dmW.EA();
+        this.dtW = null;
+        this.duR.reset();
+        this.duS.setNeedCache(true);
+        this.duS.EX();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
@@ -144,7 +144,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<au> mvcHttpResponsedMessage, MvcHttpMessage<at, au> mvcHttpMessage, MvcNetMessage<at, au> mvcNetMessage) {
         au auVar;
-        this.dmU.atW();
+        this.duQ.axE();
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
             auVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
@@ -152,7 +152,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.yn().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.yG().setMsgReplyme(0);
             auVar = null;
         }
         if (r1 == null || auVar == null || !a(r1, auVar)) {
@@ -164,8 +164,8 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.dmU.a(errorData);
-                this.dmU.a(errorData);
+                this.duQ.a(errorData);
+                this.duQ.a(errorData);
             }
         }
     }
@@ -173,7 +173,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<au, ?> mvcSocketResponsedMessage, MvcSocketMessage<at, au> mvcSocketMessage, MvcNetMessage<at, au> mvcNetMessage) {
         au auVar;
-        this.dmU.atW();
+        this.duQ.axE();
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
             auVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
@@ -181,7 +181,7 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.yn().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.yG().setMsgReplyme(0);
             auVar = null;
         }
         if (r1 == null || auVar == null || !a(r1, auVar)) {
@@ -193,8 +193,8 @@ public class ReplyMeModelController extends BdBaseModel<ReplyMessageActivity> im
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.dmU.a(errorData);
-                this.dmU.a(errorData);
+                this.duQ.a(errorData);
+                this.duQ.a(errorData);
             }
         }
     }

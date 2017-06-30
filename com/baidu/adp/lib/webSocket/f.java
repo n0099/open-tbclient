@@ -18,7 +18,7 @@ public class f {
         return this.mState == 0;
     }
 
-    public boolean g(byte[] bArr, int i, int i2) {
+    public boolean i(byte[] bArr, int i, int i2) {
         for (int i3 = i; i3 < i + i2; i3++) {
             this.mState = zW[(this.mState << 4) + 256 + zW[bArr[i3] & 255]];
             if (this.mState == 1) {
@@ -31,6 +31,6 @@ public class f {
     }
 
     public boolean q(byte[] bArr) {
-        return g(bArr, 0, bArr.length);
+        return i(bArr, 0, bArr.length);
     }
 }

@@ -1,92 +1,32 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.LinkedList;
-import java.util.List;
-import tbclient.Personalized.AgeSexModule;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import tbclient.Personalized.DataRes;
-import tbclient.Personalized.TagStruct;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends CustomMessageListener {
-    final /* synthetic */ o this$0;
+public class al extends com.baidu.tbadk.util.w<Object> {
+    private final /* synthetic */ DataRes.Builder cJy;
+    final /* synthetic */ x this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public al(o oVar, int i) {
-        super(i);
-        this.this$0 = oVar;
+    public al(x xVar, DataRes.Builder builder) {
+        this.this$0 = xVar;
+        this.cJy = builder;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List list;
-        List list2;
-        List list3;
-        List list4;
-        DataRes.Builder builder;
-        List list5;
-        DataRes.Builder builder2;
-        DataRes.Builder builder3;
-        list = this.this$0.mDataList;
-        if (list.size() > 0) {
-            list2 = this.this$0.mDataList;
-            if (list2.get(0) instanceof com.baidu.tieba.homepage.personalize.data.h) {
-                list5 = this.this$0.mDataList;
-                com.baidu.tieba.homepage.personalize.data.h hVar = (com.baidu.tieba.homepage.personalize.data.h) list5.get(0);
-                LinkedList linkedList = new LinkedList();
-                LinkedList linkedList2 = new LinkedList();
-                if (hVar.cCQ != null) {
-                    for (com.baidu.tieba.homepage.personalize.data.g gVar : hVar.cCQ) {
-                        if (gVar != null) {
-                            TagStruct.Builder builder4 = new TagStruct.Builder();
-                            builder4.tag_name = gVar.TB;
-                            builder4.selected = Integer.valueOf(gVar.cCO ? 1 : 0);
-                            linkedList.add(builder4.build(false));
-                        }
-                    }
-                }
-                if (hVar.cCR != null) {
-                    for (com.baidu.tieba.homepage.personalize.data.g gVar2 : hVar.cCR) {
-                        if (gVar2 != null) {
-                            TagStruct.Builder builder5 = new TagStruct.Builder();
-                            builder5.tag_name = gVar2.TB;
-                            builder5.selected = Integer.valueOf(gVar2.cCO ? 1 : 0);
-                            linkedList2.add(builder5.build(false));
-                        }
-                    }
-                }
-                builder2 = this.this$0.cAY;
-                if (builder2 != null) {
-                    AgeSexModule.Builder builder6 = new AgeSexModule.Builder();
-                    builder6.sex_tag = linkedList;
-                    builder6.age_tag = linkedList2;
-                    builder3 = this.this$0.cAY;
-                    builder3.age_sex = builder6.build(false);
-                }
-            } else {
-                list3 = this.this$0.mDataList;
-                if (list3.get(0) instanceof com.baidu.tieba.homepage.personalize.data.f) {
-                    list4 = this.this$0.mDataList;
-                    com.baidu.tieba.homepage.personalize.data.f fVar = (com.baidu.tieba.homepage.personalize.data.f) list4.get(0);
-                    if (fVar.cCM != null) {
-                        LinkedList linkedList3 = new LinkedList();
-                        for (com.baidu.tieba.homepage.personalize.data.g gVar3 : fVar.cCM) {
-                            if (gVar3 != null) {
-                                TagStruct.Builder builder7 = new TagStruct.Builder();
-                                builder7.tag_name = gVar3.TB;
-                                builder7.selected = Integer.valueOf(gVar3.cCO ? 1 : 0);
-                                linkedList3.add(builder7.build(false));
-                            }
-                        }
-                        builder = this.this$0.cAY;
-                        builder.interestion = linkedList3;
-                    }
-                }
-            }
-            this.this$0.aiU();
+    @Override // com.baidu.tbadk.util.w
+    public Object doInBackground() {
+        e eVar;
+        DataRes.Builder builder = new DataRes.Builder(this.cJy.build(true));
+        eVar = this.this$0.cIT;
+        eVar.be(builder.thread_list);
+        try {
+            com.baidu.tbadk.core.c.a.sW().L("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).k("0", builder.build(true).toByteArray());
+            return null;
+        } catch (Exception e) {
+            BdLog.e(e);
+            return null;
         }
     }
 }

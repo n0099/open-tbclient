@@ -1,52 +1,37 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e.a;
-import com.baidu.tieba.w;
+import android.os.Handler;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cd implements a.InterfaceC0059a {
-    final /* synthetic */ cb bWW;
-    final int boR = (int) TbadkCoreApplication.m9getInst().getResources().getDimension(w.f.ds98);
+public class cd implements Handler.Callback {
+    final /* synthetic */ cc cff;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(cb cbVar) {
-        this.bWW = cbVar;
+    public cd(cc ccVar) {
+        this.cff = ccVar;
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0059a
-    public void Y(int i, int i2) {
-        au auVar;
-        au auVar2;
-        if (S(i2)) {
-            this.bWW.dO(false);
-            this.bWW.Ye();
-        }
-        auVar = this.bWW.bWS;
-        if (auVar != null) {
-            auVar2 = this.bWW.bWS;
-            auVar2.eh(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.e.a.InterfaceC0059a
-    public void Z(int i, int i2) {
-        au auVar;
-        au auVar2;
-        if (S(i2)) {
-            this.bWW.dO(true);
-            if (Math.abs(i2) > this.boR) {
-                this.bWW.Yd();
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        Handler handler;
+        if ((message.what != 1 && message.what != 2) || !this.cff.abD()) {
+            switch (message.what) {
+                case 1:
+                    this.cff.abC();
+                    return true;
+                case 2:
+                    this.cff.abA();
+                    return true;
+                case 3:
+                    this.cff.abB();
+                    return true;
+                default:
+                    return false;
             }
         }
-        auVar = this.bWW.bWS;
-        if (auVar != null) {
-            auVar2 = this.bWW.bWS;
-            auVar2.eh(false);
-        }
-    }
-
-    private boolean S(float f) {
-        return Math.abs(f) >= 1.0f;
+        handler = this.cff.mHandler;
+        handler.sendEmptyMessageDelayed(message.what, 100L);
+        return true;
     }
 }

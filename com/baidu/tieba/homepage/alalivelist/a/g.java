@@ -5,11 +5,11 @@ import com.baidu.tieba.card.ci;
 import com.baidu.tieba.homepage.alalivelist.view.h;
 /* loaded from: classes.dex */
 class g extends ci<h> {
-    final /* synthetic */ f cza;
+    final /* synthetic */ f cGM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.cza = fVar;
+        this.cGM = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
