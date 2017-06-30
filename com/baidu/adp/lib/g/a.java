@@ -39,7 +39,7 @@ public class a {
         }
     }
 
-    public static void a(Cursor cursor) {
+    public static void e(Cursor cursor) {
         if (cursor != null) {
             try {
                 cursor.close();

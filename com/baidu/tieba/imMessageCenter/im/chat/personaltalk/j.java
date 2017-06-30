@@ -1,19 +1,20 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
 import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.util.x;
 /* loaded from: classes2.dex */
 class j implements a.b {
-    final /* synthetic */ PersonalTalkSettingActivity djR;
+    final /* synthetic */ PersonalTalkSettingActivity drN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.djR = personalTalkSettingActivity;
+        this.drN = personalTalkSettingActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        this.djR.showLoadingDialog(null);
-        com.baidu.tbadk.util.w.b(new k(this), new l(this));
+        this.drN.showLoadingDialog(null);
+        x.b(new k(this), new l(this));
     }
 }

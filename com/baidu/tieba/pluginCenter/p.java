@@ -6,11 +6,11 @@ import com.baidu.tieba.pluginCenter.PluginDownloadActivity;
 import java.util.Date;
 /* loaded from: classes2.dex */
 class p implements View.OnClickListener {
-    final /* synthetic */ PluginDownloadActivity.a fcM;
+    final /* synthetic */ PluginDownloadActivity.a fnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PluginDownloadActivity.a aVar) {
-        this.fcM = aVar;
+        this.fnc = aVar;
     }
 
     @Override // android.view.View.OnClickListener

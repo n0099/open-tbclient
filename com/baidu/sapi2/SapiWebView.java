@@ -84,6 +84,7 @@ import com.tencent.tauth.UiError;
 import com.xiaomi.account.openauth.XiaomiOAuthFuture;
 import com.xiaomi.account.openauth.XiaomiOAuthResults;
 import com.xiaomi.account.openauth.XiaomiOAuthorize;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -1712,7 +1713,7 @@ public final class SapiWebView extends WebView {
         a(getContext(), str);
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new BasicNameValuePair("token", URLEncoder.encode(str2, k)));
+            arrayList.add(new BasicNameValuePair(Constants.EXTRA_KEY_TOKEN, URLEncoder.encode(str2, k)));
             arrayList.add(new BasicNameValuePair("u", URLEncoder.encode("https://www.baidu.com?__wp-action=auth-widget", k)));
             if (!TextUtils.isEmpty(str3)) {
                 arrayList.add(new BasicNameValuePair("skin", str3));
@@ -1800,7 +1801,7 @@ public final class SapiWebView extends WebView {
         }
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new BasicNameValuePair("token", URLEncoder.encode(str, k)));
+            arrayList.add(new BasicNameValuePair(Constants.EXTRA_KEY_TOKEN, URLEncoder.encode(str, k)));
             if (str2 != null) {
                 arrayList.add(new BasicNameValuePair("u", str2));
             }
@@ -1973,7 +1974,7 @@ public final class SapiWebView extends WebView {
                     if (i2 == 0) {
                         sb.append(fastLoginFeature.getStrValue());
                     } else {
-                        sb.append(",").append(fastLoginFeature.getStrValue());
+                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(fastLoginFeature.getStrValue());
                     }
                     i = i2 + 1;
                 } else {
@@ -2247,7 +2248,7 @@ public final class SapiWebView extends WebView {
             if (SapiWebView.this.S != null && !TextUtils.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    SapiWebView.this.S.handleUniteVerify(jSONObject.optString("token"), jSONObject.optString("adtext"));
+                    SapiWebView.this.S.handleUniteVerify(jSONObject.optString(Constants.EXTRA_KEY_TOKEN), jSONObject.optString("adtext"));
                     return null;
                 } catch (JSONException e) {
                     L.e(e);
@@ -3543,7 +3544,7 @@ public final class SapiWebView extends WebView {
         }
 
         private String a() {
-            return UUID.randomUUID().toString() + "-" + System.currentTimeMillis() + ",点击发送直接登录";
+            return UUID.randomUUID().toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + System.currentTimeMillis() + Constants.ACCEPT_TIME_SEPARATOR_SP + "点击发送直接登录";
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -3777,7 +3778,7 @@ public final class SapiWebView extends WebView {
 
         private String a(String str) {
             String[] split;
-            for (String str2 : str.replaceAll("[^0-9]*([0-9]*)[^0-9]*", "$1-").split("-")) {
+            for (String str2 : str.replaceAll("[^0-9]*([0-9]*)[^0-9]*", "$1-").split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
                 if (str2.length() == 6) {
                     return str2;
                 }

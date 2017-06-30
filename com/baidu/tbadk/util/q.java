@@ -1,26 +1,66 @@
 package com.baidu.tbadk.util;
 
+import android.net.wifi.WifiManager;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
-public class q extends CustomMessageListener {
-    final /* synthetic */ p aIX;
+public class q {
+    private static final byte[] aKk = new byte[1];
+    private static q aKl = null;
+    private CustomMessageListener mNetworkChangedListener;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(p pVar, int i) {
-        super(i);
-        this.aIX = pVar;
+    public static q GL() {
+        if (aKl == null) {
+            synchronized (aKk) {
+                if (aKl == null) {
+                    aKl = new q();
+                }
+            }
+        }
+        return aKl;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError()) {
-            return;
+    private q() {
+        com.baidu.adp.lib.util.i.init();
+    }
+
+    public void GM() {
+        try {
+            if (this.mNetworkChangedListener == null) {
+                this.mNetworkChangedListener = GN();
+                MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
+            }
+        } catch (Exception e) {
+            this.mNetworkChangedListener = null;
+            BdLog.e(e.getMessage());
         }
-        this.aIX.Gr();
+    }
+
+    private CustomMessageListener GN() {
+        return new r(this, 2000994);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void GO() {
+        try {
+            boolean hj = com.baidu.adp.lib.util.i.hj();
+            if (hj) {
+                if (com.baidu.adp.lib.util.i.hk()) {
+                    ax.vA().aF(true);
+                    com.baidu.tieba.recapp.d.a.bex().qC(((WifiManager) TbadkCoreApplication.m9getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                } else if (com.baidu.adp.lib.util.i.hl()) {
+                    ax.vA().aF(false);
+                }
+            }
+            NoNetworkView.setIsHasNetwork(hj);
+            CompatibleUtile.dealWebView(null);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
+        }
     }
 }

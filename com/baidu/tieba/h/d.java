@@ -12,8 +12,8 @@ public class d extends j {
     @Override // com.baidu.adp.framework.a.g
     /* renamed from: d */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && socketResponsedMessage.getError() == 1990055 && !a.jL(socketResponsedMessage.getCmd())) {
-            a.agz();
+        if (socketResponsedMessage != null && socketResponsedMessage.getError() == 1990055 && !a.jW(socketResponsedMessage.getCmd())) {
+            a.akj();
         }
         return socketResponsedMessage;
     }

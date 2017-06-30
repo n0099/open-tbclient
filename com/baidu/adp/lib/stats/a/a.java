@@ -4,7 +4,7 @@ public class a {
     private static a xx = null;
     private long clientLogID = 0;
 
-    public static a gB() {
+    public static a gA() {
         if (xx == null) {
             synchronized (a.class) {
                 if (xx == null) {

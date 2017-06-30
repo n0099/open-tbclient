@@ -55,8 +55,8 @@ public final class j {
             publicMsg.mPkgContent = jSONObject.getString("pkg_content");
             return publicMsg;
         } catch (JSONException e) {
-            com.baidu.android.pushservice.e.b.a("PublicMsgParser", e, context.getApplicationContext());
-            com.baidu.android.pushservice.e.a.a("PublicMsgParser", "Public Message Parsing Fail", e);
+            com.baidu.android.pushservice.g.b.a("PublicMsgParser", e, context.getApplicationContext());
+            com.baidu.android.pushservice.g.a.a("PublicMsgParser", "Public Message Parsing Fail", e);
             return null;
         }
     }
@@ -103,7 +103,7 @@ public final class j {
                 }
             }
         } catch (Exception e) {
-            com.baidu.android.pushservice.e.a.a("PublicMsgParser", e);
+            com.baidu.android.pushservice.g.a.a("PublicMsgParser", e);
         }
         return iVar;
     }

@@ -1,65 +1,83 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.z;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.card.at;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.pb.pb.main.view.TextLineView;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class fw {
-    public static Intent ag(Context context, String str) {
-        if (TextUtils.isEmpty(str) || context == null) {
-            return null;
+public class fw extends z.a {
+    public View dSM;
+    public TextLineView eBq;
+    public TextLineView eBr;
+    private List<TextLineView> eBs;
+    private int eBt;
+    private View.OnClickListener eBu;
+    private View.OnClickListener eBv;
+    private View.OnClickListener eBw;
+    public TextView ehz;
+    public int mSkinType;
+
+    public fw(View view) {
+        super(view);
+        this.mSkinType = 3;
+        this.eBt = 0;
+        this.eBv = new fx(this);
+        this.eBw = new fy(this);
+        if (view != null) {
+            this.eBq = (TextLineView) view.findViewById(w.h.reply_title);
+            this.eBq.setOnClickListener(this.eBv);
+            this.eBr = (TextLineView) view.findViewById(w.h.floor_owner_reply);
+            this.eBr.setOnClickListener(this.eBv);
+            this.ehz = (TextView) view.findViewById(w.h.pb_sort);
+            this.ehz.setOnClickListener(this.eBw);
+            this.eBq.setSelected(true);
+            this.eBr.setSelected(false);
+            this.eBs = new ArrayList();
+            this.eBs.add(this.eBq);
+            this.eBs.add(this.eBr);
+            this.dSM = view.findViewById(w.h.divider_with_reply_title);
+            jg(true);
         }
-        Intent intent = new Intent(context, DealIntentService.class);
-        intent.putExtra("class", 1);
-        intent.putExtra("id", str);
-        intent.putExtra("from", "nas");
-        return intent;
     }
 
-    public static boolean i(PostData postData) {
-        if (postData == null || postData.bio() == null) {
-            return false;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aPZ() {
+        if (!TbadkCoreApplication.isLogin()) {
+            this.ehz.setVisibility(8);
+            return;
         }
-        com.baidu.tieba.tbadkCore.data.h bio = postData.bio();
-        if (bio.fBJ) {
-            int bhN = bio.bhN();
-            return bhN == 2 || bhN == 1 || bhN == 3;
+        this.ehz.setVisibility(0);
+        if (this.eBt == 1) {
+            this.ehz.setText(w.l.pb_sort_new);
+            this.ehz.setCompoundDrawablesWithIntrinsicBounds(w.g.icon_pb_sort_new, 0, 0, 0);
+            this.eBt = 0;
+        } else if (this.eBt == 0) {
+            this.ehz.setText(w.l.pb_sort_old);
+            this.ehz.setCompoundDrawablesWithIntrinsicBounds(w.g.icon_pb_sort_old, 0, 0, 0);
+            this.eBt = 1;
         }
-        return false;
     }
 
-    public static SpannableStringBuilder i(Context context, String str, String str2) {
-        ArrayList arrayList = new ArrayList();
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (str2 != null && str != null) {
-            arrayList.add(new at.a(str));
-            return com.baidu.tieba.card.at.a(context, str2, (ArrayList<at.a>) arrayList, true);
-        }
-        return spannableStringBuilder;
+    public void jg(boolean z) {
+        this.eBt = z ? 1 : 0;
+        aPZ();
     }
 
-    public static String a(MetaData metaData) {
-        if (metaData == null || metaData.getGodUserData() == null) {
-            return "";
+    public void jh(boolean z) {
+        if (z) {
+            this.eBr.setSelected(true);
+            this.eBq.setSelected(false);
+            return;
         }
-        String forumName = metaData.getGodUserData().getForumName();
-        String godIntro = metaData.getGodIntro();
-        if (metaData.getGodUserData().getType() != 2 || TextUtils.isEmpty(forumName)) {
-            return getString(w.l.user_certification_intro, godIntro);
-        }
-        return getString(w.l.user_certification_intro_with_barname, UtilHelper.getForumNameWithBar(forumName), godIntro);
+        this.eBr.setSelected(false);
+        this.eBq.setSelected(true);
     }
 
-    public static String getString(int i, Object... objArr) {
-        return TbadkCoreApplication.m9getInst().getString(i, objArr);
+    public void J(View.OnClickListener onClickListener) {
+        this.eBu = onClickListener;
     }
 }

@@ -1,39 +1,26 @@
 package com.baidu.tbadk.browser;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import org.json.JSONObject;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class s extends com.baidu.tbadk.core.d.p {
-    final /* synthetic */ TbWebViewActivity Qs;
+class s extends CustomMessageListener {
+    final /* synthetic */ TbWebViewActivity Qm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.d.n nVar) {
-        super(nVar);
-        this.Qs = tbWebViewActivity;
+    public s(TbWebViewActivity tbWebViewActivity, int i) {
+        super(i);
+        this.Qm = tbWebViewActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.d.p
-    public String nX() {
-        return "TBHY_COMMON_Share";
-    }
-
-    @com.baidu.tbadk.core.d.q(tK = false, value = TbConfig.TMP_SHARE_DIR_NAME)
-    private void share(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            String optString = jSONObject.optString(VrPlayerActivityConfig.TITLE);
-            String optString2 = jSONObject.optString("desc");
-            String optString3 = jSONObject.optString("img");
-            String optString4 = jSONObject.optString("url");
-            String optString5 = jSONObject.optString("bid");
-            if (!StringUtils.isNULL(optString5)) {
-                this.Qs.mShareResultToFe = true;
-                this.Qs.mBid = optString5;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
+            String str = (String) customResponsedMessage.getData();
+            if (this.Qm.mUrl.contains(str) || str.contains(this.Qm.mUrl)) {
+                this.Qm.hideProgressBar();
             }
-            com.baidu.adp.lib.g.h.fS().post(new t(this, this.Qs.createShareContent(optString, optString4, optString2, optString3)));
         }
     }
 }

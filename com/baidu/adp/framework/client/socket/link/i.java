@@ -41,8 +41,8 @@ public class i extends Handler {
                 h hVar = this.qn;
                 i2 = hVar.ql;
                 hVar.ql = i2 + 1;
-                if (com.baidu.adp.lib.util.i.hk()) {
-                    int maxAlertCount = com.baidu.adp.lib.stats.switchs.a.gC().getMaxAlertCount("alert_im", 3);
+                if (com.baidu.adp.lib.util.i.hj()) {
+                    int maxAlertCount = com.baidu.adp.lib.stats.switchs.a.gB().getMaxAlertCount("alert_im", 3);
                     i6 = this.qn.ql;
                     if (i6 >= maxAlertCount) {
                         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();

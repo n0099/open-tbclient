@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.w;
@@ -26,28 +25,28 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Eb() {
+    public com.baidu.tbadk.mainTab.c Ey() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aDV = new b();
+        cVar.aFj = new b();
         cVar.type = 10;
-        cVar.aDW = w.l.home_discover;
-        cVar.aDX = w.g.s_icon_tabbar_discover;
+        cVar.aFk = w.l.home_discover;
+        cVar.aFl = w.g.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator aS(Context context) {
-        this.aDI = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
+        this.aEW = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.aDU = this.aDI;
-        aVar.uT = k.dip2px(context, 3.0f);
-        aVar.aDS = w.g.icon_news_down_bar_one;
-        this.aDI.a("emotion", aVar);
-        return this.aDI;
+        aVar.aFi = this.aEW;
+        aVar.uS = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
+        aVar.aFg = w.g.icon_news_down_bar_one;
+        this.aEW.a("emotion", aVar);
+        return this.aEW;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Ea() {
+    public void Ex() {
         isAdded = true;
     }
 

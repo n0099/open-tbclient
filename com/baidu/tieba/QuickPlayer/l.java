@@ -4,11 +4,11 @@ import tv.danmaku.ijk.media.player.IMediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements IMediaPlayer.OnInfoListener {
-    final /* synthetic */ h aQV;
+    final /* synthetic */ h aSo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(h hVar) {
-        this.aQV = hVar;
+        this.aSo = hVar;
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener
@@ -16,9 +16,9 @@ public class l implements IMediaPlayer.OnInfoListener {
         c cVar;
         c cVar2;
         try {
-            cVar = this.aQV.aQS;
+            cVar = this.aSo.aSl;
             if (cVar != null) {
-                cVar2 = this.aQV.aQS;
+                cVar2 = this.aSo.aSl;
                 cVar2.U(i, i2);
                 return true;
             }

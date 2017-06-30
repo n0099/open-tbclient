@@ -5,19 +5,20 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 public class MainTabActivityStatic {
-    private static int flr = 0;
+    private static int fQG = 0;
 
     static {
-        ZJ();
-        bjV();
-        bjU();
-        bjW();
-        MessageManager.getInstance().registerListener(new ac(CmdConfigCustom.START_GO_HOME));
-        com.baidu.tbadk.core.util.bb.vy().a(new ad());
-        MessageManager.getInstance().registerListener(new ae(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL));
+        adA();
+        boh();
+        bog();
+        boi();
+        MessageManager.getInstance().registerListener(new v(CmdConfigCustom.START_GO_HOME));
+        be.vP().a(new w());
+        MessageManager.getInstance().registerListener(new x(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL));
     }
 
     private static int a(NewsNotifyMessage newsNotifyMessage) {
@@ -26,15 +27,15 @@ public class MainTabActivityStatic {
         if (newsNotifyMessage == null) {
             return 0;
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.yK().yS() && com.baidu.tbadk.coreExtra.messageCenter.c.yK().yZ()) {
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.zd().zl() && com.baidu.tbadk.coreExtra.messageCenter.c.zd().zs()) {
             i2 = newsNotifyMessage.getMsgChat();
             i = newsNotifyMessage.getMsgStrangerChat();
         } else {
             i = 0;
             i2 = 0;
         }
-        int msgAtme = ((com.baidu.tbadk.coreExtra.messageCenter.c.yK().yP() ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (com.baidu.tbadk.coreExtra.messageCenter.c.yK().yR() ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.c.yK().ze()) {
+        int msgAtme = ((com.baidu.tbadk.coreExtra.messageCenter.c.zd().zi() ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (com.baidu.tbadk.coreExtra.messageCenter.c.zd().zk() ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
+        if (!com.baidu.tbadk.coreExtra.messageCenter.c.zd().zx()) {
             msgAtme -= newsNotifyMessage.getMsgOfficialMerge();
         }
         return msgAtme;
@@ -44,32 +45,32 @@ public class MainTabActivityStatic {
     public static void h(ResponsedMessage<?> responsedMessage) {
         if (responsedMessage != null && (responsedMessage instanceof NewsNotifyMessage)) {
             int a = a((NewsNotifyMessage) responsedMessage);
-            if (a > flr) {
+            if (a > fQG) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOME_NOTIFY_MSG, true));
             }
-            flr = a;
+            fQG = a;
         }
     }
 
-    private static void ZJ() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new af());
+    private static void adA() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new y());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bjU() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new ag());
+    private static void bog() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new z());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bjV() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new ah());
+    private static void boh() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new aa());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bjW() {
-        com.baidu.tbadk.core.util.bb.vy().a(new ai());
+    private static void boi() {
+        be.vP().a(new ab());
     }
 }

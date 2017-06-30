@@ -23,7 +23,7 @@ public class j implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.this$0.iZ();
+        this.this$0.iY();
     }
 
     @Override // android.content.ServiceConnection

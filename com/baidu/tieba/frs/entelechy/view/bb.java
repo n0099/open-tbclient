@@ -9,19 +9,19 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import tbclient.FrsPage.AgreeBanner;
 /* loaded from: classes.dex */
 class bb implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderPraiseView cah;
-    private final /* synthetic */ AgreeBanner cai;
+    final /* synthetic */ FrsHeaderPraiseView cis;
+    private final /* synthetic */ AgreeBanner cit;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(FrsHeaderPraiseView frsHeaderPraiseView, AgreeBanner agreeBanner) {
-        this.cah = frsHeaderPraiseView;
-        this.cai = agreeBanner;
+        this.cis = frsHeaderPraiseView;
+        this.cit = agreeBanner;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.cai.url)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.cah.getContext(), null, this.cai.url, true)));
+        if (!TextUtils.isEmpty(this.cit.url)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.cis.getContext(), null, this.cit.url, true)));
         }
     }
 }

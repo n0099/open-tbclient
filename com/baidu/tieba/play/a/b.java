@@ -2,7 +2,7 @@ package com.baidu.tieba.play.a;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -11,64 +11,64 @@ import java.util.List;
 import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes.dex */
 public class b {
-    private static b fcn = null;
-    private com.baidu.tieba.play.a.a fcm;
-    private InterfaceC0077b fco = null;
-    private int fcp = 0;
+    private static b fmD = null;
+    private com.baidu.tieba.play.a.a fmC;
+    private InterfaceC0080b fmE = null;
+    private int fmF = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0077b {
-        void bO(String str, String str2);
+    public interface InterfaceC0080b {
+        void bS(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b aYf() {
-        if (fcn == null) {
+    public static b bcq() {
+        if (fmD == null) {
             synchronized (b.class) {
-                if (fcn == null) {
-                    fcn = new b();
+                if (fmD == null) {
+                    fmD = new b();
                 }
             }
         }
-        return fcn;
+        return fmD;
     }
 
-    public void a(InterfaceC0077b interfaceC0077b) {
-        this.fco = interfaceC0077b;
+    public void a(InterfaceC0080b interfaceC0080b) {
+        this.fmE = interfaceC0080b;
     }
 
-    public boolean pj(String str) {
+    public boolean qg(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (pk(str) && this.fcm.aYe().size() > this.fcp) {
-            if (this.fco != null) {
-                InterfaceC0077b interfaceC0077b = this.fco;
-                List<String> aYe = this.fcm.aYe();
-                int i = this.fcp;
-                this.fcp = i + 1;
-                interfaceC0077b.bO(aYe.get(i), str);
+        if (qh(str) && this.fmC.bcp().size() > this.fmF) {
+            if (this.fmE != null) {
+                InterfaceC0080b interfaceC0080b = this.fmE;
+                List<String> bcp = this.fmC.bcp();
+                int i = this.fmF;
+                this.fmF = i + 1;
+                interfaceC0080b.bS(bcp.get(i), str);
             }
             return true;
-        } else if (this.fcm != null && this.fcm.aYe() != null && this.fcm.aYe().size() <= this.fcp) {
-            this.fcp = 0;
-            this.fcm = null;
+        } else if (this.fmC != null && this.fmC.bcp() != null && this.fmC.bcp().size() <= this.fmF) {
+            this.fmF = 0;
+            this.fmC = null;
             return false;
         } else {
-            this.fcp = 0;
-            this.fcm = null;
+            this.fmF = 0;
+            this.fmC = null;
             a aVar = new a();
-            aVar.gw(str);
+            aVar.gT(str);
             aVar.execute(new Void[0]);
             return true;
         }
     }
 
-    private boolean pk(String str) {
-        return (this.fcm == null || TextUtils.isEmpty(str) || !str.equals(this.fcm.getHost()) || x.r(this.fcm.aYe()) || this.fcm.cl(System.currentTimeMillis()) || this.fcm.aYe().size() <= this.fcp) ? false : true;
+    private boolean qh(String str) {
+        return (this.fmC == null || TextUtils.isEmpty(str) || !str.equals(this.fmC.getHost()) || z.t(this.fmC.bcp()) || this.fmC.cA(System.currentTimeMillis()) || this.fmC.bcp().size() <= this.fmF) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -79,7 +79,7 @@ public class b {
         public a() {
         }
 
-        public void gw(String str) {
+        public void gT(String str) {
             this.AA = str;
         }
 
@@ -182,7 +182,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.pi(stringBuffer.toString()));
+                            publishProgress(aVar.qf(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -253,14 +253,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.AA)) {
-                b.this.fcm = aVarArr[0];
-                if (!x.r(aVarArr[0].aYe()) && b.this.fco != null) {
-                    b.this.fco.bO(aVarArr[0].aYe().get(0), aVarArr[0].getHost());
+                b.this.fmC = aVarArr[0];
+                if (!z.t(aVarArr[0].bcp()) && b.this.fmE != null) {
+                    b.this.fmE.bS(aVarArr[0].bcp().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.fco != null) {
-                b.this.fco.bO(null, null);
+            if (b.this.fmE != null) {
+                b.this.fmE.bS(null, null);
             }
         }
 

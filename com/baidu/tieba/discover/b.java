@@ -4,15 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class b extends BaseFragment {
-    private d bJn;
+    private e bPK;
     private String mUrl = "https://tieba.baidu.com/n/apage-runtime/page/350";
-    private boolean bwA = true;
+    private boolean bHe = true;
+    CustomMessageListener htmlLoadMessageListener = new c(this, CmdConfigCustom.CMD_HTML_LOADED);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -21,26 +24,27 @@ public class b extends BaseFragment {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.bJn = new d();
-        return this.bJn.a(layoutInflater, viewGroup);
+        this.bPK = new e();
+        return this.bPK.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.bJn.m(getPageContext());
+        this.bPK.m(getPageContext());
+        registerListener(this.htmlLoadMessageListener);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.bwA || StringUtils.isNull(this.bJn.Tj().getUrl())) {
+        if (this.bHe || StringUtils.isNull(this.bPK.UL().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.bJn.loadUrl(im(this.mUrl));
+                this.bPK.loadUrl(iY(this.mUrl));
             } else {
-                this.bJn.loadUrl(this.mUrl);
+                this.bPK.loadUrl(this.mUrl);
             }
-            this.bwA = false;
+            this.bHe = false;
         }
     }
 
@@ -54,7 +58,7 @@ public class b extends BaseFragment {
         super.onResume();
     }
 
-    private String im(String str) {
+    private String iY(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -74,6 +78,9 @@ public class b extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
+        if (this.bPK != null) {
+            this.bPK.onDestroy();
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
@@ -84,10 +91,12 @@ public class b extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (i == 1) {
-            this.bJn.loadUrl(im(this.mUrl));
-        } else {
-            this.bJn.loadUrl(this.mUrl);
+        if (!this.bHe) {
+            if (i == 1) {
+                this.bPK.loadUrl(iY(this.mUrl));
+            } else {
+                this.bPK.loadUrl(this.mUrl);
+            }
         }
     }
 }

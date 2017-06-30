@@ -15,10 +15,10 @@ import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class WriteLocationView extends LocationInfoView {
-    private LocationModel aAA;
-    private int aAI;
-    private final LocationModel.a aAP;
-    private final CustomMessageListener fEk;
+    private LocationModel aBD;
+    private int aBL;
+    private final LocationModel.a aBS;
+    private final CustomMessageListener fOp;
     private BaseActivity<?> mBaseActivity;
 
     public WriteLocationView(Context context) {
@@ -27,76 +27,76 @@ public class WriteLocationView extends LocationInfoView {
 
     public WriteLocationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aAI = 0;
-        this.aAP = new a(this);
-        this.fEk = new b(this, CmdConfigCustom.CMD_SELECT_LOCATION);
+        this.aBL = 0;
+        this.aBS = new a(this);
+        this.fOp = new b(this, CmdConfigCustom.CMD_SELECT_LOCATION);
     }
 
     public void f(BaseActivity<?> baseActivity) {
         this.mBaseActivity = baseActivity;
-        this.mBaseActivity.registerListener(this.fEk);
-        this.aAA = new LocationModel(this.mBaseActivity);
-        this.aAA.a(this.aAP);
+        this.mBaseActivity.registerListener(this.fOp);
+        this.aBD = new LocationModel(this.mBaseActivity);
+        this.aBD.a(this.aBS);
         setOnClickListener(new c(this));
-        CR();
+        Dl();
     }
 
-    public boolean QG() {
-        if (this.aAA == null) {
+    public boolean Sy() {
+        if (this.aBD == null) {
             return false;
         }
-        return this.aAA.QG();
+        return this.aBD.Sy();
     }
 
-    public void CP() {
+    public void Dj() {
         if (!UtilHelper.isSystemLocationProviderEnabled(this.mBaseActivity.getPageContext().getPageActivity())) {
             this.mBaseActivity.showToast(w.l.location_system_permission_prompt);
             c(0, true, null);
         } else if (!TbadkCoreApplication.m9getInst().getLocationShared()) {
-            CQ();
-        } else if (this.aAA.biQ()) {
-            CO();
+            Dk();
+        } else if (this.aBD.bne()) {
+            Di();
         } else {
-            this.aAA.lv(false);
+            this.aBD.lU(false);
             c(1, true, null);
-            this.aAA.biO();
+            this.aBD.bnc();
         }
     }
 
-    private void CR() {
-        if (this.aAA.QG()) {
-            if (this.aAA.biQ()) {
-                c(2, true, com.baidu.tieba.tbadkCore.location.d.biM().getLocationData().biI());
+    private void Dl() {
+        if (this.aBD.Sy()) {
+            if (this.aBD.bne()) {
+                c(2, true, com.baidu.tieba.tbadkCore.location.d.bna().getLocationData().bmW());
                 return;
             }
             c(1, true, null);
-            this.aAA.biO();
+            this.aBD.bnc();
             return;
         }
         c(0, true, null);
     }
 
-    private void CQ() {
+    private void Dk() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mBaseActivity.getPageContext().getPageActivity());
         aVar.bY(w.l.location_app_permission_prompt).a(w.l.isopen, new d(this)).b(w.l.cancel, new e(this)).b(this.mBaseActivity.getPageContext());
-        aVar.tc();
+        aVar.ta();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bdV() {
-        if (this.aAA != null) {
-            this.aAA.cancelLoadData();
+    public void bik() {
+        if (this.aBD != null) {
+            this.aBD.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void CO() {
+    public void Di() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectLocationActivityConfig(this.mBaseActivity.getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i, boolean z, String str) {
-        this.aAI = i;
+        this.aBL = i;
         setVisibility(z ? 0 : 8);
         l(i, str);
     }

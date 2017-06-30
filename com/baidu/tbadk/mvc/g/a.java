@@ -14,56 +14,56 @@ import com.baidu.tieba.tbadkCore.q;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a extends c implements q {
-    private TbPageContextSupport<?> aFf;
-    private View aFg;
+    private TbPageContextSupport<?> aGt;
+    private View aGu;
     private int padding;
     private TextView mTextView = null;
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
-    private View Qx = null;
+    private View Qr = null;
 
     public a(TbPageContextSupport<?> tbPageContextSupport) {
-        this.aFf = null;
-        this.aFf = tbPageContextSupport;
-        this.padding = this.aFf.getPageContext().getResources().getDimensionPixelSize(w.f.ds16);
+        this.aGt = null;
+        this.aGt = tbPageContextSupport;
+        this.padding = this.aGt.getPageContext().getResources().getDimensionPixelSize(w.f.ds16);
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public View le() {
-        this.Qx = LayoutInflater.from(this.aFf.getPageContext().getPageActivity()).inflate(w.j.new_pb_list_more, (ViewGroup) null);
-        this.Qx.setPadding(0, this.padding, 0, this.padding);
-        this.mTextView = (TextView) this.Qx.findViewById(w.h.pb_more_text);
-        this.aFg = this.Qx.findViewById(w.h.pb_more_view);
-        this.aFg.setVisibility(8);
-        this.mProgressBar = (ProgressBar) this.Qx.findViewById(w.h.progress);
-        b(this.aFf.getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
-        this.aFg.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        return this.Qx;
+    public View lc() {
+        this.Qr = LayoutInflater.from(this.aGt.getPageContext().getPageActivity()).inflate(w.j.new_pb_list_more, (ViewGroup) null);
+        this.Qr.setPadding(0, this.padding, 0, this.padding);
+        this.mTextView = (TextView) this.Qr.findViewById(w.h.pb_more_text);
+        this.aGu = this.Qr.findViewById(w.h.pb_more_view);
+        this.aGu.setVisibility(8);
+        this.mProgressBar = (ProgressBar) this.Qr.findViewById(w.h.progress);
+        b(this.aGt.getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
+        this.aGu.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        return this.Qr;
     }
 
     @Override // com.baidu.tieba.tbadkCore.q
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        this.aFf.getPageContext().getLayoutMode().t(this.aFg);
+        this.aGt.getPageContext().getLayoutMode().t(this.aGu);
         return true;
     }
 
     public void hide() {
-        this.aFg.setVisibility(8);
-        this.Qx.setPadding(0, 0, 0, 0);
+        this.aGu.setVisibility(8);
+        this.Qr.setPadding(0, 0, 0, 0);
     }
 
-    public void lO() {
-        this.aFg.setVisibility(0);
-        this.Qx.setPadding(0, this.padding, 0, this.padding);
+    public void lM() {
+        this.aGu.setVisibility(0);
+        this.Qr.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void eV(int i) {
+    public void eX(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
-        this.aFg.setVisibility(0);
+        this.aGu.setVisibility(0);
     }
 
-    public void eW(int i) {
+    public void eY(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }
@@ -71,7 +71,7 @@ public class a extends c implements q {
     @Override // com.baidu.adp.widget.ListView.c
     public void onClick() {
         if (this.mOnClickListener != null) {
-            this.mOnClickListener.onClick(this.Qx);
+            this.mOnClickListener.onClick(this.Qr);
         }
     }
 }

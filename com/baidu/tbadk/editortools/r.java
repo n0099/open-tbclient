@@ -4,11 +4,11 @@ import android.content.Context;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class r extends com.baidu.tbadk.editortools.view.b {
-    LinkedList<p> ayK;
+    LinkedList<p> azM;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void h(LinkedList<p> linkedList) {
-        this.ayK = linkedList;
+    public void i(LinkedList<p> linkedList) {
+        this.azM = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -16,35 +16,35 @@ public class r extends com.baidu.tbadk.editortools.view.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public e ez(int i) {
+    public e eB(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return (e) this.ayK.get(i);
+        return (e) this.azM.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.b
     public int getCount() {
-        if (this.ayK != null) {
-            return this.ayK.size();
+        if (this.azM != null) {
+            return this.azM.size();
         }
         return 0;
     }
 
     @Override // com.baidu.tbadk.editortools.view.b
     public void init(Context context) {
-        eK(4);
-        eL(2);
+        eM(4);
+        eN(2);
         a(new s(this));
-        Dq().c(this);
+        DK().c(this);
         a(new t(this));
     }
 
     @Override // com.baidu.tbadk.editortools.view.b
-    public void Cw() {
-        if (this.ayK != null) {
-            this.ayK.clear();
+    public void CR() {
+        if (this.azM != null) {
+            this.azM.clear();
         }
-        this.ayK = null;
+        this.azM = null;
     }
 }

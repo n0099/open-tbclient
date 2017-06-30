@@ -38,7 +38,7 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
                 nVar = com.baidu.tieba.pb.data.n.a(pbFloorResIdl.data, context);
                 if (nVar != null) {
-                    nVar.ejt = pbFloorResIdl.error;
+                    nVar.esr = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

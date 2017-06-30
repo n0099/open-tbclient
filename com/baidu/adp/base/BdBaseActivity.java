@@ -137,7 +137,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.c.fM().d(this.mId);
+        com.baidu.adp.lib.f.c.fL().d(this.mId);
         a.ca().i(getPageContext().getPageActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
@@ -146,7 +146,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.c.fM().e(this.mId);
+        com.baidu.adp.lib.f.c.fL().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 

@@ -1,18 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.widget.CompoundButton;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gr implements a.b {
-    final /* synthetic */ fx evi;
+public class gr implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ gg eEv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gr(fx fxVar) {
-        this.evi = fxVar;
+    public gr(gg ggVar) {
+        this.eEv = ggVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        List list;
+        List<com.baidu.tieba.pb.pb.main.view.a> list2;
+        String str;
+        String str2;
+        if (z) {
+            this.eEv.eDg = (String) compoundButton.getTag();
+            list = this.eEv.eBW;
+            if (list != null) {
+                list2 = this.eEv.eBW;
+                for (com.baidu.tieba.pb.pb.main.view.a aVar : list2) {
+                    String str3 = (String) aVar.getTag();
+                    if (str3 != null) {
+                        str = this.eEv.eDg;
+                        if (str != null) {
+                            str2 = this.eEv.eDg;
+                            if (!str3.equals(str2)) {
+                                aVar.setChecked(false);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

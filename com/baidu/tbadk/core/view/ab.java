@@ -4,18 +4,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    private final /* synthetic */ int aaj;
-    final /* synthetic */ PagerSlidingTabStrip akM;
+    private final /* synthetic */ int aak;
+    final /* synthetic */ PagerSlidingTabStrip alA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(PagerSlidingTabStrip pagerSlidingTabStrip, int i) {
-        this.akM = pagerSlidingTabStrip;
-        this.aaj = i;
+        this.alA = pagerSlidingTabStrip;
+        this.aak = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.akM.aku.setCurrentItem(this.aaj);
-        this.akM.wg();
+        this.alA.alh.setCurrentItem(this.aak);
+        this.alA.wy();
     }
 }

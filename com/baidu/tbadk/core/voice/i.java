@@ -5,27 +5,27 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.r;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.l;
+import com.baidu.tbadk.core.util.n;
 import java.io.File;
 /* loaded from: classes.dex */
 public class i {
-    public static String wO() {
-        return r.hL();
+    public static String xg() {
+        return r.hK();
     }
 
-    public static String dT(String str) {
+    public static String en(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String dU(String str) {
-        return l.q(str, 1);
+    public static String eo(String str) {
+        return n.q(str, 1);
     }
 
-    public static String dV(String str) {
-        return com.baidu.adp.lib.util.e.getFilePath(dT(str));
+    public static String ep(String str) {
+        return com.baidu.adp.lib.util.e.getFilePath(en(str));
     }
 
     public static boolean delFile(String str) {

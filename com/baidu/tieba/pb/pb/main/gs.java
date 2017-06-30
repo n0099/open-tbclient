@@ -1,18 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.app.Dialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gs implements a.b {
-    final /* synthetic */ fx evi;
+public class gs implements View.OnClickListener {
+    final /* synthetic */ gg eEv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gs(fx fxVar) {
-        this.evi = fxVar;
+    public gs(gg ggVar) {
+        this.eEv = ggVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        PbActivity pbActivity;
+        dialog = this.eEv.eDa;
+        if (dialog instanceof Dialog) {
+            dialog2 = this.eEv.eDa;
+            pbActivity = this.eEv.euf;
+            com.baidu.adp.lib.g.j.b(dialog2, pbActivity.getPageContext());
+        }
     }
 }

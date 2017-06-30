@@ -1,70 +1,87 @@
 package com.baidu.android.pushservice.g;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
-import java.util.concurrent.RunnableFuture;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import android.text.TextUtils;
+import android.util.Log;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /* loaded from: classes2.dex */
-public class a extends ThreadPoolExecutor {
+public final class a {
+    private static boolean a = false;
+    private static boolean b = false;
+    private static Logger c;
 
-    /* renamed from: com.baidu.android.pushservice.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    protected class C0018a<V> extends FutureTask<V> implements Comparable<C0018a<V>> {
-        private Object b;
-
-        public C0018a(Runnable runnable, V v) {
-            super(runnable, v);
-            this.b = runnable;
+    public static String a(Throwable th) {
+        if (th == null) {
+            return "";
         }
-
-        public C0018a(Callable<V> callable) {
-            super(callable);
-            this.b = callable;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.lang.Comparable
-        /* renamed from: a */
-        public int compareTo(C0018a<V> c0018a) {
-            if (this == c0018a) {
-                return 0;
-            }
-            if (c0018a == null) {
-                return -1;
-            }
-            if (this.b == null || c0018a.b == null || !(this.b instanceof c) || !(c0018a.b instanceof c)) {
-                return 0;
-            }
-            return ((c) c0018a.b).d() - ((c) this.b).d();
-        }
+        StringWriter stringWriter = new StringWriter();
+        th.printStackTrace(new PrintWriter(stringWriter));
+        return stringWriter.toString();
     }
 
-    public a(int i, int i2, long j, TimeUnit timeUnit, b<Runnable> bVar) {
-        super(i, i2, j, timeUnit, bVar);
-    }
-
-    @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.Executor
-    public synchronized void execute(Runnable runnable) {
-        if (getQueue().size() >= 19) {
-            if (getPoolSize() >= getMaximumPoolSize()) {
-                getQueue().clear();
+    public static void a(String str, String str2) {
+        if (a) {
+            String str3 = "BDPushSDK-" + str;
+            if (!b || c == null) {
+                Log.v(str3, str2);
             } else {
-                Runnable poll = getQueue().poll();
-                getQueue().offer(runnable);
-                runnable = poll;
+                c.log(Level.INFO, str3 + ": " + str2);
             }
         }
-        super.execute(runnable);
     }
 
-    @Override // java.util.concurrent.AbstractExecutorService
-    protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T t) {
-        return new C0018a(runnable, t);
+    public static void a(String str, String str2, Throwable th) {
+        e(str, str2 + '\n' + a(th));
     }
 
-    @Override // java.util.concurrent.AbstractExecutorService
-    protected <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
-        return new C0018a(callable);
+    public static void a(String str, Throwable th) {
+        e(str, a(th));
+    }
+
+    public static void b(String str, String str2) {
+        if (a) {
+            String str3 = "BDPushSDK-" + str;
+            if (!b || c == null) {
+                Log.i(str3, str2);
+            } else {
+                c.log(Level.INFO, str3 + ": " + str2);
+            }
+        }
+    }
+
+    public static void c(String str, String str2) {
+        if (a) {
+            String str3 = "BDPushSDK-" + str;
+            if (!b || c == null) {
+                Log.d(str3, str2);
+            } else {
+                c.log(Level.INFO, str3 + ": " + str2);
+            }
+        }
+    }
+
+    public static void d(String str, String str2) {
+        if (a) {
+            String str3 = "BDPushSDK-" + str;
+            if (!b || c == null) {
+                Log.w(str3, str2);
+            } else {
+                c.log(Level.WARNING, str3 + ": " + str2);
+            }
+        }
+    }
+
+    public static void e(String str, String str2) {
+        if (a) {
+            String str3 = "BDPushSDK-" + str;
+            if (b && c != null) {
+                c.log(Level.SEVERE, str3 + ": " + str2);
+            } else if (TextUtils.isEmpty(str2)) {
+            } else {
+                Log.e(str3, str2);
+            }
+        }
     }
 }

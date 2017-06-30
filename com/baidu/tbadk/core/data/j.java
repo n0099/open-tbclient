@@ -1,31 +1,16 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.GetMyShelf.BookInfo;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class j {
-    public String TO;
-    public String TP;
-    public int TQ;
-    public String TR;
-    public int TS = -1;
-    public int TT;
-    public int TU;
-    public int TV;
-    public long TW;
-    public String authorName;
-    public long cartoonId;
-    public long forumId;
+public abstract class j {
+    public abstract void parserJson(JSONObject jSONObject);
 
-    public void a(BookInfo bookInfo) {
-        if (bookInfo != null) {
-            this.forumId = bookInfo.forum_id.longValue();
-            this.cartoonId = bookInfo.cartoon_id.longValue();
-            this.TO = bookInfo.cover_img;
-            this.TP = bookInfo.cartoon_name;
-            this.TQ = bookInfo.total_chapter.intValue();
-            this.TR = bookInfo.first_chapter_id;
-            this.TT = bookInfo.is_finish.intValue();
-            this.authorName = bookInfo.author_name;
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

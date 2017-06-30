@@ -1,40 +1,34 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.person.SetUserPicsResponse;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements Runnable {
-    final /* synthetic */ y eLx;
+public class ab extends HttpMessageListener {
+    final /* synthetic */ z eVB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(y yVar) {
-        this.eLx = yVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(z zVar, int i) {
+        super(i);
+        this.eVB = zVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PersonPolymericModel personPolymericModel;
-        com.baidu.tieba.personPolymeric.c.a aVar;
-        com.baidu.tieba.personPolymeric.c.a aVar2;
-        PersonPolymericModel personPolymericModel2;
-        PersonPolymericModel personPolymericModel3;
-        personPolymericModel = this.eLx.bwC;
-        if (personPolymericModel != null) {
-            aVar = this.eLx.eLr;
-            if (aVar != null) {
-                aVar2 = this.eLx.eLr;
-                if (aVar2.Nm()) {
-                    personPolymericModel2 = this.eLx.bwC;
-                    personPolymericModel2.resetData();
-                    personPolymericModel3 = this.eLx.bwC;
-                    personPolymericModel3.cd(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        TbPageContext tbPageContext;
+        if (httpResponsedMessage != null && (httpResponsedMessage instanceof SetUserPicsResponse)) {
+            SetUserPicsResponse setUserPicsResponse = (SetUserPicsResponse) httpResponsedMessage;
+            if (setUserPicsResponse.getErrCode() != 0) {
+                tbPageContext = this.eVB.ajP;
+                tbPageContext.showToast(setUserPicsResponse.getErrorString());
+                this.eVB.jV(false);
+                return;
             }
+            this.eVB.aVo();
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PROFILE_CACHE_NEED_CHANGED));
     }
 }

@@ -9,7 +9,7 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 final class g {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long z(File file) throws IOException {
+    public static long D(File file) throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
         try {
             return a(randomAccessFile, a(randomAccessFile));
@@ -36,7 +36,7 @@ final class g {
                 randomAccessFile.skipBytes(2);
                 a aVar = new a();
                 aVar.size = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
-                aVar.dUx = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                aVar.ecU = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
                 return aVar;
             }
             j3--;
@@ -47,7 +47,7 @@ final class g {
     static long a(RandomAccessFile randomAccessFile, a aVar) throws IOException {
         CRC32 crc32 = new CRC32();
         long j = aVar.size;
-        randomAccessFile.seek(aVar.dUx);
+        randomAccessFile.seek(aVar.ecU);
         byte[] bArr = new byte[16384];
         int read = randomAccessFile.read(bArr, 0, (int) Math.min((long) IjkMediaMeta.AV_CH_TOP_FRONT_RIGHT, j));
         while (read != -1) {
@@ -64,7 +64,7 @@ final class g {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        long dUx;
+        long ecU;
         long size;
 
         a() {

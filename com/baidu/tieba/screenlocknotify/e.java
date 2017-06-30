@@ -31,11 +31,11 @@ class e extends com.baidu.adp.framework.listener.a {
             if ((responsedMessage instanceof ScreenLockLoadMoreHttpResponseMessage) || (responsedMessage instanceof ScreenLockLoadMoreSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
                     this.this$0.showToast(TextUtils.isEmpty(responsedMessage.getErrorString()) ? this.this$0.getResources().getString(w.l.screen_notify_load_error) : responsedMessage.getErrorString());
-                    textView3 = this.this$0.flR;
+                    textView3 = this.this$0.fwf;
                     if (textView3 != null) {
-                        textView4 = this.this$0.flR;
+                        textView4 = this.this$0.fwf;
                         textView4.setText(this.this$0.getResources().getString(w.l.data_load_error));
-                        textView5 = this.this$0.flR;
+                        textView5 = this.this$0.fwf;
                         textView5.setEnabled(true);
                         return;
                     }
@@ -47,18 +47,18 @@ class e extends com.baidu.adp.framework.listener.a {
                     data = responsedMessage instanceof ScreenLockLoadMoreSocketResponseMessage ? ((ScreenLockLoadMoreSocketResponseMessage) responsedMessage).getData() : null;
                 }
                 if (data != null) {
-                    ArrayList<s> baX = data.baX();
-                    if (this.this$0.flO != null) {
-                        this.this$0.flO.cv(baX);
+                    ArrayList<s> bfm = data.bfm();
+                    if (this.this$0.fwc != null) {
+                        this.this$0.fwc.cK(bfm);
                     }
                     if (!data.isHasMore()) {
-                        this.this$0.flO.setHasMore(false);
-                        textView = this.this$0.flR;
+                        this.this$0.fwc.setHasMore(false);
+                        textView = this.this$0.fwf;
                         if (textView != null) {
-                            DynamicHeightListView dynamicHeightListView = this.this$0.flN;
-                            textView2 = this.this$0.flR;
+                            DynamicHeightListView dynamicHeightListView = this.this$0.fwb;
+                            textView2 = this.this$0.fwf;
                             dynamicHeightListView.removeFooterView(textView2);
-                            this.this$0.flR = null;
+                            this.this$0.fwf = null;
                         }
                     }
                 }

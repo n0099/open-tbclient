@@ -13,12 +13,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class o extends BaseAdapter {
-    private final TbPageContextSupport aFf;
-    private List<com.baidu.tbadk.coreExtra.relationship.a> aTD;
-    private TbCheckBox.a dkF;
-    private b dkG = null;
-    private ViewGroup dkH = null;
-    private boolean dkI;
+    private final TbPageContextSupport aGt;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> aUW;
+    private TbCheckBox.a dsB;
+    private b dsC = null;
+    private ViewGroup dsD = null;
+    private boolean dsE;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -26,36 +26,36 @@ public class o extends BaseAdapter {
     }
 
     public o(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.aFf = tbPageContextSupport;
-        this.dkI = z;
+        this.aGt = tbPageContextSupport;
+        this.dsE = z;
     }
 
     public void a(b bVar) {
-        this.dkG = bVar;
+        this.dsC = bVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.aTD = list;
+        this.aUW = list;
     }
 
     public void a(TbCheckBox.a aVar) {
-        this.dkF = aVar;
+        this.dsB = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aTD == null) {
+        if (this.aUW == null) {
             return 0;
         }
-        return this.aTD.size();
+        return this.aUW.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aTD == null) {
+        if (this.aUW == null) {
             return null;
         }
-        return this.aTD.get(i);
+        return this.aUW.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,8 +66,8 @@ public class o extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        if (this.dkH == null) {
-            this.dkH = viewGroup;
+        if (this.dsD == null) {
+            this.dsD = viewGroup;
         }
         com.baidu.tbadk.coreExtra.relationship.a aVar2 = (com.baidu.tbadk.coreExtra.relationship.a) getItem(i);
         if (aVar2 != null) {
@@ -84,42 +84,42 @@ public class o extends BaseAdapter {
     private a a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = atx();
+            aVar2 = axf();
         } else {
             aVar2 = (a) obj;
         }
-        if (this.dkG != null) {
-            this.dkG.a(aVar2.rootView, aVar);
+        if (this.dsC != null) {
+            this.dsC.a(aVar2.rootView, aVar);
         }
-        a(aVar, aVar2, aVar.Aa());
-        aVar2.bAh.setText(aVar.getUserName());
-        if (this.dkI) {
-            aVar2.dkJ.setVisibility(8);
+        a(aVar, aVar2, aVar.Av());
+        aVar2.bBa.setText(aVar.getUserName());
+        if (this.dsE) {
+            aVar2.dsF.setVisibility(8);
         } else {
-            aVar2.dkJ.setTagData(aVar);
+            aVar2.dsF.setTagData(aVar);
         }
-        if (this.aFf instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.aFf).getLayoutMode().t(aVar2.rootView);
+        if (this.aGt instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.aGt).getLayoutMode().t(aVar2.rootView);
         }
         return aVar2;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.a aVar, a aVar2, String str) {
         if (aVar != null) {
-            aVar2.dkp.setTag(str);
-            aVar2.dkp.c(str, 12, false);
+            aVar2.dsl.setTag(str);
+            aVar2.dsl.c(str, 12, false);
         }
     }
 
-    private a atx() {
+    private a axf() {
         a aVar = new a();
-        aVar.rootView = LayoutInflater.from(this.aFf.getPageContext().getContext()).inflate(w.j.invite_friend_list_item, (ViewGroup) null);
-        aVar.dkp = (HeadImageView) aVar.rootView.findViewById(w.h.photo);
-        aVar.dkp.setIsRound(false);
-        aVar.bAh = (TextView) aVar.rootView.findViewById(w.h.txt_user_name);
-        aVar.dkJ = (TbCheckBox) aVar.rootView.findViewById(w.h.ckb_select);
-        if (this.dkF != null) {
-            aVar.dkJ.setStatedChangedListener(this.dkF);
+        aVar.rootView = LayoutInflater.from(this.aGt.getPageContext().getContext()).inflate(w.j.invite_friend_list_item, (ViewGroup) null);
+        aVar.dsl = (HeadImageView) aVar.rootView.findViewById(w.h.photo);
+        aVar.dsl.setIsRound(false);
+        aVar.bBa = (TextView) aVar.rootView.findViewById(w.h.txt_user_name);
+        aVar.dsF = (TbCheckBox) aVar.rootView.findViewById(w.h.ckb_select);
+        if (this.dsB != null) {
+            aVar.dsF.setStatedChangedListener(this.dsB);
         }
         aVar.rootView.setTag(aVar);
         return aVar;
@@ -127,9 +127,9 @@ public class o extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public class a {
-        public TextView bAh;
-        public TbCheckBox dkJ;
-        public HeadImageView dkp;
+        public TextView bBa;
+        public TbCheckBox dsF;
+        public HeadImageView dsl;
         public View rootView;
 
         public a() {

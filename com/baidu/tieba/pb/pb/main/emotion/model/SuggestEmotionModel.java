@@ -10,8 +10,8 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.pb.main.emotion.message.SuggestEmotionResponseMessage;
 /* loaded from: classes.dex */
 public class SuggestEmotionModel extends BdBaseModel {
-    private final HttpMessageListener evZ = new f(this, CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
-    private a ewb;
+    private final HttpMessageListener eFm = new e(this, CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
+    private a eFo;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,20 +21,20 @@ public class SuggestEmotionModel extends BdBaseModel {
     }
 
     public SuggestEmotionModel() {
-        DA();
-        this.evZ.setTag(getUniqueId());
-        this.evZ.setSelfListener(true);
-        registerListener(this.evZ);
+        DU();
+        this.eFm.setTag(getUniqueId());
+        this.eFm.setSelfListener(true);
+        registerListener(this.eFm);
     }
 
-    private void DA() {
+    private void DU() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/meme/suggest");
         tbHttpMessageTask.setResponsedClass(SuggestEmotionResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void a(String str, String str2, a aVar) {
-        this.ewb = aVar;
+        this.eFo = aVar;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("forum_name", str2);
@@ -48,7 +48,7 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.evZ);
+        MessageManager.getInstance().unRegisterListener(this.eFm);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
         return true;
     }

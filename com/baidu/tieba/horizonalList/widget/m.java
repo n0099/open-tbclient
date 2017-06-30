@@ -4,10 +4,10 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.z;
 /* loaded from: classes.dex */
 public abstract class m extends z.a {
-    public View.OnClickListener asJ;
-    public int cGt;
+    public View.OnClickListener atM;
+    public int cOp;
 
-    public abstract m U(View view);
+    public abstract m V(View view);
 
     public abstract void a(k kVar);
 
@@ -18,6 +18,6 @@ public abstract class m extends z.a {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.asJ = onClickListener;
+        this.atM = onClickListener;
     }
 }

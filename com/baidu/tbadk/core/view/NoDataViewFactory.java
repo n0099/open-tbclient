@@ -21,7 +21,7 @@ public class NoDataViewFactory {
         WEBVIEW,
         LOCAL;
 
-        /* JADX DEBUG: Replace access to removed values field (ajY) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (akL) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ImgType[] valuesCustom() {
             ImgType[] valuesCustom = values();
@@ -34,43 +34,43 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        a ajT;
-        a ajU;
-        int ajV = -1;
+        a akG;
+        a akH;
+        int akI = -1;
 
         private b() {
         }
 
         public static b a(a aVar) {
             b bVar = new b();
-            bVar.ajT = aVar;
+            bVar.akG = aVar;
             return bVar;
         }
 
         public static b a(a aVar, int i) {
             b bVar = new b();
-            bVar.ajT = aVar;
-            bVar.ajV = i;
+            bVar.akG = aVar;
+            bVar.akI = i;
             return bVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        String adw;
-        View.OnClickListener ajS;
+        String aef;
+        View.OnClickListener akF;
 
         public a(String str, View.OnClickListener onClickListener) {
-            this.adw = str;
-            this.ajS = onClickListener;
+            this.aef = str;
+            this.akF = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        ImgType ajW = ImgType.NONE;
-        int ajX = -1;
-        int ajQ = -1;
+        ImgType akJ = ImgType.NONE;
+        int akK = -1;
+        int akD = -1;
         int mHeight = -1;
         int mWidth = -1;
 
@@ -79,16 +79,16 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType, int i) {
             c cVar = new c();
-            cVar.ajW = imgType;
-            cVar.ajX = i;
+            cVar.akJ = imgType;
+            cVar.akK = i;
             return cVar;
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             c cVar = new c();
-            cVar.ajW = imgType;
-            cVar.ajQ = i;
-            cVar.ajX = i2;
+            cVar.akJ = imgType;
+            cVar.akD = i;
+            cVar.akK = i2;
             cVar.mHeight = i3;
             cVar.mWidth = i4;
             return cVar;
@@ -96,16 +96,16 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType) {
             c cVar = new c();
-            cVar.ajW = imgType;
+            cVar.akJ = imgType;
             return cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class d {
-        int abh;
-        String ajZ;
-        int aka = -1;
+        int abi;
+        String akM;
+        int akN = -1;
         String mSubTitle;
         String mTitle;
 
@@ -115,19 +115,19 @@ public class NoDataViewFactory {
         public static d A(int i, int i2) {
             d dVar = new d();
             dVar.mSubTitle = TbadkCoreApplication.m9getInst().getResources().getString(i);
-            dVar.aka = i2;
+            dVar.akN = i2;
             return dVar;
         }
 
-        public static d de(int i) {
-            return dQ(TbadkCoreApplication.m9getInst().getResources().getString(i));
+        public static d dg(int i) {
+            return el(TbadkCoreApplication.m9getInst().getResources().getString(i));
         }
 
         public static d B(int i, int i2) {
             return ad(TbadkCoreApplication.m9getInst().getResources().getString(i), TbadkCoreApplication.m9getInst().getResources().getString(i2));
         }
 
-        public static d dQ(String str) {
+        public static d el(String str) {
             d dVar = new d();
             dVar.mSubTitle = str;
             return dVar;
@@ -144,7 +144,7 @@ public class NoDataViewFactory {
             d dVar = new d();
             dVar.mTitle = str2;
             dVar.mSubTitle = str;
-            dVar.abh = i;
+            dVar.abi = i;
             return dVar;
         }
     }

@@ -1,23 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.w;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.SignData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class eq implements Runnable {
-    final /* synthetic */ ep eqM;
+public class eq extends CustomMessageListener {
+    final /* synthetic */ PbModel ezs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eq(ep epVar) {
-        this.eqM = epVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eq(PbModel pbModel, int i) {
+        super(i);
+        this.ezs = pbModel;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        View view;
-        PbActivity pbActivity;
-        view = this.eqM.bux;
-        pbActivity = this.eqM.eqJ;
-        view.setBackgroundColor(pbActivity.getResources().getColor(w.e.common_color_10082));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof SignData)) {
+            SignData signData = (SignData) customResponsedMessage.getData();
+            if (this.ezs.getPbData() != null && this.ezs.getPbData().aMt() != null && this.ezs.getPbData().aMt().getSignData() != null && signData.forumId.equals(this.ezs.getPbData().getForumId())) {
+                this.ezs.getPbData().aMt().getSignData().is_signed = signData.is_signed;
+            }
+        }
     }
 }

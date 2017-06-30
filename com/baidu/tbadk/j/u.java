@@ -1,21 +1,21 @@
 package com.baidu.tbadk.j;
 /* loaded from: classes.dex */
 public class u extends t {
-    public String Hf;
-    public long Hg;
-    public boolean aGo;
+    public String He;
+    public long Hf;
+    public boolean aHC;
     public boolean isSuccess;
 
-    public void Fx() {
+    public void FU() {
         ac acVar;
-        if (aa.FE().FF() && (acVar = (ac) aa.FE().fd(this.mSubType)) != null) {
+        if (aa.Gb().Gc() && (acVar = (ac) aa.Gb().ff(this.mSubType)) != null) {
             acVar.a(this, "head");
         }
     }
 
-    public void Fy() {
+    public void FV() {
         ac acVar;
-        if (aa.FE().FF() && (acVar = (ac) aa.FE().fd(this.mSubType)) != null) {
+        if (aa.Gb().Gc() && (acVar = (ac) aa.Gb().ff(this.mSubType)) != null) {
             acVar.a(this, "img");
         }
     }

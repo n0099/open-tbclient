@@ -3,11 +3,11 @@ package com.baidu.tieba.pluginCenter;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes2.dex */
 class i implements a.b {
-    final /* synthetic */ PluginDetailActivity fcA;
+    final /* synthetic */ PluginDetailActivity fmQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PluginDetailActivity pluginDetailActivity) {
-        this.fcA = pluginDetailActivity;
+        this.fmQ = pluginDetailActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

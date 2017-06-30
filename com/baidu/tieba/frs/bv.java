@@ -1,15 +1,37 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.a;
-import com.baidu.adp.widget.ListView.z;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import android.support.v4.util.LongSparseArray;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public interface bv {
-    a<? extends com.baidu.tbadk.core.data.bl, ? extends z.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z);
+public class bv {
+    private static final bv ceY = new bv();
+    private LongSparseArray<LinkedList<String>> ceX = new LongSparseArray<>();
 
-    p<ICardInfo, ? extends z.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
+    private bv() {
+    }
 
-    a<? extends com.baidu.tbadk.core.data.bl, ? extends z.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
+    public static bv aeW() {
+        return ceY;
+    }
+
+    public void d(long j, String str) {
+        LinkedList<String> linkedList = this.ceX.get(j);
+        if (linkedList == null) {
+            linkedList = new LinkedList<>();
+            this.ceX.put(j, linkedList);
+        }
+        linkedList.add(str);
+    }
+
+    public boolean e(long j, String str) {
+        LinkedList<String> linkedList = this.ceX.get(j);
+        return linkedList != null && linkedList.contains(str);
+    }
+
+    public void bg(long j) {
+        LinkedList<String> linkedList = this.ceX.get(j);
+        if (linkedList != null) {
+            linkedList.clear();
+        }
+    }
 }

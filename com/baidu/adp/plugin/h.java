@@ -12,7 +12,7 @@ public class h {
     private int Da = 0;
     private int Db = 0;
 
-    public static h iQ() {
+    public static h iP() {
         if (CZ == null) {
             synchronized (h.class) {
                 if (CZ == null) {

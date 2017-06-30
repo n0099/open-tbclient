@@ -21,9 +21,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
@@ -34,28 +37,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class EmotionTabContentView extends LinearLayout implements ViewPager.OnPageChangeListener {
-    private com.baidu.tbadk.editortools.j JU;
-    private IndicatorView aBn;
-    private int ana;
-    private GridView bKA;
-    private LinearLayout bKB;
-    private WindowManager.LayoutParams bKC;
-    private GifView bKD;
-    private ViewGroup bKE;
-    private int bKF;
-    private int bKG;
-    private int bKH;
-    private boolean bKI;
-    private int bKJ;
-    private u bKK;
-    private List<com.baidu.tbadk.editortools.emotiontool.c> bKL;
-    private List<u> bKM;
-    private int bKN;
-    private int bKO;
-    private c bKP;
-    private int bKQ;
-    private final Point bKR;
-    private com.baidu.adp.lib.e.b<GridView> bKS;
+    private com.baidu.tbadk.editortools.j JT;
+    private CustomMessageListener RR;
+    private IndicatorView aCq;
+    private int aoa;
+    private b bQX;
+    private GridView bQY;
+    private LinearLayout bQZ;
+    private WindowManager.LayoutParams bRa;
+    private GifView bRb;
+    private ViewGroup bRc;
+    private int bRd;
+    private int bRe;
+    private int bRf;
+    private boolean bRg;
+    private int bRh;
+    private w bRi;
+    private List<com.baidu.tbadk.editortools.emotiontool.c> bRj;
+    private List<w> bRk;
+    private int bRl;
+    private int bRm;
+    private c bRn;
+    private int bRo;
+    private final Point bRp;
+    private com.baidu.adp.lib.e.b<GridView> bRq;
     private int currentPosition;
     private WindowManager jn;
     private Context mContext;
@@ -64,121 +69,124 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
 
     /* loaded from: classes.dex */
     public interface c {
-        void hE(int i);
+        void hN(int i);
     }
 
     public EmotionTabContentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.rect = new Rect();
-        this.bKJ = -1;
-        this.bKN = 0;
-        this.bKO = -1;
+        this.bRh = -1;
+        this.bRl = 0;
+        this.bRm = -1;
         this.currentPosition = -1;
-        this.bKR = new Point();
+        this.bRp = new Point();
+        this.RR = new j(this, CmdConfigCustom.CMD_USER_COLLECT_EMOTION_CHANGE);
         init(context);
     }
 
     public EmotionTabContentView(Context context) {
         super(context);
         this.rect = new Rect();
-        this.bKJ = -1;
-        this.bKN = 0;
-        this.bKO = -1;
+        this.bRh = -1;
+        this.bRl = 0;
+        this.bRm = -1;
         this.currentPosition = -1;
-        this.bKR = new Point();
+        this.bRp = new Point();
+        this.RR = new j(this, CmdConfigCustom.CMD_USER_COLLECT_EMOTION_CHANGE);
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        this.bKL = new ArrayList();
-        this.bKM = new ArrayList();
-        this.bKS = new com.baidu.adp.lib.e.b<>(new j(this), 3, 0);
+        this.bRj = new ArrayList();
+        this.bRk = new ArrayList();
+        this.bRq = new com.baidu.adp.lib.e.b<>(new k(this), 3, 0);
         setOrientation(1);
         LayoutInflater.from(context).inflate(w.j.emotion_tab_content, (ViewGroup) this, true);
         this.mViewPager = (ViewPager) findViewById(w.h.face_tab_viewpager);
         this.mViewPager.setFadingEdgeLength(0);
         this.mViewPager.setOnPageChangeListener(this);
-        this.bKD = new GifView(context);
-        aq.d(this.bKD, w.g.bg_expression_bubble, this.ana);
-        this.bKD.setVisibility(8);
+        this.bRb = new GifView(context);
+        as.d(this.bRb, w.g.bg_expression_bubble, this.aoa);
+        this.bRb.setVisibility(8);
         this.jn = (WindowManager) context.getSystemService("window");
-        this.bKC = new WindowManager.LayoutParams();
-        this.bKF = context.getResources().getDimensionPixelSize(w.f.ds240);
-        this.bKG = context.getResources().getDimensionPixelSize(w.f.ds252);
-        this.bKH = context.getResources().getDimensionPixelSize(w.f.ds10);
-        this.bKC.width = this.bKF;
-        this.bKC.height = this.bKG;
-        this.bKC.gravity = 51;
-        this.bKC.format = -3;
-        this.bKC.type = 1000;
-        this.bKC.flags |= 56;
-        this.bKE = (ViewGroup) ((Activity) getContext()).getWindow().getDecorView();
-        this.aBn = (IndicatorView) findViewById(w.h.face_tab_indicator);
-        this.bKB = (LinearLayout) findViewById(w.h.face_tab_indicator_layout);
-        this.bKB.setClickable(true);
+        this.bRa = new WindowManager.LayoutParams();
+        this.bRd = context.getResources().getDimensionPixelSize(w.f.ds240);
+        this.bRe = context.getResources().getDimensionPixelSize(w.f.ds252);
+        this.bRf = context.getResources().getDimensionPixelSize(w.f.ds10);
+        this.bRa.width = this.bRd;
+        this.bRa.height = this.bRe;
+        this.bRa.gravity = 51;
+        this.bRa.format = -3;
+        this.bRa.type = 1000;
+        this.bRa.flags |= 56;
+        this.bRc = (ViewGroup) ((Activity) getContext()).getWindow().getDecorView();
+        this.aCq = (IndicatorView) findViewById(w.h.face_tab_indicator);
+        this.bQZ = (LinearLayout) findViewById(w.h.face_tab_indicator_layout);
+        this.bQZ.setClickable(true);
         if (MenuKeyUtils.hasSmartBar()) {
-            this.bKC.type = 1000;
-            this.bKC.flags = 25165832;
+            this.bRa.type = 1000;
+            this.bRa.flags = 25165832;
         }
     }
 
-    private void ac(List<com.baidu.tbadk.editortools.emotiontool.c> list) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ag(List<com.baidu.tbadk.editortools.emotiontool.c> list) {
         int i;
         int i2;
-        this.bKL.clear();
-        this.bKM.clear();
+        this.bRj.clear();
+        this.bRk.clear();
         if (list != null && !list.isEmpty()) {
-            this.bKL.addAll(list);
+            this.bRj.addAll(list);
             int size = list.size();
             for (int i3 = 0; i3 < size; i3++) {
                 com.baidu.tbadk.editortools.emotiontool.c cVar = list.get(i3);
                 if (cVar != null) {
                     int emotionsCount = cVar.getEmotionsCount();
                     int cols = cVar.getCols();
-                    int CD = cVar.CD();
-                    int i4 = emotionsCount / (cols * CD);
-                    if (emotionsCount % (cols * CD) != 0) {
+                    int CY = cVar.CY();
+                    int i4 = emotionsCount / (cols * CY);
+                    if (emotionsCount % (cols * CY) != 0) {
                         i4++;
                     }
                     for (int i5 = 0; i5 < i4; i5++) {
-                        u uVar = new u();
+                        w wVar = new w();
                         if (i5 < i4 - 1) {
-                            i = cols * CD;
+                            i = cols * CY;
                         } else {
-                            i = emotionsCount - ((cols * CD) * (i4 - 1));
+                            i = emotionsCount - ((cols * CY) * (i4 - 1));
                         }
-                        uVar.e(cVar);
-                        uVar.hJ(i3);
-                        uVar.b(cVar.CA());
-                        uVar.eL(CD);
-                        uVar.eK(cols);
-                        uVar.hF(i4);
-                        uVar.hG(i5);
-                        uVar.hH(i);
-                        uVar.hI(i5 * cols * CD);
-                        uVar.setEndIndex((i + i2) - 1);
-                        this.bKM.add(uVar);
+                        wVar.e(cVar);
+                        wVar.hS(i3);
+                        wVar.b(cVar.CV());
+                        wVar.eN(CY);
+                        wVar.eM(cols);
+                        wVar.hO(i4);
+                        wVar.hP(i5);
+                        wVar.hQ(i);
+                        wVar.hR(i5 * cols * CY);
+                        wVar.setEndIndex((i + i2) - 1);
+                        this.bRk.add(wVar);
                     }
                 }
             }
-            this.bKN = this.bKM.size();
-            for (int i6 = 0; i6 < this.bKN; i6++) {
-                if (this.bKM != null && this.bKM.get(i6) != null) {
-                    this.bKM.get(i6).setIndex(i6);
+            this.bRl = this.bRk.size();
+            for (int i6 = 0; i6 < this.bRl; i6++) {
+                if (this.bRk != null && this.bRk.get(i6) != null) {
+                    this.bRk.get(i6).setIndex(i6);
                 }
             }
         }
     }
 
-    private void hC(int i) {
-        if (this.bKM != null) {
-            int size = this.bKM.size();
+    private void hL(int i) {
+        if (this.bRk != null) {
+            int size = this.bRk.size();
             if (i >= 0 && i < size) {
                 for (int i2 = 0; i2 < size; i2++) {
-                    u uVar = this.bKM.get(i2);
-                    if (uVar != null && uVar.WO() == i) {
-                        this.bKQ = uVar.getIndex();
+                    w wVar = this.bRk.get(i2);
+                    if (wVar != null && wVar.aak() == i) {
+                        this.bRo = wVar.getIndex();
                         return;
                     }
                 }
@@ -190,22 +198,23 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         if (list != null) {
             int size = list.size();
             if (i >= 0 && i < size) {
-                ac(list);
-                hC(i);
-                this.mViewPager.setAdapter(new b());
-                this.mViewPager.setCurrentItem(this.bKQ, true);
-                if (this.bKP != null) {
-                    this.bKP.hE(i);
-                    this.bKO = i;
+                ag(list);
+                hL(i);
+                this.bQX = new b();
+                this.mViewPager.setAdapter(this.bQX);
+                this.mViewPager.setCurrentItem(this.bRo, true);
+                if (this.bRn != null) {
+                    this.bRn.hN(i);
+                    this.bRm = i;
                 }
             }
         }
     }
 
-    public void hD(int i) {
+    public void hM(int i) {
         int i2;
         if (this.mViewPager != null) {
-            int size = this.bKM.size();
+            int size = this.bRk.size();
             if (i >= 0 && i < size) {
                 int i3 = 0;
                 while (true) {
@@ -213,11 +222,11 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                         i2 = 0;
                         break;
                     }
-                    u uVar = this.bKM.get(i3);
-                    if (uVar == null || uVar.WO() != i) {
+                    w wVar = this.bRk.get(i3);
+                    if (wVar == null || wVar.aak() != i) {
                         i3++;
                     } else {
-                        i2 = uVar.getIndex();
+                        i2 = wVar.getIndex();
                         break;
                     }
                 }
@@ -228,43 +237,51 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
 
     public void a(int i, GridView gridView) {
         a aVar;
-        if (this.bKJ != i && gridView != null && (aVar = (a) gridView.getAdapter()) != null && aVar.WE() != null) {
-            String eB = aVar.WE().WH().eB(aVar.WD() + i);
-            this.bKD.setTag(eB);
-            GifInfo gifInfo = new GifInfo();
-            gifInfo.mSharpText = eB;
-            this.bKD.a(gifInfo);
-            LinearLayout linearLayout = (LinearLayout) gridView.getChildAt(i - gridView.getFirstVisiblePosition());
-            linearLayout.getDrawingRect(this.rect);
-            this.bKE.offsetDescendantRectToMyCoords(linearLayout, this.rect);
-            this.bKC.x = this.rect.left - ((this.bKC.width - linearLayout.getWidth()) / 2);
-            this.bKC.y = (this.rect.top - this.bKC.height) + this.bKH;
-            this.bKD.setVisibility(0);
-            if (!this.bKI) {
-                this.jn.addView(this.bKD, this.bKC);
-                this.bKI = true;
-            } else {
-                this.jn.updateViewLayout(this.bKD, this.bKC);
+        if (this.bRh != i && gridView != null && (aVar = (a) gridView.getAdapter()) != null && aVar.aaa() != null) {
+            w aaa = aVar.aaa();
+            String eD = aaa.aad().eD(aVar.ZZ() + i);
+            if (aaa.aae() != EmotionGroupType.USER_COLLECT || !eD.equals(com.baidu.tbadk.imageManager.f.aDU)) {
+                this.bRb.setTag(eD);
+                GifInfo gifInfo = new GifInfo();
+                gifInfo.mSharpText = eD;
+                if (eD.startsWith("#(meme,")) {
+                    this.bRb.setShowStaticDrawable(false);
+                } else {
+                    this.bRb.setShowStaticDrawable(true);
+                }
+                this.bRb.a(gifInfo);
+                LinearLayout linearLayout = (LinearLayout) gridView.getChildAt(i - gridView.getFirstVisiblePosition());
+                linearLayout.getDrawingRect(this.rect);
+                this.bRc.offsetDescendantRectToMyCoords(linearLayout, this.rect);
+                this.bRa.x = this.rect.left - ((this.bRa.width - linearLayout.getWidth()) / 2);
+                this.bRa.y = (this.rect.top - this.bRa.height) + this.bRf;
+                this.bRb.setVisibility(0);
+                if (!this.bRg) {
+                    this.jn.addView(this.bRb, this.bRa);
+                    this.bRg = true;
+                } else {
+                    this.jn.updateViewLayout(this.bRb, this.bRa);
+                }
+                gridView.setSelection(i);
+                if (this.bRh != -1) {
+                    ((LinearLayout) gridView.getChildAt(this.bRh - gridView.getFirstVisiblePosition())).getChildAt(0).setSelected(false);
+                }
+                linearLayout.getChildAt(0).setSelected(true);
+                this.bRh = i;
+                this.bQY = gridView;
             }
-            gridView.setSelection(i);
-            if (this.bKJ != -1) {
-                ((LinearLayout) gridView.getChildAt(this.bKJ - gridView.getFirstVisiblePosition())).getChildAt(0).setSelected(false);
-            }
-            linearLayout.getChildAt(0).setSelected(true);
-            this.bKJ = i;
-            this.bKA = gridView;
         }
     }
 
-    private void WB() {
-        if (this.bKI && this.bKD.getVisibility() != 8 && this.bKA != null) {
-            this.bKA.setSelection(-1);
-            this.bKD.setVisibility(8);
-            if (this.bKJ != -1) {
-                ((LinearLayout) this.bKA.getChildAt(this.bKJ - this.bKA.getFirstVisiblePosition())).getChildAt(0).setSelected(false);
+    private void ZX() {
+        if (this.bRg && this.bRb.getVisibility() != 8 && this.bQY != null) {
+            this.bQY.setSelection(-1);
+            this.bRb.setVisibility(8);
+            if (this.bRh != -1) {
+                ((LinearLayout) this.bQY.getChildAt(this.bRh - this.bQY.getFirstVisiblePosition())).getChildAt(0).setSelected(false);
             }
-            this.bKJ = -1;
-            this.bKA = null;
+            this.bRh = -1;
+            this.bQY = null;
         }
     }
 
@@ -275,15 +292,15 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         int y = (int) motionEvent.getY();
         switch (action) {
             case 0:
-                this.bKR.set(x, y);
+                this.bRp.set(x, y);
                 break;
             case 1:
             case 3:
-                WB();
+                ZX();
                 break;
             case 2:
-                this.bKR.set(x, y);
-                if (this.bKI && this.bKD.getVisibility() != 8 && this.bKA != null) {
+                this.bRp.set(x, y);
+                if (this.bRg && this.bRb.getVisibility() != 8 && this.bQY != null) {
                     return true;
                 }
                 break;
@@ -298,25 +315,25 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         int y = (int) motionEvent.getY();
         switch (action) {
             case 0:
-                this.bKR.set(x, y);
+                this.bRp.set(x, y);
                 break;
             case 1:
             case 3:
             case 4:
-                WB();
+                ZX();
                 break;
             case 2:
                 getFocusedRect(this.rect);
                 if (!this.rect.contains(x, y)) {
-                    WB();
+                    ZX();
                     break;
                 } else {
                     this.rect.set(x, y, x + 1, y + 1);
-                    if (this.bKA != null) {
-                        offsetRectIntoDescendantCoords(this.bKA, this.rect);
-                        int pointToPosition = this.bKA.pointToPosition(this.rect.left, this.rect.top);
+                    if (this.bQY != null) {
+                        offsetRectIntoDescendantCoords(this.bQY, this.rect);
+                        int pointToPosition = this.bQY.pointToPosition(this.rect.left, this.rect.top);
                         if (pointToPosition != -1) {
-                            a(pointToPosition, this.bKA);
+                            a(pointToPosition, this.bQY);
                             break;
                         }
                     }
@@ -329,33 +346,34 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.bKI) {
-            this.jn.removeView(this.bKD);
-            this.bKI = false;
+        if (this.bRg) {
+            this.jn.removeView(this.bRb);
+            this.bRg = false;
         }
+        MessageManager.getInstance().unRegisterListener(this.RR);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        if (this.bKM != null) {
-            int size = this.bKM.size();
+        if (this.bRk != null) {
+            int size = this.bRk.size();
             if (i >= 0 && i < size) {
-                this.bKK = this.bKM.get(i);
-                if (this.aBn != null && this.bKK != null) {
+                this.bRi = this.bRk.get(i);
+                if (this.aCq != null && this.bRi != null) {
                     if (this.currentPosition != i) {
                         this.currentPosition = i;
-                        this.aBn.setVisibility(this.bKK.WK() > 1 ? 0 : 4);
-                        this.aBn.setCount(this.bKK.WK());
-                        if (this.bKK != null && this.bKK.WO() != this.bKO) {
-                            this.bKO = this.bKK.WO();
-                            if (this.bKP != null) {
-                                this.bKP.hE(this.bKK.WO());
+                        this.aCq.setVisibility(this.bRi.aag() > 1 ? 0 : 4);
+                        this.aCq.setCount(this.bRi.aag());
+                        if (this.bRi != null && this.bRi.aak() != this.bRm) {
+                            this.bRm = this.bRi.aak();
+                            if (this.bRn != null) {
+                                this.bRn.hN(this.bRi.aak());
                             }
                         }
                     }
-                    float WL = this.bKK.WL() + f;
-                    this.aBn.setPosition(WL);
-                    this.bKB.setContentDescription(String.valueOf(String.format(getResources().getString(w.l.emotion_selection), Integer.valueOf(((int) WL) + 1))) + String.format(getResources().getString(w.l.emotion_page), Integer.valueOf(this.bKK.WK())));
+                    float aah = this.bRi.aah() + f;
+                    this.aCq.setPosition(aah);
+                    this.bQZ.setContentDescription(String.valueOf(String.format(getResources().getString(w.l.emotion_selection), Integer.valueOf(((int) aah) + 1))) + String.format(getResources().getString(w.l.emotion_page), Integer.valueOf(this.bRi.aag())));
                 }
             }
         }
@@ -370,11 +388,11 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     }
 
     public void onChangeSkinType(int i) {
-        this.ana = i;
-        aq.d(this.bKD, w.g.bg_expression_bubble, i);
-        aq.e(this, w.e.common_color_10255, i);
-        this.aBn.setSelector(aq.u(i, w.g.dot_pb_expression_s));
-        this.aBn.setDrawable(aq.u(i, w.g.dot_pb_expression_n));
+        this.aoa = i;
+        as.d(this.bRb, w.g.bg_expression_bubble, i);
+        as.e(this, w.e.common_color_10255, i);
+        this.aCq.setSelector(as.u(i, w.g.dot_pb_expression_s));
+        this.aCq.setDrawable(as.u(i, w.g.dot_pb_expression_n));
         if (this.mViewPager != null) {
             int i2 = 0;
             while (true) {
@@ -396,34 +414,38 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     }
 
     public void reset() {
-        WB();
+        ZX();
     }
 
     /* loaded from: classes.dex */
     public class a extends BaseAdapter {
-        private final u bKU;
+        private w bRs;
 
-        public a(u uVar) {
-            this.bKU = uVar;
+        public a(w wVar) {
+            this.bRs = wVar;
         }
 
-        public int WD() {
-            if (this.bKU == null) {
+        public void a(w wVar) {
+            this.bRs = wVar;
+        }
+
+        public int ZZ() {
+            if (this.bRs == null) {
                 return 0;
             }
-            return this.bKU.WN();
+            return this.bRs.aaj();
         }
 
-        public u WE() {
-            return this.bKU;
+        public w aaa() {
+            return this.bRs;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.bKU == null) {
+            if (this.bRs == null) {
                 return 0;
             }
-            return this.bKU.WM();
+            return this.bRs.aai();
         }
 
         @Override // android.widget.Adapter
@@ -439,21 +461,21 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
             LinearLayout linearLayout;
-            com.baidu.adp.widget.a.a aVar;
             int color;
+            com.baidu.adp.widget.a.a aVar;
             if (view == null) {
                 LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(TbadkCoreApplication.m9getInst().getContext()).inflate(w.j.emotion_tab_content_item, (ViewGroup) null);
                 int measuredWidth = viewGroup.getMeasuredWidth();
                 int measuredHeight = viewGroup.getMeasuredHeight();
                 int i2 = 0;
                 int i3 = 0;
-                if (this.bKU.WJ() != 0) {
-                    i2 = measuredWidth / this.bKU.WJ();
+                if (this.bRs.aaf() != 0) {
+                    i2 = measuredWidth / this.bRs.aaf();
                 }
-                if (this.bKU.getRow() != 0) {
-                    i3 = measuredHeight / this.bKU.getRow();
+                if (this.bRs.getRow() != 0) {
+                    i3 = measuredHeight / this.bRs.getRow();
                 }
-                linearLayout2.setPadding(EmotionTabContentView.this.bKH * 2, EmotionTabContentView.this.bKH * 2, EmotionTabContentView.this.bKH * 2, EmotionTabContentView.this.bKH * 2);
+                linearLayout2.setPadding(EmotionTabContentView.this.bRf * 2, EmotionTabContentView.this.bRf * 2, EmotionTabContentView.this.bRf * 2, EmotionTabContentView.this.bRf * 2);
                 linearLayout = linearLayout2;
                 linearLayout = linearLayout2;
                 if (i2 != 0 && i3 != 0) {
@@ -467,43 +489,47 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                 linearLayout = view;
             }
             LinearLayout linearLayout3 = (LinearLayout) linearLayout;
-            if (this.bKU != null) {
-                int WN = this.bKU.WN() + i;
+            if (this.bRs != null) {
+                int aaj = this.bRs.aaj() + i;
                 TbImageView tbImageView = (TbImageView) linearLayout3.findViewById(w.h.emotion_tab_content_img);
                 tbImageView.setAutoChangeStyle(false);
-                aq.d(tbImageView, w.g.btn_choose_face_selector, EmotionTabContentView.this.ana);
+                as.d(tbImageView, w.g.btn_choose_face_selector, EmotionTabContentView.this.aoa);
                 tbImageView.setPadding(0, 0, 0, 0);
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                String eB = this.bKU.WH().eB(WN);
-                tbImageView.setTag(eB);
-                Object a = com.baidu.adp.lib.f.c.fM().a(eB, 20, new k(this), 0, 0, null, null, eB, false, null);
-                if (a == null || !(a instanceof com.baidu.adp.widget.a.a)) {
-                    aVar = null;
-                } else {
-                    aVar = (com.baidu.adp.widget.a.a) a;
-                }
-                if (aVar != null) {
-                    aVar.e(tbImageView);
-                    tbImageView.setTag(null);
+                String eD = this.bRs.aad().eD(aaj);
+                tbImageView.setTag(eD);
+                if (!TextUtils.isEmpty(eD)) {
+                    Object a = com.baidu.adp.lib.f.c.fL().a(eD, 20, new l(this), 0, 0, null, null, eD, false, null);
+                    if (a == null || !(a instanceof com.baidu.adp.widget.a.a)) {
+                        aVar = null;
+                    } else {
+                        aVar = (com.baidu.adp.widget.a.a) a;
+                    }
+                    if (aVar != null) {
+                        aVar.e(tbImageView);
+                        tbImageView.setTag(null);
+                    }
                 }
                 TextView textView = (TextView) linearLayout3.findViewById(w.h.emotion_tab_content_tip);
-                if (this.bKU.WI() == EmotionGroupType.BIG_EMOTION) {
-                    String eB2 = this.bKU.WH().eB(WN);
-                    if (!TextUtils.isEmpty(eB2)) {
-                        if (EmotionTabContentView.this.ana == 0) {
+                if (this.bRs.aae() == EmotionGroupType.BIG_EMOTION) {
+                    String eD2 = this.bRs.aad().eD(aaj);
+                    if (!TextUtils.isEmpty(eD2) && !eD2.startsWith("#(meme,")) {
+                        if (EmotionTabContentView.this.aoa == 0) {
                             color = EmotionTabContentView.this.getContext().getResources().getColor(w.e.cp_cont_c);
                         } else {
-                            color = aq.getColor(w.e.cp_cont_c);
+                            color = as.getColor(w.e.cp_cont_c);
                         }
                         textView.setVisibility(0);
                         textView.setTextColor(color);
-                        textView.setText(eB2.substring(eB2.lastIndexOf("_") + 1, eB2.length() - 1));
+                        textView.setText(eD2.substring(eD2.lastIndexOf("_") + 1, eD2.length() - 1));
+                    } else {
+                        textView.setVisibility(8);
                     }
                 } else {
                     textView.setVisibility(8);
                 }
-                if (eB.length() > 3) {
-                    linearLayout3.setContentDescription(eB.substring(2, eB.length() - 1));
+                if (eD != null && eD.length() > 3) {
+                    linearLayout3.setContentDescription(eD.substring(2, eD.length() - 1));
                 }
             }
             return linearLayout3;
@@ -517,10 +543,10 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            if (EmotionTabContentView.this.bKM == null) {
+            if (EmotionTabContentView.this.bRk == null) {
                 return 0;
             }
-            return EmotionTabContentView.this.bKM.size();
+            return EmotionTabContentView.this.bRk.size();
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -532,24 +558,24 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
             GridView gridView = (GridView) obj;
             viewGroup.removeView(gridView);
-            EmotionTabContentView.this.bKS.n(gridView);
+            EmotionTabContentView.this.bRq.n(gridView);
         }
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            GridView gridView = (GridView) EmotionTabContentView.this.bKS.fK();
+            GridView gridView = (GridView) EmotionTabContentView.this.bRq.fJ();
             GridView gridView2 = gridView == null ? new GridView(EmotionTabContentView.this.mContext) : gridView;
             gridView2.setScrollbarFadingEnabled(false);
-            if (EmotionTabContentView.this.bKM != null && i < EmotionTabContentView.this.bKM.size()) {
-                u uVar = (u) EmotionTabContentView.this.bKM.get(i);
-                gridView2.setNumColumns(uVar.WJ());
+            if (EmotionTabContentView.this.bRk != null && i < EmotionTabContentView.this.bRk.size()) {
+                w wVar = (w) EmotionTabContentView.this.bRk.get(i);
+                gridView2.setNumColumns(wVar.aaf());
                 gridView2.setVerticalSpacing(0);
                 gridView2.setHorizontalSpacing(0);
                 gridView2.setSelector(w.e.common_color_10022);
                 gridView2.setPadding(EmotionTabContentView.this.mContext.getResources().getDimensionPixelSize(w.f.ds28), 0, EmotionTabContentView.this.mContext.getResources().getDimensionPixelSize(w.f.ds28), 0);
-                gridView2.setOnItemLongClickListener(new l(this));
-                gridView2.setOnItemClickListener(new m(this));
-                gridView2.setAdapter((ListAdapter) new a(uVar));
+                gridView2.setOnItemLongClickListener(new m(this));
+                gridView2.setOnItemClickListener(new n(this));
+                gridView2.setAdapter((ListAdapter) new a(wVar));
             }
             viewGroup.addView(gridView2);
             return gridView2;
@@ -557,21 +583,21 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
 
         @Override // android.support.v4.view.PagerAdapter
         public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-            if (EmotionTabContentView.this.bKM != null) {
-                int size = EmotionTabContentView.this.bKM.size();
+            if (EmotionTabContentView.this.bRk != null) {
+                int size = EmotionTabContentView.this.bRk.size();
                 if (i == 0 && i < size && i != EmotionTabContentView.this.currentPosition) {
-                    u uVar = (u) EmotionTabContentView.this.bKM.get(i);
-                    if (uVar != null) {
+                    w wVar = (w) EmotionTabContentView.this.bRk.get(i);
+                    if (wVar != null) {
                         EmotionTabContentView.this.currentPosition = i;
-                        EmotionTabContentView.this.aBn.setVisibility(uVar.WK() > 1 ? 0 : 4);
-                        EmotionTabContentView.this.aBn.setCount(uVar.WK());
-                        EmotionTabContentView.this.aBn.setPosition(uVar.WL());
-                        EmotionTabContentView.this.aBn.setContentDescription(String.valueOf(String.format(EmotionTabContentView.this.getResources().getString(w.l.emotion_selection), Integer.valueOf(uVar.WL() + 1))) + String.format(EmotionTabContentView.this.getResources().getString(w.l.emotion_page), Integer.valueOf(uVar.WK())));
+                        EmotionTabContentView.this.aCq.setVisibility(wVar.aag() > 1 ? 0 : 4);
+                        EmotionTabContentView.this.aCq.setCount(wVar.aag());
+                        EmotionTabContentView.this.aCq.setPosition(wVar.aah());
+                        EmotionTabContentView.this.aCq.setContentDescription(String.valueOf(String.format(EmotionTabContentView.this.getResources().getString(w.l.emotion_selection), Integer.valueOf(wVar.aah() + 1))) + String.format(EmotionTabContentView.this.getResources().getString(w.l.emotion_page), Integer.valueOf(wVar.aag())));
                     }
-                    if (uVar != null && uVar.WO() != EmotionTabContentView.this.bKO) {
-                        EmotionTabContentView.this.bKO = uVar.WO();
-                        if (EmotionTabContentView.this.bKP != null) {
-                            EmotionTabContentView.this.bKP.hE(uVar.WO());
+                    if (wVar != null && wVar.aak() != EmotionTabContentView.this.bRm) {
+                        EmotionTabContentView.this.bRm = wVar.aak();
+                        if (EmotionTabContentView.this.bRn != null) {
+                            EmotionTabContentView.this.bRn.hN(wVar.aak());
                         }
                     }
                 }
@@ -581,10 +607,16 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     }
 
     public void setOnEmotionSwitchedListener(c cVar) {
-        this.bKP = cVar;
+        this.bRn = cVar;
     }
 
     public void setOnDataSelected(com.baidu.tbadk.editortools.j jVar) {
-        this.JU = jVar;
+        this.JT = jVar;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        MessageManager.getInstance().registerListener(this.RR);
     }
 }

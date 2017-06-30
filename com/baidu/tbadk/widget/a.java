@@ -4,24 +4,24 @@ import android.support.v4.view.ViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ CustomViewPager aJq;
+    final /* synthetic */ CustomViewPager aKF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(CustomViewPager customViewPager) {
-        this.aJq = customViewPager;
+        this.aKF = customViewPager;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
         ViewPager.OnPageChangeListener onPageChangeListener;
         ViewPager.OnPageChangeListener onPageChangeListener2;
-        this.aJq.isScrolling = i == 1;
+        this.aKF.isScrolling = i == 1;
         if (i == 2) {
-            this.aJq.mDirection = 0;
+            this.aKF.mDirection = 0;
         }
-        onPageChangeListener = this.aJq.mOnPageChangeListener;
+        onPageChangeListener = this.aKF.mOnPageChangeListener;
         if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.aJq.mOnPageChangeListener;
+            onPageChangeListener2 = this.aKF.mOnPageChangeListener;
             onPageChangeListener2.onPageScrollStateChanged(i);
         }
     }
@@ -34,27 +34,27 @@ public class a implements ViewPager.OnPageChangeListener {
         int i3;
         int i4;
         int i5;
-        z = this.aJq.isScrolling;
+        z = this.aKF.isScrolling;
         if (z) {
-            i3 = this.aJq.aJp;
+            i3 = this.aKF.aKE;
             if (i3 > i2) {
-                this.aJq.mDirection = -1;
+                this.aKF.mDirection = -1;
             } else {
-                i4 = this.aJq.aJp;
+                i4 = this.aKF.aKE;
                 if (i4 < i2) {
-                    this.aJq.mDirection = 1;
+                    this.aKF.mDirection = 1;
                 } else {
-                    i5 = this.aJq.aJp;
+                    i5 = this.aKF.aKE;
                     if (i5 == i2) {
-                        this.aJq.mDirection = 0;
+                        this.aKF.mDirection = 0;
                     }
                 }
             }
         }
-        this.aJq.aJp = i2;
-        onPageChangeListener = this.aJq.mOnPageChangeListener;
+        this.aKF.aKE = i2;
+        onPageChangeListener = this.aKF.mOnPageChangeListener;
         if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.aJq.mOnPageChangeListener;
+            onPageChangeListener2 = this.aKF.mOnPageChangeListener;
             onPageChangeListener2.onPageScrolled(i, f, i2);
         }
     }
@@ -63,9 +63,9 @@ public class a implements ViewPager.OnPageChangeListener {
     public void onPageSelected(int i) {
         ViewPager.OnPageChangeListener onPageChangeListener;
         ViewPager.OnPageChangeListener onPageChangeListener2;
-        onPageChangeListener = this.aJq.mOnPageChangeListener;
+        onPageChangeListener = this.aKF.mOnPageChangeListener;
         if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.aJq.mOnPageChangeListener;
+            onPageChangeListener2 = this.aKF.mOnPageChangeListener;
             onPageChangeListener2.onPageSelected(i);
         }
     }

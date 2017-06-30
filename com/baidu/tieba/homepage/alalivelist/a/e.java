@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tieba.card.ci;
 /* loaded from: classes.dex */
 class e extends ci<com.baidu.tieba.homepage.alalivelist.view.d> {
-    final /* synthetic */ d cyX;
+    final /* synthetic */ d cGJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.cyX = dVar;
+        this.cGJ = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

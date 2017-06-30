@@ -6,11 +6,11 @@ import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements Handler.Callback {
-    final /* synthetic */ p aRl;
+    final /* synthetic */ p aSE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.aRl = pVar;
+        this.aSE = pVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -24,29 +24,29 @@ public class r implements Handler.Callback {
         v.d dVar;
         v.d dVar2;
         if (message.what == 6) {
-            dVar = this.aRl.aRe;
+            dVar = this.aSE.aSx;
             if (dVar != null) {
-                dVar2 = this.aRl.aRe;
-                dVar2.onPrepared(this.aRl);
+                dVar2 = this.aSE.aSx;
+                dVar2.onPrepared(this.aSE);
             }
         } else if (message.what == 7) {
-            aVar = this.aRl.aRd;
+            aVar = this.aSE.aSw;
             if (aVar != null) {
-                aVar2 = this.aRl.aRd;
-                aVar2.onCompletion(this.aRl);
+                aVar2 = this.aSE.aSw;
+                aVar2.onCompletion(this.aSE);
             }
         } else if (message.what == 8) {
-            bVar = this.aRl.aRf;
+            bVar = this.aSE.aSy;
             if (bVar != null) {
-                bVar2 = this.aRl.aRf;
-                if (bVar2.onError(this.aRl, message.arg1, message.arg2)) {
+                bVar2 = this.aSE.aSy;
+                if (bVar2.onError(this.aSE, message.arg1, message.arg2)) {
                 }
             }
         } else if (message.what == 9) {
-            cVar = this.aRl.aRg;
+            cVar = this.aSE.aSz;
             if (cVar != null) {
-                cVar2 = this.aRl.aRg;
-                cVar2.a(this.aRl, message.arg1, message.arg2);
+                cVar2 = this.aSE.aSz;
+                cVar2.a(this.aSE, message.arg1, message.arg2);
             }
         }
         return true;

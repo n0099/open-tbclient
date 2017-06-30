@@ -51,16 +51,16 @@ public class ColumnLayout extends ViewGroup {
             this.FY = new int[3];
             String[] split = string.split("\\|");
             if (split.length == 1) {
-                int by = by(split[0]);
+                int bD = bD(split[0]);
                 for (int i = 0; i < this.FY.length; i++) {
-                    this.FY[i] = by;
+                    this.FY[i] = bD;
                 }
             } else if (split.length > 1) {
                 if (this.FY.length != split.length) {
                     throw new RuntimeException("Column number doesn't equal orientation definition number.");
                 }
                 for (int i2 = 0; i2 < this.FY.length; i2++) {
-                    this.FY[i2] = by(split[i2]);
+                    this.FY[i2] = bD(split[i2]);
                 }
             }
         }
@@ -69,7 +69,7 @@ public class ColumnLayout extends ViewGroup {
         obtainStyledAttributes.recycle();
     }
 
-    private int by(String str) {
+    private int bD(String str) {
         return "vertical".equals(str) ? 1 : 0;
     }
 
@@ -408,7 +408,7 @@ public class ColumnLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: kv */
+    /* renamed from: kt */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2, 51, 1);
     }

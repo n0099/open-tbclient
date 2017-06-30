@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class bt extends c {
-    private ThreadLinkView bCf;
-    private TextView bzn;
+    private TextView bAg;
+    private ThreadLinkView bCY;
 
     public bt(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -21,39 +21,45 @@ public class bt extends c {
     }
 
     @Override // com.baidu.tieba.card.c
-    protected void T(View view) {
+    protected void U(View view) {
         if (view != null) {
-            this.bCf = (ThreadLinkView) view.findViewById(w.h.link_thread_root);
-            this.bCf.setTag(getTag());
-            this.bzn = (TextView) view.findViewById(w.h.card_home_page_normal_thread_title);
+            this.bCY = (ThreadLinkView) view.findViewById(w.h.link_thread_root);
+            this.bCY.setTag(getTag());
+            this.bAg = (TextView) view.findViewById(w.h.card_home_page_normal_thread_title);
         }
     }
 
     @Override // com.baidu.tieba.card.c
     protected void b(com.baidu.tieba.card.data.l lVar) {
-        if (lVar != null && lVar.LH() != null) {
-            com.baidu.tbadk.core.data.bl LH = lVar.LH();
-            at.a(LH, this.bzn);
-            if ((StringUtils.isNull(LH.getTitle()) && (LH.rt() == null || LH.rt().size() == 0)) || LH.rJ() == 1) {
-                this.bzn.setVisibility(8);
+        if (lVar != null && lVar.Mv() != null) {
+            com.baidu.tbadk.core.data.bm Mv = lVar.Mv();
+            at.a(Mv, this.bAg);
+            if ((StringUtils.isNull(Mv.getTitle()) && (Mv.rp() == null || Mv.rp().size() == 0)) || Mv.rG() == 1) {
+                Mv.e(false, true);
+                if (Mv.rR() == null || StringUtils.isNull(Mv.rR().toString())) {
+                    this.bAg.setVisibility(8);
+                } else {
+                    this.bAg.setVisibility(0);
+                    this.bAg.setText(Mv.rR());
+                }
             } else {
-                this.bzn.setVisibility(0);
+                this.bAg.setVisibility(0);
             }
-            this.bCf.setData(LH);
+            this.bCY.setData(Mv);
         }
     }
 
     @Override // com.baidu.tieba.card.c, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.bCf.onChangeSkinType();
+        this.bCY.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.card.c
-    public void Ui() {
-        super.Ui();
-        at.a(this.bzn, this.bzH.LH().getId(), w.e.cp_cont_b, w.e.cp_cont_d);
-        this.bCf.dS(this.bzH.LH().getId());
+    public void Vx() {
+        super.Vx();
+        at.a(this.bAg, this.bAA.Mv().getId(), w.e.cp_cont_b, w.e.cp_cont_d);
+        this.bCY.em(this.bAA.Mv().getId());
     }
 }

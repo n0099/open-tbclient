@@ -5,11 +5,11 @@ import android.hardware.Camera;
 import com.baidu.tieba.write.album.TbCameraView;
 /* loaded from: classes.dex */
 class av implements Camera.PictureCallback {
-    final /* synthetic */ TbCameraView fVI;
+    final /* synthetic */ TbCameraView ggt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(TbCameraView tbCameraView) {
-        this.fVI = tbCameraView;
+        this.ggt = tbCameraView;
     }
 
     @Override // android.hardware.Camera.PictureCallback
@@ -19,17 +19,17 @@ class av implements Camera.PictureCallback {
         TbCameraView.d dVar2;
         Camera camera3;
         if (bArr != null) {
-            this.fVI.fVF = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
-            camera2 = this.fVI.mCamera;
+            this.ggt.ggq = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+            camera2 = this.ggt.mCamera;
             if (camera2 != null) {
-                camera3 = this.fVI.mCamera;
+                camera3 = this.ggt.mCamera;
                 camera3.stopPreview();
             }
-            this.fVI.fVz = false;
-            dVar = this.fVI.fVr;
+            this.ggt.ggk = false;
+            dVar = this.ggt.ggc;
             if (dVar != null) {
-                dVar2 = this.fVI.fVr;
-                dVar2.boe();
+                dVar2 = this.ggt.ggc;
+                dVar2.bsB();
             }
         }
     }

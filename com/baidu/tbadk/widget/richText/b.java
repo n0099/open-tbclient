@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b extends ClickableSpan {
-    private String aNv;
-    private int aNw;
+    private String aOL;
+    private int aOM;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -44,8 +44,8 @@ public class b extends ClickableSpan {
         this.mType = i;
     }
 
-    public void ft(int i) {
-        this.aNw = i;
+    public void fv(int i) {
+        this.aOM = i;
     }
 
     public void setColor(int i) {
@@ -56,12 +56,12 @@ public class b extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void fu(int i) {
+    public void fw(int i) {
         this.urlType = i;
     }
 
-    public void gr(String str) {
-        this.aNv = str;
+    public void gO(String str) {
+        this.aOL = str;
     }
 
     public String getLink() {
@@ -71,21 +71,21 @@ public class b extends ClickableSpan {
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
-            textPaint.setColor(aq.getColor(this.textColor));
+            textPaint.setColor(as.getColor(this.textColor));
         } else {
             textPaint.setColor(textPaint.linkColor);
         }
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aNw == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.aOM == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
-                textPaint.bgColor = aq.getColor(w.e.cp_bg_line_c);
+                textPaint.bgColor = as.getColor(w.e.cp_bg_line_c);
             } else {
-                textPaint.bgColor = aq.getColor(w.e.cp_bg_line_z);
+                textPaint.bgColor = as.getColor(w.e.cp_bg_line_z);
             }
-        } else if (this.aNw == 2) {
-            textPaint.bgColor = aq.getColor(w.e.transparent);
+        } else if (this.aOM == 2) {
+            textPaint.bgColor = as.getColor(w.e.transparent);
         }
     }
 
@@ -93,7 +93,7 @@ public class b extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aNv));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aOL));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -103,7 +103,7 @@ public class b extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new as("c11972").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).r("obj_type", i));
+            TiebaStatic.log(new au("c11972").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).r("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
@@ -114,28 +114,28 @@ public class b extends ClickableSpan {
             Activity pageActivity = tbPageContext.getPageActivity();
             switch (i) {
                 case 2:
-                    dVar.Z(pageActivity, str);
-                    return;
-                case 16:
-                    dVar.Y(pageActivity, str);
-                    return;
-                case 18:
-                    dVar.Z(pageActivity, str);
-                    return;
-                case 32:
                     dVar.aa(pageActivity, str);
                     return;
-                case 64:
+                case 16:
+                    dVar.Z(pageActivity, str);
+                    return;
+                case 18:
+                    dVar.aa(pageActivity, str);
+                    return;
+                case 32:
                     dVar.ab(pageActivity, str);
                     return;
-                case 128:
+                case 64:
                     dVar.ac(pageActivity, str);
+                    return;
+                case 128:
+                    dVar.ad(pageActivity, str);
                     return;
                 case 256:
                     dVar.f(pageActivity, str, str2);
                     return;
                 case 1024:
-                    dVar.ad(pageActivity, str);
+                    dVar.ae(pageActivity, str);
                     return;
                 default:
                     return;

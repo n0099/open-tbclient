@@ -4,11 +4,11 @@ import com.baidu.adp.gif.NSGif;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 /* loaded from: classes.dex */
 public class a extends DiskFileOperate {
-    private NSGif rW;
+    private NSGif rV;
 
     public a(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.rW = null;
+        this.rV = null;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -16,11 +16,11 @@ public class a extends DiskFileOperate {
         if (bArr == null || !NSGif.rm) {
             return false;
         }
-        this.rW = NSGif.f(bArr, 0, bArr.length);
-        return this.rW != null;
+        this.rV = NSGif.h(bArr, 0, bArr.length);
+        return this.rV != null;
     }
 
     public NSGif ed() {
-        return this.rW;
+        return this.rV;
     }
 }

@@ -5,32 +5,32 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
-    private ImageView aVT;
-    private TextView bvI;
-    private String eKB;
+    private ImageView aXm;
+    private TextView cJY;
+    private String eUz;
     private View mRootView;
 
     public k(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        R(getView());
+        S(getView());
     }
 
-    private void R(View view) {
+    private void S(View view) {
         this.mRootView = view.findViewById(w.h.card_null_polymeric_rootview);
-        this.aVT = (ImageView) view.findViewById(w.h.card_null_polymeric_icon);
-        this.bvI = (TextView) view.findViewById(w.h.card_null_polymeric_txt);
+        this.aXm = (ImageView) view.findViewById(w.h.card_null_polymeric_icon);
+        this.cJY = (TextView) view.findViewById(w.h.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            aq.j(this.mRootView, w.e.cp_bg_line_d);
-            aq.c(this.aVT, w.g.emotion07);
-            aq.c(this.bvI, w.e.cp_cont_c, 1);
+            as.j(this.mRootView, w.e.cp_bg_line_d);
+            as.c(this.aXm, w.g.emotion07);
+            as.c(this.cJY, w.e.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -51,11 +51,11 @@ public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.eKB)) {
-            TextView textView = this.bvI;
+        if (StringUtils.isNull(this.eUz)) {
+            TextView textView = this.cJY;
             String string2 = this.mContext.getString(w.l.person_polymeric_null_data);
             Object[] objArr = new Object[1];
-            if (iVar.bld) {
+            if (iVar.boT) {
                 string = this.mContext.getString(w.l.you);
             } else {
                 string = iVar.sex == 2 ? this.mContext.getString(w.l.person_identity_she) : this.mContext.getString(w.l.he);
@@ -64,11 +64,11 @@ public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.bvI.setText(this.eKB);
+        this.cJY.setText(this.eUz);
     }
 
     public void setTip(String str) {
-        this.eKB = str;
+        this.eUz = str;
     }
 
     @Override // android.view.View.OnClickListener

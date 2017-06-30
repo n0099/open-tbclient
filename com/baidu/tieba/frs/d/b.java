@@ -8,10 +8,9 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.card.cf;
 import com.baidu.tieba.model.ReportUserInfoModel;
@@ -19,25 +18,25 @@ import com.baidu.tieba.tbadkCore.n;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class b {
-    public static int cff;
-    private static b cfi;
-    private a cfg;
-    private HashSet<String> cfh;
-    private CustomMessageListener RW = new c(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    public static int cnv;
+    private static b cny;
+    private a cnw;
+    private HashSet<String> cnx;
+    private CustomMessageListener RR = new c(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
     private Handler mHandler = new d(this, Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public long cfk;
-        public boolean cfl;
+        public long cnA;
+        public boolean cnB;
         public int count;
         public boolean isRunning;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.cfl = false;
+            this.cnB = false;
         }
 
         /* synthetic */ a(b bVar, a aVar) {
@@ -46,44 +45,44 @@ public class b {
     }
 
     public b() {
-        cff = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
-        MessageManager.getInstance().registerListener(this.RW);
+        cnv = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
+        MessageManager.getInstance().registerListener(this.RR);
     }
 
-    public static b adw() {
-        if (cfi == null) {
+    public static b aho() {
+        if (cny == null) {
             synchronized (cf.class) {
-                if (cfi == null) {
-                    cfi = new b();
+                if (cny == null) {
+                    cny = new b();
                 }
             }
         }
-        return cfi;
+        return cny;
     }
 
-    private boolean adx() {
-        if (this.cfg == null) {
-            this.cfg = new a(this, null);
+    private boolean ahp() {
+        if (this.cnw == null) {
+            this.cnw = new a(this, null);
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.cfg.cfl) {
+        if (this.cnw.cnB) {
             return true;
         }
-        if (this.cfg.isRunning) {
-            this.cfg.count++;
-            if (currentTimeMillis - this.cfg.cfk < 120000) {
-                if (this.cfg.count >= cff) {
-                    this.cfg.cfl = true;
-                    a(this.cfg);
+        if (this.cnw.isRunning) {
+            this.cnw.count++;
+            if (currentTimeMillis - this.cnw.cnA < 120000) {
+                if (this.cnw.count >= cnv) {
+                    this.cnw.cnB = true;
+                    a(this.cnw);
                     return true;
                 }
             } else {
-                this.cfg.isRunning = false;
-                this.cfg.count = 0;
+                this.cnw.isRunning = false;
+                this.cnw.count = 0;
             }
         } else {
-            this.cfg.isRunning = true;
-            this.cfg.cfk = currentTimeMillis;
+            this.cnw.isRunning = true;
+            this.cnw.cnA = currentTimeMillis;
         }
         return false;
     }
@@ -96,101 +95,102 @@ public class b {
         this.mHandler.sendMessageDelayed(obtainMessage, ReportUserInfoModel.TIME_INTERVAL);
     }
 
-    public void H(bl blVar) {
-        if (blVar != null && blVar.so()) {
-            as asVar = new as("c11717");
-            asVar.f("fid", blVar.getFid());
-            asVar.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, blVar.YM);
-            asVar.Z("obj_param2", blVar.YN);
-            asVar.Z("obj_param1", blVar.YR);
-            asVar.r("obj_locate", 1);
-            asVar.Z("tid", blVar.getTid());
-            cf.Uw().a(asVar);
+    public void I(bm bmVar) {
+        if (bmVar != null && bmVar.sl()) {
+            au auVar = new au("c11717");
+            auVar.f("fid", bmVar.getFid());
+            auVar.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bmVar.YN);
+            auVar.Z("obj_param2", bmVar.YO);
+            auVar.Z("obj_param1", bmVar.YS);
+            auVar.r("obj_locate", 1);
+            auVar.Z("tid", bmVar.getTid());
+            cf.VN().a(auVar);
         }
     }
 
-    public void a(com.baidu.tieba.frs.d.a aVar, bl blVar) {
-        if (aVar != null && aVar.cfc && blVar != null && blVar.getTid() != null) {
-            if (this.cfh == null) {
-                this.cfh = new HashSet<>();
+    public void a(com.baidu.tieba.frs.d.a aVar, bm bmVar) {
+        if (aVar != null && aVar.cnr && bmVar != null && bmVar.getTid() != null) {
+            if (this.cnx == null) {
+                this.cnx = new HashSet<>();
             }
-            if (!this.cfh.contains(blVar.getTid()) && !adx()) {
-                this.cfh.add(blVar.getTid());
-                as asVar = new as("c11439");
-                asVar.Z("fid", aVar.cfe);
-                asVar.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, blVar.YM);
-                asVar.Z("obj_param2", blVar.YN);
-                asVar.Z("obj_param1", blVar.YO);
-                asVar.r("obj_locate", aVar.cfd);
-                asVar.Z("tid", blVar.getTid());
-                asVar.Z("obj_param3", blVar.YR);
-                asVar.r("obj_id", v(blVar));
-                asVar.Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-                asVar.r("obj_name", blVar.sG() != null && blVar.sG().avd() != null && !au.isEmpty(blVar.sG().bU(TbadkCoreApplication.m9getInst())) ? 1 : 0);
-                cf.Uw().a(asVar);
-                if (blVar.sh()) {
-                    as asVar2 = new as("c12099");
-                    asVar2.Z("fid", aVar.cfe);
-                    asVar2.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, blVar.YM);
-                    asVar2.Z("obj_param2", blVar.YN);
-                    asVar2.Z("obj_param1", blVar.YO);
-                    asVar2.r("obj_locate", aVar.cfd);
-                    asVar2.Z("tid", blVar.getTid());
-                    asVar2.Z("obj_param3", blVar.YR);
-                    asVar2.r("obj_id", v(blVar));
-                    asVar2.Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-                    cf.Uw().a(asVar2);
+            if (!this.cnx.contains(bmVar.getTid()) && !ahp()) {
+                this.cnx.add(bmVar.getTid());
+                au auVar = new au("c11439");
+                auVar.Z("fid", aVar.cnu);
+                auVar.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bmVar.YN);
+                auVar.Z("obj_param2", bmVar.YO);
+                auVar.Z("obj_param1", bmVar.YP);
+                auVar.r("obj_locate", aVar.cns);
+                auVar.Z("tid", bmVar.getTid());
+                auVar.Z("obj_param3", bmVar.YS);
+                auVar.r("obj_id", w(bmVar));
+                auVar.Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                auVar.f("exposure_time", System.currentTimeMillis());
+                auVar.r("obj_name", bmVar.sE() != null && (bmVar.sE().azb() != null || bmVar.sE().Ic() != null) ? 1 : 0);
+                cf.VN().a(auVar);
+                if (bmVar.se()) {
+                    au auVar2 = new au("c12099");
+                    auVar2.Z("fid", aVar.cnu);
+                    auVar2.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bmVar.YN);
+                    auVar2.Z("obj_param2", bmVar.YO);
+                    auVar2.Z("obj_param1", bmVar.YP);
+                    auVar2.r("obj_locate", aVar.cns);
+                    auVar2.Z("tid", bmVar.getTid());
+                    auVar2.Z("obj_param3", bmVar.YS);
+                    auVar2.r("obj_id", w(bmVar));
+                    auVar2.Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                    cf.VN().a(auVar2);
                 }
             }
         }
     }
 
-    public void a(com.baidu.tieba.frs.d.a aVar, bl blVar, int i) {
-        if (aVar != null && aVar.cfc && blVar != null && blVar.getTid() != null) {
-            cf.Uw().dt(true);
-            as asVar = new as("c11438");
-            asVar.Z("fid", aVar.cfe);
-            asVar.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, blVar.YM);
-            asVar.Z("obj_param2", blVar.YN);
-            asVar.Z("obj_param1", blVar.YO);
-            asVar.r("obj_locate", aVar.cfd);
-            asVar.Z("tid", blVar.getTid());
-            asVar.r("obj_type", i);
-            asVar.Z("obj_param3", blVar.YR);
-            asVar.r("obj_id", v(blVar));
-            asVar.Z("obj_to", I(blVar));
-            TiebaStatic.log(asVar);
-            if (blVar.sh()) {
-                as asVar2 = new as("c12098");
-                asVar2.Z("fid", aVar.cfe);
-                asVar2.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, blVar.YM);
-                asVar2.Z("obj_param2", blVar.YN);
-                asVar2.Z("obj_param1", blVar.YO);
-                asVar2.r("obj_locate", aVar.cfd);
-                asVar2.Z("tid", blVar.getTid());
-                asVar2.r("obj_type", i);
-                asVar2.Z("obj_param3", blVar.YR);
-                asVar2.r("obj_id", v(blVar));
-                asVar2.Z("obj_to", I(blVar));
-                TiebaStatic.log(asVar2);
+    public void a(com.baidu.tieba.frs.d.a aVar, bm bmVar, int i) {
+        if (aVar != null && aVar.cnr && bmVar != null && bmVar.getTid() != null) {
+            cf.VN().dv(true);
+            au auVar = new au("c11438");
+            auVar.Z("fid", aVar.cnu);
+            auVar.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bmVar.YN);
+            auVar.Z("obj_param2", bmVar.YO);
+            auVar.Z("obj_param1", bmVar.YP);
+            auVar.r("obj_locate", aVar.cns);
+            auVar.Z("tid", bmVar.getTid());
+            auVar.r("obj_type", i);
+            auVar.Z("obj_param3", bmVar.YS);
+            auVar.r("obj_id", w(bmVar));
+            auVar.Z("obj_to", J(bmVar));
+            TiebaStatic.log(auVar);
+            if (bmVar.se()) {
+                au auVar2 = new au("c12098");
+                auVar2.Z("fid", aVar.cnu);
+                auVar2.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bmVar.YN);
+                auVar2.Z("obj_param2", bmVar.YO);
+                auVar2.Z("obj_param1", bmVar.YP);
+                auVar2.r("obj_locate", aVar.cns);
+                auVar2.Z("tid", bmVar.getTid());
+                auVar2.r("obj_type", i);
+                auVar2.Z("obj_param3", bmVar.YS);
+                auVar2.r("obj_id", w(bmVar));
+                auVar2.Z("obj_to", J(bmVar));
+                TiebaStatic.log(auVar2);
             }
         }
     }
 
     public static void a(n nVar, int i, int i2) {
-        if (nVar != null && nVar.aIz() != null && nVar.fzF == 1) {
-            TiebaStatic.log(new as("c11440").Z("fid", nVar.aIz().getId()).r("obj_locate", i).r("obj_type", i2));
+        if (nVar != null && nVar.aMt() != null && nVar.fJJ == 1) {
+            TiebaStatic.log(new au("c11440").Z("fid", nVar.aMt().getId()).r("obj_locate", i).r("obj_type", i2));
         }
     }
 
-    private int v(bl blVar) {
-        if (blVar.sx() == null || blVar.sx().channelId <= 0) {
+    private int w(bm bmVar) {
+        if (bmVar.sv() == null || bmVar.sv().channelId <= 0) {
             return 0;
         }
-        return (int) blVar.sx().channelId;
+        return (int) bmVar.sv().channelId;
     }
 
-    private String I(bl blVar) {
-        return blVar.YS ? String.valueOf(blVar.su()) : String.valueOf(4);
+    private String J(bm bmVar) {
+        return bmVar.YT ? String.valueOf(bmVar.ss()) : String.valueOf(4);
     }
 }

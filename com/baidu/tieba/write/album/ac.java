@@ -26,167 +26,167 @@ import com.baidu.tieba.write.view.a;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ac extends BaseFragment implements AbsListView.OnScrollListener, q.a {
-    private View bCG;
-    private RelativeLayout bMv;
-    private TextView bPO;
-    private boolean ely;
-    private AlbumActivity fTN;
-    private p fTx;
-    private i fUR;
-    private ImageView fUS;
-    private TextView fUT;
-    private com.baidu.tieba.write.view.a fUU;
-    private TransparentHeadGridView fUV;
-    private y fUW;
-    private View fUX;
-    private View fUZ;
-    private View fVa;
-    private View fVb;
-    private View fVc;
-    private View fVd;
-    private View fVe;
-    private View fVf;
-    private Animation fVg;
-    private Animation fVh;
-    private View fVi;
-    private View fVk;
-    private View fVl;
+    private View bDz;
+    private RelativeLayout bSW;
+    private TextView bWL;
+    private boolean euy;
+    private p gei;
+    private AlbumActivity gex;
+    private i gfC;
+    private ImageView gfD;
+    private TextView gfE;
+    private com.baidu.tieba.write.view.a gfF;
+    private TransparentHeadGridView gfG;
+    private y gfH;
+    private View gfI;
+    private View gfK;
+    private View gfL;
+    private View gfM;
+    private View gfN;
+    private View gfO;
+    private View gfP;
+    private View gfQ;
+    private Animation gfR;
+    private Animation gfS;
+    private View gfT;
+    private View gfV;
+    private View gfW;
     private com.baidu.tbadk.core.view.y mNoDataView;
     private int mScreenWidth;
     private View mView;
-    private TbCameraView fUY = null;
-    private int fVj = 0;
-    private String agW = AlbumActivityConfig.FROM_WRITE;
-    private View.OnClickListener fVm = new ad(this);
+    private TbCameraView gfJ = null;
+    private int gfU = 0;
+    private String ahE = AlbumActivityConfig.FROM_WRITE;
+    private View.OnClickListener gfX = new ad(this);
     private View.OnClickListener mOnClickListener = new al(this);
-    private TbCameraView.c fVn = new am(this);
-    private TbCameraView.a fVo = new an(this);
-    private TbCameraView.b fVp = new ao(this);
-    private PopupWindow.OnDismissListener fVq = new ap(this);
-    private TbCameraView.d fVr = new aq(this);
-    private TransparentHeadGridView.b fVs = new ar(this);
-    private Animation.AnimationListener fVt = new as(this);
-    private TransparentHeadGridView.a fVu = new ae(this);
-    private w fUE = new af(this);
-    private a.InterfaceC0088a fVv = new ag(this);
-    private x fUF = new ah(this);
+    private TbCameraView.c gfY = new am(this);
+    private TbCameraView.a gfZ = new an(this);
+    private TbCameraView.b gga = new ao(this);
+    private PopupWindow.OnDismissListener ggb = new ap(this);
+    private TbCameraView.d ggc = new aq(this);
+    private TransparentHeadGridView.b ggd = new ar(this);
+    private Animation.AnimationListener gge = new as(this);
+    private TransparentHeadGridView.a ggf = new ae(this);
+    private w gfo = new af(this);
+    private a.InterfaceC0090a ggg = new ag(this);
+    private x gfp = new ah(this);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fTN = (AlbumActivity) getBaseFragmentActivity();
-        this.fTx = this.fTN.bnp();
-        q.bnU().a(this);
-        this.fUR = new i(this.fTN.getPageContext().getPageActivity());
-        this.fUU = new com.baidu.tieba.write.view.a(this.fTN);
-        this.fUU.setOnDismissListener(this.fVq);
-        this.fTx.rh("-1");
+        this.gex = (AlbumActivity) getBaseFragmentActivity();
+        this.gei = this.gex.brM();
+        q.bsr().a(this);
+        this.gfC = new i(this.gex.getPageContext().getPageActivity());
+        this.gfF = new com.baidu.tieba.write.view.a(this.gex);
+        this.gfF.setOnDismissListener(this.ggb);
+        this.gei.sg("-1");
         if (getActivity().getIntent() != null) {
-            this.agW = getActivity().getIntent().getStringExtra("from");
+            this.ahE = getActivity().getIntent().getStringExtra("from");
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mView = layoutInflater.inflate(w.j.album_image_list_view, (ViewGroup) null);
-        this.bMv = (RelativeLayout) this.mView.findViewById(w.h.album_image_list_root);
-        this.fUS = (ImageView) this.mView.findViewById(w.h.img_close);
-        this.fUS.setOnClickListener(this.fTN);
-        this.fUT = (TextView) this.mView.findViewById(w.h.next_step);
-        this.fUT.setOnClickListener(this.fTN);
-        this.bPO = (TextView) this.mView.findViewById(w.h.album_title);
-        this.bPO.setOnClickListener(this.mOnClickListener);
-        this.fUV = (TransparentHeadGridView) this.mView.findViewById(w.h.gv_image_list);
-        this.fUW = new y(this.fTN, this.fTx);
-        this.fUV.setAdapter((ListAdapter) this.fUW);
-        this.fUV.setOuterOnScrollListener(this);
-        this.fUV.setSelector(w.e.transparent);
-        this.fUV.setOnHeadDisplayChangeListener(this.fVu);
-        this.fUV.setOnPullChangeListener(this.fVs);
-        this.fUU.a(this.fVv);
-        this.fUW.a(this.fUF);
-        this.fUW.a(this.fUE);
-        this.fUW.m(this.fVm);
-        this.mNoDataView = NoDataViewFactory.a(this.fTN.getPageContext().getPageActivity(), this.bMv, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.B(w.l.album_list_no_data, w.l.album_list_no_data_1), null);
-        this.bCG = this.mView.findViewById(w.h.layout_title);
-        this.fUX = this.mView.findViewById(w.h.top_bar_background);
-        this.fUX.setAlpha(0.0f);
-        this.fUY = (TbCameraView) this.mView.findViewById(w.h.camera_surfaceview);
-        this.fUY.setOnGotPictureListener(this.fVr);
-        this.fUY.setOnPreviewSizeChangedListener(this.fVp);
-        this.fUZ = this.mView.findViewById(w.h.camera_view_container);
-        this.fVa = this.mView.findViewById(w.h.img_pic_cancel);
-        this.fVa.setOnClickListener(this.mOnClickListener);
-        this.fVb = this.mView.findViewById(w.h.img_take_picture);
-        this.fVb.setOnClickListener(this.mOnClickListener);
-        this.fVc = this.mView.findViewById(w.h.img_pic_save);
-        this.fVc.setOnClickListener(this.mOnClickListener);
-        this.fVd = this.mView.findViewById(w.h.camera_bar);
-        this.fVd.setAlpha(0.0f);
-        this.fVe = this.mView.findViewById(w.h.btn_camera_switch);
-        this.fVe.setOnClickListener(this.mOnClickListener);
-        this.fVf = this.mView.findViewById(w.h.btn_back_to_pictures);
-        this.fVf.setOnClickListener(this.mOnClickListener);
-        this.fVg = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), w.a.fade_in);
-        this.fVh = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), w.a.fade_out);
-        this.fVh.setAnimationListener(this.fVt);
-        this.fUV.setBottomMoveView(this.fUZ);
-        this.fVk = this.mView.findViewById(w.h.layout_camera_view_clip);
+        this.bSW = (RelativeLayout) this.mView.findViewById(w.h.album_image_list_root);
+        this.gfD = (ImageView) this.mView.findViewById(w.h.img_close);
+        this.gfD.setOnClickListener(this.gex);
+        this.gfE = (TextView) this.mView.findViewById(w.h.next_step);
+        this.gfE.setOnClickListener(this.gex);
+        this.bWL = (TextView) this.mView.findViewById(w.h.album_title);
+        this.bWL.setOnClickListener(this.mOnClickListener);
+        this.gfG = (TransparentHeadGridView) this.mView.findViewById(w.h.gv_image_list);
+        this.gfH = new y(this.gex, this.gei);
+        this.gfG.setAdapter((ListAdapter) this.gfH);
+        this.gfG.setOuterOnScrollListener(this);
+        this.gfG.setSelector(w.e.transparent);
+        this.gfG.setOnHeadDisplayChangeListener(this.ggf);
+        this.gfG.setOnPullChangeListener(this.ggd);
+        this.gfF.a(this.ggg);
+        this.gfH.a(this.gfp);
+        this.gfH.a(this.gfo);
+        this.gfH.m(this.gfX);
+        this.mNoDataView = NoDataViewFactory.a(this.gex.getPageContext().getPageActivity(), this.bSW, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.B(w.l.album_list_no_data, w.l.album_list_no_data_1), null);
+        this.bDz = this.mView.findViewById(w.h.layout_title);
+        this.gfI = this.mView.findViewById(w.h.top_bar_background);
+        this.gfI.setAlpha(0.0f);
+        this.gfJ = (TbCameraView) this.mView.findViewById(w.h.camera_surfaceview);
+        this.gfJ.setOnGotPictureListener(this.ggc);
+        this.gfJ.setOnPreviewSizeChangedListener(this.gga);
+        this.gfK = this.mView.findViewById(w.h.camera_view_container);
+        this.gfL = this.mView.findViewById(w.h.img_pic_cancel);
+        this.gfL.setOnClickListener(this.mOnClickListener);
+        this.gfM = this.mView.findViewById(w.h.img_take_picture);
+        this.gfM.setOnClickListener(this.mOnClickListener);
+        this.gfN = this.mView.findViewById(w.h.img_pic_save);
+        this.gfN.setOnClickListener(this.mOnClickListener);
+        this.gfO = this.mView.findViewById(w.h.camera_bar);
+        this.gfO.setAlpha(0.0f);
+        this.gfP = this.mView.findViewById(w.h.btn_camera_switch);
+        this.gfP.setOnClickListener(this.mOnClickListener);
+        this.gfQ = this.mView.findViewById(w.h.btn_back_to_pictures);
+        this.gfQ.setOnClickListener(this.mOnClickListener);
+        this.gfR = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), w.a.fade_in);
+        this.gfS = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), w.a.fade_out);
+        this.gfS.setAnimationListener(this.gge);
+        this.gfG.setBottomMoveView(this.gfK);
+        this.gfV = this.mView.findViewById(w.h.layout_camera_view_clip);
         this.mScreenWidth = com.baidu.adp.lib.util.k.af(getPageContext().getPageActivity());
-        ViewGroup.LayoutParams layoutParams = this.fVk.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.gfV.getLayoutParams();
         layoutParams.height = (this.mScreenWidth * 4) / 3;
-        this.fVk.setLayoutParams(layoutParams);
-        this.fUW.tl((this.mScreenWidth - com.baidu.adp.lib.util.k.g(getPageContext().getPageActivity(), w.f.ds16)) / 3);
-        this.fVi = this.mView.findViewById(w.h.icon_camera);
-        this.fVl = this.mView.findViewById(w.h.view_camera_cover);
-        this.fUY.setOnRequestPermissionListener(this.fVn);
-        bnX();
-        this.fUY.setOnOpenCameraFailedListener(this.fVo);
-        lX(true);
+        this.gfV.setLayoutParams(layoutParams);
+        this.gfH.tG((this.mScreenWidth - com.baidu.adp.lib.util.k.g(getPageContext().getPageActivity(), w.f.ds16)) / 3);
+        this.gfT = this.mView.findViewById(w.h.icon_camera);
+        this.gfW = this.mView.findViewById(w.h.view_camera_cover);
+        this.gfJ.setOnRequestPermissionListener(this.gfY);
+        bsu();
+        this.gfJ.setOnOpenCameraFailedListener(this.gfZ);
+        my(true);
         return this.mView;
     }
 
-    public void bnV() {
-        if (this.fUY != null) {
-            this.fUY.boh();
-            this.fUY.bnV();
+    public void bss() {
+        if (this.gfJ != null) {
+            this.gfJ.bsE();
+            this.gfJ.bss();
         }
     }
 
-    public void bnW() {
-        this.fUV.boj();
-        this.bCG.setVisibility(0);
-        this.bCG.setAlpha(1.0f);
-        this.bCG.startAnimation(this.fVg);
-        this.fVd.startAnimation(this.fVh);
-        this.fVi.setVisibility(0);
-        this.fVi.startAnimation(this.fVg);
-        this.fVl.setVisibility(0);
+    public void bst() {
+        this.gfG.bsG();
+        this.bDz.setVisibility(0);
+        this.bDz.setAlpha(1.0f);
+        this.bDz.startAnimation(this.gfR);
+        this.gfO.startAnimation(this.gfS);
+        this.gfT.setVisibility(0);
+        this.gfT.startAnimation(this.gfR);
+        this.gfW.setVisibility(0);
     }
 
-    public void lX(boolean z) {
+    public void my(boolean z) {
         if (z) {
-            this.fVa.setVisibility(4);
-            this.fVb.setVisibility(0);
-            this.fVc.setVisibility(4);
-            this.fVf.setVisibility(0);
-            this.fVe.setVisibility(0);
+            this.gfL.setVisibility(4);
+            this.gfM.setVisibility(0);
+            this.gfN.setVisibility(4);
+            this.gfQ.setVisibility(0);
+            this.gfP.setVisibility(0);
             return;
         }
-        this.fVa.setVisibility(0);
-        this.fVb.setVisibility(4);
-        this.fVc.setVisibility(0);
-        this.fVf.setVisibility(8);
-        this.fVe.setVisibility(8);
+        this.gfL.setVisibility(0);
+        this.gfM.setVisibility(4);
+        this.gfN.setVisibility(0);
+        this.gfQ.setVisibility(8);
+        this.gfP.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnX() {
-        if (this.fTx.getWriteImagesInfo() != null && this.fTx.getWriteImagesInfo().getChosedFiles() != null) {
-            if (this.fTx.getWriteImagesInfo().getChosedFiles().size() > 0 || AlbumActivityConfig.FROM_WRITE.equals(this.agW)) {
-                this.fUT.setText(this.fTN.getResources().getText(w.l.next_step));
+    public void bsu() {
+        if (this.gei.getWriteImagesInfo() != null && this.gei.getWriteImagesInfo().getChosedFiles() != null) {
+            if (this.gei.getWriteImagesInfo().getChosedFiles().size() > 0 || AlbumActivityConfig.FROM_WRITE.equals(this.ahE)) {
+                this.gfE.setText(this.gex.getResources().getText(w.l.next_step));
             } else {
-                this.fUT.setText(this.fTN.getResources().getText(w.l.skip));
+                this.gfE.setText(this.gex.getResources().getText(w.l.skip));
             }
         }
     }
@@ -199,85 +199,85 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, q.
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.ely = false;
+        this.euy = false;
         if (isShow()) {
-            aax();
+            aen();
         }
     }
 
-    private void bnI() {
-        if (this.fTx == null && this.fTN != null) {
-            this.fTx = this.fTN.bnp();
+    private void bsf() {
+        if (this.gei == null && this.gex != null) {
+            this.gei = this.gex.brM();
         }
-        if (this.fTx != null) {
-            if (this.fTx.bnR() != null) {
-                this.fUW.notifyDataSetChanged();
+        if (this.gei != null) {
+            if (this.gei.bso() != null) {
+                this.gfH.notifyDataSetChanged();
             } else {
-                rj("-1");
+                si("-1");
             }
         }
     }
 
-    private void rj(String str) {
+    private void si(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fUR.a(str, new ai(this, str));
+            this.gfC.a(str, new ai(this, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnY() {
-        this.fUR.a(new aj(this));
+    public void bsv() {
+        this.gfC.a(new aj(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setData(List<ImageFileInfo> list) {
         if (list != null) {
-            if (this.fUW != null) {
-                this.fTx.cP(list);
-                this.fUW.setData(this.fTx.bnT());
+            if (this.gfH != null) {
+                this.gei.de(list);
+                this.gfH.setData(this.gei.bsq());
             }
-            bnX();
+            bsu();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.fTN.getLayoutMode().ah(i == 1);
-        this.fTN.getLayoutMode().t(this.mView);
-        if (this.fUW != null) {
-            this.fUW.notifyDataSetChanged();
+        this.gex.getLayoutMode().ah(i == 1);
+        this.gex.getLayoutMode().t(this.mView);
+        if (this.gfH != null) {
+            this.gfH.notifyDataSetChanged();
         }
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
     }
 
-    public View bcK() {
-        return this.fUS;
+    public View bgZ() {
+        return this.gfD;
     }
 
-    public View bnZ() {
-        return this.fUT;
+    public View bsw() {
+        return this.gfE;
     }
 
-    public TbCameraView bnx() {
-        return this.fUY;
+    public TbCameraView brU() {
+        return this.gfJ;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.fUR != null) {
-            this.fUR.bnL();
+        if (this.gfC != null) {
+            this.gfC.bsi();
         }
-        q.bnU().b(this);
+        q.bsr().b(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.ely = true;
+        this.euy = true;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -286,13 +286,13 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, q.
     }
 
     @Override // com.baidu.tieba.write.album.q.a
-    public void lV(boolean z) {
-        aax();
+    public void mw(boolean z) {
+        aen();
     }
 
-    private void aax() {
-        if (!isHidden() && !this.ely) {
-            bnI();
+    private void aen() {
+        if (!isHidden() && !this.euy) {
+            bsf();
         }
     }
 
@@ -305,10 +305,10 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, q.
             if (childAt != null) {
                 childAt.getLocationInWindow(iArr);
                 int height = childAt.getHeight() + iArr[1];
-                if (height >= 0 && (this.fVi.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fVi.getLayoutParams();
+                if (height >= 0 && (this.gfT.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gfT.getLayoutParams();
                     layoutParams.topMargin = height / 2;
-                    this.fVi.setLayoutParams(layoutParams);
+                    this.gfT.setLayoutParams(layoutParams);
                 }
             }
         }
@@ -318,49 +318,49 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, q.
     public void onScrollStateChanged(AbsListView absListView, int i) {
         super.onScrollStateChanged(absListView, i);
         if (i == 2) {
-            this.fUW.lW(true);
-        } else if (this.fUW.isScroll()) {
-            this.fUW.lW(false);
-            boa();
+            this.gfH.mx(true);
+        } else if (this.gfH.isScroll()) {
+            this.gfH.mx(false);
+            bsx();
         }
     }
 
-    private void boa() {
-        int childCount = this.fUV.getChildCount();
-        int firstVisiblePosition = this.fUV.getFirstVisiblePosition();
+    private void bsx() {
+        int childCount = this.gfG.getChildCount();
+        int firstVisiblePosition = this.gfG.getFirstVisiblePosition();
         for (int i = 0; i < childCount; i++) {
-            View childAt = this.fUV.getChildAt(i);
+            View childAt = this.gfG.getChildAt(i);
             if (childAt != null) {
                 HeadImageView headImageView = (HeadImageView) childAt.findViewById(w.h.pic);
-                ImageFileInfo item = this.fUW.getItem(firstVisiblePosition + i);
+                ImageFileInfo item = this.gfH.getItem(firstVisiblePosition + i);
                 if (item != null && headImageView != null) {
                     headImageView.setTag(item.toCachedKey(false));
-                    this.fTN.ahn().a(item, new ak(this), false, false);
+                    this.gex.akX().a(item, new ak(this), false, false);
                 }
             }
         }
     }
 
     public void refresh() {
-        if (this.fUW != null) {
-            this.fUW.setData(this.fTx.bnT());
+        if (this.gfH != null) {
+            this.gfH.setData(this.gei.bsq());
         }
-        bnX();
+        bsu();
     }
 
     public void H(int i, boolean z) {
-        if (this.fUV != null) {
-            int firstVisiblePosition = this.fUV.getFirstVisiblePosition();
-            int lastVisiblePosition = this.fUV.getLastVisiblePosition();
+        if (this.gfG != null) {
+            int firstVisiblePosition = this.gfG.getFirstVisiblePosition();
+            int lastVisiblePosition = this.gfG.getLastVisiblePosition();
             if (i >= firstVisiblePosition && i <= lastVisiblePosition) {
-                View childAt = this.fUV.getChildAt(i - firstVisiblePosition);
+                View childAt = this.gfG.getChildAt(i - firstVisiblePosition);
                 if (childAt != null) {
                     childAt.invalidate();
                     View findViewById = childAt.findViewById(w.h.select_icon);
                     if (z) {
-                        com.baidu.tbadk.core.util.aq.j(findViewById, w.g.btn_choose_photo_s);
+                        com.baidu.tbadk.core.util.as.j(findViewById, w.g.btn_choose_photo_s);
                     } else {
-                        com.baidu.tbadk.core.util.aq.j(findViewById, w.g.btn_choose_photo_n);
+                        com.baidu.tbadk.core.util.as.j(findViewById, w.g.btn_choose_photo_n);
                     }
                 } else {
                     return;
@@ -369,16 +369,16 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, q.
                 return;
             }
         }
-        bnX();
+        bsu();
     }
 
     public void g(ImageFileInfo imageFileInfo, boolean z) {
-        if (imageFileInfo != null && this.fUW != null) {
-            H(this.fUW.g(imageFileInfo), z);
+        if (imageFileInfo != null && this.gfH != null) {
+            H(this.gfH.g(imageFileInfo), z);
         }
     }
 
-    public boolean bob() {
-        return this.fUV != null && this.fUV.getVisibility() == 0;
+    public boolean bsy() {
+        return this.gfG != null && this.gfG.getVisibility() == 0;
     }
 }

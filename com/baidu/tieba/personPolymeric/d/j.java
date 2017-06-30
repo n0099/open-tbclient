@@ -4,28 +4,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.h> {
-    private TbImageView dAM;
-    private View eNp;
+    private TbImageView dJg;
+    private View eXy;
     private View mRootView;
 
     public j(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.dAM = (TbImageView) this.mRootView.findViewById(w.h.center_image);
-        this.eNp = this.mRootView.findViewById(w.h.more_view_container);
+        this.dJg = (TbImageView) this.mRootView.findViewById(w.h.center_image);
+        this.eXy = this.mRootView.findViewById(w.h.more_view_container);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            aq.c(this.dAM, w.g.icon_mine_more);
-            aq.j(this.mRootView, w.g.btn_look_more_selector);
+            as.c(this.dJg, w.g.icon_mine_more);
+            as.j(this.mRootView, w.g.btn_look_more_selector);
         }
     }
 
@@ -40,7 +40,7 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (hVar == null) {
             this.mRootView.setVisibility(8);
         }
-        ViewGroup.LayoutParams layoutParams = this.eNp.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.eXy.getLayoutParams();
         if (layoutParams != null) {
             if (layoutParams.width > 0) {
                 layoutParams.width = hVar.width;
@@ -49,7 +49,7 @@ public class j extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 layoutParams.height = hVar.height;
             }
         }
-        this.eNp.setLayoutParams(layoutParams);
+        this.eXy.setLayoutParams(layoutParams);
         this.mRootView.setVisibility(0);
         d(this.mTbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
     }

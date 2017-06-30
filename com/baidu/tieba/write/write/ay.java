@@ -1,32 +1,53 @@
 package com.baidu.tieba.write.write;
 
-import android.text.SpannableStringBuilder;
+import android.text.Editable;
+import android.text.SpannableString;
+import android.text.TextWatcher;
 import android.widget.EditText;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    private final /* synthetic */ SpannableStringBuilder aAo;
-    private final /* synthetic */ EmotionGroupType aAp;
-    final /* synthetic */ WriteActivity gaR;
+public class ay implements TextWatcher {
+    final /* synthetic */ WriteActivity glP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
-        this.gaR = writeActivity;
-        this.aAo = spannableStringBuilder;
-        this.aAp = emotionGroupType;
+    public ay(WriteActivity writeActivity) {
+        this.glP = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EditText bpV;
-        super.onLoaded((ay) aVar, str, i);
-        if (aVar == null) {
-            return;
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        String str;
+        str = this.glP.glE;
+        if (!str.equals(charSequence.toString())) {
+            this.glP.glF = i + i3;
         }
-        bpV = this.gaR.bpV();
-        this.gaR.a(this.aAo, bpV.getSelectionStart(), aVar, this.aAp);
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        String str;
+        SpannableString gs;
+        EditText editText;
+        int i;
+        EditText editText2;
+        EditText editText3;
+        int i2;
+        str = this.glP.glE;
+        if (!str.equals(editable.toString()) && (gs = com.baidu.tbadk.plugins.a.gs(editable.toString())) != null) {
+            this.glP.glE = gs.toString();
+            editText = this.glP.fCz;
+            editText.setText(gs);
+            i = this.glP.glF;
+            editText2 = this.glP.fCz;
+            if (i <= editText2.getText().length()) {
+                editText3 = this.glP.fCz;
+                i2 = this.glP.glF;
+                editText3.setSelection(i2);
+            }
+        }
     }
 }

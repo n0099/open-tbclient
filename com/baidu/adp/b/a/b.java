@@ -96,7 +96,7 @@ public abstract class b extends ImageView implements i {
                 this.BF.Ci = getResources().getDrawable(R.drawable.icon_gif);
             }
         }
-        this.BM = f.iH().aB(this.BJ);
+        this.BM = f.iG().aB(this.BJ);
         this.BM.a(this.BF);
     }
 
@@ -155,21 +155,21 @@ public abstract class b extends ImageView implements i {
         ImageView.ScaleType scaleType = getScaleType();
         this.BT.BZ = (BitmapDrawable) getDrawable();
         this.BT.Ca = getBdImage();
-        if (this.BT.iF()) {
+        if (this.BT.iE()) {
             this.BT.Ca = null;
-            iC();
+            iB();
             this.BT.isDefault = false;
             this.BX = this.BW;
-        } else if (this.BT.iG()) {
+        } else if (this.BT.iF()) {
             this.BT.BZ = null;
-            iC();
+            iB();
             this.BT.isDefault = false;
             this.BX = this.BW;
         } else {
             this.BT.BZ = null;
             this.BT.Ca = getDefaultBdImage();
             this.BT.isDefault = true;
-            ImageView.ScaleType scaleType2 = this.BT.iG() ? this.BK : scaleType;
+            ImageView.ScaleType scaleType2 = this.BT.iF() ? this.BK : scaleType;
             this.BX = this.BV;
             scaleType = scaleType2;
         }
@@ -179,7 +179,7 @@ public abstract class b extends ImageView implements i {
         }
     }
 
-    private void iC() {
+    private void iB() {
         if (this.BT.isDefault) {
             this.BP = true;
             if (this.BU || this.BQ != 1073741824 || this.BR != 1073741824) {
@@ -191,16 +191,16 @@ public abstract class b extends ImageView implements i {
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         super.setImageDrawable(drawable);
-        iD();
+        iC();
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
         super.setImageResource(i);
-        iD();
+        iC();
     }
 
-    private void iD() {
+    private void iC() {
         Drawable drawable = getDrawable();
         if (drawable != null) {
             if (drawable instanceof BitmapDrawable) {
@@ -226,7 +226,7 @@ public abstract class b extends ImageView implements i {
         this.BT.reset();
     }
 
-    private void iE() {
+    private void iD() {
         if (this.BO && this.BN && this.BP) {
             this.BM.a(this.BT, this, this.BL);
             this.BP = false;
@@ -235,7 +235,7 @@ public abstract class b extends ImageView implements i {
 
     private void b(Canvas canvas) {
         if (this.BT.isAvailable()) {
-            iE();
+            iD();
             this.BM.a(canvas, this.BT, this);
         }
     }
@@ -323,7 +323,7 @@ public abstract class b extends ImageView implements i {
     public void setDrawerType(int i) {
         if (this.BJ != i) {
             this.BJ = i;
-            this.BM = f.iH().aB(this.BJ);
+            this.BM = f.iG().aB(this.BJ);
             this.BM.a(this.BF);
             this.BP = true;
             invalidate();
@@ -356,11 +356,11 @@ public abstract class b extends ImageView implements i {
 
     @Override // android.widget.ImageView
     public Matrix getImageMatrix() {
-        return !this.BN ? super.getImageMatrix() : this.BM.iz();
+        return !this.BN ? super.getImageMatrix() : this.BM.iy();
     }
 
     public RectF getImageBounds() {
-        return this.BM.iA();
+        return this.BM.iz();
     }
 
     public int getImageWidth() {

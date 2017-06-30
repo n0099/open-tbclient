@@ -1,30 +1,25 @@
 package com.baidu.tieba.write.write;
-
-import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-class cf implements a.b {
-    final /* synthetic */ ce gby;
+class cf implements Runnable {
+    final /* synthetic */ WriteUrlActivity gmD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cf(ce ceVar) {
-        this.gby = ceVar;
+    public cf(WriteUrlActivity writeUrlActivity) {
+        this.gmD = writeUrlActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        WriteMultiImgsActivity writeMultiImgsActivity;
-        com.baidu.tbadk.core.dialog.a aVar2;
-        WriteMultiImgsActivity writeMultiImgsActivity2;
-        WriteMultiImgsActivity writeMultiImgsActivity3;
-        com.baidu.tbadk.core.dialog.a aVar3;
-        writeMultiImgsActivity = this.gby.gbx;
-        aVar2 = writeMultiImgsActivity.gbs;
-        if (aVar2 != null) {
-            writeMultiImgsActivity3 = this.gby.gbx;
-            aVar3 = writeMultiImgsActivity3.gbs;
-            aVar3.dismiss();
+    @Override // java.lang.Runnable
+    public void run() {
+        cq cqVar;
+        cq cqVar2;
+        com.baidu.tieba.write.a.a aVar;
+        boolean z;
+        cqVar = this.gmD.gmx;
+        if (cqVar != null) {
+            cqVar2 = this.gmD.gmx;
+            aVar = this.gmD.gmA;
+            z = this.gmD.isLoading;
+            cqVar2.a(aVar, z);
         }
-        writeMultiImgsActivity2 = this.gby.gbx;
-        writeMultiImgsActivity2.bqn();
     }
 }

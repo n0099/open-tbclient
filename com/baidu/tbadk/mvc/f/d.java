@@ -8,13 +8,13 @@ import com.baidu.tbadk.mvc.d.b;
 import com.baidu.tbadk.mvc.f.a;
 /* loaded from: classes.dex */
 public class d<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends c<D, S, H> {
-    private final Class<H> aFd;
-    private final int aFe;
+    private final Class<H> aGr;
+    private final int aGs;
 
     public d(TbPageContext<?> tbPageContext, Class<H> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, viewEventCenter);
-        this.aFe = i;
-        this.aFd = cls;
+        this.aGs = i;
+        this.aGr = cls;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -24,7 +24,7 @@ public class d<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends 
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public final int getItemViewType(int i) {
-        if (this.aEW && ER()) {
+        if (this.aGk && Fo()) {
             return -1;
         }
         return super.getItemViewType(i);
@@ -32,10 +32,10 @@ public class d<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends 
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (this.aEW && ER()) {
-            return EQ();
+        if (this.aGk && Fo()) {
+            return Fn();
         }
-        EP();
-        return a(view, i, (Class<?>) this.aFd, this.aFe);
+        Fm();
+        return a(view, i, (Class<?>) this.aGr, this.aGs);
     }
 }

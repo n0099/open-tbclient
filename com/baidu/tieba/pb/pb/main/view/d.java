@@ -10,11 +10,11 @@ import java.lang.ref.SoftReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ c ewV;
+    final /* synthetic */ c eGr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.ewV = cVar;
+        this.eGr = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -30,33 +30,33 @@ public class d implements Runnable {
         int i2;
         Handler handler;
         int i3;
-        int aNt;
+        int aRt;
         Bitmap bitmap4;
         Bitmap bitmap5;
         Bitmap bitmap6;
         Bitmap bitmap7;
         BitmapFactory.Options options;
-        softReference = this.ewV.ewP;
+        softReference = this.eGr.eGl;
         ImageView imageView = (ImageView) softReference.get();
-        z = this.ewV.ewO;
+        z = this.eGr.eGk;
         if (z && imageView != null) {
-            i = this.ewV.ewT;
-            i2 = this.ewV.ewS;
+            i = this.eGr.eGp;
+            i2 = this.eGr.eGo;
             if (i <= i2) {
-                this.ewV.mIsRunning = true;
-                handler = this.ewV.mHandler;
-                i3 = this.ewV.ewQ;
+                this.eGr.mIsRunning = true;
+                handler = this.eGr.mHandler;
+                i3 = this.eGr.eGm;
                 handler.postDelayed(this, i3);
                 if (imageView.isShown()) {
-                    aNt = this.ewV.aNt();
-                    bitmap4 = this.ewV.mBitmap;
+                    aRt = this.eGr.aRt();
+                    bitmap4 = this.eGr.mBitmap;
                     if (bitmap4 != null) {
-                        bitmap5 = this.ewV.mBitmap;
+                        bitmap5 = this.eGr.mBitmap;
                         if (!bitmap5.isRecycled()) {
                             try {
                                 Resources resources = imageView.getResources();
-                                options = this.ewV.ewU;
-                                bitmap6 = BitmapFactory.decodeResource(resources, aNt, options);
+                                options = this.eGr.eGq;
+                                bitmap6 = BitmapFactory.decodeResource(resources, aRt, options);
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 bitmap6 = null;
@@ -65,32 +65,32 @@ public class d implements Runnable {
                                 imageView.setImageBitmap(bitmap6);
                                 return;
                             }
-                            imageView.setImageResource(aNt);
-                            bitmap7 = this.ewV.mBitmap;
+                            imageView.setImageResource(aRt);
+                            bitmap7 = this.eGr.mBitmap;
                             bitmap7.recycle();
-                            this.ewV.mBitmap = null;
+                            this.eGr.mBitmap = null;
                             return;
                         }
                     }
-                    imageView.setImageResource(aNt);
+                    imageView.setImageResource(aRt);
                     return;
                 }
                 return;
             }
         }
-        this.ewV.mIsRunning = false;
-        aVar = this.ewV.ewR;
+        this.eGr.mIsRunning = false;
+        aVar = this.eGr.eGn;
         if (aVar != null) {
-            aVar2 = this.ewV.ewR;
-            aVar2.aNu();
+            aVar2 = this.eGr.eGn;
+            aVar2.aRu();
         }
-        bitmap = this.ewV.mBitmap;
+        bitmap = this.eGr.mBitmap;
         if (bitmap != null) {
-            bitmap2 = this.ewV.mBitmap;
+            bitmap2 = this.eGr.mBitmap;
             if (!bitmap2.isRecycled()) {
-                bitmap3 = this.ewV.mBitmap;
+                bitmap3 = this.eGr.mBitmap;
                 bitmap3.recycle();
-                this.ewV.mBitmap = null;
+                this.eGr.mBitmap = null;
             }
         }
     }

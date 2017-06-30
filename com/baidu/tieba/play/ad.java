@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad extends CustomMessageListener {
-    final /* synthetic */ ac fbg;
+    final /* synthetic */ ac flw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(ac acVar, int i) {
         super(i);
-        this.fbg = acVar;
+        this.flw = acVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,20 +25,20 @@ public class ad extends CustomMessageListener {
         at atVar3;
         at atVar4;
         if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-            this.fbg.akv();
-            z = this.fbg.dyg;
+            this.flw.aog();
+            z = this.flw.dGT;
             if (z) {
-                z2 = this.fbg.dyg;
+                z2 = this.flw.dGT;
                 if (z2) {
-                    ac acVar = this.fbg;
-                    atVar = this.fbg.dyf;
-                    int aXV = atVar.aXV();
-                    atVar2 = this.fbg.dyf;
-                    int aXW = atVar2.aXW();
-                    atVar3 = this.fbg.dyf;
-                    boolean aXX = atVar3.aXX();
-                    atVar4 = this.fbg.dyf;
-                    acVar.a(aXV, aXW, aXX, atVar4.aXY());
+                    ac acVar = this.flw;
+                    atVar = this.flw.dGS;
+                    int bcg = atVar.bcg();
+                    atVar2 = this.flw.dGS;
+                    int bch = atVar2.bch();
+                    atVar3 = this.flw.dGS;
+                    boolean bci = atVar3.bci();
+                    atVar4 = this.flw.dGS;
+                    acVar.a(bcg, bch, bci, atVar4.bcj());
                 }
             }
         }

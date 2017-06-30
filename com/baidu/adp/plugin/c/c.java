@@ -19,8 +19,8 @@ public class c implements d<Message<?>> {
         if (message == null) {
             return false;
         }
-        String aD = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().aD(message.getCmd());
-        if (TextUtils.isEmpty(aD) || com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().bq(aD)) {
+        String aD = com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().aD(message.getCmd());
+        if (TextUtils.isEmpty(aD) || com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().bv(aD)) {
             return false;
         }
         if (PluginCenter.getInstance().hasInstance(aD)) {

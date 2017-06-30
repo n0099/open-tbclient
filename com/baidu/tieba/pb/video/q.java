@@ -5,15 +5,15 @@ import com.baidu.adp.lib.guide.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements g.a {
-    final /* synthetic */ l eAW;
+    final /* synthetic */ l eKu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(l lVar) {
-        this.eAW = lVar;
+        this.eKu = lVar;
     }
 
     @Override // com.baidu.adp.lib.guide.g.a
-    public void fd() {
+    public void fc() {
     }
 
     @Override // com.baidu.adp.lib.guide.g.a
@@ -21,15 +21,15 @@ public class q implements g.a {
         Bitmap bitmap;
         Bitmap bitmap2;
         Bitmap bitmap3;
-        this.eAW.eAS = null;
-        bitmap = this.eAW.eAT;
+        this.eKu.eKq = null;
+        bitmap = this.eKu.eKr;
         if (bitmap != null) {
-            bitmap2 = this.eAW.eAT;
+            bitmap2 = this.eKu.eKr;
             if (!bitmap2.isRecycled()) {
-                bitmap3 = this.eAW.eAT;
+                bitmap3 = this.eKu.eKr;
                 bitmap3.recycle();
             }
         }
-        this.eAW.eAT = null;
+        this.eKu.eKr = null;
     }
 }

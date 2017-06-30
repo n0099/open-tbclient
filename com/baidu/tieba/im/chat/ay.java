@@ -4,16 +4,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay implements View.OnLongClickListener {
-    final /* synthetic */ ar cPS;
+    final /* synthetic */ ar cXO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(ar arVar) {
-        this.cPS = arVar;
+        this.cXO = arVar;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        this.cPS.cPl.b(view, 17, this.cPS.atn, 0L);
+        this.cXO.cXh.b(view, 17, this.cXO.auq, 0L);
         return true;
     }
 }

@@ -5,23 +5,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
-    private int Is;
+    private int Ir;
     private List<k> VR;
-    private m cGq;
-    public final ArrayList<m> cGr = new ArrayList<>();
+    private m cOm;
+    public final ArrayList<m> cOn = new ArrayList<>();
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
 
     public j(Context context, int i, m mVar) {
         this.mInflater = LayoutInflater.from(context);
-        this.Is = i;
-        this.cGq = mVar;
+        this.Ir = i;
+        this.cOm = mVar;
     }
 
     public void setData(List<k> list) {
@@ -39,33 +39,33 @@ public class j extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return x.q(this.VR);
+        return z.s(this.VR);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return x.c(this.VR, i);
+        return z.c(this.VR, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (x.c(this.VR, i) == null) {
+        if (z.c(this.VR, i) == null) {
             return -1L;
         }
-        return ((k) x.c(this.VR, i)).hashCode();
+        return ((k) z.c(this.VR, i)).hashCode();
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = this.mInflater.inflate(this.Is, viewGroup, false);
-            m U = this.cGq.U(view);
-            U.setOnClickListener(this.mOnClickListener);
-            view.setTag(U);
-            this.cGr.add(U);
+            view = this.mInflater.inflate(this.Ir, viewGroup, false);
+            m V = this.cOm.V(view);
+            V.setOnClickListener(this.mOnClickListener);
+            view.setTag(V);
+            this.cOn.add(V);
         }
         m mVar = (m) view.getTag();
-        if (x.c(this.VR, i) != null) {
+        if (z.c(this.VR, i) != null) {
             a(mVar, this.VR.get(i));
         }
         return mVar.getView();
@@ -77,9 +77,9 @@ public class j extends BaseAdapter {
         }
     }
 
-    public void dc(int i) {
-        if (x.q(this.cGr) > 0) {
-            Iterator<m> it = this.cGr.iterator();
+    public void de(int i) {
+        if (z.s(this.cOn) > 0) {
+            Iterator<m> it = this.cOn.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

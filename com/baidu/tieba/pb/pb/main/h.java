@@ -15,31 +15,31 @@ public class h extends com.baidu.tbadk.core.dialog.a {
 
     /* loaded from: classes.dex */
     public static class a extends b {
-        public String elk = null;
-        public String ell = null;
-        public String coB = null;
+        public String euk = null;
+        public String eul = null;
+        public String cwq = null;
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public String elm = null;
-        public String eln = null;
-        public a.b elo = null;
-        public a.b elp = null;
+        public String eum = null;
+        public String eun = null;
+        public a.b euo = null;
+        public a.b eup = null;
         public com.baidu.adp.base.g<?> mPageContext;
     }
 
     /* loaded from: classes.dex */
     public static class c extends b {
-        public String elq = null;
-        public String elr = null;
+        public String euq = null;
+        public String eur = null;
     }
 
     /* loaded from: classes.dex */
     public static class d extends b {
-        public CharSequence els = null;
-        public CharSequence elt = null;
-        public CharSequence elu = null;
+        public CharSequence eus = null;
+        public CharSequence eut = null;
+        public CharSequence euu = null;
     }
 
     public h(Activity activity) {
@@ -50,16 +50,16 @@ public class h extends com.baidu.tbadk.core.dialog.a {
         if (cVar != null) {
             View inflate = LayoutInflater.from(this.mActivity).inflate(w.j.pb_dlg_txt, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(w.h.tip_top);
-            textView.setText(cVar.elq);
-            com.baidu.tbadk.core.util.aq.c(textView, w.e.cp_cont_b, 1);
+            textView.setText(cVar.euq);
+            com.baidu.tbadk.core.util.as.c(textView, w.e.cp_cont_b, 1);
             TextView textView2 = (TextView) inflate.findViewById(w.h.tip_bottom);
-            textView2.setText(cVar.elr);
-            com.baidu.tbadk.core.util.aq.c(textView2, w.e.cp_cont_b, 1);
+            textView2.setText(cVar.eur);
+            com.baidu.tbadk.core.util.as.c(textView2, w.e.cp_cont_b, 1);
             v(inflate);
-            a(cVar.eln, cVar.elp);
-            b(cVar.elm, cVar.elo);
-            as(false);
-            b(cVar.mPageContext).tc();
+            a(cVar.eun, cVar.eup);
+            b(cVar.eum, cVar.euo);
+            at(false);
+            b(cVar.mPageContext).ta();
         }
     }
 
@@ -68,11 +68,11 @@ public class h extends com.baidu.tbadk.core.dialog.a {
             int skinType = isAutoNight() ? TbadkCoreApplication.m9getInst().getSkinType() : 0;
             View inflate = LayoutInflater.from(this.mActivity).inflate(w.j.lottery_dialog, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(w.h.lottery_title);
-            textView.setText(aVar.elk);
-            com.baidu.tbadk.core.util.aq.c(textView, w.e.cp_cont_b, 1);
+            textView.setText(aVar.euk);
+            com.baidu.tbadk.core.util.as.c(textView, w.e.cp_cont_b, 1);
             TextView textView2 = (TextView) inflate.findViewById(w.h.lottery_des);
-            textView2.setText(aVar.ell);
-            com.baidu.tbadk.core.util.aq.c(textView2, w.e.cp_cont_b, 1);
+            textView2.setText(aVar.eul);
+            com.baidu.tbadk.core.util.as.c(textView2, w.e.cp_cont_b, 1);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(w.h.lottery_image_bg);
             int g = com.baidu.adp.lib.util.k.g(this.mActivity, w.f.ds170);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tbImageView.getLayoutParams();
@@ -85,15 +85,15 @@ public class h extends com.baidu.tbadk.core.dialog.a {
             layoutParams2.width = (int) (g2 * 1.2272727272727273d);
             layoutParams2.height = g2;
             tbImageView2.setLayoutParams(layoutParams2);
-            tbImageView2.c(aVar.coB, 10, false);
+            tbImageView2.c(aVar.cwq, 10, false);
             v(inflate);
-            a(aVar.eln, aVar.elp);
-            b(aVar.elm, aVar.elo);
-            as(false);
+            a(aVar.eun, aVar.eup);
+            b(aVar.eum, aVar.euo);
+            at(false);
             ca(1);
             b(aVar.mPageContext);
-            com.baidu.tbadk.core.util.aq.d(td(), w.g.dialog_push_bg, skinType);
-            tc();
+            com.baidu.tbadk.core.util.as.d(tb(), w.g.dialog_push_bg, skinType);
+            ta();
         }
     }
 
@@ -101,19 +101,19 @@ public class h extends com.baidu.tbadk.core.dialog.a {
         if (dVar != null) {
             View inflate = LayoutInflater.from(this.mActivity).inflate(w.j.pb_three_row_text_dlg, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(w.h.first_row);
-            textView.setText(dVar.els);
-            com.baidu.tbadk.core.util.aq.c(textView, w.e.cp_cont_b, 1);
+            textView.setText(dVar.eus);
+            com.baidu.tbadk.core.util.as.c(textView, w.e.cp_cont_b, 1);
             TextView textView2 = (TextView) inflate.findViewById(w.h.second_row);
-            textView2.setText(dVar.elt);
-            com.baidu.tbadk.core.util.aq.c(textView2, w.e.cp_cont_b, 1);
+            textView2.setText(dVar.eut);
+            com.baidu.tbadk.core.util.as.c(textView2, w.e.cp_cont_b, 1);
             TextView textView3 = (TextView) inflate.findViewById(w.h.third_row);
-            textView3.setText(dVar.elu);
-            com.baidu.tbadk.core.util.aq.c(textView3, w.e.cp_cont_b, 1);
+            textView3.setText(dVar.euu);
+            com.baidu.tbadk.core.util.as.c(textView3, w.e.cp_cont_b, 1);
             v(inflate);
-            a(dVar.eln, dVar.elp);
-            b(dVar.elm, dVar.elo);
-            as(false);
-            b(dVar.mPageContext).tc();
+            a(dVar.eun, dVar.eup);
+            b(dVar.eum, dVar.euo);
+            at(false);
+            b(dVar.mPageContext).ta();
         }
     }
 }

@@ -24,20 +24,20 @@ public class az extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImMessageCenterPojo Z;
+        ImMessageCenterPojo ab;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MemoryUpdateHeadNameMessage.a)) {
             MemoryUpdateHeadNameMessage.a aVar = (MemoryUpdateHeadNameMessage.a) customResponsedMessage.getData();
             if (!TextUtils.isEmpty(aVar.id)) {
-                if ((!TextUtils.isEmpty(aVar.head) || !TextUtils.isEmpty(aVar.name)) && (Z = b.aqX().Z(aVar.id, aVar.customGroupType)) != null) {
+                if ((!TextUtils.isEmpty(aVar.head) || !TextUtils.isEmpty(aVar.name)) && (ab = b.auI().ab(aVar.id, aVar.customGroupType)) != null) {
                     String str = aVar.name;
                     String str2 = aVar.head;
                     if (!TextUtils.isEmpty(str)) {
-                        b.aqX().bb(aVar.id, str);
+                        b.auI().bi(aVar.id, str);
                     }
                     if (!TextUtils.isEmpty(aVar.head)) {
-                        b.aqX().ba(aVar.id, str2);
+                        b.auI().bh(aVar.id, str2);
                     }
-                    CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ba(this, Z));
+                    CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ba(this, ab));
                     customMessageTask.setParallel(TiebaIMConfig.getParallel());
                     customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
                     customMessageTask.setPriority(4);

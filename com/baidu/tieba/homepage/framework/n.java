@@ -9,13 +9,13 @@ import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends CustomMessageListener {
-    final /* synthetic */ RecommendFrsControlFragment czI;
+    final /* synthetic */ RecommendFrsControlFragment cHu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(RecommendFrsControlFragment recommendFrsControlFragment, int i) {
         super(i);
-        this.czI = recommendFrsControlFragment;
+        this.cHu = recommendFrsControlFragment;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,8 +25,8 @@ public class n extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData)) {
             SignData signData = (SignData) customResponsedMessage.getData();
             if (!StringUtils.isNull(signData.forumName)) {
-                scrollFragmentTabHost = this.czI.czu;
-                scrollFragmentTabHost.N(signData.forumName, TbadkCoreApplication.m9getInst().getSignLevelUpValue(signData.forumName));
+                scrollFragmentTabHost = this.cHu.cHg;
+                scrollFragmentTabHost.P(signData.forumName, TbadkCoreApplication.m9getInst().getSignLevelUpValue(signData.forumName));
             }
         }
     }

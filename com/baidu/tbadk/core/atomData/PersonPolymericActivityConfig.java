@@ -20,4 +20,9 @@ public class PersonPolymericActivityConfig extends IntentConfig {
         intent.putExtra(IS_BIGV, z2);
         return this;
     }
+
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
+    public boolean asynStart() {
+        return false;
+    }
 }

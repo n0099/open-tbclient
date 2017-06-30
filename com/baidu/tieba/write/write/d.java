@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ AtListActivity fYZ;
+    final /* synthetic */ AtListActivity gjY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AtListActivity atListActivity) {
-        this.fYZ = atListActivity;
+        this.gjY = atListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.fYZ.dhk.getText().clear();
+        this.gjY.dpg.getText().clear();
     }
 }

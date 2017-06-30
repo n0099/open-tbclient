@@ -11,6 +11,6 @@ public class t implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.adp.lib.d.a.fg().a(true, this.this$0.locationCallBack);
+        com.baidu.adp.lib.d.a.ff().a(true, this.this$0.locationCallBack);
     }
 }

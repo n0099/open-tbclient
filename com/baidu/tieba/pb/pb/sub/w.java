@@ -10,17 +10,17 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements c.b {
-    private final /* synthetic */ SparseArray ene;
-    private final /* synthetic */ boolean enf;
-    private final /* synthetic */ String eng;
-    final /* synthetic */ NewSubPbActivity eye;
+    final /* synthetic */ NewSubPbActivity eHC;
+    private final /* synthetic */ SparseArray ewi;
+    private final /* synthetic */ boolean ewj;
+    private final /* synthetic */ String ewk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(NewSubPbActivity newSubPbActivity, SparseArray sparseArray, boolean z, String str) {
-        this.eye = newSubPbActivity;
-        this.ene = sparseArray;
-        this.enf = z;
-        this.eng = str;
+        this.eHC = newSubPbActivity;
+        this.ewi = sparseArray;
+        this.ewj = z;
+        this.ewk = str;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -31,13 +31,13 @@ public class w implements c.b {
         switch (i) {
             case 0:
                 String str = "";
-                int intValue = this.ene.get(w.h.tag_del_post_type) instanceof Integer ? ((Integer) this.ene.get(w.h.tag_del_post_type)).intValue() : 0;
-                if (this.ene.get(w.h.tag_del_post_id) instanceof String) {
-                    str = (String) this.ene.get(w.h.tag_del_post_id);
+                int intValue = this.ewi.get(w.h.tag_del_post_type) instanceof Integer ? ((Integer) this.ewi.get(w.h.tag_del_post_type)).intValue() : 0;
+                if (this.ewi.get(w.h.tag_del_post_id) instanceof String) {
+                    str = (String) this.ewi.get(w.h.tag_del_post_id);
                 }
-                int intValue2 = this.ene.get(w.h.tag_manage_user_identity) instanceof Integer ? ((Integer) this.ene.get(w.h.tag_manage_user_identity)).intValue() : 0;
-                boolean booleanValue = this.ene.get(w.h.tag_del_post_is_self) instanceof Boolean ? ((Boolean) this.ene.get(w.h.tag_del_post_is_self)).booleanValue() : false;
-                aoVar = this.eye.exP;
+                int intValue2 = this.ewi.get(w.h.tag_manage_user_identity) instanceof Integer ? ((Integer) this.ewi.get(w.h.tag_manage_user_identity)).intValue() : 0;
+                boolean booleanValue = this.ewi.get(w.h.tag_del_post_is_self) instanceof Boolean ? ((Boolean) this.ewi.get(w.h.tag_del_post_is_self)).booleanValue() : false;
+                aoVar = this.eHC.eHn;
                 aoVar.a(intValue, str, intValue2, booleanValue);
                 break;
             case 1:
@@ -45,26 +45,26 @@ public class w implements c.b {
                 String str3 = "";
                 String str4 = "";
                 String str5 = "";
-                if (this.ene.get(w.h.tag_user_mute_mute_username) instanceof String) {
-                    str2 = (String) this.ene.get(w.h.tag_user_mute_mute_username);
+                if (this.ewi.get(w.h.tag_user_mute_mute_username) instanceof String) {
+                    str2 = (String) this.ewi.get(w.h.tag_user_mute_mute_username);
                 }
-                if (this.ene.get(w.h.tag_user_mute_thread_id) instanceof String) {
-                    str3 = (String) this.ene.get(w.h.tag_user_mute_thread_id);
+                if (this.ewi.get(w.h.tag_user_mute_thread_id) instanceof String) {
+                    str3 = (String) this.ewi.get(w.h.tag_user_mute_thread_id);
                 }
-                if (this.ene.get(w.h.tag_user_mute_post_id) instanceof String) {
-                    str4 = (String) this.ene.get(w.h.tag_user_mute_post_id);
+                if (this.ewi.get(w.h.tag_user_mute_post_id) instanceof String) {
+                    str4 = (String) this.ewi.get(w.h.tag_user_mute_post_id);
                 }
-                if (this.ene.get(w.h.tag_user_mute_msg) instanceof String) {
-                    str5 = (String) this.ene.get(w.h.tag_user_mute_msg);
+                if (this.ewi.get(w.h.tag_user_mute_msg) instanceof String) {
+                    str5 = (String) this.ewi.get(w.h.tag_user_mute_msg);
                 }
                 UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
-                boolean z = this.enf;
-                String str6 = this.eng;
-                bdUniqueId = this.eye.exZ;
+                boolean z = this.ewj;
+                String str6 = this.ewk;
+                bdUniqueId = this.eHC.eHx;
                 userMuteAddAndDelCustomMessage.setData(z, str6, str2, str3, str4, 1, str5, bdUniqueId);
-                bdUniqueId2 = this.eye.exZ;
+                bdUniqueId2 = this.eHC.eHx;
                 userMuteAddAndDelCustomMessage.setTag(bdUniqueId2);
-                this.eye.a(this.enf, userMuteAddAndDelCustomMessage, str5, str2);
+                this.eHC.a(this.ewj, userMuteAddAndDelCustomMessage, str5, str2);
                 break;
         }
         cVar.dismiss();

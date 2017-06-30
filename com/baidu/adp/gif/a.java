@@ -1,7 +1,7 @@
 package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 public interface a {
-    com.baidu.adp.widget.a.a e(byte[] bArr, int i, int i2);
+    com.baidu.adp.widget.a.a g(byte[] bArr, int i, int i2);
 
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -31,12 +31,12 @@ public interface a {
         }
 
         @Override // com.baidu.adp.gif.a
-        public com.baidu.adp.widget.a.a e(byte[] bArr, int i, int i2) {
+        public com.baidu.adp.widget.a.a g(byte[] bArr, int i, int i2) {
             if (this.rk != 0) {
                 return null;
             }
             try {
-                return this.rl.e(bArr, i, i2);
+                return this.rl.g(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

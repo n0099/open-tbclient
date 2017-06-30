@@ -29,7 +29,7 @@ public class d {
             for (int i = 0; i < au.length(); i++) {
                 bArr2[i] = (byte) au.charAt(i);
             }
-            this.qi = v.aJ(au);
+            this.qi = v.aO(au);
             this.qj = v.a(p, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

@@ -8,7 +8,7 @@ public interface a {
     /* renamed from: com.baidu.adp.base.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0002a {
-        void b(SQLiteDatabase sQLiteDatabase);
+        void c(SQLiteDatabase sQLiteDatabase);
     }
 
     void a(InterfaceC0002a interfaceC0002a);

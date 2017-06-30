@@ -5,40 +5,40 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnTouchListener {
-    final /* synthetic */ r bVb;
+    final /* synthetic */ r cdl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(r rVar) {
-        this.bVb = rVar;
+        this.cdl = rVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         View.OnTouchListener onTouchListener;
-        cb cbVar;
-        com.baidu.tieba.frs.f.u uVar;
-        com.baidu.tieba.frs.f.u uVar2;
-        cb cbVar2;
-        cb cbVar3;
+        cc ccVar;
+        com.baidu.tieba.frs.f.m mVar;
+        com.baidu.tieba.frs.f.m mVar2;
+        cc ccVar2;
+        cc ccVar3;
         View.OnTouchListener onTouchListener2;
-        onTouchListener = this.bVb.bUF;
+        onTouchListener = this.cdl.ccN;
         if (onTouchListener != null) {
-            onTouchListener2 = this.bVb.bUF;
+            onTouchListener2 = this.cdl.ccN;
             onTouchListener2.onTouch(view, motionEvent);
         }
-        cbVar = this.bVb.bUr;
-        if (cbVar != null) {
-            cbVar2 = this.bVb.bUr;
-            if (cbVar2.abg() != null) {
-                cbVar3 = this.bVb.bUr;
-                cbVar3.abg().onTouchEvent(motionEvent);
+        ccVar = this.cdl.ccz;
+        if (ccVar != null) {
+            ccVar2 = this.cdl.ccz;
+            if (ccVar2.aeX() != null) {
+                ccVar3 = this.cdl.ccz;
+                ccVar3.aeX().onTouchEvent(motionEvent);
             }
         }
-        this.bVb.bUS = true;
-        uVar = this.bVb.bUk;
-        if (uVar != null) {
-            uVar2 = this.bVb.bUk;
-            uVar2.onTouchEvent(motionEvent);
+        this.cdl.cdb = true;
+        mVar = this.cdl.cct;
+        if (mVar != null) {
+            mVar2 = this.cdl.cct;
+            mVar2.onTouchEvent(motionEvent);
             return false;
         }
         return false;

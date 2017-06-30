@@ -6,7 +6,7 @@ import com.baidu.adp.base.a.a;
 /* loaded from: classes.dex */
 public class u implements a.InterfaceC0002a {
     @Override // com.baidu.adp.base.a.a.InterfaceC0002a
-    public void b(SQLiteDatabase sQLiteDatabase) {
+    public void c(SQLiteDatabase sQLiteDatabase) {
         TbadkCoreApplication.resetTDatabaseCreateTime();
     }
 }

@@ -1,49 +1,49 @@
 package com.baidu.tieba.pb.video;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements c.d {
-    final /* synthetic */ l eAW;
+    final /* synthetic */ l eKu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(l lVar) {
-        this.eAW = lVar;
+        this.eKu = lVar;
     }
 
     @Override // com.baidu.tieba.play.c.d
-    public void aPd() {
+    public void aTc() {
         PbActivity pbActivity;
-        bl blVar;
-        bl blVar2;
+        bm bmVar;
+        bm bmVar2;
         PbActivity pbActivity2;
-        bl blVar3;
-        bl blVar4;
-        bl blVar5;
-        bl blVar6;
-        pbActivity = this.eAW.elf;
+        bm bmVar3;
+        bm bmVar4;
+        bm bmVar5;
+        bm bmVar6;
+        pbActivity = this.eKu.euf;
         if (pbActivity != null) {
-            blVar = this.eAW.eAC;
-            if (blVar != null) {
-                blVar2 = this.eAW.eAC;
-                if (!StringUtils.isNull(blVar2.getId())) {
-                    pbActivity2 = this.eAW.elf;
-                    blVar3 = this.eAW.eAC;
-                    pbActivity2.nN(blVar3.getId());
-                    blVar4 = this.eAW.eAB;
-                    if (blVar4 != null) {
+            bmVar = this.eKu.eKa;
+            if (bmVar != null) {
+                bmVar2 = this.eKu.eKa;
+                if (!StringUtils.isNull(bmVar2.getId())) {
+                    pbActivity2 = this.eKu.euf;
+                    bmVar3 = this.eKu.eKa;
+                    pbActivity2.oH(bmVar3.getId());
+                    bmVar4 = this.eKu.eJZ;
+                    if (bmVar4 != null) {
                         long j = 0;
-                        blVar5 = this.eAW.eAB;
-                        if (blVar5.sx() != null) {
-                            blVar6 = this.eAW.eAB;
-                            j = blVar6.sx().channelId;
+                        bmVar5 = this.eKu.eJZ;
+                        if (bmVar5.sv() != null) {
+                            bmVar6 = this.eKu.eJZ;
+                            j = bmVar6.sv().channelId;
                         }
-                        TiebaStatic.log(new as("c11921").f("obj_id", j));
+                        TiebaStatic.log(new au("c11921").f("obj_id", j));
                     }
                 }
             }

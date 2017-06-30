@@ -12,7 +12,7 @@ public class d {
                 cVar.a("GET");
                 break;
             default:
-                com.baidu.android.pushservice.e.a.e("RequestFactory", "illegal request type " + aVar);
+                com.baidu.android.pushservice.g.a.e("RequestFactory", "illegal request type " + aVar);
                 break;
         }
         return cVar;

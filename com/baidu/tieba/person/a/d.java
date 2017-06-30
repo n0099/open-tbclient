@@ -12,45 +12,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private HTypeListView bAp;
-    private b eGI;
-    private a eGJ;
-    private com.baidu.tieba.personCenter.a.b eGK;
+    private HTypeListView bBi;
+    private b eQx;
+    private a eQy;
+    private com.baidu.tieba.personCenter.a.b eQz;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdUniqueId mId;
     private TbPageContext mTbPageContext;
 
     public d(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.bAp = hTypeListView;
+        this.bBi = hTypeListView;
         this.mId = tbPageContext.getUniqueId();
         initAdapters();
     }
 
     private void initAdapters() {
-        this.eGI = new b(this.mTbPageContext, k.axG);
-        this.eGJ = new a(this.mTbPageContext, com.baidu.tieba.person.data.a.eGM);
-        this.eGK = new com.baidu.tieba.personCenter.a.b(this.mTbPageContext.getPageActivity(), h.eGy);
-        this.mAdapters.add(this.eGI);
-        this.mAdapters.add(this.eGJ);
-        this.mAdapters.add(this.eGK);
-        this.bAp.addAdapters(this.mAdapters);
+        this.eQx = new b(this.mTbPageContext, k.ayI);
+        this.eQy = new a(this.mTbPageContext, com.baidu.tieba.person.data.a.eQB);
+        this.eQz = new com.baidu.tieba.personCenter.a.b(this.mTbPageContext.getPageActivity(), h.eQg);
+        this.mAdapters.add(this.eQx);
+        this.mAdapters.add(this.eQy);
+        this.mAdapters.add(this.eQz);
+        this.bBi.addAdapters(this.mAdapters);
     }
 
     public void setDatas(List<v> list) {
-        if (this.bAp != null) {
-            this.bAp.setData(list);
+        if (this.bBi != null) {
+            this.bBi.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.bAp != null && (this.bAp.getAdapter() instanceof z)) {
-            ((z) this.bAp.getAdapter()).notifyDataSetChanged();
+        if (this.bBi != null && (this.bBi.getAdapter() instanceof z)) {
+            ((z) this.bBi.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.eGI.u(onClickListener);
-        this.eGJ.u(onClickListener);
+        this.eQx.v(onClickListener);
+        this.eQy.v(onClickListener);
     }
 }

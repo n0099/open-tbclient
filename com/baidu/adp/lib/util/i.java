@@ -42,7 +42,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gX() {
+    public void gW() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
         this.yD = activeNetworkInfo;
         if (activeNetworkInfo != null) {
@@ -70,7 +70,7 @@ public class i {
             this.yG = 0;
             this.yG = 0;
         }
-        this.yI = hg();
+        this.yI = hf();
         this.yJ = Proxy.getDefaultHost();
         this.yK = Proxy.getDefaultPort();
     }
@@ -84,7 +84,7 @@ public class i {
         }
     }
 
-    public static boolean gY() {
+    public static boolean gX() {
         NetworkInfo[] allNetworkInfo;
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) BdBaseApplication.getInst().getContext().getSystemService("connectivity");
@@ -101,38 +101,38 @@ public class i {
         }
     }
 
-    public boolean gZ() {
+    public boolean gY() {
         if (this.yD == null) {
-            gX();
+            gW();
         }
         return this.yF;
     }
 
-    public boolean ha() {
+    public boolean gZ() {
         if (this.yD == null) {
-            gX();
+            gW();
         }
         return this.isWifi;
     }
 
-    public boolean hb() {
+    public boolean ha() {
         if (this.yD == null) {
-            gX();
+            gW();
         }
         return this.yE;
     }
 
-    public int hc() {
+    public int hb() {
         if (this.yD == null) {
-            gX();
+            gW();
         }
         return this.yH;
     }
 
-    public int hd() {
+    public int hc() {
         if (this.yI == -1) {
             try {
-                this.yI = hg();
+                this.yI = hf();
             } catch (Exception e) {
                 this.yI = 0;
             }
@@ -140,14 +140,14 @@ public class i {
         return this.yI;
     }
 
-    public String he() {
+    public String hd() {
         if (this.yJ == null) {
             this.yJ = Proxy.getDefaultHost();
         }
         return this.yJ;
     }
 
-    private long hf() {
+    private long he() {
         return this.yM;
     }
 
@@ -156,10 +156,10 @@ public class i {
         this.yM = j;
     }
 
-    private static int hg() {
+    private static int hf() {
         int i;
         String networkOperator = ((TelephonyManager) BdBaseApplication.getInst().getContext().getSystemService("phone")).getNetworkOperator();
-        if (networkOperator == null || networkOperator.length() < 4 || j.aC(networkOperator)) {
+        if (networkOperator == null || networkOperator.length() < 4 || j.aH(networkOperator)) {
             return 0;
         }
         String substring = networkOperator.substring(0, 3);
@@ -213,14 +213,14 @@ public class i {
         }
     }
 
-    public int hh() {
+    public int hg() {
         if (-1 == this.yK) {
             this.yK = Proxy.getDefaultPort();
         }
         return this.yK;
     }
 
-    public boolean hi() {
+    public boolean hh() {
         return this.yN;
     }
 
@@ -229,7 +229,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static synchronized i hj() {
+    public static synchronized i hi() {
         i iVar;
         synchronized (i.class) {
             if (yO == null) {
@@ -252,17 +252,17 @@ public class i {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             try {
-                int hq = i.hq();
-                long hx = i.hx();
-                i.hj().gX();
-                if (i.hj().hi()) {
+                int hp = i.hp();
+                long hw = i.hw();
+                i.hi().gW();
+                if (i.hi().hh()) {
                     NetworkState networkState = new NetworkState();
-                    networkState.mLastNetState = hq;
-                    networkState.mCurNetState = i.hq();
-                    networkState.mlastChangedTime = hx;
+                    networkState.mLastNetState = hp;
+                    networkState.mCurNetState = i.hp();
+                    networkState.mlastChangedTime = hw;
                     long currentTimeMillis = System.currentTimeMillis();
                     networkState.mCurChangedTime = currentTimeMillis;
-                    i.hj().j(currentTimeMillis);
+                    i.hi().j(currentTimeMillis);
                     MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
                 }
             } catch (Exception e) {
@@ -276,49 +276,49 @@ public class i {
     }
 
     public static void init(boolean z) {
-        hj().J(z);
-        hj().gX();
+        hi().J(z);
+        hi().gW();
+    }
+
+    public static boolean hj() {
+        return hi().gY();
     }
 
     public static boolean hk() {
-        return hj().gZ();
+        return hi().gZ();
     }
 
     public static boolean hl() {
-        return hj().ha();
+        return hi().ha();
     }
 
     public static boolean hm() {
-        return hj().hb();
+        return 3 == hi().hb();
     }
 
     public static boolean hn() {
-        return 3 == hj().hc();
+        return 2 == hi().hb();
     }
 
     public static boolean ho() {
-        return 2 == hj().hc();
+        return 1 == hi().hb();
     }
 
-    public static boolean hp() {
-        return 1 == hj().hc();
-    }
-
-    public static int hq() {
-        if (hl()) {
+    public static int hp() {
+        if (hk()) {
             return 1;
         }
-        if (hp()) {
+        if (ho()) {
             return 2;
         }
-        if (ho()) {
+        if (hn()) {
             return 3;
         }
-        return (hn() || hk()) ? 4 : 0;
+        return (hm() || hj()) ? 4 : 0;
     }
 
-    public static String hr() {
-        switch (hq()) {
+    public static String hq() {
+        switch (hp()) {
             case 1:
                 return "wifi";
             case 2:
@@ -332,31 +332,31 @@ public class i {
         }
     }
 
-    public static String hs() {
-        String hr = hr();
-        if (hr != null) {
-            return hr.toUpperCase();
+    public static String hr() {
+        String hq = hq();
+        if (hq != null) {
+            return hq.toUpperCase();
         }
-        return hr;
+        return hq;
     }
 
-    public static int ht() {
-        return hj().hd();
+    public static int hs() {
+        return hi().hc();
     }
 
-    public static String hu() {
-        return hj().he();
+    public static String ht() {
+        return hi().hd();
     }
 
-    public static int hv() {
-        return hj().hh();
+    public static int hu() {
+        return hi().hg();
     }
 
-    public static boolean hw() {
+    public static boolean hv() {
         return yL;
     }
 
-    public static boolean aA(String str) {
+    public static boolean aF(String str) {
         if (mPattern.matcher(str).find()) {
             return true;
         }
@@ -364,11 +364,11 @@ public class i {
     }
 
     public static boolean isWap() {
-        NetworkInfo activeNetworkInfo = hj().getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = hi().getActiveNetworkInfo();
         return (activeNetworkInfo == null || activeNetworkInfo.getExtraInfo() == null || !activeNetworkInfo.getExtraInfo().contains("wap")) ? false : true;
     }
 
-    public static long hx() {
-        return hj().hf();
+    public static long hw() {
+        return hi().he();
     }
 }

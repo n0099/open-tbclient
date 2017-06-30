@@ -1,31 +1,18 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Handler;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public interface s {
-    void a(BasicNameValuePair basicNameValuePair);
-
-    boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
-
-    void d(String str, byte[] bArr);
-
-    void fs();
-
-    void fv();
-
-    void k(ArrayList<BasicNameValuePair> arrayList);
-
-    void n(String str, String str2);
-
-    ArrayList<BasicNameValuePair> uf();
-
-    String ug();
-
-    byte[] uh();
-
-    String uj();
-
-    String uk();
+public class s {
+    public static String dC(String str) {
+        if (StringUtils.isNull(str)) {
+            return "";
+        }
+        Matcher matcher = Pattern.compile("t=(\\d+)").matcher(str);
+        if (matcher.find()) {
+            return String.valueOf(str) + "&tieba_portrait_time=" + matcher.group(1);
+        }
+        return str;
+    }
 }

@@ -7,28 +7,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.w;
 import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CountDownTimer {
-    final /* synthetic */ PbInterviewStatusView eCk;
-    private final /* synthetic */ PbActivity eCl;
+    final /* synthetic */ PbInterviewStatusView eLH;
+    private final /* synthetic */ PbActivity eLI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbActivity pbActivity) {
         super(j, j2);
-        this.eCk = pbInterviewStatusView;
-        this.eCl = pbActivity;
+        this.eLH = pbInterviewStatusView;
+        this.eLI = pbActivity;
     }
 
     @Override // android.os.CountDownTimer
     public void onTick(long j) {
         TextView textView;
-        textView = this.eCk.eBY;
+        textView = this.eLH.eLv;
         textView.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
     }
 
@@ -41,23 +41,23 @@ public class h extends CountDownTimer {
         View view;
         ImageView imageView2;
         FrameLayout frameLayout;
-        as asVar = new as("c11106");
-        str = this.eCk.UX;
-        TiebaStatic.log(asVar.Z("obj_id", str));
-        this.eCk.eCh = false;
-        textView = this.eCk.eBV;
-        textView.setText(this.eCl.getPageContext().getPageActivity().getString(w.l.interview_live_start));
-        textView2 = this.eCk.eBV;
-        textView2.setTextSize(0, com.baidu.adp.lib.util.k.g(this.eCl.getPageContext().getPageActivity(), w.f.fontsize24));
-        imageView = this.eCk.eBW;
+        au auVar = new au("c11106");
+        str = this.eLH.UW;
+        TiebaStatic.log(auVar.Z("obj_id", str));
+        this.eLH.eLE = false;
+        textView = this.eLH.eLs;
+        textView.setText(this.eLI.getPageContext().getPageActivity().getString(w.l.interview_live_start));
+        textView2 = this.eLH.eLs;
+        textView2.setTextSize(0, com.baidu.adp.lib.util.k.g(this.eLI.getPageContext().getPageActivity(), w.f.fontsize24));
+        imageView = this.eLH.eLt;
         imageView.setVisibility(0);
-        view = this.eCk.eCb;
+        view = this.eLH.eLy;
         view.setVisibility(8);
-        imageView2 = this.eCk.eCa;
+        imageView2 = this.eLH.eLx;
         imageView2.setVisibility(0);
-        frameLayout = this.eCk.eBX;
+        frameLayout = this.eLH.eLu;
         frameLayout.setVisibility(8);
-        this.eCk.setClickable(true);
-        this.eCk.eCi = true;
+        this.eLH.setClickable(true);
+        this.eLH.eLF = true;
     }
 }

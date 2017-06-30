@@ -1,21 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
+
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bj implements Runnable {
-    final /* synthetic */ PbActivity enc;
+public class bj implements a.b {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(PbActivity pbActivity) {
-        this.enc = pbActivity;
+        this.ewh = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PbModel pbModel;
-        PbModel pbModel2;
-        pbModel = this.enc.ele;
-        if (pbModel != null) {
-            pbModel2 = this.enc.ele;
-            pbModel2.LoadData();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        try {
+            this.ewh.startActivity(new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.m9getInst().getPackageName())));
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
+        aVar.dismiss();
     }
 }

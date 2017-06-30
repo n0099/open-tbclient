@@ -3,19 +3,19 @@ package com.baidu.tieba.im.widget.chatVoiceView;
 import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements com.baidu.tbadk.util.g<Boolean> {
-    final /* synthetic */ ChatVoiceView dit;
+public class h implements com.baidu.tbadk.util.h<Boolean> {
+    final /* synthetic */ ChatVoiceView dqp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ChatVoiceView chatVoiceView) {
-        this.dit = chatVoiceView;
+        this.dqp = chatVoiceView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.g
+    @Override // com.baidu.tbadk.util.h
     public void onReturnDataInUI(Boolean bool) {
         ImageView imageView;
-        imageView = this.dit.diq;
+        imageView = this.dqp.dqm;
         imageView.setVisibility(8);
     }
 }

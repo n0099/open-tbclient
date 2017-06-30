@@ -19,6 +19,7 @@ public class ImageFileInfo implements Serializable {
     private String albumId;
     private String filePath;
     private boolean hasAddPostQualityAction;
+    private boolean isGif;
     private boolean isOrginalBitmapShared;
     private boolean isTempFile;
     private String modifyTime;
@@ -102,6 +103,7 @@ public class ImageFileInfo implements Serializable {
             this._cacheKey_page = null;
             this.serverPicInfo = new ImageUploadResult.picInfo();
             this.serverPicInfo.parseJson(jSONObject.optJSONObject("serverPicInfo"));
+            this.isGif = jSONObject.optBoolean("isGif", false);
         }
     }
 
@@ -136,6 +138,7 @@ public class ImageFileInfo implements Serializable {
             if (this.serverPicInfo != null) {
                 jSONObject.put("serverPicInfo", this.serverPicInfo.toJson());
             }
+            jSONObject.put("isGif", this.isGif);
             return jSONObject;
         } catch (JSONException e) {
             BdLog.e(e.getMessage());
@@ -287,6 +290,14 @@ public class ImageFileInfo implements Serializable {
         this.hasAddPostQualityAction = z;
     }
 
+    public void setIsGif(boolean z) {
+        this.isGif = z;
+    }
+
+    public boolean isGif() {
+        return this.isGif;
+    }
+
     public void applayRotatePageActionToPersistAction() {
         if (getPageActionsList() != null) {
             Iterator<ImageOperation> it = getPageActionsList().iterator();
@@ -321,6 +332,7 @@ public class ImageFileInfo implements Serializable {
                 }
             }
         }
+        imageFileInfo.setIsGif(isGif());
         return imageFileInfo;
     }
 }

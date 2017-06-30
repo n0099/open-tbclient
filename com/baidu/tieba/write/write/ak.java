@@ -1,32 +1,17 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.frs.TabMenuPopView;
-import com.baidu.tieba.write.view.PostCategoryView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.TimePickerDialog;
+import android.widget.TimePicker;
 /* loaded from: classes.dex */
-public class ak implements TabMenuPopView.a {
-    final /* synthetic */ WriteActivity gaR;
+class ak implements TimePickerDialog.OnTimeSetListener {
+    final /* synthetic */ WriteActivity glP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(WriteActivity writeActivity) {
-        this.gaR = writeActivity;
+        this.glP = writeActivity;
     }
 
-    @Override // com.baidu.tieba.frs.TabMenuPopView.a
-    public void a(View view, com.baidu.tieba.frs.cn cnVar) {
-        PostCategoryView postCategoryView;
-        WriteData writeData;
-        PostCategoryView postCategoryView2;
-        if (cnVar != null) {
-            postCategoryView = this.gaR.fZZ;
-            postCategoryView.setText(cnVar.name);
-            writeData = this.gaR.mData;
-            writeData.setCategoryTo(cnVar.bWI);
-            this.gaR.fZY = cnVar.bWI;
-            postCategoryView2 = this.gaR.fZZ;
-            postCategoryView2.boV();
-        }
+    @Override // android.app.TimePickerDialog.OnTimeSetListener
+    public void onTimeSet(TimePicker timePicker, int i, int i2) {
     }
 }

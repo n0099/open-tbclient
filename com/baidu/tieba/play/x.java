@@ -5,13 +5,13 @@ import android.content.Context;
 public interface x {
     void aY(Context context);
 
-    void ae(Context context, String str);
-
     void af(Context context, String str);
 
-    String gP(String str);
+    void ag(Context context, String str);
 
-    String gQ(String str);
+    String hm(String str);
 
-    void gR(String str);
+    String hn(String str);
+
+    void ho(String str);
 }

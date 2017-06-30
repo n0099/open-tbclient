@@ -1,20 +1,20 @@
 package com.baidu.tieba.pb.pb.sub;
 /* loaded from: classes.dex */
 class ab extends com.baidu.tbadk.pageStayDuration.b {
-    final /* synthetic */ NewSubPbActivity eye;
+    final /* synthetic */ NewSubPbActivity eHC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(NewSubPbActivity newSubPbActivity) {
-        this.eye = newSubPbActivity;
+        this.eHC = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean ET() {
+    public boolean Fq() {
         return false;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public int EU() {
-        return com.baidu.tbadk.pageStayDuration.e.EZ().Fb();
+    public int Fr() {
+        return com.baidu.tbadk.pageStayDuration.e.Fw().Fy();
     }
 }

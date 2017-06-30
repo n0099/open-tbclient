@@ -49,19 +49,19 @@ public class a extends BitmapDrawable {
     public void draw(Canvas canvas) {
         com.baidu.adp.widget.a.a aVar;
         if (this.mId > 0 && this.mContext != null) {
-            com.baidu.tbadk.imageManager.c DH = com.baidu.tbadk.imageManager.c.DH();
-            com.baidu.adp.widget.a.a fK = (DH == null || this.mKey == null) ? null : DH.fK(this.mKey);
-            if (fK == null) {
+            com.baidu.tbadk.imageManager.c Eb = com.baidu.tbadk.imageManager.c.Eb();
+            com.baidu.adp.widget.a.a ge = (Eb == null || this.mKey == null) ? null : Eb.ge(this.mKey);
+            if (ge == null) {
                 Bitmap resBitmap = BitmapHelper.getResBitmap(this.mContext, this.mId);
                 if (resBitmap != null) {
-                    fK = new com.baidu.adp.widget.a.a(resBitmap, false, null);
+                    ge = new com.baidu.adp.widget.a.a(resBitmap, false, null);
                 }
-                if (DH != null && fK != null && this.mKey != null) {
-                    DH.c(this.mKey, fK);
+                if (Eb != null && ge != null && this.mKey != null) {
+                    Eb.c(this.mKey, ge);
                 }
-                aVar = fK;
+                aVar = ge;
             } else {
-                aVar = fK;
+                aVar = ge;
             }
             if (aVar != null) {
                 int width = aVar.getWidth();

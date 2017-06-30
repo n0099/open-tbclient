@@ -1,28 +1,28 @@
 package com.baidu.tieba.im.settingcache;
 
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.util.w;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
-class b extends v<Boolean> {
-    private final /* synthetic */ String dgD;
-    final /* synthetic */ a dgL;
-    private final /* synthetic */ String dgM;
+class b extends w<Boolean> {
+    final /* synthetic */ a doH;
+    private final /* synthetic */ String doI;
+    private final /* synthetic */ String doz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, String str, String str2) {
-        this.dgL = aVar;
-        this.dgD = str;
-        this.dgM = str2;
+        this.doH = aVar;
+        this.doz = str;
+        this.doI = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.util.v
+    @Override // com.baidu.tbadk.util.w
     public Boolean doInBackground() {
-        ChatSetting bd = this.dgL.bd(this.dgD, this.dgM);
-        if (bd == null) {
+        ChatSetting bk = this.doH.bk(this.doz, this.doI);
+        if (bk == null) {
             return false;
         }
-        return Boolean.valueOf(bd.isAcceptNotify());
+        return Boolean.valueOf(bk.isAcceptNotify());
     }
 }

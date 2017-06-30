@@ -5,6 +5,7 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.r;
+import com.baidu.tbadk.util.p;
 import com.baidu.tieba.personPolymeric.c.o;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
@@ -49,10 +50,10 @@ public class PersonPolymericReqMsg extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.scr_w = Integer.valueOf(k.af(TbadkCoreApplication.m9getInst().getApp()));
         builder.scr_h = Integer.valueOf(k.ag(TbadkCoreApplication.m9getInst().getApp()));
-        builder.q_type = Integer.valueOf(r.oN().getViewImageQuality());
+        builder.q_type = Integer.valueOf(r.oK().getViewImageQuality());
         builder.scr_dip = Double.valueOf(k.ah(TbadkCoreApplication.m9getInst().getApp()));
         if (z) {
-            com.baidu.tbadk.util.o.bindCommonParamsToProtobufData(builder, true);
+            p.bindCommonParamsToProtobufData(builder, true);
         }
         PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
         builder2.data = builder.build(false);

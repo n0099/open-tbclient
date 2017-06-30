@@ -17,7 +17,7 @@ import java.net.URL;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g extends com.baidu.location.h.f {
-    private static g MA = null;
+    private static g My = null;
     String a = null;
     String b = null;
     String c = null;
@@ -30,38 +30,7 @@ public class g extends com.baidu.location.h.f {
         this.f = new Handler();
     }
 
-    public static boolean a(String str, String str2) {
-        File file = new File(com.baidu.location.h.i.g() + File.separator + "tmp");
-        if (file.exists()) {
-            file.delete();
-        }
-        try {
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            byte[] bArr = new byte[4096];
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
-            while (true) {
-                int read = bufferedInputStream.read(bArr);
-                if (read <= 0) {
-                    break;
-                }
-                fileOutputStream.write(bArr, 0, read);
-            }
-            httpURLConnection.disconnect();
-            fileOutputStream.close();
-            if (file.length() < 10240) {
-                file.delete();
-                return false;
-            }
-            file.renameTo(new File(com.baidu.location.h.i.g() + File.separator + str2));
-            return true;
-        } catch (Exception e) {
-            file.delete();
-            return false;
-        }
-    }
-
-    public static void c(File file, File file2) throws IOException {
+    public static void a(File file, File file2) throws IOException {
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream = null;
         try {
@@ -104,6 +73,37 @@ public class g extends com.baidu.location.h.f {
         } catch (Throwable th3) {
             th = th3;
             bufferedOutputStream = null;
+        }
+    }
+
+    public static boolean a(String str, String str2) {
+        File file = new File(com.baidu.location.h.i.g() + File.separator + "tmp");
+        if (file.exists()) {
+            file.delete();
+        }
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            byte[] bArr = new byte[4096];
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
+            while (true) {
+                int read = bufferedInputStream.read(bArr);
+                if (read <= 0) {
+                    break;
+                }
+                fileOutputStream.write(bArr, 0, read);
+            }
+            httpURLConnection.disconnect();
+            fileOutputStream.close();
+            if (file.length() < 10240) {
+                file.delete();
+                return false;
+            }
+            file.renameTo(new File(com.baidu.location.h.i.g() + File.separator + str2));
+            return true;
+        } catch (Exception e) {
+            file.delete();
+            return false;
         }
     }
 
@@ -157,7 +157,7 @@ public class g extends com.baidu.location.h.f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.a != null && com.baidu.location.f.k.no().g()) {
+        if (this.a != null && com.baidu.location.f.k.nk().g()) {
             new o(this).start();
         }
     }
@@ -188,17 +188,17 @@ public class g extends com.baidu.location.h.f {
             file2.delete();
         }
         try {
-            c(file, file2);
+            a(file, file2);
         } catch (Exception e) {
             file2.delete();
         }
     }
 
-    public static g mv() {
-        if (MA == null) {
-            MA = new g();
+    public static g mt() {
+        if (My == null) {
+            My = new g();
         }
-        return MA;
+        return My;
     }
 
     @Override // com.baidu.location.h.f
@@ -212,12 +212,12 @@ public class g extends com.baidu.location.h.f {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.h.c.np().b == null) {
+        if (com.baidu.location.h.c.nl().b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.h.c.np().a);
+            stringBuffer.append(com.baidu.location.h.c.nl().a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.h.c.np().b);
+            stringBuffer.append(com.baidu.location.h.c.nl().b);
         }
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
@@ -277,11 +277,11 @@ public class g extends com.baidu.location.h.f {
             } catch (Exception e) {
             }
         }
-        com.baidu.location.h.d.nq().a(System.currentTimeMillis());
+        com.baidu.location.h.d.nm().a(System.currentTimeMillis());
     }
 
     public void c() {
-        if (System.currentTimeMillis() - com.baidu.location.h.d.nq().b() > 86400000) {
+        if (System.currentTimeMillis() - com.baidu.location.h.d.nm().b() > 86400000) {
             f().postDelayed(new l(this), 10000L);
             f().postDelayed(new m(this), TbConfig.NOTIFY_SOUND_INTERVAL);
         }

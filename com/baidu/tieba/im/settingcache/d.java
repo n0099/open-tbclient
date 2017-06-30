@@ -1,29 +1,29 @@
 package com.baidu.tieba.im.settingcache;
 
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.util.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends v<Boolean> {
-    private final /* synthetic */ String ddO;
-    private final /* synthetic */ String dgD;
-    final /* synthetic */ c dgO;
-    private final /* synthetic */ long dgP;
+public class d extends w<Boolean> {
+    private final /* synthetic */ String dlK;
+    final /* synthetic */ c doK;
+    private final /* synthetic */ long doL;
+    private final /* synthetic */ String doz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, String str, String str2, long j) {
-        this.dgO = cVar;
-        this.dgD = str;
-        this.ddO = str2;
-        this.dgP = j;
+        this.doK = cVar;
+        this.doz = str;
+        this.dlK = str2;
+        this.doL = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.util.v
+    @Override // com.baidu.tbadk.util.w
     public Boolean doInBackground() {
-        GroupSettingItemData bd = this.dgO.bd(this.dgD, this.ddO);
-        if (bd != null && bd.isAlreadyApply()) {
-            if (System.currentTimeMillis() - bd.getLastApplyTimeStamp() <= this.dgP) {
+        GroupSettingItemData bk = this.doK.bk(this.doz, this.dlK);
+        if (bk != null && bk.isAlreadyApply()) {
+            if (System.currentTimeMillis() - bk.getLastApplyTimeStamp() <= this.doL) {
                 return false;
             }
         }

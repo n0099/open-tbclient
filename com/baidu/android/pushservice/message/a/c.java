@@ -27,7 +27,7 @@ public abstract class c {
         try {
             jSONObject = new JSONObject(new String(bArr));
         } catch (Exception e) {
-            com.baidu.android.pushservice.e.a.e(b, "Message parsing feedback fail:\r\n" + e.getMessage());
+            com.baidu.android.pushservice.g.a.e(b, "Message parsing feedback fail:\r\n" + e.getMessage());
         }
         if (!jSONObject.isNull("bccs_fb")) {
             i = Integer.parseInt(jSONObject.getString("bccs_fb"));

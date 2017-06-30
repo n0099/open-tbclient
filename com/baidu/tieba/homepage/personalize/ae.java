@@ -1,22 +1,35 @@
 package com.baidu.tieba.homepage.personalize;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.widget.ListView.BdTypeListView;
 /* loaded from: classes.dex */
-public class ae implements com.baidu.tbadk.util.g<String> {
-    private final /* synthetic */ n cBC;
-    final /* synthetic */ o this$0;
+class ae implements Runnable {
+    private final /* synthetic */ int aak;
+    final /* synthetic */ ad cJx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(o oVar, n nVar) {
-        this.this$0 = oVar;
-        this.cBC = nVar;
+    public ae(ad adVar, int i) {
+        this.cJx = adVar;
+        this.aak = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.g
-    /* renamed from: jV */
-    public void onReturnDataInUI(String str) {
-        if (this.cBC != null) {
-            this.cBC.kd(com.baidu.adp.lib.g.b.g(str, 0));
+    @Override // java.lang.Runnable
+    public void run() {
+        x xVar;
+        BdTypeListView bdTypeListView;
+        x xVar2;
+        BdTypeListView bdTypeListView2;
+        x xVar3;
+        BdTypeListView bdTypeListView3;
+        xVar = this.cJx.this$0;
+        bdTypeListView = xVar.mListView;
+        bdTypeListView.requestFocusFromTouch();
+        int i = this.aak;
+        xVar2 = this.cJx.this$0;
+        bdTypeListView2 = xVar2.mListView;
+        if (i <= bdTypeListView2.getCount() - 1) {
+            xVar3 = this.cJx.this$0;
+            bdTypeListView3 = xVar3.mListView;
+            bdTypeListView3.setSelection(this.aak);
         }
     }
 }

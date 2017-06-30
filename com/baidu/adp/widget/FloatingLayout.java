@@ -113,13 +113,13 @@ public class FloatingLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int orientation = getOrientation();
         if (orientation == 0) {
-            kw();
+            ku();
         } else if (orientation == 1) {
-            kx();
+            kv();
         }
     }
 
-    private void kw() {
+    private void ku() {
         int childCount = getChildCount();
         int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
         int paddingLeft = getPaddingLeft();
@@ -153,7 +153,7 @@ public class FloatingLayout extends LinearLayout {
         }
     }
 
-    private void kx() {
+    private void kv() {
         a aVar;
         int childCount = getChildCount();
         int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
@@ -240,7 +240,7 @@ public class FloatingLayout extends LinearLayout {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
-    /* renamed from: ky */
+    /* renamed from: kw */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2, 0);
     }

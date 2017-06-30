@@ -10,14 +10,14 @@ public class u {
     public static void a(TbPageContext<?> tbPageContext, String str, TbCameraView tbCameraView) {
         String str2;
         try {
-            if (!com.baidu.tbadk.core.util.l.dH()) {
+            if (!com.baidu.tbadk.core.util.n.dH()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(com.baidu.tbadk.core.util.l.ua());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(com.baidu.tbadk.core.util.n.us());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(com.baidu.tbadk.core.util.l.ua());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(com.baidu.tbadk.core.util.n.us());
                 }
             } else {
-                if (com.baidu.tbadk.core.util.l.cP(com.baidu.tbadk.core.util.l.yu + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+                if (com.baidu.tbadk.core.util.n.dj(com.baidu.tbadk.core.util.n.yu + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
                     String str3 = String.valueOf(str2) + "/" + str;
                     if (tbCameraView != null) {
                         tbCameraView.setStorePath(str3);

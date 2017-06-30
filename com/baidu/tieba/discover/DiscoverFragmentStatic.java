@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class DiscoverFragmentStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, new c());
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, new d());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

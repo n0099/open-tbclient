@@ -5,11 +5,13 @@ import android.widget.FrameLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Animator.AnimatorListener {
-    final /* synthetic */ a ewn;
+    private final /* synthetic */ int aBv;
+    final /* synthetic */ a eFJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(a aVar) {
-        this.ewn = aVar;
+    public e(a aVar, int i) {
+        this.eFJ = aVar;
+        this.aBv = i;
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -18,8 +20,16 @@ public class e implements Animator.AnimatorListener {
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
-        if (((FrameLayout.LayoutParams) this.ewn.getLayoutParams()).leftMargin <= 0) {
-            this.ewn.setCanChildShowPreview(true);
+        int i;
+        if (((FrameLayout.LayoutParams) this.eFJ.getLayoutParams()).leftMargin <= 0) {
+            this.eFJ.setCanChildShowPreview(true);
+        }
+        if (this.aBv == 0) {
+            i = this.eFJ.eFu;
+            if (i != 0) {
+                return;
+            }
+            this.eFJ.jv(true);
         }
     }
 

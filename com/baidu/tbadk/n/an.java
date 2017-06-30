@@ -7,27 +7,27 @@ public class an extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "video_list_weaklock_android";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eQ() {
+    protected String[] eP() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eR() {
+    protected int eQ() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int eS() {
-        return 0;
+        return 10;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eT() {
-        return 10;
+    protected String getName() {
+        return "android_video_http_dns_open";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eR() {
+        return 0;
     }
 }

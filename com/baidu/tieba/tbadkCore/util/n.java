@@ -5,19 +5,19 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class n extends r {
-    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> fEy;
+    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> fOD;
 
     public n(int i) {
         super(i);
-        this.fEy = new HashMap<>();
+        this.fOD = new HashMap<>();
     }
 
     public void a(String str, com.baidu.tieba.myCollection.baseHistory.a aVar) {
-        qv(str);
+        rt(str);
         try {
             Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.c(str, -1L));
             synchronized (this) {
-                this.fEy.put(valueOf, aVar);
+                this.fOD.put(valueOf, aVar);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -25,22 +25,22 @@ public class n extends r {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.r
-    public void aUD() {
+    public void aYO() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.fEC.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.fOH.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.fEC.remove(l);
-                this.fEy.remove(l);
+                this.fOH.remove(l);
+                this.fOD.remove(l);
             } else {
-                this.fEC.clear();
-                this.fEy.clear();
+                this.fOH.clear();
+                this.fOD.clear();
             }
         }
     }

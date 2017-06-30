@@ -7,24 +7,24 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.DressupCenterActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ j fQz;
+    final /* synthetic */ j gaq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(j jVar) {
-        this.fQz = jVar;
+        this.gaq = jVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        this.fQz.l(6, false);
-        com.baidu.tieba.j.a.baD().C(6, false);
-        TiebaStatic.log(new as("c10601"));
+        this.gaq.l(6, false);
+        com.baidu.tieba.j.a.beN().C(6, false);
+        TiebaStatic.log(new au("c10601"));
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.fQz.mContext;
+        context = this.gaq.mContext;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new DressupCenterActivityConfig(context)));
     }
 }

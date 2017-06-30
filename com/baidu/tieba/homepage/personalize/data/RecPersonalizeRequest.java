@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.util.p;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
 /* loaded from: classes.dex */
@@ -59,7 +59,7 @@ public class RecPersonalizeRequest extends NetMessage {
     protected Object encode(boolean z) {
         int i = 1;
         DataReq.Builder builder = new DataReq.Builder();
-        o.bindCommonParamsToProtobufData(builder, true, false, true);
+        p.bindCommonParamsToProtobufData(builder, true, false, true);
         builder.need_tags = 0;
         builder.load_type = Integer.valueOf(this.loadType);
         builder.page_thread_count = Integer.valueOf(this.threadCount);

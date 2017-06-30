@@ -1,26 +1,23 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class eg implements Runnable {
-    final /* synthetic */ ef eqi;
-    private final /* synthetic */ PbPageReadLocalResponseMessage eqj;
-    private final /* synthetic */ com.baidu.tieba.pb.data.f eqk;
+public class eg extends HttpMessageListener {
+    final /* synthetic */ PbFloorAgreeModel eyh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eg(ef efVar, PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage, com.baidu.tieba.pb.data.f fVar) {
-        this.eqi = efVar;
-        this.eqj = pbPageReadLocalResponseMessage;
-        this.eqk = fVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eg(PbFloorAgreeModel pbFloorAgreeModel, int i) {
+        super(i);
+        this.eyh = pbFloorAgreeModel;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PbModel pbModel;
-        PbModel.a aVar;
-        pbModel = this.eqi.eqh;
-        aVar = pbModel.epD;
-        aVar.a(true, 0, this.eqj.getUpdateType(), 0, this.eqk, this.eqj.getErrorString(), 0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        this.eyh.a(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
     }
 }

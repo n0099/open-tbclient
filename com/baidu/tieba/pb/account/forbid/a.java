@@ -2,15 +2,15 @@ package com.baidu.tieba.pb.account.forbid;
 
 import android.view.View;
 import android.widget.RadioGroup;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tieba.pb.account.forbid.ForbidActivity;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    final /* synthetic */ ForbidActivity egH;
+    final /* synthetic */ ForbidActivity epE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ForbidActivity forbidActivity) {
-        this.egH = forbidActivity;
+        this.epE = forbidActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,19 +24,19 @@ class a implements View.OnClickListener {
         String str4;
         String str5;
         ForbidActivity.a aVar3;
-        aVar = this.egH.egF;
+        aVar = this.epE.epC;
         if (aVar != null) {
-            aVar2 = this.egH.egF;
-            if (!au.isEmpty(aVar2.aId())) {
-                ForbidActivity forbidActivity = this.egH;
-                radioGroup = this.egH.egB;
-                str = this.egH.mForumId;
-                str2 = this.egH.mForumName;
-                str3 = this.egH.mThreadId;
-                str4 = this.egH.mUserName;
-                str5 = this.egH.mPostId;
-                aVar3 = this.egH.egF;
-                f.a(str, str2, str3, str4, str5, (String) forbidActivity.findViewById(radioGroup.getCheckedRadioButtonId()).getTag(), aVar3.aId(), new b(this));
+            aVar2 = this.epE.epC;
+            if (!aw.isEmpty(aVar2.aLX())) {
+                ForbidActivity forbidActivity = this.epE;
+                radioGroup = this.epE.epy;
+                str = this.epE.mForumId;
+                str2 = this.epE.mForumName;
+                str3 = this.epE.mThreadId;
+                str4 = this.epE.mUserName;
+                str5 = this.epE.mPostId;
+                aVar3 = this.epE.epC;
+                f.a(str, str2, str3, str4, str5, (String) forbidActivity.findViewById(radioGroup.getCheckedRadioButtonId()).getTag(), aVar3.aLX(), new b(this));
             }
         }
     }

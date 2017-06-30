@@ -3,9 +3,10 @@ package com.baidu.tbadk.coreExtra.data;
 public enum EmotionGroupType {
     LOCAL,
     BIG_EMOTION,
-    PROMOTION;
+    PROMOTION,
+    USER_COLLECT;
 
-    /* JADX DEBUG: Replace access to removed values field (apa) with 'values()' method */
+    /* JADX DEBUG: Replace access to removed values field (aqb) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
     public static EmotionGroupType[] valuesCustom() {
         EmotionGroupType[] valuesCustom = values();

@@ -1,26 +1,39 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
-public class bg implements View.OnClickListener {
-    final /* synthetic */ WriteActivity gaR;
+class bg extends CustomMessageListener {
+    final /* synthetic */ WriteActivity glP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(WriteActivity writeActivity) {
-        this.gaR = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bg(WriteActivity writeActivity, int i) {
+        super(i);
+        this.glP = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        File file;
-        File file2;
-        file = this.gaR.gaq;
-        if (file != null) {
-            WriteActivity writeActivity = this.gaR;
-            file2 = this.gaR.gaq;
-            writeActivity.ry(file2.getAbsolutePath());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        LocationModel locationModel;
+        LocationModel locationModel2;
+        LocationModel locationModel3;
+        if (customResponsedMessage instanceof ResponsedSelectLocation) {
+            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
+            if (responsedSelectLocation.isShowLocation()) {
+                locationModel2 = this.glP.aBD;
+                locationModel2.lU(false);
+                locationModel3 = this.glP.aBD;
+                locationModel3.ch(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                this.glP.b(2, true, responsedSelectLocation.getName());
+                return;
+            }
+            locationModel = this.glP.aBD;
+            locationModel.lU(true);
+            this.glP.b(0, true, null);
         }
     }
 }

@@ -1,21 +1,57 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.e.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an extends CustomMessageListener {
-    final /* synthetic */ aj eLE;
+public class an implements a.InterfaceC0062a {
+    final /* synthetic */ ak eVM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public an(aj ajVar, int i) {
-        super(i);
-        this.eLE = ajVar;
+    public an(ak akVar) {
+        this.eVM = akVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.eLE.Tw();
+    @Override // com.baidu.tieba.e.a.InterfaceC0062a
+    public void ah(int i, int i2) {
+        at atVar;
+        at atVar2;
+        at atVar3;
+        at atVar4;
+        if (Y(i2)) {
+            atVar = this.eVM.eVH;
+            if (atVar != null) {
+                atVar2 = this.eVM.eVH;
+                if (atVar2.eVR != null) {
+                    atVar3 = this.eVM.eVH;
+                    atVar3.eVR.ee(false);
+                    atVar4 = this.eVM.eVH;
+                    atVar4.eVR.showFloatingView();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.e.a.InterfaceC0062a
+    public void ai(int i, int i2) {
+        at atVar;
+        at atVar2;
+        at atVar3;
+        at atVar4;
+        if (Y(i2)) {
+            atVar = this.eVM.eVH;
+            if (atVar != null) {
+                atVar2 = this.eVM.eVH;
+                if (atVar2.eVR != null) {
+                    atVar3 = this.eVM.eVH;
+                    atVar3.eVR.ee(true);
+                    atVar4 = this.eVM.eVH;
+                    atVar4.eVR.hideFloatingView();
+                }
+            }
+        }
+    }
+
+    private boolean Y(float f) {
+        return Math.abs(f) >= 1.0f;
     }
 }

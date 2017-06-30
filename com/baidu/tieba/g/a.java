@@ -3,60 +3,60 @@ package com.baidu.tieba.g;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String coA;
-    private String coB;
-    private String coC;
-    private String cox;
-    private String coy;
-    private String coz;
+    private String cwm;
+    private String cwn;
+    private String cwo;
+    private String cwp;
+    private String cwq;
+    private String cwr;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.cox = String.valueOf(esportRank.rank);
-            this.coy = esportRank.text;
-            this.coC = esportRank.url;
+            this.cwm = String.valueOf(esportRank.rank);
+            this.cwn = esportRank.text;
+            this.cwr = esportRank.url;
             if (esportRank.user != null) {
-                this.coz = esportRank.user.steam_name;
-                this.coA = esportRank.user.steam_portrait;
+                this.cwo = esportRank.user.steam_name;
+                this.cwp = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String afx() {
+    public String ajh() {
         return this.mTitle;
     }
 
-    public String afy() {
-        return this.cox;
+    public String aji() {
+        return this.cwm;
     }
 
-    public String afz() {
-        return this.coy;
+    public String ajj() {
+        return this.cwn;
     }
 
-    public String afA() {
-        return this.coz;
+    public String ajk() {
+        return this.cwo;
     }
 
-    public String afB() {
-        return this.coA;
+    public String ajl() {
+        return this.cwp;
     }
 
-    public String afC() {
-        return this.coB;
+    public String ajm() {
+        return this.cwq;
     }
 
-    public void jr(String str) {
-        this.coB = str;
+    public void kp(String str) {
+        this.cwq = str;
     }
 
-    public String afD() {
-        return this.coC;
+    public String ajn() {
+        return this.cwr;
     }
 
-    public void js(String str) {
-        this.coC = str;
+    public void kq(String str) {
+        this.cwr = str;
     }
 }

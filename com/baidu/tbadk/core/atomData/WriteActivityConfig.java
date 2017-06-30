@@ -31,6 +31,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String IS_LIVE_POST = "is_live_post";
     public static final String IS_SAVE_DRAFTE = "need_save_draft";
     public static final String KEY_CALL_FROM = "KEY_CALL_FROM";
+    public static final String KEY_FORUM_AVATAR = "forum_avatar";
     public static final String KEY_WRITE_IMAGES_INFO_STRING = "KEY_WRITE_IMAGES_INFO_STRING";
     public static final String KEY_WRITE_LEVEL = "key_write_level";
     public static final String LIVE_DATE = "live_date";
@@ -46,6 +47,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String MEMBER_TYPE = "mem_type";
     public static final String PHOTO_LIVE_COVER_IMAGE = "photolivecoverimage";
     public static final String PHOTO_NAME = "photo_name";
+    public static final String POST_WRITE_CALLBACK_DATA = "post_write_callback_data";
     public static final String PREFIX_DATA = "prefix_data";
     public static final String REFRESH_PIC = "refresh_pic";
     public static final String REPLY_SUB_PB = "reply_sub_pb";
@@ -160,6 +162,12 @@ public class WriteActivityConfig extends IntentConfig {
     public void setForumLevel(int i) {
         if (getIntent() != null) {
             getIntent().putExtra(KEY_WRITE_LEVEL, i);
+        }
+    }
+
+    public void setForumAvatar(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("forum_avatar", str);
         }
     }
 }

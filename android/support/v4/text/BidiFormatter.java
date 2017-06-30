@@ -87,10 +87,10 @@ public final class BidiFormatter {
 
     private String a(String str, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
         boolean isRtl = textDirectionHeuristicCompat.isRtl(str, 0, str.length());
-        if (!this.jW && (isRtl || m(str) == 1)) {
+        if (!this.jW && (isRtl || r(str) == 1)) {
             return jS;
         }
-        if (this.jW && (!isRtl || m(str) == -1)) {
+        if (this.jW && (!isRtl || r(str) == -1)) {
             return jT;
         }
         return "";
@@ -98,10 +98,10 @@ public final class BidiFormatter {
 
     private String b(String str, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
         boolean isRtl = textDirectionHeuristicCompat.isRtl(str, 0, str.length());
-        if (!this.jW && (isRtl || n(str) == 1)) {
+        if (!this.jW && (isRtl || s(str) == 1)) {
             return jS;
         }
-        if (this.jW && (!isRtl || n(str) == -1)) {
+        if (this.jW && (!isRtl || s(str) == -1)) {
             return jT;
         }
         return "";
@@ -147,11 +147,11 @@ public final class BidiFormatter {
         return TextUtilsCompat.getLayoutDirectionFromLocale(locale) == 1;
     }
 
-    private static int m(String str) {
+    private static int r(String str) {
         return new a(str, false).aY();
     }
 
-    private static int n(String str) {
+    private static int s(String str) {
         return new a(str, false).aX();
     }
 

@@ -17,7 +17,7 @@ public class h {
     private j Ac = null;
     private ArrayList<g.a> Ae = new ArrayList<>();
 
-    public static h hX() {
+    public static h hW() {
         if (zX == null) {
             synchronized (h.class) {
                 if (zX == null) {
@@ -41,12 +41,12 @@ public class h {
         this.Af = new i(this);
     }
 
-    public boolean hY() {
+    public boolean hX() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.k.hz();
+            com.baidu.adp.lib.util.k.hy();
         }
         if (this.Ac != null) {
-            if (this.Ac.ib() || this.Ac.isOpen()) {
+            if (this.Ac.ia() || this.Ac.isOpen()) {
                 isDebug();
                 return true;
             }
@@ -56,7 +56,7 @@ public class h {
         this.Ac = new j();
         try {
             n nVar = new n();
-            nVar.aL(this.Ab);
+            nVar.aQ(this.Ab);
             this.Ac.a(this.zY, this.Aa, this.Af, nVar, this.zZ);
             return true;
         } catch (WebSocketException e) {
@@ -77,32 +77,32 @@ public class h {
         }
     }
 
-    public boolean hZ() {
+    public boolean hY() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.k.hz();
+            com.baidu.adp.lib.util.k.hy();
         }
-        return (this.Ac == null || !this.Ac.isOpen() || this.Ac.ii()) ? false : true;
+        return (this.Ac == null || !this.Ac.isOpen() || this.Ac.ih()) ? false : true;
     }
 
-    public boolean ia() {
+    public boolean hZ() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.k.hz();
+            com.baidu.adp.lib.util.k.hy();
         }
         return this.Ac != null && this.Ac.isOpen();
     }
 
-    public boolean ib() {
+    public boolean ia() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.k.hz();
+            com.baidu.adp.lib.util.k.hy();
         }
-        return this.Ac != null && this.Ac.ib();
+        return this.Ac != null && this.Ac.ia();
     }
 
     public synchronized boolean sendMessage(c cVar) {
         boolean z = false;
         synchronized (this) {
             if (cVar != null) {
-                com.baidu.adp.lib.util.k.hz();
+                com.baidu.adp.lib.util.k.hy();
                 if (this.Ac != null) {
                     z = this.Ac.sendMessage(cVar);
                 } else if (cVar != null) {
@@ -128,9 +128,9 @@ public class h {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void ic() {
+    public void ib() {
         if (this.Ac != null) {
-            this.Ac.ic();
+            this.Ac.ib();
         }
     }
 
@@ -141,9 +141,9 @@ public class h {
         return -1L;
     }
 
-    public void id() {
+    public void ic() {
         if (this.Ac != null) {
-            this.Ac.id();
+            this.Ac.ic();
         }
     }
 
@@ -154,37 +154,37 @@ public class h {
         return -1L;
     }
 
-    public long hU() {
+    public long hT() {
         if (this.Ac != null) {
-            return this.Ac.ij();
+            return this.Ac.ii();
         }
         return -1L;
     }
 
-    public String hT() {
+    public String hS() {
         if (this.Ac != null) {
-            return this.Ac.ik();
+            return this.Ac.ij();
         }
         return null;
     }
 
-    public long ie() {
+    public long id() {
         if (this.Ac != null) {
-            return this.Ac.il();
+            return this.Ac.ik();
         }
         return -1L;
+    }
+
+    public String hB() {
+        if (this.Ac != null) {
+            return this.Ac.hB();
+        }
+        return null;
     }
 
     public String hC() {
         if (this.Ac != null) {
             return this.Ac.hC();
-        }
-        return null;
-    }
-
-    public String hD() {
-        if (this.Ac != null) {
-            return this.Ac.hD();
         }
         return null;
     }

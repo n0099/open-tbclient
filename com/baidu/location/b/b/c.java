@@ -42,8 +42,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static volatile b MR;
-    private PublicKey MQ;
+    private static volatile b MP;
+    private PublicKey MO;
     private final Context a;
     private int b = 0;
 
@@ -81,7 +81,7 @@ public final class c {
             this();
         }
 
-        public static b bN(String str) {
+        public static b bS(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -250,7 +250,7 @@ public final class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.MQ);
+                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.MO);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.location.b.a.d.a(a2))) {
                                                 aVar.c = true;
                                             }
@@ -280,7 +280,7 @@ public final class c {
             th = th;
         }
         try {
-            this.MQ = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+            this.MO = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
             if (byteArrayInputStream != null) {
                 try {
                     byteArrayInputStream.close();
@@ -390,16 +390,16 @@ public final class c {
     }
 
     private static b ao(Context context) {
-        if (MR == null) {
+        if (MP == null) {
             synchronized (b.class) {
-                if (MR == null) {
+                if (MP == null) {
                     SystemClock.uptimeMillis();
-                    MR = new c(context).mA();
+                    MP = new c(context).my();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return MR;
+        return MP;
     }
 
     public static String b(Context context) {
@@ -454,7 +454,7 @@ public final class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private b bM(String str) {
+    private b bR(String str) {
         String str2;
         String[] split;
         boolean z = false;
@@ -611,6 +611,21 @@ public final class c {
     }
 
     private b mA() {
+        File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
+        if (file.exists()) {
+            String a2 = a(file);
+            if (!TextUtils.isEmpty(a2)) {
+                try {
+                    return b.bS(new String(com.baidu.location.b.a.a.b("30212102dicudiab", "30212102dicudiab", com.baidu.location.b.a.b.a(a2.getBytes()))));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+
+    private b my() {
         boolean z;
         b bVar;
         b bVar2;
@@ -636,8 +651,8 @@ public final class c {
             z = z3;
         }
         File file = new File(this.a.getFilesDir(), "libcuid.so");
-        b bN = file.exists() ? b.bN(f(a(file))) : null;
-        if (bN == null) {
+        b bS = file.exists() ? b.bS(f(a(file))) : null;
+        if (bS == null) {
             this.b |= 16;
             List<a> a3 = a(new Intent("com.baidu.intent.action.GALAXY"), z);
             if (a3 != null) {
@@ -652,37 +667,37 @@ public final class c {
                     if (!aVar2.d) {
                         File file2 = new File(new File(aVar2.a.dataDir, str2), "libcuid.so");
                         if (file2.exists()) {
-                            bVar = b.bN(f(a(file2)));
+                            bVar = b.bS(f(a(file2)));
                             if (bVar != null) {
                                 break;
                             }
                         } else {
-                            bVar = bN;
+                            bVar = bS;
                         }
-                        bN = bVar;
+                        bS = bVar;
                     }
                 }
             }
         }
-        bVar = bN;
+        bVar = bS;
         if (bVar == null) {
-            bVar = b.bN(f(b("com.baidu.deviceid.v2")));
+            bVar = b.bS(f(b("com.baidu.deviceid.v2")));
         }
         boolean c = c("android.permission.READ_EXTERNAL_STORAGE");
         if (bVar == null && c) {
             this.b |= 2;
-            bVar2 = mC();
+            bVar2 = mA();
         } else {
             bVar2 = bVar;
         }
         if (bVar2 == null) {
             this.b |= 8;
-            bVar2 = mB();
+            bVar2 = mz();
         }
         if (bVar2 == null && c) {
             this.b |= 1;
             str = h("");
-            bVar2 = bM(str);
+            bVar2 = bR(str);
             z2 = true;
         } else {
             str = null;
@@ -735,7 +750,7 @@ public final class c {
         return bVar3;
     }
 
-    private b mB() {
+    private b mz() {
         String b2 = b("com.baidu.deviceid");
         String b3 = b("bd_setting_i");
         if (TextUtils.isEmpty(b3)) {
@@ -754,20 +769,5 @@ public final class c {
         bVar.a = b2;
         bVar.b = b3;
         return bVar;
-    }
-
-    private b mC() {
-        File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
-        if (file.exists()) {
-            String a2 = a(file);
-            if (!TextUtils.isEmpty(a2)) {
-                try {
-                    return b.bN(new String(com.baidu.location.b.a.a.b("30212102dicudiab", "30212102dicudiab", com.baidu.location.b.a.b.a(a2.getBytes()))));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return null;
     }
 }

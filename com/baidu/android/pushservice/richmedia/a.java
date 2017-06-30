@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.richmedia;
 
 import android.content.Context;
-import com.baidu.android.pushservice.h.o;
+import com.baidu.android.pushservice.d.a;
 import com.baidu.android.pushservice.richmedia.c;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -40,16 +40,16 @@ public class a extends Thread implements Comparable<a> {
         try {
             return ((HttpURLConnection) new URL(str).openConnection()).getContentLength();
         } catch (MalformedURLException e2) {
-            com.baidu.android.pushservice.e.a.e("HttpTaskThread", "error " + e2.getMessage());
+            com.baidu.android.pushservice.g.a.e("HttpTaskThread", "error " + e2.getMessage());
             return 0;
         } catch (IOException e3) {
-            com.baidu.android.pushservice.e.a.e("HttpTaskThread", "error " + e3.getMessage());
+            com.baidu.android.pushservice.g.a.e("HttpTaskThread", "error " + e3.getMessage());
             return 0;
         }
     }
 
-    private o.h a(Context context, String str) {
-        List<o.h> b = o.b(context);
+    private a.g a(Context context, String str) {
+        List<a.g> b = com.baidu.android.pushservice.d.a.b(context);
         if (b != null) {
             int i = 0;
             while (true) {
@@ -119,11 +119,11 @@ public class a extends Thread implements Comparable<a> {
                             try {
                                 ZipEntry nextEntry = zipInputStream.getNextEntry();
                                 if (nextEntry == null) {
-                                    com.baidu.android.pushservice.d.b.a(fileInputStream, zipInputStream, fileOutputStream, bufferedOutputStream, bufferedInputStream);
+                                    com.baidu.android.pushservice.f.b.a(fileInputStream, zipInputStream, fileOutputStream, bufferedOutputStream, bufferedInputStream);
                                     return;
                                 }
                                 try {
-                                    com.baidu.android.pushservice.e.a.b("DownloadCompleteReceiver: ", "unzip----=" + nextEntry);
+                                    com.baidu.android.pushservice.g.a.b("DownloadCompleteReceiver: ", "unzip----=" + nextEntry);
                                     byte[] bArr = new byte[4096];
                                     String name = nextEntry.getName();
                                     String[] split = name.length() > 0 ? name.split("/") : null;
@@ -150,12 +150,12 @@ public class a extends Thread implements Comparable<a> {
                                                     e = e2;
                                                     bufferedOutputStream = bufferedOutputStream3;
                                                     fileOutputStream = fileOutputStream3;
-                                                    com.baidu.android.pushservice.e.a.a("HttpTaskThread", e);
+                                                    com.baidu.android.pushservice.g.a.a("HttpTaskThread", e);
                                                 } catch (Throwable th) {
                                                     th = th;
                                                     bufferedOutputStream = bufferedOutputStream3;
                                                     fileOutputStream = fileOutputStream3;
-                                                    com.baidu.android.pushservice.d.b.a(fileInputStream, zipInputStream, fileOutputStream, bufferedOutputStream, bufferedInputStream);
+                                                    com.baidu.android.pushservice.f.b.a(fileInputStream, zipInputStream, fileOutputStream, bufferedOutputStream, bufferedInputStream);
                                                     throw th;
                                                 }
                                             }
@@ -181,8 +181,8 @@ public class a extends Thread implements Comparable<a> {
                                 zipInputStream2 = zipInputStream;
                                 fileInputStream2 = fileInputStream;
                                 try {
-                                    com.baidu.android.pushservice.e.a.e("HttpTaskThread", "error " + e.getMessage());
-                                    com.baidu.android.pushservice.d.b.a(fileInputStream2, zipInputStream2, fileOutputStream2, bufferedOutputStream2, bufferedInputStream2);
+                                    com.baidu.android.pushservice.g.a.e("HttpTaskThread", "error " + e.getMessage());
+                                    com.baidu.android.pushservice.f.b.a(fileInputStream2, zipInputStream2, fileOutputStream2, bufferedOutputStream2, bufferedInputStream2);
                                     return;
                                 } catch (Throwable th3) {
                                     th = th3;
@@ -191,7 +191,7 @@ public class a extends Thread implements Comparable<a> {
                                     bufferedInputStream = bufferedInputStream2;
                                     bufferedOutputStream = bufferedOutputStream2;
                                     fileOutputStream = fileOutputStream2;
-                                    com.baidu.android.pushservice.d.b.a(fileInputStream, zipInputStream, fileOutputStream, bufferedOutputStream, bufferedInputStream);
+                                    com.baidu.android.pushservice.f.b.a(fileInputStream, zipInputStream, fileOutputStream, bufferedOutputStream, bufferedInputStream);
                                     throw th;
                                 }
                             }
@@ -244,70 +244,70 @@ public class a extends Thread implements Comparable<a> {
     }
 
     private e b() {
-        o.h hVar;
+        a.g gVar;
         int read;
         e eVar = new e();
         eVar.d = this.d;
         if (this.d != null) {
             eVar.a = this.d.a();
             if (this.d.b == null) {
-                com.baidu.android.pushservice.e.a.c("HttpTaskThread", "download file Request error: " + this.d);
+                com.baidu.android.pushservice.g.a.c("HttpTaskThread", "download file Request error: " + this.d);
                 eVar.c = 3;
             } else if (!a(this.d)) {
-                com.baidu.android.pushservice.e.a.d("HttpTaskThread", "Request url: " + this.d.c() + " failed, already in queue");
+                com.baidu.android.pushservice.g.a.d("HttpTaskThread", "Request url: " + this.d.c() + " failed, already in queue");
                 this.a = null;
                 this.d = null;
                 return null;
             } else {
-                o.h a = a(this.b.get(), this.d.c());
+                a.g a = a(this.b.get(), this.d.c());
                 if (a == null) {
-                    hVar = new o.h();
-                    hVar.b = this.d.c();
-                    hVar.a = this.d.a;
-                    hVar.c = this.d.c;
-                    hVar.d = this.d.d;
-                    hVar.g = 0;
-                    hVar.h = a(hVar.b);
-                    hVar.i = e;
-                    hVar.f = hVar.b.substring(hVar.b.lastIndexOf(47) + 1);
-                    hVar.e = this.d.b;
+                    gVar = new a.g();
+                    gVar.b = this.d.c();
+                    gVar.a = this.d.a;
+                    gVar.c = this.d.c;
+                    gVar.d = this.d.d;
+                    gVar.g = 0;
+                    gVar.h = a(gVar.b);
+                    gVar.i = e;
+                    gVar.f = gVar.b.substring(gVar.b.lastIndexOf(47) + 1);
+                    gVar.e = this.d.b;
                     try {
-                        o.a(this.b.get(), hVar);
+                        com.baidu.android.pushservice.d.a.a(this.b.get(), gVar);
                     } catch (Exception e2) {
-                        com.baidu.android.pushservice.e.a.c("HttpTaskThread", "HttpTask insertFileDownloadingInfo");
+                        com.baidu.android.pushservice.g.a.c("HttpTaskThread", "HttpTask insertFileDownloadingInfo");
                     }
                 } else {
                     a.h = a(a.b);
-                    hVar = a;
+                    gVar = a;
                 }
-                if (hVar.i == f) {
+                if (gVar.i == f) {
                     eVar.c = 0;
                     eVar.d = this.d;
-                    eVar.e = hVar.e + "/" + hVar.f;
+                    eVar.e = gVar.e + "/" + gVar.f;
                     return eVar;
                 }
-                com.baidu.android.pushservice.e.a.c("HttpTaskThread", "Request url: " + this.d.c() + " success");
+                com.baidu.android.pushservice.g.a.c("HttpTaskThread", "Request url: " + this.d.c() + " success");
                 if (this.a != null) {
                     this.a.a(this);
                 }
                 try {
-                    com.baidu.android.pushservice.d.a a2 = com.baidu.android.pushservice.d.b.a(this.d.c(), this.d.b(), this.d.f);
+                    com.baidu.android.pushservice.f.a a2 = com.baidu.android.pushservice.f.b.a(this.d.c(), this.d.b(), this.d.f);
                     if (a2.b() == 200) {
                         InputStream a3 = a2.a();
-                        File file = new File(hVar.e);
+                        File file = new File(gVar.e);
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        File file2 = new File(hVar.e + "/" + hVar.f);
+                        File file2 = new File(gVar.e + "/" + gVar.f);
                         if (!file2.exists()) {
                             file2.createNewFile();
                         }
                         RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
-                        randomAccessFile.seek(hVar.g);
+                        randomAccessFile.seek(gVar.g);
                         byte[] bArr = new byte[102400];
-                        int i = hVar.g;
+                        int i = gVar.g;
                         b bVar = new b();
-                        bVar.b = hVar.h;
+                        bVar.b = gVar.h;
                         bVar.a = i;
                         a(bVar);
                         do {
@@ -318,23 +318,23 @@ public class a extends Thread implements Comparable<a> {
                                 randomAccessFile.write(bArr, 0, read);
                                 i += read;
                                 b bVar2 = new b();
-                                bVar2.b = hVar.h;
+                                bVar2.b = gVar.h;
                                 bVar2.a = i;
                                 a(bVar2);
                             } catch (IOException e3) {
-                                com.baidu.android.pushservice.e.a.a("HttpTaskThread", e3);
-                                com.baidu.android.pushservice.d.b.a(a3, randomAccessFile);
+                                com.baidu.android.pushservice.g.a.a("HttpTaskThread", e3);
+                                com.baidu.android.pushservice.f.b.a(a3, randomAccessFile);
                             }
-                        } while (i != hVar.h);
-                        com.baidu.android.pushservice.d.b.a(a3, randomAccessFile);
+                        } while (i != gVar.h);
+                        com.baidu.android.pushservice.f.b.a(a3, randomAccessFile);
                         if (this.h) {
-                            o.b(this.b.get(), hVar.b);
+                            com.baidu.android.pushservice.d.a.b(this.b.get(), gVar.b);
                             eVar.c = 2;
                             file2.delete();
                         } else {
-                            hVar.g = i;
-                            hVar.i = f;
-                            o.a(this.b.get(), hVar.b, hVar);
+                            gVar.g = i;
+                            gVar.i = f;
+                            com.baidu.android.pushservice.d.a.a(this.b.get(), gVar.b, gVar);
                             eVar.c = 0;
                             eVar.e = file2.getAbsolutePath();
                         }
@@ -343,7 +343,7 @@ public class a extends Thread implements Comparable<a> {
                         eVar.b = a2.b();
                     }
                 } catch (Exception e4) {
-                    com.baidu.android.pushservice.e.a.e("HttpTaskThread", "download file Exception:" + e4.getMessage());
+                    com.baidu.android.pushservice.g.a.e("HttpTaskThread", "download file Exception:" + e4.getMessage());
                     eVar.c = -1;
                 }
             }

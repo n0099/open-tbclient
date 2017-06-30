@@ -1,22 +1,30 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import com.baidu.tbadk.core.view.j;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements j.a {
-    final /* synthetic */ p eLo;
+public class v extends CustomMessageListener {
+    final /* synthetic */ r eVs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(p pVar) {
-        this.eLo = pVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(r rVar, int i) {
+        super(i);
+        this.eVs = rVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void ok() {
-        com.baidu.adp.lib.g.j.a(this.eLo.eLg, this.eLo.ajh.getPageActivity());
-    }
-
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void ol() {
-        com.baidu.adp.lib.g.j.a(this.eLo.eLg, this.eLo.ajh.getPageActivity());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) {
+            ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
+            if (responseNewFriendUpdateUiMsg.getAction() == -1) {
+                this.eVs.jU(false);
+            } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
+                this.eVs.jU(true);
+            }
+        }
     }
 }

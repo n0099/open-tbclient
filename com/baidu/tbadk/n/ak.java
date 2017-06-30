@@ -4,16 +4,22 @@ public class ak extends com.baidu.adp.lib.b.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void X(int i) {
+        this.ud = 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_shouzhu_update";
+        return "uninstall_feed_back_switch";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eQ() {
+    protected String[] eP() {
         return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eQ() {
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -23,11 +29,6 @@ public class ak extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eS() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eT() {
         return 10;
     }
 }

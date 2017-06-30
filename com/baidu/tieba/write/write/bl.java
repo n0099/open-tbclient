@@ -1,27 +1,15 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.be;
+import java.util.Map;
 /* loaded from: classes.dex */
-class bl implements TextWatcher {
-    final /* synthetic */ WriteActivity gaR;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(WriteActivity writeActivity) {
-        this.gaR = writeActivity;
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.gaR.a(charSequence, i, i3, "from_title");
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.gaR.bed();
+class bl implements be.b {
+    @Override // com.baidu.tbadk.core.util.be.b
+    public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
+        if (tbPageContext == null) {
+            return;
+        }
+        WriteActivityStatic.A(tbPageContext);
     }
 }

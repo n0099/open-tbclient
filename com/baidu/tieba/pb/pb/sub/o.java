@@ -4,11 +4,11 @@ import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.f {
-    final /* synthetic */ NewSubPbActivity eye;
+    final /* synthetic */ NewSubPbActivity eHC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(NewSubPbActivity newSubPbActivity) {
-        this.eye = newSubPbActivity;
+        this.eHC = newSubPbActivity;
     }
 
     @Override // com.baidu.adp.base.f
@@ -19,28 +19,28 @@ public class o extends com.baidu.adp.base.f {
         ao aoVar2;
         boolean z = false;
         if (obj != null) {
-            forumManageModel2 = this.eye.exO;
+            forumManageModel2 = this.eHC.eHm;
             switch (forumManageModel2.getLoadDataMode()) {
                 case 0:
                     ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                    if (bVar.crt || bVar.eyS <= 0 || bVar.fEp == 1) {
+                    if (bVar.czh || bVar.eIp <= 0 || bVar.fOu == 1) {
                         z = true;
                     } else {
-                        com.baidu.tieba.c.a.a(this.eye.getPageContext(), 3, 1);
+                        com.baidu.tieba.c.a.a(this.eHC.getPageContext(), 3, 1);
                     }
-                    this.eye.a(bVar, z);
+                    this.eHC.a(bVar, z);
                     return;
                 case 1:
                     ForumManageModel.d dVar = (ForumManageModel.d) obj;
-                    aoVar2 = this.eye.exP;
-                    aoVar2.a(1, dVar.AM, dVar.fEr, true);
+                    aoVar2 = this.eHC.eHn;
+                    aoVar2.a(1, dVar.AM, dVar.fOw, true);
                     return;
                 default:
                     return;
             }
         }
-        aoVar = this.eye.exP;
-        forumManageModel = this.eye.exO;
+        aoVar = this.eHC.eHn;
+        forumManageModel = this.eHC.eHm;
         aoVar.a(forumManageModel.getLoadDataMode(), false, (String) null, false);
     }
 }

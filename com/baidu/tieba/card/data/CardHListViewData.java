@@ -2,8 +2,8 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.z;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,16 +29,16 @@ public class CardHListViewData extends b implements Serializable {
     }
 
     public void parseProtobuf(GuessLikeStruct guessLikeStruct) {
-        if (guessLikeStruct != null && x.q(guessLikeStruct.thread_list) >= 3) {
-            this.title = au.dx(guessLikeStruct.title);
+        if (guessLikeStruct != null && z.s(guessLikeStruct.thread_list) >= 3) {
+            this.title = aw.dR(guessLikeStruct.title);
             List<GuessLikeThreadInfo> list = guessLikeStruct.thread_list;
-            if (x.q(list) > 9) {
-                list = x.a(list, 0, 9);
+            if (z.s(list) > 9) {
+                list = z.a(list, 0, 9);
             }
-            if (!x.r(list)) {
+            if (!z.t(list)) {
                 this.mList.clear();
                 for (GuessLikeThreadInfo guessLikeThreadInfo : list) {
-                    if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !au.aC(guessLikeThreadInfo.recom_cover) && !au.aC(guessLikeThreadInfo.title)) {
+                    if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !aw.aH(guessLikeThreadInfo.recom_cover) && !aw.aH(guessLikeThreadInfo.title)) {
                         CardHListViewNormalItemData cardHListViewNormalItemData = new CardHListViewNormalItemData();
                         cardHListViewNormalItemData.parseProtobuf(guessLikeThreadInfo);
                         this.mList.add(cardHListViewNormalItemData);

@@ -1,126 +1,44 @@
 package com.baidu.tieba.enterForum.c;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter bLQ;
-    private View bNG;
-    private TextView bNH;
-    private ImageView bNI;
-    private ImageView bNJ;
-    private View bNK;
-    private TextView bNL;
-    private ImageView bNM;
-    private ImageView bNN;
-    private ImageView bNO;
-    private ImageView bNP;
+public class j implements View.OnClickListener {
+    final /* synthetic */ i bUL;
+    private final /* synthetic */ com.baidu.tieba.enterForum.b.e bUM;
 
-    public j(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, view, viewEventCenter);
-        this.bLQ = viewEventCenter;
-        this.bNG = view.findViewById(w.h.left_container);
-        this.bNH = (TextView) this.bNG.findViewById(w.h.name);
-        this.bNI = (ImageView) this.bNG.findViewById(w.h.sign);
-        this.bNJ = (ImageView) this.bNG.findViewById(w.h.grade);
-        this.bNK = view.findViewById(w.h.right_container);
-        this.bNL = (TextView) this.bNK.findViewById(w.h.name);
-        this.bNM = (ImageView) this.bNK.findViewById(w.h.sign);
-        this.bNN = (ImageView) this.bNK.findViewById(w.h.grade);
-        this.bNO = (ImageView) view.findViewById(w.h.divide_line_middle);
-        this.bNP = (ImageView) view.findViewById(w.h.divide_line);
-        int g = com.baidu.adp.lib.util.k.g(tbPageContext.getPageActivity(), w.f.ds20);
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.bNJ.getLayoutParams();
-        if (marginLayoutParams != null) {
-            marginLayoutParams.rightMargin = g;
-        }
-        int g2 = com.baidu.adp.lib.util.k.g(tbPageContext.getPageActivity(), w.f.ds32);
-        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.bNL.getLayoutParams();
-        if (marginLayoutParams2 != null) {
-            marginLayoutParams2.leftMargin = g2;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(i iVar, com.baidu.tieba.enterForum.b.e eVar) {
+        this.bUL = iVar;
+        this.bUM = eVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.f.e
-    /* renamed from: a */
-    public void E(com.baidu.tieba.enterForum.b.a aVar) {
-        super.E(aVar);
-        if (aVar != null) {
-            a(aVar.WU(), true);
-            a(aVar.WV(), false);
-            b(aVar.WU(), true);
-            b(aVar.WV(), false);
-            aq.k(this.bNO, w.e.cp_bg_line_c);
-            aq.k(this.bNP, w.e.cp_bg_line_c);
-            aq.j(this.bNI, w.g.icon_sign);
-            aq.j(this.bNM, w.g.icon_sign);
-        }
-    }
-
-    private void a(com.baidu.tieba.enterForum.b.e eVar, boolean z) {
-        if (eVar != null) {
-            View view = z ? this.bNG : this.bNK;
-            TextView textView = z ? this.bNH : this.bNL;
-            ImageView imageView = z ? this.bNI : this.bNM;
-            ImageView imageView2 = z ? this.bNJ : this.bNN;
-            switch (eVar.getType()) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ViewEventCenter viewEventCenter;
+        ViewEventCenter viewEventCenter2;
+        ViewEventCenter viewEventCenter3;
+        ViewEventCenter viewEventCenter4;
+        viewEventCenter = this.bUL.bSq;
+        if (viewEventCenter != null) {
+            switch (this.bUM.getType()) {
+                case 0:
+                    viewEventCenter4 = this.bUL.bSq;
+                    viewEventCenter4.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, this.bUM, null, null));
+                    return;
                 case 1:
-                    view.setVisibility(0);
-                    textView.setText(w.l.default_personalized_name);
-                    textView.setVisibility(0);
-                    imageView.setVisibility(8);
-                    imageView2.setVisibility(8);
-                    aq.i(textView, w.e.cp_link_tip_a);
+                    viewEventCenter3 = this.bUL.bSq;
+                    viewEventCenter3.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(8, null, null, null));
                     return;
                 case 2:
-                    view.setVisibility(4);
-                    return;
                 default:
-                    view.setVisibility(0);
-                    textView.setVisibility(0);
-                    if (eVar instanceof com.baidu.tieba.enterForum.b.g) {
-                        com.baidu.tieba.enterForum.b.g gVar = (com.baidu.tieba.enterForum.b.g) eVar;
-                        textView.setText(gVar.getName());
-                        imageView.setVisibility(gVar.Xb() == 0 ? 8 : 0);
-                        if (gVar.getLevel() == 0) {
-                            imageView2.setVisibility(8);
-                        } else {
-                            imageView2.setVisibility(0);
-                            aq.c(imageView2, BitmapHelper.getGradeResourceIdInEnterForum(gVar.getLevel()));
-                        }
-                    } else if (eVar instanceof com.baidu.tieba.enterForum.b.j) {
-                        textView.setText(((com.baidu.tieba.enterForum.b.j) eVar).getForumName());
-                        imageView.setVisibility(8);
-                        imageView2.setVisibility(8);
-                    }
-                    aq.i(textView, w.e.cp_cont_b);
+                    return;
+                case 3:
+                    viewEventCenter2 = this.bUL.bSq;
+                    viewEventCenter2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(5, this.bUM, null, null));
                     return;
             }
         }
-    }
-
-    private void b(com.baidu.tieba.enterForum.b.e eVar, boolean z) {
-        View view;
-        if (z) {
-            view = this.bNG;
-        } else {
-            view = this.bNK;
-        }
-        view.setOnClickListener(new k(this, eVar));
-        view.setOnLongClickListener(new l(this, eVar));
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.q
-    public boolean b(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.m.a.a(tbPageContext, getRootView());
-        return true;
     }
 }

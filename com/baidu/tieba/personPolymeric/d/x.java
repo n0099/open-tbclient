@@ -16,24 +16,27 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
-    com.baidu.tieba.personPolymeric.event.a bxk = new com.baidu.tieba.personPolymeric.event.a();
-    final /* synthetic */ w eNY;
+    com.baidu.tieba.personPolymeric.event.a eYi = new com.baidu.tieba.personPolymeric.event.a();
+    final /* synthetic */ w eYj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.eNY = wVar;
+        this.eYj = wVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:36:0x0168, code lost:
         if (r0.getIsFriend() != 1) goto L43;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x0259, code lost:
+        if (r0 == r9) goto L50;
      */
     @Override // android.view.View.OnClickListener
     /*
@@ -48,141 +51,169 @@ public class x implements View.OnClickListener {
         TextView textView;
         TextView textView2;
         View view2;
+        TextView textView3;
+        boolean z;
         UserData userData;
+        com.baidu.tieba.personPolymeric.c.a aVar;
+        com.baidu.tieba.personPolymeric.c.a aVar2;
+        com.baidu.tieba.personPolymeric.c.a aVar3;
+        TextView textView4;
         UserData userData2;
         UserData userData3;
         UserData userData4;
+        UserData userData5;
         Context context;
         Context context2;
-        UserData userData5;
         UserData userData6;
         UserData userData7;
-        Context context3;
         UserData userData8;
+        Context context3;
         UserData userData9;
         UserData userData10;
         UserData userData11;
-        boolean z;
         UserData userData12;
+        boolean z2;
         UserData userData13;
         UserData userData14;
-        Context context4;
         UserData userData15;
+        Context context4;
         UserData userData16;
-        Context context5;
         UserData userData17;
+        Context context5;
         UserData userData18;
         UserData userData19;
-        com.baidu.tieba.view.r rVar2;
         UserData userData20;
-        rVar = this.eNY.bxW;
+        com.baidu.tieba.view.r rVar2;
+        UserData userData21;
+        rVar = this.eYj.eRa;
         if (rVar != null) {
-            this.bxk.bOi = -1;
-            headPendantView = this.eNY.fQU;
+            this.eYi.bVd = -1;
+            headPendantView = this.eYj.gaV;
             if (headPendantView != view) {
-                userIconBox = this.eNY.fQW;
+                userIconBox = this.eYj.gaX;
                 if (userIconBox != view) {
-                    userIconBox2 = this.eNY.fQX;
+                    userIconBox2 = this.eYj.gaY;
                     if (userIconBox2 != view) {
-                        bdExpandImageView = this.eNY.fQT;
+                        bdExpandImageView = this.eYj.gaU;
                         if (bdExpandImageView != view) {
-                            textView = this.eNY.fQZ;
+                            textView = this.eYj.gba;
                             if (textView != view) {
-                                textView2 = this.eNY.eNN;
+                                textView2 = this.eYj.eXX;
                                 if (textView2 != view) {
-                                    view2 = this.eNY.eNQ;
+                                    view2 = this.eYj.eYa;
                                     if (view2 == view) {
-                                        userData = this.eNY.mUserData;
-                                        if (userData != null) {
-                                            if (!com.baidu.adp.lib.util.i.hk()) {
-                                                context5 = this.eNY.mContext;
+                                        userData2 = this.eYj.mUserData;
+                                        if (userData2 != null) {
+                                            if (!com.baidu.adp.lib.util.i.hj()) {
+                                                context5 = this.eYj.mContext;
                                                 com.baidu.adp.lib.util.k.showToast(context5, w.l.neterror);
                                                 return;
                                             }
-                                            as asVar = new as("c11855");
-                                            asVar.Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-                                            userData2 = this.eNY.mUserData;
-                                            asVar.Z("click_uid", userData2.getUserId());
-                                            userData3 = this.eNY.mUserData;
-                                            asVar.r("live_status", userData3.getLiveStatus());
-                                            TiebaStatic.log(asVar);
-                                            userData4 = this.eNY.mUserData;
-                                            if (userData4.getPersonPrivate().BK() != 3) {
-                                                userData6 = this.eNY.mUserData;
-                                                if (userData6.getPersonPrivate().BK() == 2) {
-                                                    userData16 = this.eNY.mUserData;
+                                            au auVar = new au("c11855");
+                                            auVar.Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                                            userData3 = this.eYj.mUserData;
+                                            auVar.Z("click_uid", userData3.getUserId());
+                                            userData4 = this.eYj.mUserData;
+                                            auVar.r("live_status", userData4.getLiveStatus());
+                                            TiebaStatic.log(auVar);
+                                            userData5 = this.eYj.mUserData;
+                                            if (userData5.getPersonPrivate().Ce() != 3) {
+                                                userData7 = this.eYj.mUserData;
+                                                if (userData7.getPersonPrivate().Ce() == 2) {
+                                                    userData17 = this.eYj.mUserData;
                                                 }
-                                                userData7 = this.eNY.mUserData;
-                                                if (userData7.getLiveStatus() != 1) {
-                                                    context3 = this.eNY.mContext;
-                                                    userData8 = this.eNY.mUserData;
-                                                    String userId = userData8.getUserId();
-                                                    userData9 = this.eNY.mUserData;
-                                                    String userName = userData9.getUserName();
-                                                    userData10 = this.eNY.mUserData;
-                                                    String portrait = userData10.getPortrait();
-                                                    userData11 = this.eNY.mUserData;
-                                                    int sex = userData11.getSex();
-                                                    z = this.eNY.beq;
-                                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(context3, userId, userName, portrait, sex, z)));
+                                                userData8 = this.eYj.mUserData;
+                                                if (userData8.getLiveStatus() != 1) {
+                                                    context3 = this.eYj.mContext;
+                                                    userData9 = this.eYj.mUserData;
+                                                    String userId = userData9.getUserId();
+                                                    userData10 = this.eYj.mUserData;
+                                                    String userName = userData10.getUserName();
+                                                    userData11 = this.eYj.mUserData;
+                                                    String portrait = userData11.getPortrait();
+                                                    userData12 = this.eYj.mUserData;
+                                                    int sex = userData12.getSex();
+                                                    z2 = this.eYj.bhl;
+                                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(context3, userId, userName, portrait, sex, z2)));
                                                 } else {
                                                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                                                    userData12 = this.eNY.mUserData;
-                                                    alaLiveInfoCoreData.setLiveID(Long.parseLong(userData12.getLiveId()));
-                                                    userData13 = this.eNY.mUserData;
-                                                    alaLiveInfoCoreData.setUserID(Long.parseLong(userData13.getUserId()));
-                                                    userData14 = this.eNY.mUserData;
-                                                    alaLiveInfoCoreData.setUserName(userData14.getUserName());
-                                                    context4 = this.eNY.mContext;
-                                                    userData15 = this.eNY.mUserData;
-                                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context4, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, userData15.getUserId(), false, "")));
+                                                    userData13 = this.eYj.mUserData;
+                                                    alaLiveInfoCoreData.setLiveID(Long.parseLong(userData13.getLiveId()));
+                                                    userData14 = this.eYj.mUserData;
+                                                    alaLiveInfoCoreData.setUserID(Long.parseLong(userData14.getUserId()));
+                                                    userData15 = this.eYj.mUserData;
+                                                    alaLiveInfoCoreData.setUserName(userData15.getUserName());
+                                                    context4 = this.eYj.mContext;
+                                                    userData16 = this.eYj.mUserData;
+                                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context4, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, userData16.getUserId(), false, "")));
                                                 }
                                             }
-                                            context = this.eNY.mContext;
-                                            context2 = this.eNY.mContext;
+                                            context = this.eYj.mContext;
+                                            context2 = this.eYj.mContext;
                                             String string = context2.getString(w.l.person_privacy_toast);
-                                            userData5 = this.eNY.mUserData;
-                                            BdToast.b(context, String.format(string, au.cS(userData5.getSex())), w.g.icon_toast_game_error).tk();
+                                            userData6 = this.eYj.mUserData;
+                                            BdToast.b(context, String.format(string, aw.cU(userData6.getSex())), w.g.icon_toast_game_error).ti();
                                             return;
                                         }
                                         return;
                                     }
+                                    textView3 = this.eYj.anw;
+                                    if (textView3 != view) {
+                                        textView4 = this.eYj.eXW;
+                                    }
+                                    z = this.eYj.bhl;
+                                    if (z) {
+                                        this.eYi.bVe = new Bundle();
+                                        Bundle bundle = this.eYi.bVe;
+                                        userData = this.eYj.mUserData;
+                                        bundle.putSerializable(UserData.TYPE_USER, userData);
+                                        aVar = this.eYj.gbc;
+                                        if (aVar != null) {
+                                            aVar2 = this.eYj.gbc;
+                                            if (aVar2.eWu != null) {
+                                                Bundle bundle2 = this.eYi.bVe;
+                                                aVar3 = this.eYj.gbc;
+                                                bundle2.putInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, aVar3.eWu.left_days.intValue());
+                                            }
+                                        }
+                                        this.eYi.bVd = 11;
+                                    }
                                 } else {
-                                    this.bxk.bOi = 14;
+                                    this.eYi.bVd = 14;
                                 }
                             } else {
-                                this.bxk.bOi = 13;
+                                this.eYi.bVd = 13;
                             }
                         } else {
-                            this.bxk.bOi = 10;
-                            this.bxk.bOj = new Bundle();
-                            Bundle bundle = this.bxk.bOj;
-                            userData17 = this.eNY.mUserData;
-                            bundle.putSerializable(UserData.TYPE_USER, userData17);
+                            this.eYi.bVd = 10;
+                            this.eYi.bVe = new Bundle();
+                            Bundle bundle3 = this.eYi.bVe;
+                            userData18 = this.eYj.mUserData;
+                            bundle3.putSerializable(UserData.TYPE_USER, userData18);
                         }
                     } else {
-                        this.bxk.bOi = 3;
-                        this.bxk.bOj = new Bundle();
-                        Bundle bundle2 = this.bxk.bOj;
-                        userData18 = this.eNY.mUserData;
-                        bundle2.putSerializable(UserData.TYPE_USER, userData18);
+                        this.eYi.bVd = 3;
+                        this.eYi.bVe = new Bundle();
+                        Bundle bundle4 = this.eYi.bVe;
+                        userData19 = this.eYj.mUserData;
+                        bundle4.putSerializable(UserData.TYPE_USER, userData19);
                     }
                 } else {
-                    this.bxk.bOi = 2;
-                    this.bxk.bOj = new Bundle();
-                    Bundle bundle3 = this.bxk.bOj;
-                    userData19 = this.eNY.mUserData;
-                    bundle3.putString("vip_user_jump", userData19.getTShowInfo().get(0).getUrl());
+                    this.eYi.bVd = 2;
+                    this.eYi.bVe = new Bundle();
+                    Bundle bundle5 = this.eYi.bVe;
+                    userData20 = this.eYj.mUserData;
+                    bundle5.putString("vip_user_jump", userData20.getTShowInfo().get(0).getUrl());
                 }
             } else {
-                this.bxk.bOi = 1;
-                this.bxk.bOj = new Bundle();
-                Bundle bundle4 = this.bxk.bOj;
-                userData20 = this.eNY.mUserData;
-                bundle4.putSerializable(UserData.TYPE_USER, userData20);
+                this.eYi.bVd = 1;
+                this.eYi.bVe = new Bundle();
+                Bundle bundle6 = this.eYi.bVe;
+                userData21 = this.eYj.mUserData;
+                bundle6.putSerializable(UserData.TYPE_USER, userData21);
             }
-            rVar2 = this.eNY.bxW;
-            rVar2.a(view, this.bxk);
+            rVar2 = this.eYj.eRa;
+            rVar2.a(view, this.eYi);
         }
     }
 }

@@ -7,23 +7,27 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tieba.InjectPlugin.a.a;
+import com.baidu.tieba.InjectPlugin.a.b;
 /* loaded from: classes.dex */
-public class FrsActivity extends BaseFragmentActivity {
-    private FragmentTransaction bMs;
-    private r bTw;
+public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c, b {
+    private FragmentTransaction bST;
+    private r cbE;
     private FragmentManager mFragmentManager;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.bTw == null) {
-            this.bTw = new r();
-            this.bTw.setArguments(bundle);
+        if (this.cbE == null) {
+            this.cbE = new r();
+            this.cbE.setArguments(bundle);
             this.mFragmentManager = getSupportFragmentManager();
-            this.bMs = this.mFragmentManager.beginTransaction();
-            this.bMs.add(16908290, this.bTw);
-            this.bMs.commitAllowingStateLoss();
+            this.bST = this.mFragmentManager.beginTransaction();
+            this.bST.add(16908290, this.cbE);
+            this.bST.commitAllowingStateLoss();
         }
     }
 
@@ -31,8 +35,8 @@ public class FrsActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.bTw != null) {
-            this.bTw.onNewIntent(intent);
+        if (this.cbE != null) {
+            this.cbE.onNewIntent(intent);
         }
     }
 
@@ -40,8 +44,8 @@ public class FrsActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.bTw != null) {
-            this.bTw.setPrimary(true);
+        if (this.cbE != null) {
+            this.cbE.setPrimary(true);
         }
     }
 
@@ -49,8 +53,8 @@ public class FrsActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.bTw != null) {
-            this.bTw.setPrimary(false);
+        if (this.cbE != null) {
+            this.cbE.setPrimary(false);
         }
     }
 
@@ -63,8 +67,8 @@ public class FrsActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
-        if (this.bTw != null) {
-            this.bTw.onChangeSkinType(i);
+        if (this.cbE != null) {
+            this.cbE.onChangeSkinType(i);
         }
     }
 
@@ -73,15 +77,15 @@ public class FrsActivity extends BaseFragmentActivity {
         return TbadkCoreApplication.m9getInst().isGpuOpen();
     }
 
-    public r ZI() {
-        return this.bTw;
+    public r adz() {
+        return this.cbE;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.bTw != null && !this.bTw.onKeyDown(i, keyEvent)) {
-                this.bTw.closeActivity();
+            if (this.cbE != null && !this.cbE.onKeyDown(i, keyEvent)) {
+                this.cbE.closeActivity();
             }
             return true;
         }
@@ -91,8 +95,43 @@ public class FrsActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.bTw != null) {
-            this.bTw.onActivityResult(i, i2, intent);
+        if (this.cbE != null) {
+            this.cbE.onActivityResult(i, i2, intent);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.c
+    public VoiceManager getVoiceManager() {
+        if (this.cbE != null) {
+            return this.cbE.getVoiceManager();
+        }
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.c
+    public VoiceManager.b c(VoiceData.VoiceModel voiceModel) {
+        return null;
+    }
+
+    @Override // com.baidu.tieba.InjectPlugin.a.b
+    public void a(int i, a aVar) {
+        if (this.cbE instanceof b) {
+            this.cbE.a(i, aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.InjectPlugin.a.b
+    public a fD(int i) {
+        if (this.cbE instanceof b) {
+            return this.cbE.fD(i);
+        }
+        return null;
+    }
+
+    @Override // com.baidu.tieba.InjectPlugin.a.b
+    public void a(com.baidu.tieba.InjectPlugin.b bVar) {
+        if (this.cbE instanceof b) {
+            this.cbE.a(bVar);
         }
     }
 }

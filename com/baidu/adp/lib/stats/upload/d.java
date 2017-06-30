@@ -10,7 +10,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 class d {
     public static String a(com.baidu.adp.lib.stats.base.a aVar, e eVar) {
-        if (aVar.gv() != null && (aVar.gv().equals("omp") || aVar.gv().equals("mon"))) {
+        if (aVar.gu() != null && (aVar.gu().equals("omp") || aVar.gu().equals("mon"))) {
             return a(eVar);
         }
         return a(true, eVar);

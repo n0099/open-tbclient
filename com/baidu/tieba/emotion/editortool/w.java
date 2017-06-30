@@ -1,61 +1,101 @@
 package com.baidu.tieba.emotion.editortool;
 
-import com.baidu.tbadk.editortools.emotiontool.a;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
-public class w extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static w bLG = new w();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> bLH;
+public class w {
+    private EmotionGroupType bRY;
+    private int bRZ;
+    private int bSa;
+    private int bSb;
+    private int bSc;
+    private com.baidu.tbadk.editortools.emotiontool.c bSd;
+    private int bSe;
+    private int bSf;
+    private int column;
+    private int index;
+    private int row;
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.a
+    public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
+        this.bSd = cVar;
+    }
+
+    public com.baidu.tbadk.editortools.emotiontool.c aad() {
+        return this.bSd;
+    }
+
+    public void b(EmotionGroupType emotionGroupType) {
+        this.bRY = emotionGroupType;
+    }
+
+    public EmotionGroupType aae() {
+        return this.bRY;
+    }
+
+    public void eN(int i) {
+        this.row = i;
+    }
+
+    public int getRow() {
+        return this.row;
+    }
+
+    public void eM(int i) {
+        this.column = i;
+    }
+
+    public int aaf() {
+        return this.column;
+    }
+
+    public void hO(int i) {
+        this.bSf = i;
+    }
+
+    public int aag() {
+        return this.bSf;
+    }
+
+    public void hP(int i) {
+        this.bSe = i;
+    }
+
+    public int aah() {
+        return this.bSe;
+    }
+
+    public void hQ(int i) {
+        this.bRZ = i;
+    }
+
+    public int aai() {
+        return this.bRZ;
+    }
+
+    public void hR(int i) {
+        this.bSb = i;
+    }
+
+    public int aaj() {
+        return this.bSb;
+    }
+
+    public void setEndIndex(int i) {
+        this.bSc = i;
+    }
+
+    public void setIndex(int i) {
+        this.index = i;
+    }
+
     public int getIndex() {
-        return 1;
+        return this.index;
     }
 
-    public static synchronized w WP() {
-        w wVar;
-        synchronized (w.class) {
-            wVar = bLG;
-        }
-        return wVar;
+    public void hS(int i) {
+        this.bSa = i;
     }
 
-    public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.bLH;
-    }
-
-    @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void a(a.InterfaceC0043a interfaceC0043a) {
-        if (this.bLH == null || this.bLH.isEmpty()) {
-            this.bLH = new LinkedList<>();
-            if (TbFaceManager.DG().Cy() > 0) {
-                v vVar = new v();
-                this.bLH.add(vVar);
-                if (interfaceC0043a != null) {
-                    interfaceC0043a.a(vVar);
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.bLH.iterator();
-        while (it.hasNext()) {
-            com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-            if (interfaceC0043a != null) {
-                interfaceC0043a.a(next);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void register() {
-    }
-
-    public boolean isEmpty() {
-        return this.bLH == null || this.bLH.size() == 0;
+    public int aak() {
+        return this.bSa;
     }
 }

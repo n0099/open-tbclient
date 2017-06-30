@@ -1,22 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.adp.widget.f;
 /* loaded from: classes.dex */
-class bd implements Runnable {
-    private final /* synthetic */ Intent Dy;
-    final /* synthetic */ PbActivity enc;
+class bd implements f.b {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(PbActivity pbActivity, Intent intent) {
-        this.enc = pbActivity;
-        this.Dy = intent;
+    public bd(PbActivity pbActivity) {
+        this.ewh = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        fx fxVar;
-        fxVar = this.enc.elU;
-        fxVar.ob("@" + this.Dy.getStringExtra(PbActivityConfig.BIG_PIC_NAME) + " ");
+    @Override // com.baidu.adp.widget.f.b
+    public void lq() {
+        gg ggVar;
+        ggVar = this.ewh.euU;
+        ggVar.aRb();
+    }
+
+    @Override // com.baidu.adp.widget.f.b
+    public void W(boolean z) {
+        gg ggVar;
+        if (z) {
+            ggVar = this.ewh.euU;
+            ggVar.aRc();
+        }
     }
 }

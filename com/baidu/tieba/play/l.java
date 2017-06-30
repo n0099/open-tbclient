@@ -8,20 +8,14 @@ import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements Runnable {
-    final /* synthetic */ c fbb;
+    final /* synthetic */ c flr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(c cVar) {
-        this.fbb = cVar;
+        this.flr = cVar;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0058, code lost:
-        if (r0 == 2) goto L13;
-     */
     @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void run() {
         Runnable runnable;
         View view;
@@ -29,61 +23,57 @@ public class l implements Runnable {
         View view3;
         View view4;
         TbImageView tbImageView;
-        int i;
         View view5;
         VideoListMediaControllerView videoListMediaControllerView;
         View view6;
         View view7;
         ProgressBar progressBar;
-        c.InterfaceC0078c interfaceC0078c;
-        c.InterfaceC0078c interfaceC0078c2;
+        c.InterfaceC0081c interfaceC0081c;
+        c.InterfaceC0081c interfaceC0081c2;
         v.d dVar;
         v.d dVar2;
-        int i2;
-        if (this.fbb.bCE.getCurrentPosition() > 100) {
-            this.fbb.dwh = true;
-            view = this.fbb.dvT;
+        if (this.flr.bDx.getCurrentPosition() > 100) {
+            this.flr.dEU = true;
+            view = this.flr.dEG;
             view.setVisibility(8);
-            view2 = this.fbb.bCL;
+            view2 = this.flr.bDE;
             view2.setVisibility(8);
-            view3 = this.fbb.cKz;
+            view3 = this.flr.cSw;
             view3.setVisibility(8);
-            view4 = this.fbb.faN;
+            view4 = this.flr.fld;
             view4.setVisibility(8);
-            tbImageView = this.fbb.dwc;
+            tbImageView = this.flr.dEP;
             tbImageView.setVisibility(8);
-            this.fbb.axv();
-            i = this.fbb.akf;
-            if (i != 1) {
-                i2 = this.fbb.akf;
-            }
-            view5 = this.fbb.dvZ;
-            if (view5 != null) {
-                view6 = this.fbb.dvZ;
-                view6.setVisibility(0);
-                view7 = this.fbb.faP;
-                view7.setVisibility(0);
-                progressBar = this.fbb.faO;
-                progressBar.setVisibility(8);
-                interfaceC0078c = this.fbb.faW;
-                if (interfaceC0078c != null) {
-                    interfaceC0078c2 = this.fbb.faW;
-                    interfaceC0078c2.jl(false);
+            this.flr.aBu();
+            if (this.flr.akS == 1 || this.flr.akS == 2) {
+                view5 = this.flr.dEM;
+                if (view5 != null) {
+                    view6 = this.flr.dEM;
+                    view6.setVisibility(0);
+                    view7 = this.flr.flf;
+                    view7.setVisibility(0);
+                    progressBar = this.flr.fle;
+                    progressBar.setVisibility(8);
+                    interfaceC0081c = this.flr.flm;
+                    if (interfaceC0081c != null) {
+                        interfaceC0081c2 = this.flr.flm;
+                        interfaceC0081c2.jJ(false);
+                    }
                 }
+                videoListMediaControllerView = this.flr.dEF;
+                videoListMediaControllerView.showProgress();
+                this.flr.aBv();
             }
-            videoListMediaControllerView = this.fbb.dvS;
-            videoListMediaControllerView.showProgress();
-            this.fbb.axw();
-            dVar = this.fbb.dwd;
+            dVar = this.flr.dEQ;
             if (dVar != null) {
-                dVar2 = this.fbb.dwd;
-                dVar2.onPrepared(this.fbb.bCE.getPlayer());
+                dVar2 = this.flr.dEQ;
+                dVar2.onPrepared(this.flr.bDx.getPlayer());
                 return;
             }
             return;
         }
-        com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable = this.fbb.dwE;
-        fS.postDelayed(runnable, 20L);
+        com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
+        runnable = this.flr.dFr;
+        fR.postDelayed(runnable, 20L);
     }
 }

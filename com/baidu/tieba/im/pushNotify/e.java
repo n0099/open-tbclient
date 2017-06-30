@@ -8,13 +8,13 @@ import com.baidu.tieba.im.message.RequestGetGroupInfoMessage;
 import com.baidu.tieba.im.util.g;
 /* loaded from: classes.dex */
 class e extends CustomMessageListener {
-    final /* synthetic */ c dfH;
+    final /* synthetic */ c dnC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, int i) {
         super(i);
-        this.dfH = cVar;
+        this.dnC = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ class e extends CustomMessageListener {
             if (imMessageCenterPojo.getCustomGroupType() == 1) {
                 MessageManager.getInstance().dispatchResponsedMessage(new RequestGetGroupInfoMessage(Long.valueOf(com.baidu.adp.lib.g.b.c(imMessageCenterPojo.getGid(), 0L))));
             }
-            com.baidu.tieba.im.b.b.arz().a(com.baidu.adp.lib.g.b.c(imMessageCenterPojo.getGid(), 0L), g.bB(imMessageCenterPojo.getPulled_msgId()), 0L, true);
+            com.baidu.tieba.im.b.b.avk().a(com.baidu.adp.lib.g.b.c(imMessageCenterPojo.getGid(), 0L), g.bP(imMessageCenterPojo.getPulled_msgId()), 0L, true);
         }
     }
 }

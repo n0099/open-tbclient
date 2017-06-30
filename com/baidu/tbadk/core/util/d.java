@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class d {
-    private static String adt = null;
+    private static String aec = null;
 
     public static void setIp(String str) {
-        adt = str;
+        aec = str;
     }
 
     public static String getIp() {
-        return adt;
+        return aec;
     }
 }

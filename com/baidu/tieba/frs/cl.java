@@ -1,38 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cl implements Animator.AnimatorListener {
-    final /* synthetic */ ci bXg;
+public class cl implements ValueAnimator.AnimatorUpdateListener {
+    final /* synthetic */ cj cfp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(ci ciVar) {
-        this.bXg = ciVar;
+    public cl(cj cjVar) {
+        this.cfp = cjVar;
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
         View view;
         View view2;
-        view = this.bXg.bXb;
-        if (view != null) {
-            this.bXg.abh();
-            view2 = this.bXg.bXb;
-            view2.setAlpha(1.0f);
+        view = this.cfp.cfk;
+        if (view != null && valueAnimator != null) {
+            view2 = this.cfp.cfk;
+            view2.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
     }
 }

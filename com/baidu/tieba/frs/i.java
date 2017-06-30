@@ -7,12 +7,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.w;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
-class i implements bb.a {
-    @Override // com.baidu.tbadk.core.util.bb.a
+class i implements be.a {
+    @Override // com.baidu.tbadk.core.util.be.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         boolean z;
         String substring;
@@ -68,7 +68,7 @@ class i implements bb.a {
             } else if (!lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) || !lowerCase.contains("kw=")) {
                 return 3;
             } else {
-                str2 = com.baidu.tbadk.util.aa.aq(lowerCase, "kw=");
+                str2 = com.baidu.tbadk.util.ab.aq(lowerCase, "kw=");
                 if (!TextUtils.isEmpty(str2) && tbPageContext != null) {
                     tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(str2, str3)));
                     return 0;
@@ -84,8 +84,8 @@ class i implements bb.a {
             tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(str2, str3)));
             return 1;
         } else if (z && !TextUtils.isEmpty(str2)) {
-            com.baidu.adp.lib.g.i.f(TbadkCoreApplication.m9getInst(), com.baidu.tieba.frs.e.p.ag(TbadkCoreApplication.m9getInst(), str2));
-            com.baidu.tieba.frs.e.o.ao(2, 2);
+            com.baidu.adp.lib.g.i.h(TbadkCoreApplication.m9getInst(), com.baidu.tieba.frs.e.p.ah(TbadkCoreApplication.m9getInst(), str2));
+            com.baidu.tieba.frs.e.o.au(2, 2);
             return 1;
         } else if (z3) {
             tbPageContext.showToast(w.l.page_not_found);

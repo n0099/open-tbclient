@@ -1,56 +1,56 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.df;
+import com.baidu.tieba.pb.pb.main.dm;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-class l implements df.a {
-    final /* synthetic */ PbActivity enc;
+class l implements dm.a {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(PbActivity pbActivity) {
-        this.enc = pbActivity;
+        this.ewh = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.df.a
+    @Override // com.baidu.tieba.pb.pb.main.dm.a
     public void i(int i, long j) {
         PbModel pbModel;
         PbModel pbModel2;
-        fx fxVar;
+        gg ggVar;
         PbModel pbModel3;
         if (i != 0) {
-            this.enc.showToast(w.l.operation_failed);
+            this.ewh.showToast(w.l.operation_failed);
             return;
         }
-        this.enc.os(2);
-        fg.aLX().reset();
-        pbModel = this.enc.ele;
-        pbModel.aLe();
-        pbModel2 = this.enc.ele;
-        ArrayList<PostData> aID = pbModel2.getPbData().aID();
-        if (aID != null) {
-            Iterator<PostData> it = aID.iterator();
+        this.ewh.oI(2);
+        fp.aPV().reset();
+        pbModel = this.ewh.eue;
+        pbModel.aPb();
+        pbModel2 = this.ewh.eue;
+        ArrayList<PostData> aMx = pbModel2.getPbData().aMx();
+        if (aMx != null) {
+            Iterator<PostData> it = aMx.iterator();
             boolean z = false;
             while (it.hasNext()) {
                 PostData next = it.next();
-                if (fw.i(next) && next.bio().getTemplateId() == j) {
+                if (gf.k(next) && next.bmC().getTemplateId() == j) {
                     it.remove();
                     z = true;
                 }
             }
             if (z) {
-                fxVar = this.enc.elU;
-                pbModel3 = this.enc.ele;
-                fxVar.l(pbModel3.getPbData());
+                ggVar = this.ewh.euU;
+                pbModel3 = this.ewh.eue;
+                ggVar.l(pbModel3.getPbData());
             }
-            this.enc.showToast(w.l.operation_success);
+            this.ewh.showToast(w.l.operation_success);
         }
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.df.a
+    @Override // com.baidu.tieba.pb.pb.main.dm.a
     public void onError(int i, String str) {
-        this.enc.showToast(w.l.operation_failed);
+        this.ewh.showToast(w.l.operation_failed);
     }
 }

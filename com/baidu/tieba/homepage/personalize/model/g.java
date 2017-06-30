@@ -9,13 +9,13 @@ import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ RecPersonalizePageModel cCX;
+    final /* synthetic */ RecPersonalizePageModel cKU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(RecPersonalizePageModel recPersonalizePageModel, int i, int i2) {
         super(i, i2);
-        this.cCX = recPersonalizePageModel;
+        this.cKU = recPersonalizePageModel;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x0035  */
@@ -33,7 +33,7 @@ public class g extends com.baidu.adp.framework.listener.a {
         RecPersonalizePageModel.a aVar3;
         boolean z2 = false;
         if (responsedMessage != null) {
-            aVar = this.cCX.cCW;
+            aVar = this.cKU.cKT;
             if (aVar != null) {
                 if (responsedMessage.getOrginalMessage() != null) {
                     Object extra = responsedMessage.getOrginalMessage().getExtra();
@@ -42,7 +42,7 @@ public class g extends com.baidu.adp.framework.listener.a {
                         z = recPersonalizeRequest.getLoadType() == 1;
                         z2 = recPersonalizeRequest.getNeedForumlist() == 1;
                         if (responsedMessage.getError() == 0) {
-                            aVar3 = this.cCX.cCW;
+                            aVar3 = this.cKU.cKT;
                             aVar3.s(responsedMessage.getError(), responsedMessage.getErrorString());
                         } else {
                             DataRes dataRes = null;
@@ -51,17 +51,17 @@ public class g extends com.baidu.adp.framework.listener.a {
                             } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
                                 dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                             }
-                            aVar2 = this.cCX.cCW;
+                            aVar2 = this.cKU.cKT;
                             aVar2.b(dataRes, z, z2);
                         }
                         if (responsedMessage instanceof RecPersonalizeSocketResponse) {
                             if (!(responsedMessage instanceof RecPersonalizeHttpResponse)) {
                                 return;
                             }
-                            this.cCX.g(responsedMessage);
+                            this.cKU.g(responsedMessage);
                             return;
                         }
-                        this.cCX.f(responsedMessage);
+                        this.cKU.f(responsedMessage);
                         return;
                     }
                 }

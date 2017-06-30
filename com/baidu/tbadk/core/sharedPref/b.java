@@ -26,12 +26,12 @@ public class b {
 
     protected b() {
         mProcessMap = new HashMap<>();
-        mProcessMap.put(a.acu, TbConfig.SETTINGFILE);
-        mProcessMap.put(a.acv, "remote_settings");
-        mProcessMap.put(a.acw, "bdservice_settings");
-        mProcessMap.put(a.acx, a.acA);
-        mProcessMap.put(a.acy, a.acB);
-        mProcessMap.put(a.acz, a.acC);
+        mProcessMap.put(a.ade, TbConfig.SETTINGFILE);
+        mProcessMap.put(a.adf, "remote_settings");
+        mProcessMap.put(a.adg, "bdservice_settings");
+        mProcessMap.put(a.adh, a.adk);
+        mProcessMap.put(a.adi, a.adl);
+        mProcessMap.put(a.adj, a.adm);
         mContentResolver = TbadkCoreApplication.m9getInst().getContentResolver();
     }
 
@@ -205,9 +205,9 @@ public class b {
         if (str == null || str.length() == 0 || !IS_CHECK_COMMON_SHAREDPRE) {
             return false;
         }
-        int length = a.acD.length;
+        int length = a.adn.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.acD[i])) {
+            if (str.equals(a.adn[i])) {
                 return true;
             }
         }
@@ -290,7 +290,7 @@ public class b {
                 }
             }
         }
-        return a.acu;
+        return a.ade;
     }
 
     public void migrateToNewVersion() {
@@ -331,7 +331,7 @@ public class b {
     }
 
     protected void setValue(Uri uri, ContentValues contentValues) {
-        if (k.hA()) {
+        if (k.hz()) {
             new c(this, uri, contentValues).execute(new Void[0]);
         } else {
             setValueInner(uri, contentValues);
@@ -357,7 +357,7 @@ public class b {
     }
 
     protected void deleteValue(Uri uri) {
-        if (k.hA()) {
+        if (k.hz()) {
             new d(this, uri).execute(new Void[0]);
         } else {
             deleteValueInner(uri);

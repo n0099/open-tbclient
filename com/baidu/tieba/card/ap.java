@@ -9,31 +9,31 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ap extends au {
-    private com.baidu.tbadk.core.data.bl ahM;
-    private TbPageContext ajh;
-    private View.OnClickListener bBd;
-    private View.OnClickListener bBe;
-    public TextView bBg;
-    public EntelechyUserLikeButton bBh;
-    private com.baidu.tieba.card.data.l bBi;
-    private CommonUserLikeButton.a bBj;
+    private com.baidu.tbadk.core.data.bm aiu;
+    private TbPageContext ajP;
+    private View.OnClickListener bBW;
+    private View.OnClickListener bBX;
+    public TextView bBZ;
+    public EntelechyUserLikeButton bCa;
+    private com.baidu.tieba.card.data.l bCb;
+    private CommonUserLikeButton.a bCc;
     private int mSkinType;
 
     public ap(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.bBj = new aq(this);
-        this.bBd = new ar(this);
-        this.bBe = new as(this);
-        this.ajh = tbPageContext;
+        this.bCc = new aq(this);
+        this.bBW = new ar(this);
+        this.bBX = new as(this);
+        this.ajP = tbPageContext;
     }
 
     @Override // com.baidu.tieba.card.au
     public void a(com.baidu.tieba.card.data.l lVar) {
         super.a(lVar);
         if (lVar != null && lVar.threadData != null) {
-            this.bBi = lVar;
-            this.ahM = lVar.threadData;
+            this.bCb = lVar;
+            this.aiu = lVar.threadData;
         }
     }
 
@@ -49,9 +49,9 @@ public class ap extends au {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hj(int i) {
-        if (this.bBg != null) {
-            this.bBg.setText(String.format(this.ajh.getResources().getString(w.l.fans_default_name_god_user), com.baidu.tbadk.core.util.au.t(i)));
+    public void hm(int i) {
+        if (this.bBZ != null) {
+            this.bBZ.setText(String.format(this.ajP.getResources().getString(w.l.fans_default_name_god_user), com.baidu.tbadk.core.util.aw.t(i)));
         }
     }
 }

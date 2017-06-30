@@ -8,26 +8,26 @@ public class af extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_im_window_open";
+        return "forum_mask_stat";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eQ() {
+    protected String[] eP() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eR() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eS() {
+    protected int eQ() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eT() {
+    protected int eR() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eS() {
         return 10;
     }
 }

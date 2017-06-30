@@ -1,19 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.ResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fl extends CustomMessageListener {
+public class fl extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ fk eAZ;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fl(int i) {
-        super(i);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fl(fk fkVar, int i, int i2) {
+        super(i, i2);
+        this.eAZ = fkVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
-            fg.aLX().a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        boolean z;
+        BdUniqueId bdUniqueId;
+        if ((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) {
+            z = this.eAZ.eAX;
+            if (!z) {
+                BdUniqueId tag = responsedMessage.getOrginalMessage().getTag();
+                bdUniqueId = this.eAZ.mTag;
+                if (tag == bdUniqueId && !responsedMessage.hasError()) {
+                    if (responsedMessage instanceof pbPageSocketResponseMessage) {
+                        this.eAZ.a((pbPageSocketResponseMessage) responsedMessage);
+                    }
+                    if (responsedMessage instanceof pbPageHttpResponseMessage) {
+                        this.eAZ.a((pbPageHttpResponseMessage) responsedMessage);
+                    }
+                }
+            }
         }
     }
 }

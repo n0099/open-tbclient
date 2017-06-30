@@ -2,13 +2,13 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class g implements Runnable {
-    final /* synthetic */ PersonalTalkSettingActivity djR;
-    private final /* synthetic */ boolean djS;
+    final /* synthetic */ PersonalTalkSettingActivity drN;
+    private final /* synthetic */ boolean drO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
-        this.djR = personalTalkSettingActivity;
-        this.djS = z;
+        this.drN = personalTalkSettingActivity;
+        this.drO = z;
     }
 
     @Override // java.lang.Runnable
@@ -16,11 +16,11 @@ public class g implements Runnable {
         w wVar;
         w wVar2;
         w wVar3;
-        wVar = this.djR.djO;
+        wVar = this.drN.drK;
         wVar.b(null);
-        wVar2 = this.djR.djO;
-        wVar2.go(!this.djS);
-        wVar3 = this.djR.djO;
-        wVar3.b(this.djR);
+        wVar2 = this.drN.drK;
+        wVar2.gG(!this.drO);
+        wVar3 = this.drN.drK;
+        wVar3.b(this.drN);
     }
 }

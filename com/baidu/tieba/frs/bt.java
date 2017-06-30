@@ -1,27 +1,71 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
 import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class bt {
-    private static bt bWO = new bt();
-    private final SparseArray<String> bWN = new SparseArray<>();
+public class bt extends SparseArray<bz> {
+    public BdUniqueId aMp = null;
 
-    private bt() {
+    public void a(ca caVar) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                bz valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(caVar);
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public static bt abe() {
-        return bWO;
+    public void init() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                bz valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public void iq(int i) {
-        this.bWN.put(i, "1");
+    public void destory() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                bz valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(null);
+                    valueAt.Og();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public boolean ir(int i) {
+    public void a(int i, bz bzVar) {
         if (i > 100) {
             i = 100;
         }
-        return !TextUtils.isEmpty(this.bWN.get(i));
+        put(i, bzVar);
+    }
+
+    public bz iB(int i) {
+        if (i > 100) {
+            i = 100;
+        }
+        return get(i);
     }
 }

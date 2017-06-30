@@ -1,48 +1,24 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.w;
+import android.app.Activity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.EditNickNameActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
-    private static String egA = TbadkCoreApplication.m9getInst().getContext().getString(w.l.ueg_host_msg);
+public class e implements a.b {
+    private final /* synthetic */ Activity PF;
 
-    public static void nF(String str) {
-        if (!au.isEmpty(str)) {
-            egA = str;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(Activity activity) {
+        this.PF = activity;
     }
 
-    public static boolean M(bl blVar) {
-        if (TbadkCoreApplication.isLogin()) {
-            if (blVar != null && blVar.Zg) {
-                BdToast.a(TbadkCoreApplication.m9getInst().getContext(), egA).tk();
-                return true;
-            }
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean c(PostData postData) {
-        if (TbadkCoreApplication.isLogin()) {
-            if (postData != null && postData.fCM) {
-                BdToast.a(TbadkCoreApplication.m9getInst().getContext(), egA).tk();
-                return true;
-            }
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean hS(boolean z) {
-        if (z) {
-            BdToast.a(TbadkCoreApplication.m9getInst().getContext(), egA).tk();
-            return true;
-        }
-        return false;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditNickNameActivityConfig(this.PF, 25020, 1, d.aLW())));
+        aVar.dismiss();
     }
 }

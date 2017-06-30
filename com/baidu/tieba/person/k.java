@@ -1,73 +1,44 @@
 package com.baidu.tieba.person;
 
-import android.view.LayoutInflater;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.base.e {
-    TbPageContext ajh;
-    TextView byB;
-    TextView byC;
-    TextView byD;
-    View byE;
-    View mView;
+public class k extends Dialog {
+    private LinearLayout aJF;
+    private Context context;
+    private View mContentView;
 
-    public k(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        super(tbPageContext);
-        this.ajh = tbPageContext;
-        a(this.ajh, onClickListener);
+    public k(Context context, View view) {
+        super(context, 16973835);
+        this.context = context;
+        this.mContentView = view;
     }
 
-    private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(w.j.person_info_more_view, (ViewGroup) null);
-        this.byB = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_friend);
-        this.byB.setOnClickListener(onClickListener);
-        this.byC = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_black);
-        this.byC.setOnClickListener(onClickListener);
-        this.byD = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_mute);
-        this.byE = this.mView.findViewById(w.h.person_info_more_view_item_line_mute);
-        this.byD.setOnClickListener(onClickListener);
-    }
-
-    public void m(boolean z, boolean z2) {
-        if (z) {
-            this.byB.setText(w.l.remove_friend);
-        } else {
-            this.byB.setText(w.l.frs_recommend_friend_item_add);
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        requestWindowFeature(1);
+        setContentView(w.j.person_info_more_dialog);
+        Display defaultDisplay = ((WindowManager) this.context.getSystemService("window")).getDefaultDisplay();
+        WindowManager.LayoutParams attributes = getWindow().getAttributes();
+        attributes.width = defaultDisplay.getWidth();
+        getWindow().setAttributes(attributes);
+        getWindow().setBackgroundDrawableResource(w.e.transparent);
+        getWindow().setDimAmount(0.3f);
+        getWindow().setGravity(80);
+        getWindow().setWindowAnimations(w.m.pb_more_pop_anim);
+        setCanceledOnTouchOutside(true);
+        setCancelable(true);
+        this.aJF = (LinearLayout) findViewById(w.h.root_view);
+        if (this.mContentView != null) {
+            this.aJF.addView(this.mContentView);
         }
-        if (z2) {
-            this.byC.setText(w.l.remove_block_chat);
-        } else {
-            this.byC.setText(w.l.block_chat_message);
-        }
-    }
-
-    public View getView() {
-        return this.mView;
-    }
-
-    public View TL() {
-        return this.byB;
-    }
-
-    public View TM() {
-        return this.byC;
-    }
-
-    public View TN() {
-        return this.byD;
-    }
-
-    public void hg(int i) {
-        this.byD.setVisibility(0);
-        this.byE.setVisibility(0);
-        if (i == 0) {
-            this.byD.setText(this.ajh.getResources().getString(w.l.mute));
-        } else if (i == 1) {
-            this.byD.setText(this.ajh.getResources().getString(w.l.un_mute));
-        }
+        this.aJF.setOnClickListener(new l(this));
     }
 }

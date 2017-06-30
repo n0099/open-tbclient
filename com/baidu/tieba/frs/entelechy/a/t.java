@@ -5,41 +5,41 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.card.cg;
 import com.baidu.tieba.card.ci;
 import com.baidu.tieba.play.bc;
 /* loaded from: classes.dex */
-public class t extends com.baidu.adp.widget.ListView.a<bl, a<com.baidu.tieba.frs.entelechy.view.u>> implements cg, com.baidu.tieba.frs.d.e {
-    public static int bYF = 5;
-    public static int bYG = 10;
-    public static int bYH = 15;
-    private TbPageContext<?> ajh;
-    private ci<bl> bdp;
+public class t extends com.baidu.adp.widget.ListView.a<bm, a<com.baidu.tieba.frs.entelechy.view.u>> implements cg, com.baidu.tieba.frs.d.e {
+    public static int cgO = 5;
+    public static int cgP = 10;
+    public static int cgQ = 15;
+    private TbPageContext<?> ajP;
+    private ci<bm> bgj;
     private String forumName;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(bl blVar, String str) {
-        if (blVar != null) {
-            int su = blVar.su();
-            as asVar = new as(str);
-            asVar.Z("obj_locate", iu(su));
-            asVar.Z("tid", blVar.getTid());
-            asVar.r("obj_type", 2);
-            TiebaStatic.log(asVar);
+    public void b(bm bmVar, String str) {
+        if (bmVar != null) {
+            int ss = bmVar.ss();
+            au auVar = new au(str);
+            auVar.Z("obj_locate", iG(ss));
+            auVar.Z("tid", bmVar.getTid());
+            auVar.r("obj_type", 2);
+            TiebaStatic.log(auVar);
         }
     }
 
-    private String iu(int i) {
-        if (i == bYF) {
+    private String iG(int i) {
+        if (i == cgO) {
             return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
         }
-        if (i == bYG) {
+        if (i == cgP) {
             return "10";
         }
-        if (i != bYH) {
+        if (i != cgQ) {
             return "";
         }
         return "11";
@@ -48,36 +48,36 @@ public class t extends com.baidu.adp.widget.ListView.a<bl, a<com.baidu.tieba.frs
     /* JADX INFO: Access modifiers changed from: protected */
     public t(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
-        this.bdp = new u(this);
-        this.ajh = tbPageContext;
+        this.bgj = new u(this);
+        this.ajP = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: B */
+    /* renamed from: D */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.entelechy.view.u uVar = new com.baidu.tieba.frs.entelechy.view.u(this.ajh, this.mPageId);
+        com.baidu.tieba.frs.entelechy.view.u uVar = new com.baidu.tieba.frs.entelechy.view.u(this.ajP, this.mPageId);
         uVar.j(this.mPageId);
         uVar.setForumName(this.forumName);
         return new a(uVar);
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003d: IGET  (r2v1 long A[REMOVE]) = 
-      (wrap: com.baidu.tbadk.core.data.bs : 0x0039: INVOKE  (r2v0 com.baidu.tbadk.core.data.bs A[REMOVE]) = (r6v0 com.baidu.tbadk.core.data.bl) type: VIRTUAL call: com.baidu.tbadk.core.data.bl.sx():com.baidu.tbadk.core.data.bs)
-     com.baidu.tbadk.core.data.bs.channelId long)] */
-    private bc z(bl blVar) {
+      (wrap: com.baidu.tbadk.core.data.bt : 0x0039: INVOKE  (r2v0 com.baidu.tbadk.core.data.bt A[REMOVE]) = (r6v0 com.baidu.tbadk.core.data.bm) type: VIRTUAL call: com.baidu.tbadk.core.data.bm.sv():com.baidu.tbadk.core.data.bt)
+     com.baidu.tbadk.core.data.bt.channelId long)] */
+    private bc A(bm bmVar) {
         bc bcVar = null;
-        if (blVar != null) {
+        if (bmVar != null) {
             bcVar = new bc();
-            bcVar.mLocate = iu(blVar.su());
-            bcVar.bur = cfm.cfe;
-            bcVar.buq = blVar.getTid();
-            bcVar.fcj = blVar.YO;
-            if (blVar.sx() != null && blVar.sx().channelId > 0) {
-                bcVar.UX = new StringBuilder().append(blVar.sx().channelId).toString();
+            bcVar.mLocate = iG(bmVar.ss());
+            bcVar.bxM = cnC.cnu;
+            bcVar.bxL = bmVar.getTid();
+            bcVar.fmz = bmVar.YP;
+            if (bmVar.sv() != null && bmVar.sv().channelId > 0) {
+                bcVar.UW = new StringBuilder().append(bmVar.sv().channelId).toString();
             }
-            blVar.ss();
+            bmVar.sp();
         }
         return bcVar;
     }
@@ -86,13 +86,13 @@ public class t extends com.baidu.adp.widget.ListView.a<bl, a<com.baidu.tieba.frs
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bl blVar, a aVar) {
-        if (aVar == null || aVar.UY() == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bm bmVar, a aVar) {
+        if (aVar == null || aVar.Wp() == null) {
             return null;
         }
-        aVar.UY().a(z(blVar));
-        aVar.UY().a(blVar);
-        aVar.UY().a(this.bdp);
+        aVar.Wp().a(A(bmVar));
+        aVar.Wp().a(bmVar);
+        aVar.Wp().a(this.bgj);
         return aVar.getView();
     }
 

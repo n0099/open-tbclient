@@ -1,45 +1,25 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.List;
-import tbclient.PbPage.RecommendBook;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
-public class au extends PostData {
-    public static final BdUniqueId Wu = BdUniqueId.gen();
-    public int TZ;
-    public String Uv;
-    public String Uw;
-    public String WA;
-    public String Wv;
-    public String Ww;
-    public String Wx;
-    public List<String> Wy;
-    public String Wz;
-    public String bookId;
+public class au {
+    public String Wr;
+    public int Ws;
+    public String Wt;
+    public String buttonText;
+    public int position = 0;
+    public String subtitle;
+    public String summary;
 
-    public void a(RecommendBook recommendBook) {
-        if (recommendBook != null) {
-            this.Wv = recommendBook.recommend_text;
-            this.Ww = recommendBook.suggest_text;
-            this.Wx = recommendBook.suggest_url;
-            this.bookId = recommendBook.book_id;
-            this.TZ = recommendBook.book_type.intValue();
-            this.Uw = recommendBook.book_cover;
-            this.Uv = recommendBook.book_title;
-            this.Wy = recommendBook.book_tips;
-            this.Wz = recommendBook.botton_text;
-            this.WA = recommendBook.subscript_icon;
+    public void a(NewsInfo newsInfo) {
+        if (newsInfo != null) {
+            this.Wr = newsInfo.news_link;
+            this.summary = newsInfo.summary;
+            this.position = newsInfo.position.intValue();
+            this.Ws = newsInfo.news_type.intValue();
+            this.Wt = newsInfo.news_icon;
+            this.subtitle = newsInfo.subtitle;
+            this.buttonText = newsInfo.button_text;
         }
-    }
-
-    public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.bookId)) ? false : true;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return Wu;
     }
 }

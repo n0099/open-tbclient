@@ -1,17 +1,17 @@
 package com.baidu.tbadk.core;
 
 import com.baidu.adp.base.BdBaseService;
-import com.baidu.tbadk.util.d;
+import com.baidu.tbadk.util.e;
 /* loaded from: classes.dex */
-class af implements d.a {
-    final /* synthetic */ ae Sf;
+class af implements e.a {
+    final /* synthetic */ ae Sa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ae aeVar) {
-        this.Sf = aeVar;
+        this.Sa = aeVar;
     }
 
-    @Override // com.baidu.tbadk.util.d.a
+    @Override // com.baidu.tbadk.util.e.a
     public void al(boolean z) {
         if (z) {
             BdBaseService.serviceStartFlag = 2;

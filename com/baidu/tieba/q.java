@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements Animation.AnimationListener {
-    final /* synthetic */ LogoActivity aQD;
+    final /* synthetic */ LogoActivity aRW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(LogoActivity logoActivity) {
-        this.aQD = logoActivity;
+        this.aRW = logoActivity;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -29,20 +29,20 @@ public class q implements Animation.AnimationListener {
         int i;
         int i2;
         RelativeLayout relativeLayout2;
-        relativeLayout = this.aQD.mRootView;
+        relativeLayout = this.aRW.mRootView;
         if (relativeLayout != null) {
-            relativeLayout2 = this.aQD.mRootView;
+            relativeLayout2 = this.aRW.mRootView;
             relativeLayout2.setVisibility(8);
         }
-        i = this.aQD.aQu;
+        i = this.aRW.aRN;
         if (i >= 0) {
-            LogoActivity logoActivity = this.aQD;
-            MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this.aQD.getPageContext().getPageActivity());
-            i2 = this.aQD.aQu;
+            LogoActivity logoActivity = this.aRW;
+            MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this.aRW.getPageContext().getPageActivity());
+            i2 = this.aRW.aRN;
             logoActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig.createNormalCfg(i2)));
         } else {
-            this.aQD.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.aQD.getPageContext().getPageActivity()).createNormalCfg(2)));
+            this.aRW.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.aRW.getPageContext().getPageActivity()).createNormalCfg(2)));
         }
-        this.aQD.finish();
+        this.aRW.finish();
     }
 }

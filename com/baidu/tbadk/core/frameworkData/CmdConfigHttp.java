@@ -9,6 +9,7 @@ public class CmdConfigHttp {
     public static final int CARD_BOX_MEMBER_PAY_CMD = 1003317;
     public static final int CDN_IPLIST_CMD = 1002600;
     public static final int CLEAR_LOCATION_INFO = 1001508;
+    public static final int CMD_ADD_EXPERIENCED = 1003332;
     public static final int CMD_ADD_LINK = 1003324;
     public static final int CMD_ADD_MSG_RECORD = 1003071;
     public static final int CMD_ADD_USER_ATTR_URL = 1003018;
@@ -41,6 +42,7 @@ public class CmdConfigHttp {
     public static final int CMD_CHANNEL_UPDATE_PUSH = 1003310;
     public static final int CMD_CHANNEL_VIDEO_SET_TOP = 1003305;
     public static final int CMD_CHANNEL_VIDEO_UNSET_TOP = 1003308;
+    public static final int CMD_CHECK_BIG_V = 1003336;
     public static final int CMD_CHECK_REAL_NAME = 1003325;
     public static final int CMD_CHECK_USER_BOOKMARK = 1003164;
     public static final int CMD_CHOSEN_PB_PRAISE = 1003007;
@@ -61,6 +63,7 @@ public class CmdConfigHttp {
     public static final int CMD_ENTERTAINMENT = 1003079;
     public static final int CMD_FINISH_MEMBER_TASK = 1003188;
     public static final int CMD_FORUM_CLASS_LIST = 1003061;
+    public static final int CMD_FORUM_MULTI_CONCERN = 1003337;
     public static final int CMD_FOUND_NEW = 1003003;
     public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
     public static final int CMD_FRS_HEAD_VIDEO_LIST = 1003106;
@@ -80,6 +83,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_CARD_DETAIL = 1003094;
     public static final int CMD_GET_CATEGORY_CARTOON = 1003096;
     public static final int CMD_GET_CHANNEL_FANS_LIST = 1003314;
+    public static final int CMD_GET_FACE_GROUP_INFO = 1003338;
     public static final int CMD_GET_FINE_PB = 1003006;
     public static final int CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH = 1003319;
     public static final int CMD_GET_FRIEND_LIST = 1003004;
@@ -87,6 +91,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_GAME_NEW = 1003014;
     public static final int CMD_GET_HOT_GOD = 1003099;
     public static final int CMD_GET_HOT_THREAD = 1003005;
+    public static final int CMD_GET_INTEREST_LABEL_LIST = 1003333;
     public static final int CMD_GET_LEVLE_INFO = 1001710;
     public static final int CMD_GET_MANGA_COVER = 1003097;
     public static final int CMD_GET_MUTIL_GAME_LIST = 1002800;
@@ -155,6 +160,7 @@ public class CmdConfigHttp {
     public static final int CMD_SCREEN_LOCK_MESSAGE_MORE = 1003194;
     public static final int CMD_SEARCH_LIST = 1003196;
     public static final int CMD_SEARCH_PB_EMOTION = 1003330;
+    public static final int CMD_SEARCH_POST_FORUM = 1003335;
     public static final int CMD_SEND_BLESS = 1003080;
     public static final int CMD_SEND_FREE_GIFT = 1003052;
     public static final int CMD_SET_COMMON_FORUM_STATE = 1003151;
@@ -164,10 +170,12 @@ public class CmdConfigHttp {
     public static final int CMD_SET_READER_LACK_IMAGE_URL = 1003169;
     public static final int CMD_SET_USER_BOOK_HISTORY = 1003170;
     public static final int CMD_SET_USER_PICS = 1003064;
+    public static final int CMD_SHARE_FACE_GROUP = 1003340;
     public static final int CMD_SKIN_DETAIL = 1003037;
     public static final int CMD_SQUARE_FORUM_LIST = 1003060;
     public static final int CMD_STATIC_SPLASH = 1003193;
     public static final int CMD_SUBMIT_CLOSE_ADKILLER = 1003076;
+    public static final int CMD_SUB_INTEREST_LABEL_LIST = 1003334;
     public static final int CMD_TAIL_ADD = 1003019;
     public static final int CMD_TAIL_DELETE = 1003020;
     public static final int CMD_TAIL_GET = 1003021;
@@ -178,6 +186,7 @@ public class CmdConfigHttp {
     public static final int CMD_TOPIC_BLESS = 1003065;
     public static final int CMD_TOPIC_RELATE_THREAD = 1003042;
     public static final int CMD_TOP_THEME_LIST = 1003031;
+    public static final int CMD_UPLOAD_COLLECT_EMOTION_INFO = 1003339;
     public static final int CMD_USER_FREE_CHANCE = 1003047;
     public static final int CMD_USER_MODULE_OPERATE = 1003326;
     public static final int CMD_USER_MUTE_ADD = 1003027;

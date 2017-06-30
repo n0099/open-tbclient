@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.view.userLike;
 import android.view.View;
 /* loaded from: classes.dex */
 public interface b {
-    void B(View view);
+    void C(View view);
 
-    void aO(boolean z);
+    void aP(boolean z);
 
-    void dp(int i);
+    void dr(int i);
 
     void g(View.OnClickListener onClickListener);
 }

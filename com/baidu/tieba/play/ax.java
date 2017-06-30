@@ -8,11 +8,11 @@ import com.baidu.tieba.play.av;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax implements SeekBar.OnSeekBarChangeListener {
-    final /* synthetic */ av fca;
+    final /* synthetic */ av fmq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(av avVar) {
-        this.fca = avVar;
+        this.fmq = avVar;
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
@@ -20,13 +20,13 @@ public class ax implements SeekBar.OnSeekBarChangeListener {
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
         Handler handler;
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
-        this.fca.aUU = true;
-        onSeekBarChangeListener = this.fca.aUZ;
+        this.fmq.aWn = true;
+        onSeekBarChangeListener = this.fmq.aWs;
         if (onSeekBarChangeListener != null) {
-            onSeekBarChangeListener2 = this.fca.aUZ;
+            onSeekBarChangeListener2 = this.fmq.aWs;
             onSeekBarChangeListener2.onStartTrackingTouch(seekBar);
         }
-        handler = this.fca.mHandler;
+        handler = this.fmq.mHandler;
         handler.removeMessages(1);
     }
 
@@ -42,23 +42,23 @@ public class ax implements SeekBar.OnSeekBarChangeListener {
         TextView textView2;
         int i3;
         if (z) {
-            mediaPlayerControl = this.fca.aUR;
-            this.fca.aVa = (int) ((mediaPlayerControl.getDuration() * i) / 10000);
-            textView = this.fca.aUS;
+            mediaPlayerControl = this.fmq.aWk;
+            this.fmq.aWt = (int) ((mediaPlayerControl.getDuration() * i) / 10000);
+            textView = this.fmq.aWl;
             if (textView != null) {
-                textView2 = this.fca.aUS;
-                i3 = this.fca.aVa;
-                textView2.setText(com.baidu.tbadk.core.util.au.cT(i3));
+                textView2 = this.fmq.aWl;
+                i3 = this.fmq.aWt;
+                textView2.setText(com.baidu.tbadk.core.util.aw.cV(i3));
             }
-            aVar = this.fca.dzx;
+            aVar = this.fmq.dIj;
             if (aVar != null) {
-                aVar2 = this.fca.dzx;
-                aVar2.Kv();
+                aVar2 = this.fmq.dIj;
+                aVar2.KT();
             }
-            onSeekBarChangeListener = this.fca.aUZ;
+            onSeekBarChangeListener = this.fmq.aWs;
             if (onSeekBarChangeListener != null) {
-                onSeekBarChangeListener2 = this.fca.aUZ;
-                i2 = this.fca.aVa;
+                onSeekBarChangeListener2 = this.fmq.aWs;
+                i2 = this.fmq.aWt;
                 onSeekBarChangeListener2.onProgressChanged(seekBar, i2, z);
             }
         }
@@ -71,15 +71,15 @@ public class ax implements SeekBar.OnSeekBarChangeListener {
         Handler handler;
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
-        mediaPlayerControl = this.fca.aUR;
-        i = this.fca.aVa;
+        mediaPlayerControl = this.fmq.aWk;
+        i = this.fmq.aWt;
         mediaPlayerControl.seekTo(i);
-        this.fca.aUU = false;
-        handler = this.fca.mHandler;
+        this.fmq.aWn = false;
+        handler = this.fmq.mHandler;
         handler.sendEmptyMessageDelayed(1, 500L);
-        onSeekBarChangeListener = this.fca.aUZ;
+        onSeekBarChangeListener = this.fmq.aWs;
         if (onSeekBarChangeListener != null) {
-            onSeekBarChangeListener2 = this.fca.aUZ;
+            onSeekBarChangeListener2 = this.fmq.aWs;
             onSeekBarChangeListener2.onStopTrackingTouch(seekBar);
         }
     }

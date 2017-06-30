@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bp implements View.OnClickListener {
-    final /* synthetic */ bj bBJ;
+    final /* synthetic */ bj bCC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(bj bjVar) {
-        this.bBJ = bjVar;
+        this.bCC = bjVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0065  */
@@ -32,32 +32,32 @@ public class bp implements View.OnClickListener {
         String str2;
         String str3;
         String str4;
-        mVar = this.bBJ.bBF;
+        mVar = this.bCC.bCy;
         if (mVar != null) {
-            mVar2 = this.bBJ.bBF;
-            if (!StringUtils.isNull(mVar2.aYA.rz())) {
-                mVar3 = this.bBJ.bBF;
-                String rz = mVar3.aYA.rz();
-                str = this.bBJ.mStType;
+            mVar2 = this.bCC.bCy;
+            if (!StringUtils.isNull(mVar2.bai.rw())) {
+                mVar3 = this.bCC.bCy;
+                String rw = mVar3.bai.rw();
+                str = this.bCC.mStType;
                 if (!StringUtils.isNull(str)) {
-                    str2 = this.bBJ.alN;
+                    str2 = this.bCC.amE;
                     if (!StringUtils.isNull(str2)) {
                         MessageManager messageManager = MessageManager.getInstance();
-                        FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.bBJ.mContext);
-                        str3 = this.bBJ.mStType;
-                        str4 = this.bBJ.alN;
-                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(rz, str3, str4)));
-                        onClickListener = this.bBJ.alO;
+                        FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.bCC.mContext);
+                        str3 = this.bCC.mStType;
+                        str4 = this.bCC.amE;
+                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(rw, str3, str4)));
+                        onClickListener = this.bCC.amF;
                         if (onClickListener == null) {
-                            onClickListener2 = this.bBJ.alO;
+                            onClickListener2 = this.bCC.amF;
                             onClickListener2.onClick(view);
                             return;
                         }
                         return;
                     }
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bBJ.mContext).createNormalCfg(rz, FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                onClickListener = this.bBJ.alO;
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bCC.mContext).createNormalCfg(rw, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                onClickListener = this.bCC.amF;
                 if (onClickListener == null) {
                 }
             }

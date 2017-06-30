@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes2.dex */
 public class ai {
-    private static ai dmE = null;
-    private final HttpMessageListener dmF = new aj(this, CmdConfigHttp.MSG_REMINDER_CMD);
-    private long dmG = 0;
+    private static ai duA = null;
+    private final HttpMessageListener duB = new aj(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    private long duC = 0;
     private final Handler mHandler = new ak(this);
 
     static {
@@ -21,41 +21,41 @@ public class ai {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized ai auc() {
+    public static synchronized ai axK() {
         ai aiVar;
         synchronized (ai.class) {
-            if (dmE == null) {
-                dmE = new ai();
+            if (duA == null) {
+                duA = new ai();
             }
-            aiVar = dmE;
+            aiVar = duA;
         }
         return aiVar;
     }
 
     public ai() {
-        MessageManager.getInstance().registerListener(this.dmF);
+        MessageManager.getInstance().registerListener(this.duB);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aud() {
+    public void axL() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
     }
 
-    public void aue() {
-        this.dmG = 0L;
+    public void ZB() {
+        this.duC = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.dmG;
+        long currentTimeMillis = System.currentTimeMillis() - this.duC;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 600000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
         }
-        this.dmG = System.currentTimeMillis();
+        this.duC = System.currentTimeMillis();
     }
 
     public void destroy() {

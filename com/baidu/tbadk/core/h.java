@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Animation.AnimationListener {
-    final /* synthetic */ BaseFragmentActivity RL;
+    final /* synthetic */ BaseFragmentActivity RG;
     private final /* synthetic */ Animation.AnimationListener val$listener;
     private final /* synthetic */ WeakReference val$reference;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(BaseFragmentActivity baseFragmentActivity, Animation.AnimationListener animationListener, WeakReference weakReference) {
-        this.RL = baseFragmentActivity;
+        this.RG = baseFragmentActivity;
         this.val$listener = animationListener;
         this.val$reference = weakReference;
     }
@@ -38,9 +38,9 @@ public class h implements Animation.AnimationListener {
         if (this.val$listener != null) {
             this.val$listener.onAnimationEnd(animation);
         }
-        list = this.RL.animationList;
+        list = this.RG.animationList;
         synchronized (list) {
-            list2 = this.RL.animationList;
+            list2 = this.RG.animationList;
             list2.remove(this.val$reference);
         }
     }

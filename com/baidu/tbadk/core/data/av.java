@@ -1,76 +1,45 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import java.util.List;
+import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
-public class av {
-    private ArrayList<UserData> WB = new ArrayList<>();
-    private ArrayList<UserData> WC = new ArrayList<>();
-    private ar WD = new ar();
-    private int WE = 0;
-    private int WF = 0;
+public class av extends PostData {
+    public static final BdUniqueId Wu = BdUniqueId.gen();
+    public int TY;
+    public String Uu;
+    public String Uv;
+    public String WA;
+    public String Wv;
+    public String Ww;
+    public String Wx;
+    public List<String> Wy;
+    public String Wz;
+    public String bookId;
 
-    public void a(ar arVar) {
-        this.WD = arVar;
-    }
-
-    public ar qx() {
-        return this.WD;
-    }
-
-    public ArrayList<UserData> qy() {
-        return this.WB;
-    }
-
-    public ArrayList<UserData> qz() {
-        return this.WC;
-    }
-
-    public int qA() {
-        return this.WE;
-    }
-
-    public int qB() {
-        return this.WF;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    public void a(RecommendBook recommendBook) {
+        if (recommendBook != null) {
+            this.Wv = recommendBook.recommend_text;
+            this.Ww = recommendBook.suggest_text;
+            this.Wx = recommendBook.suggest_url;
+            this.bookId = recommendBook.book_id;
+            this.TY = recommendBook.book_type.intValue();
+            this.Uv = recommendBook.book_cover;
+            this.Uu = recommendBook.book_title;
+            this.Wy = recommendBook.book_tips;
+            this.Wz = recommendBook.botton_text;
+            this.WA = recommendBook.subscript_icon;
         }
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        userData.mAttentionType = 2;
-                        this.WB.add(userData);
-                    }
-                }
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        UserData userData2 = new UserData();
-                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        userData2.mAttentionType = 1;
-                        this.WC.add(userData2);
-                    }
-                }
-                this.WD.parserJson(jSONObject.optJSONObject("page"));
-                this.WE = jSONObject.optInt("tafriendnum", 0);
-                this.WF = jSONObject.optInt("commonfriendnum", 0);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
+    public boolean hasData() {
+        return (this == null || StringUtils.isNull(this.bookId)) ? false : true;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return Wu;
     }
 }

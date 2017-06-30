@@ -1,31 +1,46 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import org.json.JSONObject;
-import tbclient.VideoChannelInfo;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
-public class bs {
-    public int Zs;
-    public String channelAvatar;
-    public long channelId;
-    public String channelName;
-    public int mCurrentPage;
+public class bs extends PostData {
+    public static final BdUniqueId Zt = BdUniqueId.gen();
+    private String Wr;
+    private int position = 0;
+    private String summary;
 
-    public void a(VideoChannelInfo videoChannelInfo) {
-        if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
-            this.channelId = videoChannelInfo.channel_id.longValue();
-            this.channelName = videoChannelInfo.channel_name;
-            this.channelAvatar = videoChannelInfo.channel_avatar;
+    public String sP() {
+        return this.Wr;
+    }
+
+    public String sG() {
+        return this.summary;
+    }
+
+    public void a(TopNews topNews) {
+        if (topNews != null) {
+            this.Wr = topNews.news_link;
+            this.summary = topNews.summary;
         }
     }
 
-    public void i(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.channelId = jSONObject.optLong("channel_id", 0L);
-                this.channelName = jSONObject.optString("channel_name");
-                this.channelAvatar = jSONObject.optString("channel_avatar");
+                this.Wr = jSONObject.optString("news_link");
+                this.summary = jSONObject.optString("summary");
+                this.position = jSONObject.optInt("position", 0);
             } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return Zt;
     }
 }

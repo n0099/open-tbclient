@@ -20,7 +20,7 @@ public class a {
     private a() {
     }
 
-    public static a jq() {
+    public static a jp() {
         if (DP == null) {
             synchronized (a.class) {
                 if (DP == null) {
@@ -54,12 +54,12 @@ public class a {
                     }
                 }
             }
-            jr();
+            jq();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jr() {
+    public void jq() {
         if (this.DR.size() != 0 && this.DS == null) {
             this.DS = new C0009a(this.DR.get(0));
             this.DS.execute(new String[0]);
@@ -81,7 +81,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
             if (this.DT != null) {
-                return Boolean.valueOf(aW(this.DT.apkPath));
+                return Boolean.valueOf(bb(this.DT.apkPath));
             }
             return false;
         }
@@ -108,28 +108,28 @@ public class a {
             if (bool != null && bool.booleanValue() && a.this.DQ != null) {
                 a.this.DQ.C(this.DT.packageName, this.DT.apkPath);
             }
-            a.this.jr();
+            a.this.jq();
         }
 
-        private boolean aW(String str) {
+        private boolean bb(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
             try {
-                com.baidu.adp.lib.util.e.h(new File(str));
-                com.baidu.adp.plugin.b.a.jk().e("plugin_del_unuse", "delete_unuse", str, null);
+                com.baidu.adp.lib.util.e.i(new File(str));
+                com.baidu.adp.plugin.b.a.jj().e("plugin_del_unuse", "delete_unuse", str, null);
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.jk().e("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
+                com.baidu.adp.plugin.b.a.jj().e("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
             }
             int length = str.length();
             if (length >= 4) {
                 File file = new File(str.substring(0, length - 4));
                 if (file.exists() && file.isDirectory()) {
                     try {
-                        com.baidu.adp.lib.util.e.h(file);
-                        com.baidu.adp.plugin.b.a.jk().e("plugin_del_unuse", "delete_unuse", str, null);
+                        com.baidu.adp.lib.util.e.i(file);
+                        com.baidu.adp.plugin.b.a.jj().e("plugin_del_unuse", "delete_unuse", str, null);
                     } catch (Throwable th2) {
-                        com.baidu.adp.plugin.b.a.jk().e("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
+                        com.baidu.adp.plugin.b.a.jj().e("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
                     }
                 }
                 return true;

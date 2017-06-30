@@ -1,18 +1,20 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.write.write.WriteImageActivity;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ca implements a.b {
-    final /* synthetic */ WriteImageActivity.a gbe;
+public class ca implements View.OnClickListener {
+    final /* synthetic */ WriteMultiImgsActivity gmv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(WriteImageActivity.a aVar) {
-        this.gbe = aVar;
+    public ca(WriteMultiImgsActivity writeMultiImgsActivity) {
+        this.gmv = writeMultiImgsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        q qVar;
+        qVar = this.gmv.gme;
+        qVar.ub(Integer.parseInt(view.getTag().toString()));
     }
 }

@@ -19,8 +19,8 @@ public final class j {
 
     /* loaded from: classes.dex */
     static final class a {
-        final BDLocation Oy;
-        final LinkedHashMap<String, Integer> Oz;
+        final BDLocation Ou;
+        final LinkedHashMap<String, Integer> Ov;
         final String a;
         final String b;
         final boolean c;
@@ -34,11 +34,11 @@ public final class j {
             if (strArr == null) {
                 this.a = null;
                 this.b = null;
-                this.Oz = null;
+                this.Ov = null;
                 this.c = false;
                 this.d = false;
                 this.e = false;
-                this.Oy = null;
+                this.Ou = null;
                 this.h = false;
                 this.f = 8;
                 return;
@@ -84,12 +84,12 @@ public final class j {
                                 z = false;
                                 this.a = str2;
                                 this.b = str;
-                                this.Oz = linkedHashMap;
+                                this.Ov = linkedHashMap;
                                 this.c = z;
                                 this.d = z4;
                                 this.e = z3;
                                 this.f = i;
-                                this.Oy = bDLocation;
+                                this.Ou = bDLocation;
                                 this.h = z2;
                             }
                         } else {
@@ -122,12 +122,12 @@ public final class j {
             z = true;
             this.a = str2;
             this.b = str;
-            this.Oz = linkedHashMap;
+            this.Ov = linkedHashMap;
             this.c = z;
             this.d = z4;
             this.e = z3;
             this.f = i;
-            this.Oy = bDLocation;
+            this.Ou = bDLocation;
             this.h = z2;
         }
     }
@@ -171,7 +171,7 @@ public final class j {
         ArrayList arrayList = new ArrayList();
         StringBuffer stringBuffer = new StringBuffer();
         if (aVar != null) {
-            stringBuffer.append(com.baidu.location.f.b.na().g(aVar));
+            stringBuffer.append(com.baidu.location.f.b.mW().g(aVar));
         }
         if (iVar != null) {
             stringBuffer.append(iVar.a(30));
@@ -209,67 +209,6 @@ public final class j {
         String[] strArr = new String[arrayList.size()];
         arrayList.toArray(strArr);
         return strArr;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, IF] complete} */
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static BDLocation b(Cursor cursor) {
-        BDLocation bDLocation = new BDLocation();
-        if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-            bDLocation.setLocType(67);
-        } else {
-            int i = cursor.getColumnIndex("LocType") != -1 ? cursor.getInt(cursor.getColumnIndex("LocType")) : 0;
-            double d = cursor.getColumnIndex("Latitude") != -1 ? cursor.getDouble(cursor.getColumnIndex("Latitude")) : 0.0d;
-            double d2 = cursor.getColumnIndex("Longitude") != -1 ? cursor.getDouble(cursor.getColumnIndex("Longitude")) : 0.0d;
-            String string = cursor.getColumnIndex("CoorType") != -1 ? cursor.getString(cursor.getColumnIndex("CoorType")) : null;
-            String string2 = cursor.getColumnIndex("NetworkLocationType") != -1 ? cursor.getString(cursor.getColumnIndex("NetworkLocationType")) : null;
-            float f = cursor.getColumnIndex("Radius") != -1 ? cursor.getFloat(cursor.getColumnIndex("Radius")) : 0.0f;
-            String string3 = cursor.getColumnIndex("Time") != -1 ? cursor.getString(cursor.getColumnIndex("Time")) : null;
-            String string4 = cursor.getColumnIndex("Country") != -1 ? cursor.getString(cursor.getColumnIndex("Country")) : null;
-            String string5 = cursor.getColumnIndex("CountryCode") != -1 ? cursor.getString(cursor.getColumnIndex("CountryCode")) : null;
-            String string6 = cursor.getColumnIndex("Province") != -1 ? cursor.getString(cursor.getColumnIndex("Province")) : null;
-            String string7 = cursor.getColumnIndex("City") != -1 ? cursor.getString(cursor.getColumnIndex("City")) : null;
-            Address build = new Address.Builder().country(string4).countryCode(string5).province(string6).city(string7).cityCode(cursor.getColumnIndex("CityCode") != -1 ? cursor.getString(cursor.getColumnIndex("CityCode")) : null).district(cursor.getColumnIndex("District") != -1 ? cursor.getString(cursor.getColumnIndex("District")) : null).street(cursor.getColumnIndex("Street") != -1 ? cursor.getString(cursor.getColumnIndex("Street")) : null).streetNumber(cursor.getColumnIndex("StreetNumber") != -1 ? cursor.getString(cursor.getColumnIndex("StreetNumber")) : null).build();
-            ArrayList arrayList = null;
-            if (cursor.getColumnIndex("PoiList") != -1) {
-                arrayList = new ArrayList();
-                String string8 = cursor.getString(cursor.getColumnIndex("PoiList"));
-                if (string8 != null) {
-                    try {
-                        String[] split = string8.split("\\|");
-                        for (String str : split) {
-                            String[] split2 = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                            if (split2.length >= 3) {
-                                arrayList.add(new Poi(split2[0], split2[1], Double.valueOf(split2[2]).doubleValue()));
-                            }
-                        }
-                    } catch (Exception e) {
-                        if (arrayList.size() == 0) {
-                            arrayList = null;
-                        }
-                    } catch (Throwable th) {
-                        if (arrayList.size() == 0) {
-                        }
-                        throw th;
-                    }
-                }
-                if (arrayList.size() == 0) {
-                    arrayList = null;
-                }
-            }
-            String string9 = cursor.getColumnIndex("LocationDescription") != -1 ? cursor.getString(cursor.getColumnIndex("LocationDescription")) : null;
-            bDLocation.setTime(string3);
-            bDLocation.setRadius(f);
-            bDLocation.setLocType(i);
-            bDLocation.setCoorType(string);
-            bDLocation.setLatitude(d);
-            bDLocation.setLongitude(d2);
-            bDLocation.setNetworkLocationType(string2);
-            bDLocation.setAddr(build);
-            bDLocation.setPoiList(arrayList);
-            bDLocation.setLocationDescribe(string9);
-        }
-        return bDLocation;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -354,5 +293,66 @@ public final class j {
         objArr[matrixCursor.getColumnIndex("LocationDescription")] = bDLocation.getLocationDescribe();
         matrixCursor.addRow(objArr);
         return matrixCursor;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, IF] complete} */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static BDLocation f(Cursor cursor) {
+        BDLocation bDLocation = new BDLocation();
+        if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+            bDLocation.setLocType(67);
+        } else {
+            int i = cursor.getColumnIndex("LocType") != -1 ? cursor.getInt(cursor.getColumnIndex("LocType")) : 0;
+            double d = cursor.getColumnIndex("Latitude") != -1 ? cursor.getDouble(cursor.getColumnIndex("Latitude")) : 0.0d;
+            double d2 = cursor.getColumnIndex("Longitude") != -1 ? cursor.getDouble(cursor.getColumnIndex("Longitude")) : 0.0d;
+            String string = cursor.getColumnIndex("CoorType") != -1 ? cursor.getString(cursor.getColumnIndex("CoorType")) : null;
+            String string2 = cursor.getColumnIndex("NetworkLocationType") != -1 ? cursor.getString(cursor.getColumnIndex("NetworkLocationType")) : null;
+            float f = cursor.getColumnIndex("Radius") != -1 ? cursor.getFloat(cursor.getColumnIndex("Radius")) : 0.0f;
+            String string3 = cursor.getColumnIndex("Time") != -1 ? cursor.getString(cursor.getColumnIndex("Time")) : null;
+            String string4 = cursor.getColumnIndex("Country") != -1 ? cursor.getString(cursor.getColumnIndex("Country")) : null;
+            String string5 = cursor.getColumnIndex("CountryCode") != -1 ? cursor.getString(cursor.getColumnIndex("CountryCode")) : null;
+            String string6 = cursor.getColumnIndex("Province") != -1 ? cursor.getString(cursor.getColumnIndex("Province")) : null;
+            String string7 = cursor.getColumnIndex("City") != -1 ? cursor.getString(cursor.getColumnIndex("City")) : null;
+            Address build = new Address.Builder().country(string4).countryCode(string5).province(string6).city(string7).cityCode(cursor.getColumnIndex("CityCode") != -1 ? cursor.getString(cursor.getColumnIndex("CityCode")) : null).district(cursor.getColumnIndex("District") != -1 ? cursor.getString(cursor.getColumnIndex("District")) : null).street(cursor.getColumnIndex("Street") != -1 ? cursor.getString(cursor.getColumnIndex("Street")) : null).streetNumber(cursor.getColumnIndex("StreetNumber") != -1 ? cursor.getString(cursor.getColumnIndex("StreetNumber")) : null).build();
+            ArrayList arrayList = null;
+            if (cursor.getColumnIndex("PoiList") != -1) {
+                arrayList = new ArrayList();
+                String string8 = cursor.getString(cursor.getColumnIndex("PoiList"));
+                if (string8 != null) {
+                    try {
+                        String[] split = string8.split("\\|");
+                        for (String str : split) {
+                            String[] split2 = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                            if (split2.length >= 3) {
+                                arrayList.add(new Poi(split2[0], split2[1], Double.valueOf(split2[2]).doubleValue()));
+                            }
+                        }
+                    } catch (Exception e) {
+                        if (arrayList.size() == 0) {
+                            arrayList = null;
+                        }
+                    } catch (Throwable th) {
+                        if (arrayList.size() == 0) {
+                        }
+                        throw th;
+                    }
+                }
+                if (arrayList.size() == 0) {
+                    arrayList = null;
+                }
+            }
+            String string9 = cursor.getColumnIndex("LocationDescription") != -1 ? cursor.getString(cursor.getColumnIndex("LocationDescription")) : null;
+            bDLocation.setTime(string3);
+            bDLocation.setRadius(f);
+            bDLocation.setLocType(i);
+            bDLocation.setCoorType(string);
+            bDLocation.setLatitude(d);
+            bDLocation.setLongitude(d2);
+            bDLocation.setNetworkLocationType(string2);
+            bDLocation.setAddr(build);
+            bDLocation.setPoiList(arrayList);
+            bDLocation.setLocationDescribe(string9);
+        }
+        return bDLocation;
     }
 }

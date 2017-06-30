@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.pb.main.emotion.model.SearchEmotionModel;
 import java.util.List;
 /* loaded from: classes.dex */
 class b implements SearchEmotionModel.a {
-    final /* synthetic */ PbSearchEmotionActivity evD;
+    final /* synthetic */ PbSearchEmotionActivity eET;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PbSearchEmotionActivity pbSearchEmotionActivity) {
-        this.evD = pbSearchEmotionActivity;
+        this.eET = pbSearchEmotionActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.emotion.model.SearchEmotionModel.a
@@ -30,53 +30,53 @@ class b implements SearchEmotionModel.a {
         BdListView bdListView;
         l lVar4;
         List list3;
-        this.evD.hideProgressBar();
-        if (aVar == null || aVar.aNn() == null || aVar.aNn().isEmpty()) {
-            i = this.evD.mCurrentPage;
+        this.eET.hideProgressBar();
+        if (aVar == null || aVar.aRm() == null || aVar.aRm().isEmpty()) {
+            i = this.eET.mCurrentPage;
             if (i != 0) {
                 return;
             }
-            this.evD.aNl();
+            this.eET.aRk();
             return;
         }
-        this.evD.mCurrentPage = aVar.getPage();
-        i2 = this.evD.mCurrentPage;
+        this.eET.mCurrentPage = aVar.getPage();
+        i2 = this.eET.mCurrentPage;
         if (i2 == 1) {
-            list3 = this.evD.evB;
+            list3 = this.eET.eER;
             list3.clear();
         }
-        this.evD.mHasMore = aVar.ahP() != 0;
-        list = this.evD.evB;
-        list.addAll(aVar.aNn());
-        lVar = this.evD.evx;
+        this.eET.mHasMore = aVar.alz() != 0;
+        list = this.eET.eER;
+        list.addAll(aVar.aRm());
+        lVar = this.eET.eEN;
         if (lVar != null) {
-            lVar2 = this.evD.evx;
+            lVar2 = this.eET.eEN;
             lVar2.notifyDataSetChanged();
         } else {
-            PbSearchEmotionActivity pbSearchEmotionActivity = this.evD;
-            list2 = this.evD.evB;
-            pbSearchEmotionActivity.evx = new l(list2);
-            lVar3 = this.evD.evx;
-            aVar2 = this.evD.emx;
+            PbSearchEmotionActivity pbSearchEmotionActivity = this.eET;
+            list2 = this.eET.eER;
+            pbSearchEmotionActivity.eEN = new l(list2);
+            lVar3 = this.eET.eEN;
+            aVar2 = this.eET.evB;
             lVar3.a(aVar2);
-            bdListView = this.evD.evw;
-            lVar4 = this.evD.evx;
+            bdListView = this.eET.eEM;
+            lVar4 = this.eET.eEN;
             bdListView.setAdapter((ListAdapter) lVar4);
         }
-        this.evD.aNk();
-        activity = this.evD.mActivity;
-        editText = this.evD.dCP;
+        this.eET.aRj();
+        activity = this.eET.mActivity;
+        editText = this.eET.dLj;
         com.baidu.adp.lib.util.k.b(activity, editText);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.emotion.model.SearchEmotionModel.a
     public void onFail(int i, String str) {
         int i2;
-        this.evD.hideProgressBar();
-        i2 = this.evD.mCurrentPage;
+        this.eET.hideProgressBar();
+        i2 = this.eET.mCurrentPage;
         if (i2 != 1) {
             return;
         }
-        this.evD.aNl();
+        this.eET.aRk();
     }
 }

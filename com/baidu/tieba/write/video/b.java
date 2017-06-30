@@ -7,13 +7,13 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ WriteLocationView fXj;
+    final /* synthetic */ WriteLocationView gij;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(WriteLocationView writeLocationView, int i) {
         super(i);
-        this.fXj = writeLocationView;
+        this.gij = writeLocationView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,16 +25,16 @@ public class b extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                locationModel2 = this.fXj.aAA;
-                locationModel2.lv(false);
-                locationModel3 = this.fXj.aAA;
-                locationModel3.cd(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.fXj.c(2, true, responsedSelectLocation.getName());
+                locationModel2 = this.gij.aBD;
+                locationModel2.lU(false);
+                locationModel3 = this.gij.aBD;
+                locationModel3.ch(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                this.gij.c(2, true, responsedSelectLocation.getName());
                 return;
             }
-            locationModel = this.fXj.aAA;
-            locationModel.lv(true);
-            this.fXj.c(0, true, null);
+            locationModel = this.gij.aBD;
+            locationModel.lU(true);
+            this.gij.c(0, true, null);
         }
     }
 }

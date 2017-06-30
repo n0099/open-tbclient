@@ -3,15 +3,15 @@ package com.baidu.tbadk.editortools.sendtool;
 import android.view.View;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ SendView aBm;
+    final /* synthetic */ SendView aCp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(SendView sendView) {
-        this.aBm = sendView;
+        this.aCp = sendView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aBm.b(new com.baidu.tbadk.editortools.a(8, -1, null));
+        this.aCp.b(new com.baidu.tbadk.editortools.a(8, -1, null));
     }
 }

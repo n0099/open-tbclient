@@ -1,49 +1,34 @@
 package com.baidu.tieba.homepage.personalize;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.view.ae;
-import java.util.List;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements ae.a {
-    final /* synthetic */ b cAU;
+public class l implements AbsListView.RecyclerListener {
+    final /* synthetic */ i cIQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(b bVar) {
-        this.cAU = bVar;
+    public l(i iVar) {
+        this.cIQ = iVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.ae.a
-    public void b(View view, boolean z) {
-        o oVar;
-        com.baidu.tieba.homepage.framework.b bVar;
-        boolean z2;
-        com.baidu.tieba.homepage.framework.b bVar2;
-        List<com.baidu.tieba.homepage.b.a.a> list;
-        boolean z3;
-        o oVar2;
-        o oVar3;
-        oVar = this.cAU.cAM;
-        if (oVar != null) {
-            oVar2 = this.cAU.cAM;
-            oVar2.fc(true);
-            oVar3 = this.cAU.cAM;
-            oVar3.aiP();
-        }
-        bVar = this.cAU.cAL;
-        if (bVar != null) {
-            z2 = this.cAU.cAP;
-            if (z2) {
-                bVar2 = this.cAU.cAL;
-                list = this.cAU.cAn;
-                z3 = this.cAU.cAQ;
-                bVar2.i(list, z3);
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        x xVar;
+        x xVar2;
+        x xVar3;
+        if (view != null) {
+            xVar = this.cIQ.cIH;
+            if (xVar != null) {
+                xVar2 = this.cIQ.cIH;
+                if (xVar2.aes() != null) {
+                    xVar3 = this.cIQ.cIH;
+                    xVar3.aes().aL(view);
+                }
+            }
+            if (view.getTag() instanceof com.baidu.tieba.homepage.personalize.b.f) {
+                ((com.baidu.tieba.homepage.personalize.b.f) view.getTag()).Wp().stopPlay();
             }
         }
-        this.cAU.cAP = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_FINISH_REFRESH, true));
     }
 }

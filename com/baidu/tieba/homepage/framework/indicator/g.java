@@ -14,7 +14,7 @@ class g implements Parcelable.Creator<PagerSlidingTabStrip.SavedState> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: kj */
+    /* renamed from: ku */
     public PagerSlidingTabStrip.SavedState[] newArray(int i) {
         return new PagerSlidingTabStrip.SavedState[i];
     }

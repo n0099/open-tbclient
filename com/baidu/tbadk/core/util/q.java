@@ -1,18 +1,10 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class q {
-    public static String di(String str) {
-        if (StringUtils.isNull(str)) {
-            return "";
-        }
-        Matcher matcher = Pattern.compile("t=(\\d+)").matcher(str);
-        if (matcher.find()) {
-            return String.valueOf(str) + "&tieba_portrait_time=" + matcher.group(1);
-        }
-        return str;
+class q implements a.b {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

@@ -1,48 +1,46 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class ab implements a.b {
-    final /* synthetic */ PbActivity enc;
+class ab extends CustomMessageListener {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(PbActivity pbActivity) {
-        this.enc = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(PbActivity pbActivity, int i) {
+        super(i);
+        this.ewh = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        PbModel pbModel;
-        fx fxVar;
-        fx fxVar2;
-        fx fxVar3;
-        PbModel pbModel2;
-        fx fxVar4;
-        this.enc.aat();
-        pbModel = this.enc.ele;
-        com.baidu.tbadk.core.data.ar akK = pbModel.akK();
-        fxVar = this.enc.elU;
-        int pageNum = fxVar.getPageNum();
-        if (pageNum <= 0) {
-            this.enc.showToast(w.l.pb_page_error);
-        } else if (akK == null || pageNum <= akK.qo()) {
-            fxVar2 = this.enc.elU;
-            fxVar2.avy();
-            this.enc.os(2);
-            this.enc.aas();
-            fxVar3 = this.enc.elU;
-            fxVar3.aMz();
-            if (com.baidu.adp.lib.util.i.hk()) {
-                pbModel2 = this.enc.ele;
-                fxVar4 = this.enc.elU;
-                pbModel2.oy(fxVar4.getPageNum());
-            } else {
-                this.enc.showToast(w.l.neterror);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        gg ggVar;
+        long j;
+        ggVar = this.ewh.euU;
+        if (ggVar.aQf() && (customResponsedMessage.getData() instanceof Integer) && this.ewh.aNz() != null && this.ewh.aNz().getPbData() != null && this.ewh.aNz().getPbData().aMS() != null && this.ewh.checkUpIsLogin() && !com.baidu.tieba.pb.i.N(this.ewh.aNz().getPbData().aMv())) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            boolean aMY = this.ewh.aNz().getPbData().aMS().aMY();
+            if (intValue < 10) {
+                if (!aMY) {
+                    this.ewh.f(this.ewh.findViewById(w.h.view_main_thread_praise_state), intValue, false);
+                    TiebaStatic.log(this.ewh.aNC().r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 2).r("obj_locate", 4).r("obj_id", aMY ? 0 : 1));
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                j = this.ewh.euK;
+                if (currentTimeMillis - j > 2000) {
+                    new com.baidu.tieba.pb.view.d(this.ewh.getActivity()).startAnimation(false);
+                    this.ewh.euK = System.currentTimeMillis();
+                    return;
+                }
+                return;
             }
-            aVar.dismiss();
-        } else {
-            this.enc.showToast(w.l.pb_page_error);
+            this.ewh.f(this.ewh.findViewById(w.h.view_main_thread_praise_state), intValue / 11, aMY);
+            TiebaStatic.log(this.ewh.aNC().r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 3).r("obj_locate", 4).r("obj_id", aMY ? 0 : 1));
         }
     }
 }

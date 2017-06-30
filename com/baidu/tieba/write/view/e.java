@@ -8,15 +8,15 @@ import com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView;
 import com.baidu.tieba.write.view.NewFrameMultiImgToolView;
 /* loaded from: classes.dex */
 class e implements NewFrameMultiImgToolView.a {
-    final /* synthetic */ NewFrameMultiImgToolView fXJ;
+    final /* synthetic */ NewFrameMultiImgToolView giJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(NewFrameMultiImgToolView newFrameMultiImgToolView) {
-        this.fXJ = newFrameMultiImgToolView;
+        this.giJ = newFrameMultiImgToolView;
     }
 
     @Override // com.baidu.tieba.write.view.NewFrameMultiImgToolView.a
-    public void F(View view) {
+    public void G(View view) {
         DragHorizonScrollView dragHorizonScrollView;
         DragHorizonScrollView dragHorizonScrollView2;
         WriteImagesInfo writeImagesInfo;
@@ -35,54 +35,54 @@ class e implements NewFrameMultiImgToolView.a {
         com.baidu.tbadk.editortools.j jVar5;
         com.baidu.tbadk.editortools.j jVar6;
         int i3;
-        dragHorizonScrollView = this.fXJ.azK;
-        if (!dragHorizonScrollView.biF()) {
-            this.fXJ.bo(view);
-            dragHorizonScrollView2 = this.fXJ.azK;
-            int bp = dragHorizonScrollView2.bp(view);
-            if (bp >= 0) {
-                writeImagesInfo = this.fXJ.azN;
-                if (bp < writeImagesInfo.getChosedFiles().size()) {
-                    writeImagesInfo2 = this.fXJ.azN;
-                    ImageFileInfo remove = writeImagesInfo2.getChosedFiles().remove(bp);
+        dragHorizonScrollView = this.giJ.aAN;
+        if (!dragHorizonScrollView.bmT()) {
+            this.giJ.bq(view);
+            dragHorizonScrollView2 = this.giJ.aAN;
+            int br = dragHorizonScrollView2.br(view);
+            if (br >= 0) {
+                writeImagesInfo = this.giJ.aAQ;
+                if (br < writeImagesInfo.getChosedFiles().size()) {
+                    writeImagesInfo2 = this.giJ.aAQ;
+                    ImageFileInfo remove = writeImagesInfo2.getChosedFiles().remove(br);
                     if (remove.isTempFile()) {
                         com.baidu.adp.lib.Disk.d.dI().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                     }
-                    dragHorizonScrollView3 = this.fXJ.azK;
+                    dragHorizonScrollView3 = this.giJ.aAN;
                     int maxItemNum = dragHorizonScrollView3.getMaxItemNum();
-                    writeImagesInfo3 = this.fXJ.azN;
+                    writeImagesInfo3 = this.giJ.aAQ;
                     int size = writeImagesInfo3.getChosedFiles().size();
-                    jVar = this.fXJ.JU;
+                    jVar = this.giJ.JT;
                     if (jVar != null) {
-                        jVar2 = this.fXJ.JU;
-                        i = this.fXJ.azR;
+                        jVar2 = this.giJ.JT;
+                        i = this.giJ.aAU;
                         jVar2.b(new com.baidu.tbadk.editortools.a(i, -1, null));
                         if (size > 0) {
-                            jVar6 = this.fXJ.JU;
-                            i3 = this.fXJ.azS;
+                            jVar6 = this.giJ.JT;
+                            i3 = this.giJ.aAV;
                             jVar6.b(new com.baidu.tbadk.editortools.a(2, i3, String.valueOf(size)));
                         } else {
-                            jVar3 = this.fXJ.JU;
-                            i2 = this.fXJ.azS;
+                            jVar3 = this.giJ.JT;
+                            i2 = this.giJ.aAV;
                             jVar3.b(new com.baidu.tbadk.editortools.a(2, i2, null));
                         }
                         if (maxItemNum == 1 && size == 0) {
-                            z = this.fXJ.azT;
+                            z = this.giJ.aAW;
                             if (z) {
-                                jVar5 = this.fXJ.JU;
+                                jVar5 = this.giJ.JT;
                                 jVar5.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                             } else {
-                                NewFrameMultiImgToolView newFrameMultiImgToolView = this.fXJ;
-                                writeImagesInfo5 = this.fXJ.azN;
+                                NewFrameMultiImgToolView newFrameMultiImgToolView = this.giJ;
+                                writeImagesInfo5 = this.giJ.aAQ;
                                 newFrameMultiImgToolView.a(writeImagesInfo5, true);
-                                jVar4 = this.fXJ.JU;
+                                jVar4 = this.giJ.JT;
                                 jVar4.invalidate();
                             }
                         }
                     }
                     if (size == 0) {
-                        NewFrameMultiImgToolView newFrameMultiImgToolView2 = this.fXJ;
-                        writeImagesInfo4 = this.fXJ.azN;
+                        NewFrameMultiImgToolView newFrameMultiImgToolView2 = this.giJ;
+                        writeImagesInfo4 = this.giJ.aAQ;
                         newFrameMultiImgToolView2.a(writeImagesInfo4, true);
                     }
                 }

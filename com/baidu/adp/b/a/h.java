@@ -27,7 +27,7 @@ public class h extends k {
         if (this.Bz != null) {
             canvas.concat(this.Bz);
         }
-        if (dVar.iF()) {
+        if (dVar.iE()) {
             Bitmap bitmap = dVar.BZ.getBitmap();
             if (this.Cv) {
                 a(canvas, bitmap);
@@ -35,9 +35,9 @@ public class h extends k {
             }
             this.Cr.set(0, 0, dVar.getWidth(), dVar.getHeight());
             dVar.Ca.a(canvas, this.Cr, this.BA, this.mPaint);
-        } else if (dVar.iG()) {
+        } else if (dVar.iF()) {
             if (this.Cv) {
-                a(canvas, dVar.Ca.kR());
+                a(canvas, dVar.Ca.kP());
                 return;
             }
             this.Cr.set(0, 0, dVar.getWidth(), dVar.getHeight());

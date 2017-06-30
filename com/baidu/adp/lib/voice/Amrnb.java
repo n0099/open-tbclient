@@ -27,7 +27,7 @@ public class Amrnb {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.g.gW().a("amrnb", 2, new g());
+        bLoadLibrary = com.baidu.adp.lib.util.g.gV().a("amrnb", 2, new g());
         if (bLoadLibrary) {
             try {
                 native_init();

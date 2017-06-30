@@ -7,7 +7,7 @@ public class k {
     private static k wJ = new k();
     private final ThreadPoolExecutor wI = new ScheduledThreadPoolExecutor(1);
 
-    public static k fT() {
+    public static k fS() {
         return wJ;
     }
 

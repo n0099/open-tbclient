@@ -3,11 +3,11 @@ package com.baidu.tieba.passaccount.app;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class w implements Runnable {
-    final /* synthetic */ SapiFastRegActivity efv;
+    final /* synthetic */ SapiFastRegActivity eoq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(SapiFastRegActivity sapiFastRegActivity) {
-        this.efv = sapiFastRegActivity;
+        this.eoq = sapiFastRegActivity;
     }
 
     @Override // java.lang.Runnable

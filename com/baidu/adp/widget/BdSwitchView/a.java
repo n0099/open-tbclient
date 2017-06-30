@@ -10,6 +10,6 @@ class a implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.FQ.kt();
+        this.FQ.kr();
     }
 }

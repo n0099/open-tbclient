@@ -1,23 +1,22 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.z;
-import com.baidu.tieba.w;
+import com.baidu.tieba.frs.r;
 /* loaded from: classes.dex */
-public class as extends z.a {
-    public TextView alu;
-    public TextView alx;
-    public int ana;
-    public TextView bVi;
-    public TextView bVj;
+class as implements Runnable {
+    final /* synthetic */ r.a cdp;
+    private final /* synthetic */ String cdq;
 
-    public as(View view) {
-        super(view);
-        this.ana = 3;
-        this.alu = (TextView) getView().findViewById(w.h.frs_god_lv_reply_time);
-        this.alx = (TextView) getView().findViewById(w.h.frs_god_praise_num);
-        this.bVj = (TextView) getView().findViewById(w.h.frs_god_reply_num);
-        this.bVi = (TextView) getView().findViewById(w.h.frs_god_item_location_address);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public as(r.a aVar, String str) {
+        this.cdp = aVar;
+        this.cdq = str;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.util.ab abVar = new com.baidu.tbadk.core.util.ab(this.cdq);
+        abVar.uV().vR().mIsNeedAddCommenParam = false;
+        abVar.uV().vR().mIsUseCurrentBDUSS = false;
+        abVar.tP();
     }
 }

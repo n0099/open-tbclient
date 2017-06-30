@@ -9,8 +9,8 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tbadk.core.view.h;
 import com.baidu.tbadk.data.g;
 import com.baidu.tbadk.widget.vote.VotePhotoGroupView;
@@ -23,22 +23,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e<PbActivity> {
-    private com.baidu.tbadk.widget.vote.b aOZ;
-    private PbActivity elf;
-    private View fRe;
-    private VotePhotoGroupView fRf;
-    private VoteTextGroupView fRg;
-    private VoteView fRh;
-    private LinearLayout fRi;
-    private TextView fRj;
-    private TextView fRk;
-    private TextView fRl;
-    private TextView fRm;
-    private VoteDataInfo fRn;
-    private final List<f> fRo;
-    private boolean fRp;
-    private h fRq;
-    private final com.baidu.adp.framework.listener.a fRr;
+    private com.baidu.tbadk.widget.vote.b aQr;
+    private PbActivity euf;
+    private View gbk;
+    private VotePhotoGroupView gbl;
+    private VoteTextGroupView gbm;
+    private VoteView gbn;
+    private LinearLayout gbo;
+    private TextView gbp;
+    private TextView gbq;
+    private TextView gbr;
+    private TextView gbs;
+    private VoteDataInfo gbt;
+    private final List<f> gbu;
+    private boolean gbv;
+    private h gbw;
+    private final com.baidu.adp.framework.listener.a gbx;
     private long mForumId;
     private final View.OnClickListener mOnClickListener;
     private int mSkinType;
@@ -46,173 +46,173 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
     private int maxWidth;
 
     public void setVisibility(int i) {
-        if (this.fRe != null) {
-            this.fRe.setVisibility(i);
+        if (this.gbk != null) {
+            this.gbk.setVisibility(i);
         }
     }
 
-    public void bmw() {
-        if (this.fRf != null) {
-            this.fRf.setPadding(0, 0, 0, 0);
+    public void bqH() {
+        if (this.gbl != null) {
+            this.gbl.setPadding(0, 0, 0, 0);
         }
     }
 
     public a(PbActivity pbActivity) {
         super(pbActivity.getPageContext());
         this.mSkinType = 3;
-        this.fRo = new ArrayList();
-        this.fRp = false;
+        this.gbu = new ArrayList();
+        this.gbv = false;
         this.maxWidth = 0;
-        this.aOZ = new b(this);
-        this.fRr = new c(this, CmdConfigHttp.CMD_ADD_VOTE, 309006);
+        this.aQr = new b(this);
+        this.gbx = new c(this, CmdConfigHttp.CMD_ADD_VOTE, 309006);
         this.mOnClickListener = new d(this);
-        this.elf = pbActivity;
-        pbActivity.registerListener(this.fRr);
+        this.euf = pbActivity;
+        pbActivity.registerListener(this.gbx);
         this.maxWidth = k.af(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds120);
-        this.fRq = new h();
+        this.gbw = new h();
     }
 
     public void a(View view, com.baidu.tieba.pb.data.f fVar) {
-        if (fVar != null && fVar.aIz() != null && fVar.aIB() != null && view != null) {
-            this.mForumId = com.baidu.adp.lib.g.b.c(fVar.aIz().getId(), 0L);
-            this.mThreadId = com.baidu.adp.lib.g.b.c(fVar.aIB().getId(), 0L);
-            if (fVar.aIB().sg() && fVar.aIB().rj() != null) {
-                if (this.fRe == null) {
-                    this.fRe = ((ViewStub) view.findViewById(w.h.vote_card_layout)).inflate();
-                    this.fRm = (TextView) this.fRe.findViewById(w.h.btn_pb_vote);
-                    this.fRn = fVar.aIy();
-                    b((PostData) x.c(fVar.aID(), 0), this.fRe);
-                    a(this.fRn, false);
+        if (fVar != null && fVar.aMt() != null && fVar.aMv() != null && view != null) {
+            this.mForumId = com.baidu.adp.lib.g.b.c(fVar.aMt().getId(), 0L);
+            this.mThreadId = com.baidu.adp.lib.g.b.c(fVar.aMv().getId(), 0L);
+            if (fVar.aMv().sd() && fVar.aMv().rg() != null) {
+                if (this.gbk == null) {
+                    this.gbk = ((ViewStub) view.findViewById(w.h.vote_card_layout)).inflate();
+                    this.gbs = (TextView) this.gbk.findViewById(w.h.btn_pb_vote);
+                    this.gbt = fVar.aMs();
+                    b((PostData) z.c(fVar.aMx(), 0), this.gbk);
+                    a(this.gbt, false);
                 }
                 if (this.mSkinType != TbadkCoreApplication.m9getInst().getSkinType()) {
                     onChangeSkinType();
                 }
                 this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
-                if (!this.fRe.isShown()) {
-                    this.fRe.setVisibility(0);
+                if (!this.gbk.isShown()) {
+                    this.gbk.setVisibility(0);
                 }
-            } else if (this.fRe != null && this.fRe.isShown()) {
-                this.fRe.setVisibility(8);
+            } else if (this.gbk != null && this.gbk.isShown()) {
+                this.gbk.setVisibility(8);
             }
         }
     }
 
     private void b(PostData postData, View view) {
-        this.fRi = (LinearLayout) view.findViewById(w.h.pb_vote_location_container);
-        this.fRj = (TextView) view.findViewById(w.h.pb_vote_first_floor_name);
-        this.fRk = (TextView) view.findViewById(w.h.pb_item_vote_reply_time);
-        this.fRl = (TextView) view.findViewById(w.h.pb_item_vote_location_address);
+        this.gbo = (LinearLayout) view.findViewById(w.h.pb_vote_location_container);
+        this.gbp = (TextView) view.findViewById(w.h.pb_vote_first_floor_name);
+        this.gbq = (TextView) view.findViewById(w.h.pb_item_vote_reply_time);
+        this.gbr = (TextView) view.findViewById(w.h.pb_item_vote_location_address);
         g gVar = null;
         if (postData != null) {
-            this.fRk.setText(postData.bii());
-            gVar = postData.bij();
+            this.gbq.setText(postData.bmw());
+            gVar = postData.bmx();
         }
         if (gVar != null && !TextUtils.isEmpty(gVar.getName()) && !TextUtils.isEmpty(gVar.getName().trim())) {
             String name = gVar.getName();
             String lat = gVar.getLat();
             String lng = gVar.getLng();
-            this.fRl.setVisibility(0);
-            this.fRl.setText(gVar.getName());
-            this.fRl.setOnClickListener(new e(this, lat, lng, name));
+            this.gbr.setVisibility(0);
+            this.gbr.setText(gVar.getName());
+            this.gbr.setOnClickListener(new e(this, lat, lng, name));
             return;
         }
-        this.fRl.setVisibility(8);
+        this.gbr.setVisibility(8);
     }
 
     private void a(VoteDataInfo voteDataInfo, boolean z) {
-        this.fRn = voteDataInfo;
-        if (this.fRn != null) {
-            if (this.fRn.getStatus() == 2 || this.fRn.getIsPolled() == 0) {
-                for (com.baidu.tbadk.widget.vote.a aVar : this.fRn.getOptions()) {
+        this.gbt = voteDataInfo;
+        if (this.gbt != null) {
+            if (this.gbt.getStatus() == 2 || this.gbt.getIsPolled() == 0) {
+                for (com.baidu.tbadk.widget.vote.a aVar : this.gbt.getOptions()) {
                     if (aVar != null && (aVar instanceof f)) {
                         ((f) aVar).setSelected(false);
                     }
                 }
             }
-            aRv();
-            if (this.fRn.getVoteType() == 1) {
-                if (this.fRn.getStatus() == 2 || this.fRn.getIsPolled() == 1) {
-                    lP(z);
+            aVD();
+            if (this.gbt.getVoteType() == 1) {
+                if (this.gbt.getStatus() == 2 || this.gbt.getIsPolled() == 1) {
+                    mp(z);
                 } else {
-                    bmx();
+                    bqI();
                 }
-            } else if (this.fRn.getVoteType() == 2) {
-                if (this.fRn.getStatus() == 2 || this.fRn.getIsPolled() == 1) {
+            } else if (this.gbt.getVoteType() == 2) {
+                if (this.gbt.getStatus() == 2 || this.gbt.getIsPolled() == 1) {
                     F(2, z);
                 } else {
-                    F(this.fRn.getIsMulti() == 1 ? 1 : 3, z);
+                    F(this.gbt.getIsMulti() == 1 ? 1 : 3, z);
                 }
             }
         }
     }
 
     private void F(int i, boolean z) {
-        if (this.fRe != null && this.fRn != null) {
-            this.fRf = (VotePhotoGroupView) this.fRe.findViewById(w.h.picvote_view);
-            this.fRf.setOnVoteCheckedChangedListener(this.aOZ);
-            this.fRf.setVisibility(0);
-            this.fRf.setMode(i);
-            this.fRf.a(this.fRn.getOptions(), z, this.fRn.getIsPolled() == 1);
+        if (this.gbk != null && this.gbt != null) {
+            this.gbl = (VotePhotoGroupView) this.gbk.findViewById(w.h.picvote_view);
+            this.gbl.setOnVoteCheckedChangedListener(this.aQr);
+            this.gbl.setVisibility(0);
+            this.gbl.setMode(i);
+            this.gbl.a(this.gbt.getOptions(), z, this.gbt.getIsPolled() == 1);
         }
     }
 
-    private void aRv() {
-        if (this.fRe != null && this.fRn != null) {
-            ((TextView) this.fRe.findViewById(w.h.tv_vote_endtime)).setText(this.fRn.getTips());
-            ((TextView) this.fRe.findViewById(w.h.vote_num)).setText(getPageContext().getPageActivity().getString(w.l.pb_vote_num, new Object[]{Long.valueOf(this.fRn.getTotalNum())}));
-            bmz();
+    private void aVD() {
+        if (this.gbk != null && this.gbt != null) {
+            ((TextView) this.gbk.findViewById(w.h.tv_vote_endtime)).setText(this.gbt.getTips());
+            ((TextView) this.gbk.findViewById(w.h.vote_num)).setText(getPageContext().getPageActivity().getString(w.l.pb_vote_num, new Object[]{Long.valueOf(this.gbt.getTotalNum())}));
+            bqK();
         }
     }
 
-    private void bmx() {
-        if (this.fRe != null && this.fRn != null) {
-            this.fRg = (VoteTextGroupView) this.fRe.findViewById(w.h.textvote_view);
-            this.fRg.setOnVoteCheckedChangedListener(this.aOZ);
-            this.fRg.setVisibility(0);
-            this.fRg.setMode(this.fRn.getIsMulti() == 1 ? 1 : 2);
-            this.fRg.C(this.fRn.getOptions());
-            this.fRg.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+    private void bqI() {
+        if (this.gbk != null && this.gbt != null) {
+            this.gbm = (VoteTextGroupView) this.gbk.findViewById(w.h.textvote_view);
+            this.gbm.setOnVoteCheckedChangedListener(this.aQr);
+            this.gbm.setVisibility(0);
+            this.gbm.setMode(this.gbt.getIsMulti() == 1 ? 1 : 2);
+            this.gbm.E(this.gbt.getOptions());
+            this.gbm.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
-    private void lP(boolean z) {
-        if (this.fRe != null && this.fRn != null) {
-            this.fRf = (VotePhotoGroupView) this.fRe.findViewById(w.h.picvote_view);
-            this.fRg = (VoteTextGroupView) this.fRe.findViewById(w.h.textvote_view);
-            this.fRh = (VoteView) this.fRe.findViewById(w.h.result_vote_view);
-            this.fRg.setVisibility(8);
-            this.fRf.setVisibility(8);
-            this.fRh.setVisibility(0);
-            this.fRh.setWidth(this.maxWidth);
-            this.fRh.a(this.fRn.getOptions(), z);
-            this.fRh.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+    private void mp(boolean z) {
+        if (this.gbk != null && this.gbt != null) {
+            this.gbl = (VotePhotoGroupView) this.gbk.findViewById(w.h.picvote_view);
+            this.gbm = (VoteTextGroupView) this.gbk.findViewById(w.h.textvote_view);
+            this.gbn = (VoteView) this.gbk.findViewById(w.h.result_vote_view);
+            this.gbm.setVisibility(8);
+            this.gbl.setVisibility(8);
+            this.gbn.setVisibility(0);
+            this.gbn.setWidth(this.maxWidth);
+            this.gbn.b(this.gbt.getOptions(), z);
+            this.gbn.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bmy() {
-        if (this.fRn != null) {
-            if (this.fRq != null && this.elf != null) {
-                this.fRq.c(this.elf.getActivity().getString(w.l.vote_succ));
+    public void bqJ() {
+        if (this.gbt != null) {
+            if (this.gbw != null && this.euf != null) {
+                this.gbw.c(this.euf.getActivity().getString(w.l.vote_succ));
             }
-            this.fRn.setIsPolled(1);
-            this.fRn.setTotalNum(this.fRn.getTotalNum() + 1);
-            this.fRn.setTotalPoll(this.fRn.getTotalPoll() + this.fRo.size());
-            for (f fVar : this.fRo) {
+            this.gbt.setIsPolled(1);
+            this.gbt.setTotalNum(this.gbt.getTotalNum() + 1);
+            this.gbt.setTotalPoll(this.gbt.getTotalPoll() + this.gbu.size());
+            for (f fVar : this.gbu) {
                 if (fVar != null) {
                     fVar.setNum(fVar.getNum() + 1);
                 }
             }
-            if (this.fRn.getTotalPoll() > 0) {
-                for (com.baidu.tbadk.widget.vote.a aVar : this.fRn.getOptions()) {
+            if (this.gbt.getTotalPoll() > 0) {
+                for (com.baidu.tbadk.widget.vote.a aVar : this.gbt.getOptions()) {
                     if (aVar instanceof f) {
                         f fVar2 = (f) aVar;
-                        fVar2.cg((int) ((fVar2.getNum() * 100) / this.fRn.getTotalPoll()));
+                        fVar2.cg((int) ((fVar2.getNum() * 100) / this.gbt.getTotalPoll()));
                     }
                 }
             }
-            a(this.fRn, true);
-            this.fRo.clear();
+            a(this.gbt, true);
+            this.gbu.clear();
         }
     }
 
@@ -222,29 +222,29 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
     }
 
     public void onChangeSkinType() {
-        if (this.fRe != null) {
-            com.baidu.tbadk.m.a.a(this.elf.getPageContext(), this.fRe);
+        if (this.gbk != null) {
+            com.baidu.tbadk.m.a.a(this.euf.getPageContext(), this.gbk);
         }
-        bmz();
+        bqK();
     }
 
-    private void bmz() {
-        if (this.fRm != null && this.fRn != null) {
-            if (this.fRn.getStatus() == 2) {
-                aq.j(this.fRm, w.g.bg_gray_circle);
-                this.fRm.setText(getPageContext().getString(w.l.pb_vote_over));
-                this.fRm.setEnabled(false);
-            } else if (this.fRn.getIsPolled() == 1) {
-                aq.j(this.fRm, w.g.bg_gray_circle);
-                this.fRm.setText(getPageContext().getString(w.l.pb_voted));
-                this.fRm.setEnabled(false);
-            } else if (this.fRn.getIsPolled() == 0) {
-                aq.j(this.fRm, w.g.btn_pb_vote_selector);
-                this.fRm.setText(getPageContext().getString(w.l.vote));
-                this.fRm.setEnabled(true);
-                this.fRm.setOnClickListener(this.mOnClickListener);
+    private void bqK() {
+        if (this.gbs != null && this.gbt != null) {
+            if (this.gbt.getStatus() == 2) {
+                as.j(this.gbs, w.g.bg_gray_circle);
+                this.gbs.setText(getPageContext().getString(w.l.pb_vote_over));
+                this.gbs.setEnabled(false);
+            } else if (this.gbt.getIsPolled() == 1) {
+                as.j(this.gbs, w.g.bg_gray_circle);
+                this.gbs.setText(getPageContext().getString(w.l.pb_voted));
+                this.gbs.setEnabled(false);
+            } else if (this.gbt.getIsPolled() == 0) {
+                as.j(this.gbs, w.g.btn_pb_vote_selector);
+                this.gbs.setText(getPageContext().getString(w.l.vote));
+                this.gbs.setEnabled(true);
+                this.gbs.setOnClickListener(this.mOnClickListener);
             }
-            aq.c(this.fRm, w.e.cp_cont_i, 1);
+            as.c(this.gbs, w.e.cp_cont_i, 1);
         }
     }
 }

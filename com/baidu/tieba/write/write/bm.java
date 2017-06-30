@@ -1,27 +1,21 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ExceptionData;
 /* loaded from: classes.dex */
-class bm implements TextWatcher {
-    final /* synthetic */ WriteActivity gaR;
-
+class bm extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(WriteActivity writeActivity) {
-        this.gaR = writeActivity;
+    public bm(int i) {
+        super(i);
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.gaR.a(charSequence, i, i3, "from_content");
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.gaR.bed();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && com.baidu.tbadk.core.util.bc.vL() != null && com.baidu.tbadk.core.util.bc.vL().indexOf("NewVcode") != -1) {
+            TbadkCoreApplication.m9getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.m9getInst().getNewVcodeWebviewCrashCount() + 1);
+        }
     }
 }

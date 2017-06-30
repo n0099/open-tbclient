@@ -9,7 +9,7 @@ public class v<T> implements o<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.o
-    public o.c<T> P(String str) {
+    public o.c<T> U(String str) {
         return null;
     }
 
@@ -42,6 +42,6 @@ public class v<T> implements o<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.o
-    public void Q(String str) {
+    public void V(String str) {
     }
 }

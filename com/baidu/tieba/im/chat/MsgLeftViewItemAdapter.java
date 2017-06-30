@@ -15,16 +15,16 @@ public class MsgLeftViewItemAdapter extends ao<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void fp(boolean z) {
+    public void fG(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ao */
+    /* renamed from: aq */
     public ao.a<MsgleftView> onCreateViewHolder(ViewGroup viewGroup) {
-        MsgleftView msgleftView = new MsgleftView(this.ajh);
+        MsgleftView msgleftView = new MsgleftView(this.ajP);
         return new a(msgleftView.cf(), msgleftView);
     }
 
@@ -32,19 +32,19 @@ public class MsgLeftViewItemAdapter extends ao<MsgleftView> {
     @Override // com.baidu.tieba.im.chat.ao
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ao.a<MsgleftView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgleftView amq = aVar.amq();
-        amq.lq(this.cPu);
-        amq.fp(this.mNeedShowName);
+        MsgleftView aqb = aVar.aqb();
+        aqb.lB(this.cXq);
+        aqb.fG(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        amq.a(this.cPk);
-        amq.setOnItemViewLongClickListener(this.cPl);
-        amq.setPosition(i);
-        amq.bm(this.cPr);
-        amq.bl(chatMessage.getCacheData().getLastMsgTime());
-        amq.a(viewGroup, chatMessage);
-        amq.b(viewGroup, chatMessage);
-        this.ajh.getLayoutMode().ah(false);
-        this.ajh.getLayoutMode().t(view);
+        aqb.a(this.cXg);
+        aqb.setOnItemViewLongClickListener(this.cXh);
+        aqb.setPosition(i);
+        aqb.bA(this.cXn);
+        aqb.bz(chatMessage.getCacheData().getLastMsgTime());
+        aqb.a(viewGroup, chatMessage);
+        aqb.b(viewGroup, chatMessage);
+        this.ajP.getLayoutMode().ah(false);
+        this.ajP.getLayoutMode().t(view);
         return view;
     }
 

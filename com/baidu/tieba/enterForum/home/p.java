@@ -1,57 +1,29 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.view.View;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.enterForum.model.EnterForumModel;
-import com.baidu.tieba.w;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ i bMN;
+public class p extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ i bTq;
+    private final /* synthetic */ String bTs;
+    private final /* synthetic */ boolean bTt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(i iVar, int i, int i2) {
-        super(i, i2);
-        this.bMN = iVar;
+    public p(i iVar, String str, boolean z) {
+        this.bTq = iVar;
+        this.bTs = str;
+        this.bTt = z;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        EnterForumModel enterForumModel;
-        EnterForumModel enterForumModel2;
-        EnterForumModel enterForumModel3;
-        String errorString;
-        View view;
-        if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
-            enterForumModel = this.bMN.bMC;
-            if (enterForumModel.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
-                this.bMN.bMB.XQ();
-                if (responsedMessage.hasError()) {
-                    if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        errorString = this.bMN.aVu.getResources().getString(w.l.neterror);
-                    } else {
-                        errorString = responsedMessage.getErrorString();
-                    }
-                    this.bMN.aVu.showToast(errorString);
-                    if (this.bMN.bMB.isEmpty()) {
-                        com.baidu.tieba.enterForum.c.c cVar = this.bMN.bMB;
-                        view = this.bMN.mRootView;
-                        cVar.ac(view);
-                        return;
-                    }
-                    return;
-                }
-                if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    enterForumModel3 = this.bMN.bMC;
-                    enterForumModel3.a((forumRecommendSocketResponseMessage) responsedMessage);
-                }
-                if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    enterForumModel2 = this.bMN.bMC;
-                    enterForumModel2.a((forumRecommendHttpResponseMessage) responsedMessage);
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        if (!TextUtils.isEmpty(this.bTs)) {
+            com.baidu.tieba.im.settingcache.h.awc().g(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bTs), this.bTt);
         }
+        return null;
     }
 }

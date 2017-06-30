@@ -5,29 +5,29 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements e.b {
-    final /* synthetic */ i awM;
+    final /* synthetic */ i axP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar) {
-        this.awM = iVar;
+        this.axP = iVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.e.b
-    public void bs(boolean z) {
+    public void bt(boolean z) {
         List list;
-        c.Bi().ej(z ? 2 : 1);
+        c.BD().el(z ? 2 : 1);
         if (z) {
-            this.awM.avY = a.Ba().Bd();
-            list = this.awM.avY;
+            this.axP.axb = a.Bv().By();
+            list = this.axP.axb;
             if (list != null) {
-                this.awM.eP("change ip to reconnect with DNS' failed.");
+                this.axP.fj("change ip to reconnect with DNS' failed.");
                 return;
             } else {
-                a.Ba().a(new m(this));
+                a.Bv().a(new m(this));
                 return;
             }
         }
-        this.awM.awK = false;
-        this.awM.Bv();
+        this.axP.axN = false;
+        this.axP.BQ();
     }
 }

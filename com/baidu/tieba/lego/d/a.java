@@ -1,17 +1,13 @@
 package com.baidu.tieba.lego.d;
 
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.squareup.wire.Message;
-import java.util.List;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.c.e;
 /* loaded from: classes.dex */
 public interface a {
-    void a(boolean z, Message message, boolean z2, int i);
+    com.baidu.tieba.lego.c.a a(e eVar);
 
-    List<ICardInfo> axO();
+    com.baidu.tieba.lego.card.a.a a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i);
 
-    int getPn();
-
-    boolean hasData();
-
-    boolean hasMore();
+    com.baidu.tieba.lego.model.a b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 }

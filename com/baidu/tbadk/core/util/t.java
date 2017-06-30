@@ -1,17 +1,32 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes.dex */
-public class t {
-    public int num = 0;
-    public int adD = 0;
-    public long time = 0;
-    public long vv = 0;
-    public int adE = 0;
 
-    public void reset() {
-        this.num = 0;
-        this.adD = 0;
-        this.time = 0L;
-        this.vv = 0L;
-        this.adE = 0;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* loaded from: classes.dex */
+public abstract class t {
+    public static t ael = null;
+
+    public abstract com.baidu.tbadk.core.data.m getmCdnLogData();
+
+    public abstract void insertErrorData(int i, String str);
+
+    public abstract void insertNormalData(long j, String str);
+
+    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.m mVar);
+
+    public static t getInstance() {
+        if (ael == null) {
+            synchronized (t.class) {
+                if (ael == null) {
+                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, t.class);
+                    if (runTask != null && runTask.getData() != null) {
+                        ael = (t) runTask.getData();
+                    }
+                    return ael;
+                }
+            }
+        }
+        return ael;
     }
 }

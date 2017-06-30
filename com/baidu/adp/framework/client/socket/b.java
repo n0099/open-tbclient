@@ -1,6 +1,8 @@
 package com.baidu.adp.framework.client.socket;
 /* loaded from: classes.dex */
 public interface b {
+    void B(String str);
+
     boolean b(boolean z, String str);
 
     void cs();
@@ -8,6 +10,4 @@ public interface b {
     void ct();
 
     int getCmd();
-
-    void u(String str);
 }

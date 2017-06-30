@@ -7,7 +7,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.usermute.MuteUser;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
@@ -16,35 +16,35 @@ import tbclient.PbPage.DataRes;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class m implements v {
-    public static final BdUniqueId eji = BdUniqueId.gen();
-    private boolean ejj;
-    private ArrayList<MuteUser> ejk;
+    public static final BdUniqueId esg = BdUniqueId.gen();
+    private boolean esh;
+    private ArrayList<MuteUser> esi;
     private long praiseNum;
-    public int ejg = -1;
-    private boolean ejd = false;
+    public int ese = -1;
+    private boolean esa = false;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eji;
+        return esg;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.thread != null && dataRes.thread.agree != null) {
                 this.praiseNum = dataRes.thread.agree.agree_num.longValue();
-                this.ejj = dataRes.thread.agree.has_agree.intValue() == 1;
-                this.ejg = dataRes.thread.agree.agree_type.intValue();
+                this.esh = dataRes.thread.agree.has_agree.intValue() == 1;
+                this.ese = dataRes.thread.agree.agree_type.intValue();
             }
-            if (this.ejk == null) {
-                this.ejk = new ArrayList<>();
+            if (this.esi == null) {
+                this.esi = new ArrayList<>();
             }
-            this.ejk.clear();
+            this.esi.clear();
             if (dataRes.new_agree_user != null && dataRes.new_agree_user.size() > 0) {
                 for (SimpleUser simpleUser : dataRes.new_agree_user) {
                     if (simpleUser != null) {
                         MuteUser muteUser = new MuteUser();
                         muteUser.parserProtobuf(simpleUser);
-                        this.ejk.add(muteUser);
+                        this.esi.add(muteUser);
                     }
                 }
             }
@@ -55,7 +55,7 @@ public class m implements v {
         return this.praiseNum;
     }
 
-    private String M(int i, String str) {
+    private String P(int i, String str) {
         String str2 = "";
         if (i == 4) {
             str2 = "<img src='" + w.g.icon_floor_big_trample + "'>";
@@ -67,27 +67,24 @@ public class m implements v {
 
     public String g(TextView textView) {
         int i;
-        int i2 = 1;
         int af = com.baidu.adp.lib.util.k.af(textView.getContext()) - 240;
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
         int g = com.baidu.adp.lib.util.k.g(textView.getContext(), w.f.ds36);
-        if (x.r(this.ejk)) {
+        if (z.t(this.esi)) {
             return sb.toString();
         }
-        String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-        if (!this.ejj || TextUtils.isEmpty(currentAccountName)) {
+        String accountNameShow = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow() : "";
+        if (!this.esh || TextUtils.isEmpty(accountNameShow)) {
             i = 0;
         } else {
-            if (this.ejg != 4 && this.ejg != 1) {
-                i2 = 0;
-            }
-            sb.append(M(this.ejg, currentAccountName)).append("、");
-            sb2.append(currentAccountName).append("、");
+            int i2 = (this.ese == 4 || this.ese == 1) ? 1 : 0;
+            sb.append(P(this.ese, accountNameShow)).append("、");
+            sb2.append(accountNameShow).append("、");
             i = i2;
         }
         TextPaint paint = textView.getPaint();
-        Iterator<MuteUser> it = this.ejk.iterator();
+        Iterator<MuteUser> it = this.esi.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -96,9 +93,11 @@ public class m implements v {
             if (paint.measureText(sb2.toString()) + (g * i) > af) {
                 sb.append(textView.getContext().getResources().getString(w.l.etc));
                 break;
-            } else if (next != null && !StringUtils.isNull(next.getUserName()) && !next.getUserName().equals(currentAccountName)) {
-                sb.append(M(next.agreeType, next.getUserName())).append("、");
-                sb2.append(next.getUserName()).append("、");
+            }
+            String userName = StringUtils.isNull(next.getNickName()) ? next.getUserName() : next.getNickName();
+            if (next != null && !StringUtils.isNull(userName) && !userName.equals(accountNameShow)) {
+                sb.append(P(next.agreeType, userName)).append("、");
+                sb2.append(userName).append("、");
             }
         }
         String sb3 = sb.toString();
@@ -108,24 +107,24 @@ public class m implements v {
         return sb3;
     }
 
-    public boolean aJe() {
-        return this.ejj;
+    public boolean aMY() {
+        return this.esh;
     }
 
-    public ArrayList<MuteUser> aJf() {
-        return this.ejk;
+    public ArrayList<MuteUser> aMZ() {
+        return this.esi;
     }
 
-    public void om(int i) {
-        if (!this.ejj) {
-            on(i);
+    public void oC(int i) {
+        if (!this.esh) {
+            oD(i);
             return;
         }
-        this.ejg = i;
-        this.ejj = true;
+        this.ese = i;
+        this.esh = true;
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (currentAccountName != null) {
-            Iterator<MuteUser> it = this.ejk.iterator();
+            Iterator<MuteUser> it = this.esi.iterator();
             while (it.hasNext()) {
                 MuteUser next = it.next();
                 if (currentAccountName.equals(next.getUserName())) {
@@ -136,41 +135,44 @@ public class m implements v {
         }
     }
 
-    public void on(int i) {
+    public void oD(int i) {
         if (TbadkCoreApplication.isLogin()) {
             MuteUser muteUser = new MuteUser();
             muteUser.setUserId(TbadkCoreApplication.getCurrentAccount());
             muteUser.setUserName(TbadkCoreApplication.getCurrentAccountName());
-            muteUser.agreeType = i;
-            if (this.ejk == null) {
-                this.ejk = new ArrayList<>();
+            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                muteUser.setNickName(TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow());
             }
-            this.ejk.add(0, muteUser);
+            muteUser.agreeType = i;
+            if (this.esi == null) {
+                this.esi = new ArrayList<>();
+            }
+            this.esi.add(0, muteUser);
             if (this.praiseNum < 0) {
                 this.praiseNum = 0L;
             }
             this.praiseNum++;
-            this.ejj = true;
-            this.ejg = i;
+            this.esh = true;
+            this.ese = i;
         }
     }
 
-    public void aJg() {
+    public void aNa() {
         if (TbadkCoreApplication.isLogin()) {
             this.praiseNum--;
             if (this.praiseNum < 0) {
                 this.praiseNum = 0L;
             }
-            this.ejj = false;
-            this.ejg = -1;
-            if (!x.r(this.ejk)) {
+            this.esh = false;
+            this.ese = -1;
+            if (!z.t(this.esi)) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
-                    Iterator<MuteUser> it = this.ejk.iterator();
+                    Iterator<MuteUser> it = this.esi.iterator();
                     while (it.hasNext()) {
                         MuteUser next = it.next();
                         if (next != null && currentAccount.equals(next.getUserId())) {
-                            this.ejk.remove(next);
+                            this.esi.remove(next);
                             return;
                         }
                     }
@@ -179,11 +181,11 @@ public class m implements v {
         }
     }
 
-    public void hY(boolean z) {
-        this.ejd = z;
+    public void iu(boolean z) {
+        this.esa = z;
     }
 
-    public boolean aJh() {
-        return this.ejd;
+    public boolean aNb() {
+        return this.esa;
     }
 }

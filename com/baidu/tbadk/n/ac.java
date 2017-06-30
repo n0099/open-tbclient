@@ -4,16 +4,22 @@ public class ac extends com.baidu.adp.lib.b.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void X(int i) {
+        com.baidu.tbadk.j.aa.Gb().bX(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_url_post";
+        return "log_stat_smallflow";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eQ() {
+    protected String[] eP() {
         return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eQ() {
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -23,15 +29,6 @@ public class ac extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eS() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eT() {
         return 10;
-    }
-
-    public static boolean fV() {
-        return com.baidu.adp.lib.b.e.eZ().Y("android_url_post") == 1;
     }
 }

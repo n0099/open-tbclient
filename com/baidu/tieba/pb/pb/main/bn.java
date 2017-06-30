@@ -1,41 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements a.b {
-    private final /* synthetic */ int cgB;
-    private final /* synthetic */ String cgC;
-    private final /* synthetic */ long cgD;
-    private final /* synthetic */ ShareFromPBMsgData dlq;
-    final /* synthetic */ PbActivity enc;
-    private final /* synthetic */ hh enm;
+public class bn implements Runnable {
+    final /* synthetic */ PbActivity ewh;
+    private final /* synthetic */ int[] ewn;
+    private final /* synthetic */ int ewo;
+    private final /* synthetic */ String ewp;
+    private final /* synthetic */ String ewq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(PbActivity pbActivity, hh hhVar, int i, String str, long j, ShareFromPBMsgData shareFromPBMsgData) {
-        this.enc = pbActivity;
-        this.enm = hhVar;
-        this.cgB = i;
-        this.cgC = str;
-        this.cgD = j;
-        this.dlq = shareFromPBMsgData;
+    public bn(PbActivity pbActivity, int[] iArr, int i, String str, String str2) {
+        this.ewh = pbActivity;
+        this.ewn = iArr;
+        this.ewo = i;
+        this.ewp = str;
+        this.ewq = str2;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        int aJJ;
-        this.enc.HidenSoftKeyPad((InputMethodManager) this.enc.getSystemService("input_method"), this.enm.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.enc.getPageContext().getPageActivity(), this.cgB, this.cgC, this.cgD, "from_share", this.enm.getLeaveMsg(), this.dlq.toChatMessageContent())));
-        aVar.dismiss();
-        aJJ = this.enc.aJJ();
-        if (aJJ == 1) {
-            this.enc.aJP();
+    @Override // java.lang.Runnable
+    public void run() {
+        int g;
+        int ag = (com.baidu.adp.lib.util.k.ag(this.ewh.getPageContext().getPageActivity()) - this.ewn[1]) - this.ewo;
+        if (TbadkCoreApplication.m9getInst().getKeyboardHeight() > 0) {
+            g = TbadkCoreApplication.m9getInst().getKeyboardHeight() + com.baidu.adp.lib.util.k.g(this.ewh.getPageContext().getPageActivity(), w.f.ds120);
+        } else {
+            g = com.baidu.adp.lib.util.k.g(this.ewh.getPageContext().getPageActivity(), w.f.ds640);
         }
+        int i = g - ag;
+        if (i > 0) {
+            this.ewh.aNy().getListView().smoothScrollBy(i, 0);
+        }
+        if (this.ewh.aNy().aQe() != null) {
+            this.ewh.aNy().aQe().bK(this.ewp, this.ewq);
+        }
+        this.ewh.aNy().aQN();
     }
 }

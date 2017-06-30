@@ -1,27 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.w;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
 /* loaded from: classes.dex */
-class as implements NoNetworkView.a {
-    final /* synthetic */ PbActivity enc;
+class as implements c.b {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(PbActivity pbActivity) {
-        this.enc = pbActivity;
+        this.ewh = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aK(boolean z) {
-        boolean z2;
-        PbModel pbModel;
-        z2 = this.enc.ely;
-        if (!z2 && z) {
-            pbModel = this.enc.ele;
-            if (!pbModel.aKS()) {
-                this.enc.Tq();
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        cVar.dismiss();
+        if (this.ewh.evW != null) {
+            if (i == 0) {
+                this.ewh.evW.bN(this.ewh.getPageContext().getPageActivity());
+                this.ewh.evW = null;
+            } else if (i == 1 && this.ewh.checkUpIsLogin()) {
+                this.ewh.h(this.ewh.evW);
             }
         }
-        this.enc.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(this.enc.getApplicationContext(), w.f.ds200));
     }
 }

@@ -16,6 +16,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final int FROM_CLOSE_AD = 20;
     public static final int FROM_DRESSUP_CENTER = 8;
     public static final int FROM_EXP_SPEED = 2;
+    public static final int FROM_MARGA_VIP = 23;
     public static final int FROM_MEMBERCENTER_BOTTOM = 16;
     public static final int FROM_MEMBERCENTER_JOIN = 21;
     public static final int FROM_MEMBERCENTER_SPREAD = 15;
@@ -40,32 +41,32 @@ public class MemberPayActivityConfig extends IntentConfig {
 
     public MemberPayActivityConfig(Context context, int i) {
         super(context);
-        getIntent().putExtra(MEMBER_TYPE, i);
+        getIntent().putExtra("member_type", i);
     }
 
     public MemberPayActivityConfig(Context context, int i, int i2) {
         super(context);
-        getIntent().putExtra(MEMBER_TYPE, i);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra(FROM_SCENE, i2);
     }
 
     public MemberPayActivityConfig(Context context, int i, int i2, String str) {
         super(context);
-        getIntent().putExtra(MEMBER_TYPE, i);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra(FROM_SCENE, i2);
         getIntent().putExtra("scene_id", str);
     }
 
     public MemberPayActivityConfig(Context context, int i, boolean z, int i2) {
         super(context);
-        getIntent().putExtra(MEMBER_TYPE, i);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra(IntentConfig.CLOSE, z);
         getIntent().putExtra("from", i2);
     }
 
     public MemberPayActivityConfig(Context context, int i, boolean z, int i2, int i3) {
         super(context);
-        getIntent().putExtra(MEMBER_TYPE, i);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra(IntentConfig.CLOSE, z);
         getIntent().putExtra("from", i2);
         getIntent().putExtra(FROM_SCENE, i3);
@@ -73,20 +74,20 @@ public class MemberPayActivityConfig extends IntentConfig {
 
     public MemberPayActivityConfig(Context context, int i, String str) {
         super(context);
-        getIntent().putExtra(MEMBER_TYPE, i);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra("st_type", str);
     }
 
     public MemberPayActivityConfig(Context context, int i, String str, int i2) {
         super(context);
-        getIntent().putExtra(MEMBER_TYPE, i);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra("st_type", str);
         getIntent().putExtra("from", i2);
     }
 
     public MemberPayActivityConfig(Context context, int i, String str, int i2, int i3) {
         super(context);
-        getIntent().putExtra(MEMBER_TYPE, i);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra("st_type", str);
         getIntent().putExtra("from", i2);
         getIntent().putExtra(FROM_SCENE, i3);
@@ -94,7 +95,7 @@ public class MemberPayActivityConfig extends IntentConfig {
 
     public MemberPayActivityConfig(Context context, int i, String str, int i2, String str2, int i3) {
         super(context);
-        getIntent().putExtra(MEMBER_TYPE, i);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra("st_type", str);
         getIntent().putExtra("from", i2);
         getIntent().putExtra(FROM_SCENE, i3);
@@ -103,7 +104,7 @@ public class MemberPayActivityConfig extends IntentConfig {
 
     public MemberPayActivityConfig(Context context, int i, String str, int i2, int i3, String str2) {
         super(context);
-        getIntent().putExtra(MEMBER_TYPE, i);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra("st_type", str);
         getIntent().putExtra("from", i2);
         getIntent().putExtra("scene_id", str2);

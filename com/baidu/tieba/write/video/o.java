@@ -3,17 +3,17 @@ package com.baidu.tieba.write.video;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements TextWatcher {
-    final /* synthetic */ n fXA;
+    final /* synthetic */ n giA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.fXA = nVar;
+        this.giA = nVar;
     }
 
     @Override // android.text.TextWatcher
@@ -27,22 +27,22 @@ public class o implements TextWatcher {
         TextView textView2;
         TextView textView3;
         TextView textView4;
-        long boH = n.fXs - this.fXA.boH();
-        if (boH >= 0) {
-            textView4 = this.fXA.fXx;
-            aq.i(textView4, w.e.cp_cont_e);
+        long btf = n.gis - this.giA.btf();
+        if (btf >= 0) {
+            textView4 = this.giA.gix;
+            as.i(textView4, w.e.cp_cont_e);
         } else {
-            textView = this.fXA.fXx;
-            aq.i(textView, w.e.cp_cont_h);
+            textView = this.giA.gix;
+            as.i(textView, w.e.cp_cont_h);
         }
-        i4 = n.fXt;
-        if (boH <= i4) {
-            textView3 = this.fXA.fXx;
-            textView3.setText(au.vk());
+        i4 = n.git;
+        if (btf <= i4) {
+            textView3 = this.giA.gix;
+            textView3.setText(aw.vz());
             return;
         }
-        textView2 = this.fXA.fXx;
-        textView2.setText(String.valueOf(boH));
+        textView2 = this.giA.gix;
+        textView2.setText(String.valueOf(btf));
     }
 
     @Override // android.text.TextWatcher

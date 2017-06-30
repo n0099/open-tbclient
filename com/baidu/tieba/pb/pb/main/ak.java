@@ -1,68 +1,62 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.tbadkCore.model.ForumManageModel;
+import com.baidu.tbadk.baseEditMark.a;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class ak extends com.baidu.adp.base.f {
-    final /* synthetic */ PbActivity enc;
+class ak implements a.InterfaceC0035a {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(PbActivity pbActivity) {
-        this.enc = pbActivity;
+        this.ewh = pbActivity;
     }
 
-    @Override // com.baidu.adp.base.f
-    public void g(Object obj) {
-        fx fxVar;
-        ForumManageModel forumManageModel;
-        ForumManageModel forumManageModel2;
-        ForumManageModel forumManageModel3;
-        fx fxVar2;
-        ForumManageModel forumManageModel4;
-        fx fxVar3;
-        fx fxVar4;
+    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0035a
+    public void a(boolean z, boolean z2, String str) {
+        gg ggVar;
+        com.baidu.tbadk.baseEditMark.a aVar;
         PbModel pbModel;
-        boolean z = false;
-        if (obj != null) {
-            forumManageModel2 = this.enc.elT;
-            switch (forumManageModel2.getLoadDataMode()) {
-                case 0:
-                    pbModel = this.enc.ele;
-                    pbModel.aLa();
-                    ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                    if (bVar.crt || bVar.eyS <= 0 || bVar.fEp == 0) {
-                        z = true;
-                    } else {
-                        com.baidu.tieba.c.a.a(this.enc.getPageContext(), 2, 1);
-                    }
-                    this.enc.a(bVar, z);
-                    return;
-                case 1:
-                    ForumManageModel.d dVar = (ForumManageModel.d) obj;
-                    fxVar4 = this.enc.elU;
-                    fxVar4.a(1, dVar.AM, dVar.fEr, true);
-                    return;
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    PbActivity pbActivity = this.enc;
-                    forumManageModel3 = this.enc.elT;
-                    pbActivity.a(forumManageModel3.getLoadDataMode(), (ForumManageModel.f) obj);
-                    return;
-                case 6:
-                    ForumManageModel.f fVar = (ForumManageModel.f) obj;
-                    fxVar2 = this.enc.elU;
-                    forumManageModel4 = this.enc.elT;
-                    fxVar2.a(forumManageModel4.getLoadDataMode(), fVar.AM, fVar.fEr, false);
-                    fxVar3 = this.enc.elU;
-                    fxVar3.ak(fVar.fEt);
-                    return;
-                default:
-                    return;
+        PbModel pbModel2;
+        gg ggVar2;
+        PbModel pbModel3;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        com.baidu.tbadk.baseEditMark.a aVar3;
+        com.baidu.tbadk.baseEditMark.a aVar4;
+        ggVar = this.ewh.euU;
+        ggVar.aQz();
+        if (z) {
+            aVar = this.ewh.dPW;
+            if (aVar != null) {
+                aVar4 = this.ewh.dPW;
+                aVar4.ac(z2);
             }
+            pbModel = this.ewh.eue;
+            pbModel.iQ(z2);
+            pbModel2 = this.ewh.eue;
+            if (!pbModel2.nz()) {
+                ggVar2 = this.ewh.euU;
+                pbModel3 = this.ewh.eue;
+                ggVar2.l(pbModel3.getPbData());
+            } else {
+                this.ewh.aNO();
+            }
+            if (z2) {
+                aVar2 = this.ewh.dPW;
+                if (aVar2 != null) {
+                    aVar3 = this.ewh.dPW;
+                    if (aVar3.nC() != null) {
+                        this.ewh.showToast(w.l.add_mark_on_pb);
+                        return;
+                    } else {
+                        this.ewh.showToast(this.ewh.getPageContext().getString(w.l.add_mark));
+                        return;
+                    }
+                }
+                return;
+            }
+            this.ewh.showToast(this.ewh.getPageContext().getString(w.l.remove_mark));
+            return;
         }
-        fxVar = this.enc.elU;
-        forumManageModel = this.enc.elT;
-        fxVar.a(forumManageModel.getLoadDataMode(), false, (String) null, false);
+        this.ewh.showToast(this.ewh.getPageContext().getString(w.l.update_mark_failed));
     }
 }

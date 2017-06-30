@@ -1,49 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.z;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class ek {
-    private BaseActivity bfa;
-    private PbModel ele;
+public class ek extends z.a {
+    public TextView bBa;
+    public TextView cYI;
+    public HeadImageView clB;
+    public TextView cxj;
+    public TbImageView eyk;
+    public TextView eyl;
+    public int mSkinType;
 
-    public ek(PbModel pbModel, BaseActivity baseActivity) {
-        this.ele = pbModel;
-        this.bfa = baseActivity;
-    }
-
-    public String U(Intent intent) {
-        int length;
-        if (intent == null || intent.getData() == null) {
-            return null;
-        }
-        String dataString = intent.getDataString();
-        if (StringUtils.isNull(dataString) || !dataString.startsWith("tbpb://")) {
-            return null;
-        }
-        String decode = Uri.decode(intent.getData().getEncodedPath());
-        if (StringUtils.isNull(decode)) {
-            return null;
-        }
-        Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\\\d]+).*").matcher(decode);
-        if (matcher.find()) {
-            if ("mpush".equals(matcher.group(1))) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11895").Z("tid", matcher.group(2)));
-            } else if ("bpush".equals(matcher.group(1))) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10320").r("obj_locate", 3).r("obj_type", 1));
-            }
-            return matcher.group(2);
-        }
-        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10320").r("obj_locate", 3).r("obj_type", 1));
-        int indexOf = decode.indexOf("tid=");
-        if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
-            return null;
-        }
-        return decode.substring(length);
+    public ek(View view) {
+        super(view);
+        this.mSkinType = 3;
+        this.clB = (HeadImageView) view.findViewById(w.h.photo);
+        this.clB.setRadius(com.baidu.adp.lib.util.k.g(view.getContext(), w.f.ds30));
+        this.bBa = (TextView) view.findViewById(w.h.user_name);
+        this.cYI = (TextView) view.findViewById(w.h.time);
+        this.cxj = (TextView) view.findViewById(w.h.text);
+        this.eyk = (TbImageView) view.findViewById(w.h.god_pic);
+        this.eyl = (TextView) view.findViewById(w.h.god_btn);
     }
 }

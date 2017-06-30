@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* loaded from: classes2.dex */
 class m extends CustomMessageListener {
-    final /* synthetic */ f djD;
+    final /* synthetic */ f drz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(f fVar, int i) {
         super(i);
-        this.djD = fVar;
+        this.drz = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,22 +28,22 @@ class m extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            imMessageCenterModel = this.djD.djq;
-                            aVar = this.djD.cRX;
+                            imMessageCenterModel = this.drz.drm;
+                            aVar = this.drz.cZT;
                             imMessageCenterModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            imMessageCenterListAdapter3 = this.djD.dju;
+                            imMessageCenterListAdapter3 = this.drz.drq;
                             if (imMessageCenterListAdapter3 != null) {
-                                imMessageCenterListAdapter4 = this.djD.dju;
+                                imMessageCenterListAdapter4 = this.drz.drq;
                                 imMessageCenterListAdapter4.notifyDataSetChanged();
                                 return;
                             }
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            imMessageCenterListAdapter = this.djD.dju;
+                            imMessageCenterListAdapter = this.drz.drq;
                             if (imMessageCenterListAdapter != null) {
-                                imMessageCenterListAdapter2 = this.djD.dju;
+                                imMessageCenterListAdapter2 = this.drz.drq;
                                 imMessageCenterListAdapter2.notifyDataSetChanged();
                                 return;
                             }
@@ -52,13 +52,13 @@ class m extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.djD.f(customResponsedMessage);
+                    this.drz.f(customResponsedMessage);
                     return;
                 }
-                this.djD.e(customResponsedMessage);
+                this.drz.e(customResponsedMessage);
                 return;
             }
-            this.djD.d(customResponsedMessage);
+            this.drz.d(customResponsedMessage);
         }
     }
 }

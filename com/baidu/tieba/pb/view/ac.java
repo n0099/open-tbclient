@@ -10,7 +10,7 @@ public class ac extends ah {
     }
 
     @Override // com.baidu.tbadk.core.view.ae, com.baidu.adp.widget.ListView.d
-    public View le() {
-        return super.le();
+    public View lc() {
+        return super.lc();
     }
 }

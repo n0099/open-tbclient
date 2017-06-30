@@ -1,22 +1,22 @@
 package com.baidu.tieba.imMessageCenter.im.chat;
 
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.util.w;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
-class n extends v<Void> {
-    private final /* synthetic */ LinkedList cRr;
-    final /* synthetic */ m dja;
+class n extends w<Void> {
+    private final /* synthetic */ LinkedList cZn;
+    final /* synthetic */ m dqW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar, LinkedList linkedList) {
-        this.dja = mVar;
-        this.cRr = linkedList;
+        this.dqW = mVar;
+        this.cZn = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.v
-    /* renamed from: KF */
+    @Override // com.baidu.tbadk.util.w
+    /* renamed from: Ld */
     public Void doInBackground() {
-        return com.baidu.tieba.im.db.m.aoD().n(this.cRr);
+        return com.baidu.tieba.im.db.m.aso().o(this.cZn);
     }
 }

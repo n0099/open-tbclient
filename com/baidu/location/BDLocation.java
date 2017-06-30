@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
 import com.baidu.location.Address;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -387,7 +388,7 @@ public final class BDLocation implements Parcelable {
                     }
                 }
                 if (jSONObject7.has("addr")) {
-                    String[] split = jSONObject7.getString("addr").split(",");
+                    String[] split = jSONObject7.getString("addr").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     int length = split.length;
                     String str2 = length > 0 ? split[0] : null;
                     String str3 = length > 1 ? split[1] : null;

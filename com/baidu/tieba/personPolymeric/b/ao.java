@@ -1,21 +1,21 @@
 package com.baidu.tieba.personPolymeric.b;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ao implements Runnable {
-    final /* synthetic */ aj eLE;
+class ao extends CustomMessageListener {
+    final /* synthetic */ ak eVM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(aj ajVar) {
-        this.eLE = ajVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ao(ak akVar, int i) {
+        super(i);
+        this.eVM = akVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.personPolymeric.d.ac acVar;
-        i iVar;
-        acVar = this.eLE.eLA;
-        acVar.Tx();
-        iVar = this.eLE.bwJ;
-        iVar.dB(true);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.eVM.aVt();
     }
 }

@@ -12,6 +12,9 @@ public class AlaUserInfoData extends OrmObject {
     public long charm_count;
     public String description;
     public long enter_live;
+    public String great_anchor_desc_grade;
+    public String great_anchor_desc_role;
+    public String great_anchor_icon;
     public int is_official;
     public long level_exp;
     public int level_id;
@@ -40,6 +43,9 @@ public class AlaUserInfoData extends OrmObject {
                 this.is_official = jSONObject.optInt("is_official");
                 this.verify_status = jSONObject.optString("verify_status");
                 this.level_id = jSONObject.optInt("level_id");
+                this.great_anchor_icon = jSONObject.optString("great_anchor_icon");
+                this.great_anchor_desc_grade = jSONObject.optString("great_anchor_desc_grade");
+                this.great_anchor_desc_role = jSONObject.optString("great_anchor_desc_role");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -63,6 +69,9 @@ public class AlaUserInfoData extends OrmObject {
                 this.is_official = alaUserInfo.is_official.intValue();
                 this.verify_status = alaUserInfo.verify_status;
                 this.level_id = alaUserInfo.level_id.intValue();
+                this.great_anchor_icon = alaUserInfo.great_anchor_icon;
+                this.great_anchor_desc_grade = alaUserInfo.great_anchor_desc_grade;
+                this.great_anchor_desc_role = alaUserInfo.great_anchor_desc_role;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

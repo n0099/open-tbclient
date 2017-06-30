@@ -6,7 +6,7 @@ import android.content.ServiceConnection;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class i {
-    public static boolean e(Context context, Intent intent) {
+    public static boolean g(Context context, Intent intent) {
         try {
             context.startActivity(intent);
             return true;
@@ -16,7 +16,7 @@ public class i {
         }
     }
 
-    public static boolean f(Context context, Intent intent) {
+    public static boolean h(Context context, Intent intent) {
         try {
             context.startService(intent);
             return true;
@@ -46,7 +46,7 @@ public class i {
         }
     }
 
-    public static boolean g(Context context, Intent intent) {
+    public static boolean i(Context context, Intent intent) {
         try {
             context.stopService(intent);
             return true;
@@ -56,7 +56,7 @@ public class i {
         }
     }
 
-    public static boolean h(Context context, Intent intent) {
+    public static boolean j(Context context, Intent intent) {
         try {
             context.sendBroadcast(intent);
             return true;

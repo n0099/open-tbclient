@@ -1,23 +1,31 @@
 package com.baidu.tieba.write.write;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-public class bh implements DialogInterface.OnDismissListener {
-    final /* synthetic */ WriteActivity gaR;
+class bh implements View.OnClickListener {
+    final /* synthetic */ WriteActivity glP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(WriteActivity writeActivity) {
-        this.gaR = writeActivity;
+        this.glP = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        boolean z;
-        z = this.gaR.gaw;
-        if (z) {
-            com.baidu.adp.lib.util.k.b(this.gaR.getPageContext().getPageActivity(), this.gaR.getCurrentFocus());
-            this.gaR.gax = System.currentTimeMillis();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.editortools.j jVar;
+        int bua;
+        EditText editText;
+        EditText editText2;
+        jVar = this.glP.azR;
+        jVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+        bua = this.glP.bua();
+        if (bua >= 0) {
+            editText = this.glP.fCD;
+            if (bua < editText.getText().length()) {
+                editText2 = this.glP.fCD;
+                editText2.setSelection(bua);
+            }
         }
     }
 }

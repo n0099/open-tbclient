@@ -30,7 +30,7 @@ public class e {
         if (this.ra == null || this.ra.length != 3) {
             return 0;
         }
-        switch (i.hq()) {
+        switch (i.hp()) {
             case 1:
                 return this.ra[2];
             case 2:

@@ -1,41 +1,49 @@
 package com.baidu.tbadk.core.view;
 
 import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ax implements View.OnClickListener {
-    final /* synthetic */ UserIconLayout amG;
+public class ax implements com.baidu.adp.lib.e.c<TbImageView> {
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(UserIconLayout userIconLayout) {
-        this.amG = userIconLayout;
+    public ax(Context context) {
+        this.val$context = context;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bl blVar;
-        bl blVar2;
-        bl blVar3;
-        Context context;
-        int i;
-        blVar = this.amG.ahM;
-        if (blVar != null) {
-            blVar2 = this.amG.ahM;
-            if (blVar2.getAuthor() != null) {
-                blVar3 = this.amG.ahM;
-                String str = String.valueOf(com.baidu.tbadk.data.e.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + blVar3.getAuthor().getUserId();
-                String string = TbadkCoreApplication.m9getInst().getString(w.l.user_icon_web_view_title);
-                context = this.amG.mContext;
-                com.baidu.tbadk.browser.f.a(context.getApplicationContext(), string, str, true, true, true);
-                i = this.amG.amD;
-                if (i == 1) {
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10134").r("obj_type", 3));
-                }
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: wT */
+    public TbImageView fK() {
+        return new TbImageView(this.val$context);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void o(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public TbImageView p(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public TbImageView q(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+        return tbImageView;
     }
 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.PluginCenter;
+import com.xiaomi.mipush.sdk.Constants;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BroadcastReceiver {
@@ -46,7 +47,7 @@ public class g extends BroadcastReceiver {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = str4;
                 } else {
-                    String[] split = str2.split(",");
+                    String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     int length = split.length;
                     int i = 0;
                     while (true) {
@@ -61,7 +62,7 @@ public class g extends BroadcastReceiver {
                         }
                     }
                     if (!z2) {
-                        str2 = String.valueOf(str2) + "," + str4;
+                        str2 = String.valueOf(str2) + Constants.ACCEPT_TIME_SEPARATOR_SP + str4;
                     }
                 }
             }

@@ -3,15 +3,15 @@ package com.baidu.tieba.pluginCenter;
 import android.widget.TextView;
 import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 /* loaded from: classes2.dex */
 class e implements com.baidu.adp.plugin.packageManager.e {
-    final /* synthetic */ PluginDetailActivity fcA;
+    final /* synthetic */ PluginDetailActivity fmQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PluginDetailActivity pluginDetailActivity) {
-        this.fcA = pluginDetailActivity;
+        this.fmQ = pluginDetailActivity;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.e
@@ -23,15 +23,15 @@ class e implements com.baidu.adp.plugin.packageManager.e {
         TextView textView3;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.fcA.fcz;
+            pluginConfig = this.fmQ.fmP;
             if (id.equals(pluginConfig.package_name)) {
-                z = this.fcA.cGG;
+                z = this.fmQ.cOC;
                 if (!z) {
-                    textView = this.fcA.fcy;
-                    aq.c(textView, w.e.cp_cont_d, 1);
-                    textView2 = this.fcA.fcy;
-                    textView2.setText(this.fcA.getPageContext().getResources().getString(w.l.plugin_download_percent, Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
-                    textView3 = this.fcA.fcy;
+                    textView = this.fmQ.fmO;
+                    as.c(textView, w.e.cp_cont_d, 1);
+                    textView2 = this.fmQ.fmO;
+                    textView2.setText(this.fmQ.getPageContext().getResources().getString(w.l.plugin_download_percent, Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
+                    textView3 = this.fmQ.fmO;
                     textView3.setEnabled(false);
                 }
             }
@@ -45,13 +45,13 @@ class e implements com.baidu.adp.plugin.packageManager.e {
         TextView textView2;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.fcA.fcz;
+            pluginConfig = this.fmQ.fmP;
             if (id.equals(pluginConfig.package_name)) {
-                textView = this.fcA.fcy;
-                textView.setText(this.fcA.getPageContext().getString(w.l.plugin_download_finished));
-                textView2 = this.fcA.fcy;
+                textView = this.fmQ.fmO;
+                textView.setText(this.fmQ.getPageContext().getString(w.l.plugin_download_finished));
+                textView2 = this.fmQ.fmO;
                 textView2.setEnabled(false);
-                this.fcA.cGG = true;
+                this.fmQ.cOC = true;
             }
         }
     }
@@ -61,11 +61,11 @@ class e implements com.baidu.adp.plugin.packageManager.e {
         PluginNetConfigInfos.PluginConfig pluginConfig;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.fcA.fcz;
+            pluginConfig = this.fmQ.fmP;
             if (id.equals(pluginConfig.package_name)) {
-                this.fcA.showToast(bdFileDownloadData.getStatusMsg());
-                this.fcA.aYg();
-                this.fcA.cGG = true;
+                this.fmQ.showToast(bdFileDownloadData.getStatusMsg());
+                this.fmQ.bcr();
+                this.fmQ.cOC = true;
             }
         }
     }
@@ -73,11 +73,11 @@ class e implements com.baidu.adp.plugin.packageManager.e {
     @Override // com.baidu.adp.plugin.packageManager.e
     public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
         if (i == 0) {
-            this.fcA.showToast(this.fcA.getPageContext().getString(w.l.plugin_installation_finished));
-            this.fcA.aYg();
+            this.fmQ.showToast(this.fmQ.getPageContext().getString(w.l.plugin_installation_finished));
+            this.fmQ.bcr();
             return;
         }
-        this.fcA.showToast(String.valueOf(this.fcA.getPageContext().getString(w.l.plugin_installation_failed)) + str);
-        this.fcA.aYg();
+        this.fmQ.showToast(String.valueOf(this.fmQ.getPageContext().getString(w.l.plugin_installation_failed)) + str);
+        this.fmQ.bcr();
     }
 }

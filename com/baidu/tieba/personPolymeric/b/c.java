@@ -6,18 +6,18 @@ import com.baidu.adp.framework.MessageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements DialogInterface.OnCancelListener {
-    final /* synthetic */ b eKV;
+    final /* synthetic */ b eUU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.eKV = bVar;
+        this.eUU = bVar;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         BdUniqueId bdUniqueId;
         MessageManager messageManager = MessageManager.getInstance();
-        bdUniqueId = this.eKV.eKU;
+        bdUniqueId = this.eUU.eUT;
         messageManager.removeMessage(bdUniqueId);
     }
 }

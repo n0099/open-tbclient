@@ -1,15 +1,15 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ c fbb;
+    final /* synthetic */ c flr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.fbb = cVar;
+        this.flr = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.fbb.axt();
+        this.flr.aBs();
     }
 }

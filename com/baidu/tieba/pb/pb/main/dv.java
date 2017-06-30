@@ -1,18 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.webkit.WebView;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
-class dv implements BaseWebView.c {
-    final /* synthetic */ dr eoS;
+public class dv {
+    private BaseActivity bhX;
+    private PbModel eue;
+    private a ewb = null;
+    protected final HttpMessageListener exP = new dw(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dv(dr drVar) {
-        this.eoS = drVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void i(int i, String str, String str2);
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
-    public void onPageFinished(WebView webView, String str) {
-        webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
+    public dv(PbModel pbModel, BaseActivity baseActivity) {
+        this.eue = pbModel;
+        this.bhX = baseActivity;
+        this.bhX.registerListener(this.exP);
+    }
+
+    public void a(a aVar) {
+        this.ewb = aVar;
+    }
+
+    public void oN(int i) {
+        if (this.eue != null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+            httpMessage.addParam("thread_id", this.eue.getThreadID());
+            httpMessage.addParam("status", String.valueOf(i));
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
     }
 }

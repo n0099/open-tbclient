@@ -25,34 +25,34 @@ import java.util.zip.ZipOutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class b {
-    private static Method dUn;
+    private static Method ecK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
         List<File> list;
         Log.i("MultiDex", "MultiDexExtractor.load(" + applicationInfo.sourceDir + ", " + z + ")");
         File file2 = new File(applicationInfo.sourceDir);
-        long z2 = z(file2);
-        if (!z && !a(context, file2, z2)) {
+        long D = D(file2);
+        if (!z && !a(context, file2, D)) {
             try {
                 list = a(context, file2, file);
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof d.a) {
-                    ((d.a) context).getSplash().aEh();
+                    ((d.a) context).getSplash().aHZ();
                 }
-                List<File> d = d(file2, file);
-                a(context, y(file2), z2, d.size() + 1);
-                list = d;
+                List<File> c = c(file2, file);
+                b(context, C(file2), D, c.size() + 1);
+                list = c;
             }
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof d.a) {
-                ((d.a) context).getSplash().aEh();
+                ((d.a) context).getSplash().aHZ();
             }
-            List<File> d2 = d(file2, file);
-            a(context, y(file2), z2, d2.size() + 1);
-            list = d2;
+            List<File> c2 = c(file2, file);
+            b(context, C(file2), D, c2.size() + 1);
+            list = c2;
         }
         Log.i("MultiDex", "load found " + list.size() + " secondary dex files");
         return list;
@@ -69,7 +69,7 @@ public final class b {
                 throw new IOException("Missing extracted secondary dex file '" + file3.getPath() + "'");
             }
             arrayList.add(file3);
-            if (!B(file3)) {
+            if (!F(file3)) {
                 Log.i("MultiDex", "Invalid zip file: " + file3);
                 throw new IOException("Invalid ZIP file.");
             }
@@ -79,10 +79,10 @@ public final class b {
 
     private static boolean a(Context context, File file, long j) {
         SharedPreferences av = av(context);
-        return (av.getLong("timestamp", -1L) == y(file) && av.getLong("crc", -1L) == j) ? false : true;
+        return (av.getLong("timestamp", -1L) == C(file) && av.getLong("crc", -1L) == j) ? false : true;
     }
 
-    private static long y(File file) {
+    private static long C(File file) {
         long lastModified = file.lastModified();
         if (lastModified == -1) {
             return lastModified - 1;
@@ -90,18 +90,18 @@ public final class b {
         return lastModified;
     }
 
-    private static long z(File file) throws IOException {
-        long z = g.z(file);
-        if (z == -1) {
-            return z - 1;
+    private static long D(File file) throws IOException {
+        long D = g.D(file);
+        if (D == -1) {
+            return D - 1;
         }
-        return z;
+        return D;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[CONST_STR, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
-    private static List<File> d(File file, File file2) throws IOException {
+    private static List<File> c(File file, File file2) throws IOException {
         String str = String.valueOf(file.getName()) + ".classes";
-        e(file2, str);
+        f(file2, str);
         ArrayList arrayList = new ArrayList();
         ZipFile zipFile = new ZipFile(file);
         try {
@@ -116,15 +116,15 @@ public final class b {
                 while (i2 < 3 && !z) {
                     int i3 = i2 + 1;
                     a(zipFile, entry, file3, str);
-                    boolean B = B(file3);
-                    Log.i("MultiDex", "Extraction " + (B ? ImagesInvalidReceiver.SUCCESS : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
-                    if (!B) {
+                    boolean F = F(file3);
+                    Log.i("MultiDex", "Extraction " + (F ? ImagesInvalidReceiver.SUCCESS : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
+                    if (!F) {
                         file3.delete();
                         if (file3.exists()) {
                             Log.w("MultiDex", "Failed to delete corrupted secondary dex '" + file3.getPath() + "'");
                         }
                     }
-                    z = B;
+                    z = F;
                     i2 = i3;
                 }
                 if (!z) {
@@ -144,7 +144,7 @@ public final class b {
         }
     }
 
-    private static void a(Context context, long j, long j2, int i) {
+    private static void b(Context context, long j, long j2, int i) {
         SharedPreferences.Editor edit = av(context).edit();
         edit.putLong("timestamp", j);
         edit.putLong("crc", j2);
@@ -156,9 +156,9 @@ public final class b {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
     }
 
-    private static void e(File file, String str) throws IOException {
-        A(file.getParentFile());
-        A(file);
+    private static void f(File file, String str) throws IOException {
+        E(file.getParentFile());
+        E(file);
         File[] listFiles = file.listFiles(new c(str));
         if (listFiles == null) {
             Log.w("MultiDex", "Failed to list secondary dex dir content (" + file.getPath() + ").");
@@ -174,7 +174,7 @@ public final class b {
         }
     }
 
-    private static void A(File file) throws IOException {
+    private static void E(File file) throws IOException {
         file.mkdir();
         if (!file.isDirectory()) {
             File parentFile = file.getParentFile();
@@ -213,7 +213,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean B(File file) {
+    public static boolean F(File file) {
         try {
             try {
                 new ZipFile(file).close();
@@ -238,9 +238,9 @@ public final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (dUn != null) {
+        if (ecK != null) {
             try {
-                dUn.invoke(editor, new Object[0]);
+                ecK.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -251,9 +251,9 @@ public final class b {
 
     static {
         try {
-            dUn = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            ecK = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException e) {
-            dUn = null;
+            ecK = null;
         }
     }
 }

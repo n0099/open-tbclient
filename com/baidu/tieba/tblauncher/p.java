@@ -1,39 +1,25 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.GridLayout;
-import com.baidu.tieba.frs.ForumWriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
-    private final /* synthetic */ GridLayout fGP;
+class p extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(MainTabActivity mainTabActivity, GridLayout gridLayout) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
-        this.fGP = gridLayout;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbImageView tbImageView;
-        MainTabActivity mainTabActivity = this.this$0;
-        GridLayout gridLayout = this.fGP;
-        tbImageView = this.this$0.fGB;
-        mainTabActivity.d(gridLayout, tbImageView);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MAINTAB_FORUM_INFO, ForumWriteData.class);
-        String str = "0";
-        String str2 = null;
-        if (runTask != null && runTask.getData() != null) {
-            ForumWriteData forumWriteData = (ForumWriteData) runTask.getData();
-            str = forumWriteData.forumId;
-            str2 = forumWriteData.forumName;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.h)) {
+            this.this$0.a((com.baidu.tbadk.data.h) customResponsedMessage.getData());
+            TbadkCoreApplication.m9getInst().setPaymemberInfo((com.baidu.tbadk.data.h) customResponsedMessage.getData());
         }
-        az.c(this.this$0.getPageContext(), str, str2);
     }
 }

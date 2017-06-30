@@ -15,7 +15,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class m {
     public static boolean a(com.baidu.tieba.frs.r rVar, String str, String str2, boolean z) {
-        if (!z || rVar == null || TextUtils.isEmpty(str) || !p.ai(TbadkCoreApplication.m9getInst().getApplicationContext(), rVar.getActivity().getClass().getName())) {
+        if (!z || rVar == null || TextUtils.isEmpty(str) || !p.aj(TbadkCoreApplication.m9getInst().getApplicationContext(), rVar.getActivity().getClass().getName())) {
             return true;
         }
         Intent intent = new Intent();
@@ -28,17 +28,17 @@ public class m {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(com.baidu.tieba.frs.r rVar, String str) {
-        Intent ah;
-        if (!TextUtils.isEmpty(str) && rVar != null && rVar.aaa() != null && (ah = p.ah(rVar.getPageContext().getPageActivity(), str)) != null) {
+        Intent ai;
+        if (!TextUtils.isEmpty(str) && rVar != null && rVar.adR() != null && (ai = p.ai(rVar.getPageContext().getPageActivity(), str)) != null) {
             Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
             intent.putExtra("duplicate", false);
             intent.putExtra("android.intent.extra.shortcut.NAME", String.valueOf(str) + rVar.getPageContext().getString(w.l.bar));
-            intent.putExtra("android.intent.extra.shortcut.INTENT", ah);
-            BarImageView aed = rVar.aaa().aed();
-            if (aed != null && aed.getBdImage() != null && aed.getBdImage().kR() != null) {
-                Bitmap kR = aed.getBdImage().kR();
+            intent.putExtra("android.intent.extra.shortcut.INTENT", ai);
+            BarImageView ahR = rVar.adR().ahR();
+            if (ahR != null && ahR.getBdImage() != null && ahR.getBdImage().kP() != null) {
+                Bitmap kP = ahR.getBdImage().kP();
                 Float valueOf = Float.valueOf(rVar.getResources().getDisplayMetrics().density);
-                intent.putExtra("android.intent.extra.shortcut.ICON", com.baidu.adp.lib.util.d.gS().a(com.baidu.adp.lib.util.d.gS().resizeBitmap(kR, valueOf.intValue() * 48), valueOf.intValue() * 6));
+                intent.putExtra("android.intent.extra.shortcut.ICON", com.baidu.adp.lib.util.d.gR().a(com.baidu.adp.lib.util.d.gR().resizeBitmap(kP, valueOf.intValue() * 48), valueOf.intValue() * 6));
             } else {
                 intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(rVar.getPageContext().getPageActivity(), w.g.icon));
             }
@@ -48,25 +48,25 @@ public class m {
 
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final WeakReference<com.baidu.tieba.frs.r> cgE;
+        private final WeakReference<com.baidu.tieba.frs.r> coU;
         private final String name;
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            com.baidu.tieba.frs.r rVar = this.cgE.get();
+            com.baidu.tieba.frs.r rVar = this.coU.get();
             if (rVar == null) {
                 return false;
             }
-            return Boolean.valueOf(p.aj(rVar.getPageContext().getPageActivity(), this.name));
+            return Boolean.valueOf(p.ak(rVar.getPageContext().getPageActivity(), this.name));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            com.baidu.tieba.frs.r rVar = this.cgE.get();
+            com.baidu.tieba.frs.r rVar = this.coU.get();
             if (rVar != null) {
                 if (!bool.booleanValue()) {
                     m.a(rVar, this.name);

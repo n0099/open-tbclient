@@ -6,7 +6,7 @@ public class t {
     protected BdUniqueId mId = BdUniqueId.gen();
     protected int mSubType = 0;
 
-    public void fb(int i) {
+    public void fd(int i) {
         this.mSubType = i;
     }
 }

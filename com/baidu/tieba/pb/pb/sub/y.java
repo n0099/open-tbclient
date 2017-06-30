@@ -6,21 +6,21 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class y implements com.baidu.adp.lib.e.c<ImageView> {
-    final /* synthetic */ NewSubPbActivity eye;
+    final /* synthetic */ NewSubPbActivity eHC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(NewSubPbActivity newSubPbActivity) {
-        this.eye = newSubPbActivity;
+        this.eHC = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: QM */
-    public ImageView fL() {
-        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.eye.getPageContext().getPageActivity());
-        boolean oT = com.baidu.tbadk.core.r.oN().oT();
-        foreDrawableImageView.setDefaultBg(com.baidu.tbadk.core.util.aq.getDrawable(w.e.common_color_10220));
-        if (oT) {
+    /* renamed from: SE */
+    public ImageView fK() {
+        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.eHC.getPageContext().getPageActivity());
+        boolean oQ = com.baidu.tbadk.core.r.oK().oQ();
+        foreDrawableImageView.setDefaultBg(com.baidu.tbadk.core.util.as.getDrawable(w.e.common_color_10220));
+        if (oQ) {
             foreDrawableImageView.setAdjustViewBounds(false);
             foreDrawableImageView.setInterceptOnClick(false);
         } else {
@@ -54,7 +54,7 @@ class y implements com.baidu.adp.lib.e.c<ImageView> {
         if (imageView instanceof TbImageView) {
             TbImageView tbImageView = (TbImageView) imageView;
             tbImageView.setTag(null);
-            if (com.baidu.tbadk.core.r.oN().oT()) {
+            if (com.baidu.tbadk.core.r.oK().oQ()) {
                 tbImageView.setAdjustViewBounds(false);
                 tbImageView.setInterceptOnClick(false);
             } else {

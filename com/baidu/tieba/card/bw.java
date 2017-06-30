@@ -11,11 +11,11 @@ import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bw implements View.OnClickListener {
-    final /* synthetic */ bu bCs;
+    final /* synthetic */ bu bDl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bw(bu buVar) {
-        this.bCs = buVar;
+        this.bDl = buVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,22 +25,22 @@ public class bw implements View.OnClickListener {
         CardPersonDynamicThreadData cardPersonDynamicThreadData2;
         TbPageContext tbPageContext2;
         CardPersonDynamicThreadData cardPersonDynamicThreadData3;
-        if (this.bCs.Ud() != null) {
-            ci<CardPersonDynamicThreadData> Ud = this.bCs.Ud();
-            cardPersonDynamicThreadData3 = this.bCs.bCh;
-            Ud.a(view, cardPersonDynamicThreadData3);
+        if (this.bDl.Vs() != null) {
+            ci<CardPersonDynamicThreadData> Vs = this.bDl.Vs();
+            cardPersonDynamicThreadData3 = this.bDl.bDa;
+            Vs.a(view, cardPersonDynamicThreadData3);
         }
-        cardPersonDynamicThreadData = this.bCs.bCh;
-        if (cardPersonDynamicThreadData.bDS == 33) {
+        cardPersonDynamicThreadData = this.bDl.bDa;
+        if (cardPersonDynamicThreadData.bEK == 33) {
             TiebaStatic.log("c10254");
-            tbPageContext = this.bCs.ajh;
+            tbPageContext = this.bDl.ajP;
             Activity pageActivity = tbPageContext.getPageActivity();
-            cardPersonDynamicThreadData2 = this.bCs.bCh;
-            PhotoLiveActivityConfig pd = new PhotoLiveActivityConfig.a(pageActivity, cardPersonDynamicThreadData2.threadId).ck(PhotoLiveActivityConfig.KEY_FROM_MY_OR_HIS_THREAD).bA(23014).pd();
-            tbPageContext2 = this.bCs.ajh;
-            tbPageContext2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, pd));
+            cardPersonDynamicThreadData2 = this.bDl.bDa;
+            PhotoLiveActivityConfig pa = new PhotoLiveActivityConfig.a(pageActivity, cardPersonDynamicThreadData2.threadId).cq(PhotoLiveActivityConfig.KEY_FROM_MY_OR_HIS_THREAD).bA(23014).pa();
+            tbPageContext2 = this.bDl.ajP;
+            tbPageContext2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, pa));
             return;
         }
-        this.bCs.Ur();
+        this.bDl.VI();
     }
 }

@@ -2,16 +2,16 @@ package com.baidu.tieba.pb.pb.main.emotion;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements TextWatcher {
-    final /* synthetic */ PbSearchEmotionActivity evD;
+    final /* synthetic */ PbSearchEmotionActivity eET;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PbSearchEmotionActivity pbSearchEmotionActivity) {
-        this.evD = pbSearchEmotionActivity;
+        this.eET = pbSearchEmotionActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -24,25 +24,25 @@ public class g implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        ImageView imageView;
-        ImageView imageView2;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
         List list;
         l lVar;
         l lVar2;
         if (editable.toString().trim().length() == 0) {
-            imageView2 = this.evD.evq;
-            imageView2.setVisibility(4);
-            list = this.evD.evB;
+            linearLayout2 = this.eET.eEK;
+            linearLayout2.setVisibility(4);
+            list = this.eET.eER;
             list.clear();
-            lVar = this.evD.evx;
+            lVar = this.eET.eEN;
             if (lVar != null) {
-                lVar2 = this.evD.evx;
+                lVar2 = this.eET.eEN;
                 lVar2.notifyDataSetChanged();
             }
-            this.evD.aNj();
+            this.eET.aRi();
             return;
         }
-        imageView = this.evD.evq;
-        imageView.setVisibility(0);
+        linearLayout = this.eET.eEK;
+        linearLayout.setVisibility(0);
     }
 }

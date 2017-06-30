@@ -4,19 +4,27 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bu implements View.OnClickListener {
+    private final /* synthetic */ String eSh;
     final /* synthetic */ WriteImageActivity this$0;
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(WriteImageActivity writeImageActivity) {
+    public bu(WriteImageActivity writeImageActivity, String str, int i) {
         this.this$0 = writeImageActivity;
+        this.eSh = str;
+        this.val$id = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        String str;
         if (this.this$0.mProgress.getVisibility() != 0) {
-            if ((this.this$0.mBitmap != null || this.this$0.eIg != null) && view.getTag() != null) {
-                this.this$0.eIn = false;
-                this.this$0.rA(view.getTag().toString());
+            String str2 = this.eSh;
+            str = this.this$0.eRZ;
+            if (!str2.equals(str)) {
+                this.this$0.sA(this.eSh);
+                this.this$0.pl(this.eSh);
+                this.this$0.eRX = this.val$id;
             }
         }
     }

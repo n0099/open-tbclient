@@ -1,40 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.model.CheckRealNameModel;
-import com.baidu.tieba.w;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
-class u implements CheckRealNameModel.a {
-    final /* synthetic */ PbActivity enc;
+class u extends CustomMessageListener {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(PbActivity pbActivity) {
-        this.enc = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(PbActivity pbActivity, int i) {
+        super(i);
+        this.ewh = pbActivity;
     }
 
-    @Override // com.baidu.tieba.model.CheckRealNameModel.a
-    public void a(int i, String str, String str2, Object obj) {
-        fx fxVar;
-        Integer num;
-        fxVar = this.enc.elU;
-        fxVar.Pe();
-        if (CheckRealNameModel.TYPE_PB_SHARE.equals(str2)) {
-            if (i == 0) {
-                if (!(obj instanceof Integer)) {
-                    num = 0;
-                } else {
-                    num = (Integer) obj;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof UpdateAttentionMessage) {
+            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
+                if (!updateAttentionMessage.getData().CB) {
+                    if (updateAttentionMessage.getData().errorString != null) {
+                        this.ewh.showToast(updateAttentionMessage.getData().errorString);
+                        return;
+                    }
+                    return;
                 }
-                this.enc.ot(num.intValue());
-            } else if (i == 1990055) {
-                TiebaStatic.log("c12142");
-                com.baidu.tieba.h.a.agz();
-            } else {
-                if (StringUtils.isNull(str)) {
-                    str = this.enc.getResources().getString(w.l.neterror);
+                this.ewh.b(updateAttentionMessage);
+                if (this.ewh.aMC().getAuthor() != null && this.ewh.aMC().getAuthor().getGodUserData() != null) {
+                    this.ewh.aMC().getAuthor().getGodUserData().setIsLike(updateAttentionMessage.isAttention());
                 }
-                this.enc.showToast(str);
+                this.ewh.c(updateAttentionMessage);
             }
         }
     }

@@ -1,43 +1,29 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.WriteUrlActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.GridLayout;
-import com.baidu.tieba.frs.ForumWriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import protobuf.ConfigVersion;
 /* loaded from: classes.dex */
-public class o implements View.OnClickListener {
-    private final /* synthetic */ GridLayout fGP;
+class o extends com.baidu.adp.framework.listener.e {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(MainTabActivity mainTabActivity, GridLayout gridLayout) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
-        this.fGP = gridLayout;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbImageView tbImageView;
-        MainTabActivity mainTabActivity = this.this$0;
-        GridLayout gridLayout = this.fGP;
-        tbImageView = this.this$0.fGB;
-        mainTabActivity.d(gridLayout, tbImageView);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MAINTAB_FORUM_INFO, ForumWriteData.class);
-        String str = "0";
-        String str2 = null;
-        if (runTask != null && runTask.getData() != null) {
-            ForumWriteData forumWriteData = (ForumWriteData) runTask.getData();
-            str = forumWriteData.forumId;
-            str2 = forumWriteData.forumName;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ConfigVersion configVersion;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+            if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
+                return;
+            }
+            this.this$0.rC(configVersion.sync);
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteUrlActivityConfig(this.this$0.getPageContext().getPageActivity(), str, str2, "1")));
-        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c12162").Z("obj_locate", "1"));
     }
 }

@@ -2,8 +2,8 @@ package com.baidu.android.pushservice.jni;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.android.pushservice.e.a;
-import com.baidu.android.pushservice.h.u;
+import com.baidu.android.pushservice.g.a;
+import com.baidu.android.pushservice.j.q;
 import com.baidu.android.pushservice.message.h;
 /* loaded from: classes2.dex */
 public class PushSocket {
@@ -83,7 +83,7 @@ public class PushSocket {
         System.arraycopy(b, c, bArr2, 0, bArr2.length);
         if (a2 == h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) {
             a.b(d, "MSG_ID_TINY_HEARTBEAT_SERVER");
-            u.b("MSG_ID_TINY_HEARTBEAT_SERVER", context);
+            q.b("MSG_ID_TINY_HEARTBEAT_SERVER", context);
         }
         c += 2;
         return bArr2;

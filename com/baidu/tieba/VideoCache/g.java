@@ -3,7 +3,8 @@ package com.baidu.tieba.VideoCache;
 import android.content.Context;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -20,16 +21,16 @@ import java.net.URLDecoder;
 /* loaded from: classes2.dex */
 class g implements Runnable {
     private static final String TAG = g.class.getSimpleName();
-    private byte[] aSH;
-    private i aSI;
+    private byte[] aUa;
+    private i aUb;
     private Context mContext;
     private Socket zU;
 
     public g(Context context) {
-        this.aSH = null;
+        this.aUa = null;
         this.mContext = context;
         try {
-            this.aSH = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
+            this.aUa = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
         } catch (OutOfMemoryError e) {
             e.printStackTrace();
         }
@@ -40,22 +41,22 @@ class g implements Runnable {
     }
 
     public void a(i iVar) {
-        this.aSI = iVar;
+        this.aUb = iVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         k.log(TAG, "test run in " + this);
-        if (this.aSI == null) {
+        if (this.aUb == null) {
             k.log(TAG, "test run out 1" + this);
             return;
         }
         try {
-            b(this.aSI);
-            if (this.aSI.JN().contains("/video_cache/pre_load?origin_url=")) {
-                a(this.aSI, this.zU, true);
+            b(this.aUb);
+            if (this.aUb.Kl().contains("/video_cache/pre_load?origin_url=")) {
+                a(this.aUb, this.zU, true);
             } else {
-                a(this.aSI, this.zU, false);
+                a(this.aUb, this.zU, false);
             }
             c(this.zU);
         } catch (Exception e) {
@@ -75,31 +76,31 @@ class g implements Runnable {
                 if (readLine != null && readLine.contains("GET") && readLine.contains("origin_url=")) {
                     String[] split = readLine.split(" ");
                     if (split != null && split.length > 1) {
-                        iVar.gI(split[1]);
+                        iVar.hf(split[1]);
                     }
                     String substring = readLine.substring(readLine.indexOf("origin_url=") + 11);
                     String str = "";
                     if (substring != null && substring.contains(" ")) {
                         str = substring.substring(0, substring.indexOf(" "));
                     }
-                    iVar.gJ(URLDecoder.decode(str));
+                    iVar.hg(URLDecoder.decode(str));
                 } else if (readLine != null && readLine.startsWith("Range") && readLine.contains(":")) {
-                    iVar.cl(true);
+                    iVar.cn(true);
                     String[] split2 = readLine.split(":");
                     String str2 = (split2 == null || split2.length <= 1) ? "" : split2[1];
                     String substring2 = (str2 == null || (lastIndexOf = str2.lastIndexOf("bytes=") + 6) < 0 || lastIndexOf > str2.length()) ? str2 : str2.substring(lastIndexOf);
                     String[] strArr = null;
                     if (substring2 != null) {
                         try {
-                            strArr = substring2.split("-");
+                            strArr = substring2.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                         } catch (UnsupportedOperationException e) {
                             e.printStackTrace();
                         }
                     }
                     if (strArr != null && strArr.length >= 1) {
-                        iVar.aq(Long.parseLong(strArr[0]));
+                        iVar.ar(Long.parseLong(strArr[0]));
                         if (strArr.length > 1) {
-                            iVar.ar(Long.parseLong(strArr[1]));
+                            iVar.as(Long.parseLong(strArr[1]));
                         }
                     }
                 }
@@ -117,30 +118,30 @@ class g implements Runnable {
     }
 
     private boolean a(i iVar, PrintStream printStream) {
-        int gG = gG(iVar.JO());
-        if (gG <= 0) {
+        int hd = hd(iVar.Km());
+        if (hd <= 0) {
             return false;
         }
-        iVar.M(gG);
-        if (iVar.JQ() < 0) {
-            iVar.aq(0L);
+        iVar.N(hd);
+        if (iVar.Ko() < 0) {
+            iVar.ar(0L);
         }
-        if (iVar.JR() < 0) {
-            iVar.ar(gG - 1);
+        if (iVar.Kp() < 0) {
+            iVar.as(hd - 1);
         }
-        long JQ = iVar.JQ();
-        long JR = iVar.JR();
-        k.log(TAG, "range is: " + JQ + "-" + JR + " " + this);
-        if (iVar.JP()) {
+        long Ko = iVar.Ko();
+        long Kp = iVar.Kp();
+        k.log(TAG, "range is: " + Ko + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Kp + " " + this);
+        if (iVar.Kn()) {
             printStream.println("HTTP/1.1 206 Partial Content");
         } else {
             printStream.println("HTTP/1.1 200 OK");
         }
         printStream.println("Content-Type: video/mp4");
         printStream.println("Accept-Ranges: bytes");
-        printStream.println("Content-Length: " + ((JR - JQ) + 1));
-        if (iVar.JP()) {
-            printStream.println("Content-Range: bytes " + JQ + "-" + JR + "/" + gG);
+        printStream.println("Content-Length: " + ((Kp - Ko) + 1));
+        if (iVar.Kn()) {
+            printStream.println("Content-Range: bytes " + Ko + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Kp + "/" + hd);
         }
         printStream.println("Content-Transfer-Encoding: binary");
         printStream.println();
@@ -153,17 +154,17 @@ class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int gG(String str) {
+    private int hd(String str) {
         FileInputStream fileInputStream;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        String gN = o.gN(str);
-        if (gN == null || gN.isEmpty()) {
+        String hk = o.hk(str);
+        if (hk == null || hk.isEmpty()) {
             return 0;
         }
-        File file = new File(String.valueOf(j.aST) + gN);
+        File file = new File(String.valueOf(j.aUm) + hk);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -292,7 +293,7 @@ class g implements Runnable {
             bufferedWriter2.close();
             return contentLength2;
         } catch (Exception e13) {
-            TiebaStatic.log(new as("c12027").Z("errormsg", "网络获取文件大小出现异常").Z("error", e13.getMessage()).Z("url", str));
+            TiebaStatic.log(new au("c12027").Z("errormsg", "网络获取文件大小出现异常").Z("error", e13.getMessage()).Z("url", str));
             e13.printStackTrace();
             return 0;
         }
@@ -300,47 +301,47 @@ class g implements Runnable {
 
     private void a(i iVar, Socket socket, boolean z) {
         if (iVar != null && socket != null) {
-            File file = new File(j.aSQ);
+            File file = new File(j.aUj);
             if (!file.exists()) {
                 file.mkdir();
             }
             try {
                 c cVar = new c(this.mContext);
-                cVar.setVideoUrl(iVar.JO());
+                cVar.setVideoUrl(iVar.Km());
                 PrintStream printStream = new PrintStream(socket.getOutputStream(), true);
                 if (!a(iVar, printStream)) {
                     printStream.close();
                     cVar.close();
                     return;
                 }
-                cVar.M(iVar.getTotalLength());
+                cVar.N(iVar.getTotalLength());
                 if (z) {
-                    if (f.JK().p(cVar)) {
+                    if (f.Ki().p(cVar)) {
                         printStream.close();
                         cVar.close();
-                        f.JK().q(null);
+                        f.Ki().q(null);
                         return;
                     }
-                    c JL = f.JK().JL();
-                    if (JL != null) {
-                        JL.close();
+                    c Kj = f.Ki().Kj();
+                    if (Kj != null) {
+                        Kj.close();
                     }
                     k.log(TAG, "server handle preload: " + cVar.getVideoUrl());
-                    f.JK().q(cVar);
+                    f.Ki().q(cVar);
                 } else {
-                    c JL2 = f.JK().JL();
-                    if (JL2 != null && JL2.getVideoUrl() != null && JL2.getVideoUrl().equals(cVar.getVideoUrl())) {
-                        JL2.close();
-                        f.JK().q(null);
+                    c Kj2 = f.Ki().Kj();
+                    if (Kj2 != null && Kj2.getVideoUrl() != null && Kj2.getVideoUrl().equals(cVar.getVideoUrl())) {
+                        Kj2.close();
+                        f.Ki().q(null);
                     }
-                    f.JK().n(cVar);
+                    f.Ki().n(cVar);
                 }
-                cVar.b(iVar.JQ(), iVar.JR());
-                if (this.aSH != null) {
+                cVar.b(iVar.Ko(), iVar.Kp());
+                if (this.aUa != null) {
                     while (cVar.canRead()) {
-                        int e = cVar.e(this.aSH, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
+                        int e = cVar.e(this.aUa, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
                         if (e > 0) {
-                            printStream.write(this.aSH, 0, e);
+                            printStream.write(this.aUa, 0, e);
                         }
                     }
                 }
@@ -349,9 +350,9 @@ class g implements Runnable {
                 printStream.close();
                 cVar.close();
                 if (z) {
-                    f.JK().q(null);
+                    f.Ki().q(null);
                 } else {
-                    f.JK().o(cVar);
+                    f.Ki().o(cVar);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

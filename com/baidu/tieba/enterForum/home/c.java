@@ -20,12 +20,12 @@ public class c extends CustomMessageListener {
         EnterForumModel enterForumModel2;
         if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
             if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                enterForumModel2 = CoreSearchRequestStatic.bMq;
-                enterForumModel2.dN(true);
+                enterForumModel2 = CoreSearchRequestStatic.bSR;
+                enterForumModel2.ec(true);
                 return;
             }
-            enterForumModel = CoreSearchRequestStatic.bMq;
-            enterForumModel.dM(true);
+            enterForumModel = CoreSearchRequestStatic.bSR;
+            enterForumModel.eb(true);
         }
     }
 }

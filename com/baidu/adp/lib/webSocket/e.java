@@ -16,15 +16,15 @@ public class e {
     public interface a {
         void close() throws IOException;
 
+        String hB();
+
         String hC();
 
-        String hD();
+        String hS();
 
-        String hT();
+        long hT();
 
-        long hU();
-
-        int hV();
+        int hU();
 
         boolean isConnected();
 
@@ -47,7 +47,7 @@ public class e {
     /* loaded from: classes.dex */
     static class c implements a {
         private OutputStream mOutputStream;
-        private byte[] rL;
+        private byte[] rK;
         private long zQ;
         private String zR;
         private String zS;
@@ -59,7 +59,7 @@ public class e {
             this.zU = null;
             this.zV = null;
             this.mOutputStream = null;
-            this.rL = null;
+            this.rK = null;
             this.zQ = 0L;
             this.zR = null;
             this.zS = null;
@@ -71,14 +71,14 @@ public class e {
                 this.zR = inetSocketAddress.getAddress().getHostAddress();
                 this.zQ = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.zU.connect(inetSocketAddress, nVar.iq());
-            this.zU.setSoTimeout(nVar.ip());
+            this.zU.connect(inetSocketAddress, nVar.ip());
+            this.zU.setSoTimeout(nVar.io());
             this.zU.setTcpNoDelay(nVar.getTcpNoDelay());
             this.zV = this.zU.getInputStream();
             this.mOutputStream = this.zU.getOutputStream();
-            this.rL = new byte[1024];
-            this.zS = com.baidu.adp.lib.util.k.hC();
-            this.zT = com.baidu.adp.lib.util.k.hD();
+            this.rK = new byte[1024];
+            this.zS = com.baidu.adp.lib.util.k.hB();
+            this.zT = com.baidu.adp.lib.util.k.hC();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
@@ -113,9 +113,9 @@ public class e {
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int read(ByteBuffer byteBuffer) throws Exception {
-            int read = this.zV.read(this.rL);
+            int read = this.zV.read(this.rK);
             if (read > 0) {
-                byteBuffer.put(this.rL, 0, read);
+                byteBuffer.put(this.rK, 0, read);
             }
             return read;
         }
@@ -132,27 +132,27 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String hT() {
+        public String hS() {
             return this.zR;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long hU() {
+        public long hT() {
             return this.zQ;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String hC() {
+        public String hB() {
             return this.zS;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String hD() {
+        public String hC() {
             return this.zT;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int hV() {
+        public int hU() {
             return 0;
         }
     }
@@ -178,11 +178,11 @@ public class e {
                 this.zR = inetSocketAddress.getAddress().getHostAddress();
                 this.zQ = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.zP.socket().connect(inetSocketAddress, nVar.iq());
-            this.zP.socket().setSoTimeout(nVar.ip());
+            this.zP.socket().connect(inetSocketAddress, nVar.ip());
+            this.zP.socket().setSoTimeout(nVar.io());
             this.zP.socket().setTcpNoDelay(nVar.getTcpNoDelay());
-            this.zS = com.baidu.adp.lib.util.k.hC();
-            this.zT = com.baidu.adp.lib.util.k.hD();
+            this.zS = com.baidu.adp.lib.util.k.hB();
+            this.zT = com.baidu.adp.lib.util.k.hC();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
@@ -211,27 +211,27 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String hT() {
+        public String hS() {
             return this.zR;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long hU() {
+        public long hT() {
             return this.zQ;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String hC() {
+        public String hB() {
             return this.zS;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String hD() {
+        public String hC() {
             return this.zT;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int hV() {
+        public int hU() {
             return 0;
         }
     }

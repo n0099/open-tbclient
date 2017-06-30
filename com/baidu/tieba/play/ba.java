@@ -7,39 +7,39 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ba {
-    private static ba fcd = null;
-    private HashMap<String, a> fce = new HashMap<>();
+    private static ba fmt = null;
+    private HashMap<String, a> fmu = new HashMap<>();
 
     private ba() {
     }
 
-    public static ba aYd() {
-        if (fcd == null) {
+    public static ba bco() {
+        if (fmt == null) {
             synchronized (ba.class) {
-                if (fcd == null) {
-                    fcd = new ba();
+                if (fmt == null) {
+                    fmt = new ba();
                 }
             }
         }
-        return fcd;
+        return fmt;
     }
 
-    public void aq(String str, int i) {
-        a aVar = this.fce.get(str);
+    public void ar(String str, int i) {
+        a aVar = this.fmu.get(str);
         if (aVar == null) {
-            this.fce.put(str, new a(i, System.currentTimeMillis()));
+            this.fmu.put(str, new a(i, System.currentTimeMillis()));
         } else {
             aVar.lastUpdateTime = System.currentTimeMillis();
             aVar.position = i;
         }
-        if (this.fce.size() > 20) {
-            ArrayList arrayList = new ArrayList(this.fce.entrySet());
+        if (this.fmu.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.fmu.entrySet());
             Collections.sort(arrayList, new bb(this));
             int i2 = 0;
             while (true) {
                 int i3 = i2;
                 if (i3 < 10) {
-                    this.fce.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    this.fmu.remove(((Map.Entry) arrayList.get(i3)).getKey());
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -50,12 +50,12 @@ public class ba {
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fce.remove(str);
+            this.fmu.remove(str);
         }
     }
 
-    public int ph(String str) {
-        a aVar = this.fce.get(str);
+    public int qe(String str) {
+        a aVar = this.fmu.get(str);
         if (aVar != null) {
             return aVar.position;
         }

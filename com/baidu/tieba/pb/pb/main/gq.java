@@ -1,30 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
-import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class gq implements Runnable {
-    final /* synthetic */ gp evk;
+public class gq implements a.b {
+    final /* synthetic */ gg eEv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gq(gp gpVar) {
-        this.evk = gpVar;
+    public gq(gg ggVar) {
+        this.eEv = ggVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        fx fxVar;
-        PbActivity pbActivity;
-        fx fxVar2;
-        PbActivity pbActivity2;
-        fx fxVar3;
-        RelativeLayout relativeLayout;
-        fxVar = this.evk.evi;
-        pbActivity = fxVar.elf;
-        fxVar2 = this.evk.evi;
-        pbActivity2 = fxVar2.elf;
-        fxVar3 = this.evk.evi;
-        relativeLayout = fxVar3.bMv;
-        pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

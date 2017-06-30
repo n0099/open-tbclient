@@ -1,9 +1,11 @@
 package com.baidu.tbadk.browser;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
+import android.os.Message;
+import java.util.Timer;
+import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements BaseWebViewActivity.a {
+public class e extends TimerTask {
     final /* synthetic */ BaseWebViewActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +13,20 @@ class e implements BaseWebViewActivity.a {
         this.this$0 = baseWebViewActivity;
     }
 
-    @Override // com.baidu.tbadk.browser.BaseWebViewActivity.a
-    public Object b(TbPageContext<?> tbPageContext) {
-        return new TbJsBridge(tbPageContext);
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        Timer timer;
+        Timer timer2;
+        Timer timer3;
+        Message message = new Message();
+        message.what = BaseWebViewActivity.TIME_OUT_MSG_CODE;
+        this.this$0.mHandler.sendMessage(message);
+        timer = this.this$0.mTimer;
+        if (timer != null) {
+            timer2 = this.this$0.mTimer;
+            timer2.cancel();
+            timer3 = this.this$0.mTimer;
+            timer3.purge();
+        }
     }
 }

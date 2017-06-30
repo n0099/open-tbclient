@@ -1,53 +1,79 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
+import android.widget.Toast;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.b.a;
 import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb implements c.b {
-    final /* synthetic */ PbActivity enc;
-    private final /* synthetic */ SparseArray ene;
-    private final /* synthetic */ boolean enf;
-    private final /* synthetic */ String eng;
-    private final /* synthetic */ String enh;
+class bb extends CustomMessageListener {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str, String str2) {
-        this.enc = pbActivity;
-        this.ene = sparseArray;
-        this.enf = z;
-        this.eng = str;
-        this.enh = str2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bb(PbActivity pbActivity, int i) {
+        super(i);
+        this.ewh = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        BdUniqueId bdUniqueId;
-        BdUniqueId bdUniqueId2;
-        fx fxVar;
-        switch (i) {
-            case 0:
-                fxVar = this.enc.elU;
-                fxVar.a(((Integer) this.ene.get(w.h.tag_del_post_type)).intValue(), (String) this.ene.get(w.h.tag_del_post_id), ((Integer) this.ene.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) this.ene.get(w.h.tag_del_post_is_self)).booleanValue());
-                break;
-            case 1:
-                String str = (String) this.ene.get(w.h.tag_user_mute_mute_username);
-                UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
-                boolean z = this.enf;
-                String str2 = this.eng;
-                String str3 = this.enh;
-                bdUniqueId = this.enc.emm;
-                userMuteAddAndDelCustomMessage.setData(z, str2, str, (String) this.ene.get(w.h.tag_user_mute_thread_id), (String) this.ene.get(w.h.tag_user_mute_post_id), 1, str3, bdUniqueId);
-                bdUniqueId2 = this.enc.emm;
-                userMuteAddAndDelCustomMessage.setTag(bdUniqueId2);
-                this.enc.a(this.enf, userMuteAddAndDelCustomMessage, this.enh, str);
-                break;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        gg ggVar;
+        gg ggVar2;
+        gg ggVar3;
+        gg ggVar4;
+        gg ggVar5;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.b.a)) {
+            com.baidu.tbadk.core.b.a aVar = (com.baidu.tbadk.core.b.a) customResponsedMessage.getData();
+            boolean z = aVar.Sl == this.ewh.getUniqueId();
+            if (aVar instanceof a.C0038a) {
+                if (aVar.Sm != null && !aVar.Sm.hasError() && aVar.Sm.getError() == 0) {
+                    ggVar4 = this.ewh.euU;
+                    if (ggVar4 != null) {
+                        ggVar5 = this.ewh.euU;
+                        ggVar5.w(((a.C0038a) aVar).channelId, 1);
+                    }
+                    if (z) {
+                        this.ewh.aOg();
+                    }
+                } else if (z) {
+                    if (aVar.Sm != null && aVar.Sm.getErrorString() != null) {
+                        this.ewh.showToast(aVar.Sm.getErrorString());
+                    } else {
+                        this.ewh.showToast(w.l.fail_order_video_channel);
+                    }
+                }
+            } else if (aVar instanceof a.c) {
+                if (aVar.Sm != null && !aVar.Sm.hasError() && aVar.Sm.getError() == 0) {
+                    ggVar = this.ewh.euU;
+                    if (ggVar != null) {
+                        ggVar2 = this.ewh.euU;
+                        if (ggVar2 != null) {
+                            ggVar3 = this.ewh.euU;
+                            ggVar3.w(((a.C0038a) aVar).channelId, 2);
+                        }
+                    }
+                } else if (z) {
+                    if (aVar.Sm != null && aVar.Sm.getErrorString() != null) {
+                        this.ewh.showToast(aVar.Sm.getErrorString());
+                    } else {
+                        this.ewh.showToast(w.l.fail_cancle_order_video_channel);
+                    }
+                }
+            } else if (aVar instanceof a.b) {
+                if (aVar.Sm == null || aVar.Sm.hasError() || aVar.Sm.getError() != 0) {
+                    if (z) {
+                        if (aVar.Sm != null && aVar.Sm.getErrorString() != null) {
+                            this.ewh.showToast(aVar.Sm.getErrorString());
+                        } else {
+                            this.ewh.showToast(w.l.fail_open_channel_push);
+                        }
+                    }
+                } else if (z) {
+                    Toast.makeText(this.ewh.getPageContext().getPageActivity(), this.ewh.getPageContext().getResources().getString(w.l.channel_need_push), 1).show();
+                }
+            }
         }
-        cVar.dismiss();
     }
 }

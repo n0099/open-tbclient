@@ -1,14 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import tbclient.PbPage.PbPageResIdl;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cp extends BdAsyncTask<Void, Void, Void> {
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.tbadk.util.ab.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
-        return null;
+public class cp implements a.b {
+    final /* synthetic */ PbActivity ewh;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cp(PbActivity pbActivity) {
+        this.ewh = pbActivity;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

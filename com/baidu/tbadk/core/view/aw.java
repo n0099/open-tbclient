@@ -1,49 +1,32 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw implements com.baidu.adp.lib.e.c<TbImageView> {
-    private final /* synthetic */ Context val$context;
+public class aw implements ViewGroup.OnHierarchyChangeListener {
+    final /* synthetic */ UserIconBox anv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(Context context) {
-        this.val$context = context;
+    public aw(UserIconBox userIconBox) {
+        this.anv = userIconBox;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: wB */
-    public TbImageView fL() {
-        return new TbImageView(this.val$context);
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        com.baidu.adp.lib.e.b bVar;
+        com.baidu.adp.lib.e.b bVar2;
+        if (view2 instanceof TbImageView) {
+            bVar = this.anv.anq;
+            if (bVar != null) {
+                bVar2 = this.anv.anq;
+                bVar2.n((TbImageView) view2);
+            }
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void o(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public TbImageView p(TbImageView tbImageView) {
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public TbImageView q(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-        return tbImageView;
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

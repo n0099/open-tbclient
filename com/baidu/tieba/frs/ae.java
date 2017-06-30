@@ -5,22 +5,22 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends CustomMessageListener {
-    final /* synthetic */ r bVb;
+    final /* synthetic */ r cdl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(r rVar, int i) {
         super(i);
-        this.bVb = rVar;
+        this.cdl = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (this.bVb.bTF != null) {
-            this.bVb.bTF.bhh();
-            if (this.bVb.bUa != null) {
-                this.bVb.bUa.VC();
+        if (this.cdl.cbN != null) {
+            this.cdl.cbN.blv();
+            if (this.cdl.ccj != null) {
+                this.cdl.ccj.WT();
             }
         }
     }

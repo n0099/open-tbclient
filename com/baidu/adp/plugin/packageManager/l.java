@@ -15,7 +15,7 @@ class l implements com.baidu.adp.plugin.install.b {
     }
 
     @Override // com.baidu.adp.plugin.install.b
-    public void aQ(String str) {
+    public void aV(String str) {
         PluginPackageManager pluginPackageManager;
         e eVar;
         PluginPackageManager pluginPackageManager2;

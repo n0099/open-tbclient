@@ -5,24 +5,24 @@ import com.baidu.tieba.horizonalList.widget.AbsHListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements Runnable {
-    final /* synthetic */ AbsHListView cEr;
-    private final /* synthetic */ View cEs;
-    private final /* synthetic */ AbsHListView.i cEt;
+    final /* synthetic */ AbsHListView cMo;
+    private final /* synthetic */ View cMp;
+    private final /* synthetic */ AbsHListView.i cMq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AbsHListView absHListView, View view, AbsHListView.i iVar) {
-        this.cEr = absHListView;
-        this.cEs = view;
-        this.cEt = iVar;
+        this.cMo = absHListView;
+        this.cMp = view;
+        this.cMq = iVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.cEr.mTouchMode = -1;
-        this.cEs.setPressed(false);
-        this.cEr.setPressed(false);
-        if (!this.cEr.mDataChanged) {
-            this.cEt.run();
+        this.cMo.mTouchMode = -1;
+        this.cMp.setPressed(false);
+        this.cMo.setPressed(false);
+        if (!this.cMo.mDataChanged) {
+            this.cMq.run();
         }
     }
 }

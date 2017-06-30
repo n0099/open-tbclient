@@ -16,7 +16,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";
     private static final String TAG = "BaiduYunPush";
@@ -49,8 +49,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onListTags(Context context, int i, List<String> list, String str) {
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0080 A[Catch: Exception -> 0x00a8, TryCatch #0 {Exception -> 0x00a8, blocks: (B:4:0x0009, B:6:0x0017, B:7:0x001e, B:9:0x0026, B:10:0x002c, B:12:0x0034, B:14:0x0047, B:15:0x004e, B:17:0x0056, B:19:0x005f, B:21:0x0080, B:22:0x0087, B:24:0x008f, B:25:0x0091), top: B:32:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x008f A[Catch: Exception -> 0x00a8, TryCatch #0 {Exception -> 0x00a8, blocks: (B:4:0x0009, B:6:0x0017, B:7:0x001e, B:9:0x0026, B:10:0x002c, B:12:0x0034, B:14:0x0047, B:15:0x004e, B:17:0x0056, B:19:0x005f, B:21:0x0080, B:22:0x0087, B:24:0x008f, B:25:0x0091), top: B:32:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x007a A[Catch: Exception -> 0x00a1, TryCatch #0 {Exception -> 0x00a1, blocks: (B:4:0x0009, B:6:0x0016, B:7:0x001c, B:9:0x0024, B:10:0x002a, B:12:0x0032, B:14:0x0045, B:15:0x004c, B:17:0x0054, B:19:0x005c, B:21:0x007a, B:22:0x0080, B:24:0x0088, B:25:0x008a), top: B:32:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0088 A[Catch: Exception -> 0x00a1, TryCatch #0 {Exception -> 0x00a1, blocks: (B:4:0x0009, B:6:0x0016, B:7:0x001c, B:9:0x0024, B:10:0x002a, B:12:0x0032, B:14:0x0045, B:15:0x004c, B:17:0x0054, B:19:0x005c, B:21:0x007a, B:22:0x0080, B:24:0x0088, B:25:0x008a), top: B:32:0x0009 }] */
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     /*
         Code decompiled incorrectly, please refer to instructions dump.

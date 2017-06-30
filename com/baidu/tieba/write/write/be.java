@@ -1,23 +1,26 @@
 package com.baidu.tieba.write.write;
 
-import android.widget.GridView;
+import android.view.View;
+import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements Runnable {
-    final /* synthetic */ WriteActivity gaR;
+public class be implements View.OnClickListener {
+    final /* synthetic */ WriteActivity glP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(WriteActivity writeActivity) {
-        this.gaR = writeActivity;
+        this.glP = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.write.view.PhotoLiveView.a aVar;
-        GridView gridView;
-        aVar = this.gaR.gac;
-        aVar.notifyDataSetChanged();
-        gridView = this.gaR.gab;
-        gridView.invalidateViews();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        File file;
+        File file2;
+        file = this.glP.gln;
+        if (file != null) {
+            WriteActivity writeActivity = this.glP;
+            file2 = this.glP.gln;
+            writeActivity.sy(file2.getAbsolutePath());
+        }
     }
 }

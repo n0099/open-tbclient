@@ -76,6 +76,6 @@ public class BdSocketDaemonService extends BdBaseService {
     }
 
     public static void startService() {
-        com.baidu.adp.lib.g.i.f(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+        com.baidu.adp.lib.g.i.h(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
     }
 }

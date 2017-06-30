@@ -1,13 +1,13 @@
 package com.baidu.tbadk.widget.layout;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a implements f {
     @Override // com.baidu.tbadk.widget.layout.f
-    public int fl(int i) {
+    public int fn(int i) {
         if (i < 4) {
             return 1;
         }
@@ -19,7 +19,7 @@ public class a implements f {
 
     @Override // com.baidu.tbadk.widget.layout.f
     public int a(c cVar, List<String> list, int i, int i2) {
-        if (x.q(list) > 0) {
+        if (z.s(list) > 0) {
             if (i == 0) {
                 return a(cVar, list, i2);
             }
@@ -35,54 +35,54 @@ public class a implements f {
     }
 
     private int a(c cVar, List<String> list, int i) {
-        if (cVar == null || x.r(list)) {
+        if (cVar == null || z.t(list)) {
             return i;
         }
-        int q = x.q(list);
-        if (q == 1) {
+        int s = z.s(list);
+        if (s == 1) {
             cVar.f(list, i);
             return 0;
-        } else if (q == 2 || q == 4 || q == 5) {
+        } else if (s == 2 || s == 4 || s == 5) {
             int i2 = i + 2;
-            cVar.f(x.a(list, i, i2), i);
+            cVar.f(z.a(list, i, i2), i);
             return i2;
         } else {
             int i3 = i + 3;
-            cVar.f(x.a(list, i, i3), i);
+            cVar.f(z.a(list, i, i3), i);
             return i3;
         }
     }
 
     private int b(c cVar, List<String> list, int i) {
-        if (cVar == null || x.r(list)) {
+        if (cVar == null || z.t(list)) {
             return i;
         }
-        if (x.q(list) == 4) {
+        if (z.s(list) == 4) {
             int i2 = i + 2;
-            cVar.f(x.a(list, i, i2), i);
+            cVar.f(z.a(list, i, i2), i);
             return i2;
         }
         int i3 = i + 3;
-        cVar.f(x.a(list, i, i3), i);
+        cVar.f(z.a(list, i, i3), i);
         return i3;
     }
 
     private int c(c cVar, List<String> list, int i) {
-        if (cVar == null || x.r(list)) {
+        if (cVar == null || z.t(list)) {
             return i;
         }
-        int q = x.q(list);
+        int s = z.s(list);
         cVar.setImageMaxChildCount(3);
-        int i2 = q - 9;
+        int i2 = s - 9;
         if (i2 > 0) {
             int i3 = i + 3;
-            List<String> a = x.a(list, i, i3);
+            List<String> a = z.a(list, i, i3);
             cVar.setExtraCenterText(TbadkCoreApplication.m9getInst().getString(w.l.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
             cVar.a(a, i, true);
             return i3;
         }
-        cVar.f(x.a(list, i, q), i);
+        cVar.f(z.a(list, i, s), i);
         cVar.setExtraCenterText(null);
-        return q;
+        return s;
     }
 }

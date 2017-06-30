@@ -1,26 +1,43 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class aq implements c.b {
-    final /* synthetic */ PbActivity enc;
+class aq implements BdListView.e {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(PbActivity pbActivity) {
-        this.enc = pbActivity;
+        this.ewh = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        cVar.dismiss();
-        if (this.enc.emS != null) {
-            if (i == 0) {
-                this.enc.emS.bT(this.enc.getPageContext().getPageActivity());
-                this.enc.emS = null;
-            } else if (i == 1 && this.enc.checkUpIsLogin()) {
-                this.enc.g(this.enc.emS);
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void onScrollToBottom() {
+        boolean z;
+        boolean z2;
+        PbModel pbModel;
+        PbModel pbModel2;
+        gg ggVar;
+        gg ggVar2;
+        z = this.ewh.evS;
+        if (z && this.ewh.aNU()) {
+            this.ewh.aNW();
+        }
+        z2 = this.ewh.mIsLogin;
+        if (z2) {
+            pbModel = this.ewh.eue;
+            if (!pbModel.iN(false)) {
+                pbModel2 = this.ewh.eue;
+                if (pbModel2.getPbData() != null) {
+                    ggVar = this.ewh.euU;
+                    ggVar.aQL();
+                }
+            } else {
+                ggVar2 = this.ewh.euU;
+                ggVar2.aQy();
+                TiebaStatic.eventStat(this.ewh.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
             }
+            this.ewh.evS = true;
         }
     }
 }

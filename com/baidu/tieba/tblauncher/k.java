@@ -1,26 +1,19 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.GridLayout;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
-    private final /* synthetic */ GridLayout fGP;
+public class k implements a.b {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(MainTabActivity mainTabActivity, GridLayout gridLayout) {
+    public k(MainTabActivity mainTabActivity) {
         this.this$0 = mainTabActivity;
-        this.fGP = gridLayout;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbImageView tbImageView;
-        MainTabActivity mainTabActivity = this.this$0;
-        GridLayout gridLayout = this.fGP;
-        tbImageView = this.this$0.fGB;
-        mainTabActivity.d(gridLayout, tbImageView);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        this.this$0.bod();
     }
 }

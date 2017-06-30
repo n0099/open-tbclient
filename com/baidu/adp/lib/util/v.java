@@ -36,7 +36,7 @@ public class v {
         return cipher.doFinal(bArr);
     }
 
-    public static SecretKey aJ(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public static SecretKey aO(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         char[] cArr = new char[str.length()];
         for (int i = 0; i < cArr.length; i++) {

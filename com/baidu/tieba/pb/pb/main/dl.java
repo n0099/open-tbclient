@@ -1,39 +1,107 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.cache.o;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class dl implements View.OnClickListener {
-    private final /* synthetic */ String ekm;
-    private final /* synthetic */ String ekn;
-    private final /* synthetic */ String eko;
-    final /* synthetic */ dh eor;
+public class dl {
+    private static dl exm;
+    private com.baidu.adp.lib.cache.o<byte[]> exn = null;
+    private com.baidu.adp.lib.cache.o<byte[]> exo = null;
+    private long exp = 0;
+    private long exq = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dl(dh dhVar, String str, String str2, String str3) {
-        this.eor = dhVar;
-        this.ekm = str;
-        this.ekn = str2;
-        this.eko = str3;
+    public static synchronized dl aOy() {
+        dl dlVar;
+        synchronized (dl.class) {
+            if (exm == null) {
+                exm = new dl();
+            }
+            dlVar = exm;
+        }
+        return dlVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.ekm) && !StringUtils.isNull(this.ekn)) {
-            if (com.baidu.adp.lib.util.i.hk()) {
-                context = this.eor.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.ekm) + "," + this.ekn, this.eko, this.eko, context.getString(w.l.app_info_for_map));
-                context2 = this.eor.mContext;
-                com.baidu.tbadk.browser.f.S(context2, format);
-                return;
+    private dl() {
+        acO();
+    }
+
+    private void acO() {
+        if (this.exn == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.exn = com.baidu.tbadk.core.c.a.sW().cE("tb.pb_mark");
+            this.exq = System.currentTimeMillis() - currentTimeMillis;
+        }
+        if (this.exo == null) {
+            long currentTimeMillis2 = System.currentTimeMillis();
+            this.exo = com.baidu.tbadk.core.c.a.sW().cE("tb.pb_normal");
+            this.exp = System.currentTimeMillis() - currentTimeMillis2;
+        }
+    }
+
+    public void O(String str, boolean z) {
+        if (z) {
+            if (this.exn != null && str != null) {
+                this.exn.b(str, new byte[0], 0L);
             }
-            this.eor.elf.showToast(w.l.neterror);
+        } else if (this.exo != null && str != null) {
+            this.exo.b(str, new byte[0], 0L);
+        }
+    }
+
+    public byte[] P(String str, boolean z) {
+        o.c<byte[]> U;
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = 0;
+        if (z) {
+            if (this.exn != null && str != null) {
+                U = this.exn.U(str);
+                j = this.exq;
+            }
+            U = null;
+        } else {
+            if (this.exo != null && str != null) {
+                U = this.exo.U(str);
+                j = this.exp;
+            }
+            U = null;
+        }
+        if (U == null || U.sG == null) {
+            return null;
+        }
+        com.baidu.tbadk.j.v vVar = new com.baidu.tbadk.j.v();
+        vVar.fd(1001);
+        vVar.aHN = (System.currentTimeMillis() - currentTimeMillis) + j;
+        vVar.FX();
+        return U.sG;
+    }
+
+    public void a(String str, boolean z, byte[] bArr) {
+        if (str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            acO();
+            if (z) {
+                this.exn.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            } else {
+                this.exo.a(str, bArr, 86400000L);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.j.v vVar = new com.baidu.tbadk.j.v();
+            vVar.fd(1001);
+            vVar.aHO = currentTimeMillis2;
+            vVar.FY();
+        }
+    }
+
+    public void l(String str, byte[] bArr) {
+        if (bArr != null && str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            acO();
+            this.exn.a(str, bArr, 2592000000L);
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.j.v vVar = new com.baidu.tbadk.j.v();
+            vVar.fd(1001);
+            vVar.aHO = currentTimeMillis2;
+            vVar.FY();
         }
     }
 }

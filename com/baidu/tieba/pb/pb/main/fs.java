@@ -1,26 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.MotionEvent;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class fs implements View.OnTouchListener {
-    final /* synthetic */ fr esp;
-
+class fs extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fs(fr frVar) {
-        this.esp = frVar;
+    public fs(int i) {
+        super(i);
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        com.baidu.tieba.pb.view.l lVar;
-        com.baidu.tieba.pb.view.l lVar2;
-        lVar = this.esp.esn;
-        if (lVar != null) {
-            lVar2 = this.esp.esn;
-            return lVar2.onTouch(view, motionEvent);
-        }
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        fp.aPV().a(1, customResponsedMessage);
     }
 }

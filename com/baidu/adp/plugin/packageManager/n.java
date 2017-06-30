@@ -13,6 +13,6 @@ public class n implements Runnable {
     public void run() {
         PluginPackageManager pluginPackageManager;
         pluginPackageManager = this.Ey.this$0;
-        pluginPackageManager.jD();
+        pluginPackageManager.jC();
     }
 }

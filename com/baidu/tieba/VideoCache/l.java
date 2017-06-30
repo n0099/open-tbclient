@@ -6,29 +6,29 @@ import android.os.Message;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class l {
-    private static l aSV;
-    private Handler.Callback aRj = new m(this);
-    private h aSW;
-    private b aSX;
+    private static l aUo;
+    private Handler.Callback aSC = new m(this);
+    private h aUp;
+    private b aUq;
     private Handler mHandler;
 
     private l() {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aRj);
-        this.aSW = new h();
-        this.aSX = new b();
+        this.mHandler = new Handler(handlerThread.getLooper(), this.aSC);
+        this.aUp = new h();
+        this.aUq = new b();
     }
 
-    public static l JS() {
-        if (aSV == null) {
+    public static l Kq() {
+        if (aUo == null) {
             synchronized (l.class) {
-                if (aSV == null) {
-                    aSV = new l();
+                if (aUo == null) {
+                    aUo = new l();
                 }
             }
         }
-        return aSV;
+        return aUo;
     }
 
     public void q(InputStream inputStream) {
@@ -37,18 +37,18 @@ public class l {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void gK(String str) {
+    public void hh(String str) {
         this.mHandler.removeMessages(2);
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessageDelayed(obtainMessage, 1000L);
     }
 
-    public void JG() {
+    public void Ke() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
     }
 
-    public void gz(String str) {
+    public void gW(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(4);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);

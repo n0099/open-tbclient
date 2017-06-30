@@ -4,11 +4,11 @@ import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements v.d {
-    final /* synthetic */ c fbb;
+    final /* synthetic */ c flr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.fbb = cVar;
+        this.flr = cVar;
     }
 
     @Override // com.baidu.tieba.play.v.d
@@ -22,32 +22,32 @@ public class d implements v.d {
         int i;
         int i2;
         int i3;
-        com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-        runnable = this.fbb.dwE;
-        fS.removeCallbacks(runnable);
-        com.baidu.adp.lib.g.h fS2 = com.baidu.adp.lib.g.h.fS();
-        runnable2 = this.fbb.dwE;
-        fS2.postDelayed(runnable2, 20L);
-        com.baidu.adp.lib.g.h fS3 = com.baidu.adp.lib.g.h.fS();
-        runnable3 = this.fbb.dwG;
-        fS3.removeCallbacks(runnable3);
-        if (this.fbb.bCE.aXM()) {
-            this.fbb.akf = 1;
-            this.fbb.bCE.setRecoveryState(1);
+        com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
+        runnable = this.flr.dFr;
+        fR.removeCallbacks(runnable);
+        com.baidu.adp.lib.g.h fR2 = com.baidu.adp.lib.g.h.fR();
+        runnable2 = this.flr.dFr;
+        fR2.postDelayed(runnable2, 20L);
+        com.baidu.adp.lib.g.h fR3 = com.baidu.adp.lib.g.h.fR();
+        runnable3 = this.flr.dFt;
+        fR3.removeCallbacks(runnable3);
+        if (this.flr.bDx.bbX()) {
+            this.flr.akS = 1;
+            this.flr.bDx.setRecoveryState(1);
         }
         if (vVar != null) {
-            videoListMediaControllerView = this.fbb.dvS;
+            videoListMediaControllerView = this.flr.dEF;
             if (videoListMediaControllerView != null) {
-                c cVar = this.fbb;
-                ba aYd = ba.aYd();
-                str = this.fbb.mVideoUrl;
-                cVar.dwm = aYd.ph(str);
-                videoListMediaControllerView2 = this.fbb.dvS;
-                i = this.fbb.dwm;
+                c cVar = this.flr;
+                ba bco = ba.bco();
+                str = this.flr.mVideoUrl;
+                cVar.dEZ = bco.qe(str);
+                videoListMediaControllerView2 = this.flr.dEF;
+                i = this.flr.dEZ;
                 videoListMediaControllerView2.V(i, vVar.getDuration());
-                i2 = this.fbb.dwm;
+                i2 = this.flr.dEZ;
                 if (i2 != 0) {
-                    i3 = this.fbb.dwm;
+                    i3 = this.flr.dEZ;
                     vVar.seekTo(i3);
                 }
             }

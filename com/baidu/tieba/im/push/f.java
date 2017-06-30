@@ -7,42 +7,43 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static f dfx = null;
-    private int dfy = 0;
-    private List<Long> dfz = new ArrayList();
-    private final CustomMessageListener dez = new g(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private static f dns = null;
+    private int dnt = 0;
+    private List<Long> dnu = new ArrayList();
+    private final CustomMessageListener dmu = new g(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
     private f() {
-        MessageManager.getInstance().registerListener(this.dez);
+        MessageManager.getInstance().registerListener(this.dmu);
     }
 
-    public static f arU() {
-        if (dfx == null) {
+    public static f avF() {
+        if (dns == null) {
             synchronized (f.class) {
-                if (dfx == null) {
-                    dfx = new f();
+                if (dns == null) {
+                    dns = new f();
                 }
             }
         }
-        return dfx;
+        return dns;
     }
 
     public synchronized void init(String str, String str2) {
         clear();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                this.dfy = Integer.parseInt(str);
+                this.dnt = Integer.parseInt(str);
                 try {
-                    String[] split = str2.split(",");
+                    String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.dfz.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.dnu.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -56,46 +57,46 @@ public class f {
     }
 
     public synchronized void clear() {
-        this.dfy = 0;
-        this.dfz.clear();
+        this.dnt = 0;
+        this.dnu.clear();
     }
 
     public int getGid() {
-        return this.dfy;
+        return this.dnt;
     }
 
-    public Long arV() {
-        return com.baidu.tieba.im.memorycache.b.aqX().arh().get(this.dfy);
+    public Long avG() {
+        return com.baidu.tieba.im.memorycache.b.auI().auS().get(this.dnt);
     }
 
-    public synchronized List<Long> arW() {
+    public synchronized List<Long> avH() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.dfz) {
+        for (Long l : this.dnu) {
             if (l != null) {
-                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.g.bB(l.longValue())));
+                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.g.bP(l.longValue())));
             }
         }
         return arrayList;
     }
 
-    public synchronized void arX() {
-        this.dfz.clear();
+    public synchronized void avI() {
+        this.dnu.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x0041, code lost:
-        r7.dfz.add(java.lang.Long.valueOf(r9));
+        r7.dnu.add(java.lang.Long.valueOf(r9));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void g(int i, long j) {
-        if (this.dfy != 0 && this.dfy != i) {
-            this.dfz.clear();
-            k.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + i + "-" + this.dfy);
+        if (this.dnt != 0 && this.dnt != i) {
+            this.dnu.clear();
+            k.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + i + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.dnt);
         }
-        this.dfy = i;
-        Iterator<Long> it = this.dfz.iterator();
+        this.dnt = i;
+        Iterator<Long> it = this.dnu.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -107,17 +108,17 @@ public class f {
         }
     }
 
-    public synchronized boolean arY() {
+    public synchronized boolean avJ() {
         boolean z;
-        if (this.dfy > 0) {
-            z = this.dfz.size() > 0;
+        if (this.dnt > 0) {
+            z = this.dnu.size() > 0;
         }
         return z;
     }
 
-    public synchronized boolean bx(long j) {
+    public synchronized boolean bL(long j) {
         boolean z;
-        Iterator<Long> it = this.dfz.iterator();
+        Iterator<Long> it = this.dnu.iterator();
         while (true) {
             if (it.hasNext()) {
                 Long next = it.next();
@@ -133,12 +134,12 @@ public class f {
         return z;
     }
 
-    public synchronized String arZ() {
+    public synchronized String avK() {
         String str;
         str = "";
-        for (Long l : this.dfz) {
+        for (Long l : this.dnu) {
             if (l != null && l.longValue() != 0) {
-                str = String.valueOf(String.valueOf(str) + l.longValue()) + ",";
+                str = String.valueOf(String.valueOf(str) + l.longValue()) + Constants.ACCEPT_TIME_SEPARATOR_SP;
             }
         }
         return str;

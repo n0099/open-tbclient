@@ -1,56 +1,41 @@
 package com.baidu.tieba.tblauncher;
 
-import android.os.Handler;
 import android.view.View;
-import android.widget.PopupWindow;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements Runnable {
-    final /* synthetic */ ak fHb;
+public class ar implements View.OnClickListener {
+    final /* synthetic */ ad fQS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(ak akVar) {
-        this.fHb = akVar;
+    public ar(ad adVar) {
+        this.fQS = adVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        FragmentTabHost fragmentTabHost;
-        PopupWindow popupWindow;
-        FragmentTabHost fragmentTabHost2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        PopupWindow popupWindow2;
-        PopupWindow popupWindow3;
-        Handler handler;
-        Runnable runnable;
-        fragmentTabHost = this.fHb.aYf;
-        if (fragmentTabHost != null) {
-            popupWindow = this.fHb.fGV;
-            if (popupWindow != null) {
-                fragmentTabHost2 = this.fHb.aYf;
-                FragmentTabWidget fragmentTabWidget = fragmentTabHost2.getFragmentTabWidget();
-                mainTabActivity = this.fHb.fGR;
-                int af = com.baidu.adp.lib.util.k.af(mainTabActivity.getActivity());
-                mainTabActivity2 = this.fHb.fGR;
-                int g = com.baidu.adp.lib.util.k.g(mainTabActivity2.getActivity(), w.f.ds200);
-                popupWindow2 = this.fHb.fGV;
-                View contentView = popupWindow2.getContentView();
-                if (contentView != null) {
-                    contentView.measure(0, 0);
-                    int measuredWidth = contentView.getMeasuredWidth();
-                    popupWindow3 = this.fHb.fGV;
-                    com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(popupWindow3, fragmentTabWidget, (af - measuredWidth) / 2, -g);
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_maintab_write_tips", true);
-                    this.fHb.fGW = true;
-                    handler = this.fHb.mHandler;
-                    runnable = this.fHb.fGZ;
-                    handler.postDelayed(runnable, 6000L);
-                }
+        FragmentTabHost fragmentTabHost;
+        FragmentTabHost fragmentTabHost2;
+        int i = 3;
+        mainTabActivity = this.fQS.fQI;
+        mainTabActivity2 = this.fQS.fQI;
+        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(mainTabActivity2.getPageContext().getPageActivity())));
+        fragmentTabHost = this.fQS.aZL;
+        if (fragmentTabHost.getCurrentTabType() != 3) {
+            fragmentTabHost2 = this.fQS.aZL;
+            if (fragmentTabHost2.getCurrentTabType() != 2) {
+                i = 0;
+            } else {
+                i = 1;
             }
         }
+        TiebaStatic.log(new au("c10378").r("obj_type", i));
     }
 }

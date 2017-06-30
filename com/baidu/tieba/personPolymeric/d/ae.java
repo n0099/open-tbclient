@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements BdListView.e {
-    final /* synthetic */ ac eOh;
+    final /* synthetic */ ac eYx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ac acVar) {
-        this.eOh = acVar;
+        this.eYx = acVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
@@ -22,25 +22,25 @@ public class ae implements BdListView.e {
         com.baidu.tieba.model.b bVar2;
         PbListView pbListView3;
         com.baidu.tieba.model.b bVar3;
-        pbListView = this.eOh.aZY;
+        pbListView = this.eYx.bbP;
         if (pbListView != null) {
-            bVar = this.eOh.fQI;
+            bVar = this.eYx.gaz;
             if (bVar != null) {
-                i = this.eOh.bpT;
+                i = this.eYx.btF;
                 if (i != 0) {
-                    i2 = this.eOh.bpT;
+                    i2 = this.eYx.btF;
                     if (i2 == 1) {
-                        pbListView2 = this.eOh.aZY;
-                        pbListView2.wl();
-                        bVar2 = this.eOh.fQI;
+                        pbListView2 = this.eYx.bbP;
+                        pbListView2.wD();
+                        bVar2 = this.eYx.gaz;
                         bVar2.d(true, false, false);
                         return;
                     }
                     return;
                 }
-                pbListView3 = this.eOh.aZY;
-                pbListView3.wl();
-                bVar3 = this.eOh.fQI;
+                pbListView3 = this.eYx.bbP;
+                pbListView3.wD();
+                bVar3 = this.eYx.gaz;
                 bVar3.d(false, false, false);
             }
         }

@@ -1,82 +1,55 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.b.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class hh extends LinearLayout {
-    private TextView aOR;
-    private LinearLayout ame;
-    private TextView auE;
-    private TbImageView cMu;
-    private EditText cjG;
-    private ShareFromPBMsgData dim;
+public class hh implements View.OnClickListener {
+    final /* synthetic */ gg eEv;
 
-    public EditText getChatMsgView() {
-        return this.cjG;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public hh(gg ggVar) {
+        this.eEv = ggVar;
     }
 
-    public void D(String str, boolean z) {
-        if (this.cMu != null) {
-            this.cMu.c(str, z ? 17 : 18, false);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        com.baidu.tieba.pb.data.f fVar;
+        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.j jVar2;
+        PbActivity pbActivity2;
+        com.baidu.tbadk.editortools.j jVar3;
+        a.InterfaceC0083a interfaceC0083a;
+        com.baidu.tieba.pb.data.f fVar2;
+        String str;
+        pbActivity = this.eEv.euf;
+        if (pbActivity.checkUpIsLogin()) {
+            fVar = this.eEv.eyH;
+            if (fVar != null) {
+                fVar2 = this.eEv.eyH;
+                if (com.baidu.tieba.pb.i.N(fVar2.aMv())) {
+                    return;
+                }
+            }
+            jVar = this.eEv.JT;
+            if (jVar != null) {
+                this.eEv.aQq();
+            }
+            jVar2 = this.eEv.JT;
+            if (jVar2 != null) {
+                this.eEv.eDs = false;
+                pbActivity2 = this.eEv.euf;
+                jVar3 = this.eEv.JT;
+                interfaceC0083a = this.eEv.eDV;
+                com.baidu.tieba.tbadkCore.b.a.a(pbActivity2, (View) jVar3.eA(2).azL, false, interfaceC0083a);
+            }
+            this.eEv.aQN();
+            return;
         }
-    }
-
-    public hh(Context context) {
-        super(context);
-        bp(context);
-    }
-
-    private void bp(Context context) {
-        LayoutInflater.from(context).inflate(w.j.thread_to_group_share_view, this);
-        setOrientation(1);
-        this.ame = (LinearLayout) findViewById(w.h.share_content);
-        this.auE = (TextView) findViewById(w.h.share_title_view);
-        this.cjG = (EditText) findViewById(w.h.chat_msg);
-        this.cMu = (TbImageView) findViewById(w.h.chat_group_img);
-        this.aOR = (TextView) findViewById(w.h.chat_group_desc);
-        com.baidu.tbadk.core.util.aq.c(this.auE, w.e.cp_cont_b, 1);
-        com.baidu.tbadk.core.util.aq.c(this.cjG, w.e.cp_cont_b, 2);
-        com.baidu.tbadk.core.util.aq.c(this.aOR, w.e.cp_cont_f, 1);
-        this.cjG.setHintTextColor(com.baidu.tbadk.core.util.aq.getColor(w.e.cp_cont_e));
-        this.cjG.setPadding(context.getResources().getDimensionPixelSize(w.f.ds20), 0, 0, 0);
-        aem();
-    }
-
-    public void aem() {
-        this.ame.setFocusable(true);
-        this.ame.setFocusableInTouchMode(true);
-        this.ame.requestFocus();
-    }
-
-    public String getLeaveMsg() {
-        if (this.cjG != null) {
-            return com.baidu.adp.lib.util.j.a(this.cjG.getText(), null);
-        }
-        return null;
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup
-    protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
-        return new LinearLayout.LayoutParams(-1, -2);
-    }
-
-    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.dim = shareFromPBMsgData;
-        we();
-    }
-
-    private void we() {
-        this.auE.setText(this.dim.getTitle());
-        BdLog.e("mData.getImageUrl()的图片URL" + this.dim.getImageUrl());
-        this.cMu.setTag(this.dim.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.dim.getContent());
-        this.aOR.setText(this.dim.getContent());
+        com.baidu.tbadk.core.util.au r = new com.baidu.tbadk.core.util.au("c10517").r("obj_locate", 2);
+        str = this.eEv.mForumId;
+        TiebaStatic.log(r.Z("fid", str));
     }
 }

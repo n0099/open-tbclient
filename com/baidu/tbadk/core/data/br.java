@@ -1,46 +1,43 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.tbadkCore.data.PostData;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopNews;
+import tbclient.Topic;
 /* loaded from: classes.dex */
-public class br extends PostData {
-    public static final BdUniqueId Zr = BdUniqueId.gen();
-    private String Wr;
-    private int position = 0;
-    private String summary;
+public class br {
+    private int Zr = 0;
+    private int Zs = 0;
+    private String link = "";
 
-    public String sR() {
-        return this.Wr;
+    public int sN() {
+        return this.Zr;
     }
 
-    public String sI() {
-        return this.summary;
+    public int sO() {
+        return this.Zs;
     }
 
-    public void a(TopNews topNews) {
-        if (topNews != null) {
-            this.Wr = topNews.news_link;
-            this.summary = topNews.summary;
-        }
+    public String getLink() {
+        return this.link;
     }
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Wr = jSONObject.optString("news_link");
-                this.summary = jSONObject.optString("summary");
-                this.position = jSONObject.optInt("position", 0);
+                this.Zr = jSONObject.optInt("is_lpost", 0);
+                this.Zs = jSONObject.optInt("topic_type", 0);
+                this.link = jSONObject.optString("link", "");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return Zr;
+    public void a(Topic topic) {
+        if (topic != null) {
+            this.Zr = topic.is_lpost.intValue();
+            this.Zs = topic.topic_type.intValue();
+            this.link = topic.link;
+        }
     }
 }

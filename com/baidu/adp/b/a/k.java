@@ -23,7 +23,7 @@ public abstract class k extends c {
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(dVar, imageView, scaleType);
-        if (this.Cu != null && (a2 = this.Cu.a(iA())) != null) {
+        if (this.Cu != null && (a2 = this.Cu.a(iz())) != null) {
             this.Cs.set(a2);
             if (this.Ct == null) {
                 this.Ct = new Paint();
@@ -33,7 +33,7 @@ public abstract class k extends c {
                 this.Ct.setDither(true);
                 this.Ct.setStrokeWidth(2.0f);
             }
-            iI();
+            iH();
         }
     }
 
@@ -48,10 +48,10 @@ public abstract class k extends c {
         }
     }
 
-    public void iI() {
+    public void iH() {
     }
 
-    public void iJ() {
+    public void iI() {
     }
 
     public void a(a aVar) {

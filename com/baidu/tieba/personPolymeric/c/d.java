@@ -5,16 +5,16 @@ import com.baidu.tbadk.core.data.UserData;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId eMr = BdUniqueId.gen();
-    public String bDU;
-    public boolean bEb;
-    public boolean bld;
-    public String eMn;
+    public static final BdUniqueId eWA = BdUniqueId.gen();
+    public String bEM;
+    public boolean bET;
+    public boolean boT;
+    public String eWw;
     public int sex;
     public List<UserData> users;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eMr;
+        return eWA;
     }
 }

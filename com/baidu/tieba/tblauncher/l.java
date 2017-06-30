@@ -1,45 +1,49 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.GridLayout;
-import com.baidu.tieba.frs.ForumWriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
-    private final /* synthetic */ GridLayout fGP;
+public class l extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(MainTabActivity mainTabActivity, GridLayout gridLayout) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
-        this.fGP = gridLayout;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbImageView tbImageView;
-        MainTabActivity mainTabActivity = this.this$0;
-        GridLayout gridLayout = this.fGP;
-        tbImageView = this.this$0.fGB;
-        mainTabActivity.d(gridLayout, tbImageView);
-        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MAINTAB_FORUM_INFO, ForumWriteData.class);
-        String str = "0";
-        String str2 = null;
-        if (runTask != null && runTask.getData() != null) {
-            ForumWriteData forumWriteData = (ForumWriteData) runTask.getData();
-            str = forumWriteData.forumId;
-            str2 = forumWriteData.forumName;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ad adVar;
+        ad adVar2;
+        ad adVar3;
+        ad adVar4;
+        ad adVar5;
+        ad adVar6;
+        ad adVar7;
+        if (customResponsedMessage.getData() instanceof Integer) {
+            Integer num = (Integer) customResponsedMessage.getData();
+            if (num.intValue() == 2) {
+                adVar6 = this.this$0.fQq;
+                adVar6.ma(true);
+                adVar7 = this.this$0.fQq;
+                adVar7.hT(true);
+            } else if (num.intValue() == 1) {
+                adVar3 = this.this$0.fQq;
+                adVar3.ma(true);
+                adVar4 = this.this$0.fQq;
+                adVar4.hT(false);
+            } else {
+                adVar = this.this$0.fQq;
+                adVar.ma(false);
+                adVar2 = this.this$0.fQq;
+                adVar2.hT(false);
+            }
+            adVar5 = this.this$0.fQq;
+            adVar5.bon();
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, new AlaLiveRoomActivityConfig(TbadkCoreApplication.m9getInst().getApplicationContext(), str2, str, TbadkCoreApplication.getCurrentAccount(), true, false)));
     }
 }

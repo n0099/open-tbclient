@@ -3,7 +3,7 @@ package com.baidu.tieba.yunpush;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.android.pushservice.PushManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
@@ -11,25 +11,28 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes2.dex */
 public class PushStatic {
-    private static void bqD() {
-        bX(TbadkApplication.getInst());
+    private static CustomMessageListener gnr = new a(0);
+
+    private static void bve() {
+        bR(TbadkApplication.getInst());
     }
 
-    private static void bqE() {
-        bY(TbadkCoreApplication.m9getInst());
+    private static void bvf() {
+        bS(TbadkCoreApplication.m9getInst());
     }
 
-    private static void bX(Context context) {
+    private static void bR(Context context) {
         Log.e("BaiduYunPush", "start push");
         Log.e("BaiduYunPush", "start push1");
         PushManager.enableHuaweiProxy(context, true);
         Log.e("BaiduYunPush", "start push2");
+        PushManager.enableXiaomiProxy(context, true, "2882303761517130520", "5651713089520");
         Log.e("BaiduYunPush", "start push3");
-        PushManager.startWork(context, 0, k.getMetaValue(context, "api_key"));
+        PushManager.startWork(context, 0, c.getMetaValue(context, "api_key"));
         Log.e("BaiduYunPush", "start push4 ");
     }
 
-    private static void bY(Context context) {
+    private static void bS(Context context) {
         Log.e("BaiduYunPush", "stop push");
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean(String.valueOf(TbConfig.getVersion()) + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
             Log.e("BaiduYunPush", "stop push pushservice is working");
@@ -37,44 +40,28 @@ public class PushStatic {
         }
     }
 
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.yunpush.b.run():void] */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void access$0() {
+        bvg();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bqF() {
+    public static void bvg() {
         if (TbadkCoreApplication.m9getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.m9getInst().isBaiduYunPushAvailable()) {
                 Log.e("BaiduYunPush", "switch available");
-                bqD();
+                bve();
                 return;
             }
             Log.e("BaiduYunPush", "switch close");
-            bqE();
+            bvf();
         }
     }
 
     static {
         Log.e("BaiduYunPush", "push static init load static " + System.currentTimeMillis());
-        registerListener();
-        DA();
-        if (TbadkCoreApplication.m9getInst().isMainProcess(false)) {
-            new Thread(new a()).start();
-        }
-    }
-
-    private static void registerListener() {
-        MessageManager.getInstance().registerListener(new c(CmdConfigCustom.CMD_PUSH_COMMANDSERVICE_ONSTARTCOMMAND));
-        MessageManager.getInstance().registerListener(new d(CmdConfigCustom.CMD_PUSH_PUSHMESSAGERECEIVER_ONRECEIVE));
-        MessageManager.getInstance().registerListener(new e(CmdConfigCustom.CMD_PUSH_PUSHSERVICE_ONCREATE));
-        MessageManager.getInstance().registerListener(new f(CmdConfigCustom.CMD_PUSH_PUSHSERVICE_ONDESTROY));
-        MessageManager.getInstance().registerListener(new g(CmdConfigCustom.CMD_PUSH_PUSHSERVICE_ONUNBIND));
-        MessageManager.getInstance().registerListener(new h(CmdConfigCustom.CMD_PUSH_PUSHSERVICERECEIVER_ONRECEIVE));
-        MessageManager.getInstance().registerListener(new i(CmdConfigCustom.CMD_PUSH_REGISTRATIONRECEIVER_ONRECEIVE));
-    }
-
-    private static void DA() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_PUSH_PUSHSERVICE_ONSTARTCOMMAND, new j());
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(CmdConfigCustom.CMD_PUSH_PUSHSERVICE_ONBIND, new b());
-        customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask2);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, gnr);
     }
 }

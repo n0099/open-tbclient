@@ -4,27 +4,27 @@ public class a {
 
     /* renamed from: com.baidu.tieba.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0055a {
+    public static class C0057a {
         double x;
         double y;
 
-        public C0055a() {
+        public C0057a() {
         }
 
-        public C0055a(double d, double d2) {
+        public C0057a(double d, double d2) {
             this.x = d;
             this.y = d2;
         }
     }
 
-    public static C0055a a(C0055a c0055a, C0055a c0055a2, C0055a c0055a3, C0055a c0055a4, double d) {
-        if (d < 0.0d || d > 1.0d || c0055a == null || c0055a2 == null || c0055a3 == null || c0055a4 == null) {
+    public static C0057a a(C0057a c0057a, C0057a c0057a2, C0057a c0057a3, C0057a c0057a4, double d) {
+        if (d < 0.0d || d > 1.0d || c0057a == null || c0057a2 == null || c0057a3 == null || c0057a4 == null) {
             return null;
         }
-        C0055a c0055a5 = new C0055a();
-        c0055a5.x = a(c0055a.x, c0055a2.x, c0055a3.x, c0055a4.x, d);
-        c0055a5.y = a(c0055a.y, c0055a2.y, c0055a3.y, c0055a4.y, d);
-        return c0055a5;
+        C0057a c0057a5 = new C0057a();
+        c0057a5.x = a(c0057a.x, c0057a2.x, c0057a3.x, c0057a4.x, d);
+        c0057a5.y = a(c0057a.y, c0057a2.y, c0057a3.y, c0057a4.y, d);
+        return c0057a5;
     }
 
     public static double a(double d, double d2, double d3, double d4, double d5) {
@@ -45,15 +45,7 @@ public class a {
     }
 
     public static double a(int i, float f, float f2) {
-        C0055a a = a(new C0055a(0.0d, 0.0d), new C0055a(0.0d, f2), new C0055a(f - f2, f), new C0055a(f, f), ((i % f) + 1.0f) / f);
-        if (a == null) {
-            return 0.0d;
-        }
-        return a.y;
-    }
-
-    public static double e(double d) {
-        C0055a a = a(new C0055a(0.0d, 0.0d), new C0055a(0.0d, 0.3d), new C0055a(0.2d, 1.0d), new C0055a(1.0d, 1.0d), d);
+        C0057a a = a(new C0057a(0.0d, 0.0d), new C0057a(0.0d, f2), new C0057a(f - f2, f), new C0057a(f, f), ((i % f) + 1.0f) / f);
         if (a == null) {
             return 0.0d;
         }

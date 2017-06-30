@@ -4,10 +4,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 /* loaded from: classes.dex */
 public class LogoActivityStatic {
-    private static b aQH;
+    private static b aSa;
 
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
-        aQH = b.Iu();
+        aSa = b.IS();
     }
 }

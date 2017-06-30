@@ -6,20 +6,20 @@ import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements RecPersonalizePageModel.a {
-    final /* synthetic */ q czM;
+    final /* synthetic */ q cHy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.czM = qVar;
+        this.cHy = qVar;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.a
     public void b(DataRes dataRes, boolean z, boolean z2) {
         q.a aVar;
         q.a aVar2;
-        aVar = this.czM.cyN;
+        aVar = this.cHy.cGz;
         if (aVar != null) {
-            aVar2 = this.czM.cyN;
+            aVar2 = this.cHy.cGz;
             aVar2.a(dataRes, z, z2);
         }
     }
@@ -28,9 +28,9 @@ public class r implements RecPersonalizePageModel.a {
     public void s(int i, String str) {
         q.a aVar;
         q.a aVar2;
-        aVar = this.czM.cyN;
+        aVar = this.cHy.cGz;
         if (aVar != null) {
-            aVar2 = this.czM.cyN;
+            aVar2 = this.cHy.cGz;
             aVar2.a("", str, i, false);
         }
     }

@@ -8,9 +8,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.plugin.PluginErrorTipView;
 import com.baidu.tieba.person.listview.BdPersonListView;
 import com.baidu.tieba.w;
@@ -18,116 +19,118 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class s implements View.OnClickListener {
-    protected NoNetworkView aZX;
-    protected TbPageContext aas;
-    protected PluginErrorTipView bMu;
-    protected int bos;
-    protected r bxW;
-    protected BdPersonListView eKW;
-    protected LinearLayout eKX;
-    protected View eNI;
-    protected View eNJ;
-    protected q fQB;
-    private int fQC;
-    public x fQD;
-    protected View fQE;
-    protected View fQF;
-    protected View fQG;
-    protected View fQH;
-    protected com.baidu.tieba.model.b fQI;
-    private z fQJ;
-    protected TextView fQL;
-    protected TextView fQM;
-    private View fQN;
-    private int fQP;
+    protected TbPageContext aat;
+    protected PluginErrorTipView bSV;
+    protected NoNetworkView bbO;
+    protected int bsi;
+    protected r eRa;
+    protected BdPersonListView eUV;
+    protected LinearLayout eUW;
+    protected View eXR;
+    protected View eXS;
+    private z gaA;
+    protected TextView gaC;
+    protected TextView gaD;
+    private View gaE;
+    private int gaG;
+    protected q gas;
+    private int gat;
+    public x gau;
+    protected View gav;
+    protected View gaw;
+    protected View gax;
+    protected View gay;
+    protected com.baidu.tieba.model.b gaz;
     protected NavigationBar mNavigationBar;
     public View mRootView;
-    private com.baidu.tbadk.i.h refreshView;
-    private int akz = aq.getColor(w.e.cp_cont_b);
-    private int akA = aq.getColor(w.e.cp_cont_f);
-    private boolean boq = true;
-    private boolean fQK = false;
-    protected boolean fQO = false;
-    private int aQl = 0;
+    protected BaseWebView mWebView;
+    private int aln = as.getColor(w.e.cp_cont_b);
+    private int alo = as.getColor(w.e.cp_cont_f);
+    private boolean bsg = true;
+    private boolean gaB = false;
+    protected boolean gaF = false;
+    private int aRD = 0;
 
     protected abstract void a(float f, boolean z);
 
     public s(TbPageContext tbPageContext) {
-        this.aas = tbPageContext;
+        this.aat = tbPageContext;
     }
 
-    public void N(View view) {
-        this.fQO = UtilHelper.canUseStyleImmersiveSticky();
-        this.fQP = this.fQO ? com.baidu.adp.lib.util.k.dip2px(this.aas.getContext(), 20.0f) : com.baidu.adp.lib.util.k.dip2px(this.aas.getContext(), 10.0f);
+    public void O(View view) {
+        this.gaF = UtilHelper.canUseStyleImmersiveSticky();
+        this.gaG = com.baidu.adp.lib.util.k.dip2px(this.aat.getContext(), this.gaF ? 20 : 10);
         this.mRootView = view;
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(w.h.person_center_navigation_bar);
-        this.aZX = (NoNetworkView) this.mRootView.findViewById(w.h.person_center_no_network_view);
-        this.bMu = (PluginErrorTipView) this.mRootView.findViewById(w.h.person_center_plugin_error_tip_view);
-        this.eKW = (BdPersonListView) this.mRootView.findViewById(w.h.person_center_listview);
-        this.eKX = (LinearLayout) this.mRootView.findViewById(w.h.person_center_blank_view);
-        this.fQH = this.eKX.findViewById(w.h.sticky_view);
-        this.fQN = this.eKX.findViewById(w.h.person_center_sticky_person_buttom_header);
-        this.fQL = (TextView) this.eKX.findViewById(w.h.fourm_name_btn);
-        this.fQM = (TextView) this.eKX.findViewById(w.h.reply_btn);
-        this.eNI = this.eKX.findViewById(w.h.fourm_name_divider);
-        this.eNJ = this.eKX.findViewById(w.h.reply_btn_divider);
-        this.fQL.setOnClickListener(this);
-        this.fQM.setOnClickListener(this);
+        this.bbO = (NoNetworkView) this.mRootView.findViewById(w.h.person_center_no_network_view);
+        this.bSV = (PluginErrorTipView) this.mRootView.findViewById(w.h.person_center_plugin_error_tip_view);
+        this.eUV = (BdPersonListView) this.mRootView.findViewById(w.h.person_center_listview);
+        this.eUW = (LinearLayout) this.mRootView.findViewById(w.h.person_center_blank_view);
+        this.gay = this.eUW.findViewById(w.h.sticky_view);
+        this.gaE = this.eUW.findViewById(w.h.person_center_sticky_person_buttom_header);
+        this.gaC = (TextView) this.eUW.findViewById(w.h.fourm_name_btn);
+        this.gaD = (TextView) this.eUW.findViewById(w.h.reply_btn);
+        this.eXR = this.eUW.findViewById(w.h.fourm_name_divider);
+        this.eXS = this.eUW.findViewById(w.h.reply_btn_divider);
+        this.gaC.setOnClickListener(this);
+        this.gaD.setOnClickListener(this);
+        this.mWebView = (BaseWebView) this.mRootView.findViewById(w.h.webview);
     }
 
     public void initUI() {
         this.mNavigationBar.showBottomLine(false);
-        this.fQB.a(this.aas.getPageActivity(), this.mNavigationBar);
-        this.eKW.setOnScrollListener(new t(this));
+        this.gas.a(this.aat.getPageActivity(), this.mNavigationBar);
+        this.eUV.setOnScrollListener(new t(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void adW() {
+    public void ahK() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aRw() {
+    public void aVE() {
     }
 
     public void onChangeSkinType(int i) {
-        this.akz = aq.getColor(w.e.cp_cont_b);
-        this.akA = aq.getColor(w.e.cp_cont_f);
-        aq.j(this.eKX, w.g.item_person_header_attention_bg_selector);
-        aq.k(this.eNI, w.e.cp_cont_b);
-        aq.k(this.eNJ, w.e.cp_cont_b);
-        aq.j(this.fQN, w.g.item_person_header_attention_bg_selector);
-        aq.j(this.mRootView, w.e.cp_bg_line_d);
+        this.aln = as.getColor(w.e.cp_cont_b);
+        this.alo = as.getColor(w.e.cp_cont_f);
+        as.j(this.eUW, w.g.item_person_header_attention_bg_selector);
+        as.k(this.eXR, w.e.cp_cont_b);
+        as.k(this.eXS, w.e.cp_cont_b);
+        as.j(this.gaE, w.g.item_person_header_attention_bg_selector);
+        as.j(this.mRootView, w.e.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(null, i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
-        this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(aq.cN(w.g.s_navbar_bg)));
-        this.fQB.onChangeSkinType(i);
-        this.aZX.onChangeSkinType(this.aas, i);
-        this.bMu.onChangeSkinType(this.aas, i);
-        this.fQD.onChangeSkinType(i);
-        if (this.eKW.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.eKW.getAdapter()).notifyDataSetChanged();
+        this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(as.cP(w.g.s_navbar_bg)));
+        if (this.gas != null) {
+            this.gas.onChangeSkinType(i);
         }
-        if (this.refreshView != null) {
-            this.refreshView.onChangeSkinType();
+        this.bbO.onChangeSkinType(this.aat, i);
+        this.bSV.onChangeSkinType(this.aat, i);
+        if (this.gau != null) {
+            this.gau.onChangeSkinType(i);
         }
-        cw(this.aQl);
+        if (this.eUV != null && (this.eUV.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
+            ((com.baidu.adp.widget.ListView.e) this.eUV.getAdapter()).notifyDataSetChanged();
+        }
+        cy(this.aRD);
     }
 
     public void setOnViewResponseListener(r rVar) {
-        this.bxW = rVar;
-        this.fQB.setOnViewResponseListener(rVar);
+        this.eRa = rVar;
+        this.gas.setOnViewResponseListener(rVar);
     }
 
     public void a(com.baidu.tieba.model.b bVar) {
-        this.fQI = bVar;
+        this.gaz = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Rw() {
-        if (Build.VERSION.SDK_INT >= 11 && this.fQD != null) {
-            int dimension = (int) this.aas.getResources().getDimension(w.f.ds98);
-            int i = -this.fQD.RG().getTop();
-            int height = this.fQD.RG().getHeight();
+    public void Tl() {
+        if (Build.VERSION.SDK_INT >= 11 && this.gau != null) {
+            int dimension = (int) this.aat.getResources().getDimension(w.f.ds98);
+            int i = -this.gau.Tv().getTop();
+            int height = this.gau.Tv().getHeight();
             int i2 = height / 3;
             if (i < i2) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
@@ -142,7 +145,7 @@ public abstract class s implements View.OnClickListener {
                 this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
             }
-            if (this.eKW.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
+            if (this.eUV.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                 this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
             }
@@ -150,89 +153,89 @@ public abstract class s implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Rx() {
+    public void Tm() {
         if (2 != TbadkCoreApplication.m9getInst().getSkinType()) {
             float alpha = this.mNavigationBar.getBarBgView().getAlpha();
             if (alpha < 0.5f) {
-                if (!this.boq) {
-                    this.boq = true;
+                if (!this.bsg) {
+                    this.bsg = true;
                 }
-            } else if (this.boq) {
-                this.boq = false;
+            } else if (this.bsg) {
+                this.bsg = false;
             }
-            a(alpha, !this.boq);
-            this.fQB.b(alpha, this.boq ? false : true);
+            a(alpha, !this.bsg);
+            this.gas.b(alpha, this.bsg ? false : true);
         }
     }
 
-    public void cb(List<com.baidu.adp.widget.ListView.v> list) {
-        if (com.baidu.tbadk.core.util.x.r(list)) {
+    public void cq(List<com.baidu.adp.widget.ListView.v> list) {
+        if (com.baidu.tbadk.core.util.z.t(list)) {
             list = new ArrayList<>();
         }
-        if (this.eKW.getVisibility() != 0) {
-            this.eKW.setVisibility(0);
+        if (this.eUV.getVisibility() != 0) {
+            this.eUV.setVisibility(0);
         }
-        this.eKW.setData(list);
+        this.eUV.setData(list);
     }
 
-    public void jt(boolean z) {
+    public void jR(boolean z) {
         if (z) {
-            this.eKW.smoothScrollToPosition(0);
+            this.eUV.smoothScrollToPosition(0);
         }
-        this.fQD.lb();
+        this.gau.kZ();
     }
 
-    public void bms() {
-        this.eKW.postDelayed(new u(this), 150L);
+    public void bqC() {
+        this.eUV.postDelayed(new u(this), 150L);
     }
 
     public void a(z zVar) {
-        this.fQJ = zVar;
+        this.gaA = zVar;
     }
 
-    public NavigationBar aaU() {
+    public NavigationBar aeL() {
         return this.mNavigationBar;
     }
 
-    public void pz(int i) {
+    public void pS(int i) {
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == w.h.fourm_name_btn) {
-            pz(0);
-            this.eNI.setVisibility(0);
-            this.eNJ.setVisibility(4);
-            this.fQL.setTextColor(this.akz);
-            this.fQM.setTextColor(this.akA);
-            this.aQl = 0;
+            pS(0);
+            this.eXR.setVisibility(0);
+            this.eXS.setVisibility(4);
+            this.gaC.setTextColor(this.aln);
+            this.gaD.setTextColor(this.alo);
+            this.aRD = 0;
         } else if (view.getId() == w.h.reply_btn) {
-            pz(1);
-            this.eNI.setVisibility(4);
-            this.eNJ.setVisibility(0);
-            this.fQL.setTextColor(this.akA);
-            this.fQM.setTextColor(this.akz);
-            this.aQl = 1;
+            pS(1);
+            this.eXR.setVisibility(4);
+            this.eXS.setVisibility(0);
+            this.gaC.setTextColor(this.alo);
+            this.gaD.setTextColor(this.aln);
+            this.aRD = 1;
         }
     }
 
-    private void cw(int i) {
-        this.aQl = i;
+    private void cy(int i) {
+        this.aRD = i;
         if (i == 0) {
-            this.eNI.setVisibility(0);
-            this.eNJ.setVisibility(4);
-            this.fQL.setTextColor(this.akz);
-            this.fQM.setTextColor(this.akA);
+            this.eXR.setVisibility(0);
+            this.eXS.setVisibility(4);
+            this.gaC.setTextColor(this.aln);
+            this.gaD.setTextColor(this.alo);
             return;
         }
-        this.eNI.setVisibility(4);
-        this.eNJ.setVisibility(0);
-        this.fQL.setTextColor(this.akA);
-        this.fQM.setTextColor(this.akz);
+        this.eXR.setVisibility(4);
+        this.eXS.setVisibility(0);
+        this.gaC.setTextColor(this.alo);
+        this.gaD.setTextColor(this.aln);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void oA(int i) {
-        cw(i);
+    public void oR(int i) {
+        cy(i);
     }
 }

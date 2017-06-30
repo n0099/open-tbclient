@@ -1,24 +1,24 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.model.CheckRealNameModel;
-import com.baidu.tieba.w;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* loaded from: classes.dex */
-class d implements CheckRealNameModel.a {
+class d extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(MainTabActivity mainTabActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tieba.model.CheckRealNameModel.a
-    public void a(int i, String str, String str2, Object obj) {
-        ak akVar;
-        if (CheckRealNameModel.TYPE_APP_FIRST_START.equals(str2) && i == 1990055) {
-            TiebaStatic.log("c12138");
-            akVar = this.this$0.fGm;
-            akVar.qG(this.this$0.getResources().getString(w.l.check_real_name_message));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && com.baidu.adp.lib.util.k.hA()) {
+            this.this$0.boa();
         }
     }
 }

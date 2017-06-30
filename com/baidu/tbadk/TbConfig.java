@@ -221,6 +221,7 @@ public class TbConfig {
     public static final String LOG_SYNC_SWITCH = "http://tb1.bdstatic.com/tb/client/logsync3.js";
     public static final String LOG_TOGETHER = "c/s/logtogether";
     public static final String LOG_UPLOAD_URL = "c/s/newlog";
+    public static final int MAINTAB_NO_INTEREST = 1;
     public static final String MAIN_PACKAGE_NAME = "com.baidu.tieba";
     public static final String MANAGE_ADDRESS = "http://tieba.baidu.com/mo/q/bawuindex";
     public static final String MARK_ADDSTORE = "c/c/post/addstore";
@@ -231,6 +232,7 @@ public class TbConfig {
     public static final int MAX_CASH_FRIEND_PHOTO_NUM = 500;
     public static final int MAX_CASH_PB_PHOTO_NUM = 500;
     public static final int MAX_CASH_USER_ICON_NUM = 100;
+    public static final int MAX_EMOTION_COUNT = 10;
     public static final int MAX_FRS_ICON_NUM = 3;
     public static final int MAX_HOME_ICON_NUM = 3;
     public static final int MAX_PB_ICON_NUM = 3;
@@ -342,6 +344,7 @@ public class TbConfig {
     public static final String REPORT_PLOG = "https://als.baidu.com/elog/plog";
     public static final String SAVE_GAME_STATUS = "c/c/game/saveGameStatus";
     public static final String SEARCH_FRIEND = "c/r/friend/searchFriend";
+    public static final String SEARCH_POST_FORUM = "c/f/forum/searchPostForum";
     public static final String SEND_BLESS = "c/b/commit/sendBless";
     public static final String SEND_FREE_GIFT = "c/c/encourage/present/sendFreeGift";
     public static final String SEND_GIFT = "c/c/gift/send";
@@ -400,8 +403,10 @@ public class TbConfig {
     public static final int UPLOAD_IMAGE_QUALITY_HIGH = 1;
     public static final int UPLOAD_IMAGE_QUALITY_LOW = 3;
     public static final int UPLOAD_IMAGE_QUALITY_MID = 2;
+    public static final String URL_ADD_EXPERIENCED = "c/c/forum/share";
     public static final String URL_APPLY_COPY_THREAD = "c/c/livegroup/applycopythread";
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
+    public static final String URL_CHECK_BIG_V = "c/u/user/getvuserinfo";
     public static final String URL_CHECK_REAL_NAME = "c/s/checkRealName";
     public static final String URL_CHECK_VIDEO_STATUS = "c/c/video/uploadVideoStatus";
     public static final String URL_DELETE_GRAFFITTI = "c/c/graffiti/remove";
@@ -411,7 +416,9 @@ public class TbConfig {
     public static final String URL_GET_HOME_PAGE_DATA = "c/f/index/homePage";
     public static final String URL_GET_HOT_RANKLIST_DATA = "c/f/recommend/topicList";
     public static final String URL_GET_HOT_TOPIC_DATA = "c/f/recommend/hottopic";
+    public static final String URL_GET_INTEREST_LABEL_LIST = "c/f/recommtag/getTagList";
     public static final String URL_GET_TOPIC_RELATE_THREAD = "c/f/recommend/getTopicRelateThread";
+    public static final String URL_IMAGE_PREFIX = "http://c.tieba.baidu.com/c/p/img?src=";
     public static final String URL_JUMP_TAG_CARDBOX = "https://tieba.baidu.com/n/apage-runtime/page/packet?tieba_hybrid_enabled=1";
     public static final String URL_JUMP_TAG_WALLET = "http://www.bdwallet.activity";
     public static final String URL_MANGA_CHAPTER_ALL = "c/e/cartoon/getAllChapters";
@@ -420,6 +427,7 @@ public class TbConfig {
     public static final String URL_MANGA_REPORT = "c/e/cartoon/getReportType";
     public static final String URL_MANGA_REPORT_TYPE = "c/e/cartoon/getReportType";
     public static final String URL_PLAY_STATISTICS = "c/c/video/playStat";
+    public static final String URL_SUB_INTEREST_LABEL_LIST = "c/f/recommtag/subTagList";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
     public static final String URL_UPLOAD_VIDEO = "c/c/video/uploadVideoData";
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
@@ -650,7 +658,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.DH().eO(i);
+            c.Eb().eQ(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

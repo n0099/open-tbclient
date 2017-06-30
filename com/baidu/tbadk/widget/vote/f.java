@@ -5,11 +5,11 @@ import com.baidu.tbadk.widget.vote.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ e aPm;
+    final /* synthetic */ e aQE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.aPm = eVar;
+        this.aQE = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,15 +20,15 @@ public class f implements View.OnClickListener {
         a aVar3;
         int i;
         boolean z2;
-        e eVar = this.aPm;
-        z = this.aPm.isSelected;
+        e eVar = this.aQE;
+        z = this.aQE.isSelected;
         eVar.setSelected(!z);
-        aVar = this.aPm.aPk;
+        aVar = this.aQE.aQC;
         if (aVar != null) {
-            aVar2 = this.aPm.aPk;
-            aVar3 = this.aPm.aPe;
-            i = this.aPm.position;
-            z2 = this.aPm.isSelected;
+            aVar2 = this.aQE.aQC;
+            aVar3 = this.aQE.aQw;
+            i = this.aQE.position;
+            z2 = this.aQE.isSelected;
             aVar2.b(aVar3, i, z2);
         }
     }

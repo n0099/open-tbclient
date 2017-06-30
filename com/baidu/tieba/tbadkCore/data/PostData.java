@@ -27,15 +27,14 @@ import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.data.as;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.at;
+import com.baidu.tbadk.core.data.bf;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tbadk.core.view.ar;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.widget.richText.TbRichText;
@@ -59,151 +58,152 @@ import tbclient.SubPost;
 import tbclient.SubPostList;
 import tbclient.TPointPost;
 /* loaded from: classes.dex */
-public class PostData implements v, ah {
-    private SkinInfo YC;
-    private String YF;
-    private TbRichTextVoiceInfo aNc;
+public class PostData implements v, aj {
+    private SkinInfo YD;
+    private String YG;
+    private TbRichTextVoiceInfo anc;
     @Deprecated
     private String authorId;
     private String bimg_url;
-    private String eif;
-    private SmallTailInfo ezt;
-    private be fCA;
-    private com.baidu.tbadk.widget.richText.e fCB;
-    private String fCC;
-    private String fCD;
-    private TPointPost fCF;
-    public int fCJ;
-    private ArrayList<PostData> fCp;
-    private com.baidu.tbadk.data.b fCv;
-    private com.baidu.tbadk.data.g fCw;
-    private h fCz;
+    private SmallTailInfo eIP;
+    private String erc;
+    private com.baidu.tbadk.data.g fMA;
+    private h fMD;
+    private bf fME;
+    private com.baidu.tbadk.widget.richText.e fMF;
+    private String fMG;
+    private String fMH;
+    private TPointPost fMJ;
+    public int fMO;
+    private ArrayList<PostData> fMt;
+    private com.baidu.tbadk.data.b fMz;
     private HashMap<String, MetaData> userMap;
-    public static final BdUniqueId fCb = BdUniqueId.gen();
-    public static final BdUniqueId fCc = BdUniqueId.gen();
-    public static final BdUniqueId fCd = BdUniqueId.gen();
-    public static final BdUniqueId YD = BdUniqueId.gen();
-    public static final BdUniqueId fCe = BdUniqueId.gen();
+    public static final BdUniqueId fMf = BdUniqueId.gen();
+    public static final BdUniqueId fMg = BdUniqueId.gen();
+    public static final BdUniqueId fMh = BdUniqueId.gen();
+    public static final BdUniqueId YE = BdUniqueId.gen();
+    public static final BdUniqueId fMi = BdUniqueId.gen();
     public static final BdUniqueId Xr = BdUniqueId.gen();
-    public static final BdUniqueId fCf = BdUniqueId.gen();
-    public static final BdUniqueId fCg = BdUniqueId.gen();
-    public static final BdUniqueId fCh = BdUniqueId.gen();
-    public static final BdUniqueId fCi = BdUniqueId.gen();
-    public static final BdUniqueId fCj = BdUniqueId.gen();
-    public static final BdUniqueId ejb = BdUniqueId.gen();
-    public static final BdUniqueId fCk = BdUniqueId.gen();
-    public static final BdUniqueId fCl = BdUniqueId.gen();
-    public static boolean fCm = false;
-    private int fCn = 0;
-    private boolean fCq = false;
-    private ArrayList<PostData> fCr = null;
-    private TbRichText dqh = null;
-    private boolean fCu = false;
-    private boolean fCx = false;
-    private boolean fCy = false;
-    public int Ye = 0;
-    public boolean fCE = false;
-    private boolean fCG = false;
-    private long fCH = 0;
-    private boolean fCI = false;
-    public boolean fCK = false;
-    public boolean fCL = true;
-    public boolean cdg = false;
-    public boolean fCM = false;
+    public static final BdUniqueId fMj = BdUniqueId.gen();
+    public static final BdUniqueId fMk = BdUniqueId.gen();
+    public static final BdUniqueId fMl = BdUniqueId.gen();
+    public static final BdUniqueId fMm = BdUniqueId.gen();
+    public static final BdUniqueId fMn = BdUniqueId.gen();
+    public static final BdUniqueId erY = BdUniqueId.gen();
+    public static final BdUniqueId fMo = BdUniqueId.gen();
+    public static final BdUniqueId fMp = BdUniqueId.gen();
+    public static boolean fMq = false;
+    private int fMr = 0;
+    private boolean fMu = false;
+    private ArrayList<PostData> fMv = null;
+    private TbRichText dyV = null;
+    private boolean fMy = false;
+    private boolean fMB = false;
+    private boolean fMC = false;
+    public int Yf = 0;
+    public boolean fMI = false;
+    private boolean fMK = false;
+    private long fML = 0;
+    private boolean fMM = false;
+    public boolean fMN = false;
+    public boolean fMP = false;
+    public boolean fMQ = true;
+    public boolean cls = false;
+    public boolean fMR = false;
     private String id = null;
     private String title = null;
     private int floor_num = 0;
     private long time = 0;
     private String date = null;
     private MetaData author = new MetaData();
-    private ArrayList<k> dnT = new ArrayList<>();
-    private ArrayList<k> doK = new ArrayList<>();
-    private int fCo = 0;
-    private int Yo = 0;
+    private ArrayList<k> dvP = new ArrayList<>();
+    private ArrayList<k> dwF = new ArrayList<>();
+    private int fMs = 0;
+    private int Yp = 0;
     private PraiseData XS = new PraiseData();
-    private as fCs = new as();
-    private c fCt = new c();
-    private ArrayList<com.baidu.tbadk.data.b> YA = new ArrayList<>();
+    private at fMw = new at();
+    private c fMx = new c();
+    private ArrayList<com.baidu.tbadk.data.b> YB = new ArrayList<>();
 
     public PostData() {
-        this.fCp = null;
-        this.fCJ = 0;
-        this.fCp = new ArrayList<>();
-        this.fCJ = 0;
+        this.fMt = null;
+        this.fMO = 0;
+        this.fMt = new ArrayList<>();
+        this.fMO = 0;
     }
 
-    public ArrayList<PostData> bia() {
-        return this.fCr;
+    public ArrayList<PostData> bmo() {
+        return this.fMv;
     }
 
-    public void w(PostData postData) {
+    public void y(PostData postData) {
         if (postData != null) {
-            if (this.fCr == null) {
-                this.fCr = new ArrayList<>();
-                if (x.q(this.fCp) > 2) {
-                    this.fCr.addAll(x.a(this.fCp, 0, 2));
+            if (this.fMv == null) {
+                this.fMv = new ArrayList<>();
+                if (z.s(this.fMt) > 2) {
+                    this.fMv.addAll(z.a(this.fMt, 0, 2));
                 } else {
-                    this.fCr.addAll(this.fCp);
+                    this.fMv.addAll(this.fMt);
                 }
             }
-            this.fCr.add(postData);
+            this.fMv.add(postData);
         }
     }
 
-    public void x(PostData postData) {
-        if (postData != null && this.fCp != null) {
-            this.fCp.add(postData);
-            bie();
+    public void z(PostData postData) {
+        if (postData != null && this.fMt != null) {
+            this.fMt.add(postData);
+            bms();
         }
     }
 
-    public void qm(String str) {
-        if (this.fCr != null && !StringUtils.isNull(str)) {
-            Iterator<PostData> it = this.fCr.iterator();
+    public void rk(String str) {
+        if (this.fMv != null && !StringUtils.isNull(str)) {
+            Iterator<PostData> it = this.fMv.iterator();
             while (it.hasNext()) {
                 PostData next = it.next();
                 if (next != null && str.equals(next.getId())) {
-                    this.fCr.remove(next);
+                    this.fMv.remove(next);
                     return;
                 }
             }
         }
     }
 
-    public void lr(boolean z) {
-        this.fCq = z;
+    public void lQ(boolean z) {
+        this.fMu = z;
     }
 
-    public boolean bib() {
-        return this.fCq;
+    public boolean bmp() {
+        return this.fMu;
     }
 
-    public c bic() {
-        return this.fCt;
+    public c bmq() {
+        return this.fMx;
     }
 
-    public ArrayList<PostData> bid() {
-        return this.fCp;
+    public ArrayList<PostData> bmr() {
+        return this.fMt;
     }
 
-    public void bie() {
-        this.fCo++;
+    public void bms() {
+        this.fMs++;
     }
 
-    public void bif() {
-        this.fCo--;
+    public void bmt() {
+        this.fMs--;
     }
 
-    public void sl(int i) {
-        this.fCo = i;
+    public void sE(int i) {
+        this.fMs = i;
     }
 
     public boolean isGiftPost() {
-        return this.fCx;
+        return this.fMB;
     }
 
     public void setIsGiftPost(boolean z) {
-        this.fCx = z;
+        this.fMB = z;
     }
 
     public void setUserMap(HashMap<String, MetaData> hashMap) {
@@ -222,24 +222,24 @@ public class PostData implements v, ah {
         this.title = str;
     }
 
-    public String aIn() {
-        return this.eif;
+    public String aMh() {
+        return this.erc;
     }
 
-    public int big() {
+    public int bmu() {
         return this.floor_num;
     }
 
-    public void sm(int i) {
+    public void sF(int i) {
         this.floor_num = i;
     }
 
-    public boolean bih() {
-        return this.fCy;
+    public boolean bmv() {
+        return this.fMC;
     }
 
-    public void ls(boolean z) {
-        this.fCy = z;
+    public void lR(boolean z) {
+        this.fMC = z;
     }
 
     public long getTime() {
@@ -248,10 +248,10 @@ public class PostData implements v, ah {
 
     public void setTime(long j) {
         this.time = j;
-        this.date = au.q(j);
+        this.date = aw.q(j);
     }
 
-    public String bii() {
+    public String bmw() {
         return this.date;
     }
 
@@ -267,32 +267,32 @@ public class PostData implements v, ah {
         this.XS = praiseData;
     }
 
-    public TbRichText avd() {
-        return this.dqh;
+    public TbRichText azb() {
+        return this.dyV;
     }
 
-    public void f(TbRichText tbRichText) {
-        this.dqh = tbRichText;
+    public void g(TbRichText tbRichText) {
+        this.dyV = tbRichText;
     }
 
     public String getBimg_url() {
         return this.bimg_url;
     }
 
-    public SmallTailInfo aOB() {
-        return this.ezt;
+    public SmallTailInfo aSA() {
+        return this.eIP;
     }
 
     public void a(SmallTailInfo smallTailInfo) {
-        this.ezt = smallTailInfo;
+        this.eIP = smallTailInfo;
     }
 
-    public com.baidu.tbadk.data.g bij() {
-        return this.fCw;
+    public com.baidu.tbadk.data.g bmx() {
+        return this.fMA;
     }
 
-    public SkinInfo rP() {
-        return this.YC;
+    public SkinInfo rM() {
+        return this.YD;
     }
 
     public void a(TbPageContext tbPageContext, boolean z) {
@@ -301,15 +301,11 @@ public class PostData implements v, ah {
         String str2;
         TbRichTextVoiceInfo tbRichTextVoiceInfo;
         TbRichTextData tbRichTextData;
-        if (tbPageContext != null && this.dqh != null && this.dqh.Hx() != null) {
+        if (tbPageContext != null && this.dyV != null && this.dyV.HU() != null) {
             BdUniqueId uniqueId = tbPageContext.getUniqueId();
-            ArrayList<IconData> tShowInfoNew = getAuthor().getTShowInfoNew();
-            if (tShowInfoNew != null) {
-                tShowInfoNew.size();
-            }
             String str3 = z ? " 楼主" : "";
-            TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds36);
             ArrayList arrayList = new ArrayList();
+            ArrayList<IconData> tShowInfoNew = getAuthor().getTShowInfoNew();
             if (tShowInfoNew != null) {
                 Iterator<IconData> it = tShowInfoNew.iterator();
                 while (it.hasNext()) {
@@ -343,15 +339,15 @@ public class PostData implements v, ah {
                 spannableString.setSpan(arrayList.get(i2), i2, i2 + 1, 17);
             }
             if (!StringUtils.isNull(this.author.getSealPrefix())) {
-                Bitmap cM = aq.cM(w.g.pic_smalldot_title);
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(cM);
-                if (cM != null) {
-                    bitmapDrawable.setBounds(0, 0, cM.getWidth(), cM.getHeight());
+                Bitmap cO = as.cO(w.g.pic_smalldot_title);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(cO);
+                if (cO != null) {
+                    bitmapDrawable.setBounds(0, 0, cO.getWidth(), cO.getHeight());
                 }
-                ar arVar = new ar(bitmapDrawable);
-                arVar.setOffset(com.baidu.adp.lib.util.k.g(tbPageContext.getPageActivity(), w.f.ds2));
+                com.baidu.tbadk.core.view.as asVar = new com.baidu.tbadk.core.view.as(bitmapDrawable);
+                asVar.setOffset(com.baidu.adp.lib.util.k.g(tbPageContext.getPageActivity(), w.f.ds2));
                 int size = arrayList.size() + this.author.getSealPrefix().length() + 1;
-                spannableString.setSpan(arVar, size, size + 1, 17);
+                spannableString.setSpan(asVar, size, size + 1, 17);
             }
             spannableString.setSpan(new a(tbPageContext.getPageActivity(), str, str2), 0, spannableString.length(), 18);
             if (z) {
@@ -365,26 +361,26 @@ public class PostData implements v, ah {
                     spannableString.setSpan(customForegroundColorSpan, sb2.length(), str3.length() + sb2.length(), 17);
                 }
             }
-            ArrayList<TbRichTextData> Hx = this.dqh.Hx();
-            if (Hx != null && Hx.size() > 0) {
-                TbRichTextData tbRichTextData2 = Hx.get(0);
-                if (tbRichTextData2.HE() != null) {
-                    tbRichTextData2.fr(sb.length());
-                    tbRichTextData2.HE().insert(0, (CharSequence) spannableString);
+            ArrayList<TbRichTextData> HU = this.dyV.HU();
+            if (HU != null && HU.size() > 0) {
+                TbRichTextData tbRichTextData2 = HU.get(0);
+                if (tbRichTextData2.Ib() != null) {
+                    tbRichTextData2.ft(sb.length());
+                    tbRichTextData2.Ib().insert(0, (CharSequence) spannableString);
                     return;
                 }
                 int i3 = 0;
                 while (true) {
                     int i4 = i3;
-                    if (i4 >= Hx.size()) {
+                    if (i4 >= HU.size()) {
                         tbRichTextVoiceInfo = null;
                         break;
-                    } else if (Hx.get(i4) == null || Hx.get(i4).getType() != 512) {
+                    } else if (HU.get(i4) == null || HU.get(i4).getType() != 512) {
                         i3 = i4 + 1;
                     } else {
-                        TbRichTextVoiceInfo HF = Hx.get(i4).HF();
-                        Hx.remove(i4);
-                        tbRichTextVoiceInfo = HF;
+                        TbRichTextVoiceInfo Ic = HU.get(i4).Ic();
+                        HU.remove(i4);
+                        tbRichTextVoiceInfo = Ic;
                         break;
                     }
                 }
@@ -394,38 +390,38 @@ public class PostData implements v, ah {
                 } else {
                     tbRichTextData = new TbRichTextData(1);
                 }
-                tbRichTextData.fr(sb.length());
+                tbRichTextData.ft(sb.length());
                 tbRichTextData.append(spannableString);
-                Hx.add(0, tbRichTextData);
+                HU.add(0, tbRichTextData);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Drawable g(com.baidu.adp.widget.a.a aVar) {
-        Bitmap kR;
-        if (aVar == null || (kR = aVar.kR()) == null) {
+        Bitmap kP;
+        if (aVar == null || (kP = aVar.kP()) == null) {
             return null;
         }
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(kR);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(kP);
         bitmapDrawable.setBounds(0, 0, TbadkCoreApplication.m9getInst().getApp().getApplicationContext().getResources().getDimensionPixelSize(w.f.ds36), TbadkCoreApplication.m9getInst().getApp().getApplicationContext().getResources().getDimensionPixelSize(w.f.ds36));
         return bitmapDrawable;
     }
 
-    public int bik() {
-        return this.fCo;
+    public int bmy() {
+        return this.fMs;
     }
 
-    public void bS(Context context) {
+    public void bM(Context context) {
         int type;
         int i;
         int i2;
-        if (this.dnT != null) {
+        if (this.dvP != null) {
             int i3 = -1;
-            int size = this.doK.size();
+            int size = this.dwF.size();
             if (size > 0) {
                 try {
-                    i3 = this.doK.get(size - 1).getType();
+                    i3 = this.dwF.get(size - 1).getType();
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     return;
@@ -433,21 +429,21 @@ public class PostData implements v, ah {
             }
             int i4 = 0;
             int i5 = i3;
-            while (i4 < this.dnT.size()) {
-                k kVar = this.dnT.get(i4);
-                if (k.bm(i5, kVar.getType())) {
-                    this.doK.get(size - 1).a(kVar.bR(context));
+            while (i4 < this.dvP.size()) {
+                k kVar = this.dvP.get(i4);
+                if (k.bv(i5, kVar.getType())) {
+                    this.dwF.get(size - 1).b(kVar.bL(context));
                     i2 = size;
                     i = i5;
                 } else {
                     if (kVar.getType() == 3 || kVar.getType() == 2 || kVar.getType() == 11) {
-                        this.doK.add(kVar);
+                        this.dwF.add(kVar);
                         type = kVar.getType();
                     } else {
                         k kVar2 = new k();
                         kVar2.setType(0);
-                        kVar2.a(kVar.bR(context));
-                        this.doK.add(kVar2);
+                        kVar2.b(kVar.bL(context));
+                        this.dwF.add(kVar2);
                         type = 0;
                     }
                     i = type;
@@ -460,26 +456,26 @@ public class PostData implements v, ah {
         }
     }
 
-    public void bT(Context context) {
+    public void bN(Context context) {
         try {
-            if (this.dqh != null) {
+            if (this.dyV != null) {
                 ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService("clipboard");
-                clipboardManager.setText(this.dqh.toString());
+                clipboardManager.setText(this.dyV.toString());
                 clipboardManager.getText();
                 return;
             }
-            if (this.doK == null || this.doK.size() == 0) {
-                bS(context);
+            if (this.dwF == null || this.dwF.size() == 0) {
+                bM(context);
             }
-            ArrayList<k> arrayList = this.doK;
+            ArrayList<k> arrayList = this.dwF;
             if (arrayList != null) {
                 StringBuilder sb = new StringBuilder();
                 Iterator<k> it = arrayList.iterator();
                 while (it.hasNext()) {
                     k next = it.next();
                     if (next.getType() == 0) {
-                        if (next.bhS() != null) {
-                            sb.append((CharSequence) next.bhS());
+                        if (next.bmg() != null) {
+                            sb.append((CharSequence) next.bmg());
                         }
                     } else if (next.getType() == 3) {
                         if (next.getLink() != null) {
@@ -488,14 +484,14 @@ public class PostData implements v, ah {
                     } else if (next.getType() == 6) {
                         sb.append(context.getString(w.l.voice_str));
                     } else if (next.getType() == 2) {
-                        String ff = TbFaceManager.DG().ff(next.getText());
-                        if (ff != null) {
+                        String fz = TbFaceManager.Ea().fz(next.getText());
+                        if (fz != null) {
                             sb.append("[");
-                            sb.append(ff);
+                            sb.append(fz);
                             sb.append("]");
                         }
-                    } else if (next.getType() == 11 && !au.isEmpty(next.bhR())) {
-                        sb.append("[").append(next.bhR()).append("]");
+                    } else if (next.getType() == 11 && !aw.isEmpty(next.bmf())) {
+                        sb.append("[").append(next.bmf()).append("]");
                     }
                 }
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
@@ -523,9 +519,9 @@ public class PostData implements v, ah {
                 this.title = subPostList.title;
                 this.floor_num = subPostList.floor.intValue();
                 this.time = subPostList.time.intValue() * 1000;
-                this.date = au.q(this.time);
+                this.date = aw.q(this.time);
                 this.authorId = String.valueOf(subPostList.author_id);
-                this.fCx = subPostList.is_giftpost.intValue() == 1;
+                this.fMB = subPostList.is_giftpost.intValue() == 1;
                 MetaData metaData2 = new MetaData();
                 metaData2.parserProtobuf(subPostList.author);
                 if (this.authorId != null && this.authorId.length() > 0 && !this.authorId.equals("0") && (metaData = this.userMap.get(this.authorId)) != null) {
@@ -534,9 +530,9 @@ public class PostData implements v, ah {
                 if ((this.author.getUserId() == null || this.author.getUserId().length() <= 0 || this.author.getUserId().equals("0")) && metaData2 != null) {
                     this.author = metaData2;
                 }
-                this.dqh = TbRichTextView.b(context, subPostList.content, z);
-                if (this.dqh != null) {
-                    this.dqh.setPostId(com.baidu.adp.lib.g.b.c(this.id, -1L));
+                this.dyV = TbRichTextView.b(context, subPostList.content, z);
+                if (this.dyV != null) {
+                    this.dyV.setPostId(com.baidu.adp.lib.g.b.c(this.id, -1L));
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -552,65 +548,65 @@ public class PostData implements v, ah {
                 this.title = jSONObject.optString(VrPlayerActivityConfig.TITLE);
                 this.floor_num = jSONObject.optInt("floor", 0);
                 this.time = jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
-                this.date = au.q(this.time);
-                this.eif = jSONObject.optString("time_ex");
+                this.date = aw.q(this.time);
+                this.erc = jSONObject.optString("time_ex");
                 MetaData metaData2 = new MetaData();
                 metaData2.parserJson(jSONObject.optJSONObject("author"));
                 this.authorId = jSONObject.optString("author_id");
                 if (this.authorId != null && this.authorId.length() > 0 && !this.authorId.equals("0") && (metaData = this.userMap.get(this.authorId)) != null) {
                     this.author = metaData;
                 }
-                this.fCA = new be();
-                this.fCA.parserJson(jSONObject.optJSONObject("from_forum"));
+                this.fME = new bf();
+                this.fME.parserJson(jSONObject.optJSONObject("from_forum"));
                 if ((this.author.getUserId() == null || this.author.getUserId().length() <= 0 || this.author.getUserId().equals("0")) && metaData2 != null) {
                     this.author = metaData2;
                 }
                 if (this.author != null && context != null) {
-                    this.fCC = String.valueOf(this.author.getUserName()) + context.getResources().getString(w.l.somebodys_portrait);
-                    this.fCD = String.format(TbadkCoreApplication.m9getInst().getString(w.l.degree_in_forum), Integer.valueOf(this.author.getLevel_id()));
+                    this.fMG = String.valueOf(this.author.getUserName()) + context.getResources().getString(w.l.somebodys_portrait);
+                    this.fMH = String.format(TbadkCoreApplication.m9getInst().getString(w.l.degree_in_forum), Integer.valueOf(this.author.getLevel_id()));
                 }
-                this.fCz = new h(jSONObject.optJSONObject("tpoint_post"));
+                this.fMD = new h(jSONObject.optJSONObject("tpoint_post"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("content");
-                this.fCo = jSONObject.optInt("sub_post_number");
+                this.fMs = jSONObject.optInt("sub_post_number");
                 if (context == null) {
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             k kVar = new k();
                             kVar.parserJson(optJSONArray.optJSONObject(i));
-                            this.dnT.add(kVar);
+                            this.dvP.add(kVar);
                         }
                     }
                 } else {
-                    this.dqh = TbRichTextView.a(context, optJSONArray, true);
-                    if (this.dqh != null) {
-                        this.dqh.setPostId(com.baidu.adp.lib.g.b.c(this.id, -1L));
+                    this.dyV = TbRichTextView.a(context, optJSONArray, true);
+                    if (this.dyV != null) {
+                        this.dyV.setPostId(com.baidu.adp.lib.g.b.c(this.id, -1L));
                     }
                 }
-                if (this.fCo > 0) {
+                if (this.fMs > 0) {
                     JSONArray optJSONArray2 = jSONObject.optJSONObject("sub_post_list").optJSONArray("sub_post_list");
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         PostData postData = new PostData();
                         postData.setUserMap(this.userMap);
                         postData.a(optJSONArray2.getJSONObject(i2), context);
-                        this.fCp.add(postData);
+                        this.fMt.add(postData);
                     }
                 }
                 this.bimg_url = jSONObject.optString("bimg_url");
                 JSONObject optJSONObject = jSONObject.optJSONObject("act_post");
                 if (optJSONObject != null) {
-                    this.fCt.parserJson(optJSONObject);
+                    this.fMx.parserJson(optJSONObject);
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("tail_info");
                 if (optJSONObject2 != null) {
-                    this.fCv = new com.baidu.tbadk.data.b();
-                    this.fCv.parserJson(optJSONObject2);
+                    this.fMz = new com.baidu.tbadk.data.b();
+                    this.fMz.parserJson(optJSONObject2);
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("lbs_info");
                 if (optJSONObject3 != null) {
-                    this.fCw = new com.baidu.tbadk.data.g();
-                    this.fCw.parserJson(optJSONObject3);
+                    this.fMA = new com.baidu.tbadk.data.g();
+                    this.fMA.parserJson(optJSONObject3);
                 }
-                this.fCs.parserJson(jSONObject.optJSONObject("present"));
+                this.fMw.parserJson(jSONObject.optJSONObject("present"));
                 this.XS.setUserMap(this.userMap);
                 this.XS.parserJson(jSONObject.optJSONObject(FeedData.TYPE_ZAN));
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("ext_tails");
@@ -618,18 +614,18 @@ public class PostData implements v, ah {
                     for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                         com.baidu.tbadk.data.b bVar = new com.baidu.tbadk.data.b();
                         bVar.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.YA.add(bVar);
+                        this.YB.add(bVar);
                     }
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("agree");
                 if (optJSONObject4 != null) {
-                    this.fCH = optJSONObject4.optLong("agree_num", 0L);
-                    this.fCI = optJSONObject4.optLong("has_agree", 0L) == 1;
-                    this.fCG = true;
+                    this.fML = optJSONObject4.optLong("agree_num", 0L);
+                    this.fMM = optJSONObject4.optLong("has_agree", 0L) == 1;
+                    this.fMK = true;
                 } else {
-                    this.fCG = false;
+                    this.fMK = false;
                 }
-                this.fCM = jSONObject.optInt("is_post_visible") == 1;
+                this.fMR = jSONObject.optInt("is_post_visible") == 1;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -644,30 +640,31 @@ public class PostData implements v, ah {
                 this.title = post.title;
                 this.floor_num = post.floor.intValue();
                 this.time = post.time.intValue() * 1000;
-                this.date = au.q(this.time);
-                this.eif = post.time_ex;
+                this.date = aw.q(this.time);
+                this.erc = post.time_ex;
                 this.authorId = String.valueOf(post.author_id);
                 if (this.authorId != null && this.authorId.length() > 0 && !this.authorId.equals("0") && (metaData = this.userMap.get(this.authorId)) != null) {
                     this.author = metaData;
                 }
-                this.fCA = new be();
-                this.fCA.parserProtobuf(post.from_forum);
+                this.fMN = post.need_log.intValue() == 1;
+                this.fME = new bf();
+                this.fME.parserProtobuf(post.from_forum);
                 if (this.author.getUserId() == null || this.author.getUserId().length() <= 0 || this.author.getUserId().equals("0")) {
                     this.author.parserProtobuf(post.author);
                 }
                 if (this.author != null && context != null) {
-                    this.fCC = String.valueOf(this.author.getUserName()) + context.getResources().getString(w.l.somebodys_portrait);
-                    this.fCD = String.format(TbadkCoreApplication.m9getInst().getString(w.l.degree_in_forum), Integer.valueOf(this.author.getLevel_id()));
+                    this.fMG = String.valueOf(this.author.getUserName()) + context.getResources().getString(w.l.somebodys_portrait);
+                    this.fMH = String.format(TbadkCoreApplication.m9getInst().getString(w.l.degree_in_forum), Integer.valueOf(this.author.getLevel_id()));
                 }
-                this.fCu = post.is_ntitle.intValue() == 1;
-                this.fCo = post.sub_post_number.intValue();
-                this.fCz = new h(post.tpoint_post);
-                this.dqh = TbRichTextView.b(context, post.content, true);
-                if (this.dqh != null) {
-                    this.dqh.setPostId(com.baidu.adp.lib.g.b.c(this.id, -1L));
-                    this.dqh.fq(this.floor_num);
+                this.fMy = post.is_ntitle.intValue() == 1;
+                this.fMs = post.sub_post_number.intValue();
+                this.fMD = new h(post.tpoint_post);
+                this.dyV = TbRichTextView.b(context, post.content, true);
+                if (this.dyV != null) {
+                    this.dyV.setPostId(com.baidu.adp.lib.g.b.c(this.id, -1L));
+                    this.dyV.fs(this.floor_num);
                     if (this.author != null) {
-                        this.dqh.setAuthorId(this.author.getUserId());
+                        this.dyV.setAuthorId(this.author.getUserId());
                     }
                 }
                 SubPost subPost = post.sub_post_list;
@@ -677,67 +674,67 @@ public class PostData implements v, ah {
                         for (int i = 0; i < list.size(); i++) {
                             SubPostList subPostList = list.get(i);
                             PostData postData = new PostData();
-                            postData.fCx = subPostList.is_giftpost.intValue() == 1;
+                            postData.fMB = subPostList.is_giftpost.intValue() == 1;
                             postData.setUserMap(this.userMap);
                             postData.a(subPostList, context);
-                            this.fCp.add(postData);
+                            this.fMt.add(postData);
                         }
                     }
                 }
                 ActPost actPost = post.act_post;
                 if (actPost != null) {
-                    this.fCt.a(actPost);
+                    this.fMx.a(actPost);
                 }
                 this.bimg_url = post.bimg_url;
                 if (post.tail_info != null) {
-                    this.fCv = new com.baidu.tbadk.data.b();
-                    this.fCv.a(post.tail_info);
+                    this.fMz = new com.baidu.tbadk.data.b();
+                    this.fMz.a(post.tail_info);
                 }
                 if (post.lbs_info != null) {
-                    this.fCw = new com.baidu.tbadk.data.g();
-                    this.fCw.a(post.lbs_info);
+                    this.fMA = new com.baidu.tbadk.data.g();
+                    this.fMA.a(post.lbs_info);
                 }
-                this.Yo = post.storecount.intValue();
-                this.fCs.a(post.present);
+                this.Yp = post.storecount.intValue();
+                this.fMw.a(post.present);
                 this.XS.setUserMap(this.userMap);
                 this.XS.parserProtobuf(post.zan);
                 if (post.signature != null) {
-                    this.ezt = new SmallTailInfo();
-                    this.ezt.id = post.signature.signature_id.intValue();
-                    this.ezt.color = post.signature.fontColor;
+                    this.eIP = new SmallTailInfo();
+                    this.eIP.id = post.signature.signature_id.intValue();
+                    this.eIP.color = post.signature.fontColor;
                     if (post.signature.content != null && post.signature.content.size() != 0) {
-                        this.ezt.content = new ArrayList();
+                        this.eIP.content = new ArrayList();
                         for (SignatureContent signatureContent : post.signature.content) {
-                            List<SmallTailInfo.SmallTailInfoContent> list2 = this.ezt.content;
+                            List<SmallTailInfo.SmallTailInfoContent> list2 = this.eIP.content;
                             SmallTailInfo smallTailInfo = new SmallTailInfo();
                             smallTailInfo.getClass();
                             list2.add(new SmallTailInfo.SmallTailInfoContent(signatureContent.text, signatureContent.type.intValue()));
                         }
                     }
-                    this.ezt.updateShowInfo();
+                    this.eIP.updateShowInfo();
                 }
                 if (post.ext_tails != null) {
                     for (int i2 = 0; i2 != post.ext_tails.size(); i2++) {
                         com.baidu.tbadk.data.b bVar = new com.baidu.tbadk.data.b();
                         bVar.a(post.ext_tails.get(i2));
-                        this.YA.add(bVar);
+                        this.YB.add(bVar);
                     }
                 }
-                this.YC = post.skin_info;
-                this.YF = post.lego_card;
-                this.fCF = post.tpoint_post;
+                this.YD = post.skin_info;
+                this.YG = post.lego_card;
+                this.fMJ = post.tpoint_post;
                 if (post.agree != null) {
-                    this.fCG = true;
-                    this.fCI = post.agree.has_agree.intValue() == 1;
+                    this.fMK = true;
+                    this.fMM = post.agree.has_agree.intValue() == 1;
                     if (post.agree.agree_num.longValue() >= 0) {
-                        this.fCH = post.agree.agree_num.longValue();
+                        this.fML = post.agree.agree_num.longValue();
                     } else {
-                        this.fCH = 0L;
+                        this.fML = 0L;
                     }
                 } else {
-                    this.fCG = false;
+                    this.fMK = false;
                 }
-                this.fCM = post.is_post_visible.intValue() == 1;
+                this.fMR = post.is_post_visible.intValue() == 1;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -746,22 +743,22 @@ public class PostData implements v, ah {
 
     /* loaded from: classes.dex */
     public static class CustomForegroundColorSpan extends ForegroundColorSpan {
-        private int exE;
+        private int eHc;
 
         public CustomForegroundColorSpan(int i) {
-            super(aq.getColor(i));
-            this.exE = i;
+            super(as.getColor(i));
+            this.eHc = i;
         }
 
         @Override // android.text.style.ForegroundColorSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(aq.getColor(this.exE));
+            textPaint.setColor(as.getColor(this.eHc));
         }
     }
 
     /* loaded from: classes.dex */
     public static class a extends ClickableSpan {
-        private SoftReference<Context> fCS;
+        private SoftReference<Context> fMX;
         private String mId;
         private String mName;
 
@@ -770,37 +767,37 @@ public class PostData implements v, ah {
             this.mId = null;
             this.mName = str;
             this.mId = str2;
-            this.fCS = new SoftReference<>(context);
+            this.fMX = new SoftReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(aq.getColor(w.e.cp_link_tip_c));
+            textPaint.setColor(as.getColor(w.e.cp_link_tip_c));
             textPaint.setUnderlineText(false);
             textPaint.setFakeBoldText(false);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (this.mName != null && this.mId != null && this.fCS != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.fCS.get(), this.mId, this.mName, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
+            if (this.mName != null && this.mId != null && this.fMX != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.fMX.get(), this.mId, this.mName, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
             }
         }
     }
 
-    public String bU(Context context) {
-        ArrayList<TbRichTextData> Hx;
-        if (this.dqh == null || (Hx = this.dqh.Hx()) == null) {
+    public String bO(Context context) {
+        ArrayList<TbRichTextData> HU;
+        if (this.dyV == null || (HU = this.dyV.HU()) == null) {
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        Iterator<TbRichTextData> it = Hx.iterator();
+        Iterator<TbRichTextData> it = HU.iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 1) {
-                stringBuffer.append(next.HE().toString());
+                stringBuffer.append(next.Ib().toString());
             } else if (next.getType() == 17) {
-                String str = next.HI().mGifInfo.mSharpText;
+                String str = next.If().mGifInfo.mSharpText;
                 if (str != null && str.startsWith("#(") && str.endsWith(")")) {
                     stringBuffer.append("[" + str.substring(2, str.length() - 1) + "]");
                 }
@@ -817,25 +814,25 @@ public class PostData implements v, ah {
         return stringBuffer.toString();
     }
 
-    public PreLoadImageInfo bil() {
-        ArrayList<TbRichTextData> Hx;
-        if (this.dqh != null && (Hx = this.dqh.Hx()) != null) {
-            Iterator<TbRichTextData> it = Hx.iterator();
+    public PreLoadImageInfo bmz() {
+        ArrayList<TbRichTextData> HU;
+        if (this.dyV != null && (HU = this.dyV.HU()) != null) {
+            Iterator<TbRichTextData> it = HU.iterator();
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next.getType() == 8) {
                     PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-                    preLoadImageInfo.width = next.HD().getWidth();
-                    preLoadImageInfo.height = next.HD().getHeight();
-                    preLoadImageInfo.imgUrl = next.HD().HR();
+                    preLoadImageInfo.width = next.Ia().getWidth();
+                    preLoadImageInfo.height = next.Ia().getHeight();
+                    preLoadImageInfo.imgUrl = next.Ia().Ip();
                     preLoadImageInfo.procType = 17;
                     return preLoadImageInfo;
                 } else if (next.getType() == 1536) {
-                    if (next.HM() == null || TextUtils.isEmpty(next.HM().url)) {
+                    if (next.Ik() == null || TextUtils.isEmpty(next.Ik().url)) {
                         return null;
                     }
                     PreLoadImageInfo preLoadImageInfo2 = new PreLoadImageInfo();
-                    preLoadImageInfo2.imgUrl = next.HM().url;
+                    preLoadImageInfo2.imgUrl = next.Ik().url;
                     preLoadImageInfo2.procType = 17;
                     return preLoadImageInfo2;
                 }
@@ -845,40 +842,40 @@ public class PostData implements v, ah {
         return null;
     }
 
-    public String bim() {
-        j bhJ;
-        PreLoadImageInfo bil = bil();
-        if (bil != null && !StringUtils.isNull(bil.imgUrl)) {
-            return bil.imgUrl;
+    public String bmA() {
+        j blX;
+        PreLoadImageInfo bmz = bmz();
+        if (bmz != null && !StringUtils.isNull(bmz.imgUrl)) {
+            return bmz.imgUrl;
         }
-        if (this.fCz != null && (bhJ = this.fCz.bhJ()) != null && !StringUtils.isNull(bhJ.bhP())) {
-            return bhJ.bhP();
+        if (this.fMD != null && (blX = this.fMD.blX()) != null && !StringUtils.isNull(blX.bmd())) {
+            return blX.bmd();
         }
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.ah
+    @Override // com.baidu.tbadk.core.util.aj
     public ArrayList<PreLoadImageInfo> getImages() {
-        ArrayList<TbRichTextData> Hx;
-        if (this.dqh == null || (Hx = this.dqh.Hx()) == null) {
+        ArrayList<TbRichTextData> HU;
+        if (this.dyV == null || (HU = this.dyV.HU()) == null) {
             return null;
         }
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
-        Iterator<TbRichTextData> it = Hx.iterator();
+        Iterator<TbRichTextData> it = HU.iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 8) {
                 PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-                preLoadImageInfo.width = next.HD().getWidth();
-                preLoadImageInfo.height = next.HD().getHeight();
-                preLoadImageInfo.imgUrl = next.HD().HR();
+                preLoadImageInfo.width = next.Ia().getWidth();
+                preLoadImageInfo.height = next.Ia().getHeight();
+                preLoadImageInfo.imgUrl = next.Ia().Ip();
                 preLoadImageInfo.procType = 17;
                 arrayList.add(preLoadImageInfo);
-            } else if (next.HI() != null) {
+            } else if (next.If() != null) {
                 PreLoadImageInfo preLoadImageInfo2 = new PreLoadImageInfo();
-                preLoadImageInfo2.width = next.HI().mGifInfo.mGifWidth;
-                preLoadImageInfo2.height = next.HI().mGifInfo.mGifHeight;
-                preLoadImageInfo2.bigEmotion = next.HI();
+                preLoadImageInfo2.width = next.If().mGifInfo.mGifWidth;
+                preLoadImageInfo2.height = next.If().mGifInfo.mGifHeight;
+                preLoadImageInfo2.bigEmotion = next.If();
                 preLoadImageInfo2.procType = 20;
                 arrayList.add(preLoadImageInfo2);
             }
@@ -903,119 +900,119 @@ public class PostData implements v, ah {
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.fCn == 52) {
-            return fCl;
+        if (this.fMr == 52) {
+            return fMp;
         }
-        if (this.fCn == 2) {
-            return fCd;
+        if (this.fMr == 2) {
+            return fMh;
         }
-        if (this.fCn == 1) {
-            return YD;
+        if (this.fMr == 1) {
+            return YE;
         }
-        if (this.fCn == 36) {
-            return fCe;
+        if (this.fMr == 36) {
+            return fMi;
         }
-        if (this.fCn == 40 || this.fCn == 50) {
+        if (this.fMr == 40 || this.fMr == 50) {
             return Xr;
         }
-        if (this.fCn == 41) {
-            return fCi;
+        if (this.fMr == 41) {
+            return fMm;
         }
-        if (big() == 1) {
-            return fCb;
+        if (bmu() == 1) {
+            return fMf;
         }
-        return fCc;
+        return fMg;
     }
 
     public void setPostType(int i) {
-        this.fCn = i;
+        this.fMr = i;
     }
 
-    public as bin() {
-        return this.fCs;
+    public at bmB() {
+        return this.fMw;
     }
 
-    public void a(as asVar) {
-        this.fCs = asVar;
+    public void a(at atVar) {
+        this.fMw = atVar;
     }
 
-    public h bio() {
-        return this.fCz;
+    public h bmC() {
+        return this.fMD;
     }
 
-    public com.baidu.tbadk.widget.richText.e HH() {
-        if (this.fCB != null) {
-            return this.fCB;
+    public com.baidu.tbadk.widget.richText.e Ie() {
+        if (this.fMF != null) {
+            return this.fMF;
         }
-        if (this.dqh != null && x.q(this.dqh.Hx()) > 0) {
-            Iterator<TbRichTextData> it = this.dqh.Hx().iterator();
+        if (this.dyV != null && z.s(this.dyV.HU()) > 0) {
+            Iterator<TbRichTextData> it = this.dyV.HU().iterator();
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next != null && next.getType() == 32) {
-                    this.fCB = next.HH();
-                    return this.fCB;
+                    this.fMF = next.Ie();
+                    return this.fMF;
                 }
             }
         }
         return null;
     }
 
-    public TbRichTextVoiceInfo HF() {
-        if (this.aNc != null) {
-            return this.aNc;
+    public TbRichTextVoiceInfo Ic() {
+        if (this.anc != null) {
+            return this.anc;
         }
-        if (this.dqh != null && x.q(this.dqh.Hx()) > 0) {
-            Iterator<TbRichTextData> it = this.dqh.Hx().iterator();
+        if (this.dyV != null && z.s(this.dyV.HU()) > 0) {
+            Iterator<TbRichTextData> it = this.dyV.HU().iterator();
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next != null && next.getType() == 512) {
-                    this.aNc = next.HF();
-                    return this.aNc;
+                    this.anc = next.Ic();
+                    return this.anc;
                 }
             }
         }
         return null;
     }
 
-    public ArrayList<com.baidu.tbadk.data.b> bip() {
-        return this.YA;
+    public ArrayList<com.baidu.tbadk.data.b> bmD() {
+        return this.YB;
     }
 
-    public String biq() {
-        return this.fCC;
+    public String bmE() {
+        return this.fMG;
     }
 
-    public String bir() {
-        return this.fCD;
+    public String bmF() {
+        return this.fMH;
     }
 
-    public String sp() {
-        return this.YF;
+    public String sm() {
+        return this.YG;
     }
 
-    public void ss() {
-        if (this.Ye == 0) {
-            this.Ye = 1;
+    public void sp() {
+        if (this.Yf == 0) {
+            this.Yf = 1;
         }
     }
 
-    public long bis() {
-        return this.fCH;
+    public long bmG() {
+        return this.fML;
     }
 
-    public void cr(long j) {
-        this.fCH = j;
+    public void cG(long j) {
+        this.fML = j;
     }
 
-    public boolean bit() {
-        return this.fCI;
+    public boolean bmH() {
+        return this.fMM;
     }
 
-    public void lt(boolean z) {
-        this.fCI = z;
+    public void lS(boolean z) {
+        this.fMM = z;
     }
 
-    public be biu() {
-        return this.fCA;
+    public bf bmI() {
+        return this.fME;
     }
 }

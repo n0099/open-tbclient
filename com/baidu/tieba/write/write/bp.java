@@ -3,8 +3,9 @@ package com.baidu.tieba.write.write;
 import android.content.Intent;
 import android.view.View;
 import java.util.Date;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bp implements View.OnClickListener {
+public class bp implements View.OnClickListener {
     final /* synthetic */ WriteImageActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,18 +18,18 @@ class bp implements View.OnClickListener {
         boolean z;
         int i;
         boolean z2;
-        boolean rB;
-        z = this.this$0.eps;
+        boolean sB;
+        z = this.this$0.eyC;
         if (!z) {
             i = this.this$0.requestCode;
             if (i == 12003) {
                 Intent intent = new Intent();
                 if (this.this$0.mProgress.getVisibility() != 0) {
-                    z2 = this.this$0.eIn;
-                    if (z2 && this.this$0.eIg != null && !this.this$0.eIg.isRecycled()) {
+                    z2 = this.this$0.eSb;
+                    if (z2 && this.this$0.eRU != null && !this.this$0.eRU.isRecycled()) {
                         String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        rB = this.this$0.rB(str);
-                        if (rB) {
+                        sB = this.this$0.sB(str);
+                        if (sB) {
                             intent.putExtra("change", true);
                             intent.putExtra("file_name", str);
                         } else {

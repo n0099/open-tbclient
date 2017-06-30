@@ -46,7 +46,7 @@ public class d {
         return nQ;
     }
 
-    public static double a(double d) {
+    public static double c(double d) {
         return new BigDecimal(d).setScale(2, 4).doubleValue();
     }
 }

@@ -3,31 +3,31 @@ package com.baidu.tieba.pb.pb.main.emotion.data;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private int bmI;
-    private int bpT;
-    private List<EmotionImageData> evN;
+    private int bqy;
+    private int btF;
+    private List<EmotionImageData> eFd;
 
     public int getPage() {
-        return this.bpT;
+        return this.btF;
     }
 
     public void setPage(int i) {
-        this.bpT = i;
+        this.btF = i;
     }
 
-    public int ahP() {
-        return this.bmI;
+    public int alz() {
+        return this.bqy;
     }
 
     public void setHasMore(int i) {
-        this.bmI = i;
+        this.bqy = i;
     }
 
-    public List<EmotionImageData> aNn() {
-        return this.evN;
+    public List<EmotionImageData> aRm() {
+        return this.eFd;
     }
 
-    public void bX(List<EmotionImageData> list) {
-        this.evN = list;
+    public void cm(List<EmotionImageData> list) {
+        this.eFd = list;
     }
 }

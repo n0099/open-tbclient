@@ -44,10 +44,10 @@ public class i {
     public static String l = "gcj02";
     public static boolean m = true;
     public static int n = 3;
+    public static double MB = 0.0d;
+    public static double MC = 0.0d;
     public static double MD = 0.0d;
     public static double ME = 0.0d;
-    public static double MF = 0.0d;
-    public static double MG = 0.0d;
     public static int s = 0;
     public static byte[] t = null;
     public static boolean u = false;
@@ -68,11 +68,11 @@ public class i {
     public static float J = 50.0f;
     public static float K = 200.0f;
     public static int L = 16;
-    public static float Pv = 0.9f;
+    public static float Pp = 0.9f;
     public static int N = 10000;
-    public static float Pw = 0.5f;
-    public static float Px = 0.0f;
-    public static float Py = 0.1f;
+    public static float Pq = 0.5f;
+    public static float Pr = 0.0f;
+    public static float Ps = 0.1f;
     public static int R = 30;
     public static int S = 100;
     public static int T = 0;
@@ -80,28 +80,28 @@ public class i {
     public static int V = 0;
     public static int W = 420000;
     public static boolean X = true;
-    public static boolean Pz = true;
+    public static boolean Pt = true;
     public static int Z = 20;
-    public static int PA = 300;
-    public static int PC = 1000;
+    public static int Pu = 300;
+    public static int Pv = 1000;
     public static long ac = 900000;
     public static long ad = 420000;
     public static long ae = 180000;
-    public static long PD = 0;
-    public static long PE = 15;
-    public static long PF = ReportUserInfoModel.TIME_INTERVAL;
+    public static long Pw = 0;
+    public static long Px = 15;
+    public static long Py = ReportUserInfoModel.TIME_INTERVAL;
     public static int ai = 1000;
     public static int aj = 0;
     public static int ak = 30000;
     public static int al = 30000;
     public static float am = 10.0f;
-    public static float PG = 6.0f;
-    public static float PH = 10.0f;
+    public static float Pz = 6.0f;
+    public static float PA = 10.0f;
     public static int ap = 60;
     public static int aq = 70;
     public static int ar = 6;
 
-    public static Object O(Context context, String str) {
+    public static Object P(Context context, String str) {
         if (context == null) {
             return null;
         }
@@ -110,6 +110,23 @@ public class i {
         } catch (Throwable th) {
             return null;
         }
+    }
+
+    public static Object a(Object obj, String str, Object... objArr) throws Exception {
+        Class<?> cls = obj.getClass();
+        Class<?>[] clsArr = new Class[objArr.length];
+        int length = objArr.length;
+        for (int i2 = 0; i2 < length; i2++) {
+            clsArr[i2] = objArr[i2].getClass();
+            if (clsArr[i2] == Integer.class) {
+                clsArr[i2] = Integer.TYPE;
+            }
+        }
+        Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
+        if (!declaredMethod.isAccessible()) {
+            declaredMethod.setAccessible(true);
+        }
+        return declaredMethod.invoke(obj, objArr);
     }
 
     public static String a() {
@@ -122,7 +139,7 @@ public class i {
         String f2;
         String g2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (g2 = com.baidu.location.f.b.na().g(aVar)) != null) {
+        if (aVar != null && (g2 = com.baidu.location.f.b.mW().g(aVar)) != null) {
             stringBuffer.append(g2);
         }
         if (iVar != null) {
@@ -137,20 +154,20 @@ public class i {
                 stringBuffer.append(h2);
             }
         }
-        String a2 = c.np().a(i2 == 0);
+        String a2 = c.nl().a(i2 == 0);
         if (a2 != null) {
             stringBuffer.append(a2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        String d2 = com.baidu.location.c.b.mE().d();
+        String d2 = com.baidu.location.c.b.mC().d();
         if (!TextUtils.isEmpty(d2)) {
             stringBuffer.append("&bc=").append(d2);
         }
         if (i2 == 0) {
         }
-        if (aVar != null && (f2 = com.baidu.location.f.c.nf().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (f2 = com.baidu.location.f.c.nb().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(f2);
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -163,9 +180,9 @@ public class i {
                 int d3 = iVar.d();
                 int a3 = iVar.a();
                 boolean e2 = iVar.e();
-                if (speed < PG && ((i3 == 1 || i3 == 0) && (d3 < ap || e2))) {
+                if (speed < Pz && ((i3 == 1 || i3 == 0) && (d3 < ap || e2))) {
                     n = 1;
-                } else if (speed >= PH || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= ar))) {
+                } else if (speed >= PA || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= ar))) {
                     n = 3;
                 } else {
                     n = 2;
@@ -245,28 +262,20 @@ public class i {
         return null;
     }
 
-    public static Object c(Object obj, String str, Object... objArr) throws Exception {
-        Class<?> cls = obj.getClass();
-        Class<?>[] clsArr = new Class[objArr.length];
-        int length = objArr.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            clsArr[i2] = objArr[i2].getClass();
-            if (clsArr[i2] == Integer.class) {
-                clsArr[i2] = Integer.TYPE;
-            }
-        }
-        Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-        if (!declaredMethod.isAccessible()) {
-            declaredMethod.setAccessible(true);
-        }
-        return declaredMethod.invoke(obj, objArr);
-    }
-
     public static String c() {
         return as;
     }
 
-    public static int d(Object obj, String str, Object... objArr) throws Exception {
+    public static String d() {
+        return av;
+    }
+
+    public static boolean d(BDLocation bDLocation) {
+        int locType = bDLocation.getLocType();
+        return locType > 100 && locType < 200;
+    }
+
+    public static int e(Object obj, String str, Object... objArr) throws Exception {
         Class<?> cls = obj.getClass();
         Class<?>[] clsArr = new Class[objArr.length];
         int length = objArr.length;
@@ -281,15 +290,6 @@ public class i {
             declaredMethod.setAccessible(true);
         }
         return ((Integer) declaredMethod.invoke(obj, objArr)).intValue();
-    }
-
-    public static String d() {
-        return av;
-    }
-
-    public static boolean d(BDLocation bDLocation) {
-        int locType = bDLocation.getLocType();
-        return locType > 100 && locType < 200;
     }
 
     public static String e() {

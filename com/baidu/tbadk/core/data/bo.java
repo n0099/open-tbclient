@@ -1,85 +1,23 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopCode;
+import android.view.View;
+import tbclient.PbContent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo {
-    private String Zj;
-    private String Zk;
-    private int Zl;
-    private String Zm;
-    private long Zn;
-    private String Zo;
-    private String imgUrl;
-    private String subTitle;
-    private String summary;
+public class bo extends com.baidu.tbadk.widget.richText.b {
+    final /* synthetic */ bm Zj;
+    private final /* synthetic */ PbContent Zk;
 
-    public String pL() {
-        return this.imgUrl;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bo(bm bmVar, int i, String str, PbContent pbContent) {
+        super(i, str);
+        this.Zj = bmVar;
+        this.Zk = pbContent;
     }
 
-    public String sI() {
-        return this.summary;
-    }
-
-    public String sJ() {
-        return this.Zk;
-    }
-
-    public int sK() {
-        return this.Zl;
-    }
-
-    public String sL() {
-        return this.Zm;
-    }
-
-    public long sM() {
-        return this.Zn;
-    }
-
-    public void a(TopCode topCode) {
-        if (topCode != null) {
-            this.imgUrl = topCode.img_url;
-            this.Zj = topCode.game_link;
-            this.summary = topCode.summary;
-            this.Zk = topCode.code_link;
-            this.Zl = topCode.get_type.intValue();
-            this.Zm = topCode.surplusgift;
-            if (topCode.giftworth.longValue() < 0) {
-                this.Zn = 0L;
-            } else {
-                this.Zn = topCode.giftworth.longValue();
-            }
-            this.Zo = topCode.type_text;
-            this.subTitle = topCode.subtitle;
-        }
-    }
-
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.imgUrl = jSONObject.optString("img_url");
-                this.Zj = jSONObject.optString("game_link");
-                this.summary = jSONObject.optString("summary");
-                this.Zk = jSONObject.optString("code_link");
-                this.Zl = jSONObject.optInt("get_type", 1);
-                this.Zm = jSONObject.optString("surplusgift");
-                this.Zn = jSONObject.optLong("giftworth", 0L);
-                this.Zo = jSONObject.optString("type_text");
-                this.subTitle = jSONObject.optString("subtitle");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public String sN() {
-        return this.Zo;
-    }
-
-    public String getSubTitle() {
-        return this.subTitle;
+    @Override // com.baidu.tbadk.widget.richText.b, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        this.Zj.cD(this.Zk.link);
     }
 }

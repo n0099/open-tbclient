@@ -1,15 +1,15 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ d aqk;
+    final /* synthetic */ d arl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.aqk = dVar;
+        this.arl = dVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        a.yn().yr();
+        a.yG().yK();
     }
 }

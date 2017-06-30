@@ -1,48 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class bc implements c.b {
-    final /* synthetic */ PbActivity enc;
-    private final /* synthetic */ SparseArray ene;
-    private final /* synthetic */ boolean enf;
-    private final /* synthetic */ String eng;
-    private final /* synthetic */ String enh;
+class bc extends CustomMessageListener {
+    final /* synthetic */ PbActivity ewh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str, String str2) {
-        this.enc = pbActivity;
-        this.ene = sparseArray;
-        this.enf = z;
-        this.eng = str;
-        this.enh = str2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bc(PbActivity pbActivity, int i) {
+        super(i);
+        this.ewh = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        BdUniqueId bdUniqueId;
-        BdUniqueId bdUniqueId2;
-        switch (i) {
-            case 0:
-                String str = (String) this.ene.get(w.h.tag_user_mute_mute_username);
-                UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
-                boolean z = this.enf;
-                String str2 = this.eng;
-                String str3 = this.enh;
-                bdUniqueId = this.enc.emm;
-                userMuteAddAndDelCustomMessage.setData(z, str2, str, (String) this.ene.get(w.h.tag_user_mute_thread_id), (String) this.ene.get(w.h.tag_user_mute_post_id), 1, str3, bdUniqueId);
-                bdUniqueId2 = this.enc.emm;
-                userMuteAddAndDelCustomMessage.setTag(bdUniqueId2);
-                this.enc.a(this.enf, userMuteAddAndDelCustomMessage, this.enh, str);
-                break;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            String str = (String) customResponsedMessage.getData();
+            if (!TextUtils.isEmpty(str)) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.au("c11455").Z("obj_locate", "pb"));
+                com.baidu.tbadk.core.util.be.vP().c(this.ewh.getPageContext(), new String[]{str});
+            }
         }
-        cVar.dismiss();
     }
 }

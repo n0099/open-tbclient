@@ -3,15 +3,15 @@ package com.baidu.tieba.pb.pb.main.emotion;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 class d implements BdListView.e {
-    final /* synthetic */ PbSearchEmotionActivity evD;
+    final /* synthetic */ PbSearchEmotionActivity eET;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PbSearchEmotionActivity pbSearchEmotionActivity) {
-        this.evD = pbSearchEmotionActivity;
+        this.eET = pbSearchEmotionActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        this.evD.aNi();
+        this.eET.aRh();
     }
 }

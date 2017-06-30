@@ -31,8 +31,8 @@ import android.widget.ListView;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.android.pushservice.h.o;
-import com.baidu.android.pushservice.h.u;
+import com.baidu.android.pushservice.d.a;
+import com.baidu.android.pushservice.j.q;
 import com.baidu.android.pushservice.richmedia.c;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import java.io.File;
@@ -64,7 +64,7 @@ public class MediaListActivity extends Activity {
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             String str;
             Uri fromFile;
-            o.h a2 = o.a(MediaListActivity.this, (String) ((HashMap) adapterView.getItemAtPosition(i)).get(MediaListActivity.r));
+            a.g a2 = com.baidu.android.pushservice.d.a.a(MediaListActivity.this, (String) ((HashMap) adapterView.getItemAtPosition(i)).get(MediaListActivity.r));
             if (a2 != null) {
                 if (a2.i != com.baidu.android.pushservice.richmedia.a.f) {
                     MediaListActivity.this.a(a2.b, a2.c, a2.d);
@@ -75,9 +75,9 @@ public class MediaListActivity extends Activity {
                     String str3 = str2 + "/" + str.substring(0, str.lastIndexOf(".")) + "/index.html";
                     Intent intent = new Intent();
                     intent.setClass(MediaListActivity.this, MediaViewActivity.class);
-                    int z = u.z(MediaListActivity.this, MediaListActivity.this.getPackageName());
+                    int A = q.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
                     File file = new File(str3);
-                    if (z >= 24) {
+                    if (A >= 24) {
                         ContentValues contentValues = new ContentValues(1);
                         contentValues.put("_data", file.getAbsolutePath());
                         fromFile = MediaListActivity.this.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
@@ -98,11 +98,11 @@ public class MediaListActivity extends Activity {
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i2) {
                     String str = (String) MediaListActivity.this.a.get((int) j).get(MediaListActivity.r);
-                    o.h a2 = o.a(MediaListActivity.this, str);
+                    a.g a2 = com.baidu.android.pushservice.d.a.a(MediaListActivity.this, str);
                     if (a2 != null) {
                         new File(a2.e).delete();
                     }
-                    o.b(MediaListActivity.this, str);
+                    com.baidu.android.pushservice.d.a.b(MediaListActivity.this, str);
                     Intent intent = new Intent();
                     intent.setClass(MediaListActivity.this, MediaListActivity.class);
                     MediaListActivity.this.startActivity(intent);
@@ -169,7 +169,7 @@ public class MediaListActivity extends Activity {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.android.pushservice.e.a.e("MediaListActivity", "getView E: " + e);
+                com.baidu.android.pushservice.g.a.e("MediaListActivity", "getView E: " + e);
             }
             return inflate;
         }
@@ -184,7 +184,7 @@ public class MediaListActivity extends Activity {
             str4 = path.substring(0, path.lastIndexOf(47));
         }
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/baidu/pushservice/files/" + parse.getAuthority() + "/" + str4);
-        com.baidu.android.pushservice.e.a.c("MediaListActivity", "<<< download url " + parse.toString());
+        com.baidu.android.pushservice.g.a.c("MediaListActivity", "<<< download url " + parse.toString());
         c a2 = d.a(c.a.REQ_TYPE_GET_ZIP, parse.toString());
         a2.b = file.getAbsolutePath();
         a2.c = str2;
@@ -219,7 +219,7 @@ public class MediaListActivity extends Activity {
                 Uri fromFile;
                 String c = aVar.d.c();
                 MediaListActivity.this.b.cancel(c, 0);
-                o.h a3 = o.a(MediaListActivity.this, c);
+                a.g a3 = com.baidu.android.pushservice.d.a.a(MediaListActivity.this, c);
                 if (a3 == null || a3.i != com.baidu.android.pushservice.richmedia.a.f) {
                     return;
                 }
@@ -228,9 +228,9 @@ public class MediaListActivity extends Activity {
                     String str7 = str6 + "/" + str5.substring(0, str5.lastIndexOf(".")) + "/index.html";
                     Intent intent = new Intent();
                     intent.setClass(MediaListActivity.this, MediaViewActivity.class);
-                    int z = u.z(MediaListActivity.this, MediaListActivity.this.getPackageName());
+                    int A = q.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
                     File file2 = new File(str7);
-                    if (z >= 24) {
+                    if (A >= 24) {
                         ContentValues contentValues = new ContentValues(1);
                         contentValues.put("_data", file2.getAbsolutePath());
                         fromFile = MediaListActivity.this.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
@@ -313,7 +313,7 @@ public class MediaListActivity extends Activity {
         }
         String[] strArr = {"img", VrPlayerActivityConfig.TITLE, "fromtext", "timetext"};
         this.a = new ArrayList<>();
-        List<o.h> b = o.b(this);
+        List<a.g> b = com.baidu.android.pushservice.d.a.b(this);
         if (b == null || b.isEmpty()) {
             this.l.setVisibility(0);
             this.c.setVisibility(8);
@@ -335,11 +335,11 @@ public class MediaListActivity extends Activity {
                 hashMap.put(strArr[0], packageManager.getApplicationIcon(applicationInfo));
                 hashMap.put(strArr[1], b.get(i2).c);
                 hashMap.put(strArr[2], "来自：" + ((Object) packageManager.getApplicationLabel(applicationInfo)));
-                hashMap.put(strArr[3], u.a(b.get(i2).j));
+                hashMap.put(strArr[3], q.a(b.get(i2).j));
                 hashMap.put(r, b.get(i2).b);
                 this.a.add(hashMap);
             } catch (PackageManager.NameNotFoundException e) {
-                com.baidu.android.pushservice.e.a.d("MediaListActivity", "Media item package NOT found: " + b.get(i2).a);
+                com.baidu.android.pushservice.g.a.d("MediaListActivity", "Media item package NOT found: " + b.get(i2).a);
             }
             i = i2 + 1;
         }

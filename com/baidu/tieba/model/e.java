@@ -5,23 +5,23 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.model.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements a.InterfaceC0035a {
-    final /* synthetic */ c.a dUh;
+public class e implements a.InterfaceC0037a {
+    final /* synthetic */ c.a ecE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c.a aVar) {
-        this.dUh = aVar;
+        this.ecE = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
-    public void cf(String str) {
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0037a
+    public void cl(String str) {
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0037a
     public void a(AccountData accountData) {
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0035a
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0037a
     public void b(String str, int i, String str2) {
     }
 }

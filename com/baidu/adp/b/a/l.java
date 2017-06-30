@@ -26,10 +26,10 @@ public class l extends a {
         this.Cw.reset();
         this.Cw.postScale((i3 - i) / width, (i4 - i2) / height);
         this.Cw.postTranslate(i, i2);
-        if (dVar.iF()) {
+        if (dVar.iE()) {
             this.Cx = new BitmapShader(dVar.BZ.getBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         } else {
-            this.Cx = dVar.Ca.kX();
+            this.Cx = dVar.Ca.kV();
         }
         if (this.Cx != null) {
             this.Cx.setLocalMatrix(this.Cw);
@@ -49,8 +49,8 @@ public class l extends a {
 
     @Override // com.baidu.adp.b.a.a
     public void b(Canvas canvas, d dVar, ImageView imageView) {
-        boolean iG = dVar.iG();
-        if (iG) {
+        boolean iF = dVar.iF();
+        if (iF) {
             dVar.Ca.R(true);
         }
         if (!this.BF.Cb) {
@@ -58,7 +58,7 @@ public class l extends a {
         } else {
             canvas.drawCircle((this.Cy.right + this.Cy.left) / 2.0f, (this.Cy.top + this.Cy.bottom) / 2.0f, Math.min(this.Cy.width(), this.Cy.height()) / 2.0f, this.mPaint);
         }
-        if (iG) {
+        if (iF) {
             dVar.Ca.R(false);
         }
     }

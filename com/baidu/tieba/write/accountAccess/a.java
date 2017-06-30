@@ -2,77 +2,77 @@ package com.baidu.tieba.write.accountAccess;
 
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private final NewWriteModel.d aAR = new b(this);
-    private final c fTo;
-    private final NewWriteModel fTr;
+    private final NewWriteModel.d aBU = new b(this);
+    private final c gdZ;
+    private final NewWriteModel gec;
 
     public a(c cVar, NewWriteModel newWriteModel) {
-        this.fTo = cVar;
-        this.fTr = newWriteModel;
-        newWriteModel.b(this.aAR);
+        this.gdZ = cVar;
+        this.gec = newWriteModel;
+        newWriteModel.b(this.aBU);
     }
 
-    public boolean rc(String str) {
-        if (this.fTo == null || str == null) {
+    public boolean sb(String str) {
+        if (this.gdZ == null || str == null) {
             return false;
         }
         if (str.equals("http://tieba.baidu.com/account/access/cancel")) {
-            this.fTo.getContext().finish();
+            this.gdZ.getContext().finish();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/input_focus")) {
-            this.fTo.r(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-            if (this.fTo.bnj() != this.fTo.bm()) {
-                this.fTo.setRatio(this.fTo.bnj());
-                this.fTo.bnk();
+            this.gdZ.t(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
+            if (this.gdZ.brG() != this.gdZ.bm()) {
+                this.gdZ.setRatio(this.gdZ.brG());
+                this.gdZ.brH();
             }
-            this.fTo.getWebView().setVisibility(0);
+            this.gdZ.getWebView().setVisibility(0);
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/valid_success")) {
-            bni();
+            brF();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/feedback") || str.equals("https://tieba.baidu.com/account/access/feedback")) {
-            this.fTo.getContext().finish();
-            bb.vy().c(this.fTo.getContext().getPageContext(), new String[]{"feedback:"});
+            this.gdZ.getContext().finish();
+            be.vP().c(this.gdZ.getContext().getPageContext(), new String[]{"feedback:"});
             return true;
         } else {
             return true;
         }
     }
 
-    public void bnh() {
-        if (this.fTo != null) {
-            this.fTo.showWebViewDelay(500);
+    public void brE() {
+        if (this.gdZ != null) {
+            this.gdZ.showWebViewDelay(500);
         }
     }
 
     public void start(String str) {
-        if (this.fTo != null) {
-            this.fTo.showWebLoadingView(true);
-            this.fTo.showWebView(false);
-            this.fTo.getWebView().loadUrl(str);
+        if (this.gdZ != null) {
+            this.gdZ.showWebLoadingView(true);
+            this.gdZ.showWebView(false);
+            this.gdZ.getWebView().loadUrl(str);
         }
     }
 
     public void onPostThreadCancle() {
-        if (this.fTo != null) {
-            this.fTo.showPostThreadLoadingView(false);
+        if (this.gdZ != null) {
+            this.gdZ.showPostThreadLoadingView(false);
         }
     }
 
-    private void bni() {
-        if (this.fTo != null && this.fTr != null) {
-            if (!k.hB()) {
-                this.fTo.getContext().showToast(w.l.neterror);
-                this.fTo.getContext().finish();
+    private void brF() {
+        if (this.gdZ != null && this.gec != null) {
+            if (!k.hA()) {
+                this.gdZ.getContext().showToast(w.l.neterror);
+                this.gdZ.getContext().finish();
                 return;
             }
-            this.fTo.showPostThreadLoadingView(true);
-            this.fTr.startPostWrite();
+            this.gdZ.showPostThreadLoadingView(true);
+            this.gec.startPostWrite();
         }
     }
 }

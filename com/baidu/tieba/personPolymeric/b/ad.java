@@ -1,28 +1,26 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements c.b {
-    final /* synthetic */ y eLx;
+public class ad extends CustomMessageListener {
+    final /* synthetic */ z eVB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(y yVar) {
-        this.eLx = yVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(z zVar, int i) {
+        super(i);
+        this.eVB = zVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        this.eLx.eLp = false;
-        switch (i) {
-            case 0:
-                this.eLx.Sc();
-                break;
-            case 1:
-                this.eLx.aRj();
-                break;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PersonChangeData)) {
+            return;
         }
-        cVar.dismiss();
+        this.eVB.a((PersonChangeData) customResponsedMessage.getData());
     }
 }

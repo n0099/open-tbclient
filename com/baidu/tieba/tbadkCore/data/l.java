@@ -4,20 +4,20 @@ import android.content.Context;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends com.baidu.tbadk.util.i {
-    final /* synthetic */ k fBY;
+public class l extends com.baidu.tbadk.util.j {
+    final /* synthetic */ k fMc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(k kVar, Context context) {
         super(context);
-        this.fBY = kVar;
+        this.fMc = kVar;
     }
 
-    @Override // com.baidu.tbadk.util.i, android.text.style.ClickableSpan
+    @Override // com.baidu.tbadk.util.j, android.text.style.ClickableSpan
     public void onClick(View view) {
         String str;
-        str = this.fBY.text;
-        ge(str);
+        str = this.fMc.text;
+        gz(str);
     }
 }

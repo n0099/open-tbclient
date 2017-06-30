@@ -1,45 +1,32 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements View.OnClickListener {
-    final /* synthetic */ ak fHb;
+public class ao implements a.b {
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a awZ;
+    final /* synthetic */ ad fQS;
+    private final /* synthetic */ int val$type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(ak akVar) {
-        this.fHb = akVar;
+    public ao(ad adVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
+        this.fQS = adVar;
+        this.awZ = aVar;
+        this.val$type = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         MainTabActivity mainTabActivity;
-        int i;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.fHb.fGR;
-        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
-        String str = "";
-        i = this.fHb.dVd;
-        switch (i) {
-            case 1:
-                str = "forum";
-                break;
-            case 2:
-                str = "kantie";
-                break;
-            case 3:
-                str = PushConstants.EXTRA_PUSH_MESSAGE;
-                break;
-            case 8:
-                str = "profile";
-                break;
+        this.awZ.dismiss();
+        if (this.val$type == 0) {
+            mainTabActivity2 = this.fQS.fQI;
+            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
+        } else if (this.val$type == 1) {
+            mainTabActivity = this.fQS.fQI;
+            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
         }
-        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10517").Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str));
-        mainTabActivity2 = this.fHb.fGR;
-        bh.aL(mainTabActivity2.getPageContext().getPageActivity());
     }
 }

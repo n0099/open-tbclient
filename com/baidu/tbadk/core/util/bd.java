@@ -1,20 +1,14 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.core.util.bb;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class bd implements Runnable {
-    final /* synthetic */ bb agc;
-    private final /* synthetic */ bb.a agd;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(bb bbVar, bb.a aVar) {
-        this.agc = bbVar;
-        this.agd = aVar;
+public class bd {
+    public static Date vN() {
+        return new Date(System.currentTimeMillis());
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.agc.b(this.agd);
+    public static long vO() {
+        return com.baidu.adp.lib.g.b.c(new SimpleDateFormat("yyyyMMdd").format(vN()), 0L);
     }
 }

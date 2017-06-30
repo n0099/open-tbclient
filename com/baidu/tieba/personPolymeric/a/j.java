@@ -7,20 +7,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.i, com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.k>> {
-    private TbPageContext<?> ajh;
-    private String eKB;
+    private TbPageContext<?> ajP;
+    private String eUz;
 
     public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.i.eMz, bdUniqueId);
-        this.ajh = tbPageContext;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.i.eWI, bdUniqueId);
+        this.ajP = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: l */
+    /* renamed from: n */
     public com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.k> onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.b.a<>(new com.baidu.tieba.personPolymeric.d.k(this.ajh));
+        return new com.baidu.tieba.card.b.a<>(new com.baidu.tieba.personPolymeric.d.k(this.ajP));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,13 +28,9 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.i iVar, com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.k> aVar) {
-        aVar.UY().setTip(this.eKB);
-        aVar.UY().a(iVar);
-        aVar.UY().d(this.ajh, TbadkCoreApplication.m9getInst().getSkinType());
+        aVar.Wp().setTip(this.eUz);
+        aVar.Wp().a(iVar);
+        aVar.Wp().d(this.ajP, TbadkCoreApplication.m9getInst().getSkinType());
         return aVar.getView();
-    }
-
-    public void ou(String str) {
-        this.eKB = str;
     }
 }

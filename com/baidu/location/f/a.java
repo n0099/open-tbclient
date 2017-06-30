@@ -3,7 +3,7 @@ package com.baidu.location.f;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class a {
-    public char OH;
+    public char OD;
     public int a;
     public int b;
     public int c;
@@ -23,7 +23,7 @@ public class a {
         this.f = Integer.MAX_VALUE;
         this.g = 0L;
         this.h = -1;
-        this.OH = (char) 0;
+        this.OD = (char) 0;
         this.j = false;
         this.g = System.currentTimeMillis();
     }
@@ -37,19 +37,19 @@ public class a {
         this.f = Integer.MAX_VALUE;
         this.g = 0L;
         this.h = -1;
-        this.OH = (char) 0;
+        this.OD = (char) 0;
         this.j = false;
         this.a = i;
         this.b = i2;
         this.c = i3;
         this.d = i4;
         this.h = i5;
-        this.OH = c;
+        this.OD = c;
         this.g = System.currentTimeMillis();
     }
 
     public a(a aVar) {
-        this(aVar.a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.OH);
+        this(aVar.a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.OD);
         this.g = aVar.g;
     }
 
@@ -96,7 +96,7 @@ public class a {
     public String h() {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw=");
-        stringBuffer.append(this.OH);
+        stringBuffer.append(this.OD);
         stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.a), Integer.valueOf(this.b), Integer.valueOf(this.h)));
         if (this.j) {
             stringBuffer.append("&newcl=1");

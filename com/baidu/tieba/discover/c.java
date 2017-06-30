@@ -1,15 +1,36 @@
 package com.baidu.tieba.discover;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements CustomMessageTask.CustomRunnable<BaseFragment> {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<BaseFragment> run(CustomMessage<BaseFragment> customMessage) {
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, new b());
+public class c extends CustomMessageListener {
+    final /* synthetic */ b bPL;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(b bVar, int i) {
+        super(i);
+        this.bPL = bVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        String str;
+        e eVar;
+        String str2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
+            String str3 = (String) customResponsedMessage.getData();
+            str = this.bPL.mUrl;
+            if (!str.contains(str3)) {
+                str2 = this.bPL.mUrl;
+                if (!str3.contains(str2)) {
+                    return;
+                }
+            }
+            eVar = this.bPL.bPK;
+            eVar.Nm();
+        }
     }
 }

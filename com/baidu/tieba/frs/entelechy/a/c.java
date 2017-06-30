@@ -12,13 +12,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b bYg;
+    final /* synthetic */ b cgp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.bYg = bVar;
+        this.cgp = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,25 +37,25 @@ public class c extends CustomMessageListener {
             while (it.hasNext()) {
                 com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
                 if (aVar instanceof com.baidu.tieba.frs.p) {
-                    rVar = this.bYg.bVm;
+                    rVar = this.cgp.cdv;
                     TbPageContext<BaseFragmentActivity> pageContext = rVar.getPageContext();
-                    rVar2 = this.bYg.bVm;
+                    rVar2 = this.cgp.cdv;
                     ((com.baidu.tieba.frs.p) aVar).a(pageContext, rVar2.getUniqueId());
                 }
             }
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(absDelegateAdapterList);
-            this.bYg.an(arrayList);
-            list = this.bYg.mAdapters;
+            this.cgp.aw(arrayList);
+            list = this.cgp.mAdapters;
             if (list != null) {
-                list3 = this.bYg.mAdapters;
+                list3 = this.cgp.mAdapters;
                 list3.addAll(absDelegateAdapterList);
             }
-            bdTypeListView = this.bYg.mListView;
+            bdTypeListView = this.cgp.mListView;
             if (bdTypeListView != null) {
-                list2 = this.bYg.mAdapters;
+                list2 = this.cgp.mAdapters;
                 list2.addAll(arrayList);
-                bdTypeListView2 = this.bYg.mListView;
+                bdTypeListView2 = this.cgp.mListView;
                 bdTypeListView2.addAdapters(arrayList);
             }
         }

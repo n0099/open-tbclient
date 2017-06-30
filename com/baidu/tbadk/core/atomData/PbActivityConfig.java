@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -24,6 +24,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_FROM_MAINTAB = "from_maintab";
     public static final String KEY_FROM_MARK = "from_mark";
     public static final String KEY_FROM_SMART_FRS = "from_smart_frs";
+    public static final String KEY_FROM_TIEBA_KUANG = "from_tieba_kuang";
     public static final String KEY_HOST_ONLY = "host_only";
     public static final String KEY_INTENT_EXTRA_PB_CACHE_KEY = "extra_pb_cache_key";
     public static final String KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY = "extra_pb_funs_count_key";
@@ -44,6 +45,9 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_IS_TOP = "is_top";
     public static final String KEY_JUMP_TO_GOD_REPLY = "key_jump_to_god_reply";
     public static final String KEY_LOCATE = "locate";
+    public static final String KEY_MANGA_IS_NEXT_CHAPTER_VIP = "key_manga_is_next_chapter_vip";
+    public static final String KEY_MANGA_IS_PRE_CHAPTER_VIP = "key_manga_is_pre_chapter_vip";
+    public static final String KEY_MANGA_IS_USER_VIP = "key_manga_is_user_vip";
     public static final String KEY_MANGA_NEXT_CHAPTER = "key_manga_next_chapter";
     public static final String KEY_MANGA_PREV_CHAPTER = "key_manga_prev_chapter";
     public static final String KEY_MANGA_TITLE = "key_manga_title";
@@ -274,13 +278,13 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(bl blVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (blVar != null) {
+    public PbActivityConfig createFromThreadCfg(bm bmVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (bmVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", blVar.getId());
-            intent.putExtra("is_good", blVar.rr());
-            intent.putExtra("is_top", blVar.rq());
-            intent.putExtra(KEY_THREAD_TIME, blVar.rp());
+            intent.putExtra("thread_id", bmVar.getId());
+            intent.putExtra("is_good", bmVar.rn());
+            intent.putExtra("is_top", bmVar.rm());
+            intent.putExtra(KEY_THREAD_TIME, bmVar.rl());
             intent.putExtra("st_type", str2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
@@ -290,10 +294,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (blVar.rk() == null ? 0L : blVar.rk().getNum()));
-            if (blVar.getAuthor() != null && blVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, blVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, blVar.getAuthor().getGodUserData().getIsLike());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bmVar.rh() == null ? 0L : bmVar.rh().getNum()));
+            if (bmVar.getAuthor() != null && bmVar.getAuthor().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bmVar.getAuthor().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bmVar.getAuthor().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -335,6 +339,27 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
+    public PbActivityConfig createMangaCfg(String str, String str2, String str3, String str4, int i, int i2, boolean z, boolean z2, boolean z3) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(268435456);
+            }
+            intent.putExtra(KEY_MANGA_TITLE, str4);
+            intent.putExtra(KEY_MANGA_PREV_CHAPTER, i);
+            intent.putExtra(KEY_MANGA_NEXT_CHAPTER, i2);
+            intent.putExtra(KEY_MANGA_IS_PRE_CHAPTER_VIP, z);
+            intent.putExtra(KEY_MANGA_IS_NEXT_CHAPTER_VIP, z2);
+            intent.putExtra(KEY_MANGA_IS_USER_VIP, z3);
+            addMoreIntentExtraParam();
+        }
+        return this;
+    }
+
     public PbActivityConfig addLocateParam(String str) {
         Intent intent = getIntent();
         if (intent != null) {
@@ -347,30 +372,6 @@ public class PbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra(KEY_IS_PB_KEY_NEED_POSTID, true);
-        }
-        return this;
-    }
-
-    public PbActivityConfig putMangaPrevChapterId(int i) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_MANGA_PREV_CHAPTER, i);
-        }
-        return this;
-    }
-
-    public PbActivityConfig putMangaNextChapterId(int i) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_MANGA_NEXT_CHAPTER, i);
-        }
-        return this;
-    }
-
-    public PbActivityConfig putMangaTitle(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_MANGA_TITLE, str);
         }
         return this;
     }

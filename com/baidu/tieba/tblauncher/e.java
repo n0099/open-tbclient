@@ -2,7 +2,6 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* loaded from: classes.dex */
 class e extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -17,8 +16,8 @@ class e extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && com.baidu.adp.lib.util.k.hB()) {
-            this.this$0.bjN();
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+            this.this$0.fQu = true;
         }
     }
 }

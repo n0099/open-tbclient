@@ -1,32 +1,25 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.im.model.BlackListModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.newFriends.ResponseApplyMessage;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class w implements a.b {
-    final /* synthetic */ p eLo;
+class w extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ r eVs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(p pVar) {
-        this.eLo = pVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(r rVar, int i) {
+        super(i);
+        this.eVs = rVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        BlackListModel blackListModel;
-        BlackListModel blackListModel2;
-        BlackListModel blackListModel3;
-        if (this.eLo.mUserId > 0) {
-            blackListModel = this.eLo.eLh;
-            if (blackListModel.getMaskType() == 1) {
-                blackListModel3 = this.eLo.eLh;
-                blackListModel3.removeFromBlackList(this.eLo.mUserId);
-            } else {
-                blackListModel2 = this.eLo.eLh;
-                blackListModel2.addToBlackList(this.eLo.mUserId);
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if ((socketResponsedMessage instanceof ResponseApplyMessage) && ((ResponseApplyMessage) socketResponsedMessage).getError() != 0) {
+            this.eVs.ajP.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.eVs.ajP.getResources().getString(w.l.neterror) : socketResponsedMessage.getErrorString());
         }
-        aVar.dismiss();
     }
 }

@@ -1,51 +1,27 @@
 package com.baidu.tieba.write.write;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import com.baidu.tieba.w;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bt implements CompoundButton.OnCheckedChangeListener {
+public class bt implements View.OnClickListener {
+    private final /* synthetic */ String eSh;
     final /* synthetic */ WriteImageActivity this$0;
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(WriteImageActivity writeImageActivity) {
+    public bt(WriteImageActivity writeImageActivity, String str, int i) {
         this.this$0 = writeImageActivity;
+        this.eSh = str;
+        this.val$id = i;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        TextView textView;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        TextView textView2;
-        if (z) {
-            radioButton = this.this$0.eIb;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.this$0.eHY;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.this$0.eId;
-                linearLayout2.setVisibility(8);
-                textView2 = this.this$0.bPO;
-                textView2.setText(this.this$0.getPageContext().getString(w.l.beautify));
-                return;
-            }
-            radioButton2 = this.this$0.eIc;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.this$0.eHY;
-                horizontalScrollView.setVisibility(8);
-                linearLayout = this.this$0.eId;
-                linearLayout.setVisibility(0);
-                textView = this.this$0.bPO;
-                textView.setText(this.this$0.getPageContext().getString(w.l.rotate));
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.this$0.mProgress.getVisibility() != 0) {
+            this.this$0.mImage.setImageBitmap(this.this$0.mBitmap);
+            this.this$0.eSb = false;
+            this.this$0.pl(this.eSh);
+            this.this$0.eRX = this.val$id;
         }
     }
 }

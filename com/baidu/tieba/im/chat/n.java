@@ -8,13 +8,13 @@ import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 /* loaded from: classes.dex */
 class n extends CustomMessageListener {
-    final /* synthetic */ CommonGroupChatActiviy cOx;
+    final /* synthetic */ CommonGroupChatActiviy cWt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
         super(i);
-        this.cOx = commonGroupChatActiviy;
+        this.cWt = commonGroupChatActiviy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ class n extends CustomMessageListener {
         if (customResponsedMessage != null) {
             switch (customResponsedMessage.getCmd()) {
                 case CmdConfigCustom.CMD_GROUP_MEMBER_CHANGE /* 2001109 */:
-                    this.cOx.cQk.refresh();
+                    this.cWt.cYg.refresh();
                     return;
                 case CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS /* 2001126 */:
                 case CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT /* 2001128 */:
@@ -36,20 +36,20 @@ class n extends CustomMessageListener {
                     if ((customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
                         String cmd = p.getCmd();
                         if (!TextUtils.isEmpty(cmd)) {
-                            this.cOx.cQk.refresh();
+                            this.cWt.cYg.refresh();
                             if (!cmd.equals("apply_join_success")) {
                                 if (!cmd.equals("kick_out")) {
                                     if (!cmd.equals("group_name_change")) {
                                         if (!cmd.equals("dismiss_group")) {
                                             return;
                                         }
-                                        this.cOx.d(p);
+                                        this.cWt.d(p);
                                         return;
                                     }
-                                    this.cOx.c(p);
+                                    this.cWt.c(p);
                                     return;
                                 }
-                                this.cOx.b(p);
+                                this.cWt.b(p);
                                 return;
                             }
                             return;

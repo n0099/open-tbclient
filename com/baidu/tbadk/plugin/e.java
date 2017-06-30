@@ -3,6 +3,6 @@ package com.baidu.tbadk.plugin;
 class e implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
-        d.FN();
+        d.Gk();
     }
 }

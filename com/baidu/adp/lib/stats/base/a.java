@@ -66,15 +66,15 @@ public class a {
         this.xm = System.currentTimeMillis();
     }
 
-    public int gi() {
+    public int gh() {
         return this.xk;
     }
 
-    public int gj() {
+    public int gi() {
         return this.xl;
     }
 
-    public long gk() {
+    public long gj() {
         return this.xn;
     }
 
@@ -82,15 +82,15 @@ public class a {
         this.xn = j;
     }
 
-    public long gl() {
+    public long gk() {
         return this.xb;
     }
 
-    public long gm() {
+    public long gl() {
         return this.xm;
     }
 
-    public String gn() {
+    public String gm() {
         if (TextUtils.isEmpty(this.xt)) {
             StringBuilder sb = new StringBuilder(30);
             sb.append(this.xr);
@@ -102,7 +102,7 @@ public class a {
         return this.xt;
     }
 
-    public String go() {
+    public String gn() {
         StringBuilder sb = new StringBuilder(40);
         sb.append(this.xr);
         sb.append(System.currentTimeMillis());
@@ -112,11 +112,11 @@ public class a {
         return sb.toString();
     }
 
-    public long gp() {
+    public long go() {
         return this.xo;
     }
 
-    public long gq() {
+    public long gp() {
         return this.xp;
     }
 
@@ -128,29 +128,29 @@ public class a {
         this.xp = j;
     }
 
-    public synchronized void gr() {
+    public synchronized void gq() {
         this.xi = new StringBuffer();
         this.xk = 0;
         this.xo = 0L;
     }
 
-    public synchronized void gs() {
+    public synchronized void gr() {
         this.xj = new StringBuffer();
         this.xl = 0;
         this.xp = 0L;
     }
 
-    public void ah(String str) {
+    public void am(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.xh = str;
         }
     }
 
-    public String gt() {
+    public String gs() {
         return this.xh;
     }
 
-    public boolean gu() {
+    public boolean gt() {
         return this.isUploading;
     }
 
@@ -158,31 +158,31 @@ public class a {
         this.isUploading = z;
     }
 
-    public String gv() {
+    public String gu() {
         return "omp";
     }
 
-    public StringBuffer gw() {
+    public StringBuffer gv() {
         return this.xi;
     }
 
-    public StringBuffer gx() {
+    public StringBuffer gw() {
         return this.xj;
     }
 
-    public boolean gy() {
+    public boolean gx() {
         return this.mUseSdCard;
     }
 
-    public boolean gz() {
+    public boolean gy() {
         return this.mMustSuccess;
     }
 
-    public String gA() {
+    public String gz() {
         return this.xr;
     }
 
-    public static String ai(String str) {
+    public static String an(String str) {
         if ("net".equals(str) || "op".equals(str) || "crash".equals(str) || AddFriendActivityConfig.MSG.equals(str)) {
             return "error";
         }

@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.atomData.PhotoLiveCommentActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ ReplyLinearLayout eHG;
+    final /* synthetic */ ReplyLinearLayout eRu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ReplyLinearLayout replyLinearLayout) {
-        this.eHG = replyLinearLayout;
+        this.eRu = replyLinearLayout;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,15 +27,15 @@ public class a implements View.OnClickListener {
         boolean z;
         boolean z2;
         String[] strArr = (String[]) view.getTag();
-        as asVar = new as("c12043");
-        z = this.eHG.beq;
-        TiebaStatic.log(asVar.r("obj_type", z ? 1 : 2));
+        au auVar = new au("c12043");
+        z = this.eRu.bhl;
+        TiebaStatic.log(auVar.r("obj_type", z ? 1 : 2));
         if (strArr != null) {
-            Context context = this.eHG.getContext();
+            Context context = this.eRu.getContext();
             if (strArr.length < 6 || strArr[5] == null || b.g(strArr[5], 0) != 33) {
                 z2 = false;
             } else if ("0".equals(strArr[3])) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context, strArr[1]).pd()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context, strArr[1]).pa()));
                 z2 = true;
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(context).createPhotoLiveCommentActivityConfig(strArr[1], strArr[2], false)));

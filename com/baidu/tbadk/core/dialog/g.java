@@ -10,31 +10,31 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private ArrayList<h> aaI = new ArrayList<>();
-    private TbPageContext<?> aas;
+    private ArrayList<h> aaJ = new ArrayList<>();
+    private TbPageContext<?> aat;
 
     public g(TbPageContext<?> tbPageContext) {
-        this.aas = tbPageContext;
+        this.aat = tbPageContext;
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.aaI = arrayList;
+        this.aaJ = arrayList;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.aaI.size();
+        return this.aaJ.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.aaI.get(i);
+        return this.aaJ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,53 +45,53 @@ public class g extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        h hVar = this.aaI.get(i);
+        h hVar = this.aaJ.get(i);
         if (hVar == null) {
             return null;
         }
         if (view == null) {
-            view = LayoutInflater.from(this.aas.getPageActivity()).inflate(w.j.dialog_rich_bdlist_item, viewGroup, false);
+            view = LayoutInflater.from(this.aat.getPageActivity()).inflate(w.j.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a(this, null);
-            aVar2.aaJ = (TextView) view.findViewById(w.h.text_tip);
-            aVar2.aaK = (TextView) view.findViewById(w.h.text_desc);
-            aVar2.aaL = (CheckBox) view.findViewById(w.h.checked_icon);
-            aVar2.aaM = view.findViewById(w.h.line);
+            aVar2.aaK = (TextView) view.findViewById(w.h.text_tip);
+            aVar2.aaL = (TextView) view.findViewById(w.h.text_desc);
+            aVar2.aaM = (CheckBox) view.findViewById(w.h.checked_icon);
+            aVar2.aaN = view.findViewById(w.h.line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.aaJ.setText(hVar.tl());
+        aVar.aaK.setText(hVar.tj());
         if (StringUtils.isNull(hVar.getDesc())) {
-            aVar.aaK.setVisibility(8);
+            aVar.aaL.setVisibility(8);
         } else {
-            aVar.aaK.setText(hVar.getDesc());
-            aVar.aaK.setVisibility(0);
+            aVar.aaL.setText(hVar.getDesc());
+            aVar.aaL.setVisibility(0);
         }
-        aVar.aaL.setChecked(hVar.isChecked());
-        aVar.aaL.setButtonDrawable(hVar.isChecked() ? aq.getDrawable(w.g.icon_set_list_ok_s) : new ColorDrawable(w.e.common_color_10022));
+        aVar.aaM.setChecked(hVar.isChecked());
+        aVar.aaM.setButtonDrawable(hVar.isChecked() ? as.getDrawable(w.g.icon_set_list_ok_s) : new ColorDrawable(w.e.common_color_10022));
         if (cp(i)) {
-            aVar.aaM.setVisibility(8);
-            aq.j(view, w.g.dialog_single_button_bg_selector);
+            aVar.aaN.setVisibility(8);
+            as.j(view, w.g.dialog_single_button_bg_selector);
         } else {
-            aVar.aaM.setVisibility(0);
-            aq.j(view, w.g.dialg_alert_btn_bg);
+            aVar.aaN.setVisibility(0);
+            as.j(view, w.g.dialg_alert_btn_bg);
         }
         view.setTag(aVar);
-        this.aas.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-        this.aas.getLayoutMode().t(view);
+        this.aat.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+        this.aat.getLayoutMode().t(view);
         return view;
     }
 
     private boolean cp(int i) {
-        return this.aaI != null && i == this.aaI.size() + (-1);
+        return this.aaJ != null && i == this.aaJ.size() + (-1);
     }
 
     /* loaded from: classes.dex */
     private class a {
-        TextView aaJ;
         TextView aaK;
-        CheckBox aaL;
-        View aaM;
+        TextView aaL;
+        CheckBox aaM;
+        View aaN;
 
         private a() {
         }

@@ -6,11 +6,11 @@ import com.baidu.adp.lib.g.k;
 import com.baidu.adp.lib.util.g;
 /* loaded from: classes.dex */
 public class NSGif implements b {
-    public static boolean rm = g.gW().a("nsgif_jni", 2, new c());
+    public static boolean rm = g.gV().a("nsgif_jni", 2, new c());
+    private final int mFrameCount;
     private final int mHeight;
     private final int mWidth;
     private int ro;
-    private final int rp;
 
     private static native int nativeCreate(byte[] bArr, int i, int i2);
 
@@ -33,10 +33,10 @@ public class NSGif implements b {
         this.ro = i;
         this.mWidth = nativeGetWidth(i);
         this.mHeight = nativeGetHeight(i);
-        this.rp = nativeGetFrameCount(i);
+        this.mFrameCount = nativeGetFrameCount(i);
     }
 
-    public static NSGif f(byte[] bArr, int i, int i2) {
+    public static NSGif h(byte[] bArr, int i, int i2) {
         int nativeCreate = nativeCreate(bArr, i, i2);
         if (nativeCreate != 0) {
             return new NSGif(nativeCreate);
@@ -49,7 +49,7 @@ public class NSGif implements b {
         if (this.ro != 0) {
             int i = this.ro;
             this.ro = 0;
-            k.fT().e(new d(this, i));
+            k.fS().e(new d(this, i));
         }
     }
 
@@ -73,7 +73,7 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public int dE() {
-        return this.rp;
+        return this.mFrameCount;
     }
 
     @Override // com.baidu.adp.gif.b

@@ -16,7 +16,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus = null;
     private static final int MESSAGE_POST_PROGRESS = 2;
     private static final int MESSAGE_POST_RESULT = 1;
-    private static final com.baidu.adp.lib.asyncTask.c sDefaultExecutor = com.baidu.adp.lib.asyncTask.c.en();
+    private static final com.baidu.adp.lib.asyncTask.c sDefaultExecutor = com.baidu.adp.lib.asyncTask.c.em();
     private static final b sHandler = new b(Looper.getMainLooper());
     private volatile BdAsyncTaskStatus mStatus = BdAsyncTaskStatus.PENDING;
     private int mPriority = 1;
@@ -36,7 +36,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         RUNNING,
         FINISHED;
 
-        /* JADX DEBUG: Replace access to removed values field (sP) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (sO) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static BdAsyncTaskStatus[] valuesCustom() {
             BdAsyncTaskStatus[] valuesCustom = values();
@@ -260,10 +260,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.sO.finish(aVar.mData[0]);
+                    aVar.sN.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.sO.onProgressUpdate(aVar.mData);
+                    aVar.sN.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;
@@ -289,10 +289,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* loaded from: classes.dex */
     public static class a<Data> {
         final Data[] mData;
-        final BdAsyncTask sO;
+        final BdAsyncTask sN;
 
         a(BdAsyncTask bdAsyncTask, Data... dataArr) {
-            this.sO = bdAsyncTask;
+            this.sN = bdAsyncTask;
             this.mData = dataArr;
         }
     }

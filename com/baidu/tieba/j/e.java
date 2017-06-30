@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ a flI;
+    final /* synthetic */ a fvW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(a aVar, int i) {
         super(i);
-        this.flI = aVar;
+        this.fvW = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,12 +20,12 @@ public class e extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
         if (customResponsedMessage != null && com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L) < TbadkCoreApplication.m9getInst().getLastUpdateThemeTime()) {
-            this.flI.flt = true;
-            a aVar = this.flI;
-            z = this.flI.flt;
-            aVar.flj = z ? true : this.flI.flj;
+            this.fvW.fvI = true;
+            a aVar = this.fvW;
+            z = this.fvW.fvI;
+            aVar.fvA = z ? true : this.fvW.fvA;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L);
-            this.flI.baH();
+            this.fvW.beR();
         }
     }
 }

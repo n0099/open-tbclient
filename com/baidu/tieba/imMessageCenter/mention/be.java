@@ -5,13 +5,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes2.dex */
 class be extends CustomMessageListener {
-    final /* synthetic */ ReplyMessageActivity dnl;
+    final /* synthetic */ ReplyMessageActivity dvh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public be(ReplyMessageActivity replyMessageActivity, int i) {
         super(i);
-        this.dnl = replyMessageActivity;
+        this.dvh = replyMessageActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,10 +21,10 @@ class be extends CustomMessageListener {
         ReplyMeModelController replyMeModelController2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
             Intent intent = (Intent) customResponsedMessage.getData();
-            replyMeModelController = this.dnl.dnj;
+            replyMeModelController = this.dvh.dvf;
             if (replyMeModelController != null) {
-                replyMeModelController2 = this.dnl.dnj;
-                replyMeModelController2.VK();
+                replyMeModelController2 = this.dvh.dvf;
+                replyMeModelController2.Xb();
             }
         }
     }

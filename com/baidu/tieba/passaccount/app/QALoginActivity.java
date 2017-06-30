@@ -18,22 +18,22 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class QALoginActivity extends BaseActivity {
-    private BdAsyncTask<?, ?, ?> aTu;
+    private BdAsyncTask<?, ?, ?> aUN;
     private WebView mWebView;
     private String mBduss = "";
     private String tbs = "";
-    private String efp = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
-    private String efq = "http://wappass.qatest.baidu.com/passport/?login&u=https://tieba.baidu.com";
-    private boolean eff = false;
+    private String eok = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
+    private String eol = "http://wappass.qatest.baidu.com/passport/?login&u=https://tieba.baidu.com";
+    private boolean enZ = false;
     private int mFrom = -1;
-    private final a.InterfaceC0035a acq = new o(this);
+    private final a.InterfaceC0037a acZ = new o(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
-        this.eff = intent.getBooleanExtra(IntentConfig.CLOSE, false);
+        this.enZ = intent.getBooleanExtra(IntentConfig.CLOSE, false);
         this.mFrom = intent.getIntExtra("from", -1);
         initView();
         initListener();
@@ -48,7 +48,7 @@ public class QALoginActivity extends BaseActivity {
     }
 
     public void initData() {
-        this.mWebView.loadUrl(this.efq);
+        this.mWebView.loadUrl(this.eol);
     }
 
     public void initListener() {
@@ -56,17 +56,17 @@ public class QALoginActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aHD() {
+    public void aLw() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
-        if (this.aTu != null) {
-            this.aTu.cancel();
+        if (this.aUN != null) {
+            this.aUN.cancel();
         }
-        this.aTu = com.baidu.tieba.model.c.b("", this.mBduss, "", null, this.acq);
+        this.aUN = com.baidu.tieba.model.c.b("", this.mBduss, "", null, this.acZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kk() {
-        com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_startApp", 0, "", new Object[0]);
+    public void KI() {
+        com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_startApp", 0, "", new Object[0]);
         if (TbadkCoreApplication.m9getInst().getIsFirstUse()) {
             if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) != null) {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, false)));
@@ -83,10 +83,10 @@ public class QALoginActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aHC() {
-        com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+    public void aLv() {
+        com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.m9getInst().onUserChanged();
-        if (this.eff) {
+        if (this.enZ) {
             Intent intent = new Intent();
             intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
             setResult(-1, intent);
@@ -100,7 +100,7 @@ public class QALoginActivity extends BaseActivity {
                     intExtra = 1;
                 }
             }
-            com.baidu.tbadk.core.f.b.c(getPageContext().getPageActivity(), intExtra, false);
+            com.baidu.tbadk.core.e.b.c(getPageContext().getPageActivity(), intExtra, false);
         }
         finish();
     }

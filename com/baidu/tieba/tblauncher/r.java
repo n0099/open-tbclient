@@ -1,25 +1,36 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Intent;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class r implements a.b {
+class r extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(MainTabActivity mainTabActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        try {
-            this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-            aVar.dismiss();
-        } catch (Exception e) {
-            this.this$0.showToast(w.l.goto_developActivity_error_toast);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ad adVar;
+        ad adVar2;
+        ad adVar3;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007013) {
+            this.this$0.aIh();
+            adVar = this.this$0.fQq;
+            if (adVar != null) {
+                adVar2 = this.this$0.fQq;
+                if (adVar2.bom() != null) {
+                    MainTabActivity mainTabActivity = this.this$0;
+                    adVar3 = this.this$0.fQq;
+                    mainTabActivity.fQm = adVar3.bom().getCurrentTabType();
+                }
+            }
+            this.this$0.fQn = true;
         }
     }
 }

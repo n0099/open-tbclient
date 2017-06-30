@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ c bXE;
+    final /* synthetic */ c cfN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.bXE = cVar;
+        this.cfN = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,14 +21,14 @@ public class d extends CustomMessageListener {
         View view;
         View view2;
         View view3;
-        view = this.bXE.cis;
+        view = this.cfN.cqs;
         if (view != null && customResponsedMessage != null) {
             if ((customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) ? false : ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                view3 = this.bXE.bqy;
+                view3 = this.cfN.buk;
                 view3.setVisibility(8);
                 return;
             }
-            view2 = this.bXE.bqy;
+            view2 = this.cfN.buk;
             view2.setVisibility(0);
         }
     }

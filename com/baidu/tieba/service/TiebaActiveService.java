@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.l;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.n;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -38,9 +38,9 @@ public class TiebaActiveService extends BdBaseService {
     private String getChannelyFile() {
         String str = null;
         try {
-            File cS = l.cS(TbConfig.CHANNEL_FILE);
-            if (cS != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(cS));
+            File dm = n.dm(TbConfig.CHANNEL_FILE);
+            if (dm != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(dm));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -56,9 +56,9 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File cW = l.cW(TbConfig.CHANNEL_FILE);
-                if (cW != null) {
-                    FileWriter fileWriter = new FileWriter(cW);
+                File dq = n.dq(TbConfig.CHANNEL_FILE);
+                if (dq != null) {
+                    FileWriter fileWriter = new FileWriter(dq);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -130,10 +130,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        z fmN;
+        ab fxb;
 
         private a() {
-            this.fmN = null;
+            this.fxb = null;
         }
 
         /* synthetic */ a(TiebaActiveService tiebaActiveService, a aVar) {
@@ -145,22 +145,22 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            String ug;
+            String uy;
             try {
-                this.fmN = new z("http://114.113.149.3:8086/partnersService");
-                this.fmN.n("apk", TbadkCoreApplication.m9getInst().getApp().getPackageName());
-                this.fmN.n("imei", TbadkCoreApplication.m9getInst().getImei());
-                this.fmN.n("model", Build.MODEL);
-                this.fmN.n("edition", TbConfig.getVersion());
-                this.fmN.n("system", Build.VERSION.SDK);
-                this.fmN.uF().vA().vD().mIsBaiduServer = false;
-                ug = this.fmN.ug();
+                this.fxb = new ab("http://114.113.149.3:8086/partnersService");
+                this.fxb.n("apk", TbadkCoreApplication.m9getInst().getApp().getPackageName());
+                this.fxb.n("imei", TbadkCoreApplication.m9getInst().getImei());
+                this.fxb.n("model", Build.MODEL);
+                this.fxb.n("edition", TbConfig.getVersion());
+                this.fxb.n("system", Build.VERSION.SDK);
+                this.fxb.uV().vR().vU().mIsBaiduServer = false;
+                uy = this.fxb.uy();
             } catch (Exception e) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.fmN.uI()) {
-                return ug;
+            if (this.fxb.uY()) {
+                return uy;
             }
             return null;
         }
@@ -168,8 +168,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.fmN != null) {
-                this.fmN.fs();
+            if (this.fxb != null) {
+                this.fxb.fr();
             }
             super.cancel(true);
         }

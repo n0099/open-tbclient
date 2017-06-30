@@ -1,22 +1,19 @@
 package com.baidu.tieba.enterForum.c;
-
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    final /* synthetic */ c bND;
+public class f implements Runnable {
+    final /* synthetic */ c bUy;
+    private final /* synthetic */ int bUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(c cVar) {
-        this.bND = cVar;
+    public f(c cVar, int i) {
+        this.bUy = cVar;
+        this.bUz = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        q qVar;
-        this.bND.hideNoDataView();
-        qVar = this.bND.bNt;
-        qVar.setVisibility(8);
-        this.bND.startPullRefresh();
+    @Override // java.lang.Runnable
+    public void run() {
+        this.bUy.ia(this.bUz);
+        com.baidu.adp.lib.g.h.fR().post(new g(this));
     }
 }

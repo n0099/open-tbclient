@@ -6,10 +6,10 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-    private VcodeExtra apk;
+    private VcodeExtra aqk;
     private String vcode_md5 = null;
     private String vcode_pic_url = null;
-    private String apj = null;
+    private String aqj = null;
 
     public String getVcode_md5() {
         return this.vcode_md5;
@@ -19,12 +19,12 @@ public class q {
         return this.vcode_pic_url;
     }
 
-    public String xN() {
-        return this.apj;
+    public String ye() {
+        return this.aqj;
     }
 
-    public VcodeExtra xO() {
-        return this.apk;
+    public VcodeExtra yf() {
+        return this.aqk;
     }
 
     public void parserJson(String str) {
@@ -45,14 +45,14 @@ public class q {
             try {
                 this.vcode_md5 = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_MD5);
                 this.vcode_pic_url = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_PIC_URL);
-                this.apj = jSONObject.optString("vcode_type");
+                this.aqj = jSONObject.optString("vcode_type");
                 JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
-                this.apk = new VcodeExtra();
-                this.apk.textImg = jSONObject2.optString("textimg");
-                this.apk.slideImg = jSONObject2.optString("slideimg");
-                this.apk.endPoint = jSONObject2.optString("endpoint");
-                this.apk.successImg = jSONObject2.optString("successimg");
-                this.apk.slideEndPoint = jSONObject2.optString("slideendpoint");
+                this.aqk = new VcodeExtra();
+                this.aqk.textImg = jSONObject2.optString("textimg");
+                this.aqk.slideImg = jSONObject2.optString("slideimg");
+                this.aqk.endPoint = jSONObject2.optString("endpoint");
+                this.aqk.successImg = jSONObject2.optString("successimg");
+                this.aqk.slideEndPoint = jSONObject2.optString("slideendpoint");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -1,55 +1,89 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.LinkThreadContent;
+import tbclient.LinkThreadInfo;
 /* loaded from: classes.dex */
 public class ak {
-    private ArrayList<String> Wb;
-    private int smsCodeTime = 0;
-    private UserData VZ = new UserData();
-    private AntiData Wa = new AntiData();
+    public static int VS = 1;
+    public static int VT = 2;
+    private String VU;
+    private String VV;
+    private String VW;
+    private int VX = 0;
+    private boolean VY = false;
+    private String linkUrl;
 
-    public ak() {
-        this.Wb = null;
-        this.Wb = new ArrayList<>();
-        setSmsCodeTime(0);
-    }
-
-    public UserData getUser() {
-        return this.VZ;
-    }
-
-    public AntiData qh() {
-        return this.Wa;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void a(LinkThreadInfo linkThreadInfo) {
+        if (linkThreadInfo != null) {
+            this.linkUrl = linkThreadInfo.link_url;
+            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.z.c(linkThreadInfo.link_content, 0);
+            if (linkThreadContent != null) {
+                this.VU = linkThreadContent.link_title;
+                this.VV = linkThreadContent.link_abstract;
+                this.VW = linkThreadContent.link_head_small_pic;
+                this.VX = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.aw.isEmpty(this.VU) && com.baidu.tbadk.core.util.aw.isEmpty(this.VV)) {
+                    this.VY = true;
+                    return;
+                }
+                return;
+            }
+            this.VY = true;
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
-        try {
-            this.VZ.parserJson(jSONObject.optJSONObject("user"));
-            this.Wa.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.Wb.add(optJSONArray.optString(i, null));
+        if (jSONObject != null) {
+            this.linkUrl = jSONObject.optString("link_url");
+            JSONArray optJSONArray = jSONObject.optJSONArray("link_content");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                try {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
+                    if (jSONObject2 != null) {
+                        this.VU = jSONObject2.optString("link_title");
+                        this.VV = jSONObject2.optString("link_abstract");
+                        this.VW = jSONObject2.optString("link_head_small_pic");
+                        this.VX = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.aw.isEmpty(this.VU) && com.baidu.tbadk.core.util.aw.isEmpty(this.VV)) {
+                            this.VY = true;
+                        }
+                    } else {
+                        this.VY = true;
+                    }
+                    return;
+                } catch (JSONException e) {
+                    this.VY = true;
+                    return;
                 }
             }
-            setSmsCodeTime(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            this.VY = true;
         }
     }
 
-    public void setSmsCodeTime(int i) {
-        this.smsCodeTime = i;
+    public String getLinkUrl() {
+        return this.linkUrl;
+    }
+
+    public String pZ() {
+        return this.VU;
+    }
+
+    public String qa() {
+        return this.VV;
+    }
+
+    public String qb() {
+        return this.VW;
+    }
+
+    public int qc() {
+        return this.VX;
+    }
+
+    public boolean qd() {
+        return this.VY;
     }
 }

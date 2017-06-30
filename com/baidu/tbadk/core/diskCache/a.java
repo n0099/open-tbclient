@@ -8,20 +8,20 @@ import com.baidu.adp.lib.g.i;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean aaP = false;
+    private static boolean aaQ = false;
     private static Handler oA = new b();
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void startService() {
-        i.f(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
+        i.h(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
     public static void stopService() {
-        i.g(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
+        i.i(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
-    public static void ay(boolean z) {
-        aaP = z;
+    public static void az(boolean z) {
+        aaQ = z;
     }
 
     public static void init() {

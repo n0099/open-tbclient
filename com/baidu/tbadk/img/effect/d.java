@@ -2,6 +2,7 @@ package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.util.BitmapHelper;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class d extends b {
     private int maxHeight;
@@ -15,14 +16,14 @@ public class d extends b {
     public static ImageOperation L(int i, int i2) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "resize";
-        imageOperation.actionParam = String.valueOf(i) + "," + i2;
+        imageOperation.actionParam = String.valueOf(i) + Constants.ACCEPT_TIME_SEPARATOR_SP + i2;
         return imageOperation;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            String[] split = str.split(",");
+            String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length == 2) {
                 this.maxWidth = com.baidu.adp.lib.g.b.g(split[0], 0);
                 this.maxHeight = com.baidu.adp.lib.g.b.g(split[1], 0);
@@ -35,12 +36,12 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.DH().eQ(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.Eb().eS(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.resizeBitmap(bitmap, this.maxWidth, this.maxHeight, z);
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap fM(String str) throws Exception {
+    public Bitmap gh(String str) throws Exception {
         return b(BitmapHelper.loadResizedBitmap(str, this.maxWidth, this.maxHeight), true);
     }
 

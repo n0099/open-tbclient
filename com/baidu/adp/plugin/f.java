@@ -26,7 +26,7 @@ public class f {
     private int CS = 0;
     private int CT = 0;
 
-    public static f iN() {
+    public static f iM() {
         if (CU == null) {
             synchronized (f.class) {
                 if (CU == null) {

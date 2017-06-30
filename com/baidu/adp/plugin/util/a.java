@@ -26,7 +26,7 @@ public class a {
         public String mErrMsg;
     }
 
-    public static C0011a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
+    public static C0011a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
@@ -37,12 +37,12 @@ public class a {
             z2 = false;
         }
         if (!z2) {
-            return b(classLoader, classLoader2, str, z);
+            return a(classLoader, classLoader2, str, z);
         }
-        return c(classLoader, classLoader2, str, z);
+        return b(classLoader, classLoader2, str, z, str2);
     }
 
-    private static C0011a b(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
+    private static C0011a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
         C0011a c0011a;
         if (classLoader == null || classLoader2 == null) {
             return null;
@@ -97,10 +97,13 @@ public class a {
         return c0011a;
     }
 
-    private static C0011a c(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
+    private static C0011a b(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
         C0011a c0011a;
-        Object d;
         List list;
+        Object d;
+        List list2;
+        Object d2;
+        List list3;
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
@@ -109,34 +112,78 @@ public class a {
             dexClassLoader.loadClass(str);
             Object w = w((PathClassLoader) classLoader);
             Object w2 = w(dexClassLoader);
-            if (z) {
-                d = d(x(w), x(w2));
-            } else {
-                d = d(x(w2), x(w));
-            }
-            a(w, w.getClass(), "dexElements", d);
-            Object d2 = d(y(w), y(w2));
-            if (d2 instanceof File[]) {
-                Arrays.sort((File[]) d2, kj());
-                list = d2;
-            } else {
-                boolean z2 = d2 instanceof List;
-                list = d2;
-                if (z2) {
-                    List list2 = (List) d2;
-                    Collections.sort(list2, kj());
-                    list = list2;
+            if (Build.VERSION.SDK_INT > 25 || (Build.VERSION.SDK_INT == 25 && Util.isPreview())) {
+                Method declaredMethod = w.getClass().getDeclaredMethod("addDexPath", String.class, File.class);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(w, str2, null);
+                Object d3 = d(y(w), y(w2));
+                if (d3 instanceof File[]) {
+                    Arrays.sort((File[]) d3, kh());
+                    list = d3;
+                } else {
+                    boolean z2 = d3 instanceof List;
+                    list = d3;
+                    if (z2) {
+                        List list4 = (List) d3;
+                        Collections.sort(list4, kh());
+                        list = list4;
+                    }
                 }
-            }
-            a(w, w.getClass(), "nativeLibraryDirectories", list);
-            if (Build.VERSION.SDK_INT >= 23) {
+                a(w, w.getClass(), "nativeLibraryDirectories", list);
                 ArrayList arrayList = new ArrayList((List) list);
                 arrayList.addAll((List) a(w, w.getClass(), "systemNativeLibraryDirectories"));
-                Method declaredMethod = w.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
-                declaredMethod.setAccessible(true);
-                a(w, w.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(w.getClass(), arrayList, null, new ArrayList()));
+                Method declaredMethod2 = w.getClass().getDeclaredMethod("makePathElements", List.class);
+                declaredMethod2.setAccessible(true);
+                a(w, w.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(w.getClass(), arrayList));
+                c0011a = null;
+            } else if (Build.VERSION.SDK_INT >= 23) {
+                if (z) {
+                    d2 = d(x(w), x(w2));
+                } else {
+                    d2 = d(x(w2), x(w));
+                }
+                a(w, w.getClass(), "dexElements", d2);
+                Object d4 = d(y(w), y(w2));
+                if (d4 instanceof File[]) {
+                    Arrays.sort((File[]) d4, kh());
+                    list3 = d4;
+                } else {
+                    boolean z3 = d4 instanceof List;
+                    list3 = d4;
+                    if (z3) {
+                        List list5 = (List) d4;
+                        Collections.sort(list5, kh());
+                        list3 = list5;
+                    }
+                }
+                a(w, w.getClass(), "nativeLibraryDirectories", list3);
+                ArrayList arrayList2 = new ArrayList((List) list3);
+                arrayList2.addAll((List) a(w, w.getClass(), "systemNativeLibraryDirectories"));
+                Method declaredMethod3 = w.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
+                declaredMethod3.setAccessible(true);
+                a(w, w.getClass(), "nativeLibraryPathElements", declaredMethod3.invoke(w.getClass(), arrayList2, null, new ArrayList()));
                 c0011a = null;
             } else {
+                if (z) {
+                    d = d(x(w), x(w2));
+                } else {
+                    d = d(x(w2), x(w));
+                }
+                a(w, w.getClass(), "dexElements", d);
+                Object d5 = d(y(w), y(w2));
+                if (d5 instanceof File[]) {
+                    Arrays.sort((File[]) d5, kh());
+                    list2 = d5;
+                } else {
+                    boolean z4 = d5 instanceof List;
+                    list2 = d5;
+                    if (z4) {
+                        List list6 = (List) d5;
+                        Collections.sort(list6, kh());
+                        list2 = list6;
+                    }
+                }
+                a(w, w.getClass(), "nativeLibraryDirectories", list2);
                 c0011a = null;
             }
         } catch (ClassNotFoundException e) {
@@ -276,7 +323,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> kj() {
+    private static final Comparator<File> kh() {
         return new c();
     }
 

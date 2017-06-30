@@ -1,9 +1,9 @@
 package com.baidu.audiorecorder.lib.voice;
 /* loaded from: classes2.dex */
 public class BdSoundGate {
-    private static BdSoundGate JA;
-    private int Jy = -1;
-    private int Jz;
+    private static BdSoundGate Jz;
+    private int Jx = -1;
+    private int Jy;
 
     private native void close(int i);
 
@@ -15,37 +15,37 @@ public class BdSoundGate {
         System.loadLibrary("sound_gate");
     }
 
-    public static BdSoundGate lG() {
-        if (JA == null) {
-            JA = new BdSoundGate();
+    public static BdSoundGate lE() {
+        if (Jz == null) {
+            Jz = new BdSoundGate();
         }
-        return JA;
+        return Jz;
     }
 
     private BdSoundGate() {
     }
 
     public void init(int i, int i2) {
-        lG().a(i, 0.0f, f.aO(i2), 0.0f);
+        lE().a(i, 0.0f, f.aO(i2), 0.0f);
     }
 
     public void a(int i, float f, float f2, float f3) {
-        this.Jz = i;
-        this.Jy = getChanger(i, f, f2, f3);
+        this.Jy = i;
+        this.Jx = getChanger(i, f, f2, f3);
     }
 
     public int getBlockSize() {
-        return this.Jz;
+        return this.Jy;
     }
 
     public void release() {
-        if (this.Jy > 0) {
-            close(this.Jy);
-            this.Jy = -1;
+        if (this.Jx > 0) {
+            close(this.Jx);
+            this.Jx = -1;
         }
     }
 
     public void a(short[] sArr, short[] sArr2) {
-        throughMono(this.Jy, sArr, sArr2);
+        throughMono(this.Jx, sArr, sArr2);
     }
 }

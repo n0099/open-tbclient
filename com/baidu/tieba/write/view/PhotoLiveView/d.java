@@ -13,15 +13,15 @@ import java.io.File;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    private final /* synthetic */ ViewGroup aAc;
-    final /* synthetic */ a fXP;
-    private final /* synthetic */ boolean fXQ;
+    private final /* synthetic */ ViewGroup aBf;
+    final /* synthetic */ a giP;
+    private final /* synthetic */ boolean giQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, ViewGroup viewGroup, boolean z) {
-        this.fXP = aVar;
-        this.aAc = viewGroup;
-        this.fXQ = z;
+        this.giP = aVar;
+        this.aBf = viewGroup;
+        this.giQ = z;
     }
 
     @Override // android.view.View.OnClickListener
@@ -40,29 +40,29 @@ class d implements View.OnClickListener {
         LinkedList linkedList4;
         LinkedList linkedList5;
         LinkedList linkedList6;
-        int indexOfChild = this.aAc.indexOfChild(view);
+        int indexOfChild = this.aBf.indexOfChild(view);
         if (indexOfChild >= 0) {
-            if (this.fXQ) {
-                baseActivity2 = this.fXP.mBaseActivity;
+            if (this.giQ) {
+                baseActivity2 = this.giP.mBaseActivity;
                 if (baseActivity2 instanceof WriteActivity) {
-                    linkedList2 = this.fXP.chosedFiles;
+                    linkedList2 = this.giP.chosedFiles;
                     if (linkedList2 != null) {
-                        linkedList4 = this.fXP.chosedFiles;
+                        linkedList4 = this.giP.chosedFiles;
                         if (linkedList4.size() > 0) {
-                            linkedList5 = this.fXP.chosedFiles;
-                            linkedList6 = this.fXP.chosedFiles;
+                            linkedList5 = this.giP.chosedFiles;
+                            linkedList6 = this.giP.chosedFiles;
                             linkedList5.remove(linkedList6.size() - 1);
                         }
                     }
-                    baseActivity3 = this.fXP.mBaseActivity;
-                    linkedList3 = this.fXP.chosedFiles;
-                    ((WriteActivity) baseActivity3).r(linkedList3);
-                    baseActivity4 = this.fXP.mBaseActivity;
+                    baseActivity3 = this.giP.mBaseActivity;
+                    linkedList3 = this.giP.chosedFiles;
+                    ((WriteActivity) baseActivity3).s(linkedList3);
+                    baseActivity4 = this.giP.mBaseActivity;
                     ((WriteActivity) baseActivity4).d((com.baidu.tbadk.editortools.a) null);
                     return;
                 }
             }
-            ImageFileInfo imageFileInfo = (ImageFileInfo) this.fXP.getItem(indexOfChild);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.giP.getItem(indexOfChild);
             if (imageFileInfo == null) {
                 z = false;
             } else {
@@ -70,19 +70,19 @@ class d implements View.OnClickListener {
                 z = file.exists() && file.length() != 0;
             }
             if (!z) {
-                context = this.fXP.mContext;
+                context = this.giP.mContext;
                 k.f(context, w.l.editor_mutiiamge_image_error);
                 return;
             }
-            jVar = this.fXP.ayv;
+            jVar = this.giP.azx;
             if (jVar != null) {
-                if (this.fXP.boR()) {
-                    this.fXP.boS();
+                if (this.giP.btp()) {
+                    this.giP.btq();
                 }
-                baseActivity = this.fXP.mBaseActivity;
-                linkedList = this.fXP.chosedFiles;
-                ((WriteActivity) baseActivity).r(linkedList);
-                jVar2 = this.fXP.ayv;
+                baseActivity = this.giP.mBaseActivity;
+                linkedList = this.giP.chosedFiles;
+                ((WriteActivity) baseActivity).s(linkedList);
+                jVar2 = this.giP.azx;
                 jVar2.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
             }
         }

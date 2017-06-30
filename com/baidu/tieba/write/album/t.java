@@ -21,10 +21,10 @@ public class t extends ContentObserver {
         Handler handler2;
         Runnable runnable2;
         handler = this.this$0.handler;
-        runnable = this.this$0.fUB;
+        runnable = this.this$0.gfl;
         handler.removeCallbacks(runnable);
         handler2 = this.this$0.handler;
-        runnable2 = this.this$0.fUB;
+        runnable2 = this.this$0.gfl;
         handler2.postDelayed(runnable2, 2000L);
     }
 }

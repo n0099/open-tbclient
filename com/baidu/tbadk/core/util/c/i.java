@@ -27,22 +27,22 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vN() {
+    public boolean we() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean vO() {
+    public boolean wf() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a fK = com.baidu.tbadk.imageManager.c.DH().fK(str);
-        if (fK == null || fK.kR() == null) {
+        com.baidu.adp.widget.a.a ge = com.baidu.tbadk.imageManager.c.Eb().ge(str);
+        if (ge == null || ge.kP() == null) {
             return null;
         }
-        return fK;
+        return ge;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
@@ -55,7 +55,7 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int vP() {
+    public int wg() {
         return this.procType;
     }
 }

@@ -7,30 +7,30 @@ import android.os.RemoteException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class m {
-    private static m aQW;
-    private d aQY;
+    private static m aSp;
+    private d aSr;
     private Context mContext = TbadkCoreApplication.m9getInst();
-    private boolean aQX = false;
+    private boolean aSq = false;
     private ServiceConnection mServiceConnection = new n(this);
-    private Runnable aQZ = new o(this);
+    private Runnable aSs = new o(this);
 
     private m() {
-        Jp();
+        JN();
     }
 
-    public static m Jo() {
-        if (aQW == null) {
+    public static m JM() {
+        if (aSp == null) {
             synchronized (m.class) {
-                if (aQW == null) {
-                    aQW = new m();
+                if (aSp == null) {
+                    aSp = new m();
                 }
             }
         }
-        return aQW;
+        return aSp;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Jp() {
+    public void JN() {
         try {
             this.mContext.bindService(new Intent(this.mContext, QuickMediaPlayerService.class), this.mServiceConnection, 1);
         } catch (Exception e) {
@@ -38,10 +38,10 @@ public class m {
         }
     }
 
-    public b Jk() {
-        if (this.aQX && this.aQY != null) {
+    public b JI() {
+        if (this.aSq && this.aSr != null) {
             try {
-                return this.aQY.Jk();
+                return this.aSr.JI();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }

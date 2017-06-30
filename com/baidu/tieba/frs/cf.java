@@ -1,0 +1,9 @@
+package com.baidu.tieba.frs;
+/* loaded from: classes.dex */
+public class cf {
+    public Object cfg;
+    public String forumId;
+    public String forumName;
+    public int pn;
+    public String stType;
+}

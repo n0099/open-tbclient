@@ -4,16 +4,16 @@ import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements MediaPlayer.OnInfoListener {
-    final /* synthetic */ x aRw;
+    final /* synthetic */ x aSP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(x xVar) {
-        this.aRw = xVar;
+        this.aSP = xVar;
     }
 
     @Override // android.media.MediaPlayer.OnInfoListener
     public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
-        this.aRw.notifyOnInfo(i, i2);
+        this.aSP.notifyOnInfo(i, i2);
         return true;
     }
 }

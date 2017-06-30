@@ -39,17 +39,17 @@ public class b {
             byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
             if (encodeExtraDataInBackGround != null) {
                 z3 = true;
-                ByteBuffer allocateDirect = ByteBuffer.allocateDirect(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.pR);
+                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.pR);
                 if (encodeExtraDataInBackGround.length > Integer.MAX_VALUE) {
                     throw new CoderException(j.pg);
                 }
-                allocateDirect.putInt(encodeExtraDataInBackGround.length);
-                allocateDirect.put(encodeExtraDataInBackGround);
-                allocateDirect.put(encodeInBackGround);
-                encodeInBackGround = allocateDirect.array();
+                allocate.putInt(encodeExtraDataInBackGround.length);
+                allocate.put(encodeExtraDataInBackGround);
+                allocate.put(encodeInBackGround);
+                encodeInBackGround = allocate.array();
             }
             if (encodeInBackGround != null && z) {
-                encodeInBackGround = d(encodeInBackGround, 0, encodeInBackGround.length);
+                encodeInBackGround = f(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
                 encodeInBackGround = v.a(d.dk().getSecretKey(), encodeInBackGround);
@@ -79,7 +79,7 @@ public class b {
         }
         if (aVar.dd() && cVar.qg > 0) {
             try {
-                cVar.qe = c(cVar.qe, cVar.qf, cVar.qg);
+                cVar.qe = e(cVar.qe, cVar.qf, cVar.qg);
                 cVar.qf = 0;
                 cVar.qg = cVar.qe.length;
             } catch (Exception e2) {
@@ -148,7 +148,7 @@ public class b {
         }
     }
 
-    protected byte[] c(byte[] bArr, int i, int i2) throws Exception {
+    protected byte[] e(byte[] bArr, int i, int i2) throws Exception {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
@@ -161,7 +161,7 @@ public class b {
         }
     }
 
-    protected byte[] d(byte[] bArr, int i, int i2) throws Exception {
+    protected byte[] f(byte[] bArr, int i, int i2) throws Exception {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {

@@ -9,11 +9,11 @@ import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements v.a {
-    final /* synthetic */ c fbb;
+    final /* synthetic */ c flr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(c cVar) {
-        this.fbb = cVar;
+        this.flr = cVar;
     }
 
     @Override // com.baidu.tieba.play.v.a
@@ -22,7 +22,7 @@ public class m implements v.a {
         ProgressBar progressBar;
         ProgressBar progressBar2;
         ProgressBar progressBar3;
-        c.InterfaceC0078c interfaceC0078c;
+        c.InterfaceC0081c interfaceC0081c;
         View view2;
         ImageView imageView;
         TextView textView;
@@ -37,64 +37,64 @@ public class m implements v.a {
         ImageView imageView2;
         TextView textView2;
         View view5;
-        c.InterfaceC0078c interfaceC0078c2;
-        this.fbb.dwh = false;
-        this.fbb.dwm = 0;
-        this.fbb.axd();
-        view = this.fbb.dvT;
+        c.InterfaceC0081c interfaceC0081c2;
+        this.flr.dEU = false;
+        this.flr.dEZ = 0;
+        this.flr.aBc();
+        view = this.flr.dEG;
         view.setVisibility(0);
-        progressBar = this.fbb.faO;
+        progressBar = this.flr.fle;
         progressBar.setVisibility(8);
-        progressBar2 = this.fbb.faO;
-        progressBar3 = this.fbb.faO;
+        progressBar2 = this.flr.fle;
+        progressBar3 = this.flr.fle;
         progressBar2.setProgress(progressBar3.getMax());
-        interfaceC0078c = this.fbb.faW;
-        if (interfaceC0078c != null) {
-            interfaceC0078c2 = this.fbb.faW;
-            interfaceC0078c2.jl(false);
+        interfaceC0081c = this.flr.flm;
+        if (interfaceC0081c != null) {
+            interfaceC0081c2 = this.flr.flm;
+            interfaceC0081c2.jJ(false);
         }
-        if (this.fbb.cHz) {
-            view4 = this.fbb.dvZ;
+        if (this.flr.cPv) {
+            view4 = this.flr.dEM;
             view4.setVisibility(0);
-            imageView2 = this.fbb.dwf;
+            imageView2 = this.flr.dES;
             imageView2.setVisibility(0);
-            textView2 = this.fbb.dwg;
+            textView2 = this.flr.dET;
             textView2.setVisibility(0);
-            view5 = this.fbb.faP;
+            view5 = this.flr.flf;
             view5.setVisibility(8);
         } else {
-            view2 = this.fbb.dvZ;
+            view2 = this.flr.dEM;
             view2.setVisibility(8);
-            imageView = this.fbb.dwf;
+            imageView = this.flr.dES;
             imageView.setVisibility(8);
-            textView = this.fbb.dwg;
+            textView = this.flr.dET;
             textView.setVisibility(8);
-            view3 = this.fbb.faP;
+            view3 = this.flr.flf;
             view3.setVisibility(8);
         }
-        if (this.fbb.bCE != null && this.fbb.bCE.getDuration() <= 150000) {
-            this.fbb.faQ.setVisibility(0);
+        if (this.flr.bDx != null && this.flr.bDx.getDuration() <= 150000) {
+            this.flr.flg.setVisibility(0);
         } else {
-            this.fbb.ky(false);
+            this.flr.kY(false);
         }
-        ba aYd = ba.aYd();
-        str = this.fbb.mVideoUrl;
-        aYd.remove(str);
-        aVar = this.fbb.faT;
+        ba bco = ba.bco();
+        str = this.flr.mVideoUrl;
+        bco.remove(str);
+        aVar = this.flr.flj;
         if (aVar != null) {
-            aVar2 = this.fbb.faT;
+            aVar2 = this.flr.flj;
             aVar2.onCompletion(vVar);
         }
-        this.fbb.akf = 3;
-        this.fbb.bCE.setRecoveryState(3);
-        if (!this.fbb.cHz && this.fbb.bCE != null && this.fbb.bCE.getDuration() <= 150000) {
-            fVar = this.fbb.faY;
+        this.flr.akS = 3;
+        this.flr.bDx.setRecoveryState(3);
+        if (!this.flr.cPv && this.flr.bDx != null && this.flr.bDx.getDuration() <= 150000) {
+            fVar = this.flr.flo;
             if (fVar != null) {
-                fVar2 = this.fbb.faY;
-                fVar2.aOZ();
+                fVar2 = this.flr.flo;
+                fVar2.aSY();
             }
-            c cVar = this.fbb;
-            str2 = this.fbb.mVideoUrl;
+            c cVar = this.flr;
+            str2 = this.flr.mVideoUrl;
             cVar.startPlay(str2);
         }
     }

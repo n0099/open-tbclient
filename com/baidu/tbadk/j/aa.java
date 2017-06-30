@@ -9,54 +9,54 @@ import java.io.InputStreamReader;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class aa {
-    private static String aGW = "tb_perfor_samllflow_time";
-    private static volatile aa aGZ;
-    private long aGY;
-    private boolean aGU = false;
-    private long aGX = 86400;
-    private long aGV = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aGW, 0);
+    private static String aIk = "tb_perfor_samllflow_time";
+    private static volatile aa aIn;
+    private long aIm;
+    private boolean aIi = false;
+    private long aIl = 86400;
+    private long aIj = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aIk, 0);
 
-    public static aa FE() {
-        if (aGZ == null) {
+    public static aa Gb() {
+        if (aIn == null) {
             synchronized (aa.class) {
-                if (aGZ == null) {
-                    aGZ = new aa();
+                if (aIn == null) {
+                    aIn = new aa();
                 }
             }
         }
-        return aGZ;
+        return aIn;
     }
 
     private aa() {
-        this.aGY = 0L;
-        this.aGY = this.aGX;
+        this.aIm = 0L;
+        this.aIm = this.aIl;
     }
 
-    public boolean FF() {
-        if (!this.aGU || (System.currentTimeMillis() - this.aGV) / 1000 <= this.aGY) {
-            return this.aGU;
+    public boolean Gc() {
+        if (!this.aIi || (System.currentTimeMillis() - this.aIj) / 1000 <= this.aIm) {
+            return this.aIi;
         }
         return false;
     }
 
-    public void bV(boolean z) {
+    public void bX(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aGV || currentTimeMillis - this.aGV >= this.aGY) {
-                this.aGV = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aGW, this.aGV);
+            if (0 == this.aIj || currentTimeMillis - this.aIj >= this.aIm) {
+                this.aIj = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aIk, this.aIj);
             }
         } else {
-            this.aGV = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aGW, this.aGV);
+            this.aIj = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aIk, this.aIj);
         }
-        this.aGU = z;
+        this.aIi = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            ab.FK().FL();
+            ab.Gh().Gi();
         }
     }
 
-    public String FG() {
+    public String Gd() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -70,7 +70,7 @@ public class aa {
         }
     }
 
-    public final String FH() {
+    public final String Ge() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
@@ -86,25 +86,25 @@ public class aa {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.i.hk()) {
+        if (!com.baidu.adp.lib.util.i.hj()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.i.hl()) {
+        if (com.baidu.adp.lib.util.i.hk()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.hn()) {
+        if (com.baidu.adp.lib.util.i.hm()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.i.ho()) {
+        if (com.baidu.adp.lib.util.i.hn()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.i.hp()) {
+        if (!com.baidu.adp.lib.util.i.ho()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String fc(int i) {
+    public static String fe(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -117,8 +117,8 @@ public class aa {
         return "WIFI";
     }
 
-    public z fd(int i) {
-        if (FF()) {
+    public z ff(int i) {
+        if (Gc()) {
             switch (i) {
                 case 1000:
                     ac acVar = new ac();
@@ -151,9 +151,9 @@ public class aa {
         return null;
     }
 
-    public void Q(long j) {
+    public void R(long j) {
         if (j > 0) {
-            this.aGY = j;
+            this.aIm = j;
         }
     }
 
@@ -172,7 +172,7 @@ public class aa {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int FI() {
+    public int Gf() {
         BufferedReader bufferedReader;
         Process process;
         String str;

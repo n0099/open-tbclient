@@ -1,27 +1,23 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class ab extends CustomMessageListener {
-    final /* synthetic */ MainTabActivity this$0;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(MainTabActivity mainTabActivity, int i) {
-        super(i);
-        this.this$0 = mainTabActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (!TbadkCoreApplication.isLogin()) {
-            bh.aM(this.this$0.getPageContext().getPageActivity());
-        } else {
-            this.this$0.bjM();
+class ab implements be.a {
+    @Override // com.baidu.tbadk.core.util.be.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        if (tbPageContext == null || strArr == null || strArr.length == 0) {
+            return 3;
         }
+        String str = strArr[0];
+        if (StringUtils.isNull(str) || !str.startsWith("tiebavr:") || TbadkCoreApplication.m9getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
+            return 3;
+        }
+        tbPageContext.showToast(w.l.vr_plugin_not_available);
+        return 1;
     }
 }

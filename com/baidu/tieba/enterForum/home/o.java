@@ -1,29 +1,18 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ i bMN;
-    private final /* synthetic */ String bMP;
-    private final /* synthetic */ boolean bMQ;
+public class o implements a.b {
+    final /* synthetic */ i bTq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(i iVar, String str, boolean z) {
-        this.bMN = iVar;
-        this.bMP = str;
-        this.bMQ = z;
+    public o(i iVar) {
+        this.bTq = iVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        if (!TextUtils.isEmpty(this.bMP)) {
-            com.baidu.tieba.im.settingcache.h.asr().g(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bMP), this.bMQ);
-        }
-        return null;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

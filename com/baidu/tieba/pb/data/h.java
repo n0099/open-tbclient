@@ -4,45 +4,45 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class h {
-    private long UM = 0;
-    private String UN = "";
+    private long UL = 0;
+    private String UM = "";
     private String imgUrl = "";
-    private int eiY = Integer.MAX_VALUE;
-    private String eiZ = "";
-    private String eja = "";
+    private int erV = Integer.MAX_VALUE;
+    private String erW = "";
+    private String erX = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
-            this.UM = forumHeadlineImgInfo.img_user_id.longValue();
-            this.UN = forumHeadlineImgInfo.img_user_name;
+            this.UL = forumHeadlineImgInfo.img_user_id.longValue();
+            this.UM = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.eiY = forumHeadlineImgInfo.rank_num.intValue();
-            this.eiZ = forumHeadlineImgInfo.rank_up_info;
-            this.eja = forumHeadlineImgInfo.rank_url;
+            this.erV = forumHeadlineImgInfo.rank_num.intValue();
+            this.erW = forumHeadlineImgInfo.rank_up_info;
+            this.erX = forumHeadlineImgInfo.rank_url;
         }
     }
 
-    public boolean aIZ() {
-        return StringUtils.isNull(this.UN, true) || this.UM <= 0;
+    public boolean aMT() {
+        return StringUtils.isNull(this.UM, true) || this.UL <= 0;
     }
 
-    public String aJa() {
-        return this.eja;
+    public String aMU() {
+        return this.erX;
     }
 
-    public String aJb() {
-        return this.UN;
+    public String aMV() {
+        return this.UM;
     }
 
-    public String pL() {
+    public String pI() {
         return this.imgUrl;
     }
 
-    public int aJc() {
-        return this.eiY;
+    public int aMW() {
+        return this.erV;
     }
 
-    public String aJd() {
-        return this.eiZ;
+    public String aMX() {
+        return this.erW;
     }
 }

@@ -85,7 +85,7 @@ public class TbLaunchStatic {
                             Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
                             TextView H = dVar.H(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
                             if (data.isInsertBack) {
-                                dVar.a(H, dVar.Ak(), (View.OnClickListener) ((Pair) next.second).second);
+                                dVar.a(H, dVar.AF(), (View.OnClickListener) ((Pair) next.second).second);
                             } else {
                                 dVar.a(H, (View.OnClickListener) ((Pair) next.second).second);
                             }
@@ -109,7 +109,7 @@ public class TbLaunchStatic {
                     long j = b.getInstance().getLong("clear_redundance_files_time", 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - j > 86400000) {
-                        PluginPackageManager.jx().jO();
+                        PluginPackageManager.jw().jM();
                         b.getInstance().putLong("clear_redundance_files_time", currentTimeMillis);
                     }
                 }

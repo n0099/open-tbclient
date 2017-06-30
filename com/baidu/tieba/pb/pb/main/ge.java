@@ -1,37 +1,34 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class ge implements View.OnClickListener {
-    final /* synthetic */ fx evi;
+public class ge extends com.baidu.tbadk.core.view.userLike.c {
+    public boolean eBF;
+    private int eBG;
+    public boolean isBigV;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ge(fx fxVar) {
-        this.evi = fxVar;
+    public ge(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
+        super(tbPageContext, bVar);
+        this.eBF = false;
+        this.isBigV = false;
+        this.eBG = 0;
+        this.eBG = i;
     }
 
-    @Override // android.view.View.OnClickListener
+    @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
     public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.evi.etD;
-        if (dialog != null) {
-            dialog2 = this.evi.etD;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.evi.etD;
-                pbActivity = this.evi.elf;
-                com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
-            }
+        int i = 1;
+        super.onClick(view);
+        if (this.eBF && this.anP != null) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.au("c11924").Z("obj_id", this.anP.getUserId()));
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.evi.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
+        if (this.isBigV && this.anP != null) {
+            if (this.eBG != 1) {
+                i = this.eBG == 2 ? 2 : 0;
+            }
+            TiebaStatic.log(new com.baidu.tbadk.core.util.au("c12150").r("obj_locate", i).Z("obj_id", this.anP.getUserId()));
         }
     }
 }

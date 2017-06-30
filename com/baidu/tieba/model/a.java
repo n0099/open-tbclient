@@ -8,13 +8,13 @@ import com.baidu.tieba.model.message.CheckRealNameSocketResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ CheckRealNameModel dUa;
+    final /* synthetic */ CheckRealNameModel ecx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(CheckRealNameModel checkRealNameModel, int i, int i2) {
         super(i, i2);
-        this.dUa = checkRealNameModel;
+        this.ecx = checkRealNameModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -24,9 +24,9 @@ public class a extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if (((responsedMessage instanceof CheckRealNameHttpResponseMessage) || (responsedMessage instanceof CheckRealNameSocketResponseMessage)) && (responsedMessage.getOrginalMessage().getExtra() instanceof CheckRealNameRequestNetMessage)) {
                 CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = (CheckRealNameRequestNetMessage) responsedMessage.getOrginalMessage().getExtra();
-                aVar = this.dUa.dTY;
+                aVar = this.ecx.ecv;
                 if (aVar != null) {
-                    aVar2 = this.dUa.dTY;
+                    aVar2 = this.ecx.ecv;
                     aVar2.a(responsedMessage.getError(), responsedMessage.getErrorString(), checkRealNameRequestNetMessage.getObjSource(), checkRealNameRequestNetMessage.getObjTag());
                 }
             }

@@ -1,57 +1,59 @@
 package com.baidu.android.pushservice.h;
 
-import java.io.DataInputStream;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
+import android.content.Context;
+import android.text.TextUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class i {
-    byte[] a = new byte[8];
-    private DataInputStream b;
+public class i extends c {
+    public static int a = 0;
+    private int b;
 
-    public i(InputStream inputStream) {
-        this.b = new DataInputStream(inputStream);
+    public i() {
+        this.b = 0;
     }
 
-    private int a(int i) throws IOException {
-        int i2 = 0;
-        while (i2 < i) {
-            int read = this.b.read(this.a, i2, i - i2);
-            if (read == -1) {
-                return read;
-            }
-            i2 += read;
+    public i(String str) {
+        super(str);
+        this.b = 0;
+    }
+
+    public JSONObject a(Context context) throws JSONException {
+        JSONObject jSONObject = new JSONObject();
+        jSONObject.put("app_type", this.b);
+        if (!TextUtils.isEmpty(d())) {
+            jSONObject.put("app_package_name", d());
         }
-        return i2;
-    }
-
-    public void a() throws IOException {
-        this.b.close();
-    }
-
-    public final void a(byte[] bArr) throws IOException {
-        this.b.readFully(bArr, 0, bArr.length);
-    }
-
-    public final int b() throws IOException {
-        if (a(4) < 0) {
-            throw new EOFException();
+        if (!TextUtils.isEmpty(e())) {
+            jSONObject.put("app_name", e());
         }
-        return ((this.a[3] & 255) << 24) | ((this.a[2] & 255) << 16) | ((this.a[1] & 255) << 8) | (this.a[0] & 255);
+        if (!TextUtils.isEmpty(f())) {
+            jSONObject.put("app_cfrom", f());
+        }
+        if (g() != -1) {
+            jSONObject.put("app_vercode", g());
+        }
+        if (!TextUtils.isEmpty(h())) {
+            jSONObject.put("app_vername", h());
+        }
+        if (i() != -1) {
+            jSONObject.put("app_push_version", i());
+        }
+        jSONObject.put("app_appid", a());
+        if (!TextUtils.isEmpty(b())) {
+            jSONObject.put("user_id_rsa", b());
+        }
+        if (!TextUtils.isEmpty(c())) {
+            jSONObject.put("user_id", c());
+        }
+        return jSONObject;
     }
 
-    public final short c() throws IOException {
-        if (a(2) < 0) {
-            throw new EOFException();
-        }
-        return (short) (((this.a[1] & 255) << 8) | (this.a[0] & 255));
+    public void c(int i) {
+        this.b = i;
     }
 
-    public final long d() throws IOException {
-        if (a(8) < 0) {
-            throw new EOFException();
-        }
-        int i = ((this.a[7] & 255) << 24) | ((this.a[6] & 255) << 16) | ((this.a[5] & 255) << 8) | (this.a[4] & 255);
-        return ((((this.a[3] & 255) << 24) | ((this.a[2] & 255) << 16) | ((this.a[1] & 255) << 8) | (this.a[0] & 255)) & 4294967295L) | ((i & 4294967295L) << 32);
+    public int j() {
+        return this.b;
     }
 }

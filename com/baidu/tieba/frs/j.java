@@ -14,13 +14,13 @@ class j extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
-            com.baidu.tieba.frs.smartsort.e.ads().adt();
-            a.adl().adn();
-            if (com.baidu.tieba.recapp.z.aZK().aZG() != null) {
-                com.baidu.tieba.recapp.z.aZK().aZG().aZx();
+            com.baidu.tieba.frs.smartsort.e.ahk().ahl();
+            a.ahd().ahf();
+            if (com.baidu.tieba.recapp.aa.bdU().bdQ() != null) {
+                com.baidu.tieba.recapp.aa.bdU().bdQ().bdH();
             }
-            if (com.baidu.tieba.recapp.z.aZK().aZH() != null) {
-                com.baidu.tieba.recapp.z.aZK().aZH().aZy();
+            if (com.baidu.tieba.recapp.aa.bdU().bdR() != null) {
+                com.baidu.tieba.recapp.aa.bdU().bdR().bdI();
             }
         }
     }

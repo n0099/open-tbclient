@@ -4,17 +4,17 @@ import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.card.ci;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends ci<com.baidu.tieba.card.data.h> {
-    final /* synthetic */ s cBX;
+    final /* synthetic */ s cJU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar) {
-        this.cBX = sVar;
+        this.cJU = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,36 +29,36 @@ public class t extends ci<com.baidu.tieba.card.data.h> {
         com.baidu.tieba.card.m mVar7;
         com.baidu.tieba.card.m mVar8;
         if (view != null) {
-            mVar = this.cBX.cBV;
+            mVar = this.cJU.cJS;
             if (mVar != null) {
-                mVar2 = this.cBX.cBV;
-                if (mVar2.bAd != null) {
-                    mVar3 = this.cBX.cBV;
-                    if (mVar3.bAd.bAj != null) {
-                        mVar4 = this.cBX.cBV;
-                        if (mVar4.bAd.bAg != null) {
-                            mVar5 = this.cBX.cBV;
-                            if (mVar5.bAd.getView() != null) {
+                mVar2 = this.cJU.cJS;
+                if (mVar2.bAW != null) {
+                    mVar3 = this.cJU.cJS;
+                    if (mVar3.bAW.bBc != null) {
+                        mVar4 = this.cJU.cJS;
+                        if (mVar4.bAW.bAZ != null) {
+                            mVar5 = this.cJU.cJS;
+                            if (mVar5.bAW.getView() != null) {
                                 int id = view.getId();
-                                mVar6 = this.cBX.cBV;
-                                if (id == mVar6.bAd.bAj.getId() && (view.getTag() instanceof MetaData)) {
+                                mVar6 = this.cJU.cJS;
+                                if (id == mVar6.bAW.bBc.getId() && (view.getTag() instanceof MetaData)) {
                                     if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
-                                        TiebaStatic.log(new as("c10803").r("obj_locate", 6));
+                                        TiebaStatic.log(new au("c10803").r("obj_locate", 6));
                                         return;
                                     }
                                     return;
                                 }
                                 int id2 = view.getId();
-                                mVar7 = this.cBX.cBV;
-                                if (id2 != mVar7.bAd.getView().getId()) {
+                                mVar7 = this.cJU.cJS;
+                                if (id2 != mVar7.bAW.getView().getId()) {
                                     int id3 = view.getId();
-                                    mVar8 = this.cBX.cBV;
-                                    if (id3 != mVar8.bAd.bAg.getId()) {
+                                    mVar8 = this.cJU.cJS;
+                                    if (id3 != mVar8.bAW.bAZ.getId()) {
                                         return;
                                     }
                                 }
                                 if (view.getTag(w.h.rec_god_item_root) instanceof String) {
-                                    TiebaStatic.log(new as("c11005").Z("obj_id", (String) view.getTag(w.h.rec_god_item_root)));
+                                    TiebaStatic.log(new au("c11005").Z("obj_id", (String) view.getTag(w.h.rec_god_item_root)));
                                 }
                             }
                         }

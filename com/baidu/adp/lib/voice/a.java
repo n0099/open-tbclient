@@ -18,7 +18,7 @@ public class a {
             }
             mFileName = str;
             zy = fVar;
-            zx.aK(str);
+            zx.aP(str);
             zw = 2;
             new Thread(zx).start();
             return true;

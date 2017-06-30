@@ -1,58 +1,58 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class i {
-    private String PU;
-    private String aSJ;
-    private boolean aSK;
-    private long aSL = -1;
-    private long aSM = -1;
-    private long aSN = 0;
+    private String PO;
+    private String aUc;
+    private boolean aUd;
+    private long aUe = -1;
+    private long aUf = -1;
+    private long aUg = 0;
 
-    public String JN() {
-        return this.aSJ;
+    public String Kl() {
+        return this.aUc;
     }
 
-    public void gI(String str) {
-        this.aSJ = str;
+    public void hf(String str) {
+        this.aUc = str;
     }
 
-    public String JO() {
-        return this.PU;
+    public String Km() {
+        return this.PO;
     }
 
-    public void gJ(String str) {
-        this.PU = str;
+    public void hg(String str) {
+        this.PO = str;
     }
 
-    public boolean JP() {
-        return this.aSK;
+    public boolean Kn() {
+        return this.aUd;
     }
 
-    public void cl(boolean z) {
-        this.aSK = z;
+    public void cn(boolean z) {
+        this.aUd = z;
     }
 
-    public long JQ() {
-        return this.aSL;
-    }
-
-    public void aq(long j) {
-        this.aSL = j;
-    }
-
-    public long JR() {
-        return this.aSM;
+    public long Ko() {
+        return this.aUe;
     }
 
     public void ar(long j) {
-        this.aSM = j;
+        this.aUe = j;
+    }
+
+    public long Kp() {
+        return this.aUf;
+    }
+
+    public void as(long j) {
+        this.aUf = j;
     }
 
     public long getTotalLength() {
-        return this.aSN;
+        return this.aUg;
     }
 
-    public void M(long j) {
-        this.aSN = j;
+    public void N(long j) {
+        this.aUg = j;
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class g implements Handler.Callback {
-    final /* synthetic */ f aTk;
+    final /* synthetic */ f aUD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.aTk = fVar;
+        this.aUD = fVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -20,21 +20,21 @@ public class g implements Handler.Callback {
         Handler handler2;
         if (message.what == 1) {
             if (message.obj instanceof String) {
-                this.aTk.gz((String) message.obj);
+                this.aUD.gW((String) message.obj);
             }
         } else if (message.what == 2) {
             if (message.obj instanceof String) {
-                this.aTk.gF((String) message.obj);
+                this.aUD.hc((String) message.obj);
             }
         } else if (message.what == 3) {
             str = f.TAG;
             e.log(str, "got MSG_CHECK");
-            this.aTk.Kb();
-            handler = this.aTk.mHandler;
-            handler2 = this.aTk.mHandler;
+            this.aUD.Kz();
+            handler = this.aUD.mHandler;
+            handler2 = this.aUD.mHandler;
             handler.sendMessageDelayed(handler2.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
         } else if (message.what == 4) {
-            this.aTk.Kc();
+            this.aUD.KA();
         }
         return true;
     }

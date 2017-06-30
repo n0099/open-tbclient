@@ -1,17 +1,17 @@
 package com.baidu.tieba.wallet;
 
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.be;
 import java.net.URL;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i {
     public static void init() {
-        bb.vy().a(new j());
+        be.vP().a(new j());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String qY(String str) {
+    public static String rW(String str) {
         URL url;
         try {
             url = new URL(str);

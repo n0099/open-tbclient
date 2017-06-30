@@ -1,35 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class cz extends CustomMessageListener {
-    final /* synthetic */ cv eod;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cz(cv cvVar, int i) {
-        super(i);
-        this.eod = cvVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List list;
-        com.baidu.tieba.pb.data.f fVar;
-        if (customResponsedMessage == null) {
-            return;
+class cz implements com.baidu.tbadk.ala.e {
+    @Override // com.baidu.tbadk.ala.e
+    public View aq(Context context) {
+        TextView ap = com.baidu.tbadk.ala.c.ap(context);
+        if (ap != null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(com.baidu.adp.lib.util.k.g(context, w.f.ds16), com.baidu.adp.lib.util.k.g(context, w.f.ds2), 0, 0);
+            layoutParams.gravity = 16;
+            ap.setLayoutParams(layoutParams);
         }
-        list = this.eod.bXW;
-        if (!com.baidu.tbadk.core.util.x.r(list)) {
-            return;
-        }
-        this.eod.abE();
-        cv cvVar = this.eod;
-        fVar = this.eod.ekc;
-        cvVar.a(fVar, false);
+        return ap;
     }
 }

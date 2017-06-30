@@ -1,16 +1,20 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import java.util.Comparator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class i {
-    public abstract void parserJson(JSONObject jSONObject);
+public class i implements Comparator<AdvertAppInfo> {
+    final /* synthetic */ BannerListData TL;
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(BannerListData bannerListData) {
+        this.TL = bannerListData;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(AdvertAppInfo advertAppInfo, AdvertAppInfo advertAppInfo2) {
+        return (advertAppInfo != null ? com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0) : 0) - (advertAppInfo2 != null ? com.baidu.adp.lib.g.b.g(advertAppInfo2.adPosition, 0) : 0);
     }
 }

@@ -1,21 +1,36 @@
 package com.baidu.tieba.frs.f;
 
-import com.baidu.tieba.e.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.view.ae;
+import com.baidu.tieba.frs.av;
+import com.baidu.tieba.view.BdExpandListView;
 /* loaded from: classes.dex */
-public class x implements a.InterfaceC0059a {
-    final /* synthetic */ u chY;
+public class x extends com.baidu.tieba.frs.mc.z {
+    private ae.b alP;
+    private ae.a alQ;
+    private ae.c alR;
+    private com.baidu.tieba.frs.smartsort.c ccx;
+    private final CustomMessageListener cqd;
+    private final BdExpandListView.a cqe;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public x(u uVar) {
-        this.chY = uVar;
+    public x(com.baidu.tieba.frs.r rVar) {
+        super(rVar);
+        this.cqd = new y(this, CmdConfigCustom.CMD_REFRESH);
+        this.alP = new z(this);
+        this.alR = new aa(this);
+        this.alQ = new ac(this);
+        this.cqe = new ad(this);
+        this.ccx = rVar.adO();
+        rVar.registerListener(this.cqd);
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0059a
-    public void Y(int i, int i2) {
-    }
-
-    @Override // com.baidu.tieba.e.a.InterfaceC0059a
-    public void Z(int i, int i2) {
+    public void a(av avVar, boolean z) {
+        if (avVar != null) {
+            avVar.eB(z);
+            avVar.a(this.alP);
+            avVar.a(this.alR);
+            avVar.a(this.alQ);
+        }
     }
 }

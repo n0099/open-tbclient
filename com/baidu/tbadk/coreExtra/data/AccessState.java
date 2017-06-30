@@ -4,6 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -43,7 +44,7 @@ public class AccessState implements Serializable {
         if (jSONObject != null) {
             try {
                 this.type = jSONObject.optString("type");
-                this.token = jSONObject.optString("token");
+                this.token = jSONObject.optString(Constants.EXTRA_KEY_TOKEN);
                 JSONObject jSONObject2 = jSONObject.getJSONObject("userinfo");
                 if (jSONObject2 != null) {
                     this.userInfo.strMobile = jSONObject2.optString("strMobile");

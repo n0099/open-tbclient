@@ -17,14 +17,14 @@ public class ab implements k.a {
     }
 
     @Override // com.baidu.adp.lib.util.k.a
-    public void aH(String str) {
-        if (hH() instanceof TextView) {
-            ((TextView) hH()).setText(str);
+    public void aM(String str) {
+        if (hG() instanceof TextView) {
+            ((TextView) hG()).setText(str);
         }
     }
 
     @Override // com.baidu.adp.lib.util.k.a
-    public View hH() {
+    public View hG() {
         View view;
         View view2;
         view = this.this$0.mCustomToastView;

@@ -1,108 +1,130 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.ArrayList;
-import java.util.List;
+import android.text.TextUtils;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
+import org.json.JSONObject;
 import tbclient.GraffitiRankItem;
-import tbclient.GraffitiRankListInfo;
-import tbclient.User;
 /* loaded from: classes.dex */
-public class af extends PostData {
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private int VE;
-    private int VF;
-    private List<UserData> VH;
-    private int VI;
-    private int VJ;
-    private boolean VK;
-    private int VL;
-    private String mForumId;
-    private String mThreadId;
-    public boolean VM = false;
-    private List<ae> VG = new ArrayList();
+public class af {
+    private long VA;
+    private int VB;
+    private String VC;
+    private int VD;
+    private long gid;
+    private String picId;
+    private int type = 1;
+    private long uid;
+    private String url;
 
-    public void setThreadId(String str) {
-        this.mThreadId = str;
+    public long getGid() {
+        return this.gid;
     }
 
-    public String getForumId() {
-        return this.mForumId;
+    public void setGid(long j) {
+        this.gid = j;
     }
 
-    public void setForumId(String str) {
-        this.mForumId = str;
+    public long pO() {
+        return this.VA;
     }
 
-    public String getThreadId() {
-        return this.mThreadId;
+    public void l(long j) {
+        this.VA = j;
     }
 
-    public List<ae> getItems() {
-        return this.VG;
+    public int pP() {
+        return this.VB;
     }
 
-    public void k(List<ae> list) {
-        this.VG = list;
+    public void bC(int i) {
+        this.VB = i;
     }
 
-    public int pW() {
-        return this.VI;
+    public String getUrl() {
+        return this.url;
     }
 
-    public boolean pX() {
-        return this.VK;
+    public void setUrl(String str) {
+        this.url = str;
     }
 
-    public void an(boolean z) {
-        this.VK = z;
+    public long getUid() {
+        return this.uid;
     }
 
-    public int getRole() {
-        return this.VL;
+    public void setUid(long j) {
+        this.uid = j;
     }
 
-    public void bE(int i) {
-        this.VL = i;
+    public String getPicId() {
+        return this.picId;
     }
 
-    public void a(GraffitiRankListInfo graffitiRankListInfo) {
-        if (graffitiRankListInfo != null) {
-            this.VE = graffitiRankListInfo.has_more.intValue();
-            this.VF = graffitiRankListInfo.total.intValue();
-            this.VI = graffitiRankListInfo.show_list_count.intValue();
-            this.VJ = graffitiRankListInfo.quick_list_count.intValue();
-            this.VK = graffitiRankListInfo.has_state.intValue() == 1;
-            if (this.VG == null) {
-                this.VG = new ArrayList();
-            }
-            this.VG.clear();
-            List<GraffitiRankItem> list = graffitiRankListInfo.list;
-            if (list != null) {
-                for (GraffitiRankItem graffitiRankItem : list) {
-                    ae aeVar = new ae();
-                    aeVar.a(graffitiRankItem);
-                    if (aeVar.pV()) {
-                        this.VG.add(aeVar);
-                    }
-                }
-            }
-            if (this.VH == null) {
-                this.VH = new ArrayList();
-            }
-            this.VH.clear();
-            if (graffitiRankListInfo.consent_list != null) {
-                for (User user : graffitiRankListInfo.consent_list) {
-                    UserData userData = new UserData();
-                    userData.parserProtobuf(user);
-                    this.VH.add(userData);
-                }
+    public void setPicId(String str) {
+        this.picId = str;
+    }
+
+    public int pQ() {
+        return this.VD;
+    }
+
+    public void bD(int i) {
+        this.VD = i;
+    }
+
+    public int getType() {
+        return this.type;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public String getThumbUrl() {
+        return this.VC;
+    }
+
+    public void setThumbUrl(String str) {
+        this.VC = str;
+    }
+
+    public void a(GraffitiRankItem graffitiRankItem) {
+        if (graffitiRankItem != null) {
+            this.type = 1;
+            this.gid = graffitiRankItem.gid.longValue();
+            this.VA = graffitiRankItem.vote_count.longValue();
+            this.VB = graffitiRankItem.is_vote.intValue();
+            this.url = graffitiRankItem.url;
+            this.VC = graffitiRankItem.thumb_url;
+            this.uid = graffitiRankItem.uid.longValue();
+            this.picId = graffitiRankItem.pic_id;
+            this.VD = graffitiRankItem.g_type.intValue();
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.type = 1;
+                this.gid = jSONObject.optLong("gid");
+                this.VA = jSONObject.optLong("vote_count");
+                this.VB = jSONObject.optInt("is_vote");
+                this.url = jSONObject.optString("url");
+                this.VC = jSONObject.optString("thumb_url");
+                this.uid = jSONObject.optLong(SapiAccountManager.SESSION_UID);
+                this.picId = jSONObject.optString(GraffitiVcodeActivityConfig.PIC_ID);
+                this.VD = jSONObject.optInt("g_type");
+            } catch (Exception e) {
             }
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return TYPE;
+    public boolean pR() {
+        return this.VD == 2 || this.VD == 3;
+    }
+
+    public boolean pS() {
+        return getType() == 1 && getGid() > 0 && !TextUtils.isEmpty(getThumbUrl()) && !TextUtils.isEmpty(getUrl());
     }
 }

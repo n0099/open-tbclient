@@ -6,13 +6,13 @@ import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ a flI;
+    final /* synthetic */ a fvW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, int i) {
         super(i);
-        this.flI = aVar;
+        this.fvW = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,20 +23,20 @@ public class c extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001176 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
             ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
             if (responseUnreadPointNum.getNum() > 0) {
-                i = this.flI.flq;
+                i = this.fvW.fvG;
                 if (i < responseUnreadPointNum.getNum()) {
-                    this.flI.fls = true;
-                    a aVar = this.flI;
-                    z = this.flI.fls;
-                    aVar.flh = z ? true : this.flI.flh;
-                    this.flI.flq = responseUnreadPointNum.getNum();
-                    this.flI.baH();
-                    this.flI.baG();
+                    this.fvW.fvH = true;
+                    a aVar = this.fvW;
+                    z = this.fvW.fvH;
+                    aVar.fvy = z ? true : this.fvW.fvy;
+                    this.fvW.fvG = responseUnreadPointNum.getNum();
+                    this.fvW.beR();
+                    this.fvW.beQ();
                 }
             }
-            this.flI.flq = responseUnreadPointNum.getNum();
-            this.flI.fls = false;
-            this.flI.baG();
+            this.fvW.fvG = responseUnreadPointNum.getNum();
+            this.fvW.fvH = false;
+            this.fvW.beQ();
         }
     }
 }

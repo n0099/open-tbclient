@@ -1,7 +1,8 @@
 package com.baidu.tieba.VideoCacheClient;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -14,11 +15,11 @@ import java.net.URLEncoder;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class b implements Runnable {
-    final /* synthetic */ a aTg;
+    final /* synthetic */ a aUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.aTg = aVar;
+        this.aUz = aVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:3:0x0008 */
@@ -30,7 +31,7 @@ public class b implements Runnable {
         boolean z;
         Object obj;
         boolean z2;
-        String JX;
+        String Kv;
         String str;
         String str2;
         String str3;
@@ -47,28 +48,28 @@ public class b implements Runnable {
         String str5;
         Object obj2;
         while (!z) {
-            obj = this.aTg.mLock;
+            obj = this.aUz.mLock;
             synchronized (obj) {
                 try {
-                    obj2 = this.aTg.mLock;
+                    obj2 = this.aUz.mLock;
                     obj2.wait();
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
             }
-            z2 = this.aTg.aTf;
+            z2 = this.aUz.aUy;
             if (z2) {
                 return;
             }
-            JX = this.aTg.JX();
-            if (JX != null && !JX.isEmpty()) {
-                File file = new File(String.valueOf(d.aST) + c.gN(JX) + "/header_downloaded");
+            Kv = this.aUz.Kv();
+            if (Kv != null && !Kv.isEmpty()) {
+                File file = new File(String.valueOf(d.aUm) + c.hk(Kv) + "/header_downloaded");
                 if (file.exists()) {
                     str = a.TAG;
-                    e.log(str, "header exists " + JX);
+                    e.log(str, "header exists " + Kv);
                 } else {
                     str2 = a.TAG;
-                    e.log(str2, "client preload start: " + JX);
+                    e.log(str2, "client preload start: " + Kv);
                     long j2 = 0;
                     int i2 = 0;
                     int i3 = 0;
@@ -87,8 +88,8 @@ public class b implements Runnable {
                         BufferedReader bufferedReader2 = null;
                         InputStream inputStream2 = null;
                         try {
-                            String str6 = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(JX);
-                            int port = c.JY().getPort();
+                            String str6 = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(Kv);
+                            int port = c.Kw().getPort();
                             socket = new Socket();
                             try {
                                 socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -98,7 +99,7 @@ public class b implements Runnable {
                                     outputStreamWriter.write("GET " + str6 + " HTTP/1.1\r\n");
                                     outputStreamWriter.write("Host: 127.0.0.1\r\n");
                                     if (i3 == 1) {
-                                        outputStreamWriter.write("Range: bytes=" + j3 + "-\r\n");
+                                        outputStreamWriter.write("Range: bytes=" + j3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + "\r\n");
                                     }
                                     outputStreamWriter.write("\r\n");
                                     outputStreamWriter.flush();
@@ -127,11 +128,11 @@ public class b implements Runnable {
                                     try {
                                         try {
                                             str4 = a.TAG;
-                                            e.log(str4, "client preload check1: " + JX);
+                                            e.log(str4, "client preload check1: " + Kv);
                                             int i4 = i2;
                                             while (true) {
                                                 try {
-                                                    bArr = this.aTg.mBuffer;
+                                                    bArr = this.aUz.mBuffer;
                                                     int read = inputStream.read(bArr);
                                                     if (read == -1) {
                                                         i = i4;
@@ -152,7 +153,7 @@ public class b implements Runnable {
                                         }
                                         try {
                                             str5 = a.TAG;
-                                            e.log(str5, "client preload check2: " + JX);
+                                            e.log(str5, "client preload check2: " + Kv);
                                             try {
                                                 outputStreamWriter.close();
                                             } catch (Exception e6) {
@@ -176,7 +177,7 @@ public class b implements Runnable {
                                             }
                                         } catch (Exception e10) {
                                             e = e10;
-                                            TiebaStatic.log(new as("c12027").Z("errormsg", "预加载文件失败").Z("error", e.getMessage()).Z("url", JX));
+                                            TiebaStatic.log(new au("c12027").Z("errormsg", "预加载文件失败").Z("error", e.getMessage()).Z("url", Kv));
                                             e.printStackTrace();
                                             try {
                                                 outputStreamWriter.close();
@@ -273,7 +274,7 @@ public class b implements Runnable {
                         }
                     }
                     str3 = a.TAG;
-                    e.log(str3, "client preload end: " + JX);
+                    e.log(str3, "client preload end: " + Kv);
                 }
             }
         }

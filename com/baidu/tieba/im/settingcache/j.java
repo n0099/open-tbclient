@@ -5,30 +5,30 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.util.w;
+import com.baidu.tbadk.util.x;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class j extends a {
-    private static j dgV = new j();
+    private static j doR = new j();
 
     private j() {
     }
 
-    public static j ass() {
-        return dgV;
+    public static j awd() {
+        return doR;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: bh */
-    public PersonalSettingItemData bd(String str, String str2) {
+    /* renamed from: bo */
+    public PersonalSettingItemData bk(String str, String str2) {
         PersonalSettingItemData personalSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.dgK) {
-            ChatSetting chatSetting = this.dgK.get(str3);
+        synchronized (this.doG) {
+            ChatSetting chatSetting = this.doG.get(str3);
             personalSettingItemData = (chatSetting == null || !(chatSetting instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) chatSetting;
         }
         if (personalSettingItemData == null) {
@@ -36,7 +36,7 @@ public class j extends a {
             personalSettingItemData2.setMyUid(str);
             personalSettingItemData2.setToUid(str2);
             personalSettingItemData2.setAcceptNotify(true);
-            if (com.baidu.adp.lib.util.k.hA()) {
+            if (com.baidu.adp.lib.util.k.hz()) {
                 a(personalSettingItemData2, null);
                 return personalSettingItemData2;
             }
@@ -46,23 +46,23 @@ public class j extends a {
         return personalSettingItemData;
     }
 
-    public void aon() {
+    public void arY() {
         super.m(PersonalSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        PersonalSettingItemData bd;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bd = bd(str, str2)) != null) {
-            bd.setToPortrait(userData.getPortrait());
-            bd.setToName(userData.getUserName());
-            a(bd);
+        PersonalSettingItemData bk;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bk = bk(str, str2)) != null) {
+            bk.setToPortrait(userData.getPortrait());
+            bk.setToName(userData.getUserName());
+            a(bk);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> aso() {
-        return com.baidu.tbadk.core.c.a.sY().cy("tb.im_personal_chat_setting");
+    public o<String> avZ() {
+        return com.baidu.tbadk.core.c.a.sW().cF("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -77,18 +77,18 @@ public class j extends a {
                 }
                 return;
             }
-            o<String> aso = aso();
+            o<String> avZ = avZ();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.dgK) {
-                this.dgK.put(str, personalSettingItemData);
+            synchronized (this.doG) {
+                this.doG.put(str, personalSettingItemData);
             }
-            aso.k(str, jsonStrWithObject);
+            avZ.k(str, jsonStrWithObject);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    public void a(ChatSetting chatSetting, com.baidu.tbadk.util.g<Void> gVar) {
+    public void a(ChatSetting chatSetting, com.baidu.tbadk.util.h<Void> hVar) {
         if (chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
             PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
             String myUid = personalSettingItemData.getMyUid();
@@ -100,10 +100,10 @@ public class j extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.dgK) {
-                this.dgK.put(str, personalSettingItemData);
+            synchronized (this.doG) {
+                this.doG.put(str, personalSettingItemData);
             }
-            w.b(new k(this, personalSettingItemData, str), gVar);
+            x.b(new k(this, personalSettingItemData, str), hVar);
         }
     }
 }

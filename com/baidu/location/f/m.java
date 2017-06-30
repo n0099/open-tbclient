@@ -1,5 +1,6 @@
 package com.baidu.location.f;
 
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -8,8 +9,8 @@ public class m {
     private String d;
     private boolean c = false;
     private boolean e = false;
-    private double Mz = 0.0d;
-    private double NL = 0.0d;
+    private double Mx = 0.0d;
+    private double NI = 0.0d;
     public int b = 0;
 
     public m(List<String> list, String str, String str2, String str3) {
@@ -38,14 +39,14 @@ public class m {
                     i++;
                 }
             }
-            String[] split = substring.split(",", i + 1);
+            String[] split = substring.split(Constants.ACCEPT_TIME_SEPARATOR_SP, i + 1);
             if (split.length < 6) {
                 return;
             }
             if (!split[2].equals("") && !split[split.length - 3].equals("") && !split[split.length - 2].equals("") && !split[split.length - 1].equals("")) {
                 try {
-                    this.Mz = Double.valueOf(split[split.length - 3]).doubleValue();
-                    this.NL = Double.valueOf(split[split.length - 2]).doubleValue();
+                    this.Mx = Double.valueOf(split[split.length - 3]).doubleValue();
+                    this.NI = Double.valueOf(split[split.length - 2]).doubleValue();
                 } catch (Exception e) {
                 }
                 this.e = true;
@@ -59,10 +60,10 @@ public class m {
     }
 
     public double b() {
-        return this.Mz;
+        return this.Mx;
     }
 
     public double c() {
-        return this.NL;
+        return this.NI;
     }
 }

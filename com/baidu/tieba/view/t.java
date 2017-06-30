@@ -4,11 +4,11 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements AbsListView.OnScrollListener {
-    final /* synthetic */ s fQQ;
+    final /* synthetic */ s gaH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar) {
-        this.fQQ = sVar;
+        this.gaH = sVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -18,23 +18,23 @@ public class t implements AbsListView.OnScrollListener {
         int i3;
         int i4;
         z zVar2;
-        zVar = this.fQQ.fQJ;
+        zVar = this.gaH.gaA;
         if (zVar != null) {
-            zVar2 = this.fQQ.fQJ;
+            zVar2 = this.gaH.gaA;
             zVar2.onScrollStateChanged(absListView, i);
         }
         if (i == 0) {
-            i2 = this.fQQ.fQC;
-            if (i2 > 2 && this.fQQ.eKX.getVisibility() != 0) {
-                this.fQQ.adW();
+            i2 = this.gaH.gat;
+            if (i2 > 2 && this.gaH.eUW.getVisibility() != 0) {
+                this.gaH.ahK();
             }
-            if (this.fQQ.fQE != null) {
-                i3 = this.fQQ.fQC;
-                if (i3 <= 2 && this.fQQ.eKX.getVisibility() == 0) {
-                    int top = this.fQQ.fQE.getTop();
-                    i4 = this.fQQ.fQP;
+            if (this.gaH.gav != null) {
+                i3 = this.gaH.gat;
+                if (i3 <= 2 && this.gaH.eUW.getVisibility() == 0) {
+                    int top = this.gaH.gav.getTop();
+                    i4 = this.gaH.gaG;
                     if (top > i4) {
-                        this.fQQ.aRw();
+                        this.gaH.aVE();
                     }
                 }
             }
@@ -51,47 +51,47 @@ public class t implements AbsListView.OnScrollListener {
         int i6;
         int i7;
         z zVar2;
-        this.fQQ.Rw();
-        this.fQQ.Rx();
-        zVar = this.fQQ.fQJ;
+        this.gaH.Tl();
+        this.gaH.Tm();
+        zVar = this.gaH.gaA;
         if (zVar != null) {
-            zVar2 = this.fQQ.fQJ;
+            zVar2 = this.gaH.gaA;
             zVar2.onScroll(absListView, i, i2, i3);
         }
-        if (i == 0 && this.fQQ.mNavigationBar.getY() != 0.0f) {
-            this.fQQ.mNavigationBar.setY(0.0f);
+        if (i == 0 && this.gaH.mNavigationBar.getY() != 0.0f) {
+            this.gaH.mNavigationBar.setY(0.0f);
         }
-        if (this.fQQ.fQE != null) {
-            z2 = this.fQQ.fQK;
+        if (this.gaH.gav != null) {
+            z2 = this.gaH.gaB;
             if (!z2) {
-                i6 = this.fQQ.fQC;
+                i6 = this.gaH.gat;
                 if (i6 <= i) {
-                    if (this.fQQ.fQE.getTop() <= this.fQQ.mNavigationBar.getHeight() && this.fQQ.fQE.getTop() > 0) {
-                        this.fQQ.mNavigationBar.setY(this.fQQ.fQE.getTop() - this.fQQ.mNavigationBar.getHeight());
+                    if (this.gaH.gav.getTop() <= this.gaH.mNavigationBar.getHeight() && this.gaH.gav.getTop() > 0) {
+                        this.gaH.mNavigationBar.setY(this.gaH.gav.getTop() - this.gaH.mNavigationBar.getHeight());
                     }
-                    int top = this.fQQ.fQE.getTop();
-                    i7 = this.fQQ.fQP;
+                    int top = this.gaH.gav.getTop();
+                    i7 = this.gaH.gaG;
                     if (top < i7) {
-                        this.fQQ.adW();
-                        this.fQQ.fQK = true;
+                        this.gaH.ahK();
+                        this.gaH.gaB = true;
                     }
                 }
             }
         }
-        if (this.fQQ.fQE != null) {
-            z = this.fQQ.fQK;
+        if (this.gaH.gav != null) {
+            z = this.gaH.gaB;
             if (z) {
-                i4 = this.fQQ.fQC;
+                i4 = this.gaH.gat;
                 if (i4 >= i) {
-                    int top2 = this.fQQ.fQE.getTop();
-                    i5 = this.fQQ.fQP;
+                    int top2 = this.gaH.gav.getTop();
+                    i5 = this.gaH.gaG;
                     if (top2 > i5) {
-                        this.fQQ.aRw();
-                        this.fQQ.fQK = false;
+                        this.gaH.aVE();
+                        this.gaH.gaB = false;
                     }
                 }
             }
         }
-        this.fQQ.fQC = i;
+        this.gaH.gat = i;
     }
 }

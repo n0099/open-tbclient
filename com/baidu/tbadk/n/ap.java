@@ -1,27 +1,24 @@
 package com.baidu.tbadk.n;
 /* loaded from: classes.dex */
 public class ap extends com.baidu.adp.lib.b.a {
-    public static final String[] aIn = {"com.baidu.tieba.voice"};
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void X(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void initData() {
-        this.mName = "voice";
-        this.ud = aIn;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "voice";
+        return "movideo_split";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eQ() {
-        return aIn;
+    protected String[] eP() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int eQ() {
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -31,11 +28,6 @@ public class ap extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int eS() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eT() {
-        return 10;
+        return 0;
     }
 }

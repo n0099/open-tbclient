@@ -13,7 +13,7 @@ class g extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-            com.baidu.tbadk.coreExtra.websocketBase.d.Bl().el(((Integer) customResponsedMessage.getData()).intValue());
+            com.baidu.tbadk.coreExtra.websocketBase.d.BG().en(((Integer) customResponsedMessage.getData()).intValue());
         }
     }
 }

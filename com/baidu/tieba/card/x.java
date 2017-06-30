@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
-    final /* synthetic */ t bAB;
+    final /* synthetic */ t bBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(t tVar) {
-        this.bAB = tVar;
+        this.bBu = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,15 +23,15 @@ public class x implements View.OnClickListener {
         com.baidu.tieba.card.data.k kVar3;
         View.OnClickListener onClickListener;
         View.OnClickListener onClickListener2;
-        kVar = this.bAB.bAy;
+        kVar = this.bBu.bBr;
         if (kVar != null) {
-            kVar2 = this.bAB.bAy;
-            if (!StringUtils.isNull(kVar2.aYA.rz())) {
-                kVar3 = this.bAB.bAy;
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bAB.getContext()).createNormalCfg(kVar3.aYA.rz(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                onClickListener = this.bAB.alO;
+            kVar2 = this.bBu.bBr;
+            if (!StringUtils.isNull(kVar2.bai.rw())) {
+                kVar3 = this.bBu.bBr;
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bBu.getContext()).createNormalCfg(kVar3.bai.rw(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                onClickListener = this.bBu.amF;
                 if (onClickListener != null) {
-                    onClickListener2 = this.bAB.alO;
+                    onClickListener2 = this.bBu.amF;
                     onClickListener2.onClick(view);
                 }
             }

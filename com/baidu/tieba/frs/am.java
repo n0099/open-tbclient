@@ -1,27 +1,39 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.frs.entelechy.c.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am extends CustomMessageListener {
-    final /* synthetic */ r bVb;
+public class am implements bz {
+    final /* synthetic */ r cdl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public am(r rVar, int i) {
-        super(i);
-        this.bVb = rVar;
+    public am(r rVar) {
+        this.cdl = rVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.frs.entelechy.b.d dVar;
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-            dVar = this.bVb.bUm;
-            ((a) dVar).iv(((Integer) customResponsedMessage.getData()).intValue());
+    @Override // com.baidu.tieba.frs.bz
+    public void a(ca caVar) {
+    }
+
+    @Override // com.baidu.tieba.frs.bz
+    public void a(int i, int i2, cf cfVar) {
+        if (i != 1) {
+            com.baidu.tieba.card.cf.VN().dv(false);
         }
+        if (i == 1) {
+            this.cdl.ccj.ew(true);
+            this.cdl.ccj.ev(false);
+        } else {
+            this.cdl.ccj.ex(true);
+            this.cdl.ccj.ev(true);
+        }
+        this.cdl.aei();
+        this.cdl.ccs.a(i, i2, cfVar);
+    }
+
+    @Override // com.baidu.tieba.frs.bz
+    public void init() {
+    }
+
+    @Override // com.baidu.tieba.frs.bz
+    public void Og() {
     }
 }

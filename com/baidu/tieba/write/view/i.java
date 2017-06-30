@@ -5,23 +5,23 @@ import android.widget.FrameLayout;
 import com.baidu.tieba.write.view.NewFrameMultiImgToolView;
 /* loaded from: classes.dex */
 class i implements View.OnClickListener {
-    private final /* synthetic */ FrameLayout aAd;
-    final /* synthetic */ NewFrameMultiImgToolView.b fXL;
+    private final /* synthetic */ FrameLayout aBg;
+    final /* synthetic */ NewFrameMultiImgToolView.b giL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(NewFrameMultiImgToolView.b bVar, FrameLayout frameLayout) {
-        this.fXL = bVar;
-        this.aAd = frameLayout;
+        this.giL = bVar;
+        this.aBg = frameLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         NewFrameMultiImgToolView.a aVar;
         NewFrameMultiImgToolView.a aVar2;
-        aVar = this.fXL.fXK;
+        aVar = this.giL.giK;
         if (aVar != null) {
-            aVar2 = this.fXL.fXK;
-            aVar2.F(this.aAd);
+            aVar2 = this.giL.giK;
+            aVar2.G(this.aBg);
         }
     }
 }

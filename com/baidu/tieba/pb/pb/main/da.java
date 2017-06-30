@@ -1,24 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class da implements View.OnClickListener {
-    final /* synthetic */ cv eod;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public da(cv cvVar) {
-        this.eod = cvVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.pb.data.f fVar;
-        cv cvVar = this.eod;
-        fVar = this.eod.ekc;
-        cvVar.a(fVar, false);
-        this.eod.notifyDataSetChanged();
-        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11926"));
+class da implements com.baidu.tbadk.ala.e {
+    @Override // com.baidu.tbadk.ala.e
+    public View aq(Context context) {
+        TextView ap = com.baidu.tbadk.ala.c.ap(context);
+        if (ap != null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(com.baidu.adp.lib.util.k.g(context, w.f.ds16), com.baidu.adp.lib.util.k.g(context, w.f.ds2), 0, 0);
+            layoutParams.gravity = 16;
+            ap.setLayoutParams(layoutParams);
+        }
+        return ap;
     }
 }

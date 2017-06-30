@@ -10,7 +10,7 @@ public class a {
     private static volatile a DN = null;
     private HashMap<String, ArrayList<Message<?>>> DM = null;
 
-    public static a jn() {
+    public static a jm() {
         if (DN == null) {
             synchronized (a.class) {
                 if (DN == null) {
@@ -23,15 +23,15 @@ public class a {
 
     public void init() {
         this.DM = new HashMap<>();
-        jp();
         jo();
+        jn();
     }
 
-    private void jo() {
+    private void jn() {
         MessageManager.getInstance().registerListener(2000997, new b(this, 0));
     }
 
-    private void jp() {
+    private void jo() {
         MessageManager.getInstance().setNotFindTaskListener(new c(this));
     }
 

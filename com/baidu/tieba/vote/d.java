@@ -5,15 +5,16 @@ import android.view.View;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.w;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a fRs;
+    final /* synthetic */ a gby;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.fRs = aVar;
+        this.gby = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,47 +33,47 @@ public class d implements View.OnClickListener {
         List list;
         VoteDataInfo voteDataInfo3;
         if (view.getId() == w.h.btn_pb_vote) {
-            pbActivity = this.fRs.elf;
+            pbActivity = this.gby.euf;
             if (pbActivity != null) {
-                pbActivity2 = this.fRs.elf;
+                pbActivity2 = this.gby.euf;
                 if (pbActivity2.checkUpIsLogin()) {
-                    voteDataInfo = this.fRs.fRn;
+                    voteDataInfo = this.gby.gbt;
                     if (voteDataInfo != null) {
-                        j = this.fRs.mForumId;
+                        j = this.gby.mForumId;
                         if (j > 0) {
-                            j2 = this.fRs.mThreadId;
+                            j2 = this.gby.mThreadId;
                             if (j2 > 0) {
-                                z = this.fRs.fRp;
+                                z = this.gby.gbv;
                                 if (!z) {
-                                    pbActivity3 = this.fRs.elf;
+                                    pbActivity3 = this.gby.euf;
                                     AddVoteModel addVoteModel = new AddVoteModel(pbActivity3);
                                     StringBuilder sb = new StringBuilder();
-                                    voteDataInfo2 = this.fRs.fRn;
+                                    voteDataInfo2 = this.gby.gbt;
                                     List<com.baidu.tbadk.widget.vote.a> options = voteDataInfo2.getOptions();
                                     if (options != null) {
                                         for (com.baidu.tbadk.widget.vote.a aVar : options) {
                                             if (aVar != null && aVar.isSelected()) {
-                                                sb.append(aVar.getId()).append(",");
-                                                list = this.fRs.fRo;
+                                                sb.append(aVar.getId()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                                list = this.gby.gbu;
                                                 list.add((f) aVar);
-                                                voteDataInfo3 = this.fRs.fRn;
+                                                voteDataInfo3 = this.gby.gbt;
                                                 if (voteDataInfo3.getIsMulti() != 1) {
                                                     break;
                                                 }
                                             }
                                         }
-                                        if (sb.toString().endsWith(",")) {
+                                        if (sb.toString().endsWith(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
                                             sb.deleteCharAt(sb.length() - 1);
                                         }
                                         if (TextUtils.isEmpty(sb.toString())) {
-                                            pbActivity4 = this.fRs.elf;
+                                            pbActivity4 = this.gby.euf;
                                             UtilHelper.showToast(pbActivity4.getActivity(), w.l.vote_checked_less_one);
                                             return;
                                         }
-                                        j3 = this.fRs.mForumId;
-                                        j4 = this.fRs.mThreadId;
+                                        j3 = this.gby.mForumId;
+                                        j4 = this.gby.mThreadId;
                                         addVoteModel.a(j3, j4, sb.toString());
-                                        this.fRs.fRp = true;
+                                        this.gby.gbv = true;
                                     }
                                 }
                             }

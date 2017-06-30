@@ -28,7 +28,7 @@ public class i {
 
     public void addMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            com.baidu.adp.lib.util.k.hz();
+            com.baidu.adp.lib.util.k.hy();
             if (fVar instanceof d) {
                 FrameHelper.a(this.qo, (d) fVar);
             } else if (fVar instanceof k) {
@@ -43,7 +43,7 @@ public class i {
 
     public void removeMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            com.baidu.adp.lib.util.k.hz();
+            com.baidu.adp.lib.util.k.hy();
             if (fVar instanceof d) {
                 this.qo.remove(fVar);
             } else if (fVar instanceof k) {
@@ -58,7 +58,7 @@ public class i {
 
     public void a(g<?> gVar) {
         if (gVar != null) {
-            com.baidu.adp.lib.util.k.hz();
+            com.baidu.adp.lib.util.k.hy();
             if (gVar instanceof c) {
                 FrameHelper.a(this.qr, (c) gVar);
             } else if (gVar instanceof j) {
@@ -73,7 +73,7 @@ public class i {
 
     public void b(g<?> gVar) {
         if (gVar != null) {
-            com.baidu.adp.lib.util.k.hz();
+            com.baidu.adp.lib.util.k.hy();
             if (gVar instanceof c) {
                 this.qr.remove(gVar);
             } else if (gVar instanceof j) {

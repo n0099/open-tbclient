@@ -13,95 +13,96 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.DressupCenterActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class j implements q {
-    private RelativeLayout fQr;
-    private ImageView fQs;
-    public ImageView fQt;
-    private RelativeLayout fQu;
-    private ImageView fQv;
-    public ImageView fQw;
-    private PopupWindow fQx;
+    private RelativeLayout gai;
+    private ImageView gaj;
+    public ImageView gak;
+    private RelativeLayout gal;
+    private ImageView gam;
+    public ImageView gan;
+    private PopupWindow gao;
     private Context mContext;
     private NavigationBar mNavigationBar;
-    private boolean fQy = false;
+    private boolean gap = false;
     private Handler mHandler = new Handler();
-    private Runnable fGY = new k(this);
-    private Runnable fGZ = new l(this);
-    private View.OnClickListener fHa = new m(this);
+    private Runnable fQP = new k(this);
+    private Runnable fQQ = new l(this);
+    private View.OnClickListener fQR = new m(this);
 
     @Override // com.baidu.tieba.view.q
     public void a(Context context, NavigationBar navigationBar) {
         this.mContext = context;
         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(DressupCenterActivityConfig.class)) {
             this.mNavigationBar = navigationBar;
-            this.fQr = (RelativeLayout) LayoutInflater.from(context).inflate(w.j.item_person_host_navigation_dressup, (ViewGroup) null);
-            this.fQs = (ImageView) this.fQr.findViewById(w.h.person_navigation_dressup_img);
-            this.fQt = (ImageView) this.fQr.findViewById(w.h.person_navigation_dressup_red_tip);
+            this.gai = (RelativeLayout) LayoutInflater.from(context).inflate(w.j.item_person_host_navigation_dressup, (ViewGroup) null);
+            this.gaj = (ImageView) this.gai.findViewById(w.h.person_navigation_dressup_img);
+            this.gak = (ImageView) this.gai.findViewById(w.h.person_navigation_dressup_red_tip);
         }
         if (TbadkCoreApplication.m9getInst().appResponseToCmd(CmdConfigCustom.START_MORE)) {
             if (this.mNavigationBar == null) {
                 this.mNavigationBar = navigationBar;
             }
-            this.fQu = (RelativeLayout) LayoutInflater.from(context).inflate(w.j.item_person_host_navigation_setting, (ViewGroup) null);
-            this.fQv = (ImageView) this.fQu.findViewById(w.h.person_navigation_setting_img);
-            this.fQw = (ImageView) this.fQu.findViewById(w.h.person_navigation_setting_red_tip);
+            this.gal = (RelativeLayout) LayoutInflater.from(context).inflate(w.j.item_person_host_navigation_setting, (ViewGroup) null);
+            this.gam = (ImageView) this.gal.findViewById(w.h.person_navigation_setting_img);
+            this.gan = (ImageView) this.gal.findViewById(w.h.person_navigation_setting_red_tip);
         }
     }
 
     @Override // com.baidu.tieba.view.q
-    public void TT() {
-        if (this.fQu != null && this.fQu.getParent() == null) {
-            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.fQu, (View.OnClickListener) null);
+    public void Vi() {
+        if (this.gal != null && this.gal.getParent() == null) {
+            this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
+            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.gal, (View.OnClickListener) null);
         }
     }
 
     @Override // com.baidu.tieba.view.q
     public void setOnViewResponseListener(r rVar) {
-        if (this.fQr != null) {
-            this.fQr.setOnClickListener(new n(this));
+        if (this.gai != null) {
+            this.gai.setOnClickListener(new n(this));
         }
-        if (this.fQu != null) {
-            this.fQu.setOnClickListener(new o(this));
+        if (this.gal != null) {
+            this.gal.setOnClickListener(new o(this));
         }
     }
 
     @Override // com.baidu.tieba.view.q
     public void l(int i, boolean z) {
-        if (i == 5 && this.fQw != null) {
-            this.fQw.setVisibility(z ? 0 : 8);
-        } else if (i == 6 && this.fQt != null) {
-            this.fQt.setVisibility(z ? 0 : 8);
+        if (i == 5 && this.gan != null) {
+            this.gan.setVisibility(z ? 0 : 8);
+        } else if (i == 6 && this.gak != null) {
+            this.gak.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.baidu.tieba.view.q
     public void onChangeSkinType(int i) {
-        if (this.fQs != null) {
+        if (this.gaj != null) {
             if (2 == i) {
-                aq.b(this.fQs, w.g.icon_person_dressup_s, w.g.icon_person_dressup);
+                as.b(this.gaj, w.g.icon_person_dressup_s, w.g.icon_person_dressup);
             } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                aq.b(this.fQs, w.g.icon_person_dressup, w.g.icon_person_dressup);
+                as.b(this.gaj, w.g.icon_person_dressup, w.g.icon_person_dressup);
             } else {
-                aq.b(this.fQs, w.g.icon_person_dressup_s, w.g.icon_person_dressup_s);
+                as.b(this.gaj, w.g.icon_person_dressup_s, w.g.icon_person_dressup_s);
             }
-            if (this.fQt != null) {
-                aq.c(this.fQt, w.g.icon_news_down_bar_one);
+            if (this.gak != null) {
+                as.c(this.gak, w.g.icon_news_down_bar_one);
             }
         }
-        if (this.fQv != null) {
+        if (this.gam != null) {
             if (2 == i) {
-                aq.b(this.fQv, w.g.icon_home_setting_s, w.g.icon_home_setting_w);
+                as.b(this.gam, w.g.icon_home_setting_s, w.g.icon_home_setting_w);
             } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                aq.b(this.fQv, w.g.icon_home_setting_w, w.g.icon_home_setting_w);
+                as.b(this.gam, w.g.icon_home_setting_w, w.g.icon_home_setting_w);
             } else {
-                aq.b(this.fQv, w.g.icon_home_setting_s, w.g.icon_home_setting_s);
+                as.b(this.gam, w.g.icon_home_setting_s, w.g.icon_home_setting_s);
             }
-            if (this.fQw != null) {
-                aq.c(this.fQw, w.g.icon_news_down_bar_one);
+            if (this.gan != null) {
+                as.c(this.gan, w.g.icon_news_down_bar_one);
             }
         }
     }
@@ -110,18 +111,18 @@ public class j implements q {
     public void b(float f, boolean z) {
         float f2;
         if (z) {
-            if (this.fQs != null) {
-                aq.b(this.fQs, w.g.icon_person_dressup_s, w.g.icon_person_dressup_s);
+            if (this.gaj != null) {
+                as.b(this.gaj, w.g.icon_person_dressup_s, w.g.icon_person_dressup_s);
             }
-            if (this.fQv != null) {
-                aq.b(this.fQv, w.g.icon_home_setting_s, w.g.icon_home_setting_s);
+            if (this.gam != null) {
+                as.b(this.gam, w.g.icon_home_setting_s, w.g.icon_home_setting_s);
             }
         } else {
-            if (this.fQs != null) {
-                aq.b(this.fQs, w.g.icon_person_dressup, w.g.icon_person_dressup);
+            if (this.gaj != null) {
+                as.b(this.gaj, w.g.icon_person_dressup, w.g.icon_person_dressup);
             }
-            if (this.fQv != null) {
-                aq.b(this.fQv, w.g.icon_home_setting_w, w.g.icon_home_setting_w);
+            if (this.gam != null) {
+                as.b(this.gam, w.g.icon_home_setting_w, w.g.icon_home_setting_w);
             }
         }
         if (f < 0.5f) {
@@ -130,19 +131,19 @@ public class j implements q {
             f2 = (f * 2.0f) - 1.0f;
         }
         if (f2 >= 0.0f && f2 <= 1.0f) {
-            if (this.fQs != null) {
-                this.fQs.setAlpha(f2);
+            if (this.gaj != null) {
+                this.gaj.setAlpha(f2);
             }
-            if (this.fQv != null) {
-                this.fQv.setAlpha(f2);
+            if (this.gam != null) {
+                this.gam.setAlpha(f2);
             }
         }
     }
 
-    public void Tv() {
-        if (!this.fQy) {
-            this.fQy = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_person_tab_feedback_tips", false);
-            if (!this.fQy) {
+    public void aVs() {
+        if (!this.gap) {
+            this.gap = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_person_tab_feedback_tips", false);
+            if (!this.gap) {
                 View inflate = LayoutInflater.from(this.mContext).inflate(w.j.tips_blue_right_up, (ViewGroup) null);
                 View findViewById = inflate.findViewById(w.h.arrow_up);
                 TextView textView = (TextView) inflate.findViewById(w.h.tips);
@@ -150,26 +151,26 @@ public class j implements q {
                 layoutParams.gravity = 5;
                 layoutParams.rightMargin = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32);
                 textView.setText(w.l.person_tab_feedback_tips);
-                textView.setOnClickListener(this.fHa);
-                this.fQx = new PopupWindow(inflate, -2, -2);
-                this.mHandler.postDelayed(this.fGY, 100L);
+                textView.setOnClickListener(this.fQR);
+                this.gao = new PopupWindow(inflate, -2, -2);
+                this.mHandler.removeCallbacks(this.fQP);
+                this.mHandler.postDelayed(this.fQP, 100L);
             }
         }
     }
 
-    public void Tw() {
-        this.mHandler.removeCallbacks(this.fGY);
-        this.mHandler.removeCallbacks(this.fGZ);
-        bkd();
+    public void aVt() {
+        this.mHandler.removeCallbacks(this.fQP);
+        this.mHandler.removeCallbacks(this.fQQ);
+        boq();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bkd() {
-        com.baidu.adp.lib.g.j.a(this.fQx);
+    public void boq() {
+        com.baidu.adp.lib.g.j.a(this.gao);
     }
 
     @Override // com.baidu.tieba.view.q
-    /* renamed from: do */
-    public void mo19do(boolean z) {
+    public void dr(boolean z) {
     }
 }

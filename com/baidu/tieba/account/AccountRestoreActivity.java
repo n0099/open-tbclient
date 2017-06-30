@@ -40,9 +40,6 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         ((LinearLayout.LayoutParams) ((TextView) findViewById(w.h.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         this.mWebView = (BaseWebView) findViewById(w.h.webview_acc_restore);
         this.mWebView.setOnJsPromptCallback(this.jsCallback);
-        this.mWebView.getSettings().setJavaScriptEnabled(true);
-        this.mWebView.removeJavascriptInterface("searchBoxJavaBridge_");
-        com.baidu.tbadk.browser.f.ar(getPageContext().getPageActivity());
         this.mWebView.loadUrl("http://tieba.baidu.com/mo/q/account_page?_client_version=" + TbConfig.getVersion());
     }
 

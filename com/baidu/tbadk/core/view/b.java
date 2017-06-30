@@ -8,16 +8,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ ClickableHeaderImageView ahP;
+    final /* synthetic */ ClickableHeaderImageView aix;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ClickableHeaderImageView clickableHeaderImageView) {
-        this.ahP = clickableHeaderImageView;
+        this.aix = clickableHeaderImageView;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c4  */
@@ -27,43 +27,43 @@ public class b implements View.OnClickListener {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onClick(View view) {
-        bl blVar;
-        bl blVar2;
-        bl blVar3;
-        bl blVar4;
-        bl blVar5;
-        bl blVar6;
-        bl blVar7;
+        bm bmVar;
+        bm bmVar2;
+        bm bmVar3;
+        bm bmVar4;
+        bm bmVar5;
+        bm bmVar6;
+        bm bmVar7;
         View.OnClickListener onClickListener;
         View.OnClickListener onClickListener2;
-        bl blVar8;
-        bl blVar9;
-        bl blVar10;
-        if (this.ahP.ahO == null || !this.ahP.ahO.s(view)) {
-            blVar = this.ahP.ahM;
-            if (blVar != null) {
-                blVar2 = this.ahP.ahM;
-                if (blVar2.getAuthor() != null) {
-                    blVar3 = this.ahP.ahM;
-                    if (!StringUtils.isNull(blVar3.getAuthor().getName_show())) {
-                        blVar4 = this.ahP.ahM;
-                        if (!StringUtils.isNull(blVar4.getAuthor().getUserId())) {
-                            blVar5 = this.ahP.ahM;
-                            long c = com.baidu.adp.lib.g.b.c(blVar5.getAuthor().getUserId(), 0L);
+        bm bmVar8;
+        bm bmVar9;
+        bm bmVar10;
+        if (this.aix.aiw == null || !this.aix.aiw.s(view)) {
+            bmVar = this.aix.aiu;
+            if (bmVar != null) {
+                bmVar2 = this.aix.aiu;
+                if (bmVar2.getAuthor() != null) {
+                    bmVar3 = this.aix.aiu;
+                    if (!StringUtils.isNull(bmVar3.getAuthor().getName_show())) {
+                        bmVar4 = this.aix.aiu;
+                        if (!StringUtils.isNull(bmVar4.getAuthor().getUserId())) {
+                            bmVar5 = this.aix.aiu;
+                            long c = com.baidu.adp.lib.g.b.c(bmVar5.getAuthor().getUserId(), 0L);
                             boolean z = c == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
-                            blVar6 = this.ahP.ahM;
-                            if (blVar6.sx() != null) {
-                                blVar8 = this.ahP.ahM;
-                                if (blVar8.sx().channelId > 0) {
+                            bmVar6 = this.aix.aiu;
+                            if (bmVar6.sv() != null) {
+                                bmVar8 = this.aix.aiu;
+                                if (bmVar8.sv().channelId > 0) {
                                     MessageManager messageManager = MessageManager.getInstance();
-                                    Context context = this.ahP.getContext();
-                                    blVar9 = this.ahP.ahM;
-                                    long j = blVar9.sx().channelId;
-                                    blVar10 = this.ahP.ahM;
-                                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(context, j, blVar10.sx().mCurrentPage)));
-                                    onClickListener = this.ahP.ahN;
+                                    Context context = this.aix.getContext();
+                                    bmVar9 = this.aix.aiu;
+                                    long j = bmVar9.sv().channelId;
+                                    bmVar10 = this.aix.aiu;
+                                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(context, j, bmVar10.sv().mCurrentPage)));
+                                    onClickListener = this.aix.aiv;
                                     if (onClickListener == null) {
-                                        onClickListener2 = this.ahP.ahN;
+                                        onClickListener2 = this.aix.aiv;
                                         onClickListener2.onClick(view);
                                         return;
                                     }
@@ -71,10 +71,10 @@ public class b implements View.OnClickListener {
                                 }
                             }
                             MessageManager messageManager2 = MessageManager.getInstance();
-                            PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(this.ahP.getContext());
-                            blVar7 = this.ahP.ahM;
-                            messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, personPolymericActivityConfig.createNormalConfig(c, z, blVar7.getAuthor().isBigV())));
-                            onClickListener = this.ahP.ahN;
+                            PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(this.aix.getContext());
+                            bmVar7 = this.aix.aiu;
+                            messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, personPolymericActivityConfig.createNormalConfig(c, z, bmVar7.getAuthor().isBigV())));
+                            onClickListener = this.aix.aiv;
                             if (onClickListener == null) {
                             }
                         }

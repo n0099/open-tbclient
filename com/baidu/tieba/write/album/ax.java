@@ -6,15 +6,15 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends com.baidu.tbadk.util.v<Object> {
-    final /* synthetic */ TbCameraView fVI;
+public class ax extends com.baidu.tbadk.util.w<Object> {
+    final /* synthetic */ TbCameraView ggt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(TbCameraView tbCameraView) {
-        this.fVI = tbCameraView;
+        this.ggt = tbCameraView;
     }
 
-    @Override // com.baidu.tbadk.util.v
+    @Override // com.baidu.tbadk.util.w
     public Object doInBackground() {
         Bitmap bitmap;
         String str;
@@ -22,26 +22,26 @@ public class ax extends com.baidu.tbadk.util.v<Object> {
         Bitmap bitmap2;
         String str2;
         Runnable runnable;
-        bitmap = this.fVI.fVF;
+        bitmap = this.ggt.ggq;
         if (bitmap != null) {
-            str = this.fVI.fVA;
+            str = this.ggt.ggl;
             if (!StringUtils.isNull(str)) {
-                z = this.fVI.fOe;
+                z = this.ggt.fXV;
                 int i = z ? -90 : 90;
                 try {
-                    TbCameraView tbCameraView = this.fVI;
-                    bitmap2 = this.fVI.fVF;
+                    TbCameraView tbCameraView = this.ggt;
+                    bitmap2 = this.ggt.ggq;
                     Bitmap b = tbCameraView.b(bitmap2, i);
                     if (b != null) {
-                        str2 = this.fVI.fVA;
+                        str2 = this.ggt.ggl;
                         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(str2));
                         b.compress(Bitmap.CompressFormat.JPEG, 100, bufferedOutputStream);
                         bufferedOutputStream.flush();
                         bufferedOutputStream.close();
                         b.recycle();
-                        com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
-                        runnable = this.fVI.mRunnable;
-                        fS.post(runnable);
+                        com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
+                        runnable = this.ggt.mRunnable;
+                        fR.post(runnable);
                         return null;
                     }
                     return null;

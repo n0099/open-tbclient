@@ -8,11 +8,11 @@ public interface a {
 
     boolean a(j jVar, int i);
 
-    void bz(String str);
+    void bE(String str);
 
-    void lM();
+    void lK();
 
-    boolean lN();
+    boolean lL();
 
     void release();
 

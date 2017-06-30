@@ -4,6 +4,6 @@ package com.baidu.tieba.h;
 public class b implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
-        a.agA();
+        a.akk();
     }
 }

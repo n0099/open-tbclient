@@ -6,11 +6,11 @@ import com.baidu.tieba.frs.tab.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements HorizontalTabView.b {
-    final /* synthetic */ a bZe;
+    final /* synthetic */ a chn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.bZe = aVar;
+        this.chn = aVar;
     }
 
     @Override // com.baidu.tieba.frs.tab.HorizontalTabView.b
@@ -18,10 +18,10 @@ public class e implements HorizontalTabView.b {
         r rVar;
         r rVar2;
         if (jVar != null) {
-            rVar = this.bZe.bTw;
+            rVar = this.chn.cbE;
             if (rVar != null) {
-                rVar2 = this.bZe.bTw;
-                rVar2.cv(jVar.cfI == 49);
+                rVar2 = this.chn.cbE;
+                rVar2.cA(jVar.cnY == 49);
             }
         }
     }

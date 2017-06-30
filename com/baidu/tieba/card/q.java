@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ p bAm;
+    final /* synthetic */ p bBf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.bAm = pVar;
+        this.bBf = pVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,23 +28,23 @@ public class q implements View.OnClickListener {
         TbPageContext tbPageContext;
         com.baidu.tieba.card.data.i iVar5;
         com.baidu.tieba.card.data.i iVar6;
-        iVar = this.bAm.bAl;
+        iVar = this.bBf.bBe;
         if (iVar != null) {
-            iVar2 = this.bAm.bAl;
+            iVar2 = this.bBf.bBe;
             if (iVar2.author != null) {
-                iVar3 = this.bAm.bAl;
+                iVar3 = this.bBf.bBe;
                 if (!StringUtils.isNull(iVar3.author.getName_show())) {
-                    iVar4 = this.bAm.bAl;
+                    iVar4 = this.bBf.bBe;
                     if (!StringUtils.isNull(iVar4.author.getUserId())) {
-                        if (this.bAm.asJ != null) {
-                            this.bAm.asJ.onClick(view);
+                        if (this.bBf.atM != null) {
+                            this.bBf.atM.onClick(view);
                         }
                         MessageManager messageManager = MessageManager.getInstance();
-                        tbPageContext = this.bAm.aas;
+                        tbPageContext = this.bBf.aat;
                         Activity pageActivity = tbPageContext.getPageActivity();
-                        iVar5 = this.bAm.bAl;
+                        iVar5 = this.bBf.bBe;
                         String userId = iVar5.author.getUserId();
-                        iVar6 = this.bAm.bAl;
+                        iVar6 = this.bBf.bBe;
                         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, iVar6.author.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     }
                 }

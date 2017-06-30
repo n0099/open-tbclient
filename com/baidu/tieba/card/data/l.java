@@ -1,38 +1,36 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.z;
 /* loaded from: classes.dex */
 public class l extends c {
-    public bl threadData;
-    public static String bDg = "";
-    public static String bDh = "";
-    public static String bDi = "";
-    public static String bDj = "";
-    public static String bDk = "";
-    public static String bDl = "";
-    public static String bDm = "";
-    public static String bDn = "";
-    public static String bDo = "";
-    public static String bDp = "";
-    public static String bDq = "";
+    public bm threadData;
+    public static String bDZ = "";
+    public static String bEa = "";
+    public static String bEb = "";
+    public static String bEc = "";
+    public static String bEd = "";
+    public static String bEe = "";
+    public static String bEf = "";
+    public static String bEg = "";
+    public static String bEh = "";
+    public static String bEi = "";
+    public static String bEj = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId bDr = BdUniqueId.gen();
+    public static final BdUniqueId bEk = BdUniqueId.gen();
     public static final BdUniqueId Xp = BdUniqueId.gen();
-    public boolean bDs = false;
+    public boolean bEl = false;
     public boolean isLinkThread = false;
-    public boolean bDt = false;
-    public boolean aAa = true;
+    public boolean bEm = false;
+    public boolean aBd = true;
 
-    public static boolean w(bl blVar) {
-        if (blVar == null) {
+    public static boolean x(bm bmVar) {
+        if (bmVar == null) {
             return false;
         }
-        return blVar.getType() == bl.Xo || blVar.getType() == bl.Xq || blVar.getType() == bl.Xp;
+        return bmVar.getType() == bm.Xo || bmVar.getType() == bm.Xq || bmVar.getType() == bm.Xp;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
@@ -40,8 +38,8 @@ public class l extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.bDs) {
-            return bDr;
+        if (this.bEl) {
+            return bEk;
         }
         if (this.isLinkThread) {
             return Xp;
@@ -50,104 +48,107 @@ public class l extends c {
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bl LH() {
+    public bm Mv() {
         return this.threadData;
     }
 
-    public boolean UJ() {
-        return (this.threadData == null || x.q(this.threadData.rI()) == 0) ? false : true;
+    public boolean Wa() {
+        return (this.threadData == null || z.s(this.threadData.rF()) == 0) ? false : true;
     }
 
-    public as UK() {
-        if (UJ()) {
-            as ht = ht(bDl);
-            if (ht != null && LH() != null) {
-                ht.r("obj_name", LH().sG() != null && LH().sG().avd() != null && !au.isEmpty(LH().sG().bU(TbadkCoreApplication.m9getInst())) ? 1 : 0);
+    public au Wb() {
+        if (Wa()) {
+            au iP = iP(bEe);
+            if (iP != null && Mv() != null) {
+                bm Mv = Mv();
+                iP.r("obj_name", Mv.sE() != null && (Mv.sE().azb() != null || Mv.sE().Ic() != null) ? 1 : 0);
             }
-            return ht;
+            return iP;
         }
-        as ht2 = ht(bDg);
-        if (ht2 != null) {
-            ht2.Z("ab_tag", UD()).Z("ab_action", "show");
-            if (LH() != null) {
-                ht2.r("obj_name", LH().sG() != null && LH().sG().avd() != null && !au.isEmpty(LH().sG().bU(TbadkCoreApplication.m9getInst())) ? 1 : 0);
-            }
-        }
-        return ht2;
-    }
-
-    public as ii(String str) {
-        as ht = ht(str);
-        if (ht != null) {
-            ht.Z("ab_tag", UD()).Z("ab_action", "show");
-            if (LH() != null) {
-                ht.r("obj_name", LH().sG() != null && LH().sG().avd() != null && !au.isEmpty(LH().sG().bU(TbadkCoreApplication.m9getInst())) ? 1 : 0);
+        au iP2 = iP(bDZ);
+        if (iP2 != null) {
+            iP2.Z("ab_tag", VU()).Z("ab_action", "show");
+            if (Mv() != null) {
+                bm Mv2 = Mv();
+                iP2.r("obj_name", Mv2.sE() != null && (Mv2.sE().azb() != null || Mv2.sE().Ic() != null) ? 1 : 0);
             }
         }
-        return ht;
+        return iP2;
     }
 
-    public as ij(String str) {
-        as ht = ht(str);
-        if (ht != null) {
-            ht.Z("ab_tag", UD()).Z("ab_action", "click");
+    public au iQ(String str) {
+        au iP = iP(str);
+        if (iP != null) {
+            iP.Z("ab_tag", VU()).Z("ab_action", "show");
+            if (Mv() != null) {
+                bm Mv = Mv();
+                iP.r("obj_name", Mv.sE() != null && (Mv.sE().azb() != null || Mv.sE().Ic() != null) ? 1 : 0);
+            }
         }
-        return ht;
+        return iP;
     }
 
-    public as UL() {
-        if (UJ()) {
-            return ht(bDm);
+    public au iR(String str) {
+        au iP = iP(str);
+        if (iP != null) {
+            iP.Z("ab_tag", VU()).Z("ab_action", "click");
         }
-        as ht = ht(bDh);
-        if (ht != null) {
-            ht.Z("ab_tag", UD()).Z("ab_action", "click");
-            return ht;
-        }
-        return ht;
+        return iP;
     }
 
-    public as UM() {
-        if (UJ()) {
-            return ht(bDn);
+    public au Wc() {
+        if (Wa()) {
+            return iP(bEf);
         }
-        as I = I(bDi, 0);
-        if (I != null) {
-            I.Z("ab_tag", UD()).Z("ab_action", "click");
-            return I;
+        au iP = iP(bEa);
+        if (iP != null) {
+            iP.Z("ab_tag", VU()).Z("ab_action", "click");
+            return iP;
         }
-        return I;
+        return iP;
     }
 
-    public as UN() {
-        if (UJ()) {
-            return ht(bDo);
+    public au Wd() {
+        if (Wa()) {
+            return iP(bEg);
         }
-        as ht = ht(bDj);
-        if (ht != null) {
-            ht.Z("ab_tag", UD()).Z("ab_action", "click");
-            return ht;
+        au K = K(bEb, 0);
+        if (K != null) {
+            K.Z("ab_tag", VU()).Z("ab_action", "click");
+            return K;
         }
-        return ht;
+        return K;
     }
 
-    public as UO() {
-        if (UJ()) {
-            return ht(bDp);
+    public au We() {
+        if (Wa()) {
+            return iP(bEh);
         }
-        as ht = ht(bDk);
-        if (ht != null) {
-            ht.Z("ab_tag", UD()).Z("ab_action", "click");
-            return ht;
+        au iP = iP(bEc);
+        if (iP != null) {
+            iP.Z("ab_tag", VU()).Z("ab_action", "click");
+            return iP;
         }
-        return ht;
+        return iP;
     }
 
-    public as UP() {
-        return ht(bDq);
+    public au Wf() {
+        if (Wa()) {
+            return iP(bEi);
+        }
+        au iP = iP(bEd);
+        if (iP != null) {
+            iP.Z("ab_tag", VU()).Z("ab_action", "click");
+            return iP;
+        }
+        return iP;
     }
 
-    public as ik(String str) {
-        return ht(str);
+    public au Wg() {
+        return iP(bEj);
+    }
+
+    public au iS(String str) {
+        return iP(str);
     }
 }

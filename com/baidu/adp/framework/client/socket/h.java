@@ -81,7 +81,7 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     public void a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        com.baidu.adp.lib.util.k.hz();
+        com.baidu.adp.lib.util.k.hy();
         if (socketMessage != null && socketMessageTask != null) {
             if (a(socketMessage, socketMessageTask.dC())) {
                 k.a("queue", socketMessage, 0, "sendMessage", j.pA, "duplicate message be removed");
@@ -218,13 +218,13 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     }
 
     private void cQ() {
-        e c = c.c(this.oP);
-        if (c != null) {
+        e d = c.d(this.oP);
+        if (d != null) {
             if (BdSocketLinkService.isClose()) {
-                k.a("queue", c.cH(), 0, "sendNext", j.pB, "");
+                k.a("queue", d.cH(), 0, "sendNext", j.pB, "");
                 BdSocketLinkService.startService(false, "send message");
-            } else if (!this.oS || c.getPriority() <= -3) {
-                BdSocketLinkService.sendMessage(c);
+            } else if (!this.oS || d.getPriority() <= -3) {
+                BdSocketLinkService.sendMessage(d);
             }
         }
     }
@@ -242,12 +242,12 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         }
     }
 
-    private void g(LinkedList<e> linkedList) {
+    private void h(LinkedList<e> linkedList) {
         while (true) {
-            e d = c.d(linkedList);
-            if (d != null) {
-                d.cB();
-                a(d, j.pw, null);
+            e e = c.e(linkedList);
+            if (e != null) {
+                e.cB();
+                a(e, j.pw, null);
             } else {
                 return;
             }
@@ -255,9 +255,9 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     }
 
     public void cR() {
-        g(this.oO);
-        g(this.oP);
-        g(this.oQ);
+        h(this.oO);
+        h(this.oP);
+        h(this.oQ);
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.e
@@ -268,22 +268,22 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         if (this.oT != null) {
             this.oT.cs();
         }
-        if (!com.baidu.adp.lib.util.k.hB() || c.e(this.oQ) || c.e(this.oP) || c.e(this.oO) || !BdSocketLinkService.isAvailable()) {
+        if (!com.baidu.adp.lib.util.k.hA() || c.f(this.oQ) || c.f(this.oP) || c.f(this.oO) || !BdSocketLinkService.isAvailable()) {
             cR();
             return false;
         }
-        c.f(this.oO);
+        c.g(this.oO);
         c.a(this.oP, this.oQ);
         c.a(this.oP, this.oO);
         while (true) {
-            e b = c.b(this.oP);
-            if (b == null) {
+            e c = c.c(this.oP);
+            if (c == null) {
                 break;
             }
-            b.cB();
-            a(b, j.pw, null);
+            c.cB();
+            a(c, j.pw, null);
         }
-        if (c.a(this.oP) > 0) {
+        if (c.b(this.oP) > 0) {
             k.a("queue", 0, 0, "onClose", j.pE, "have retry message, MessageQueue:reconnect");
             BdSocketLinkService.startService(false, "have retry message");
             return true;
@@ -336,7 +336,7 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2000986));
             } catch (CoderException e) {
-                int maxAlertCount = com.baidu.adp.lib.stats.switchs.a.gC().getMaxAlertCount("alert_protobuf", 2);
+                int maxAlertCount = com.baidu.adp.lib.stats.switchs.a.gB().getMaxAlertCount("alert_protobuf", 2);
                 int i2 = this.oV + 1;
                 this.oV = i2;
                 if (i2 >= maxAlertCount) {
@@ -373,9 +373,9 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.e
-    public void x(String str) {
+    public void C(String str) {
         if (this.oR != null) {
-            this.oR.x(str);
+            this.oR.C(str);
         }
     }
 

@@ -10,7 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.h.u;
+import com.baidu.android.pushservice.j.q;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -81,7 +81,7 @@ public class c {
                         build.contentIntent = pendingIntent;
                         ((NotificationManager) context.getSystemService("notification")).notify(str, 0, build);
                     } catch (MalformedURLException e) {
-                        com.baidu.android.pushservice.e.a.a("NewPushNotificationBuilder", e);
+                        com.baidu.android.pushservice.g.a.a("NewPushNotificationBuilder", e);
                     } catch (IOException e2) {
                     }
                 }
@@ -108,7 +108,7 @@ public class c {
         }
         if (notification != null) {
             notification.contentIntent = pendingIntent;
-            ((NotificationManager) context.getSystemService("notification")).notify(u.b(str), notification);
+            ((NotificationManager) context.getSystemService("notification")).notify(q.b(str), notification);
         }
     }
 

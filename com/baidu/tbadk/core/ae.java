@@ -11,6 +11,6 @@ public class ae implements com.baidu.adp.framework.client.socket.link.j {
 
     @Override // com.baidu.adp.framework.client.socket.link.j
     public void dp() {
-        com.baidu.tbadk.util.d.Gh().a(new af(this));
+        com.baidu.tbadk.util.e.GE().a(new af(this));
     }
 }
