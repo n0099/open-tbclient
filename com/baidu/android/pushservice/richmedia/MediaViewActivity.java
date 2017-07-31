@@ -1,5 +1,7 @@
 package com.baidu.android.pushservice.richmedia;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -108,6 +110,7 @@ public class MediaViewActivity extends Activity {
         }
     };
 
+    @TargetApi(11)
     private void a() {
         this.a.removeJavascriptInterface("searchBoxJavaBridge_");
         this.a.removeJavascriptInterface("accessibility");
@@ -120,6 +123,7 @@ public class MediaViewActivity extends Activity {
     }
 
     @Override // android.app.Activity
+    @SuppressLint({"SetJavaScriptEnabled"})
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();

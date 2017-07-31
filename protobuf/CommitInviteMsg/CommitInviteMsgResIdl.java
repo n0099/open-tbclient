@@ -10,10 +10,6 @@ public final class CommitInviteMsgResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ CommitInviteMsgResIdl(Builder builder, boolean z, CommitInviteMsgResIdl commitInviteMsgResIdl) {
-        this(builder, z);
-    }
-
     private CommitInviteMsgResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -44,7 +40,7 @@ public final class CommitInviteMsgResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public CommitInviteMsgResIdl build(boolean z) {
-            return new CommitInviteMsgResIdl(this, z, null);
+            return new CommitInviteMsgResIdl(this, z);
         }
     }
 }

@@ -1,10 +1,17 @@
 package com.baidu.tieba.tbadkCore.util;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.util.Error;
 /* loaded from: classes.dex */
-class d implements a.b {
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
-    }
+public interface d {
+    int amW();
+
+    int amX();
+
+    void b(String str, com.baidu.tbadk.util.g<Error> gVar);
+
+    void destroy();
+
+    String kY(String str);
+
+    boolean la(String str);
 }

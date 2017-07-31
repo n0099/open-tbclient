@@ -1,35 +1,78 @@
 package com.baidu.tbadk.widget;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class c implements Handler.Callback {
-    final /* synthetic */ b aLo;
+public class c extends ImageSpan {
+    private WeakReference<Drawable> Hs;
+    private int aOK;
+    private int paddingLeft;
+    private int paddingRight;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.aLo = bVar;
+    public c(Drawable drawable) {
+        super(drawable);
+        this.aOK = 0;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        switch (message.what) {
-            case 0:
-                this.aLo.Ho();
-                break;
-            case 1:
-                if (this.aLo.aLn) {
-                    this.aLo.Ho();
-                    break;
-                }
-                break;
-            case 2:
-                this.aLo.invalidate();
-                this.aLo.aLm = System.currentTimeMillis();
-                this.aLo.mHandler.sendEmptyMessage(0);
-                break;
+    public void fq(int i) {
+        this.paddingLeft = i;
+    }
+
+    public void fr(int i) {
+        this.paddingRight = i;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        Drawable kB = kB();
+        if (kB == null) {
+            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
-        return false;
+        Rect bounds = kB.getBounds();
+        if (fontMetricsInt != null) {
+            Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+            int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+            int i4 = bounds.bottom - bounds.top;
+            int i5 = (i4 / 2) - (i3 / 4);
+            int i6 = (i3 / 4) + (i4 / 2);
+            fontMetricsInt.ascent = -i6;
+            fontMetricsInt.top = -i6;
+            fontMetricsInt.bottom = i5;
+            fontMetricsInt.descent = i5;
+        }
+        return bounds.right + this.paddingLeft + this.paddingRight;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable kB = kB();
+        if (kB != null) {
+            canvas.save();
+            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - kB.getBounds().bottom) / 2) + i3) - this.aOK);
+            kB.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    private Drawable kB() {
+        WeakReference<Drawable> weakReference = this.Hs;
+        Drawable drawable = null;
+        if (weakReference != null) {
+            drawable = weakReference.get();
+        }
+        if (drawable == null) {
+            Drawable drawable2 = getDrawable();
+            this.Hs = new WeakReference<>(drawable2);
+            return drawable2;
+        }
+        return drawable;
+    }
+
+    public void setVerticalOffset(int i) {
+        this.aOK = i;
     }
 }

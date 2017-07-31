@@ -8,10 +8,6 @@ public final class UpdateMaskResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ UpdateMaskResIdl(Builder builder, boolean z, UpdateMaskResIdl updateMaskResIdl) {
-        this(builder, z);
-    }
-
     private UpdateMaskResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -38,7 +34,7 @@ public final class UpdateMaskResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public UpdateMaskResIdl build(boolean z) {
-            return new UpdateMaskResIdl(this, z, null);
+            return new UpdateMaskResIdl(this, z);
         }
     }
 }

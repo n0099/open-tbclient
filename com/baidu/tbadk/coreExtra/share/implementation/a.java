@@ -3,61 +3,61 @@ package com.baidu.tbadk.coreExtra.share.implementation;
 import android.content.Context;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.tbadk.coreExtra.share.h;
+import com.baidu.tbadk.coreExtra.share.e;
 import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.coreExtra.share.b {
-    private BdSocialShareSdkDelegate atm;
-    private b atn;
+    private BdSocialShareSdkDelegate avv;
+    private b avw;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.share.implementation.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0042a {
+    public interface InterfaceC0048a {
         void onSuccess();
     }
 
     public a(Context context, com.baidu.tbadk.coreExtra.share.a aVar) {
         this.mContext = null;
-        this.atm = null;
+        this.avv = null;
         this.mContext = context;
-        this.atm = (BdSocialShareSdkDelegate) PluginCenter.getInstance().getSocialShareClassInstance();
-        if (this.atm != null) {
-            this.atn = new b(aVar);
+        this.avv = (BdSocialShareSdkDelegate) PluginCenter.getInstance().getSocialShareClassInstance();
+        if (this.avv != null) {
+            this.avw = new b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.b
-    public void a(h hVar, int i, boolean z) {
+    public void a(e eVar, int i, boolean z) {
         String str;
-        if (this.atm != null && hVar != null) {
+        if (this.avv != null && eVar != null) {
             switch (i) {
                 case 2:
-                    this.atm.shareToWexinTimeline(hVar.title, hVar.content, hVar.linkUrl, hVar.imageUri, hVar.location, this.mContext, z, new c(hVar, i));
+                    this.avv.shareToWexinTimeline(eVar.title, eVar.content, eVar.linkUrl, eVar.imageUri, eVar.location, this.mContext, z, new c(eVar, i));
                     return;
                 case 3:
-                    this.atm.shareToWeixinFriend(hVar.title, hVar.content, hVar.linkUrl, hVar.imageUri, hVar.location, this.mContext, z, new c(hVar, i));
+                    this.avv.shareToWeixinFriend(eVar.title, eVar.content, eVar.linkUrl, eVar.imageUri, eVar.location, this.mContext, z, new c(eVar, i));
                     return;
                 case 4:
-                    this.atm.shareToQZone(hVar.title, hVar.content, hVar.linkUrl, hVar.imageUri, hVar.location, this.mContext, z, new c(hVar, i));
+                    this.avv.shareToQZone(eVar.title, eVar.content, eVar.linkUrl, eVar.imageUri, eVar.location, this.mContext, z, new c(eVar, i));
                     return;
                 case 5:
-                    this.atm.shareToQQWeibo(hVar.title, hVar.content, hVar.linkUrl, hVar.imageUri, hVar.location, this.mContext, z, new c(hVar, i));
+                    this.avv.shareToQQWeibo(eVar.title, eVar.content, eVar.linkUrl, eVar.imageUri, eVar.location, this.mContext, z, new c(eVar, i));
                     return;
                 case 6:
-                    if (!StringUtils.isNull(hVar.asY)) {
-                        str = hVar.asY;
+                    if (!StringUtils.isNull(eVar.avh)) {
+                        str = eVar.avh;
                     } else {
-                        str = hVar.linkUrl;
+                        str = eVar.linkUrl;
                     }
-                    this.atm.shareToSinaWeibo(hVar.title, hVar.content, str, hVar.imageUri, hVar.location, this.mContext, z, new c(hVar, i));
+                    this.avv.shareToSinaWeibo(eVar.title, eVar.content, str, eVar.imageUri, eVar.location, this.mContext, z, new c(eVar, i));
                     return;
                 case 7:
-                    this.atm.shareToRenren(hVar.title, hVar.content, hVar.linkUrl, hVar.imageUri, hVar.location, this.mContext, z, new c(hVar, i));
+                    this.avv.shareToRenren(eVar.title, eVar.content, eVar.linkUrl, eVar.imageUri, eVar.location, this.mContext, z, new c(eVar, i));
                     return;
                 case 8:
-                    this.atm.shareToQQFriend(hVar.title, hVar.content, hVar.linkUrl, hVar.imageUri, hVar.location, this.mContext, z, new c(hVar, i));
+                    this.avv.shareToQQFriend(eVar.title, eVar.content, eVar.linkUrl, eVar.imageUri, eVar.location, this.mContext, z, new c(eVar, i));
                     return;
                 default:
                     return;
@@ -68,78 +68,83 @@ public class a implements com.baidu.tbadk.coreExtra.share.b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c implements BdSocialShareSdkDelegate.ShareCallback {
-        private h atq;
-        private int atr;
+        private int avA;
+        private e avz;
 
-        public c(h hVar, int i) {
-            this.atq = null;
-            this.atr = -1;
-            this.atq = hVar;
-            this.atr = i;
+        public c(e eVar, int i) {
+            this.avz = null;
+            this.avA = -1;
+            this.avz = eVar;
+            this.avA = i;
         }
 
         @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
         public void shareCallback(boolean z) {
             if (z) {
-                a.this.atn.bj(true);
-                a.this.atn.a(new com.baidu.tbadk.coreExtra.share.implementation.b(this));
+                a.this.avw.bl(true);
+                a.this.avw.a(new InterfaceC0048a() { // from class: com.baidu.tbadk.coreExtra.share.implementation.a.c.1
+                    @Override // com.baidu.tbadk.coreExtra.share.implementation.a.InterfaceC0048a
+                    public void onSuccess() {
+                        a.this.a(c.this.avz, c.this.avA, false);
+                    }
+                });
                 return;
             }
-            a.this.atn.bj(false);
+            a.this.avw.bl(false);
         }
 
         @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
         public void onCancelOfBaiduListener() {
-            a.this.atn.AJ();
+            a.this.avw.Bc();
         }
 
         @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
         public void onCompleteOfBaiduListener() {
-            a.this.atn.AI();
+            a.this.avw.Bb();
         }
 
         @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
         public void onErrorOfBaiduListener() {
-            a.this.atn.AK();
+            a.this.avw.Bd();
         }
     }
 
     /* loaded from: classes.dex */
     private static class b {
-        private com.baidu.tbadk.coreExtra.share.a asP;
-        private boolean ato = true;
-        private InterfaceC0042a atp;
+        private com.baidu.tbadk.coreExtra.share.a auX;
+        private boolean avx = true;
+        private InterfaceC0048a avy;
 
         public b(com.baidu.tbadk.coreExtra.share.a aVar) {
-            this.asP = aVar;
+            this.auX = aVar;
         }
 
-        public void bj(boolean z) {
-            this.ato = z;
+        public void bl(boolean z) {
+            this.avx = z;
         }
 
-        public void a(InterfaceC0042a interfaceC0042a) {
-            this.atp = interfaceC0042a;
+        public void a(InterfaceC0048a interfaceC0048a) {
+            this.avy = interfaceC0048a;
         }
 
-        public void AI() {
-            if (this.ato) {
-                this.asP.Az();
-                this.atp.onSuccess();
+        public void Bb() {
+            if (this.avx) {
+                this.auX.AS();
+                this.avy.onSuccess();
                 return;
             }
-            this.asP.AB();
+            this.auX.AU();
         }
 
-        public void AJ() {
-            this.asP.AA();
+        public void Bc() {
+            this.auX.AT();
         }
 
-        public void AK() {
-            if (this.ato) {
-                this.asP.AC();
+        public void Bd() {
+            if (this.avx) {
+                this.auX.AV();
             } else {
-                this.asP.AC();
+                this.auX.AV();
             }
         }
     }

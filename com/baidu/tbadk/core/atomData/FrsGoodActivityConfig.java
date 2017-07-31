@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class FrsGoodActivityConfig extends IntentConfig {
@@ -16,14 +17,16 @@ public class FrsGoodActivityConfig extends IntentConfig {
 
     public FrsGoodActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
         Intent intent = getIntent();
-        intent.putExtra("name", str);
-        intent.putExtra("from", str2);
-        intent.putExtra("back_special", z);
-        intent.putExtra(FrsActivityConfig.GOOD, z2);
+        Bundle bundle = new Bundle();
+        bundle.putString("name", str);
+        bundle.putString("from", str2);
+        bundle.putBoolean("back_special", z);
+        bundle.putBoolean(FrsActivityConfig.GOOD, z2);
+        intent.putExtras(bundle);
+        bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
         if (!(getContext() instanceof Activity)) {
             intent.addFlags(268435456);
         }
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         return this;
     }
 }

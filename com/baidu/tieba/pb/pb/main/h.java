@@ -1,119 +1,107 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
+import com.baidu.adp.lib.cache.l;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class h extends com.baidu.tbadk.core.dialog.a {
+public class h {
+    private static h eJK;
+    private com.baidu.adp.lib.cache.l<byte[]> eJL = null;
+    private com.baidu.adp.lib.cache.l<byte[]> eJM = null;
+    private long eJN = 0;
+    private long eJO = 0;
 
-    /* loaded from: classes.dex */
-    public static class a extends b {
-        public String euk = null;
-        public String eul = null;
-        public String cwq = null;
+    public static synchronized h aRm() {
+        h hVar;
+        synchronized (h.class) {
+            if (eJK == null) {
+                eJK = new h();
+            }
+            hVar = eJK;
+        }
+        return hVar;
     }
 
-    /* loaded from: classes.dex */
-    public static class b {
-        public String eum = null;
-        public String eun = null;
-        public a.b euo = null;
-        public a.b eup = null;
-        public com.baidu.adp.base.g<?> mPageContext;
+    private h() {
+        adQ();
     }
 
-    /* loaded from: classes.dex */
-    public static class c extends b {
-        public String euq = null;
-        public String eur = null;
-    }
-
-    /* loaded from: classes.dex */
-    public static class d extends b {
-        public CharSequence eus = null;
-        public CharSequence eut = null;
-        public CharSequence euu = null;
-    }
-
-    public h(Activity activity) {
-        super(activity);
-    }
-
-    public void a(c cVar) {
-        if (cVar != null) {
-            View inflate = LayoutInflater.from(this.mActivity).inflate(w.j.pb_dlg_txt, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(w.h.tip_top);
-            textView.setText(cVar.euq);
-            com.baidu.tbadk.core.util.as.c(textView, w.e.cp_cont_b, 1);
-            TextView textView2 = (TextView) inflate.findViewById(w.h.tip_bottom);
-            textView2.setText(cVar.eur);
-            com.baidu.tbadk.core.util.as.c(textView2, w.e.cp_cont_b, 1);
-            v(inflate);
-            a(cVar.eun, cVar.eup);
-            b(cVar.eum, cVar.euo);
-            at(false);
-            b(cVar.mPageContext).ta();
+    private void adQ() {
+        if (this.eJL == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.eJL = com.baidu.tbadk.core.c.a.tn().cP("tb.pb_mark");
+            this.eJO = System.currentTimeMillis() - currentTimeMillis;
+        }
+        if (this.eJM == null) {
+            long currentTimeMillis2 = System.currentTimeMillis();
+            this.eJM = com.baidu.tbadk.core.c.a.tn().cP("tb.pb_normal");
+            this.eJN = System.currentTimeMillis() - currentTimeMillis2;
         }
     }
 
-    public void a(a aVar) {
-        if (aVar != null) {
-            int skinType = isAutoNight() ? TbadkCoreApplication.m9getInst().getSkinType() : 0;
-            View inflate = LayoutInflater.from(this.mActivity).inflate(w.j.lottery_dialog, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(w.h.lottery_title);
-            textView.setText(aVar.euk);
-            com.baidu.tbadk.core.util.as.c(textView, w.e.cp_cont_b, 1);
-            TextView textView2 = (TextView) inflate.findViewById(w.h.lottery_des);
-            textView2.setText(aVar.eul);
-            com.baidu.tbadk.core.util.as.c(textView2, w.e.cp_cont_b, 1);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(w.h.lottery_image_bg);
-            int g = com.baidu.adp.lib.util.k.g(this.mActivity, w.f.ds170);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tbImageView.getLayoutParams();
-            layoutParams.width = (int) (g * 1.2272727272727273d);
-            layoutParams.height = g;
-            tbImageView.setLayoutParams(layoutParams);
-            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(w.h.lottery_image);
-            int g2 = com.baidu.adp.lib.util.k.g(this.mActivity, w.f.ds152);
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) tbImageView2.getLayoutParams();
-            layoutParams2.width = (int) (g2 * 1.2272727272727273d);
-            layoutParams2.height = g2;
-            tbImageView2.setLayoutParams(layoutParams2);
-            tbImageView2.c(aVar.cwq, 10, false);
-            v(inflate);
-            a(aVar.eun, aVar.eup);
-            b(aVar.eum, aVar.euo);
-            at(false);
-            ca(1);
-            b(aVar.mPageContext);
-            com.baidu.tbadk.core.util.as.d(tb(), w.g.dialog_push_bg, skinType);
-            ta();
+    public void P(String str, boolean z) {
+        if (z) {
+            if (this.eJL != null && str != null) {
+                this.eJL.b(str, new byte[0], 0L);
+            }
+        } else if (this.eJM != null && str != null) {
+            this.eJM.b(str, new byte[0], 0L);
         }
     }
 
-    public void a(d dVar) {
-        if (dVar != null) {
-            View inflate = LayoutInflater.from(this.mActivity).inflate(w.j.pb_three_row_text_dlg, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(w.h.first_row);
-            textView.setText(dVar.eus);
-            com.baidu.tbadk.core.util.as.c(textView, w.e.cp_cont_b, 1);
-            TextView textView2 = (TextView) inflate.findViewById(w.h.second_row);
-            textView2.setText(dVar.eut);
-            com.baidu.tbadk.core.util.as.c(textView2, w.e.cp_cont_b, 1);
-            TextView textView3 = (TextView) inflate.findViewById(w.h.third_row);
-            textView3.setText(dVar.euu);
-            com.baidu.tbadk.core.util.as.c(textView3, w.e.cp_cont_b, 1);
-            v(inflate);
-            a(dVar.eun, dVar.eup);
-            b(dVar.eum, dVar.euo);
-            at(false);
-            b(dVar.mPageContext).ta();
+    public byte[] Q(String str, boolean z) {
+        l.c<byte[]> ac;
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = 0;
+        if (z) {
+            if (this.eJL != null && str != null) {
+                ac = this.eJL.ac(str);
+                j = this.eJO;
+            }
+            ac = null;
+        } else {
+            if (this.eJM != null && str != null) {
+                ac = this.eJM.ac(str);
+                j = this.eJN;
+            }
+            ac = null;
+        }
+        if (ac == null || ac.um == null) {
+            return null;
+        }
+        com.baidu.tbadk.l.m mVar = new com.baidu.tbadk.l.m();
+        mVar.fi(1001);
+        mVar.aKk = j + (System.currentTimeMillis() - currentTimeMillis);
+        mVar.Gv();
+        return ac.um;
+    }
+
+    public void a(String str, boolean z, byte[] bArr) {
+        if (str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            adQ();
+            if (z) {
+                this.eJL.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            } else {
+                this.eJM.a(str, bArr, 86400000L);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.l.m mVar = new com.baidu.tbadk.l.m();
+            mVar.fi(1001);
+            mVar.aKl = currentTimeMillis2;
+            mVar.Gw();
+        }
+    }
+
+    public void l(String str, byte[] bArr) {
+        if (bArr != null && str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            adQ();
+            this.eJL.a(str, bArr, 2592000000L);
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.l.m mVar = new com.baidu.tbadk.l.m();
+            mVar.fi(1001);
+            mVar.aKl = currentTimeMillis2;
+            mVar.Gw();
         }
     }
 }

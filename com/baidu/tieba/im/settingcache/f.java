@@ -1,23 +1,25 @@
 package com.baidu.tieba.im.settingcache;
-
-import com.baidu.tbadk.util.w;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends w<Void> {
-    final /* synthetic */ c doK;
-    private final /* synthetic */ String val$key;
+public class f {
+    private static volatile f dyO;
+    private boolean isAcceptNotify;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(c cVar, String str) {
-        this.doK = cVar;
-        this.val$key = str;
+    public static f axS() {
+        if (dyO == null) {
+            synchronized (f.class) {
+                if (dyO == null) {
+                    dyO = new f();
+                }
+            }
+        }
+        return dyO;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.w
-    /* renamed from: Ld */
-    public Void doInBackground() {
-        this.doK.avZ().remove(this.val$key);
-        return null;
+    public boolean isAcceptNotify() {
+        return this.isAcceptNotify;
+    }
+
+    public void setAcceptNotify(boolean z) {
+        this.isAcceptNotify = z;
     }
 }

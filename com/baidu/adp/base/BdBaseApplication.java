@@ -3,6 +3,7 @@ package com.baidu.adp.base;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
+import com.baidu.adp.lib.util.k;
 import com.baidu.megapp.ma.MAApplication;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends MAApplication {
@@ -14,7 +15,7 @@ public class BdBaseApplication extends MAApplication {
     private long lastGcTime = 0;
 
     public void onCreate(Application application) {
-        i.cg().a(super.getResources());
+        g.cr().a(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
@@ -22,14 +23,14 @@ public class BdBaseApplication extends MAApplication {
     private void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        com.baidu.adp.lib.util.k.ae(application);
+        k.af(application);
         initWorkMode();
         initBitmapHelper();
         initPlugin();
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.jm().init();
+        com.baidu.adp.plugin.c.a.ju().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -61,11 +62,11 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.gR().ad(this.mContext);
+        com.baidu.adp.lib.util.d.gZ().ae(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.ca().cc();
+        a.cl().cn();
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGcTime > 30000) {
             this.lastGcTime = currentTimeMillis;
@@ -74,16 +75,16 @@ public class BdBaseApplication extends MAApplication {
     }
 
     public void setActivityStackMaxSize(int i) {
-        a.ca().setActivityStackMaxSize(i);
+        a.cl().setActivityStackMaxSize(i);
     }
 
     public int getActivityStackMaxSize() {
-        return a.ca().getActivityStackMaxSize();
+        return a.cl().getActivityStackMaxSize();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = i.cg().getResources();
+        Resources resources = g.cr().getResources();
         return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
     }
 

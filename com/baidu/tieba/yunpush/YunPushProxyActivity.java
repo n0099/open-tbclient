@@ -6,8 +6,8 @@ import android.text.TextUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.at;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
@@ -31,10 +31,10 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     if (!jSONObject.isNull("jump_scheme")) {
                         str2 = jSONObject.getString("jump_scheme");
                     }
-                    TiebaStatic.log(new au("c11703").r("obj_type", 2).Z(InterviewLiveActivityConfig.KEY_TASK_ID, str).Z("obj_to", str2));
+                    TiebaStatic.log(new aj("c11703").r("obj_type", 2).aa(InterviewLiveActivityConfig.KEY_TASK_ID, str).aa("obj_to", str2));
                     if (!TextUtils.isEmpty(str2)) {
                         if (str2.startsWith("http") || str2.startsWith("https")) {
-                            be.vP().c(getPageContext(), new String[]{str2});
+                            at.wf().c(getPageContext(), new String[]{str2});
                         } else {
                             Intent parseUri = Intent.parseUri(str2, 1);
                             parseUri.setFlags(276824064);

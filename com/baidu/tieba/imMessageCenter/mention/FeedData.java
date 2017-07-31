@@ -26,6 +26,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private int hideForumName;
     private boolean isAuthor;
     private int isFloor;
+    private boolean mIsStory;
     private String mPraiseItemType;
     private String quote_pid;
     private int mPraiseNum = 0;
@@ -123,6 +124,10 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
         return this.hideForumName == 1;
     }
 
+    public boolean isStory() {
+        return this.mIsStory;
+    }
+
     public String toJson() {
         JSONArray jSONArray = new JSONArray();
         try {
@@ -140,6 +145,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
             jSONObject.put("thread_type", this.thread_type);
             jSONObject.put("v_forum_id", this.fromForumId);
             jSONObject.put("hide_fname", this.hideForumName);
+            jSONObject.put("is_story", this.mIsStory ? 1 : 0);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("id", this.replyer.getUserId());
             jSONObject2.put("name", this.replyer.getUserName());
@@ -176,6 +182,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.mPraiseItemType = jSONObject.optString("item_type");
                 this.fromForumId = jSONObject.optLong("v_forum_id");
                 this.hideForumName = jSONObject.optInt("hide_fname");
+                this.mIsStory = jSONObject.optInt("is_story") == 1;
                 if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                     this.mPraiseNum = optJSONObject.optInt("num");
                     this.mPraiseLiked = optJSONObject.optInt(ThreadExpressionActivityConfig.IS_LIKED);
@@ -201,47 +208,38 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
 
     public void parserProtoBuf(ReplyList replyList) {
         Zan zan;
-        int i = 0;
         if (replyList != null) {
-            try {
-                this.type = replyList.type.intValue();
-                this.title = replyList.title;
-                this.time = replyList.time.intValue() * 1000;
-                this.fname = replyList.fname;
-                this.content = replyList.content;
-                this.quote_content = replyList.quote_content;
-                this.thread_id = String.valueOf(replyList.thread_id);
-                this.post_id = String.valueOf(replyList.post_id);
-                this.isFloor = replyList.is_floor.intValue();
-                this.quote_pid = String.valueOf(replyList.quote_pid);
-                this.mPraiseItemType = replyList.item_type;
-                this.hideForumName = replyList.hide_fname.intValue();
-                this.fromForumId = replyList.v_forum_id.longValue();
-                if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
-                    this.mPraiseNum = zan.num.intValue();
-                    this.mPraiseLiked = zan.is_liked.intValue();
-                    this.isAuthor = zan.consent_type.intValue() == 2;
-                    List<User> list = zan.liker_list;
-                    if (list != null) {
-                        this.mPraiseList = new ArrayList();
-                        while (true) {
-                            int i2 = i;
-                            if (i2 >= list.size()) {
-                                break;
-                            }
-                            LikeData likeData = new LikeData();
-                            likeData.parserProtoBuf(list.get(i2));
-                            this.mPraiseList.add(likeData);
-                            i = i2 + 1;
-                        }
+            this.type = replyList.type.intValue();
+            this.title = replyList.title;
+            this.time = replyList.time.intValue() * 1000;
+            this.fname = replyList.fname;
+            this.content = replyList.content;
+            this.quote_content = replyList.quote_content;
+            this.thread_id = String.valueOf(replyList.thread_id);
+            this.post_id = String.valueOf(replyList.post_id);
+            this.isFloor = replyList.is_floor.intValue();
+            this.quote_pid = String.valueOf(replyList.quote_pid);
+            this.mPraiseItemType = replyList.item_type;
+            this.hideForumName = replyList.hide_fname.intValue();
+            this.fromForumId = replyList.v_forum_id.longValue();
+            if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
+                this.mPraiseNum = zan.num.intValue();
+                this.mPraiseLiked = zan.is_liked.intValue();
+                this.isAuthor = zan.consent_type.intValue() == 2;
+                List<User> list = zan.liker_list;
+                if (list != null) {
+                    this.mPraiseList = new ArrayList();
+                    for (int i = 0; i < list.size(); i++) {
+                        LikeData likeData = new LikeData();
+                        likeData.parserProtoBuf(list.get(i));
+                        this.mPraiseList.add(likeData);
                     }
                 }
-                this.replyer.parserProtobuf(replyList.replyer);
-                this.quote_user.parserProtobuf(replyList.quote_user);
-                this.thread_type = replyList.thread_type.intValue();
-            } catch (Exception e) {
-                BdLog.detailException(e);
             }
+            this.replyer.parserProtobuf(replyList.replyer);
+            this.quote_user.parserProtobuf(replyList.quote_user);
+            this.thread_type = replyList.thread_type.intValue();
+            this.mIsStory = replyList.is_story.intValue() == 1;
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.adp.framework.client.socket.link;
 
 import android.app.Notification;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Binder;
@@ -8,15 +9,29 @@ import android.os.Build;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
+import com.baidu.adp.lib.g.f;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class BdSocketDaemonService extends BdBaseService {
-    private static g sCallBack;
+    private static c sCallBack;
     private a myBinder = new a();
-    private ServiceConnection conn = new com.baidu.adp.framework.client.socket.link.a(this);
+    private ServiceConnection conn = new ServiceConnection() { // from class: com.baidu.adp.framework.client.socket.link.BdSocketDaemonService.1
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        }
 
-    public static void setLinkServiceDisconnectCallBack(g gVar) {
-        sCallBack = gVar;
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            if (BdSocketDaemonService.sCallBack != null) {
+                BdSocketDaemonService.sCallBack.dx();
+            } else {
+                BdSocketLinkService.startService(false, "restart");
+            }
+        }
+    };
+
+    public static void setLinkServiceDisconnectCallBack(c cVar) {
+        sCallBack = cVar;
     }
 
     @Override // android.app.Service
@@ -30,7 +45,7 @@ public class BdSocketDaemonService extends BdBaseService {
     }
 
     public void bindServiceInternal() {
-        com.baidu.adp.lib.g.i.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
+        f.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
@@ -40,8 +55,8 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 startForeground(2147483646, new Notification());
             } catch (Exception e) {
-                com.baidu.adp.lib.stats.c statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-                statsItem.p("loc", String.valueOf(getClass().getName()) + "-onCreate-startForeground");
+                com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                statsItem.p("loc", getClass().getName() + "-onCreate-startForeground");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
             }
         }
@@ -60,8 +75,8 @@ public class BdSocketDaemonService extends BdBaseService {
         try {
             unbindService(this.conn);
         } catch (Exception e) {
-            com.baidu.adp.lib.stats.c statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-            statsItem.p("loc", String.valueOf(getClass().getName()) + "-onDestroy-unbindService");
+            com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            statsItem.p("loc", getClass().getName() + "-onDestroy-unbindService");
             BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
         }
         Intent intent = new Intent();
@@ -69,13 +84,13 @@ public class BdSocketDaemonService extends BdBaseService {
         try {
             startService(intent);
         } catch (Exception e2) {
-            com.baidu.adp.lib.stats.c statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
-            statsItem2.p("loc", String.valueOf(getClass().getName()) + "-onDestroy-startService");
+            com.baidu.adp.lib.stats.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            statsItem2.p("loc", getClass().getName() + "-onDestroy-startService");
             BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem2);
         }
     }
 
     public static void startService() {
-        com.baidu.adp.lib.g.i.h(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+        f.h(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
     }
 }

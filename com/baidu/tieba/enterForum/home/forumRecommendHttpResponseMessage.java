@@ -2,6 +2,7 @@ package com.baidu.tieba.enterForum.home;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.enterForum.b.f;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.squareup.wire.Wire;
 import java.util.List;
@@ -15,7 +16,7 @@ import tbclient.RecommendForumInfo;
 public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     private List<Banner> banner;
     private List<FrequentlyForumInfo> frequently_forum_info;
-    private com.baidu.tieba.enterForum.b.f hotSearchInfo;
+    private f hotSearchInfo;
     private Integer is_login;
     private Integer is_mem;
     private List<LikeForum> like_forum;
@@ -81,7 +82,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
         return this.recommend_forum_info;
     }
 
-    public com.baidu.tieba.enterForum.b.f getHotSearchInfoData() {
+    public f getHotSearchInfoData() {
         return this.hotSearchInfo;
     }
 
@@ -93,7 +94,8 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
         return this.recommend_concern_forums;
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ForumRecommendResIdl forumRecommendResIdl;
         if (bArr != null && (forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class)) != null) {
@@ -118,7 +120,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
                 this.new_banner_info = forumRecommendResIdl.data.new_banner_info;
                 this.frequently_forum_info = forumRecommendResIdl.data.frequently_forum_info;
                 if (forumRecommendResIdl.data.hot_search != null) {
-                    this.hotSearchInfo = new com.baidu.tieba.enterForum.b.f();
+                    this.hotSearchInfo = new f();
                     this.hotSearchInfo.a(forumRecommendResIdl.data.hot_search);
                 }
                 this.recommend_concern_forums = forumRecommendResIdl.data.tag_recommend_forum;
@@ -130,7 +132,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.c.a.sW().L("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).l(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+            com.baidu.tbadk.core.c.a.tn().L("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).l(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
         }
     }
 }

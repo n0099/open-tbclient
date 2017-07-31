@@ -101,10 +101,6 @@ public final class DataReq extends Message {
     public static final Double DEFAULT_SCR_DIP = Double.valueOf(0.0d);
     public static final Integer DEFAULT_Q_TYPE = 0;
 
-    /* synthetic */ DataReq(Builder builder, boolean z, DataReq dataReq) {
-        this(builder, z);
-    }
-
     private DataReq(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -381,7 +377,7 @@ public final class DataReq extends Message {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public DataReq build(boolean z) {
-            return new DataReq(this, z, null);
+            return new DataReq(this, z);
         }
     }
 }

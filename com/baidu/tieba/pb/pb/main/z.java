@@ -1,51 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
-import com.baidu.tieba.w;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
-class z extends CustomMessageListener {
-    final /* synthetic */ PbActivity ewh;
+public class z extends PostData {
+    public static final BdUniqueId eMI = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.at eMJ;
+    public com.baidu.tbadk.core.data.at eMK;
+    public com.baidu.tbadk.core.data.at eML;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z(PbActivity pbActivity, int i) {
-        super(i);
-        this.ewh = pbActivity;
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return eMI;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        BdUniqueId bdUniqueId;
-        gg ggVar;
-        com.baidu.tbadk.core.view.h hVar;
-        com.baidu.adp.base.g gVar;
-        com.baidu.tbadk.core.view.h hVar2;
-        com.baidu.adp.base.g gVar2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage)) {
-            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.ewh.evm;
-            if (tag == bdUniqueId) {
-                ggVar = this.ewh.euU;
-                ggVar.Qy();
-                UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
-                if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    hVar2 = this.ewh.evl;
-                    gVar2 = this.ewh.evk;
-                    hVar2.c(gVar2.getResources().getString(w.l.un_mute_success));
-                    return;
-                }
-                String muteMessage = userMuteDelResponseMessage.getMuteMessage();
-                if (com.baidu.tbadk.core.util.aw.isEmpty(muteMessage)) {
-                    gVar = this.ewh.evk;
-                    muteMessage = gVar.getResources().getString(w.l.un_mute_fail);
-                }
-                hVar = this.ewh.evl;
-                hVar.d(muteMessage);
+    public boolean hasData() {
+        if (this.eMJ == null || StringUtils.isNull(this.eMJ.summary)) {
+            if (this.eMK == null || StringUtils.isNull(this.eMK.summary)) {
+                return (this.eML == null || StringUtils.isNull(this.eML.summary)) ? false : true;
             }
+            return true;
         }
+        return true;
     }
 }

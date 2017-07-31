@@ -1,365 +1,236 @@
 package com.baidu.audiorecorder.lib.voice;
-
-import android.media.AudioRecord;
-import android.os.Handler;
-import android.os.Message;
-import android.os.Process;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.voice.Amrnb;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes2.dex */
-public class c implements Runnable {
-    private String Jh;
-    private int Jk;
-    private FileOutputStream Jl;
-    private long Jm;
-    private long Jn;
-    private final Handler mHandler;
-    private Amrnb zB;
-    private volatile int Jf = 0;
-    private final Handler zD = new Handler();
-    private final Runnable mRecordTimeThread = new d(this);
+public class c {
+    private static c KR;
+    private static int[] KS = {8000, 11025, 16000, 22050, 32000, 44100, 47250, 48000};
+    private static short[] KT = {2, 3};
+    private static short[] KU = {2, 16, 12, 3};
+    private int KN;
+    private short KO;
+    private short KP;
+    private int KQ = -2;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aN(int i) {
-        Message obtainMessage = this.mHandler.obtainMessage(9);
-        obtainMessage.arg1 = i;
-        this.mHandler.sendMessage(obtainMessage);
-    }
-
-    public c(Handler handler) {
-        this.mHandler = handler;
-        try {
-            this.zB = Amrnb.getInstance();
-            if (this.zB == null || !Amrnb.bLoadLibrary) {
-                this.zB = null;
-                if (this.mHandler != null) {
-                    this.mHandler.sendMessage(this.mHandler.obtainMessage(5));
+    public static c lJ() {
+        c cVar;
+        if (KR == null) {
+            synchronized (c.class) {
+                if (KR == null) {
+                    KR = new c();
                 }
+                cVar = KR;
             }
-        } catch (Exception e) {
-            if (this.mHandler != null) {
-                this.mHandler.sendMessage(this.mHandler.obtainMessage(5));
-            }
+            return cVar;
         }
+        return KR;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        AudioRecord audioRecord;
-        AudioRecord audioRecord2;
-        short[] sArr;
-        short s;
-        boolean z;
-        Process.setThreadPriority(-19);
-        if (this.zB == null) {
-            if (this.mHandler != null) {
-                this.mHandler.sendMessage(this.mHandler.obtainMessage(5));
-            }
-        } else if (this.Jf == 4) {
-            if (this.mHandler != null) {
-                this.mHandler.sendMessage(this.mHandler.obtainMessage(8));
-            }
-            this.Jf = 0;
-        } else {
-            if (this.Jh != null && this.Jh.length() > 0) {
-                try {
-                    File createFile = com.baidu.adp.lib.util.e.createFile(null, this.Jh);
-                    if (createFile != null) {
-                        this.Jl = new FileOutputStream(createFile);
-                    } else if (this.mHandler != null) {
-                        this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
-                        return;
-                    } else {
-                        return;
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    lB();
-                    if (this.mHandler != null) {
-                        this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
-                    }
-                    this.Jf = 0;
-                    return;
-                }
-            }
-            if (this.Jf == 4) {
-                if (this.mHandler != null) {
-                    this.mHandler.sendMessage(this.mHandler.obtainMessage(8));
-                }
-                lB();
-                this.Jf = 0;
-                return;
-            }
-            try {
-                audioRecord = e.lC().lD();
-            } catch (IllegalArgumentException e2) {
-                if (this.mHandler != null) {
-                    this.mHandler.sendMessage(this.mHandler.obtainMessage(6));
-                }
-                lB();
-                this.Jf = 0;
-                return;
-            } catch (Exception e3) {
-                audioRecord = null;
-            }
-            if (audioRecord == null || audioRecord.getState() == 0) {
-                if (audioRecord != null) {
-                    try {
-                        audioRecord.release();
-                    } catch (Exception e4) {
-                    }
-                }
-                if (this.mHandler != null) {
-                    this.mHandler.sendMessage(this.mHandler.obtainMessage(6));
-                }
-                lB();
-                this.Jf = 0;
-            } else if (this.Jf == 4) {
-                try {
-                    audioRecord.release();
-                } catch (Exception e5) {
-                }
-                if (this.mHandler != null) {
-                    this.mHandler.sendMessage(this.mHandler.obtainMessage(8));
-                }
-                lB();
-                this.Jf = 0;
-            } else {
-                audioRecord.startRecording();
-                if (this.Jf == 4) {
-                    try {
-                        audioRecord.stop();
-                        audioRecord.release();
-                    } catch (Exception e6) {
-                    }
-                    if (this.mHandler != null) {
-                        this.mHandler.sendMessage(this.mHandler.obtainMessage(8));
-                    }
-                    lB();
-                    this.Jf = 0;
-                    return;
-                }
-                this.Jf = 3;
-                try {
-                    if (this.Jl == null) {
-                        try {
-                            audioRecord.stop();
-                            audioRecord.release();
-                            audioRecord2 = null;
-                        } catch (Exception e7) {
-                            audioRecord2 = audioRecord;
-                        }
-                        try {
-                            if (this.mHandler != null) {
-                                this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
-                            }
-                            this.Jf = 0;
-                            return;
-                        } catch (IOException e8) {
-                            try {
-                                audioRecord2.stop();
-                                audioRecord2.release();
-                            } catch (Exception e9) {
-                            }
-                            if (this.mHandler != null) {
-                                this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
-                            }
-                            this.Jf = 0;
-                            return;
-                        }
-                    }
-                    com.baidu.adp.lib.util.e.e(this.Jl);
-                    this.zB.encoderInit();
-                    if (this.Jk > 0) {
-                        BdSoundGate.lE().init(1600, this.Jk);
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    this.Jm = System.currentTimeMillis();
-                    this.zD.post(this.mRecordTimeThread);
-                    short s2 = 0;
-                    short[] sArr2 = null;
-                    while (true) {
-                        if (this.Jf != 3) {
-                            sArr = sArr2;
-                            s = s2;
-                            z = false;
-                            break;
-                        }
-                        if (sArr2 == null) {
-                            sArr2 = new short[160];
-                            s2 = 0;
-                        }
-                        int read = audioRecord.read(sArr2, s2, 160 - s2);
-                        if (read > 0) {
-                            int i = 0;
-                            for (int i2 = 0; i2 < sArr2.length; i2++) {
-                                i += sArr2[i2] * sArr2[i2];
-                            }
-                            if (this.mHandler != null) {
-                                Message obtainMessage = this.mHandler.obtainMessage(4);
-                                int abs = Math.abs((((int) (i / read)) / 100000) >> 1);
-                                while (abs > 100) {
-                                    abs = (int) (abs / 10.0d);
-                                }
-                                obtainMessage.arg1 = abs;
-                                this.mHandler.sendMessage(obtainMessage);
-                            }
-                        }
-                        s2 = (short) (s2 + read);
-                        if (s2 == 160) {
-                            if (this.Jk > 0) {
-                                int size = arrayList.size();
-                                if (size + 1 > 1 && (size + 1) % 10 == 0) {
-                                    i(arrayList);
-                                    arrayList.clear();
-                                }
-                                arrayList.add(sArr2);
-                            } else {
-                                b(sArr2);
-                            }
-                            sArr2 = null;
-                        }
-                        if (System.currentTimeMillis() - this.Jm > com.baidu.adp.lib.voice.h.zH) {
-                            sArr = sArr2;
-                            s = s2;
-                            z = true;
-                            break;
-                        }
-                    }
-                    System.currentTimeMillis();
-                    if (sArr != null) {
-                        while (s < 160) {
-                            try {
-                                if (s >= sArr.length || s < 0) {
-                                    break;
-                                }
-                                sArr[s] = 0;
-                                s = (short) (s + 1);
-                            } catch (Exception e10) {
-                            }
-                        }
-                        b(sArr);
-                    }
-                    if (this.Jk > 0) {
-                        BdSoundGate.lE().release();
-                    }
-                    System.currentTimeMillis();
-                    audioRecord.stop();
-                    audioRecord.release();
-                    System.currentTimeMillis();
-                    if (this.Jf == 5) {
-                        if (!lB()) {
-                            if (this.mHandler != null) {
-                                this.mHandler.sendMessage(this.mHandler.obtainMessage(2));
-                            }
-                        } else {
-                            try {
-                                com.baidu.adp.lib.util.e.delFile(this.Jh);
-                                if (this.mHandler != null) {
-                                    this.mHandler.sendMessage(this.mHandler.obtainMessage(100));
-                                }
-                            } catch (Exception e11) {
-                                if (this.mHandler != null) {
-                                    this.mHandler.sendMessage(this.mHandler.obtainMessage(101));
-                                }
-                                this.Jf = 0;
-                            }
-                        }
-                        this.Jf = 0;
-                        return;
-                    }
-                    this.Jf = 4;
-                    this.Jn = System.currentTimeMillis() - this.Jm;
-                    aN((int) this.Jn);
-                    if (this.zD != null) {
-                        this.zD.removeCallbacks(this.mRecordTimeThread);
-                    }
-                    System.currentTimeMillis();
-                    if (!lB() && this.mHandler != null) {
-                        this.mHandler.sendMessage(this.mHandler.obtainMessage(2));
-                    }
-                    this.zB.encoderDeinit();
-                    this.Jf = 0;
-                    if (this.mHandler != null) {
-                        if (z) {
-                            this.mHandler.sendMessage(this.mHandler.obtainMessage(7));
-                            return;
-                        }
-                        Message obtainMessage2 = this.mHandler.obtainMessage(0);
-                        obtainMessage2.arg1 = (int) this.Jn;
-                        this.mHandler.sendMessage(obtainMessage2);
-                    }
-                } catch (IOException e12) {
-                    audioRecord2 = audioRecord;
-                }
-            }
-        }
+    private c() {
     }
 
-    private void i(List<short[]> list) {
-        int blockSize = BdSoundGate.lE().getBlockSize();
-        short[] sArr = new short[blockSize];
-        short[] sArr2 = new short[blockSize];
-        int size = list.size();
-        int i = 0;
-        for (int i2 = 0; i2 < size; i2++) {
-            System.arraycopy(list.get(i2), 0, sArr2, i, 160);
-            i += 160;
-            if (i2 == size - 1) {
-                BdSoundGate.lE().a(sArr2, sArr);
-                int i3 = 0;
-                int i4 = 0;
-                while (i3 < size) {
-                    System.arraycopy(sArr, i4, list.get(i3), 0, 160);
-                    b(list.get(i3));
-                    i3++;
-                    i4 += 160;
-                }
-                i = 0;
-            }
-        }
-    }
-
-    private void b(short[] sArr) {
-        byte[] bArr = new byte[32];
-        try {
-            this.Jl.write(bArr, 0, this.zB.encoderEncode(2, sArr, bArr));
-        } catch (IOException e) {
-        }
-    }
-
-    private boolean lB() {
-        if (this.Jl != null) {
-            try {
-                this.Jl.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public boolean o(String str, int i) {
-        if (this.zB == null) {
-            return false;
-        }
-        this.Jf = 0;
-        this.Jh = str;
-        this.Jk = i;
-        return true;
-    }
-
-    public void stop() {
-        this.Jf = 4;
-    }
-
-    public void cancel() {
-        this.Jf = 5;
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [149=7, 150=6, 151=6, 152=6] */
+    public android.media.AudioRecord lK() throws java.lang.IllegalArgumentException {
+        /*
+            r18 = this;
+            r0 = r18
+            int r1 = r0.KN
+            if (r1 <= 0) goto L29
+            r0 = r18
+            short r1 = r0.KO
+            if (r1 <= 0) goto L29
+            r0 = r18
+            short r1 = r0.KP
+            if (r1 <= 0) goto L29
+            android.media.AudioRecord r1 = new android.media.AudioRecord
+            r2 = 1
+            r0 = r18
+            int r3 = r0.KN
+            r0 = r18
+            short r4 = r0.KP
+            r0 = r18
+            short r5 = r0.KO
+            r0 = r18
+            int r6 = r0.KQ
+            r1.<init>(r2, r3, r4, r5, r6)
+        L28:
+            return r1
+        L29:
+            r2 = 0
+            int[] r12 = com.baidu.audiorecorder.lib.voice.c.KS
+            int r13 = r12.length
+            r1 = 0
+            r9 = r1
+            r1 = r2
+        L30:
+            if (r9 >= r13) goto L112
+            r3 = r12[r9]
+            short[] r14 = com.baidu.audiorecorder.lib.voice.c.KT
+            int r15 = r14.length
+            r2 = 0
+            r10 = r2
+            r2 = r1
+        L3a:
+            if (r10 >= r15) goto L10c
+            short r5 = r14[r10]
+            short[] r16 = com.baidu.audiorecorder.lib.voice.c.KU
+            r0 = r16
+            int r0 = r0.length
+            r17 = r0
+            r1 = 0
+            r11 = r1
+            r7 = r2
+        L48:
+            r0 = r17
+            if (r11 >= r0) goto L106
+            short r4 = r16[r11]
+            int r1 = android.media.AudioRecord.getMinBufferSize(r3, r4, r5)     // Catch: java.lang.Throwable -> L128
+            r0 = r18
+            r0.KQ = r1     // Catch: java.lang.Throwable -> L128
+            r0 = r18
+            int r1 = r0.KQ     // Catch: java.lang.Throwable -> L128
+            r2 = -2
+            if (r1 != r2) goto L6f
+            if (r7 == 0) goto L12c
+            int r1 = r7.getState()
+            r2 = 1
+            if (r1 == r2) goto L12c
+            r7.release()
+            r1 = 0
+        L6a:
+            int r2 = r11 + 1
+            r11 = r2
+            r7 = r1
+            goto L48
+        L6f:
+            r0 = r18
+            int r1 = r0.KQ     // Catch: java.lang.Throwable -> L128
+            int r1 = r1 * 8
+            r2 = 4096(0x1000, float:5.74E-42)
+            int r6 = java.lang.Math.min(r1, r2)     // Catch: java.lang.Throwable -> L128
+            android.media.AudioRecord r8 = new android.media.AudioRecord     // Catch: java.lang.Throwable -> L128
+            r2 = 1
+            r1 = r8
+            r1.<init>(r2, r3, r4, r5, r6)     // Catch: java.lang.Throwable -> L128
+            int r1 = r8.getState()     // Catch: java.lang.Throwable -> Le3
+            r2 = 1
+            if (r1 != r2) goto La7
+            r0 = r18
+            r0.KN = r3     // Catch: java.lang.Throwable -> Le3
+            r0 = r18
+            r0.KO = r5     // Catch: java.lang.Throwable -> Le3
+            r0 = r18
+            r0.KP = r4     // Catch: java.lang.Throwable -> Le3
+            r0 = r18
+            r0.KQ = r6     // Catch: java.lang.Throwable -> Le3
+            if (r8 == 0) goto La5
+            int r1 = r8.getState()
+            r2 = 1
+            if (r1 == r2) goto La5
+            r8.release()
+        La5:
+            r1 = r8
+            goto L28
+        La7:
+            r8.release()     // Catch: java.lang.Throwable -> Le3
+            android.media.AudioRecord r1 = new android.media.AudioRecord     // Catch: java.lang.Throwable -> Le3
+            r2 = 1
+            r0 = r18
+            int r6 = r0.KQ     // Catch: java.lang.Throwable -> Le3
+            r1.<init>(r2, r3, r4, r5, r6)     // Catch: java.lang.Throwable -> Le3
+            int r2 = r1.getState()     // Catch: java.lang.Throwable -> L126
+            r6 = 1
+            if (r2 != r6) goto Ld5
+            r0 = r18
+            r0.KN = r3     // Catch: java.lang.Throwable -> L126
+            r0 = r18
+            r0.KO = r5     // Catch: java.lang.Throwable -> L126
+            r0 = r18
+            r0.KP = r4     // Catch: java.lang.Throwable -> L126
+            if (r1 == 0) goto L28
+            int r2 = r1.getState()
+            r3 = 1
+            if (r2 == r3) goto L28
+            r1.release()
+            goto L28
+        Ld5:
+            if (r1 == 0) goto L6a
+            int r2 = r1.getState()
+            r4 = 1
+            if (r2 == r4) goto L6a
+            r1.release()
+            r1 = 0
+            goto L6a
+        Le3:
+            r1 = move-exception
+            r2 = r1
+            r1 = r8
+        Le6:
+            r2.printStackTrace()     // Catch: java.lang.Throwable -> L11f
+            if (r1 == 0) goto L6a
+            int r2 = r1.getState()
+            r4 = 1
+            if (r2 == r4) goto L6a
+            r1.release()
+            r1 = 0
+            goto L6a
+        Lf8:
+            r1 = move-exception
+        Lf9:
+            if (r8 == 0) goto L105
+            int r2 = r8.getState()
+            r3 = 1
+            if (r2 == r3) goto L105
+            r8.release()
+        L105:
+            throw r1
+        L106:
+            int r1 = r10 + 1
+            r10 = r1
+            r2 = r7
+            goto L3a
+        L10c:
+            int r1 = r9 + 1
+            r9 = r1
+            r1 = r2
+            goto L30
+        L112:
+            java.lang.IllegalArgumentException r1 = new java.lang.IllegalArgumentException
+            java.lang.String r2 = "getInstance() failed : no suitable audio configurations on this device."
+            r1.<init>(r2)
+            throw r1
+        L11b:
+            r2 = move-exception
+            r8 = r1
+            r1 = r2
+            goto Lf9
+        L11f:
+            r2 = move-exception
+            r8 = r1
+            r1 = r2
+            goto Lf9
+        L123:
+            r1 = move-exception
+            r8 = r7
+            goto Lf9
+        L126:
+            r2 = move-exception
+            goto Le6
+        L128:
+            r1 = move-exception
+            r2 = r1
+            r1 = r7
+            goto Le6
+        L12c:
+            r1 = r7
+            goto L6a
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.audiorecorder.lib.voice.c.lK():android.media.AudioRecord");
     }
 }

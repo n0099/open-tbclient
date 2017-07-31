@@ -13,10 +13,6 @@ public final class NewpushRepair extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 2)
     public final List<NewpushGroupRepair> groups;
 
-    /* synthetic */ NewpushRepair(Builder builder, boolean z, NewpushRepair newpushRepair) {
-        this(builder, z);
-    }
-
     private NewpushRepair(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -56,7 +52,7 @@ public final class NewpushRepair extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public NewpushRepair build(boolean z) {
-            return new NewpushRepair(this, z, null);
+            return new NewpushRepair(this, z);
         }
     }
 }

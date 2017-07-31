@@ -23,7 +23,7 @@ public class q extends XMPushService.h {
         this.f = str3;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0032  */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0034  */
     /* JADX WARN: Removed duplicated region for block: B:6:0x0016  */
     @Override // com.xiaomi.push.service.XMPushService.h
     /*

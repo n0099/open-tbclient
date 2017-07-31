@@ -7,10 +7,6 @@ public final class CommitReceivedPmsgReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
 
-    /* synthetic */ CommitReceivedPmsgReqIdl(Builder builder, boolean z, CommitReceivedPmsgReqIdl commitReceivedPmsgReqIdl) {
-        this(builder, z);
-    }
-
     private CommitReceivedPmsgReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -37,7 +33,7 @@ public final class CommitReceivedPmsgReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public CommitReceivedPmsgReqIdl build(boolean z) {
-            return new CommitReceivedPmsgReqIdl(this, z, null);
+            return new CommitReceivedPmsgReqIdl(this, z);
         }
     }
 }

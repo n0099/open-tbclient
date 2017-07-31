@@ -25,17 +25,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public enum SORT {
         ASCEND,
         DESCEND,
-        NONE;
-
-        /* JADX DEBUG: Replace access to removed values field (qH) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static SORT[] valuesCustom() {
-            SORT[] valuesCustom = values();
-            int length = valuesCustom.length;
-            SORT[] sortArr = new SORT[length];
-            System.arraycopy(valuesCustom, 0, sortArr, 0, length);
-            return sortArr;
-        }
+        NONE
     }
 
     public HttpMessage(int i) {
@@ -130,7 +120,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             addHeader(KEY_COOKIE, map2KVString(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, parseKVString));
             return str3;
         }
-        addHeader(KEY_COOKIE, String.valueOf(str) + '=' + str2 + ';');
+        addHeader(KEY_COOKIE, str + '=' + str2 + ';');
         return null;
     }
 
@@ -200,24 +190,24 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
-        private SORT qG;
+        private SORT sj;
 
         public a(SORT sort) {
-            this.qG = null;
-            this.qG = sort;
+            this.sj = null;
+            this.sj = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: b */
         public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            return this.qG == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
+            return this.sj == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
         }
     }
 
     @Override // com.baidu.adp.framework.message.Message
     public boolean checkCmd(int i) {
-        return FrameHelper.I(i);
+        return FrameHelper.L(i);
     }
 
     public boolean setNeedProgress() {

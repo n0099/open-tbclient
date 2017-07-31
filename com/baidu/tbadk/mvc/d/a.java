@@ -1,44 +1,44 @@
 package com.baidu.tbadk.mvc.d;
 /* loaded from: classes.dex */
 public class a implements b {
-    private boolean aFV = false;
-    private boolean aFW = true;
-    private boolean aFX = false;
-    private boolean aFY = true;
-    private boolean aFZ = true;
-    private boolean aGa = false;
-    private boolean aGb = true;
-    private boolean aGc = true;
+    private boolean aIs = false;
+    private boolean aIt = true;
+    private boolean aIu = false;
+    private boolean aIv = true;
+    private boolean aIw = true;
+    private boolean aIx = false;
+    private boolean aIy = true;
+    private boolean aIz = true;
 
     public boolean isPullRefreshing() {
-        return this.aFV;
-    }
-
-    public void bQ(boolean z) {
-        this.aFV = z;
-    }
-
-    public boolean Fh() {
-        return this.aFX;
-    }
-
-    public void bR(boolean z) {
-        this.aFX = z;
-    }
-
-    public boolean Fi() {
-        return this.aFY;
-    }
-
-    public void bS(boolean z) {
-        this.aFY = z;
-    }
-
-    public boolean Fj() {
-        return this.aFZ;
+        return this.aIs;
     }
 
     public void bT(boolean z) {
-        this.aFZ = z;
+        this.aIs = z;
+    }
+
+    public boolean FF() {
+        return this.aIu;
+    }
+
+    public void bU(boolean z) {
+        this.aIu = z;
+    }
+
+    public boolean FG() {
+        return this.aIv;
+    }
+
+    public void bV(boolean z) {
+        this.aIv = z;
+    }
+
+    public boolean FH() {
+        return this.aIw;
+    }
+
+    public void bW(boolean z) {
+        this.aIw = z;
     }
 }

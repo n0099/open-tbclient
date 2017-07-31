@@ -1,72 +1,110 @@
 package com.baidu.tbadk.core.view;
 
 import android.content.Context;
-import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.an;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tieba.d;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class h {
-    private View ajx;
-    private TextView ajy;
-    private ImageView ajz;
+public class h extends ImageView {
+    private long alO;
+    private int alP;
+    private int alQ;
+    i alR;
+    private View.OnClickListener alS;
     private Context mContext;
-    private Toast zd;
-    public long aju = 3000;
-    private int ajv = -1;
-    private int ajw = -1;
-    private Runnable ajB = new i(this);
-    private Handler ajA = new Handler();
 
-    public h() {
+    /* loaded from: classes.dex */
+    public interface a {
+        void a(an anVar);
+
+        void a(an anVar, CompoundButton compoundButton, boolean z);
+
+        void a(ArrayList<Integer> arrayList, an anVar);
+    }
+
+    public h(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.ajx = null;
-        this.ajy = null;
-        this.ajz = null;
-        this.mContext = TbadkCoreApplication.m9getInst().getContext();
-        this.ajx = LayoutInflater.from(this.mContext).inflate(w.j.image_toast_view, (ViewGroup) null);
-        this.ajy = (TextView) this.ajx.findViewById(w.h.tip_text);
-        this.ajz = (ImageView) this.ajx.findViewById(w.h.tip_iamge);
+        this.alO = 0L;
+        this.alS = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.h.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                h.this.wM();
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - h.this.alO > 500) {
+                    h.this.wL();
+                }
+                h.this.alO = currentTimeMillis;
+            }
+        };
+        this.mContext = tbPageContext.getPageActivity();
+        d(tbPageContext);
     }
 
-    public void showToast(int i, int i2) {
-        this.ajy.setText(i2);
-        this.ajz.setImageResource(i);
-        A(this.ajx);
+    private void d(TbPageContext tbPageContext) {
+        this.alR = new i(tbPageContext, this);
+        setOnClickListener(this.alS);
+        ai.c(this, d.g.icon_home_feedback_selector);
+        this.alP = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds60);
+        this.alQ = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds16);
     }
 
-    public void A(View view) {
-        this.ajA.removeCallbacks(this.ajB);
-        if (this.zd == null) {
-            this.zd = new Toast(this.mContext);
-        }
-        this.ajA.postDelayed(this.ajB, this.aju);
-        this.zd.setView(view);
-        this.zd.setDuration(1);
-        this.zd.setGravity(17, 0, 0);
-        this.zd.show();
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        this.alR.setUniqueId(bdUniqueId);
     }
 
-    public void c(CharSequence charSequence) {
-        this.ajy.setText(charSequence);
-        this.ajz.setImageResource(w.g.icon_toast_game_ok);
-        A(this.ajx);
+    public void wK() {
+        int g = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds48);
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-2, -2);
+        layoutParams.height = g;
+        setLayoutParams(layoutParams);
+        setPadding(this.alP, 0, this.alQ, 0);
     }
 
-    public void d(CharSequence charSequence) {
-        this.ajy.setText(charSequence);
-        this.ajz.setImageResource(w.g.icon_toast_game_error);
-        A(this.ajx);
+    public void setLeftPadding(int i) {
+        this.alP = i;
+        setPadding(i, 0, this.alQ, 0);
     }
 
-    public void wn() {
-        if (this.zd != null) {
-            this.zd.cancel();
-        }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void wL() {
+        this.alR.wL();
+    }
+
+    public void wM() {
+        this.alR.wM();
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        this.alR.onDetachedFromWindow();
+    }
+
+    public void setData(an anVar) {
+        this.alR.setData(anVar);
+    }
+
+    public void setFirstRowSingleColumn(boolean z) {
+        this.alR.setFirstRowSingleColumn(z);
+    }
+
+    public void onChangeSkinType() {
+        ai.c(this, d.g.icon_home_feedback_selector);
+    }
+
+    public void setEventCallback(a aVar) {
+        this.alR.setEventCallback(aVar);
+    }
+
+    public void setDefaultReasonArray(String[] strArr) {
+        this.alR.setDefaultReasonArray(strArr);
     }
 }

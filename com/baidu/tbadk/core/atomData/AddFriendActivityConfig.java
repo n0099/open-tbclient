@@ -10,6 +10,7 @@ public class AddFriendActivityConfig extends IntentConfig {
     public static final String MSG = "msg";
     public static final String TYPE_ADD_FRD = "add_frd";
     public static final String TYPE_AT_ME = "at_me";
+    public static final String TYPE_CONCERN_RECOM = "concern_recom";
     public static final String TYPE_FAVOR_LIST = "favor_list";
     public static final String TYPE_FOCUS = "focus";
     public static final String TYPE_FOCUS_RECOM = "focus_recom";
@@ -26,7 +27,7 @@ public class AddFriendActivityConfig extends IntentConfig {
     public AddFriendActivityConfig(Context context, String str, String str2, String str3, String str4, boolean z, String str5) {
         super(context);
         getIntent().putExtra("user_id", str);
-        getIntent().putExtra(IntentConfig.NAME_SHOW, str2);
+        getIntent().putExtra("name_show", str2);
         getIntent().putExtra(IntentConfig.PORTRAIT, str3);
         getIntent().putExtra("from", str4);
         getIntent().putExtra(IS_USER_CLIENT_LOWER, z);
@@ -36,7 +37,7 @@ public class AddFriendActivityConfig extends IntentConfig {
     public AddFriendActivityConfig(Context context, String str, String str2, String str3, String str4, boolean z, String str5, String str6) {
         super(context);
         getIntent().putExtra("user_id", str);
-        getIntent().putExtra(IntentConfig.NAME_SHOW, str2);
+        getIntent().putExtra("name_show", str2);
         getIntent().putExtra(IntentConfig.PORTRAIT, str3);
         getIntent().putExtra("from", str4);
         getIntent().putExtra(IS_USER_CLIENT_LOWER, z);

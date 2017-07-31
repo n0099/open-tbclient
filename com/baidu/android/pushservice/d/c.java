@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.d;
 
+import android.annotation.TargetApi;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -30,6 +31,7 @@ public class c {
         private a() {
         }
 
+        @TargetApi(16)
         private void a(String str) {
             if (str.equalsIgnoreCase(":memory:") || str.trim().length() == 0) {
                 return;
@@ -46,8 +48,8 @@ public class c {
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:18:0x005a  */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x0072  */
+        /* JADX WARN: Removed duplicated region for block: B:18:0x005c  */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x0074  */
         @Override // android.database.DatabaseErrorHandler
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -68,11 +70,6 @@ public class c {
                 list = null;
                 th = th2;
                 if (list == null) {
-                    for (Pair<String, String> pair : list) {
-                        a((String) pair.second);
-                    }
-                } else {
-                    a(sQLiteDatabase.getPath());
                 }
                 throw th;
             }
@@ -83,6 +80,11 @@ public class c {
                 list = list2;
                 th = th3;
                 if (list == null) {
+                    for (Pair<String, String> pair : list) {
+                        a((String) pair.second);
+                    }
+                } else {
+                    a(sQLiteDatabase.getPath());
                 }
                 throw th;
             }
@@ -124,7 +126,7 @@ public class c {
                 com.baidu.android.pushservice.g.a.c("PushInfoDataBase", "CREATE TABLE PushShareInfo");
                 sQLiteDatabase.execSQL("CREATE TABLE PushVerifInfo (" + e.verifId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.msgId.name() + " TEXT  NOT NULL, " + e.md5Infos.name() + " TEXT  NOT NULL, " + e.appId.name() + " TEXT, " + e.time.name() + " TEXT );");
                 com.baidu.android.pushservice.g.a.c("PushInfoDataBase", "CREATE TABLE PushVerifInfo");
-                sQLiteDatabase.execSQL("CREATE TABLE PushMsgInfos (" + EnumC0017c.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0017c.appId.name() + "  TEXT, " + EnumC0017c.msgType.name() + "  INTEGER NOT NULL, " + EnumC0017c.msgId.name() + " LONG NOT NULL, " + EnumC0017c.secureInfo.name() + " TEXT, " + EnumC0017c.msgBody.name() + "  TEXT, " + EnumC0017c.expireTime.name() + "  LONG, " + EnumC0017c.ackRet.name() + "  INTEGER, " + EnumC0017c.arriveTime.name() + " LONG NOT NULL);");
+                sQLiteDatabase.execSQL("CREATE TABLE PushMsgInfos (" + EnumC0019c.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0019c.appId.name() + "  TEXT, " + EnumC0019c.msgType.name() + "  INTEGER NOT NULL, " + EnumC0019c.msgId.name() + " LONG NOT NULL, " + EnumC0019c.secureInfo.name() + " TEXT, " + EnumC0019c.msgBody.name() + "  TEXT, " + EnumC0019c.expireTime.name() + "  LONG, " + EnumC0019c.ackRet.name() + "  INTEGER, " + EnumC0019c.arriveTime.name() + " LONG NOT NULL);");
                 com.baidu.android.pushservice.g.a.c("PushInfoDataBase", "CREATE TABLE PushMsgInfos");
             } catch (Exception e) {
                 com.baidu.android.pushservice.g.a.a("PushInfoDataBase", e);
@@ -137,7 +139,7 @@ public class c {
                 a(sQLiteDatabase);
                 onCreate(sQLiteDatabase);
             } else if (i == 2) {
-                sQLiteDatabase.execSQL("CREATE TABLE PushMsgInfos (" + EnumC0017c.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0017c.appId.name() + "  TEXT, " + EnumC0017c.msgType.name() + "  INTEGER NOT NULL, " + EnumC0017c.msgId.name() + " LONG NOT NULL, " + EnumC0017c.secureInfo.name() + " TEXT, " + EnumC0017c.msgBody.name() + "  TEXT, " + EnumC0017c.expireTime.name() + "  LONG, " + EnumC0017c.ackRet.name() + "  INTEGER, " + EnumC0017c.arriveTime.name() + " LONG NOT NULL);");
+                sQLiteDatabase.execSQL("CREATE TABLE PushMsgInfos (" + EnumC0019c.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0019c.appId.name() + "  TEXT, " + EnumC0019c.msgType.name() + "  INTEGER NOT NULL, " + EnumC0019c.msgId.name() + " LONG NOT NULL, " + EnumC0019c.secureInfo.name() + " TEXT, " + EnumC0019c.msgBody.name() + "  TEXT, " + EnumC0019c.expireTime.name() + "  LONG, " + EnumC0019c.ackRet.name() + "  INTEGER, " + EnumC0019c.arriveTime.name() + " LONG NOT NULL);");
                 com.baidu.android.pushservice.g.a.c("PushInfoDataBase", "UpGrade CREATE TABLE PushMsgInfos");
             }
         }
@@ -145,7 +147,7 @@ public class c {
 
     /* renamed from: com.baidu.android.pushservice.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public enum EnumC0017c {
+    public enum EnumC0019c {
         MsgInfoId,
         appId,
         msgType,
@@ -180,8 +182,8 @@ public class c {
         time
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00ef A[Catch: all -> 0x00f6, TryCatch #4 {, blocks: (B:4:0x0006, B:5:0x0008, B:6:0x0009, B:8:0x000f, B:12:0x0013, B:20:0x00e4, B:22:0x00ea, B:24:0x00ef, B:25:0x00f3, B:38:0x0118, B:40:0x011e, B:42:0x0123, B:46:0x012c, B:48:0x0132, B:50:0x0137, B:51:0x013a), top: B:59:0x0006 }] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0137 A[Catch: all -> 0x00f6, TryCatch #4 {, blocks: (B:4:0x0006, B:5:0x0008, B:6:0x0009, B:8:0x000f, B:12:0x0013, B:20:0x00e4, B:22:0x00ea, B:24:0x00ef, B:25:0x00f3, B:38:0x0118, B:40:0x011e, B:42:0x0123, B:46:0x012c, B:48:0x0132, B:50:0x0137, B:51:0x013a), top: B:59:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x00f6 A[Catch: all -> 0x00fd, TryCatch #5 {, blocks: (B:4:0x0006, B:5:0x0008, B:6:0x0009, B:8:0x000f, B:12:0x0013, B:20:0x00eb, B:22:0x00f1, B:24:0x00f6, B:25:0x00fa, B:38:0x0124, B:40:0x012a, B:42:0x012f, B:46:0x0138, B:48:0x013e, B:50:0x0143, B:51:0x0146), top: B:62:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0143 A[Catch: all -> 0x00fd, TryCatch #5 {, blocks: (B:4:0x0006, B:5:0x0008, B:6:0x0009, B:8:0x000f, B:12:0x0013, B:20:0x00eb, B:22:0x00f1, B:24:0x00f6, B:25:0x00fa, B:38:0x0124, B:40:0x012a, B:42:0x012f, B:46:0x0138, B:48:0x013e, B:50:0x0143, B:51:0x0146), top: B:62:0x0006 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -351,11 +353,93 @@ public class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0062 A[Catch: all -> 0x0067, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x0057, B:19:0x005d, B:21:0x0062, B:22:0x0065, B:35:0x0099, B:37:0x009f, B:39:0x00a4, B:43:0x00ac, B:45:0x00b2, B:47:0x00b7, B:48:0x00ba), top: B:53:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0065 A[Catch: all -> 0x006a, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x005a, B:19:0x0060, B:21:0x0065, B:22:0x0068, B:35:0x009d, B:37:0x00a3, B:39:0x00a8, B:43:0x00b0, B:45:0x00b6, B:47:0x00bb, B:48:0x00be), top: B:55:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00bb A[Catch: all -> 0x006a, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x005a, B:19:0x0060, B:21:0x0065, B:22:0x0068, B:35:0x009d, B:37:0x00a3, B:39:0x00a8, B:43:0x00b0, B:45:0x00b6, B:47:0x00bb, B:48:0x00be), top: B:55:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static synchronized void a(Context context, long j) {
+        Cursor cursor;
+        synchronized (c.class) {
+            synchronized (c) {
+                SQLiteDatabase a2 = a(context);
+                if (a2 != null) {
+                    try {
+                        cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
+                    } catch (Exception e2) {
+                        e = e2;
+                        cursor = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = null;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        if (a2 != null) {
+                        }
+                        throw th;
+                    }
+                    if (cursor != null) {
+                        try {
+                            try {
+                            } catch (Exception e3) {
+                                e = e3;
+                                com.baidu.android.pushservice.g.a.a("PushInfoDataBase", e);
+                                if (cursor != null && !cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                                if (a2 != null) {
+                                    a2.close();
+                                }
+                            }
+                            if (cursor.getCount() != 0) {
+                                ContentValues contentValues = new ContentValues();
+                                contentValues.put(d.PushPriority.name(), Long.valueOf(j));
+                                a2.update("PushShareInfo", contentValues, d.PushInfoId.name() + "=1", null);
+                                if (cursor != null && !cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                                if (a2 != null) {
+                                    a2.close();
+                                }
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (cursor != null && !cursor.isClosed()) {
+                                cursor.close();
+                            }
+                            if (a2 != null) {
+                                a2.close();
+                            }
+                            throw th;
+                        }
+                    }
+                    com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
+                    bVar.a = j;
+                    bVar.b = 0L;
+                    bVar.c = null;
+                    bVar.d = null;
+                    bVar.f = null;
+                    bVar.e = null;
+                    bVar.g = null;
+                    bVar.h = null;
+                    bVar.i = null;
+                    a(context, bVar);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    if (a2 != null) {
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0061 A[Catch: all -> 0x0066, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x0056, B:19:0x005c, B:21:0x0061, B:22:0x0064, B:35:0x009a, B:37:0x00a0, B:39:0x00a5, B:43:0x00ad, B:45:0x00b3, B:47:0x00b8, B:48:0x00bb), top: B:53:0x0004 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized void a(Context context, String str) {
         Cursor cursor;
         Cursor cursor2 = null;
         synchronized (c.class) {
@@ -392,7 +476,7 @@ public class c {
                             }
                             if (cursor.getCount() != 0) {
                                 ContentValues contentValues = new ContentValues();
-                                contentValues.put(d.PushPriority.name(), Long.valueOf(j));
+                                contentValues.put(d.PushChannelID.name(), str);
                                 a2.update("PushShareInfo", contentValues, d.PushInfoId.name() + "=1", null);
                                 if (cursor != null && !cursor.isClosed()) {
                                     cursor.close();
@@ -403,9 +487,9 @@ public class c {
                             }
                         }
                         com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
-                        bVar.a = j;
+                        bVar.a = 0L;
                         bVar.b = 0L;
-                        bVar.c = null;
+                        bVar.c = str;
                         bVar.d = null;
                         bVar.f = null;
                         bVar.e = null;
@@ -426,88 +510,6 @@ public class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x005e A[Catch: all -> 0x0063, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x0053, B:19:0x0059, B:21:0x005e, B:22:0x0061, B:35:0x0096, B:37:0x009c, B:39:0x00a1, B:43:0x00a9, B:45:0x00af, B:47:0x00b4, B:48:0x00b7), top: B:55:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00b4 A[Catch: all -> 0x0063, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x0053, B:19:0x0059, B:21:0x005e, B:22:0x0061, B:35:0x0096, B:37:0x009c, B:39:0x00a1, B:43:0x00a9, B:45:0x00af, B:47:0x00b4, B:48:0x00b7), top: B:55:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized void a(Context context, String str) {
-        Cursor cursor;
-        synchronized (c.class) {
-            synchronized (c) {
-                SQLiteDatabase a2 = a(context);
-                if (a2 != null) {
-                    try {
-                        cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
-                    } catch (Exception e2) {
-                        e = e2;
-                        cursor = null;
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor = null;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        if (a2 != null) {
-                        }
-                        throw th;
-                    }
-                    if (cursor != null) {
-                        try {
-                            try {
-                            } catch (Exception e3) {
-                                e = e3;
-                                com.baidu.android.pushservice.g.a.a("PushInfoDataBase", e);
-                                if (cursor != null && !cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                                if (a2 != null) {
-                                    a2.close();
-                                }
-                            }
-                            if (cursor.getCount() != 0) {
-                                ContentValues contentValues = new ContentValues();
-                                contentValues.put(d.PushChannelID.name(), str);
-                                a2.update("PushShareInfo", contentValues, d.PushInfoId.name() + "=1", null);
-                                if (cursor != null && !cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                                if (a2 != null) {
-                                    a2.close();
-                                }
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
-                            }
-                            if (a2 != null) {
-                                a2.close();
-                            }
-                            throw th;
-                        }
-                    }
-                    com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
-                    bVar.a = 0L;
-                    bVar.b = 0L;
-                    bVar.c = str;
-                    bVar.d = null;
-                    bVar.f = null;
-                    bVar.e = null;
-                    bVar.g = null;
-                    bVar.h = null;
-                    bVar.i = null;
-                    a(context, bVar);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    if (a2 != null) {
-                    }
-                }
-            }
-        }
-    }
-
     public static void a(Context context, String str, int i, long j, byte[] bArr, byte[] bArr2, long j2, int i2) {
         synchronized (c) {
             SQLiteDatabase a2 = a(context);
@@ -516,16 +518,16 @@ public class c {
             }
             try {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(EnumC0017c.appId.name(), str);
-                contentValues.put(EnumC0017c.msgId.name(), Long.valueOf(j));
-                contentValues.put(EnumC0017c.msgType.name(), Integer.valueOf(i));
+                contentValues.put(EnumC0019c.appId.name(), str);
+                contentValues.put(EnumC0019c.msgId.name(), Long.valueOf(j));
+                contentValues.put(EnumC0019c.msgType.name(), Integer.valueOf(i));
                 if (bArr != null && bArr.length > 0) {
-                    contentValues.put(EnumC0017c.msgBody.name(), BaiduAppSSOJni.getEncrypted(context, str, bArr));
-                    contentValues.put(EnumC0017c.secureInfo.name(), bArr2);
-                    contentValues.put(EnumC0017c.expireTime.name(), Long.valueOf(j2));
+                    contentValues.put(EnumC0019c.msgBody.name(), BaiduAppSSOJni.getEncrypted(context, str, bArr));
+                    contentValues.put(EnumC0019c.secureInfo.name(), bArr2);
+                    contentValues.put(EnumC0019c.expireTime.name(), Long.valueOf(j2));
                 }
-                contentValues.put(EnumC0017c.arriveTime.name(), Long.valueOf(System.currentTimeMillis()));
-                contentValues.put(EnumC0017c.ackRet.name(), Integer.valueOf(i2));
+                contentValues.put(EnumC0019c.arriveTime.name(), Long.valueOf(System.currentTimeMillis()));
+                contentValues.put(EnumC0019c.ackRet.name(), Integer.valueOf(i2));
                 a2.insert("PushMsgInfos", null, contentValues);
                 a2.close();
             } catch (Exception e2) {
@@ -691,11 +693,93 @@ public class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0062 A[Catch: all -> 0x0067, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x0057, B:19:0x005d, B:21:0x0062, B:22:0x0065, B:35:0x0099, B:37:0x009f, B:39:0x00a4, B:43:0x00ac, B:45:0x00b2, B:47:0x00b7, B:48:0x00ba), top: B:53:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0065 A[Catch: all -> 0x006a, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x005a, B:19:0x0060, B:21:0x0065, B:22:0x0068, B:35:0x009d, B:37:0x00a3, B:39:0x00a8, B:43:0x00b0, B:45:0x00b6, B:47:0x00bb, B:48:0x00be), top: B:55:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00bb A[Catch: all -> 0x006a, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x005a, B:19:0x0060, B:21:0x0065, B:22:0x0068, B:35:0x009d, B:37:0x00a3, B:39:0x00a8, B:43:0x00b0, B:45:0x00b6, B:47:0x00bb, B:48:0x00be), top: B:55:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static synchronized void b(Context context, long j) {
+        Cursor cursor;
+        synchronized (c.class) {
+            synchronized (c) {
+                SQLiteDatabase a2 = a(context);
+                if (a2 != null) {
+                    try {
+                        cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
+                    } catch (Exception e2) {
+                        e = e2;
+                        cursor = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = null;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        if (a2 != null) {
+                        }
+                        throw th;
+                    }
+                    if (cursor != null) {
+                        try {
+                            try {
+                            } catch (Exception e3) {
+                                e = e3;
+                                com.baidu.android.pushservice.g.a.a("PushInfoDataBase", e);
+                                if (cursor != null && !cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                                if (a2 != null) {
+                                    a2.close();
+                                }
+                            }
+                            if (cursor.getCount() != 0) {
+                                ContentValues contentValues = new ContentValues();
+                                contentValues.put(d.PushVersion.name(), Long.valueOf(j));
+                                a2.update("PushShareInfo", contentValues, d.PushInfoId.name() + "=1", null);
+                                if (cursor != null && !cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                                if (a2 != null) {
+                                    a2.close();
+                                }
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (cursor != null && !cursor.isClosed()) {
+                                cursor.close();
+                            }
+                            if (a2 != null) {
+                                a2.close();
+                            }
+                            throw th;
+                        }
+                    }
+                    com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
+                    bVar.a = 0L;
+                    bVar.b = j;
+                    bVar.c = null;
+                    bVar.d = null;
+                    bVar.f = null;
+                    bVar.e = null;
+                    bVar.g = null;
+                    bVar.h = null;
+                    bVar.i = null;
+                    a(context, bVar);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    if (a2 != null) {
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0061 A[Catch: all -> 0x0066, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x0056, B:19:0x005c, B:21:0x0061, B:22:0x0064, B:35:0x009a, B:37:0x00a0, B:39:0x00a5, B:43:0x00ad, B:45:0x00b3, B:47:0x00b8, B:48:0x00bb), top: B:53:0x0004 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized void b(Context context, String str) {
         Cursor cursor;
         Cursor cursor2 = null;
         synchronized (c.class) {
@@ -732,7 +816,7 @@ public class c {
                             }
                             if (cursor.getCount() != 0) {
                                 ContentValues contentValues = new ContentValues();
-                                contentValues.put(d.PushVersion.name(), Long.valueOf(j));
+                                contentValues.put(d.PushCurPkgName.name(), str);
                                 a2.update("PushShareInfo", contentValues, d.PushInfoId.name() + "=1", null);
                                 if (cursor != null && !cursor.isClosed()) {
                                     cursor.close();
@@ -744,9 +828,9 @@ public class c {
                         }
                         com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
                         bVar.a = 0L;
-                        bVar.b = j;
+                        bVar.b = 0L;
                         bVar.c = null;
-                        bVar.d = null;
+                        bVar.d = str;
                         bVar.f = null;
                         bVar.e = null;
                         bVar.g = null;
@@ -761,88 +845,6 @@ public class c {
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:21:0x005e A[Catch: all -> 0x0063, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x0053, B:19:0x0059, B:21:0x005e, B:22:0x0061, B:35:0x0096, B:37:0x009c, B:39:0x00a1, B:43:0x00a9, B:45:0x00af, B:47:0x00b4, B:48:0x00b7), top: B:55:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00b4 A[Catch: all -> 0x0063, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:8:0x000d, B:17:0x0053, B:19:0x0059, B:21:0x005e, B:22:0x0061, B:35:0x0096, B:37:0x009c, B:39:0x00a1, B:43:0x00a9, B:45:0x00af, B:47:0x00b4, B:48:0x00b7), top: B:55:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized void b(Context context, String str) {
-        Cursor cursor;
-        synchronized (c.class) {
-            synchronized (c) {
-                SQLiteDatabase a2 = a(context);
-                if (a2 != null) {
-                    try {
-                        cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
-                    } catch (Exception e2) {
-                        e = e2;
-                        cursor = null;
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor = null;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        if (a2 != null) {
-                        }
-                        throw th;
-                    }
-                    if (cursor != null) {
-                        try {
-                            try {
-                            } catch (Exception e3) {
-                                e = e3;
-                                com.baidu.android.pushservice.g.a.a("PushInfoDataBase", e);
-                                if (cursor != null && !cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                                if (a2 != null) {
-                                    a2.close();
-                                }
-                            }
-                            if (cursor.getCount() != 0) {
-                                ContentValues contentValues = new ContentValues();
-                                contentValues.put(d.PushCurPkgName.name(), str);
-                                a2.update("PushShareInfo", contentValues, d.PushInfoId.name() + "=1", null);
-                                if (cursor != null && !cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                                if (a2 != null) {
-                                    a2.close();
-                                }
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
-                            }
-                            if (a2 != null) {
-                                a2.close();
-                            }
-                            throw th;
-                        }
-                    }
-                    com.baidu.android.pushservice.d.b bVar = new com.baidu.android.pushservice.d.b();
-                    bVar.a = 0L;
-                    bVar.b = 0L;
-                    bVar.c = null;
-                    bVar.d = str;
-                    bVar.f = null;
-                    bVar.e = null;
-                    bVar.g = null;
-                    bVar.h = null;
-                    bVar.i = null;
-                    a(context, bVar);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    if (a2 != null) {
-                    }
                 }
             }
         }
@@ -905,8 +907,8 @@ public class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0060 A[Catch: all -> 0x0065, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0055, B:20:0x005b, B:22:0x0060, B:23:0x0063, B:36:0x0098, B:38:0x009e, B:40:0x00a3, B:44:0x00ab, B:46:0x00b1, B:48:0x00b6, B:49:0x00b9, B:9:0x000f), top: B:56:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00b6 A[Catch: all -> 0x0065, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0055, B:20:0x005b, B:22:0x0060, B:23:0x0063, B:36:0x0098, B:38:0x009e, B:40:0x00a3, B:44:0x00ab, B:46:0x00b1, B:48:0x00b6, B:49:0x00b9, B:9:0x000f), top: B:56:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0063 A[Catch: all -> 0x0068, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:36:0x009c, B:38:0x00a2, B:40:0x00a7, B:44:0x00af, B:46:0x00b5, B:48:0x00ba, B:49:0x00bd, B:9:0x000f), top: B:54:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00ba A[Catch: all -> 0x0068, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:36:0x009c, B:38:0x00a2, B:40:0x00a7, B:44:0x00af, B:46:0x00b5, B:48:0x00ba, B:49:0x00bd, B:9:0x000f), top: B:54:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -987,70 +989,62 @@ public class c {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x00a2 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x000a */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: android.database.sqlite.SQLiteDatabase */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v1, types: [android.database.sqlite.SQLiteDatabase] */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v5, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r0v6 */
-    /* JADX WARN: Type inference failed for: r0v7 */
     public static boolean c(Context context, long j) {
         Cursor cursor;
         Cursor cursor2 = null;
         synchronized (c) {
-            boolean a2 = a(context);
+            SQLiteDatabase a2 = a(context);
+            if (a2 == null) {
+                return false;
+            }
             try {
-                if (a2 == 0) {
-                    return false;
-                }
-                try {
-                    new ContentValues();
-                    cursor = a2.query("PushMsgInfos", null, EnumC0017c.msgId.name() + " =? ", new String[]{String.valueOf(j)}, null, null, null);
-                } catch (Exception e2) {
-                    e = e2;
-                    cursor = null;
-                } catch (Throwable th) {
-                    th = th;
-                    if (cursor2 != null && !cursor2.isClosed()) {
-                        cursor2.close();
-                    }
-                    a2.close();
-                    throw th;
-                }
+                new ContentValues();
+                cursor = a2.query("PushMsgInfos", null, EnumC0019c.msgId.name() + " =? ", new String[]{String.valueOf(j)}, null, null, null);
                 if (cursor != null) {
                     try {
-                    } catch (Exception e3) {
-                        e = e3;
-                        com.baidu.android.pushservice.g.a.e("PushInfoDataBase", "exception " + e.getMessage());
-                        if (cursor != null && !cursor.isClosed()) {
-                            cursor.close();
+                        try {
+                            if (cursor.getCount() > 0) {
+                                com.baidu.android.pushservice.g.a.d("PushInfoDataBase", "msgid duplicated");
+                                if (cursor != null && !cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                                a2.close();
+                                return true;
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            com.baidu.android.pushservice.g.a.e("PushInfoDataBase", "exception " + e.getMessage());
+                            if (cursor != null && !cursor.isClosed()) {
+                                cursor.close();
+                            }
+                            a2.close();
+                            return false;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor2 = cursor;
+                        if (cursor2 != null && !cursor2.isClosed()) {
+                            cursor2.close();
                         }
                         a2.close();
-                        a2 = 0;
-                        return a2;
-                    }
-                    if (cursor.getCount() > 0) {
-                        com.baidu.android.pushservice.g.a.d("PushInfoDataBase", "msgid duplicated");
-                        if (cursor != null && !cursor.isClosed()) {
-                            cursor.close();
-                        }
-                        a2.close();
-                        a2 = 1;
-                        return a2;
+                        throw th;
                     }
                 }
                 if (cursor != null && !cursor.isClosed()) {
                     cursor.close();
                 }
                 a2.close();
-                a2 = 0;
-                return a2;
+                return false;
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                cursor2 = cursor;
+                if (cursor2 != null) {
+                    cursor2.close();
+                }
+                a2.close();
+                throw th;
             }
         }
     }
@@ -1107,8 +1101,8 @@ public class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0060 A[Catch: all -> 0x0065, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0055, B:20:0x005b, B:22:0x0060, B:23:0x0063, B:36:0x0098, B:38:0x009e, B:40:0x00a3, B:44:0x00ab, B:46:0x00b1, B:48:0x00b6, B:49:0x00b9, B:9:0x000f), top: B:56:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00b6 A[Catch: all -> 0x0065, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0055, B:20:0x005b, B:22:0x0060, B:23:0x0063, B:36:0x0098, B:38:0x009e, B:40:0x00a3, B:44:0x00ab, B:46:0x00b1, B:48:0x00b6, B:49:0x00b9, B:9:0x000f), top: B:56:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0063 A[Catch: all -> 0x0068, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:36:0x009c, B:38:0x00a2, B:40:0x00a7, B:44:0x00af, B:46:0x00b5, B:48:0x00ba, B:49:0x00bd, B:9:0x000f), top: B:54:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00ba A[Catch: all -> 0x0068, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:36:0x009c, B:38:0x00a2, B:40:0x00a7, B:44:0x00af, B:46:0x00b5, B:48:0x00ba, B:49:0x00bd, B:9:0x000f), top: B:54:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1189,31 +1183,33 @@ public class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x006b A[Catch: all -> 0x0040, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000a, B:14:0x002f, B:16:0x0035, B:18:0x003a, B:19:0x003e, B:36:0x0060, B:38:0x0066, B:40:0x006b, B:41:0x006e, B:28:0x004c, B:30:0x0052, B:32:0x0057), top: B:48:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: java.lang.String */
+    /* JADX WARN: Multi-variable type inference failed */
     public static String e(Context context) {
         Cursor cursor;
         String str;
         synchronized (c) {
             SQLiteDatabase a2 = a(context);
-            if (a2 == null) {
-                return null;
-            }
             try {
-                cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
+                if (a2 == null) {
+                    return null;
+                }
                 try {
+                    cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
                     try {
-                        String string = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(d.PushWebAppBindInfo.name())) : null;
+                        r8 = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(d.PushWebAppBindInfo.name())) : null;
                         if (cursor != null && !cursor.isClosed()) {
                             cursor.close();
                         }
                         if (a2 != null) {
                             a2.close();
-                            str = string;
+                            str = r8;
                         } else {
-                            str = string;
+                            str = r8;
                         }
                     } catch (Exception e2) {
                         e = e2;
@@ -1229,35 +1225,28 @@ public class c {
                         }
                         return str;
                     }
+                } catch (Exception e3) {
+                    e = e3;
+                    cursor = null;
                 } catch (Throwable th) {
                     th = th;
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
+                    if (0 != 0 && !r8.isClosed()) {
+                        r8.close();
                     }
                     if (a2 != null) {
                         a2.close();
                     }
                     throw th;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                cursor = null;
+                return str;
             } catch (Throwable th2) {
                 th = th2;
-                cursor = null;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                if (a2 != null) {
-                }
-                throw th;
             }
-            return str;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0060 A[Catch: all -> 0x0065, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0055, B:20:0x005b, B:22:0x0060, B:23:0x0063, B:36:0x0098, B:38:0x009e, B:40:0x00a3, B:44:0x00ab, B:46:0x00b1, B:48:0x00b6, B:49:0x00b9, B:9:0x000f), top: B:56:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00b6 A[Catch: all -> 0x0065, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0055, B:20:0x005b, B:22:0x0060, B:23:0x0063, B:36:0x0098, B:38:0x009e, B:40:0x00a3, B:44:0x00ab, B:46:0x00b1, B:48:0x00b6, B:49:0x00b9, B:9:0x000f), top: B:56:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0063 A[Catch: all -> 0x0068, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:36:0x009c, B:38:0x00a2, B:40:0x00a7, B:44:0x00af, B:46:0x00b5, B:48:0x00ba, B:49:0x00bd, B:9:0x000f), top: B:54:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00ba A[Catch: all -> 0x0068, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:36:0x009c, B:38:0x00a2, B:40:0x00a7, B:44:0x00af, B:46:0x00b5, B:48:0x00ba, B:49:0x00bd, B:9:0x000f), top: B:54:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1338,31 +1327,33 @@ public class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x006b A[Catch: all -> 0x0040, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000a, B:14:0x002f, B:16:0x0035, B:18:0x003a, B:19:0x003e, B:36:0x0060, B:38:0x0066, B:40:0x006b, B:41:0x006e, B:28:0x004c, B:30:0x0052, B:32:0x0057), top: B:48:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: java.lang.String */
+    /* JADX WARN: Multi-variable type inference failed */
     public static String f(Context context) {
         Cursor cursor;
         String str;
         synchronized (c) {
             SQLiteDatabase a2 = a(context);
-            if (a2 == null) {
-                return null;
-            }
             try {
-                cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
+                if (a2 == null) {
+                    return null;
+                }
                 try {
+                    cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
                     try {
-                        String string = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(d.PushSDKClientBindInfo.name())) : null;
+                        r8 = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(d.PushSDKClientBindInfo.name())) : null;
                         if (cursor != null && !cursor.isClosed()) {
                             cursor.close();
                         }
                         if (a2 != null) {
                             a2.close();
-                            str = string;
+                            str = r8;
                         } else {
-                            str = string;
+                            str = r8;
                         }
                     } catch (Exception e2) {
                         e = e2;
@@ -1378,35 +1369,28 @@ public class c {
                         }
                         return str;
                     }
+                } catch (Exception e3) {
+                    e = e3;
+                    cursor = null;
                 } catch (Throwable th) {
                     th = th;
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
+                    if (0 != 0 && !r8.isClosed()) {
+                        r8.close();
                     }
                     if (a2 != null) {
                         a2.close();
                     }
                     throw th;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                cursor = null;
+                return str;
             } catch (Throwable th2) {
                 th = th2;
-                cursor = null;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                if (a2 != null) {
-                }
-                throw th;
             }
-            return str;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0060 A[Catch: all -> 0x0065, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0055, B:20:0x005b, B:22:0x0060, B:23:0x0063, B:36:0x0098, B:38:0x009e, B:40:0x00a3, B:44:0x00ab, B:46:0x00b1, B:48:0x00b6, B:49:0x00b9, B:9:0x000f), top: B:56:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00b6 A[Catch: all -> 0x0065, TryCatch #4 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0055, B:20:0x005b, B:22:0x0060, B:23:0x0063, B:36:0x0098, B:38:0x009e, B:40:0x00a3, B:44:0x00ab, B:46:0x00b1, B:48:0x00b6, B:49:0x00b9, B:9:0x000f), top: B:56:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0063 A[Catch: all -> 0x0068, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:36:0x009c, B:38:0x00a2, B:40:0x00a7, B:44:0x00af, B:46:0x00b5, B:48:0x00ba, B:49:0x00bd, B:9:0x000f), top: B:54:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00ba A[Catch: all -> 0x0068, TryCatch #3 {, blocks: (B:4:0x0004, B:5:0x0006, B:6:0x0007, B:18:0x0058, B:20:0x005e, B:22:0x0063, B:23:0x0066, B:36:0x009c, B:38:0x00a2, B:40:0x00a7, B:44:0x00af, B:46:0x00b5, B:48:0x00ba, B:49:0x00bd, B:9:0x000f), top: B:54:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1487,7 +1471,7 @@ public class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0085 A[Catch: all -> 0x0040, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000a, B:14:0x002f, B:16:0x0035, B:18:0x003a, B:19:0x003e, B:36:0x007a, B:38:0x0080, B:40:0x0085, B:41:0x0088, B:28:0x0066, B:30:0x006c, B:32:0x0071), top: B:48:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0088 A[Catch: all -> 0x0041, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000a, B:14:0x0030, B:16:0x0036, B:18:0x003b, B:19:0x003f, B:36:0x007d, B:38:0x0083, B:40:0x0088, B:41:0x008b, B:28:0x0069, B:30:0x006f, B:32:0x0074), top: B:48:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1555,31 +1539,33 @@ public class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x006b A[Catch: all -> 0x0040, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000a, B:14:0x002f, B:16:0x0035, B:18:0x003a, B:19:0x003e, B:36:0x0060, B:38:0x0066, B:40:0x006b, B:41:0x006e, B:28:0x004c, B:30:0x0052, B:32:0x0057), top: B:48:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: java.lang.String */
+    /* JADX WARN: Multi-variable type inference failed */
     public static String h(Context context) {
         Cursor cursor;
         String str;
         synchronized (c) {
             SQLiteDatabase a2 = a(context);
-            if (a2 == null) {
-                return null;
-            }
             try {
-                cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
+                if (a2 == null) {
+                    return null;
+                }
                 try {
+                    cursor = a2.query("PushShareInfo", null, null, null, null, null, null);
                     try {
-                        String string = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(d.PushSelfBindInfo.name())) : null;
+                        r8 = cursor.moveToFirst() ? cursor.getString(cursor.getColumnIndex(d.PushSelfBindInfo.name())) : null;
                         if (cursor != null && !cursor.isClosed()) {
                             cursor.close();
                         }
                         if (a2 != null) {
                             a2.close();
-                            str = string;
+                            str = r8;
                         } else {
-                            str = string;
+                            str = r8;
                         }
                     } catch (Exception e2) {
                         e = e2;
@@ -1595,30 +1581,23 @@ public class c {
                         }
                         return str;
                     }
+                } catch (Exception e3) {
+                    e = e3;
+                    cursor = null;
                 } catch (Throwable th) {
                     th = th;
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
+                    if (0 != 0 && !r8.isClosed()) {
+                        r8.close();
                     }
                     if (a2 != null) {
                         a2.close();
                     }
                     throw th;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                cursor = null;
+                return str;
             } catch (Throwable th2) {
                 th = th2;
-                cursor = null;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                if (a2 != null) {
-                }
-                throw th;
             }
-            return str;
         }
     }
 
@@ -1641,7 +1620,7 @@ public class c {
                 }
                 try {
                     sQLiteDatabase = a.getWritableDatabase();
-                    sQLiteDatabase.delete("PushMsgInfos", EnumC0017c.arriveTime.name() + " < " + (System.currentTimeMillis() - 259200000), null);
+                    sQLiteDatabase.delete("PushMsgInfos", EnumC0019c.arriveTime.name() + " < " + (System.currentTimeMillis() - 259200000), null);
                     if (sQLiteDatabase != null) {
                         sQLiteDatabase.close();
                     }

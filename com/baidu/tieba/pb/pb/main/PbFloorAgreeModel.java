@@ -12,47 +12,59 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PbFloorAgreeModel {
-    private PbModel eue;
-    private final HttpMessageListener eyf = new eg(this, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-    private final HttpMessageListener eyg = new eh(this, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+    private PbModel eGz;
+    private final HttpMessageListener eKC = new HttpMessageListener(CmdConfigHttp.CMD_PB_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            PbFloorAgreeModel.this.a(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+        }
+    };
+    private final HttpMessageListener eKD = new HttpMessageListener(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.2
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            PbFloorAgreeModel.this.a(httpResponsedMessage, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+        }
+    };
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void oK(int i);
+        void oT(int i);
 
-        void oN(String str);
+        void pp(String str);
     }
 
     public PbFloorAgreeModel(PbModel pbModel) {
-        this.eue = pbModel;
-        DU();
-        MessageManager.getInstance().registerListener(this.eyf);
-        MessageManager.getInstance().registerListener(this.eyg);
+        this.eGz = pbModel;
+        Eo();
+        MessageManager.getInstance().registerListener(this.eKC);
+        MessageManager.getInstance().registerListener(this.eKD);
     }
 
-    private void DU() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_FLOOR_AGREE, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PB_FLOOR_AGREE_URL);
+    private void Eo() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_FLOOR_AGREE, TbConfig.SERVER_ADDRESS + TbConfig.PB_FLOOR_AGREE_URL);
         tbHttpMessageTask.setResponsedClass(PbFloorAgreeResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PB_CHANGE_FLOOR_AGREE_URL);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE, TbConfig.SERVER_ADDRESS + TbConfig.PB_CHANGE_FLOOR_AGREE_URL);
         tbHttpMessageTask2.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask2.setIsNeedTbs(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
     public void a(String str, int i, a aVar) {
-        if (this.eue != null && this.eue.getPbData() != null) {
+        if (this.eGz != null && this.eGz.getPbData() != null) {
             a(str, i, 1, 2, "", aVar);
         }
     }
 
     public void a(String str, int i, int i2, int i3, String str2, a aVar) {
-        if (this.eue != null && this.eue.getPbData() != null) {
+        if (this.eGz != null && this.eGz.getPbData() != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("post_id", str);
-            httpMessage.addParam("thread_id", this.eue.getPbData().getThreadId());
+            httpMessage.addParam("thread_id", this.eGz.getPbData().getThreadId());
             httpMessage.addParam("op_type", i);
             httpMessage.addParam("obj_type", i2);
             httpMessage.addParam("agree_type", i3);
@@ -63,9 +75,9 @@ public class PbFloorAgreeModel {
     }
 
     public void a(String str, int i, int i2, String str2, a aVar) {
-        if (this.eue != null && this.eue.getPbData() != null) {
+        if (this.eGz != null && this.eGz.getPbData() != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
-            httpMessage.addParam("thread_id", this.eue.getPbData().getThreadId());
+            httpMessage.addParam("thread_id", this.eGz.getPbData().getThreadId());
             httpMessage.addParam("post_id", str);
             httpMessage.addParam("obj_type", i);
             httpMessage.addParam("agree_type", i2);
@@ -88,11 +100,11 @@ public class PbFloorAgreeModel {
             if (aVar != null) {
                 PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage;
                 if (!pbFloorAgreeResponseMessage.hasError()) {
-                    aVar.oK(pbFloorAgreeResponseMessage.getScore());
+                    aVar.oT(pbFloorAgreeResponseMessage.getScore());
                     if (TextUtils.isEmpty(pbFloorAgreeResponseMessage.getNickNameActivityMoney())) {
                         return;
                     }
-                    aVar.oN(pbFloorAgreeResponseMessage.mNickNameActivityMoney);
+                    aVar.pp(pbFloorAgreeResponseMessage.mNickNameActivityMoney);
                 }
             }
         }
@@ -118,7 +130,7 @@ public class PbFloorAgreeModel {
                 if (optJSONObject2 != null) {
                     this.mScore = optJSONObject2.optInt("score");
                 }
-                this.mNickNameActivityMoney = com.baidu.tieba.pb.d.G(optJSONObject);
+                this.mNickNameActivityMoney = com.baidu.tieba.pb.c.H(optJSONObject);
             }
         }
 
@@ -132,8 +144,8 @@ public class PbFloorAgreeModel {
     }
 
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eyf);
-        MessageManager.getInstance().unRegisterListener(this.eyg);
+        MessageManager.getInstance().unRegisterListener(this.eKC);
+        MessageManager.getInstance().unRegisterListener(this.eKD);
         return true;
     }
 }

@@ -1,22 +1,15 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.w;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-class l implements com.baidu.tbadk.ala.e {
-    @Override // com.baidu.tbadk.ala.e
-    public View aq(Context context) {
-        TextView ap = com.baidu.tbadk.ala.c.ap(context);
-        if (ap != null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            com.baidu.tbadk.core.util.as.i(ap, w.e.cp_cont_f);
-            layoutParams.setMargins(com.baidu.adp.lib.util.k.g(context, w.f.ds16), 0, 0, 0);
-            layoutParams.gravity = 16;
-            ap.setLayoutParams(layoutParams);
-        }
-        return ap;
+public class l extends j.a {
+    public TextView ckT;
+
+    public l(View view) {
+        super(view);
+        this.ckT = (TextView) view.findViewById(d.h.no_data_tips);
     }
 }

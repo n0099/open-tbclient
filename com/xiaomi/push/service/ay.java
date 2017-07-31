@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -24,6 +25,7 @@ public class ay {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    @TargetApi(19)
     public static void a(Context context, com.xiaomi.xmpush.thrift.ab abVar, Notification notification) {
         if (Build.VERSION.SDK_INT < 19) {
             return;

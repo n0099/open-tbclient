@@ -10,10 +10,6 @@ public final class CommitGroupMsgResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ CommitGroupMsgResIdl(Builder builder, boolean z, CommitGroupMsgResIdl commitGroupMsgResIdl) {
-        this(builder, z);
-    }
-
     private CommitGroupMsgResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -44,7 +40,7 @@ public final class CommitGroupMsgResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public CommitGroupMsgResIdl build(boolean z) {
-            return new CommitGroupMsgResIdl(this, z, null);
+            return new CommitGroupMsgResIdl(this, z);
         }
     }
 }

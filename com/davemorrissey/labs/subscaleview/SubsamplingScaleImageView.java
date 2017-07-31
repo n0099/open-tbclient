@@ -973,7 +973,7 @@ public class SubsamplingScaleImageView extends View {
             int r4 = r7.sHeight()
             if (r4 > r0) goto L3d
             int r4 = r7.sWidth()
-            if (r4 <= r1) goto Led
+            if (r4 <= r1) goto Lef
         L3d:
             int r4 = r7.sHeight()
             float r4 = (float) r4
@@ -985,85 +985,85 @@ public class SubsamplingScaleImageView extends View {
             float r1 = (float) r1
             float r1 = r4 / r1
             int r1 = java.lang.Math.round(r1)
-            if (r0 >= r1) goto Ld7
+            if (r0 >= r1) goto Ld9
         L57:
             com.davemorrissey.labs.subscaleview.ImageSource r1 = r7.imageSource
-            if (r1 == 0) goto Lcf
+            if (r1 == 0) goto Ld1
             com.davemorrissey.labs.subscaleview.ImageSource r1 = r7.imageSource
             android.net.Uri r1 = r1.getUri()
-            if (r1 == 0) goto Lcf
+            if (r1 == 0) goto Ld1
             com.davemorrissey.labs.subscaleview.ImageSource r1 = r7.imageSource
             android.net.Uri r1 = r1.getUri()
             java.lang.String r1 = r1.toString()
             boolean r4 = android.text.TextUtils.isEmpty(r1)
-            if (r4 != 0) goto Lcf
+            if (r4 != 0) goto Ld1
             java.lang.String r4 = "file://"
             boolean r4 = r1.startsWith(r4)
-            if (r4 == 0) goto Lcf
+            if (r4 == 0) goto Ld1
             java.lang.String r4 = "file://"
             int r4 = r4.length()
             java.lang.String r1 = r1.substring(r4)
             java.io.File r4 = new java.io.File
             r4.<init>(r1)
             boolean r1 = r4.exists()
-            if (r1 == 0) goto Lcf
-            android.graphics.BitmapFactory$Options r5 = new android.graphics.BitmapFactory$Options     // Catch: java.lang.Throwable -> Lda
-            r5.<init>()     // Catch: java.lang.Throwable -> Lda
+            if (r1 == 0) goto Ld1
+            android.graphics.BitmapFactory$Options r5 = new android.graphics.BitmapFactory$Options     // Catch: java.lang.Throwable -> Ldc
+            r5.<init>()     // Catch: java.lang.Throwable -> Ldc
             r1 = 1
-            r5.inJustDecodeBounds = r1     // Catch: java.lang.Throwable -> Lda
-            java.io.FileInputStream r1 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> Lda
-            r1.<init>(r4)     // Catch: java.lang.Throwable -> Lda
+            r5.inJustDecodeBounds = r1     // Catch: java.lang.Throwable -> Ldc
+            java.io.FileInputStream r1 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> Ldc
+            r1.<init>(r4)     // Catch: java.lang.Throwable -> Ldc
             r3 = 0
-            android.graphics.BitmapFactory.decodeStream(r1, r3, r5)     // Catch: java.lang.Throwable -> Leb
-            android.graphics.Bitmap$Config r3 = android.graphics.Bitmap.Config.RGB_565     // Catch: java.lang.Throwable -> Leb
-            r5.inPreferredConfig = r3     // Catch: java.lang.Throwable -> Leb
-            com.baidu.adp.lib.util.o.j(r1)     // Catch: java.lang.Throwable -> Leb
-            android.content.Context r3 = r7.getContext()     // Catch: java.lang.Throwable -> Leb
-            int r3 = com.baidu.adp.lib.util.k.af(r3)     // Catch: java.lang.Throwable -> Leb
-            android.content.Context r4 = r7.getContext()     // Catch: java.lang.Throwable -> Leb
-            int r4 = com.baidu.adp.lib.util.k.ag(r4)     // Catch: java.lang.Throwable -> Leb
-            if (r3 <= 0) goto Lcc
-            if (r4 <= 0) goto Lcc
-            int r6 = r5.outWidth     // Catch: java.lang.Throwable -> Leb
+            android.graphics.BitmapFactory.decodeStream(r1, r3, r5)     // Catch: java.lang.Throwable -> Led
+            android.graphics.Bitmap$Config r3 = android.graphics.Bitmap.Config.RGB_565     // Catch: java.lang.Throwable -> Led
+            r5.inPreferredConfig = r3     // Catch: java.lang.Throwable -> Led
+            com.baidu.adp.lib.util.m.p(r1)     // Catch: java.lang.Throwable -> Led
+            android.content.Context r3 = r7.getContext()     // Catch: java.lang.Throwable -> Led
+            int r3 = com.baidu.adp.lib.util.k.ag(r3)     // Catch: java.lang.Throwable -> Led
+            android.content.Context r4 = r7.getContext()     // Catch: java.lang.Throwable -> Led
+            int r4 = com.baidu.adp.lib.util.k.ah(r4)     // Catch: java.lang.Throwable -> Led
+            if (r3 <= 0) goto Lce
+            if (r4 <= 0) goto Lce
+            int r6 = r5.outWidth     // Catch: java.lang.Throwable -> Led
             int r3 = r6 / r3
-            int r5 = r5.outHeight     // Catch: java.lang.Throwable -> Leb
+            int r5 = r5.outHeight     // Catch: java.lang.Throwable -> Led
             int r4 = r5 / r4
-            int r3 = java.lang.Math.max(r3, r4)     // Catch: java.lang.Throwable -> Leb
-            int r0 = java.lang.Math.max(r0, r3)     // Catch: java.lang.Throwable -> Leb
-        Lcc:
-            com.baidu.adp.lib.util.o.j(r1)
-        Lcf:
+            int r3 = java.lang.Math.max(r3, r4)     // Catch: java.lang.Throwable -> Led
+            int r0 = java.lang.Math.max(r0, r3)     // Catch: java.lang.Throwable -> Led
+        Lce:
+            com.baidu.adp.lib.util.m.p(r1)
+        Ld1:
             r1 = r2
-        Ld0:
+        Ld2:
             int r2 = r1 * 2
-            if (r2 < r0) goto Le6
+            if (r2 < r0) goto Le8
             r0 = r1
             goto L30
-        Ld7:
+        Ld9:
             r0 = r1
             goto L57
-        Lda:
+        Ldc:
             r1 = move-exception
             r1 = r3
-        Ldc:
-            com.baidu.adp.lib.util.o.j(r1)
-            goto Lcf
-        Le0:
+        Lde:
+            com.baidu.adp.lib.util.m.p(r1)
+            goto Ld1
+        Le2:
             r0 = move-exception
             r1 = r3
-        Le2:
-            com.baidu.adp.lib.util.o.j(r1)
+        Le4:
+            com.baidu.adp.lib.util.m.p(r1)
             throw r0
-        Le6:
+        Le8:
             int r1 = r1 * 2
-            goto Ld0
-        Le9:
-            r0 = move-exception
-            goto Le2
+            goto Ld2
         Leb:
-            r3 = move-exception
-            goto Ldc
+            r0 = move-exception
+            goto Le4
         Led:
+            r3 = move-exception
+            goto Lde
+        Lef:
             r0 = r2
             goto L57
         */

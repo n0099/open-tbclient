@@ -25,7 +25,7 @@ public class LikeData implements Serializable {
                 this.mUserType = jSONObject.optInt("user_type");
                 this.mIsVerify = jSONObject.optInt("is_verify");
                 this.mName = jSONObject.optString("name");
-                this.mNameShow = jSONObject.optString(IntentConfig.NAME_SHOW);
+                this.mNameShow = jSONObject.optString("name_show");
                 this.mPortrait = jSONObject.optString(IntentConfig.PORTRAIT);
                 this.mIsMyFriend = jSONObject.optInt("is_friend");
             } catch (Exception e) {

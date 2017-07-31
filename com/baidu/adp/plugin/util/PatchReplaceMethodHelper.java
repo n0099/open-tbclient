@@ -23,16 +23,28 @@ public class PatchReplaceMethodHelper {
         if (plugin2 == null || context == null) {
             return false;
         }
-        PluginSetting be = PluginPackageManager.jw().be(plugin2.getPackageName());
-        if (be == null || TextUtils.isEmpty(be.replaceMethodClasses)) {
+        PluginSetting bm = PluginPackageManager.jE().bm(plugin2.getPackageName());
+        if (bm == null || TextUtils.isEmpty(bm.replaceMethodClasses)) {
             return false;
         }
         try {
-            DexFile loadDex = DexFile.loadDex(plugin2.getPluginApkFilePath(), str, 0);
-            g gVar = new g(context.getClassLoader(), loadDex);
+            final DexFile loadDex = DexFile.loadDex(plugin2.getPluginApkFilePath(), str, 0);
+            ClassLoader classLoader = new ClassLoader(context.getClassLoader()) { // from class: com.baidu.adp.plugin.util.PatchReplaceMethodHelper.1
+                @Override // java.lang.ClassLoader
+                protected Class<?> findClass(String str2) throws ClassNotFoundException {
+                    Class<?> loadClass = loadDex.loadClass(str2, this);
+                    if (loadClass == null && str2.startsWith("com.baidu.adp.plugin.PluginPatchAnnotation")) {
+                        return Class.forName(str2);
+                    }
+                    if (loadClass == null) {
+                        throw new ClassNotFoundException(str2);
+                    }
+                    return loadClass;
+                }
+            };
             Enumeration<String> entries = loadDex.entries();
             while (entries.hasMoreElements()) {
-                Method[] declaredMethods = loadDex.loadClass(entries.nextElement(), gVar).getDeclaredMethods();
+                Method[] declaredMethods = loadDex.loadClass(entries.nextElement(), classLoader).getDeclaredMethods();
                 int i = 0;
                 Class<?> cls2 = null;
                 while (i < declaredMethods.length) {
@@ -62,15 +74,15 @@ public class PatchReplaceMethodHelper {
             }
             return true;
         } catch (IOException e) {
-            com.baidu.adp.plugin.b.a.jj().f("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e.getMessage());
+            com.baidu.adp.plugin.b.a.jr().f("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e.getMessage());
             e.printStackTrace();
             return false;
         } catch (ClassNotFoundException e2) {
-            com.baidu.adp.plugin.b.a.jj().f("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
+            com.baidu.adp.plugin.b.a.jr().f("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
             e2.printStackTrace();
             return false;
         } catch (NoSuchMethodException e3) {
-            com.baidu.adp.plugin.b.a.jj().f("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e3.getMessage());
+            com.baidu.adp.plugin.b.a.jr().f("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e3.getMessage());
             e3.printStackTrace();
             return false;
         }

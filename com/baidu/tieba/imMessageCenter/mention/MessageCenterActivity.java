@@ -1,17 +1,17 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import android.os.Bundle;
+import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class MessageCenterActivity extends BaseFragmentActivity {
-    private NavigationBar czl;
+    private NavigationBar cHR;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        this.czl.onChangeSkinType(getPageContext(), i);
+    protected void onChangeSkinType(int i) {
+        this.cHR.onChangeSkinType(getPageContext(), i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,14 +22,19 @@ public class MessageCenterActivity extends BaseFragmentActivity {
     }
 
     private void initView() {
-        setContentView(w.j.message_center_activity);
-        Vk();
-        getSupportFragmentManager().beginTransaction().add(w.h.fragment_container, new ad()).commit();
+        setContentView(d.j.message_center_activity);
+        VW();
+        getSupportFragmentManager().beginTransaction().add(d.h.fragment_container, new g()).commit();
     }
 
-    private void Vk() {
-        this.czl = (NavigationBar) findViewById(w.h.navigation_bar);
-        this.czl.setTitleText(w.l.my_message);
-        this.czl.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ag(this));
+    private void VW() {
+        this.cHR = (NavigationBar) findViewById(d.h.navigation_bar);
+        this.cHR.setTitleText(d.l.my_message);
+        this.cHR.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivity.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                MessageCenterActivity.this.finish();
+            }
+        });
     }
 }

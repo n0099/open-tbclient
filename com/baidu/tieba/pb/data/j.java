@@ -1,16 +1,15 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
-public class j implements v {
+public class j implements com.baidu.adp.widget.ListView.f {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public MetaData erZ;
-    public boolean esa = false;
-    public boolean esb = true;
+    public MetaData eEv;
+    public boolean eEw = false;
+    public boolean eEx = true;
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
         return TYPE;
     }

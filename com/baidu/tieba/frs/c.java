@@ -1,40 +1,29 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.a;
-import com.baidu.adp.widget.ListView.z;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import java.util.concurrent.atomic.AtomicReference;
+import android.graphics.drawable.Drawable;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class c implements bw {
-    public static final AtomicReference<bw> cbC = new AtomicReference<>(null);
-    private static final bw cbD = new c();
+public class c {
+    private HashMap<String, Drawable> cix = new HashMap<>();
 
-    private c() {
+    public Drawable v(int i, int i2) {
+        String an = an(i, i2);
+        Drawable drawable = this.cix.get(an);
+        if (drawable == null) {
+            Drawable v = com.baidu.tbadk.core.util.ai.v(i2, i);
+            this.cix.put(an, v);
+            return v.getConstantState().newDrawable();
+        }
+        return drawable.getConstantState().newDrawable();
     }
 
-    public static bw ady() {
-        bw bwVar = cbC.get();
-        return bwVar == null ? cbD : bwVar;
+    private String an(int i, int i2) {
+        return i + "_" + i2;
     }
 
-    @Override // com.baidu.tieba.frs.bw
-    public p<ICardInfo, ? extends z.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
-    }
-
-    @Override // com.baidu.tieba.frs.bw
-    public a<? extends com.baidu.tbadk.core.data.bm, ? extends z.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
-    }
-
-    @Override // com.baidu.tieba.frs.bw
-    public a<? extends com.baidu.tbadk.core.data.bm, ? extends z.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
+    public void destory() {
+        if (!this.cix.isEmpty()) {
+            this.cix.clear();
+        }
     }
 }

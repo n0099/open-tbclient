@@ -10,10 +10,6 @@ public final class UpdateClientInfoReqIdl extends Message {
     @ProtoField(tag = 2)
     public final DataReq data;
 
-    /* synthetic */ UpdateClientInfoReqIdl(Builder builder, boolean z, UpdateClientInfoReqIdl updateClientInfoReqIdl) {
-        this(builder, z);
-    }
-
     private UpdateClientInfoReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -48,7 +44,7 @@ public final class UpdateClientInfoReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public UpdateClientInfoReqIdl build(boolean z) {
-            return new UpdateClientInfoReqIdl(this, z, null);
+            return new UpdateClientInfoReqIdl(this, z);
         }
     }
 }

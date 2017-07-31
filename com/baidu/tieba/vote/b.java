@@ -1,30 +1,76 @@
 package com.baidu.tieba.vote;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class b implements com.baidu.tbadk.widget.vote.b {
-    final /* synthetic */ a gby;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.gby = aVar;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
+/* loaded from: classes.dex */
+public class b implements com.baidu.tbadk.widget.vote.a {
+    private long aBd;
+    private String afV;
+    private boolean isSelected = false;
+    private int mId;
+    private int mPercent;
+    private String mUrl;
+
+    public b(int i, String str, String str2, long j) {
+        this.mId = i;
+        this.afV = str;
+        this.mUrl = str2;
+        this.aBd = j;
     }
 
-    @Override // com.baidu.tbadk.widget.vote.b
-    public void a(com.baidu.tbadk.widget.vote.a aVar, int i, boolean z) {
-        VoteDataInfo voteDataInfo;
-        VoteDataInfo voteDataInfo2;
-        VoteDataInfo voteDataInfo3;
-        VoteDataInfo voteDataInfo4;
-        voteDataInfo = this.gby.gbt;
-        if (voteDataInfo != null) {
-            voteDataInfo2 = this.gby.gbt;
-            if (voteDataInfo2.getOptions() != null && i >= 0) {
-                voteDataInfo3 = this.gby.gbt;
-                if (i < voteDataInfo3.getOptions().size()) {
-                    voteDataInfo4 = this.gby.gbt;
-                    ((f) voteDataInfo4.getOptions().get(i)).setSelected(z);
-                }
-            }
-        }
+    public void setSelected(boolean z) {
+        this.isSelected = z;
+    }
+
+    public void ck(int i) {
+        this.mPercent = i;
+    }
+
+    public void setNum(long j) {
+        this.aBd = j;
+    }
+
+    public long getNum() {
+        return this.aBd;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int getId() {
+        return this.mId;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String CE() {
+        return this.afV;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public boolean isSelected() {
+        return this.isSelected;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String CF() {
+        return this.aBd + TbadkCoreApplication.getInst().getString(d.l.vote_unit);
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String CG() {
+        return this.mPercent + TbadkCoreApplication.getInst().getString(d.l.vote_percent);
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int CH() {
+        return 0;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int CI() {
+        return this.mPercent;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String CJ() {
+        return this.mUrl;
     }
 }

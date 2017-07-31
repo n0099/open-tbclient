@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.k;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -121,6 +122,7 @@ public final class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class c {
+        @SuppressLint({"NewApi"})
         static boolean a(String str, int i) {
             try {
                 Os.chmod(str, i);
@@ -345,7 +347,8 @@ public final class e {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0056 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -387,6 +390,11 @@ public final class e {
                         th = th;
                         fileOutputStream2 = fileOutputStream;
                         if (fileOutputStream2 != null) {
+                            try {
+                                fileOutputStream2.close();
+                            } catch (Exception e5) {
+                                b(e5);
+                            }
                         }
                         throw th;
                     }
@@ -394,11 +402,6 @@ public final class e {
             } catch (Throwable th2) {
                 th = th2;
                 if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Exception e5) {
-                        b(e5);
-                    }
                 }
                 throw th;
             }
@@ -663,9 +666,9 @@ public final class e {
         return e;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x004f  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00b6  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0052  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00bb  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00a5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -804,8 +807,8 @@ public final class e {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0026  */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x001b A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0029  */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x001c A[ORIG_RETURN, RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

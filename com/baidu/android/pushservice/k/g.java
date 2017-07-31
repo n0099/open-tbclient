@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.k;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.common.security.RSAUtil;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
@@ -9,6 +10,7 @@ import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
 /* loaded from: classes2.dex */
 public final class g {
+    @SuppressLint({"InlinedApi", "OldTargetApi"})
     public static byte[] a(byte[] bArr, String str) throws Exception {
         PrivateKey generatePrivate = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(b.a(str.getBytes())));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
@@ -16,6 +18,7 @@ public final class g {
         return cipher.doFinal(bArr);
     }
 
+    @SuppressLint({"InlinedApi", "OldTargetApi"})
     public static byte[] a(byte[] bArr, String str, int i) throws Exception {
         PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(b.a(str.getBytes())));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
@@ -40,6 +43,7 @@ public final class g {
         return bArr2;
     }
 
+    @SuppressLint({"InlinedApi", "OldTargetApi"})
     public static byte[] b(byte[] bArr, String str) throws Exception {
         PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(b.a(str.getBytes())));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");

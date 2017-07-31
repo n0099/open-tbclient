@@ -3,44 +3,44 @@ package com.baidu.tbadk.pageStayDuration;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean aGv = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("page_stay_duration_switch", false);
+    private boolean aIS = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("page_stay_duration_switch", false);
 
-    public abstract boolean Fq();
+    public abstract boolean FO();
 
-    public abstract int Fr();
+    public abstract int FP();
 
     public boolean a(d dVar) {
-        if (dVar == null || dVar.Fv()) {
+        if (dVar == null || dVar.FT()) {
             return false;
         }
-        if (dVar.aGw) {
-            dVar.C(c.e(dVar.Ft(), 6));
+        if (dVar.aIT) {
+            dVar.G(c.e(dVar.FR(), 6));
         } else {
-            int Fy = Fr() > e.Fw().Fy() ? e.Fw().Fy() : Fr();
-            dVar.C(c.e(dVar.Ft(), Fy <= 5 ? Fy : 5));
+            int FW = FP() > e.FU().FW() ? e.FU().FW() : FP();
+            dVar.G(c.e(dVar.FR(), FW <= 5 ? FW : 5));
         }
         return true;
     }
 
-    private void bV(boolean z) {
-        if (this.aGv != z) {
+    private void bY(boolean z) {
+        if (this.aIS != z) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("page_stay_duration_switch", true);
-            this.aGv = z;
+            this.aIS = z;
         }
     }
 
-    public boolean Fs() {
-        if (!TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            return this.aGv;
+    public boolean FQ() {
+        if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+            return this.aIS;
         }
-        if (!TbadkCoreApplication.m9getInst().isPageStayOpen()) {
-            bV(false);
+        if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
+            bY(false);
             return false;
-        } else if (!e.Fw().Fx()) {
-            bV(false);
+        } else if (!e.FU().FV()) {
+            bY(false);
             return false;
         } else {
-            bV(true);
+            bY(true);
             return true;
         }
     }

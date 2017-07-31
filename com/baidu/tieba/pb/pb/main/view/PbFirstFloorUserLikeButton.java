@@ -3,9 +3,9 @@ package com.baidu.tieba.pb.pb.main.view;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ai;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     public PbFirstFloorUserLikeButton(Context context) {
@@ -22,13 +22,13 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.anL) {
+        if (this.apV) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            as.i(this, w.e.cp_cont_d);
+            ai.i(this, d.e.cp_cont_d);
             setBackgroundDrawable(null);
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(w.g.icon_pb_add_n), (Drawable) null, (Drawable) null, (Drawable) null);
-        as.i(this, w.e.cp_link_tip_c);
+        setCompoundDrawablesWithIntrinsicBounds(ai.getDrawable(d.g.icon_pb_add_n), (Drawable) null, (Drawable) null, (Drawable) null);
+        ai.i(this, d.e.cp_link_tip_c);
     }
 }

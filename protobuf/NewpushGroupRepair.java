@@ -26,10 +26,6 @@ public final class NewpushGroupRepair extends Message {
     public static final Long DEFAULT_FROMUID = 0L;
     public static final Integer DEFAULT_FROMUTYPE = 0;
 
-    /* synthetic */ NewpushGroupRepair(Builder builder, boolean z, NewpushGroupRepair newpushGroupRepair) {
-        this(builder, z);
-    }
-
     private NewpushGroupRepair(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -109,7 +105,7 @@ public final class NewpushGroupRepair extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public NewpushGroupRepair build(boolean z) {
-            return new NewpushGroupRepair(this, z, null);
+            return new NewpushGroupRepair(this, z);
         }
     }
 }

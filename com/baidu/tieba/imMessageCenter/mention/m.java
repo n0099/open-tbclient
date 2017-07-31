@@ -1,31 +1,28 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdapter;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes2.dex */
-public class m extends CustomMessageListener {
-    final /* synthetic */ l duq;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m(l lVar, int i) {
-        super(i);
-        this.duq = lVar;
+public class m extends j implements com.baidu.tbadk.mvc.b.c {
+    @Override // com.baidu.tbadk.mvc.b.b
+    public boolean C(byte[] bArr) {
+        try {
+            a((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        MessageAggregationListAdapter messageAggregationListAdapter;
-        MessageAggregationListAdapter messageAggregationListAdapter2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            messageAggregationListAdapter = this.duq.duj;
-            if (messageAggregationListAdapter != null) {
-                messageAggregationListAdapter2 = this.duq.duj;
-                messageAggregationListAdapter2.notifyDataSetChanged();
-            }
-        }
+    @Override // com.baidu.tbadk.mvc.b.b
+    public byte[] EZ() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.d
+    public String getCacheKey() {
+        return "replyme_cache";
     }
 }

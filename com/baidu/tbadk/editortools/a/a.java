@@ -2,22 +2,22 @@ package com.baidu.tbadk.editortools.a;
 
 import android.content.Context;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.x;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.editortools.r;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class a extends x {
+public class a extends r {
     public a(Context context, int i) {
-        super(context, TbadkCoreApplication.m9getInst().getString(w.l.editor_at), 9, i);
-        this.aAw = w.g.btn_pb_add_add;
-        this.aAx = false;
-        this.aAB = new int[]{16};
+        super(context, TbadkCoreApplication.getInst().getString(d.l.editor_at), 9, i);
+        this.aCN = d.g.btn_pb_add_add;
+        this.aCO = false;
+        this.aCS = new int[]{16};
     }
 
     public a(Context context, int i, int i2, boolean z) {
-        super(context, context.getString(w.l.editor_at), 9, i);
-        this.aAw = i2;
-        this.aAA = z;
-        this.aAx = false;
-        this.aAB = new int[]{16};
+        super(context, context.getString(d.l.editor_at), 9, i);
+        this.aCN = i2;
+        this.aCR = z;
+        this.aCO = false;
+        this.aCS = new int[]{16};
     }
 }

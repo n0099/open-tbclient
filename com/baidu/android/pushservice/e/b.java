@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.e;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
@@ -60,6 +61,7 @@ public final class b {
         }
     }
 
+    @SuppressLint({"InlinedApi"})
     public static void b(HashMap<String, String> hashMap) {
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         hashMap.put("timestamp", currentTimeMillis + "");

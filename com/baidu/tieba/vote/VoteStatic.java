@@ -8,7 +8,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class VoteStatic {
     static {
         com.baidu.tieba.tbadkCore.a.a.c(309006, AddVoteSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_VOTE, com.baidu.tieba.tbadkCore.a.a.ax(TbConfig.VOTE_ADD, 309006));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_VOTE, com.baidu.tieba.tbadkCore.a.a.az(TbConfig.VOTE_ADD, 309006));
         tbHttpMessageTask.setResponsedClass(AddVoteHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

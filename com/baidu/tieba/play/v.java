@@ -1,65 +1,84 @@
 package com.baidu.tieba.play;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.net.Uri;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public interface v {
+public class v {
+    private static v fAu = null;
+    private HashMap<String, a> fAv = new HashMap<>();
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void onCompletion(v vVar);
+    private v() {
     }
 
-    /* loaded from: classes.dex */
-    public interface b {
-        boolean onError(v vVar, int i, int i2);
+    public static v bfZ() {
+        if (fAu == null) {
+            synchronized (v.class) {
+                if (fAu == null) {
+                    fAu = new v();
+                }
+            }
+        }
+        return fAu;
     }
 
-    /* loaded from: classes.dex */
-    public interface c {
-        boolean a(v vVar, int i, int i2);
+    public void aq(String str, int i) {
+        a aVar = this.fAv.get(str);
+        if (aVar == null) {
+            this.fAv.put(str, new a(i, System.currentTimeMillis()));
+        } else {
+            aVar.lastUpdateTime = System.currentTimeMillis();
+            aVar.position = i;
+        }
+        if (this.fAv.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.fAv.entrySet());
+            Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.v.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Comparator
+                /* renamed from: b */
+                public int compare(Map.Entry<String, a> entry, Map.Entry<String, a> entry2) {
+                    return (int) (entry.getValue().lastUpdateTime - entry2.getValue().lastUpdateTime);
+                }
+            });
+            int i2 = 0;
+            while (true) {
+                int i3 = i2;
+                if (i3 < 10) {
+                    this.fAv.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    i2 = i3 + 1;
+                } else {
+                    return;
+                }
+            }
+        }
     }
 
-    /* loaded from: classes.dex */
-    public interface d {
-        void onPrepared(v vVar);
+    public void remove(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            this.fAv.remove(str);
+        }
     }
 
-    boolean JF();
+    public int qI(String str) {
+        a aVar = this.fAv.get(str);
+        if (aVar != null) {
+            return aVar.position;
+        }
+        return 0;
+    }
 
-    void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, int i);
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a {
+        public long lastUpdateTime;
+        public int position;
 
-    void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, String str);
-
-    void a(c cVar);
-
-    int getCurrentPosition();
-
-    int getDuration();
-
-    int getVideoHeight();
-
-    int getVideoWidth();
-
-    boolean isPlaying();
-
-    void pause();
-
-    void release();
-
-    void seekTo(int i);
-
-    void setLooping(boolean z);
-
-    void setOnCompletionListener(a aVar);
-
-    void setOnErrorListener(b bVar);
-
-    void setOnPreparedListener(d dVar);
-
-    void setVolume(float f, float f2);
-
-    void start();
+        public a(int i, long j) {
+            this.position = i;
+            this.lastUpdateTime = j;
+        }
+    }
 }

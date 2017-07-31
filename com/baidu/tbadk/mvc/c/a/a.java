@@ -17,14 +17,13 @@ public abstract class a {
             this.eventDelegates = new ArrayList();
         }
         if (!this.eventDelegates.contains(aVar)) {
-            if (this.isDispatchMvcEventing && TbadkCoreApplication.m9getInst().isDebugMode()) {
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
                 throw new RuntimeException("can not add event delegate on dispatch mvcevent");
             }
             this.eventDelegates.add(aVar);
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [77=4] */
     public boolean dispatchMvcEvent(b bVar) {
         boolean z;
         boolean z2;
@@ -43,13 +42,13 @@ public abstract class a {
             while (i < size) {
                 try {
                     com.baidu.tbadk.mvc.c.a aVar = this.eventDelegates.get(i);
-                    if (aVar == null || (aVar.EF() && !(aVar.EF() && bVar.getUniqueId() == aVar.getUniqueId()))) {
+                    if (aVar == null || (aVar.Fe() && !(aVar.Fe() && bVar.getUniqueId() == aVar.getUniqueId()))) {
                         z2 = z;
                     } else {
                         z2 = aVar.a(bVar);
                         if (z2) {
                             try {
-                                if (bVar.EI()) {
+                                if (bVar.Fh()) {
                                     return true;
                                 }
                             } catch (Throwable th) {
@@ -57,7 +56,7 @@ public abstract class a {
                                 th = th;
                                 try {
                                     BdLog.e(th);
-                                    if (TbadkCoreApplication.m9getInst().isDebugMode()) {
+                                    if (TbadkCoreApplication.getInst().isDebugMode()) {
                                         throw new RuntimeException(th);
                                     }
                                     return z;

@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a doA;
-    private b doB;
+    private a dyu;
+    private b dyv;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,24 +29,24 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.doA = new a(str, chatMessage);
-        this.doA.execute(new Object[0]);
+        this.dyu = new a(str, chatMessage);
+        this.dyu.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.doB = bVar;
+        this.dyv = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String doC;
-        private ChatMessage doD;
-        private ac doE = new ac();
+        private String dyw;
+        private ChatMessage dyx;
+        private com.baidu.tieba.im.sendmessage.b dyy = new com.baidu.tieba.im.sendmessage.b();
 
         public a(String str, ChatMessage chatMessage) {
-            this.doC = str;
-            this.doD = chatMessage;
+            this.dyw = str;
+            this.dyx = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: s */
         public String doInBackground(Object... objArr) {
             try {
-                return this.doE.mc(this.doC);
+                return this.dyy.mw(this.dyw);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.doB != null) {
-                VoiceSendModel.this.doB.a(str, this.doD);
+            if (VoiceSendModel.this.dyv != null) {
+                VoiceSendModel.this.dyv.a(str, this.dyx);
             }
         }
     }

@@ -77,9 +77,8 @@ public class FeedForumData implements Serializable {
         this.isLike = i;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0005: IGET  (r1v0 java.lang.Long A[REMOVE]) = (r3v0 tbclient.FeedForumInfo) tbclient.FeedForumInfo.forum_id java.lang.Long)] */
     public void parseFromFeedForumInfo(FeedForumInfo feedForumInfo) {
-        this.forumId = new StringBuilder().append(feedForumInfo.forum_id).toString();
+        this.forumId = feedForumInfo.forum_id + "";
         this.forumName = feedForumInfo.forum_name;
         this.memberCount = feedForumInfo.member_count.intValue();
         this.postNum = feedForumInfo.post_num.intValue();

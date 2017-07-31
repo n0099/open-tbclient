@@ -22,10 +22,6 @@ public final class PushMsgInfo extends Message {
     public static final Integer DEFAULT_GROUPTYPE = 0;
     public static final Long DEFAULT_PUSHTIME = 0L;
 
-    /* synthetic */ PushMsgInfo(Builder builder, boolean z, PushMsgInfo pushMsgInfo) {
-        this(builder, z);
-    }
-
     private PushMsgInfo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -89,7 +85,7 @@ public final class PushMsgInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public PushMsgInfo build(boolean z) {
-            return new PushMsgInfo(this, z, null);
+            return new PushMsgInfo(this, z);
         }
     }
 }

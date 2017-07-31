@@ -101,10 +101,6 @@ public final class LiveGroupInfo extends Message {
     public static final Integer DEFAULT_ISVIP = 0;
     public static final List<Photo> DEFAULT_BACKGROUNDS = Collections.emptyList();
 
-    /* synthetic */ LiveGroupInfo(Builder builder, boolean z, LiveGroupInfo liveGroupInfo) {
-        this(builder, z);
-    }
-
     private LiveGroupInfo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -375,7 +371,7 @@ public final class LiveGroupInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public LiveGroupInfo build(boolean z) {
-            return new LiveGroupInfo(this, z, null);
+            return new LiveGroupInfo(this, z);
         }
     }
 }

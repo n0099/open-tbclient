@@ -1,30 +1,47 @@
 package com.baidu.tbadk.download;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-public class f extends Handler {
-    final /* synthetic */ e azo;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(e eVar, Looper looper) {
-        super(looper);
-        this.azo = eVar;
+public class f implements d {
+    @Override // com.baidu.tbadk.download.d
+    public void onFileUpdateProgress(DownloadData downloadData) {
+        if (downloadData != null) {
+            g.CX().b(downloadData);
+        }
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        if (message.what == 900002 && message.arg2 > 0 && e.azl != null) {
-            e.azl.setLength(message.arg1);
-            e.azl.setSize(message.arg2);
-            e.azl.setStatus(1);
-            if (e.azl.getCallback() != null) {
-                e.azl.getCallback().onFileUpdateProgress(e.azl);
+    @Override // com.baidu.tbadk.download.d
+    public boolean onPreDownload(DownloadData downloadData) {
+        if (downloadData == null) {
+            return false;
+        }
+        downloadData.setStatusMsg(null);
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.download.d
+    public boolean onFileDownloaded(DownloadData downloadData) {
+        if (downloadData == null) {
+            return false;
+        }
+        downloadData.setStatusMsg(null);
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.download.d
+    public void onFileDownloadSucceed(DownloadData downloadData) {
+        if (downloadData != null) {
+            g.CX().b(downloadData);
+            if (downloadData.isNeedInvokeApk()) {
+                UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getPath());
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.download.d
+    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        g.CX().k(downloadData);
+        g.CX().b(downloadData);
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.sapi2;
 
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
@@ -229,6 +230,7 @@ public final class SapiAccountManager {
         return f;
     }
 
+    @TargetApi(3)
     static String a(Context context) {
         try {
             int myPid = Process.myPid();

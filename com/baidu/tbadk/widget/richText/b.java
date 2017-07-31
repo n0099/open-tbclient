@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b extends ClickableSpan {
-    private String aOL;
-    private int aOM;
+    private String aRh;
+    private int aRi;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -44,8 +44,8 @@ public class b extends ClickableSpan {
         this.mType = i;
     }
 
-    public void fv(int i) {
-        this.aOM = i;
+    public void fA(int i) {
+        this.aRi = i;
     }
 
     public void setColor(int i) {
@@ -56,12 +56,12 @@ public class b extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void fw(int i) {
+    public void fB(int i) {
         this.urlType = i;
     }
 
-    public void gO(String str) {
-        this.aOL = str;
+    public void gZ(String str) {
+        this.aRh = str;
     }
 
     public String getLink() {
@@ -71,21 +71,21 @@ public class b extends ClickableSpan {
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
-            textPaint.setColor(as.getColor(this.textColor));
+            textPaint.setColor(ai.getColor(this.textColor));
         } else {
             textPaint.setColor(textPaint.linkColor);
         }
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aOM == 1 && (this.mType == 18 || this.mType == 2)) {
-            if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
-                textPaint.bgColor = as.getColor(w.e.cp_bg_line_c);
+        } else if (this.aRi == 1 && (this.mType == 18 || this.mType == 2)) {
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                textPaint.bgColor = ai.getColor(d.e.cp_bg_line_c);
             } else {
-                textPaint.bgColor = as.getColor(w.e.cp_bg_line_z);
+                textPaint.bgColor = ai.getColor(d.e.cp_bg_line_z);
             }
-        } else if (this.aOM == 2) {
-            textPaint.bgColor = as.getColor(w.e.transparent);
+        } else if (this.aRi == 2) {
+            textPaint.bgColor = ai.getColor(d.e.transparent);
         }
     }
 
@@ -93,7 +93,7 @@ public class b extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aOL));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aRh));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -103,7 +103,7 @@ public class b extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new au("c11972").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).r("obj_type", i));
+            TiebaStatic.log(new aj("c11972").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).r("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }

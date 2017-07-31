@@ -31,6 +31,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [133=4] */
     /* JADX WARN: Removed duplicated region for block: B:110:0x0181 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -102,82 +103,76 @@ public class g {
         if (obj instanceof CharSequence) {
             return new u(((CharSequence) obj).toString());
         }
-        if (obj instanceof Serializable) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        if (!(obj instanceof Serializable)) {
+            return obj instanceof IBinder ? new o(obj) : obj instanceof Parcelable ? new o(obj) : new o(obj);
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+            objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
             try {
-                objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 try {
-                    try {
-                        objectOutputStream.writeObject(obj);
-                        objectOutputStream.flush();
-                        com.baidu.adp.lib.OrmObject.toolsystem.orm.c.a aVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.c.a(byteArrayOutputStream.toByteArray());
-                        if (objectOutputStream != null) {
-                            try {
-                                objectOutputStream.close();
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
-                            }
-                        }
-                        try {
-                            byteArrayOutputStream.close();
-                            return aVar;
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                            return aVar;
-                        }
-                    } catch (Exception e4) {
-                        e = e4;
-                        e.printStackTrace();
-                        o oVar = new o(obj);
-                        if (objectOutputStream != null) {
-                            try {
-                                objectOutputStream.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        try {
-                            byteArrayOutputStream.close();
-                            return oVar;
-                        } catch (IOException e6) {
-                            e6.printStackTrace();
-                            return oVar;
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
+                    objectOutputStream.writeObject(obj);
+                    objectOutputStream.flush();
+                    com.baidu.adp.lib.OrmObject.toolsystem.orm.c.a aVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.c.a(byteArrayOutputStream.toByteArray());
                     if (objectOutputStream != null) {
                         try {
                             objectOutputStream.close();
-                        } catch (IOException e7) {
-                            e7.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
+                        return aVar;
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                        return aVar;
                     }
-                    throw th;
+                } catch (Exception e4) {
+                    e = e4;
+                    e.printStackTrace();
+                    o oVar = new o(obj);
+                    if (objectOutputStream != null) {
+                        try {
+                            objectOutputStream.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    try {
+                        byteArrayOutputStream.close();
+                        return oVar;
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
+                        return oVar;
+                    }
                 }
-            } catch (Exception e9) {
-                objectOutputStream = null;
-                e = e9;
-            } catch (Throwable th3) {
-                objectOutputStream = null;
-                th = th3;
+            } catch (Throwable th2) {
+                th = th2;
                 if (objectOutputStream != null) {
+                    try {
+                        objectOutputStream.close();
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
+                    }
                 }
-                byteArrayOutputStream.close();
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException e8) {
+                    e8.printStackTrace();
+                }
                 throw th;
             }
-        } else if (obj instanceof IBinder) {
-            return new o(obj);
-        } else {
-            if (obj instanceof Parcelable) {
-                return new o(obj);
+        } catch (Exception e9) {
+            objectOutputStream = null;
+            e = e9;
+        } catch (Throwable th3) {
+            objectOutputStream = null;
+            th = th3;
+            if (objectOutputStream != null) {
             }
-            return new o(obj);
+            byteArrayOutputStream.close();
+            throw th;
         }
     }
 }

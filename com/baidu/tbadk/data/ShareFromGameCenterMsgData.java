@@ -34,7 +34,7 @@ public class ShareFromGameCenterMsgData extends ShareFromPBMsgData {
                 str = "【" + this.title + "】";
             }
             if (!TextUtils.isEmpty(this.content)) {
-                str = String.valueOf(str) + this.content;
+                str = str + this.content;
             }
             jSONArray.put(str);
             jSONArray.put("1");

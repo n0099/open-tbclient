@@ -10,13 +10,13 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean CB;
+        public boolean Ea;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
         public String toUid;
         public boolean isGod = false;
-        public boolean aqH = false;
+        public boolean asQ = false;
 
         public void l(String str, boolean z) {
             boolean z2 = true;
@@ -27,7 +27,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                         if (!z || optJSONObject.optInt("is_toast", 0) != 1) {
                             z2 = false;
                         }
-                        this.aqH = z2;
+                        this.asQ = z2;
                         this.showMsg = optJSONObject.optString("toast_text");
                     }
                 } catch (Exception e) {
@@ -45,7 +45,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().CB;
+        return getData().Ea;
     }
 
     public boolean isAttention() {

@@ -1,63 +1,50 @@
 package com.baidu.tieba.pb.view;
 
-import android.os.CountDownTimer;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableStringBuilder;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.w;
-import java.util.concurrent.TimeUnit;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.k;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class h extends CountDownTimer {
-    final /* synthetic */ PbInterviewStatusView eLH;
-    private final /* synthetic */ PbActivity eLI;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbActivity pbActivity) {
-        super(j, j2);
-        this.eLH = pbInterviewStatusView;
-        this.eLI = pbActivity;
+public class h {
+    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+        if (smallTailInfo != null && smallTailInfo.tailSpannable != null && smallTailInfo.tailSpannable.length() != 0 && textView != null) {
+            smallTailInfo.updateShowInfo();
+            b(smallTailInfo, textView, z, z2, z3);
+        }
     }
 
-    @Override // android.os.CountDownTimer
-    public void onTick(long j) {
-        TextView textView;
-        textView = this.eLH.eLv;
-        textView.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
-    }
-
-    @Override // android.os.CountDownTimer
-    public void onFinish() {
-        String str;
-        TextView textView;
-        TextView textView2;
-        ImageView imageView;
-        View view;
-        ImageView imageView2;
-        FrameLayout frameLayout;
-        au auVar = new au("c11106");
-        str = this.eLH.UW;
-        TiebaStatic.log(auVar.Z("obj_id", str));
-        this.eLH.eLE = false;
-        textView = this.eLH.eLs;
-        textView.setText(this.eLI.getPageContext().getPageActivity().getString(w.l.interview_live_start));
-        textView2 = this.eLH.eLs;
-        textView2.setTextSize(0, com.baidu.adp.lib.util.k.g(this.eLI.getPageContext().getPageActivity(), w.f.fontsize24));
-        imageView = this.eLH.eLt;
-        imageView.setVisibility(0);
-        view = this.eLH.eLy;
-        view.setVisibility(8);
-        imageView2 = this.eLH.eLx;
-        imageView2.setVisibility(0);
-        frameLayout = this.eLH.eLu;
-        frameLayout.setVisibility(8);
-        this.eLH.setClickable(true);
-        this.eLH.eLF = true;
+    private static void b(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+        if (smallTailInfo != null && textView != null) {
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
+            if (z2 && z3) {
+                layoutParams.setMargins((int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds8), (int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds18));
+            } else if (z) {
+                layoutParams.setMargins(0, (int) resources.getDimension(d.f.ds8), 0, 0);
+            } else if (!z2) {
+                layoutParams.setMargins((int) resources.getDimension(d.f.ds116), (int) resources.getDimension(d.f.ds8), (int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds14));
+            } else {
+                layoutParams.setMargins((int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds8), (int) resources.getDimension(d.f.ds32), (int) resources.getDimension(d.f.ds14));
+            }
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) "icon");
+            spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
+            Drawable drawable = ai.getDrawable(d.g.icon_pb_tail);
+            int g = k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds32);
+            drawable.setBounds(0, 0, g, g);
+            com.baidu.tbadk.widget.c cVar = new com.baidu.tbadk.widget.c(drawable);
+            cVar.fr(k.g(TbadkCoreApplication.getInst().getContext(), d.f.ds4));
+            spannableStringBuilder.setSpan(cVar, 0, 4, 33);
+            textView.setLayoutParams(layoutParams);
+            textView.setText(spannableStringBuilder);
+            textView.setTextColor(smallTailInfo.showColorId);
+            textView.setVisibility(0);
+        }
     }
 }

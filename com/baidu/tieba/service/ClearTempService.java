@@ -3,10 +3,11 @@ package com.baidu.tieba.service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.k;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -15,7 +16,14 @@ public class ClearTempService extends BdBaseService {
     private static final int MAX_FILE_COUNT = 500;
     private volatile boolean interrupted = false;
     private Thread thread = null;
-    private final Handler handler = new b(this);
+    private final Handler handler = new Handler() { // from class: com.baidu.tieba.service.ClearTempService.1
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            super.handleMessage(message);
+            ClearTempService.this.stopSelf();
+            ClearTempService.this.thread = null;
+        }
+    };
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -33,7 +41,23 @@ public class ClearTempService extends BdBaseService {
         super.onStart(intent, i);
         this.interrupted = false;
         if (this.thread == null) {
-            this.thread = new c(this);
+            this.thread = new Thread() { // from class: com.baidu.tieba.service.ClearTempService.2
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    super.run();
+                    try {
+                        File file = new File(k.zU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME);
+                        File file2 = new File(k.zU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME);
+                        File file3 = new File(k.zU + "/" + TbConfig.getTempDirName() + "/voice");
+                        ClearTempService.this.deleteCache(file, false);
+                        ClearTempService.this.deleteDir(file2);
+                        ClearTempService.this.deleteDir(file3);
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                    }
+                    ClearTempService.this.handler.sendMessage(ClearTempService.this.handler.obtainMessage());
+                }
+            };
             this.thread.start();
         }
     }
@@ -50,9 +74,9 @@ public class ClearTempService extends BdBaseService {
                     if (file2.isDirectory()) {
                         deleteCache(file2, false);
                     } else if (length > 0 && i < length) {
-                        file2.delete();
-                    } else if (time - listFiles[i].lastModified() > 259200000) {
-                        file2.delete();
+                        if (!file2.delete()) {
+                        }
+                    } else if (time - listFiles[i].lastModified() > 259200000 && !file2.delete()) {
                     }
                 }
             }
@@ -65,9 +89,9 @@ public class ClearTempService extends BdBaseService {
     }
 
     private void deleteImageCacheByName() {
-        String str = n.yu + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
+        String str = k.zU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
         for (int i = 0; i < 20; i++) {
-            File file = new File(String.valueOf(str) + "/" + i);
+            File file = new File(str + "/" + i);
             if (file.exists() && file.isDirectory()) {
                 deleteCache(file, true);
             }
@@ -80,10 +104,9 @@ public class ClearTempService extends BdBaseService {
             File[] listFiles = file.listFiles();
             long time = new Date().getTime();
             if (listFiles != null) {
-                for (int i = 0; i < listFiles.length && !this.interrupted; i++) {
-                    if (time - listFiles[i].lastModified() > 259200000) {
-                        listFiles[i].delete();
-                    }
+                int i = 0;
+                while (i < listFiles.length && !this.interrupted) {
+                    i = (time - listFiles[i].lastModified() <= 259200000 || !listFiles[i].delete()) ? i + 1 : i + 1;
                 }
             }
         } catch (Throwable th) {

@@ -21,22 +21,22 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFra
         this.activity = baseFragmentActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public String getString(int i) {
         return getResources().getString(i);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void sendMessage(Message<?> message) {
         this.activity.sendMessage(message);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void sendMessage(NetMessage netMessage) {
         this.activity.sendMessage(netMessage);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void registerListener(a aVar) {
         this.activity.registerListener(aVar);
     }
@@ -45,38 +45,38 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFra
         this.activity.registerListener(i, aVar);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void registerListener(MessageListener<?> messageListener) {
         this.activity.registerListener(messageListener);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void registerListener(int i, MessageListener<?> messageListener) {
         this.activity.registerListener(i, messageListener);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public BdUniqueId getUniqueId() {
         return this.activity.getUniqueId();
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public Context getContext() {
         return this.activity.getActivity();
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public Activity getPageActivity() {
         return this.activity.getActivity();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public BaseFragmentActivity getOrignalPage() {
         return this.activity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public Resources getResources() {
         return this.activity.getResources();
     }

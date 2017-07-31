@@ -11,10 +11,6 @@ public final class PusherMsg extends Message {
     @ProtoField(tag = 2)
     public final PusherMsgInfo data;
 
-    /* synthetic */ PusherMsg(Builder builder, boolean z, PusherMsg pusherMsg) {
-        this(builder, z);
-    }
-
     private PusherMsg(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -49,7 +45,7 @@ public final class PusherMsg extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public PusherMsg build(boolean z) {
-            return new PusherMsg(this, z, null);
+            return new PusherMsg(this, z);
         }
     }
 }

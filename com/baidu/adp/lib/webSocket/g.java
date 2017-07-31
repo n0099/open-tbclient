@@ -1,13 +1,13 @@
 package com.baidu.adp.lib.webSocket;
 
-import com.baidu.adp.lib.webSocket.m;
+import com.baidu.adp.lib.webSocket.k;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface g {
 
     /* loaded from: classes.dex */
     public interface a {
-        void C(String str);
+        void I(String str);
 
         void a(int i, c cVar);
 
@@ -15,16 +15,16 @@ public interface g {
 
         void b(c cVar);
 
-        void b(m.a aVar);
+        void b(k.a aVar);
 
         void c(c cVar);
 
         void e(int i, String str);
 
-        void e(Map<String, String> map);
+        void f(Map<String, String> map);
 
-        void hV();
+        void id();
 
-        void r(byte[] bArr);
+        void u(byte[] bArr);
     }
 }

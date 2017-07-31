@@ -1,5 +1,6 @@
 package com.baidu.tieba.account;
 
+import com.baidu.adp.lib.util.c;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class RegistData implements Serializable {
@@ -25,7 +26,7 @@ public class RegistData implements Serializable {
 
     public void setPsw(String str) {
         if (str != null) {
-            str = com.baidu.adp.lib.util.c.encodeBytes(str.getBytes());
+            str = c.encodeBytes(str.getBytes());
         }
         this.psw = str;
     }

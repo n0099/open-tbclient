@@ -1,15 +1,12 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.adp.lib.b.a;
 /* loaded from: classes.dex */
-public class SideBarViewAddDeskEntranceSwitchStatic extends a {
+public class SideBarViewAddDeskEntranceSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        com.baidu.adp.lib.b.e.eY().f(SideBarViewAddDeskEntranceSwitchStatic.class);
+        com.baidu.adp.lib.b.d.fh().f(SideBarViewAddDeskEntranceSwitchStatic.class);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
-    public void X(int i) {
+    protected void aa(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -18,22 +15,22 @@ public class SideBarViewAddDeskEntranceSwitchStatic extends a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eP() {
+    protected String[] eY() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eQ() {
+    protected int eZ() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eR() {
+    protected int fa() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eS() {
+    protected int fb() {
         return 10;
     }
 }

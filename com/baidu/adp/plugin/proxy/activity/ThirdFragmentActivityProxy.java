@@ -5,6 +5,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.adp.plugin.a.b;
 import com.baidu.adp.plugin.pluginBase.PluginBaseThirdFragmentActivity;
 /* loaded from: classes.dex */
 public class ThirdFragmentActivityProxy extends FragmentActivityProxy {
@@ -27,12 +28,12 @@ public class ThirdFragmentActivityProxy extends FragmentActivityProxy {
                 if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                     Plugin plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
                     this.mEntity = (PluginBaseThirdFragmentActivity) plugin2.getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseThirdFragmentActivity.class).newInstance();
-                    this.mEntity.setActivityProxy((com.baidu.adp.plugin.a.b) this);
+                    this.mEntity.setActivityProxy((b) this);
                     this.mEntity.setPluginPackageName(stringExtra);
                     setTheme(plugin2.getActivityThemeResource());
                 } else {
                     this.mEntity = (PluginBaseThirdFragmentActivity) PluginCenter.getInstance().getPlugin(stringExtra).getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseThirdFragmentActivity.class).newInstance();
-                    this.mEntity.setActivityProxy((com.baidu.adp.plugin.a.b) this);
+                    this.mEntity.setActivityProxy((b) this);
                     this.mEntity.setPluginPackageName(stringExtra);
                 }
             } catch (ClassNotFoundException e) {

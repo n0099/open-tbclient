@@ -10,11 +10,11 @@ import android.os.Message;
 import android.os.Messenger;
 import android.text.TextUtils;
 import com.baidu.location.a.b;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class LocationClient implements b.InterfaceC0022b {
+public final class LocationClient implements b.InterfaceC0025b {
     private static final int MIN_REQUEST_SPAN = 1000;
     private static final int MSG_REG_LISTENER = 5;
     private static final int MSG_REG_NOTIFY_LISTENER = 8;
@@ -132,13 +132,13 @@ public final class LocationClient implements b.InterfaceC0022b {
                 case 27:
                     LocationClient.this.onNewNotifyLocation(message);
                     return;
-                case w.n.View_transformPivotY /* 54 */:
+                case d.n.View_transformPivotY /* 54 */:
                     if (LocationClient.this.mOption.location_change_notify) {
                         LocationClient.this.mGpsStatus = true;
                         return;
                     }
                     return;
-                case w.n.View_rotation /* 55 */:
+                case d.n.View_rotation /* 55 */:
                     if (LocationClient.this.mOption.location_change_notify) {
                         LocationClient.this.mGpsStatus = false;
                         return;
@@ -560,7 +560,7 @@ public final class LocationClient implements b.InterfaceC0022b {
         return this.mIsStarted;
     }
 
-    @Override // com.baidu.location.a.b.InterfaceC0022b
+    @Override // com.baidu.location.a.b.InterfaceC0025b
     public void onReceiveLocation(BDLocation bDLocation) {
         if ((!this.serverFirst || this.clientFirst) && bDLocation != null) {
             Message obtainMessage = this.mHandler.obtainMessage(701);

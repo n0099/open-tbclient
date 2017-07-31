@@ -1,5 +1,6 @@
 package com.baidu.tieba.imageProblem.cdnOptimize;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -13,6 +14,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.g.f;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.TbConfig;
@@ -62,9 +64,9 @@ public class TbCDNTachometerService extends BdBaseService {
                     if (customMsgData != null) {
                         String str = customMsgData.cdnIp;
                         boolean z = customMsgData.isSuccess;
-                        long j = customMsgData.Hf;
+                        long j = customMsgData.IF;
                         String valueOf = String.valueOf(j);
-                        if (customMsgData.dwH != null && customMsgData.dwH.length() > 0) {
+                        if (customMsgData.dGA != null && customMsgData.dGA.length() > 0) {
                             TbCDNTachometerService.this.canBroadCast = true;
                             if (!z || j > TbCDNTachometerService.this.hiPhotosMaxTime) {
                                 TbCDNTachometerService.this.isNormal = false;
@@ -89,7 +91,7 @@ public class TbCDNTachometerService extends BdBaseService {
                                         String[] split = ((String) TbCDNTachometerService.this.belowOnePointFiveIpList.get(i3)).split("_");
                                         if (split.length < 2) {
                                             i = i4;
-                                        } else if (b.c(split[1], 0L) > j) {
+                                        } else if (b.d(split[1], 0L) > j) {
                                             i4 = i3;
                                             break;
                                         } else {
@@ -100,12 +102,12 @@ public class TbCDNTachometerService extends BdBaseService {
                                     }
                                     if (i4 <= TbCDNTachometerService.this.belowOnePointFiveIpList.size()) {
                                         for (int i5 = 0; i5 < arrayList2.size(); i5++) {
-                                            TbCDNTachometerService.this.belowOnePointFiveIpList.add(i4, String.valueOf((String) arrayList2.get(i5)) + "_" + valueOf);
+                                            TbCDNTachometerService.this.belowOnePointFiveIpList.add(i4, ((String) arrayList2.get(i5)) + "_" + valueOf);
                                         }
                                     }
                                 } else {
                                     for (int i6 = 0; i6 < arrayList2.size(); i6++) {
-                                        TbCDNTachometerService.this.belowOnePointFiveIpList.add(String.valueOf((String) arrayList2.get(i6)) + "_" + valueOf);
+                                        TbCDNTachometerService.this.belowOnePointFiveIpList.add(((String) arrayList2.get(i6)) + "_" + valueOf);
                                     }
                                 }
                             }
@@ -121,28 +123,27 @@ public class TbCDNTachometerService extends BdBaseService {
             TbCDNTachometerService.this.judgeIsBroadcastCdnIp();
         }
     };
+    @SuppressLint({"HandlerLeak"})
     private final Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService.2
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            if (1002 != message.what) {
-                return;
+            if (1002 == message.what) {
+                TbCDNTachometerService.this.BroadcastCdnIp();
             }
-            TbCDNTachometerService.this.BroadcastCdnIp();
         }
     };
     private final TbCdnTachometerModel.TbCdnTachometerModelCallBack tachometerModelCallBack = new TbCdnTachometerModel.TbCdnTachometerModelCallBack() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService.3
         @Override // com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.TbCdnTachometerModelCallBack
         public void callBack(TbCdnIpListData tbCdnIpListData) {
-            if (tbCdnIpListData == null) {
-                return;
+            if (tbCdnIpListData != null) {
+                TbCDNTachometerService.this.startTachometer(tbCdnIpListData);
             }
-            TbCDNTachometerService.this.startTachometer(tbCdnIpListData);
         }
     };
 
     public static void startTachometerService(Context context, boolean z, boolean z2) {
-        if (context != null && i.hk() && TbadkCoreApplication.m9getInst().isMainProcess(true)) {
+        if (context != null && i.hs() && TbadkCoreApplication.getInst().isMainProcess(true)) {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
@@ -159,7 +160,7 @@ public class TbCDNTachometerService extends BdBaseService {
             }
             Intent intent = new Intent(context, TbCDNTachometerService.class);
             intent.putExtra("isNormal", z);
-            com.baidu.adp.lib.g.i.h(context, intent);
+            f.h(context, intent);
         }
     }
 
@@ -217,28 +218,28 @@ public class TbCDNTachometerService extends BdBaseService {
         this.numOfThrowIp = 0;
         if (tbCdnIpListData == null || tbCdnIpListData.errorNum != 0) {
             broadCastAndStopSelf(null);
-        } else if (!tbCdnIpListData.dwK) {
+        } else if (!tbCdnIpListData.dGD) {
             broadCastAndStopSelf(null);
-        } else if (tbCdnIpListData.dwJ.size() == 0) {
+        } else if (tbCdnIpListData.dGC.size() == 0) {
             broadCastAndStopSelf(null);
         } else {
-            breakUpIpList(tbCdnIpListData.dwJ);
+            breakUpIpList(tbCdnIpListData.dGC);
             String str = tbCdnIpListData.imageUrl;
-            String str2 = tbCdnIpListData.dwL;
-            String str3 = tbCdnIpListData.dwI;
+            String str2 = tbCdnIpListData.dGE;
+            String str3 = tbCdnIpListData.dGB;
             if (str != null && str2 != null && str3 != null) {
-                int size = tbCdnIpListData.dwJ.size();
+                int size = tbCdnIpListData.dGC.size();
                 if (size > 0) {
                     CustomMsgData customMsgData = new CustomMsgData(tbCdnIpListData, 0);
                     customMsgData.cdnTachometerModel = this.cdnTachometerModel;
                     customMsgData.isNormal = this.isNormal;
-                    customMsgData.dwH = "c.hiphotos.baidu.com";
+                    customMsgData.dGA = "c.hiphotos.baidu.com";
                     CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_CDN_TACHOMETER, customMsgData);
                     customMessage.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
                 for (int i = 0; i < size; i++) {
-                    ArrayList<String> arrayList = tbCdnIpListData.dwJ.get(i);
+                    ArrayList<String> arrayList = tbCdnIpListData.dGC.get(i);
                     String str4 = "";
                     if (arrayList.size() > 0) {
                         str4 = arrayList.get(0);
@@ -291,9 +292,11 @@ public class TbCDNTachometerService extends BdBaseService {
             if (i != 0) {
                 ArrayList<String> arrayList2 = new ArrayList<>();
                 int size = this.optimalIpList.size();
-                int i2 = size <= 5 ? size : 5;
-                for (int i3 = 0; i3 < i2; i3++) {
-                    arrayList2.add(this.optimalIpList.get(i3));
+                if (size > 5) {
+                    size = 5;
+                }
+                for (int i2 = 0; i2 < size; i2++) {
+                    arrayList2.add(this.optimalIpList.get(i2));
                 }
                 broadCast(arrayList2);
             }
@@ -307,10 +310,8 @@ public class TbCDNTachometerService extends BdBaseService {
             ArrayList<String> arrayList = new ArrayList<>();
             if (this.optimalIpList.size() >= 5) {
                 int size = this.optimalIpList.size();
-                if (size > 5) {
-                    size = 5;
-                }
-                while (i < size) {
+                int i2 = size <= 5 ? size : 5;
+                while (i < i2) {
                     arrayList.add(this.optimalIpList.get(i));
                     i++;
                 }
@@ -355,14 +356,14 @@ public class TbCDNTachometerService extends BdBaseService {
 
     /* loaded from: classes2.dex */
     public class CustomMsgData {
-        public long Hf;
+        public long IF;
         public String cdnIp;
         public TbCdnTachometerModel cdnTachometerModel;
         public TbCdnIpListData ipListData;
         public boolean isSuccess;
         public int pos;
         public boolean isNormal = false;
-        public String dwH = null;
+        public String dGA = null;
 
         public CustomMsgData(TbCdnIpListData tbCdnIpListData, int i) {
             this.ipListData = tbCdnIpListData;

@@ -30,10 +30,6 @@ public class PhotoLiveActivityConfig extends IntentConfig {
         this.mContext = context;
     }
 
-    /* synthetic */ PhotoLiveActivityConfig(a aVar, PhotoLiveActivityConfig photoLiveActivityConfig) {
-        this(aVar);
-    }
-
     private PhotoLiveActivityConfig(a aVar) {
         super(aVar.context);
         this.mContext = aVar.context;
@@ -94,33 +90,33 @@ public class PhotoLiveActivityConfig extends IntentConfig {
             this.context = context;
         }
 
-        public a co(String str) {
+        public a cz(String str) {
             this.postID = str;
             return this;
         }
 
-        public a cp(String str) {
+        public a cA(String str) {
             this.stType = str;
             return this;
         }
 
-        public a cq(String str) {
+        public a cB(String str) {
             this.from = str;
             return this;
         }
 
-        public a cr(String str) {
+        public a cC(String str) {
             this.locate = str;
             return this;
         }
 
-        public a bA(int i) {
+        public a bB(int i) {
             this.requestCode = i;
             return this;
         }
 
-        public PhotoLiveActivityConfig pa() {
-            return new PhotoLiveActivityConfig(this, null);
+        public PhotoLiveActivityConfig pn() {
+            return new PhotoLiveActivityConfig(this);
         }
     }
 }

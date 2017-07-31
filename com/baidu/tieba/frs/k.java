@@ -1,19 +1,21 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-class k extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(int i) {
-        super(i);
+public class k implements com.baidu.adp.widget.ListView.f {
+    public static final BdUniqueId ckR = BdUniqueId.gen();
+    private int ckS;
+
+    public int agb() {
+        return this.ckS;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getCmd() == 2016501 && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            com.baidu.tieba.frs.smartsort.e.ahk().ahm();
-        }
+    public void iI(int i) {
+        this.ckS = i;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return ckR;
     }
 }

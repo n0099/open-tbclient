@@ -1,49 +1,53 @@
 package com.baidu.adp.lib.b;
 
-import com.baidu.adp.lib.b.c;
+import com.baidu.adp.lib.b.b;
 /* loaded from: classes.dex */
 public abstract class a {
     protected String mName;
-    protected String[] uc;
-    protected int ud = 0;
-    protected int ue = 1;
-    protected int uf = 10;
-    protected c.a ug = new b(this);
+    protected String[] vG;
+    protected int vH = 0;
+    protected int vI = 1;
+    protected int vJ = 10;
+    protected b.a vK = new b.a() { // from class: com.baidu.adp.lib.b.a.1
+        @Override // com.baidu.adp.lib.b.b.a
+        public void a(String str, int i, boolean z) {
+            a.this.aa(i);
+        }
+    };
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void X(int i);
+    protected abstract void aa(int i);
 
-    protected abstract String[] eP();
+    protected abstract String[] eY();
 
-    protected abstract int eQ();
+    protected abstract int eZ();
 
-    protected abstract int eR();
+    protected abstract int fa();
 
-    protected abstract int eS();
+    protected abstract int fb();
 
     protected abstract String getName();
 
-    protected String[] eT() {
+    protected String[] fc() {
         return null;
     }
 
-    protected void eU() {
-        c cVar = new c(this.mName, this.ud, this.ug);
-        cVar.a(this.uf, this.uc, this.ue);
-        cVar.g(eT());
-        e.eY().a(cVar);
+    protected void fd() {
+        b bVar = new b(this.mName, this.vH, this.vK);
+        bVar.a(this.vJ, this.vG, this.vI);
+        bVar.g(fc());
+        d.fh().a(bVar);
     }
 
     public a() {
         initData();
-        eU();
+        fd();
     }
 
     protected void initData() {
         this.mName = getName();
-        this.uc = eP();
-        this.ud = eQ();
-        this.ue = eR();
-        this.uf = eS();
+        this.vG = eY();
+        this.vH = eZ();
+        this.vI = fa();
+        this.vJ = fb();
     }
 }

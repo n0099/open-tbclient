@@ -16,7 +16,8 @@ public class GetMyPostHttpResponseMessage extends TbHttpResponsedMessage {
         return this.mResponseData;
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         super.decodeInBackGround(i, bArr);
         this.mResponseData = (GetMyPostResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMyPostResIdl.class);

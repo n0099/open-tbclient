@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.n;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
 /* loaded from: classes.dex */
@@ -59,16 +59,16 @@ public class RecPersonalizeRequest extends NetMessage {
     protected Object encode(boolean z) {
         int i = 1;
         DataReq.Builder builder = new DataReq.Builder();
-        p.bindCommonParamsToProtobufData(builder, true, false, true);
+        n.bindCommonParamsToProtobufData(builder, true, false, true);
         builder.need_tags = 0;
         builder.load_type = Integer.valueOf(this.loadType);
         builder.page_thread_count = Integer.valueOf(this.threadCount);
         builder.pn = Integer.valueOf(this.pn);
         builder.sug_count = Integer.valueOf(this.suggestCount);
         builder.tag_code = 0;
-        builder.scr_w = Integer.valueOf(k.af(TbadkCoreApplication.m9getInst()));
-        builder.scr_h = Integer.valueOf(k.ag(TbadkCoreApplication.m9getInst()));
-        builder.scr_dip = Double.valueOf(k.ah(TbadkCoreApplication.m9getInst()));
+        builder.scr_w = Integer.valueOf(k.ag(TbadkCoreApplication.getInst()));
+        builder.scr_h = Integer.valueOf(k.ah(TbadkCoreApplication.getInst()));
+        builder.scr_dip = Double.valueOf(k.ai(TbadkCoreApplication.getInst()));
         builder.q_type = 1;
         if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("has_requested_new_user_guide", false)) {
             i = 0;

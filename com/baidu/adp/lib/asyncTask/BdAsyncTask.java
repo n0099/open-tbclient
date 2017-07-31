@@ -4,8 +4,10 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseApplication;
 import java.util.LinkedList;
 import java.util.concurrent.Callable;
+import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
@@ -13,10 +15,9 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class BdAsyncTask<Params, Progress, Result> {
-    private static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus = null;
     private static final int MESSAGE_POST_PROGRESS = 2;
     private static final int MESSAGE_POST_RESULT = 1;
-    private static final com.baidu.adp.lib.asyncTask.c sDefaultExecutor = com.baidu.adp.lib.asyncTask.c.em();
+    private static final com.baidu.adp.lib.asyncTask.a sDefaultExecutor = com.baidu.adp.lib.asyncTask.a.ev();
     private static final b sHandler = new b(Looper.getMainLooper());
     private volatile BdAsyncTaskStatus mStatus = BdAsyncTaskStatus.PENDING;
     private int mPriority = 1;
@@ -27,49 +28,45 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     private final AtomicBoolean mTaskInvoked = new AtomicBoolean(false);
     private final AtomicBoolean mPreCancelInvoked = new AtomicBoolean(false);
     private boolean mIsTimeout = false;
-    private final c<Params, Result> mWorker = new com.baidu.adp.lib.asyncTask.a(this);
-    private final g<Result> mFuture = new com.baidu.adp.lib.asyncTask.b(this, this.mWorker, this);
+    private final c<Params, Result> mWorker = new c<Params, Result>() { // from class: com.baidu.adp.lib.asyncTask.BdAsyncTask.1
+        @Override // java.util.concurrent.Callable
+        public Result call() throws Exception {
+            return !BdAsyncTask.this.mFuture.isCancelled() ? (Result) BdAsyncTask.this.postResult(BdAsyncTask.this.doInBackground(this.mParams)) : (Result) BdAsyncTask.this.postResult(null);
+        }
+    };
+    private final com.baidu.adp.lib.asyncTask.b<Result> mFuture = new com.baidu.adp.lib.asyncTask.b<Result>(this.mWorker, this) { // from class: com.baidu.adp.lib.asyncTask.BdAsyncTask.2
+        @Override // java.util.concurrent.FutureTask
+        protected void done() {
+            try {
+                BdAsyncTask.this.postResult(get());
+            } catch (InterruptedException e) {
+            } catch (CancellationException e2) {
+                BdAsyncTask.this.postResult(null);
+            } catch (ExecutionException e3) {
+                BdAsyncTask.this.postResult(null);
+                if (BdBaseApplication.getInst().isDebugMode()) {
+                    throw new RuntimeException("An error occured while executing doInBackground()", e3);
+                }
+            } catch (Throwable th) {
+                throw new RuntimeException("An error occured while executing doInBackground()", th);
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.b
+        public void et() {
+            BdAsyncTask.this.cancel();
+        }
+    };
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskStatus {
         PENDING,
         RUNNING,
-        FINISHED;
-
-        /* JADX DEBUG: Replace access to removed values field (sO) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static BdAsyncTaskStatus[] valuesCustom() {
-            BdAsyncTaskStatus[] valuesCustom = values();
-            int length = valuesCustom.length;
-            BdAsyncTaskStatus[] bdAsyncTaskStatusArr = new BdAsyncTaskStatus[length];
-            System.arraycopy(valuesCustom, 0, bdAsyncTaskStatusArr, 0, length);
-            return bdAsyncTaskStatusArr;
-        }
+        FINISHED
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract Result doInBackground(Params... paramsArr);
-
-    static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus() {
-        int[] iArr = $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus;
-        if (iArr == null) {
-            iArr = new int[BdAsyncTaskStatus.valuesCustom().length];
-            try {
-                iArr[BdAsyncTaskStatus.FINISHED.ordinal()] = 3;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[BdAsyncTaskStatus.PENDING.ordinal()] = 1;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[BdAsyncTaskStatus.RUNNING.ordinal()] = 2;
-            } catch (NoSuchFieldError e3) {
-            }
-            $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus = iArr;
-        }
-        return iArr;
-    }
+    protected abstract Result doInBackground(Params... paramsArr);
 
     public synchronized int setPriority(int i) {
         int i2;
@@ -217,10 +214,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
 
     public final synchronized BdAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
         if (this.mStatus != BdAsyncTaskStatus.PENDING) {
-            switch ($SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus()[this.mStatus.ordinal()]) {
-                case 2:
+            switch (this.mStatus) {
+                case RUNNING:
                     throw new IllegalStateException("Cannot execute task: the task is already running.");
-                case 3:
+                case FINISHED:
                     throw new IllegalStateException("Cannot execute task: the task has already been executed (a task can be executed only once)");
             }
         }
@@ -260,10 +257,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.sN.finish(aVar.mData[0]);
+                    aVar.uv.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.sN.onProgressUpdate(aVar.mData);
+                    aVar.uv.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;
@@ -278,21 +275,16 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
 
         private c() {
         }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ c(c cVar) {
-            this();
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a<Data> {
         final Data[] mData;
-        final BdAsyncTask sN;
+        final BdAsyncTask uv;
 
         a(BdAsyncTask bdAsyncTask, Data... dataArr) {
-            this.sN = bdAsyncTask;
+            this.uv = bdAsyncTask;
             this.mData = dataArr;
         }
     }

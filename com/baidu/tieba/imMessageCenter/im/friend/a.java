@@ -1,80 +1,124 @@
 package com.baidu.tieba.imMessageCenter.im.friend;
 
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
-import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.d;
 import com.baidu.tieba.im.data.BlackListItemData;
-import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
-import com.baidu.tieba.w;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ IMBlackListActivity dsi;
+public class a extends BaseAdapter {
+    private ArrayList<BlackListItemData> acF;
+    private View.OnClickListener cAw = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.a.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Object tag = view.getTag();
+            if (tag != null && (tag instanceof BlackListItemData)) {
+                a.this.dCc.a(view, (BlackListItemData) tag);
+            }
+        }
+    };
+    private IMBlackListActivity dCc;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(IMBlackListActivity iMBlackListActivity, int i) {
-        super(i);
-        this.dsi = iMBlackListActivity;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public a(IMBlackListActivity iMBlackListActivity) {
+        this.dCc = iMBlackListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        h hVar;
-        ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage;
-        Message<?> orginalMessage;
-        com.baidu.tbadk.core.dialog.a aVar;
-        BlackListItemData blackListItemData;
-        h hVar2;
-        BlackListItemData blackListItemData2;
-        com.baidu.tbadk.core.dialog.a aVar2;
-        com.baidu.tbadk.core.dialog.a aVar3;
-        h hVar3;
-        com.baidu.tbadk.core.dialog.a aVar4;
-        h hVar4;
-        hVar = this.dsi.dsg;
-        hVar.awX();
-        this.dsi.closeLoadingDialog();
-        if (socketResponsedMessage != null) {
-            if (socketResponsedMessage.getCmd() == 104103 && (socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
-                ResponseGetMaskInfoMessage responseGetMaskInfoMessage = (ResponseGetMaskInfoMessage) socketResponsedMessage;
-                if (responseGetMaskInfoMessage.getError() == 0) {
-                    aVar3 = this.dsi.KN;
-                    if (aVar3 != null) {
-                        aVar4 = this.dsi.KN;
-                        aVar4.dismiss();
-                    }
-                    hVar3 = this.dsi.dsg;
-                    hVar3.T(responseGetMaskInfoMessage.getBlackList());
-                    return;
-                }
-                this.dsi.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? this.dsi.getResources().getString(w.l.neterror) : responseGetMaskInfoMessage.getErrorString());
-                if (com.baidu.adp.lib.util.i.hj()) {
-                    hVar4 = this.dsi.dsg;
-                    hVar4.refreshData();
-                }
-            } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
-                if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    aVar = this.dsi.KN;
-                    if (aVar != null) {
-                        aVar2 = this.dsi.KN;
-                        aVar2.dismiss();
-                    }
-                    this.dsi.showToast(this.dsi.getPageContext().getString(w.l.black_list_remove_success));
-                    blackListItemData = this.dsi.dsh;
-                    if (blackListItemData != null) {
-                        hVar2 = this.dsi.dsg;
-                        blackListItemData2 = this.dsi.dsh;
-                        hVar2.b(blackListItemData2);
-                        this.dsi.dsh = null;
-                        return;
-                    }
-                    return;
-                }
-                this.dsi.showToast(responseUpdateMaskInfoMessage.getErrorString());
-            }
+    public void setData(ArrayList<BlackListItemData> arrayList) {
+        this.acF = arrayList;
+    }
+
+    public void b(BlackListItemData blackListItemData) {
+        if (this.acF != null) {
+            this.acF.remove(blackListItemData);
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.acF != null) {
+            return this.acF.size();
+        }
+        return 0;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        if (this.acF != null) {
+            return this.acF.get(i);
+        }
+        return null;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        C0099a c0099a;
+        BlackListItemData blackListItemData = (BlackListItemData) getItem(i);
+        if (blackListItemData != null) {
+            c0099a = a(view != null ? view.getTag() : null, blackListItemData);
+        } else {
+            c0099a = null;
+        }
+        if (c0099a != null) {
+            return c0099a.rootView;
+        }
+        return null;
+    }
+
+    private C0099a ayK() {
+        C0099a c0099a = new C0099a();
+        c0099a.rootView = LayoutInflater.from(this.dCc.getPageContext().getContext()).inflate(d.j.im_black_list_item, (ViewGroup) null);
+        c0099a.dCe = (HeadImageView) c0099a.rootView.findViewById(d.h.header_view);
+        c0099a.dCe.setIsRound(true);
+        c0099a.bGr = (TextView) c0099a.rootView.findViewById(d.h.user_name);
+        c0099a.dCf = (Button) c0099a.rootView.findViewById(d.h.remove_button);
+        c0099a.rootView.setTag(c0099a);
+        c0099a.dCf.setOnClickListener(this.cAw);
+        return c0099a;
+    }
+
+    private C0099a a(Object obj, BlackListItemData blackListItemData) {
+        C0099a c0099a;
+        if (obj == null) {
+            c0099a = ayK();
+        } else {
+            c0099a = (C0099a) obj;
+        }
+        a(c0099a, blackListItemData.atH());
+        c0099a.bGr.setText(blackListItemData.getUserName());
+        c0099a.dCf.setTag(blackListItemData);
+        this.dCc.getLayoutMode().t(c0099a.rootView);
+        return c0099a;
+    }
+
+    private void a(C0099a c0099a, String str) {
+        if (str != null) {
+            c0099a.dCe.setTag(str);
+            c0099a.dCe.c(str, 12, false);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: com.baidu.tieba.imMessageCenter.im.friend.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public class C0099a {
+        public TextView bGr;
+        public HeadImageView dCe;
+        public Button dCf;
+        public View rootView;
+
+        private C0099a() {
         }
     }
 }

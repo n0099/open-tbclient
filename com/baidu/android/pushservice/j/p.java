@@ -136,66 +136,66 @@ public class p {
         }
         final Context applicationContext = context.getApplicationContext();
         com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("checkAndStartPushService", (short) 98) { // from class: com.baidu.android.pushservice.j.p.1
-            /* JADX WARN: Code restructure failed: missing block: B:33:0x00c5, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:33:0x00cb, code lost:
                 r5 = com.baidu.android.pushservice.k.c.a("netstat -ant", null).iterator();
              */
-            /* JADX WARN: Code restructure failed: missing block: B:34:0x00d0, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:34:0x00d7, code lost:
                 r3 = false;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:36:0x00d5, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:36:0x00dc, code lost:
                 if (r5.hasNext() == false) goto L70;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:37:0x00d7, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:37:0x00de, code lost:
                 r0 = r5.next();
              */
-            /* JADX WARN: Code restructure failed: missing block: B:38:0x00dd, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:38:0x00e4, code lost:
                 if (r3 == false) goto L50;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:39:0x00df, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:39:0x00e6, code lost:
                 r1 = r3;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:41:0x00ec, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:41:0x00f4, code lost:
                 if (r0.toUpperCase().contains("ESTABLISHED") == false) goto L67;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:43:0x00f8, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:43:0x0100, code lost:
                 if (r0.contains(java.lang.String.valueOf(com.baidu.android.pushservice.h.a)) == false) goto L54;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:44:0x00fa, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:44:0x0102, code lost:
                 r3 = true;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:45:0x00fc, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:45:0x0104, code lost:
                 r6 = com.baidu.android.pushservice.h.c;
                 r7 = r6.length;
                 r4 = 0;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:46:0x0100, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:46:0x0108, code lost:
                 if (r4 >= r7) goto L63;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:48:0x0108, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:48:0x0110, code lost:
                 if (r0.contains(r6[r4]) == false) goto L58;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:49:0x010a, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:49:0x0112, code lost:
                 r0 = true;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:50:0x010b, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:50:0x0113, code lost:
                 r3 = r0;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:51:0x010d, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:51:0x0115, code lost:
                 r4 = r4 + 1;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:53:0x0111, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:53:0x0119, code lost:
                 com.baidu.android.pushservice.g.b.b("ServiceUtils", r0.getMessage(), r3);
              */
-            /* JADX WARN: Code restructure failed: missing block: B:54:0x011e, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:54:0x0127, code lost:
                 r0 = e;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:55:0x011f, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:55:0x0128, code lost:
                 r1 = r3;
              */
-            /* JADX WARN: Code restructure failed: missing block: B:56:0x0121, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:56:0x012a, code lost:
                 r0 = r3;
              */
-            /* JADX WARN: Removed duplicated region for block: B:18:0x0079  */
+            /* JADX WARN: Removed duplicated region for block: B:18:0x007e  */
             @Override // com.baidu.android.pushservice.i.c
             /*
                 Code decompiled incorrectly, please refer to instructions dump.

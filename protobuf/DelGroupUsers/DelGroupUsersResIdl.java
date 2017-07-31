@@ -10,10 +10,6 @@ public final class DelGroupUsersResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ DelGroupUsersResIdl(Builder builder, boolean z, DelGroupUsersResIdl delGroupUsersResIdl) {
-        this(builder, z);
-    }
-
     private DelGroupUsersResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -44,7 +40,7 @@ public final class DelGroupUsersResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public DelGroupUsersResIdl build(boolean z) {
-            return new DelGroupUsersResIdl(this, z, null);
+            return new DelGroupUsersResIdl(this, z);
         }
     }
 }

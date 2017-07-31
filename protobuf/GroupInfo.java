@@ -107,10 +107,6 @@ public final class GroupInfo extends Message {
     public static final Integer DEFAULT_ISRECENTLYREPLY = 0;
     public static final Integer DEFAULT_ISMEMBERGROUP = 0;
 
-    /* synthetic */ GroupInfo(Builder builder, boolean z, GroupInfo groupInfo) {
-        this(builder, z);
-    }
-
     private GroupInfo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -406,7 +402,7 @@ public final class GroupInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public GroupInfo build(boolean z) {
-            return new GroupInfo(this, z, null);
+            return new GroupInfo(this, z);
         }
     }
 }

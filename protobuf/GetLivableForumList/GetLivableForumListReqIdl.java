@@ -7,10 +7,6 @@ public final class GetLivableForumListReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
 
-    /* synthetic */ GetLivableForumListReqIdl(Builder builder, boolean z, GetLivableForumListReqIdl getLivableForumListReqIdl) {
-        this(builder, z);
-    }
-
     private GetLivableForumListReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -37,7 +33,7 @@ public final class GetLivableForumListReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public GetLivableForumListReqIdl build(boolean z) {
-            return new GetLivableForumListReqIdl(this, z, null);
+            return new GetLivableForumListReqIdl(this, z);
         }
     }
 }

@@ -14,8 +14,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -32,8 +34,45 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     private static final int XIUBA_VERSION_SECOND = 2;
     private BaseWebView mBaseWebView;
     private final TbPageContext<?> mTbPageContext;
-    private final CustomMessageListener installListener = new af(this, CmdConfigCustom.CMD_PACKAGE_ADDED);
-    private final CustomMessageListener downloadListener = new ag(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+    private final CustomMessageListener installListener = new CustomMessageListener(CmdConfigCustom.CMD_PACKAGE_ADDED) { // from class: com.baidu.tbadk.browser.XiubaTbJsBridge.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Object data = customResponsedMessage.getData();
+            if (data != null && (data instanceof Intent) && XiubaTbJsBridge.XIUBA_PACKAGE.equals(XiubaTbJsBridge.getPackageName((Intent) data))) {
+                XiubaTbJsBridge.this.callInstallListener();
+            }
+        }
+    };
+    private final CustomMessageListener downloadListener = new CustomMessageListener(CmdConfigCustom.CMD_FILE_DOWNLOAD) { // from class: com.baidu.tbadk.browser.XiubaTbJsBridge.2
+        private boolean Sv;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage instanceof DownloadMessage) {
+                DownloadMessage downloadMessage = (DownloadMessage) customResponsedMessage;
+                if (downloadMessage.getData() != null && downloadMessage.getData().size() > 0) {
+                    for (DownloadData downloadData : downloadMessage.getData()) {
+                        if (downloadData != null && XiubaTbJsBridge.XIUBA_PACKAGE.equals(downloadData.getId())) {
+                            if (downloadData.getStatus() == 5) {
+                                if (!this.Sv) {
+                                    this.Sv = true;
+                                    XiubaTbJsBridge.this.callDownloadListener(1);
+                                }
+                            } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
+                                XiubaTbJsBridge.this.callDownloadListener(2);
+                                this.Sv = false;
+                            } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
+                                XiubaTbJsBridge.this.callDownloadListener(0);
+                                this.Sv = false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    };
 
     public XiubaTbJsBridge(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
@@ -59,7 +98,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         jSResultData.setErrorMsg("");
         JSResultData.Result result = new JSResultData.Result();
         jSResultData.setResult(result);
-        String installApkVersionName = UtilHelper.getInstallApkVersionName(TbadkCoreApplication.m9getInst(), str);
+        String installApkVersionName = UtilHelper.getInstallApkVersionName(TbadkCoreApplication.getInst(), str);
         if (installApkVersionName != null) {
             if (isInstall(installApkVersionName)) {
                 result.setIsInstall(1);
@@ -122,7 +161,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Cv().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m9getInst().getResources().getString(w.l.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.CP().a(XIUBA_PACKAGE, str, TbadkCoreApplication.getInst().getResources().getString(d.l.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -173,33 +212,25 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private static String md5(String str) {
-        String str2 = null;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             StringBuffer stringBuffer = new StringBuffer("");
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < digest.length) {
-                    int i3 = digest[i2];
-                    if (i3 < 0) {
-                        i3 += 256;
-                    }
-                    if (i3 < 16) {
-                        stringBuffer.append("0");
-                    }
-                    stringBuffer.append(Integer.toHexString(i3));
-                    i = i2 + 1;
-                } else {
-                    str2 = stringBuffer.toString();
-                    return str2;
+            for (int i = 0; i < digest.length; i++) {
+                int i2 = digest[i];
+                if (i2 < 0) {
+                    i2 += 256;
                 }
+                if (i2 < 16) {
+                    stringBuffer.append("0");
+                }
+                stringBuffer.append(Integer.toHexString(i2));
             }
+            return stringBuffer.toString();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
-            return str2;
+            return null;
         }
     }
 

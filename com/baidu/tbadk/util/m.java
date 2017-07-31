@@ -2,6 +2,7 @@ package com.baidu.tbadk.util;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
@@ -11,7 +12,8 @@ import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.al;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -22,72 +24,110 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class m {
-    private static String aKh = "native_crash_log.log";
-    private static List<String> aKi = new ArrayList();
-    private static BroadcastReceiver Dh = new n();
-    private static BdNativeCrash.NativeCrashCallback aKj = new o();
+    private static String aME = "native_crash_log.log";
+    private static List<String> aMF = new ArrayList();
+    private static BroadcastReceiver EG = new BroadcastReceiver() { // from class: com.baidu.tbadk.util.m.1
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            if (intent != null) {
+                String stringExtra = intent.getStringExtra("package_name");
+                if (!TextUtils.isEmpty(stringExtra) && "com.baidu.adp.plugin.installed".equals(intent.getAction())) {
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("native_crash_count_" + stringExtra, 0);
+                }
+            }
+        }
+    };
+    private static BdNativeCrash.NativeCrashCallback aMG = new BdNativeCrash.NativeCrashCallback() { // from class: com.baidu.tbadk.util.m.2
+        @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
+        public void onNativeCrashed(int i, int i2, int i3, String str, String str2) {
+            w wVar = new w();
+            Thread thread = new Thread();
+            thread.setName("NativeCrashThread");
+            wVar.a(thread, (Throwable) new Exception(str), true);
+            m.gM(str2);
+        }
 
-    public static void GJ() {
+        @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
+        public boolean onSoFound(String str) {
+            try {
+                if (m.aMF.indexOf(str) >= 0) {
+                    return false;
+                }
+                if (!m.gN(str) && !m.gO(str) && !m.ao(str, TbadkCoreApplication.getInst().getApp().getApplicationInfo().sourceDir)) {
+                    m.aMF.add(str);
+                    return false;
+                }
+                return true;
+            } catch (Throwable th) {
+                m.aMF.add(str);
+                return false;
+            }
+        }
+    };
+
+    public static void Hg() {
         if (BdNativeCrash.mbLibLoaded) {
             BdNativeCrash.getInstance().initCrash(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.getInstance().setCrashCallback(aKj);
-            GK();
+            BdNativeCrash.getInstance().setCrashCallback(aMG);
+            Hh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void gB(String str) {
+    public static void gM(String str) {
         int i;
         int i2;
         int i3;
-        int i4;
         if (!TextUtils.isEmpty(str)) {
             try {
-                int i5 = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("crash_limit_count", 100);
-                i = i5 < 10 ? 10 : i5;
+                int i4 = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("crash_limit_count", 100);
+                i = i4 >= 10 ? i4 : 10;
             } catch (Throwable th) {
                 i = 100;
             }
             try {
-                int vy = aw.vy();
-                byte[] az = com.baidu.adp.lib.util.e.az(aKh);
+                int vO = al.vO();
+                byte[] aH = com.baidu.adp.lib.util.e.aH(aME);
                 String str2 = null;
-                if (az != null) {
-                    str2 = new String(az);
+                if (aH != null) {
+                    str2 = new String(aH);
                 }
                 if (TextUtils.isEmpty(str2)) {
-                    i2 = vy;
+                    i2 = vO;
                     i3 = 0;
                 } else {
                     String[] split = str2.split(":");
                     if (split == null || split.length != 2) {
-                        i2 = vy;
+                        i2 = vO;
                         i3 = 0;
                     } else {
                         int g = com.baidu.adp.lib.g.b.g(split[0], 0);
-                        int g2 = com.baidu.adp.lib.g.b.g(split[1], vy);
+                        int g2 = com.baidu.adp.lib.g.b.g(split[1], vO);
                         i3 = g;
                         i2 = g2;
                     }
                 }
-                if ((i2 == vy ? i3 : 0) > i) {
+                if (i2 != vO) {
+                    i3 = 0;
+                }
+                if (i3 > i) {
                     File file = new File(str);
                     if (file.exists()) {
                         file.delete();
                     }
-                    com.baidu.adp.plugin.b.a.jj().ba("native_crash_count_overrun");
+                    com.baidu.adp.plugin.b.a.jr().bi("native_crash_count_overrun");
                     return;
                 }
-                com.baidu.adp.lib.util.e.e(aKh, (String.valueOf(i4 + 1) + ":" + vy).getBytes());
+                com.baidu.adp.lib.util.e.e(aME, ((i3 + 1) + ":" + vO).getBytes());
             } catch (Throwable th2) {
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean gC(String str) {
+    public static boolean gN(String str) {
         if ("libpluginhook.so".equals(str)) {
-            com.baidu.adp.plugin.b.a.jj().ba("plugin_patch_native_crashed");
+            com.baidu.adp.plugin.b.a.jr().bi("plugin_patch_native_crashed");
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("plugin_patch_hook_failed_count", 0) + 1);
             return true;
         }
@@ -95,12 +135,12 @@ public class m {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean gD(String str) {
-        PluginSettings jV = com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().jV();
-        if (jV == null) {
+    public static boolean gO(String str) {
+        PluginSettings ke = com.baidu.adp.plugin.packageManager.pluginSettings.c.kh().ke();
+        if (ke == null) {
             return false;
         }
-        Map<String, PluginSetting> plugins = jV.getPlugins();
+        Map<String, PluginSetting> plugins = ke.getPlugins();
         if (plugins == null || plugins.isEmpty()) {
             return false;
         }
@@ -109,7 +149,7 @@ public class m {
                 int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("native_crash_count_" + pluginSetting.packageName, 0);
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("native_crash_count_" + pluginSetting.packageName, i + 1);
                 if (i >= 3) {
-                    com.baidu.adp.plugin.b.a.jj().B("plugin_native_crashed", pluginSetting.packageName);
+                    com.baidu.adp.plugin.b.a.jr().B("plugin_native_crashed", pluginSetting.packageName);
                 }
                 return true;
             }
@@ -133,23 +173,25 @@ public class m {
                 while (true) {
                     try {
                         ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry == null) {
-                            break;
-                        } else if (arrayList.contains(nextEntry.getName())) {
-                            z = true;
+                        if (nextEntry != null) {
+                            if (arrayList.contains(nextEntry.getName())) {
+                                z = true;
+                                break;
+                            }
+                        } else {
                             break;
                         }
                     } catch (IOException e) {
-                        com.baidu.adp.lib.g.a.j(zipInputStream);
+                        com.baidu.adp.lib.g.a.p(zipInputStream);
                         return z;
                     } catch (Throwable th) {
                         th = th;
                         zipInputStream2 = zipInputStream;
-                        com.baidu.adp.lib.g.a.j(zipInputStream2);
+                        com.baidu.adp.lib.g.a.p(zipInputStream2);
                         throw th;
                     }
                 }
-                com.baidu.adp.lib.g.a.j(zipInputStream);
+                com.baidu.adp.lib.g.a.p(zipInputStream);
             } catch (IOException e2) {
                 zipInputStream = null;
             } catch (Throwable th2) {
@@ -159,12 +201,12 @@ public class m {
         return z;
     }
 
-    private static void GK() {
+    private static void Hh() {
         try {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.adp.plugin.installed");
-            applicationContext.registerReceiver(Dh, intentFilter);
+            applicationContext.registerReceiver(EG, intentFilter);
         } catch (Exception e) {
             BdLog.e(e);
         }

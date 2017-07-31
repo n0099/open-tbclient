@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Process;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
@@ -26,13 +27,13 @@ public class b {
 
     protected b() {
         mProcessMap = new HashMap<>();
-        mProcessMap.put(a.ade, TbConfig.SETTINGFILE);
-        mProcessMap.put(a.adf, "remote_settings");
-        mProcessMap.put(a.adg, "bdservice_settings");
-        mProcessMap.put(a.adh, a.adk);
-        mProcessMap.put(a.adi, a.adl);
-        mProcessMap.put(a.adj, a.adm);
-        mContentResolver = TbadkCoreApplication.m9getInst().getContentResolver();
+        mProcessMap.put(a.aeV, TbConfig.SETTINGFILE);
+        mProcessMap.put(a.aeW, "remote_settings");
+        mProcessMap.put(a.aeX, "bdservice_settings");
+        mProcessMap.put(a.aeY, a.afb);
+        mProcessMap.put(a.aeZ, a.afc);
+        mProcessMap.put(a.afa, a.afd);
+        mContentResolver = TbadkCoreApplication.getInst().getContentResolver();
     }
 
     public static void clearInstance() {
@@ -205,9 +206,9 @@ public class b {
         if (str == null || str.length() == 0 || !IS_CHECK_COMMON_SHAREDPRE) {
             return false;
         }
-        int length = a.adn.length;
+        int length = a.afe.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.adn[i])) {
+            if (str.equals(a.afe[i])) {
                 return true;
             }
         }
@@ -215,46 +216,46 @@ public class b {
     }
 
     private String getValue(String str) {
-        return getValue(Uri.parse(String.valueOf(getContentPrefix()) + str));
+        return getValue(Uri.parse(getContentPrefix() + str));
     }
 
     private void putValue(String str, String str2) {
-        Uri parse = Uri.parse(String.valueOf(getContentPrefix()) + str);
+        Uri parse = Uri.parse(getContentPrefix() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, str2);
         setValue(parse, contentValues);
     }
 
     private void putValue(String str, int i) {
-        Uri parse = Uri.parse(String.valueOf(getContentPrefix()) + str);
+        Uri parse = Uri.parse(getContentPrefix() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(i));
         setValue(parse, contentValues);
     }
 
     private void putValue(String str, float f) {
-        Uri parse = Uri.parse(String.valueOf(getContentPrefix()) + str);
+        Uri parse = Uri.parse(getContentPrefix() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(f));
         setValue(parse, contentValues);
     }
 
     private void putValue(String str, long j) {
-        Uri parse = Uri.parse(String.valueOf(getContentPrefix()) + str);
+        Uri parse = Uri.parse(getContentPrefix() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(j));
         setValue(parse, contentValues);
     }
 
     private void putValue(String str, boolean z) {
-        Uri parse = Uri.parse(String.valueOf(getContentPrefix()) + str);
+        Uri parse = Uri.parse(getContentPrefix() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(z));
         setValue(parse, contentValues);
     }
 
     private void removeValue(String str) {
-        deleteValue(Uri.parse(String.valueOf(getContentPrefix()) + str));
+        deleteValue(Uri.parse(getContentPrefix() + str));
     }
 
     protected synchronized SharedPreferences getSharedPreferences() {
@@ -268,11 +269,11 @@ public class b {
                 this.mFile = TbConfig.SETTINGFILE;
             }
         }
-        return TbadkCoreApplication.m9getInst().getSharedPreferences(this.mFile, 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(this.mFile, 0);
     }
 
     private String getProcessName() {
-        ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.m9getInst().getSystemService("activity");
+        ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService("activity");
         if (activityManager != null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
             int myPid = Process.myPid();
@@ -290,11 +291,11 @@ public class b {
                 }
             }
         }
-        return a.ade;
+        return a.aeV;
     }
 
     public void migrateToNewVersion() {
-        SharedPreferences sharedPreferences = TbadkCoreApplication.m9getInst().getSharedPreferences(TbConfig.SETTINGFILE, 0);
+        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences(TbConfig.SETTINGFILE, 0);
         String string = sharedPreferences.getString("lase_version", "");
         String version = TbConfig.getVersion();
         if (string != null && string.length() != 0 && version != null && version.length() != 0 && !string.equals(version) && "4.5.0".compareTo(string) > 0 && "4.5.0".compareTo(version) <= 0) {
@@ -320,7 +321,7 @@ public class b {
 
     protected String getContentPrefix() {
         if (this.cachedPrefix == null) {
-            String packageName = TbadkCoreApplication.m9getInst().getContext().getPackageName();
+            String packageName = TbadkCoreApplication.getInst().getContext().getPackageName();
             if (TbConfig.MAIN_PACKAGE_NAME.equals(packageName)) {
                 this.cachedPrefix = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
             } else {
@@ -330,9 +331,17 @@ public class b {
         return this.cachedPrefix;
     }
 
-    protected void setValue(Uri uri, ContentValues contentValues) {
-        if (k.hz()) {
-            new c(this, uri, contentValues).execute(new Void[0]);
+    protected void setValue(final Uri uri, final ContentValues contentValues) {
+        if (k.hH()) {
+            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.1
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                public Void doInBackground(Void... voidArr) {
+                    b.this.setValueInner(uri, contentValues);
+                    return null;
+                }
+            }.execute(new Void[0]);
         } else {
             setValueInner(uri, contentValues);
         }
@@ -356,9 +365,17 @@ public class b {
         }
     }
 
-    protected void deleteValue(Uri uri) {
-        if (k.hz()) {
-            new d(this, uri).execute(new Void[0]);
+    protected void deleteValue(final Uri uri) {
+        if (k.hH()) {
+            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.2
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                public Void doInBackground(Void... voidArr) {
+                    b.this.deleteValueInner(uri);
+                    return null;
+                }
+            }.execute(new Void[0]);
         } else {
             deleteValueInner(uri);
         }
@@ -374,6 +391,6 @@ public class b {
     }
 
     public static String getSharedPrefKeyWithAccount(String str) {
-        return String.valueOf(str) + "_" + TbadkCoreApplication.getCurrentAccount();
+        return str + "_" + TbadkCoreApplication.getCurrentAccount();
     }
 }

@@ -11,17 +11,17 @@ public class HorizontalScrollLayout extends LinearLayout {
 
     public HorizontalScrollLayout(Context context) {
         super(context);
-        this.mGestureDetector = new GestureDetector((Context) null, new a(this, null));
+        this.mGestureDetector = new GestureDetector((Context) null, new a());
     }
 
     public HorizontalScrollLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mGestureDetector = new GestureDetector((Context) null, new a(this, null));
+        this.mGestureDetector = new GestureDetector((Context) null, new a());
     }
 
     public HorizontalScrollLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mGestureDetector = new GestureDetector((Context) null, new a(this, null));
+        this.mGestureDetector = new GestureDetector((Context) null, new a());
     }
 
     @Override // android.view.ViewGroup
@@ -40,10 +40,6 @@ public class HorizontalScrollLayout extends LinearLayout {
     /* loaded from: classes.dex */
     private class a extends GestureDetector.SimpleOnGestureListener {
         private a() {
-        }
-
-        /* synthetic */ a(HorizontalScrollLayout horizontalScrollLayout, a aVar) {
-            this();
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener

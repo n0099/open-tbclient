@@ -7,10 +7,6 @@ public final class SetLocationReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
 
-    /* synthetic */ SetLocationReqIdl(Builder builder, boolean z, SetLocationReqIdl setLocationReqIdl) {
-        this(builder, z);
-    }
-
     private SetLocationReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -37,7 +33,7 @@ public final class SetLocationReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public SetLocationReqIdl build(boolean z) {
-            return new SetLocationReqIdl(this, z, null);
+            return new SetLocationReqIdl(this, z);
         }
     }
 }

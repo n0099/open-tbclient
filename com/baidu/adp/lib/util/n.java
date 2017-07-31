@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.util;
 
-import java.util.concurrent.BlockingQueue;
+import java.util.Queue;
 /* loaded from: classes.dex */
-public interface n extends p, BlockingQueue {
+public interface n extends Queue {
 }

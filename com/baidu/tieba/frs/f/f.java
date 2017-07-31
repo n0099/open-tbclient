@@ -1,68 +1,78 @@
 package com.baidu.tieba.frs.f;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.net.URLEncoder;
-import tbclient.PopInfo;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.d;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    private final com.baidu.tieba.frs.r cdv;
-    private a cpD;
-
-    public f(com.baidu.tieba.frs.r rVar) {
-        this.cdv = rVar;
+    public static boolean a(com.baidu.tieba.frs.f fVar, String str, String str2, boolean z) {
+        if (!z || fVar == null || TextUtils.isEmpty(str) || !i.aj(TbadkCoreApplication.getInst().getApplicationContext(), fVar.getActivity().getClass().getName())) {
+            return true;
+        }
+        Intent intent = new Intent();
+        intent.putExtra("class", 2);
+        intent.putExtra(ImageViewerConfig.FORUM_NAME, str);
+        intent.putExtra(str2, "short_cut");
+        fVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig(fVar.getPageContext().getPageActivity(), intent)));
+        return false;
     }
 
-    public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.cdv != null && this.cdv.aek() != null && this.cdv.aek().aMt() != null && !StringUtils.isNull(this.cdv.aek().aMt().getName()) && this.cdv.aek().fKw != null && ahH() && this.cpD == null) {
-            this.cpD = new a(this, null);
-            this.cpD.execute(new Void[0]);
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void a(com.baidu.tieba.frs.f fVar, String str) {
+        Intent ai;
+        if (!TextUtils.isEmpty(str) && fVar != null && fVar.aeW() != null && (ai = i.ai(fVar.getPageContext().getPageActivity(), str)) != null) {
+            Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
+            intent.putExtra("duplicate", false);
+            intent.putExtra("android.intent.extra.shortcut.NAME", str + fVar.getPageContext().getString(d.l.bar));
+            intent.putExtra("android.intent.extra.shortcut.INTENT", ai);
+            BarImageView ajD = fVar.aeW().ajD();
+            if (ajD != null && ajD.getBdImage() != null && ajD.getBdImage().kX() != null) {
+                Bitmap kX = ajD.getBdImage().kX();
+                Float valueOf = Float.valueOf(fVar.getResources().getDisplayMetrics().density);
+                intent.putExtra("android.intent.extra.shortcut.ICON", com.baidu.adp.lib.util.d.gZ().a(com.baidu.adp.lib.util.d.gZ().resizeBitmap(kX, valueOf.intValue() * 48), valueOf.intValue() * 6));
+            } else {
+                intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(fVar.getPageContext().getPageActivity(), d.g.icon));
+            }
+            fVar.getPageContext().getPageActivity().sendBroadcast(intent);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean ahH() {
-        PopInfo popInfo = this.cdv.aek().fKw;
-        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.cdv.aek().fKw.if_pop.intValue() == 0) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<Void, Void, Boolean> {
-        private a() {
-        }
-
-        /* synthetic */ a(f fVar, a aVar) {
-            this();
-        }
+    public static class a extends BdAsyncTask<String, Integer, Boolean> {
+        private final WeakReference<com.baidu.tieba.frs.f> cug;
+        private final String name;
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Boolean doInBackground(Void... voidArr) {
-            com.baidu.adp.lib.cache.o<String> cF = com.baidu.tbadk.core.c.a.sW().cF("tb.enter_frs_dialog_list");
-            String encode = URLEncoder.encode(f.this.cdv.aek().aMt().getName());
-            if (cF.get(encode) == null) {
-                cF.k(encode, "1");
-                return true;
+        public Boolean doInBackground(String... strArr) {
+            com.baidu.tieba.frs.f fVar = this.cug.get();
+            if (fVar == null) {
+                return false;
             }
-            return false;
+            return Boolean.valueOf(i.ak(fVar.getPageContext().getPageActivity(), this.name));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (bool.booleanValue() && f.this.ahH()) {
-                PopInfo popInfo = f.this.cdv.aek().fKw;
-                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(f.this.cdv.getActivity());
-                aVar.cH(popInfo.title);
-                aVar.cI(popInfo.v_title);
-                aVar.sX();
-                aVar.b(popInfo.ok_info, new g(this));
-                aVar.a(popInfo.ahead_info, new h(this, popInfo));
-                aVar.b(f.this.cdv.getPageContext()).ta();
+            com.baidu.tieba.frs.f fVar = this.cug.get();
+            if (fVar != null) {
+                if (!bool.booleanValue()) {
+                    f.a(fVar, this.name);
+                } else {
+                    fVar.showToast(d.l.shortcut_has_add);
+                }
             }
         }
     }

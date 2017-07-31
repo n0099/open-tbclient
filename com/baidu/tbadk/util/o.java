@@ -1,51 +1,76 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.lib.crash.BdNativeCrash;
+import android.net.wifi.WifiManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.List;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
-class o implements BdNativeCrash.NativeCrashCallback {
-    @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
-    public void onNativeCrashed(int i, int i2, int i3, String str, String str2) {
-        z zVar = new z();
-        Thread thread = new Thread();
-        thread.setName("NativeCrashThread");
-        zVar.a(thread, (Throwable) new Exception(str), true);
-        m.gB(str2);
+public class o {
+    private static final byte[] aMH = new byte[1];
+    private static o aMI = null;
+    private CustomMessageListener mNetworkChangedListener;
+
+    public static o Hi() {
+        if (aMI == null) {
+            synchronized (aMH) {
+                if (aMI == null) {
+                    aMI = new o();
+                }
+            }
+        }
+        return aMI;
     }
 
-    @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
-    public boolean onSoFound(String str) {
-        List list;
-        List list2;
-        boolean gC;
-        boolean gD;
-        boolean ao;
-        List list3;
+    private o() {
+        com.baidu.adp.lib.util.i.init();
+    }
+
+    public void Hj() {
         try {
-            list2 = m.aKi;
-            if (list2.indexOf(str) >= 0) {
-                return false;
+            if (this.mNetworkChangedListener == null) {
+                this.mNetworkChangedListener = Hk();
+                MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
             }
-            gC = m.gC(str);
-            if (gC) {
-                return true;
+        } catch (Exception e) {
+            this.mNetworkChangedListener = null;
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    private CustomMessageListener Hk() {
+        return new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.util.o.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                    o.this.Hl();
+                }
             }
-            gD = m.gD(str);
-            if (gD) {
-                return true;
+        };
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Hl() {
+        try {
+            boolean hr = com.baidu.adp.lib.util.i.hr();
+            if (hr) {
+                if (com.baidu.adp.lib.util.i.hs()) {
+                    am.vQ().aE(true);
+                    com.baidu.tieba.recapp.d.a.bii().rg(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                } else if (com.baidu.adp.lib.util.i.ht()) {
+                    am.vQ().aE(false);
+                }
             }
-            ao = m.ao(str, TbadkCoreApplication.m9getInst().getApp().getApplicationInfo().sourceDir);
-            if (ao) {
-                return true;
-            }
-            list3 = m.aKi;
-            list3.add(str);
-            return false;
+            NoNetworkView.setIsHasNetwork(hr);
+            CompatibleUtile.dealWebView(null);
         } catch (Throwable th) {
-            list = m.aKi;
-            list.add(str);
-            return false;
+            BdLog.e(th.getMessage());
         }
     }
 }

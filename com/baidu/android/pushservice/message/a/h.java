@@ -108,11 +108,11 @@ public class h extends c {
                         break;
                     }
                 } catch (PackageManager.NameNotFoundException e2) {
+                    i2 = 8;
                     String str7 = ">>> NOT deliver to app: " + a.a.c() + ", package has been uninstalled.";
                     f.a(this.a, str);
                     com.baidu.android.pushservice.g.a.b(b, str7);
                     q.b(str7, this.a);
-                    i2 = 8;
                     break;
                 }
             case SDK_CLIENT:
@@ -137,15 +137,15 @@ public class h extends c {
                             q.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", str3);
                         } catch (PackageManager.NameNotFoundException e3) {
                             com.baidu.android.pushservice.b.h.a(this.a).a((com.baidu.android.pushservice.b.a) a.b, false);
-                            com.baidu.android.pushservice.g.a.b(b, ">>> NOT deliver to app: " + a.b.c() + ", package has been uninstalled.");
                             i3 = 8;
+                            com.baidu.android.pushservice.g.a.b(b, ">>> NOT deliver to app: " + a.b.c() + ", package has been uninstalled.");
                         }
                     }
                     i2 = i3;
                     break;
                 } catch (JSONException e4) {
-                    com.baidu.android.pushservice.g.a.c(b, "description is null return invalid");
                     i2 = 2;
+                    com.baidu.android.pushservice.g.a.c(b, "description is null return invalid");
                     break;
                 }
             default:

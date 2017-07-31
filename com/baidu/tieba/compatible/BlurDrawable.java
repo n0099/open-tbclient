@@ -1,5 +1,6 @@
 package com.baidu.tieba.compatible;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -32,6 +33,7 @@ public class BlurDrawable {
         }
     }
 
+    @TargetApi(17)
     public void init(int i, int i2, Bitmap bitmap) {
         if (enabled && i > 0 && i2 > 0 && bitmap != null) {
             try {
@@ -49,6 +51,7 @@ public class BlurDrawable {
         return this.mBlurredBitmap;
     }
 
+    @TargetApi(17)
     private void initializeRenderScript(Context context) {
         try {
             if (enabled) {
@@ -71,6 +74,7 @@ public class BlurDrawable {
         return true;
     }
 
+    @TargetApi(17)
     protected void blur(Bitmap bitmap, Bitmap bitmap2) {
         if (enabled) {
             this.mBlurInput.copyFrom(bitmap);
@@ -80,6 +84,7 @@ public class BlurDrawable {
         }
     }
 
+    @TargetApi(17)
     public boolean drawBlur() {
         if (enabled && prepare()) {
             blur(this.mBitmapToBlur, this.mBlurredBitmap);
@@ -93,6 +98,7 @@ public class BlurDrawable {
         return enabled;
     }
 
+    @TargetApi(17)
     public void onDestroy() {
         if (enabled) {
             if (this.mRenderScript != null) {

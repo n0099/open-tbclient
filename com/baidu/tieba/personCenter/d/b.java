@@ -8,114 +8,111 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.k;
 import com.baidu.adp.widget.ColumnLayout;
-import com.baidu.adp.widget.ListView.z;
+import com.baidu.adp.widget.ListView.j;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.view.ReplyLinearLayout;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class b extends z.a implements View.OnClickListener {
-    private static com.baidu.adp.widget.a.a eRn;
-    private static String eRo;
-    private TbPageContext<?> ajP;
-    public TextView amO;
-    public TextView ami;
-    public TextView bAh;
-    private View bCT;
-    private boolean bhl;
+public class b extends j.a implements View.OnClickListener {
+    private static com.baidu.adp.widget.a.a feY;
+    private static String feZ;
+    private TbPageContext<?> alI;
+    public TextView aoS;
+    public TextView aof;
+    public TextView bFy;
+    private View bIk;
+    private boolean blJ;
     private View bottomLine;
-    public TextView dQP;
-    public ReplyLinearLayout eRh;
-    public TextView eRi;
-    protected final LinearLayout eRj;
-    private final LinearLayout eRk;
-    protected final ColumnLayout eRl;
-    protected final ColumnLayout eRm;
-    private int eRp;
-    public LinearLayout eRq;
-    public HeadImageView eRr;
+    public TextView ebe;
+    public ReplyLinearLayout feS;
+    public TextView feT;
+    protected final LinearLayout feU;
+    private final LinearLayout feV;
+    protected final ColumnLayout feW;
+    protected final ColumnLayout feX;
+    private int ffa;
+    public LinearLayout ffb;
+    public HeadImageView ffc;
     private final LinearLayout mLayout;
 
     public b(View view, TbPageContext<?> tbPageContext, boolean z) {
         super(view);
-        this.ajP = tbPageContext;
-        this.bhl = z;
-        this.eRh = (ReplyLinearLayout) view.findViewById(w.h.content_container);
-        this.eRh.setIsHost(this.bhl);
-        this.eRi = (TextView) view.findViewById(w.h.original_post_title);
-        this.bCT = view.findViewById(w.h.reply_top_line);
-        this.bottomLine = view.findViewById(w.h.reply_bottom_line);
-        this.eRq = (LinearLayout) view.findViewById(w.h.top_line);
-        this.eRr = (HeadImageView) view.findViewById(w.h.portrait);
-        this.amO = (TextView) view.findViewById(w.h.username);
-        this.ami = (TextView) view.findViewById(w.h.reply_time);
-        this.bAh = (TextView) view.findViewById(w.h.forum_name);
-        this.dQP = (TextView) view.findViewById(w.h.reply_count);
-        this.eRk = (LinearLayout) view.findViewById(w.h.item_content);
-        this.eRl = (ColumnLayout) view.findViewById(w.h.item_header);
-        this.eRm = (ColumnLayout) view.findViewById(w.h.item_footer);
-        this.mLayout = (LinearLayout) view.findViewById(w.h.person_thread);
-        this.eRj = (LinearLayout) view.findViewById(w.h.person_child);
-        this.eRp = k.dip2px(view.getContext(), 42.0f);
-        if (this.eRk != null) {
-            this.eRk.setOnClickListener(this);
+        this.alI = tbPageContext;
+        this.blJ = z;
+        this.feS = (ReplyLinearLayout) view.findViewById(d.h.content_container);
+        this.feS.setIsHost(this.blJ);
+        this.feT = (TextView) view.findViewById(d.h.original_post_title);
+        this.bIk = view.findViewById(d.h.reply_top_line);
+        this.bottomLine = view.findViewById(d.h.reply_bottom_line);
+        this.ffb = (LinearLayout) view.findViewById(d.h.top_line);
+        this.ffc = (HeadImageView) view.findViewById(d.h.portrait);
+        this.aoS = (TextView) view.findViewById(d.h.username);
+        this.aof = (TextView) view.findViewById(d.h.reply_time);
+        this.bFy = (TextView) view.findViewById(d.h.forum_name);
+        this.ebe = (TextView) view.findViewById(d.h.reply_count);
+        this.feV = (LinearLayout) view.findViewById(d.h.item_content);
+        this.feW = (ColumnLayout) view.findViewById(d.h.item_header);
+        this.feX = (ColumnLayout) view.findViewById(d.h.item_footer);
+        this.mLayout = (LinearLayout) view.findViewById(d.h.person_thread);
+        this.feU = (LinearLayout) view.findViewById(d.h.person_child);
+        this.ffa = k.dip2px(view.getContext(), 42.0f);
+        if (this.feV != null) {
+            this.feV.setOnClickListener(this);
         }
-        this.eRr.setOnClickListener(this);
-        this.amO.setOnClickListener(this);
-        this.bAh.setOnClickListener(this);
-        this.dQP.setOnClickListener(this);
-        this.eRl.setOnClickListener(this);
-        this.eRm.setOnClickListener(this);
-        this.eRi.setOnClickListener(this);
+        this.ffc.setOnClickListener(this);
+        this.aoS.setOnClickListener(this);
+        this.bFy.setOnClickListener(this);
+        this.ebe.setOnClickListener(this);
+        this.feW.setOnClickListener(this);
+        this.feX.setOnClickListener(this);
+        this.feT.setOnClickListener(this);
     }
 
-    public void dl(int i) {
-        as.j(this.eRi, w.e.cp_bg_line_e);
-        as.k(getView(), w.e.cp_bg_line_c);
-        as.j(this.eRj, w.g.daily_recommend_item_selector);
-        as.c(this.amO, w.e.cp_cont_d, 1);
-        as.c(this.ami, w.e.cp_cont_d, 1);
-        as.c(this.bAh, w.e.cp_cont_d, 1);
-        as.c(this.dQP, w.e.cp_cont_d, 1);
+    public void dp(int i) {
+        ai.j(this.feT, d.e.cp_bg_line_e);
+        ai.k(getView(), d.e.cp_bg_line_c);
+        ai.j(this.feU, d.g.daily_recommend_item_selector);
+        ai.c(this.aoS, d.e.cp_cont_d, 1);
+        ai.c(this.aof, d.e.cp_cont_d, 1);
+        ai.c(this.bFy, d.e.cp_cont_d, 1);
+        ai.c(this.ebe, d.e.cp_cont_d, 1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String[] strArr;
-        TiebaStatic.log(new au("c12043").r("obj_type", this.bhl ? 1 : 2));
-        if (view == this.bAh) {
-            if (this.ajP != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.ajP.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
+        TiebaStatic.log(new aj("c12043").r("obj_type", this.blJ ? 1 : 2));
+        if (view == this.bFy) {
+            if (this.alI != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.alI.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (view == this.eRi && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
+        } else if (view == this.feT && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
             if ("0".equals(strArr[2]) || strArr[1] == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.ajP.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_post_reply")));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.alI.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page")));
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x00f6 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0008 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0043 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x00f1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x0008 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:13:0x0045 A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00a3  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x009e  */
     /* JADX WARN: Type inference failed for: r1v0 */
-    /* JADX WARN: Type inference failed for: r1v10 */
-    /* JADX WARN: Type inference failed for: r1v22 */
+    /* JADX WARN: Type inference failed for: r1v1 */
+    /* JADX WARN: Type inference failed for: r1v20 */
     /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v30 */
-    /* JADX WARN: Type inference failed for: r1v5 */
-    /* JADX WARN: Type inference failed for: r3v8, types: [java.lang.Object[]] */
+    /* JADX WARN: Type inference failed for: r1v6 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -123,105 +120,109 @@ public class b extends z.a implements View.OnClickListener {
         String str2;
         String str3;
         String str4;
-        String str5 = null;
-        String str6 = 4;
+        String str5;
+        String str6;
+        String r;
+        String str7;
+        String valueOf;
+        String str8 = null;
+        String str9 = 4;
         String[] strArr = new String[4];
         try {
             try {
                 try {
                     try {
                         if (z) {
-                            String str7 = TextUtils.isEmpty(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
+                            str6 = TextUtils.isEmpty(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
                             strArr[0] = String.valueOf(postInfoList.thread_id);
                             strArr[1] = String.valueOf(postInfoList.post_id);
-                            String q = aw.q(postInfoList.create_time * 1000);
-                            String str8 = postInfoList.forum_name;
-                            String valueOf = String.valueOf(postInfoList.reply_num);
+                            r = al.r(postInfoList.create_time * 1000);
+                            str7 = postInfoList.forum_name;
+                            valueOf = String.valueOf(postInfoList.reply_num);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
-                            str4 = str7;
-                            str3 = q;
-                            str2 = str8;
-                            str6 = valueOf;
-                            str5 = 1;
                         } else {
-                            String str9 = TextUtils.isEmpty(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
+                            str6 = TextUtils.isEmpty(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
                             strArr[0] = String.valueOf(postInfoList.thread_id);
                             strArr[1] = String.valueOf(postInfoList.content[0].post_id);
                             strArr[2] = String.valueOf(postInfoList.content[0].post_type);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
-                            str4 = str9;
-                            str3 = aw.q(postInfoList.create_time * 1000);
-                            str2 = postInfoList.forum_name;
-                            str6 = String.valueOf(postInfoList.reply_num);
-                            str5 = 1;
+                            r = al.r(postInfoList.create_time * 1000);
+                            str7 = postInfoList.forum_name;
+                            valueOf = String.valueOf(postInfoList.reply_num);
                         }
+                        str4 = str6;
+                        str3 = r;
+                        str2 = str7;
+                        str9 = valueOf;
+                        str8 = 1;
+                        str5 = str9;
                     } catch (Exception e) {
-                        str6 = str5;
-                        str2 = str5;
+                        str9 = str8;
                         str4 = str3;
                         str3 = str2;
-                        str2 = str6;
-                        str6 = str5;
-                        str5 = null;
-                        if (str5 != null) {
+                        str2 = str9;
+                        str5 = str8;
+                        str8 = null;
+                        if (str8 != null) {
                         }
                     }
                 } catch (Exception e2) {
-                    str6 = 0;
-                    str2 = null;
-                    str3 = null;
+                    str9 = str8;
+                    str2 = str8;
                     str4 = str3;
                     str3 = str2;
-                    str2 = str6;
-                    str6 = str5;
-                    str5 = null;
-                    if (str5 != null) {
+                    str2 = str9;
+                    str5 = str8;
+                    str8 = null;
+                    if (str8 != null) {
                     }
                 }
             } catch (Exception e3) {
+                str9 = 0;
+                str2 = null;
+                str3 = null;
                 str4 = str3;
                 str3 = str2;
-                str2 = str6;
-                str6 = str5;
-                str5 = null;
-                if (str5 != null) {
+                str2 = str9;
+                str5 = str8;
+                str8 = null;
+                if (str8 != null) {
                 }
             }
         } catch (Exception e4) {
-            str6 = str5;
             str4 = str3;
             str3 = str2;
-            str2 = str6;
-            str6 = str5;
-            str5 = null;
-            if (str5 != null) {
+            str2 = str9;
+            str5 = str8;
+            str8 = null;
+            if (str8 != null) {
             }
         }
-        if (str5 != null) {
-            this.amO.setText(str4);
-            this.ami.setText(str3);
-            this.bAh.setText(str2);
-            this.bAh.setTag(str2);
-            this.dQP.setText(String.format(TbadkCoreApplication.m9getInst().getContext().getString(w.l.comment_num_tip), new Object[]{str6}));
-            this.bAh.setOnClickListener(this);
-            eZ(str);
-            if (this.eRk != null) {
-                this.eRk.setTag(strArr);
+        if (str8 != null) {
+            this.aoS.setText(str4);
+            this.aof.setText(str3);
+            this.bFy.setText(str2);
+            this.bFy.setTag(str2);
+            this.ebe.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(d.l.comment_num_tip), str5));
+            this.bFy.setOnClickListener(this);
+            fj(str);
+            if (this.feV != null) {
+                this.feV.setTag(strArr);
             }
-            this.eRl.setTag(strArr);
-            this.eRm.setTag(strArr);
+            this.feW.setTag(strArr);
+            this.feX.setTag(strArr);
         }
     }
 
-    private void eZ(String str) {
-        if (eRo != null && !eRo.equals(str)) {
-            eRn = null;
+    private void fj(String str) {
+        if (feZ != null && !feZ.equals(str)) {
+            feY = null;
         }
-        if (eRn != null) {
-            this.eRr.setImageBitmap(eRn.kP());
-            eRo = str;
+        if (feY != null) {
+            this.ffc.setImageBitmap(feY.kX());
+            feZ = str;
             return;
         }
-        this.eRr.a(str, 12, this.eRp, this.eRp, false);
+        this.ffc.a(str, 12, this.ffa, this.ffa, false);
     }
 }

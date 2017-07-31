@@ -1,108 +1,108 @@
 package com.baidu.tbadk.core.view.viewpager;
 
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<v> aod;
-    private List<v> aoe;
-    private boolean aof;
-    private boolean aog;
-    private int aoi;
-    private int aoh = 2;
-    private int aoj = 1;
+    private List<f> aqo;
+    private List<f> aqp;
+    private boolean aqq;
+    private boolean aqr;
+    private int aqt;
+    private int aqs = 2;
+    private int aqu = 1;
 
-    public d(List<v> list, boolean z, int i) {
-        this.aoi = 2;
-        this.aod = list;
-        this.aog = z;
-        this.aoi = i;
-        u(list);
+    public d(List<f> list, boolean z, int i) {
+        this.aqt = 2;
+        this.aqo = list;
+        this.aqr = z;
+        this.aqt = i;
+        w(list);
     }
 
-    public void u(List<v> list) {
-        if (list != null && list.size() >= this.aoh && list.size() <= this.aoi) {
-            this.aof = true;
-        } else if (list.size() > this.aoi && this.aog) {
-            this.aof = true;
+    public void w(List<f> list) {
+        if (list != null && list.size() >= this.aqs && list.size() <= this.aqt) {
+            this.aqq = true;
+        } else if (list.size() > this.aqt && this.aqr) {
+            this.aqq = true;
         } else {
-            this.aof = false;
+            this.aqq = false;
         }
-        this.aoe = xb();
+        this.aqp = xu();
     }
 
-    private List<v> xb() {
+    private List<f> xu() {
         ArrayList arrayList = new ArrayList();
-        if (this.aod != null) {
-            if (this.aof) {
-                if (this.aod.size() > this.aoi && this.aod.size() >= this.aoj) {
-                    arrayList.addAll(this.aod.subList(0, this.aoi));
-                    arrayList.addAll(0, this.aod.subList(this.aoi - this.aoj, this.aoi));
-                    arrayList.addAll(this.aod.subList(0, this.aoj));
+        if (this.aqo != null) {
+            if (this.aqq) {
+                if (this.aqo.size() > this.aqt && this.aqo.size() >= this.aqu) {
+                    arrayList.addAll(this.aqo.subList(0, this.aqt));
+                    arrayList.addAll(0, this.aqo.subList(this.aqt - this.aqu, this.aqt));
+                    arrayList.addAll(this.aqo.subList(0, this.aqu));
                 } else {
-                    arrayList.addAll(this.aod);
-                    arrayList.addAll(0, this.aod.subList(this.aod.size() - this.aoj, this.aod.size()));
-                    arrayList.addAll(this.aod.subList(0, this.aoj));
+                    arrayList.addAll(this.aqo);
+                    arrayList.addAll(0, this.aqo.subList(this.aqo.size() - this.aqu, this.aqo.size()));
+                    arrayList.addAll(this.aqo.subList(0, this.aqu));
                 }
-            } else if (this.aod != null && this.aod.size() > 0 && this.aod.size() >= this.aoj) {
-                arrayList.addAll(this.aod.subList(0, this.aoj));
+            } else if (this.aqo != null && this.aqo.size() > 0 && this.aqo.size() >= this.aqu) {
+                arrayList.addAll(this.aqo.subList(0, this.aqu));
             }
         }
         return arrayList;
     }
 
-    public int du(int i) {
-        if (this.aof) {
-            int size = this.aoe.size();
+    public int dy(int i) {
+        if (this.aqq) {
+            int size = this.aqp.size();
             if (i == 0) {
-                return (size - 1) - this.aoj;
+                return (size - 1) - this.aqu;
             }
-            if (i == size - this.aoj) {
-                return this.aoj;
+            if (i == size - this.aqu) {
+                return this.aqu;
             }
             return i;
         }
         return i;
     }
 
-    public int dv(int i) {
-        if (this.aof) {
-            return i - this.aoj;
+    public int dz(int i) {
+        if (this.aqq) {
+            return i - this.aqu;
         }
         return i;
     }
 
-    public int xc() {
-        if (this.aod == null) {
+    public int xv() {
+        if (this.aqo == null) {
             return 0;
         }
-        return this.aod.size();
+        return this.aqo.size();
     }
 
-    public int xd() {
-        if (this.aof) {
-            return this.aoj;
+    public int xw() {
+        if (this.aqq) {
+            return this.aqu;
         }
         return 0;
     }
 
-    public void dw(int i) {
-        this.aoi = i;
-        u(this.aod);
+    public void dA(int i) {
+        this.aqt = i;
+        w(this.aqo);
     }
 
-    public void dx(int i) {
-        this.aoh = i;
-        u(this.aod);
+    public void dB(int i) {
+        this.aqs = i;
+        w(this.aqo);
     }
 
-    public List<v> xe() {
-        return this.aoe;
+    public List<f> xx() {
+        return this.aqp;
     }
 
-    public void dy(int i) {
-        this.aoj = i;
-        u(this.aod);
+    public void dC(int i) {
+        this.aqu = i;
+        w(this.aqo);
     }
 }

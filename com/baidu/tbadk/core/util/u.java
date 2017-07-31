@@ -1,31 +1,91 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Handler;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import java.util.List;
 /* loaded from: classes.dex */
-public interface u {
-    void a(BasicNameValuePair basicNameValuePair);
+public class u {
+    public static <T> void t(List<T> list) {
+        if (list != null) {
+            list.clear();
+        }
+    }
 
-    boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
+    public static <T> int u(List<T> list) {
+        if (list == null || list.isEmpty()) {
+            return 0;
+        }
+        return list.size();
+    }
 
-    void d(String str, byte[] bArr);
+    public static <T> T c(List<T> list, int i) {
+        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+            return null;
+        }
+        return list.get(i);
+    }
 
-    void fr();
+    public static <T> int a(List<T> list, T t) {
+        if (list == null || list.isEmpty() || t == null) {
+            return -1;
+        }
+        return list.indexOf(t);
+    }
 
-    void fu();
+    public static <T> boolean v(List<T> list) {
+        return u(list) <= 0;
+    }
 
-    void k(ArrayList<BasicNameValuePair> arrayList);
+    public static <T> T d(List<T> list, int i) {
+        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+            return null;
+        }
+        return list.remove(i);
+    }
 
-    void n(String str, String str2);
+    public static <T> boolean b(List<T> list, T t) {
+        if (list == null) {
+            return false;
+        }
+        return list.add(t);
+    }
 
-    byte[] tP();
+    public static <T> boolean a(List<T> list, int i, T t) {
+        if (list == null || i > list.size() || i < 0) {
+            return false;
+        }
+        list.add(i, t);
+        return true;
+    }
 
-    String uA();
+    public static <T> boolean a(List<T> list, int i, List<T> list2) {
+        if (list == null || i > list.size() || i < 0 || list2 == null || list2.size() <= 0) {
+            return false;
+        }
+        list.addAll(i, list2);
+        return true;
+    }
 
-    ArrayList<BasicNameValuePair> ux();
+    public static <T> List<T> a(List<T> list, int i, int i2) {
+        int u = u(list);
+        if (u > 0 && i >= 0 && i2 <= u) {
+            return list.subList(i, i2);
+        }
+        return null;
+    }
 
-    String uy();
+    public static <T> void b(List<T> list, int i, int i2) {
+        int u = u(list);
+        if (u > 0 && i >= 0 && i2 <= u) {
+            t(list.subList(i, i2));
+        }
+    }
 
-    String uz();
+    public static <T> boolean b(List<T> list, List<T> list2) {
+        if (list == list2) {
+            return true;
+        }
+        if (list == null || list2 == null) {
+            return false;
+        }
+        return list.size() == list2.size() && list.containsAll(list2);
+    }
 }

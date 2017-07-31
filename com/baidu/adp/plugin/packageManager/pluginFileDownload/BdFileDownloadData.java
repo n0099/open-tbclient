@@ -12,7 +12,7 @@ public class BdFileDownloadData implements Serializable {
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_NORMAL = 10;
     private static final long serialVersionUID = -3270428328316883061L;
-    private transient a EB;
+    private transient a Ga;
     private String check;
     private String description;
     private int errorCode;
@@ -38,7 +38,7 @@ public class BdFileDownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.EB = null;
+        this.Ga = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
@@ -52,7 +52,7 @@ public class BdFileDownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.EB = null;
+        this.Ga = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
@@ -67,13 +67,13 @@ public class BdFileDownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.EB = null;
+        this.Ga = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.EB = aVar;
+        this.Ga = aVar;
         this.status = 1;
     }
 
@@ -174,11 +174,11 @@ public class BdFileDownloadData implements Serializable {
     }
 
     public a getCallback() {
-        return this.EB;
+        return this.Ga;
     }
 
     public void setCallback(a aVar) {
-        this.EB = aVar;
+        this.Ga = aVar;
     }
 
     public String getStatusMsg() {

@@ -2,41 +2,31 @@ package com.baidu.tieba.frs;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.InjectPlugin.a.a;
-import com.baidu.tieba.InjectPlugin.a.b;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 /* loaded from: classes.dex */
-public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c, b {
-    private FragmentTransaction bST;
-    private r cbE;
-    private FragmentManager mFragmentManager;
+public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsCommonImageLayout.c {
+    private com.baidu.tieba.frs.gametab.b cis;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.cbE == null) {
-            this.cbE = new r();
-            this.cbE.setArguments(bundle);
-            this.mFragmentManager = getSupportFragmentManager();
-            this.bST = this.mFragmentManager.beginTransaction();
-            this.bST.add(16908290, this.cbE);
-            this.bST.commitAllowingStateLoss();
-        }
+        this.cis = new com.baidu.tieba.frs.gametab.b(this);
+        this.cis.h(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.cbE != null) {
-            this.cbE.onNewIntent(intent);
+        if (this.cis != null) {
+            this.cis.onNewIntent(intent);
         }
     }
 
@@ -44,8 +34,8 @@ public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c,
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.cbE != null) {
-            this.cbE.setPrimary(true);
+        if (this.cis != null) {
+            this.cis.onResume();
         }
     }
 
@@ -53,8 +43,8 @@ public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c,
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.cbE != null) {
-            this.cbE.setPrimary(false);
+        if (this.cis != null) {
+            this.cis.onPause();
         }
     }
 
@@ -62,48 +52,44 @@ public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c,
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
+        if (this.cis != null) {
+            this.cis.onSaveInstanceState(bundle);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        if (this.cbE != null) {
-            this.cbE.onChangeSkinType(i);
+    protected void onChangeSkinType(int i) {
+        if (this.cis != null) {
+            this.cis.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public boolean getGpuSwitch() {
-        return TbadkCoreApplication.m9getInst().isGpuOpen();
-    }
-
-    public r adz() {
-        return this.cbE;
+        return TbadkCoreApplication.getInst().isGpuOpen();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
-            if (this.cbE != null && !this.cbE.onKeyDown(i, keyEvent)) {
-                this.cbE.closeActivity();
-            }
-            return true;
-        }
+        return this.cis != null ? this.cis.onKeyDown(i, keyEvent) : super.onKeyDown(i, keyEvent);
+    }
+
+    public boolean a(int i, KeyEvent keyEvent) {
         return super.onKeyDown(i, keyEvent);
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.cbE != null) {
-            this.cbE.onActivityResult(i, i2, intent);
+        if (this.cis != null) {
+            this.cis.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.cbE != null) {
-            return this.cbE.getVoiceManager();
+        if (this.cis != null) {
+            return this.cis.getVoiceManager();
         }
         return null;
     }
@@ -114,24 +100,39 @@ public class FrsActivity extends BaseFragmentActivity implements VoiceManager.c,
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
-    public void a(int i, a aVar) {
-        if (this.cbE instanceof b) {
-            this.cbE.a(i, aVar);
+    public void a(int i, com.baidu.tieba.InjectPlugin.a.a aVar) {
+        if (this.cis instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            this.cis.a(i, aVar);
         }
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
-    public a fD(int i) {
-        if (this.cbE instanceof b) {
-            return this.cbE.fD(i);
+    public com.baidu.tieba.InjectPlugin.a.a fI(int i) {
+        if (this.cis instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            return this.cis.fI(i);
         }
         return null;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
     public void a(com.baidu.tieba.InjectPlugin.b bVar) {
-        if (this.cbE instanceof b) {
-            this.cbE.a(bVar);
+        if (this.cis instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            this.cis.a(bVar);
         }
+    }
+
+    public f aeD() {
+        if (this.cis == null) {
+            return null;
+        }
+        return this.cis.aeD();
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
+    public com.baidu.adp.lib.e.b<TbImageView> aeE() {
+        if (this.cis != null) {
+            return this.cis.aeE();
+        }
+        return null;
     }
 }

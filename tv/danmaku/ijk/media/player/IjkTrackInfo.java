@@ -35,7 +35,7 @@ public class IjkTrackInfo implements ITrackInfo {
     }
 
     public String toString() {
-        return String.valueOf(getClass().getSimpleName()) + '{' + getInfoInline() + "}";
+        return getClass().getSimpleName() + '{' + getInfoInline() + "}";
     }
 
     @Override // tv.danmaku.ijk.media.player.ITrackInfo

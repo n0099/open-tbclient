@@ -1,126 +1,77 @@
 package com.baidu.adp.lib.cache;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.cache.f;
-import com.baidu.adp.lib.cache.o;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes.dex */
-public class p<T> implements o.d<T> {
-    private boolean tP = false;
-    protected final n<T> tQ;
-    protected final String tw;
+public class p {
+    private final com.baidu.adp.base.a.b uO;
 
-    public p(String str, n<T> nVar) {
-        this.tw = str;
-        this.tQ = nVar;
+    public p(Context context, com.baidu.adp.base.a.b bVar) {
+        this.uO = bVar;
     }
 
-    @Override // com.baidu.adp.lib.cache.o
-    public T get(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.hz()) {
-            if (this.tP) {
-                throw new RuntimeException("access db in main thread!");
+    public h ae(String str) {
+        Cursor cursor;
+        try {
+            cursor = this.uO.cs().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+        } catch (Throwable th) {
+            th = th;
+            cursor = null;
+        }
+        try {
+        } catch (Throwable th2) {
+            th = th2;
+            try {
+                this.uO.a(th, "get");
+                com.baidu.adp.lib.g.a.e(cursor);
+                return null;
+            } finally {
+                com.baidu.adp.lib.g.a.e(cursor);
             }
-            BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.tQ.k(this.tw, str);
+        if (cursor.moveToNext()) {
+            h hVar = new h();
+            hVar.vb = cursor.getString(0);
+            hVar.uP = cursor.getString(1);
+            hVar.maxSize = cursor.getInt(2);
+            hVar.vf = cursor.getString(3);
+            hVar.vg = cursor.getInt(4);
+            hVar.vh = cursor.getLong(5);
+            return hVar;
+        }
+        return null;
     }
 
-    @Override // com.baidu.adp.lib.cache.o
-    public o.c<T> U(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.hz()) {
-            if (this.tP) {
-                throw new RuntimeException("access db in main thread!");
+    public void a(h hVar) {
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("nameSpace", hVar.vb);
+            contentValues.put("tableName", hVar.uP);
+            contentValues.put("maxSize", Integer.valueOf(hVar.maxSize));
+            contentValues.put("cacheVersion", Integer.valueOf(hVar.vg));
+            contentValues.put("cacheType", hVar.vf);
+            contentValues.put("lastActiveTime", Long.valueOf(hVar.vh));
+            SQLiteDatabase cs = this.uO.cs();
+            if (cs != null && cs.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{hVar.vb}) == 0) {
+                cs.insert("cache_meta_info", null, contentValues);
             }
-            BdLog.detailException("access db in main thread!", new Exception());
+        } catch (Throwable th) {
+            this.uO.a(th, "addOrUpdate");
         }
-        return this.tQ.l(this.tw, str);
     }
 
-    @Override // com.baidu.adp.lib.cache.o
-    public void a(String str, T t, long j) {
-        if (str == null) {
-            throw new NullPointerException("BdKVCache key cannot be null!");
-        }
-        long currentTimeMillis = j <= 315532800000L ? j + System.currentTimeMillis() : j;
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.hz()) {
-            if (this.tP) {
-                throw new RuntimeException("access db in main thread!");
+    public int af(String str) {
+        try {
+            if (ae(str) == null) {
+                return 0;
             }
-            BdLog.detailException("access db in main thread!", new Exception());
+            return this.uO.cs().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+        } catch (Throwable th) {
+            this.uO.a(th, WriteImageActivityConfig.DELET_FLAG);
+            return 0;
         }
-        if (currentTimeMillis <= System.currentTimeMillis()) {
-            remove(str);
-        } else {
-            this.tQ.a(this.tw, str, t, currentTimeMillis);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.cache.o
-    public void k(String str, T t) {
-        a(str, t, 315532800000L);
-    }
-
-    @Override // com.baidu.adp.lib.cache.o
-    public void remove(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.hz()) {
-            if (this.tP) {
-                throw new RuntimeException("access db in main thread!");
-            }
-            BdLog.detailException("access db in main thread!", new Exception());
-        }
-        this.tQ.m(this.tw, str);
-    }
-
-    @Override // com.baidu.adp.lib.cache.o
-    public void a(String str, o.a<T> aVar) {
-        com.baidu.adp.lib.g.k.fS().f(new q(this, str, aVar));
-    }
-
-    @Override // com.baidu.adp.lib.cache.o
-    public void a(String str, o.b<T> bVar) {
-        com.baidu.adp.lib.g.k.fS().f(new r(this, str, bVar));
-    }
-
-    @Override // com.baidu.adp.lib.cache.o
-    public void b(String str, T t, long j) {
-        com.baidu.adp.lib.g.k.fS().f(new s(this, str, t, j));
-    }
-
-    @Override // com.baidu.adp.lib.cache.o
-    public void l(String str, T t) {
-        b(str, t, 315532800000L);
-    }
-
-    @Override // com.baidu.adp.lib.cache.o
-    public void V(String str) {
-        com.baidu.adp.lib.g.k.fS().f(new t(this, str));
-    }
-
-    @Override // com.baidu.adp.lib.cache.o.d
-    public String eJ() {
-        return this.tw;
-    }
-
-    @Override // com.baidu.adp.lib.cache.o.d
-    public n<T> eK() {
-        return this.tQ;
-    }
-
-    public void eM() {
-        this.tQ.T(this.tw);
-    }
-
-    protected void eN() {
-        f ez = eK().ez();
-        if (ez instanceof f.b) {
-            ((f.b) ez).release();
-        }
-    }
-
-    @Override // com.baidu.adp.lib.cache.o.d
-    public void eL() {
-        this.tQ.S(this.tw);
-        eN();
     }
 }

@@ -2,28 +2,28 @@ package com.baidu.tbadk.editortools.imagetool;
 
 import android.content.Context;
 import android.widget.TextView;
-import com.baidu.tbadk.editortools.x;
+import com.baidu.tbadk.editortools.r;
 /* loaded from: classes.dex */
-public class b extends x {
+public class b extends r {
     public b(Context context) {
         super(context, (String) null, 11);
-        this.aAA = true;
-        this.aAz = 6;
-        this.azL = c.k(context, 10);
-        this.aAB = new int[]{12, 13, 9};
+        this.aCR = true;
+        this.aCQ = 6;
+        this.aCc = c.k(context, 10);
+        this.aCS = new int[]{12, 13, 9};
     }
 
     public b(Context context, int i) {
         super(context, (String) null, 11);
-        this.aAA = true;
-        this.aAz = 6;
-        this.azL = c.k(context, i);
-        this.aAB = new int[]{12, 13, 9};
+        this.aCR = true;
+        this.aCQ = 6;
+        this.aCc = c.k(context, i);
+        this.aCS = new int[]{12, 13, 9};
     }
 
-    public void eG(int i) {
-        if (this.azL != null) {
-            MultiImgToolView multiImgToolView = (MultiImgToolView) this.azL;
+    public void eK(int i) {
+        if (this.aCc != null) {
+            MultiImgToolView multiImgToolView = (MultiImgToolView) this.aCc;
             if (i == 1) {
                 multiImgToolView.getDragHorizonScrollView().setCenterStart(true);
             } else {
@@ -33,16 +33,16 @@ public class b extends x {
         }
     }
 
-    public void fD(String str) {
+    public void fN(String str) {
         TextView mutiImageTips;
-        if (this.azL != null && (mutiImageTips = ((MultiImgToolView) this.azL).getMutiImageTips()) != null) {
+        if (this.aCc != null && (mutiImageTips = ((MultiImgToolView) this.aCc).getMutiImageTips()) != null) {
             mutiImageTips.setText(str);
         }
     }
 
-    public void fE(String str) {
-        if (this.azL instanceof MultiImgToolView) {
-            ((MultiImgToolView) this.azL).setNoPicTips(str);
+    public void fO(String str) {
+        if (this.aCc instanceof MultiImgToolView) {
+            ((MultiImgToolView) this.aCc).setNoPicTips(str);
         }
     }
 }

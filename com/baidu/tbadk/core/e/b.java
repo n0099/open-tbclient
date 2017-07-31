@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a acS = null;
+    private static a aeK = null;
 
     public static void i(Context context, int i) {
-        if (acS != null) {
-            acS.i(context, i);
+        if (aeK != null) {
+            aeK.i(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (acS != null) {
-            acS.b(context, i, z);
+        if (aeK != null) {
+            aeK.b(context, i, z);
         }
     }
 
-    public static void ay(Context context) {
-        if (acS != null) {
-            acS.ay(context);
+    public static void az(Context context) {
+        if (aeK != null) {
+            aeK.az(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (acS != null) {
-            acS.c(context, i, z);
+        if (aeK != null) {
+            aeK.c(context, i, z);
         }
     }
 
-    public static Class<?> uf() {
-        if (acS == null) {
+    public static Class<?> uw() {
+        if (aeK == null) {
             return null;
         }
-        return acS.uf();
+        return aeK.uw();
     }
 
-    public static String ug() {
-        if (acS == null) {
+    public static String ux() {
+        if (aeK == null) {
             return null;
         }
-        return acS.ug();
+        return aeK.ux();
     }
 
     public static void a(a aVar) {
-        acS = aVar;
+        aeK = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (acS == null) {
+        if (aeK == null) {
             return -1;
         }
-        return acS.getCurrentTabType();
+        return aeK.getCurrentTabType();
     }
 }

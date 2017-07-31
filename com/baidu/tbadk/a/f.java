@@ -5,5 +5,5 @@ import java.util.HashMap;
 public interface f {
     h a(Object obj, HashMap<String, String> hashMap, String str);
 
-    void a(Object obj, HashMap<String, String> hashMap, String str, com.baidu.adp.base.f fVar);
+    void a(Object obj, HashMap<String, String> hashMap, String str, com.baidu.adp.base.d dVar);
 }

@@ -1,40 +1,39 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
 /* loaded from: classes.dex */
-public class k implements v {
-    public static final BdUniqueId ayI = BdUniqueId.gen();
-    private String ayJ;
-    private String ayK;
-    private boolean ayL = false;
+public class k implements com.baidu.adp.widget.ListView.f {
+    public static final BdUniqueId aAZ = BdUniqueId.gen();
+    private String aBa;
+    private String aBb;
+    private boolean aBc = false;
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return ayI;
+        return aAZ;
     }
 
-    public String Ci() {
-        return this.ayJ;
+    public String CC() {
+        return this.aBa;
     }
 
-    public void fm(String str) {
-        this.ayJ = str;
+    public void fw(String str) {
+        this.aBa = str;
     }
 
     public String getSmallUrl() {
-        return this.ayK;
+        return this.aBb;
     }
 
-    public void fn(String str) {
-        this.ayK = str;
+    public void fx(String str) {
+        this.aBb = str;
     }
 
-    public boolean Cj() {
-        return this.ayL;
+    public boolean CD() {
+        return this.aBc;
     }
 
-    public void bu(boolean z) {
-        this.ayL = z;
+    public void bx(boolean z) {
+        this.aBc = z;
     }
 }

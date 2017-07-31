@@ -3,24 +3,24 @@ package com.baidu.tbadk.core.hybrid.a;
 import android.content.ClipboardManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tbadk.core.hybrid.s;
-import com.baidu.tbadk.core.hybrid.w;
-import com.baidu.tbadk.core.hybrid.x;
+import com.baidu.tbadk.core.hybrid.p;
+import com.baidu.tbadk.core.hybrid.t;
+import com.baidu.tbadk.core.hybrid.u;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends w {
-    public a(s sVar) {
-        super(sVar);
+public class a extends t {
+    public a(p pVar) {
+        super(pVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.hybrid.w
-    public String nT() {
+    @Override // com.baidu.tbadk.core.hybrid.t
+    public String oh() {
         return "TBHY_COMMON_Clipboard";
     }
 
-    @x("copy")
+    @u("copy")
     protected JSONObject copyToClipboard(JSONObject jSONObject) throws JSONException {
         JSONObject jSONObject2 = new JSONObject();
         if (jSONObject != null) {

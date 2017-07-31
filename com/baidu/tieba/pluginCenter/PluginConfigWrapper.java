@@ -1,8 +1,9 @@
 package com.baidu.tieba.pluginCenter;
 
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
+import com.baidu.tbadk.mvc.b.a;
 /* loaded from: classes2.dex */
-public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig implements com.baidu.tbadk.mvc.b.a {
+public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig implements a {
     public static final int DOWNLOADED_BUT_FORBIDDEN = 1;
     public static final int DOWNLOADED_NOT_FORBIDDEN = 2;
     public static final int DOWNLOADING = 3;

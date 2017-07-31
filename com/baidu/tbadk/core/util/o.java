@@ -1,49 +1,32 @@
 package com.baidu.tbadk.core.util;
 
-import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CookeryGodHallActivityConfig;
-import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class o {
-    public static int dB(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            if (str.startsWith("game:detail")) {
-                return 1;
-            }
-            if (str.startsWith("game:cookerygod") || str.endsWith("tieba.baidu.com/mo/q/gameszone?kw=food")) {
-                return 3;
-            }
-            if (str.startsWith("http")) {
-                return 2;
-            }
-        }
-        return 0;
-    }
+public abstract class o {
+    public static o agb = null;
 
-    public static void a(TbPageContext<?> tbPageContext, String str) {
-        if (tbPageContext != null && tbPageContext.getPageActivity() != null && !StringUtils.isNull(str)) {
-            PluginPackageManager.PluginStatus bn = PluginPackageManager.jw().bn("com.baidu.tieba.pluginCookeryGod");
-            if (TbadkCoreApplication.m9getInst().getIntentClass(CookeryGodHallActivityConfig.class) != null && bn != PluginPackageManager.PluginStatus.FORBIDDEN) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CookeryGodHallActivityConfig(tbPageContext.getPageActivity())));
-            } else if (bn == PluginPackageManager.PluginStatus.NROMAL) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CookeryGodHallActivityConfig(tbPageContext.getPageActivity())));
-            } else if (bn == PluginPackageManager.PluginStatus.UNINSTALLED || bn == PluginPackageManager.PluginStatus.DISABLE) {
-                if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jS().jT() != null && com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jS().jT().getPluginConfig("com.baidu.tieba.pluginCookeryGod") == null) {
-                    tbPageContext.showToast(w.l.plugin_config_no_tip);
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(tbPageContext.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));
+    public abstract com.baidu.tbadk.core.data.l getmCdnLogData();
+
+    public abstract void insertErrorData(int i, String str);
+
+    public abstract void insertNormalData(long j, String str);
+
+    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.l lVar);
+
+    public static o getInstance() {
+        if (agb == null) {
+            synchronized (o.class) {
+                if (agb == null) {
+                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, o.class);
+                    if (runTask != null && runTask.getData() != null) {
+                        agb = (o) runTask.getData();
+                    }
+                    return agb;
                 }
-            } else if (bn == PluginPackageManager.PluginStatus.FORBIDDEN) {
-                com.baidu.tbadk.coreExtra.d.a.a(tbPageContext, w.l.plugin_cookery_god_forbidden, new p(tbPageContext), new q());
             }
         }
+        return agb;
     }
 }

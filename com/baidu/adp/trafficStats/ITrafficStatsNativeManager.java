@@ -6,28 +6,35 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class ITrafficStatsNativeManager extends OrmObject {
-    private static volatile ITrafficStatsNativeManager FA = null;
-    private static ArrayList<a> FB = new ArrayList<>();
+    private static volatile ITrafficStatsNativeManager GZ = null;
+    private static ArrayList<a> Ha = new ArrayList<>();
 
     public abstract void a(String str, long j, long j2, String str2);
 
-    public static ITrafficStatsNativeManager kl() {
-        if (FA == null) {
+    public static ITrafficStatsNativeManager ku() {
+        if (GZ == null) {
             BdLog.e("trafficStatsManaer");
-            FA = new com.baidu.adp.trafficStats.a();
+            GZ = new ITrafficStatsNativeManager() { // from class: com.baidu.adp.trafficStats.ITrafficStatsNativeManager.1
+                @Override // com.baidu.adp.trafficStats.ITrafficStatsNativeManager
+                public void a(String str, long j, long j2, String str2) {
+                    if (ITrafficStatsNativeManager.Ha.size() < 30) {
+                        ITrafficStatsNativeManager.Ha.add(new a(str, j, j2, str2));
+                    }
+                }
+            };
         }
-        return FA;
+        return GZ;
     }
 
     public static void a(ITrafficStatsNativeManager iTrafficStatsNativeManager) {
-        FA = iTrafficStatsNativeManager;
-        if (FA != null) {
-            Iterator<a> it = FB.iterator();
+        GZ = iTrafficStatsNativeManager;
+        if (GZ != null) {
+            Iterator<a> it = Ha.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                FA.a(next.contentType, next.FC, next.FD, next.url);
+                GZ.a(next.contentType, next.Hb, next.Hc, next.url);
             }
-            FB.clear();
+            Ha.clear();
         }
     }
 
@@ -35,18 +42,17 @@ public abstract class ITrafficStatsNativeManager extends OrmObject {
         a(str, j, j2, null);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class a {
-        public long FC;
-        public long FD;
+    class a {
+        public long Hb;
+        public long Hc;
         public String contentType;
         public String url;
 
         public a(String str, long j, long j2, String str2) {
             this.contentType = str;
-            this.FC = j;
-            this.FD = j2;
+            this.Hb = j;
+            this.Hc = j2;
             this.url = str2;
         }
     }

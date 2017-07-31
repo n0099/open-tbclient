@@ -1,5 +1,6 @@
 package com.baidu.tieba.compatible;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -91,6 +92,7 @@ public final class StatusBarUtil {
         return false;
     }
 
+    @TargetApi(19)
     void processKitkat() {
         WindowManager.LayoutParams attributes = this.window.getAttributes();
         if (this.transparentStatusBar) {
@@ -137,6 +139,7 @@ public final class StatusBarUtil {
         }
     }
 
+    @TargetApi(21)
     private boolean processLollipopAbove() {
         if (Build.VERSION.SDK_INT < 23) {
             return false;

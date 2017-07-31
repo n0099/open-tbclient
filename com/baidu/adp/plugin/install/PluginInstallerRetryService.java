@@ -13,6 +13,6 @@ public class PluginInstallerRetryService extends HighPriorityIntentService {
 
     @Override // com.baidu.adp.plugin.install.HighPriorityIntentService
     protected void onHandleIntent(Intent intent) {
-        l.onHandleIntent(intent);
+        d.onHandleIntent(intent);
     }
 }

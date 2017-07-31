@@ -1,40 +1,60 @@
 package com.baidu.tieba.personPolymeric.d;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.au;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    final /* synthetic */ e eXs;
+public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.h> {
+    private TbImageView dTa;
+    private View flm;
+    private View mRootView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.eXs = eVar;
+    public f(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        this.mRootView = getView();
+        this.dTa = (TbImageView) this.mRootView.findViewById(d.h.center_image);
+        this.flm = this.mRootView.findViewById(d.h.more_view_container);
+    }
+
+    @Override // com.baidu.tieba.card.a
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        if (this.mSkinType != i) {
+            this.mSkinType = i;
+            ai.c(this.dTa, d.g.icon_mine_more);
+            ai.j(this.mRootView, d.g.btn_look_more_selector);
+        }
+    }
+
+    @Override // com.baidu.tieba.card.a
+    public int getLayout() {
+        return d.j.card_more_item;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.a
+    public void a(com.baidu.tieba.personPolymeric.c.h hVar) {
+        if (hVar == null) {
+            this.mRootView.setVisibility(8);
+        }
+        ViewGroup.LayoutParams layoutParams = this.flm.getLayoutParams();
+        if (layoutParams != null) {
+            if (layoutParams.width > 0) {
+                layoutParams.width = hVar.width;
+            }
+            if (layoutParams.height > 0) {
+                layoutParams.height = hVar.height;
+            }
+        }
+        this.flm.setLayoutParams(layoutParams);
+        this.mRootView.setVisibility(0);
+        d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean z;
-        TbPageContext tbPageContext;
-        if (view != null) {
-            z = this.eXs.boT;
-            if (!z) {
-                TiebaStatic.log(new au("c11595"));
-            }
-            if (view.getTag() instanceof UserData) {
-                UserData userData = (UserData) view.getTag();
-                MessageManager messageManager = MessageManager.getInstance();
-                tbPageContext = this.eXs.ajP;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), null, AddFriendActivityConfig.TYPE_FOCUS)));
-            }
-        }
     }
 }

@@ -1,41 +1,58 @@
 package com.baidu.tieba.write.bottomButton;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class WriteThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
+public class WriteThreadDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
         return true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c Ey() {
+    public c EW() {
         c cVar = new c();
-        cVar.aFj = new b();
+        cVar.aHG = new a();
         cVar.type = 9;
-        cVar.aFk = w.l.home_write;
-        cVar.aFl = w.g.home_bottom_selector;
-        cVar.aFp = c.aFm;
+        cVar.aHH = d.l.home_write;
+        cVar.aHI = d.g.home_bottom_selector;
+        cVar.aHM = c.aHJ;
         return cVar;
     }
 
     static {
-        a aVar = new a(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
-        aVar.setPriority(3);
-        MessageManager.getInstance().registerListener(aVar);
+        CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                c EX;
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
+                    WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
+                    ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
+                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (EX = writeThreadDelegateStatic.EX()) != null) {
+                        EX.aHG.setArguments(new Bundle());
+                    }
+                }
+            }
+        };
+        customMessageListener.setPriority(3);
+        MessageManager.getInstance().registerListener(customMessageListener);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator aS(Context context) {
-        this.aEW = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
-        this.aEW.setTextSize(2.0f);
-        return this.aEW;
+    public FragmentTabIndicator aT(Context context) {
+        this.aHt = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+        this.aHt.setTextSize(2.0f);
+        return this.aHt;
     }
 }

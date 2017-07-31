@@ -1,63 +1,65 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.pb.pb.main.ew;
+import android.content.Context;
+import android.content.Intent;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.card.m;
+import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class ap implements ew.a {
-    final /* synthetic */ PbActivity ewh;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(PbActivity pbActivity) {
-        this.ewh = pbActivity;
+public class ap {
+    public static Intent ah(Context context, String str) {
+        if (TextUtils.isEmpty(str) || context == null) {
+            return null;
+        }
+        Intent intent = new Intent(context, DealIntentService.class);
+        intent.putExtra("class", 1);
+        intent.putExtra("id", str);
+        intent.putExtra("from", "nas");
+        return intent;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.ew.a
-    public void ci(List<PostData> list) {
-        PbModel pbModel;
-        gg ggVar;
-        PbModel pbModel2;
-        gg ggVar2;
-        gg ggVar3;
-        gg ggVar4;
-        PbModel pbModel3;
-        PbModel pbModel4;
-        PbModel pbModel5;
-        PbModel pbModel6;
-        pbModel = this.ewh.eue;
-        if (pbModel.getPbData().aMF() != null) {
-            pbModel3 = this.ewh.eue;
-            List<PostData> list2 = pbModel3.getPbData().aMF().ess;
-            int size = list2.size();
-            if (!com.baidu.tbadk.core.util.z.t(list2)) {
-                pbModel6 = this.ewh.eue;
-                pbModel6.getPbData().aMF().ess.addAll(size, list);
-            }
-            pbModel4 = this.ewh.eue;
-            pbModel5 = this.ewh.eue;
-            pbModel4.a(pbModel5.getPbData(), size);
+    public static boolean k(PostData postData) {
+        if (postData == null || postData.bsG() == null) {
+            return false;
         }
-        ggVar = this.ewh.euU;
-        dc aQs = ggVar.aQs();
-        pbModel2 = this.ewh.eue;
-        aQs.a(pbModel2.getPbData(), true);
-        ggVar2 = this.ewh.euU;
-        if (ggVar2 != null) {
-            ggVar3 = this.ewh.euU;
-            if (ggVar3.aQs() != null) {
-                ggVar4 = this.ewh.euU;
-                ggVar4.aQs().notifyDataSetChanged();
-            }
+        com.baidu.tieba.tbadkCore.data.h bsG = postData.bsG();
+        if (bsG.ghv) {
+            int bsf = bsG.bsf();
+            return bsf == 2 || bsf == 1 || bsf == 3;
         }
+        return false;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.ew.a
-    public void h(int i, String str, String str2) {
-        gg ggVar;
-        if (!StringUtils.isNull(str)) {
-            ggVar = this.ewh.euU;
-            ggVar.showToast(str);
+    public static SpannableStringBuilder i(Context context, String str, String str2) {
+        ArrayList arrayList = new ArrayList();
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        if (str2 != null && str != null) {
+            arrayList.add(new m.a(str));
+            return com.baidu.tieba.card.m.a(context, str2, (ArrayList<m.a>) arrayList, true);
         }
+        return spannableStringBuilder;
+    }
+
+    public static String a(MetaData metaData) {
+        if (metaData == null || metaData.getGodUserData() == null) {
+            return "";
+        }
+        String forumName = metaData.getGodUserData().getForumName();
+        String godIntro = metaData.getGodIntro();
+        if (metaData.getGodUserData().getType() != 2 || TextUtils.isEmpty(forumName)) {
+            return getString(d.l.user_certification_intro, godIntro);
+        }
+        return getString(d.l.user_certification_intro_with_barname, UtilHelper.getForumNameWithBar(forumName), godIntro);
+    }
+
+    public static String getString(int i, Object... objArr) {
+        return TbadkCoreApplication.getInst().getString(i, objArr);
     }
 }

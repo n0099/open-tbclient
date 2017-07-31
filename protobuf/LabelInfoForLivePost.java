@@ -14,10 +14,6 @@ public final class LabelInfoForLivePost extends Message {
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String labelId;
 
-    /* synthetic */ LabelInfoForLivePost(Builder builder, boolean z, LabelInfoForLivePost labelInfoForLivePost) {
-        this(builder, z);
-    }
-
     private LabelInfoForLivePost(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -65,7 +61,7 @@ public final class LabelInfoForLivePost extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public LabelInfoForLivePost build(boolean z) {
-            return new LabelInfoForLivePost(this, z, null);
+            return new LabelInfoForLivePost(this, z);
         }
     }
 }

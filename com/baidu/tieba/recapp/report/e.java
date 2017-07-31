@@ -1,93 +1,96 @@
 package com.baidu.tieba.recapp.report;
 
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.tbadkCore.data.AppData;
-import com.baidu.tieba.tbadkCore.data.o;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class e {
-    public static a c(AdvertAppInfo advertAppInfo, int i, int i2) {
-        if (advertAppInfo == null) {
-            return null;
+public class e implements c {
+    private TbHttpMessageTask fIK;
+    private HttpMessageListener bAp = new HttpMessageListener(CmdConfigHttp.CMD_AD_UPLOAD) { // from class: com.baidu.tieba.recapp.report.e.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003062) {
+                if (!(httpResponsedMessage.getError() == 0)) {
+                    Message<?> orginalMessage = httpResponsedMessage.getOrginalMessage();
+                    if (orginalMessage instanceof AdUploadHttpRequest) {
+                        e.this.cZ(((AdUploadHttpRequest) orginalMessage).getDataArray());
+                    }
+                }
+            }
         }
-        a aVar = new a();
-        aVar.rD(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
-        aVar.rC(i);
-        aVar.qG(advertAppInfo.price);
-        aVar.qE(advertAppInfo.extensionInfo);
-        aVar.setPageNumber(i2);
-        aVar.qI(advertAppInfo.Tg);
-        aVar.qJ(advertAppInfo.Th);
-        aVar.qK(advertAppInfo.Ti);
-        aVar.qL(advertAppInfo.Sz);
-        return aVar;
+    };
+    private ArrayList<a> fIL = new ArrayList<>();
+
+    public e() {
+        aIW();
+        MessageManager.getInstance().registerListener(this.bAp);
     }
 
-    public static a a(DownloadStaticsData downloadStaticsData, int i, int i2) {
-        if (downloadStaticsData == null) {
-            return null;
+    private void aIW() {
+        this.fIK = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
+        this.fIK.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.fIK.setIsNeedAddCommenParam(true);
+        this.fIK.setResponsedClass(JsonHttpResponsedMessage.class);
+    }
+
+    @Override // com.baidu.tieba.recapp.report.c
+    public void b(a aVar) {
+        if (aVar != null) {
+            com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            if (!(adAdSense == null || adAdSense.xV())) {
+                this.fIK.setUrl("http://als.baidu.com/clog/clog");
+            }
+            d(aVar);
+            biq();
         }
-        a aVar = new a();
-        aVar.setDownloadStaticsData(downloadStaticsData);
-        aVar.rC(i);
-        aVar.setPageNumber(i2);
-        return aVar;
     }
 
-    public static a P(int i, int i2, int i3) {
-        a aVar = new a();
-        aVar.rC(i);
-        aVar.rD(i2);
-        aVar.setPageNumber(i3);
-        return aVar;
+    @Override // com.baidu.tieba.recapp.report.c
+    public void bip() {
+        biq();
     }
 
-    public static a c(o oVar, int i) {
-        if (oVar == null || oVar.bmj() == null) {
-            return null;
+    @Override // com.baidu.tieba.recapp.report.c
+    public void c(a aVar) {
+        if (aVar != null) {
+            d(aVar);
         }
-        AppData bmj = oVar.bmj();
-        a aVar = new a();
-        aVar.rD(com.baidu.adp.lib.g.b.g(bmj.pos_name, 0));
-        aVar.qE(bmj.ext_info);
-        aVar.setPageNumber(oVar.pageNumber);
-        aVar.rC(i);
-        aVar.qG(bmj.price);
-        aVar.qI(oVar.Tg);
-        aVar.qJ(oVar.Th);
-        aVar.qK(oVar.forumId);
-        aVar.qL("PB");
-        return aVar;
     }
 
-    public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4, int i5) {
-        a c = c(advertAppInfo, i, i2);
-        c.rE(i3);
-        c.rG(i4);
-        c.rF(i5);
-        c.qL(advertAppInfo.Sz);
-        if (i == 2) {
-            c.qH("video");
+    private void biq() {
+        if (u.u(this.fIL) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.fIL), this.fIK);
+            this.fIL.clear();
         }
-        return c;
     }
 
-    public static a h(String str, int i, String str2) {
-        return a(str, i, str2, "");
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cZ(List<a> list) {
+        if (u.u(list) > 0) {
+            for (a aVar : list) {
+                if (aVar != null) {
+                    d(aVar);
+                }
+            }
+        }
     }
 
-    public static a a(String str, int i, String str2, String str3) {
-        a aVar = new a();
-        aVar.rC(i);
-        aVar.qF(str2);
-        aVar.qL("HOMEPAGE");
-        aVar.qE(str);
-        aVar.qM(str3);
-        return aVar;
-    }
-
-    public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
-        a c = c(advertAppInfo, i, i2);
-        c.rE(i3);
-        return c;
+    private void d(a aVar) {
+        if (aVar != null) {
+            if (u.u(this.fIL) >= 20) {
+                this.fIL.remove(0);
+            }
+            this.fIL.add(aVar);
+        }
     }
 }

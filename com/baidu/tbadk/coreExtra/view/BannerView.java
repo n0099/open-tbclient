@@ -8,54 +8,94 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.k;
 import com.baidu.sapi2.SapiSafeFacade;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.data.x;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
+import com.baidu.tieba.recapp.s;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private TbPageContext<?> aat;
-    private String atB;
-    private String atC;
-    protected Button atD;
-    protected TbImageView atE;
-    private TbImageView atF;
-    private View atG;
-    private boolean atH;
-    private float atI;
-    private boolean atJ;
-    private com.baidu.tbadk.core.data.y atK;
-    private a atL;
-    View.OnClickListener atM;
+    private TbPageContext<?> acp;
+    private String avK;
+    private String avL;
+    protected Button avM;
+    protected TbImageView avN;
+    private TbImageView avO;
+    private View avP;
+    private boolean avQ;
+    private float avR;
+    private boolean avS;
+    private x avT;
+    private a avU;
+    View.OnClickListener avV;
     private String link;
     private String type;
 
     /* loaded from: classes.dex */
     public interface a {
-        void AN();
+        void Bg();
 
-        void AO();
+        void Bh();
     }
 
     public void setBannerType(String str) {
         this.type = str;
     }
 
-    public void setBannerData(com.baidu.tbadk.core.data.y yVar) {
-        this.atK = yVar;
-        com.baidu.tieba.recapp.ad.a(this.atK.UX, this.atF, this.atK.UY, com.baidu.adp.lib.util.k.g(getContext(), w.f.ds26));
+    public void setBannerData(x xVar) {
+        this.avT = xVar;
+        s.a(this.avT.WJ, this.avO, this.avT.WK, k.g(getContext(), d.f.ds26));
     }
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.atB = "";
-        this.atC = "";
-        this.atH = false;
-        this.atI = 0.16875f;
-        this.atJ = false;
-        this.atM = new com.baidu.tbadk.coreExtra.view.a(this);
+        this.avK = "";
+        this.avL = "";
+        this.avQ = false;
+        this.avR = 0.16875f;
+        this.avS = false;
+        this.avV = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.BannerView.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (view == BannerView.this.avM) {
+                    if (!TextUtils.isEmpty(BannerView.this.avL)) {
+                        TiebaStatic.log(BannerView.this.avL);
+                    }
+                    BannerView.this.avQ = true;
+                    BannerView.this.setVisibility(8);
+                    if (BannerView.this.avU != null) {
+                        BannerView.this.avU.Bh();
+                        return;
+                    }
+                    return;
+                }
+                if (!TextUtils.isEmpty(BannerView.this.avK)) {
+                    TiebaStatic.log(BannerView.this.avK);
+                }
+                if (BannerView.this.avU == null) {
+                    if (!TextUtils.isEmpty(BannerView.this.link)) {
+                        at.wf().c(BannerView.this.acp, new String[]{BannerView.this.link});
+                        if (!BannerView.this.link.startsWith("game:detail:") || !"frs_banner".equals(BannerView.this.type)) {
+                            if (BannerView.this.link.startsWith("game:detail:") && "enterforum_banner".equals(BannerView.this.type)) {
+                                TiebaStatic.eventStat(BannerView.this.acp.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", "4000401", "ref_type", "603");
+                                return;
+                            }
+                            return;
+                        }
+                        TiebaStatic.eventStat(BannerView.this.acp.getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", "603");
+                        return;
+                    }
+                    return;
+                }
+                BannerView.this.avU.Bg();
+            }
+        };
         init(context);
     }
 
@@ -64,42 +104,42 @@ public class BannerView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(w.j.bannerview, this);
-        this.atD = (Button) findViewById(w.h.btn_close);
-        this.atD.setOnClickListener(this.atM);
-        this.atE = (TbImageView) findViewById(w.h.banner_image);
-        this.atE.setAutoChangeStyle(true);
-        this.atE.setOnClickListener(this.atM);
-        this.atF = (TbImageView) findViewById(w.h.tv_advert);
-        this.atG = findViewById(w.h.banner_mask);
-        as.k(this.atG, w.e.black_alpha0);
+        LayoutInflater.from(context).inflate(d.j.bannerview, this);
+        this.avM = (Button) findViewById(d.h.btn_close);
+        this.avM.setOnClickListener(this.avV);
+        this.avN = (TbImageView) findViewById(d.h.banner_image);
+        this.avN.setAutoChangeStyle(true);
+        this.avN.setOnClickListener(this.avV);
+        this.avO = (TbImageView) findViewById(d.h.tv_advert);
+        this.avP = findViewById(d.h.banner_mask);
+        ai.k(this.avP, d.e.black_alpha0);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
-        if (this.atE != null && aVar != null) {
-            this.atE.setEvent(aVar);
+        if (this.avN != null && aVar != null) {
+            this.avN.setEvent(aVar);
         }
     }
 
     public void setTagViewVisible(boolean z) {
         if (z) {
-            this.atF.setVisibility(0);
+            this.avO.setVisibility(0);
         } else {
-            this.atF.setVisibility(8);
+            this.avO.setVisibility(8);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
-        this.aat = tbPageContext;
+        this.acp = tbPageContext;
         this.link = str2;
-        this.atJ = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.avS = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.atH && this.atJ) {
-            ViewGroup.LayoutParams layoutParams = this.atE.getLayoutParams();
-            layoutParams.width = com.baidu.adp.lib.util.k.af(getContext());
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.af(getContext()) * this.atI) + 0.5d);
-            this.atE.setLayoutParams(layoutParams);
-            this.atE.a(str, 10, TbConfig.PB_IMAGE_NEW_MAX_WIDTH, SapiSafeFacade.SAPIWEBVIEW_SMS_LOGIN, false);
+        if (!this.avQ && this.avS) {
+            ViewGroup.LayoutParams layoutParams = this.avN.getLayoutParams();
+            layoutParams.width = k.ag(getContext());
+            layoutParams.height = (int) ((k.ag(getContext()) * this.avR) + 0.5d);
+            this.avN.setLayoutParams(layoutParams);
+            this.avN.a(str, 10, TbConfig.PB_IMAGE_NEW_MAX_WIDTH, SapiSafeFacade.SAPIWEBVIEW_SMS_LOGIN, false);
             ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
             if (layoutParams2 != null) {
                 layoutParams2.height = layoutParams.height;
@@ -114,27 +154,27 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(a aVar) {
-        this.atL = aVar;
+        this.avU = aVar;
     }
 
     public void setBannerMaskColor(int i) {
-        this.atG.setBackgroundColor(i);
+        this.avP.setBackgroundColor(i);
     }
 
-    public boolean AL() {
-        return this.atJ;
+    public boolean Be() {
+        return this.avS;
     }
 
     public TbImageView getBannerView() {
-        return this.atE;
+        return this.avN;
     }
 
     public void reset() {
-        this.atH = false;
-        this.atJ = false;
+        this.avQ = false;
+        this.avS = false;
     }
 
-    public void AM() {
-        this.atE.postInvalidate();
+    public void Bf() {
+        this.avN.postInvalidate();
     }
 }

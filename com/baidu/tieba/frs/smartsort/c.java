@@ -1,122 +1,32 @@
 package com.baidu.tieba.frs.smartsort;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.k;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tieba.frs.av;
-import com.baidu.tieba.frs.cj;
-import com.baidu.tieba.frs.r;
-import com.baidu.tieba.w;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.u;
+import com.baidu.tieba.card.data.CardHListViewData;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
-    private int bXb;
-    private cj bbT;
-    private final r cbE;
-    private TextView cnk;
-    private boolean cnl;
-    private int cnm = -1;
-
-    public c(r rVar) {
-        this.bXb = 0;
-        if (rVar == null) {
-            throw new NullPointerException("FrsFragment is null");
-        }
-        this.cbE = rVar;
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.bXb = UtilHelper.getStatusBarHeight();
-        }
+    public static boolean b(FrsRequestData frsRequestData) {
+        return frsRequestData != null && frsRequestData.getLoadType() == 1;
     }
 
-    public void ahi() {
-        if (this.cnl && this.cnm >= 0) {
-            iZ(this.cnm);
+    public static boolean a(ArrayList<com.baidu.adp.widget.ListView.f> arrayList, String str, CardHListViewData cardHListViewData, int i) {
+        if (cardHListViewData == null || u.v(arrayList) || StringUtils.isNull(str) || i < 0) {
+            return false;
         }
-        this.cnl = false;
-    }
-
-    public void iY(int i) {
-        if (i >= 0) {
-            eO(true);
-            ja(i);
-            return;
-        }
-        eO(false);
-        ja(i);
-    }
-
-    private void iZ(int i) {
-        String string;
-        com.baidu.tieba.frs.entelechy.b.d adS = this.cbE.adS();
-        av adU = this.cbE.adU();
-        if (adU != null && adS != null && adS.afK() != null && (adU.Vf() instanceof NoPressedRelativeLayout)) {
-            if (this.cnk == null && this.cbE.getPageContext() != null) {
-                this.cnk = new TextView(this.cbE.getPageContext().getPageActivity());
-                this.cnk.setTextSize(0, this.cbE.getResources().getDimensionPixelSize(w.f.fontsize28));
-                this.cnk.setGravity(17);
-            }
-            if (this.cnk != null) {
-                if (i > 0) {
-                    string = String.format(TbadkCoreApplication.m9getInst().getString(w.l.recommend_frs_refresh_return), Integer.valueOf(i));
-                } else {
-                    string = TbadkCoreApplication.m9getInst().getString(w.l.recommend_frs_refresh_nodata);
-                }
-                this.cnk.setText(string);
-            }
-            View afK = adS.afK();
-            BdTypeListView listView = adU.getListView();
-            if (afK != null && listView != null) {
-                as.j(this.cnk, w.e.common_color_10260);
-                as.i(this.cnk, w.e.cp_cont_g);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, k.g(TbadkCoreApplication.m9getInst(), w.f.ds56));
-                layoutParams.addRule(6, w.h.frs_list_content);
-                if (adU.aer() != null && adU.aer().getLayoutParams() != null) {
-                    layoutParams.topMargin = adU.aer().getLayoutParams().height;
-                } else {
-                    layoutParams.topMargin = 0;
-                }
-                if (this.bbT == null) {
-                    this.bbT = new cj();
-                }
-                this.bbT.a(this.cnk, (NoPressedRelativeLayout) adU.Vf(), layoutParams, 2000);
-                this.cnm = -1;
+        int size = arrayList.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            com.baidu.adp.widget.ListView.f fVar = arrayList.get(i2);
+            if ((fVar instanceof CardHListViewData) && str.equals(((CardHListViewData) fVar).threadId)) {
+                return false;
             }
         }
-    }
-
-    public void ahj() {
-        if (this.cnk != null && this.cnk.getVisibility() == 0) {
-            com.baidu.tieba.frs.entelechy.b.d adS = this.cbE.adS();
-            av adU = this.cbE.adU();
-            if (adU != null && adS != null && adS.afK() != null && (adU.Vf() instanceof NoPressedRelativeLayout)) {
-                BdTypeListView listView = adU.getListView();
-                View afK = adS.afK();
-                if (listView != null) {
-                    boolean z = listView.indexOfChild(afK) >= 0;
-                    if (this.bbT != null && !z && this.cnk.getTop() <= this.bXb) {
-                        this.bbT.hideTip();
-                    }
-                }
-            }
+        int i3 = i + 1;
+        if (i3 > 0) {
+            u.a(arrayList, i3, cardHListViewData);
+            return true;
         }
-    }
-
-    public void eO(boolean z) {
-        this.cnl = z;
-    }
-
-    public void ja(int i) {
-        this.cnm = i;
-    }
-
-    public void onDestroy() {
-        if (this.bbT != null) {
-            this.bbT.onDestroy();
-        }
+        return false;
     }
 }

@@ -1,31 +1,51 @@
 package com.baidu.tbadk.core.hybrid.cache;
 
-import java.util.Comparator;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.hybrid.o;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
-class c implements Comparator<CacheEntry> {
-    final /* synthetic */ b acL;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.acL = bVar;
+public class c {
+    public CacheEntry di(String str) {
+        CacheEntry dg = a.um().dg(str);
+        if (dg == null) {
+            return null;
+        }
+        File file = new File(new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache/files"), dg.getName());
+        if (!file.isFile() || file.length() <= 0) {
+            return null;
+        }
+        try {
+            dg.setInputStream(new FileInputStream(file));
+            return dg;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(CacheEntry cacheEntry, CacheEntry cacheEntry2) {
-        if (cacheEntry == null && cacheEntry2 == null) {
-            return 0;
+    public boolean dj(String str) {
+        CacheEntry dh = a.um().dh(str);
+        if (dh == null) {
+            return false;
         }
-        if (cacheEntry != null) {
-            if (cacheEntry2 == null) {
-                return -1;
-            }
-            if (cacheEntry.getWriteTime() == cacheEntry2.getWriteTime()) {
-                return 0;
-            }
-            return cacheEntry.getWriteTime() - cacheEntry2.getWriteTime() >= 0 ? -1 : 1;
+        File file = new File(new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache/files"), dh.getName());
+        if (!file.isFile() || file.length() <= 0) {
+            return false;
         }
-        return 1;
+        return file.delete();
+    }
+
+    public boolean a(CacheEntry cacheEntry, byte[] bArr) {
+        if (cacheEntry == null || bArr == null || !a.um().a(cacheEntry)) {
+            return false;
+        }
+        File file = new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache/files");
+        File file2 = new File(file, cacheEntry.getName());
+        if (file.exists() || file.mkdirs()) {
+            return o.a(file2, bArr, false);
+        }
+        return false;
     }
 }

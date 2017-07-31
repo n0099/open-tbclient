@@ -1,35 +1,93 @@
 package com.baidu.adp.lib.util;
 
-import android.graphics.Rect;
-import android.view.TouchDelegate;
-import android.view.View;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
 /* loaded from: classes.dex */
-class m implements Runnable {
-    private final /* synthetic */ View zg;
-    private final /* synthetic */ int zh;
-    private final /* synthetic */ int zi;
-    private final /* synthetic */ int zj;
-    private final /* synthetic */ int zk;
-    private final /* synthetic */ View zl;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(View view, int i, int i2, int i3, int i4, View view2) {
-        this.zg = view;
-        this.zh = i;
-        this.zi = i2;
-        this.zj = i3;
-        this.zk = i4;
-        this.zl = view2;
+public class m {
+    public static void p(InputStream inputStream) {
+        if (inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Rect rect = new Rect();
-        this.zg.getHitRect(rect);
-        rect.right += this.zh;
-        rect.left -= this.zi;
-        rect.bottom += this.zj;
-        rect.top -= this.zk;
-        this.zl.setTouchDelegate(new TouchDelegate(rect, this.zg));
+    public static void b(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+            }
+        }
+    }
+
+    public static void e(OutputStream outputStream) {
+        if (outputStream != null) {
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void b(Writer writer) {
+        if (writer != null) {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void b(Reader reader) {
+        if (reader != null) {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void e(Cursor cursor) {
+        if (cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void i(SQLiteDatabase sQLiteDatabase) {
+        if (sQLiteDatabase != null) {
+            try {
+                sQLiteDatabase.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void a(SQLiteStatement sQLiteStatement) {
+        if (sQLiteStatement != null) {
+            try {
+                sQLiteStatement.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

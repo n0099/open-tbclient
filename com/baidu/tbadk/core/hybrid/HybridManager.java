@@ -10,118 +10,82 @@ import android.webkit.WebView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.hybrid.cache.CacheEntry;
-import com.baidu.tbadk.n.as;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class HybridManager {
-    private static HybridManager abS;
+    private static HybridManager adN;
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes.dex */
     public enum InterceptType {
         NORMAL,
-        IMAGE;
-
-        /* JADX DEBUG: Replace access to removed values field (abX) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static InterceptType[] valuesCustom() {
-            InterceptType[] valuesCustom = values();
-            int length = valuesCustom.length;
-            InterceptType[] interceptTypeArr = new InterceptType[length];
-            System.arraycopy(valuesCustom, 0, interceptTypeArr, 0, length);
-            return interceptTypeArr;
-        }
+        IMAGE
     }
 
     /* loaded from: classes.dex */
     public enum OperateCacheType {
         SAVE,
-        REMOVE;
-
-        /* JADX DEBUG: Replace access to removed values field (acg) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static OperateCacheType[] valuesCustom() {
-            OperateCacheType[] valuesCustom = values();
-            int length = valuesCustom.length;
-            OperateCacheType[] operateCacheTypeArr = new OperateCacheType[length];
-            System.arraycopy(valuesCustom, 0, operateCacheTypeArr, 0, length);
-            return operateCacheTypeArr;
-        }
+        REMOVE
     }
 
     private HybridManager() {
     }
 
-    public static HybridManager tF() {
-        if (abS == null) {
+    public static HybridManager tW() {
+        if (adN == null) {
             synchronized (HybridManager.class) {
-                if (abS == null) {
-                    abS = new HybridManager();
+                if (adN == null) {
+                    adN = new HybridManager();
                 }
             }
         }
-        return abS;
+        return adN;
     }
 
     public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
-        InterceptType cR;
-        if (as.fU() && (cR = cR(str)) != null) {
-            return a(webView, str, cR);
+        InterceptType da = da(str);
+        if (da == null) {
+            return null;
         }
-        return null;
+        return a(webView, str, da);
     }
 
     private WebResourceResponse a(WebView webView, String str, InterceptType interceptType) {
         if (interceptType == InterceptType.NORMAL) {
-            if (k.cO(str) || k.cN(str)) {
+            if (j.cZ(str) || j.cY(str)) {
                 return h(str, false);
             }
-            if (k.cM(str)) {
+            if (j.cX(str)) {
                 return h(str, true);
             }
             return null;
-        } else if (interceptType == InterceptType.IMAGE && k.cP(str)) {
-            return cQ(str);
-        } else {
-            return null;
         }
+        if (interceptType == InterceptType.IMAGE) {
+        }
+        return null;
     }
 
     private WebResourceResponse h(String str, boolean z) {
-        String cT = v.cT(MimeTypeMap.getFileExtensionFromUrl(str));
-        if (TextUtils.isEmpty(cT)) {
-            cT = "text/html";
+        String dc = s.dc(MimeTypeMap.getFileExtensionFromUrl(str));
+        if (TextUtils.isEmpty(dc)) {
+            dc = "text/html";
         }
         try {
             com.baidu.tbadk.core.hybrid.b.b bVar = new com.baidu.tbadk.core.hybrid.b.b();
-            WebResourceResponse webResourceResponse = new WebResourceResponse(cT, "UTF-8", new com.baidu.tbadk.core.hybrid.b.a(bVar));
-            new a(str, bVar, z, cT).execute(new Void[0]);
+            WebResourceResponse webResourceResponse = new WebResourceResponse(dc, "UTF-8", new com.baidu.tbadk.core.hybrid.b.a(bVar));
+            new a(str, bVar, z, dc).execute(new Void[0]);
             return webResourceResponse;
         } catch (IOException e) {
             e.printStackTrace();
-            h.cv(1);
+            h.cz(1);
             return null;
         }
     }
 
-    private WebResourceResponse cQ(String str) {
-        String cT = v.cT(MimeTypeMap.getFileExtensionFromUrl(str));
-        try {
-            com.baidu.tbadk.core.hybrid.b.b bVar = new com.baidu.tbadk.core.hybrid.b.b();
-            WebResourceResponse webResourceResponse = new WebResourceResponse(cT, "UTF-8", new com.baidu.tbadk.core.hybrid.b.a(bVar));
-            this.mHandler.post(new l(this, str, bVar));
-            return webResourceResponse;
-        } catch (IOException e) {
-            e.printStackTrace();
-            h.cv(1);
-            return null;
-        }
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:23:0x004f -> B:24:0x0007). Please submit an issue!!! */
-    private InterceptType cR(String str) {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:23:0x0053 -> B:24:0x0007). Please submit an issue!!! */
+    private InterceptType da(String str) {
         InterceptType interceptType = null;
         if (!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) {
             try {
@@ -143,76 +107,76 @@ public class HybridManager {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Void, Void, OperateCacheType> {
-        private com.baidu.tbadk.core.hybrid.b.b abY;
-        private boolean abZ;
-        private String aca;
-        private String acb;
-        private boolean acc;
-        private String acd;
+        private com.baidu.tbadk.core.hybrid.b.b adQ;
+        private boolean adR;
+        private String adS;
+        private String adT;
+        private boolean adU;
+        private String adV;
         private byte[] data;
         private String url;
 
         public a(String str, com.baidu.tbadk.core.hybrid.b.b bVar, boolean z, String str2) {
             this.url = str;
-            this.abY = bVar;
-            this.abZ = z;
-            this.acd = str2;
+            this.adQ = bVar;
+            this.adR = z;
+            this.adV = str2;
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [275=8] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [269=6] */
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
+        /* renamed from: c */
         public OperateCacheType doInBackground(Void... voidArr) {
-            y yVar;
+            v vVar;
             int responseCode;
             try {
-                CacheEntry cZ = com.baidu.tbadk.core.hybrid.cache.b.tZ().cZ(this.url);
-                if (cZ != null) {
-                    byte[] i = r.i(cZ.getInputStream());
-                    this.acb = cZ.geteTag();
-                    if (cZ.isValidate(this.acb, i)) {
-                        this.abY.write(i, 0, i.length);
-                        this.abY.flush();
-                        this.acc = true;
-                        if (!this.abZ) {
+                CacheEntry di = com.baidu.tbadk.core.hybrid.cache.b.uq().di(this.url);
+                if (di != null) {
+                    byte[] o = o.o(di.getInputStream());
+                    this.adT = di.geteTag();
+                    if (di.isValidate(this.adT, o)) {
+                        this.adQ.write(o, 0, o.length);
+                        this.adQ.flush();
+                        this.adU = true;
+                        if (!this.adR) {
                             return null;
                         }
-                        r.f(this.abY);
+                        o.g(this.adQ);
                     }
                 }
-                yVar = new y();
-                yVar.setUrl(this.url);
-                yVar.addHeader("Cookie", k.tE());
-                if (this.acc) {
-                    yVar.addHeader("If-None-Match", this.acb);
+                vVar = new v();
+                vVar.setUrl(this.url);
+                vVar.addHeader("Cookie", j.tV());
+                if (this.adU) {
+                    vVar.addHeader("If-None-Match", this.adT);
                 }
-                this.data = yVar.tP();
-                responseCode = yVar.getResponseCode();
+                this.data = vVar.uf();
+                responseCode = vVar.getResponseCode();
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-                r.f(this.abY);
+                o.g(this.adQ);
             }
             if (304 == responseCode) {
                 return null;
             }
             if (200 == responseCode) {
-                if (!this.acc) {
-                    this.abY.write(this.data, 0, this.data.length);
-                    this.abY.flush();
+                if (!this.adU) {
+                    this.adQ.write(this.data, 0, this.data.length);
+                    this.adQ.flush();
                 }
-                Map<String, List<String>> tO = yVar.tO();
-                if (tO != null) {
-                    List<String> list = tO.get("Cache-Offline");
+                Map<String, List<String>> ue = vVar.ue();
+                if (ue != null) {
+                    List<String> list = ue.get("Cache-Offline");
                     if (list != null && list.size() > 0 && list.get(0).equals("false")) {
                         return OperateCacheType.REMOVE;
                     }
-                    List<String> list2 = tO.get("ETag");
+                    List<String> list2 = ue.get("ETag");
                     if (list2 != null && list2.size() > 0) {
-                        this.aca = list2.get(0);
-                        if (StringUtils.isNull(this.aca)) {
+                        this.adS = list2.get(0);
+                        if (StringUtils.isNull(this.adS)) {
                             return null;
                         }
                     }
@@ -229,66 +193,7 @@ public class HybridManager {
         public void onPostExecute(OperateCacheType operateCacheType) {
             super.onPostExecute(operateCacheType);
             if (operateCacheType != null) {
-                new b(this.url, this.aca, this.data, operateCacheType).execute(new Void[0]);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class c extends BdAsyncTask<Void, Void, Void> {
-        private com.baidu.tbadk.core.hybrid.b.b abY;
-        private com.baidu.adp.widget.a.a ach;
-
-        public c(com.baidu.adp.widget.a.a aVar, com.baidu.tbadk.core.hybrid.b.b bVar) {
-            this.ach = aVar;
-            this.abY = bVar;
-        }
-
-        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, IGET] complete} */
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            byte[] kS;
-            try {
-                try {
-                    if (this.ach != null && (kS = this.ach.kS()) != null && kS.length > 0) {
-                        this.abY.write(kS, 0, kS.length);
-                        this.abY.flush();
-                    }
-                    try {
-                        if (this.abY != null) {
-                            this.abY.close();
-                            return null;
-                        }
-                        return null;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    try {
-                        if (this.abY != null) {
-                            this.abY.close();
-                            return null;
-                        }
-                        return null;
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
-                        return null;
-                    }
-                }
-            } catch (Throwable th) {
-                try {
-                    if (this.abY != null) {
-                        this.abY.close();
-                    }
-                } catch (IOException e4) {
-                    e4.printStackTrace();
-                }
-                throw th;
+                new b(this.url, this.adS, this.data, operateCacheType).execute(new Void[0]);
             }
         }
     }
@@ -296,46 +201,28 @@ public class HybridManager {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends BdAsyncTask<Void, Void, Void> {
-        private static /* synthetic */ int[] acf;
-        private OperateCacheType ace;
+        private OperateCacheType adX;
         private byte[] data;
         private String eTag;
         private String url;
-
-        static /* synthetic */ int[] tG() {
-            int[] iArr = acf;
-            if (iArr == null) {
-                iArr = new int[OperateCacheType.valuesCustom().length];
-                try {
-                    iArr[OperateCacheType.REMOVE.ordinal()] = 2;
-                } catch (NoSuchFieldError e) {
-                }
-                try {
-                    iArr[OperateCacheType.SAVE.ordinal()] = 1;
-                } catch (NoSuchFieldError e2) {
-                }
-                acf = iArr;
-            }
-            return iArr;
-        }
 
         public b(String str, String str2, byte[] bArr, OperateCacheType operateCacheType) {
             this.url = str;
             this.eTag = str2;
             this.data = bArr;
-            this.ace = operateCacheType;
+            this.adX = operateCacheType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            switch (tG()[this.ace.ordinal()]) {
-                case 1:
-                    com.baidu.tbadk.core.hybrid.cache.b.tZ().saveCache(this.url, this.eTag, false, this.data);
+            switch (this.adX) {
+                case REMOVE:
+                    com.baidu.tbadk.core.hybrid.cache.b.uq().dj(this.url);
                     return null;
-                case 2:
-                    com.baidu.tbadk.core.hybrid.cache.b.tZ().da(this.url);
+                case SAVE:
+                    com.baidu.tbadk.core.hybrid.cache.b.uq().saveCache(this.url, this.eTag, false, this.data);
                     return null;
                 default:
                     return null;

@@ -1,21 +1,55 @@
 package com.baidu.tieba.tbadkCore.videoupload.a.a;
 
-import java.util.concurrent.ThreadFactory;
+import com.baidu.adp.lib.util.StringUtils;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-class c implements ThreadFactory {
-    private int fPc = 0;
-    final /* synthetic */ b fPd;
+public class c extends a {
+    private boolean isCancelled;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.fPd = bVar;
+    public c(String str, int i, int i2, long j, String str2) {
+        super(str, i, i2, j, str2);
     }
 
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        Thread thread = new Thread(runnable);
-        thread.setName("VideoUploadThread@" + this.fPc);
-        this.fPc++;
-        return thread;
+    @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
+    public d b(ArrayList<Integer> arrayList, String str, int i) {
+        d dVar = new d();
+        try {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.mFileName), "r");
+            int i2 = 0;
+            int size = arrayList.size();
+            Iterator<Integer> it = arrayList.iterator();
+            while (true) {
+                int i3 = i2;
+                d dVar2 = dVar;
+                if (!it.hasNext()) {
+                    return dVar2;
+                }
+                i2 = i3 + 1;
+                dVar = a(randomAccessFile, it.next().intValue(), i, str);
+                if (dVar == null) {
+                    return null;
+                }
+                tu((int) (30.0f + ((50.0f * i2) / size)));
+                if (!StringUtils.isNull(dVar.videoUrl) || dVar.errorNo != 0) {
+                    return dVar;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            return dVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
+    public void cancel() {
+        this.isCancelled = true;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
+    public boolean isCancelled() {
+        return this.isCancelled;
     }
 }

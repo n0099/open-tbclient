@@ -2,41 +2,44 @@ package com.baidu.tieba.write.vcode.newVcode;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.br;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.data.q;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.write.vcode.newVcode.a.a;
+import com.baidu.tieba.write.vcode.newVcode.a.b;
 import com.baidu.tieba.write.vcode.newVcode.a.c;
-import com.baidu.tieba.write.vcode.newVcode.a.d;
 /* loaded from: classes.dex */
 public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
-    private NewWriteModel aBE;
-    private NewVcodeView ghT;
-    private c ghU;
+    private NewWriteModel aDU;
+    private NewVcodeView gDb;
+    private b gDc;
     private boolean mNeedFeedBackButton;
     private WriteData mWriteData = null;
     private int mPageType = 0;
-    private NewWriteModel.d ghV = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity.1
+    private NewWriteModel.d gDd = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity.1
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, q qVar, WriteData writeData, AntiData antiData) {
             if (qVar != null && writeData != null && postWriteCallBackData != null && !z) {
-                NewVcodeActivity.this.mPageType = b.g("4", 0);
-                NewVcodeActivity.this.ghU.onPostThreadCancle();
-                NewVcodeActivity.this.ghU.onDestroy();
+                NewVcodeActivity.this.mPageType = com.baidu.adp.lib.g.b.g("4", 0);
+                NewVcodeActivity.this.gDc.onPostThreadCancle();
+                NewVcodeActivity.this.gDc.onDestroy();
                 NewVcodeActivity.this.mWriteData = writeData;
                 NewVcodeActivity.this.mWriteData.setVcodeMD5(qVar.getVcode_md5());
                 NewVcodeActivity.this.mWriteData.setVcodeUrl(qVar.getVcode_pic_url());
-                NewVcodeActivity.this.mWriteData.setVcodeExtra(qVar.yf());
-                NewVcodeActivity.this.aBE.setWriteData(NewVcodeActivity.this.mWriteData);
-                NewVcodeActivity.this.ghU = NewVcodeActivity.this.bsY();
-                NewVcodeActivity.this.ghU.showErrorOnStart(true, postWriteCallBackData.getErrorString());
-                NewVcodeActivity.this.ghT.setPresenter(NewVcodeActivity.this.ghU);
-                NewVcodeActivity.this.ghU.start(NewVcodeActivity.this.mNeedFeedBackButton);
+                NewVcodeActivity.this.mWriteData.setVcodeExtra(qVar.yy());
+                NewVcodeActivity.this.aDU.setWriteData(NewVcodeActivity.this.mWriteData);
+                NewVcodeActivity.this.gDc = NewVcodeActivity.this.byN();
+                NewVcodeActivity.this.gDc.showErrorOnStart(true, postWriteCallBackData.getErrorString());
+                NewVcodeActivity.this.gDb.setPresenter(NewVcodeActivity.this.gDc);
+                NewVcodeActivity.this.gDc.start(NewVcodeActivity.this.mNeedFeedBackButton);
             }
         }
     };
@@ -45,7 +48,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ghT = new NewVcodeView(this);
+        this.gDb = new NewVcodeView(this);
         if (bundle != null) {
             this.mWriteData = (WriteData) bundle.getSerializable("model");
             this.mNeedFeedBackButton = bundle.getBoolean("need_feed_back_button");
@@ -60,26 +63,26 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             finish();
             return;
         }
-        this.aBE = new NewWriteModel(this);
-        this.aBE.setWriteData(this.mWriteData);
+        this.aDU = new NewWriteModel(this);
+        this.aDU.setWriteData(this.mWriteData);
         if (this.mWriteData.getWriteImagesInfo() != null) {
-            this.aBE.lW(this.mWriteData.getWriteImagesInfo().size() > 0);
+            this.aDU.mC(this.mWriteData.getWriteImagesInfo().size() > 0);
         }
-        this.ghU = bsY();
-        this.ghT.setPresenter(this.ghU);
-        this.ghU.start(this.mNeedFeedBackButton);
+        this.gDc = byN();
+        this.gDb.setPresenter(this.gDc);
+        this.gDc.start(this.mNeedFeedBackButton);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public c bsY() {
-        c dVar;
-        if (this.mPageType == b.g("5", 0)) {
-            dVar = new a(this.ghT, this.aBE);
+    public b byN() {
+        b cVar;
+        if (this.mPageType == com.baidu.adp.lib.g.b.g("5", 0)) {
+            cVar = new a(this.gDb, this.aDU);
         } else {
-            dVar = new d(this.ghT, this.aBE);
+            cVar = new c(this.gDb, this.aDU);
         }
-        dVar.d(this.ghV);
-        return dVar;
+        cVar.d(this.gDd);
+        return cVar;
     }
 
     @Override // android.app.Activity
@@ -93,9 +96,15 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
+        if (this.mWriteData != null && this.mWriteData.getIsStory() == 1) {
+            br brVar = new br();
+            brVar.abm = this.mWriteData;
+            brVar.abp = this.gDc.bxK();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_VCODE_CHECK_INFO, brVar));
+        }
         super.onDestroy();
-        bqX();
-        this.ghU.onDestroy();
+        bxa();
+        this.gDc.onDestroy();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -108,7 +117,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
     }
 
-    private void bqX() {
+    private void bxa() {
         if (this.mWriteData != null && this.mWriteData.getType() == 3) {
             com.baidu.tbadk.core.e.b.c(getPageContext().getPageActivity(), 200, false);
         }

@@ -48,6 +48,8 @@ public class CmdConfigHttp {
     public static final int CMD_CHOSEN_PB_PRAISE = 1003007;
     public static final int CMD_CLIENT_CONFIG = 1003024;
     public static final int CMD_COMMIT_GRAFFITI = 1003081;
+    public static final int CMD_CONCERN_CHECK_RED_NOTIFY = 1003344;
+    public static final int CMD_CONCERN_PAGE = 1003343;
     public static final int CMD_COOKERY_BET = 1003069;
     public static final int CMD_COOKER_GAME_RESULT = 1003049;
     public static final int CMD_COOKER_RANK_LIST = 1003044;
@@ -56,10 +58,13 @@ public class CmdConfigHttp {
     public static final int CMD_CUSTOM_ALS = 1003195;
     public static final int CMD_DEBUG_ONLINE_DEV = 1003085;
     public static final int CMD_DEFAULT_GIFT_LIST = 1003045;
+    public static final int CMD_DELETE_EMOTION_PACKAGE = 1003347;
     public static final int CMD_DELETE_GRAFFITTI = 1003098;
     public static final int CMD_DEL_USER_BOOKMARK = 1003167;
     public static final int CMD_DO_DAILY_TASK = 1003173;
     public static final int CMD_DRESSUP_CENTER = 1003030;
+    public static final int CMD_EMOTION_EDIT_TEXT_UEG = 1003348;
+    public static final int CMD_EMOTION_PACKAGE_DETAIL = 1003346;
     public static final int CMD_ENTERTAINMENT = 1003079;
     public static final int CMD_FINISH_MEMBER_TASK = 1003188;
     public static final int CMD_FORUM_CLASS_LIST = 1003061;
@@ -83,7 +88,9 @@ public class CmdConfigHttp {
     public static final int CMD_GET_CARD_DETAIL = 1003094;
     public static final int CMD_GET_CATEGORY_CARTOON = 1003096;
     public static final int CMD_GET_CHANNEL_FANS_LIST = 1003314;
+    public static final int CMD_GET_EMOTION_INFOS = 1003353;
     public static final int CMD_GET_FACE_GROUP_INFO = 1003338;
+    public static final int CMD_GET_FACE_MAKE_HOT_WORDS = 1003352;
     public static final int CMD_GET_FINE_PB = 1003006;
     public static final int CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH = 1003319;
     public static final int CMD_GET_FRIEND_LIST = 1003004;
@@ -104,6 +111,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
     public static final int CMD_GET_SPLASH_INFO = 1003192;
+    public static final int CMD_GET_STICKET_LIST = 1003341;
     public static final int CMD_GET_STORE_REMIND_TIME = 1003067;
     public static final int CMD_GET_SUBSCRIBE_CHANNEL_LIST = 1003304;
     public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
@@ -174,8 +182,11 @@ public class CmdConfigHttp {
     public static final int CMD_SKIN_DETAIL = 1003037;
     public static final int CMD_SQUARE_FORUM_LIST = 1003060;
     public static final int CMD_STATIC_SPLASH = 1003193;
+    public static final int CMD_STORY_PAGE = 1003342;
     public static final int CMD_SUBMIT_CLOSE_ADKILLER = 1003076;
     public static final int CMD_SUB_INTEREST_LABEL_LIST = 1003334;
+    public static final int CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP = 1003351;
+    public static final int CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP = 1003350;
     public static final int CMD_TAIL_ADD = 1003019;
     public static final int CMD_TAIL_DELETE = 1003020;
     public static final int CMD_TAIL_GET = 1003021;
@@ -187,6 +198,7 @@ public class CmdConfigHttp {
     public static final int CMD_TOPIC_RELATE_THREAD = 1003042;
     public static final int CMD_TOP_THEME_LIST = 1003031;
     public static final int CMD_UPLOAD_COLLECT_EMOTION_INFO = 1003339;
+    public static final int CMD_UPLOAD_FACE_GROUP = 1003345;
     public static final int CMD_USER_FREE_CHANCE = 1003047;
     public static final int CMD_USER_MODULE_OPERATE = 1003326;
     public static final int CMD_USER_MUTE_ADD = 1003027;
@@ -203,6 +215,7 @@ public class CmdConfigHttp {
     public static final int FLOOR_HTTP_CMD = 1001502;
     public static final int FORUM_RECOMMEND_HTTP_CMD = 1002400;
     private static final int FRS_BASE_CMD = 1001700;
+    public static final int FRS_GAME_INFO_GAME_COMMENT = 1001712;
     public static final int FRS_HOT_TAB_CMD = 1001707;
     public static final int FRS_HTTP_CMD = 1001703;
     public static final int FRS_LIST = 1001700;
@@ -277,6 +290,7 @@ public class CmdConfigHttp {
     public static final int SIGNALL_GET_FOURMS = 1001201;
     private static final int SIGNALL_HTTP_BASE_CMD = 1001200;
     public static final int SPECIAL_PAGE_HTTP_CMD = 1003200;
+    public static final int STORY_REPLY = 1003349;
     public static final int SubPb_HTTP_CMD = 1002100;
     public static final int THREAD_LIST_HTTP_CMD = 1003328;
     public static final int UPDATE_PLAYER_NUM_CMD = 1002910;

@@ -1,20 +1,15 @@
 package com.baidu.tieba.tbadkCore.d;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
-class d extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(int i) {
-        super(i);
-    }
+public class d {
+    public long giX = 0;
+    public long num = 0;
+    public long giY = 0;
+    public long size = 0;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if ((customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-            c.sG(1);
-        }
+    public void reset() {
+        this.giX = 0L;
+        this.num = 0L;
+        this.giY = 0L;
+        this.size = 0L;
     }
 }

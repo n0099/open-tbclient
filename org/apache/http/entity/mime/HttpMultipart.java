@@ -148,11 +148,11 @@ public class HttpMultipart {
             if (contentLength < 0) {
                 return -1L;
             }
-            j += contentLength;
+            j = contentLength + j;
         }
         try {
             doWriteTo(this.mode, new ByteArrayOutputStream(), false);
-            return j + byteArrayOutputStream.toByteArray().length;
+            return byteArrayOutputStream.toByteArray().length + j;
         } catch (IOException e) {
             return -1L;
         }

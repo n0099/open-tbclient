@@ -1,76 +1,33 @@
 package com.baidu.adp.base;
 
-import android.os.Handler;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.NetMessage;
 /* loaded from: classes.dex */
-public class e<T> {
-    protected g<T> mContext;
-    private InputMethodManager mInputManager = null;
+public interface e<T> {
+    Context getContext();
 
-    public e(g<T> gVar) {
-        this.mContext = null;
-        this.mContext = gVar;
-    }
+    T getOrignalPage();
 
-    public g<T> getPageContext() {
-        return this.mContext;
-    }
+    Activity getPageActivity();
 
-    public void destroy() {
-    }
+    Resources getResources();
 
-    public void setInputMethodManager(InputMethodManager inputMethodManager) {
-        this.mInputManager = inputMethodManager;
-    }
+    String getString(int i);
 
-    public InputMethodManager getInputMethodManager() {
-        if (this.mInputManager == null) {
-            this.mInputManager = (InputMethodManager) this.mContext.getContext().getSystemService("input_method");
-        }
-        return this.mInputManager;
-    }
+    BdUniqueId getUniqueId();
 
-    public void HidenSoftKeyPad(View view) {
-        try {
-            if (this.mInputManager == null) {
-                getInputMethodManager();
-            }
-            if (this.mInputManager != null && view != null) {
-                this.mInputManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
+    void registerListener(int i, MessageListener<?> messageListener);
 
-    public void ShowSoftKeyPad(View view) {
-        try {
-            getInputMethodManager().showSoftInput(view, 0);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
+    void registerListener(MessageListener<?> messageListener);
 
-    public void ShowSoftKeyPadDelay(View view, int i) {
-        new Handler().postDelayed(new a(view), i);
-    }
+    void registerListener(com.baidu.adp.framework.listener.a aVar);
 
-    /* loaded from: classes.dex */
-    class a implements Runnable {
-        private View mView;
+    void sendMessage(Message<?> message);
 
-        public a(View view) {
-            this.mView = null;
-            this.mView = view;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (e.this.mContext != null && e.this.mContext.getPageActivity() != null && !e.this.mContext.getPageActivity().isFinishing()) {
-                e.this.ShowSoftKeyPad(this.mView);
-            }
-        }
-    }
+    void sendMessage(NetMessage netMessage);
 }

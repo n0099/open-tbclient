@@ -23,10 +23,6 @@ public final class ForumRalatedInfo extends Message {
     public static final Integer DEFAULT_CURSCORE = 0;
     public static final Integer DEFAULT_LEFTSCORE = 0;
 
-    /* synthetic */ ForumRalatedInfo(Builder builder, boolean z, ForumRalatedInfo forumRalatedInfo) {
-        this(builder, z);
-    }
-
     private ForumRalatedInfo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -98,7 +94,7 @@ public final class ForumRalatedInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public ForumRalatedInfo build(boolean z) {
-            return new ForumRalatedInfo(this, z, null);
+            return new ForumRalatedInfo(this, z);
         }
     }
 }

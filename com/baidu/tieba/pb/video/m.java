@@ -1,18 +1,13 @@
 package com.baidu.tieba.pb.video;
 
-import com.baidu.tieba.pb.view.d;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
-public class m implements d.a {
-    final /* synthetic */ l eKu;
+public class m extends PostData {
+    public static final BdUniqueId eYt = BdUniqueId.gen();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar) {
-        this.eKu = lVar;
-    }
-
-    @Override // com.baidu.tieba.pb.view.d.a
-    public void onAnimationEnd() {
-        this.eKu.jI(false);
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return eYt;
     }
 }

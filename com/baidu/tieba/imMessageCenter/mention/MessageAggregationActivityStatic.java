@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.atomData.ReplyMessageActivityConfig;
 /* loaded from: classes2.dex */
 public class MessageAggregationActivityStatic {
     static {
-        TbadkCoreApplication.m9getInst().RegisterIntent(MessageAggregationActivityConfig.class, ad.class);
-        MessageAggregationActivityConfig.setMentionActivityClass(ad.class);
-        TbadkCoreApplication.m9getInst().RegisterIntent(MessageCenterActivityConfig.class, MessageCenterActivity.class);
-        TbadkCoreApplication.m9getInst().RegisterIntent(ReplyMessageActivityConfig.class, ReplyMessageActivity.class);
-        TbadkCoreApplication.m9getInst().RegisterIntent(AtMessageActivityConfig.class, AtMessageActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(MessageAggregationActivityConfig.class, g.class);
+        MessageAggregationActivityConfig.setMentionActivityClass(g.class);
+        TbadkCoreApplication.getInst().RegisterIntent(MessageCenterActivityConfig.class, MessageCenterActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(ReplyMessageActivityConfig.class, ReplyMessageActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(AtMessageActivityConfig.class, AtMessageActivity.class);
     }
 }

@@ -92,13 +92,13 @@ public class b {
                         com.baidu.android.pushservice.g.a.a("CommonParams", e4);
                     }
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Exception e5) {
+                e = e5;
             }
-        } catch (Exception e5) {
-            e = e5;
+            return jSONObject;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return jSONObject;
     }
 
     public static void a(Context context, String str, int i) {
@@ -180,11 +180,11 @@ public class b {
                         com.baidu.android.pushservice.f.b.a(fileOutputStream);
                         throw th;
                     }
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Exception e2) {
+                e = e2;
             }
         }
     }

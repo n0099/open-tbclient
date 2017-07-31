@@ -11,17 +11,17 @@ public class b extends HorizontalScrollView {
 
     public b(Context context) {
         super(context);
-        this.mGestureDetector = new GestureDetector(new a(this, null));
+        this.mGestureDetector = new GestureDetector(new a());
     }
 
     public b(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mGestureDetector = new GestureDetector(new a(this, null));
+        this.mGestureDetector = new GestureDetector(new a());
     }
 
     public b(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mGestureDetector = new GestureDetector(new a(this, null));
+        this.mGestureDetector = new GestureDetector(new a());
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
@@ -40,10 +40,6 @@ public class b extends HorizontalScrollView {
     /* loaded from: classes.dex */
     private class a extends GestureDetector.SimpleOnGestureListener {
         private a() {
-        }
-
-        /* synthetic */ a(b bVar, a aVar) {
-            this();
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener

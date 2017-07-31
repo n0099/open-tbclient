@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.k;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalPicModel extends BdBaseModel implements Serializable {
@@ -37,7 +37,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
         if (this.mImageTask != null) {
             return false;
         }
-        this.mImageTask = new GetImageTask(this, null);
+        this.mImageTask = new GetImageTask();
         this.mImageTask.setSelfExecute(true);
         this.mImageTask.execute(new Object[0]);
         return true;
@@ -58,20 +58,16 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
         private GetImageTask() {
         }
 
-        /* synthetic */ GetImageTask(LocalPicModel localPicModel, GetImageTask getImageTask) {
-            this();
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public ResponseData doInBackground(Object... objArr) {
             String str = "im_" + String.valueOf(System.currentTimeMillis());
-            String i = n.i(LocalPicModel.this.mSPath, LocalPicModel.this.mSName, TiebaIMConfig.POST_IMAGE_PATH, String.valueOf(str) + "_send");
-            String str2 = String.valueOf(str) + "_display";
-            String i2 = n.i(LocalPicModel.this.mDPath, LocalPicModel.this.mDName, TiebaIMConfig.POST_IMAGE_PATH, str2);
-            Bitmap V = n.V(TiebaIMConfig.POST_IMAGE_PATH, str2);
+            String i = k.i(LocalPicModel.this.mSPath, LocalPicModel.this.mSName, TiebaIMConfig.POST_IMAGE_PATH, str + "_send");
+            String str2 = str + "_display";
+            String i2 = k.i(LocalPicModel.this.mDPath, LocalPicModel.this.mDName, TiebaIMConfig.POST_IMAGE_PATH, str2);
+            Bitmap V = k.V(TiebaIMConfig.POST_IMAGE_PATH, str2);
             if (i == null || i2 == null || V == null) {
                 return null;
             }

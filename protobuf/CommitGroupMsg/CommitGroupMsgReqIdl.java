@@ -7,10 +7,6 @@ public final class CommitGroupMsgReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
 
-    /* synthetic */ CommitGroupMsgReqIdl(Builder builder, boolean z, CommitGroupMsgReqIdl commitGroupMsgReqIdl) {
-        this(builder, z);
-    }
-
     private CommitGroupMsgReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -37,7 +33,7 @@ public final class CommitGroupMsgReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public CommitGroupMsgReqIdl build(boolean z) {
-            return new CommitGroupMsgReqIdl(this, z, null);
+            return new CommitGroupMsgReqIdl(this, z);
         }
     }
 }

@@ -17,7 +17,8 @@ public class BigVCheckHttpResponseMessage extends TbHttpResponsedMessage {
         this.isBigV = false;
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetVUserInfoResIdl getVUserInfoResIdl = (GetVUserInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetVUserInfoResIdl.class);
         if (getVUserInfoResIdl != null) {

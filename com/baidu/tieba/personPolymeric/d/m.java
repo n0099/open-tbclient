@@ -1,43 +1,63 @@
 package com.baidu.tieba.personPolymeric.d;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.w;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.widget.layout.FlowLayout;
+import com.baidu.tieba.d;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class m extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.k> {
-    private TextView Qs;
+public class m extends FlowLayout {
+    private List<com.baidu.tieba.personPolymeric.c.f> flB;
+    private List<n> flC;
+    private com.baidu.adp.lib.e.b<n> flD;
+    private Context mContext;
 
-    public m(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        this.Qs = (TextView) getView();
+    public m(Context context) {
+        super(context);
+        this.flC = new ArrayList();
+        this.mContext = context;
     }
 
-    @Override // com.baidu.tieba.card.a
-    public void d(TbPageContext<?> tbPageContext, int i) {
-        if (this.mSkinType != i) {
-            this.mSkinType = i;
-            as.c(this.Qs, w.e.cp_cont_d, 1);
-            as.j(this.Qs, w.e.cp_bg_line_d);
+    public void setData(List<com.baidu.tieba.personPolymeric.c.f> list) {
+        this.flB = list;
+        aYJ();
+    }
+
+    private void aYJ() {
+        if (!u.v(this.flB)) {
+            for (com.baidu.tieba.personPolymeric.c.f fVar : this.flB) {
+                if (fVar != null) {
+                    n fS = this.flD.fS();
+                    fS.setData(fVar);
+                    ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.k.ag(this.mContext) - com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds80)) - com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds16)) / 2, -2);
+                    fS.setPadding(com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds20), 0, com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds14), 0);
+                    addView(fS, layoutParams);
+                    this.flC.add(fS);
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.card.a
-    public int getLayout() {
-        return w.j.card_person_title_layout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.a
-    public void a(com.baidu.tieba.personPolymeric.c.k kVar) {
-        if (kVar != null) {
-            this.Qs.setPadding(kVar.paddingLeft, kVar.paddingTop, 0, kVar.paddingBottom);
-            this.Qs.setText(this.mContext.getString(kVar.titleId));
+    public void recycle() {
+        if (!u.v(this.flC)) {
+            for (n nVar : this.flC) {
+                this.flD.n(nVar);
+            }
+            removeAllViews();
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void setForumItemViewBdObjectPool(com.baidu.adp.lib.e.b<n> bVar) {
+        this.flD = bVar;
+    }
+
+    public void onChangeSkinType() {
+        for (n nVar : this.flC) {
+            if (nVar != null) {
+                nVar.onChangeSkinType();
+            }
+        }
     }
 }

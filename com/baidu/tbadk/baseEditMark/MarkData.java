@@ -5,7 +5,6 @@ import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -189,16 +188,11 @@ public class MarkData implements Serializable {
     }
 
     public JSONObject toJson() {
-        int i;
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("tid", this.mThreadId);
             jSONObject.put(Info.kBaiduPIDKey, this.mPostId);
-            if (this.mSequence) {
-                i = 1;
-            } else {
-                i = 4;
-            }
+            int i = this.mSequence ? 1 : 4;
             if (this.mHostMode) {
                 i += 2;
             }
@@ -216,7 +210,7 @@ public class MarkData implements Serializable {
             this.mPostId = jSONObject.optString("mark_pid");
             this.mForumName = jSONObject.optString("forum_name");
             this.mTitle = jSONObject.optString(VrPlayerActivityConfig.TITLE);
-            this.mAuthorName = jSONObject.optJSONObject("author").optString(IntentConfig.NAME_SHOW);
+            this.mAuthorName = jSONObject.optJSONObject("author").optString("name_show");
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
             this.mNewCounts = jSONObject.optInt(ImageViewerConfig.COUNT);

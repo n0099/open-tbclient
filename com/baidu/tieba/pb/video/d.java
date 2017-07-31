@@ -3,38 +3,38 @@ package com.baidu.tieba.pb.video;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bm;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d {
-    public TextView aab;
-    public TextView eJl;
-    public TextView eJm;
+    public TextView abX;
+    public TextView eWX;
+    public TextView eWY;
     public View mRootView;
 
     public d(View view) {
         if (view != null) {
             this.mRootView = view;
-            this.aab = (TextView) this.mRootView.findViewById(w.h.view_video_title);
-            this.eJl = (TextView) this.mRootView.findViewById(w.h.pb_video_replay_num);
-            this.eJm = (TextView) this.mRootView.findViewById(w.h.pb_video_play_count);
+            this.abX = (TextView) this.mRootView.findViewById(d.h.view_video_title);
+            this.eWX = (TextView) this.mRootView.findViewById(d.h.pb_video_replay_num);
+            this.eWY = (TextView) this.mRootView.findViewById(d.h.pb_video_play_count);
         }
     }
 
-    public void Q(bm bmVar) {
-        if (bmVar != null && bmVar.rI() != null) {
-            this.aab.setText(bmVar.getTitle());
-            this.eJl.setText(String.format(TbadkCoreApplication.m9getInst().getString(w.l.pb_video_header_replay_num), aw.w(bmVar.rj())));
-            this.eJm.setText(String.format(TbadkCoreApplication.m9getInst().getString(w.l.pb_video_header_play_count), aw.w(bmVar.rI().play_count.intValue())));
-            AM();
+    public void W(bl blVar) {
+        if (blVar != null && blVar.rW() != null) {
+            this.abX.setText(blVar.getTitle());
+            this.eWX.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.pb_video_header_replay_num), al.x(blVar.rx())));
+            this.eWY.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.pb_video_header_play_count), al.x(blVar.rW().play_count.intValue())));
+            Bf();
         }
     }
 
-    public void AM() {
-        as.c(this.aab, w.e.cp_cont_b, 1);
-        as.c(this.eJl, w.e.cp_cont_f, 1);
-        as.c(this.eJm, w.e.cp_cont_f, 1);
+    public void Bf() {
+        ai.c(this.abX, d.e.cp_cont_b, 1);
+        ai.c(this.eWX, d.e.cp_cont_f, 1);
+        ai.c(this.eWY, d.e.cp_cont_f, 1);
     }
 }

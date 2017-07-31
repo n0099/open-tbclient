@@ -5,6 +5,6 @@ import com.baidu.tieba.imMessageCenter.StrangerListActivityConfig;
 /* loaded from: classes2.dex */
 public class StrangerListActivityStatic {
     static {
-        TbadkCoreApplication.m9getInst().RegisterIntent(StrangerListActivityConfig.class, StrangerListActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(StrangerListActivityConfig.class, StrangerListActivity.class);
     }
 }

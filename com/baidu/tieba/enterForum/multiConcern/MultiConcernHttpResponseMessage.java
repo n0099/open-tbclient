@@ -9,7 +9,8 @@ public class MultiConcernHttpResponseMessage extends TbHttpResponsedMessage {
         super(i);
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         MultiConcernResIdl multiConcernResIdl;
         if (bArr != null && (multiConcernResIdl = (MultiConcernResIdl) new Wire(new Class[0]).parseFrom(bArr, MultiConcernResIdl.class)) != null) {

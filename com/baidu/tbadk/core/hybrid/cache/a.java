@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.hybrid.cache;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.hybrid.r;
+import com.baidu.tbadk.core.hybrid.o;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,75 +12,75 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static a acF;
-    private Map<String, CacheEntry> acG = new HashMap();
-    private boolean acH;
+    private static a aex;
+    private Map<String, CacheEntry> aey = new HashMap();
+    private boolean aez;
 
     private a() {
     }
 
-    public static a tV() {
-        if (acF == null) {
+    public static a um() {
+        if (aex == null) {
             synchronized (a.class) {
-                if (acF == null) {
-                    acF = new a();
+                if (aex == null) {
+                    aex = new a();
                 }
             }
         }
-        return acF;
+        return aex;
     }
 
-    public CacheEntry cX(String str) {
-        tW();
-        return this.acG.get(str);
+    public CacheEntry dg(String str) {
+        un();
+        return this.aey.get(str);
     }
 
     public synchronized boolean a(CacheEntry cacheEntry) {
-        boolean tX;
-        tW();
+        boolean uo;
+        un();
         if (cacheEntry == null) {
-            tX = false;
+            uo = false;
         } else {
-            this.acG.put(cacheEntry.getUrl(), cacheEntry);
-            tX = tX();
+            this.aey.put(cacheEntry.getUrl(), cacheEntry);
+            uo = uo();
         }
-        return tX;
+        return uo;
     }
 
-    public synchronized CacheEntry cY(String str) {
+    public synchronized CacheEntry dh(String str) {
         CacheEntry remove;
-        tW();
-        remove = this.acG.remove(str);
+        un();
+        remove = this.aey.remove(str);
         if (remove == null) {
             remove = null;
         } else {
-            tX();
+            uo();
         }
         return remove;
     }
 
-    private synchronized void tW() {
-        if (!this.acH) {
-            this.acH = true;
-            List<CacheEntry> tY = tY();
-            if (tY != null && tY.size() > 0) {
-                for (CacheEntry cacheEntry : tY) {
-                    this.acG.put(cacheEntry.getUrl(), cacheEntry);
+    private synchronized void un() {
+        if (!this.aez) {
+            this.aez = true;
+            List<CacheEntry> up = up();
+            if (up != null && up.size() > 0) {
+                for (CacheEntry cacheEntry : up) {
+                    this.aey.put(cacheEntry.getUrl(), cacheEntry);
                 }
             }
         }
     }
 
-    private boolean tX() {
-        File file = new File(TbadkCoreApplication.m9getInst().getFilesDir(), "tbhybrid/cache");
+    private boolean uo() {
+        File file = new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache");
         if (file.exists() || file.mkdirs()) {
             File file2 = new File(file, "config.config");
             try {
                 JSONArray jSONArray = new JSONArray();
-                for (CacheEntry cacheEntry : this.acG.values()) {
+                for (CacheEntry cacheEntry : this.aey.values()) {
                     jSONArray.put(new JSONObject(cacheEntry.toJson()));
                 }
-                return r.a(file2, jSONArray.toString().getBytes(), false);
+                return o.a(file2, jSONArray.toString().getBytes(), false);
             } catch (JSONException e) {
                 e.printStackTrace();
                 return false;
@@ -89,10 +89,10 @@ public class a {
         return false;
     }
 
-    public List<CacheEntry> tY() {
-        File file = new File(new File(TbadkCoreApplication.m9getInst().getFilesDir(), "tbhybrid/cache"), "config.config");
+    public List<CacheEntry> up() {
+        File file = new File(new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache"), "config.config");
         if (file.exists() && file.isFile() && file.length() > 0) {
-            byte[] p = r.p(file);
+            byte[] p = o.p(file);
             if (p == null || p.length == 0) {
                 return null;
             }

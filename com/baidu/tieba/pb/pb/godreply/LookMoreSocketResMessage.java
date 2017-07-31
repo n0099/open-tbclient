@@ -30,8 +30,8 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
         if (getError() == 0 && getPostListResIdl != null && getPostListResIdl.data != null && (list = getPostListResIdl.data.post_list) != null && list.size() > 0) {
             for (Post post : list) {
                 PostData postData = new PostData();
-                postData.a(post, TbadkCoreApplication.m9getInst());
-                postData.fMO = SapiSafeFacade.SAPIWEBVIEW_BACK;
+                postData.a(post, TbadkCoreApplication.getInst());
+                postData.giy = SapiSafeFacade.SAPIWEBVIEW_BACK;
                 this.list.add(postData);
             }
         }

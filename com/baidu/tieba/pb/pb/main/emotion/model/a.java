@@ -1,157 +1,293 @@
 package com.baidu.tieba.pb.pb.main.emotion.model;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.i;
-import com.baidu.adp.lib.util.t;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.GetEmotionPidModel;
-import com.baidu.tieba.pb.data.f;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.pb.main.emotion.data.EmotionImageData;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.w;
-import com.xiaomi.mipush.sdk.Constants;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.support.v4.view.MotionEventCompat;
+import android.support.v4.view.ViewCompat;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class a {
-    private LocationModel aBD;
-    private NewWriteModel aBE;
-    private final NewWriteModel.d aBU = new b(this);
-    private BaseActivity bhX;
-    private com.baidu.tbadk.editortools.pb.b dAG;
-    private NewWriteModel.d eFf;
-    private GetEmotionPidModel eFg;
-    private EmotionImageData eFh;
-    private PbModel eFi;
-    private f eFj;
+    protected Bitmap Iq;
+    protected byte[] eRA;
+    protected byte[] eRB;
+    protected int eRC;
+    protected byte[] eRD;
+    protected int eRy;
+    protected int height;
+    protected OutputStream out;
+    protected int width;
+    protected int x = 0;
+    protected int y = 0;
+    protected int transparent = -1;
+    protected int eRz = -1;
+    protected int delay = 0;
+    protected boolean started = false;
+    protected boolean[] eRE = new boolean[256];
+    protected int eRF = 7;
+    protected int eRG = -1;
+    protected boolean eRH = false;
+    protected boolean eRI = true;
+    protected boolean eRJ = false;
+    protected int eRK = 10;
 
-    public a(BaseActivity baseActivity) {
-        this.bhX = baseActivity;
-        this.aBE = new NewWriteModel(baseActivity);
-        this.aBD = new LocationModel(baseActivity);
-    }
-
-    public void a(EmotionImageData emotionImageData, PbModel pbModel, f fVar) {
-        if (emotionImageData != null && fVar != null) {
-            this.eFh = emotionImageData;
-            this.eFi = pbModel;
-            this.eFj = fVar;
-            if (!i.hj()) {
-                this.bhX.showToast(w.l.neterror);
-            } else if (a(this.bhX.getPageContext(), 11042)) {
-                if (TextUtils.isEmpty(emotionImageData.getPicId())) {
-                    if (!TextUtils.isEmpty(emotionImageData.getPicUrl())) {
-                        if (this.eFg == null) {
-                            this.eFg = new GetEmotionPidModel();
-                        }
-                        if (this.dAG != null) {
-                            this.dAG.Dd();
-                        }
-                        this.eFg.a(emotionImageData.getPicUrl(), new c(this, emotionImageData, pbModel, fVar));
-                        return;
-                    }
-                    return;
-                }
-                if (this.dAG != null) {
-                    this.dAG.Dd();
-                }
-                b(emotionImageData, pbModel, fVar);
-            }
+    public void pm(int i) {
+        if (i >= 0) {
+            this.eRz = i;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(EmotionImageData emotionImageData, PbModel pbModel, f fVar) {
-        boolean z = true;
-        if (emotionImageData != null && fVar != null) {
-            if (this.aBE.getWriteData() == null && pbModel != null) {
-                this.aBE.setWriteData(pbModel.fI(null));
-            }
-            if (this.aBE.getWriteData() != null) {
-                if (fVar.aMv().sC()) {
-                    this.aBE.getWriteData().setCanNoForum(true);
-                    if (fVar.aMt() != null) {
-                        this.aBE.getWriteData().setVForumId(fVar.aMt().getId());
-                        this.aBE.getWriteData().setVForumName(fVar.aMt().getName());
-                    }
-                } else {
-                    this.aBE.getWriteData().setCanNoForum(false);
-                    this.aBE.getWriteData().setVForumId("");
-                    this.aBE.getWriteData().setVForumName("");
-                }
-                WriteData writeData = this.aBE.getWriteData();
-                if (this.aBD == null || !this.aBD.Sy()) {
-                    z = false;
-                }
-                writeData.setHasLocationData(z);
-                StringBuilder sb = new StringBuilder("meme,");
-                sb.append(emotionImageData.getPicId()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                sb.append(emotionImageData.getWidth()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                sb.append(emotionImageData.getHeight()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                this.aBE.getWriteData().setContent("#(" + sb.toString() + t.aN(String.valueOf(sb.toString()) + "7S6wbXjEKL9N").toLowerCase() + ")");
-                this.aBE.b(this.aBU);
-                if (!this.aBE.startPostWrite()) {
-                }
-            }
-        }
-    }
-
-    public void b(com.baidu.tbadk.editortools.pb.b bVar) {
-        this.dAG = bVar;
-    }
-
-    public void c(NewWriteModel.d dVar) {
-        this.eFf = dVar;
-    }
-
-    private boolean a(TbPageContext<?> tbPageContext, int i) {
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.m9getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(w.l.login_to_use), true, i)));
+    public boolean n(Bitmap bitmap) {
+        if (bitmap == null || !this.started) {
             return false;
         }
-        return true;
-    }
-
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (i2 == -1) {
-            if (i == 25017) {
-                if (intent != null) {
-                    WriteData writeData = this.aBE != null ? this.aBE.getWriteData() : null;
-                    resetData();
-                    if (this.eFf != null) {
-                        this.eFf.callback(true, null, null, writeData, null);
-                    }
-                }
-            } else if (i == 11042) {
-                a(this.eFh, this.eFi, this.eFj);
+        try {
+            if (!this.eRJ) {
+                setSize(bitmap.getWidth(), bitmap.getHeight());
             }
-        }
-    }
-
-    public boolean cancelLoadData() {
-        if (this.eFg != null) {
-            this.eFg.cancelLoadData();
+            this.Iq = bitmap;
+            aUf();
+            aUe();
+            if (this.eRI) {
+                aUi();
+                aUk();
+                if (this.eRz >= 0) {
+                    aUj();
+                }
+            }
+            aUg();
+            aUh();
+            if (!this.eRI) {
+                aUk();
+            }
+            aUl();
+            this.eRI = false;
             return true;
+        } catch (IOException e) {
+            return false;
         }
-        return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void resetData() {
-        this.eFh = null;
-        this.eFj = null;
-        this.eFi = null;
-        if (this.aBE != null) {
-            this.aBE.setWriteData(null);
+    public boolean aUd() {
+        boolean z;
+        if (this.started) {
+            this.started = false;
+            try {
+                this.out.write(59);
+                this.out.flush();
+                if (this.eRH) {
+                    this.out.close();
+                }
+                z = true;
+            } catch (IOException e) {
+                z = false;
+            }
+            this.eRy = 0;
+            this.out = null;
+            this.Iq = null;
+            this.eRA = null;
+            this.eRB = null;
+            this.eRD = null;
+            this.eRH = false;
+            this.eRI = true;
+            return z;
+        }
+        return false;
+    }
+
+    public void setSize(int i, int i2) {
+        this.width = i;
+        this.height = i2;
+        if (this.width < 1) {
+            this.width = 320;
+        }
+        if (this.height < 1) {
+            this.height = 240;
+        }
+        this.eRJ = true;
+    }
+
+    public boolean h(OutputStream outputStream) {
+        if (outputStream == null) {
+            return false;
+        }
+        boolean z = true;
+        this.eRH = false;
+        this.out = outputStream;
+        try {
+            writeString("GIF89a");
+        } catch (IOException e) {
+            z = false;
+        }
+        this.started = z;
+        return z;
+    }
+
+    protected void aUe() {
+        int length = this.eRA.length;
+        int i = length / 3;
+        this.eRB = new byte[i];
+        c cVar = new c(this.eRA, length, this.eRK);
+        this.eRD = cVar.aUr();
+        for (int i2 = 0; i2 < this.eRD.length; i2 += 3) {
+            byte b = this.eRD[i2];
+            this.eRD[i2] = this.eRD[i2 + 2];
+            this.eRD[i2 + 2] = b;
+            this.eRE[i2 / 3] = false;
+        }
+        int i3 = 0;
+        for (int i4 = 0; i4 < i; i4++) {
+            int i5 = i3 + 1;
+            int i6 = i5 + 1;
+            i3 = i6 + 1;
+            int L = cVar.L(this.eRA[i3] & 255, this.eRA[i5] & 255, this.eRA[i6] & 255);
+            this.eRE[L] = true;
+            this.eRB[i4] = (byte) L;
+        }
+        this.eRA = null;
+        this.eRC = 8;
+        this.eRF = 7;
+        if (this.transparent != -1) {
+            this.eRy = pn(this.transparent);
+        }
+    }
+
+    protected int pn(int i) {
+        int i2;
+        int i3 = 0;
+        if (this.eRD == null) {
+            return -1;
+        }
+        int i4 = (i >> 16) & MotionEventCompat.ACTION_MASK;
+        int i5 = (i >> 8) & MotionEventCompat.ACTION_MASK;
+        int i6 = (i >> 0) & MotionEventCompat.ACTION_MASK;
+        int i7 = ViewCompat.MEASURED_STATE_TOO_SMALL;
+        int length = this.eRD.length;
+        int i8 = 0;
+        while (i3 < length) {
+            int i9 = i3 + 1;
+            int i10 = i4 - (this.eRD[i3] & 255);
+            int i11 = i9 + 1;
+            int i12 = i5 - (this.eRD[i9] & 255);
+            int i13 = i6 - (this.eRD[i11] & 255);
+            int i14 = (i10 * i10) + (i12 * i12) + (i13 * i13);
+            int i15 = i11 / 3;
+            if (!this.eRE[i15] || i14 >= i7) {
+                i14 = i7;
+                i2 = i8;
+            } else {
+                i2 = i15;
+            }
+            i8 = i2;
+            i7 = i14;
+            i3 = i11 + 1;
+        }
+        return i8;
+    }
+
+    protected void aUf() {
+        int width = this.Iq.getWidth();
+        int height = this.Iq.getHeight();
+        if (width != this.width || height != this.height) {
+            Bitmap createBitmap = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.RGB_565);
+            new Canvas(createBitmap).drawBitmap(this.Iq, 0.0f, 0.0f, new Paint());
+            this.Iq = createBitmap;
+        }
+        int[] o = o(this.Iq);
+        this.eRA = new byte[o.length * 3];
+        for (int i = 0; i < o.length; i++) {
+            int i2 = o[i];
+            int i3 = i * 3;
+            int i4 = i3 + 1;
+            this.eRA[i3] = (byte) ((i2 >> 0) & MotionEventCompat.ACTION_MASK);
+            this.eRA[i4] = (byte) ((i2 >> 8) & MotionEventCompat.ACTION_MASK);
+            this.eRA[i4 + 1] = (byte) ((i2 >> 16) & MotionEventCompat.ACTION_MASK);
+        }
+    }
+
+    protected int[] o(Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int[] iArr = new int[width * height];
+        bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+        return iArr;
+    }
+
+    protected void aUg() throws IOException {
+        int i;
+        int i2;
+        this.out.write(33);
+        this.out.write(249);
+        this.out.write(4);
+        if (this.transparent == -1) {
+            i2 = 0;
+            i = 0;
+        } else {
+            i = 1;
+            i2 = 2;
+        }
+        if (this.eRG >= 0) {
+            i2 = this.eRG & 7;
+        }
+        this.out.write((i2 << 2) | 0 | 0 | i);
+        writeShort(this.delay);
+        this.out.write(this.eRy);
+        this.out.write(0);
+    }
+
+    protected void aUh() throws IOException {
+        this.out.write(44);
+        writeShort(this.x);
+        writeShort(this.y);
+        writeShort(this.width);
+        writeShort(this.height);
+        if (this.eRI) {
+            this.out.write(0);
+        } else {
+            this.out.write(this.eRF | 128);
+        }
+    }
+
+    protected void aUi() throws IOException {
+        writeShort(this.width);
+        writeShort(this.height);
+        this.out.write(this.eRF | 240);
+        this.out.write(0);
+        this.out.write(0);
+    }
+
+    protected void aUj() throws IOException {
+        this.out.write(33);
+        this.out.write(MotionEventCompat.ACTION_MASK);
+        this.out.write(11);
+        writeString("NETSCAPE2.0");
+        this.out.write(3);
+        this.out.write(1);
+        writeShort(this.eRz);
+        this.out.write(0);
+    }
+
+    protected void aUk() throws IOException {
+        this.out.write(this.eRD, 0, this.eRD.length);
+        int length = 768 - this.eRD.length;
+        for (int i = 0; i < length; i++) {
+            this.out.write(0);
+        }
+    }
+
+    protected void aUl() throws IOException {
+        new b(this.width, this.height, this.eRB, this.eRC).encode(this.out);
+    }
+
+    protected void writeShort(int i) throws IOException {
+        this.out.write(i & MotionEventCompat.ACTION_MASK);
+        this.out.write((i >> 8) & MotionEventCompat.ACTION_MASK);
+    }
+
+    protected void writeString(String str) throws IOException {
+        for (int i = 0; i < str.length(); i++) {
+            this.out.write((byte) str.charAt(i));
         }
     }
 }

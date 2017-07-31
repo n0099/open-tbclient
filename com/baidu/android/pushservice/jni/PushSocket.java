@@ -3,7 +3,6 @@ package com.baidu.android.pushservice.jni;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.g.a;
-import com.baidu.android.pushservice.j.q;
 import com.baidu.android.pushservice.message.h;
 /* loaded from: classes2.dex */
 public class PushSocket {
@@ -46,8 +45,27 @@ public class PushSocket {
         return a;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x004a, code lost:
+        r0 = new byte[2];
+        java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.b, com.baidu.android.pushservice.jni.PushSocket.c, r0, 0, r0.length);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x005b, code lost:
+        if (r2 != com.baidu.android.pushservice.message.h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x005d, code lost:
+        com.baidu.android.pushservice.g.a.b(com.baidu.android.pushservice.jni.PushSocket.d, "MSG_ID_TINY_HEARTBEAT_SERVER");
+        com.baidu.android.pushservice.j.q.b("MSG_ID_TINY_HEARTBEAT_SERVER", r7);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x006b, code lost:
+        com.baidu.android.pushservice.jni.PushSocket.c += 2;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0071, code lost:
+        return r0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static byte[] a(Context context, int i) {
-        short a2;
         while (true) {
             if (b != null) {
                 int length = b.length;
@@ -55,7 +73,7 @@ public class PushSocket {
                     b = null;
                     c = 0;
                 } else if (length - c > 1) {
-                    a2 = a(b, c);
+                    short a2 = a(b, c);
                     a.b(d, "msgid:" + ((int) a2));
                     if (a2 == h.MSG_ID_TINY_HEARTBEAT_CLIENT.a() || a2 == h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) {
                         break;
@@ -79,14 +97,6 @@ public class PushSocket {
                 return null;
             }
         }
-        byte[] bArr2 = new byte[2];
-        System.arraycopy(b, c, bArr2, 0, bArr2.length);
-        if (a2 == h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) {
-            a.b(d, "MSG_ID_TINY_HEARTBEAT_SERVER");
-            q.b("MSG_ID_TINY_HEARTBEAT_SERVER", context);
-        }
-        c += 2;
-        return bArr2;
     }
 
     public static int b(byte[] bArr, int i) {

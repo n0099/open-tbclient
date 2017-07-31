@@ -1,21 +1,34 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 
-import com.baidu.tbadk.coreExtra.websocketBase.a;
-import java.util.Comparator;
-import java.util.Map;
+import com.baidu.adp.framework.client.socket.i;
 /* loaded from: classes.dex */
-class b implements Comparator<Map.Entry<String, Integer>> {
-    final /* synthetic */ a.b axg;
+public class b {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a.b bVar) {
-        this.axg = bVar;
+    /* loaded from: classes.dex */
+    private static class a {
+        private static b azr = new b();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: b */
-    public int compare(Map.Entry<String, Integer> entry, Map.Entry<String, Integer> entry2) {
-        return (int) (com.baidu.adp.lib.g.b.g(String.valueOf(entry.getValue()), 0) - com.baidu.adp.lib.g.b.g(String.valueOf(entry2.getValue()), 0));
+    public static b BW() {
+        return a.azr;
+    }
+
+    private b() {
+    }
+
+    public void BX() {
+        fq("kLCSError=1");
+    }
+
+    public void ep(int i) {
+        fq("kNetStatus=" + i);
+    }
+
+    public void fp(String str) {
+        fq("kNewIpResult=" + str);
+    }
+
+    private void fq(String str) {
+        i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.f.Tz, str);
     }
 }

@@ -2,14 +2,15 @@ package com.baidu.tieba.enterForum.multiConcern;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.u;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MultiConcernModel extends BdBaseModel {
-    com.baidu.adp.framework.listener.a bJt;
-    private a bTO;
+    com.baidu.adp.framework.listener.a bON;
+    private a bZi;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,15 +19,24 @@ public class MultiConcernModel extends BdBaseModel {
 
     public MultiConcernModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bJt = new com.baidu.tieba.enterForum.multiConcern.a(this, CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, 309470);
+        this.bON = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, 309470) { // from class: com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.1
+            @Override // com.baidu.adp.framework.listener.a
+            public void onMessage(ResponsedMessage<?> responsedMessage) {
+                if (responsedMessage != null) {
+                    if (((responsedMessage instanceof MultiConcernSocketResponseMessage) || (responsedMessage instanceof MultiConcernHttpResponseMessage)) && MultiConcernModel.this.bZi != null) {
+                        MultiConcernModel.this.bZi.z(responsedMessage.getError(), responsedMessage.getErrorString());
+                    }
+                }
+            }
+        };
         setUniqueId(BdUniqueId.gen());
         com.baidu.tieba.tbadkCore.a.a.a(309470, MultiConcernSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309470, CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, "c/f/recommtag/multiConcern", MultiConcernHttpResponseMessage.class, false, false, false, false);
-        registerListener(this.bJt);
+        registerListener(this.bON);
     }
 
     public void C(ArrayList<Long> arrayList) {
-        if (!z.t(arrayList)) {
+        if (!u.v(arrayList)) {
             cancelMessage();
             MultiConcernRequestMessage multiConcernRequestMessage = new MultiConcernRequestMessage();
             multiConcernRequestMessage.setIdList(arrayList);
@@ -35,7 +45,7 @@ public class MultiConcernModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.bTO = aVar;
+        this.bZi = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

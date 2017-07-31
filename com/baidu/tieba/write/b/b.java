@@ -1,23 +1,21 @@
 package com.baidu.tieba.write.b;
 
-import android.view.View;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import com.baidu.tbadk.editortools.r;
 /* loaded from: classes.dex */
-public class b implements View.OnClickListener {
-    final /* synthetic */ a gha;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.gha = aVar;
+public class b extends r {
+    public b(Context context, String str) {
+        super(context, (String) null, 15);
+        this.aCR = false;
+        this.aCQ = 3;
+        this.aCc = new a(context);
+        ((a) this.aCc).setCallFrom(str);
+        this.aCS = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 50};
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        textView = this.gha.ggX;
-        if (view == textView) {
-            this.gha.b(new com.baidu.tbadk.editortools.a(51, -1, null));
+    public void byB() {
+        if (this.aCc instanceof a) {
+            ((a) this.aCc).byB();
         }
     }
 }

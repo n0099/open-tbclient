@@ -34,12 +34,12 @@ public class b {
 
     /* renamed from: com.baidu.android.pushservice.h.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0019b {
-        private static C0019b c = null;
+    private static class C0021b {
+        private static C0021b c = null;
         private Context a;
         private final JSONObject b = new JSONObject();
 
-        private C0019b(Context context) {
+        private C0021b(Context context) {
             this.a = null;
             this.a = context;
             try {
@@ -77,15 +77,15 @@ public class b {
             }
         }
 
-        public static synchronized C0019b a(Context context) {
-            C0019b c0019b;
-            synchronized (C0019b.class) {
+        public static synchronized C0021b a(Context context) {
+            C0021b c0021b;
+            synchronized (C0021b.class) {
                 if (c == null) {
-                    c = new C0019b(context);
+                    c = new C0021b(context);
                 }
-                c0019b = c;
+                c0021b = c;
             }
-            return c0019b;
+            return c0021b;
         }
 
         public JSONObject a() {
@@ -93,7 +93,7 @@ public class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0034  */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0037  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -102,9 +102,9 @@ public class b {
         String str;
         a a2;
         try {
+            byte[] bArr = new byte[1024];
+            randomAccessFile = new RandomAccessFile("/proc/cpuinfo", "r");
             try {
-                byte[] bArr = new byte[1024];
-                randomAccessFile = new RandomAccessFile("/proc/cpuinfo", "r");
                 try {
                     randomAccessFile.read(bArr);
                     str = new String(bArr);
@@ -125,7 +125,7 @@ public class b {
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.android.pushservice.f.b.a(null);
+                com.baidu.android.pushservice.f.b.a(randomAccessFile);
                 throw th;
             }
         } catch (Exception e2) {
@@ -133,7 +133,8 @@ public class b {
             randomAccessFile = null;
         } catch (Throwable th2) {
             th = th2;
-            com.baidu.android.pushservice.f.b.a(null);
+            randomAccessFile = null;
+            com.baidu.android.pushservice.f.b.a(randomAccessFile);
             throw th;
         }
         a2 = a(str);
@@ -252,25 +253,25 @@ public class b {
         String readLine;
         try {
             fileReader = new FileReader("/proc/meminfo");
-        } catch (IOException e) {
-            fileReader = null;
-        } catch (Throwable th2) {
-            fileReader = null;
-            th = th2;
-        }
-        try {
-            BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
-            long intValue = bufferedReader.readLine() != null ? Integer.valueOf(readLine.split("\\s+")[1]).intValue() / 1024 : 0L;
-            bufferedReader.close();
-            com.baidu.android.pushservice.f.b.a(fileReader);
-            return intValue;
+            try {
+                BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
+                long intValue = bufferedReader.readLine() != null ? Integer.valueOf(readLine.split("\\s+")[1]).intValue() / 1024 : 0L;
+                bufferedReader.close();
+                com.baidu.android.pushservice.f.b.a(fileReader);
+                return intValue;
+            } catch (IOException e) {
+                com.baidu.android.pushservice.f.b.a(fileReader);
+                return -1L;
+            } catch (Throwable th2) {
+                th = th2;
+                com.baidu.android.pushservice.f.b.a(fileReader);
+                throw th;
+            }
         } catch (IOException e2) {
-            com.baidu.android.pushservice.f.b.a(fileReader);
-            return -1L;
+            fileReader = null;
         } catch (Throwable th3) {
+            fileReader = null;
             th = th3;
-            com.baidu.android.pushservice.f.b.a(fileReader);
-            throw th;
         }
     }
 
@@ -363,7 +364,7 @@ public class b {
     }
 
     public static JSONObject e(Context context) {
-        return C0019b.a(context).a();
+        return C0021b.a(context).a();
     }
 
     public static JSONObject f(Context context) {

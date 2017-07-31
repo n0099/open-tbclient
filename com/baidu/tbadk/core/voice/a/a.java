@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.voice.a;
 
-import com.baidu.adp.lib.voice.l;
-import com.baidu.tieba.w;
+import com.baidu.adp.lib.voice.h;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
     public String md5 = null;
@@ -9,24 +9,24 @@ public class a {
     public int error_code = 0;
     public String error_msg = null;
 
-    public static String dz(int i) {
+    public static String dD(int i) {
         switch (i) {
             case 0:
                 return "";
             case 1:
-                return l.getString(w.l.voice_cache_error_internal);
+                return h.getString(d.l.voice_cache_error_internal);
             case 2:
-                return l.getString(w.l.voice_cache_error_no_space);
+                return h.getString(d.l.voice_cache_error_no_space);
             case 3:
-                return l.getString(w.l.neterror);
+                return h.getString(d.l.neterror);
             case 4:
-                return l.getString(w.l.voice_cache_error_no_file);
+                return h.getString(d.l.voice_cache_error_no_file);
             case 5:
-                return l.getString(w.l.voice_cache_error_md5);
+                return h.getString(d.l.voice_cache_error_md5);
             case 6:
-                return l.getString(w.l.voice_cache_error_no_input);
+                return h.getString(d.l.voice_cache_error_no_input);
             case 7:
-                return l.getString(w.l.voice_cache_error_no_dir);
+                return h.getString(d.l.voice_cache_error_no_dir);
             default:
                 return "";
         }

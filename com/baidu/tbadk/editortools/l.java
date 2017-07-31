@@ -1,16 +1,11 @@
 package com.baidu.tbadk.editortools;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements Runnable {
-    final /* synthetic */ j aAl;
+public interface l extends b {
+    int getToolId();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(j jVar) {
-        this.aAl = jVar;
-    }
+    void hide();
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.aAl.CL();
-    }
+    void lT();
+
+    void onChangeSkinType(int i);
 }

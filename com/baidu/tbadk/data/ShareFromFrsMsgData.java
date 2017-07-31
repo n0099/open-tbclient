@@ -20,7 +20,7 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
             jSONObject.put("forumName", this.name);
             jSONObject.put("memberNum", this.memberNum);
             jSONObject.put("postNum", this.postNum);
-            jSONObject.put("themeContent", String.valueOf(this.name) + "\n关注：" + this.memberNum + " 帖子：" + this.postNum);
+            jSONObject.put("themeContent", this.name + "\n关注：" + this.memberNum + " 帖子：" + this.postNum);
             jSONObject.put("themeImageUrl", this.imageUrl == null ? "" : this.imageUrl);
             JSONArray jSONArray = new JSONArray();
             jSONArray.put("【" + this.name + "吧】 " + this.content + " " + TbConfig.HTTPS_FRS_PREFIX + this.name);

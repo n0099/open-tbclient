@@ -1,8 +1,9 @@
 package com.baidu.tbadk.coreExtra.view;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ImageUrlData implements Serializable {
+public class ImageUrlData extends OrmObject implements Serializable {
     public static final int IMAGE_TYPE_CHUDIAN = 1;
     private static final long serialVersionUID = 2037469186418617574L;
     public String imageUrl;

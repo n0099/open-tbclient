@@ -10,10 +10,6 @@ public final class UserPostResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ UserPostResIdl(Builder builder, boolean z, UserPostResIdl userPostResIdl) {
-        this(builder, z);
-    }
-
     private UserPostResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -45,7 +41,7 @@ public final class UserPostResIdl extends Message {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public UserPostResIdl build(boolean z) {
-            return new UserPostResIdl(this, z, null);
+            return new UserPostResIdl(this, z);
         }
     }
 }

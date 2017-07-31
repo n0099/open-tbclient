@@ -1,146 +1,108 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.io.IOException;
-import java.lang.ref.WeakReference;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.i;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 /* loaded from: classes.dex */
 public class e {
-    private c axt;
-    private b axu;
-    private a axv;
+    private boolean azQ = false;
+    private int azR = 0;
 
-    /* loaded from: classes.dex */
-    public interface b {
-        void bt(boolean z);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class c extends Handler {
-        private final WeakReference<e> axy;
-
-        c(e eVar) {
-            this.axy = new WeakReference<>(eVar);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            e eVar;
-            super.handleMessage(message);
-            if (message.what != 0 || (eVar = this.axy.get()) == null) {
-                return;
-            }
-            eVar.BJ();
-        }
-    }
-
-    public e(String str, b bVar) {
-        this.axt = null;
-        this.axu = null;
-        this.axv = null;
-        this.axt = new c(this);
-        this.axu = bVar;
-        this.axt.sendEmptyMessageDelayed(0, 50000L);
-        this.axv = new a(this, null);
-        this.axv.setSelfExecute(true);
-        this.axv.execute(String.valueOf(BI()) + str);
-    }
-
-    private String BI() {
-        switch (com.baidu.adp.lib.util.i.hp()) {
-            case 1:
-                return "ping -c 3 -w 3000 ";
-            case 2:
-                return "ping -c 3 -w 10000 ";
-            case 3:
-                return "ping -c 3 -w 5000 ";
-            default:
-                return "ping -c 3 -w 5000 ";
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void BJ() {
-        if (this.axv != null) {
-            this.axv.cancel(true);
-        }
-        if (this.axt != null) {
-            this.axt.removeMessages(0);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<String, Void, Boolean> {
-        Process axw;
-
-        private a() {
-            this.axw = null;
-        }
-
-        /* synthetic */ a(e eVar, a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [116=4] */
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Boolean doInBackground(String... strArr) {
-            boolean z = false;
-            if (strArr != null && strArr.length >= 1) {
+    public void fr(String str) {
+        int lastIndexOf;
+        String str2;
+        Exception e;
+        int i;
+        int i2;
+        this.azQ = false;
+        this.azR = 0;
+        if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
+            String str3 = null;
+            try {
+                str2 = str.substring(5, lastIndexOf);
                 try {
-                    try {
-                        this.axw = Runtime.getRuntime().exec(strArr[0]);
-                        boolean z2 = this.axw.waitFor() == 0;
-                        this.axw.destroy();
-                        z = z2;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        this.axw.destroy();
-                    } catch (InterruptedException e2) {
-                        e2.printStackTrace();
-                        this.axw.destroy();
+                    str3 = str.substring(lastIndexOf + 1);
+                } catch (Exception e2) {
+                    e = e2;
+                    BdLog.e(e.getMessage());
+                    if (TextUtils.isEmpty(str2)) {
                     }
-                } catch (Throwable th) {
-                    this.axw.destroy();
-                    throw th;
+                    return;
+                }
+            } catch (Exception e3) {
+                str2 = null;
+                e = e3;
+            }
+            if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                int i3 = 0;
+                int i4 = 0;
+                int i5 = 0;
+                while (i5 < 3) {
+                    Socket socket = new Socket();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    try {
+                        try {
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.g(String.valueOf(str3), 8000)), getTimeout());
+                            if (socket.isConnected()) {
+                                i4++;
+                                i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
+                                this.azQ = true;
+                            }
+                            i = i4;
+                            i2 = i3;
+                            try {
+                                socket.close();
+                            } catch (Exception e4) {
+                                BdLog.e(e4.getMessage());
+                            }
+                        } catch (Throwable th) {
+                            try {
+                                socket.close();
+                            } catch (Exception e5) {
+                                BdLog.e(e5.getMessage());
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e6) {
+                        i = i4;
+                        i2 = i3;
+                        BdLog.e(e6.getMessage());
+                        try {
+                            socket.close();
+                        } catch (Exception e7) {
+                            BdLog.e(e7.getMessage());
+                        }
+                    }
+                    i5++;
+                    i3 = i2;
+                    i4 = i;
+                }
+                if (this.azQ && i4 > 0) {
+                    this.azR = i3 / i4;
                 }
             }
-            return Boolean.valueOf(z);
         }
+    }
 
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            super.onCancelled();
-            if (this.axw != null) {
-                try {
-                    this.axw.destroy();
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-            if (e.this.axu != null) {
-                e.this.axu.bt(false);
-            }
-            if (e.this.axt != null) {
-                e.this.axt.removeMessages(0);
-            }
-        }
+    public boolean isSucc() {
+        return this.azQ;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            if (e.this.axu != null) {
-                e.this.axu.bt(bool == null ? false : bool.booleanValue());
-            }
-            if (e.this.axt != null) {
-                e.this.axt.removeMessages(0);
-            }
+    public int Cg() {
+        return this.azR;
+    }
+
+    private int getTimeout() {
+        switch (i.hx()) {
+            case 1:
+                return 3000;
+            case 2:
+                return 10000;
+            case 3:
+            default:
+                return 5000;
         }
     }
 }

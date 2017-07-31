@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 /* loaded from: classes.dex */
 public final class h {
-    private static volatile h Po = null;
-    public static String a = no().b() + "/baidu/tempdata";
+    private static volatile h QN = null;
+    public static String a = nv().b() + "/baidu/tempdata";
     private final List<g> b = new ArrayList();
     private Context d;
 
@@ -99,7 +99,7 @@ public final class h {
         return this.b;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00ad  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00b5  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -125,7 +125,6 @@ public final class h {
                             th = th;
                             scanner2 = scanner;
                             if (scanner2 != null) {
-                                scanner2.close();
                             }
                             throw th;
                         }
@@ -165,6 +164,7 @@ public final class h {
                         th = th3;
                         scanner2 = scanner;
                         if (scanner2 != null) {
+                            scanner2.close();
                         }
                         throw th;
                     }
@@ -193,15 +193,15 @@ public final class h {
         return this.b;
     }
 
-    public static h no() {
-        if (Po == null) {
+    public static h nv() {
+        if (QN == null) {
             synchronized (h.class) {
-                if (Po == null) {
-                    Po = new h(com.baidu.location.f.getServiceContext());
+                if (QN == null) {
+                    QN = new h(com.baidu.location.f.getServiceContext());
                 }
             }
         }
-        return Po;
+        return QN;
     }
 
     public String b() {

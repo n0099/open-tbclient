@@ -4,11 +4,12 @@ import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.pb.data.n;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
 /* loaded from: classes.dex */
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
-    public com.baidu.tieba.pb.data.n pbFloorData;
+    public n pbFloorData;
     private boolean treatDelPage;
 
     public boolean isTreatDelPage() {
@@ -21,10 +22,11 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
         this.treatDelPage = false;
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Context context;
-        com.baidu.tieba.pb.data.n nVar = null;
+        n nVar = null;
         super.decodeInBackGround(i, bArr);
         Object extra = getOrginalMessage().getExtra();
         if (extra == null || !(extra instanceof SubPbRequestMessage)) {
@@ -37,9 +39,9 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
         try {
             PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                nVar = com.baidu.tieba.pb.data.n.a(pbFloorResIdl.data, context);
+                nVar = n.a(pbFloorResIdl.data, context);
                 if (nVar != null) {
-                    nVar.esr = pbFloorResIdl.error;
+                    nVar.eEN = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

@@ -2,69 +2,68 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bm;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tieba.card.at;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.util.aj;
 /* loaded from: classes.dex */
 public class m extends c {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private au bEn;
-    private au bEo;
-    private au bEp;
-    private au bEq;
-    public bm bai;
+    private aj bJJ;
+    private aj bJK;
+    private aj bJL;
+    private aj bJM;
+    public bl bcL;
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
         return TYPE;
     }
 
-    public m(bm bmVar) {
-        this.bai = bmVar;
+    public m(bl blVar) {
+        this.bcL = blVar;
     }
 
-    public static boolean x(bm bmVar) {
-        return bmVar != null && bmVar.getThreadType() == 33;
+    public static boolean B(bl blVar) {
+        return blVar != null && blVar.getThreadType() == 33;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bm Mv() {
-        return this.bai;
+    public bl MF() {
+        return this.bcL;
     }
 
-    public int Wh() {
-        return (this.bai == null || StringUtils.isNull(this.bai.getPhotoLiveCover())) ? 0 : 1;
+    public int WU() {
+        return (this.bcL == null || StringUtils.isNull(this.bcL.getPhotoLiveCover())) ? 0 : 1;
     }
 
-    public void b(au auVar) {
-        this.bEn = auVar;
+    public void b(aj ajVar) {
+        this.bJJ = ajVar;
     }
 
-    public void c(au auVar) {
-        this.bEo = auVar;
+    public void c(aj ajVar) {
+        this.bJK = ajVar;
     }
 
-    public void d(au auVar) {
-        this.bEp = auVar;
+    public void d(aj ajVar) {
+        this.bJL = ajVar;
     }
 
-    public void e(au auVar) {
-        this.bEq = auVar;
+    public void e(aj ajVar) {
+        this.bJM = ajVar;
     }
 
-    public au Wi() {
-        return this.bEn != null ? this.bEn.Z("obj_param3", at.VG()) : this.bEn;
+    public aj WV() {
+        return this.bJJ != null ? this.bJJ.aa("obj_param3", com.baidu.tieba.card.m.Ws()) : this.bJJ;
     }
 
-    public au Wj() {
-        return this.bEo != null ? this.bEo.Z("obj_param3", at.VG()) : this.bEo;
+    public aj WW() {
+        return this.bJK != null ? this.bJK.aa("obj_param3", com.baidu.tieba.card.m.Ws()) : this.bJK;
     }
 
-    public au Wk() {
-        return this.bEq != null ? this.bEq.Z("obj_param3", at.VG()) : this.bEq;
+    public aj WX() {
+        return this.bJM != null ? this.bJM.aa("obj_param3", com.baidu.tieba.card.m.Ws()) : this.bJM;
     }
 
-    public au Wl() {
-        return this.bEp != null ? this.bEp.Z("obj_param3", at.VG()) : this.bEp;
+    public aj WY() {
+        return this.bJL != null ? this.bJL.aa("obj_param3", com.baidu.tieba.card.m.Ws()) : this.bJL;
     }
 }

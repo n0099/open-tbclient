@@ -1,124 +1,88 @@
 package com.baidu.adp.lib.b;
 
 import android.content.SharedPreferences;
-import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
-import java.security.InvalidParameterException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    public static String uk = "_crashtime";
-    public static String ul = "_crashtype";
-    private int um;
-    private int uo;
-    private c up;
+    private static d vT = null;
+    private HashMap<String, c> mSwitchs;
 
-    public d(c cVar) {
-        this.um = 0;
-        this.uo = 0;
-        this.up = null;
-        if (cVar == null) {
-            throw new InvalidParameterException("SwitchHolder data is null");
-        }
-        this.up = cVar;
-        if (this.up.eS() > 0 && this.up.eV() != null) {
-            this.um = eX();
-            if (this.um == -1) {
-                reset();
+    private d() {
+        this.mSwitchs = null;
+        this.mSwitchs = new HashMap<>();
+    }
+
+    public static synchronized d fh() {
+        d dVar;
+        synchronized (d.class) {
+            if (vT == null) {
+                vT = new d();
             }
+            dVar = vT;
         }
-        this.uo = eW();
-        this.up.d(this.uo, true);
+        return dVar;
     }
 
-    public String getName() {
-        return this.up.getName();
+    public void a(b bVar) {
+        if (bVar != null && !this.mSwitchs.containsKey(bVar.getName())) {
+            this.mSwitchs.put(bVar.getName(), new c(bVar));
+        }
     }
 
-    public int eQ() {
-        return this.up.eQ();
+    public void crash(String str) {
+        Iterator<c> it = this.mSwitchs.values().iterator();
+        while (it.hasNext() && !it.next().ak(str)) {
+        }
     }
 
-    public int getType() {
-        return this.uo;
-    }
-
-    public boolean Y(int i) {
-        if (this.up.eS() >= 0 && this.um >= this.up.eS() + 2) {
-            i = this.up.eR();
-        }
-        if (i == this.uo) {
-            return false;
-        }
-        this.uo = i;
-        this.up.d(this.uo, false);
-        Z(i);
-        return true;
-    }
-
-    public boolean ac(String str) {
-        String[] eT;
-        String[] eV;
-        if (str == null || this.up.eS() <= 0) {
-            return false;
-        }
-        if (this.up.eV() != null) {
-            for (String str2 : this.up.eV()) {
-                if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.um++;
-                    aa(this.um);
-                    if (this.um >= this.up.eS()) {
-                        Z(this.up.eR());
-                        this.uo = this.up.eR();
-                        this.up.d(this.up.eR(), false);
-                        return true;
-                    }
-                    return true;
-                }
-            }
-        }
-        if (this.up.eT() != null) {
-            for (String str3 : this.up.eT()) {
-                if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.um++;
-                    aa(this.um);
-                    if (this.um >= this.up.eS()) {
-                        Z(this.up.eR());
-                        this.uo = this.up.eR();
-                        this.up.d(this.up.eR(), false);
-                        return true;
-                    }
-                    return true;
-                }
-            }
+    public boolean d(String str, int i) {
+        c cVar;
+        if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
+            return cVar.ab(i);
         }
         return false;
     }
 
-    private void Z(int i) {
-        SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.up.getName()) + ul, i);
-        edit.commit();
+    public int al(String str) {
+        c cVar = this.mSwitchs.get(str);
+        if (cVar != null) {
+            return cVar.getType();
+        }
+        return -1;
     }
 
-    private int eW() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.up.getName()) + ul, this.up.eQ());
+    public void clear() {
+        if (this.mSwitchs != null) {
+            SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
+            for (c cVar : this.mSwitchs.values()) {
+                if (cVar != null) {
+                    cVar.ae(0);
+                    edit.putInt(cVar.getName() + c.vO, 0);
+                    edit.putInt(cVar.getName() + c.vP, cVar.eZ());
+                }
+            }
+            edit.commit();
+        }
     }
 
-    private int eX() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.up.getName()) + uk, -1);
+    public void f(Class<?> cls) {
+        try {
+            cls.newInstance();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e2) {
+            e2.printStackTrace();
+        }
     }
 
-    private void aa(int i) {
-        SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.up.getName()) + uk, i);
-        edit.commit();
-    }
-
-    public void reset() {
-        this.um = 0;
-    }
-
-    public void ab(int i) {
-        this.um = i;
+    public void c(HashMap<String, Integer> hashMap) {
+        if (hashMap != null && hashMap.size() > 0) {
+            for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+                d(entry.getKey(), entry.getValue().intValue());
+            }
+        }
     }
 }

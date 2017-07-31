@@ -1,16 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-class g implements CustomMessageTask.CustomRunnable<FrsActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().startActivity(FrsActivity.class);
-        }
-        return null;
+public class g extends j.a {
+    public TextView aof;
+    public TextView aoi;
+    public int aql;
+    public TextView ckj;
+    public TextView ckk;
+
+    public g(View view) {
+        super(view);
+        this.aql = 3;
+        this.aof = (TextView) getView().findViewById(d.h.frs_god_lv_reply_time);
+        this.aoi = (TextView) getView().findViewById(d.h.frs_god_praise_num);
+        this.ckk = (TextView) getView().findViewById(d.h.frs_god_reply_num);
+        this.ckj = (TextView) getView().findViewById(d.h.frs_god_item_location_address);
     }
 }

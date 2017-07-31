@@ -1,6 +1,6 @@
 package com.xiaomi.push.protobuf;
 
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 import com.google.protobuf.micro.c;
 import com.google.protobuf.micro.e;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public final class a {
 
     /* renamed from: com.xiaomi.push.protobuf.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0102a extends e {
+    public static final class C0142a extends e {
         private boolean a;
         private boolean c;
         private boolean e;
@@ -23,12 +23,12 @@ public final class a {
         private List<String> i = Collections.emptyList();
         private int j = -1;
 
-        public static C0102a b(byte[] bArr) {
-            return (C0102a) new C0102a().a(bArr);
+        public static C0142a b(byte[] bArr) {
+            return (C0142a) new C0142a().a(bArr);
         }
 
-        public static C0102a c(com.google.protobuf.micro.b bVar) {
-            return new C0102a().a(bVar);
+        public static C0142a c(com.google.protobuf.micro.b bVar) {
+            return new C0142a().a(bVar);
         }
 
         @Override // com.google.protobuf.micro.e
@@ -39,13 +39,13 @@ public final class a {
             return this.j;
         }
 
-        public C0102a a(int i) {
+        public C0142a a(int i) {
             this.a = true;
             this.b = i;
             return this;
         }
 
-        public C0102a a(String str) {
+        public C0142a a(String str) {
             if (str == null) {
                 throw new NullPointerException();
             }
@@ -56,7 +56,7 @@ public final class a {
             return this;
         }
 
-        public C0102a a(boolean z) {
+        public C0142a a(boolean z) {
             this.c = true;
             this.d = z;
             return this;
@@ -84,23 +84,23 @@ public final class a {
         @Override // com.google.protobuf.micro.e
         public int b() {
             int i = 0;
-            int bD = e() ? c.bD(1, d()) + 0 : 0;
+            int bG = e() ? c.bG(1, d()) + 0 : 0;
             if (g()) {
-                bD += c.I(2, f());
+                bG += c.K(2, f());
             }
             if (i()) {
-                bD += c.c(3, h());
+                bG += c.c(3, h());
             }
-            int I = k() ? bD + c.I(4, j()) : bD;
+            int K = k() ? bG + c.K(4, j()) : bG;
             for (String str : l()) {
                 i += c.b(str);
             }
-            int size = I + i + (l().size() * 1);
+            int size = K + i + (l().size() * 1);
             this.j = size;
             return size;
         }
 
-        public C0102a b(int i) {
+        public C0142a b(int i) {
             this.e = true;
             this.f = i;
             return this;
@@ -109,7 +109,7 @@ public final class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.micro.e
         /* renamed from: b */
-        public C0102a a(com.google.protobuf.micro.b bVar) {
+        public C0142a a(com.google.protobuf.micro.b bVar) {
             while (true) {
                 int a = bVar.a();
                 switch (a) {
@@ -127,7 +127,7 @@ public final class a {
                     case 32:
                         b(bVar.f());
                         break;
-                    case w.n.View_duplicateParentState /* 42 */:
+                    case d.n.View_duplicateParentState /* 42 */:
                         a(bVar.g());
                         break;
                     default:
@@ -141,7 +141,7 @@ public final class a {
             return this;
         }
 
-        public C0102a b(boolean z) {
+        public C0142a b(boolean z) {
             this.g = true;
             this.h = z;
             return this;

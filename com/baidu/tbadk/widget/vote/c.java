@@ -1,5 +1,6 @@
 package com.baidu.tbadk.widget.vote;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -12,156 +13,157 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tieba.d;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class c {
-    private View aQg;
-    private ImageView aQh;
-    private ProgressBar aQi;
-    private TextView aQj;
-    private View aQk;
-    private a aQl;
-    private int aQm;
-    private int aQn;
-    private TextView avH;
+    private View aSB;
+    private ImageView aSC;
+    private ProgressBar aSD;
+    private TextView aSE;
+    private View aSF;
+    private a aSG;
+    private int aSH;
+    private int aSI;
+    private TextView axQ;
 
     public c(Context context) {
-        this(context, w.e.cp_cont_b);
+        this(context, d.e.cp_cont_b);
     }
 
     public c(Context context, int i) {
-        this.aQg = LayoutInflater.from(context).inflate(w.j.ballot_item_view, (ViewGroup) null);
-        this.aQh = (ImageView) this.aQg.findViewById(w.h.ballot_item_image);
-        this.avH = (TextView) this.aQg.findViewById(w.h.ballot_item_title);
-        this.aQi = (ProgressBar) this.aQg.findViewById(w.h.ballot_item_progress);
-        this.aQj = (TextView) this.aQg.findViewById(w.h.ballot_item_percents);
-        this.aQk = this.aQg.findViewById(w.h.ballot_item_preffix_progress);
-        this.aQm = k.g(context, w.f.ds28);
-        this.aQn = i;
-        onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+        this.aSB = LayoutInflater.from(context).inflate(d.j.ballot_item_view, (ViewGroup) null);
+        this.aSC = (ImageView) this.aSB.findViewById(d.h.ballot_item_image);
+        this.axQ = (TextView) this.aSB.findViewById(d.h.ballot_item_title);
+        this.aSD = (ProgressBar) this.aSB.findViewById(d.h.ballot_item_progress);
+        this.aSE = (TextView) this.aSB.findViewById(d.h.ballot_item_percents);
+        this.aSF = this.aSB.findViewById(d.h.ballot_item_preffix_progress);
+        this.aSH = k.g(context, d.f.ds28);
+        this.aSI = i;
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setProgressBarHeight(int i) {
-        this.aQm = i;
-        this.aQi.getLayoutParams().height = this.aQm;
-        this.aQk.getLayoutParams().height = this.aQm;
+        this.aSH = i;
+        this.aSD.getLayoutParams().height = this.aSH;
+        this.aSF.getLayoutParams().height = this.aSH;
     }
 
     public void setProgressBarTopMargin(int i) {
-        if (this.aQi.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.aQi.getLayoutParams()).topMargin = i;
+        if (this.aSD.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.aSD.getLayoutParams()).topMargin = i;
         }
-        if (this.aQk.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.aQk.getLayoutParams()).topMargin = i;
+        if (this.aSF.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.aSF.getLayoutParams()).topMargin = i;
         }
     }
 
     public void setDescTopMargin(int i) {
-        if (this.aQj.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.aQj.getLayoutParams()).topMargin = i;
+        if (this.aSE.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.aSE.getLayoutParams()).topMargin = i;
         }
     }
 
-    public void fA(int i) {
+    public void fF(int i) {
         if (i >= 0) {
-            if (this.aQl != null) {
-                int Co = this.aQl.Co();
-                i = ((Co <= 100 ? Co : 100) * i) / 100;
+            if (this.aSG != null) {
+                int CI = this.aSG.CI();
+                i = ((CI <= 100 ? CI : 100) * i) / 100;
             }
-            ViewGroup.LayoutParams layoutParams = this.aQi.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aSD.getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(i, this.aQm);
+                layoutParams = new ViewGroup.LayoutParams(i, this.aSH);
             } else {
                 layoutParams.width = i;
             }
-            this.aQi.setLayoutParams(layoutParams);
+            this.aSD.setLayoutParams(layoutParams);
         }
     }
 
     public int a(a aVar) {
         int intrinsicWidth;
         String string;
-        this.aQl = aVar;
+        this.aSG = aVar;
         if (aVar == null) {
             return 0;
         }
-        if (aVar.Cn() <= 0) {
-            this.aQh.setImageDrawable(null);
-            this.aQh.setVisibility(8);
+        if (aVar.CH() <= 0) {
+            this.aSC.setImageDrawable(null);
+            this.aSC.setVisibility(8);
             intrinsicWidth = 0;
         } else {
-            Drawable drawable = as.getDrawable(aVar.Cn());
-            this.aQh.setImageDrawable(drawable);
-            intrinsicWidth = drawable.getIntrinsicWidth() + this.aQg.getResources().getDimensionPixelSize(w.f.ds24);
-            this.aQh.setVisibility(0);
+            Drawable drawable = ai.getDrawable(aVar.CH());
+            this.aSC.setImageDrawable(drawable);
+            intrinsicWidth = drawable.getIntrinsicWidth() + this.aSB.getResources().getDimensionPixelSize(d.f.ds24);
+            this.aSC.setVisibility(0);
         }
-        if (StringUtils.isNull(aVar.Ck())) {
-            this.avH.setText((CharSequence) null);
-            this.avH.setVisibility(8);
+        if (StringUtils.isNull(aVar.CE())) {
+            this.axQ.setText((CharSequence) null);
+            this.axQ.setVisibility(8);
         } else {
-            this.avH.setText(UtilHelper.getFixedText(aVar.Ck(), 15, false));
-            this.avH.setVisibility(0);
+            this.axQ.setText(UtilHelper.getFixedText(aVar.CE(), 15, false));
+            this.axQ.setVisibility(0);
         }
         if (aVar.isSelected()) {
-            as.k(this.aQk, w.e.common_color_10271);
+            ai.k(this.aSF, d.e.common_color_10271);
         } else {
-            as.k(this.aQk, w.e.common_color_10272);
+            ai.k(this.aSF, d.e.common_color_10272);
         }
-        boolean isNull = StringUtils.isNull(aVar.Cl());
-        boolean isNull2 = StringUtils.isNull(aVar.Cm());
+        boolean isNull = StringUtils.isNull(aVar.CF());
+        boolean isNull2 = StringUtils.isNull(aVar.CG());
         if (isNull && isNull2) {
-            this.aQj.setText((CharSequence) null);
-            this.aQj.setVisibility(8);
+            this.aSE.setText((CharSequence) null);
+            this.aSE.setVisibility(8);
             string = null;
         } else {
-            this.aQj.setVisibility(0);
+            this.aSE.setVisibility(0);
             if (isNull) {
-                string = aVar.Cm();
-                this.aQj.setText(string);
+                string = aVar.CG();
+                this.aSE.setText(string);
             } else if (isNull2) {
-                string = aVar.Cl();
-                this.aQj.setText(string);
+                string = aVar.CF();
+                this.aSE.setText(string);
             } else {
-                string = TbadkCoreApplication.m9getInst().getString(w.l.vote_number_text, new Object[]{aVar.Cl(), aVar.Cm()});
-                this.aQj.setText(string);
+                string = TbadkCoreApplication.getInst().getString(d.l.vote_number_text, new Object[]{aVar.CF(), aVar.CG()});
+                this.aSE.setText(string);
             }
         }
         if (!StringUtils.isNull(string)) {
-            intrinsicWidth = (int) (intrinsicWidth + this.aQj.getPaint().measureText(string));
+            intrinsicWidth = (int) (intrinsicWidth + this.aSE.getPaint().measureText(string));
         }
-        return this.aQg.getResources().getDimensionPixelSize(w.f.ds24) + this.aQg.getResources().getDimensionPixelSize(w.f.ds10) + 8 + intrinsicWidth;
+        return this.aSB.getResources().getDimensionPixelSize(d.f.ds24) + this.aSB.getResources().getDimensionPixelSize(d.f.ds10) + 8 + intrinsicWidth;
     }
 
     public void setProgress(float f) {
-        if (f >= 0.0f && this.aQl != null) {
+        if (f >= 0.0f && this.aSG != null) {
             int i = (int) (100.0f * f);
-            if (this.aQl.isSelected()) {
-                this.aQi.setProgress(i);
-                this.aQi.setSecondaryProgress(0);
+            if (this.aSG.isSelected()) {
+                this.aSD.setProgress(i);
+                this.aSD.setSecondaryProgress(0);
                 return;
             }
-            this.aQi.setProgress(0);
-            this.aQi.setSecondaryProgress(i);
+            this.aSD.setProgress(0);
+            this.aSD.setSecondaryProgress(i);
         }
     }
 
     public View getView() {
-        return this.aQg;
+        return this.aSB;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aQl != null && this.aQl.Cn() > 0) {
-            as.c(this.aQh, this.aQl.Cn(), i);
+        if (this.aSG != null && this.aSG.CH() > 0) {
+            ai.c(this.aSC, this.aSG.CH(), i);
         }
-        as.c(this.avH, w.e.cp_cont_b, 1);
-        as.c(this.aQj, this.aQn, 1);
-        this.aQi.setProgressDrawable(as.getDrawable(w.g.vote_progress_drawable));
-        if (this.aQl != null) {
-            if (this.aQl.isSelected()) {
-                as.k(this.aQk, w.e.common_color_10271);
+        ai.c(this.axQ, d.e.cp_cont_b, 1);
+        ai.c(this.aSE, this.aSI, 1);
+        this.aSD.setProgressDrawable(ai.getDrawable(d.g.vote_progress_drawable));
+        if (this.aSG != null) {
+            if (this.aSG.isSelected()) {
+                ai.k(this.aSF, d.e.common_color_10271);
             } else {
-                as.k(this.aQk, w.e.common_color_10272);
+                ai.k(this.aSF, d.e.common_color_10272);
             }
         }
     }

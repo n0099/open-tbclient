@@ -57,10 +57,6 @@ public final class UserInfo extends Message {
     public static final Integer DEFAULT_USERTYPE = 0;
     public static final Integer DEFAULT_FANSNUM = 0;
 
-    /* synthetic */ UserInfo(Builder builder, boolean z, UserInfo userInfo) {
-        this(builder, z);
-    }
-
     private UserInfo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -216,7 +212,7 @@ public final class UserInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public UserInfo build(boolean z) {
-            return new UserInfo(this, z, null);
+            return new UserInfo(this, z);
         }
     }
 }

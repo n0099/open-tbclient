@@ -16,10 +16,6 @@ public final class ReqData extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<Plugin_setting> plugin_settings_list;
 
-    /* synthetic */ ReqData(Builder builder, boolean z, ReqData reqData) {
-        this(builder, z);
-    }
-
     private ReqData(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -67,7 +63,7 @@ public final class ReqData extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public ReqData build(boolean z) {
-            return new ReqData(this, z, null);
+            return new ReqData(this, z);
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.img;
 
 import android.graphics.Bitmap;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
@@ -13,7 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ImageFileInfo implements Serializable {
+public class ImageFileInfo extends OrmObject implements Serializable {
     private String _cacheKey_all;
     private String _cacheKey_page;
     private String albumId;
@@ -123,14 +124,8 @@ public class ImageFileInfo implements Serializable {
             }
             if (this.persistActionsList != null) {
                 JSONArray jSONArray = new JSONArray();
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= this.persistActionsList.size()) {
-                        break;
-                    }
-                    jSONArray.put(this.persistActionsList.get(i2).toJson());
-                    i = i2 + 1;
+                for (int i = 0; i < this.persistActionsList.size(); i++) {
+                    jSONArray.put(this.persistActionsList.get(i).toJson());
                 }
                 jSONObject.put("actionsList", jSONArray);
             }
@@ -175,7 +170,10 @@ public class ImageFileInfo implements Serializable {
             return false;
         }
         if (!z || this.persistActionsList == null || this.persistActionsList.isEmpty()) {
-            return (this.pageActionsList == null || this.pageActionsList.isEmpty()) ? false : true;
+            if (this.pageActionsList != null) {
+                return this.pageActionsList.isEmpty() ? false : true;
+            }
+            return false;
         }
         return true;
     }

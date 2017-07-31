@@ -1,106 +1,66 @@
 package com.baidu.tbadk.j;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.SystemClock;
-import android.view.WindowManager;
-import android.widget.ImageView;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.f;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.view.HeadImageViewGroup;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.a.a.a {
-    private b aGK;
-    private InterfaceC0050a aGL = null;
-    private WindowManager jn;
+public class a extends j.a {
+    public HeadImageViewGroup aFZ;
+    private f aGa;
+    public TextView mName;
+    private View.OnClickListener mOnClickListener;
+    private int mSkinType;
 
-    /* renamed from: com.baidu.tbadk.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0050a {
-        void fa(int i);
+    public a(View view) {
+        super(view);
+        this.mSkinType = 3;
+        View findViewById = view.findViewById(d.h.add_pic_root);
+        this.mName = (TextView) findViewById.findViewById(d.h.name_tv);
+        this.aFZ = (HeadImageViewGroup) findViewById.findViewById(d.h.img);
     }
 
-    public a(Context context) {
-        this.aGK = null;
-        this.jn = null;
-        this.aGK = new b(context);
-        this.jn = (WindowManager) context.getSystemService("window");
-    }
-
-    private void FF() {
-        try {
-            this.jn.removeView(this.aGK);
-        } catch (Throwable th) {
-        }
-    }
-
-    private void FG() {
-        try {
-            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-2, -2, 2006, 0, -3);
-            layoutParams.gravity = 51;
-            layoutParams.height = 1;
-            layoutParams.width = 1;
-            this.jn.addView(this.aGK, layoutParams);
-        } catch (Throwable th) {
-        }
-    }
-
-    @Override // com.baidu.adp.a.a.a
-    public void stop() {
-        super.stop();
-        FF();
-    }
-
-    @Override // com.baidu.adp.a.a.a
-    public void start() {
-        super.start();
-        FF();
-        FG();
-        new Handler(Looper.getMainLooper()).post(new com.baidu.tbadk.j.b(this));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class b extends ImageView {
-        private int aGN;
-        private final Paint mPaint;
-        private long mStartTime;
-
-        public b(Context context) {
-            super(context);
-            this.mStartTime = -1L;
-            this.aGN = 0;
-            this.mPaint = new Paint();
-            this.mPaint.setColor(0);
-            this.mPaint.setAlpha(0);
-            this.mPaint.setAntiAlias(true);
-            this.mPaint.setTextSize(1.0f);
-        }
-
-        @Override // android.view.View
-        public void draw(Canvas canvas) {
-            if (this.mStartTime == -1) {
-                this.mStartTime = SystemClock.elapsedRealtime();
-                this.aGN = 0;
-            }
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            super.draw(canvas);
-            if (elapsedRealtime - this.mStartTime > 1000) {
-                this.mStartTime = elapsedRealtime;
-                if (a.this.aGL != null) {
-                    a.this.aGL.fa(this.aGN);
-                } else {
-                    com.baidu.adp.a.a.d.F(this.aGN);
+    public void c(f fVar) {
+        if (fVar instanceof com.baidu.tbadk.data.d) {
+            this.aGa = fVar;
+            this.aFZ.getInnerImg().setIsRound(true);
+            this.aFZ.getInnerImg().setVisibility(0);
+            this.aFZ.getInnerImg().setTag(null);
+            this.aFZ.getInnerImg().setImageResource(d.g.btn_story_release);
+            this.aFZ.setOuterColor(d.e.cp_link_tip_g);
+            getView().setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tbadk.j.a.1
+                @Override // android.view.View.OnTouchListener
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    if (motionEvent.getAction() == 0) {
+                        view.setScaleX(0.8f);
+                        view.setScaleY(0.8f);
+                    } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
+                        view.setScaleX(1.0f);
+                        view.setScaleY(1.0f);
+                    }
+                    return view.onTouchEvent(motionEvent);
                 }
-                this.aGN = 0;
-            }
-            this.aGN++;
+            });
+            this.mName.setText(((com.baidu.tbadk.data.d) fVar).getName());
+            getView().setOnClickListener(this.mOnClickListener);
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void a(InterfaceC0050a interfaceC0050a) {
-        if (this.aGL == null) {
-            this.aGL = interfaceC0050a;
+    public void onChangeSkinType(int i) {
+        if (this.mSkinType != i) {
+            ai.c(this.mName, d.e.cp_cont_f, 1);
+            this.aFZ.onChangeSkinType(i);
+            this.mSkinType = i;
         }
+    }
+
+    public void setOnClick(View.OnClickListener onClickListener) {
+        this.mOnClickListener = onClickListener;
     }
 }

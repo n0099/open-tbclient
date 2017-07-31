@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.lib.g.b;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.f;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class ChatMessage extends TbSocketMessage implements a, v {
+public abstract class ChatMessage extends TbSocketMessage implements a, f {
     private long bornTime;
     private transient MsgCacheData cacheData;
     private String content;
@@ -105,55 +105,45 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
         this.mToUserId = j;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x001d  */
-    /* JADX WARN: Removed duplicated region for block: B:21:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public GifInfo getGifInfo() {
         JSONObject jSONObject;
-        JSONArray jSONArray;
         if (this.gifInfo != null) {
             return this.gifInfo;
         }
         String str = this.content;
         try {
-            jSONArray = new JSONArray(str);
+            JSONArray jSONArray = new JSONArray(str);
+            jSONObject = jSONArray.length() > 0 ? jSONArray.getJSONObject(0) : null;
         } catch (JSONException e) {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
+                jSONObject = null;
             }
         }
-        if (jSONArray.length() > 0) {
-            jSONObject = jSONArray.getJSONObject(0);
-            if (jSONObject == null) {
-                String optString = jSONObject.optString("face_name");
-                String optString2 = jSONObject.optString("url_s");
-                String optString3 = jSONObject.optString("url_d");
-                String optString4 = jSONObject.optString(Info.kBaiduPIDKey);
-                String optString5 = jSONObject.optString("packet_name");
-                String optString6 = jSONObject.optString("icon");
-                int optInt = jSONObject.optInt("size_width");
-                int optInt2 = jSONObject.optInt("size_height");
-                GifInfo gifInfo = new GifInfo();
-                gifInfo.mLoadFailed = false;
-                gifInfo.mSharpText = optString;
-                gifInfo.mStaticUrl = optString2;
-                gifInfo.mDynamicUrl = optString3;
-                gifInfo.mGid = optString4;
-                gifInfo.mGifWidth = optInt;
-                gifInfo.mGifHeight = optInt2;
-                gifInfo.mPackageName = optString5;
-                gifInfo.mIcon = optString6;
-                this.gifInfo = gifInfo;
-                return gifInfo;
-            }
-            return null;
+        if (jSONObject != null) {
+            String optString = jSONObject.optString("face_name");
+            String optString2 = jSONObject.optString("url_s");
+            String optString3 = jSONObject.optString("url_d");
+            String optString4 = jSONObject.optString(Info.kBaiduPIDKey);
+            String optString5 = jSONObject.optString("packet_name");
+            String optString6 = jSONObject.optString("icon");
+            int optInt = jSONObject.optInt("size_width");
+            int optInt2 = jSONObject.optInt("size_height");
+            GifInfo gifInfo = new GifInfo();
+            gifInfo.mLoadFailed = false;
+            gifInfo.mSharpText = optString;
+            gifInfo.mStaticUrl = optString2;
+            gifInfo.mDynamicUrl = optString3;
+            gifInfo.mGid = optString4;
+            gifInfo.mGifWidth = optInt;
+            gifInfo.mGifHeight = optInt2;
+            gifInfo.mPackageName = optString5;
+            gifInfo.mIcon = optString6;
+            this.gifInfo = gifInfo;
+            return gifInfo;
         }
-        jSONObject = null;
-        if (jSONObject == null) {
-        }
+        return null;
     }
 
     public String getSt_type() {
@@ -373,7 +363,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
         if (this.msgType == 11) {
             return TYPE_MSG_MID;
@@ -413,7 +403,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
             try {
                 JSONArray jSONArray = new JSONArray(this.content);
                 if (jSONArray.length() > 0) {
-                    this.statisticsTaskId = b.c(jSONArray.optJSONObject(0).optString(InterviewLiveActivityConfig.KEY_TASK_ID), 0L);
+                    this.statisticsTaskId = b.d(jSONArray.optJSONObject(0).optString(InterviewLiveActivityConfig.KEY_TASK_ID), 0L);
                 }
             } catch (Exception e) {
             }

@@ -1,23 +1,43 @@
 package com.baidu.tbadk.core.data;
 
-import android.view.View;
-import tbclient.PbContent;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.Topic;
 /* loaded from: classes.dex */
-public class bo extends com.baidu.tbadk.widget.richText.b {
-    final /* synthetic */ bm Zj;
-    private final /* synthetic */ PbContent Zk;
+public class bo {
+    private int abf = 0;
+    private int abg = 0;
+    private String link = "";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bo(bm bmVar, int i, String str, PbContent pbContent) {
-        super(i, str);
-        this.Zj = bmVar;
-        this.Zk = pbContent;
+    public int te() {
+        return this.abf;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.b, android.text.style.ClickableSpan
-    public void onClick(View view) {
-        this.Zj.cD(this.Zk.link);
+    public int tf() {
+        return this.abg;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.abf = jSONObject.optInt("is_lpost", 0);
+                this.abg = jSONObject.optInt("topic_type", 0);
+                this.link = jSONObject.optString("link", "");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void a(Topic topic) {
+        if (topic != null) {
+            this.abf = topic.is_lpost.intValue();
+            this.abg = topic.topic_type.intValue();
+            this.link = topic.link;
+        }
     }
 }

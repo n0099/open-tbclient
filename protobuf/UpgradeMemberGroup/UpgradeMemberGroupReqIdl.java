@@ -7,10 +7,6 @@ public final class UpgradeMemberGroupReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
 
-    /* synthetic */ UpgradeMemberGroupReqIdl(Builder builder, boolean z, UpgradeMemberGroupReqIdl upgradeMemberGroupReqIdl) {
-        this(builder, z);
-    }
-
     private UpgradeMemberGroupReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -37,7 +33,7 @@ public final class UpgradeMemberGroupReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public UpgradeMemberGroupReqIdl build(boolean z) {
-            return new UpgradeMemberGroupReqIdl(this, z, null);
+            return new UpgradeMemberGroupReqIdl(this, z);
         }
     }
 }

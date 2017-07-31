@@ -1,48 +1,32 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.e.a;
-import com.baidu.tieba.pb.pb.sub.b;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class e implements a.InterfaceC0062a {
-    final /* synthetic */ b eHj;
+public class e extends PbListView {
+    TbPageContext<?> context;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(b bVar) {
-        this.eHj = bVar;
+    public e(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
+        this.context = tbPageContext;
+        getView().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(d.f.ds16), 0, tbPageContext.getResources().getDimensionPixelSize(d.f.ds74));
+        wS();
+        wU();
+        wV();
+        setTextSize(d.f.ds32);
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0062a
-    public void ah(int i, int i2) {
-        b.a aVar;
-        b.a aVar2;
-        int i3;
-        a aVar3;
-        BaseActivity baseActivity;
-        a aVar4;
-        aVar = this.eHj.eHg;
-        if (aVar != null) {
-            aVar2 = this.eHj.eHg;
-            if (aVar2.aRL()) {
-                int abs = Math.abs(i2);
-                i3 = b.TOUCH_SLOP;
-                if (abs > i3) {
-                    aVar3 = this.eHj.eHe;
-                    if (aVar3 != null) {
-                        aVar4 = this.eHj.eHe;
-                        aVar4.setBackgroundResource(w.e.transparent);
-                    }
-                    baseActivity = this.eHj.bhX;
-                    baseActivity.finish();
-                }
-            }
-        }
+    @Override // com.baidu.tbadk.core.view.PbListView
+    public void wX() {
+        super.wX();
+        setText(this.context.getResources().getString(d.l.list_no_more));
+        getView().setVisibility(0);
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0062a
-    public void ai(int i, int i2) {
-        this.eHj.aRG();
+    public void adA() {
+        super.wX();
+        setText(this.context.getResources().getString(d.l.load_more));
+        getView().setVisibility(0);
     }
 }

@@ -1,27 +1,44 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.frs.smartsort.a;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-class j extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(int i) {
-        super(i);
+public class j extends d<k, l> {
+    private final int ckQ;
+
+    public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
+        this.ckQ = (com.baidu.adp.lib.util.k.ah(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
-            com.baidu.tieba.frs.smartsort.e.ahk().ahl();
-            a.ahd().ahf();
-            if (com.baidu.tieba.recapp.aa.bdU().bdQ() != null) {
-                com.baidu.tieba.recapp.aa.bdU().bdQ().bdH();
-            }
-            if (com.baidu.tieba.recapp.aa.bdU().bdR() != null) {
-                com.baidu.tieba.recapp.aa.bdU().bdR().bdI();
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: H */
+    public l onCreateViewHolder(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.mContext).inflate(d.j.frs_no_list_item_view, viewGroup, false);
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.ckQ));
+        return new l(inflate);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, l lVar) {
+        super.onFillViewHolder(i, view, viewGroup, kVar, lVar);
+        if (kVar.agb() == 6) {
+            lVar.ckT.setText(d.l.attention_no_post_tip);
+        } else {
+            lVar.ckT.setText(d.l.no_data_text);
         }
+        com.baidu.tbadk.core.util.ai.c(lVar.ckT, d.e.cp_cont_d, 1);
+        return view;
     }
 }

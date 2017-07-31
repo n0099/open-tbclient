@@ -1,167 +1,118 @@
 package com.baidu.tieba.frs.g;
 
-import android.text.Html;
-import android.view.LayoutInflater;
+import android.app.Activity;
+import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.aa;
-import com.baidu.tbadk.core.data.bm;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.frs.d.e;
-import com.baidu.tieba.frs.p;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class a extends p<bm, c> implements e {
-    public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
-    }
-
-    private View a(int i, View view, bm bmVar, c cVar) {
-        String str;
-        String str2;
-        if (bmVar == null || !(bmVar instanceof aa)) {
-            return null;
-        }
-        if (this.mSkinType == 1) {
-            as.k(cVar.mRootView, w.e.cp_bg_line_d_1);
-            as.k(cVar.csb, w.e.cp_bg_line_c_1);
-            as.i(cVar.cse, w.e.cp_cont_e);
-            as.i(cVar.csg, w.e.cp_cont_e);
-            as.i(cVar.csd, w.e.cp_cont_b);
-            as.i(cVar.csf, w.e.cp_cont_b);
-            str = "#4f93ef";
-        } else {
-            as.k(cVar.mRootView, w.e.cp_bg_line_d);
-            as.k(cVar.csb, w.e.cp_bg_line_c);
-            as.i(cVar.cse, w.e.common_color_10139);
-            as.i(cVar.csg, w.e.common_color_10139);
-            as.i(cVar.csd, w.e.cp_bg_line_k);
-            as.i(cVar.csf, w.e.cp_bg_line_k);
-            str = "#3385ff";
-        }
-        aa aaVar = (aa) bmVar;
-        String str3 = aaVar.Vg;
-        if (!StringUtils.isNull(str3)) {
-            cVar.csc.setVisibility(0);
-            cVar.bAv.setVisibility(8);
-            cVar.csc.setIsRound(true);
-            cVar.csc.setUserId(bmVar.getAuthor().getUserId());
-            cVar.csc.setImageDrawable(null);
-            cVar.csc.c(str3, 10, false);
-        }
-        cVar.csd.setText(aaVar.userName);
-        cVar.cse.setText(aaVar.tips);
-        if (StringUtils.isNull(aaVar.type)) {
-            str2 = aaVar.title;
-        } else {
-            str2 = "<font color='" + str + "'>" + aaVar.type + "·</font>" + aaVar.title;
-        }
-        cVar.csf.setText(Html.fromHtml(str2));
-        cVar.csg.setText(aaVar.Vh);
-        if (aaVar.pics != null) {
-            int size = aaVar.pics.size();
-            if (size == 1) {
-                cVar.csm.setVisibility(0);
-                cVar.csh.setVisibility(8);
-                cVar.csi.setVisibility(8);
-                cVar.csj.setVisibility(8);
-                cVar.csk.setVisibility(8);
-                cVar.csl.setVisibility(8);
-                cVar.csm.c(aaVar.pics.get(0), 10, false);
-            } else if (size == 2) {
-                cVar.csm.setVisibility(8);
-                cVar.csh.setVisibility(8);
-                cVar.csi.setVisibility(8);
-                cVar.csj.setVisibility(8);
-                cVar.csk.setVisibility(0);
-                cVar.csl.setVisibility(8);
-                cVar.csw.c(aaVar.pics.get(0), 10, false);
-                cVar.csx.c(aaVar.pics.get(1), 10, false);
-            } else if (size == 3) {
-                cVar.csm.setVisibility(8);
-                cVar.csh.setVisibility(0);
-                cVar.csi.setVisibility(8);
-                cVar.csj.setVisibility(8);
-                cVar.csk.setVisibility(8);
-                cVar.csl.setVisibility(8);
-                cVar.csn.c(aaVar.pics.get(0), 10, false);
-                cVar.cso.c(aaVar.pics.get(1), 10, false);
-                cVar.csp.c(aaVar.pics.get(2), 10, false);
-            } else if (size == 4) {
-                cVar.csm.setVisibility(8);
-                cVar.csh.setVisibility(8);
-                cVar.csi.setVisibility(8);
-                cVar.csj.setVisibility(8);
-                cVar.csk.setVisibility(0);
-                cVar.csl.setVisibility(0);
-                cVar.csw.c(aaVar.pics.get(0), 10, false);
-                cVar.csx.c(aaVar.pics.get(1), 10, false);
-                cVar.csy.c(aaVar.pics.get(2), 10, false);
-                cVar.csz.c(aaVar.pics.get(3), 10, false);
-            } else if (size == 5) {
-                cVar.csm.setVisibility(8);
-                cVar.csh.setVisibility(0);
-                cVar.csi.setVisibility(8);
-                cVar.csj.setVisibility(8);
-                cVar.csk.setVisibility(0);
-                cVar.csl.setVisibility(8);
-                cVar.csw.c(aaVar.pics.get(0), 10, false);
-                cVar.csx.c(aaVar.pics.get(1), 10, false);
-                cVar.csn.c(aaVar.pics.get(2), 10, false);
-                cVar.cso.c(aaVar.pics.get(3), 10, false);
-                cVar.csp.c(aaVar.pics.get(4), 10, false);
-            } else if (size >= 6 && size < 9) {
-                cVar.csm.setVisibility(8);
-                cVar.csh.setVisibility(0);
-                cVar.csi.setVisibility(0);
-                cVar.csj.setVisibility(8);
-                cVar.csk.setVisibility(8);
-                cVar.csl.setVisibility(8);
-                cVar.csn.c(aaVar.pics.get(0), 10, false);
-                cVar.cso.c(aaVar.pics.get(1), 10, false);
-                cVar.csp.c(aaVar.pics.get(2), 10, false);
-                cVar.csq.c(aaVar.pics.get(3), 10, false);
-                cVar.csr.c(aaVar.pics.get(4), 10, false);
-                cVar.css.c(aaVar.pics.get(5), 10, false);
-            } else if (size >= 9) {
-                cVar.csm.setVisibility(8);
-                cVar.csh.setVisibility(0);
-                cVar.csi.setVisibility(0);
-                cVar.csj.setVisibility(0);
-                cVar.csk.setVisibility(8);
-                cVar.csl.setVisibility(8);
-                cVar.csn.c(aaVar.pics.get(0), 10, false);
-                cVar.cso.c(aaVar.pics.get(1), 10, false);
-                cVar.csp.c(aaVar.pics.get(2), 10, false);
-                cVar.csq.c(aaVar.pics.get(3), 10, false);
-                cVar.csr.c(aaVar.pics.get(4), 10, false);
-                cVar.css.c(aaVar.pics.get(5), 10, false);
-                cVar.cst.c(aaVar.pics.get(6), 10, false);
-                cVar.csu.c(aaVar.pics.get(7), 10, false);
-                cVar.csv.c(aaVar.pics.get(8), 10, false);
+public class a implements View.OnClickListener {
+    private TbPageContext alI;
+    private View ame;
+    private boolean cxp;
+    private boolean cxq;
+    private PopupWindow cxr;
+    private int cxo = d.l.attention_post_update_tip;
+    private Handler mHandler = new Handler();
+    private Runnable cxs = new Runnable() { // from class: com.baidu.tieba.frs.g.a.1
+        @Override // java.lang.Runnable
+        public void run() {
+            if (a.this.alI != null && a.this.ame != null) {
+                Activity pageActivity = a.this.alI.getPageActivity();
+                int g = k.g(pageActivity, d.f.ds64);
+                View f = a.this.f(pageActivity, a.this.cxo);
+                int[] iArr = new int[2];
+                a.this.ame.getLocationInWindow(iArr);
+                int g2 = k.g(pageActivity, d.f.ds32);
+                int g3 = k.g(pageActivity, d.f.ds16) + (iArr[1] - g);
+                a.this.cxr = new PopupWindow(f, -2, g);
+                a.this.cxr.showAtLocation(a.this.ame, 53, g2, g3);
+                a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.g.a.1.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        if (a.this.cxr != null) {
+                            a.this.aji();
+                        }
+                    }
+                }, 3000L);
             }
         }
-        cVar.mRootView.setOnClickListener(new b(this, aaVar));
-        return view;
+    };
+
+    public a(TbPageContext tbPageContext, boolean z) {
+        this.alI = tbPageContext;
+        this.cxq = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: U */
-    public c onCreateViewHolder(ViewGroup viewGroup) {
-        return new c(this.ajP, LayoutInflater.from(this.mContext).inflate(w.j.frs_wefan_item, (ViewGroup) null), this.mPageId);
+    public void ao(View view) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (this.alI != null && view != null && !StringUtils.isNull(currentAccount)) {
+            this.ame = view;
+            if (this.cxp) {
+                this.cxo = d.l.smart_frs_tip;
+                String str = "smart_frs_smart_sort_tip_show_counts_" + currentAccount;
+                int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str, 0);
+                if (i < 1) {
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str, i + 1);
+                    this.mHandler.postDelayed(this.cxs, 500L);
+                    return;
+                }
+            }
+            if (this.cxq) {
+                this.cxo = d.l.attention_post_update_tip;
+                String str2 = currentAccount + "frs_god_new_post_tip_count";
+                int i2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
+                if (i2 >= 3) {
+                    this.cxq = false;
+                    return;
+                }
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str2, i2 + 1);
+                this.cxq = false;
+                this.mHandler.postDelayed(this.cxs, 500L);
+            }
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.p, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bm bmVar, c cVar) {
-        super.onFillViewHolder(i, view, viewGroup, bmVar, cVar);
-        return a(i, view, bmVar, cVar);
+    /* JADX INFO: Access modifiers changed from: private */
+    public View f(Activity activity, int i) {
+        TextView textView = new TextView(activity);
+        int g = k.g(activity, d.f.ds20);
+        textView.setPadding(g, 0 - activity.getResources().getDimensionPixelSize(d.f.ds12), g, 0);
+        textView.setHeight(activity.getResources().getDimensionPixelSize(d.f.ds76));
+        textView.setGravity(17);
+        textView.setTextSize(0, k.g(activity, d.f.fontsize28));
+        textView.setText(i);
+        textView.setOnClickListener(this);
+        ai.j(textView, d.g.bg_tip_blue_left);
+        ai.i(textView, d.e.cp_cont_i);
+        textView.setOnClickListener(this);
+        return textView;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        aji();
+    }
+
+    public void aji() {
+        if (this.cxr != null) {
+            this.cxr.dismiss();
+            this.cxr = null;
+        }
+    }
+
+    public void cj(boolean z) {
+        this.cxp = z;
+    }
+
+    public void destory() {
+        this.mHandler.removeCallbacksAndMessages(null);
+        aji();
     }
 }

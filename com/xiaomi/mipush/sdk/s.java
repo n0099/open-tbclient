@@ -43,7 +43,7 @@ public class s {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0026  */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0028  */
     /* JADX WARN: Removed duplicated region for block: B:82:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -140,10 +140,10 @@ public class s {
         return null;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v145, resolved type: com.xiaomi.mipush.sdk.MiPushMessage */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v144, resolved type: com.xiaomi.mipush.sdk.MiPushMessage */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:273:0x06bf  */
-    /* JADX WARN: Removed duplicated region for block: B:276:0x06cc  */
+    /* JADX WARN: Removed duplicated region for block: B:273:0x06e9  */
+    /* JADX WARN: Removed duplicated region for block: B:276:0x06f6  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -709,7 +709,7 @@ public class s {
         }
         long rawOffset = ((timeZone.getRawOffset() - timeZone2.getRawOffset()) / 1000) / 60;
         long parseLong = ((((Long.parseLong(list.get(0).split(":")[0]) * 60) + Long.parseLong(list.get(0).split(":")[1])) - rawOffset) + 1440) % 1440;
-        long parseLong2 = ((((60 * Long.parseLong(list.get(1).split(":")[0])) + Long.parseLong(list.get(1).split(":")[1])) - rawOffset) + 1440) % 1440;
+        long parseLong2 = (((Long.parseLong(list.get(1).split(":")[1]) + (60 * Long.parseLong(list.get(1).split(":")[0]))) - rawOffset) + 1440) % 1440;
         ArrayList arrayList = new ArrayList();
         arrayList.add(String.format("%1$02d:%2$02d", Long.valueOf(parseLong / 60), Long.valueOf(parseLong % 60)));
         arrayList.add(String.format("%1$02d:%2$02d", Long.valueOf(parseLong2 / 60), Long.valueOf(parseLong2 % 60)));

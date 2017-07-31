@@ -14,17 +14,9 @@ public class ForumDetailActivityConfig extends IntentConfig {
         FRS_SIDE,
         BAR_DIR,
         BAR_RANK,
-        BAR_SQUARE;
-
-        /* JADX DEBUG: Replace access to removed values field (Sk) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static FromType[] valuesCustom() {
-            FromType[] valuesCustom = values();
-            int length = valuesCustom.length;
-            FromType[] fromTypeArr = new FromType[length];
-            System.arraycopy(valuesCustom, 0, fromTypeArr, 0, length);
-            return fromTypeArr;
-        }
+        BAR_SQUARE,
+        GAME_FRS_GOOD,
+        FRS_GAME_INFO
     }
 
     public ForumDetailActivityConfig(Context context, String str, FromType fromType) {

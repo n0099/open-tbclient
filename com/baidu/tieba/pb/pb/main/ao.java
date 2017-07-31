@@ -1,29 +1,34 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.ae;
 /* loaded from: classes.dex */
-class ao implements ae.b {
-    final /* synthetic */ PbActivity ewh;
+public class ao extends com.baidu.tbadk.core.view.userLike.c {
+    public boolean eOa;
+    private int eOb;
+    public boolean isBigV;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(PbActivity pbActivity) {
-        this.ewh = pbActivity;
+    public ao(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
+        super(tbPageContext, bVar);
+        this.eOa = false;
+        this.isBigV = false;
+        this.eOb = 0;
+        this.eOb = i;
     }
 
-    @Override // com.baidu.tbadk.core.view.ae.b
-    public void onListPullRefresh(boolean z) {
-        PbModel pbModel;
-        gg ggVar;
-        if (this.ewh.aNU()) {
-            this.ewh.finish();
+    @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i = 1;
+        super.onClick(view);
+        if (this.eOa && this.apZ != null) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c11924").aa("obj_id", this.apZ.getUserId()));
         }
-        pbModel = this.ewh.eue;
-        if (!pbModel.iO(true)) {
-            ggVar = this.ewh.euU;
-            ggVar.aQA();
-            return;
+        if (this.isBigV && this.apZ != null) {
+            if (this.eOb != 1) {
+                i = this.eOb == 2 ? 2 : 0;
+            }
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c12150").r("obj_locate", i).aa("obj_id", this.apZ.getUserId()));
         }
-        TiebaStatic.eventStat(this.ewh.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

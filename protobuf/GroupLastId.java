@@ -16,10 +16,6 @@ public final class GroupLastId extends Message {
     public static final Long DEFAULT_LASTMSGID = 0L;
     public static final List<Long> DEFAULT_EXCLUDEMID = Collections.emptyList();
 
-    /* synthetic */ GroupLastId(Builder builder, boolean z, GroupLastId groupLastId) {
-        this(builder, z);
-    }
-
     private GroupLastId(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -67,7 +63,7 @@ public final class GroupLastId extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public GroupLastId build(boolean z) {
-            return new GroupLastId(this, z, null);
+            return new GroupLastId(this, z);
         }
     }
 }

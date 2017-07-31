@@ -33,7 +33,7 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -664,7 +664,7 @@ public class ViewPager extends ViewGroup {
         populate(this.mCurItem);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ff, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0104, code lost:
         if (r2.position == r18.mCurItem) goto L29;
      */
     /*
@@ -1219,7 +1219,7 @@ public class ViewPager extends ViewGroup {
                             i8 = paddingTop;
                             i9 = i16;
                             break;
-                        case w.n.View_onClick /* 48 */:
+                        case d.n.View_onClick /* 48 */:
                             int measuredHeight2 = childAt.getMeasuredHeight() + paddingTop;
                             int i17 = paddingTop;
                             i9 = paddingBottom;

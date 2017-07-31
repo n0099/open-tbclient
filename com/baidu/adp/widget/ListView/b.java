@@ -1,26 +1,18 @@
 package com.baidu.adp.widget.ListView;
 
 import android.view.View;
-import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class b implements Runnable {
-    final /* synthetic */ BdExpandListView HQ;
+public abstract class b {
+    private View mView = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(BdExpandListView bdExpandListView) {
-        this.HQ = bdExpandListView;
-    }
+    public abstract View lk();
 
-    @Override // java.lang.Runnable
-    public void run() {
-        View view;
-        View view2;
-        int i;
-        view = this.HQ.HF;
-        view2 = this.HQ.HF;
-        int width = view2.getWidth();
-        i = this.HQ.HG;
-        view.setLayoutParams(new AbsListView.LayoutParams(width, i));
-        this.HQ.invalidate();
+    public abstract void onClick();
+
+    public final View getView() {
+        if (this.mView == null) {
+            this.mView = lk();
+        }
+        return this.mView;
     }
 }

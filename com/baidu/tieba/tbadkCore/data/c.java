@@ -10,30 +10,30 @@ import tbclient.ActPost;
 import tbclient.LinkInfo;
 /* loaded from: classes.dex */
 public class c {
-    private String fLA;
-    private ArrayList<a> fLB = new ArrayList<>();
-    private ArrayList<b> fLC = new ArrayList<>();
+    private String ghi;
+    private ArrayList<a> ghj = new ArrayList<>();
+    private ArrayList<b> ghk = new ArrayList<>();
 
-    public String blR() {
-        return this.fLA;
+    public String brV() {
+        return this.ghi;
     }
 
-    public List<a> blS() {
-        return this.fLB;
+    public List<a> brW() {
+        return this.ghj;
     }
 
-    public List<b> blT() {
-        return this.fLC;
+    public List<b> brX() {
+        return this.ghk;
     }
 
     public void a(ActPost actPost) {
         if (actPost != null) {
-            this.fLA = actPost.list_head;
+            this.ghi = actPost.list_head;
             for (ActHot actHot : actPost.act_hot) {
                 if (actHot != null) {
                     a aVar = new a();
                     aVar.a(actHot);
-                    this.fLB.add(aVar);
+                    this.ghj.add(aVar);
                 }
             }
             List<LinkInfo> list = actPost.link_info;
@@ -41,7 +41,7 @@ public class c {
                 if (list != null) {
                     b bVar = new b();
                     bVar.a(linkInfo);
-                    this.fLC.add(bVar);
+                    this.ghk.add(bVar);
                 }
             }
         }
@@ -50,7 +50,7 @@ public class c {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.fLA = jSONObject.optString("list_head");
+                this.ghi = jSONObject.optString("list_head");
                 JSONArray optJSONArray = jSONObject.optJSONArray("act_hot");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
@@ -58,7 +58,7 @@ public class c {
                         if (jSONObject2 != null) {
                             a aVar = new a();
                             aVar.parserJson(jSONObject2);
-                            this.fLB.add(aVar);
+                            this.ghj.add(aVar);
                         }
                     }
                 }
@@ -69,7 +69,7 @@ public class c {
                         if (jSONObject3 != null) {
                             b bVar = new b();
                             bVar.parserJson(jSONObject3);
-                            this.fLC.add(bVar);
+                            this.ghk.add(bVar);
                         }
                     }
                 }

@@ -1,32 +1,16 @@
 package com.baidu.tieba.account;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.TiebaDatabase;
 /* loaded from: classes.dex */
-class b extends Handler {
-    final /* synthetic */ AccountActivity aUP;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(AccountActivity accountActivity) {
-        this.aUP = accountActivity;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        switch (message.what) {
-            case 1:
-                this.aUP.KE();
-                return;
-            case 2:
-                if (message.obj instanceof AccountData) {
-                    this.aUP.m((AccountData) message.obj);
-                    return;
-                }
-                return;
-            default:
-                return;
+public class b {
+    public static void deleteAccountAllInfo(String str) {
+        if (str != null) {
+            com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            mainDBDatabaseManager.k("delete from cash_data where account=?", new String[]{str});
+            mainDBDatabaseManager.k("delete from mark_data where account=?", new String[]{str});
+            mainDBDatabaseManager.k("delete from draft_box where account=?", new Object[]{str});
+            mainDBDatabaseManager.k("delete from account_data where id=?", new Object[]{str});
+            mainDBDatabaseManager.k("delete from setting where account=?", new Object[]{str});
         }
     }
 }

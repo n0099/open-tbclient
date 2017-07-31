@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
 /* loaded from: classes2.dex */
 public class PluginCenterActivityStatic {
     static {
-        TbadkCoreApplication.m9getInst().RegisterIntent(PluginCenterActivityConfig.class, PluginCenterActivity.class);
-        TbadkCoreApplication.m9getInst().RegisterIntent(PluginDetailActivityConfig.class, PluginDetailActivity.class);
-        TbadkCoreApplication.m9getInst().RegisterIntent(PluginDownloadActivityConfig.class, PluginDownloadActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(PluginCenterActivityConfig.class, PluginCenterActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(PluginDetailActivityConfig.class, PluginDetailActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(PluginDownloadActivityConfig.class, PluginDownloadActivity.class);
     }
 }

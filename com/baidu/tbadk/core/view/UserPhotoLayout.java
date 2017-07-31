@@ -4,12 +4,13 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
@@ -26,16 +27,16 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes.dex */
     public interface b {
-        void dq(int i);
+        void du(int i);
     }
 
     /* loaded from: classes.dex */
     public interface d {
         ListView getListView();
 
-        int wW();
+        int xp();
 
-        com.baidu.adp.lib.e.b<HeadImageView> wX();
+        com.baidu.adp.lib.e.b<HeadImageView> xq();
     }
 
     public void setAutoChangeStyle(boolean z) {
@@ -72,28 +73,39 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mNormalShowCount = 6;
         this.mContext = context;
         this.mPadding = com.baidu.adp.lib.util.k.dip2px(this.mContext, this.mPadding);
-        this.mItemSize = (int) this.mContext.getResources().getDimension(w.f.ds60);
+        this.mItemSize = (int) this.mContext.getResources().getDimension(d.f.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.wX();
+            this.mUserPhotoPool = dVar.xq();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.wW());
+                this.mTbRecyclerListener = new c(dVar.xp());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
-        setOnHierarchyChangeListener(new bc(this));
+        setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.core.view.UserPhotoLayout.1
+            @Override // android.view.ViewGroup.OnHierarchyChangeListener
+            public void onChildViewRemoved(View view, View view2) {
+                if ((view2 instanceof HeadImageView) && UserPhotoLayout.this.mUserPhotoPool != null) {
+                    UserPhotoLayout.this.mUserPhotoPool.n((HeadImageView) view2);
+                }
+            }
+
+            @Override // android.view.ViewGroup.OnHierarchyChangeListener
+            public void onChildViewAdded(View view, View view2) {
+            }
+        });
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        view.setOnClickListener(new a(this, getChildCount() - 1, null));
+        view.setOnClickListener(new a(getChildCount() - 1));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        view.setOnClickListener(new a(this, getChildCount() - 1, null));
+        view.setOnClickListener(new a(getChildCount() - 1));
     }
 
     public void setData(List<MetaData> list, boolean z) {
@@ -181,14 +193,10 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             this.mIndex = i;
         }
 
-        /* synthetic */ a(UserPhotoLayout userPhotoLayout, int i, a aVar) {
-            this(i);
-        }
-
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.dq(this.mIndex);
+                UserPhotoLayout.this.mChildClickListener.du(this.mIndex);
             }
         }
     }
@@ -206,14 +214,49 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
-    public static com.baidu.adp.lib.e.b<HeadImageView> createUserPhotoPool(Context context, int i) {
-        return new com.baidu.adp.lib.e.b<>(new bd(context), i, 0);
+    public static com.baidu.adp.lib.e.b<HeadImageView> createUserPhotoPool(final Context context, int i) {
+        return new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<HeadImageView>() { // from class: com.baidu.tbadk.core.view.UserPhotoLayout.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.e.c
+            /* renamed from: xo */
+            public HeadImageView fT() {
+                return new HeadImageView(context);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.e.c
+            /* renamed from: a */
+            public void o(HeadImageView headImageView) {
+                headImageView.setBackgroundResource(0);
+                headImageView.setImageDrawable(null);
+                headImageView.setTag(null);
+                headImageView.setOnClickListener(null);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.e.c
+            /* renamed from: b */
+            public HeadImageView p(HeadImageView headImageView) {
+                return headImageView;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.e.c
+            /* renamed from: c */
+            public HeadImageView q(HeadImageView headImageView) {
+                headImageView.setBackgroundResource(0);
+                headImageView.setImageDrawable(null);
+                headImageView.setTag(null);
+                headImageView.setOnClickListener(null);
+                return headImageView;
+            }
+        }, i, 0);
     }
 
     private HeadImageView getImageView(Context context) {
         HeadImageView headImageView = null;
         if (this.mUserPhotoPool != null) {
-            headImageView = this.mUserPhotoPool.fJ();
+            headImageView = this.mUserPhotoPool.fS();
         }
         if (headImageView == null || headImageView.getParent() != null) {
             return new HeadImageView(context);

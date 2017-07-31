@@ -1,26 +1,44 @@
 package com.baidu.tieba.play;
 
-import com.baidu.tieba.play.QuickVideoView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.provider.Settings;
 /* loaded from: classes.dex */
-public class p implements QuickVideoView.b {
-    final /* synthetic */ c flr;
+public class p extends ContentObserver {
+    private a fAj;
+    private Context mContext;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(c cVar) {
-        this.flr = cVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void onChange(boolean z);
     }
 
-    @Override // com.baidu.tieba.play.QuickVideoView.b
-    public void onSurfaceDestroyed() {
-        Runnable runnable;
-        Runnable runnable2;
-        this.flr.dEU = false;
-        com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
-        runnable = this.flr.dFr;
-        fR.removeCallbacks(runnable);
-        com.baidu.adp.lib.g.h fR2 = com.baidu.adp.lib.g.h.fR();
-        runnable2 = this.flr.dFt;
-        fR2.removeCallbacks(runnable2);
+    public p(Context context, Handler handler) {
+        super(handler);
+        this.mContext = context;
+    }
+
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        bfQ();
+    }
+
+    private void bfQ() {
+        if (this.mContext != null) {
+            try {
+                int i = Settings.System.getInt(this.mContext.getContentResolver(), "accelerometer_rotation");
+                if (this.fAj != null) {
+                    this.fAj.onChange(i == 1);
+                }
+            } catch (Settings.SettingNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void a(a aVar) {
+        this.fAj = aVar;
+        bfQ();
     }
 }

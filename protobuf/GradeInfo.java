@@ -17,10 +17,6 @@ public final class GradeInfo extends Message {
     public static final Integer DEFAULT_THRESHOLDDAY = 0;
     public static final Integer DEFAULT_MAXMEMBERNUM = 0;
 
-    /* synthetic */ GradeInfo(Builder builder, boolean z, GradeInfo gradeInfo) {
-        this(builder, z);
-    }
-
     private GradeInfo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -76,7 +72,7 @@ public final class GradeInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public GradeInfo build(boolean z) {
-            return new GradeInfo(this, z, null);
+            return new GradeInfo(this, z);
         }
     }
 }

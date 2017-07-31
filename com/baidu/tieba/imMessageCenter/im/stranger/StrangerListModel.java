@@ -10,7 +10,7 @@ import com.baidu.tieba.im.message.MemoryClearStrangerItemsMessage;
 import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.tieba.im.settingcache.j;
+import com.baidu.tieba.im.settingcache.e;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
@@ -20,7 +20,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         super(tbPageContext);
     }
 
-    public void axz() {
+    public void azn() {
         LinkedList linkedList = new LinkedList();
         Iterator<ImMessageCenterShowItemData> it = this.mList.iterator();
         while (it.hasNext()) {
@@ -43,7 +43,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         if (buildNormalItem != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(7));
-            PersonalSettingItemData bk = j.awd().bk(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            PersonalSettingItemData bk = e.axR().bk(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (bk != null) {
                 buildNormalItem.setGroupSetting(bk);
             }

@@ -80,10 +80,6 @@ public final class Plugin_setting extends Message {
     public static final Integer DEFAULT_LOAD_PRIORITY = 1000;
     public static final Integer DEFAULT_IS_PATCH = 0;
 
-    /* synthetic */ Plugin_setting(Builder builder, boolean z, Plugin_setting plugin_setting) {
-        this(builder, z);
-    }
-
     private Plugin_setting(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -307,7 +303,7 @@ public final class Plugin_setting extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public Plugin_setting build(boolean z) {
-            return new Plugin_setting(this, z, null);
+            return new Plugin_setting(this, z);
         }
     }
 }

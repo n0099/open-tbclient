@@ -1,39 +1,44 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import android.widget.TextView;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.message.RequestUpdateForumMask;
-import com.baidu.tbadk.core.message.ResponseUpdateForumMask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.view.l;
+import com.baidu.tieba.d;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
-public class d extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ ImMessageCenterDelegateStatic drl;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, int i) {
-        super(i);
-        this.drl = imMessageCenterDelegateStatic;
+public class d extends l {
+    public d(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        TextView textView;
-        int i = 0;
-        if ((socketResponsedMessage instanceof ResponseUpdateForumMask) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateForumMask)) {
-            RequestUpdateForumMask requestUpdateForumMask = (RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage();
-            boolean flag = requestUpdateForumMask != null ? requestUpdateForumMask.getFlag() : false;
-            int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.yG().getMsgChat();
-            int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.yG().getMsgReplyme();
-            int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.yG().getMsgAtme();
-            int yN = com.baidu.tbadk.coreExtra.messageCenter.a.yG().yN();
-            com.baidu.tbadk.coreExtra.c.e zb = com.baidu.tbadk.coreExtra.messageCenter.a.yG().zb();
-            if (zb != null && flag) {
-                i = zb.An();
-            }
-            textView = this.drl.awx;
-            ImMessageCenterDelegateStatic.n(textView, (((msgChat - i) + msgReplyme) + msgAtme) - yN);
-        }
+    @Override // com.baidu.tbadk.core.view.k, com.baidu.adp.widget.ListView.c
+    public View lk() {
+        View lk = super.lk();
+        this.anL.setVisibility(4);
+        return lk;
+    }
+
+    @Override // com.baidu.tbadk.core.view.l, com.baidu.tbadk.core.view.k
+    public void dp(int i) {
+        super.dp(i);
+        ai.k(this.anK, d.e.cp_bg_line_d);
+    }
+
+    @Override // com.baidu.tbadk.core.view.l, com.baidu.tbadk.core.view.k, com.baidu.adp.widget.ListView.c
+    public void S(boolean z) {
+    }
+
+    @Override // com.baidu.tbadk.core.view.k, com.baidu.adp.widget.ListView.c
+    public void ll() {
+    }
+
+    @Override // com.baidu.tbadk.core.view.l, com.baidu.tbadk.core.view.k, com.baidu.adp.widget.ListView.c
+    public void lm() {
+    }
+
+    @Override // com.baidu.tbadk.core.view.l, com.baidu.tbadk.core.view.k, com.baidu.adp.widget.ListView.c
+    public void T(boolean z) {
     }
 }

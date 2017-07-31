@@ -6,47 +6,47 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private final String rs = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String rt = String.valueOf(this.rs) + "/baidu/";
-    private String ru;
+    private final String sX = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String sY = this.sX + "/baidu/";
+    private String sZ;
 
     public b() {
-        this.ru = null;
+        this.sZ = null;
         try {
-            this.ru = String.valueOf(BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath()) + "/";
+            this.sZ = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void F(String str) {
+    public void N(String str) {
         if (str != null) {
-            this.rt = String.valueOf(this.rs) + "/" + str + "/";
+            this.sY = this.sX + "/" + str + "/";
         }
     }
 
-    public boolean dH() {
+    public boolean dR() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
     public String b(String str, boolean z, boolean z2) {
         String str2;
         if (z2) {
-            if (!dH()) {
+            if (!dR()) {
                 return null;
             }
             if (str != null) {
-                str2 = String.valueOf(this.rt) + str + "/";
+                str2 = this.sY + str + "/";
             } else {
-                str2 = this.rt;
+                str2 = this.sY;
             }
-        } else if (this.ru == null) {
+        } else if (this.sZ == null) {
             return null;
         } else {
             if (str != null) {
-                str2 = String.valueOf(this.ru) + str + "/";
+                str2 = this.sZ + str + "/";
             } else {
-                str2 = this.ru;
+                str2 = this.sZ;
             }
         }
         File file = new File(str2);
@@ -64,7 +64,7 @@ public class b {
         if (str2 == null || (b = b(str, z, z2)) == null) {
             return null;
         }
-        return new File(String.valueOf(b) + str2);
+        return new File(b + str2);
     }
 
     public File c(String str, boolean z, boolean z2) {

@@ -13,21 +13,26 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.widget.ListView.w;
+import com.baidu.adp.lib.util.k;
 import com.baidu.megapp.ma.MAFragmentActivity;
 /* loaded from: classes.dex */
-public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, h<T>, j {
+public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, f<T>, h {
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
     protected final Handler mHandler = new Handler();
-    private final Runnable preLoadRunnable = new c(this);
+    private final Runnable preLoadRunnable = new Runnable() { // from class: com.baidu.adp.base.BdBaseFragmentActivity.1
+        @Override // java.lang.Runnable
+        public void run() {
+            BdBaseFragmentActivity.this.onPreLoad(BdBaseFragmentActivity.this.onGetPreLoadListView());
+        }
+    };
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.ca().h(getPageContext().getPageActivity());
+        a.cl().h(getPageContext().getPageActivity());
     }
 
     @Override // android.app.Activity
@@ -64,7 +69,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
     }
 
     public void showToast(String str) {
-        com.baidu.adp.lib.util.k.showToast(getApplicationContext(), str);
+        k.showToast(getApplicationContext(), str);
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -122,7 +127,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         MessageManager.getInstance().registerListener(i, aVar);
     }
 
-    @Override // com.baidu.adp.base.j
+    @Override // com.baidu.adp.base.h
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -133,16 +138,16 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.c.fL().d(this.mId);
+        com.baidu.adp.lib.f.c.fU().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        a.ca().i(getPageContext().getPageActivity());
+        a.cl().i(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.c.fL().e(this.mId);
+        com.baidu.adp.lib.f.c.fU().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -157,27 +162,27 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        w onGetPreLoadListView = onGetPreLoadListView();
+        com.baidu.adp.widget.ListView.g onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
             onGetPreLoadListView.cancelRefresh();
         }
     }
 
-    @Override // com.baidu.adp.base.j
+    @Override // com.baidu.adp.base.h
     public boolean isScroll() {
         return this.mIsScroll;
     }
 
-    @Override // com.baidu.adp.base.j
+    @Override // com.baidu.adp.base.h
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
-    @Override // com.baidu.adp.base.j
-    public void onPreLoad(w wVar) {
+    @Override // com.baidu.adp.base.h
+    public void onPreLoad(com.baidu.adp.widget.ListView.g gVar) {
     }
 
-    public w onGetPreLoadListView() {
+    public com.baidu.adp.widget.ListView.g onGetPreLoadListView() {
         return null;
     }
 
@@ -208,7 +213,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = i.cg().getResources();
+        Resources resources = g.cr().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

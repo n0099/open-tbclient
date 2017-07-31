@@ -202,19 +202,19 @@ public class i {
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         /* JADX WARN: Code restructure failed: missing block: B:58:0x00a4, code lost:
-            r15.a = android.os.SystemClock.uptimeMillis();
-            r15.b = true;
-            r4.d.run();
-            r15.b = false;
+            r8.a = android.os.SystemClock.uptimeMillis();
+            r8.b = true;
+            r2.d.run();
+            r8.b = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:60:0x00b7, code lost:
             r0 = move-exception;
          */
         /* JADX WARN: Code restructure failed: missing block: B:61:0x00b8, code lost:
-            monitor-enter(r15);
+            monitor-enter(r8);
          */
         /* JADX WARN: Code restructure failed: missing block: B:63:0x00ba, code lost:
-            r15.d = true;
+            r8.d = true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:65:0x00bd, code lost:
             throw r0;

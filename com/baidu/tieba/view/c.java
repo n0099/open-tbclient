@@ -1,71 +1,81 @@
 package com.baidu.tieba.view;
 
-import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class c extends TimePickerDialog {
-    private int dgK;
-    private int fZT;
-    private boolean fZU;
+public class c implements f {
+    private ImageView bFi;
+    private NavigationBar mNavigationBar;
 
-    public c(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
-        super(context, onTimeSetListener, i, i2, z);
-        this.dgK = -1;
-        this.fZT = -1;
-        this.fZU = false;
-        this.dgK = i;
-        this.fZT = i2;
+    @Override // com.baidu.tieba.view.f
+    public void a(Context context, NavigationBar navigationBar) {
+        this.mNavigationBar = navigationBar;
+        this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
+        this.bFi = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.j.item_person_guess_navigation_more, (View.OnClickListener) null).findViewById(d.h.more_img);
+        this.bFi.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 4);
     }
 
-    @Override // android.app.TimePickerDialog
-    public void updateTime(int i, int i2) {
-        super.updateTime(i, i2);
-        this.dgK = i;
-        this.fZT = i2;
-        this.fZU = false;
-    }
-
-    @Override // android.app.TimePickerDialog, android.app.Dialog
-    public Bundle onSaveInstanceState() {
-        Bundle bundle = null;
-        try {
-            bundle = super.onSaveInstanceState();
-        } catch (Exception e) {
+    @Override // com.baidu.tieba.view.f
+    public void setOnViewResponseListener(final g gVar) {
+        if (this.bFi != null) {
+            this.bFi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.c.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    com.baidu.tieba.personPolymeric.event.a aVar = new com.baidu.tieba.personPolymeric.event.a();
+                    aVar.cax = 9;
+                    gVar.a(view, aVar);
+                }
+            });
         }
-        if (bundle == null) {
-            bundle = new Bundle();
-        }
-        bundle.putInt("hour_key", this.dgK);
-        bundle.putInt("min_key", this.fZT);
-        return bundle;
     }
 
-    @Override // android.app.TimePickerDialog, android.app.Dialog
-    public void onRestoreInstanceState(Bundle bundle) {
-        super.onRestoreInstanceState(bundle);
-        updateTime(0, 0);
-        this.dgK = bundle.getInt("hour_key");
-        this.fZT = bundle.getInt("min_key");
-        updateTime(this.dgK, this.fZT);
+    @Override // com.baidu.tieba.view.f
+    public void VU() {
     }
 
-    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (i == -1) {
-            this.fZU = true;
-        } else if (this.dgK >= 0 && this.fZT >= 0) {
-            updateTime(this.dgK, this.fZT);
-        }
-        super.onClick(dialogInterface, i);
+    @Override // com.baidu.tieba.view.f
+    public void m(int i, boolean z) {
     }
 
-    @Override // android.app.Dialog
-    protected void onStop() {
-        if (!this.fZU) {
-            updateTime(this.dgK, this.fZT);
+    @Override // com.baidu.tieba.view.f
+    public void b(float f, boolean z) {
+        float f2;
+        if (this.bFi != null) {
+            if (z) {
+                ai.j(this.bFi, d.g.icon_more_bg_s);
+            } else {
+                ai.j(this.bFi, d.g.icon_more_bg);
+            }
+            if (f < 0.5f) {
+                f2 = 1.0f - (f * 2.0f);
+            } else {
+                f2 = (f * 2.0f) - 1.0f;
+            }
+            if (f2 >= 0.0f && f2 <= 1.0f) {
+                this.bFi.setAlpha(f2);
+            }
         }
-        super.onStop();
+    }
+
+    @Override // com.baidu.tieba.view.f
+    public void onChangeSkinType(int i) {
+        if (this.bFi != null) {
+            if (2 == i) {
+                ai.b(this.bFi, d.g.icon_more_bg_s, d.g.icon_more_bg);
+            } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
+                ai.j(this.bFi, d.g.icon_more_bg);
+            } else {
+                ai.j(this.bFi, d.g.icon_more_bg_s);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.view.f
+    public void dA(boolean z) {
     }
 }

@@ -54,10 +54,6 @@ public final class MsgInfo extends Message {
     public static final Integer DEFAULT_ISFRIEND = 0;
     public static final Long DEFAULT_SID = 0L;
 
-    /* synthetic */ MsgInfo(Builder builder, boolean z, MsgInfo msgInfo) {
-        this(builder, z);
-    }
-
     private MsgInfo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -209,7 +205,7 @@ public final class MsgInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public MsgInfo build(boolean z) {
-            return new MsgInfo(this, z, null);
+            return new MsgInfo(this, z);
         }
     }
 }

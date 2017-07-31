@@ -3,54 +3,58 @@ package com.baidu.tieba.homepage.alalivelist.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.z;
+import com.baidu.adp.widget.ListView.j;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.homepage.alalivelist.view.a;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.widget.ListView.a<c, C0064a> {
-    private TbPageContext<?> aat;
-    a.InterfaceC0065a cGB;
+public class a extends com.baidu.adp.widget.ListView.a<b, C0086a> {
+    private TbPageContext<?> acp;
+    a.InterfaceC0087a cPg;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aat = null;
-        this.cGB = new b(this);
-        this.aat = tbPageContext;
+        this.acp = null;
+        this.cPg = new a.InterfaceC0087a() { // from class: com.baidu.tieba.homepage.alalivelist.a.a.1
+            @Override // com.baidu.tieba.homepage.alalivelist.view.a.InterfaceC0087a
+            public void a(View view, b bVar) {
+            }
+        };
+        this.acp = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Y */
-    public C0064a onCreateViewHolder(ViewGroup viewGroup) {
-        return new C0064a(new com.baidu.tieba.homepage.alalivelist.view.a(this.aat.getPageActivity()));
+    /* renamed from: ah */
+    public C0086a onCreateViewHolder(ViewGroup viewGroup) {
+        return new C0086a(new com.baidu.tieba.homepage.alalivelist.view.a(this.acp.getPageActivity()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, C0064a c0064a) {
-        if (c0064a == null || cVar == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, C0086a c0086a) {
+        if (c0086a == null || bVar == null) {
             return null;
         }
         TiebaStatic.log("c11828");
-        c0064a.cGD.a(cVar);
-        c0064a.cGD.setAfterHeadImgOnClickListener(this.cGB);
-        c0064a.cGD.d(this.aat, TbadkCoreApplication.m9getInst().getSkinType());
-        return c0064a.cGD;
+        c0086a.cPi.a(bVar);
+        c0086a.cPi.setAfterHeadImgOnClickListener(this.cPg);
+        c0086a.cPi.d(this.acp, TbadkCoreApplication.getInst().getSkinType());
+        return c0086a.cPi;
     }
 
     /* renamed from: com.baidu.tieba.homepage.alalivelist.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0064a extends z.a {
-        public com.baidu.tieba.homepage.alalivelist.view.a cGD;
+    public static class C0086a extends j.a {
+        public com.baidu.tieba.homepage.alalivelist.view.a cPi;
 
-        public C0064a(com.baidu.tieba.homepage.alalivelist.view.a aVar) {
+        public C0086a(com.baidu.tieba.homepage.alalivelist.view.a aVar) {
             super(aVar);
-            this.cGD = aVar;
+            this.cPi = aVar;
         }
     }
 }

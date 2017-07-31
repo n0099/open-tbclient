@@ -1,62 +1,64 @@
 package com.baidu.tieba.personPolymeric.d;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.layout.FlowLayout;
-import com.baidu.tieba.w;
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class r extends FlowLayout {
-    private List<com.baidu.tieba.personPolymeric.c.f> eXE;
-    private List<s> eXF;
-    private com.baidu.adp.lib.e.b<s> eXG;
-    private Context mContext;
+public class r extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.l> {
+    private ImageView ctc;
+    private TbImageView fmh;
+    private TextView fmi;
+    private com.baidu.tieba.personPolymeric.c.l fmj;
+    private View mRootView;
 
-    public r(Context context) {
-        super(context);
-        this.eXF = new ArrayList();
-        this.mContext = context;
+    public r(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        this.mRootView = getView();
+        this.fmh = (TbImageView) this.mRootView.findViewById(d.h.polymeric_vedio_pic);
+        this.fmi = (TextView) this.mRootView.findViewById(d.h.polymeric_vedio_des);
+        this.ctc = (ImageView) this.mRootView.findViewById(d.h.polymeric_vedio_play_icon);
+        this.mRootView.setOnClickListener(this);
     }
 
-    public void setData(List<com.baidu.tieba.personPolymeric.c.f> list) {
-        this.eXE = list;
-        aVD();
-    }
-
-    private void aVD() {
-        if (!com.baidu.tbadk.core.util.z.t(this.eXE)) {
-            for (com.baidu.tieba.personPolymeric.c.f fVar : this.eXE) {
-                if (fVar != null) {
-                    s fJ = this.eXG.fJ();
-                    fJ.setData(fVar);
-                    ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.k.af(this.mContext) - com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds80)) - com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds16)) / 2, -2);
-                    fJ.setPadding(com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds16), 0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds14), 0);
-                    addView(fJ, layoutParams);
-                    this.eXF.add(fJ);
-                }
-            }
+    @Override // com.baidu.tieba.card.a
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        if (this.mSkinType != i) {
+            this.mSkinType = i;
+            ai.k(this.mRootView, d.e.cp_bg_line_d);
+            ai.c(this.fmi, d.e.cp_cont_b, 1);
+            ai.c(this.ctc, d.g.icon_play_video, i);
         }
     }
 
-    public void recycle() {
-        if (!com.baidu.tbadk.core.util.z.t(this.eXF)) {
-            for (s sVar : this.eXF) {
-                this.eXG.n(sVar);
-            }
-            removeAllViews();
+    @Override // com.baidu.tieba.card.a
+    public int getLayout() {
+        return d.j.person_polymeric_vedio_item_layout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.a
+    public void a(com.baidu.tieba.personPolymeric.c.l lVar) {
+        if (lVar != null) {
+            this.fmj = lVar;
+            this.fmh.c(lVar.WY, 10, false);
+            this.fmi.setText(lVar.title);
+            d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void setForumItemViewBdObjectPool(com.baidu.adp.lib.e.b<s> bVar) {
-        this.eXG = bVar;
-    }
-
-    public void onChangeSkinType() {
-        for (s sVar : this.eXF) {
-            if (sVar != null) {
-                sVar.onChangeSkinType();
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.mRootView == view) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(this.fmj.XS, this.fmj.postId, "person_page")));
         }
     }
 }

@@ -10,10 +10,6 @@ public final class QueryGroupDetailResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ QueryGroupDetailResIdl(Builder builder, boolean z, QueryGroupDetailResIdl queryGroupDetailResIdl) {
-        this(builder, z);
-    }
-
     private QueryGroupDetailResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -44,7 +40,7 @@ public final class QueryGroupDetailResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public QueryGroupDetailResIdl build(boolean z) {
-            return new QueryGroupDetailResIdl(this, z, null);
+            return new QueryGroupDetailResIdl(this, z);
         }
     }
 }

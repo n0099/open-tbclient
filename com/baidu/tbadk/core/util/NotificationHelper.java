@@ -13,7 +13,7 @@ import android.widget.RemoteViews;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class NotificationHelper {
     private static NotificationCompat.Builder PROGRESS_BUILDER;
@@ -76,13 +76,13 @@ public class NotificationHelper {
             } else {
                 try {
                     if (PROGRESS_BUILDER == null) {
-                        PROGRESS_BUILDER = new NotificationCompat.Builder(TbadkCoreApplication.m9getInst());
+                        PROGRESS_BUILDER = new NotificationCompat.Builder(TbadkCoreApplication.getInst());
                     }
                     if (i != lastProgressNotifiyId) {
                         PROGRESS_BUILDER.setWhen(System.currentTimeMillis());
                     }
                     lastProgressNotifiyId = i;
-                    PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.m9getInst().getResources().getDrawable(w.g.icon)).getBitmap());
+                    PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(d.g.icon)).getBitmap());
                     PROGRESS_BUILDER.setContent(remoteViews);
                     notif_excption = PROGRESS_BUILDER.build();
                     notif_excption.contentIntent = activity;
@@ -123,12 +123,12 @@ public class NotificationHelper {
         if (switchData == null) {
             return false;
         }
-        if (aw.isEmpty(str)) {
-            str = context.getString(w.l.app_name);
+        if (al.isEmpty(str)) {
+            str = context.getString(d.l.app_name);
         }
         try {
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(TbadkCoreApplication.m9getInst());
-            builder.setContentTitle(str).setContentText(str2).setSmallIcon(w.g.icon_notify).setTicker(str3);
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst());
+            builder.setContentTitle(str).setContentText(str2).setSmallIcon(d.g.icon_notify).setTicker(str3);
             builder.setContent(remoteViews);
             notif_excption = builder.build();
             notif_excption.contentIntent = pendingIntent;
@@ -137,11 +137,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.afv) {
+            if (!switchData.ahl) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.afu) {
+            if (!switchData.ahk) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -149,7 +149,7 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.afw) {
+            if (switchData.ahm) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = 400;
@@ -167,38 +167,38 @@ public class NotificationHelper {
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.yI() && com.baidu.tbadk.coreExtra.messageCenter.a.yH()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.zb() && com.baidu.tbadk.coreExtra.messageCenter.a.za()) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - TbadkCoreApplication.m9getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
+            if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.zd().zm()) {
-                    aVar.afu = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.b.zw().zF()) {
+                    aVar.ahk = true;
                     if (z || z2) {
-                        aVar.afu = false;
+                        aVar.ahk = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.zd().zp()) {
-                    aVar.afv = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.b.zw().zI()) {
+                    aVar.ahl = true;
                     if (z) {
-                        aVar.afv = false;
+                        aVar.ahl = false;
                     }
                     if (z2) {
-                        aVar.afv = true;
+                        aVar.ahl = true;
                     }
                 }
-                TbadkCoreApplication.m9getInst().setLastNotifyTime(currentTimeMillis);
+                TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.zd().zn()) {
-            aVar.afw = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.b.zw().zG()) {
+            aVar.ahm = true;
         }
         return aVar;
     }
 
     private static Notification notif_excption(Context context) {
-        return new Notification(w.g.icon, context.getString(w.l.notify_text), System.currentTimeMillis());
+        return new Notification(d.g.icon, context.getString(d.l.notify_text), System.currentTimeMillis());
     }
 
     private static boolean processNotification(Context context, int i, Notification notification) {
@@ -222,9 +222,9 @@ public class NotificationHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        boolean afu = false;
-        boolean afv = false;
-        boolean afw = false;
+        boolean ahk = false;
+        boolean ahl = false;
+        boolean ahm = false;
 
         a() {
         }

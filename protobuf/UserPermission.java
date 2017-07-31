@@ -11,10 +11,6 @@ public final class UserPermission extends Message {
     public static final Integer DEFAULT_ISGROUPOWNER = 0;
     public static final Integer DEFAULT_ISGROUPMANAGER = 0;
 
-    /* synthetic */ UserPermission(Builder builder, boolean z, UserPermission userPermission) {
-        this(builder, z);
-    }
-
     private UserPermission(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -54,7 +50,7 @@ public final class UserPermission extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public UserPermission build(boolean z) {
-            return new UserPermission(this, z, null);
+            return new UserPermission(this, z);
         }
     }
 }

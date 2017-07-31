@@ -1,20 +1,15 @@
 package com.baidu.tbadk.editortools.imagetool;
 
-import android.view.View;
-import com.baidu.tbadk.editortools.y;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.r;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-class d implements View.OnClickListener {
-    private final /* synthetic */ y aAL;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(y yVar) {
-        this.aAL = yVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.aAL != null) {
-            this.aAL.b(new com.baidu.tbadk.editortools.a(14, -1, true));
-        }
+public class d extends r {
+    public d(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(d.l.editor_image), 10, i);
+        this.aCN = d.g.btn_pb_add_pic;
+        this.aCO = false;
+        this.aCS = new int[]{14};
     }
 }

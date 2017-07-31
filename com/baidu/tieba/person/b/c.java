@@ -3,63 +3,64 @@ package com.baidu.tieba.person.b;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.adp.widget.ListView.z;
+import com.baidu.adp.widget.ListView.f;
+import com.baidu.adp.widget.ListView.j;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.u;
+import com.baidu.tieba.d;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.tieba.person.a.d;
 import com.baidu.tieba.person.a.e;
 import com.baidu.tieba.person.h;
-import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class c extends z.a {
-    public TextView Qs;
-    public TbPageContext ajP;
-    public int aoa;
-    public View bJH;
-    public HTypeListView eQQ;
-    public d eQR;
+public class c extends j.a {
+    public TextView Se;
+    public TbPageContext alI;
+    public int aql;
+    public View bPb;
+    public HTypeListView feB;
+    public d feC;
     public View rootView;
 
     public c(View view, TbPageContext tbPageContext) {
         super(view);
-        this.aoa = 3;
+        this.aql = 3;
         this.rootView = view;
-        this.ajP = tbPageContext;
-        this.bJH = view.findViewById(w.h.divider_view_under_photo_album);
-        this.Qs = (TextView) view.findViewById(w.h.text_view_photo_album);
-        this.eQQ = (HTypeListView) view.findViewById(w.h.listview_photo_album);
-        this.eQR = new d(this.ajP, this.eQQ);
+        this.alI = tbPageContext;
+        this.bPb = view.findViewById(d.h.divider_view_under_photo_album);
+        this.Se = (TextView) view.findViewById(d.h.text_view_photo_album);
+        this.feB = (HTypeListView) view.findViewById(d.h.listview_photo_album);
+        this.feC = new com.baidu.tieba.person.a.d(this.alI, this.feB);
     }
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.eQR.setDatas(cp(eVar.getPhotoAlbum()));
+            this.feC.setDatas(cG(eVar.getPhotoAlbum()));
         }
     }
 
-    private List<v> cp(List<v> list) {
-        if (com.baidu.tbadk.core.util.z.s(list) > 0) {
+    private List<f> cG(List<f> list) {
+        if (u.u(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
-            h hVar = new h(k.g(this.ajP.getPageActivity(), w.f.ds32), k.g(this.ajP.getPageActivity(), w.f.ds120));
-            com.baidu.tbadk.core.util.z.a(arrayList, 0, hVar);
-            com.baidu.tbadk.core.util.z.b(arrayList, hVar);
+            h hVar = new h(k.g(this.alI.getPageActivity(), d.f.ds32), k.g(this.alI.getPageActivity(), d.f.ds120));
+            u.a(arrayList, 0, hVar);
+            u.b(arrayList, hVar);
             return arrayList;
         }
         return list;
     }
 
-    public void aTY() {
-        if (this.aoa != TbadkCoreApplication.m9getInst().getSkinType()) {
-            this.aoa = TbadkCoreApplication.m9getInst().getSkinType();
-            as.k(this.rootView, w.e.cp_bg_line_d);
-            as.k(this.bJH, w.e.cp_bg_line_c);
-            as.c(this.Qs, w.e.cp_cont_d, 1);
-            this.eQR.notifyDataSetChanged();
+    public void Eu() {
+        if (this.aql != TbadkCoreApplication.getInst().getSkinType()) {
+            this.aql = TbadkCoreApplication.getInst().getSkinType();
+            ai.k(this.rootView, d.e.cp_bg_line_d);
+            ai.k(this.bPb, d.e.cp_bg_line_c);
+            ai.c(this.Se, d.e.cp_cont_d, 1);
+            this.feC.notifyDataSetChanged();
         }
     }
 }

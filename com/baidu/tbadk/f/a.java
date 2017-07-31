@@ -1,39 +1,46 @@
 package com.baidu.tbadk.f;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static long QS = 86400000;
+    public int Sw = 300;
+    public int Sx = 5000;
+    public int Sy = 10000;
+    public int Sz = 1500;
+    public int SA = 3000;
+    public int SB = 6000;
+    public boolean SC = true;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void n(File file) {
-        if (file != null) {
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                if (file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null) {
-                        for (int i = 0; i < listFiles.length; i++) {
-                            if (listFiles[i].isDirectory()) {
-                                n(listFiles[i]);
-                            } else {
-                                listFiles[i].delete();
-                            }
-                        }
-                        return;
-                    }
-                    return;
+                int optInt = jSONObject.optInt("wifiSlow", -1);
+                if (optInt > 0) {
+                    this.Sw = optInt;
                 }
-                file.delete();
+                int optInt2 = jSONObject.optInt("threeGSlow", -1);
+                if (optInt2 > 0) {
+                    this.Sx = optInt2;
+                }
+                int optInt3 = jSONObject.optInt("twoGSlow", -1);
+                if (optInt3 > 0) {
+                    this.Sy = optInt3;
+                }
+                int optInt4 = jSONObject.optInt("wifiLog", -1);
+                if (optInt4 > 0) {
+                    this.Sz = optInt4;
+                }
+                int optInt5 = jSONObject.optInt("threeGLog", -1);
+                if (optInt5 > 0) {
+                    this.SA = optInt5;
+                }
+                int optInt6 = jSONObject.optInt("twoGLog", -1);
+                if (optInt6 > 0) {
+                    this.SB = optInt6;
+                }
+                this.SC = jSONObject.optInt("mobile_cdn_switch", 1) == 1;
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
         }
-    }
-
-    public static void init() {
-        MessageManager.getInstance().registerListener(new b(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
     }
 }

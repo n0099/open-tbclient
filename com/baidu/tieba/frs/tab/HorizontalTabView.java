@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs.tab;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -12,200 +13,234 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tieba.frs.bz;
-import com.baidu.tieba.frs.cf;
-import com.baidu.tieba.frs.co;
-import com.baidu.tieba.frs.cp;
-import com.baidu.tieba.frs.tab.k;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.util.u;
+import com.baidu.tieba.d;
+import com.baidu.tieba.frs.ai;
+import com.baidu.tieba.frs.an;
+import com.baidu.tieba.frs.as;
+import com.baidu.tieba.frs.at;
+import com.baidu.tieba.frs.tab.e;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
-public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements h {
-    private List<j> aUW;
-    private TbPageContext bzN;
-    public int cnD;
-    private final LinearLayout cnE;
-    private final k cnF;
-    private List<j> cnG;
-    private TabItemView cnH;
-    private h cnI;
-    private final int cnJ;
-    private final int cnK;
-    private int cnL;
-    private boolean cnM;
-    private int cnN;
-    private boolean cnO;
-    private a cnP;
-    private b cnQ;
-    private k.b cnR;
-    private k.a cnS;
-    private bz cnT;
-    private c cnU;
+public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements com.baidu.tieba.frs.tab.b {
+    private TbPageContext bFe;
+    public int cvM;
+    private final LinearLayout cvN;
+    private final e cvO;
+    private List<d> cvP;
+    private TabItemView cvQ;
+    private com.baidu.tieba.frs.tab.b cvR;
+    private final int cvS;
+    private final int cvT;
+    private int cvU;
+    private boolean cvV;
+    private int cvW;
+    private boolean cvX;
+    private int cvY;
+    private a cvZ;
+    private b cwa;
+    private e.b cwb;
+    private e.a cwc;
+    private ai cwd;
+    private c cwe;
+    private List<d> mData;
     private View.OnClickListener mOnClickListener;
     private final Paint mPaint;
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(j jVar);
+        void a(d dVar);
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void b(j jVar);
+        void b(d dVar);
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void iI(int i);
+        void iS(int i);
 
-        boolean iJ(int i);
+        boolean iT(int i);
     }
 
-    public void ahq() {
-        cp cpVar;
-        if (this.bzN != null) {
+    public void aja() {
+        final at atVar;
+        if (this.bFe != null) {
             ArrayList arrayList = new ArrayList();
-            if (this.aUW != null && this.aUW.size() > 0 && this.aUW.get(0) != null && (cpVar = this.aUW.get(0).cnZ) != null && cpVar.ceU != null) {
-                for (co coVar : cpVar.ceU) {
-                    if (coVar != null) {
-                        arrayList.add(coVar.name);
+            if (this.mData != null && this.mData.size() > 0 && this.mData.get(0) != null && (atVar = this.mData.get(0).cwj) != null && atVar.clO != null) {
+                for (as asVar : atVar.clO) {
+                    if (asVar != null) {
+                        arrayList.add(asVar.name);
                     }
                 }
-                com.baidu.tbadk.core.dialog.c cVar = new com.baidu.tbadk.core.dialog.c(this.bzN.getPageActivity());
-                cVar.a(arrayList, new d(this, cpVar));
-                cVar.d(this.bzN);
-                cVar.td();
+                com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.bFe.getPageActivity());
+                bVar.a(arrayList, new b.InterfaceC0043b() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.4
+                    @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0043b
+                    public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view) {
+                        if (atVar.clO.size() > i && atVar.clO.get(i) != null) {
+                            bVar2.dismiss();
+                            HorizontalTabView.this.c(HorizontalTabView.this.jk(atVar.clO.get(i).clK));
+                        }
+                    }
+                });
+                bVar.d(this.bFe);
+                bVar.tu();
             }
         }
     }
 
-    public j jb(int i) {
-        if (!z.t(this.cnG)) {
-            for (j jVar : this.cnG) {
-                if (jVar != null && jVar.cnY == i) {
-                    return jVar;
+    public d jk(int i) {
+        if (!u.v(this.cvP)) {
+            for (d dVar : this.cvP) {
+                if (dVar != null && dVar.cwi == i) {
+                    return dVar;
                 }
             }
         }
         return null;
     }
 
-    public void c(j jVar) {
-        cf cfVar;
-        if (jVar != null) {
-            if (this.cnQ != null) {
-                this.cnQ.b(jVar);
+    public void c(d dVar) {
+        boolean z;
+        an anVar;
+        if (dVar != null) {
+            if (this.cwa != null) {
+                this.cwa.b(dVar);
             }
-            if (jVar.cnY == 49) {
+            if (dVar.cwi == 49) {
                 TiebaStatic.log("c11841");
             }
-            if (jg(jVar.cnY)) {
-                if (this.cnT != null && !TextUtils.isEmpty(jVar.url)) {
-                    cf cfVar2 = new cf();
-                    cfVar2.cfg = jVar.url;
-                    this.cnT.a(jVar.cnY, -1, cfVar2);
+            if (jp(dVar.cwi)) {
+                if (this.cwd != null && !TextUtils.isEmpty(dVar.url)) {
+                    an anVar2 = new an();
+                    anVar2.cmc = dVar.url;
+                    this.cwd.a(dVar.cwi, -1, anVar2);
                 }
-            } else if (jVar.cnY == 301) {
-                if (this.cnT != null) {
-                    this.cnT.a(jVar.cnY, -1, null);
+            } else if (dVar.cwi == 301) {
+                if (this.cwd != null) {
+                    this.cwd.a(dVar.cwi, -1, null);
                 }
             } else {
-                for (int i = 0; i < this.cnE.getChildCount(); i++) {
-                    View childAt = this.cnE.getChildAt(i);
+                if (dVar.cwi != 49 || this.cwd == null) {
+                    z = true;
+                } else {
+                    an anVar3 = new an();
+                    anVar3.cmc = dVar.url;
+                    anVar3.stType = dVar.name;
+                    this.cwd.a(dVar.cwi, 0, anVar3);
+                    if (anVar3.cme) {
+                        return;
+                    }
+                    z = false;
+                }
+                for (int i = 0; i < this.cvN.getChildCount(); i++) {
+                    View childAt = this.cvN.getChildAt(i);
                     if (childAt instanceof TabItemView) {
                         TabItemView tabItemView = (TabItemView) childAt;
                         if (tabItemView.getTabId() == 1) {
-                            tabItemView.setText(jVar.name);
+                            tabItemView.setText(dVar.name);
                         }
                     }
                 }
-                if (TextUtils.isEmpty(jVar.url)) {
-                    cfVar = null;
+                if (TextUtils.isEmpty(dVar.url)) {
+                    anVar = null;
                 } else {
-                    cfVar = new cf();
-                    cfVar.cfg = jVar.url;
-                    cfVar.stType = jVar.name;
+                    anVar = new an();
+                    anVar.cmc = dVar.url;
+                    anVar.stType = dVar.name;
                 }
-                if (this.cnT != null) {
-                    this.cnT.a(jVar.cnY, 0, cfVar);
+                if (this.cwd != null && z) {
+                    this.cwd.a(dVar.cwi, 0, anVar);
                 }
             }
         }
     }
 
     public void a(TabItemView tabItemView, boolean z) {
-        cf cfVar = null;
+        an anVar = null;
         int i = 0;
         if (tabItemView != null) {
             if (tabItemView.getTabId() == 49) {
                 TiebaStatic.log("c11841");
             }
-            if (jg(tabItemView.getTabId())) {
-                if (this.cnT != null && !TextUtils.isEmpty(tabItemView.getUrl())) {
-                    cf cfVar2 = new cf();
-                    cfVar2.cfg = tabItemView.getUrl();
-                    this.cnT.a(tabItemView.getTabId(), -1, cfVar2);
+            if (jp(tabItemView.getTabId())) {
+                if (this.cwd != null && !TextUtils.isEmpty(tabItemView.getUrl())) {
+                    an anVar2 = new an();
+                    anVar2.cmc = tabItemView.getUrl();
+                    this.cwd.a(tabItemView.getTabId(), -1, anVar2);
                 }
             } else if (tabItemView.getTabId() == 301) {
-                if (this.cnT != null) {
-                    this.cnT.a(tabItemView.getTabId(), -1, null);
+                if (this.cwd != null) {
+                    this.cwd.a(tabItemView.getTabId(), -1, null);
                 }
             } else {
-                this.cnH = tabItemView;
+                this.cvQ = tabItemView;
                 int[] iArr = new int[2];
-                this.cnH.getLocationOnScreen(iArr);
-                int af = com.baidu.adp.lib.util.k.af(getContext()) - iArr[0];
-                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(w.f.ds160);
+                this.cvQ.getLocationOnScreen(iArr);
+                int ag = k.ag(getContext()) - iArr[0];
+                final int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(d.f.ds160);
                 if (iArr[0] < 0) {
-                    post(new e(this, dimensionPixelSize));
-                } else if (af < dimensionPixelSize) {
-                    post(new f(this));
+                    post(new Runnable() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.5
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            HorizontalTabView.this.scrollBy(0 - dimensionPixelSize, 0);
+                        }
+                    });
+                } else if (ag < dimensionPixelSize) {
+                    post(new Runnable() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.6
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            HorizontalTabView.this.scrollBy(HorizontalTabView.this.getContext().getResources().getDimensionPixelSize(d.f.ds160), 0);
+                        }
+                    });
                 }
-                for (int i2 = 0; i2 < this.cnE.getChildCount(); i2++) {
-                    View childAt = this.cnE.getChildAt(i2);
+                for (int i2 = 0; i2 < this.cvN.getChildCount(); i2++) {
+                    View childAt = this.cvN.getChildAt(i2);
                     if (childAt instanceof TabItemView) {
                         TabItemView tabItemView2 = (TabItemView) childAt;
-                        if (tabItemView2.getTabId() != this.cnH.getTabId() && !jg(tabItemView2.getTabId())) {
-                            tabItemView2.setState(TabItemView.coa);
+                        if (tabItemView2.getTabId() != this.cvQ.getTabId() && !jp(tabItemView2.getTabId())) {
+                            tabItemView2.setState(TabItemView.cwk);
                         }
                     }
                 }
-                if (this.cnH.getState() == TabItemView.coa || this.cnH.getState() == TabItemView.coc) {
-                    this.cnF.aht();
-                    boolean z2 = this.cnH.getState() == TabItemView.coa;
-                    this.cnH.setState(TabItemView.cob);
-                    j jc = jc(this.cnH.getTabId());
-                    if (jc != null) {
-                        if (!TextUtils.isEmpty(jc.url)) {
-                            cf cfVar3 = new cf();
-                            cfVar3.cfg = jc.url;
-                            cfVar3.stType = jc.name;
-                            cfVar = cfVar3;
+                if (this.cvQ.getState() == TabItemView.cwk || this.cvQ.getState() == TabItemView.cwm) {
+                    this.cvO.ajd();
+                    boolean z2 = this.cvQ.getState() == TabItemView.cwk;
+                    this.cvQ.setState(TabItemView.cwl);
+                    d jl = jl(this.cvQ.getTabId());
+                    if (jl != null) {
+                        if (!TextUtils.isEmpty(jl.url)) {
+                            an anVar3 = new an();
+                            anVar3.cmc = jl.url;
+                            anVar3.stType = jl.name;
+                            anVar = anVar3;
                         }
-                        if (jc.cnZ != null && jc.cnZ.ceU != null && jc.cnZ.ceU.size() > 0) {
-                            for (co coVar : jc.cnZ.ceU) {
-                                if (coVar != null && coVar.isSelected) {
-                                    i = coVar.ceQ;
+                        if (jl.cwj != null && jl.cwj.clO != null && jl.cwj.clO.size() > 0) {
+                            for (as asVar : jl.cwj.clO) {
+                                if (asVar != null && asVar.isSelected) {
+                                    i = asVar.clK;
                                 }
                             }
                         }
-                        if (z2 && this.cnT != null) {
-                            this.cnT.a(this.cnH.getTabId(), i, cfVar);
+                        if (z2 && this.cwd != null) {
+                            this.cwd.a(this.cvQ.getTabId(), i, anVar);
                         }
                     } else {
                         return;
                     }
-                } else if (jd(this.cnH.getTabId()) && !z) {
-                    if (this.cnU == null || this.cnU.iJ(this.cnH.getTabId())) {
-                        this.cnH.setState(TabItemView.coc);
-                        this.cnF.a((Activity) getContext(), this, this.cnH, jc(this.cnH.getTabId()).cnZ);
+                } else if (jm(this.cvQ.getTabId()) && !z) {
+                    if (this.cwe == null || this.cwe.iT(this.cvQ.getTabId())) {
+                        this.cvQ.setState(TabItemView.cwm);
+                        this.cvO.a((Activity) getContext(), this, this.cvQ, jl(this.cvQ.getTabId()).cwj);
                     } else {
                         return;
                     }
@@ -217,119 +252,249 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements h {
 
     public HorizontalTabView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.cnD = 0;
-        this.cnH = null;
-        this.cnI = null;
+        this.cvM = 0;
+        this.cvQ = null;
+        this.cvR = null;
         this.mPaint = new Paint();
-        this.cnJ = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds6);
-        this.cnK = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1);
-        this.cnL = 0;
-        this.cnM = true;
-        this.cnN = w.e.transparent;
-        this.cnR = new com.baidu.tieba.frs.tab.a(this);
-        this.cnS = new com.baidu.tieba.frs.tab.b(this);
-        this.mOnClickListener = new com.baidu.tieba.frs.tab.c(this);
-        this.bzN = tbPageContext;
-        this.cnE = new LinearLayout(tbPageContext.getPageActivity());
-        this.cnE.setOrientation(0);
-        this.cnE.setGravity(16);
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, tbPageContext.getResources().getDimensionPixelSize(w.f.ds88));
-        this.cnF = new k(tbPageContext.getPageActivity(), this.cnR, this.cnS);
+        this.cvS = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds6);
+        this.cvT = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds1);
+        this.cvU = 0;
+        this.cvV = true;
+        this.cvW = d.e.transparent;
+        this.cvY = 0;
+        this.cwb = new e.b() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.1
+            @Override // com.baidu.tieba.frs.tab.e.b
+            public void jq(int i) {
+                if (HorizontalTabView.this.cvQ != null && HorizontalTabView.this.cwd != null && HorizontalTabView.this.cwd != null) {
+                    HorizontalTabView.this.cwd.a(HorizontalTabView.this.cvQ.getTabId(), i, null);
+                }
+                if (HorizontalTabView.this.cvR != null) {
+                    HorizontalTabView.this.cvR.jo(i);
+                }
+            }
+        };
+        this.cwc = new e.a() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.2
+            @Override // com.baidu.tieba.frs.tab.e.a
+            public void a(TabItemView tabItemView) {
+                HorizontalTabView.this.a(tabItemView, false);
+            }
+        };
+        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (HorizontalTabView.this.cvX) {
+                    if ((view instanceof TabItemView) && ((TabItemView) view).getTabId() == 1) {
+                        if (HorizontalTabView.this.cvZ != null) {
+                            HorizontalTabView.this.cvZ.a(HorizontalTabView.this.jk(1));
+                        }
+                        HorizontalTabView.this.aja();
+                        return;
+                    }
+                    return;
+                }
+                if (view instanceof TabItemView) {
+                    HorizontalTabView.this.a((TabItemView) view, false);
+                }
+                if (HorizontalTabView.this.cvR != null) {
+                    if (!(view instanceof TabItemView) || !HorizontalTabView.jp(((TabItemView) view).getTabId())) {
+                        if (HorizontalTabView.this.cvQ != null) {
+                            HorizontalTabView.this.cvR.jn(HorizontalTabView.this.cvQ.getTabId());
+                            return;
+                        }
+                        return;
+                    }
+                    HorizontalTabView.this.cvR.jn(((TabItemView) view).getTabId());
+                }
+            }
+        };
+        this.bFe = tbPageContext;
+        this.cvN = new LinearLayout(tbPageContext.getPageActivity());
+        this.cvN.setOrientation(0);
+        this.cvN.setGravity(16);
+        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, tbPageContext.getResources().getDimensionPixelSize(d.f.ds88));
+        this.cvO = new e(tbPageContext.getPageActivity(), this.cwb, this.cwc);
         a(layoutParams);
     }
 
     public HorizontalTabView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cnD = 0;
-        this.cnH = null;
-        this.cnI = null;
+        this.cvM = 0;
+        this.cvQ = null;
+        this.cvR = null;
         this.mPaint = new Paint();
-        this.cnJ = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds6);
-        this.cnK = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1);
-        this.cnL = 0;
-        this.cnM = true;
-        this.cnN = w.e.transparent;
-        this.cnR = new com.baidu.tieba.frs.tab.a(this);
-        this.cnS = new com.baidu.tieba.frs.tab.b(this);
-        this.mOnClickListener = new com.baidu.tieba.frs.tab.c(this);
-        this.cnE = new LinearLayout(context);
-        this.cnE.setOrientation(0);
-        this.cnE.setGravity(16);
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(w.f.ds88));
-        this.cnF = new k(context, this.cnR, this.cnS);
+        this.cvS = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds6);
+        this.cvT = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds1);
+        this.cvU = 0;
+        this.cvV = true;
+        this.cvW = d.e.transparent;
+        this.cvY = 0;
+        this.cwb = new e.b() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.1
+            @Override // com.baidu.tieba.frs.tab.e.b
+            public void jq(int i) {
+                if (HorizontalTabView.this.cvQ != null && HorizontalTabView.this.cwd != null && HorizontalTabView.this.cwd != null) {
+                    HorizontalTabView.this.cwd.a(HorizontalTabView.this.cvQ.getTabId(), i, null);
+                }
+                if (HorizontalTabView.this.cvR != null) {
+                    HorizontalTabView.this.cvR.jo(i);
+                }
+            }
+        };
+        this.cwc = new e.a() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.2
+            @Override // com.baidu.tieba.frs.tab.e.a
+            public void a(TabItemView tabItemView) {
+                HorizontalTabView.this.a(tabItemView, false);
+            }
+        };
+        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (HorizontalTabView.this.cvX) {
+                    if ((view instanceof TabItemView) && ((TabItemView) view).getTabId() == 1) {
+                        if (HorizontalTabView.this.cvZ != null) {
+                            HorizontalTabView.this.cvZ.a(HorizontalTabView.this.jk(1));
+                        }
+                        HorizontalTabView.this.aja();
+                        return;
+                    }
+                    return;
+                }
+                if (view instanceof TabItemView) {
+                    HorizontalTabView.this.a((TabItemView) view, false);
+                }
+                if (HorizontalTabView.this.cvR != null) {
+                    if (!(view instanceof TabItemView) || !HorizontalTabView.jp(((TabItemView) view).getTabId())) {
+                        if (HorizontalTabView.this.cvQ != null) {
+                            HorizontalTabView.this.cvR.jn(HorizontalTabView.this.cvQ.getTabId());
+                            return;
+                        }
+                        return;
+                    }
+                    HorizontalTabView.this.cvR.jn(((TabItemView) view).getTabId());
+                }
+            }
+        };
+        this.cvN = new LinearLayout(context);
+        this.cvN.setOrientation(0);
+        this.cvN.setGravity(16);
+        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(d.f.ds88));
+        this.cvO = new e(context, this.cwb, this.cwc);
         a(layoutParams);
     }
 
     public HorizontalTabView(Activity activity, int i) {
         super(activity);
-        this.cnD = 0;
-        this.cnH = null;
-        this.cnI = null;
+        this.cvM = 0;
+        this.cvQ = null;
+        this.cvR = null;
         this.mPaint = new Paint();
-        this.cnJ = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds6);
-        this.cnK = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1);
-        this.cnL = 0;
-        this.cnM = true;
-        this.cnN = w.e.transparent;
-        this.cnR = new com.baidu.tieba.frs.tab.a(this);
-        this.cnS = new com.baidu.tieba.frs.tab.b(this);
-        this.mOnClickListener = new com.baidu.tieba.frs.tab.c(this);
-        this.cnE = new LinearLayout(activity);
-        this.cnE.setOrientation(0);
-        this.cnE.setGravity(16);
+        this.cvS = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds6);
+        this.cvT = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds1);
+        this.cvU = 0;
+        this.cvV = true;
+        this.cvW = d.e.transparent;
+        this.cvY = 0;
+        this.cwb = new e.b() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.1
+            @Override // com.baidu.tieba.frs.tab.e.b
+            public void jq(int i2) {
+                if (HorizontalTabView.this.cvQ != null && HorizontalTabView.this.cwd != null && HorizontalTabView.this.cwd != null) {
+                    HorizontalTabView.this.cwd.a(HorizontalTabView.this.cvQ.getTabId(), i2, null);
+                }
+                if (HorizontalTabView.this.cvR != null) {
+                    HorizontalTabView.this.cvR.jo(i2);
+                }
+            }
+        };
+        this.cwc = new e.a() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.2
+            @Override // com.baidu.tieba.frs.tab.e.a
+            public void a(TabItemView tabItemView) {
+                HorizontalTabView.this.a(tabItemView, false);
+            }
+        };
+        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.HorizontalTabView.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (HorizontalTabView.this.cvX) {
+                    if ((view instanceof TabItemView) && ((TabItemView) view).getTabId() == 1) {
+                        if (HorizontalTabView.this.cvZ != null) {
+                            HorizontalTabView.this.cvZ.a(HorizontalTabView.this.jk(1));
+                        }
+                        HorizontalTabView.this.aja();
+                        return;
+                    }
+                    return;
+                }
+                if (view instanceof TabItemView) {
+                    HorizontalTabView.this.a((TabItemView) view, false);
+                }
+                if (HorizontalTabView.this.cvR != null) {
+                    if (!(view instanceof TabItemView) || !HorizontalTabView.jp(((TabItemView) view).getTabId())) {
+                        if (HorizontalTabView.this.cvQ != null) {
+                            HorizontalTabView.this.cvR.jn(HorizontalTabView.this.cvQ.getTabId());
+                            return;
+                        }
+                        return;
+                    }
+                    HorizontalTabView.this.cvR.jn(((TabItemView) view).getTabId());
+                }
+            }
+        };
+        this.cvN = new LinearLayout(activity);
+        this.cvN.setOrientation(0);
+        this.cvN.setGravity(16);
         AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, i);
-        this.cnF = new k(activity, this.cnR, this.cnS);
+        this.cvO = new e(activity, this.cwb, this.cwc);
         a(layoutParams);
     }
 
+    @SuppressLint({"ResourceAsColor"})
     private void a(AbsListView.LayoutParams layoutParams) {
-        addView(this.cnE, layoutParams);
+        addView(this.cvN, layoutParams);
         setLayoutParams(layoutParams);
         setHorizontalScrollBarEnabled(false);
-        as.k(this, w.e.transparent);
+        com.baidu.tbadk.core.util.ai.k(this, d.e.transparent);
         setDescendantFocusability(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
     }
 
-    private boolean aB(List<j> list) {
-        j jVar;
+    private boolean aO(List<d> list) {
+        d dVar;
         if (list == null) {
             return false;
         }
-        j jc = jc(1);
-        Iterator<j> it = list.iterator();
+        d jl = jl(1);
+        Iterator<d> it = list.iterator();
         while (true) {
             if (!it.hasNext()) {
-                jVar = null;
+                dVar = null;
                 break;
             }
-            j next = it.next();
-            if (next != null && next.cnY == 1) {
-                jVar = next;
+            d next = it.next();
+            if (next != null && next.cwi == 1) {
+                dVar = next;
                 break;
             }
         }
-        if (jc == null || jVar == null) {
+        if (jl == null || dVar == null) {
             return false;
         }
-        if (jc.cnZ == null && jVar.cnZ == null) {
+        if (jl.cwj == null && dVar.cwj == null) {
             return false;
         }
-        if ((jc.cnZ != null || jVar.cnZ == null) && (jVar.cnZ != null || jc.cnZ == null)) {
-            if (jc.cnZ == null || jVar.cnZ == null) {
+        if ((jl.cwj != null || dVar.cwj == null) && (dVar.cwj != null || jl.cwj == null)) {
+            if (jl.cwj == null || dVar.cwj == null) {
                 return false;
             }
-            if (jc.cnZ.ceU == null && jVar.cnZ.ceU == null) {
+            if (jl.cwj.clO == null && dVar.cwj.clO == null) {
                 return false;
             }
-            if ((jc.cnZ.ceU != null || jVar.cnZ.ceU == null) && (jVar.cnZ.ceU != null || jc.cnZ.ceU == null)) {
-                int size = jc.cnZ.ceU.size();
-                if (size != jVar.cnZ.ceU.size()) {
+            if ((jl.cwj.clO != null || dVar.cwj.clO == null) && (dVar.cwj.clO != null || jl.cwj.clO == null)) {
+                int size = jl.cwj.clO.size();
+                if (size != dVar.cwj.clO.size()) {
                     return true;
                 }
                 for (int i = 0; i < size; i++) {
-                    co coVar = jVar.cnZ.ceU.get(i);
-                    co coVar2 = jc.cnZ.ceU.get(i);
-                    if (coVar.ceQ != coVar2.ceQ || !coVar.name.equals(coVar2.name)) {
+                    as asVar = dVar.cwj.clO.get(i);
+                    as asVar2 = jl.cwj.clO.get(i);
+                    if (asVar.clK != asVar2.clK || !asVar.name.equals(asVar2.name)) {
                         return true;
                     }
                 }
@@ -340,91 +505,99 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements h {
         return true;
     }
 
-    public void d(List<j> list, int i, int i2) {
-        j jVar;
-        cp cpVar;
-        if (this.cnO) {
-            this.cnG = new ArrayList();
-            this.cnG.addAll(list);
-            if (list != null && list.size() > 0 && (jVar = list.get(0)) != null && jVar.cnY == 1) {
-                cp cpVar2 = jVar.cnZ;
-                if (cpVar2 != null && cpVar2.ceU != null) {
-                    cpVar2.ceU.clear();
-                    cpVar = cpVar2;
+    public void d(List<d> list, int i, int i2) {
+        d dVar;
+        at atVar;
+        if (this.cvX) {
+            this.cvP = new ArrayList();
+            this.cvP.addAll(list);
+            if (list != null && list.size() > 0 && (dVar = list.get(0)) != null && dVar.cwi == 1) {
+                at atVar2 = dVar.cwj;
+                if (atVar2 != null && atVar2.clO != null) {
+                    atVar2.clO.clear();
+                    atVar = atVar2;
                 } else {
-                    cp cpVar3 = new cp();
-                    cpVar3.ceU = new ArrayList();
-                    cpVar = cpVar3;
+                    at atVar3 = new at();
+                    atVar3.clO = new ArrayList();
+                    atVar = atVar3;
                 }
-                co coVar = new co();
-                coVar.ceQ = 1;
-                coVar.name = getContext().getString(w.l.chosen_pb_title);
-                cpVar.ceU.add(coVar);
-                for (j jVar2 : list) {
-                    if (jVar2 != null && jVar2.cnY != 1) {
-                        co coVar2 = new co();
-                        coVar2.ceQ = jVar2.cnY;
-                        coVar2.name = jVar2.name;
-                        cpVar.ceU.add(coVar2);
+                if (u.u(list) > 1) {
+                    as asVar = new as();
+                    asVar.clK = 1;
+                    asVar.name = getContext().getString(d.l.chosen_pb_title);
+                    atVar.clO.add(asVar);
+                    for (d dVar2 : list) {
+                        if (dVar2 != null && dVar2.cwi != 1) {
+                            as asVar2 = new as();
+                            asVar2.clK = dVar2.cwi;
+                            asVar2.name = dVar2.name;
+                            atVar.clO.add(asVar2);
+                        }
                     }
+                    dVar.cwj = atVar;
                 }
-                jVar.cnZ = cpVar;
                 list.clear();
-                list.add(jVar);
+                list.add(dVar);
             }
         } else {
-            this.cnG = list;
+            this.cvP = list;
         }
         b(list, i, i2, false);
     }
 
-    private void b(List<j> list, int i, int i2, boolean z) {
+    private void b(List<d> list, int i, int i2, boolean z) {
         LinearLayout.LayoutParams layoutParams;
         int i3 = 0;
-        if (this.cnL > 0 && list.size() == this.cnL) {
-            layoutParams = new LinearLayout.LayoutParams(com.baidu.adp.lib.util.k.af(getContext()) / this.cnL, -1);
+        if (this.cvU > 0 && list.size() == this.cvU) {
+            layoutParams = new LinearLayout.LayoutParams(k.ag(getContext()) / this.cvU, -1);
         } else {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
-            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(w.f.ds15);
+            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(d.f.ds15);
             layoutParams2.leftMargin = dimensionPixelSize;
             layoutParams2.rightMargin = dimensionPixelSize;
             layoutParams = layoutParams2;
         }
         if (list == null || list.size() == 0) {
-            this.aUW = null;
-            j jVar = new j();
-            jVar.cnY = 1;
-            jVar.name = getContext().getResources().getString(w.l.chosen_pb_title);
-            this.cnE.removeAllViews();
-            TabItemView tabItemView = new TabItemView(getContext(), jVar, i2, this.cnO);
+            this.mData = null;
+            d dVar = new d();
+            dVar.cwi = 1;
+            dVar.name = getContext().getResources().getString(d.l.chosen_pb_title);
+            this.cvN.removeAllViews();
+            TabItemView tabItemView = new TabItemView(getContext(), dVar, i2, this.cvX);
+            if (this.cvY != 0) {
+                tabItemView.setSelectItemColorResId(this.cvY);
+            }
             tabItemView.setOnClickListener(this.mOnClickListener);
-            layoutParams.leftMargin = getContext().getResources().getDimensionPixelSize(w.f.ds32);
-            this.cnE.addView(tabItemView, layoutParams);
-            this.cnH = tabItemView;
-            tabItemView.setState(TabItemView.cob);
+            layoutParams.leftMargin = getContext().getResources().getDimensionPixelSize(d.f.ds32);
+            this.cvN.addView(tabItemView, layoutParams);
+            this.cvQ = tabItemView;
+            tabItemView.setState(TabItemView.cwl);
             return;
         }
         setVisibility(0);
-        if (this.aUW == null || aB(list)) {
-            this.aUW = list;
-            this.cnE.removeAllViews();
+        if (this.mData == null || aO(list)) {
+            this.mData = list;
+            this.cvN.removeAllViews();
             while (true) {
                 int i4 = i3;
                 if (i4 < list.size()) {
-                    j jVar2 = list.get(i4);
-                    if (jVar2 != null) {
-                        TabItemView tabItemView2 = new TabItemView(getContext(), jVar2, i2, this.cnO);
+                    d dVar2 = list.get(i4);
+                    if (dVar2 != null) {
+                        TabItemView tabItemView2 = new TabItemView(getContext(), dVar2, i2, this.cvX);
+                        if (this.cvY != 0) {
+                            tabItemView2.setSelectItemColorResId(this.cvY);
+                        }
                         tabItemView2.setOnClickListener(this.mOnClickListener);
-                        if (jg(jVar2.cnY)) {
-                            as.i(tabItemView2, w.e.cp_cont_b);
+                        if (jp(dVar2.cwi)) {
+                            com.baidu.tbadk.core.util.ai.i(tabItemView2, d.e.cp_cont_b);
                         }
                         if (i4 == 0) {
-                            layoutParams.leftMargin = getContext().getResources().getDimensionPixelSize(w.f.ds32);
+                            layoutParams.leftMargin = getContext().getResources().getDimensionPixelSize(d.f.ds32);
                         }
-                        this.cnE.addView(tabItemView2, layoutParams);
-                        if (jVar2.cnY == i) {
-                            this.cnH = tabItemView2;
-                            tabItemView2.setState(TabItemView.cob);
+                        this.cvN.addView(tabItemView2, layoutParams);
+                        if (dVar2.cwi == i) {
+                            this.cvQ = tabItemView2;
+                            tabItemView2.setState(TabItemView.cwl);
                         }
                     }
                     i3 = i4 + 1;
@@ -435,130 +608,138 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements h {
         }
     }
 
-    private j jc(int i) {
-        if (i < 0 || this.cnG == null || this.cnG.size() == 0) {
+    private d jl(int i) {
+        if (i < 0 || this.cvP == null || this.cvP.size() == 0) {
             return null;
         }
-        for (j jVar : this.cnG) {
-            if (jVar != null && jVar.cnY == i) {
-                return jVar;
+        for (d dVar : this.cvP) {
+            if (dVar != null && dVar.cwi == i) {
+                return dVar;
             }
         }
         return null;
     }
 
-    private boolean jd(int i) {
-        j jc = jc(i);
-        return (jc == null || jc.cnZ == null || jc.cnZ.ceU == null || jc.cnZ.ceU.size() <= 0) ? false : true;
+    private boolean jm(int i) {
+        d jl = jl(i);
+        return (jl == null || jl.cwj == null || jl.cwj.clO == null || jl.cwj.clO.size() <= 0) ? false : true;
     }
 
-    public void setFakeTab(h hVar) {
-        this.cnI = hVar;
+    public void setFakeTab(com.baidu.tieba.frs.tab.b bVar) {
+        this.cvR = bVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.cnH != null) {
-            this.mPaint.setColor(as.getColor(w.e.cp_bg_line_b));
-            if (this.cnM) {
-                canvas.drawRect(this.cnE.getLeft(), getMeasuredHeight() - this.cnK, this.cnE.getRight() > getRight() ? this.cnE.getRight() : getRight(), getMeasuredHeight(), this.mPaint);
+        if (this.cvQ != null) {
+            this.mPaint.setColor(com.baidu.tbadk.core.util.ai.getColor(d.e.cp_bg_line_b));
+            if (this.cvV) {
+                canvas.drawRect(this.cvN.getLeft(), getMeasuredHeight() - this.cvT, this.cvN.getRight() > getRight() ? this.cvN.getRight() : getRight(), getMeasuredHeight(), this.mPaint);
             }
-            if (!this.cnO) {
-                this.mPaint.setColor(as.d((Resources) null, w.e.cp_link_tip_a));
-                canvas.drawRect(this.cnH.getLeft() + getBottomLineMargin(), getMeasuredHeight() - this.cnJ, (this.cnH.getRight() - getBottomLineMargin()) - this.cnH.getDrawableWidth(), getMeasuredHeight(), this.mPaint);
+            if (!this.cvX) {
+                if (this.cvY == 0) {
+                    this.mPaint.setColor(com.baidu.tbadk.core.util.ai.d((Resources) null, d.e.cp_link_tip_a));
+                } else {
+                    this.mPaint.setColor(com.baidu.tbadk.core.util.ai.d((Resources) null, this.cvY));
+                }
+                canvas.drawRect(this.cvQ.getLeft() + getBottomLineMargin(), getMeasuredHeight() - this.cvS, (this.cvQ.getRight() - getBottomLineMargin()) - this.cvQ.getDrawableWidth(), getMeasuredHeight(), this.mPaint);
             }
         }
-        if (this.cnO) {
+        if (this.cvX) {
             this.mPaint.setAntiAlias(true);
-            this.mPaint.setColor(as.d((Resources) null, w.e.cp_cont_b));
-            int g = com.baidu.adp.lib.util.k.g(getContext(), w.f.ds96);
-            if (this.cnH != null) {
-                g = this.cnH.getRight() - this.cnH.getDrawableWidth();
+            this.mPaint.setColor(com.baidu.tbadk.core.util.ai.d((Resources) null, d.e.cp_cont_b));
+            int g = k.g(getContext(), d.f.ds96);
+            if (this.cvQ != null) {
+                g = this.cvQ.getRight() - this.cvQ.getDrawableWidth();
             }
-            canvas.drawRoundRect(new RectF(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds32), com.baidu.adp.lib.util.k.g(getContext(), w.f.ds72), g, com.baidu.adp.lib.util.k.g(getContext(), w.f.ds76)), com.baidu.adp.lib.util.k.g(getContext(), w.f.ds4), com.baidu.adp.lib.util.k.g(getContext(), w.f.ds4), this.mPaint);
+            canvas.drawRoundRect(new RectF(k.g(getContext(), d.f.ds32), k.g(getContext(), d.f.ds72), g, k.g(getContext(), d.f.ds76)), k.g(getContext(), d.f.ds4), k.g(getContext(), d.f.ds4), this.mPaint);
         }
     }
 
     private int getBottomLineMargin() {
-        if (this.cnH == null || this.cnD == 0) {
+        if (this.cvQ == null || this.cvM == 0) {
             return 0;
         }
-        return ((this.cnH.getMeasuredWidth() - this.cnD) - this.cnH.getDrawableWidth()) / 2;
+        return ((this.cvQ.getMeasuredWidth() - this.cvM) - this.cvQ.getDrawableWidth()) / 2;
     }
 
-    @Override // com.baidu.tieba.frs.tab.h
-    public void je(int i) {
-        c(jb(i));
+    @Override // com.baidu.tieba.frs.tab.b
+    public void jn(int i) {
+        c(jk(i));
     }
 
-    public void setDataLoadInterface(bz bzVar) {
-        this.cnT = bzVar;
+    public void setDataLoadInterface(ai aiVar) {
+        this.cwd = aiVar;
     }
 
     public void setmShowMenuCallBack(c cVar) {
-        this.cnU = cVar;
+        this.cwe = cVar;
     }
 
     public c getmShowMenuCallBack() {
-        return this.cnU;
+        return this.cwe;
     }
 
     public void setTabBackgroudColor(int i) {
-        this.cnN = i;
+        this.cvW = i;
     }
 
-    public void wK() {
-        as.k(this, this.cnN);
+    public void xd() {
+        com.baidu.tbadk.core.util.ai.k(this, this.cvW);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.cnE.getChildCount()) {
-                View childAt = this.cnE.getChildAt(i2);
+            if (i2 < this.cvN.getChildCount()) {
+                View childAt = this.cvN.getChildAt(i2);
                 if (childAt instanceof TabItemView) {
-                    if (jg(((TabItemView) childAt).getTabId())) {
-                        as.i(childAt, w.e.cp_cont_b);
+                    if (jp(((TabItemView) childAt).getTabId())) {
+                        com.baidu.tbadk.core.util.ai.i(childAt, d.e.cp_cont_b);
                     } else {
-                        ((TabItemView) childAt).wK();
+                        ((TabItemView) childAt).xd();
                     }
                 }
                 i = i2 + 1;
             } else {
-                this.cnF.wK();
+                this.cvO.xd();
                 return;
             }
         }
     }
 
     public void setAutoFillTabCount(int i) {
-        this.cnL = i;
+        this.cvU = i;
     }
 
-    @Override // com.baidu.tieba.frs.tab.h
-    public void jf(int i) {
-        if (this.cnH != null && this.cnT != null) {
-            this.cnT.a(this.cnH.getTabId(), i, null);
+    @Override // com.baidu.tieba.frs.tab.b
+    public void jo(int i) {
+        if (this.cvQ != null && this.cwd != null) {
+            this.cwd.a(this.cvQ.getTabId(), i, null);
         }
     }
 
     public void setOnTabItemClickListener(a aVar) {
-        this.cnP = aVar;
+        this.cvZ = aVar;
     }
 
     public void setOnTabItemSelectListener(b bVar) {
-        this.cnQ = bVar;
+        this.cwa = bVar;
     }
 
     public void setForNewFrame(boolean z) {
-        this.cnO = z;
+        this.cvX = z;
     }
 
-    public static boolean jg(int i) {
+    public static boolean jp(int i) {
         return i > 200 && i <= 300;
     }
 
     public void setNeedBottomLine(boolean z) {
-        this.cnM = z;
+        this.cvV = z;
         invalidate();
+    }
+
+    public void setSelectedItemColorResourceId(int i) {
+        this.cvY = i;
     }
 }

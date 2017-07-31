@@ -1,93 +1,67 @@
 package com.baidu.tieba.pb.pb.main.view;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
-import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
-import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbFakeFloorModel eGx;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(PbFakeFloorModel pbFakeFloorModel, int i, int i2) {
-        super(i, i2);
-        this.eGx = pbFakeFloorModel;
-    }
-
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        BdUniqueId bdUniqueId;
-        PbFakeFloorModel.a aVar;
-        PbFakeFloorModel.a aVar2;
-        com.baidu.tieba.pb.data.n nVar;
-        com.baidu.tieba.pb.data.n nVar2;
-        com.baidu.tieba.pb.data.n nVar3;
-        TbPageContext tbPageContext;
-        com.baidu.tieba.pb.data.n nVar4;
-        com.baidu.tieba.pb.data.n nVar5;
-        String errorString;
-        TbPageContext tbPageContext2;
-        TbPageContext tbPageContext3;
-        boolean z = false;
-        if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-            bdUniqueId = this.eGx.unique_id;
-            if (bdUniqueId == responsedMessage.getOrginalMessage().getTag()) {
-                this.eGx.eGt = false;
-                if (responsedMessage.hasError()) {
-                    if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        tbPageContext3 = this.eGx.ajP;
-                        errorString = tbPageContext3.getPageActivity().getResources().getString(w.l.neterror);
-                    } else {
-                        errorString = responsedMessage.getErrorString();
-                    }
-                    tbPageContext2 = this.eGx.ajP;
-                    tbPageContext2.showToast(errorString);
-                    return;
-                }
-                com.baidu.tieba.pb.data.n nVar6 = null;
-                if (responsedMessage instanceof SubPbHttpResponseMessage) {
-                    nVar6 = ((SubPbHttpResponseMessage) responsedMessage).pbFloorData;
-                } else if (responsedMessage instanceof SubPbSocketResponseMessage) {
-                    nVar6 = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
-                }
-                if (nVar6 != null && nVar6.aNh() != null) {
-                    PostData postData = (PostData) z.c(nVar6.aNh(), nVar6.aNh().size() - 1);
-                    if (postData != null) {
-                        nVar = this.eGx.eGs;
-                        if (nVar != null) {
-                            nVar2 = this.eGx.eGs;
-                            if (nVar2.aNd() != null) {
-                                nVar3 = this.eGx.eGs;
-                                if (nVar3.Mv() != null) {
-                                    nVar4 = this.eGx.eGs;
-                                    if (nVar4.Mv().getAuthor() != null && postData.getAuthor() != null) {
-                                        nVar5 = this.eGx.eGs;
-                                        String userId = nVar5.Mv().getAuthor().getUserId();
-                                        if (userId != null && userId.equals(postData.getAuthor().getUserId())) {
-                                            z = true;
-                                        }
-                                    }
-                                }
-                                tbPageContext = this.eGx.ajP;
-                                postData.a(tbPageContext, z);
-                            }
-                        }
-                    }
-                    aVar = this.eGx.eGv;
-                    if (aVar != null) {
-                        aVar2 = this.eGx.eGv;
-                        aVar2.l(postData);
-                    }
-                }
+public class e {
+    private TbPageContext alI;
+    public TextView eUF;
+    private int mSkinType = 3;
+    private int eUG = 0;
+    private boolean eUH = true;
+    private CustomMessageListener eUI = new CustomMessageListener(CmdConfigCustom.CMD_PB_VIDEO_PALY_ADD_COUNT) { // from class: com.baidu.tieba.pb.pb.main.view.e.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.widget.richText.e)) {
+                com.baidu.tbadk.widget.richText.e eVar = (com.baidu.tbadk.widget.richText.e) customResponsedMessage.getData();
+                e.this.c(eVar);
+                e.this.d(eVar);
             }
         }
+    };
+
+    public e(TbPageContext tbPageContext, View view) {
+        this.alI = tbPageContext;
+        this.eUF = (TextView) view.findViewById(d.h.pb_list_video_item_play_count);
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        tbPageContext.registerListener(this.eUI);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(com.baidu.tbadk.widget.richText.e eVar) {
+        if (eVar != null) {
+            this.eUG++;
+            eVar.fE(this.eUG);
+        }
+    }
+
+    public void d(com.baidu.tbadk.widget.richText.e eVar) {
+        if (this.eUF != null && eVar != null) {
+            if (eVar.Ja() < this.eUG) {
+                eVar.fE(this.eUG);
+            } else {
+                this.eUG = eVar.Ja();
+            }
+            this.eUF.setText(al.u(this.eUG));
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.mSkinType != i) {
+            this.eUF.setCompoundDrawablesWithIntrinsicBounds(d.g.icon_pb_video_num_gray, 0, 0, 0);
+            this.eUF.setCompoundDrawablePadding(k.g(this.alI.getPageActivity(), d.f.ds12));
+            ai.c(this.eUF, d.e.cp_cont_c, 1);
+        }
+        this.mSkinType = i;
     }
 }

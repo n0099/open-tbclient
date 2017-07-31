@@ -9,13 +9,9 @@ public final class ConfigVersion extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
 
     /* renamed from: plugin  reason: collision with root package name */
-    public final String f2plugin;
+    public final String f8plugin;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String sync;
-
-    /* synthetic */ ConfigVersion(Builder builder, boolean z, ConfigVersion configVersion) {
-        this(builder, z);
-    }
 
     private ConfigVersion(Builder builder, boolean z) {
         super(builder);
@@ -25,23 +21,23 @@ public final class ConfigVersion extends Message {
             } else {
                 this.sync = builder.sync;
             }
-            if (builder.f3plugin == null) {
-                this.f2plugin = "";
+            if (builder.f9plugin == null) {
+                this.f8plugin = "";
                 return;
             } else {
-                this.f2plugin = builder.f3plugin;
+                this.f8plugin = builder.f9plugin;
                 return;
             }
         }
         this.sync = builder.sync;
-        this.f2plugin = builder.f3plugin;
+        this.f8plugin = builder.f9plugin;
     }
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<ConfigVersion> {
 
         /* renamed from: plugin  reason: collision with root package name */
-        public String f3plugin;
+        public String f9plugin;
         public String sync;
 
         public Builder() {
@@ -51,14 +47,14 @@ public final class ConfigVersion extends Message {
             super(configVersion);
             if (configVersion != null) {
                 this.sync = configVersion.sync;
-                this.f3plugin = configVersion.f2plugin;
+                this.f9plugin = configVersion.f8plugin;
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public ConfigVersion build(boolean z) {
-            return new ConfigVersion(this, z, null);
+            return new ConfigVersion(this, z);
         }
     }
 }

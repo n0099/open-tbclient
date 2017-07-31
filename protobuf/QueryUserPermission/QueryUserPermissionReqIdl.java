@@ -7,10 +7,6 @@ public final class QueryUserPermissionReqIdl extends Message {
     @ProtoField(tag = 2)
     public final DataReq data;
 
-    /* synthetic */ QueryUserPermissionReqIdl(Builder builder, boolean z, QueryUserPermissionReqIdl queryUserPermissionReqIdl) {
-        this(builder, z);
-    }
-
     private QueryUserPermissionReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -37,7 +33,7 @@ public final class QueryUserPermissionReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public QueryUserPermissionReqIdl build(boolean z) {
-            return new QueryUserPermissionReqIdl(this, z, null);
+            return new QueryUserPermissionReqIdl(this, z);
         }
     }
 }

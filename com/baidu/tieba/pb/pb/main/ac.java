@@ -1,27 +1,36 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-class ac extends CustomMessageListener {
-    final /* synthetic */ PbActivity ewh;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(PbActivity pbActivity, int i) {
-        super(i);
-        this.ewh = pbActivity;
+public class ac extends l<z, ab> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ac(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            Object data = customResponsedMessage.getData();
-            if ((data instanceof String) && !TextUtils.isEmpty((String) data)) {
-                this.ewh.ccO = true;
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bn */
+    public ab onCreateViewHolder(ViewGroup viewGroup) {
+        return new ab(this.eGA.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_page_news, viewGroup, false));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, z zVar, ab abVar) {
+        super.onFillViewHolder(i, view, viewGroup, zVar, abVar);
+        if (zVar != null) {
+            abVar.a(zVar);
+            abVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
+        return view;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.j;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -50,6 +51,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONObject;
+@SuppressLint({"WorldReadableFiles"})
 /* loaded from: classes2.dex */
 public final class q {
     private static final String[] a = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE"};
@@ -540,6 +542,7 @@ public final class q {
         alarmManager.set(3, SystemClock.elapsedRealtime() + j, broadcast);
     }
 
+    @SuppressLint({"NewApi"})
     public static void a(Context context, com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
         int i = 0;
         com.baidu.android.pushservice.h.a aVar = new com.baidu.android.pushservice.h.a();
@@ -603,35 +606,32 @@ public final class q {
     }
 
     private static synchronized void a(String str, String str2) {
-        File[] listFiles;
         FileOutputStream fileOutputStream;
         synchronized (q.class) {
             FileOutputStream fileOutputStream2 = null;
             try {
                 String format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
-                String str3 = new String();
-                if (format.length() > 0) {
-                    str3 = format.substring(0, 4).concat(format.substring(5, 7)).concat(format.substring(8, 10));
-                }
-                String str4 = format + " " + str2 + "\n\r";
+                String concat = format.length() > 0 ? format.substring(0, 4).concat(format.substring(5, 7)).concat(format.substring(8, 10)) : new String();
+                String str3 = format + " " + str2 + "\n\r";
                 String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
                 File file = new File(absolutePath, "baidu/pushservice/files");
                 if (file.exists()) {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
-                    for (File file2 : file.listFiles()) {
-                        if (file2.getName().startsWith(str) && Integer.parseInt(str3) - Integer.parseInt(simpleDateFormat.format(Long.valueOf(file2.lastModified()))) >= 7) {
+                    File[] listFiles = file.listFiles();
+                    for (File file2 : listFiles) {
+                        if (file2.getName().startsWith(str) && Integer.parseInt(concat) - Integer.parseInt(simpleDateFormat.format(Long.valueOf(file2.lastModified()))) >= 7) {
                             file2.delete();
                         }
                     }
                 } else {
                     file.mkdirs();
                 }
-                File file3 = new File(absolutePath, "baidu/pushservice/files/" + str + str3 + ".log");
+                File file3 = new File(absolutePath, "baidu/pushservice/files/" + str + concat + ".log");
                 if (file3.exists()) {
                     fileOutputStream = new FileOutputStream(file3, true);
                     if (fileOutputStream != null) {
                         try {
-                            fileOutputStream.write(str4.getBytes());
+                            fileOutputStream.write(str3.getBytes());
                             fileOutputStream.close();
                         } catch (Throwable th) {
                             th = th;
@@ -699,6 +699,7 @@ public final class q {
         return false;
     }
 
+    @SuppressLint({"SdCardPath"})
     public static boolean a(Context context) {
         File file = new File("/data/data/root");
         try {
@@ -1214,7 +1215,7 @@ public final class q {
         return 0;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x009d  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00a0  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1244,65 +1245,65 @@ public final class q {
                 th = th2;
                 inputStreamReader = null;
             }
-            try {
-                new String();
-                int i = 0;
-                do {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    i++;
-                    if (readLine.contains("64 bytes from " + str)) {
-                        com.baidu.android.pushservice.f.b.a(bufferedReader, inputStreamReader);
-                        if (process != null) {
-                            process.destroy();
-                            return 0;
-                        }
+        } catch (Exception e3) {
+            e = e3;
+            inputStreamReader = null;
+            process2 = null;
+        } catch (Throwable th3) {
+            th = th3;
+            inputStreamReader = null;
+            process = null;
+        }
+        try {
+            new String();
+            int i = 0;
+            do {
+                String readLine = bufferedReader.readLine();
+                if (readLine == null) {
+                    break;
+                }
+                i++;
+                if (readLine.contains("64 bytes from " + str)) {
+                    com.baidu.android.pushservice.f.b.a(bufferedReader, inputStreamReader);
+                    if (process != null) {
+                        process.destroy();
                         return 0;
                     }
-                } while (i <= 3);
-                com.baidu.android.pushservice.f.b.a(bufferedReader, inputStreamReader);
+                    return 0;
+                }
+            } while (i <= 3);
+            com.baidu.android.pushservice.f.b.a(bufferedReader, inputStreamReader);
+            if (process != null) {
+                process.destroy();
+            }
+            return -1;
+        } catch (Exception e4) {
+            e = e4;
+            bufferedReader2 = bufferedReader;
+            process2 = process;
+            try {
+                com.baidu.android.pushservice.g.a.a("Utility", e);
+                com.baidu.android.pushservice.f.b.a(bufferedReader2, inputStreamReader);
+                if (process2 != null) {
+                    process2.destroy();
+                }
+                return 1;
+            } catch (Throwable th4) {
+                th = th4;
+                process = process2;
+                com.baidu.android.pushservice.f.b.a(bufferedReader2, inputStreamReader);
                 if (process != null) {
                     process.destroy();
                 }
-                return -1;
-            } catch (Exception e3) {
-                e = e3;
-                bufferedReader2 = bufferedReader;
-                process2 = process;
-                try {
-                    com.baidu.android.pushservice.g.a.a("Utility", e);
-                    com.baidu.android.pushservice.f.b.a(bufferedReader2, inputStreamReader);
-                    if (process2 != null) {
-                        process2.destroy();
-                    }
-                    return 1;
-                } catch (Throwable th3) {
-                    th = th3;
-                    process = process2;
-                    com.baidu.android.pushservice.f.b.a(bufferedReader2, inputStreamReader);
-                    if (process != null) {
-                        process.destroy();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th4) {
-                th = th4;
-                bufferedReader2 = bufferedReader;
-                com.baidu.android.pushservice.f.b.a(bufferedReader2, inputStreamReader);
-                if (process != null) {
-                }
                 throw th;
             }
-        } catch (Exception e4) {
-            e = e4;
-            inputStreamReader = null;
-            process2 = null;
         } catch (Throwable th5) {
             th = th5;
-            inputStreamReader = null;
-            process = null;
+            bufferedReader2 = bufferedReader;
+            com.baidu.android.pushservice.f.b.a(bufferedReader2, inputStreamReader);
+            if (process != null) {
+            }
+            throw th;
         }
     }
 
@@ -1406,7 +1407,7 @@ public final class q {
         long a2 = com.baidu.android.pushservice.a.a();
         int b2 = com.baidu.android.pushservice.a.b();
         if (b2 > 0) {
-            return (a2 << 4) + 10 + (b2 <= 5 ? b2 : 5);
+            return (b2 <= 5 ? b2 : 5) + (a2 << 4) + 10;
         }
         long j = a2 << 2;
         if (e(context, context.getPackageName())) {
@@ -1725,9 +1726,9 @@ public final class q {
         return a(context, "android.intent.action.ACTION_POWER_DISCONNECTED", "com.baidu.android.pushservice.PushServiceReceiver", true) ? i + 1 : i;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0051 A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x006a  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x004b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0053 A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x006e  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x004d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:40:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1868,17 +1869,14 @@ public final class q {
         return a3;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x007c  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x008f  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00d0  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0153 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x00e3 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00d4  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0160 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x00e7 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String o(Context context, String str) {
         long j;
-        long j2;
         SharedPreferences sharedPreferences;
         int b2 = com.baidu.android.pushservice.c.d.a(context).b();
         if (b2 == com.baidu.android.pushservice.c.d.g || b2 == com.baidu.android.pushservice.c.d.h || b2 == com.baidu.android.pushservice.c.d.f) {
@@ -1891,6 +1889,7 @@ public final class q {
         if (n.size() <= 1) {
             return context.getPackageName();
         }
+        long j2 = -1;
         if (D(context)) {
             try {
                 sharedPreferences = context.getSharedPreferences(context.getPackageName() + ".push_sync", 5);
@@ -1899,57 +1898,49 @@ public final class q {
                 sharedPreferences = null;
             }
             if (sharedPreferences != null) {
-                j = sharedPreferences.getLong("priority2", 0L);
-                if (j == -1) {
-                    j = com.baidu.android.pushservice.d.c.b(context);
-                }
-                String t = t(context);
-                for (ResolveInfo resolveInfo : n) {
-                    String str2 = resolveInfo.activityInfo.packageName;
-                    Context u = u(context, str2);
-                    if (D(context)) {
-                        SharedPreferences sharedPreferences2 = null;
-                        if (u != null) {
-                            try {
-                                sharedPreferences2 = u.getSharedPreferences(str2 + ".push_sync", 5);
-                            } catch (Exception e2) {
-                                com.baidu.android.pushservice.g.a.a("Utility", e2);
-                            }
-                        }
-                        if (sharedPreferences2 != null) {
-                            j2 = sharedPreferences2.getLong("priority2", 0L);
-                            if (j2 == -1) {
-                                j2 = str2.equals(context.getPackageName()) ? com.baidu.android.pushservice.d.c.b(context) : com.baidu.android.pushservice.d.d.c(context, str2);
-                            }
-                            if (j2 <= j) {
-                                com.baidu.android.pushservice.g.a.c("Utility", "Find more higher priority pkg : " + str2 + " priority = " + j2 + ",Current highest priority pkg : " + str + " priority = " + j);
-                                if (h(u, str2)) {
-                                    j = j2;
-                                    str = str2;
-                                } else {
-                                    com.baidu.android.pushservice.g.a.c("Utility", str2 + "push service is disabled");
-                                }
-                            } else if (j2 == j && ((str2.equals(t) && h(u, str2)) || (str2.equals(context.getPackageName()) && !D(context)))) {
-                                j = j2;
-                                str = str2;
-                            }
-                        }
-                    }
-                    j2 = -1;
-                    if (j2 == -1) {
-                    }
-                    if (j2 <= j) {
-                    }
-                }
-                com.baidu.android.pushservice.g.a.c("Utility", "Current highest priority Push PackageName: " + str);
-                return str;
+                j2 = sharedPreferences.getLong("priority2", 0L);
             }
         }
-        j = -1;
-        if (j == -1) {
+        if (j2 == -1) {
+            j2 = com.baidu.android.pushservice.d.c.b(context);
         }
-        String t2 = t(context);
-        while (r9.hasNext()) {
+        String t = t(context);
+        for (ResolveInfo resolveInfo : n) {
+            String str2 = resolveInfo.activityInfo.packageName;
+            Context u = u(context, str2);
+            if (D(context)) {
+                SharedPreferences sharedPreferences2 = null;
+                if (u != null) {
+                    try {
+                        sharedPreferences2 = u.getSharedPreferences(str2 + ".push_sync", 5);
+                    } catch (Exception e2) {
+                        com.baidu.android.pushservice.g.a.a("Utility", e2);
+                    }
+                }
+                if (sharedPreferences2 != null) {
+                    j = sharedPreferences2.getLong("priority2", 0L);
+                    if (j == -1) {
+                        j = str2.equals(context.getPackageName()) ? com.baidu.android.pushservice.d.c.b(context) : com.baidu.android.pushservice.d.d.c(context, str2);
+                    }
+                    if (j <= j2) {
+                        com.baidu.android.pushservice.g.a.c("Utility", "Find more higher priority pkg : " + str2 + " priority = " + j + ",Current highest priority pkg : " + str + " priority = " + j2);
+                        if (h(u, str2)) {
+                            j2 = j;
+                            str = str2;
+                        } else {
+                            com.baidu.android.pushservice.g.a.c("Utility", str2 + "push service is disabled");
+                        }
+                    } else if (j == j2 && ((str2.equals(t) && h(u, str2)) || (str2.equals(context.getPackageName()) && !D(context)))) {
+                        j2 = j;
+                        str = str2;
+                    }
+                }
+            }
+            j = -1;
+            if (j == -1) {
+            }
+            if (j <= j2) {
+            }
         }
         com.baidu.android.pushservice.g.a.c("Utility", "Current highest priority Push PackageName: " + str);
         return str;

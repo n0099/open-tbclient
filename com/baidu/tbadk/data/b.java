@@ -1,41 +1,17 @@
 package com.baidu.tbadk.data;
 
-import org.json.JSONObject;
-import tbclient.TailInfo;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class b {
-    private int aya;
-    private String content;
-    private String icon_link;
-    private String icon_url;
+public class b extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId aAk = BdUniqueId.gen();
+    private int size;
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.icon_url = jSONObject.optString("icon_url");
-            this.icon_link = jSONObject.optString("icon_link");
-            this.content = jSONObject.optString("content");
-            this.aya = jSONObject.optInt("tail_type");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return aAk;
     }
 
-    public void a(TailInfo tailInfo) {
-        try {
-            this.icon_url = tailInfo.icon_url;
-            this.icon_link = tailInfo.icon_link;
-            this.content = tailInfo.content;
-            this.aya = tailInfo.tail_type.intValue();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String getIconUrl() {
-        return this.icon_url;
-    }
-
-    public String BX() {
-        return this.icon_link;
+    public void setSize(int i) {
+        this.size = i;
     }
 }

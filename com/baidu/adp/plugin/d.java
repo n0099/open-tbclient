@@ -1,32 +1,54 @@
 package com.baidu.adp.plugin;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import dalvik.system.DexClassLoader;
+import android.content.Intent;
+import com.baidu.adp.plugin.proxy.ServiceProxy;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class d extends DexClassLoader {
-    private ClassLoader CF;
+public class d {
+    private static volatile d Eu;
+    private Map<String, a> Ev;
 
-    public d(String str, String str2, String str3, ClassLoader classLoader, ClassLoader classLoader2) {
-        super(str, str2, str3, classLoader);
-        this.CF = null;
-        this.CF = classLoader2;
+    public static d iV() {
+        if (Eu == null) {
+            synchronized (d.class) {
+                if (Eu == null) {
+                    Eu = new d();
+                }
+            }
+        }
+        return Eu;
     }
 
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    protected Class<?> findClass(String str) throws ClassNotFoundException {
-        try {
-            return super.findClass(str);
-        } catch (Exception e) {
-            if (this.CF == null) {
-                return null;
-            }
-            Class<?> loadClass = this.CF.loadClass(str);
-            if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.i("findClass from container. classname is " + str);
-                return loadClass;
-            }
-            return loadClass;
+    private d() {
+        this.Ev = null;
+        this.Ev = new HashMap();
+    }
+
+    public synchronized void a(String str, a aVar) {
+        this.Ev.put(str, aVar);
+    }
+
+    public synchronized a ba(String str) {
+        return this.Ev.get(str);
+    }
+
+    public synchronized void bb(String str) {
+        this.Ev.remove(str);
+    }
+
+    public int iW() {
+        return this.Ev.size();
+    }
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public ServiceProxy Ew;
+        public Intent mIntent;
+
+        public a(ServiceProxy serviceProxy, Intent intent) {
+            this.Ew = serviceProxy;
+            this.mIntent = intent;
         }
     }
 }

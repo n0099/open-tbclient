@@ -1,91 +1,45 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class z {
-    public static <T> void r(List<T> list) {
-        if (list != null) {
-            list.clear();
+    private static ArrayList<a> ahg = new ArrayList<>();
+    public static AtomicInteger ahh = new AtomicInteger(0);
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public long ahi;
+        public int ahj;
+        public int mMethod;
+        public int mMode;
+        public long mTime;
+    }
+
+    public static int cJ(int i) {
+        return ahh.getAndSet(i);
+    }
+
+    public static int cK(int i) {
+        return ahh.addAndGet(i);
+    }
+
+    public static synchronized void a(a aVar) {
+        synchronized (z.class) {
+            if (aVar != null) {
+                if (ahg.size() <= 20) {
+                    ahg.add(aVar);
+                }
+            }
         }
     }
 
-    public static <T> int s(List<T> list) {
-        if (list == null || list.isEmpty()) {
-            return 0;
+    public static synchronized a vw() {
+        a remove;
+        synchronized (z.class) {
+            int size = ahg.size();
+            remove = size > 0 ? ahg.remove(size - 1) : null;
         }
-        return list.size();
-    }
-
-    public static <T> T c(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-            return null;
-        }
-        return list.get(i);
-    }
-
-    public static <T> int a(List<T> list, T t) {
-        if (list == null || list.isEmpty() || t == null) {
-            return -1;
-        }
-        return list.indexOf(t);
-    }
-
-    public static <T> boolean t(List<T> list) {
-        return s(list) <= 0;
-    }
-
-    public static <T> T d(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-            return null;
-        }
-        return list.remove(i);
-    }
-
-    public static <T> boolean b(List<T> list, T t) {
-        if (list == null) {
-            return false;
-        }
-        return list.add(t);
-    }
-
-    public static <T> boolean a(List<T> list, int i, T t) {
-        if (list == null || i > list.size() || i < 0) {
-            return false;
-        }
-        list.add(i, t);
-        return true;
-    }
-
-    public static <T> boolean a(List<T> list, int i, List<T> list2) {
-        if (list == null || i > list.size() || i < 0 || list2 == null || list2.size() <= 0) {
-            return false;
-        }
-        list.addAll(i, list2);
-        return true;
-    }
-
-    public static <T> List<T> a(List<T> list, int i, int i2) {
-        int s = s(list);
-        if (s > 0 && i >= 0 && i2 <= s) {
-            return list.subList(i, i2);
-        }
-        return null;
-    }
-
-    public static <T> void b(List<T> list, int i, int i2) {
-        int s = s(list);
-        if (s > 0 && i >= 0 && i2 <= s) {
-            r(list.subList(i, i2));
-        }
-    }
-
-    public static <T> boolean b(List<T> list, List<T> list2) {
-        if (list == list2) {
-            return true;
-        }
-        if (list == null || list2 == null) {
-            return false;
-        }
-        return list.size() == list2.size() && list.containsAll(list2);
+        return remove;
     }
 }

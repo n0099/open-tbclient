@@ -10,10 +10,6 @@ public final class GetMaskInfoResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ GetMaskInfoResIdl(Builder builder, boolean z, GetMaskInfoResIdl getMaskInfoResIdl) {
-        this(builder, z);
-    }
-
     private GetMaskInfoResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -44,7 +40,7 @@ public final class GetMaskInfoResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public GetMaskInfoResIdl build(boolean z) {
-            return new GetMaskInfoResIdl(this, z, null);
+            return new GetMaskInfoResIdl(this, z);
         }
     }
 }

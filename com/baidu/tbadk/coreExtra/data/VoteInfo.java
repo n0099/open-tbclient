@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.Serializable;
@@ -9,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class VoteInfo implements Serializable {
+public class VoteInfo extends OrmObject implements Serializable {
     private static final long serialVersionUID = -3019177320586555309L;
     private String mDescription;
     private int mEndtime;
@@ -89,33 +90,30 @@ public class VoteInfo implements Serializable {
             jSONObject.put("type", this.mType);
             jSONObject.put("end_time", this.mEndtime);
             JSONArray jSONArray = new JSONArray();
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.mOptions.size()) {
-                    VoteOption voteOption = this.mOptions.get(i2);
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("text", voteOption.text);
-                    jSONObject2.put(TbConfig.TMP_PIC_DIR_NAME, voteOption.serverCode);
-                    jSONArray.put(i2, jSONObject2);
-                    i = i2 + 1;
-                } else {
-                    jSONObject.put("options", jSONArray);
-                    return jSONObject.toString();
-                }
+            for (int i = 0; i < this.mOptions.size(); i++) {
+                VoteOption voteOption = this.mOptions.get(i);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("text", voteOption.text);
+                jSONObject2.put(TbConfig.TMP_PIC_DIR_NAME, voteOption.serverCode);
+                jSONArray.put(i, jSONObject2);
             }
+            jSONObject.put("options", jSONArray);
+            return jSONObject.toString();
         } catch (JSONException e) {
             return "";
         }
     }
 
     /* loaded from: classes.dex */
-    public static class VoteOption implements Serializable {
+    public static class VoteOption extends OrmObject implements Serializable {
         private static final long serialVersionUID = 5062245992752466358L;
         public int id;
         public ImageFileInfo imageFileInfo;
         public String serverCode;
         public String text;
+
+        public VoteOption() {
+        }
 
         public VoteOption(int i, String str, ImageFileInfo imageFileInfo) {
             this.id = i;

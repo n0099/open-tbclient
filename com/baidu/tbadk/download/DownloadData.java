@@ -21,9 +21,9 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_NOVEL = 15;
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     private static final long serialVersionUID = 1402749061179345930L;
+    private transient d aBx;
     private String action;
     private String app_icon;
-    private transient d azg;
     private String check;
     private String description;
     private DownloadStaticsData downloadStaticsData;
@@ -34,6 +34,7 @@ public class DownloadData implements Serializable, Cloneable {
     private boolean isNeedInvokeApk;
     private boolean isNeedNotify;
     private long length;
+    private Object mExtraData;
     private String name;
     private int notifyId;
     private String path;
@@ -53,6 +54,14 @@ public class DownloadData implements Serializable, Cloneable {
 
     public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
         this.downloadStaticsData = downloadStaticsData;
+    }
+
+    public Object getExtra() {
+        return this.mExtraData;
+    }
+
+    public void setExtra(Object obj) {
+        this.mExtraData = obj;
     }
 
     public String getApp_icon() {
@@ -87,7 +96,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.azg = null;
+        this.aBx = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -103,7 +112,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.azg = null;
+        this.aBx = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -120,7 +129,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.azg = null;
+        this.aBx = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -138,7 +147,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.azg = null;
+        this.aBx = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -147,7 +156,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.azg = dVar;
+        this.aBx = dVar;
         this.status = 5;
     }
 
@@ -248,11 +257,11 @@ public class DownloadData implements Serializable, Cloneable {
     }
 
     public d getCallback() {
-        return this.azg;
+        return this.aBx;
     }
 
     public void setCallback(d dVar) {
-        this.azg = dVar;
+        this.aBx = dVar;
     }
 
     public String getStatusMsg() {

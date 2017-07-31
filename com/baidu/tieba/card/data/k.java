@@ -1,27 +1,26 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.bl;
 /* loaded from: classes.dex */
-public class k extends c {
+public class k extends l {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public bm bai;
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tieba.card.data.l, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
         return TYPE;
     }
 
-    public k(bm bmVar) {
-        this.bai = bmVar;
+    public k(bl blVar) {
+        this.threadData = blVar;
     }
 
-    public static boolean x(bm bmVar) {
-        return bmVar != null && bmVar.getThreadType() == 49;
+    public static boolean B(bl blVar) {
+        return blVar != null && blVar.getThreadType() == 49;
     }
 
-    @Override // com.baidu.tieba.card.data.c
-    public bm Mv() {
-        return this.bai;
+    @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.c
+    public bl MF() {
+        return this.threadData;
     }
 }

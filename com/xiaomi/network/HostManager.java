@@ -284,7 +284,7 @@ public class HostManager {
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x0075 -> B:23:0x0006). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x007c -> B:23:0x0007). Please submit an issue!!! */
     public String getActiveNetworkLabel() {
         String str;
         ConnectivityManager connectivityManager;

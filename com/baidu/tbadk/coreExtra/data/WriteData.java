@@ -1,6 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.File;
@@ -8,18 +9,20 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class WriteData implements Serializable {
+public class WriteData extends OrmObject implements Serializable {
     public static final String CALL_FROM_ONE = "1";
     public static final String CALL_FROM_TWO = "2";
     public static final int NEW = 0;
     public static final int NEW_DRUFTING_BOTTLE = 7;
     public static final int NEW_PHOTO_LIVE = 4;
+    public static final int NEW_TEXT = 9;
     public static final int NEW_VOTE = 6;
     public static final int REPLY = 1;
     public static final int REPLY_FLOOR = 2;
     public static final int SHARE_SDK = 3;
     public static int SHARE_SDK_LOCAL_IMAGE = 1;
     public static int SHARE_SDK_NET_IMAGE = 0;
+    public static final int STORY = 8;
     public static final int UPDATE_PHOTO_LIVE = 5;
     public static final int VIDEO_REVIEW_TYPE_DEFAULT = 0;
     public static final int VIDEO_REVIEW_TYPE_NEED = 1;
@@ -53,6 +56,9 @@ public class WriteData implements Serializable {
     private boolean mIsGiftPost;
     private boolean mIsInterviewLivew;
     private boolean mIsNoTitle;
+    private int mIsStory;
+    private String mMemeContSign;
+    private String mMemeText;
     private String mRecommendExt;
     private String mReplyUid;
     private String mRepostId;
@@ -94,6 +100,22 @@ public class WriteData implements Serializable {
 
     public void setBabaoPosted(boolean z) {
         this.isBabaoPosted = z;
+    }
+
+    public void setMemeContSign(String str) {
+        this.mMemeContSign = str;
+    }
+
+    public String getMemeContSign() {
+        return this.mMemeContSign;
+    }
+
+    public void setMemeText(String str) {
+        this.mMemeText = str;
+    }
+
+    public String getMemeText() {
+        return this.mMemeText;
     }
 
     public boolean isBarrage() {
@@ -151,6 +173,7 @@ public class WriteData implements Serializable {
         this.mIsGiftPost = false;
         this.mIsBarrage = false;
         this.mBarrageTime = 0L;
+        this.mIsStory = 0;
     }
 
     public WriteData(int i) {
@@ -373,6 +396,14 @@ public class WriteData implements Serializable {
 
     public boolean getIsInterviewLive() {
         return this.mIsInterviewLivew;
+    }
+
+    public int getIsStory() {
+        return this.mIsStory;
+    }
+
+    public void setIsStory(int i) {
+        this.mIsStory = i;
     }
 
     public void setVoice(String str) {

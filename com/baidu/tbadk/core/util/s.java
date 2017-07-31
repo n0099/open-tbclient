@@ -1,18 +1,47 @@
 package com.baidu.tbadk.core.util;
-
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class s {
-    public static String dC(String str) {
-        if (StringUtils.isNull(str)) {
-            return "";
+    private static s agI;
+    private long agD = 0;
+    private long agE = 0;
+    private String agF = "";
+    private String agG = "";
+    private final long agH = 120000;
+
+    public static s vc() {
+        if (agI == null) {
+            synchronized (s.class) {
+                if (agI == null) {
+                    agI = new s();
+                }
+            }
         }
-        Matcher matcher = Pattern.compile("t=(\\d+)").matcher(str);
-        if (matcher.find()) {
-            return String.valueOf(str) + "&tieba_portrait_time=" + matcher.group(1);
+        return agI;
+    }
+
+    public String vd() {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.agD > 120000) {
+            if (com.baidu.adp.lib.util.k.hH()) {
+                return "";
+            }
+            this.agD = currentTimeMillis;
+            this.agF = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
         }
-        return str;
+        return this.agF;
+    }
+
+    public String dN(String str) {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.agE > 120000) {
+            int indexOf = str.indexOf("hiphotos.baidu.com");
+            if (indexOf <= 0 || com.baidu.adp.lib.util.k.hH()) {
+                return "";
+            }
+            this.agE = currentTimeMillis;
+            this.agG = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
+            return this.agG;
+        }
+        return this.agG;
     }
 }

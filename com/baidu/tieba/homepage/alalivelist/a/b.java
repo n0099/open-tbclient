@@ -1,17 +1,17 @@
 package com.baidu.tieba.homepage.alalivelist.a;
 
-import android.view.View;
-import com.baidu.tieba.homepage.alalivelist.view.a;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.f;
+import java.util.List;
+import tbclient.ForcusUsers;
 /* loaded from: classes.dex */
-class b implements a.InterfaceC0065a {
-    final /* synthetic */ a cGC;
+public class b implements f {
+    public static final BdUniqueId cPj = BdUniqueId.gen();
+    public int cPk;
+    public List<ForcusUsers> cPl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.cGC = aVar;
-    }
-
-    @Override // com.baidu.tieba.homepage.alalivelist.view.a.InterfaceC0065a
-    public void a(View view, c cVar) {
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return cPj;
     }
 }

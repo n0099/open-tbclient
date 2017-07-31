@@ -17,6 +17,7 @@ public class MediaData extends OrmObject implements Serializable {
     private String original_url = null;
     private long original_size = 0;
     private String thumbnails_url = null;
+    private int during_time = 0;
 
     public MediaData() {
         this.postId = -1L;
@@ -91,6 +92,14 @@ public class MediaData extends OrmObject implements Serializable {
         return this.postId;
     }
 
+    public int getDuration() {
+        return this.during_time;
+    }
+
+    public void setDuration(int i) {
+        this.during_time = i;
+    }
+
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
@@ -105,6 +114,7 @@ public class MediaData extends OrmObject implements Serializable {
                 this.original_url = jSONObject.optString("original_url");
                 this.original_size = jSONObject.optLong("original_size");
                 this.postId = jSONObject.optLong("post_id");
+                this.during_time = jSONObject.optInt("during_time");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -122,6 +132,7 @@ public class MediaData extends OrmObject implements Serializable {
                 this.video_url = media.vsrc;
                 this.e_type = media.e_type.intValue();
             }
+            this.during_time = media.during_time.intValue();
             this.thumbnails_url = media.dynamic_pic;
             this.original_url = media.origin_pic;
             this.original_size = media.origin_size.intValue();

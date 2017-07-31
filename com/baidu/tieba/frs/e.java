@@ -1,20 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-class e extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(int i) {
-        super(i);
+public class e implements com.baidu.adp.widget.ListView.f {
+    public static final BdUniqueId ciH = BdUniqueId.gen();
+    private int height = 0;
+    private int ciI = 0;
+
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return ciH;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getOrginalMessage() instanceof CustomMessage)) {
-            ((CustomMessage) customResponsedMessage.getOrginalMessage()).setData(new r());
-        }
+    public int getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public int aeP() {
+        return this.ciI;
+    }
+
+    public void iA(int i) {
+        this.ciI = i;
     }
 }

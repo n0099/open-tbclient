@@ -1,95 +1,36 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.HashMap;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
+import tbclient.UserStory;
 /* loaded from: classes.dex */
-public class f {
-    private static f ayq;
-    public final String aym = "2g";
-    public final String ayn = "3g";
-    public final String ayo = "4g";
-    public final String ayp = "wifi";
-    public HashMap<String, String> ayr = new HashMap<>();
-    public HashMap<String, String> ays = new HashMap<>();
-    public HashMap<String, String> ayt = new HashMap<>();
-    public String ayu;
+public class f extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId aAC = BdUniqueId.gen();
+    public com.baidu.tieba.story.process.b aAA;
+    public String aAB;
+    public int aAz;
+    public int has_read;
+    private boolean isStop;
+    public String portrait;
+    public long user_id;
+    public String user_name;
+    public int aAy = -1;
+    public int mStatus = 0;
 
-    public static synchronized f Ca() {
-        f fVar;
-        synchronized (f.class) {
-            if (ayq == null) {
-                ayq = new f();
-            }
-            fVar = ayq;
-        }
-        return fVar;
+    public void bw(boolean z) {
+        this.isStop = z;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("2g");
-                    String optString2 = optJSONObject.optString("3g");
-                    String optString3 = optJSONObject.optString("4g");
-                    String optString4 = optJSONObject.optString("wifi");
-                    if (optString != null) {
-                        this.ayr.put("2g", optString);
-                    }
-                    if (optString2 != null) {
-                        this.ayr.put("3g", optString2);
-                    }
-                    if (optString3 != null) {
-                        this.ayr.put("4g", optString3);
-                    }
-                    if (optString4 != null) {
-                        this.ayr.put("wifi", optString4);
-                    }
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
-                if (optJSONObject2 != null) {
-                    String optString5 = optJSONObject2.optString("2g");
-                    String optString6 = optJSONObject2.optString("3g");
-                    String optString7 = optJSONObject2.optString("4g");
-                    String optString8 = optJSONObject2.optString("wifi");
-                    if (optString5 != null) {
-                        this.ays.put("2g", optString5);
-                    }
-                    if (optString6 != null) {
-                        this.ays.put("3g", optString6);
-                    }
-                    if (optString7 != null) {
-                        this.ays.put("4g", optString7);
-                    }
-                    if (optString8 != null) {
-                        this.ays.put("wifi", optString8);
-                    }
-                }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
-                if (optJSONObject3 != null) {
-                    String optString9 = optJSONObject3.optString("2g");
-                    String optString10 = optJSONObject3.optString("3g");
-                    String optString11 = optJSONObject3.optString("4g");
-                    String optString12 = optJSONObject3.optString("wifi");
-                    if (optString9 != null) {
-                        this.ayt.put("2g", optString9);
-                    }
-                    if (optString10 != null) {
-                        this.ayt.put("3g", optString10);
-                    }
-                    if (optString11 != null) {
-                        this.ayt.put("4g", optString11);
-                    }
-                    if (optString12 != null) {
-                        this.ayt.put("wifi", optString12);
-                    }
-                }
-                this.ayu = jSONObject.optString("is_on");
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return aAC;
+    }
+
+    public void a(UserStory userStory) {
+        if (userStory != null) {
+            this.user_id = userStory.user_id.longValue();
+            this.user_name = userStory.user_name;
+            this.has_read = userStory.has_read.intValue();
+            this.portrait = userStory.portrait;
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.xiaomi.push.log;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
@@ -28,6 +29,7 @@ class a {
     private String d;
     private boolean e;
     private int f;
+    @SuppressLint({"SimpleDateFormat"})
     private final SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private int g = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
     private ArrayList<File> h = new ArrayList<>();
@@ -77,7 +79,7 @@ class a {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x007d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0086 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v17, types: [java.lang.String] */
     private void b(File file) {

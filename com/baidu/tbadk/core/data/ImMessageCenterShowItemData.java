@@ -26,7 +26,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     private int userType;
 
     public String getPK() {
-        return String.valueOf(this.ownerId) + "@" + this.friendId;
+        return this.ownerId + "@" + this.friendId;
     }
 
     public String getOwnerId() {
@@ -142,7 +142,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m10clone() {
+    public ImMessageCenterShowItemData m8clone() {
         try {
             return (ImMessageCenterShowItemData) super.clone();
         } catch (CloneNotSupportedException e) {

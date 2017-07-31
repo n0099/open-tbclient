@@ -1,6 +1,7 @@
 package com.baidu.tbadk.game;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.g.b;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.GameInfo;
@@ -169,7 +170,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     }
 
     public void setPackageSize(String str) {
-        this.package_size = fX(str);
+        this.package_size = gh(str);
     }
 
     public String getGameLink() {
@@ -538,8 +539,8 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
         this.app_id = str;
     }
 
-    private String fX(String str) {
-        return String.format("%.1f", Float.valueOf(com.baidu.adp.lib.g.b.b(str, 0.0f)));
+    private String gh(String str) {
+        return String.format("%.1f", Float.valueOf(b.b(str, 0.0f)));
     }
 
     public String getIconPic1() {

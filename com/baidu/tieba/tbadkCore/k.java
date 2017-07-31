@@ -1,32 +1,11 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.PraiseData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.tbadkCore.d;
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView fJG;
+public interface k {
+    void a(int i, boolean z, d.a aVar);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(FrsPraiseView frsPraiseView) {
-        this.fJG = frsPraiseView;
-    }
+    void b(g gVar);
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PraiseData praiseData;
-        Context context;
-        praiseData = this.fJG.fJE;
-        MetaData metaData = praiseData.getUser().get(0);
-        if (metaData != null) {
-            context = this.fJG.mContext;
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(context).createNormalConfig(com.baidu.adp.lib.g.b.c(metaData.getUserId(), 0L), false, metaData.isBigV())));
-        }
-    }
+    void iD(int i);
 }

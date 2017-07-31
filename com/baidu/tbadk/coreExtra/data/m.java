@@ -1,34 +1,34 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class m {
-    private int aqd;
-    private int aqe;
-    private int aqf;
+    private int asm;
+    private int asn;
+    private int aso;
 
-    public int xY() {
-        if (this.aqd == 0) {
+    public int yr() {
+        if (this.asm == 0) {
             return Integer.MAX_VALUE;
         }
-        return this.aqd;
+        return this.asm;
     }
 
-    public void ex(String str) {
-        this.aqd = com.baidu.adp.lib.g.b.g(str, 0);
+    public void eG(String str) {
+        this.asm = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
-    public int xZ() {
-        return this.aqe;
+    public int ys() {
+        return this.asn;
     }
 
-    public void ey(String str) {
-        this.aqe = com.baidu.adp.lib.g.b.g(str, 0);
+    public void eH(String str) {
+        this.asn = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
-    public int ya() {
-        return this.aqf;
+    public int yt() {
+        return this.aso;
     }
 
-    public void ez(String str) {
-        this.aqf = com.baidu.adp.lib.g.b.g(str, 0);
+    public void eI(String str) {
+        this.aso = com.baidu.adp.lib.g.b.g(str, 0);
     }
 }

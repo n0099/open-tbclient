@@ -1,41 +1,21 @@
 package com.baidu.adp.lib.asyncTask;
 
-import com.baidu.adp.base.BdBaseApplication;
 import java.util.concurrent.Callable;
-import java.util.concurrent.CancellationException;
-import java.util.concurrent.ExecutionException;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.concurrent.FutureTask;
 /* loaded from: classes.dex */
-public class b extends g<Result> {
-    final /* synthetic */ BdAsyncTask sM;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(BdAsyncTask bdAsyncTask, Callable callable, BdAsyncTask bdAsyncTask2) {
-        super(callable, bdAsyncTask2);
-        this.sM = bdAsyncTask;
-    }
-
-    @Override // java.util.concurrent.FutureTask
-    protected void done() {
-        try {
-            this.sM.postResult(get());
-        } catch (InterruptedException e) {
-        } catch (CancellationException e2) {
-            this.sM.postResult(null);
-        } catch (ExecutionException e3) {
-            this.sM.postResult(null);
-            if (BdBaseApplication.getInst().isDebugMode()) {
-                throw new RuntimeException("An error occured while executing doInBackground()", e3);
-            }
-        } catch (Throwable th) {
-            throw new RuntimeException("An error occured while executing doInBackground()", th);
-        }
-    }
+public abstract class b<V> extends FutureTask<V> {
+    private BdAsyncTask<?, ?, ?> uv;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.g
-    public void ek() {
-        this.sM.cancel();
+    public abstract void et();
+
+    public BdAsyncTask<?, ?, ?> ex() {
+        return this.uv;
+    }
+
+    public b(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
+        super(callable);
+        this.uv = null;
+        this.uv = bdAsyncTask;
     }
 }

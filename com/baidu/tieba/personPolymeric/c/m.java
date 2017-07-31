@@ -1,16 +1,15 @@
 package com.baidu.tieba.personPolymeric.c;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId eWN = BdUniqueId.gen();
-    public List<v> eWO;
+    public static final BdUniqueId fkB = BdUniqueId.gen();
+    public List<com.baidu.adp.widget.ListView.f> fkC;
     public long uid;
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return eWN;
+        return fkB;
     }
 }

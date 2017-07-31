@@ -40,7 +40,7 @@ public class MainSharedPrefProvider extends ContentProvider {
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString(lastPathSegment, asString);
                 edit.commit();
-                if (dd(lastPathSegment)) {
+                if (dm(lastPathSegment)) {
                     S(lastPathSegment, asString);
                     return null;
                 }
@@ -59,7 +59,7 @@ public class MainSharedPrefProvider extends ContentProvider {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.remove(lastPathSegment);
             edit.commit();
-            if (dd(lastPathSegment)) {
+            if (dm(lastPathSegment)) {
                 S(lastPathSegment, null);
                 return 0;
             }
@@ -78,16 +78,16 @@ public class MainSharedPrefProvider extends ContentProvider {
         intent.setAction(TbConfig.getBroadcastActionChangeSharedPref());
         intent.putExtra("intent_key", str);
         intent.putExtra("intent_value", str2);
-        TbadkCoreApplication.m9getInst().getApp().sendBroadcast(intent);
+        TbadkCoreApplication.getInst().getApp().sendBroadcast(intent);
     }
 
-    private boolean dd(String str) {
+    private boolean dm(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        int length = a.ado.length;
+        int length = a.aff.length;
         for (int i = 0; i < length; i++) {
-            if (a.ado[i].equals(str)) {
+            if (a.aff[i].equals(str)) {
                 return true;
             }
         }
@@ -96,8 +96,8 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     private SharedPreferences getSharedPreferences() {
         try {
-            if (TbadkCoreApplication.m9getInst().getApp() != null) {
-                return TbadkCoreApplication.m9getInst().getApp().getSharedPreferences("common_settings", 0);
+            if (TbadkCoreApplication.getInst().getApp() != null) {
+                return TbadkCoreApplication.getInst().getApp().getSharedPreferences("common_settings", 0);
             }
             return null;
         } catch (Exception e) {

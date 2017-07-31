@@ -4,53 +4,55 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.im.chat.ao;
+import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class MsgRightViewItemAdapter extends ao<MsgrightView> {
-    private boolean cXz;
+public class MsgRightViewItemAdapter extends e<MsgrightView> {
+    private boolean dhz;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cXz = false;
+        this.dhz = false;
     }
 
-    public void fH(boolean z) {
-        this.cXz = z;
+    public void fV(boolean z) {
+        this.dhz = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public ao.a<MsgrightView> onCreateViewHolder(ViewGroup viewGroup) {
-        MsgrightView msgrightView = new MsgrightView(this.ajP);
-        return new a(msgrightView.cf(), msgrightView);
+    /* renamed from: aB */
+    public e.a<MsgrightView> onCreateViewHolder(ViewGroup viewGroup) {
+        MsgrightView msgrightView = new MsgrightView(this.alI);
+        return new a(msgrightView.cq(), msgrightView);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.ao
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ao.a<MsgrightView> aVar) {
+    @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgrightView aqb = aVar.aqb();
-        aqb.lB(this.cXq);
-        aqb.fH(this.cXz);
+        MsgrightView arT = aVar.arT();
+        arT.lK(this.dhq);
+        arT.fV(this.dhz);
         chatMessage.getCacheData().setIs_left(0);
-        aqb.a(this.cXg);
-        aqb.setOnItemViewLongClickListener(this.cXh);
-        aqb.setPosition(i);
-        aqb.bA(this.cXn);
-        aqb.bz(chatMessage.getCacheData().getLastMsgTime());
-        aqb.a(viewGroup, chatMessage);
-        aqb.b(viewGroup, chatMessage);
-        this.ajP.getLayoutMode().ah(false);
-        this.ajP.getLayoutMode().t(view);
+        arT.a(this.dhg);
+        arT.setOnItemViewLongClickListener(this.dhh);
+        arT.setPosition(i);
+        arT.bC(this.dhn);
+        arT.bB(chatMessage.getCacheData().getLastMsgTime());
+        arT.a(viewGroup, chatMessage);
+        arT.b(viewGroup, chatMessage);
+        this.alI.getLayoutMode().ah(false);
+        this.alI.getLayoutMode().t(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class a extends ao.a<MsgrightView> {
+    public class a extends e.a<MsgrightView> {
         public a(View view, MsgrightView msgrightView) {
             super(view, msgrightView);
         }

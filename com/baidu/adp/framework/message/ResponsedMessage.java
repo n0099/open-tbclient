@@ -1,6 +1,6 @@
 package com.baidu.adp.framework.message;
 
-import com.baidu.adp.framework.client.socket.j;
+import com.baidu.adp.framework.client.socket.h;
 import com.baidu.tbadk.core.util.TbErrInfo;
 /* loaded from: classes.dex */
 public abstract class ResponsedMessage<T> implements a<T> {
@@ -95,7 +95,7 @@ public abstract class ResponsedMessage<T> implements a<T> {
     }
 
     public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
-        if (i2 == j.pd) {
+        if (i2 == h.qJ) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

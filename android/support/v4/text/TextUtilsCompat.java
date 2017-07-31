@@ -1,6 +1,6 @@
 package android.support.v4.text;
 
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class TextUtilsCompat {
@@ -22,7 +22,7 @@ public class TextUtilsCompat {
                 case '\'':
                     sb.append("&#39;");
                     break;
-                case w.n.View_verticalScrollbarPosition /* 60 */:
+                case d.n.View_verticalScrollbarPosition /* 60 */:
                     sb.append("&lt;");
                     break;
                 case '>':

@@ -1,18 +1,18 @@
 package com.baidu.tieba.tbadkCore.voice;
 
-import com.baidu.adp.lib.voice.j;
+import com.baidu.adp.lib.voice.f;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public interface a {
     void a(TbPageContext<?> tbPageContext);
 
-    boolean a(j jVar, int i);
+    boolean a(f fVar, int i);
 
-    void bE(String str);
+    void bM(String str);
 
-    void lK();
+    void lR();
 
-    boolean lL();
+    boolean lS();
 
     void release();
 

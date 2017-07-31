@@ -1,51 +1,34 @@
 package com.baidu.tieba.homepage.personalize.c;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.z;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tieba.card.cf;
-import com.baidu.tieba.card.ci;
+import com.baidu.tieba.card.data.r;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.widget.ListView.a<e, a> {
-    private final TbPageContext<?> ajP;
-    private ci<e> bgj;
+public class c extends com.baidu.tieba.card.data.b implements r {
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
+    public long mTimeStamp;
+    public boolean showBottomDivider = false;
 
-    public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bgj = new d(this);
-        this.ajP = tbPageContext;
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return TYPE;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: af */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.homepage.personalize.c.a aVar = new com.baidu.tieba.homepage.personalize.c.a(this.ajP);
-        aVar.a(this.bgj);
-        return new a(aVar);
+    @Override // com.baidu.tieba.card.data.r
+    public int getPosition() {
+        return 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, a aVar) {
-        cf.VN().a(new au("c11272"));
-        aVar.cLc.a(eVar);
-        return aVar.getView();
+    @Override // com.baidu.tieba.card.data.r
+    public boolean WK() {
+        return true;
     }
 
-    /* loaded from: classes.dex */
-    public class a extends z.a {
-        public com.baidu.tieba.homepage.personalize.c.a cLc;
+    @Override // com.baidu.tieba.card.data.r
+    public void dF(boolean z) {
+    }
 
-        public a(com.baidu.tieba.homepage.personalize.c.a aVar) {
-            super(aVar.getView());
-            this.cLc = aVar;
-        }
+    @Override // com.baidu.tieba.card.data.r
+    public void dG(boolean z) {
+        this.showBottomDivider = z;
     }
 }

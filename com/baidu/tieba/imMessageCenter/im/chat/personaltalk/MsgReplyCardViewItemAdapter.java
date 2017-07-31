@@ -5,11 +5,11 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.ao;
+import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView;
 /* loaded from: classes2.dex */
-public class MsgReplyCardViewItemAdapter extends ao<MsgReplyCardView> {
+public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgReplyCardView> {
     public MsgReplyCardViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
     }
@@ -17,28 +17,30 @@ public class MsgReplyCardViewItemAdapter extends ao<MsgReplyCardView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public ao.a<MsgReplyCardView> onCreateViewHolder(ViewGroup viewGroup) {
-        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.ajP);
-        return new a(msgReplyCardView.cf(), msgReplyCardView);
+    /* renamed from: aB */
+    public e.a<MsgReplyCardView> onCreateViewHolder(ViewGroup viewGroup) {
+        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.alI);
+        return new a(msgReplyCardView.cq(), msgReplyCardView);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.ao
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ao.a<MsgReplyCardView> aVar) {
+    @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgReplyCardView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgReplyCardView aqb = aVar.aqb();
-        aqb.a(this.ajP, chatMessage, viewGroup);
-        aqb.a(this.cXg);
-        aqb.setPosition(i);
-        this.ajP.getLayoutMode().ah(false);
-        this.ajP.getLayoutMode().t(view);
+        MsgReplyCardView arT = aVar.arT();
+        arT.a(this.alI, chatMessage, viewGroup);
+        arT.a(this.dhg);
+        arT.setPosition(i);
+        this.alI.getLayoutMode().ah(false);
+        this.alI.getLayoutMode().t(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class a extends ao.a<MsgReplyCardView> {
+    public class a extends e.a<MsgReplyCardView> {
         public a(View view, MsgReplyCardView msgReplyCardView) {
             super(view, msgReplyCardView);
         }

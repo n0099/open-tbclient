@@ -6,6 +6,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
@@ -31,8 +32,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).ST)) {
-                sb.append(this.advertAppList.get(i).ST);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).UH)) {
+                sb.append(this.advertAppList.get(i).UH);
                 if (i != size - 1) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
@@ -75,7 +76,14 @@ public class BannerListData implements Serializable {
                     }
                 }
             }
-            Collections.sort(this.advertAppList, new i(this));
+            Collections.sort(this.advertAppList, new Comparator<AdvertAppInfo>() { // from class: com.baidu.tbadk.core.data.BannerListData.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Comparator
+                /* renamed from: a */
+                public int compare(AdvertAppInfo advertAppInfo2, AdvertAppInfo advertAppInfo3) {
+                    return (advertAppInfo2 != null ? com.baidu.adp.lib.g.b.g(advertAppInfo2.adPosition, 0) : 0) - (advertAppInfo3 != null ? com.baidu.adp.lib.g.b.g(advertAppInfo3.adPosition, 0) : 0);
+                }
+            });
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {
                 for (int i2 = 0; i2 < list2.size(); i2++) {
@@ -87,9 +95,9 @@ public class BannerListData implements Serializable {
                 }
             }
             if (bannerList.hot_topic != null) {
-                bc bcVar = new bc();
-                bcVar.a(bannerList.hot_topic);
-                this.recomTopicData = bcVar.qC();
+                bb bbVar = new bb();
+                bbVar.a(bannerList.hot_topic);
+                this.recomTopicData = bbVar.qP();
             }
         }
     }

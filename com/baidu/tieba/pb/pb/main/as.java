@@ -1,26 +1,29 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class as implements c.b {
-    final /* synthetic */ PbActivity ewh;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public as(PbActivity pbActivity) {
-        this.ewh = pbActivity;
-    }
-
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        cVar.dismiss();
-        if (this.ewh.evW != null) {
-            if (i == 0) {
-                this.ewh.evW.bN(this.ewh.getPageContext().getPageActivity());
-                this.ewh.evW = null;
-            } else if (i == 1 && this.ewh.checkUpIsLogin()) {
-                this.ewh.h(this.ewh.evW);
-            }
+public class as implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
+            return null;
+        }
+        PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
+        byte[] Q = h.aRm().Q(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
+        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
+        pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
+        pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
+        pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
+        pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
+        try {
+            pbPageReadLocalResponseMessage.decodeInBackGround(CmdConfigCustom.PB_PAGE_CACHE_CMD, Q);
+            return pbPageReadLocalResponseMessage;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return pbPageReadLocalResponseMessage;
         }
     }
 }

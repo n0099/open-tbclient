@@ -3,61 +3,61 @@ package com.baidu.tieba.frs.entelechy.c.a.a;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tieba.frs.bq;
-import com.baidu.tieba.frs.r;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.dialog.b;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.u;
+import com.baidu.tieba.d;
+import com.baidu.tieba.frs.f;
+import com.baidu.tieba.frs.x;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a extends c {
-    private c.b aaa;
-    private r cdv;
-    private int chw;
-    private List<bq> mDatas;
+public class a extends b {
+    private b.InterfaceC0043b abW;
+    private f ckn;
+    private int coE;
+    private List<x> mDatas;
 
-    public a(r rVar, c.b bVar) {
-        super(rVar.getActivity());
-        this.chw = 0;
-        if (rVar != null && bVar != null) {
-            this.cdv = rVar;
-            this.aaa = bVar;
+    public a(f fVar, b.InterfaceC0043b interfaceC0043b) {
+        super(fVar.getActivity());
+        this.coE = 0;
+        if (fVar != null && interfaceC0043b != null) {
+            this.ckn = fVar;
+            this.abW = interfaceC0043b;
         }
     }
 
-    public void setData(List<bq> list) {
-        if (!z.t(list)) {
+    public void setData(List<x> list) {
+        if (!u.v(list)) {
             this.mDatas = new ArrayList();
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
-                bq bqVar = new bq();
-                bqVar.name = this.cdv.getResources().getString(w.l.attention_users_thread);
-                bqVar.ceQ = 6;
-                this.mDatas.add(bqVar);
+                x xVar = new x();
+                xVar.name = this.ckn.getResources().getString(d.l.attention_users_thread);
+                xVar.clK = 6;
+                this.mDatas.add(xVar);
             }
             ArrayList arrayList = new ArrayList();
-            for (bq bqVar2 : this.mDatas) {
-                if (bqVar2 != null) {
-                    arrayList.add(bqVar2.name);
+            for (x xVar2 : this.mDatas) {
+                if (xVar2 != null) {
+                    arrayList.add(xVar2.name);
                 }
             }
             reset();
-            a(arrayList, this.aaa);
+            a(arrayList, this.abW);
         }
     }
 
-    public List<bq> afT() {
+    public List<x> ahk() {
         return this.mDatas;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c
-    public c td() {
-        View cf;
-        super.td();
-        if (this.mDatas != null && (cf = cf(this.mDatas.size())) != null && (cf.findViewById(w.h.dialog_item_btn) instanceof TextView)) {
-            as.i((TextView) cf.findViewById(w.h.dialog_item_btn), w.e.cp_link_tip_a);
+    @Override // com.baidu.tbadk.core.dialog.b
+    public b tu() {
+        View cj;
+        super.tu();
+        if (this.mDatas != null && (cj = cj(this.mDatas.size())) != null && (cj.findViewById(d.h.dialog_item_btn) instanceof TextView)) {
+            ai.i((TextView) cj.findViewById(d.h.dialog_item_btn), d.e.cp_link_tip_a);
         }
         return this;
     }

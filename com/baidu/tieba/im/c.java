@@ -1,45 +1,31 @@
 package com.baidu.tieba.im;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.core.message.ResponseCheckUserMaskMessage;
-import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
-import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
-import com.baidu.tbadk.newFriends.ResponseApplyMessage;
-import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
-import com.baidu.tieba.im.b.j;
-import com.baidu.tieba.im.message.ResponseCommitInviteMessage;
-import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
-import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.im.message.ResponseUploadClientLogMessage;
-import com.baidu.tieba.im.push.PushResponseMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
 /* loaded from: classes.dex */
 public class c {
-    public static void init() {
-        apn();
-        apo();
+    public static com.baidu.tbadk.task.b b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(i);
+        bVar.setResponsedClass(cls);
+        bVar.n(z);
+        bVar.setParallel(TiebaIMConfig.getParallel());
+        MessageManager.getInstance().registerTask(bVar);
+        return bVar;
     }
 
-    private static void apn() {
-        e.b(104102, ResponseUpdateMaskInfoMessage.class, false);
-        e.b(202003, ResponsePullMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-        e.b(202009, PushResponseMessage.class, false);
-        e.b(202006, PushNotifyMessageDecoder.class, false);
-        e.b(104103, ResponseGetMaskInfoMessage.class, false);
-        e.b(304100, ResponseAddFriendMessage.class, false);
-        e.b(304102, ResponseDeleteFriendMessage.class, false);
-        e.b(304103, ResponseApplyMessage.class, false);
-        e.b(202005, ResponseUploadClientLogMessage.class, false);
-        e.b(205002, ResponseCommitInviteMessage.class, false);
-        e.b(104104, ResponseCheckUserMaskMessage.class, false);
-    }
-
-    private static boolean apo() {
-        MessageManager.getInstance().addResponsedMessageRule(new d(202006));
-        MessageManager.getInstance().addResponsedMessageRule(new j());
-        MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.push.h());
-        MessageManager.getInstance().addMessageRule(new com.baidu.tieba.im.b.i());
-        return true;
+    public static com.baidu.tbadk.task.a b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        try {
+            com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(i, cls.newInstance());
+            MessageManager.getInstance().registerTask(aVar);
+            return aVar;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        } catch (InstantiationException e2) {
+            e2.printStackTrace();
+            return null;
+        }
     }
 }

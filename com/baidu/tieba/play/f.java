@@ -1,23 +1,65 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.graphics.SurfaceTexture;
+import android.net.Uri;
+import java.util.Map;
 /* loaded from: classes.dex */
-class f extends CustomMessageListener {
-    final /* synthetic */ c flr;
+public interface f {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(c cVar, int i) {
-        super(i);
-        this.flr = cVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void onCompletion(f fVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if ((customResponsedMessage instanceof CallStateMessage) && ((CallStateMessage) customResponsedMessage).getCallState() == 1) {
-            this.flr.pausePlay();
-        }
+    /* loaded from: classes.dex */
+    public interface b {
+        boolean onError(f fVar, int i, int i2);
     }
+
+    /* loaded from: classes.dex */
+    public interface c {
+        boolean a(f fVar, int i, int i2);
+    }
+
+    /* loaded from: classes.dex */
+    public interface d {
+        void onPrepared(f fVar);
+    }
+
+    void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, int i);
+
+    void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, String str);
+
+    void a(c cVar);
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    int getVideoHeight();
+
+    int getVideoWidth();
+
+    boolean isExistInRemote();
+
+    boolean isPlaying();
+
+    void pause();
+
+    void release();
+
+    void seekTo(int i);
+
+    void setLooping(boolean z);
+
+    void setOnCompletionListener(a aVar);
+
+    void setOnErrorListener(b bVar);
+
+    void setOnPreparedListener(d dVar);
+
+    void setVolume(float f, float f2);
+
+    void start();
 }

@@ -18,7 +18,7 @@ import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -43,7 +43,7 @@ public class BitmapHelper {
         synchronized (BitmapHelper.class) {
             SoftReference<Bitmap> softReference = mBitmapHash.get(i);
             bitmap = softReference != null ? softReference.get() : null;
-            if (bitmap == null && (bitmap = getResBitmap(TbadkCoreApplication.m9getInst().getApp(), i, options)) != null) {
+            if (bitmap == null && (bitmap = getResBitmap(TbadkCoreApplication.getInst().getApp(), i, options)) != null) {
                 mBitmapHash.put(i, new SoftReference<>(bitmap));
             }
         }
@@ -67,7 +67,7 @@ public class BitmapHelper {
                 try {
                     bitmap = BitmapFactory.decodeResource(resources, i, options);
                 } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.m9getInst().onAppMemoryLow();
+                    TbadkCoreApplication.getInst().onAppMemoryLow();
                 }
                 if (bitmap != null) {
                     mBitmapNightHash.put(i2, new SoftReference<>(bitmap));
@@ -94,7 +94,7 @@ public class BitmapHelper {
                 try {
                     bitmap = BitmapFactory.decodeResource(resources, i, options);
                 } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.m9getInst().onAppMemoryLow();
+                    TbadkCoreApplication.getInst().onAppMemoryLow();
                 }
                 if (bitmap != null) {
                     mBitmapThemeHash.put(i2, new SoftReference<>(bitmap));
@@ -156,7 +156,7 @@ public class BitmapHelper {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, options);
         } catch (OutOfMemoryError e) {
-            TbadkCoreApplication.m9getInst().onAppMemoryLow();
+            TbadkCoreApplication.getInst().onAppMemoryLow();
             return null;
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
@@ -249,7 +249,7 @@ public class BitmapHelper {
                 } catch (NullPointerException e) {
                     bitmap2 = bitmap3;
                 } catch (OutOfMemoryError e2) {
-                    TbadkCoreApplication.m9getInst().onAppMemoryLow();
+                    TbadkCoreApplication.getInst().onAppMemoryLow();
                     bitmap2 = bitmap3;
                 }
             }
@@ -358,53 +358,54 @@ public class BitmapHelper {
             r6.<init>()     // Catch: java.lang.Throwable -> L5b
             r2 = 1
             r6.inJustDecodeBounds = r2     // Catch: java.lang.Throwable -> L5b
-            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L5b
-            r3.<init>(r4)     // Catch: java.lang.Throwable -> L5b
-            r2 = 0
-            android.graphics.BitmapFactory.decodeStream(r3, r2, r6)     // Catch: java.lang.Throwable -> L70
-            android.graphics.Bitmap$Config r2 = com.baidu.tbadk.TbConfig.BitmapConfig     // Catch: java.lang.Throwable -> L70
-            r6.inPreferredConfig = r2     // Catch: java.lang.Throwable -> L70
-            com.baidu.adp.lib.util.o.j(r3)     // Catch: java.lang.Throwable -> L70
+            java.io.FileInputStream r2 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L5b
+            r2.<init>(r4)     // Catch: java.lang.Throwable -> L5b
+            r3 = 0
+            android.graphics.BitmapFactory.decodeStream(r2, r3, r6)     // Catch: java.lang.Throwable -> L70
+            android.graphics.Bitmap$Config r3 = com.baidu.tbadk.TbConfig.BitmapConfig     // Catch: java.lang.Throwable -> L70
+            r6.inPreferredConfig = r3     // Catch: java.lang.Throwable -> L70
+            com.baidu.adp.lib.util.m.p(r2)     // Catch: java.lang.Throwable -> L70
         L35:
-            int r2 = r6.outWidth     // Catch: java.lang.Throwable -> L70
+            int r3 = r6.outWidth     // Catch: java.lang.Throwable -> L70
             int r7 = r1 * 2
-            int r2 = r2 / r7
-            if (r2 > r9) goto L58
-            int r2 = r6.outHeight     // Catch: java.lang.Throwable -> L70
+            int r3 = r3 / r7
+            if (r3 > r9) goto L43
+            int r3 = r6.outHeight     // Catch: java.lang.Throwable -> L70
             int r7 = r1 * 2
-            int r2 = r2 / r7
-            if (r2 > r10) goto L58
-            r2 = 0
-            r6.inJustDecodeBounds = r2     // Catch: java.lang.Throwable -> L70
-            r6.inSampleSize = r1     // Catch: java.lang.Throwable -> L70
-            java.io.FileInputStream r2 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L70
-            r2.<init>(r4)     // Catch: java.lang.Throwable -> L70
-            r1 = 0
-            android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r6)     // Catch: java.lang.Throwable -> L73
-            monitor-exit(r5)     // Catch: java.lang.Throwable -> L73
-            com.baidu.adp.lib.util.o.j(r2)
-            r0 = r1
-            goto Le
-        L58:
+            int r3 = r3 / r7
+            if (r3 <= r10) goto L46
+        L43:
             int r1 = r1 * 2
             goto L35
+        L46:
+            r3 = 0
+            r6.inJustDecodeBounds = r3     // Catch: java.lang.Throwable -> L70
+            r6.inSampleSize = r1     // Catch: java.lang.Throwable -> L70
+            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L70
+            r3.<init>(r4)     // Catch: java.lang.Throwable -> L70
+            r1 = 0
+            android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r3, r1, r6)     // Catch: java.lang.Throwable -> L72
+            monitor-exit(r5)     // Catch: java.lang.Throwable -> L72
+            com.baidu.adp.lib.util.m.p(r3)
+            r0 = r1
+            goto Le
         L5b:
             r1 = move-exception
             r2 = r0
         L5d:
-            monitor-exit(r5)     // Catch: java.lang.Throwable -> L73
+            monitor-exit(r5)     // Catch: java.lang.Throwable -> L70
             throw r1     // Catch: java.lang.Throwable -> L5f
         L5f:
             r1 = move-exception
         L60:
-            com.baidu.adp.lib.util.o.j(r2)
+            com.baidu.adp.lib.util.m.p(r2)
             goto Le
         L64:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L67:
-            com.baidu.adp.lib.util.o.j(r2)
+            com.baidu.adp.lib.util.m.p(r2)
             throw r0
         L6b:
             r0 = move-exception
@@ -415,10 +416,10 @@ public class BitmapHelper {
             goto L60
         L70:
             r1 = move-exception
-            r2 = r3
             goto L5d
-        L73:
+        L72:
             r1 = move-exception
+            r2 = r3
             goto L5d
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.BitmapHelper.loadResizedBitmap(java.lang.String, int, int):android.graphics.Bitmap");
@@ -458,7 +459,7 @@ public class BitmapHelper {
             r1 = 0
             android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r4)     // Catch: java.lang.Throwable -> L49
             monitor-exit(r3)     // Catch: java.lang.Throwable -> L49
-            com.baidu.adp.lib.util.o.j(r2)
+            com.baidu.adp.lib.util.m.p(r2)
             r0 = r1
             goto L9
         L34:
@@ -470,14 +471,14 @@ public class BitmapHelper {
         L38:
             r1 = move-exception
         L39:
-            com.baidu.adp.lib.util.o.j(r2)
+            com.baidu.adp.lib.util.m.p(r2)
             goto L9
         L3d:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L40:
-            com.baidu.adp.lib.util.o.j(r2)
+            com.baidu.adp.lib.util.m.p(r2)
             throw r0
         L44:
             r0 = move-exception
@@ -503,19 +504,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream ds = n.ds(str);
-                BitmapFactory.decodeStream(ds, null, options);
+                InputStream dB = k.dB(str);
+                BitmapFactory.decodeStream(dB, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.o.j(ds);
+                com.baidu.adp.lib.util.m.p(dB);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream ds2 = n.ds(str);
-                        decodeStream = BitmapFactory.decodeStream(ds2, null, options);
-                        com.baidu.adp.lib.util.o.j(ds2);
+                        InputStream dB2 = k.dB(str);
+                        decodeStream = BitmapFactory.decodeStream(dB2, null, options);
+                        com.baidu.adp.lib.util.m.p(dB2);
                     }
                 }
             }
@@ -535,19 +536,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream q = n.q(new File(str));
+                InputStream q = k.q(new File(str));
                 BitmapFactory.decodeStream(q, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.o.j(q);
+                com.baidu.adp.lib.util.m.p(q);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream q2 = n.q(new File(str));
+                        InputStream q2 = k.q(new File(str));
                         decodeStream = BitmapFactory.decodeStream(q2, null, options);
-                        com.baidu.adp.lib.util.o.j(q2);
+                        com.baidu.adp.lib.util.m.p(q2);
                     }
                 }
             }
@@ -693,7 +694,7 @@ public class BitmapHelper {
         return Bytes2Bitmap(bArr, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [770=4, 803=5, 804=5, 805=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [803=6, 805=5] */
     public static Bitmap Bytes2Bitmap(byte[] bArr, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -724,11 +725,11 @@ public class BitmapHelper {
                                             bitmap2 = bitmap;
                                             r2 = z;
                                             e = e;
-                                            TbadkCoreApplication.m9getInst().onAppMemoryLow();
+                                            TbadkCoreApplication.getInst().onAppMemoryLow();
                                             if (sb != null) {
                                                 sb.append("OOM ");
                                                 if (e != null) {
-                                                    sb.append(String.valueOf(e.getClass().getName()) + " " + e.getMessage());
+                                                    sb.append(e.getClass().getName() + " " + e.getMessage());
                                                 }
                                             }
                                             if (sb != null && sb.length() == 0 && r2) {
@@ -742,7 +743,7 @@ public class BitmapHelper {
                                             if (sb != null) {
                                                 sb.append("Error ");
                                                 if (e != null) {
-                                                    sb.append(String.valueOf(e.getClass().getName()) + " " + e.getMessage());
+                                                    sb.append(e.getClass().getName() + " " + e.getMessage());
                                                 }
                                             }
                                             if (sb != null && sb.length() == 0 && r2) {
@@ -750,19 +751,12 @@ public class BitmapHelper {
                                             }
                                             return bitmap2;
                                         } catch (Throwable th3) {
-                                            bitmap2 = bitmap;
-                                            r2 = z;
                                             th = th3;
-                                            if (sb != null) {
-                                                sb.append("Throwable ");
-                                                if (th != null) {
-                                                    sb.append(String.valueOf(th.getClass().getName()) + " " + th.getMessage());
-                                                }
-                                            }
+                                            r2 = z;
                                             if (sb != null && sb.length() == 0 && r2) {
                                                 sb.append("UnKnow Error");
                                             }
-                                            return bitmap2;
+                                            throw th;
                                         }
                                     } catch (Throwable th4) {
                                         th = th4;
@@ -790,7 +784,7 @@ public class BitmapHelper {
         return bitmap2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [850=5, 851=5, 852=5, 854=5, 856=5, 857=5, 858=5, 823=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [850=6, 852=5, 854=5, 856=5, 857=5, 858=5] */
     public static Bitmap Bytes2NineBitmap(byte[] bArr, Rect rect, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -800,7 +794,7 @@ public class BitmapHelper {
         if (byteArrayInputStream != null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inDither = false;
-            options.inScreenDensity = TbadkCoreApplication.m9getInst().getResources().getDisplayMetrics().densityDpi;
+            options.inScreenDensity = TbadkCoreApplication.getInst().getResources().getDisplayMetrics().densityDpi;
             options.inTargetDensity = options.inScreenDensity;
             options.inDensity = options.inScreenDensity;
             try {
@@ -809,116 +803,116 @@ public class BitmapHelper {
                         try {
                             bitmap2 = BitmapFactory.decodeStream(byteArrayInputStream, rect, options);
                             r2 = bitmap2 == null;
-                        } catch (Throwable th2) {
-                            z = true;
-                            bitmap = null;
-                            th = th2;
-                        }
-                        try {
-                            if (sb != null && sb.length() == 0 && r2) {
-                                sb.append("UnKnow Error");
-                            }
-                            if (byteArrayInputStream != null) {
-                                try {
-                                    byteArrayInputStream.close();
-                                } catch (IOException e) {
-                                    BdLog.d(e.getMessage());
+                            try {
+                                if (sb != null && sb.length() == 0 && r2) {
+                                    sb.append("UnKnow Error");
                                 }
-                            }
-                        } catch (Throwable th3) {
-                            z = r2;
-                            bitmap = bitmap2;
-                            th = th3;
-                            while (true) {
-                                try {
+                                if (byteArrayInputStream != null) {
                                     try {
-                                        break;
-                                    } catch (Error e2) {
-                                        bitmap2 = bitmap;
-                                        r2 = z;
-                                        e = e2;
-                                        if (e != null && sb != null) {
-                                            sb.append(String.valueOf(e.getClass().getName()) + " " + e.getMessage());
-                                        }
-                                        if (sb != null && sb.length() == 0 && r2) {
-                                            sb.append("UnKnow Error");
-                                        }
-                                        if (byteArrayInputStream != null) {
-                                            try {
-                                                byteArrayInputStream.close();
-                                            } catch (IOException e3) {
-                                                BdLog.d(e3.getMessage());
+                                        byteArrayInputStream.close();
+                                    } catch (IOException e) {
+                                        BdLog.d(e.getMessage());
+                                    }
+                                }
+                            } catch (Throwable th2) {
+                                z = r2;
+                                bitmap = bitmap2;
+                                th = th2;
+                                while (true) {
+                                    try {
+                                        try {
+                                            break;
+                                        } catch (Exception e2) {
+                                            bitmap2 = bitmap;
+                                            r2 = z;
+                                            e = e2;
+                                            if (e != null && sb != null) {
+                                                sb.append(e.getClass().getName() + " " + e.getMessage());
                                             }
-                                        }
-                                        return bitmap2;
-                                    } catch (Exception e4) {
-                                        bitmap2 = bitmap;
-                                        r2 = z;
-                                        e = e4;
-                                        if (e != null && sb != null) {
-                                            sb.append(String.valueOf(e.getClass().getName()) + " " + e.getMessage());
-                                        }
-                                        if (sb != null && sb.length() == 0 && r2) {
-                                            sb.append("UnKnow Error");
-                                        }
-                                        if (byteArrayInputStream != null) {
-                                            try {
-                                                byteArrayInputStream.close();
-                                            } catch (IOException e5) {
-                                                BdLog.d(e5.getMessage());
+                                            if (sb != null && sb.length() == 0 && r2) {
+                                                sb.append("UnKnow Error");
                                             }
-                                        }
-                                        return bitmap2;
-                                    } catch (OutOfMemoryError e6) {
-                                        bitmap2 = bitmap;
-                                        r2 = z;
-                                        e = e6;
-                                        TbadkCoreApplication.m9getInst().onAppMemoryLow();
-                                        e.printStackTrace();
-                                        if (e != null && sb != null) {
-                                            sb.append(String.valueOf(e.getClass().getName()) + " " + e.getMessage());
-                                        }
-                                        if (sb != null && sb.length() == 0 && r2) {
-                                            sb.append("UnKnow Error");
-                                        }
-                                        if (byteArrayInputStream != null) {
-                                            try {
-                                                byteArrayInputStream.close();
-                                            } catch (IOException e7) {
-                                                BdLog.d(e7.getMessage());
+                                            if (byteArrayInputStream != null) {
+                                                try {
+                                                    byteArrayInputStream.close();
+                                                } catch (IOException e3) {
+                                                    BdLog.d(e3.getMessage());
+                                                }
                                             }
+                                            return bitmap2;
+                                        } catch (OutOfMemoryError e4) {
+                                            bitmap2 = bitmap;
+                                            r2 = z;
+                                            e = e4;
+                                            TbadkCoreApplication.getInst().onAppMemoryLow();
+                                            e.printStackTrace();
+                                            if (e != null && sb != null) {
+                                                sb.append(e.getClass().getName() + " " + e.getMessage());
+                                            }
+                                            if (sb != null && sb.length() == 0 && r2) {
+                                                sb.append("UnKnow Error");
+                                            }
+                                            if (byteArrayInputStream != null) {
+                                                try {
+                                                    byteArrayInputStream.close();
+                                                } catch (IOException e5) {
+                                                    BdLog.d(e5.getMessage());
+                                                }
+                                            }
+                                            return bitmap2;
+                                        } catch (Error e6) {
+                                            bitmap2 = bitmap;
+                                            r2 = z;
+                                            e = e6;
+                                            if (e != null && sb != null) {
+                                                sb.append(e.getClass().getName() + " " + e.getMessage());
+                                            }
+                                            if (sb != null && sb.length() == 0 && r2) {
+                                                sb.append("UnKnow Error");
+                                            }
+                                            if (byteArrayInputStream != null) {
+                                                try {
+                                                    byteArrayInputStream.close();
+                                                } catch (IOException e7) {
+                                                    BdLog.d(e7.getMessage());
+                                                }
+                                            }
+                                            return bitmap2;
+                                        } catch (Throwable th3) {
+                                            th = th3;
+                                            r2 = z;
+                                            if (sb != null && sb.length() == 0 && r2) {
+                                                sb.append("UnKnow Error");
+                                            }
+                                            if (byteArrayInputStream != null) {
+                                                try {
+                                                    byteArrayInputStream.close();
+                                                } catch (IOException e8) {
+                                                    BdLog.d(e8.getMessage());
+                                                }
+                                            }
+                                            throw th;
                                         }
-                                        return bitmap2;
                                     } catch (Throwable th4) {
                                         th = th4;
-                                        r2 = z;
-                                        if (sb != null && sb.length() == 0 && r2) {
-                                            sb.append("UnKnow Error");
-                                        }
-                                        if (byteArrayInputStream != null) {
-                                            try {
-                                                byteArrayInputStream.close();
-                                            } catch (IOException e8) {
-                                                BdLog.d(e8.getMessage());
-                                            }
-                                        }
-                                        throw th;
                                     }
-                                } catch (Throwable th5) {
-                                    th = th5;
                                 }
+                                throw th;
                             }
-                            throw th;
+                        } catch (Throwable th5) {
+                            z = true;
+                            bitmap = null;
+                            th = th5;
                         }
                     }
                 } catch (Throwable th6) {
                     th = th6;
                 }
-            } catch (OutOfMemoryError e9) {
+            } catch (Error e9) {
                 e = e9;
-            } catch (Error e10) {
+            } catch (Exception e10) {
                 e = e10;
-            } catch (Exception e11) {
+            } catch (OutOfMemoryError e11) {
                 e = e11;
             }
         }
@@ -951,26 +945,46 @@ public class BitmapHelper {
         return bitmap2;
     }
 
+    public static Bitmap scaleBitmap(Bitmap bitmap, float f, float f2) {
+        Bitmap createBitmap;
+        if (bitmap == null) {
+            return null;
+        }
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        if (width <= 0 || height <= 0) {
+            return null;
+        }
+        synchronized (lockForSyncImageDecoder) {
+            Matrix matrix = new Matrix();
+            matrix.postScale(f, f2);
+            createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            if (createBitmap == null) {
+                createBitmap = bitmap;
+            }
+            if (bitmap != createBitmap) {
+                bitmap.recycle();
+            }
+        }
+        return createBitmap;
+    }
+
     public static Bitmap rotateBitmapBydegree(Bitmap bitmap, int i) {
-        Bitmap bitmap2;
+        Bitmap createBitmap;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         synchronized (lockForSyncImageDecoder) {
             Matrix matrix = new Matrix();
             matrix.postRotate(i);
-            try {
-                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            } catch (OutOfMemoryError e) {
-                bitmap2 = null;
+            createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            if (createBitmap == null) {
+                createBitmap = bitmap;
             }
-            if (bitmap2 == null) {
-                bitmap2 = bitmap;
-            }
-            if (bitmap != bitmap2) {
+            if (bitmap != createBitmap) {
                 bitmap.recycle();
             }
         }
-        return bitmap2;
+        return createBitmap;
     }
 
     public static int readPictureDegree(String str) {
@@ -1029,41 +1043,41 @@ public class BitmapHelper {
     public static int getGradeResourceIdInEnterForum(int i) {
         switch (i) {
             case 1:
-                return w.g.icon_level_01;
+                return d.g.icon_level_01;
             case 2:
-                return w.g.icon_level_02;
+                return d.g.icon_level_02;
             case 3:
-                return w.g.icon_level_03;
+                return d.g.icon_level_03;
             case 4:
-                return w.g.icon_level_04;
+                return d.g.icon_level_04;
             case 5:
-                return w.g.icon_level_05;
+                return d.g.icon_level_05;
             case 6:
-                return w.g.icon_level_06;
+                return d.g.icon_level_06;
             case 7:
-                return w.g.icon_level_07;
+                return d.g.icon_level_07;
             case 8:
-                return w.g.icon_level_08;
+                return d.g.icon_level_08;
             case 9:
-                return w.g.icon_level_09;
+                return d.g.icon_level_09;
             case 10:
-                return w.g.icon_level_10;
+                return d.g.icon_level_10;
             case 11:
-                return w.g.icon_level_11;
+                return d.g.icon_level_11;
             case 12:
-                return w.g.icon_level_12;
+                return d.g.icon_level_12;
             case 13:
-                return w.g.icon_level_13;
+                return d.g.icon_level_13;
             case 14:
-                return w.g.icon_level_14;
+                return d.g.icon_level_14;
             case 15:
-                return w.g.icon_level_15;
+                return d.g.icon_level_15;
             case 16:
-                return w.g.icon_level_16;
+                return d.g.icon_level_16;
             case 17:
-                return w.g.icon_level_17;
+                return d.g.icon_level_17;
             case 18:
-                return w.g.icon_level_18;
+                return d.g.icon_level_18;
             default:
                 return 0;
         }

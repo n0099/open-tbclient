@@ -1,7 +1,9 @@
 package com.baidu.tieba.lego.card;
+
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public interface a {
-    void aR(String str, String str2);
+    void a(int i, HashMap<String, Object> hashMap);
 
-    void iT(int i);
+    void b(String str, String str2, HashMap<String, Object> hashMap);
 }

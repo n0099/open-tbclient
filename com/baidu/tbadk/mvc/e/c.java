@@ -2,8 +2,8 @@ package com.baidu.tbadk.mvc.e;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.cache.o;
-import com.baidu.adp.lib.util.s;
+import com.baidu.adp.lib.cache.l;
+import com.baidu.adp.lib.util.q;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.b.d;
 import com.baidu.tbadk.mvc.b.f;
@@ -20,117 +20,111 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
         ArrayList arrayList;
-        Exception exc;
+        ArrayList arrayList2;
         String str;
         String str2;
-        List<o.c<String>> b;
+        List<l.c<String>> b;
         String str3;
         com.baidu.tbadk.mvc.b.d dVar;
+        ArrayList arrayList3;
         byte[] bArr;
         com.baidu.tbadk.mvc.b.d dVar2;
+        ArrayList arrayList4 = null;
         if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
             return null;
         }
         ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
-        com.baidu.tbadk.mvc.b.d dVar3 = (com.baidu.tbadk.mvc.b.d) Fk();
+        com.baidu.tbadk.mvc.b.d dVar3 = (com.baidu.tbadk.mvc.b.d) FI();
         try {
-            if (readCacheMessage.isNeedUid()) {
-                str = TbadkCoreApplication.getCurrentAccount();
-                if (str == null) {
-                    str = "";
+            try {
+                if (readCacheMessage.isNeedUid()) {
+                    str = TbadkCoreApplication.getCurrentAccount();
+                    if (str == null) {
+                        str = "";
+                    }
+                } else {
+                    str = null;
                 }
-            } else {
-                str = null;
-            }
-        } catch (Exception e) {
-            exc = e;
-            arrayList = null;
-        } catch (Throwable th) {
-            arrayList = null;
-        }
-        if (dVar3 != null) {
-            if (readCacheMessage.getRequestData() == null) {
-                if (dVar3 instanceof com.baidu.tbadk.mvc.b.b) {
-                    List<o.c<byte[]>> c = s.c(com.baidu.tbadk.core.c.a.sW().L(this.ti, str));
-                    if (c != null) {
-                        ArrayList arrayList2 = new ArrayList(c.size());
+                if (dVar3 != null) {
+                    if (readCacheMessage.getRequestData() == null) {
                         try {
-                            for (o.c<byte[]> cVar : c) {
-                                if (cVar != null && (bArr = cVar.sG) != null && (dVar2 = (com.baidu.tbadk.mvc.b.d) Fk()) != null) {
-                                    ((com.baidu.tbadk.mvc.b.b) dVar2).z(bArr);
-                                    arrayList2.add(dVar2);
+                            if (dVar3 instanceof com.baidu.tbadk.mvc.b.b) {
+                                List<l.c<byte[]>> c = q.c(com.baidu.tbadk.core.c.a.tn().L(this.uP, str));
+                                if (c != null) {
+                                    ArrayList arrayList5 = new ArrayList(c.size());
+                                    for (l.c<byte[]> cVar : c) {
+                                        if (cVar != null && (bArr = cVar.um) != null && (dVar2 = (com.baidu.tbadk.mvc.b.d) FI()) != null) {
+                                            ((com.baidu.tbadk.mvc.b.b) dVar2).C(bArr);
+                                            arrayList5.add(dVar2);
+                                        }
+                                    }
+                                    arrayList3 = arrayList5;
+                                } else {
+                                    arrayList3 = null;
+                                }
+                                arrayList4 = arrayList3;
+                            } else if ((dVar3 instanceof f) && (b = q.b(com.baidu.tbadk.core.c.a.tn().M(this.uP, str))) != null) {
+                                ArrayList arrayList6 = new ArrayList(b.size());
+                                for (l.c<String> cVar2 : b) {
+                                    if (cVar2 != null && (str3 = cVar2.um) != null && (dVar = (com.baidu.tbadk.mvc.b.d) FI()) != null) {
+                                        ((f) dVar).gy(str3);
+                                        arrayList6.add(dVar);
+                                    }
+                                }
+                                arrayList4 = arrayList6;
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            return new ReadCacheRespMsg(this.cmd, arrayList2);
+                        }
+                    } else {
+                        String cacheKey = readCacheMessage.getRequestData().getCacheKey();
+                        String Fa = readCacheMessage.getRequestData().Fa();
+                        if (dVar3 instanceof com.baidu.tbadk.mvc.b.b) {
+                            byte[] bArr2 = com.baidu.tbadk.core.c.a.tn().L(Fa, str).get(cacheKey);
+                            if (bArr2 != null) {
+                                ((com.baidu.tbadk.mvc.b.b) dVar3).C(bArr2);
+                                ArrayList arrayList7 = new ArrayList();
+                                try {
+                                    arrayList7.add(dVar3);
+                                    arrayList4 = arrayList7;
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    arrayList2 = arrayList7;
+                                    e.printStackTrace();
+                                    return new ReadCacheRespMsg(this.cmd, arrayList2);
+                                } catch (Throwable th) {
+                                    arrayList = arrayList7;
+                                    return new ReadCacheRespMsg(this.cmd, arrayList);
                                 }
                             }
-                            arrayList = arrayList2;
-                        } catch (Exception e2) {
-                            exc = e2;
-                            arrayList = arrayList2;
+                        } else if ((dVar3 instanceof f) && (str2 = com.baidu.tbadk.core.c.a.tn().M(Fa, str).get(cacheKey)) != null) {
+                            ((f) dVar3).gy(str2);
+                            ArrayList arrayList8 = new ArrayList();
                             try {
-                                exc.printStackTrace();
+                                arrayList8.add(dVar3);
+                                arrayList4 = arrayList8;
+                            } catch (Exception e3) {
+                                e = e3;
+                                arrayList2 = arrayList8;
+                                e.printStackTrace();
+                                return new ReadCacheRespMsg(this.cmd, arrayList2);
                             } catch (Throwable th2) {
-                            }
-                        } catch (Throwable th3) {
-                            arrayList = arrayList2;
-                        }
-                        return new ReadCacheRespMsg(this.cmd, arrayList);
-                    }
-                } else if ((dVar3 instanceof f) && (b = s.b(com.baidu.tbadk.core.c.a.sW().M(this.ti, str))) != null) {
-                    ArrayList arrayList3 = new ArrayList(b.size());
-                    try {
-                        for (o.c<String> cVar2 : b) {
-                            if (cVar2 != null && (str3 = cVar2.sG) != null && (dVar = (com.baidu.tbadk.mvc.b.d) Fk()) != null) {
-                                ((f) dVar).gn(str3);
-                                arrayList3.add(dVar);
+                                arrayList = arrayList8;
+                                return new ReadCacheRespMsg(this.cmd, arrayList);
                             }
                         }
-                        arrayList = arrayList3;
-                    } catch (Exception e3) {
-                        exc = e3;
-                        arrayList = arrayList3;
-                        exc.printStackTrace();
-                    } catch (Throwable th4) {
-                        arrayList = arrayList3;
                     }
-                    return new ReadCacheRespMsg(this.cmd, arrayList);
                 }
-            } else {
-                String cacheKey = readCacheMessage.getRequestData().getCacheKey();
-                String EB = readCacheMessage.getRequestData().EB();
-                if (dVar3 instanceof com.baidu.tbadk.mvc.b.b) {
-                    byte[] bArr2 = com.baidu.tbadk.core.c.a.sW().L(EB, str).get(cacheKey);
-                    if (bArr2 != null) {
-                        ((com.baidu.tbadk.mvc.b.b) dVar3).z(bArr2);
-                        ArrayList arrayList4 = new ArrayList();
-                        try {
-                            arrayList4.add(dVar3);
-                            arrayList = arrayList4;
-                        } catch (Exception e4) {
-                            arrayList = arrayList4;
-                            exc = e4;
-                            exc.printStackTrace();
-                        } catch (Throwable th5) {
-                            arrayList = arrayList4;
-                        }
-                        return new ReadCacheRespMsg(this.cmd, arrayList);
-                    }
-                } else if ((dVar3 instanceof f) && (str2 = com.baidu.tbadk.core.c.a.sW().M(EB, str).get(cacheKey)) != null) {
-                    ((f) dVar3).gn(str2);
-                    ArrayList arrayList5 = new ArrayList();
-                    try {
-                        arrayList5.add(dVar3);
-                        arrayList = arrayList5;
-                    } catch (Exception e5) {
-                        arrayList = arrayList5;
-                        exc = e5;
-                        exc.printStackTrace();
-                    } catch (Throwable th6) {
-                        arrayList = arrayList5;
-                    }
-                    return new ReadCacheRespMsg(this.cmd, arrayList);
-                }
+                return new ReadCacheRespMsg(this.cmd, arrayList4);
+            } catch (Throwable th3) {
             }
+        } catch (Exception e4) {
+            e = e4;
+            arrayList2 = null;
+        } catch (Throwable th4) {
+            arrayList = null;
         }
-        arrayList = null;
-        return new ReadCacheRespMsg(this.cmd, arrayList);
     }
 }

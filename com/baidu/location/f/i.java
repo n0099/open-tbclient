@@ -184,7 +184,7 @@ public class i {
     }
 
     public boolean c(i iVar) {
-        return j.a(iVar, this, com.baidu.location.h.i.Pq);
+        return j.a(iVar, this, com.baidu.location.h.i.QP);
     }
 
     public int d() {
@@ -197,12 +197,12 @@ public class i {
         return 0;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:120:0x02fa A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x030e  */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x0312  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0061  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x007c A[Catch: Error -> 0x0199, Exception -> 0x02fd, TRY_LEAVE, TryCatch #2 {Exception -> 0x02fd, blocks: (B:7:0x000a, B:9:0x0029, B:11:0x002f, B:14:0x0045, B:17:0x0050, B:27:0x0069, B:32:0x007c, B:41:0x00b9, B:45:0x00c9, B:46:0x00d1, B:48:0x00df, B:51:0x00fb, B:53:0x0120, B:55:0x0128, B:70:0x018f, B:88:0x01ed, B:92:0x020a, B:95:0x0228, B:97:0x022e, B:99:0x0241, B:100:0x025b, B:102:0x0261, B:104:0x0269, B:105:0x0272, B:106:0x027a, B:108:0x0289, B:110:0x02a1, B:111:0x02aa, B:113:0x02da, B:116:0x02ed, B:117:0x02f2), top: B:134:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x01ed A[Catch: Error -> 0x0199, Exception -> 0x02fd, TRY_ENTER, TryCatch #2 {Exception -> 0x02fd, blocks: (B:7:0x000a, B:9:0x0029, B:11:0x002f, B:14:0x0045, B:17:0x0050, B:27:0x0069, B:32:0x007c, B:41:0x00b9, B:45:0x00c9, B:46:0x00d1, B:48:0x00df, B:51:0x00fb, B:53:0x0120, B:55:0x0128, B:70:0x018f, B:88:0x01ed, B:92:0x020a, B:95:0x0228, B:97:0x022e, B:99:0x0241, B:100:0x025b, B:102:0x0261, B:104:0x0269, B:105:0x0272, B:106:0x027a, B:108:0x0289, B:110:0x02a1, B:111:0x02aa, B:113:0x02da, B:116:0x02ed, B:117:0x02f2), top: B:134:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x0308 A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x031c  */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x0320  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0064  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x007f A[Catch: Error -> 0x019b, Exception -> 0x030b, TRY_LEAVE, TryCatch #2 {Exception -> 0x030b, blocks: (B:7:0x000a, B:9:0x0029, B:11:0x002f, B:14:0x0048, B:17:0x0053, B:27:0x006c, B:32:0x007f, B:41:0x00bc, B:45:0x00cc, B:46:0x00d5, B:48:0x00e3, B:51:0x0101, B:53:0x0125, B:55:0x012d, B:70:0x0191, B:88:0x01ef, B:92:0x020f, B:95:0x0230, B:97:0x0236, B:99:0x0249, B:100:0x0264, B:102:0x026a, B:104:0x0272, B:105:0x027b, B:106:0x0283, B:108:0x0292, B:110:0x02ab, B:111:0x02b4, B:113:0x02e7, B:116:0x02fb, B:117:0x0300), top: B:134:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x01ef A[Catch: Error -> 0x019b, Exception -> 0x030b, TRY_ENTER, TryCatch #2 {Exception -> 0x030b, blocks: (B:7:0x000a, B:9:0x0029, B:11:0x002f, B:14:0x0048, B:17:0x0053, B:27:0x006c, B:32:0x007f, B:41:0x00bc, B:45:0x00cc, B:46:0x00d5, B:48:0x00e3, B:51:0x0101, B:53:0x0125, B:55:0x012d, B:70:0x0191, B:88:0x01ef, B:92:0x020f, B:95:0x0230, B:97:0x0236, B:99:0x0249, B:100:0x0264, B:102:0x026a, B:104:0x0272, B:105:0x027b, B:106:0x0283, B:108:0x0292, B:110:0x02ab, B:111:0x02b4, B:113:0x02e7, B:116:0x02fb, B:117:0x0300), top: B:134:0x000a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -230,13 +230,13 @@ public class i {
                 Random random = new Random();
                 StringBuffer stringBuffer = new StringBuffer(512);
                 ArrayList<Long> arrayList = new ArrayList();
-                WifiInfo ng = k.nk().ng();
-                if (ng == null || ng.getBSSID() == null) {
+                WifiInfo nn = k.nr().nn();
+                if (nn == null || nn.getBSSID() == null) {
                     i2 = -1;
                     str = null;
                 } else {
-                    String replace = ng.getBSSID().replace(":", "");
-                    int rssi = ng.getRssi();
+                    String replace = nn.getBSSID().replace(":", "");
+                    int rssi = nn.getRssi();
                     if (rssi < 0) {
                         i2 = -rssi;
                         str = replace;
@@ -270,8 +270,8 @@ public class i {
                             if (this.a.get(i3).level == 0) {
                                 z4 = z2;
                                 i4 = i6;
-                                int i8 = i7;
                                 j3 = j5;
+                                int i8 = i7;
                                 c = c3;
                                 i5 = i8;
                             } else {
@@ -316,8 +316,8 @@ public class i {
                                         } catch (Exception e3) {
                                             z4 = z2;
                                             i4 = i10;
-                                            int i11 = i7;
                                             j3 = j5;
+                                            int i11 = i7;
                                             c = c3;
                                             i5 = i11;
                                         }
@@ -329,27 +329,26 @@ public class i {
                                         c2 = c3;
                                     }
                                     i5 = i7;
-                                    boolean z7 = z2;
+                                    c = c2;
+                                    z4 = z2;
                                     i4 = i10;
                                     j3 = j5;
-                                    c = c2;
-                                    z4 = z7;
                                 } else {
                                     z4 = z2;
                                     i4 = i6;
-                                    int i12 = i7;
                                     j3 = j5;
+                                    int i12 = i7;
                                     c = c3;
                                     i5 = i12;
                                 }
                             }
                             i3++;
-                            int i13 = i5;
-                            c3 = c;
                             j5 = j3;
                             i6 = i4;
-                            i7 = i13;
                             z2 = z4;
+                            int i13 = i5;
+                            c3 = c;
+                            i7 = i13;
                         }
                         if (z2) {
                             stringBuffer.append("&wf_n=" + i7);
@@ -359,10 +358,10 @@ public class i {
                             if (j5 > 10 && arrayList.size() > 0 && ((Long) arrayList.get(0)).longValue() > 0) {
                                 StringBuffer stringBuffer2 = new StringBuffer(128);
                                 stringBuffer2.append("&wf_ut=");
-                                boolean z8 = true;
+                                boolean z7 = true;
                                 Long l = (Long) arrayList.get(0);
                                 for (Long l2 : arrayList) {
-                                    if (z8) {
+                                    if (z7) {
                                         stringBuffer2.append(l2.longValue());
                                         z3 = false;
                                     } else {
@@ -370,10 +369,10 @@ public class i {
                                         if (longValue != 0) {
                                             stringBuffer2.append("" + longValue);
                                         }
-                                        z3 = z8;
+                                        z3 = z7;
                                     }
                                     stringBuffer2.append("|");
-                                    z8 = z3;
+                                    z7 = z3;
                                 }
                                 stringBuffer.append(stringBuffer2.toString());
                             }

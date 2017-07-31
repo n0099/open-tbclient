@@ -1,84 +1,92 @@
 package com.baidu.tieba.enterForum.multiConcern;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tieba.enterForum.multiConcern.MultiConcernModel;
-import com.baidu.tieba.w;
-import java.util.ArrayList;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.d;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements View.OnClickListener {
-    final /* synthetic */ b bTY;
+public class c extends BaseAdapter {
+    private Context mContext;
+    private List<b> mDatas;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.bTY = bVar;
+    /* loaded from: classes.dex */
+    public static class a {
+        public View aVt;
+        public TbImageView bZu;
+        public TextView bZv;
+        public TextView bZw;
+        public TextView bZx;
+        public View bZy;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public c(Context context) {
+        this.mContext = context;
+    }
+
+    public void setData(List<b> list) {
+        this.mDatas = list;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return u.u(this.mDatas);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: if  reason: not valid java name */
+    public b getItem(int i) {
+        return (b) u.c(this.mDatas, i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
         View view2;
-        TextView textView;
-        TextView textView2;
-        List<g> list;
-        TextView textView3;
-        MultiConcernModel multiConcernModel;
-        MultiConcernModel.a aVar;
-        MultiConcernModel multiConcernModel2;
-        MultiConcernModel multiConcernModel3;
-        MultiConcernModel.a aVar2;
-        TbPageContext tbPageContext;
-        TbPageContext tbPageContext2;
-        view2 = this.bTY.bTQ;
-        if (view != view2) {
-            textView = this.bTY.bTS;
-            if (view != textView) {
-                textView2 = this.bTY.bTU;
-                if (view == textView2) {
-                    ArrayList<Long> arrayList = new ArrayList<>();
-                    list = this.bTY.forumList;
-                    for (g gVar : list) {
-                        if (gVar.isSelected) {
-                            arrayList.add(Long.valueOf(gVar.forumId));
-                        }
-                    }
-                    if (z.t(arrayList)) {
-                        this.bTY.abk();
-                        com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_recommend_forums_window_", false);
-                        return;
-                    } else if (!k.hA()) {
-                        tbPageContext2 = this.bTY.aat;
-                        k.showToast(tbPageContext2.getPageActivity(), w.l.neterror);
-                        return;
-                    } else {
-                        textView3 = this.bTY.bTU;
-                        textView3.setClickable(false);
-                        multiConcernModel = this.bTY.bTW;
-                        if (multiConcernModel == null) {
-                            b bVar = this.bTY;
-                            tbPageContext = this.bTY.aat;
-                            bVar.bTW = new MultiConcernModel(tbPageContext);
-                        }
-                        aVar = this.bTY.bTX;
-                        if (aVar == null) {
-                            this.bTY.bTX = new d(this);
-                            multiConcernModel3 = this.bTY.bTW;
-                            aVar2 = this.bTY.bTX;
-                            multiConcernModel3.a(aVar2);
-                        }
-                        multiConcernModel2 = this.bTY.bTW;
-                        multiConcernModel2.C(arrayList);
-                        return;
-                    }
-                }
-                return;
-            }
-            this.bTY.abk();
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_recommend_forums_window_", false);
+        b item = getItem(i);
+        if (view != null && view.getTag() != null) {
+            aVar = (a) view.getTag();
+            view2 = view;
+        } else {
+            View inflate = LayoutInflater.from(this.mContext).inflate(d.j.item_recommend_forum_by_tag, viewGroup, false);
+            aVar = new a();
+            aVar.bZu = (TbImageView) inflate.findViewById(d.h.imageview_forum);
+            aVar.bZv = (TextView) inflate.findViewById(d.h.textview_forum_name);
+            aVar.bZw = (TextView) inflate.findViewById(d.h.textview_forum_concern_count);
+            aVar.bZx = (TextView) inflate.findViewById(d.h.textview_forum_thread_count);
+            aVar.bZy = inflate.findViewById(d.h.view_check_state);
+            aVar.aVt = inflate.findViewById(d.h.view_bottom_line);
+            inflate.setTag(aVar);
+            view2 = inflate;
         }
+        if (item != null) {
+            aVar.bZu.c(item.avatar, 10, false);
+            aVar.bZv.setText(item.forumName);
+            aVar.bZw.setText(String.format(this.mContext.getString(d.l.forum_concern_number), al.u(item.followNum)));
+            aVar.bZx.setText(String.format(this.mContext.getString(d.l.forum_thread_number), al.u(item.threadNum)));
+            if (item.isSelected) {
+                ai.j(aVar.bZy, d.g.icon_list_confirm_s);
+            } else {
+                ai.j(aVar.bZy, d.g.icon_jinba_confirm_n);
+            }
+            ai.i(aVar.bZv, d.e.cp_cont_b);
+            ai.i(aVar.bZw, d.e.cp_cont_f);
+            ai.i(aVar.bZx, d.e.cp_cont_f);
+            ai.k(aVar.aVt, d.e.cp_bg_line_c);
+        }
+        return view2;
     }
 }

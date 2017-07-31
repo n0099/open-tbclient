@@ -2,8 +2,8 @@ package com.baidu.tieba.pb.pb.main.emotion.message;
 
 import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.emotion.data.EmotionImageData;
-import com.baidu.tieba.pb.pb.main.emotion.data.b;
+import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.pb.pb.main.emotion.a.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -11,7 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
-    private b mData;
+    private a mData;
 
     public SuggestEmotionResponseMessage(int i) {
         super(i);
@@ -22,9 +22,9 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
-            this.mData = new b();
-            this.mData.cm(parseImageData(jSONObject.optJSONArray("memes")));
-            this.mData.cn(parseHotWordsData(jSONObject.optJSONArray("topwords")));
+            this.mData = new a();
+            this.mData.aw(parseImageData(jSONObject.optJSONArray("memes")));
+            this.mData.cE(parseHotWordsData(jSONObject.optJSONArray("topwords")));
         }
     }
 
@@ -33,7 +33,7 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        int min = Math.min(jSONArray.length(), 5);
+        int min = Math.min(jSONArray.length(), 10);
         for (int i = 0; i < min; i++) {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
@@ -43,6 +43,7 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
                 emotionImageData.setThumbUrl(jSONObject.optString("thumbnail"));
                 emotionImageData.setWidth(jSONObject.optInt("width"));
                 emotionImageData.setHeight(jSONObject.optInt("height"));
+                emotionImageData.setMemeContSign(jSONObject.optString("cont_sign"));
                 arrayList.add(emotionImageData);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -66,7 +67,7 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         return arrayList;
     }
 
-    public b getData() {
+    public a getData() {
         return this.mData;
     }
 }

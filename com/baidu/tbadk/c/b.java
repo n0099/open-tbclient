@@ -1,102 +1,419 @@
 package com.baidu.tbadk.c;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.ah;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import java.lang.ref.WeakReference;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.text.TextUtils;
+import android.webkit.MimeTypeMap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.e;
+import com.baidu.adp.lib.util.k;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.img.ImageFileInfo;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public abstract class b {
-    protected static WeakReference<TbPageContext<?>> Qf = null;
-    protected static boolean Qh = false;
-    protected String Qc = "183322726";
-    protected boolean Qg = true;
-    protected transient List<String> Qd = new ArrayList(5);
+public class b {
+    private c RA;
+    private final String Ry = TbConfig.getTempDirName();
+    private a Rz;
+    private final Context mContext;
 
+    /* renamed from: com.baidu.tbadk.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface a {
-        void a(boolean z, int i, int i2, ah ahVar);
+    public interface InterfaceC0039b {
+        void l(List<ImageFileInfo> list);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void a(TbPageContext tbPageContext, String str, String str2, String str3);
+    public b(Context context) {
+        this.mContext = context;
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aX(int i);
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void c(a aVar);
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nG();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nM();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nN();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nO();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nP();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nQ();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public static b b(BaseFragmentActivity baseFragmentActivity) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOTOLIVE_MANAGER_FRAGMENTACTIVITY, b.class, baseFragmentActivity);
-        if (runTask == null || runTask.getData() == null) {
-            return null;
+    public boolean a(com.baidu.tbadk.c.c cVar) {
+        if (cVar == null) {
+            return false;
         }
-        return (b) runTask.getData();
+        nH();
+        this.Rz = new a(cVar);
+        this.Rz.setPriority(3);
+        this.Rz.execute(new Object[0]);
+        return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public static b c(BaseActivity baseActivity) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOTOLIVE_MANAGER_ACTIVITY, b.class, baseActivity);
-        if (runTask == null || runTask.getData() == null) {
-            return null;
+    public boolean a(String str, d dVar) {
+        if (dVar == null) {
+            return false;
         }
-        return (b) runTask.getData();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(TbPageContext<?> tbPageContext) {
-        if (Qf == null) {
-            Qf = new WeakReference<>(tbPageContext);
-            return;
-        }
-        Qf.clear();
-        Qf = null;
-        Qf = new WeakReference<>(tbPageContext);
-    }
-
-    public boolean nL() {
-        return Qh;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void ad(boolean z) {
-        this.Qg = z;
-    }
-
-    public boolean nF() {
-        return this.Qg;
+        nI();
+        this.RA = new c(str, dVar);
+        this.RA.setPriority(3);
+        this.RA.execute(new Void[0]);
+        return true;
     }
 
     public void nH() {
-        if (Qf != null) {
-            Qf.get();
-            Qf.clear();
-            Qf = null;
+        if (this.Rz != null) {
+            this.Rz.cancel();
+            this.Rz = null;
+        }
+    }
+
+    public void nI() {
+        if (this.RA != null) {
+            this.RA.cancel();
+            this.RA = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a extends BdAsyncTask<Object, Integer, List<com.baidu.tbadk.c.a>> {
+        private final com.baidu.tbadk.c.c RB;
+
+        public a(com.baidu.tbadk.c.c cVar) {
+            this.RB = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public List<com.baidu.tbadk.c.a> doInBackground(Object... objArr) {
+            return b.this.nJ();
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            super.onPreExecute();
+            if (this.RB != null) {
+                this.RB.onPreLoad();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(List<com.baidu.tbadk.c.a> list) {
+            super.onPostExecute((a) list);
+            if (this.RB != null) {
+                this.RB.m(list);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public List<com.baidu.tbadk.c.a> nJ() {
+        HashSet<String> hashSet = new HashSet<>();
+        return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x0142 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r3v4, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r3v5 */
+    /* JADX WARN: Type inference failed for: r3v7, types: [android.database.Cursor] */
+    private List<com.baidu.tbadk.c.a> a(Context context, List<com.baidu.tbadk.c.a> list, Uri uri, HashSet<String> hashSet) {
+        Cursor cursor;
+        File[] listFiles;
+        Matcher matcher;
+        if (context == null) {
+            return null;
+        }
+        Pattern compile = Pattern.compile("image\\/\\w+", 2);
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        ?? r3 = "count(*)";
+        try {
+            try {
+                cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "bucket_display_name", "_data", "count(*)"}, "mime_type like 'image/%') GROUP BY 1,(2", null, "date_added DESC");
+                try {
+                    if (cursor.moveToFirst()) {
+                        int columnIndex = cursor.getColumnIndex("bucket_id");
+                        int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
+                        int columnIndex3 = cursor.getColumnIndex("_data");
+                        int columnIndex4 = cursor.getColumnIndex("count(*)");
+                        do {
+                            String string = cursor.getString(columnIndex);
+                            String string2 = cursor.getString(columnIndex2);
+                            String string3 = cursor.getString(columnIndex3);
+                            cursor.getString(columnIndex4);
+                            int i = 0;
+                            String substring = string3.substring(0, string3.lastIndexOf("/"));
+                            if (hashSet != null) {
+                                if (!hashSet.contains(substring)) {
+                                    hashSet.add(substring);
+                                }
+                            }
+                            File file = new File(substring);
+                            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                                for (File file2 : listFiles) {
+                                    String cf = cf(file2.getAbsolutePath());
+                                    if (cf != null && (matcher = compile.matcher(cf)) != null && matcher.matches()) {
+                                        i++;
+                                    }
+                                }
+                            }
+                            if (i != 0) {
+                                com.baidu.tbadk.c.a aVar = new com.baidu.tbadk.c.a();
+                                aVar.cd(string);
+                                aVar.ce(i + "");
+                                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                                File file3 = new File(string3);
+                                if (file3.exists() && file3.isFile()) {
+                                    imageFileInfo.setModifyTime(al.K(file3.lastModified()));
+                                }
+                                imageFileInfo.setFilePath(string3);
+                                aVar.a(imageFileInfo);
+                                aVar.setName(string2);
+                                if (string2 != null && string2.equals(this.Ry)) {
+                                    list.add(0, aVar);
+                                } else {
+                                    list.add(aVar);
+                                }
+                            }
+                        } while (cursor.moveToNext());
+                        com.baidu.adp.lib.g.a.e(cursor);
+                        return list;
+                    }
+                    com.baidu.adp.lib.g.a.e(cursor);
+                    return list;
+                } catch (Exception e) {
+                    e = e;
+                    BdLog.detailException(e);
+                    com.baidu.adp.lib.g.a.e(cursor);
+                    return list;
+                }
+            } catch (Throwable th) {
+                th = th;
+                com.baidu.adp.lib.g.a.e((Cursor) r3);
+                throw th;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+            r3 = 0;
+            com.baidu.adp.lib.g.a.e((Cursor) r3);
+            throw th;
+        }
+    }
+
+    public String cf(String str) {
+        String fileExtensionFromUrl = getFileExtensionFromUrl(str);
+        if (fileExtensionFromUrl == null) {
+            return null;
+        }
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl.toLowerCase(Locale.getDefault()));
+    }
+
+    private String getFileExtensionFromUrl(String str) {
+        int lastIndexOf;
+        if (!TextUtils.isEmpty(str)) {
+            int lastIndexOf2 = str.lastIndexOf(35);
+            if (lastIndexOf2 > 0) {
+                str = str.substring(0, lastIndexOf2);
+            }
+            int lastIndexOf3 = str.lastIndexOf(63);
+            if (lastIndexOf3 > 0) {
+                str = str.substring(0, lastIndexOf3);
+            }
+            int lastIndexOf4 = str.lastIndexOf(47);
+            if (lastIndexOf4 >= 0) {
+                str = str.substring(lastIndexOf4 + 1);
+            }
+            if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(46)) >= 0 && lastIndexOf < str.length() - 1) {
+                return str.substring(lastIndexOf + 1);
+            }
+        }
+        return "";
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class c extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo>> {
+        private final d RD;
+        private final String RE;
+        private String RF;
+        private List<com.baidu.tbadk.c.a> RG;
+        private int RH = 1;
+        private InterfaceC0039b RI = new InterfaceC0039b() { // from class: com.baidu.tbadk.c.b.c.1
+            @Override // com.baidu.tbadk.c.b.InterfaceC0039b
+            public void l(List<ImageFileInfo> list) {
+                c.this.publishProgress(list);
+            }
+        };
+
+        public c(String str, d dVar) {
+            this.RD = dVar;
+            this.RE = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public List<ImageFileInfo> doInBackground(Void... voidArr) {
+            if (TextUtils.isEmpty(this.RE)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            if (this.RE.equals("-1")) {
+                this.RG = b.this.nJ();
+                if (this.RG != null) {
+                    for (com.baidu.tbadk.c.a aVar : this.RG) {
+                        String albumId = aVar.getAlbumId();
+                        if (!TextUtils.isEmpty(albumId)) {
+                            a(arrayList, this.RI, albumId);
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            a(arrayList, this.RI, this.RE);
+            return arrayList;
+        }
+
+        private void a(List<ImageFileInfo> list, InterfaceC0039b interfaceC0039b, String str) {
+            if (list != null) {
+                a(list, interfaceC0039b, str, b.this.mContext, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                if (list == null || list.size() <= 0) {
+                    a(list, interfaceC0039b, str, b.this.mContext, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                }
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreCancel() {
+            super.onPreCancel();
+            if (this.RD != null) {
+                this.RD.onPreLoad();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: a */
+        public void onProgressUpdate(List<ImageFileInfo>... listArr) {
+            super.onProgressUpdate(listArr);
+            if (listArr.length > 0 && this.RD != null) {
+                this.RD.a(this.RG, listArr[0], this.RF);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(List<ImageFileInfo> list) {
+            super.onPostExecute((c) list);
+            if (this.RD != null) {
+                this.RD.a(this.RG, list, this.RF);
+            }
+        }
+
+        private void a(List<ImageFileInfo> list, InterfaceC0039b interfaceC0039b) {
+            if (list != null && interfaceC0039b != null) {
+                if (this.RH == 1 || this.RH == 2) {
+                    if (list.size() / this.RH > 50) {
+                        if (interfaceC0039b != null) {
+                            interfaceC0039b.l(list);
+                        }
+                        this.RH++;
+                    }
+                } else if (list.size() / this.RH > 500) {
+                    if (interfaceC0039b != null) {
+                        interfaceC0039b.l(list);
+                    }
+                    this.RH++;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [490=4, 506=4] */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x00d2 */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.String] */
+        /* JADX WARN: Type inference failed for: r1v3 */
+        /* JADX WARN: Type inference failed for: r1v5, types: [android.database.Cursor] */
+        private void a(List<ImageFileInfo> list, InterfaceC0039b interfaceC0039b, String str, Context context, Uri uri) {
+            Cursor cursor;
+            InputStream f;
+            if (list == null) {
+                return;
+            }
+            ?? r1 = "bucket_display_name";
+            try {
+                try {
+                    cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "_data", "bucket_display_name"}, "bucket_id=?", new String[]{str}, "datetaken DESC");
+                    try {
+                        if (!cursor.moveToFirst()) {
+                            com.baidu.adp.lib.g.a.e(cursor);
+                        }
+                        int columnIndex = cursor.getColumnIndex("_data");
+                        int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
+                        do {
+                            String string = cursor.getString(columnIndex);
+                            this.RF = cursor.getString(columnIndex2);
+                            ImageFileInfo imageFileInfo = new ImageFileInfo();
+                            imageFileInfo.setAlbumnId(str);
+                            imageFileInfo.setFilePath(string);
+                            File file = new File(string);
+                            if (file.exists() && file.length() > 0) {
+                                if (string.toLowerCase().endsWith(".gif") && (f = e.f(file)) != null) {
+                                    try {
+                                        byte[] bArr = new byte[7];
+                                        r0 = f.read(bArr, 0, 6) == 6 ? k.p(bArr) : false;
+                                        if (!r0 || e.getFileSize(file) <= 3145728) {
+                                            com.baidu.adp.lib.g.a.p(f);
+                                        } else {
+                                            com.baidu.adp.lib.g.a.p(f);
+                                        }
+                                    } catch (IOException e) {
+                                        com.baidu.adp.lib.g.a.p(f);
+                                    } catch (Throwable th) {
+                                        com.baidu.adp.lib.g.a.p(f);
+                                        throw th;
+                                    }
+                                }
+                                imageFileInfo.setIsGif(r0);
+                                imageFileInfo.setModifyTime(al.K(file.lastModified()));
+                                list.add(imageFileInfo);
+                                a(list, interfaceC0039b);
+                            }
+                        } while (cursor.moveToNext());
+                        com.baidu.adp.lib.g.a.e(cursor);
+                    } catch (Exception e2) {
+                        e = e2;
+                        BdLog.detailException(e);
+                        com.baidu.adp.lib.g.a.e(cursor);
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    com.baidu.adp.lib.g.a.e((Cursor) r1);
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
+            } catch (Throwable th3) {
+                th = th3;
+                r1 = 0;
+                com.baidu.adp.lib.g.a.e((Cursor) r1);
+                throw th;
+            }
         }
     }
 }

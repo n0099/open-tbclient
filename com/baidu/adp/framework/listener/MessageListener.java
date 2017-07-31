@@ -1,9 +1,10 @@
 package com.baidu.adp.framework.listener;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.d;
 import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
-public abstract class MessageListener<T extends ResponsedMessage<?>> extends com.baidu.adp.framework.d {
+public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
     private int mCmd;
     private boolean mSelfListener;
     private BdUniqueId mTag;

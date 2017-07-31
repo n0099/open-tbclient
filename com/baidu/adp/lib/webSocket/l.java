@@ -1,47 +1,79 @@
 package com.baidu.adp.lib.webSocket;
-
-import com.baidu.adp.lib.webSocket.g;
-import com.baidu.adp.lib.webSocket.m;
-import java.util.Map;
 /* loaded from: classes.dex */
-public class l implements g.a {
-    @Override // com.baidu.adp.lib.webSocket.g.a
-    public void e(Map<String, String> map) {
+public class l {
+    private String BC;
+    private int Cp;
+    private int Cq;
+    private boolean Cr;
+    private boolean Cs;
+    private int Ct;
+    private int Cu;
+    private boolean Cv;
+    private boolean Cw;
+
+    public l() {
+        this.BC = null;
+        this.Cp = 32768;
+        this.Cq = 131072;
+        this.Cr = false;
+        this.Cs = true;
+        this.Ct = 30000;
+        this.Cu = 30000;
+        this.Cv = true;
+        this.Cw = true;
+        this.BC = null;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g.a
-    public void e(int i, String str) {
+    public l(l lVar) {
+        this.BC = null;
+        this.Cp = lVar.Cp;
+        this.Cq = lVar.Cq;
+        this.Cr = lVar.Cr;
+        this.Cs = lVar.Cs;
+        this.Ct = lVar.Ct;
+        this.Cu = lVar.Cu;
+        this.Cv = lVar.Cv;
+        this.Cw = lVar.Cw;
+        this.BC = lVar.BC;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g.a
-    public void C(String str) {
+    public boolean it() {
+        return this.Cr;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g.a
-    public void r(byte[] bArr) {
+    public int iu() {
+        return this.Cp;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g.a
-    public void b(m.a aVar) {
+    public int iv() {
+        return this.Cq;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g.a
-    public void a(c cVar) {
+    public boolean getTcpNoDelay() {
+        return this.Cs;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g.a
-    public void hV() {
+    public int iw() {
+        return this.Ct;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g.a
-    public void b(c cVar) {
+    public int ix() {
+        return this.Cu;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g.a
-    public void a(int i, c cVar) {
+    public boolean iy() {
+        return this.Cv;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g.a
-    public void c(c cVar) {
+    public boolean iz() {
+        return this.Cw;
+    }
+
+    public String iA() {
+        return this.BC;
+    }
+
+    public void aY(String str) {
+        this.BC = str;
     }
 }

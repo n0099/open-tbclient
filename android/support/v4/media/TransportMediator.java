@@ -23,16 +23,15 @@ public class TransportMediator extends TransportController {
     public static final int KEYCODE_MEDIA_RECORD = 130;
     final TransportPerformer jo;
     final Object jp;
-    final d jq;
+    final b jq;
     final ArrayList<TransportStateListener> jr;
-    final c js;
+    final a js;
     final KeyEvent.Callback jt;
     final AudioManager mAudioManager;
     final Context mContext;
     final View mView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean j(int i) {
+    static boolean j(int i) {
         switch (i) {
             case 79:
             case 85:
@@ -61,15 +60,51 @@ public class TransportMediator extends TransportController {
 
     private TransportMediator(Activity activity, View view, TransportPerformer transportPerformer) {
         this.jr = new ArrayList<>();
-        this.js = new a(this);
-        this.jt = new b(this);
+        this.js = new a() { // from class: android.support.v4.media.TransportMediator.1
+            @Override // android.support.v4.media.a
+            public void a(KeyEvent keyEvent) {
+                keyEvent.dispatch(TransportMediator.this.jt);
+            }
+
+            @Override // android.support.v4.media.a
+            public void k(int i) {
+                TransportMediator.this.jo.onAudioFocusChange(i);
+            }
+        };
+        this.jt = new KeyEvent.Callback() { // from class: android.support.v4.media.TransportMediator.2
+            @Override // android.view.KeyEvent.Callback
+            public boolean onKeyDown(int i, KeyEvent keyEvent) {
+                if (TransportMediator.j(i)) {
+                    return TransportMediator.this.jo.onMediaButtonDown(i, keyEvent);
+                }
+                return false;
+            }
+
+            @Override // android.view.KeyEvent.Callback
+            public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
+                return false;
+            }
+
+            @Override // android.view.KeyEvent.Callback
+            public boolean onKeyUp(int i, KeyEvent keyEvent) {
+                if (TransportMediator.j(i)) {
+                    return TransportMediator.this.jo.onMediaButtonUp(i, keyEvent);
+                }
+                return false;
+            }
+
+            @Override // android.view.KeyEvent.Callback
+            public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
+                return false;
+            }
+        };
         this.mContext = activity != null ? activity : view.getContext();
         this.jo = transportPerformer;
         this.mAudioManager = (AudioManager) this.mContext.getSystemService("audio");
         this.mView = activity != null ? activity.getWindow().getDecorView() : view;
         this.jp = KeyEventCompat.getKeyDispatcherState(this.mView);
         if (Build.VERSION.SDK_INT >= 18) {
-            this.jq = new d(this.mContext, this.mAudioManager, this.mView, this.js);
+            this.jq = new b(this.mContext, this.mAudioManager, this.mView, this.js);
         } else {
             this.jq = null;
         }

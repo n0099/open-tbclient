@@ -11,6 +11,7 @@ import com.baidu.sapi2.result.FillUserProfileResult;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -26,7 +27,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
         Log.e(TAG, "onBind errorCode=" + i);
         if (i == 0) {
             Log.e(TAG, FillUserProfileResult.RESULT_MSG_SUCCESS);
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(String.valueOf(TbConfig.getVersion()) + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+            b.getInstance().putBoolean(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
         }
     }
 
@@ -49,8 +50,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onListTags(Context context, int i, List<String> list, String str) {
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x007a A[Catch: Exception -> 0x00a1, TryCatch #0 {Exception -> 0x00a1, blocks: (B:4:0x0009, B:6:0x0016, B:7:0x001c, B:9:0x0024, B:10:0x002a, B:12:0x0032, B:14:0x0045, B:15:0x004c, B:17:0x0054, B:19:0x005c, B:21:0x007a, B:22:0x0080, B:24:0x0088, B:25:0x008a), top: B:32:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0088 A[Catch: Exception -> 0x00a1, TryCatch #0 {Exception -> 0x00a1, blocks: (B:4:0x0009, B:6:0x0016, B:7:0x001c, B:9:0x0024, B:10:0x002a, B:12:0x0032, B:14:0x0045, B:15:0x004c, B:17:0x0054, B:19:0x005c, B:21:0x007a, B:22:0x0080, B:24:0x0088, B:25:0x008a), top: B:32:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0087 A[Catch: Exception -> 0x00af, TryCatch #0 {Exception -> 0x00af, blocks: (B:4:0x0009, B:6:0x0017, B:7:0x001e, B:9:0x0027, B:10:0x002e, B:12:0x0037, B:14:0x004c, B:15:0x0054, B:17:0x005d, B:19:0x0066, B:21:0x0087, B:22:0x008e, B:24:0x0096, B:25:0x0098), top: B:32:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0096 A[Catch: Exception -> 0x00af, TryCatch #0 {Exception -> 0x00af, blocks: (B:4:0x0009, B:6:0x0017, B:7:0x001e, B:9:0x0027, B:10:0x002e, B:12:0x0037, B:14:0x004c, B:15:0x0054, B:17:0x005d, B:19:0x0066, B:21:0x0087, B:22:0x008e, B:24:0x0096, B:25:0x0098), top: B:32:0x0009 }] */
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     /*
         Code decompiled incorrectly, please refer to instructions dump.

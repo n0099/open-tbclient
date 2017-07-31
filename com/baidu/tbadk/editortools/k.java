@@ -1,18 +1,14 @@
 package com.baidu.tbadk.editortools;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
-    final /* synthetic */ j aAl;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar) {
-        this.aAl = jVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.aAl.F(view);
+public class k {
+    public static l a(Context context, r rVar, int i) {
+        switch (i) {
+            case 1:
+                return new c(context, rVar.aCN, rVar.id);
+            default:
+                return new e(context, rVar.aCN, rVar.name, rVar.id);
+        }
     }
 }

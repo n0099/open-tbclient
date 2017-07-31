@@ -9,7 +9,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class RecommendFrsStatic {
     static {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NEG_FEED_BACK, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.NEG_FEED_BACK);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NEG_FEED_BACK, TbConfig.SERVER_ADDRESS + TbConfig.NEG_FEED_BACK);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         messageManager.registerTask(tbHttpMessageTask);

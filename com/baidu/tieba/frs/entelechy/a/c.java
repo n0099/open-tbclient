@@ -1,63 +1,61 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tieba.card.x;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class c extends CustomMessageListener {
-    final /* synthetic */ b cgp;
+public class c extends com.baidu.adp.widget.ListView.a<ax, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.h>> implements com.baidu.tieba.frs.e.c {
+    private TbPageContext<?> alI;
+    private x bkz;
+    private com.baidu.tieba.frs.entelechy.view.h cnx;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(b bVar, int i) {
-        super(i);
-        this.cgp = bVar;
+    public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
+        this.bkz = new x<bl>() { // from class: com.baidu.tieba.frs.entelechy.a.c.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.card.x
+            public void a(View view, bl blVar) {
+                if (view != null && c.this.cnx != null && c.this.cnx.getView() != null && c.this.cnx.coW != null && blVar != null && !StringUtils.isNull(blVar.getTid())) {
+                    if (view.getId() == d.h.card_root_view) {
+                        com.baidu.tieba.frs.e.b.aiY().a(com.baidu.tieba.frs.e.c.cvL, blVar, 1);
+                    } else if (view.getId() == d.h.avatar) {
+                        com.baidu.tieba.frs.e.b.aiY().a(com.baidu.tieba.frs.e.c.cvL, blVar, 2);
+                    } else if (view.getId() == d.h.card_divider_tv) {
+                        com.baidu.tieba.frs.f.h.a(com.baidu.tieba.frs.e.c.cvL, blVar.sd());
+                    }
+                }
+            }
+        };
+        this.alI = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List list;
-        BdTypeListView bdTypeListView;
-        List list2;
-        BdTypeListView bdTypeListView2;
-        List list3;
-        com.baidu.tieba.frs.r rVar;
-        com.baidu.tieba.frs.r rVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-            AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-            Iterator it = absDelegateAdapterList.iterator();
-            while (it.hasNext()) {
-                com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
-                if (aVar instanceof com.baidu.tieba.frs.p) {
-                    rVar = this.cgp.cdv;
-                    TbPageContext<BaseFragmentActivity> pageContext = rVar.getPageContext();
-                    rVar2 = this.cgp.cdv;
-                    ((com.baidu.tieba.frs.p) aVar).a(pageContext, rVar2.getUniqueId());
-                }
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(absDelegateAdapterList);
-            this.cgp.aw(arrayList);
-            list = this.cgp.mAdapters;
-            if (list != null) {
-                list3 = this.cgp.mAdapters;
-                list3.addAll(absDelegateAdapterList);
-            }
-            bdTypeListView = this.cgp.mListView;
-            if (bdTypeListView != null) {
-                list2 = this.cgp.mAdapters;
-                list2.addAll(arrayList);
-                bdTypeListView2 = this.cgp.mListView;
-                bdTypeListView2.addAdapters(arrayList);
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: w */
+    public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
+        this.cnx = new com.baidu.tieba.frs.entelechy.view.h(this.alI, this.mPageId);
+        this.cnx.i(this.mPageId);
+        return new com.baidu.tieba.card.a.a(this.cnx);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ax axVar, com.baidu.tieba.card.a.a aVar) {
+        if (aVar == null || aVar.Xc() == null) {
+            return null;
         }
+        aVar.Xc().a((com.baidu.tieba.card.a) axVar);
+        aVar.Xc().a(this.bkz);
+        com.baidu.tieba.frs.e.b.aiY().a(cvL, axVar);
+        return aVar.getView();
     }
 }

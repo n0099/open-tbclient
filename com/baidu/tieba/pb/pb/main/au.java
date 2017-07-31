@@ -1,88 +1,84 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tbadk.widget.richText.TbRichTextMemeInfo;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-class au implements View.OnLongClickListener {
-    final /* synthetic */ PbActivity ewh;
+public final class au extends LinearLayout {
+    private LinearLayout aMc;
+    private TextView aSE;
+    private TextView axQ;
+    private EditText cAj;
+    private ShareFromPBMsgData dAb;
+    private TbImageView deq;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public au(PbActivity pbActivity) {
-        this.ewh = pbActivity;
+    public EditText getChatMsgView() {
+        return this.cAj;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        SparseArray sparseArray;
-        com.baidu.tbadk.baseEditMark.a aVar;
-        com.baidu.tbadk.baseEditMark.a aVar2;
-        boolean z;
-        gg ggVar;
-        c.b bVar;
-        PbModel pbModel;
-        com.baidu.adp.widget.a.a aVar3;
-        String str;
-        gg ggVar2;
-        c.b bVar2;
-        com.baidu.adp.widget.a.a aVar4;
-        if (view instanceof TbImageView) {
-            this.ewh.evq = ((TbImageView) view).getBdImage();
-            this.ewh.evr = ((TbImageView) view).getUrl();
-            aVar3 = this.ewh.evq;
-            if (aVar3 != null) {
-                str = this.ewh.evr;
-                if (!TextUtils.isEmpty(str)) {
-                    if (view.getTag(w.h.tag_rich_text_meme_info) == null || !(view.getTag(w.h.tag_rich_text_meme_info) instanceof TbRichTextImageInfo)) {
-                        this.ewh.evs = null;
-                    } else {
-                        this.ewh.evs = (TbRichTextMemeInfo) view.getTag(w.h.tag_rich_text_meme_info);
-                    }
-                    ggVar2 = this.ewh.euU;
-                    bVar2 = this.ewh.evY;
-                    aVar4 = this.ewh.evq;
-                    ggVar2.a(bVar2, aVar4.isGif());
-                }
-            }
-        } else {
-            try {
-                sparseArray = (SparseArray) view.getTag();
-            } catch (ClassCastException e) {
-                e.printStackTrace();
-                sparseArray = null;
-            }
-            if (sparseArray != null) {
-                this.ewh.evW = (PostData) sparseArray.get(w.h.tag_clip_board);
-                if (this.ewh.evW != null) {
-                    aVar = this.ewh.dPW;
-                    if (aVar != null) {
-                        aVar2 = this.ewh.dPW;
-                        if (aVar2.nz() && this.ewh.evW.getId() != null) {
-                            String id = this.ewh.evW.getId();
-                            pbModel = this.ewh.eue;
-                            if (id.equals(pbModel.rA())) {
-                                z = true;
-                                boolean booleanValue = ((Boolean) sparseArray.get(w.h.tag_is_subpb)).booleanValue();
-                                ggVar = this.ewh.euU;
-                                bVar = this.ewh.evX;
-                                ggVar.a(bVar, z, booleanValue);
-                            }
-                        }
-                        z = false;
-                        boolean booleanValue2 = ((Boolean) sparseArray.get(w.h.tag_is_subpb)).booleanValue();
-                        ggVar = this.ewh.euU;
-                        bVar = this.ewh.evX;
-                        ggVar.a(bVar, z, booleanValue2);
-                    }
-                }
-            }
+    public void J(String str, boolean z) {
+        if (this.deq != null) {
+            this.deq.c(str, z ? 17 : 18, false);
         }
-        return true;
+    }
+
+    public au(Context context) {
+        super(context);
+        bk(context);
+    }
+
+    private void bk(Context context) {
+        LayoutInflater.from(context).inflate(d.j.thread_to_group_share_view, this);
+        setOrientation(1);
+        this.aMc = (LinearLayout) findViewById(d.h.share_content);
+        this.axQ = (TextView) findViewById(d.h.share_title_view);
+        this.cAj = (EditText) findViewById(d.h.chat_msg);
+        this.deq = (TbImageView) findViewById(d.h.chat_group_img);
+        this.aSE = (TextView) findViewById(d.h.chat_group_desc);
+        com.baidu.tbadk.core.util.ai.c(this.axQ, d.e.cp_cont_b, 1);
+        com.baidu.tbadk.core.util.ai.c(this.cAj, d.e.cp_cont_b, 2);
+        com.baidu.tbadk.core.util.ai.c(this.aSE, d.e.cp_cont_f, 1);
+        this.cAj.setHintTextColor(com.baidu.tbadk.core.util.ai.getColor(d.e.cp_cont_e));
+        this.cAj.setPadding(context.getResources().getDimensionPixelSize(d.f.ds20), 0, 0, 0);
+        ajQ();
+    }
+
+    public void ajQ() {
+        this.aMc.setFocusable(true);
+        this.aMc.setFocusableInTouchMode(true);
+        this.aMc.requestFocus();
+    }
+
+    public String getLeaveMsg() {
+        if (this.cAj != null) {
+            return com.baidu.adp.lib.util.j.a(this.cAj.getText(), null);
+        }
+        return null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.widget.LinearLayout, android.view.ViewGroup
+    public LinearLayout.LayoutParams generateDefaultLayoutParams() {
+        return new LinearLayout.LayoutParams(-1, -2);
+    }
+
+    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
+        this.dAb = shareFromPBMsgData;
+        wP();
+    }
+
+    private void wP() {
+        this.axQ.setText(this.dAb.getTitle());
+        BdLog.e("mData.getImageUrl()的图片URL" + this.dAb.getImageUrl());
+        this.deq.setTag(this.dAb.getImageUrl());
+        BdLog.e("mData.getContent()的Content" + this.dAb.getContent());
+        this.aSE.setText(this.dAb.getContent());
     }
 }

@@ -82,6 +82,7 @@ public class CmdConfigCustom {
     public static final int CMD_CALL_STATE_CHANGED = 2016503;
     public static final int CMD_CANCEL_FILE_DOWNLOAD = 2001140;
     public static final int CMD_CANCLE_LIKE_FRS = 2003004;
+    public static final int CMD_CAN_GO_STROY = 2921035;
     public static final int CMD_CDN_IP_DIRECT_CONNECT = 2016102;
     public static final int CMD_CDN_PROBLEM_UPLOADER = 2016101;
     public static final int CMD_CDN_TACHOMETER = 2017000;
@@ -134,6 +135,7 @@ public class CmdConfigCustom {
     public static final int CMD_DELETE_EDIT_MODULE_CARD_VIEW = 2921006;
     public static final int CMD_DELETE_GRAFFITI_SUCCESS = 2001414;
     public static final int CMD_DELETE_MSG = 2001110;
+    public static final int CMD_DELETE_MY_STORY = 2921055;
     public static final int CMD_DELETE_SKINT_DATA_FROM_DB = 2001364;
     public static final int CMD_DELETE_SKIN_TEMP_FILE = 2001366;
     public static final int CMD_DEL_OFFICIAL_DB = 2001151;
@@ -144,6 +146,7 @@ public class CmdConfigCustom {
     public static final int CMD_EMOTIONS_GROUP_CHANGED = 2001117;
     public static final int CMD_ENTER_FORUM_INFO = 2001329;
     public static final int CMD_ENTER_HOMEWORK = 2001333;
+    public static final int CMD_ENTER_LEAVE_DISCOVER_PAGE = 2921041;
     public static final int CMD_ENTER_PERSONINFO_FROM_NOTIFI_LOCAL = 2001154;
     public static final int CMD_EXIT_APP = 2001167;
     public static final int CMD_EXIT_TIEBA_TO_KUANG = 2001324;
@@ -154,6 +157,7 @@ public class CmdConfigCustom {
     public static final int CMD_FACESHOP_FACEPACKAGEDETAIL = 2902014;
     public static final int CMD_FACESHOP_FACEPURCHASERECORDS = 2902015;
     public static final int CMD_FILE_DOWNLOAD = 2001118;
+    public static final int CMD_FINISH_THIS_PAGE = 2921053;
     public static final int CMD_FINISH_VIDEO_MID_PAGE_ACTIVITY = 2016486;
     public static final int CMD_FLOAT_RECORD_VIEW_CTRL = 2001300;
     public static final int CMD_FORUMFEED_PLUGIN_INSTALL_SUCCESS = 2902110;
@@ -188,6 +192,11 @@ public class CmdConfigCustom {
     public static final int CMD_GAME_CENTER_INIT = 2016509;
     public static final int CMD_GAME_CENTER_START = 2016508;
     public static final int CMD_GAME_DELETE_ITEM = 2001243;
+    public static final int CMD_GAME_FRS_ADD_TAB = 2001616;
+    public static final int CMD_GAME_FRS_HIDE_TAB = 2001618;
+    public static final int CMD_GAME_FRS_LIVE_ADD_TAB = 2001620;
+    public static final int CMD_GAME_FRS_LIVE_TAB_ADD_TAB = 2001619;
+    public static final int CMD_GAME_FRS_SHOW_TAB = 2001617;
     public static final int CMD_GAME_GET_DOWN_DATA = 2001240;
     public static final int CMD_GAME_GET_ITEM_BY_PACKAGE = 2001246;
     public static final int CMD_GAME_GET_OLD_DATA = 2001239;
@@ -201,6 +210,8 @@ public class CmdConfigCustom {
     public static final int CMD_GET_BIGV_PERSON_CENTER_CONTROLLER = 2921007;
     public static final int CMD_GET_DISCOVER_FRAGMENT = 2921010;
     public static final int CMD_GET_FRS_MORE_FEED_FORUMS_CONTROLLER = 2016468;
+    public static final int CMD_GET_FRS_PAGE_CACHE = 2001615;
+    public static final int CMD_GET_GAME_TRIAL_INSTANCE = 2921047;
     public static final int CMD_GET_GIFT_SUCCEED = 2001232;
     public static final int CMD_GET_GROUP_INFO = 2001280;
     public static final int CMD_GET_HOT_GOD_CACHE = 2016446;
@@ -387,6 +398,7 @@ public class CmdConfigCustom {
     public static final int CMD_PERSON_INFO_ADD_ADAPTER = 2016473;
     public static final int CMD_PERSON_INFO_CHANGED = 2001247;
     public static final int CMD_PERSON_LIKE_FORUM = 2001437;
+    public static final int CMD_PERSON_PAGE_REFRESH = 2921052;
     public static final int CMD_PERSON_RED_TIP = 2001435;
     public static final int CMD_PERSON_UNLIKE_FORUM = 2001438;
     public static final int CMD_PERSON_WALLET_ITEM_CLICK = 2001387;
@@ -433,6 +445,7 @@ public class CmdConfigCustom {
     public static final int CMD_RECORDER_MANAGER_INSTANCE = 2001271;
     public static final int CMD_REFRESH = 2003003;
     public static final int CMD_REFRESH_BACKGROUND_LIST = 2001363;
+    public static final int CMD_REFRESH_MY_EMOTION_PACKAGE = 2921054;
     public static final int CMD_REFRESH_NOVEL_ITEM_STATE = 2001416;
     public static final int CMD_REFRESH_PERSONAL = 2921004;
     public static final int CMD_REFRESH_THEME_LIST = 2001362;
@@ -466,6 +479,7 @@ public class CmdConfigCustom {
     public static final int CMD_SELECT_LOCATION = 2001226;
     public static final int CMD_SEND_BOOK_READ_RECORD_TO_FRS = 2001424;
     public static final int CMD_SEND_GIFT_SUCCESS = 2001369;
+    public static final int CMD_SEND_VCODE_CHECK_INFO = 2921051;
     public static final int CMD_SETTING_READ_FINISH = 2001311;
     public static final int CMD_SET_INTEREST_GUIDE = 2001398;
     public static final int CMD_SET_NU_AGE_GUIDE = 2001397;
@@ -494,13 +508,28 @@ public class CmdConfigCustom {
     public static final int CMD_SQUARE_FORUM_RANK = 2902028;
     public static final int CMD_SQUARE_FORUM_SQUARE = 2902023;
     public static final int CMD_SQUARE_FORUM_WEEKLY = 2902029;
+    public static final int CMD_START_ACCOUNT_ACCESS_ACTIVITY = 2921050;
     public static final int CMD_START_FRS_GOOD_ACTIVITY = 2003010;
     public static final int CMD_START_HOT_TOPIC_ACTIVITY = 2016493;
+    public static final int CMD_START_NEW_VCODE_ACTIVITY = 2921048;
+    public static final int CMD_START_OLD_VCODE_ACTIVITY = 2921049;
     public static final int CMD_START_PLAY = 2001605;
     public static final int CMD_START_TRAFFICSTATSSERVICE = 2905001;
     public static final int CMD_START_USER_MUTE_LIST_ACTIVITY = 2016302;
     public static final int CMD_START_VIDEO_LIST_ACTIVITY = 2001604;
     public static final int CMD_START_XIAOYING = 2001337;
+    public static final int CMD_STOP_STORY_PROCESS_SERVICE = 2921046;
+    public static final int CMD_STORY_ALBUM_DATA_CHANGED = 2921036;
+    public static final int CMD_STORY_CLICK_MSG = 2921037;
+    public static final int CMD_STORY_DELETE_CACHE = 2921045;
+    public static final int CMD_STORY_DELETE_LOCAL_WITH_SAVE = 2921056;
+    public static final int CMD_STORY_FACTORY = 2921043;
+    public static final int CMD_STORY_INSERT_CACHE = 2921039;
+    public static final int CMD_STORY_PROCESS_AFTER_ACCOUNT_CHANGE = 2921057;
+    public static final int CMD_STORY_PUBLISH_MSG = 2921042;
+    public static final int CMD_STORY_READ_CACHE = 2921044;
+    public static final int CMD_STORY_READ_MSG = 2921038;
+    public static final int CMD_STROY_ENTRANCE = 2921034;
     public static final int CMD_SYNC_FINISH = 2001371;
     public static final int CMD_TAIL_EDIT_CLOSE = 2001348;
     public static final int CMD_TAIL_REFRESH = 2001340;
@@ -540,6 +569,7 @@ public class CmdConfigCustom {
     public static final int CMD_UPDATE_PENDANT = 2016485;
     public static final int CMD_UPDATE_SUCCESS_MSG = 2001108;
     public static final int CMD_UPDATE_VERSION_MSG = 2001436;
+    public static final int CMD_UPLOAD_FACE_GROUP_FINISH = 2921040;
     public static final int CMD_UPLOAD_FAIL = 2001215;
     public static final int CMD_UPLOAD_STAT = 2001320;
     public static final int CMD_USER_COLLECT_EMOTION_CHANGE = 2921028;
@@ -598,6 +628,7 @@ public class CmdConfigCustom {
     public static final int EMOTION_IS_VALID = 2004608;
     public static final int EMOTION_LOAD_STATIC_EMOTION = 2004604;
     public static final int EMOTION_RELOAD_EMOTION_GROUPS = 2004603;
+    public static final int EMOTION_SYNC_DOWNLOAD = 2004611;
     public static final int EMOTION_USER_COLLECT = 2004610;
     public static final int EXIT_APPLICATION = 2002015;
     public static final int FRIEND_FEED_NEW = 2012118;

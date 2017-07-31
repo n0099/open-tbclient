@@ -1,94 +1,51 @@
 package com.baidu.tieba.frs.f;
 
-import android.app.Activity;
-import android.os.Handler;
-import android.view.View;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.u;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import java.util.List;
 /* loaded from: classes.dex */
-public class a implements View.OnClickListener {
-    private TbPageContext ajP;
-    private boolean cpc;
-    private boolean cpd;
-    private View cpe;
-    private PopupWindow cpf;
-    private int cpb = w.l.attention_post_update_tip;
-    private Handler mHandler = new Handler();
-    private Runnable cpg = new b(this);
-
-    public a(TbPageContext tbPageContext, boolean z) {
-        this.ajP = tbPageContext;
-        this.cpd = z;
-    }
-
-    public void aj(View view) {
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (this.ajP != null && view != null && !StringUtils.isNull(currentAccount)) {
-            this.cpe = view;
-            if (this.cpc) {
-                this.cpb = w.l.smart_frs_tip;
-                String str = "smart_frs_smart_sort_tip_show_counts_" + currentAccount;
-                int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str, 0);
-                if (i < 1) {
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str, i + 1);
-                    this.mHandler.postDelayed(this.cpg, 500L);
-                    return;
-                }
+public class a {
+    public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, ForumData forumData, List<com.baidu.adp.widget.ListView.f> list, boolean z, int i) {
+        if (!u.v(list)) {
+            com.baidu.tieba.InjectPlugin.b.b bVar2 = new com.baidu.tieba.InjectPlugin.b.b(bVar, 5);
+            bVar2.setThreadList(list);
+            if (forumData != null) {
+                bVar2.setForumId(forumData.getId());
+                bVar2.hb(forumData.getFirst_class());
+                bVar2.hc(forumData.getSecond_class());
             }
-            if (this.cpd) {
-                this.cpb = w.l.attention_post_update_tip;
-                String str2 = String.valueOf(currentAccount) + "frs_god_new_post_tip_count";
-                int i2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
-                if (i2 >= 3) {
-                    this.cpd = false;
-                    return;
-                }
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str2, i2 + 1);
-                this.cpd = false;
-                this.mHandler.postDelayed(this.cpg, 500L);
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                bVar2.hd(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
+            bVar2.cl(z);
+            bVar2.setPageNum(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar2));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public View e(Activity activity, int i) {
-        TextView textView = new TextView(activity);
-        int g = com.baidu.adp.lib.util.k.g(activity, w.f.ds20);
-        textView.setPadding(g, 0 - activity.getResources().getDimensionPixelSize(w.f.ds12), g, 0);
-        textView.setHeight(activity.getResources().getDimensionPixelSize(w.f.ds76));
-        textView.setGravity(17);
-        textView.setTextSize(0, com.baidu.adp.lib.util.k.g(activity, w.f.fontsize28));
-        textView.setText(i);
-        textView.setOnClickListener(this);
-        as.j(textView, w.g.bg_tip_blue_left);
-        as.i(textView, w.e.cp_cont_i);
-        textView.setOnClickListener(this);
-        return textView;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ahy();
-    }
-
-    public void ahy() {
-        if (this.cpf != null) {
-            this.cpf.dismiss();
-            this.cpf = null;
+    public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, FrsModelController frsModelController, List<com.baidu.adp.widget.ListView.f> list, int i) {
+        if (frsModelController != null && frsModelController.ahS() != null) {
+            a(bVar, frsModelController.ahS().aPh(), list, false, i);
         }
     }
 
-    public void cg(boolean z) {
-        this.cpc = z;
-    }
-
-    public void destory() {
-        this.mHandler.removeCallbacksAndMessages(null);
-        ahy();
+    public static void a(com.baidu.tieba.tbadkCore.data.e eVar, List<com.baidu.adp.widget.ListView.f> list, List<com.baidu.adp.widget.ListView.f> list2) {
+        int[] iArr;
+        int indexOf;
+        if (eVar != null && u.u(list) > 0 && u.u(list2) > 0) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.ghp) {
+                com.baidu.adp.widget.ListView.f fVar = (com.baidu.adp.widget.ListView.f) u.c(list, i);
+                if (fVar != null && (indexOf = list2.indexOf(fVar)) >= 0) {
+                    eVar.bw(i, indexOf);
+                }
+            }
+        }
     }
 }

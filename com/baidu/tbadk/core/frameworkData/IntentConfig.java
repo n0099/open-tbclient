@@ -1,25 +1,29 @@
 package com.baidu.tbadk.core.frameworkData;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
+import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.k;
+import com.baidu.adp.base.f;
+import com.baidu.adp.base.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.g.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.u;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -96,9 +100,34 @@ public class IntentConfig extends OrmObject {
         this.mServiceConnection = null;
         this.mServiceConnectionFlags = 0;
         this.mComponentClass = null;
-        this.mClientMessenger = new Messenger(new a(this, null));
+        this.mClientMessenger = new Messenger(new a());
         this.isForResult = false;
-        this.mClientConnection = new b(this);
+        this.mClientConnection = new ServiceConnection() { // from class: com.baidu.tbadk.core.frameworkData.IntentConfig.1
+            @Override // android.content.ServiceConnection
+            public void onServiceDisconnected(ComponentName componentName) {
+            }
+
+            @Override // android.content.ServiceConnection
+            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                if (iBinder != null) {
+                    IntentConfig.this.mReplyMessenger = new Messenger(iBinder);
+                    if (IntentConfig.this.mReplyMessenger != null) {
+                        Message obtain = Message.obtain();
+                        Bundle bundle = new Bundle();
+                        if (IntentConfig.this.mComponentClass != null) {
+                            bundle.putString("class", IntentConfig.this.mComponentClass.getName());
+                        }
+                        obtain.setData(bundle);
+                        obtain.replyTo = IntentConfig.this.mClientMessenger;
+                        try {
+                            IntentConfig.this.mReplyMessenger.send(obtain);
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        };
         this.mIntentAction = IntentAction.Activity;
     }
 
@@ -107,13 +136,13 @@ public class IntentConfig extends OrmObject {
     public void addSourceTraceForPageStayDurationStat() {
         ArrayList arrayList;
         if (this.mIntent != null) {
-            com.baidu.adp.base.h<?> Y = k.Y(this.mContext);
-            if (!(Y instanceof com.baidu.tbadk.pageStayDuration.a)) {
+            f<?> Z = i.Z(this.mContext);
+            if (!(Z instanceof com.baidu.tbadk.pageStayDuration.a)) {
                 arrayList = null;
             } else {
-                arrayList = (ArrayList) ((com.baidu.tbadk.pageStayDuration.a) Y).getNextPageSourceKeyList();
+                arrayList = (ArrayList) ((com.baidu.tbadk.pageStayDuration.a) Z).getNextPageSourceKeyList();
             }
-            if (!z.t(arrayList)) {
+            if (!u.v(arrayList)) {
                 this.mIntent.putStringArrayListExtra(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, arrayList);
             }
         }
@@ -125,9 +154,34 @@ public class IntentConfig extends OrmObject {
         this.mServiceConnection = null;
         this.mServiceConnectionFlags = 0;
         this.mComponentClass = null;
-        this.mClientMessenger = new Messenger(new a(this, null));
+        this.mClientMessenger = new Messenger(new a());
         this.isForResult = false;
-        this.mClientConnection = new b(this);
+        this.mClientConnection = new ServiceConnection() { // from class: com.baidu.tbadk.core.frameworkData.IntentConfig.1
+            @Override // android.content.ServiceConnection
+            public void onServiceDisconnected(ComponentName componentName) {
+            }
+
+            @Override // android.content.ServiceConnection
+            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                if (iBinder != null) {
+                    IntentConfig.this.mReplyMessenger = new Messenger(iBinder);
+                    if (IntentConfig.this.mReplyMessenger != null) {
+                        Message obtain = Message.obtain();
+                        Bundle bundle = new Bundle();
+                        if (IntentConfig.this.mComponentClass != null) {
+                            bundle.putString("class", IntentConfig.this.mComponentClass.getName());
+                        }
+                        obtain.setData(bundle);
+                        obtain.replyTo = IntentConfig.this.mClientMessenger;
+                        try {
+                            IntentConfig.this.mReplyMessenger.send(obtain);
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        };
         this.mIntentAction = IntentAction.Activity;
         if (context == null) {
             throw new InvalidParameterException("ActivitySwitch context null");
@@ -219,7 +273,7 @@ public class IntentConfig extends OrmObject {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.jj().B("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.jr().B("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
@@ -233,10 +287,10 @@ public class IntentConfig extends OrmObject {
                         startActivityForResult(i);
                     }
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.jj().B("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.jr().B("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().bv(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.kh().bD(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -258,17 +312,17 @@ public class IntentConfig extends OrmObject {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.jj().B("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.jr().B("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
                 try {
                     this.mContext.startService(this.mIntent);
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.jj().B("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.jr().B("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().bv(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.kh().bD(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -299,7 +353,7 @@ public class IntentConfig extends OrmObject {
                         return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.plugin.b.a.jj().B("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.jr().B("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e);
                     return false;
                 }
@@ -320,11 +374,11 @@ public class IntentConfig extends OrmObject {
                 }
                 return false;
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.jj().B("plugin_run_fail", pluginNameByClassloader);
+                com.baidu.adp.plugin.b.a.jr().B("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
                 return z;
             }
-        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().bv(pluginNameByClassloader)) {
+        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.kh().bD(pluginNameByClassloader)) {
             return false;
         } else {
             return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
@@ -343,17 +397,17 @@ public class IntentConfig extends OrmObject {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.jj().B("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.jr().B("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
                 try {
                     this.mContext.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.jj().B("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.jr().B("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.jY().bv(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.kh().bD(pluginNameByClassloader)) {
                 PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
             }
         }
@@ -363,7 +417,7 @@ public class IntentConfig extends OrmObject {
         setComponentClass(cls);
         Intent intent = new Intent();
         intent.setClass(this.mContext, RemoteActivityProxyService.class);
-        i.bindService(this.mContext, intent, this.mClientConnection, 1);
+        com.baidu.adp.lib.g.f.bindService(this.mContext, intent, this.mClientConnection, 1);
     }
 
     public void startActivityForResultForRemote(int i, Class<?> cls) {
@@ -372,7 +426,7 @@ public class IntentConfig extends OrmObject {
         setComponentClass(cls);
         Intent intent = new Intent();
         intent.setClass(this.mContext, RemoteActivityProxyService.class);
-        i.bindService(this.mContext, intent, this.mClientConnection, 1);
+        com.baidu.adp.lib.g.f.bindService(this.mContext, intent, this.mClientConnection, 1);
     }
 
     private static boolean checkStartActivityInterval(Class<?> cls) {
@@ -390,10 +444,6 @@ public class IntentConfig extends OrmObject {
         private a() {
         }
 
-        /* synthetic */ a(IntentConfig intentConfig, a aVar) {
-            this();
-        }
-
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (IntentConfig.this.mContext != null) {
@@ -404,7 +454,7 @@ public class IntentConfig extends OrmObject {
                         IntentConfig.this.startActivity(IntentConfig.this.mComponentClass);
                     }
                 }
-                i.a(IntentConfig.this.mContext, IntentConfig.this.mClientConnection);
+                com.baidu.adp.lib.g.f.a(IntentConfig.this.mContext, IntentConfig.this.mClientConnection);
                 IntentConfig.this.mContext = null;
             }
         }

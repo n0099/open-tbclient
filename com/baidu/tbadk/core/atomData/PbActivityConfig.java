@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -43,6 +43,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_IS_PV = "is_pv";
     public static final String KEY_IS_SUB_PB = "is_sub_pb";
     public static final String KEY_IS_TOP = "is_top";
+    public static final String KEY_JUMP_TO_COMMENT_AREA = "key_jump_to_comment_area";
     public static final String KEY_JUMP_TO_GOD_REPLY = "key_jump_to_god_reply";
     public static final String KEY_LOCATE = "locate";
     public static final String KEY_MANGA_IS_NEXT_CHAPTER_VIP = "key_manga_is_next_chapter_vip";
@@ -278,13 +279,13 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(bm bmVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (bmVar != null) {
+    public PbActivityConfig createFromThreadCfg(bl blVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (blVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", bmVar.getId());
-            intent.putExtra("is_good", bmVar.rn());
-            intent.putExtra("is_top", bmVar.rm());
-            intent.putExtra(KEY_THREAD_TIME, bmVar.rl());
+            intent.putExtra("thread_id", blVar.getId());
+            intent.putExtra("is_good", blVar.rB());
+            intent.putExtra("is_top", blVar.rA());
+            intent.putExtra(KEY_THREAD_TIME, blVar.rz());
             intent.putExtra("st_type", str2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
@@ -294,10 +295,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bmVar.rh() == null ? 0L : bmVar.rh().getNum()));
-            if (bmVar.getAuthor() != null && bmVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bmVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bmVar.getAuthor().getGodUserData().getIsLike());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (blVar.rv() == null ? 0L : blVar.rv().getNum()));
+            if (blVar.getAuthor() != null && blVar.getAuthor().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, blVar.getAuthor().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, blVar.getAuthor().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -406,6 +407,13 @@ public class PbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra(KEY_JUMP_TO_GOD_REPLY, z);
+        }
+    }
+
+    public void setJumpToCommentArea(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_JUMP_TO_COMMENT_AREA, z);
         }
     }
 

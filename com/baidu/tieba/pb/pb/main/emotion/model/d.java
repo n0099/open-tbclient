@@ -1,39 +1,207 @@
 package com.baidu.tieba.pb.pb.main.emotion.model;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.emotion.message.SearchEmotionResponseMessage;
-import com.baidu.tieba.pb.pb.main.emotion.model.SearchEmotionModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.r;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
+import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.coreExtra.data.q;
+import com.baidu.tbadk.img.GetEmotionPidModel;
+import com.baidu.tieba.d;
+import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.pb.data.f;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
-public class d extends HttpMessageListener {
-    final /* synthetic */ SearchEmotionModel eFn;
+public class d {
+    private LocationModel aDT;
+    private NewWriteModel aDU;
+    private final NewWriteModel.d aEl = new NewWriteModel.d() { // from class: com.baidu.tieba.pb.pb.main.emotion.model.d.2
+        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, q qVar, WriteData writeData, AntiData antiData) {
+            WriteData writeData2 = writeData == null ? d.this.aDU.getWriteData() : writeData;
+            if (z) {
+                d.this.resetData();
+            } else if (writeData2 != null && qVar != null && !TextUtils.isEmpty(qVar.yx())) {
+                writeData2.setVcodeMD5(qVar.getVcode_md5());
+                writeData2.setVcodeUrl(qVar.getVcode_pic_url());
+                writeData2.setVcodeExtra(qVar.yy());
+                if (com.baidu.tbadk.q.a.gY(qVar.yx())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(d.this.bmv.getPageContext().getPageActivity(), 25017, writeData2, false, qVar.yx())));
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(d.this.bmv.getPageContext().getPageActivity(), writeData2, 25017)));
+                }
+            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(d.this.bmv.getPageContext().getPageActivity(), 25017, writeData2, postWriteCallBackData.getAccessState())));
+            }
+            if (d.this.eSD != null) {
+                d.this.eSD.callback(z, postWriteCallBackData, qVar, writeData2, antiData);
+            }
+        }
+    };
+    private BaseActivity bmv;
+    private com.baidu.tbadk.editortools.pb.b dKz;
+    private NewWriteModel.d eSD;
+    private GetEmotionPidModel eSE;
+    private EmotionImageData eSF;
+    private PbModel eSG;
+    private f eSH;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(SearchEmotionModel searchEmotionModel, int i) {
-        super(i);
-        this.eFn = searchEmotionModel;
+    public d(BaseActivity baseActivity) {
+        this.bmv = baseActivity;
+        this.aDU = new NewWriteModel(baseActivity);
+        this.aDT = new LocationModel(baseActivity);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        SearchEmotionModel.a aVar;
-        SearchEmotionModel.a aVar2;
-        SearchEmotionModel.a aVar3;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003330 && (httpResponsedMessage instanceof SearchEmotionResponseMessage)) {
-            aVar = this.eFn.eES;
-            if (aVar != null) {
-                SearchEmotionResponseMessage searchEmotionResponseMessage = (SearchEmotionResponseMessage) httpResponsedMessage;
-                if (searchEmotionResponseMessage.getData() != null) {
-                    aVar3 = this.eFn.eES;
-                    aVar3.a(searchEmotionResponseMessage.getData());
+    public void a(final EmotionImageData emotionImageData, final PbModel pbModel, final f fVar) {
+        if (emotionImageData != null && fVar != null) {
+            this.eSF = emotionImageData;
+            this.eSG = pbModel;
+            this.eSH = fVar;
+            if (!i.hr()) {
+                this.bmv.showToast(d.l.neterror);
+            } else if (a(this.bmv.getPageContext(), 11042)) {
+                if (TextUtils.isEmpty(emotionImageData.getPicId())) {
+                    if (!TextUtils.isEmpty(emotionImageData.getPicUrl())) {
+                        if (this.eSE == null) {
+                            this.eSE = new GetEmotionPidModel();
+                        }
+                        if (this.dKz != null) {
+                            this.dKz.Dx();
+                        }
+                        this.eSE.a(emotionImageData.getPicUrl(), new GetEmotionPidModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.model.d.1
+                            @Override // com.baidu.tbadk.img.GetEmotionPidModel.a
+                            public void a(com.baidu.tbadk.img.c cVar) {
+                                if (cVar != null && !TextUtils.isEmpty(cVar.picId)) {
+                                    emotionImageData.setPicId(cVar.picId);
+                                    d.this.b(emotionImageData, pbModel, fVar);
+                                }
+                            }
+
+                            @Override // com.baidu.tbadk.img.GetEmotionPidModel.a
+                            public void onFail(int i, String str) {
+                                if (d.this.eSD != null) {
+                                    d.this.eSD.callback(false, null, null, null, null);
+                                }
+                            }
+                        });
+                        return;
+                    }
                     return;
                 }
-                aVar2 = this.eFn.eES;
-                aVar2.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
+                if (this.dKz != null) {
+                    this.dKz.Dx();
+                }
+                b(emotionImageData, pbModel, fVar);
             }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(EmotionImageData emotionImageData, PbModel pbModel, f fVar) {
+        boolean z = true;
+        if (emotionImageData != null && fVar != null) {
+            if (this.aDU.getWriteData() == null && pbModel != null) {
+                this.aDU.setWriteData(pbModel.fS(null));
+            }
+            if (this.aDU.getWriteData() != null) {
+                if (fVar.aPj().sR()) {
+                    this.aDU.getWriteData().setCanNoForum(true);
+                    if (fVar.aPh() != null) {
+                        this.aDU.getWriteData().setVForumId(fVar.aPh().getId());
+                        this.aDU.getWriteData().setVForumName(fVar.aPh().getName());
+                    }
+                } else {
+                    this.aDU.getWriteData().setCanNoForum(false);
+                    this.aDU.getWriteData().setVForumId("");
+                    this.aDU.getWriteData().setVForumName("");
+                }
+                WriteData writeData = this.aDU.getWriteData();
+                if (this.aDT == null || !this.aDT.Tm()) {
+                    z = false;
+                }
+                writeData.setHasLocationData(z);
+                StringBuilder sb = new StringBuilder("meme,");
+                sb.append(emotionImageData.getPicId()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                sb.append(emotionImageData.getWidth()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                sb.append(emotionImageData.getHeight()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                this.aDU.getWriteData().setContent("#(" + sb.toString() + r.aV(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + ")");
+                if (!TextUtils.isEmpty(emotionImageData.getMemeContSign())) {
+                    this.aDU.getWriteData().setMemeContSign(emotionImageData.getMemeContSign());
+                }
+                if (!TextUtils.isEmpty(emotionImageData.getMemeText())) {
+                    this.aDU.getWriteData().setMemeText(emotionImageData.getMemeText());
+                }
+                this.aDU.b(this.aEl);
+                if (!this.aDU.startPostWrite()) {
+                }
+            }
+        }
+    }
+
+    public void b(com.baidu.tbadk.editortools.pb.b bVar) {
+        this.dKz = bVar;
+    }
+
+    public void c(NewWriteModel.d dVar) {
+        this.eSD = dVar;
+    }
+
+    private boolean a(TbPageContext<?> tbPageContext, int i) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(d.l.login_to_use), true, i)));
+            return false;
+        }
+        return true;
+    }
+
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (i2 == -1) {
+            if (i == 25017) {
+                if (intent != null) {
+                    WriteData writeData = this.aDU != null ? this.aDU.getWriteData() : null;
+                    resetData();
+                    if (this.eSD != null) {
+                        this.eSD.callback(true, null, null, writeData, null);
+                    }
+                }
+            } else if (i == 11042) {
+                a(this.eSF, this.eSG, this.eSH);
+            }
+        }
+    }
+
+    public boolean cancelLoadData() {
+        if (this.eSE != null) {
+            this.eSE.cancelLoadData();
+            return true;
+        }
+        return true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void resetData() {
+        this.eSF = null;
+        this.eSH = null;
+        this.eSG = null;
+        if (this.aDU != null) {
+            this.aDU.setWriteData(null);
         }
     }
 }

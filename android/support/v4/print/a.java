@@ -5,11 +5,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
 import java.io.FileNotFoundException;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a {
+class a {
     final Context mContext;
     BitmapFactory.Options jL = null;
     private final Object mLock = new Object();
@@ -46,20 +46,24 @@ public class a {
         return this.jK;
     }
 
-    public void printBitmap(String str, Bitmap bitmap) {
+    public void printBitmap(final String str, final Bitmap bitmap) {
         if (bitmap != null) {
-            int i = this.mScaleMode;
+            final int i = this.mScaleMode;
             PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
             PrintAttributes.MediaSize mediaSize = PrintAttributes.MediaSize.UNKNOWN_PORTRAIT;
             if (bitmap.getWidth() > bitmap.getHeight()) {
                 mediaSize = PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE;
             }
-            printManager.print(str, new b(this, str, bitmap, i), new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.jK).build());
+            printManager.print(str, new PrintDocumentAdapter() { // from class: android.support.v4.print.a.1
+            }, new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.jK).build());
         }
     }
 
-    public void printBitmap(String str, Uri uri) throws FileNotFoundException {
-        c cVar = new c(this, str, uri, this.mScaleMode);
+    public void printBitmap(final String str, final Uri uri) throws FileNotFoundException {
+        final int i = this.mScaleMode;
+        PrintDocumentAdapter printDocumentAdapter = new PrintDocumentAdapter() { // from class: android.support.v4.print.a.2
+            Bitmap mBitmap = null;
+        };
         PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
         PrintAttributes.Builder builder = new PrintAttributes.Builder();
         builder.setColorMode(this.jK);
@@ -68,6 +72,6 @@ public class a {
         } else if (this.mOrientation == 2) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_PORTRAIT);
         }
-        printManager.print(str, cVar, builder.build());
+        printManager.print(str, printDocumentAdapter, builder.build());
     }
 }

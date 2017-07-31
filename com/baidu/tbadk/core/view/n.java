@@ -1,69 +1,56 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.view.View;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class n extends BdGridView {
-    private int ajO;
-    private int columnCount;
-    private int rowCount;
+public class n extends ImageSpan {
+    private WeakReference<Drawable> Hs;
 
-    public n(Context context) {
-        super(context);
+    public n(Drawable drawable) {
+        super(drawable);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.view.BdGridView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        View childAt;
-        super.dispatchDraw(canvas);
-        if (getChildCount() > 0 && (childAt = getChildAt(0)) != null) {
-            Paint paint = new Paint();
-            paint.setStyle(Paint.Style.STROKE);
-            paint.setColor(this.ajO);
-            paint.setStrokeWidth(1.0f);
-            int width = childAt.getWidth() * this.columnCount;
-            int height = childAt.getHeight() * this.rowCount;
-            int width2 = childAt.getWidth();
-            int height2 = childAt.getHeight();
-            int i = 1;
-            while (true) {
-                int i2 = i;
-                if (i2 >= this.rowCount) {
-                    break;
-                }
-                canvas.drawLine(0.0f, height2 * i2, width, height2 * i2, paint);
-                i = i2 + 1;
-            }
-            for (int i3 = 0; i3 < this.columnCount; i3++) {
-                canvas.drawLine(width2 * i3, 0.0f, width2 * i3, height, paint);
-            }
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        Rect bounds = kB().getBounds();
+        if (fontMetricsInt != null) {
+            Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+            int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+            int i4 = bounds.bottom - bounds.top;
+            int i5 = (i4 / 2) - (i3 / 4);
+            int i6 = (i3 / 4) + (i4 / 2);
+            fontMetricsInt.ascent = -i6;
+            fontMetricsInt.top = -i6;
+            fontMetricsInt.bottom = i5;
+            fontMetricsInt.descent = i5;
         }
+        return bounds.right;
     }
 
-    public int getRowCount() {
-        return this.rowCount;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable kB = kB();
+        canvas.save();
+        canvas.translate(f, ((i5 - kB.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
+        kB.draw(canvas);
+        canvas.restore();
     }
 
-    public void setRowCount(int i) {
-        this.rowCount = i;
-    }
-
-    public int getColumnCount() {
-        return this.columnCount;
-    }
-
-    public void setColumnCount(int i) {
-        this.columnCount = i;
-    }
-
-    public int getBackgroundLineResource() {
-        return this.ajO;
-    }
-
-    public void setBackgroundLineResource(int i) {
-        this.ajO = i;
+    private Drawable kB() {
+        WeakReference<Drawable> weakReference = this.Hs;
+        Drawable drawable = null;
+        if (weakReference != null) {
+            drawable = weakReference.get();
+        }
+        if (drawable == null) {
+            Drawable drawable2 = getDrawable();
+            this.Hs = new WeakReference<>(drawable2);
+            return drawable2;
+        }
+        return drawable;
     }
 }

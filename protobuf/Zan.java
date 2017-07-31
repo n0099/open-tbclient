@@ -19,10 +19,6 @@ public final class Zan extends Message {
     public static final Integer DEFAULT_LASTTIME = 0;
     public static final List<Long> DEFAULT_LIKERID = Collections.emptyList();
 
-    /* synthetic */ Zan(Builder builder, boolean z, Zan zan) {
-        this(builder, z);
-    }
-
     private Zan(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -78,7 +74,7 @@ public final class Zan extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public Zan build(boolean z) {
-            return new Zan(this, z, null);
+            return new Zan(this, z);
         }
     }
 }

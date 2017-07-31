@@ -1,24 +1,15 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.TbErrInfo;
 /* loaded from: classes.dex */
-public class f extends CustomMessageListener {
-    final /* synthetic */ BaseFragmentActivity RG;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(BaseFragmentActivity baseFragmentActivity, int i) {
-        super(i);
-        this.RG = baseFragmentActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-            this.RG.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        }
-    }
+public class f {
+    private static int BASE_ERROR_NO = -100000000;
+    public static final int Tt = BASE_ERROR_NO - 1000;
+    public static final int Tu = BASE_ERROR_NO + TbErrInfo.ERR_IMG_GET_REMOTE;
+    public static final int Tv = BASE_ERROR_NO + TbErrInfo.ERR_IMG_SEND;
+    public static final int Tw = BASE_ERROR_NO - 2000;
+    public static final int Tx = BASE_ERROR_NO - 2001;
+    public static final int Ty = BASE_ERROR_NO - 2002;
+    public static final int Tz = BASE_ERROR_NO - 3000;
+    public static final int TA = BASE_ERROR_NO - 3001;
 }

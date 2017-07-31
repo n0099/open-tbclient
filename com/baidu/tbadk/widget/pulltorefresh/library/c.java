@@ -1,36 +1,19 @@
 package com.baidu.tbadk.widget.pulltorefresh.library;
 
+import android.annotation.TargetApi;
 import android.view.View;
 import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
+@TargetApi(9)
 /* loaded from: classes.dex */
 public final class c {
-    private static /* synthetic */ int[] aNc;
-
-    static /* synthetic */ int[] HF() {
-        int[] iArr = aNc;
-        if (iArr == null) {
-            iArr = new int[PullToRefreshBase.Orientation.valuesCustom().length];
-            try {
-                iArr[PullToRefreshBase.Orientation.HORIZONTAL.ordinal()] = 2;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[PullToRefreshBase.Orientation.VERTICAL.ordinal()] = 1;
-            } catch (NoSuchFieldError e2) {
-            }
-            aNc = iArr;
-        }
-        return iArr;
-    }
-
     public static void a(PullToRefreshBase<?> pullToRefreshBase, int i, int i2, int i3, int i4, int i5, boolean z) {
         a(pullToRefreshBase, i, i2, i3, i4, i5, 0, 1.0f, z);
     }
 
     public static void a(PullToRefreshBase<?> pullToRefreshBase, int i, int i2, int i3, int i4, int i5, int i6, float f, boolean z) {
         int scrollX;
-        switch (HF()[pullToRefreshBase.getPullToRefreshScrollDirection().ordinal()]) {
-            case 2:
+        switch (pullToRefreshBase.getPullToRefreshScrollDirection()) {
+            case HORIZONTAL:
                 scrollX = pullToRefreshBase.getScrollX();
                 break;
             default:

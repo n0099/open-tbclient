@@ -3,6 +3,7 @@ package com.baidu.tieba.homepage.framework.indicator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.view.ViewPager;
@@ -10,37 +11,48 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.w;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.k;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.d;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class PagerSlidingTabStrip extends HorizontalScrollView {
-    private LinearLayout.LayoutParams alc;
-    private LinearLayout.LayoutParams ald;
-    public ViewPager.OnPageChangeListener alf;
-    private LinearLayout alg;
-    private ViewPager alh;
-    private int ali;
-    private float alj;
-    private Paint alk;
-    private boolean alm;
-    private int aln;
-    private int alo;
-    private int alq;
-    private int alr;
-    private int alt;
-    private int alu;
-    private int alv;
-    private int aly;
-    private int alz;
-    private final a cHP;
-    private boolean cHQ;
+    private LinearLayout.LayoutParams ana;
+    private LinearLayout.LayoutParams anb;
+    public ViewPager.OnPageChangeListener and;
+    private LinearLayout ane;
+    private ViewPager anf;
+    private int ang;
+    private float anh;
+    private Paint ani;
+    private boolean anj;
+    private int ank;
+    private int anl;
+    private int ann;
+    private int ano;
+    private int anq;
+    private int anr;
+    private int ans;
+    private int anv;
+    private int anw;
+    private final a cRW;
+    private Drawable cRX;
+    private boolean cRY;
+    private boolean cRZ;
     private int currentPosition;
     private int dividerPadding;
+    private int ds20;
     private boolean isLoading;
     private Locale locale;
 
@@ -54,75 +66,93 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     public PagerSlidingTabStrip(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cHP = new a(this, null);
+        this.cRW = new a();
         this.currentPosition = 0;
-        this.alj = 0.0f;
-        this.alm = false;
-        this.aln = as.getColor(w.e.cp_cont_b);
-        this.alo = as.getColor(w.e.cp_cont_f);
-        this.alq = 52;
-        this.alr = 4;
+        this.anh = 0.0f;
+        this.anj = false;
+        this.ank = ai.getColor(d.e.cp_cont_b);
+        this.anl = ai.getColor(d.e.cp_cont_f);
+        this.ann = 52;
+        this.ano = 4;
         this.dividerPadding = 12;
-        this.alt = 24;
-        this.alu = 1;
-        this.alv = 12;
-        this.aly = 0;
-        this.alz = w.g.pager_sliding_view;
-        this.cHQ = false;
+        this.anq = 24;
+        this.anr = 1;
+        this.ans = 12;
+        this.anv = 0;
+        this.anw = d.g.pager_sliding_view;
+        this.cRZ = false;
         this.isLoading = false;
     }
 
     public void d(int i, int i2, boolean z) {
         setFillViewport(true);
         setWillNotDraw(false);
-        this.alg = new LinearLayout(getContext());
-        this.alg.setOrientation(0);
-        this.alg.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        addView(this.alg);
+        this.ane = new LinearLayout(getContext());
+        this.ane.setOrientation(0);
+        this.ane.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        addView(this.ane);
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        this.alq = (int) TypedValue.applyDimension(1, this.alq, displayMetrics);
+        this.ann = (int) TypedValue.applyDimension(1, this.ann, displayMetrics);
         this.dividerPadding = (int) TypedValue.applyDimension(1, this.dividerPadding, displayMetrics);
-        this.alt = (int) TypedValue.applyDimension(1, this.alt, displayMetrics);
-        this.alu = (int) TypedValue.applyDimension(1, this.alu, displayMetrics);
-        this.alv = i;
-        this.alr = i2;
-        this.alm = z;
-        this.alk = new Paint();
-        this.alk.setAntiAlias(true);
-        this.alk.setStyle(Paint.Style.FILL);
-        this.alc = new LinearLayout.LayoutParams(-2, -1);
-        this.ald = new LinearLayout.LayoutParams(0, -1, 1.0f);
-        this.alt = com.baidu.adp.lib.util.k.g(getContext(), w.f.ds40);
+        this.anq = (int) TypedValue.applyDimension(1, this.anq, displayMetrics);
+        this.anr = (int) TypedValue.applyDimension(1, this.anr, displayMetrics);
+        this.ans = i;
+        this.ano = i2;
+        this.anj = z;
+        this.ani = new Paint();
+        this.ani.setAntiAlias(true);
+        this.ani.setStyle(Paint.Style.FILL);
+        this.cRX = ai.getDrawable(d.g.icon_news_down_bar_one);
+        this.ds20 = k.g(getContext(), d.f.ds20);
+        this.ana = new LinearLayout.LayoutParams(-2, -1);
+        this.anb = new LinearLayout.LayoutParams(0, -1, 1.0f);
+        this.anq = k.g(getContext(), d.f.ds40);
         if (this.locale == null) {
             this.locale = getResources().getConfiguration().locale;
         }
     }
 
+    public void setShowConcernRedTip(boolean z) {
+        this.cRY = z;
+        invalidate();
+    }
+
+    public boolean aol() {
+        return this.cRY;
+    }
+
     public void setTabItemClicked(boolean z) {
-        this.cHQ = z;
+        this.cRZ = z;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.alh = viewPager;
+        this.anf = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.cHP);
+            viewPager.setOnPageChangeListener(this.cRW);
             notifyDataSetChanged();
         }
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.alf = onPageChangeListener;
+        this.and = onPageChangeListener;
     }
 
     public void notifyDataSetChanged() {
-        if (this.alh != null && this.alh.getAdapter() != null && this.alh.getAdapter().getCount() != 0) {
-            this.alg.removeAllViews();
-            this.ali = this.alh.getAdapter().getCount();
-            for (int i = 0; i < this.ali; i++) {
-                i(i, this.alh.getAdapter().getPageTitle(i).toString());
+        if (this.anf != null && this.anf.getAdapter() != null && this.anf.getAdapter().getCount() != 0) {
+            this.ane.removeAllViews();
+            this.ang = this.anf.getAdapter().getCount();
+            for (int i = 0; i < this.ang; i++) {
+                i(i, this.anf.getAdapter().getPageTitle(i).toString());
             }
-            wy();
-            getViewTreeObserver().addOnGlobalLayoutListener(new e(this));
+            wR();
+            getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip.1
+                @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+                public void onGlobalLayout() {
+                    PagerSlidingTabStrip.this.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                    PagerSlidingTabStrip.this.currentPosition = PagerSlidingTabStrip.this.anf.getCurrentItem();
+                    PagerSlidingTabStrip.this.E(PagerSlidingTabStrip.this.currentPosition, 0);
+                }
+            });
         }
     }
 
@@ -134,26 +164,43 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         a(i, textView);
     }
 
-    private void a(int i, View view) {
+    private void a(final int i, View view) {
         view.setFocusable(true);
-        view.setOnClickListener(new f(this, i));
-        view.setPadding(this.alt, 0, this.alt, 0);
-        this.alg.addView(view, i, this.alm ? this.ald : this.alc);
+        view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                if (!PagerSlidingTabStrip.this.isLoading) {
+                    if (PagerSlidingTabStrip.this.anf.getCurrentItem() == i) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
+                    } else if (i != com.baidu.tieba.homepage.framework.indicator.a.cRR || aw.aO(PagerSlidingTabStrip.this.getContext())) {
+                        TiebaStatic.log(new aj("c12049").r("obj_locate", i + 1).aa("obj_type", "1"));
+                        PagerSlidingTabStrip.this.cRZ = true;
+                        if (PagerSlidingTabStrip.this.anf.getAdapter() instanceof com.baidu.tieba.homepage.framework.indicator.a) {
+                            ((com.baidu.tieba.homepage.framework.indicator.a) PagerSlidingTabStrip.this.anf.getAdapter()).kC(i);
+                        }
+                        PagerSlidingTabStrip.this.anf.setCurrentItem(i);
+                        PagerSlidingTabStrip.this.wR();
+                    }
+                }
+            }
+        });
+        view.setPadding(this.anq, 0, this.anq, 0);
+        this.ane.addView(view, i, this.anj ? this.anb : this.ana);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wy() {
-        for (int i = 0; i < this.ali; i++) {
-            View childAt = this.alg.getChildAt(i);
+    public void wR() {
+        for (int i = 0; i < this.ang; i++) {
+            View childAt = this.ane.getChildAt(i);
             if (childAt != null) {
-                childAt.setBackgroundResource(this.alz);
+                childAt.setBackgroundResource(this.anw);
                 if (childAt instanceof TextView) {
                     TextView textView = (TextView) childAt;
-                    textView.setTextSize(0, this.alv);
-                    if (i == this.alh.getCurrentItem()) {
-                        textView.setTextColor(this.aln);
+                    textView.setTextSize(0, this.ans);
+                    if (i == this.anf.getCurrentItem()) {
+                        textView.setTextColor(this.ank);
                     } else {
-                        textView.setTextColor(this.alo);
+                        textView.setTextColor(this.anl);
                     }
                 }
             }
@@ -161,14 +208,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void D(int i, int i2) {
-        if (this.ali != 0) {
-            int left = this.alg.getChildAt(i).getLeft() + i2;
+    public void E(int i, int i2) {
+        if (this.ang != 0) {
+            int left = this.ane.getChildAt(i).getLeft() + i2;
             if (i > 0 || i2 > 0) {
-                left -= this.alq;
+                left -= this.ann;
             }
-            if (left != this.aly) {
-                this.aly = left;
+            if (left != this.anv) {
+                this.anv = left;
                 scrollTo(left, 0);
             }
         }
@@ -177,80 +224,97 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!isInEditMode() && this.ali != 0) {
+        if (!isInEditMode() && this.ang != 0) {
             int height = getHeight();
-            this.alk.setColor(this.aln);
-            View childAt = this.alg.getChildAt(this.currentPosition);
+            this.ani.setColor(this.ank);
+            View childAt = this.ane.getChildAt(this.currentPosition);
             float left = childAt.getLeft() + childAt.getPaddingLeft();
             float right = childAt.getRight() - childAt.getPaddingRight();
-            if (this.alj > 0.0f && this.currentPosition < this.ali - 1) {
-                View childAt2 = this.alg.getChildAt(this.currentPosition + 1);
-                left = (left * (1.0f - this.alj)) + ((childAt2.getLeft() + childAt2.getPaddingLeft()) * this.alj);
-                right = (right * (1.0f - this.alj)) + ((childAt2.getRight() - childAt2.getPaddingRight()) * this.alj);
+            if (this.anh > 0.0f && this.currentPosition < this.ang - 1) {
+                View childAt2 = this.ane.getChildAt(this.currentPosition + 1);
+                left = (left * (1.0f - this.anh)) + ((childAt2.getLeft() + childAt2.getPaddingLeft()) * this.anh);
+                right = (right * (1.0f - this.anh)) + ((childAt2.getRight() - childAt2.getPaddingRight()) * this.anh);
             }
-            canvas.drawRect(left, height - this.alr, right, height, this.alk);
+            canvas.drawRect(left, height - this.ano, right, height, this.ani);
+            if (this.cRY) {
+                View childAt3 = this.ane.getChildAt(0);
+                int right2 = childAt3.getRight() - childAt.getPaddingRight();
+                int top = childAt3.getTop() + this.ds20;
+                this.cRX.setBounds(right2, top, this.ds20 + right2, this.ds20 + top);
+                this.cRX.draw(canvas);
+            }
         }
     }
 
     public void onChangeSkinType() {
-        this.aln = as.getColor(w.e.cp_cont_b);
-        this.alo = as.getColor(w.e.cp_cont_f);
-        wy();
+        this.ank = ai.getColor(d.e.cp_cont_b);
+        this.anl = ai.getColor(d.e.cp_cont_f);
+        this.cRX = ai.getDrawable(d.g.icon_news_down_bar_one);
+        wR();
         invalidate();
     }
 
     /* loaded from: classes.dex */
     private class a implements ViewPager.OnPageChangeListener {
-        private a() {
-        }
+        private int aSN;
 
-        /* synthetic */ a(PagerSlidingTabStrip pagerSlidingTabStrip, a aVar) {
-            this();
+        private a() {
+            this.aSN = com.baidu.tieba.homepage.framework.indicator.a.cRU;
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
-            if (PagerSlidingTabStrip.this.alg.getChildCount() != 0) {
-                if (!PagerSlidingTabStrip.this.cHQ) {
+            if (PagerSlidingTabStrip.this.ane.getChildCount() != 0) {
+                if (!PagerSlidingTabStrip.this.cRZ) {
+                    if (PagerSlidingTabStrip.this.currentPosition != i) {
+                        this.aSN = PagerSlidingTabStrip.this.currentPosition;
+                    }
                     PagerSlidingTabStrip.this.currentPosition = i;
-                    PagerSlidingTabStrip.this.alj = f;
-                    PagerSlidingTabStrip.this.D(i, (int) (PagerSlidingTabStrip.this.alg.getChildAt(i).getWidth() * f));
+                    PagerSlidingTabStrip.this.anh = f;
+                    PagerSlidingTabStrip.this.E(i, (int) (PagerSlidingTabStrip.this.ane.getChildAt(i).getWidth() * f));
                     PagerSlidingTabStrip.this.invalidate();
                 }
-                if (PagerSlidingTabStrip.this.alf != null) {
-                    PagerSlidingTabStrip.this.alf.onPageScrolled(i, f, i2);
+                if (PagerSlidingTabStrip.this.and != null) {
+                    PagerSlidingTabStrip.this.and.onPageScrolled(i, f, i2);
                 }
             }
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
-            if (PagerSlidingTabStrip.this.alg.getChildCount() != 0) {
+            if (PagerSlidingTabStrip.this.ane.getChildCount() != 0) {
                 if (i == 0) {
-                    PagerSlidingTabStrip.this.D(PagerSlidingTabStrip.this.alh.getCurrentItem(), 0);
-                    PagerSlidingTabStrip.this.alj = 0.0f;
-                    PagerSlidingTabStrip.this.cHQ = false;
+                    if (PagerSlidingTabStrip.this.currentPosition != com.baidu.tieba.homepage.framework.indicator.a.cRR || aw.aO(PagerSlidingTabStrip.this.getContext())) {
+                        PagerSlidingTabStrip.this.E(PagerSlidingTabStrip.this.anf.getCurrentItem(), 0);
+                    } else {
+                        PagerSlidingTabStrip.this.anf.setCurrentItem(this.aSN, false);
+                    }
+                    PagerSlidingTabStrip.this.anh = 0.0f;
+                    PagerSlidingTabStrip.this.cRZ = false;
                     PagerSlidingTabStrip.this.isLoading = false;
                 } else if (i == 1) {
                     PagerSlidingTabStrip.this.isLoading = true;
                 }
-                if (PagerSlidingTabStrip.this.alf != null) {
-                    PagerSlidingTabStrip.this.alf.onPageScrollStateChanged(i);
+                if (PagerSlidingTabStrip.this.and != null) {
+                    PagerSlidingTabStrip.this.and.onPageScrollStateChanged(i);
                 }
             }
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            if (PagerSlidingTabStrip.this.alf != null) {
-                PagerSlidingTabStrip.this.alf.onPageSelected(i);
+            if (PagerSlidingTabStrip.this.and != null) {
+                PagerSlidingTabStrip.this.and.onPageSelected(i);
             }
-            if (PagerSlidingTabStrip.this.cHQ) {
+            if (PagerSlidingTabStrip.this.cRZ) {
                 PagerSlidingTabStrip.this.currentPosition = i;
-                PagerSlidingTabStrip.this.D(i, (int) (PagerSlidingTabStrip.this.alj * PagerSlidingTabStrip.this.alg.getChildAt(i).getWidth()));
+                if (PagerSlidingTabStrip.this.currentPosition != i) {
+                    this.aSN = PagerSlidingTabStrip.this.currentPosition;
+                }
+                PagerSlidingTabStrip.this.E(i, (int) (PagerSlidingTabStrip.this.anh * PagerSlidingTabStrip.this.ane.getChildAt(i).getWidth()));
                 PagerSlidingTabStrip.this.invalidate();
             }
-            PagerSlidingTabStrip.this.wy();
+            PagerSlidingTabStrip.this.wR();
         }
     }
 
@@ -269,18 +333,28 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         return savedState;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    static class SavedState extends View.BaseSavedState {
-        public static final Parcelable.Creator<SavedState> CREATOR = new g();
+    public static class SavedState extends View.BaseSavedState {
+        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            /* renamed from: i */
+            public SavedState createFromParcel(Parcel parcel) {
+                return new SavedState(parcel);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            /* renamed from: kD */
+            public SavedState[] newArray(int i) {
+                return new SavedState[i];
+            }
+        };
         int currentPosition;
 
         public SavedState(Parcelable parcelable) {
             super(parcelable);
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ SavedState(Parcel parcel, SavedState savedState) {
-            this(parcel);
         }
 
         private SavedState(Parcel parcel) {

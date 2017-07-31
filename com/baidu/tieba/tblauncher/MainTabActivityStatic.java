@@ -1,76 +1,153 @@
 package com.baidu.tieba.tblauncher;
 
+import android.app.Activity;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 import com.baidu.tbadk.data.NewsNotifyMessage;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class MainTabActivityStatic {
-    private static int fQG = 0;
+    private static int gmo = 0;
 
     static {
-        adA();
-        boh();
-        bog();
-        boi();
-        MessageManager.getInstance().registerListener(new v(CmdConfigCustom.START_GO_HOME));
-        be.vP().a(new w());
-        MessageManager.getInstance().registerListener(new x(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL));
+        aeF();
+        buk();
+        buj();
+        bul();
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.START_GO_HOME) { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                Object data = customResponsedMessage.getData();
+                if (data instanceof Activity) {
+                    com.baidu.tbadk.core.e.b.az((Activity) data);
+                }
+            }
+        });
+        at.wf().a(new at.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.2
+            @Override // com.baidu.tbadk.core.util.at.a
+            public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+                if (tbPageContext == null || strArr == null || strArr.length == 0) {
+                    return 3;
+                }
+                String str = strArr[0];
+                if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
+                    if (str.contains("jump_enter_forum=1")) {
+                        com.baidu.tbadk.core.e.b.b(tbPageContext.getPageActivity(), 1, true);
+                        return 1;
+                    } else if (str.contains("jump_chosen_post=1")) {
+                        com.baidu.tbadk.core.e.b.b(tbPageContext.getPageActivity(), 2, true);
+                        return 1;
+                    }
+                }
+                return 3;
+            }
+        });
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.3
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120) {
+                    MainTabActivityStatic.h(customResponsedMessage);
+                }
+            }
+        });
     }
 
     private static int a(NewsNotifyMessage newsNotifyMessage) {
-        int i;
-        int i2;
         if (newsNotifyMessage == null) {
             return 0;
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.zd().zl() && com.baidu.tbadk.coreExtra.messageCenter.c.zd().zs()) {
-            i2 = newsNotifyMessage.getMsgChat();
-            i = newsNotifyMessage.getMsgStrangerChat();
-        } else {
-            i = 0;
-            i2 = 0;
+        int msgChat = newsNotifyMessage.getMsgChat();
+        int msgReplyme = (((com.baidu.tbadk.coreExtra.messageCenter.b.zw().zD() ? newsNotifyMessage.getMsgReplyme() : 0) + msgChat) + (com.baidu.tbadk.coreExtra.messageCenter.b.zw().zB() ? newsNotifyMessage.getMsgAtme() : 0)) - newsNotifyMessage.getMsgStrangerChat();
+        if (!com.baidu.tbadk.coreExtra.messageCenter.b.zw().zQ()) {
+            msgReplyme -= newsNotifyMessage.getMsgOfficialMerge();
         }
-        int msgAtme = ((com.baidu.tbadk.coreExtra.messageCenter.c.zd().zi() ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (com.baidu.tbadk.coreExtra.messageCenter.c.zd().zk() ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.c.zd().zx()) {
-            msgAtme -= newsNotifyMessage.getMsgOfficialMerge();
-        }
-        return msgAtme;
+        return msgReplyme;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void h(ResponsedMessage<?> responsedMessage) {
         if (responsedMessage != null && (responsedMessage instanceof NewsNotifyMessage)) {
             int a = a((NewsNotifyMessage) responsedMessage);
-            if (a > fQG) {
+            if (a > gmo) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOME_NOTIFY_MSG, true));
             }
-            fQG = a;
+            gmo = a;
         }
     }
 
-    private static void adA() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new y());
+    private static void aeF() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new CustomMessageTask.CustomRunnable<MainTabActivityConfig>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.4
+            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<?> run(CustomMessage<MainTabActivityConfig> customMessage) {
+                if (customMessage != null && customMessage.getData() != null) {
+                    customMessage.getData().startActivity(MainTabActivity.class);
+                }
+                return null;
+            }
+        });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bog() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new z());
+    private static void buj() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.5
+            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
+                if (customMessage == null) {
+                    return null;
+                }
+                TbadkCoreApplication.getInst().setFriendFeedNew(true);
+                return new CustomResponsedMessage<>(CmdConfigCustom.FRIEND_FEED_NEW);
+            }
+        });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void boh() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new aa());
+    private static void buk() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.6
+            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
+                if (customMessage != null && (customMessage instanceof NewMsgArriveRequestMessage)) {
+                    return new NewMsgArriveResponsedMessage(((NewMsgArriveRequestMessage) customMessage).getData().intValue());
+                }
+                return null;
+            }
+        });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void boi() {
-        be.vP().a(new ab());
+    private static void bul() {
+        at.wf().a(new at.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.7
+            @Override // com.baidu.tbadk.core.util.at.a
+            public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+                if (tbPageContext == null || strArr == null || strArr.length == 0) {
+                    return 3;
+                }
+                String str = strArr[0];
+                if (StringUtils.isNull(str) || !str.startsWith("tiebavr:") || TbadkCoreApplication.getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
+                    return 3;
+                }
+                tbPageContext.showToast(d.l.vr_plugin_not_available);
+                return 1;
+            }
+        });
     }
 }

@@ -56,11 +56,11 @@ public class PluginSetting implements Serializable, Cloneable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = bq(str);
+        this.cmdRangeInt = by(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] bq(String str) {
+    private int[] by(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) == null) {
             return null;
@@ -147,7 +147,7 @@ public class PluginSetting implements Serializable, Cloneable {
             if (TextUtils.isEmpty(this.abandon_apk_path)) {
                 this.abandon_apk_path = str;
             } else {
-                this.abandon_apk_path = String.valueOf(this.abandon_apk_path) + Constants.ACCEPT_TIME_SEPARATOR_SP + str;
+                this.abandon_apk_path += Constants.ACCEPT_TIME_SEPARATOR_SP + str;
             }
         }
     }

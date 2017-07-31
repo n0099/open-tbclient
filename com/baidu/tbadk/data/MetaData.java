@@ -113,7 +113,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public long getUserIdLong() {
-        return com.baidu.adp.lib.g.b.c(this.userId, 0L);
+        return com.baidu.adp.lib.g.b.d(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -147,13 +147,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public String getName_show() {
-        if (this.name_show != null && this.name_show.length() > 0) {
-            return this.name_show;
-        }
-        if (this.userName != null) {
-            return this.userName;
-        }
-        return this.name_show;
+        return !StringUtils.isNull(this.name_show) ? this.name_show : this.userName;
     }
 
     public String getGodIntro() {
@@ -329,10 +323,9 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.sealPrefix;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x000a: IGET  (r3v0 java.lang.Long A[REMOVE]) = (r9v0 tbclient.User) tbclient.User.id java.lang.Long)] */
     public void parserProtobuf(User user) {
         if (user != null) {
-            this.userId = new StringBuilder().append(user.id).toString();
+            this.userId = user.id + "";
             this.gender = user.gender.intValue();
             this.type = user.type.intValue();
             this.userName = user.name;
@@ -433,7 +426,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 if (this.userName != null && this.userName.length() <= 0) {
                     this.userName = null;
                 }
-                this.name_show = jSONObject.optString(IntentConfig.NAME_SHOW);
+                this.name_show = jSONObject.optString("name_show");
                 this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
                 this.portraith = jSONObject.optString("portraith");
                 this.fansNum = jSONObject.optInt(PersonInfoActivityConfig.FANS_NUM);

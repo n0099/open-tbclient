@@ -7,10 +7,6 @@ public final class DelGroupReqIdl extends Message {
     @ProtoField(tag = 2)
     public final DataReq data;
 
-    /* synthetic */ DelGroupReqIdl(Builder builder, boolean z, DelGroupReqIdl delGroupReqIdl) {
-        this(builder, z);
-    }
-
     private DelGroupReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -37,7 +33,7 @@ public final class DelGroupReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public DelGroupReqIdl build(boolean z) {
-            return new DelGroupReqIdl(this, z, null);
+            return new DelGroupReqIdl(this, z);
         }
     }
 }

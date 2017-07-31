@@ -1,6 +1,7 @@
 package com.baidu.tieba.frs.entelechy.view;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,19 +9,24 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.ai;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.AgreeBanner;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class FrsHeaderPraiseView extends RelativeLayout {
-    private View cin;
-    private View cio;
-    private TextView cip;
-    private FrameLayout ciq;
-    private ImageView cir;
+    private View cpu;
+    private View cpv;
+    private TextView cpw;
+    private FrameLayout cpx;
+    private ImageView cpy;
 
     public FrsHeaderPraiseView(Context context) {
         this(context, null);
@@ -32,34 +38,36 @@ public class FrsHeaderPraiseView extends RelativeLayout {
 
     public FrsHeaderPraiseView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        LayoutInflater.from(context).inflate(w.j.frs_header_extra_praise_layout, this);
+        LayoutInflater.from(context).inflate(d.j.frs_header_extra_praise_layout, this);
         initView();
     }
 
     private void initView() {
-        this.cin = findViewById(w.h.divider_top);
-        this.cio = findViewById(w.h.divider_bottom);
-        this.cip = (TextView) findViewById(w.h.frs_praise_title);
-        this.ciq = (FrameLayout) findViewById(w.h.frs_praise_portrait);
+        this.cpu = findViewById(d.h.divider_top);
+        this.cpv = findViewById(d.h.divider_bottom);
+        this.cpw = (TextView) findViewById(d.h.frs_praise_title);
+        this.cpx = (FrameLayout) findViewById(d.h.frs_praise_portrait);
+        this.cpy = (ImageView) findViewById(d.h.frs_praise_more);
+        ai.c(this.cpy, d.g.icon_arrow_more_gray_n);
     }
 
     public void changeSkinType(int i) {
-        com.baidu.tbadk.core.util.as.j(this, w.g.home_thread_card_item_bg);
-        com.baidu.tbadk.core.util.as.k(this.cin, w.e.cp_bg_line_c);
-        com.baidu.tbadk.core.util.as.k(this.cio, w.e.cp_bg_line_c);
-        com.baidu.tbadk.core.util.as.i(this.cip, w.e.cp_cont_b);
-        com.baidu.tbadk.core.util.as.c(this.cir, w.g.icon_find_more_heibai);
+        ai.j(this, d.g.home_thread_card_item_bg);
+        ai.k(this.cpu, d.e.cp_bg_line_c);
+        ai.k(this.cpv, d.e.cp_bg_line_c);
+        ai.i(this.cpw, d.e.cp_cont_b);
+        ai.c(this.cpy, d.g.icon_arrow_more_gray_n);
     }
 
-    public void setData(AgreeBanner agreeBanner) {
+    public void setData(final AgreeBanner agreeBanner) {
         if (agreeBanner == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.cip.setText(agreeBanner.text);
+        this.cpw.setText(agreeBanner.text);
         List<SimpleUser> list = agreeBanner.top_agree_user;
-        this.ciq.removeAllViews();
+        this.cpx.removeAllViews();
         if (list != null) {
             ArrayList arrayList = new ArrayList();
             if (list.size() > 5) {
@@ -69,23 +77,30 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             } else {
                 arrayList.addAll(list);
             }
-            for (int size = arrayList.size() - 1; size >= 0 && this.ciq.getChildCount() != 5; size--) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(w.f.ds40), getResources().getDimensionPixelSize(w.f.ds40));
+            for (int size = arrayList.size() - 1; size >= 0 && this.cpx.getChildCount() != 5; size--) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(d.f.ds40), getResources().getDimensionPixelSize(d.f.ds40));
                 HeadImageView headImageView = new HeadImageView(getContext());
                 headImageView.setDefaultResource(17170445);
-                headImageView.setDefaultErrorResource(w.g.icon_default_avatar100);
-                headImageView.setDefaultBgResource(w.e.cp_bg_line_e);
+                headImageView.setDefaultErrorResource(d.g.icon_default_avatar100);
+                headImageView.setDefaultBgResource(d.e.cp_bg_line_e);
                 headImageView.setIsRound(true);
-                headImageView.setBorderColor(com.baidu.tbadk.core.util.as.getColor(w.e.cp_bg_line_d));
-                headImageView.setBorderWidth(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds2));
+                headImageView.setBorderColor(ai.getColor(d.e.cp_bg_line_d));
+                headImageView.setBorderWidth(com.baidu.adp.lib.util.k.g(getContext(), d.f.ds2));
                 headImageView.c(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                 if (size != arrayList.size() - 1) {
-                    layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(w.f.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(w.f.ds8));
+                    layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(d.f.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(d.f.ds8));
                 }
                 layoutParams.gravity = 5;
-                this.ciq.addView(headImageView, layoutParams);
+                this.cpx.addView(headImageView, layoutParams);
             }
         }
-        setOnClickListener(new bb(this, agreeBanner));
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.FrsHeaderPraiseView.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (!TextUtils.isEmpty(agreeBanner.url)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(FrsHeaderPraiseView.this.getContext(), null, agreeBanner.url, true)));
+                }
+            }
+        });
     }
 }

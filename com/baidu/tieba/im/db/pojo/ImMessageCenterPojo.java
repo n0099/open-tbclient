@@ -6,7 +6,7 @@ import com.baidu.adp.lib.g.b;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.util.h;
+import com.baidu.tieba.im.util.e;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ImMessageCenterPojo implements Serializable {
@@ -256,7 +256,7 @@ public class ImMessageCenterPojo implements Serializable {
             imMessageCenterPojo.setGroup_name(userData.getUserName());
             imMessageCenterPojo.setGroup_head(userData.getPortrait());
         }
-        if (b.c(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
+        if (b.d(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
             userType = userData.getUserType();
         } else {
             userType = userData2.getUserType();
@@ -271,7 +271,7 @@ public class ImMessageCenterPojo implements Serializable {
         if (!z) {
             imMessageCenterPojo.setCustomGroupType(2);
         }
-        imMessageCenterPojo.setLast_content(h.F(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+        imMessageCenterPojo.setLast_content(e.F(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
         imMessageCenterPojo.setLast_user_name(userData.getUserName());
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageProblemActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.a.e;
-import com.baidu.tbadk.core.util.t;
+import com.baidu.tbadk.core.util.o;
 import com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.tieba.imageProblem.logic.ImageProblemActivity;
@@ -19,39 +19,45 @@ import com.baidu.tieba.imageProblem.util.CDNProblemUploader;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class Static {
-    private static CustomMessageTask aHh = new CustomMessageTask(CmdConfigCustom.CMD_CDN_TACHOMETER, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
+    private static CustomMessageTask aJE = new CustomMessageTask(CmdConfigCustom.CMD_CDN_TACHOMETER, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<TbCDNTachometerService.CustomMsgData> customMessage) {
+            String str;
             boolean z;
+            String str2;
             if (customMessage != null) {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                    if (data == null || data.ipListData == null || data.ipListData.dwJ == null) {
+                    if (data == null || data.ipListData == null || data.ipListData.dGC == null) {
                         return null;
                     }
-                    String str = "";
-                    if (data.dwH == null) {
-                        if (data.pos < data.ipListData.dwJ.size()) {
-                            ArrayList<String> arrayList = data.ipListData.dwJ.get(data.pos);
-                            if (arrayList.size() > 0) {
-                                z = false;
-                                str = arrayList.get(0);
+                    if (data.dGA == null) {
+                        if (data.pos >= data.ipListData.dGC.size()) {
+                            z = false;
+                            str = "";
+                        } else {
+                            ArrayList<String> arrayList = data.ipListData.dGC.get(data.pos);
+                            if (arrayList.size() <= 0) {
+                                str2 = "";
+                            } else {
+                                str2 = arrayList.get(0);
                             }
+                            z = false;
+                            str = str2;
                         }
-                        z = false;
-                    } else if (data.dwH.length() <= 0) {
+                    } else if (data.dGA.length() <= 0) {
                         return null;
                     } else {
-                        str = data.dwH;
+                        str = data.dGA;
                         z = true;
                     }
                     if (str.length() > 0) {
-                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.dwL, data.ipListData.dwI, data.isNormal);
-                        data.Hf = System.currentTimeMillis() - currentTimeMillis;
+                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.dGE, data.ipListData.dGB, data.isNormal);
+                        data.IF = System.currentTimeMillis() - currentTimeMillis;
                         data.cdnIp = str;
                         if (z) {
-                            data.dwH = str;
+                            data.dGA = str;
                         }
                         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_TACHOMETER, data);
                     }
@@ -64,11 +70,11 @@ public class Static {
     });
 
     static {
-        TbadkCoreApplication.m9getInst().RegisterIntent(ImageProblemActivityConfig.class, ImageProblemActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(ImageProblemActivityConfig.class, ImageProblemActivity.class);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<t> run(CustomMessage<Object> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, CDNProblemUploader.m14getInstance());
+            public CustomResponsedMessage<o> run(CustomMessage<Object> customMessage) {
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, CDNProblemUploader.getInstance());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -76,13 +82,13 @@ public class Static {
         CustomMessageTask customMessageTask2 = new CustomMessageTask(CmdConfigCustom.CMD_CDN_IP_DIRECT_CONNECT, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<e> run(CustomMessage<Object> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_IP_DIRECT_CONNECT, CDNIPDirectConnect.m13getInstance());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_IP_DIRECT_CONNECT, CDNIPDirectConnect.getInstance());
             }
         });
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        aHh.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        aHh.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
-        MessageManager.getInstance().registerTask(aHh);
+        aJE.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        aJE.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
+        MessageManager.getInstance().registerTask(aJE);
     }
 }

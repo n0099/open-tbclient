@@ -2,7 +2,7 @@ package com.baidu.tieba.vote;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.n;
 import tbclient.AddPollPost.AddPollPostReqIdl;
 import tbclient.AddPollPost.DataReq;
 /* loaded from: classes.dex */
@@ -29,7 +29,7 @@ public class AddVoteNetMessage extends NetMessage {
         builder.thread_id = Long.valueOf(this.mThreadId);
         builder.options = this.mOptions;
         if (z) {
-            p.bindCommonParamsToProtobufData(builder, true);
+            n.bindCommonParamsToProtobufData(builder, true);
         }
         AddPollPostReqIdl.Builder builder2 = new AddPollPostReqIdl.Builder();
         builder2.data = builder.build(false);

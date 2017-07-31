@@ -10,10 +10,6 @@ public final class CommitPersonalMsgResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ CommitPersonalMsgResIdl(Builder builder, boolean z, CommitPersonalMsgResIdl commitPersonalMsgResIdl) {
-        this(builder, z);
-    }
-
     private CommitPersonalMsgResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -44,7 +40,7 @@ public final class CommitPersonalMsgResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public CommitPersonalMsgResIdl build(boolean z) {
-            return new CommitPersonalMsgResIdl(this, z, null);
+            return new CommitPersonalMsgResIdl(this, z);
         }
     }
 }

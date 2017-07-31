@@ -2,7 +2,7 @@ package com.baidu.tieba.vote;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.f;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.List;
 import tbclient.PollInfo;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
-public class VoteDataInfo implements v, Serializable {
+public class VoteDataInfo implements f, Serializable {
     private static final long serialVersionUID = -4157201445004088848L;
     private int mEndtime;
     private int mIsMulti;
@@ -124,20 +124,20 @@ public class VoteDataInfo implements v, Serializable {
                 long j = 0;
                 for (PollOption pollOption : list) {
                     if (pollOption != null) {
-                        j += pollOption.num.longValue();
+                        j = pollOption.num.longValue() + j;
                     }
                 }
                 this.mTotalPoll = j;
                 for (PollOption pollOption2 : list) {
                     if (pollOption2 != null) {
-                        f fVar = new f(pollOption2.id.intValue(), pollOption2.text, pollOption2.image, pollOption2.num.longValue());
+                        b bVar = new b(pollOption2.id.intValue(), pollOption2.text, pollOption2.image, pollOption2.num.longValue());
                         if (this.mTotalPoll > 0) {
-                            fVar.cg((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
+                            bVar.ck((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
                         }
                         if (b(strArr, String.valueOf(pollOption2.id))) {
-                            fVar.setSelected(true);
+                            bVar.setSelected(true);
                         }
-                        this.mOptions.add(fVar);
+                        this.mOptions.add(bVar);
                     }
                 }
             }
@@ -156,8 +156,8 @@ public class VoteDataInfo implements v, Serializable {
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return PostData.fMi;
+        return PostData.ghQ;
     }
 }

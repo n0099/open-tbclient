@@ -14,10 +14,6 @@ public final class LiveGroupLabel extends Message {
     public static final Integer DEFAULT_LABELID = 0;
     public static final Integer DEFAULT_TYPE = 0;
 
-    /* synthetic */ LiveGroupLabel(Builder builder, boolean z, LiveGroupLabel liveGroupLabel) {
-        this(builder, z);
-    }
-
     private LiveGroupLabel(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -65,7 +61,7 @@ public final class LiveGroupLabel extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public LiveGroupLabel build(boolean z) {
-            return new LiveGroupLabel(this, z, null);
+            return new LiveGroupLabel(this, z);
         }
     }
 }

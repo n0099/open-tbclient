@@ -1,9 +1,9 @@
 package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.cache.o;
+import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.b;
-import com.baidu.adp.lib.util.q;
+import com.baidu.adp.lib.util.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.c.a;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -34,7 +34,7 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
         if (a2 == null || a2.size() <= 0) {
             z = false;
         } else {
-            Object a3 = q.a(parseFrom, a2.get(0));
+            Object a3 = o.a(parseFrom, a2.get(0));
             if (a3 instanceof Error) {
                 Error error = (Error) a3;
                 setError(error.errorno.intValue());
@@ -43,7 +43,7 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
             z = true;
         }
         if (!z && (a = b.a(parseFrom, tbclient.Error.class)) != null && a.size() > 0) {
-            Object a4 = q.a(parseFrom, a.get(0));
+            Object a4 = o.a(parseFrom, a.get(0));
             if (a4 instanceof tbclient.Error) {
                 tbclient.Error error2 = (tbclient.Error) a4;
                 setError(error2.errorno.intValue());
@@ -68,7 +68,7 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         e eVar;
-        o<byte[]> L;
+        l<byte[]> L;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && bArr != null) {
             if (getOrginalMessage() instanceof MvcSocketMessage) {
@@ -88,9 +88,9 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String EB = eVar.EB();
+                String Fa = eVar.Fa();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(EB) && bArr != null && (L = a.sW().L(EB, currentAccount)) != null) {
+                if (cacheKey != null && !TextUtils.isEmpty(Fa) && bArr != null && (L = a.tn().L(Fa, currentAccount)) != null) {
                     L.k(cacheKey, bArr);
                 }
             }

@@ -4,6 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
 import java.io.Serializable;
+import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Anti;
 /* loaded from: classes.dex */
@@ -163,8 +164,8 @@ public class AntiData implements Serializable {
             this.ifposta = anti.ifposta.intValue();
             this.forbid_flag = anti.forbid_flag.intValue();
             this.tbs = anti.tbs;
-            if (TbadkCoreApplication.m9getInst() != null && this.tbs != null && this.tbs.length() > 0) {
-                TbadkCoreApplication.m9getInst().setTbs(this.tbs);
+            if (TbadkCoreApplication.getInst() != null && this.tbs != null && this.tbs.length() > 0) {
+                TbadkCoreApplication.getInst().setTbs(this.tbs);
             }
             this.need_vcode = anti.need_vcode.intValue();
             this.vcode_md5 = anti.vcode_md5;
@@ -206,8 +207,8 @@ public class AntiData implements Serializable {
                 this.ifposta = jSONObject.optInt("ifposta", 0);
                 this.forbid_flag = jSONObject.optInt("forbid_flag", 0);
                 this.tbs = jSONObject.optString("tbs");
-                if (TbadkCoreApplication.m9getInst() != null && this.tbs != null && this.tbs.length() > 0) {
-                    TbadkCoreApplication.m9getInst().setTbs(this.tbs);
+                if (TbadkCoreApplication.getInst() != null && this.tbs != null && this.tbs.length() > 0) {
+                    TbadkCoreApplication.getInst().setTbs(this.tbs);
                 }
                 this.need_vcode = jSONObject.optInt("need_vcode", 0);
                 this.vcode_md5 = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_MD5);
@@ -222,9 +223,56 @@ public class AntiData implements Serializable {
                 this.has_chance = jSONObject.optInt("has_chance", 1) == 1;
                 this.ifaddition = jSONObject.optInt("ifaddition", 0);
                 this.poll_message = jSONObject.optString("poll_message");
+                this.video_message = jSONObject.optString("video_message");
+                JSONObject optJSONObject = jSONObject.optJSONObject("block_pop_info");
+                if (optJSONObject != null) {
+                    this.mFrsForbidenDialogInfo = new BlockPopInfoData();
+                    this.mFrsForbidenDialogInfo.ahead_info = optJSONObject.optString("ahead_info");
+                    this.mFrsForbidenDialogInfo.ahead_url = optJSONObject.optString("ahead_url");
+                    this.mFrsForbidenDialogInfo.ok_info = optJSONObject.optString("ok_info");
+                    this.mFrsForbidenDialogInfo.can_post = Integer.valueOf(optJSONObject.optInt("can_post"));
+                    this.mFrsForbidenDialogInfo.block_info = optJSONObject.optString("block_info");
+                }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
+        }
+    }
+
+    public String toJsonString() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("ifpost", this.ifpost);
+            jSONObject.put("ifposta", this.ifposta);
+            jSONObject.put("forbid_flag", this.forbid_flag);
+            jSONObject.put("tbs", this.tbs);
+            jSONObject.put("need_vcode", this.need_vcode);
+            jSONObject.put(GraffitiVcodeActivityConfig.VCODE_MD5, this.vcode_md5);
+            jSONObject.put(GraffitiVcodeActivityConfig.VCODE_PIC_URL, this.vcode_pic_url);
+            jSONObject.put("forbid_info", this.forbid_info);
+            jSONObject.put("ifvoice", this.ifvoice);
+            jSONObject.put("voice_message", this.voice_message);
+            jSONObject.put("block_stat", this.block_stat);
+            jSONObject.put("hide_stat", this.hide_stat);
+            jSONObject.put("vcode_stat", this.vcode_stat);
+            jSONObject.put("days_tofree", this.days_tofree);
+            jSONObject.put("has_chance", this.has_chance ? 1 : 0);
+            jSONObject.put("ifaddition", this.ifaddition);
+            jSONObject.put("poll_message", this.poll_message);
+            jSONObject.put("video_message", this.video_message);
+            if (this.mFrsForbidenDialogInfo != null) {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("ahead_info", this.mFrsForbidenDialogInfo.ahead_info);
+                jSONObject2.put("ahead_url", this.mFrsForbidenDialogInfo.ahead_url);
+                jSONObject2.put("ok_info", this.mFrsForbidenDialogInfo.ok_info);
+                jSONObject2.put("can_post", this.mFrsForbidenDialogInfo.can_post);
+                jSONObject2.put("block_info", this.mFrsForbidenDialogInfo.block_info);
+                jSONObject.put("block_pop_info", jSONObject2);
+            }
+            return jSONObject.toString();
+        } catch (JSONException e) {
+            BdLog.e(e.getMessage());
+            return null;
         }
     }
 

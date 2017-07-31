@@ -1,10 +1,24 @@
 package com.baidu.tieba.tbadkCore.util;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.text.TextUtils;
 /* loaded from: classes.dex */
-class b implements a.b {
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+public class b {
+    private static String eUX = "tbgametype";
+
+    public static String si(String str) {
+        String[] split;
+        if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
+            return null;
+        }
+        for (String str2 : split) {
+            if (!TextUtils.isEmpty(str2) && str2.contains("TBCGameID=")) {
+                int indexOf = str2.indexOf("=");
+                if (indexOf + 1 >= str2.length()) {
+                    return "";
+                }
+                return str2.substring(indexOf + 1, str2.length());
+            }
+        }
+        return "";
     }
 }

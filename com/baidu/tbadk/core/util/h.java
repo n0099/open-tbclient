@@ -1,12 +1,91 @@
 package com.baidu.tbadk.core.util;
 
-import android.widget.Toast;
+import android.database.Cursor;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-class h implements Runnable {
-    @Override // java.lang.Runnable
-    public void run() {
-        Toast toast;
-        toast = g.zd;
-        toast.cancel();
+public class h {
+    public static void dr(String str) {
+        int i;
+        CustomResponsedMessage runTask;
+        int i2 = 0;
+        Matcher matcher = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)").matcher(str);
+        while (true) {
+            i = i2;
+            if (!matcher.find()) {
+                break;
+            }
+            String group = matcher.group();
+            if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_LOCAL) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && !((Boolean) runTask.getData()).booleanValue()) {
+                i++;
+            }
+            i2 = i;
+        }
+        Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
+        while (matcher2.find()) {
+            String[] split = matcher2.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (split != null && split.length == 5) {
+                String str2 = split[1];
+                if (!TextUtils.isEmpty(str2) && str2.contains("_") && !str2.contains("collect_")) {
+                    i++;
+                }
+            }
+        }
+        if (i > 0) {
+            aj ajVar = new aj("c12231");
+            ajVar.r("obj_param1", i);
+            TiebaStatic.log(ajVar);
+        }
+    }
+
+    public static void uH() {
+        new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.h.1
+            @Override // java.lang.Runnable
+            public void run() {
+                Cursor cursor;
+                Throwable th;
+                int i;
+                com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+                try {
+                    cursor = mainDBDatabaseManager.cs().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                    i = 0;
+                    while (cursor.moveToNext()) {
+                        try {
+                            i++;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            try {
+                                mainDBDatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
+                                com.baidu.adp.lib.util.m.e(cursor);
+                                aj ajVar = new aj("c12232");
+                                ajVar.aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                                ajVar.r("obj_param1", i);
+                                TiebaStatic.log(ajVar);
+                            } catch (Throwable th3) {
+                                com.baidu.adp.lib.util.m.e(cursor);
+                                throw th3;
+                            }
+                        }
+                    }
+                    com.baidu.adp.lib.util.m.e(cursor);
+                } catch (Throwable th4) {
+                    cursor = null;
+                    th = th4;
+                    i = 0;
+                }
+                aj ajVar2 = new aj("c12232");
+                ajVar2.aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+                ajVar2.r("obj_param1", i);
+                TiebaStatic.log(ajVar2);
+            }
+        }).start();
     }
 }

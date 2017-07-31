@@ -8,135 +8,135 @@ import org.json.JSONObject;
 import tbclient.ActInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int So;
-    private int Sp;
-    private int Sq;
-    private int Sr;
-    private int Ss;
-    private int St;
-    private String Su;
-    private int Sv = 1;
-    private int Sw = 1;
-    private int Sx;
-    private be Sy;
+    private int Ub;
+    private int Uc;
+    private int Ud;
+    private int Ue;
+    private int Uf;
+    private int Ug;
+    private String Uh;
+    private int Ui = 1;
+    private int Uj = 1;
+    private int Uk;
+    private bd Ul;
     private boolean mIsSenior;
     private int status;
     private int total_num;
     private String url;
 
-    public int pb() {
-        return this.So;
+    public int po() {
+        return this.Ub;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public int pc() {
-        return this.Sp;
+    public int pp() {
+        return this.Uc;
     }
 
-    public int pd() {
-        return this.Sq;
+    public int pq() {
+        return this.Ud;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public int pe() {
+    public int pr() {
         return this.total_num;
     }
 
     public int getActivityId() {
-        return this.Sr;
+        return this.Ue;
     }
 
-    public int pf() {
-        return this.Ss;
+    public int ps() {
+        return this.Uf;
     }
 
-    public int pg() {
-        return this.St;
+    public int pt() {
+        return this.Ug;
     }
 
     public boolean getIsSenior() {
         return this.mIsSenior;
     }
 
-    public String ph() {
-        return this.Su;
+    public String pu() {
+        return this.Uh;
     }
 
-    public int pi() {
-        return this.Sx;
+    public int pv() {
+        return this.Uk;
     }
 
-    public be pj() {
-        return this.Sy;
+    public bd pw() {
+        return this.Ul;
     }
 
     public void a(ActInfo actInfo) {
         if (actInfo != null) {
-            this.So = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
+            this.Ub = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
             this.status = actInfo.status != null ? actInfo.status.intValue() : -1;
-            this.Sp = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
-            this.Sq = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
+            this.Uc = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
+            this.Ud = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
             this.url = actInfo.url;
             this.total_num = actInfo.total_num != null ? actInfo.total_num.intValue() : -1;
-            this.Sr = actInfo.activity_id.intValue();
-            this.Ss = actInfo.award_act_id.intValue();
-            this.St = actInfo.component_id.intValue();
+            this.Ue = actInfo.activity_id.intValue();
+            this.Uf = actInfo.award_act_id.intValue();
+            this.Ug = actInfo.component_id.intValue();
             this.mIsSenior = actInfo.is_senior.booleanValue();
-            this.Su = actInfo.banner_img;
-            this.Sx = actInfo.show_total_num.intValue();
+            this.Uh = actInfo.banner_img;
+            this.Uk = actInfo.show_total_num.intValue();
             String str = actInfo.banner_img_size;
-            if (!com.baidu.tbadk.core.util.aw.isEmpty(str)) {
+            if (!com.baidu.tbadk.core.util.al.isEmpty(str)) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.Sv = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.Sw = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    this.Ui = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.Uj = com.baidu.adp.lib.g.b.g(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            if (this.Sv <= 0) {
-                this.Sv = 1;
+            if (this.Ui <= 0) {
+                this.Ui = 1;
             }
-            if (this.Sw <= 0) {
-                this.Sw = 1;
+            if (this.Uj <= 0) {
+                this.Uj = 1;
             }
-            this.Sy = new be();
-            this.Sy.a(actInfo.lottery_senior);
+            this.Ul = new bd();
+            this.Ul.a(actInfo.lottery_senior);
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.So = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+                this.Ub = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.status = jSONObject.optInt("status");
-                this.Sp = jSONObject.optInt("begin_time");
-                this.Sq = jSONObject.optInt("end_time");
+                this.Uc = jSONObject.optInt("begin_time");
+                this.Ud = jSONObject.optInt("end_time");
                 this.url = jSONObject.optString("url");
                 this.total_num = jSONObject.optInt("total_num");
-                this.Sr = jSONObject.optInt(GroupActivityActivityConfig.ACTIVITY_ID);
-                this.Ss = jSONObject.optInt("award_act_id");
-                this.St = jSONObject.optInt("component_id");
+                this.Ue = jSONObject.optInt(GroupActivityActivityConfig.ACTIVITY_ID);
+                this.Uf = jSONObject.optInt("award_act_id");
+                this.Ug = jSONObject.optInt("component_id");
                 this.mIsSenior = jSONObject.optBoolean("is_senior");
-                this.Su = jSONObject.optString("banner_img");
-                this.Sx = jSONObject.optInt("show_total_num");
+                this.Uh = jSONObject.optString("banner_img");
+                this.Uk = jSONObject.optInt("show_total_num");
                 String optString = jSONObject.optString("banner_img_size");
-                if (!com.baidu.tbadk.core.util.aw.isEmpty(optString)) {
+                if (!com.baidu.tbadk.core.util.al.isEmpty(optString)) {
                     String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.Sv = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.Sw = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    this.Ui = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.Uj = com.baidu.adp.lib.g.b.g(split[1], 1);
                 }
-                if (this.Sv <= 0) {
-                    this.Sv = 1;
+                if (this.Ui <= 0) {
+                    this.Ui = 1;
                 }
-                if (this.Sw <= 0) {
-                    this.Sw = 1;
+                if (this.Uj <= 0) {
+                    this.Uj = 1;
                 }
             } catch (Exception e) {
                 BdLog.e(e.toString());

@@ -5,20 +5,28 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.at;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PbGiftListView extends FrameLayout {
-    private View crW;
-    private TbImageView eLl;
-    private TbImageView eLm;
-    private TbImageView eLn;
-    private TbImageView eLo;
-    private TextView eLp;
-    private TextView eLq;
+    private View cAA;
+    private TbImageView eYY;
+    private TbImageView eYZ;
+    private TbImageView eZa;
+    private TbImageView eZb;
+    private TextView eZc;
+    private TextView eZd;
+    private String eZe;
     private Context mContext;
     private long postId;
     private long threadId;
@@ -42,93 +50,109 @@ public class PbGiftListView extends FrameLayout {
     }
 
     private void initView() {
-        this.crW = View.inflate(this.mContext, w.j.pb_gift_list_item, this);
-        this.eLl = (TbImageView) this.crW.findViewById(w.h.pb_gift_view1);
-        this.eLm = (TbImageView) this.crW.findViewById(w.h.pb_gift_view2);
-        this.eLn = (TbImageView) this.crW.findViewById(w.h.pb_gift_view3);
-        this.eLo = (TbImageView) this.crW.findViewById(w.h.pb_gift_view4);
-        this.eLl.setDefaultBgResource(w.g.transparent_bg);
-        this.eLm.setDefaultBgResource(w.g.transparent_bg);
-        this.eLn.setDefaultBgResource(w.g.transparent_bg);
-        this.eLo.setDefaultBgResource(w.g.transparent_bg);
-        this.eLl.setDefaultResource(w.g.icon_gift_moren);
-        this.eLm.setDefaultResource(w.g.icon_gift_moren);
-        this.eLn.setDefaultResource(w.g.icon_gift_moren);
-        this.eLo.setDefaultResource(w.g.icon_gift_moren);
-        this.eLp = (TextView) this.crW.findViewById(w.h.pb_gift_number_view);
-        this.eLq = (TextView) this.crW.findViewById(w.h.pb_gift_send_view);
-        this.eLq.setOnClickListener(new f(this));
+        this.cAA = View.inflate(this.mContext, d.j.pb_gift_list_item, this);
+        this.eYY = (TbImageView) this.cAA.findViewById(d.h.pb_gift_view1);
+        this.eYZ = (TbImageView) this.cAA.findViewById(d.h.pb_gift_view2);
+        this.eZa = (TbImageView) this.cAA.findViewById(d.h.pb_gift_view3);
+        this.eZb = (TbImageView) this.cAA.findViewById(d.h.pb_gift_view4);
+        this.eYY.setDefaultBgResource(d.g.transparent_bg);
+        this.eYZ.setDefaultBgResource(d.g.transparent_bg);
+        this.eZa.setDefaultBgResource(d.g.transparent_bg);
+        this.eZb.setDefaultBgResource(d.g.transparent_bg);
+        this.eYY.setDefaultResource(d.g.icon_gift_moren);
+        this.eYZ.setDefaultResource(d.g.icon_gift_moren);
+        this.eZa.setDefaultResource(d.g.icon_gift_moren);
+        this.eZb.setDefaultResource(d.g.icon_gift_moren);
+        this.eZc = (TextView) this.cAA.findViewById(d.h.pb_gift_number_view);
+        this.eZd = (TextView) this.cAA.findViewById(d.h.pb_gift_send_view);
+        this.eZd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbGiftListView.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.i.aa(PbGiftListView.this.mContext);
+                if (tbPageContext != null) {
+                    if (TbadkCoreApplication.isLogin()) {
+                        if (!StringUtils.isNull(PbGiftListView.this.toUserName)) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(tbPageContext.getPageActivity(), PbGiftListView.this.toUserId, PbGiftListView.this.toUserName, PbGiftListView.this.eZe, GiftTabActivityConfig.FROM_PB, PbGiftListView.this.threadId, PbGiftListView.this.postId)));
+                            return;
+                        }
+                        return;
+                    }
+                    aw.aO(tbPageContext.getPageActivity());
+                }
+            }
+        });
     }
 
-    public void a(at atVar, String str, long j, long j2, long j3) {
+    public void a(as asVar, String str, String str2, long j, long j2, long j3) {
         this.toUserId = j;
         this.toUserName = str;
+        this.eZe = str2;
         this.postId = j3;
         this.threadId = j2;
-        if (atVar == null || atVar.qt() == null || atVar.qt().size() <= 0) {
+        if (asVar == null || asVar.qG() == null || asVar.qG().size() <= 0) {
             setVisibility(8);
             return;
         }
-        switch (atVar.qt().size() > 4 ? 4 : atVar.qt().size()) {
+        switch (asVar.qG().size() > 4 ? 4 : asVar.qG().size()) {
             case 1:
-                this.eLl.c(atVar.qt().get(0).Vm, 10, false);
-                this.eLl.setVisibility(0);
-                this.eLm.setVisibility(8);
-                this.eLn.setVisibility(8);
-                this.eLo.setVisibility(8);
+                this.eYY.c(asVar.qG().get(0).WY, 10, false);
+                this.eYY.setVisibility(0);
+                this.eYZ.setVisibility(8);
+                this.eZa.setVisibility(8);
+                this.eZb.setVisibility(8);
                 break;
             case 2:
-                this.eLl.c(atVar.qt().get(0).Vm, 10, false);
-                this.eLm.c(atVar.qt().get(1).Vm, 10, false);
-                this.eLl.setVisibility(0);
-                this.eLm.setVisibility(0);
-                this.eLn.setVisibility(8);
-                this.eLo.setVisibility(8);
+                this.eYY.c(asVar.qG().get(0).WY, 10, false);
+                this.eYZ.c(asVar.qG().get(1).WY, 10, false);
+                this.eYY.setVisibility(0);
+                this.eYZ.setVisibility(0);
+                this.eZa.setVisibility(8);
+                this.eZb.setVisibility(8);
                 break;
             case 3:
-                this.eLl.c(atVar.qt().get(0).Vm, 10, false);
-                this.eLm.c(atVar.qt().get(1).Vm, 10, false);
-                this.eLn.c(atVar.qt().get(2).Vm, 10, false);
-                this.eLl.setVisibility(0);
-                this.eLm.setVisibility(0);
-                this.eLn.setVisibility(0);
-                this.eLo.setVisibility(8);
+                this.eYY.c(asVar.qG().get(0).WY, 10, false);
+                this.eYZ.c(asVar.qG().get(1).WY, 10, false);
+                this.eZa.c(asVar.qG().get(2).WY, 10, false);
+                this.eYY.setVisibility(0);
+                this.eYZ.setVisibility(0);
+                this.eZa.setVisibility(0);
+                this.eZb.setVisibility(8);
                 break;
             case 4:
-                this.eLl.c(atVar.qt().get(0).Vm, 10, false);
-                this.eLm.c(atVar.qt().get(1).Vm, 10, false);
-                this.eLn.c(atVar.qt().get(2).Vm, 10, false);
-                this.eLo.c(atVar.qt().get(3).Vm, 10, false);
-                this.eLl.setVisibility(0);
-                this.eLm.setVisibility(0);
-                this.eLn.setVisibility(0);
-                this.eLo.setVisibility(0);
+                this.eYY.c(asVar.qG().get(0).WY, 10, false);
+                this.eYZ.c(asVar.qG().get(1).WY, 10, false);
+                this.eZa.c(asVar.qG().get(2).WY, 10, false);
+                this.eZb.c(asVar.qG().get(3).WY, 10, false);
+                this.eYY.setVisibility(0);
+                this.eYZ.setVisibility(0);
+                this.eZa.setVisibility(0);
+                this.eZb.setVisibility(0);
                 break;
         }
-        if (atVar.qs() > 0) {
-            this.eLp.setText(String.format(this.mContext.getResources().getString(w.l.gift_counts), Integer.valueOf(atVar.qs())));
-            this.eLp.setVisibility(0);
+        if (asVar.qF() > 0) {
+            this.eZc.setText(String.format(this.mContext.getResources().getString(d.l.gift_counts), Integer.valueOf(asVar.qF())));
+            this.eZc.setVisibility(0);
         } else {
-            this.eLp.setVisibility(8);
+            this.eZc.setVisibility(8);
         }
-        if (j == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L)) {
-            this.eLq.setVisibility(8);
+        if (j == com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), 0L)) {
+            this.eZd.setVisibility(8);
         } else {
-            this.eLq.setVisibility(0);
+            this.eZd.setVisibility(0);
         }
     }
 
-    public void jK(boolean z) {
+    public void kf(boolean z) {
         if (z) {
-            this.eLq.setVisibility(0);
+            this.eZd.setVisibility(0);
         } else {
-            this.eLq.setVisibility(8);
+            this.eZd.setVisibility(8);
         }
     }
 
     public void onChangeSkinType() {
-        as.c(this.eLp, w.e.cp_cont_d, 1);
-        as.c(this.eLq, w.e.cp_link_tip_c, 1);
+        ai.c(this.eZc, d.e.cp_cont_d, 1);
+        ai.c(this.eZd, d.e.cp_link_tip_c, 1);
     }
 
     public long getThreadId() {

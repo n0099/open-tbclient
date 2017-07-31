@@ -1,30 +1,30 @@
 package com.baidu.tieba.person.data;
 
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.f;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
-    private ArrayList<v> aaJ;
-    private int eQK = 0;
-    private boolean eQL = true;
+    private ArrayList<f> acF;
+    private int few = 0;
+    private boolean fex = true;
 
-    public void an(ArrayList<v> arrayList) {
-        this.aaJ = arrayList;
+    public void an(ArrayList<f> arrayList) {
+        this.acF = arrayList;
     }
 
-    public void pI(int i) {
-        this.eQK = i;
+    public void pX(int i) {
+        this.few = i;
     }
 
-    public boolean aTW() {
-        return this.eQL;
+    public boolean aXe() {
+        return this.fex;
     }
 
-    public void jN(boolean z) {
-        this.eQL = z;
+    public void ki(boolean z) {
+        this.fex = z;
     }
 
-    public ArrayList<v> aTX() {
-        return this.aaJ;
+    public ArrayList<f> aXf() {
+        return this.acF;
     }
 }

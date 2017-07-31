@@ -60,7 +60,8 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
         setError(pbPageResIdl.error.errorno.intValue());
@@ -70,7 +71,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.e();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.ero = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.eDK = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -90,10 +91,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                dl.aOy().a(this.cacheKey, this.isFromMark, bArr);
+                h.aRm().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                dl.aOy().l(this.cacheKey, bArr);
+                h.aRm().l(this.cacheKey, bArr);
                 return;
             default:
                 return;

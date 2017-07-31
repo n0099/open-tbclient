@@ -111,17 +111,18 @@ public class BdLog {
     }
 
     private static boolean isLogable(String str) {
+        boolean z = false;
         if (logPackage.size() == 0) {
             return false;
         }
         Iterator<String> it = logPackage.iterator();
-        boolean z = false;
-        while (it.hasNext()) {
-            if (str.startsWith(it.next())) {
-                z = true;
+        while (true) {
+            boolean z2 = z;
+            if (!it.hasNext()) {
+                return z2;
             }
+            z = str.startsWith(it.next()) ? true : z2;
         }
-        return z;
     }
 
     public static int detailException(String str, Throwable th) {

@@ -1,28 +1,186 @@
 package com.baidu.tieba.account;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.d;
+import java.util.List;
 /* loaded from: classes.dex */
-class a extends CustomMessageListener {
-    final /* synthetic */ AccountActivity aUP;
+public class a extends BaseAdapter {
+    private View.OnClickListener amD;
+    private BaseActivity mContext;
+    private List<AccountData> mData = null;
+    private boolean aXi = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(AccountActivity accountActivity, int i) {
-        super(i);
-        this.aUP = accountActivity;
+    public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
+        this.mContext = baseActivity;
+        this.amD = onClickListener;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || this.aUP.aUG == null) {
-            return;
+    public void setData(List<AccountData> list) {
+        this.mData = list;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        int i = 0;
+        if (this.mData != null) {
+            i = this.mData.size();
         }
-        this.aUP.KC();
-        if (this.aUP.aUH != null) {
-            this.aUP.aUH.setData(this.aUP.aUG);
-            this.aUP.aUH.notifyDataSetChanged();
+        return i + 1;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        if (this.mData == null || i < 0 || i >= this.mData.size()) {
+            return null;
+        }
+        return this.mData.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        if (getItem(i) != null) {
+            return i;
+        }
+        return -1L;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [124=4, 126=4] */
+    /* JADX WARN: Not initialized variable reg: 3, insn: 0x00f7: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:30:0x00f6 */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x014b  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x014d  */
+    @Override // android.widget.Adapter
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        View view2;
+        View view3;
+        Exception exc;
+        View view4;
+        C0068a c0068a;
+        View view5;
+        try {
+            try {
+                if (view != null) {
+                    c0068a = (C0068a) view.getTag();
+                    view5 = view;
+                } else if (getItemViewType(i) == 0) {
+                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.j.account_item, (ViewGroup) null);
+                    c0068a = new C0068a();
+                    c0068a.aXj = (TextView) view5.findViewById(d.h.account);
+                    c0068a.aXl = (ImageView) view5.findViewById(d.h.active);
+                    c0068a.aXm = (Button) view5.findViewById(d.h.delete);
+                    c0068a.auM = view5.findViewById(d.h.account_item_line_layout);
+                    c0068a.aXm.setOnClickListener(this.amD);
+                    view5.setTag(c0068a);
+                } else {
+                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.j.account_add_item, (ViewGroup) null);
+                    c0068a = new C0068a();
+                    c0068a.aXk = (TextView) view5.findViewById(d.h.add_text);
+                    view5.setTag(c0068a);
+                }
+                if (getItemViewType(i) == 0) {
+                    AccountData accountData = (AccountData) getItem(i);
+                    c0068a.aXl.setVisibility(8);
+                    c0068a.aXm.setVisibility(8);
+                    c0068a.aXm.setTag(accountData);
+                    if (accountData != null) {
+                        c0068a.aXj.setText(accountData.getAccountNameShow());
+                        if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
+                            c0068a.aXl.setVisibility(0);
+                        }
+                        if (this.aXi) {
+                            c0068a.aXm.setVisibility(0);
+                        }
+                    }
+                    if (i == getCount() - 2) {
+                        c0068a.auM.setVisibility(8);
+                    } else {
+                        c0068a.auM.setVisibility(0);
+                    }
+                }
+                this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.mContext.getLayoutMode().t(view5);
+                return view5;
+            } catch (Exception e) {
+                exc = e;
+                view3 = view;
+                try {
+                    BdLog.detailException(exc);
+                    this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.mContext.getLayoutMode().t(view3);
+                    return view3;
+                } catch (Throwable th) {
+                    view4 = view3;
+                    th = th;
+                    this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.mContext.getLayoutMode().t(view4);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                view4 = view;
+                this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.mContext.getLayoutMode().t(view4);
+                throw th;
+            }
+        } catch (Exception e2) {
+            view3 = view2;
+            exc = e2;
+            BdLog.detailException(exc);
+            this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.mContext.getLayoutMode().t(view3);
+            return view3;
+        } catch (Throwable th3) {
+            th = th3;
+            this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.mContext.getLayoutMode().t(view4);
+            throw th;
+        }
+    }
+
+    public void setEditState(boolean z) {
+        this.aXi = z;
+    }
+
+    public boolean KT() {
+        return this.aXi;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        if (getItemId(i) >= 0) {
+            return 0;
+        }
+        return 1;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 2;
+    }
+
+    /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    private class C0068a {
+        TextView aXj;
+        TextView aXk;
+        ImageView aXl;
+        Button aXm;
+        View auM;
+
+        private C0068a() {
         }
     }
 }

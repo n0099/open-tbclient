@@ -227,7 +227,7 @@ public class PublicMsg implements Parcelable {
         return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x00b3  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

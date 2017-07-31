@@ -13,15 +13,15 @@ public class at {
     private static String a;
     private static at e = new at();
     private List<a> b = new ArrayList();
-    private a.C0102a c;
+    private a.C0142a c;
     private h.b d;
 
     /* loaded from: classes2.dex */
     public static abstract class a {
-        public void a(a.C0102a c0102a) {
+        public void a(a.C0142a c0142a) {
         }
 
-        public void a(b.C0103b c0103b) {
+        public void a(b.C0143b c0143b) {
         }
     }
 
@@ -65,7 +65,7 @@ public class at {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x0024  */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x0025  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -75,7 +75,7 @@ public class at {
             try {
                 bufferedInputStream = new BufferedInputStream(com.xiaomi.channel.commonutils.android.j.a().openFileInput("XMCloudCfg"));
                 try {
-                    this.c = a.C0102a.c(com.google.protobuf.micro.b.r(bufferedInputStream));
+                    this.c = a.C0142a.c(com.google.protobuf.micro.b.x(bufferedInputStream));
                     bufferedInputStream.close();
                     com.xiaomi.channel.commonutils.file.a.a(bufferedInputStream);
                 } catch (Exception e2) {
@@ -100,7 +100,7 @@ public class at {
             throw th;
         }
         if (this.c != null) {
-            this.c = new a.C0102a();
+            this.c = new a.C0142a();
         }
     }
 
@@ -109,9 +109,9 @@ public class at {
         try {
             if (this.c != null) {
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.channel.commonutils.android.j.a().openFileOutput("XMCloudCfg", 0));
-                com.google.protobuf.micro.c g = com.google.protobuf.micro.c.g(bufferedOutputStream);
-                this.c.a(g);
-                g.a();
+                com.google.protobuf.micro.c k = com.google.protobuf.micro.c.k(bufferedOutputStream);
+                this.c.a(k);
+                k.a();
                 bufferedOutputStream.close();
             }
         } catch (Exception e2) {
@@ -120,16 +120,16 @@ public class at {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(b.C0103b c0103b) {
+    public void a(b.C0143b c0143b) {
         a[] aVarArr;
-        if (c0103b.i() && c0103b.h() > c()) {
+        if (c0143b.i() && c0143b.h() > c()) {
             g();
         }
         synchronized (this) {
             aVarArr = (a[]) this.b.toArray(new a[this.b.size()]);
         }
         for (a aVar : aVarArr) {
-            aVar.a(c0103b);
+            aVar.a(c0143b);
         }
     }
 
@@ -151,7 +151,7 @@ public class at {
         return 0;
     }
 
-    public a.C0102a d() {
+    public a.C0142a d() {
         f();
         return this.c;
     }

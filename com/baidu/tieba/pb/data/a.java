@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import tbclient.PbPage.GodCard;
 /* loaded from: classes.dex */
 public class a extends PostData {
-    public static final BdUniqueId erb = BdUniqueId.gen();
-    private String Tt;
+    public static final BdUniqueId eDx = BdUniqueId.gen();
+    private String Vi;
     private String buttonText;
-    private String erc;
-    private int erd;
+    private String eDy;
+    private int eDz;
     private String picUrl;
     private String portrait;
     private String text;
@@ -19,12 +19,12 @@ public class a extends PostData {
         if (godCard != null) {
             this.userName = godCard.user_name;
             this.portrait = godCard.portrait;
-            this.erc = godCard.time_ex;
+            this.eDy = godCard.time_ex;
             this.text = godCard.text;
             this.picUrl = godCard.pic_url;
             this.buttonText = godCard.button_text;
-            this.Tt = godCard.button_url;
-            this.erd = godCard.show_floor.intValue();
+            this.Vi = godCard.button_url;
+            this.eDz = godCard.show_floor.intValue();
         }
     }
 
@@ -37,8 +37,8 @@ public class a extends PostData {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData
-    public String aMh() {
-        return this.erc;
+    public String aOV() {
+        return this.eDy;
     }
 
     public String getText() {
@@ -49,20 +49,20 @@ public class a extends PostData {
         return this.picUrl;
     }
 
-    public String aMi() {
+    public String aOW() {
         return this.buttonText;
     }
 
-    public String aMj() {
-        return this.Tt;
+    public String aOX() {
+        return this.Vi;
     }
 
-    public int aMk() {
-        return this.erd;
+    public int aOY() {
+        return this.eDz;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return erb;
+        return eDx;
     }
 }

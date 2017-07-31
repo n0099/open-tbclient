@@ -11,12 +11,11 @@ public class ImMessageCenterActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, Fragment.instantiate(getPageContext().getContext(), f.class.getName()));
+        beginTransaction.add(16908290, Fragment.instantiate(getPageContext().getContext(), b.class.getName()));
         beginTransaction.commit();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
+    protected void onChangeSkinType(int i) {
     }
 }

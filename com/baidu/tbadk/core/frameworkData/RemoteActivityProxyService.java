@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.frameworkData;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,56 +21,41 @@ public class RemoteActivityProxyService extends BdBaseService {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         if (this.mMessenger == null) {
-            this.mMessenger = new Messenger(new a(this, null));
+            this.mMessenger = new Messenger(new a());
         }
         return this.mMessenger.getBinder();
     }
 
+    @SuppressLint({"HandlerLeak"})
     /* loaded from: classes.dex */
     private class a extends Handler {
         private a() {
         }
 
-        /* synthetic */ a(RemoteActivityProxyService remoteActivityProxyService, a aVar) {
-            this();
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:13:0x0029 A[Catch: RemoteException -> 0x0045, TryCatch #0 {RemoteException -> 0x0045, blocks: (B:11:0x0021, B:13:0x0029, B:16:0x0034), top: B:24:0x0021 }] */
-        /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
         @Override // android.os.Handler
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
         public void handleMessage(Message message) {
-            boolean z;
-            Bundle data;
+            boolean z = false;
             if (message != null) {
                 RemoteActivityProxyService.this.mClient = message.replyTo;
                 try {
-                    data = message.getData();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                try {
+                    Bundle data = message.getData();
                     if (data != null) {
                         String string = data.getString("class");
                         if (!TextUtils.isEmpty(string)) {
                             Class.forName(string);
                             z = true;
-                            if (RemoteActivityProxyService.this.mClient == null) {
-                                RemoteActivityProxyService.this.mClient.send(Message.obtain(null, 0, z ? 1 : 2, 0));
-                                return;
-                            }
-                            return;
                         }
                     }
-                    if (RemoteActivityProxyService.this.mClient == null) {
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    if (RemoteActivityProxyService.this.mClient != null) {
+                        RemoteActivityProxyService.this.mClient.send(Message.obtain(null, 0, z ? 1 : 2, 0));
                     }
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
-                    return;
                 }
-                z = false;
             }
         }
     }
