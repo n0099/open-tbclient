@@ -5,21 +5,27 @@ import UserPost.UserPostResIdl;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.listener.c;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.f;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.u;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.personPolymeric.c.i;
+import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
+import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.squareup.wire.Wire;
 import java.io.Serializable;
 import java.lang.ref.WeakReference;
@@ -31,17 +37,17 @@ import tbclient.User;
 public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
     public int hide_post;
-    private com.baidu.tieba.personPolymeric.c.i mCardNullPolymericData;
+    private i mCardNullPolymericData;
     private boolean mIsReset;
     private int mLastChooseStyle;
     private b mOnResult;
     private HttpMessageListener pageHttpListener;
-    private com.baidu.adp.framework.listener.e pageSocketListener;
-    public final ArrayList<v> postList;
-    public final ArrayList<v> threadList;
-    private static int eUm = 0;
-    private static int eWV = 1;
-    private static String eUn = "";
+    private c pageSocketListener;
+    public final ArrayList<f> postList;
+    public final ArrayList<f> threadList;
+    private static int fhX = 0;
+    private static int fkJ = 1;
+    private static String fhY = "";
 
     /* loaded from: classes.dex */
     public interface a {
@@ -60,8 +66,42 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.hide_post = 0;
         this.mIsReset = false;
         this.mLastChooseStyle = -1;
-        this.pageSocketListener = new h(this, 303002);
-        this.pageHttpListener = new i(this, CmdConfigHttp.USER_POST_HTTP_CMD);
+        this.pageSocketListener = new c(303002) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+                if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
+                    UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
+                    if (userPostPageSocketResponsedMessage.getOrginalMessage() == null || userPostPageSocketResponsedMessage.hasError()) {
+                        PersonPostModel.this.mOnResult.a(null, PersonPostModel.this.mIsReset);
+                        return;
+                    }
+                    UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
+                    a aVar = userPostPageRequestMessage.getmCallbackWeakReference().get();
+                    if (aVar != null) {
+                        aVar.b(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    }
+                }
+            }
+        };
+        this.pageHttpListener = new HttpMessageListener(CmdConfigHttp.USER_POST_HTTP_CMD) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
+                    UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
+                    if (userPostPageHttpResponseMessage.getOrginalMessage() == null || userPostPageHttpResponseMessage.hasError()) {
+                        PersonPostModel.this.mOnResult.a(null, PersonPostModel.this.mIsReset);
+                        return;
+                    }
+                    UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+                    a aVar = userPostPageRequestMessage.getmCallbackWeakReference().get();
+                    if (aVar != null) {
+                        aVar.b(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    }
+                }
+            }
+        };
         this.mOnResult = bVar;
         setUniqueId(BdUniqueId.gen());
     }
@@ -73,8 +113,42 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.hide_post = 0;
         this.mIsReset = false;
         this.mLastChooseStyle = -1;
-        this.pageSocketListener = new h(this, 303002);
-        this.pageHttpListener = new i(this, CmdConfigHttp.USER_POST_HTTP_CMD);
+        this.pageSocketListener = new c(303002) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+                if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
+                    UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
+                    if (userPostPageSocketResponsedMessage.getOrginalMessage() == null || userPostPageSocketResponsedMessage.hasError()) {
+                        PersonPostModel.this.mOnResult.a(null, PersonPostModel.this.mIsReset);
+                        return;
+                    }
+                    UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
+                    a aVar = userPostPageRequestMessage.getmCallbackWeakReference().get();
+                    if (aVar != null) {
+                        aVar.b(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    }
+                }
+            }
+        };
+        this.pageHttpListener = new HttpMessageListener(CmdConfigHttp.USER_POST_HTTP_CMD) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPostModel.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
+                    UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
+                    if (userPostPageHttpResponseMessage.getOrginalMessage() == null || userPostPageHttpResponseMessage.hasError()) {
+                        PersonPostModel.this.mOnResult.a(null, PersonPostModel.this.mIsReset);
+                        return;
+                    }
+                    UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+                    a aVar = userPostPageRequestMessage.getmCallbackWeakReference().get();
+                    if (aVar != null) {
+                        aVar.b(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    }
+                }
+            }
+        };
         this.mOnResult = bVar;
         setUniqueId(bdUniqueId);
     }
@@ -94,43 +168,43 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        eWV = 1;
+        fkJ = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(eUn)) {
-                eUm = 1;
-                eUn = str;
+            if (z || !str.equals(fhY)) {
+                fhX = 1;
+                fhY = str;
             } else {
-                eUm++;
+                fhX++;
             }
         } else {
-            if (z || !str.equals(eUn)) {
-                eWV = 1;
-                eUn = str;
+            if (z || !str.equals(fhY)) {
+                fkJ = 1;
+                fhY = str;
             }
-            eWV++;
+            fkJ++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(eUn);
+        userPostPageRequestMessage.setUid(fhY);
         if (z3) {
-            userPostPageRequestMessage.setPn(eUm);
+            userPostPageRequestMessage.setPn(fhX);
         } else {
-            userPostPageRequestMessage.setPn(eWV);
+            userPostPageRequestMessage.setPn(fkJ);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
-        int af = k.af(TbadkCoreApplication.m9getInst().getApp());
-        int ag = k.ag(TbadkCoreApplication.m9getInst().getApp());
-        float f = TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = ax.vA().vC() ? 2 : 1;
-        userPostPageRequestMessage.set_scr_w(af);
-        userPostPageRequestMessage.set_scr_h(ag);
+        int ag = k.ag(TbadkCoreApplication.getInst().getApp());
+        int ah = k.ah(TbadkCoreApplication.getInst().getApp());
+        float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
+        int i2 = am.vQ().vS() ? 2 : 1;
+        userPostPageRequestMessage.set_scr_w(ag);
+        userPostPageRequestMessage.set_scr_h(ah);
         userPostPageRequestMessage.set_scr_dip(f);
         userPostPageRequestMessage.set_q_type(i2);
         userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(aVar));
@@ -140,8 +214,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public void parseProtobuf(DataRes dataRes) {
         if (dataRes != null) {
             this.hide_post = dataRes.hide_post.intValue();
-            if (z.t(dataRes.post_list)) {
-                this.mCardNullPolymericData = new com.baidu.tieba.personPolymeric.c.i();
+            if (u.v(dataRes.post_list)) {
+                this.mCardNullPolymericData = new i();
                 this.postList.add(this.mCardNullPolymericData);
                 return;
             }
@@ -152,10 +226,10 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 this.mLastChooseStyle = random;
                 cardPersonDynamicThreadData.parseProtobuf(postInfoList, random);
                 postInfoList2.parseProtobuf(postInfoList, random);
-                if (cardPersonDynamicThreadData.bEK != 33) {
+                if (cardPersonDynamicThreadData.bKg != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
-                } else if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                } else if (true == TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -199,7 +273,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes.dex */
-    public static class PostInfoList extends OrmObject implements v, aj, Serializable {
+    public static class PostInfoList extends OrmObject implements f, ad, Serializable {
         public static final BdUniqueId POST_INFO = BdUniqueId.gen();
         public boolean isDeal;
         public String name_show;
@@ -277,7 +351,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.aj
+        @Override // com.baidu.tbadk.core.util.ad
         public ArrayList<PreLoadImageInfo> getImages() {
             Media[] mediaArr;
             ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
@@ -292,7 +366,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return arrayList;
         }
 
-        @Override // com.baidu.adp.widget.ListView.v
+        @Override // com.baidu.adp.widget.ListView.f
         public BdUniqueId getType() {
             return POST_INFO;
         }

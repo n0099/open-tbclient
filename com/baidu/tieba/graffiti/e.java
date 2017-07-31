@@ -1,19 +1,23 @@
 package com.baidu.tieba.graffiti;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.ae;
 /* loaded from: classes.dex */
-public class e implements View.OnLongClickListener {
-    final /* synthetic */ d cBh;
+public class e {
+    private String forumId;
+    private ae mGraffitiInfo;
+    private String threadId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar) {
-        this.cBh = dVar;
+    public e(String str, String str2, ae aeVar) {
+        this.forumId = str;
+        this.threadId = str2;
+        this.mGraffitiInfo = aeVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        this.cBh.akn();
-        return true;
+    public String getThreadId() {
+        return this.threadId;
+    }
+
+    public ae getGraffitiInfo() {
+        return this.mGraffitiInfo;
     }
 }

@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.annotation.TargetApi;
 import android.app.Service;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
@@ -14,6 +15,7 @@ public class XMJobService extends Service {
     static Service a = null;
     private IBinder b = null;
 
+    @TargetApi(21)
     /* loaded from: classes2.dex */
     static class a extends JobService {
         Binder a;
@@ -21,10 +23,10 @@ public class XMJobService extends Service {
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        private static class HandlerC0104a extends Handler {
+        private static class HandlerC0144a extends Handler {
             JobService a;
 
-            HandlerC0104a(JobService jobService) {
+            HandlerC0144a(JobService jobService) {
                 super(jobService.getMainLooper());
                 this.a = jobService;
             }
@@ -61,7 +63,7 @@ public class XMJobService extends Service {
             intent.setPackage(getPackageName());
             startService(intent);
             if (this.b == null) {
-                this.b = new HandlerC0104a(this);
+                this.b = new HandlerC0144a(this);
             }
             this.b.sendMessage(Message.obtain(this.b, 1, jobParameters));
             return true;

@@ -27,14 +27,28 @@ public class Amrnb {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.g.gV().a("amrnb", 2, new g());
+        bLoadLibrary = com.baidu.adp.lib.util.g.hd().a("amrnb", 2, new com.baidu.adp.lib.util.h() { // from class: com.baidu.adp.lib.voice.Amrnb.1
+            @Override // com.baidu.adp.lib.util.h
+            public void p(boolean z) {
+                Amrnb.bLoadLibrary = z;
+                if (Amrnb.bLoadLibrary) {
+                    try {
+                        Amrnb.native_init();
+                        Amrnb.bLoadLibrary = true;
+                    } catch (Throwable th) {
+                        Amrnb.bLoadLibrary = false;
+                        BdStatisticsManager.getInstance().error("so", "initAmrnb", "", -9104, th.getClass().getName() + " " + th.getMessage(), new Object[0]);
+                    }
+                }
+            }
+        });
         if (bLoadLibrary) {
             try {
                 native_init();
                 bLoadLibrary = true;
             } catch (Throwable th) {
                 bLoadLibrary = false;
-                BdStatisticsManager.getInstance().error("so", "initAmrnb", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
+                BdStatisticsManager.getInstance().error("so", "initAmrnb", "", -9104, th.getClass().getName() + " " + th.getMessage(), new Object[0]);
             }
         }
     }

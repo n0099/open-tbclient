@@ -1,31 +1,20 @@
 package com.baidu.tieba.view;
 
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class f implements Animation.AnimationListener {
-    final /* synthetic */ CommonTipView fZX;
+public interface f {
+    void VU();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(CommonTipView commonTipView) {
-        this.fZX = commonTipView;
-    }
+    void a(Context context, NavigationBar navigationBar);
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
+    void b(float f, boolean z);
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        Runnable runnable;
-        int i;
-        CommonTipView commonTipView = this.fZX;
-        runnable = this.fZX.cfo;
-        i = this.fZX.Ii;
-        commonTipView.postDelayed(runnable, i);
-    }
+    void dA(boolean z);
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
+    void m(int i, boolean z);
+
+    void onChangeSkinType(int i);
+
+    void setOnViewResponseListener(g gVar);
 }

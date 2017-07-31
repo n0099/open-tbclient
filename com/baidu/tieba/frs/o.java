@@ -1,29 +1,22 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.Drawable;
-import java.util.HashMap;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class o {
-    private HashMap<String, Drawable> cbJ = new HashMap<>();
+public class o extends j.a {
+    public int aql;
+    public TextView clq;
+    public PhotoLiveCardView clr;
+    public View cls;
 
-    public Drawable u(int i, int i2) {
-        String an = an(i, i2);
-        Drawable drawable = this.cbJ.get(an);
-        if (drawable == null) {
-            Drawable u = com.baidu.tbadk.core.util.as.u(i2, i);
-            this.cbJ.put(an, u);
-            return u.getConstantState().newDrawable();
-        }
-        return drawable.getConstantState().newDrawable();
-    }
-
-    private String an(int i, int i2) {
-        return String.valueOf(i) + "_" + i2;
-    }
-
-    public void destory() {
-        if (!this.cbJ.isEmpty()) {
-            this.cbJ.clear();
-        }
+    public o(View view) {
+        super(view);
+        this.aql = 3;
+        this.clq = (TextView) view.findViewById(d.h.more_live_list);
+        this.clr = (PhotoLiveCardView) view.findViewById(d.h.photo_live_card);
+        this.cls = view.findViewById(d.h.make_headlines);
     }
 }

@@ -1,189 +1,248 @@
 package com.baidu.tbadk.coreExtra.view;
 
 import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.HorizontalScrollView;
+import android.view.ViewParent;
+import android.widget.Gallery;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.coreExtra.view.f;
+import com.baidu.tbadk.widget.a;
+import com.baidu.tieba.d;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class c extends HorizontalScrollView {
-    private int atP;
-    private int atQ;
-    private TbPageContextSupport atR;
-    private ImageView[] atS;
-    private View atT;
-    private View atU;
-    private a atV;
-    private boolean atW;
-    private String atX;
+public class c extends PagerAdapter {
+    private boolean awA;
+    private ArrayList<String> awl;
+    private Map<String, ImageUrlData> awm;
+    private a.d awp;
+    private List<a> awv;
+    private f.b awy;
     private Context mContext;
-    private Runnable scrollRunnable;
+    private View.OnClickListener mOnClickListener = null;
+    private View.OnLongClickListener awn = null;
+    private a.e awo = null;
+    private int awq = 0;
+    private boolean awr = false;
+    private String aws = null;
+    private int awt = 0;
+    private int awu = 0;
+    private boolean aww = false;
+    private boolean awx = false;
+    private int awz = -1;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eW(String str);
+        View f(ViewGroup viewGroup, int i);
     }
 
-    public c(TbPageContextSupport tbPageContextSupport, a aVar, String str) {
-        super(tbPageContextSupport.getPageContext().getContext());
-        this.atP = 0;
-        this.atQ = 0;
-        this.scrollRunnable = new d(this);
+    @Override // android.support.v4.view.PagerAdapter
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
+
+    public c(Context context, ArrayList<String> arrayList, a.d dVar) {
         this.mContext = null;
-        this.atS = null;
-        this.atT = null;
-        this.atU = null;
-        this.atV = null;
-        this.atW = true;
-        this.atX = WriteImageActivityConfig.FILTER_NAME_NORMAL;
-        this.mContext = tbPageContextSupport.getPageContext().getContext();
-        this.atR = tbPageContextSupport;
-        this.atV = aVar;
-        if (str != null) {
-            this.atX = str;
-        }
-        init();
+        this.awl = null;
+        this.awp = null;
+        this.awv = null;
+        this.mContext = context;
+        this.awl = arrayList;
+        this.awp = dVar;
+        this.awv = new ArrayList();
     }
 
-    private void init() {
-        this.atP = (int) this.mContext.getResources().getDimension(w.f.ds4);
-        this.atQ = (int) this.mContext.getResources().getDimension(w.f.ds30);
-        LinearLayout linearLayout = new LinearLayout(this.mContext);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-        linearLayout.setGravity(16);
-        linearLayout.setOrientation(0);
-        linearLayout.setPadding(this.atQ, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
-        setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-        addView(linearLayout);
-        String[] stringArray = this.mContext.getResources().getStringArray(w.b.fiter_name);
-        this.atS = new ImageView[stringArray.length];
-        int length = stringArray.length;
+    public void setData(ArrayList<String> arrayList) {
+        this.awl = arrayList;
+        notifyDataSetChanged();
+    }
+
+    public void setAssistUrls(Map<String, ImageUrlData> map) {
+        this.awm = map;
+    }
+
+    public void setNextTitle(String str) {
+        this.aws = str;
+    }
+
+    public void setHasNext(boolean z) {
+        this.awr = z;
+        notifyDataSetChanged();
+    }
+
+    public void a(a aVar) {
+        this.awv.add(aVar);
+    }
+
+    public boolean getHasNext() {
+        return this.awr;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
         int i = 0;
-        int i2 = 0;
-        while (i < length) {
-            String str = stringArray[i];
-            String substring = str.substring(0, str.indexOf("|"));
-            String substring2 = str.substring(str.indexOf("|") + 1);
-            View inflate = LayoutInflater.from(this.mContext).inflate(w.j.filter_item, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(w.h.filter_text);
-            textView.setText(substring2);
-            textView.setTag(substring);
-            ImageView imageView = (ImageView) inflate.findViewById(w.h.filter_immage);
-            imageView.setPadding(this.atP, this.atP, this.atP, this.atP);
-            imageView.setTag(textView);
-            imageView.setOnClickListener(new e(this));
-            if (substring.equals(this.atX)) {
-                this.atT = inflate;
-                this.atU = imageView;
-                imageView.setBackgroundResource(w.g.bg_choose_filter);
-                textView.setSelected(true);
-            }
-            imageView.setImageResource(eV(substring));
-            this.atS[i2] = imageView;
-            linearLayout.addView(inflate);
-            i++;
-            i2++;
-        }
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        if (this.atT != null) {
-            post(this.scrollRunnable);
-        }
-    }
-
-    public String getSelectedFilter() {
-        return this.atU != null ? (String) ((View) this.atU.getTag()).getTag() : WriteImageActivityConfig.FILTER_NAME_NORMAL;
-    }
-
-    public void setCanbeClick(boolean z) {
-        this.atW = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void E(View view) {
-        if (this.atW && view != this.atU && AP()) {
-            if (this.atU != null) {
-                this.atU.setBackgroundDrawable(null);
-                ((TextView) this.atU.getTag()).setSelected(false);
-            }
-            this.atU = view;
-            view.setBackgroundResource(w.g.bg_choose_filter);
-            TextView textView = (TextView) view.getTag();
-            textView.setSelected(true);
-            this.atX = (String) textView.getTag();
-            if (this.atV != null) {
-                this.atV.eW(this.atX);
+        if (this.awl != null) {
+            i = this.awl.size();
+            if (this.awr) {
+                i++;
             }
         }
+        return i + this.awt + this.awu;
     }
 
-    private boolean AP() {
-        PluginPackageManager.PluginStatus bn = PluginPackageManager.jw().bn(PluginCenter.NAME_MOTUSDK);
-        if (bn == PluginPackageManager.PluginStatus.NROMAL) {
-            return true;
-        }
-        if (bn == PluginPackageManager.PluginStatus.DISABLE) {
-            UtilHelper.showToast(getContext(), w.l.plugin_config_not_found);
-            return false;
-        } else if (bn == PluginPackageManager.PluginStatus.UNINSTALLED) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDownloadActivityConfig(this.mContext, PluginPackageManager.jw().getPluginConfig(PluginCenter.NAME_MOTUSDK))));
-            return false;
-        } else if (bn == PluginPackageManager.PluginStatus.FORBIDDEN) {
-            com.baidu.tbadk.coreExtra.d.a.a(this.atR.getPageContext(), w.l.plugin_muto_not_install, new f(this), new g(this));
-            return false;
-        } else {
-            return true;
+    public void setTempSize(int i) {
+        this.awt = i;
+        notifyDataSetChanged();
+    }
+
+    public void setAddSize(int i) {
+        this.awu = i;
+        notifyDataSetChanged();
+    }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.mOnClickListener = onClickListener;
+    }
+
+    public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
+        this.awn = onLongClickListener;
+    }
+
+    public void setGifMaxUseableMem(int i) {
+        this.awq = i;
+    }
+
+    public void a(a.e eVar) {
+        this.awo = eVar;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view.equals(obj);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        ((ViewPager) viewGroup).removeView((View) obj);
+        if (obj instanceof f) {
+            ((f) obj).onDestroy();
         }
     }
 
-    public static int eV(String str) {
-        if (TbadkCoreApplication.getMotuFilterImageMap() == null || TbadkCoreApplication.getMotuFilterImageMap().size() == 0) {
-            return 0;
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        if (this.awv.size() != 0) {
+            for (a aVar : this.awv) {
+                View f = aVar.f(viewGroup, i);
+                if (f != null) {
+                    return f;
+                }
+            }
         }
-        if (str == null || str.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get(WriteImageActivityConfig.FILTER_NAME_NORMAL).intValue();
+        View e = e(viewGroup, i);
+        if (e == null) {
+            return d(viewGroup, i);
         }
-        if (str.equals("clvivid")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clvivid").intValue();
+        return e;
+    }
+
+    private f d(ViewGroup viewGroup, int i) {
+        f fVar = new f(this.mContext);
+        fVar.setOriImgSelectedCallback(this.awy);
+        String str = null;
+        if (i < this.awl.size()) {
+            str = this.awl.get(i);
         }
-        if (str.equals("cllomoscenery")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("cllomoscenery").intValue();
+        fVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+        fVar.setImageOnClickListener(this.mOnClickListener);
+        fVar.setImageOnLongClickListener(this.awn);
+        fVar.setIsCdn(this.aww);
+        fVar.setOnSizeChangedListener(this.awo);
+        ((ViewPager) viewGroup).addView(fVar, 0);
+        fVar.setAssistUrl(fh(str));
+        fVar.o(str, this.awx);
+        fVar.setGifMaxUseableMem(this.awq);
+        fVar.setTag(String.valueOf(i));
+        fVar.setGifSetListener(this.awp);
+        fVar.setHeadImage(this.awA);
+        return fVar;
+    }
+
+    private View e(ViewGroup viewGroup, int i) {
+        if (this.awr && i == getCount() - 1 && i != 0) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(d.j.big_image_next, (ViewGroup) null);
+            ((ImageView) inflate.findViewById(d.h.image)).setImageDrawable(ai.getDrawable(d.g.big_image_next_default));
+            ((TextView) inflate.findViewById(d.h.thread_name)).setText(this.aws);
+            viewGroup.addView(inflate);
+            inflate.setOnClickListener(this.mOnClickListener);
+            return inflate;
         }
-        if (str.equals("clcaisefupian")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clcaisefupian").intValue();
+        return null;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        boolean z;
+        super.setPrimaryItem(viewGroup, i, obj);
+        if (obj instanceof f) {
+            if (this.awz == i) {
+                z = false;
+            } else {
+                this.awz = i;
+                z = true;
+            }
+            b bVar = (b) viewGroup;
+            com.baidu.tbadk.widget.a imageView = ((f) obj).getImageView();
+            if (bVar.getSelectedView() == null) {
+                bVar.setSelectedView(imageView);
+                ViewParent parent = bVar.getParent();
+                if (parent != null && (parent instanceof MultiImageView)) {
+                    ((MultiImageView) parent).setZoomButton(imageView);
+                }
+            }
+            com.baidu.tbadk.widget.a currentView = bVar.getCurrentView();
+            if (imageView != currentView || i == this.awl.size() - 1) {
+                if (currentView != null) {
+                    currentView.HJ();
+                }
+                ((f) obj).BK();
+                ((f) obj).h(this.awx, z);
+                bVar.setCurrentView(imageView);
+                if (((f) obj).getImageType() == 1) {
+                    this.awp.a(imageView);
+                }
+            }
         }
-        if (str.equals("clm3")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clm3").intValue();
+    }
+
+    private ImageUrlData fh(String str) {
+        if (TextUtils.isEmpty(str) || this.awm == null) {
+            return null;
         }
-        if (str.equals("cqiuse")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("cqiuse").intValue();
-        }
-        if (str.equals("clzaoan")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clzaoan").intValue();
-        }
-        if (str.equals("clfuguscenery")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clfuguscenery").intValue();
-        }
-        if (str.equals("clheibai")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clheibai").intValue();
-        }
-        return TbadkCoreApplication.getMotuFilterImageMap().get(WriteImageActivityConfig.FILTER_NAME_NORMAL).intValue();
+        return this.awm.get(str);
+    }
+
+    public void setAllowLocalUrl(boolean z) {
+        this.awx = z;
+    }
+
+    public void setIsCdn(boolean z) {
+        this.aww = z;
+    }
+
+    public void setHeadImage(boolean z) {
+        this.awA = z;
+    }
+
+    public void setOriImgSelectedCallback(f.b bVar) {
+        this.awy = bVar;
     }
 }

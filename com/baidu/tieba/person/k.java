@@ -1,44 +1,67 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.Display;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
-import com.baidu.tieba.w;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.u;
+import java.util.ArrayList;
+import tbclient.ThreadInfo;
+import tbclient.ThreadModule;
 /* loaded from: classes.dex */
-public class k extends Dialog {
-    private LinearLayout aJF;
-    private Context context;
-    private View mContentView;
+public class k extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId fed = BdUniqueId.gen();
+    private long bEp;
+    private String bEq;
+    private long fee;
+    public boolean mHasMore;
+    private ArrayList<e> mThreadList;
+    private UserData mUserData;
 
-    public k(Context context, View view) {
-        super(context, 16973835);
-        this.context = context;
-        this.mContentView = view;
+    public void a(ThreadModule threadModule) {
+        if (threadModule != null) {
+            this.bEp = threadModule.module_id.longValue();
+            this.bEq = threadModule.module_name;
+            if (!u.v(threadModule.thread_info)) {
+                this.mThreadList = new ArrayList<>();
+                for (ThreadInfo threadInfo : threadModule.thread_info) {
+                    if (threadInfo != null) {
+                        e eVar = new e();
+                        eVar.a(threadInfo);
+                        eVar.fdM = this.bEp;
+                        eVar.fdP = false;
+                        this.mThreadList.add(eVar);
+                    }
+                }
+            }
+            if (!u.v(this.mThreadList)) {
+                this.mThreadList.get(0).fdP = true;
+            }
+            this.mHasMore = u.u(this.mThreadList) > 3 || this.bEp == -1;
+            this.fee = threadModule.show_num.longValue();
+        }
     }
 
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        requestWindowFeature(1);
-        setContentView(w.j.person_info_more_dialog);
-        Display defaultDisplay = ((WindowManager) this.context.getSystemService("window")).getDefaultDisplay();
-        WindowManager.LayoutParams attributes = getWindow().getAttributes();
-        attributes.width = defaultDisplay.getWidth();
-        getWindow().setAttributes(attributes);
-        getWindow().setBackgroundDrawableResource(w.e.transparent);
-        getWindow().setDimAmount(0.3f);
-        getWindow().setGravity(80);
-        getWindow().setWindowAnimations(w.m.pb_more_pop_anim);
-        setCanceledOnTouchOutside(true);
-        setCancelable(true);
-        this.aJF = (LinearLayout) findViewById(w.h.root_view);
-        if (this.mContentView != null) {
-            this.aJF.addView(this.mContentView);
-        }
-        this.aJF.setOnClickListener(new l(this));
+    public ArrayList<e> getThreadList() {
+        return this.mThreadList;
+    }
+
+    public long aXc() {
+        return this.bEp;
+    }
+
+    public String getModuleName() {
+        return this.bEq;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return fed;
+    }
+
+    public void setUserData(UserData userData) {
+        this.mUserData = userData;
+    }
+
+    public UserData getUserData() {
+        return this.mUserData;
     }
 }

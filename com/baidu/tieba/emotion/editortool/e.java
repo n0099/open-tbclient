@@ -1,17 +1,93 @@
 package com.baidu.tieba.emotion.editortool;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tieba.d;
+import java.util.Map;
 /* loaded from: classes.dex */
-class e implements CustomMessageTask.CustomRunnable<Object> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null || !(customMessage instanceof RequestStaticEmotionMessage)) {
-            return null;
+public class e extends com.baidu.tbadk.editortools.emotiontool.c {
+    public e() {
+        init();
+    }
+
+    private void init() {
+        super.eI(7);
+        super.eJ(3);
+        com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), d.g.icon_face_original_s), false);
+        super.d(aVar);
+        super.c(aVar);
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.c
+    public String eH(int i) {
+        int i2;
+        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.aCU.size()) {
+            i2 = 0;
+        } else {
+            i2 = com.baidu.tbadk.editortools.emotiontool.b.aCU.get(i).intValue();
         }
-        RequestStaticEmotionMessage requestStaticEmotionMessage = (RequestStaticEmotionMessage) customMessage;
-        return new CustomResponsedMessage<>(customMessage.getCmd(), z.aam().aK(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
+        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.aCV.entrySet()) {
+            if (entry.getValue().intValue() == i2) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.c
+    public boolean fK(String str) {
+        return com.baidu.tbadk.editortools.emotiontool.b.aCV.get(str) != null;
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.c
+    public com.baidu.adp.widget.a.a fL(String str) {
+        Bitmap resBitmap;
+        Integer num = com.baidu.tbadk.editortools.emotiontool.b.aCV.get(str);
+        if (num != null && (resBitmap = com.baidu.adp.lib.util.d.gZ().getResBitmap(TbadkCoreApplication.getInst().getApp(), num.intValue())) != null) {
+            return new com.baidu.adp.widget.a.a(resBitmap, false, str);
+        }
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.c
+    public int getEmotionsCount() {
+        return com.baidu.tbadk.editortools.emotiontool.b.aCU.size();
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.c
+    public com.baidu.adp.widget.a.a fM(String str) {
+        return fL(str);
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.c
+    public EmotionGroupType Dp() {
+        return EmotionGroupType.LOCAL;
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.c
+    public String getGroupId() {
+        return "_local";
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.c
+    public String getGroupName() {
+        return "_local";
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.c
+    public int getWidth() {
+        return 0;
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.c
+    public int getHeight() {
+        return 0;
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.c
+    public boolean Do() {
+        return true;
     }
 }

@@ -5,30 +5,33 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.StatFs;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class h {
-    private static h dcR;
-    private static long dcU = -1;
-    private static int dcV = 0;
-    private a dcS = new a(null);
-    private b dcT = null;
+    private static h dmO;
+    private static long dmR = -1;
+    private static int dmS = 0;
+    private a dmP = new a();
+    private b dmQ = null;
 
-    public static h asf() {
-        if (dcR == null) {
+    public static h atX() {
+        if (dmO == null) {
             synchronized (h.class) {
-                if (dcR == null) {
-                    dcR = new h();
+                if (dmO == null) {
+                    dmO = new h();
                 }
             }
         }
-        return dcR;
+        return dmO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,17 +40,13 @@ public class h {
         private a() {
         }
 
-        /* synthetic */ a(a aVar) {
-            this();
-        }
-
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    h.asf().dcS.removeMessages(1);
-                    h.asf().execute();
+                    h.atX().dmP.removeMessages(1);
+                    h.atX().execute();
                     return;
                 default:
                     return;
@@ -56,26 +55,39 @@ public class h {
     }
 
     private h() {
-        MessageManager.getInstance().registerListener(new i(this, CmdConfigCustom.CMD_BACKGROUND_SWTICH));
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.im.db.h.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
+                    if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                        h.this.dmP.sendMessageDelayed(h.this.dmP.obtainMessage(1), 30000L);
+                        return;
+                    }
+                    h.this.dmP.removeMessages(1);
+                    h.this.stop();
+                }
+            }
+        });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.dcT != null) {
-            this.dcT.cancel();
-            this.dcT = null;
+        if (this.dmQ != null) {
+            this.dmQ.cancel();
+            this.dmQ = null;
         }
-        this.dcT = new b(this, null);
-        this.dcT.setParallel(TiebaIMConfig.getParallel());
-        this.dcT.setPriority(4);
-        this.dcT.execute(new String[0]);
+        this.dmQ = new b();
+        this.dmQ.setParallel(TiebaIMConfig.getParallel());
+        this.dmQ.setPriority(4);
+        this.dmQ.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.dcT != null) {
-            this.dcT.cancel();
-            this.dcT = null;
+        if (this.dmQ != null) {
+            this.dmQ.cancel();
+            this.dmQ = null;
         }
     }
 
@@ -85,57 +97,53 @@ public class h {
         private b() {
         }
 
-        /* synthetic */ b(h hVar, b bVar) {
-            this();
-        }
-
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [179=4] */
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> asl = j.asi().asl();
-            if (asl == null || asl.size() == 0) {
+            LinkedList<ImMessageCenterPojo> aub = i.atY().aub();
+            if (aub == null || aub.size() == 0) {
                 return false;
             }
-            if (h.dcU < 0) {
+            if (h.dmR < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    h.dcU = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (h.dcU > IjkMediaMeta.AV_CH_WIDE_LEFT) {
-                        h.dcV = 5000;
-                    } else if (h.dcU > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
-                        h.dcV = 3000;
+                    long unused = h.dmR = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (h.dmR > IjkMediaMeta.AV_CH_WIDE_LEFT) {
+                        int unused2 = h.dmS = 5000;
+                    } else if (h.dmR > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
+                        int unused3 = h.dmS = 3000;
                     } else {
-                        h.dcV = 1000;
+                        int unused4 = h.dmS = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (h.dcV < 1000) {
-                h.dcV = 1000;
+            if (h.dmS < 1000) {
+                int unused5 = h.dmS = 1000;
             }
             try {
-                g.asd().ase();
-                for (ImMessageCenterPojo imMessageCenterPojo : asl) {
+                g.atV().atW();
+                for (ImMessageCenterPojo imMessageCenterPojo : aub) {
                     if (isCancelled()) {
-                        g.asd().endTransaction();
+                        g.atV().endTransaction();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.arZ().T(imMessageCenterPojo.getGid(), h.dcV);
+                        c.atR().S(imMessageCenterPojo.getGid(), h.dmS);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        m.aso().T(imMessageCenterPojo.getGid(), h.dcV);
+                        l.aue().S(imMessageCenterPojo.getGid(), h.dmS);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        l.asn().T(imMessageCenterPojo.getGid(), h.dcV);
+                        k.aud().S(imMessageCenterPojo.getGid(), h.dmS);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.asa().T(imMessageCenterPojo.getGid(), h.dcV);
+                        d.atS().S(imMessageCenterPojo.getGid(), h.dmS);
                     }
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             } finally {
-                g.asd().endTransaction();
+                g.atV().endTransaction();
             }
             return true;
         }

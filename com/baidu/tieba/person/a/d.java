@@ -2,8 +2,8 @@ package com.baidu.tieba.person.a;
 
 import android.view.View;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.adp.widget.ListView.z;
+import com.baidu.adp.widget.ListView.f;
+import com.baidu.adp.widget.ListView.j;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.data.k;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
@@ -12,45 +12,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private HTypeListView bBi;
-    private b eQx;
-    private a eQy;
-    private com.baidu.tieba.personCenter.a.b eQz;
+    private HTypeListView aYJ;
+    private b fej;
+    private a fek;
+    private com.baidu.tieba.personCenter.a.b fel;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdUniqueId mId;
     private TbPageContext mTbPageContext;
 
     public d(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.bBi = hTypeListView;
+        this.aYJ = hTypeListView;
         this.mId = tbPageContext.getUniqueId();
         initAdapters();
     }
 
     private void initAdapters() {
-        this.eQx = new b(this.mTbPageContext, k.ayI);
-        this.eQy = new a(this.mTbPageContext, com.baidu.tieba.person.data.a.eQB);
-        this.eQz = new com.baidu.tieba.personCenter.a.b(this.mTbPageContext.getPageActivity(), h.eQg);
-        this.mAdapters.add(this.eQx);
-        this.mAdapters.add(this.eQy);
-        this.mAdapters.add(this.eQz);
-        this.bBi.addAdapters(this.mAdapters);
+        this.fej = new b(this.mTbPageContext, k.aAZ);
+        this.fek = new a(this.mTbPageContext, com.baidu.tieba.person.data.a.fen);
+        this.fel = new com.baidu.tieba.personCenter.a.b(this.mTbPageContext.getPageActivity(), h.fdT);
+        this.mAdapters.add(this.fej);
+        this.mAdapters.add(this.fek);
+        this.mAdapters.add(this.fel);
+        this.aYJ.addAdapters(this.mAdapters);
     }
 
-    public void setDatas(List<v> list) {
-        if (this.bBi != null) {
-            this.bBi.setData(list);
+    public void setDatas(List<f> list) {
+        if (this.aYJ != null) {
+            this.aYJ.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.bBi != null && (this.bBi.getAdapter() instanceof z)) {
-            ((z) this.bBi.getAdapter()).notifyDataSetChanged();
+        if (this.aYJ != null && (this.aYJ.getAdapter() instanceof j)) {
+            ((j) this.aYJ.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.eQx.v(onClickListener);
-        this.eQy.v(onClickListener);
+        this.fej.t(onClickListener);
+        this.fek.t(onClickListener);
     }
 }

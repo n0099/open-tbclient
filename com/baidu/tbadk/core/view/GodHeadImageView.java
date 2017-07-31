@@ -7,118 +7,119 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class GodHeadImageView extends FrameLayout {
-    private static final int aiI = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds6);
-    private static final int aiJ = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1);
-    private static int aiL = 7;
-    private a aiC;
-    private ImageView aiD;
-    private int aiE;
-    private int aiF;
-    private int aiG;
-    private int aiH;
-    private int aiK;
+    private a akr;
+    private ImageView aks;
+    private int akt;
+    private int aku;
+    private int akv;
+    private int akw;
+    private int akz;
     private int mRadius;
+    private static final int akx = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds6);
+    private static final int aky = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds1);
+    private static int akA = 7;
 
     public GodHeadImageView(Context context) {
         super(context);
-        this.aiE = 0;
-        this.aiF = this.aiE;
-        this.aiG = 1;
-        this.aiH = this.aiG;
-        this.aiK = aiI;
+        this.akt = 0;
+        this.aku = this.akt;
+        this.akv = 1;
+        this.akw = this.akv;
+        this.akz = akx;
         this.mRadius = 7;
         init(null);
     }
 
     public GodHeadImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aiE = 0;
-        this.aiF = this.aiE;
-        this.aiG = 1;
-        this.aiH = this.aiG;
-        this.aiK = aiI;
+        this.akt = 0;
+        this.aku = this.akt;
+        this.akv = 1;
+        this.akw = this.akv;
+        this.akz = akx;
         this.mRadius = 7;
         init(attributeSet);
     }
 
     public GodHeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aiE = 0;
-        this.aiF = this.aiE;
-        this.aiG = 1;
-        this.aiH = this.aiG;
-        this.aiK = aiI;
+        this.akt = 0;
+        this.aku = this.akt;
+        this.akv = 1;
+        this.akw = this.akv;
+        this.akz = akx;
         this.mRadius = 7;
         init(attributeSet);
     }
 
     private void init(AttributeSet attributeSet) {
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, w.n.GodHeadImageView);
-            this.aiK = obtainStyledAttributes.getDimensionPixelSize(0, aiI);
-            this.aiH = obtainStyledAttributes.getInteger(3, this.aiG);
-            this.aiF = obtainStyledAttributes.getInteger(2, this.aiE);
-            this.mRadius = obtainStyledAttributes.getInteger(1, aiL);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, d.n.GodHeadImageView);
+            this.akz = obtainStyledAttributes.getDimensionPixelSize(d.n.GodHeadImageView_extra_padding, akx);
+            this.akw = obtainStyledAttributes.getInteger(d.n.GodHeadImageView_shape_type, this.akv);
+            this.aku = obtainStyledAttributes.getInteger(d.n.GodHeadImageView_show_type, this.akt);
+            this.mRadius = obtainStyledAttributes.getInteger(d.n.GodHeadImageView_extra_radius, akA);
             obtainStyledAttributes.recycle();
         }
-        this.aiC = new a(getContext());
-        this.aiD = new ImageView(getContext());
+        this.akr = new a(getContext());
+        this.aks = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.aiC.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        addView(this.aiC, layoutParams);
-        addView(this.aiD, new FrameLayout.LayoutParams(-1, -1));
+        this.akr.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.akr, layoutParams);
+        addView(this.aks, new FrameLayout.LayoutParams(-1, -1));
         refreshUI();
     }
 
     public void setShowType(int i) {
-        this.aiF = i;
+        this.aku = i;
         refreshUI();
     }
 
     public void setShapeType(int i) {
-        this.aiH = i;
+        this.akw = i;
         refreshUI();
     }
 
     public void c(String str, int i, boolean z) {
-        this.aiC.c(str, i, z);
+        this.akr.c(str, i, z);
     }
 
     private void refreshUI() {
-        switch (this.aiF) {
+        switch (this.aku) {
             case 0:
-                this.aiC.setPadding(0, 0, 0, 0);
+                this.akr.setPadding(0, 0, 0, 0);
                 break;
             case 1:
-                this.aiC.setPadding(aiJ, aiJ, 0, 0);
+                this.akr.setPadding(aky, aky, 0, 0);
                 break;
         }
-        switch (this.aiH) {
+        switch (this.akw) {
             case 1:
-                this.aiC.setIsRound(true);
-                if (this.aiF == 0) {
-                    com.baidu.tbadk.core.util.as.c(this.aiD, w.g.pic_shen_avatar_big);
+                this.akr.setIsRound(true);
+                if (this.aku == 0) {
+                    ai.c(this.aks, d.g.pic_shen_avatar_big);
                     return;
                 } else {
-                    com.baidu.tbadk.core.util.as.c(this.aiD, w.g.pic_shen_avatar);
+                    ai.c(this.aks, d.g.pic_shen_avatar);
                     return;
                 }
             case 2:
-                this.aiC.setIsRound(false);
-                this.aiC.setRadius(this.mRadius);
-                com.baidu.tbadk.core.util.as.c(this.aiD, w.g.pic_frs_shen_avatar);
+                this.akr.setIsRound(false);
+                this.akr.setRadius(this.mRadius);
+                ai.c(this.aks, d.g.pic_frs_shen_avatar);
                 return;
             case 3:
-                this.aiC.setIsRound(true);
-                com.baidu.tbadk.core.util.as.c(this.aiD, w.g.browser_null_drawable);
+                this.akr.setIsRound(true);
+                ai.c(this.aks, d.g.browser_null_drawable);
                 return;
             default:
-                this.aiC.setIsRound(false);
-                this.aiC.setRadius(this.mRadius);
-                com.baidu.tbadk.core.util.as.c(this.aiD, w.g.pic_shen_avatar_square);
+                this.akr.setIsRound(false);
+                this.akr.setRadius(this.mRadius);
+                ai.c(this.aks, d.g.pic_shen_avatar_square);
                 return;
         }
     }
@@ -129,9 +130,9 @@ public class GodHeadImageView extends FrameLayout {
     }
 
     public void setExtraPadding(int i) {
-        if (this.aiK != i) {
-            this.aiK = i;
-            this.aiC.invalidate();
+        if (this.akz != i) {
+            this.akz = i;
+            this.akr.invalidate();
         }
     }
 
@@ -145,11 +146,11 @@ public class GodHeadImageView extends FrameLayout {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.b.a.b, android.widget.ImageView, android.view.View
         public void onMeasure(int i, int i2) {
-            if (GodHeadImageView.this.aiF == 1) {
+            if (GodHeadImageView.this.aku == 1) {
                 int size = View.MeasureSpec.getSize(i);
                 int size2 = View.MeasureSpec.getSize(i2);
-                i = View.MeasureSpec.makeMeasureSpec(size - GodHeadImageView.this.aiK, 1073741824);
-                i2 = View.MeasureSpec.makeMeasureSpec(size2 - GodHeadImageView.this.aiK, 1073741824);
+                i = View.MeasureSpec.makeMeasureSpec(size - GodHeadImageView.this.akz, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(size2 - GodHeadImageView.this.akz, 1073741824);
             }
             super.onMeasure(i, i2);
         }

@@ -82,7 +82,7 @@ public final class b {
         this.b -= this.c;
     }
 
-    public static b r(InputStream inputStream) {
+    public static b x(InputStream inputStream) {
         return new b(inputStream);
     }
 
@@ -133,7 +133,7 @@ public final class b {
                 e();
                 return true;
             case 1:
-                byE();
+                bFE();
                 return true;
             case 2:
                 f(j());
@@ -152,35 +152,35 @@ public final class b {
         }
     }
 
-    public a byC() {
+    public a bFC() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return a.J(uN(j));
+            return a.M(vr(j));
         }
         a k = a.k(this.a, this.d, j);
         this.d = j + this.d;
         return k;
     }
 
-    public long byD() {
+    public long bFD() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
-            byte byF = byF();
-            j |= (byF & Byte.MAX_VALUE) << i;
-            if ((byF & 128) == 0) {
+            byte bFF = bFF();
+            j |= (bFF & Byte.MAX_VALUE) << i;
+            if ((bFF & 128) == 0) {
                 return j;
             }
         }
         throw d.c();
     }
 
-    public long byE() {
-        byte byF = byF();
-        byte byF2 = byF();
-        return ((byF2 & 255) << 8) | (byF & 255) | ((byF() & 255) << 16) | ((byF() & 255) << 24) | ((byF() & 255) << 32) | ((byF() & 255) << 40) | ((byF() & 255) << 48) | ((byF() & 255) << 56);
+    public long bFE() {
+        byte bFF = bFF();
+        byte bFF2 = bFF();
+        return ((bFF2 & 255) << 8) | (bFF & 255) | ((bFF() & 255) << 16) | ((bFF() & 255) << 24) | ((bFF() & 255) << 32) | ((bFF() & 255) << 40) | ((bFF() & 255) << 48) | ((bFF() & 255) << 56);
     }
 
-    public byte byF() {
+    public byte bFF() {
         if (this.d == this.b) {
             a(true);
         }
@@ -205,11 +205,11 @@ public final class b {
     }
 
     public long c() {
-        return byD();
+        return bFD();
     }
 
     public long d() {
-        return byD();
+        return bFD();
     }
 
     public void d(int i) {
@@ -254,7 +254,7 @@ public final class b {
     public String g() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return new String(uN(j), "UTF-8");
+            return new String(vr(j), "UTF-8");
         }
         String str = new String(this.a, this.d, j, "UTF-8");
         this.d = j + this.d;
@@ -266,31 +266,31 @@ public final class b {
     }
 
     public int j() {
-        byte byF = byF();
-        if (byF >= 0) {
-            return byF;
+        byte bFF = bFF();
+        if (bFF >= 0) {
+            return bFF;
         }
-        int i = byF & Byte.MAX_VALUE;
-        byte byF2 = byF();
-        if (byF2 >= 0) {
-            return i | (byF2 << 7);
+        int i = bFF & Byte.MAX_VALUE;
+        byte bFF2 = bFF();
+        if (bFF2 >= 0) {
+            return i | (bFF2 << 7);
         }
-        int i2 = i | ((byF2 & Byte.MAX_VALUE) << 7);
-        byte byF3 = byF();
-        if (byF3 >= 0) {
-            return i2 | (byF3 << 14);
+        int i2 = i | ((bFF2 & Byte.MAX_VALUE) << 7);
+        byte bFF3 = bFF();
+        if (bFF3 >= 0) {
+            return i2 | (bFF3 << 14);
         }
-        int i3 = i2 | ((byF3 & Byte.MAX_VALUE) << 14);
-        byte byF4 = byF();
-        if (byF4 >= 0) {
-            return i3 | (byF4 << 21);
+        int i3 = i2 | ((bFF3 & Byte.MAX_VALUE) << 14);
+        byte bFF4 = bFF();
+        if (bFF4 >= 0) {
+            return i3 | (bFF4 << 21);
         }
-        int i4 = i3 | ((byF4 & Byte.MAX_VALUE) << 21);
-        byte byF5 = byF();
-        int i5 = i4 | (byF5 << 28);
-        if (byF5 < 0) {
+        int i4 = i3 | ((bFF4 & Byte.MAX_VALUE) << 21);
+        byte bFF5 = bFF();
+        int i5 = i4 | (bFF5 << 28);
+        if (bFF5 < 0) {
             for (int i6 = 0; i6 < 5; i6++) {
-                if (byF() >= 0) {
+                if (bFF() >= 0) {
                     return i5;
                 }
             }
@@ -300,14 +300,14 @@ public final class b {
     }
 
     public int l() {
-        return (byF() & 255) | ((byF() & 255) << 8) | ((byF() & 255) << 16) | ((byF() & 255) << 24);
+        return (bFF() & 255) | ((bFF() & 255) << 8) | ((bFF() & 255) << 16) | ((bFF() & 255) << 24);
     }
 
     public boolean n() {
         return this.d == this.b && !a(false);
     }
 
-    public byte[] uN(int i) {
+    public byte[] vr(int i) {
         if (i < 0) {
             throw d.b();
         }

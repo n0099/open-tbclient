@@ -23,10 +23,6 @@ public final class DataRes extends Message {
     public static final Long DEFAULT_CTIME = 0L;
     public static final Long DEFAULT_LOGID = 0L;
 
-    /* synthetic */ DataRes(Builder builder, boolean z, DataRes dataRes) {
-        this(builder, z);
-    }
-
     private DataRes(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -91,7 +87,7 @@ public final class DataRes extends Message {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public DataRes build(boolean z) {
-            return new DataRes(this, z, null);
+            return new DataRes(this, z);
         }
     }
 }

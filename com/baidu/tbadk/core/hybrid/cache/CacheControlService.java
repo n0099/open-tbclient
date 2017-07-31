@@ -15,9 +15,9 @@ public class CacheControlService extends BdBaseService {
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("hybrid_release_assent" + TbConfig.getVersion(), true)) {
-            new b(this, null).execute(new Void[0]);
+            new b().execute(new Void[0]);
         } else {
-            new a(this, null).execute(new Void[0]);
+            new a().execute(new Void[0]);
         }
         return super.onStartCommand(intent, i, i2);
     }
@@ -27,15 +27,11 @@ public class CacheControlService extends BdBaseService {
         private a() {
         }
 
-        /* synthetic */ a(CacheControlService cacheControlService, a aVar) {
-            this();
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            com.baidu.tbadk.core.hybrid.cache.b.tZ().ua();
+            com.baidu.tbadk.core.hybrid.cache.b.uq().ur();
             return null;
         }
     }
@@ -45,15 +41,11 @@ public class CacheControlService extends BdBaseService {
         private b() {
         }
 
-        /* synthetic */ b(CacheControlService cacheControlService, b bVar) {
-            this();
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (com.baidu.tbadk.core.hybrid.cache.b.tZ().ub()) {
+            if (com.baidu.tbadk.core.hybrid.cache.b.uq().us()) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("hybrid_release_assent" + TbConfig.getVersion(), false);
                 return null;
             }

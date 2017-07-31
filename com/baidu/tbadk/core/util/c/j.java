@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.c;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ai;
 /* loaded from: classes.dex */
 public class j extends a {
     private int procType;
@@ -27,33 +27,35 @@ public class j extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean we() {
+    public boolean wu() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wf() {
+    public boolean wv() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
-        String str3 = String.valueOf(str) + (TbadkCoreApplication.m9getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.a.a ge = com.baidu.tbadk.imageManager.c.Eb().ge(str3);
-        if (ge == null) {
-            Bitmap cO = as.cO(com.baidu.adp.lib.g.b.g(str2, 0));
-            if (cO == null) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
+    /* renamed from: c */
+    public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
+        String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
+        com.baidu.adp.widget.a.a gp = com.baidu.tbadk.imageManager.c.Ex().gp(str3);
+        if (gp == null) {
+            Bitmap cS = ai.cS(com.baidu.adp.lib.g.b.g(str2, 0));
+            if (cS == null) {
                 return null;
             }
-            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cO, false, str2);
-            com.baidu.tbadk.imageManager.c.Eb().c(str3, aVar);
+            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cS, false, str2);
+            com.baidu.tbadk.imageManager.c.Ex().c(str3, aVar);
             return aVar;
         }
-        return ge;
+        return gp;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int wg() {
+    public int ww() {
         return this.procType;
     }
 }

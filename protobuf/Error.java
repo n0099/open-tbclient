@@ -11,10 +11,6 @@ public final class Error extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String usermsg;
 
-    /* synthetic */ Error(Builder builder, boolean z, Error error) {
-        this(builder, z);
-    }
-
     private Error(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -54,7 +50,7 @@ public final class Error extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public Error build(boolean z) {
-            return new Error(this, z, null);
+            return new Error(this, z);
         }
     }
 }

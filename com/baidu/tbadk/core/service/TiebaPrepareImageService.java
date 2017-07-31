@@ -10,9 +10,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.n;
-import com.baidu.tbadk.util.ad;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.util.k;
+import com.baidu.tbadk.util.aa;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TiebaPrepareImageService extends BdBaseService {
     private static final String DISPLAY_SIZE = "display_size";
@@ -27,25 +27,35 @@ public class TiebaPrepareImageService extends BdBaseService {
     private String mFileName = null;
     private a mTask = null;
     private final Handler mHandler = new Handler();
-    private final Runnable mStartRun = new com.baidu.tbadk.core.service.a(this);
+    private final Runnable mStartRun = new Runnable() { // from class: com.baidu.tbadk.core.service.TiebaPrepareImageService.1
+        @Override // java.lang.Runnable
+        public void run() {
+            if (TiebaPrepareImageService.IS_DECODING) {
+                TiebaPrepareImageService.this.mHandler.postDelayed(TiebaPrepareImageService.this.mStartRun, 1000L);
+                return;
+            }
+            TiebaPrepareImageService.this.mTask = new a(TiebaPrepareImageService.this.mRequestCode, TiebaPrepareImageService.this.mUri, TiebaPrepareImageService.this.mFileName);
+            TiebaPrepareImageService.this.mTask.execute(new Object[0]);
+        }
+    };
 
     public static void StartService(int i, Uri uri, int i2, int i3, String str) {
-        Intent intent = new Intent(TbadkCoreApplication.m9getInst().getApp(), TiebaPrepareImageService.class);
+        Intent intent = new Intent(TbadkCoreApplication.getInst().getApp(), TiebaPrepareImageService.class);
         intent.putExtra("request_code", i);
         intent.putExtra(MAX_SIZE, i2);
         intent.putExtra("display_size", i3);
         intent.putExtra("file_name", str);
         intent.setData(uri);
-        TbadkCoreApplication.m9getInst().getApp().startService(intent);
+        TbadkCoreApplication.getInst().getApp().startService(intent);
     }
 
     public static void StartService(int i, Uri uri, int i2, int i3) {
-        Intent intent = new Intent(TbadkCoreApplication.m9getInst().getApp(), TiebaPrepareImageService.class);
+        Intent intent = new Intent(TbadkCoreApplication.getInst().getApp(), TiebaPrepareImageService.class);
         intent.putExtra("request_code", i);
         intent.putExtra(MAX_SIZE, i2);
         intent.putExtra("display_size", i3);
         intent.setData(uri);
-        TbadkCoreApplication.m9getInst().getApp().startService(intent);
+        TbadkCoreApplication.getInst().getApp().startService(intent);
     }
 
     public static void StartService(int i, Uri uri, int i2) {
@@ -53,7 +63,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     }
 
     public static void StopService() {
-        TbadkCoreApplication.m9getInst().getApp().stopService(new Intent(TbadkCoreApplication.m9getInst().getApp(), TiebaPrepareImageService.class));
+        TbadkCoreApplication.getInst().getApp().stopService(new Intent(TbadkCoreApplication.getInst().getApp(), TiebaPrepareImageService.class));
     }
 
     @Override // android.app.Service
@@ -93,7 +103,7 @@ public class TiebaPrepareImageService extends BdBaseService {
         this.mRequestCode = intent.getIntExtra("request_code", 0);
         this.mMaxSize = intent.getIntExtra(MAX_SIZE, TbConfig.POST_IMAGE_MIDDLE);
         this.mDisplaySize = intent.getIntExtra("display_size", 0);
-        TbadkCoreApplication.m9getInst().addRemoteActivity(null);
+        TbadkCoreApplication.getInst().addRemoteActivity(null);
         if (!IS_DECODING) {
             this.mTask = new a(this.mRequestCode, this.mUri, this.mFileName);
             this.mTask.execute(new Object[0]);
@@ -105,7 +115,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String adc = null;
+        String aeU = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -124,30 +134,11 @@ public class TiebaPrepareImageService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public Boolean doInBackground(Object... objArr) {
+            Bitmap a;
             boolean z = true;
             TiebaPrepareImageService.IS_DECODING = true;
             try {
-                Bitmap a = ad.a(this.mRequestCode, TiebaPrepareImageService.this, this.mUri, this.mFileName, TiebaPrepareImageService.this.mMaxSize);
-                if (a != null) {
-                    if (n.a(null, TbConfig.IMAGE_RESIZED_FILE, a, 80) != null) {
-                        int i = 100;
-                        if (TiebaPrepareImageService.this.mDisplaySize > 0) {
-                            i = TiebaPrepareImageService.this.mDisplaySize;
-                        }
-                        Bitmap resizeBitmap = BitmapHelper.resizeBitmap(a, i);
-                        if (resizeBitmap == null || n.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 80) == null) {
-                            this.adc = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
-                            z = false;
-                        }
-                    } else {
-                        this.adc = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
-                        z = false;
-                    }
-                } else {
-                    this.adc = TiebaPrepareImageService.this.getString(w.l.pic_parser_error);
-                    z = false;
-                }
-                TiebaPrepareImageService.IS_DECODING = false;
+                a = aa.a(this.mRequestCode, TiebaPrepareImageService.this, this.mUri, this.mFileName, TiebaPrepareImageService.this.mMaxSize);
             } catch (Exception e) {
                 TiebaPrepareImageService.IS_DECODING = false;
                 z = false;
@@ -155,6 +146,26 @@ public class TiebaPrepareImageService extends BdBaseService {
                 TiebaPrepareImageService.IS_DECODING = false;
                 throw th;
             }
+            if (a != null) {
+                if (k.a(null, TbConfig.IMAGE_RESIZED_FILE, a, 80) != null) {
+                    int i = 100;
+                    if (TiebaPrepareImageService.this.mDisplaySize > 0) {
+                        i = TiebaPrepareImageService.this.mDisplaySize;
+                    }
+                    Bitmap resizeBitmap = BitmapHelper.resizeBitmap(a, i);
+                    if (resizeBitmap == null || k.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 80) == null) {
+                        this.aeU = TiebaPrepareImageService.this.getString(d.l.error_sd_error);
+                    }
+                } else {
+                    this.aeU = TiebaPrepareImageService.this.getString(d.l.error_sd_error);
+                    z = false;
+                }
+                TiebaPrepareImageService.IS_DECODING = false;
+                return Boolean.valueOf(z);
+            }
+            this.aeU = TiebaPrepareImageService.this.getString(d.l.pic_parser_error);
+            z = false;
+            TiebaPrepareImageService.IS_DECODING = false;
             return Boolean.valueOf(z);
         }
 
@@ -171,8 +182,8 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute((a) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.adc != null) {
-                intent.putExtra("error", this.adc);
+            if (this.aeU != null) {
+                intent.putExtra("error", this.aeU);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

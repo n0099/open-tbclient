@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.hybrid.s;
-import com.baidu.tbadk.core.hybrid.w;
-import com.baidu.tbadk.core.hybrid.x;
+import com.baidu.tbadk.core.hybrid.p;
+import com.baidu.tbadk.core.hybrid.t;
+import com.baidu.tbadk.core.hybrid.u;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -18,22 +18,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class c extends w {
-    private s acM;
+public class c extends t {
+    private p aeE;
 
-    public c(s sVar) {
-        super(sVar);
-        this.acM = sVar;
+    public c(p pVar) {
+        super(pVar);
+        this.aeE = pVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.hybrid.w
-    public String nT() {
+    @Override // com.baidu.tbadk.core.hybrid.t
+    public String oh() {
         return "TBHY_COMMON_Image";
     }
 
-    @x(tN = false, value = "scanBigImages")
-    private void sanBigImages(JSONObject jSONObject) throws JSONException {
+    @u(ud = false, value = "scanBigImages")
+    protected void sanBigImages(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
             int optInt = jSONObject.optInt("clickIndex");
@@ -56,11 +56,11 @@ public class c extends w {
                     }
                 }
             }
-            sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.acM.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
+            sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.aeE.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
         }
     }
 
-    @x("selectPhotos")
+    @u("selectPhotos")
     protected void selectPhotos(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();

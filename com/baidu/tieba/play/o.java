@@ -1,26 +1,120 @@
 package com.baidu.tieba.play;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.Settings;
+import com.baidu.tieba.play.p;
 /* loaded from: classes.dex */
-public class o implements Runnable {
-    final /* synthetic */ c flr;
+public class o {
+    private SensorManager fAb;
+    private j fAc;
+    private Sensor fAd;
+    private p fAg;
+    private Activity mActivity;
+    private boolean fAe = false;
+    private boolean fAf = false;
+    private boolean fAh = false;
+    private boolean fAi = false;
+    private Handler mHandler = new Handler() { // from class: com.baidu.tieba.play.o.1
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            if (message != null && o.this.mActivity != null && o.this.fAi) {
+                switch (message.what) {
+                    case 1:
+                        int requestedOrientation = o.this.mActivity.getRequestedOrientation();
+                        int i = message.arg1;
+                        if (!o.this.fAh) {
+                            if (i > 225 && i < 315) {
+                                if (requestedOrientation == 8) {
+                                    o.this.mActivity.setRequestedOrientation(0);
+                                    return;
+                                }
+                                return;
+                            } else if (i > 45 && i < 135 && requestedOrientation == 0) {
+                                o.this.mActivity.setRequestedOrientation(8);
+                                return;
+                            } else {
+                                return;
+                            }
+                        } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
+                            if (!o.this.fAf) {
+                                if (i > 55 && i < 125) {
+                                    if (requestedOrientation != 8) {
+                                        o.this.mActivity.setRequestedOrientation(8);
+                                    }
+                                } else if (requestedOrientation != 0) {
+                                    o.this.mActivity.setRequestedOrientation(0);
+                                }
+                            }
+                            o.this.fAe = false;
+                            return;
+                        } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
+                            if (!o.this.fAe && requestedOrientation != 1) {
+                                o.this.mActivity.setRequestedOrientation(1);
+                            }
+                            o.this.fAf = false;
+                            return;
+                        } else {
+                            return;
+                        }
+                    default:
+                        return;
+                }
+            }
+        }
+    };
+    private p.a fAj = new p.a() { // from class: com.baidu.tieba.play.o.2
+        @Override // com.baidu.tieba.play.p.a
+        public void onChange(boolean z) {
+            o.this.fAh = z;
+        }
+    };
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(c cVar) {
-        this.flr = cVar;
+    public void aCU() {
+        if (this.mActivity != null) {
+            if (this.mActivity.getRequestedOrientation() == 1) {
+                this.mActivity.setRequestedOrientation(0);
+                this.fAe = true;
+                return;
+            }
+            this.mActivity.setRequestedOrientation(1);
+            this.fAf = true;
+        }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        View view;
-        View view2;
-        View view3;
-        view = this.flr.bDE;
-        view.setVisibility(0);
-        view2 = this.flr.cSw;
-        view2.setVisibility(8);
-        view3 = this.flr.fld;
-        view3.setVisibility(8);
+    public o(Activity activity) {
+        if (activity != null) {
+            this.mActivity = activity;
+            this.fAb = (SensorManager) activity.getSystemService("sensor");
+            this.fAd = this.fAb.getDefaultSensor(1);
+            this.fAc = new j(this.mHandler);
+            this.mActivity.setRequestedOrientation(1);
+            this.fAg = new p(this.mActivity, this.mHandler);
+            this.fAg.a(this.fAj);
+            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.fAg);
+        }
+    }
+
+    public void start() {
+        if (this.fAb != null) {
+            this.fAb.registerListener(this.fAc, this.fAd, 2);
+        }
+    }
+
+    public void stop() {
+        if (this.fAb != null) {
+            this.fAb.unregisterListener(this.fAc);
+        }
+        this.mHandler.removeCallbacksAndMessages(null);
+        if (this.mActivity != null) {
+            this.mActivity.getContentResolver().unregisterContentObserver(this.fAg);
+        }
+    }
+
+    public void lv(boolean z) {
+        this.fAi = z;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.hybrid.cache;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.hybrid.u;
+import com.baidu.tbadk.core.hybrid.r;
 import java.io.InputStream;
 import java.io.Serializable;
 import org.json.JSONException;
@@ -107,7 +107,7 @@ public class CacheEntry implements Serializable {
         if (TextUtils.isEmpty(str) || bArr == null) {
             return false;
         }
-        String md5 = u.toMd5(bArr);
+        String md5 = r.toMd5(bArr);
         return !TextUtils.isEmpty(md5) && md5.length() > 10 && str.equalsIgnoreCase(md5.substring(0, 10));
     }
 }

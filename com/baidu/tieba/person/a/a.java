@@ -5,23 +5,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.data.a, com.baidu.tieba.person.b.a> {
-    private TbPageContext ajP;
-    private View.OnClickListener bKg;
+    private View.OnClickListener aYV;
+    private TbPageContext alI;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ajP = tbPageContext;
+        this.alI = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bn */
+    /* renamed from: by */
     public com.baidu.tieba.person.b.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.a(LayoutInflater.from(this.ajP.getPageActivity()).inflate(w.j.user_pic_add_item, (ViewGroup) null));
+        return new com.baidu.tieba.person.b.a(LayoutInflater.from(this.alI.getPageActivity()).inflate(d.j.user_pic_add_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,12 +32,12 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
         if (aVar2 == null || aVar == null) {
             return null;
         }
-        aVar2.v(this.bKg);
-        aVar2.f(aVar);
+        aVar2.t(this.aYV);
+        aVar2.c(aVar);
         return aVar2.getView();
     }
 
-    public void v(View.OnClickListener onClickListener) {
-        this.bKg = onClickListener;
+    public void t(View.OnClickListener onClickListener) {
+        this.aYV = onClickListener;
     }
 }

@@ -1,26 +1,22 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class r extends CustomMessageListener {
-    final /* synthetic */ q aKm;
+public class r {
+    private q aMR;
+    private View.OnTouchListener aMS;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r(q qVar, int i) {
-        super(i);
-        this.aKm = qVar;
+    public q Hp() {
+        return this.aMR;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError()) {
-            return;
+    public View.OnTouchListener Hq() {
+        return this.aMS;
+    }
+
+    public void onDestroy() {
+        if (this.aMR != null) {
+            this.aMR.Ho();
         }
-        this.aKm.GO();
     }
 }

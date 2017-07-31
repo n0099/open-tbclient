@@ -1,16 +1,6 @@
 package com.baidu.adp.lib.util;
 
-import android.widget.Toast;
+import java.util.concurrent.BlockingQueue;
 /* loaded from: classes.dex */
-class l implements Runnable {
-    @Override // java.lang.Runnable
-    public void run() {
-        Toast toast;
-        Toast toast2;
-        toast = k.zd;
-        if (toast != null) {
-            toast2 = k.zd;
-            toast2.cancel();
-        }
-    }
+public interface l extends n, BlockingQueue {
 }

@@ -1,26 +1,119 @@
 package com.baidu.tieba.im.settingcache;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.util.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.cache.l;
+import com.baidu.adp.lib.util.k;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.util.h;
+import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
-public class e extends w<Void> {
-    final /* synthetic */ c doK;
-    private final /* synthetic */ GroupSettingItemData doM;
-    private final /* synthetic */ String val$key;
+public class e extends a {
+    private static e dyL = new e();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar, GroupSettingItemData groupSettingItemData, String str) {
-        this.doK = cVar;
-        this.doM = groupSettingItemData;
-        this.val$key = str;
+    private e() {
+    }
+
+    public static e axR() {
+        return dyL;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.w
-    /* renamed from: Ld */
-    public Void doInBackground() {
-        this.doK.avZ().k(this.val$key, OrmObject.jsonStrWithObject(this.doM));
-        return null;
+    @Override // com.baidu.tieba.im.settingcache.a
+    /* renamed from: bo */
+    public PersonalSettingItemData bk(String str, String str2) {
+        PersonalSettingItemData personalSettingItemData;
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return null;
+        }
+        String str3 = str + "@" + str2;
+        synchronized (this.dyA) {
+            ChatSetting chatSetting = this.dyA.get(str3);
+            personalSettingItemData = (chatSetting == null || !(chatSetting instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) chatSetting;
+        }
+        if (personalSettingItemData == null) {
+            PersonalSettingItemData personalSettingItemData2 = new PersonalSettingItemData();
+            personalSettingItemData2.setMyUid(str);
+            personalSettingItemData2.setToUid(str2);
+            personalSettingItemData2.setAcceptNotify(true);
+            if (k.hH()) {
+                a(personalSettingItemData2, null);
+                return personalSettingItemData2;
+            }
+            a(personalSettingItemData2);
+            return personalSettingItemData2;
+        }
+        return personalSettingItemData;
+    }
+
+    public void atQ() {
+        super.m(PersonalSettingItemData.class);
+    }
+
+    public void a(String str, String str2, UserData userData) {
+        PersonalSettingItemData bk;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bk = bk(str, str2)) != null) {
+            bk.setToPortrait(userData.getPortrait());
+            bk.setToName(userData.getUserName());
+            a(bk);
+        }
+    }
+
+    @Override // com.baidu.tieba.im.settingcache.a
+    protected l<String> axN() {
+        return com.baidu.tbadk.core.c.a.tn().cQ("tb.im_personal_chat_setting");
+    }
+
+    @Override // com.baidu.tieba.im.settingcache.a
+    public void a(ChatSetting chatSetting) {
+        if (chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
+            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
+            String myUid = personalSettingItemData.getMyUid();
+            String toUid = personalSettingItemData.getToUid();
+            if (TextUtils.isEmpty(myUid) || TextUtils.isEmpty(toUid)) {
+                if (TbConfig.getDebugSwitch()) {
+                    throw new RuntimeException("key param is null");
+                }
+                return;
+            }
+            l<String> axN = axN();
+            String str = myUid + "@" + toUid;
+            String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
+            synchronized (this.dyA) {
+                this.dyA.put(str, personalSettingItemData);
+            }
+            axN.k(str, jsonStrWithObject);
+        }
+    }
+
+    @Override // com.baidu.tieba.im.settingcache.a
+    public void a(ChatSetting chatSetting, h<Void> hVar) {
+        if (chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
+            final PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
+            String myUid = personalSettingItemData.getMyUid();
+            String toUid = personalSettingItemData.getToUid();
+            if (TextUtils.isEmpty(myUid) || TextUtils.isEmpty(toUid)) {
+                if (TbConfig.getDebugSwitch()) {
+                    throw new RuntimeException("key param is null");
+                }
+                return;
+            }
+            final String str = myUid + "@" + toUid;
+            synchronized (this.dyA) {
+                this.dyA.put(str, personalSettingItemData);
+            }
+            u.b(new t<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.tbadk.util.t
+                /* renamed from: Lp */
+                public Void doInBackground() {
+                    e.this.axN().k(str, OrmObject.jsonStrWithObject(personalSettingItemData));
+                    return null;
+                }
+            }, hVar);
+        }
     }
 }

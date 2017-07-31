@@ -1,54 +1,32 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import android.widget.ImageView;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.FeedForumData;
+import java.util.List;
 /* loaded from: classes.dex */
-class f implements com.baidu.adp.lib.e.c<TbImageView> {
-    private final /* synthetic */ Context val$context;
+public class f implements com.baidu.adp.widget.ListView.f {
+    public static final BdUniqueId gfi = BdUniqueId.gen();
+    private List<FeedForumData> cqz;
+    private String forumId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(Context context) {
-        this.val$context = context;
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return gfi;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: wT */
-    public TbImageView fK() {
-        TbImageView tbImageView = new TbImageView(this.val$context);
-        tbImageView.setSupportNoImage(true);
-        tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        tbImageView.setDrawBorder(true);
-        tbImageView.setBorderWidth(1);
-        return tbImageView;
+    public List<FeedForumData> bqw() {
+        return this.cqz;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void o(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
+    public void dg(List<FeedForumData> list) {
+        this.cqz = list;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public TbImageView p(TbImageView tbImageView) {
-        return tbImageView;
+    public String getForumId() {
+        return this.forumId;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public TbImageView q(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-        return tbImageView;
+    public void setForumId(String str) {
+        this.forumId = str;
     }
 }

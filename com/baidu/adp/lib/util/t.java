@@ -1,65 +1,67 @@
 package com.baidu.adp.lib.util;
 
-import java.io.InputStream;
-import java.security.MessageDigest;
+import com.baidu.android.common.security.RSAUtil;
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.security.GeneralSecurityException;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes.dex */
 public class t {
-    private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static final Charset AV = Charset.forName("UTF-8");
+    private static final byte[] AW = {-92, 11, -56, 52, -42, -107, -13, 19};
 
-    public static String toMd5(byte[] bArr) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(bArr);
-            return o(messageDigest.digest());
-        } catch (Exception e) {
-            BdLog.e(e);
-            return null;
-        }
+    public static PublicKey s(byte[] bArr) throws Exception {
+        return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
     }
 
-    public static String o(byte[] bArr) {
-        if (bArr == null) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder(bArr.length * 2);
-        for (int i = 0; i < bArr.length; i++) {
-            sb.append(HEX_DIGITS[(bArr[i] & 240) >>> 4]);
-            sb.append(HEX_DIGITS[bArr[i] & 15]);
-        }
-        return sb.toString();
+    public static byte[] a(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(1, publicKey);
+        return cipher.doFinal(bArr);
     }
 
-    public static String k(InputStream inputStream) {
-        String str = null;
-        if (inputStream != null) {
-            try {
-                byte[] bArr = new byte[1024];
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read <= 0) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-                str = o(messageDigest.digest());
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            } finally {
-                o.j(inputStream);
-            }
-        }
-        return str;
+    public static byte[] b(Key key, byte[] bArr) throws GeneralSecurityException {
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(2, key);
+        return cipher.doFinal(bArr);
     }
 
-    public static String aN(String str) {
-        if (str == null) {
-            return null;
+    public static SecretKey aW(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        char[] cArr = new char[str.length()];
+        for (int i = 0; i < cArr.length; i++) {
+            cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
-        try {
-            return toMd5(str.getBytes("UTF-8"));
-        } catch (Exception e) {
-            return null;
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, AW, 5, 256));
+    }
+
+    public static byte[] a(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(1, secretKey);
+        return cipher.doFinal(bArr);
+    }
+
+    public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) throws GeneralSecurityException {
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(2, secretKey);
+        return cipher.doFinal(bArr, i, i2);
+    }
+
+    public static String ax(int i) {
+        String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
+        if (bigInteger.length() > i) {
+            return bigInteger.substring(0, bigInteger.length());
         }
+        return bigInteger;
     }
 }

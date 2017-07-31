@@ -9,7 +9,6 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 class a extends Drawable {
-    private static /* synthetic */ int[] gbh;
     private float mArrowHeight;
     private float mArrowPosition;
     private float mArrowWidth;
@@ -20,31 +19,6 @@ class a extends Drawable {
     private float mStrokeWidth;
     private Path mPath = new Path();
     private Paint mPaint = new Paint(1);
-
-    static /* synthetic */ int[] bqG() {
-        int[] iArr = gbh;
-        if (iArr == null) {
-            iArr = new int[ArrowDirection.valuesCustom().length];
-            try {
-                iArr[ArrowDirection.BOTTOM.ordinal()] = 4;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[ArrowDirection.LEFT.ordinal()] = 1;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[ArrowDirection.RIGHT.ordinal()] = 2;
-            } catch (NoSuchFieldError e3) {
-            }
-            try {
-                iArr[ArrowDirection.TOP.ordinal()] = 3;
-            } catch (NoSuchFieldError e4) {
-            }
-            gbh = iArr;
-        }
-        return iArr;
-    }
 
     public a(RectF rectF, float f, float f2, float f3, float f4, float f5, int i, int i2, ArrowDirection arrowDirection) {
         this.mRect = rectF;
@@ -104,8 +78,8 @@ class a extends Drawable {
     }
 
     private void a(ArrowDirection arrowDirection, Path path, float f) {
-        switch (bqG()[arrowDirection.ordinal()]) {
-            case 1:
+        switch (arrowDirection) {
+            case LEFT:
                 if (this.mCornersRadius <= 0.0f) {
                     initLeftSquarePath(this.mRect, path, f);
                     return;
@@ -116,18 +90,7 @@ class a extends Drawable {
                     initLeftRoundedPath(this.mRect, path, f);
                     return;
                 }
-            case 2:
-                if (this.mCornersRadius <= 0.0f) {
-                    initRightSquarePath(this.mRect, path, f);
-                    return;
-                } else if (f > 0.0f && f > this.mCornersRadius) {
-                    initRightSquarePath(this.mRect, path, f);
-                    return;
-                } else {
-                    initRightRoundedPath(this.mRect, path, f);
-                    return;
-                }
-            case 3:
+            case TOP:
                 if (this.mCornersRadius <= 0.0f) {
                     initTopSquarePath(this.mRect, path, f);
                     return;
@@ -138,7 +101,18 @@ class a extends Drawable {
                     initTopRoundedPath(this.mRect, path, f);
                     return;
                 }
-            case 4:
+            case RIGHT:
+                if (this.mCornersRadius <= 0.0f) {
+                    initRightSquarePath(this.mRect, path, f);
+                    return;
+                } else if (f > 0.0f && f > this.mCornersRadius) {
+                    initRightSquarePath(this.mRect, path, f);
+                    return;
+                } else {
+                    initRightRoundedPath(this.mRect, path, f);
+                    return;
+                }
+            case BOTTOM:
                 if (this.mCornersRadius <= 0.0f) {
                     initBottomSquarePath(this.mRect, path, f);
                     return;

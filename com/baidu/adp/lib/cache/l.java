@@ -1,17 +1,51 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-class l implements Runnable {
-    final /* synthetic */ k tE;
-    private final /* synthetic */ String tF;
+public interface l<T> {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar, String str) {
-        this.tE = kVar;
-        this.tF = str;
+    /* loaded from: classes.dex */
+    public interface a<T> {
+        void m(String str, T t);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.tE.tD.N(this.tF);
+    /* loaded from: classes.dex */
+    public interface b<T> {
+        void a(String str, c<T> cVar);
     }
+
+    /* loaded from: classes.dex */
+    public static class c<T> {
+        public String key;
+        public T um;
+        public long ve;
+        public long vt;
+    }
+
+    /* loaded from: classes.dex */
+    public interface d<T> extends l<T> {
+        String eS();
+
+        k<T> eT();
+
+        void eU();
+    }
+
+    void a(String str, a<T> aVar);
+
+    void a(String str, b<T> bVar);
+
+    void a(String str, T t, long j);
+
+    c<T> ac(String str);
+
+    void ad(String str);
+
+    void b(String str, T t, long j);
+
+    T get(String str);
+
+    void k(String str, T t);
+
+    void l(String str, T t);
+
+    void remove(String str);
 }

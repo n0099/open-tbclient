@@ -7,10 +7,6 @@ public final class LogStatReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
 
-    /* synthetic */ LogStatReqIdl(Builder builder, boolean z, LogStatReqIdl logStatReqIdl) {
-        this(builder, z);
-    }
-
     private LogStatReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -37,7 +33,7 @@ public final class LogStatReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public LogStatReqIdl build(boolean z) {
-            return new LogStatReqIdl(this, z, null);
+            return new LogStatReqIdl(this, z);
         }
     }
 }

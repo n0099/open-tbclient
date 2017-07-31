@@ -9,27 +9,27 @@ import org.apache.http.entity.mime.MIME;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Thread {
-    final /* synthetic */ f PC;
+    final /* synthetic */ f Rb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.PC = fVar;
+        this.Rb = fVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.PC.h = i.c();
-        this.PC.b();
-        this.PC.a();
+        this.Rb.h = i.c();
+        this.Rb.b();
+        this.Rb.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.PC.i;
+        int i = this.Rb.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.PC.h).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.Rb.h).openConnection();
                 try {
                     try {
                         httpURLConnection.setRequestMethod("GET");
@@ -40,21 +40,21 @@ public class j extends Thread {
                         httpURLConnection.setReadTimeout(b.b);
                         httpURLConnection.setRequestProperty(MIME.CONTENT_TYPE, "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
-                    } catch (Throwable th) {
-                        httpURLConnection2 = httpURLConnection;
-                        th = th;
-                        if (httpURLConnection2 != null) {
-                            httpURLConnection2.disconnect();
+                    } catch (Exception e) {
+                        Log.d(b.a, "NetworkCommunicationException!");
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
                         }
-                        throw th;
+                        i--;
+                        httpURLConnection2 = httpURLConnection;
                     }
-                } catch (Exception e) {
-                    Log.d(b.a, "NetworkCommunicationException!");
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    i--;
+                } catch (Throwable th) {
                     httpURLConnection2 = httpURLConnection;
+                    th = th;
+                    if (httpURLConnection2 != null) {
+                        httpURLConnection2.disconnect();
+                    }
+                    throw th;
                 }
             } catch (Exception e2) {
                 httpURLConnection = httpURLConnection2;
@@ -74,8 +74,8 @@ public class j extends Thread {
                 }
                 inputStream.close();
                 byteArrayOutputStream.close();
-                this.PC.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                this.PC.a(true);
+                this.Rb.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                this.Rb.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -94,7 +94,7 @@ public class j extends Thread {
             return;
         }
         f.o++;
-        this.PC.j = null;
-        this.PC.a(false);
+        this.Rb.j = null;
+        this.Rb.a(false);
     }
 }

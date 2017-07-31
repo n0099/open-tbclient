@@ -10,10 +10,6 @@ public final class AddGroupResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ AddGroupResIdl(Builder builder, boolean z, AddGroupResIdl addGroupResIdl) {
-        this(builder, z);
-    }
-
     private AddGroupResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -44,7 +40,7 @@ public final class AddGroupResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public AddGroupResIdl build(boolean z) {
-            return new AddGroupResIdl(this, z, null);
+            return new AddGroupResIdl(this, z);
         }
     }
 }

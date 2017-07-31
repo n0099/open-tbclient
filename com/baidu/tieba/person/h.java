@@ -1,24 +1,23 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
 /* loaded from: classes.dex */
-public class h implements v {
-    public static final BdUniqueId eQg = BdUniqueId.gen();
-    public int eMQ;
-    public int eMR;
-    public int eQh;
+public class h implements com.baidu.adp.widget.ListView.f {
+    public static final BdUniqueId fdT = BdUniqueId.gen();
+    public int faD;
+    public int faE;
+    public int fdU;
 
     public h() {
     }
 
     public h(int i, int i2) {
-        this.eMQ = i;
-        this.eMR = i2;
+        this.faD = i;
+        this.faE = i2;
     }
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return eQg;
+        return fdT;
     }
 }

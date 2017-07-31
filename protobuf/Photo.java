@@ -14,10 +14,6 @@ public final class Photo extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String smallurl;
 
-    /* synthetic */ Photo(Builder builder, boolean z, Photo photo) {
-        this(builder, z);
-    }
-
     private Photo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -65,7 +61,7 @@ public final class Photo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public Photo build(boolean z) {
-            return new Photo(this, z, null);
+            return new Photo(this, z);
         }
     }
 }

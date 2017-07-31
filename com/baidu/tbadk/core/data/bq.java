@@ -1,41 +1,31 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopNotice;
+import tbclient.VideoChannelInfo;
 /* loaded from: classes.dex */
 public class bq {
-    private String title = null;
-    private String title_link = null;
-    private String author = null;
-    private int id = 0;
+    public int abl;
+    public String channelAvatar;
+    public long channelId;
+    public String channelName;
+    public int mCurrentPage;
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public String sM() {
-        return this.title_link;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.title = jSONObject.getString(VrPlayerActivityConfig.TITLE);
-            this.title_link = jSONObject.getString("title_link");
-            this.author = jSONObject.getString("author");
-            this.id = jSONObject.getInt("id");
-        } catch (JSONException e) {
-            e.printStackTrace();
+    public void a(VideoChannelInfo videoChannelInfo) {
+        if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
+            this.channelId = videoChannelInfo.channel_id.longValue();
+            this.channelName = videoChannelInfo.channel_name;
+            this.channelAvatar = videoChannelInfo.channel_avatar;
         }
     }
 
-    public void a(TopNotice topNotice) {
-        if (topNotice != null) {
-            this.title = topNotice.title;
-            this.title_link = topNotice.title_link;
-            this.author = topNotice.author;
-            this.id = topNotice.id.intValue();
+    public void i(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.channelId = jSONObject.optLong("channel_id", 0L);
+                this.channelName = jSONObject.optString("channel_name");
+                this.channelAvatar = jSONObject.optString("channel_avatar");
+            } catch (Exception e) {
+            }
         }
     }
 }

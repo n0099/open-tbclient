@@ -1,54 +1,45 @@
 package com.baidu.tbadk.core.util;
 
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class ap extends Thread {
-    private String afW;
-    private boolean afX;
-    private String mObjTp;
-    private String mParam;
-    private String mType;
-
-    public ap(String str, boolean z) {
-        this.mType = null;
-        this.mParam = null;
-        this.afW = null;
-        this.mObjTp = null;
-        this.afX = false;
-        this.mType = str;
-        this.afX = z;
+public class ap extends com.baidu.adp.base.a.d {
+    public ap() {
+        super(k.zU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_DATABASE_NAME, 11);
     }
 
-    public ap(String str, String str2) {
-        this.mType = null;
-        this.mParam = null;
-        this.afW = null;
-        this.mObjTp = null;
-        this.afX = false;
-        this.mType = str;
-        this.mParam = str2;
+    @Override // com.baidu.adp.base.a.a
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        if (i <= 9) {
+            p(sQLiteDatabase);
+        }
+        if (i < 11) {
+            b(sQLiteDatabase, "ALTER TABLE pb_photo ADD stamp Integer");
+            b(sQLiteDatabase, "ALTER TABLE friend_photo ADD stamp Integer");
+            if (i > 9) {
+                b(sQLiteDatabase, "ALTER TABLE user_icon ADD stamp Integer");
+            }
+        }
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        String str;
-        super.run();
-        if (this.afX) {
-            str = TbConfig.IN_PV_ADDRESS;
-        } else {
-            str = TbConfig.LOAD_REG_PV_ADDRESS;
-        }
-        ab abVar = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
-        abVar.n("st_type", this.mType);
-        if (this.mParam != null) {
-            abVar.n("st_param", this.mParam);
-        }
-        if (this.afW != null) {
-            abVar.n("obj", this.afW);
-        }
-        if (this.mObjTp != null) {
-            abVar.n("obj_tp", this.mObjTp);
-        }
-        abVar.uy();
+    @Override // com.baidu.adp.base.a.d
+    public void d(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
+        b(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
+        p(sQLiteDatabase);
+    }
+
+    @Override // com.baidu.adp.base.a.d
+    public void e(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS pb_photo");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS friend_photo");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS user_icon");
+    }
+
+    private void p(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists user_icon(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists user_icon_index ON user_icon(date)");
     }
 }

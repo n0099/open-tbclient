@@ -10,10 +10,6 @@ public final class GetGroupMsgReqIdl extends Message {
     @ProtoField(tag = 2)
     public final DataReq data;
 
-    /* synthetic */ GetGroupMsgReqIdl(Builder builder, boolean z, GetGroupMsgReqIdl getGroupMsgReqIdl) {
-        this(builder, z);
-    }
-
     private GetGroupMsgReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -48,7 +44,7 @@ public final class GetGroupMsgReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public GetGroupMsgReqIdl build(boolean z) {
-            return new GetGroupMsgReqIdl(this, z, null);
+            return new GetGroupMsgReqIdl(this, z);
         }
     }
 }

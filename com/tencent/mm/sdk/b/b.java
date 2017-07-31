@@ -3,15 +3,15 @@ package com.tencent.mm.sdk.b;
 import android.util.Log;
 import com.tencent.mm.sdk.b.a;
 /* loaded from: classes.dex */
-final class b implements a.InterfaceC0094a {
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0094a
+final class b implements a.InterfaceC0134a {
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC0134a
     public final int b() {
         int i;
         i = a.level;
         return i;
     }
 
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0094a
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC0134a
     public final void d(String str, String str2) {
         int i;
         i = a.level;
@@ -20,7 +20,7 @@ final class b implements a.InterfaceC0094a {
         }
     }
 
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0094a
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC0134a
     public final void e(String str, String str2) {
         int i;
         i = a.level;
@@ -29,7 +29,7 @@ final class b implements a.InterfaceC0094a {
         }
     }
 
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0094a
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC0134a
     public final void f(String str, String str2) {
         int i;
         i = a.level;

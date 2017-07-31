@@ -1,27 +1,26 @@
 package com.baidu.tbadk.core.util.a;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.net.InetAddress;
-import java.net.URL;
-import java.net.UnknownHostException;
+import android.net.Proxy;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-class h implements Runnable {
-    final /* synthetic */ f ahw;
-    private final /* synthetic */ URL ahx;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(f fVar, URL url) {
-        this.ahw = fVar;
-        this.ahx = url;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
+public class h {
+    public static String getNetType() {
         try {
-            BdLog.i("testcdn" + this.ahx.getHost());
-            InetAddress.getByName(this.ahx.getHost()).getHostAddress();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
+            if (com.baidu.adp.lib.util.i.hr()) {
+                if (com.baidu.adp.lib.util.i.hs()) {
+                    return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
+                }
+                String defaultHost = Proxy.getDefaultHost();
+                if (defaultHost != null) {
+                    if (defaultHost.length() > 0) {
+                        return "2";
+                    }
+                }
+                return "1";
+            }
+            return null;
+        } catch (Exception e) {
+            return null;
         }
     }
 }

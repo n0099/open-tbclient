@@ -1,24 +1,32 @@
 package com.baidu.adp.plugin;
 
-import com.baidu.adp.plugin.Plugin;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import dalvik.system.DexClassLoader;
 /* loaded from: classes.dex */
-class a implements com.baidu.adp.plugin.util.e {
-    final /* synthetic */ Plugin Cz;
+public class a extends DexClassLoader {
+    private ClassLoader Ee;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(Plugin plugin2) {
-        this.Cz = plugin2;
+    public a(String str, String str2, String str3, ClassLoader classLoader, ClassLoader classLoader2) {
+        super(str, str2, str3, classLoader);
+        this.Ee = null;
+        this.Ee = classLoader2;
     }
 
-    @Override // com.baidu.adp.plugin.util.e
-    public void a(Plugin.b bVar, String str) {
-        if (PluginPackageManager.jw().isMainProcess()) {
-            if (bVar.CB) {
-                com.baidu.adp.plugin.b.a.jj().A("plugin_load", str);
-            } else {
-                com.baidu.adp.plugin.b.a.jj().ba("plugin_loaded_failed");
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    protected Class<?> findClass(String str) throws ClassNotFoundException {
+        try {
+            return super.findClass(str);
+        } catch (Exception e) {
+            if (this.Ee == null) {
+                return null;
             }
+            Class<?> loadClass = this.Ee.loadClass(str);
+            if (BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.i("findClass from container. classname is " + str);
+                return loadClass;
+            }
+            return loadClass;
         }
     }
 }

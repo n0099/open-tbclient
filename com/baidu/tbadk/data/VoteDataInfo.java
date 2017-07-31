@@ -2,7 +2,6 @@ package com.baidu.tbadk.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
@@ -11,7 +10,7 @@ import java.util.List;
 import tbclient.PollInfo;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
-public class VoteDataInfo implements v, Serializable {
+public class VoteDataInfo implements com.baidu.adp.widget.ListView.f, Serializable {
     private static final long serialVersionUID = -4157201445004088848L;
     private int mEndtime;
     private int mIsMulti;
@@ -124,7 +123,7 @@ public class VoteDataInfo implements v, Serializable {
                 long j = 0;
                 for (PollOption pollOption : list) {
                     if (pollOption != null) {
-                        j += pollOption.num.longValue();
+                        j = pollOption.num.longValue() + j;
                     }
                 }
                 this.mTotalPoll = j;
@@ -132,7 +131,7 @@ public class VoteDataInfo implements v, Serializable {
                     if (pollOption2 != null) {
                         l lVar = new l(pollOption2.id.intValue(), pollOption2.text, pollOption2.image, pollOption2.num.longValue());
                         if (this.mTotalPoll > 0) {
-                            lVar.cg((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
+                            lVar.ck((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
                         }
                         if (b(strArr, String.valueOf(pollOption2.id))) {
                             lVar.setSelected(true);
@@ -156,8 +155,8 @@ public class VoteDataInfo implements v, Serializable {
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return PostData.fMi;
+        return PostData.ghQ;
     }
 }

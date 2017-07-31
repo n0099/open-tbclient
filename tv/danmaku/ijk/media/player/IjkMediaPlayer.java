@@ -1,5 +1,7 @@
 package tv.danmaku.ijk.media.player;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.RingtoneManager;
@@ -286,7 +288,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setSurface(Surface surface) {
-        if (this.mScreenOnWhilePlaying) {
+        if (!this.mScreenOnWhilePlaying || surface != null) {
         }
         this.mSurfaceHolder = null;
         _setVideoSurface(surface);
@@ -298,8 +300,9 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         setDataSource(context, uri, (Map<String, String>) null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [360=5, 361=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [360=6, 361=5] */
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    @TargetApi(14)
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
         AssetFileDescriptor assetFileDescriptor;
         Throwable th;
@@ -379,6 +382,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    @TargetApi(13)
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException, IllegalArgumentException, IllegalStateException {
         if (Build.VERSION.SDK_INT < 12) {
             try {
@@ -442,6 +446,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    @SuppressLint({"Wakelock"})
     public void setWakeMode(Context context, int i) {
         boolean z;
         boolean z2;
@@ -467,7 +472,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setScreenOnWhilePlaying(boolean z) {
         if (this.mScreenOnWhilePlaying != z) {
-            if (z) {
+            if (!z || this.mSurfaceHolder == null) {
             }
             this.mScreenOnWhilePlaying = z;
             updateSurfaceScreenOn();
@@ -475,6 +480,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @SuppressLint({"Wakelock"})
     public void stayAwake(boolean z) {
         if (this.mWakeLock != null) {
             if (z && !this.mWakeLock.isHeld()) {

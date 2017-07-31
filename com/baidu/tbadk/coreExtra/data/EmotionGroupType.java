@@ -4,15 +4,5 @@ public enum EmotionGroupType {
     LOCAL,
     BIG_EMOTION,
     PROMOTION,
-    USER_COLLECT;
-
-    /* JADX DEBUG: Replace access to removed values field (aqb) with 'values()' method */
-    /* renamed from: values  reason: to resolve conflict with enum method */
-    public static EmotionGroupType[] valuesCustom() {
-        EmotionGroupType[] valuesCustom = values();
-        int length = valuesCustom.length;
-        EmotionGroupType[] emotionGroupTypeArr = new EmotionGroupType[length];
-        System.arraycopy(valuesCustom, 0, emotionGroupTypeArr, 0, length);
-        return emotionGroupTypeArr;
-    }
+    USER_COLLECT
 }

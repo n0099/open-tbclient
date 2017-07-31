@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class LiveRoomChatActivityConfig extends IntentConfig {
     public static final String FROM = "from";
@@ -37,7 +37,7 @@ public class LiveRoomChatActivityConfig extends IntentConfig {
         if (Build.VERSION.SDK_INT >= 9) {
             return true;
         }
-        UtilHelper.showToast(getContext(), getContext().getString(w.l.live_error_system_not_support));
+        UtilHelper.showToast(getContext(), getContext().getString(d.l.live_error_system_not_support));
         return false;
     }
 }

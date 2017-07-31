@@ -1,28 +1,34 @@
 package com.baidu.tieba.frs.entelechy.a;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ k cgt;
-    private final /* synthetic */ ThemeCardInUserData cgu;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(k kVar, ThemeCardInUserData themeCardInUserData) {
-        this.cgt = kVar;
-        this.cgu = themeCardInUserData;
+public class m extends com.baidu.tieba.frs.d<com.baidu.tieba.frs.p, com.baidu.tieba.frs.entelechy.view.p> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbPageContext tbPageContext;
-        tbPageContext = this.cgt.ajP;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), this.cgu.getCardId())));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: O */
+    public com.baidu.tieba.frs.entelechy.view.p onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.frs.entelechy.view.p(LayoutInflater.from(this.mContext).inflate(d.j.frs_read_progress_item, viewGroup, false), this.alI.getPageActivity());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.p pVar, com.baidu.tieba.frs.entelechy.view.p pVar2) {
+        if (pVar != null && pVar2 != null) {
+            pVar2.a(pVar);
+        }
+        return view;
     }
 }

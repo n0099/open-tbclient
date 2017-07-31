@@ -95,12 +95,11 @@ public class StringUtils {
         return true;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
     private static String unitFormat(int i) {
         if (i >= 0 && i < 10) {
             return "0" + Integer.toString(i);
         }
-        return new StringBuilder().append(i).toString();
+        return "" + i;
     }
 
     public static String translateSecondsToString(int i) {
@@ -109,14 +108,14 @@ public class StringUtils {
         }
         int i2 = i / 60;
         if (i2 < 60) {
-            return String.valueOf(unitFormat(i2)) + ":" + unitFormat(i % 60);
+            return unitFormat(i2) + ":" + unitFormat(i % 60);
         }
         int i3 = i2 / 60;
         if (i3 > 99) {
             return "99:59:59";
         }
         int i4 = i2 % 60;
-        return String.valueOf(unitFormat(i3)) + ":" + unitFormat(i4) + ":" + unitFormat((i - (i3 * 3600)) - (i4 * 60));
+        return unitFormat(i3) + ":" + unitFormat(i4) + ":" + unitFormat((i - (i3 * 3600)) - (i4 * 60));
     }
 
     public static boolean isChinese(char c) {
@@ -149,6 +148,6 @@ public class StringUtils {
 
     public static long getyyyyMMddHHTimeForNow() {
         Calendar calendar = Calendar.getInstance();
-        return 0 + (calendar.get(1) * 1000000) + ((calendar.get(2) + 1) * 10000) + (calendar.get(5) * 100) + calendar.get(11);
+        return calendar.get(11) + 0 + (calendar.get(1) * 1000000) + ((calendar.get(2) + 1) * 10000) + (calendar.get(5) * 100);
     }
 }

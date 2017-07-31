@@ -1,21 +1,21 @@
 package com.baidu.tbadk.core.a;
 
-import android.view.View;
-import com.baidu.sapi2.SapiWebView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    private final /* synthetic */ SapiWebView Se;
-    private final /* synthetic */ View Sf;
+public class f {
+    public static HashMap<String, Integer> TU = new HashMap<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(SapiWebView sapiWebView, View view) {
-        this.Se = sapiWebView;
-        this.Sf = view;
+    public static int bA(int i) {
+        String str = TbadkCoreApplication.getCurrentAccount() + "@" + i;
+        if (TU.containsKey(str)) {
+            return TU.get(str).intValue();
+        }
+        TU.put(str, 1);
+        return 1;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.Se.post(new g(this, this.Sf, this.Se));
+    public static void u(int i, int i2) {
+        TU.put(TbadkCoreApplication.getCurrentAccount() + "@" + i, Integer.valueOf(i2));
     }
 }

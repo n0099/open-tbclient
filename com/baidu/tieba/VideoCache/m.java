@@ -1,60 +1,95 @@
 package com.baidu.tieba.VideoCache;
 
-import android.os.Handler;
-import android.os.Message;
-import java.io.InputStream;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Environment;
+import android.os.StatFs;
+import java.io.File;
 /* loaded from: classes2.dex */
-public class m implements Handler.Callback {
-    final /* synthetic */ l aUr;
+public class m {
+    private static final String TAG = m.class.getSimpleName();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar) {
-        this.aUr = lVar;
-    }
-
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        b bVar;
-        b bVar2;
-        b bVar3;
-        b bVar4;
-        b bVar5;
-        h hVar;
-        h hVar2;
-        if (message.what == 1) {
-            if (message.obj instanceof InputStream) {
-                try {
-                    ((InputStream) message.obj).close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+    public static long ht(String str) {
+        long j;
+        long j2 = 0;
+        long hu = hu(str);
+        if (str == null || str.isEmpty()) {
+            j = 0;
+        } else {
+            File file = new File(i.aWB + str);
+            if (file == null || !file.exists() || !file.isDirectory()) {
+                return 0L;
             }
-        } else if (message.what == 2) {
-            if (message.obj instanceof String) {
-                hVar = this.aUr.aUp;
-                hVar.setVideoUrl((String) message.obj);
-                hVar2 = this.aUr.aUp;
-                hVar2.run();
-            }
-        } else if (message.what == 3) {
-            bVar4 = this.aUr.aUq;
-            if (bVar4 != null) {
-                bVar5 = this.aUr.aUq;
-                bVar5.Ke();
-            }
-        } else if (message.what == 4) {
-            if (message.obj instanceof String) {
-                bVar3 = this.aUr.aUq;
-                bVar3.gW((String) message.obj);
-            }
-        } else if (message.what == 5) {
-            bVar = this.aUr.aUq;
-            if (bVar != null) {
-                bVar2 = this.aUr.aUq;
-                bVar2.clearCache();
+            File file2 = new File(file.getAbsolutePath() + "/completed");
+            j = (file2 == null || !file2.exists()) ? 0L : file2.length();
+            File file3 = new File(file.getAbsolutePath() + "/completed.temp");
+            if (file3 != null && file3.exists()) {
+                j2 = file3.length();
             }
         }
-        return true;
+        return j + j2 + hu;
+    }
+
+    public static long hu(String str) {
+        File file;
+        File file2;
+        File[] listFiles;
+        long j = 0;
+        if (str != null && !str.isEmpty() && (file = new File(i.aWB + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+            for (File file3 : listFiles) {
+                if (file3 != null && file3.exists()) {
+                    j += file3.length();
+                }
+            }
+        }
+        return j;
+    }
+
+    public static long KD() {
+        if ("mounted".equals(Environment.getExternalStorageState())) {
+            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            return statFs.getAvailableBlocks() * statFs.getBlockSize();
+        }
+        return 0L;
+    }
+
+    public static synchronized long getFileSize(File file) {
+        long j;
+        synchronized (m.class) {
+            j = 0;
+            if (file != null) {
+                if (file.exists()) {
+                    j = file.length();
+                }
+            }
+        }
+        return j;
+    }
+
+    public static void z(File file) {
+        if (file != null) {
+            if (file.isFile()) {
+                file.delete();
+            } else if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles == null || listFiles.length == 0) {
+                    file.delete();
+                    return;
+                }
+                for (File file2 : listFiles) {
+                    z(file2);
+                }
+                file.delete();
+            }
+        }
+    }
+
+    public static String hv(String str) {
+        if (str == null || !str.contains("/")) {
+            return null;
+        }
+        String substring = str.substring(str.lastIndexOf("/") + 1);
+        if (substring != null && substring.contains(".mp4")) {
+            return substring.replace(".mp4", "");
+        }
+        return substring;
     }
 }

@@ -1,51 +1,47 @@
 package com.baidu.adp.lib.cache;
+
+import com.baidu.adp.lib.cache.l;
 /* loaded from: classes.dex */
-public interface o<T> {
-
-    /* loaded from: classes.dex */
-    public interface a<T> {
-        void m(String str, T t);
+public class o<T> implements l<T> {
+    @Override // com.baidu.adp.lib.cache.l
+    public T get(String str) {
+        return null;
     }
 
-    /* loaded from: classes.dex */
-    public interface b<T> {
-        void a(String str, c<T> cVar);
+    @Override // com.baidu.adp.lib.cache.l
+    public l.c<T> ac(String str) {
+        return null;
     }
 
-    /* loaded from: classes.dex */
-    public static class c<T> {
-        public String key;
-        public T sG;
-        public long tO;
-        public long tz;
+    @Override // com.baidu.adp.lib.cache.l
+    public void a(String str, T t, long j) {
     }
 
-    /* loaded from: classes.dex */
-    public interface d<T> extends o<T> {
-        String eJ();
-
-        n<T> eK();
-
-        void eL();
+    @Override // com.baidu.adp.lib.cache.l
+    public void k(String str, T t) {
     }
 
-    c<T> U(String str);
+    @Override // com.baidu.adp.lib.cache.l
+    public void remove(String str) {
+    }
 
-    void V(String str);
+    @Override // com.baidu.adp.lib.cache.l
+    public void a(String str, l.a<T> aVar) {
+    }
 
-    void a(String str, a<T> aVar);
+    @Override // com.baidu.adp.lib.cache.l
+    public void a(String str, l.b<T> bVar) {
+    }
 
-    void a(String str, b<T> bVar);
+    @Override // com.baidu.adp.lib.cache.l
+    public void b(String str, T t, long j) {
+    }
 
-    void a(String str, T t, long j);
+    @Override // com.baidu.adp.lib.cache.l
+    public void l(String str, T t) {
+    }
 
-    void b(String str, T t, long j);
-
-    T get(String str);
-
-    void k(String str, T t);
-
-    void l(String str, T t);
-
-    void remove(String str);
+    @Override // com.baidu.adp.lib.cache.l
+    public void ad(String str) {
+    }
 }

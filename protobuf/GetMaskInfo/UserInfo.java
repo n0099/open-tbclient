@@ -14,10 +14,6 @@ public final class UserInfo extends Message {
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long uid;
 
-    /* synthetic */ UserInfo(Builder builder, boolean z, UserInfo userInfo) {
-        this(builder, z);
-    }
-
     private UserInfo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -65,7 +61,7 @@ public final class UserInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public UserInfo build(boolean z) {
-            return new UserInfo(this, z, null);
+            return new UserInfo(this, z);
         }
     }
 }

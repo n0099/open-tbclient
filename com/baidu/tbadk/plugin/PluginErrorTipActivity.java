@@ -1,22 +1,28 @@
 package com.baidu.tbadk.plugin;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Process;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.lib.g.h;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.g.e;
 import com.baidu.adp.plugin.packageManager.status.PluginStatus;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private TextView aIP;
-    private TextView aIQ;
-    private TextView aIR;
-    private PluginStatus aIS;
-    private View apb;
+    private TextView aLm;
+    private TextView aLn;
+    private TextView aLo;
+    private PluginStatus aLp;
+    private View arm;
     private NavigationBar mNavigationBar;
 
     public static final void a(Context context, PluginStatus pluginStatus) {
@@ -35,41 +41,41 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.aIS = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.aLp = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.aIS = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.aLp = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.aIS == null) {
+        if (this.aLp == null) {
             finish();
             return;
         }
-        setContentView(w.j.plugin_error_tip_activity);
+        setContentView(d.j.plugin_error_tip_activity);
         initUI();
     }
 
     protected void initUI() {
-        this.mNavigationBar = (NavigationBar) findViewById(w.h.view_navigation_bar);
-        this.apb = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.apb.setOnClickListener(this);
-        this.mNavigationBar.setTitleText(w.l.pluginstatus_tip_title);
-        this.aIP = (TextView) findViewById(w.h.plugin_error_tip_msg);
-        this.aIQ = (TextView) findViewById(w.h.plugin_error_tip_resolve);
-        this.aIR = (TextView) findViewById(w.h.plugin_error_btn);
-        this.aIR.setOnClickListener(this);
-        this.aIP.setText(this.aIS.getErrorMsg());
-        this.aIQ.setText(this.aIS.ke());
-        if (this.aIS.getErrorCode() == 5 || this.aIS.getErrorCode() == 1 || this.aIS.getErrorCode() == 100) {
-            this.aIR.setText(w.l.pluginstatus_btn_restartapp);
-            this.aIR.setVisibility(0);
+        this.mNavigationBar = (NavigationBar) findViewById(d.h.view_navigation_bar);
+        this.arm = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.arm.setOnClickListener(this);
+        this.mNavigationBar.setTitleText(d.l.pluginstatus_tip_title);
+        this.aLm = (TextView) findViewById(d.h.plugin_error_tip_msg);
+        this.aLn = (TextView) findViewById(d.h.plugin_error_tip_resolve);
+        this.aLo = (TextView) findViewById(d.h.plugin_error_btn);
+        this.aLo.setOnClickListener(this);
+        this.aLm.setText(this.aLp.getErrorMsg());
+        this.aLn.setText(this.aLp.kn());
+        if (this.aLp.getErrorCode() == 5 || this.aLp.getErrorCode() == 1 || this.aLp.getErrorCode() == 100) {
+            this.aLo.setText(d.l.pluginstatus_btn_restartapp);
+            this.aLo.setVisibility(0);
             return;
         }
-        this.aIR.setVisibility(8);
+        this.aLo.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.aIS);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.aLp);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -77,14 +83,33 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.apb) {
+        if (view == this.arm) {
             finish();
-        } else if (view == this.aIR) {
-            if (this.aIS != null && this.aIS.getErrorCode() == 100) {
-                com.baidu.adp.plugin.b.a.jj().M(true);
+        } else if (view == this.aLo) {
+            if (this.aLp != null && this.aLp.getErrorCode() == 100) {
+                com.baidu.adp.plugin.b.a.jr().M(true);
             }
-            showLoadingDialog(getResources().getString(w.l.waiting));
-            h.fR().postDelayed(new a(this), 2000L);
+            showLoadingDialog(getResources().getString(d.l.waiting));
+            e.ga().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    HashSet hashSet = new HashSet(10);
+                    HashSet hashSet2 = new HashSet(10);
+                    List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses();
+                    if (runningAppProcesses != null) {
+                        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                            if (runningAppProcessInfo != null && runningAppProcessInfo.processName != null && runningAppProcessInfo.processName.startsWith(PluginErrorTipActivity.this.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
+                                hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
+                            }
+                        }
+                    }
+                    Iterator it = hashSet2.iterator();
+                    while (it.hasNext()) {
+                        Process.killProcess(((Integer) it.next()).intValue());
+                    }
+                    Process.killProcess(Process.myPid());
+                }
+            }, 2000L);
         }
     }
 

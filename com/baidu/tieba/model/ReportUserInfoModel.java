@@ -5,6 +5,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -14,25 +15,38 @@ import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 public class ReportUserInfoModel extends BdBaseModel {
     public static final long TIME_INTERVAL = 300000;
     public static final int TYPE_ADDRESS = 1;
-    private a ecF;
-    private final HttpMessageListener ecG;
+    private a ena;
+    private final HttpMessageListener enb;
     public long timeInterval;
 
     /* loaded from: classes.dex */
     public interface a {
-        void oe(int i);
+        void om(int i);
 
         void onError(int i, String str);
     }
 
     public void a(a aVar) {
-        this.ecF = aVar;
+        this.ena = aVar;
     }
 
     public ReportUserInfoModel(Context context) {
         super(null);
         this.timeInterval = TIME_INTERVAL;
-        this.ecG = new f(this, CmdConfigHttp.REPORT_USER_INFO);
+        this.enb = new HttpMessageListener(CmdConfigHttp.REPORT_USER_INFO) { // from class: com.baidu.tieba.model.ReportUserInfoModel.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522 && ReportUserInfoModel.this.ena != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
+                    ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
+                    if (responseReportUserInfoMessage.getErrorCode() == 0) {
+                        ReportUserInfoModel.this.ena.om(responseReportUserInfoMessage.getTimeInterval());
+                    } else {
+                        ReportUserInfoModel.this.ena.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
+                    }
+                }
+            }
+        };
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -45,24 +59,24 @@ public class ReportUserInfoModel extends BdBaseModel {
         return false;
     }
 
-    public boolean aHU() {
-        return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m9getInst().getReporyUserInfoLastTime()) >= this.timeInterval;
+    public boolean aKc() {
+        return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.getInst().getReporyUserInfoLastTime()) >= this.timeInterval;
     }
 
-    public void aHV() {
-        TbadkCoreApplication.m9getInst().setReporyUserInfoCurrentTime();
+    public void aKd() {
+        TbadkCoreApplication.getInst().setReporyUserInfoCurrentTime();
     }
 
-    public void cg(long j) {
+    public void ci(long j) {
         this.timeInterval = j;
     }
 
-    public void aHW() {
+    public void aKe() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/report");
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, TbConfig.SERVER_ADDRESS + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.ecG);
+        messageManager.registerListener(this.enb);
     }
 
     public void b(int i, float f, float f2) {
@@ -74,6 +88,6 @@ public class ReportUserInfoModel extends BdBaseModel {
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.ecG);
+        MessageManager.getInstance().unRegisterListener(this.enb);
     }
 }

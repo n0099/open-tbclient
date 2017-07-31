@@ -2,7 +2,6 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
@@ -33,7 +32,7 @@ public class UserData extends MetaData {
     private String bg_pic;
     private int bimg_end_time;
     private String bimg_url;
-    private d closeAdData;
+    private CloseAdData closeAdData;
     private String grade;
     private int have_attention;
     private long inTime;
@@ -54,20 +53,20 @@ public class UserData extends MetaData {
     private int liveStatus;
     private String lng;
     private long loginTime;
-    private a mActivitySponsorData;
+    private ActivitySponsorData mActivitySponsorData;
     private List<MyGift> mGift;
     private int mGiftNum;
     private List<MyGroup> mGroup;
     private boolean mIsSelectTail;
     private List<MyLikeForum> mLikeForum;
-    private List<v> mPhotoAlbum;
+    private List<com.baidu.adp.widget.ListView.f> mPhotoAlbum;
     private long mTDouNum;
     private int managerLevel;
     private int markCount;
     public MembershipUserInfo membershipInfo;
     private int newMarkCount;
     private String password;
-    private h payMemberInfo;
+    private PayMemberInfoData payMemberInfo;
     private Permission permission;
     private PersonPrivateData personPrivate;
     private String position;
@@ -254,17 +253,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             k kVar = new k();
-            kVar.fm(getPortraitH());
-            kVar.fn(getPortrait());
-            kVar.bu(true);
+            kVar.fw(getPortraitH());
+            kVar.fx(getPortrait());
+            kVar.bx(true);
             this.mPhotoAlbum.add(kVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         k kVar2 = new k();
-                        kVar2.fm(userPics.big);
-                        kVar2.fn(userPics.small);
-                        kVar2.bu(false);
+                        kVar2.fw(userPics.big);
+                        kVar2.fx(userPics.small);
+                        kVar2.bx(false);
                         this.mPhotoAlbum.add(kVar2);
                     }
                 }
@@ -292,7 +291,7 @@ public class UserData extends MetaData {
             }
             VipCloseAd vipCloseAd = user.vip_close_ad;
             if (vipCloseAd != null) {
-                this.closeAdData = new d();
+                this.closeAdData = new CloseAdData();
                 this.closeAdData.a(vipCloseAd);
             }
             this.bg_pic = user.bg_pic;
@@ -306,7 +305,7 @@ public class UserData extends MetaData {
             }
             PayMemberInfo payMemberInfo = user.pay_member_info;
             if (payMemberInfo != null) {
-                this.payMemberInfo = new h();
+                this.payMemberInfo = new PayMemberInfoData();
                 this.payMemberInfo.a(payMemberInfo);
             }
             if (user.is_mask.intValue() == 1) {
@@ -350,14 +349,14 @@ public class UserData extends MetaData {
                 this.mTDouNum = newParrScores.scores_total.longValue();
             }
             if (getUserId() != null && getUserId().equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
-                TbadkCoreApplication.m9getInst().currentAccountTdouNum = this.mTDouNum;
+                TbadkCoreApplication.getInst().currentAccountTdouNum = this.mTDouNum;
             }
             if (user.tw_anchor_info != null) {
                 this.anchorLevel = user.tw_anchor_info.anchor_level.intValue();
             }
             ActivitySponsor activitySponsor = user.activity_sponsor;
             if (activitySponsor != null) {
-                this.mActivitySponsorData = new a();
+                this.mActivitySponsorData = new ActivitySponsorData();
                 this.mActivitySponsorData.a(activitySponsor);
             }
             if (user.ala_info != null) {
@@ -426,7 +425,7 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("vip_close_ad");
                 if (optJSONObject3 != null) {
-                    this.closeAdData = new d();
+                    this.closeAdData = new CloseAdData();
                     this.closeAdData.parseJson(optJSONObject3);
                 }
                 this.mGiftNum = jSONObject.optInt("gift_num");
@@ -437,7 +436,7 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("pay_member_info");
                 if (optJSONObject5 != null) {
-                    this.payMemberInfo = new h();
+                    this.payMemberInfo = new PayMemberInfoData();
                     this.payMemberInfo.parseJson(optJSONObject5);
                 }
                 if (jSONObject.optInt("is_mask") == 1) {
@@ -450,9 +449,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 k kVar = new k();
-                kVar.fm(getPortraitH());
-                kVar.fn(getPortrait());
-                kVar.bu(true);
+                kVar.fw(getPortraitH());
+                kVar.fx(getPortrait());
+                kVar.bx(true);
                 this.mPhotoAlbum.add(kVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -461,9 +460,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             k kVar2 = new k();
-                            kVar2.fm(jSONObject2.optString("big"));
-                            kVar2.fn(jSONObject2.optString("small"));
-                            kVar2.bu(false);
+                            kVar2.fw(jSONObject2.optString("big"));
+                            kVar2.fx(jSONObject2.optString("small"));
+                            kVar2.bx(false);
                             this.mPhotoAlbum.add(kVar2);
                         }
                     }
@@ -582,11 +581,11 @@ public class UserData extends MetaData {
         return this.sex;
     }
 
-    public h getPayMemberInfoData() {
+    public PayMemberInfoData getPayMemberInfoData() {
         return this.payMemberInfo;
     }
 
-    public d getCloseAdData() {
+    public CloseAdData getCloseAdData() {
         return this.closeAdData;
     }
 
@@ -678,7 +677,7 @@ public class UserData extends MetaData {
         return this.mTDouNum;
     }
 
-    public List<v> getPhotoAlbum() {
+    public List<com.baidu.adp.widget.ListView.f> getPhotoAlbum() {
         return this.mPhotoAlbum;
     }
 

@@ -1,39 +1,65 @@
 package com.baidu.tieba.pb.a;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.pb.a.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class b extends Handler {
-    final /* synthetic */ a esy;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.esy = aVar;
+public class b {
+    public static String aPY() {
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize == 0) {
+            return TbadkCoreApplication.getInst().getString(d.l.toast_font_size_xlarge);
+        }
+        if (fontSize == 1) {
+            return TbadkCoreApplication.getInst().getString(d.l.toast_font_size_big);
+        }
+        if (fontSize == 2) {
+            return TbadkCoreApplication.getInst().getString(d.l.toast_font_size_mid);
+        }
+        return TbadkCoreApplication.getInst().getString(d.l.toast_font_size_small);
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        int i;
-        a.InterfaceC0074a interfaceC0074a;
-        a.InterfaceC0074a interfaceC0074a2;
-        if (message.what == 2) {
-            this.esy.count = 0;
-            this.esy.esu = 0L;
-            this.esy.esv = 0L;
-        } else if (message.what == 1) {
-            i = this.esy.count;
-            if (i == 1) {
-                interfaceC0074a = this.esy.esw;
-                if (interfaceC0074a != null) {
-                    interfaceC0074a2 = this.esy.esw;
-                    interfaceC0074a2.aeO();
-                }
-                this.esy.count = 0;
-                this.esy.esu = 0L;
-                this.esy.esv = 0L;
+    public static void aPZ() {
+        int i = 1;
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize != 0) {
+            if (fontSize == 1) {
+                i = 2;
+            } else {
+                i = fontSize == 2 ? 3 : 3;
             }
+        }
+        if (fontSize != i) {
+            TbadkCoreApplication.getInst().setFontSize(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
+        }
+        BdToast.a(TbadkCoreApplication.getInst(), aPY(), d.g.icon_word_t_size, 0).tz();
+    }
+
+    public static void aQa() {
+        int i = 1;
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize == 0) {
+            i = 0;
+        } else if (fontSize == 1) {
+            i = 0;
+        } else if (fontSize != 2) {
+            i = 2;
+        }
+        if (fontSize != i) {
+            TbadkCoreApplication.getInst().setFontSize(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
+        }
+        BdToast.a(TbadkCoreApplication.getInst(), aPY(), d.g.icon_word_t_size, 0).tz();
+    }
+
+    public static void oN(int i) {
+        if (TbadkCoreApplication.getInst().getFontSize() != i) {
+            TbadkCoreApplication.getInst().setFontSize(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
         }
     }
 }

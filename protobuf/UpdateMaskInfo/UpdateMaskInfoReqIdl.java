@@ -7,10 +7,6 @@ public final class UpdateMaskInfoReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
 
-    /* synthetic */ UpdateMaskInfoReqIdl(Builder builder, boolean z, UpdateMaskInfoReqIdl updateMaskInfoReqIdl) {
-        this(builder, z);
-    }
-
     private UpdateMaskInfoReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -37,7 +33,7 @@ public final class UpdateMaskInfoReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public UpdateMaskInfoReqIdl build(boolean z) {
-            return new UpdateMaskInfoReqIdl(this, z, null);
+            return new UpdateMaskInfoReqIdl(this, z);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
@@ -25,6 +26,7 @@ public class ao {
         return com.xiaomi.channel.commonutils.misc.a.a.contains("xmsf") || com.xiaomi.channel.commonutils.misc.a.a.contains("xiaomi") || com.xiaomi.channel.commonutils.misc.a.a.contains("miui");
     }
 
+    @SuppressLint({"NewApi"})
     public int b() {
         if (this.c != 0) {
             return this.c;
@@ -37,6 +39,7 @@ public class ao {
         return this.c;
     }
 
+    @SuppressLint({"NewApi"})
     public Uri c() {
         return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned");
     }

@@ -1,103 +1,103 @@
 package com.baidu.tieba.InjectPlugin.b;
 
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.f;
 import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends g {
-    private List<Object> aRA;
-    private boolean aRB;
-    private boolean aRC;
-    private int aRD;
-    private boolean aRE;
-    private String aRF;
-    private String aRG;
-    private String aRH;
-    private Object aRx;
-    private List<v> aRy;
-    private List<v> aRz;
-    private int aoa;
+    private Object aTS;
+    private List<f> aTT;
+    private List<f> aTU;
+    private List<Object> aTV;
+    private boolean aTW;
+    private boolean aTX;
+    private int aTY;
+    private boolean aTZ;
+    private String aUa;
+    private String aUb;
+    private String aUc;
+    private int aql;
     private String forumId;
     private int pageNum;
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
-        this.aRB = false;
-        this.aRC = false;
-        this.aRD = 0;
-        this.aRE = false;
+        this.aTW = false;
+        this.aTX = false;
+        this.aTY = 0;
+        this.aTZ = false;
     }
 
-    public Object Jj() {
-        return this.aRx;
+    public Object JB() {
+        return this.aTS;
     }
 
     public void setExtraData(Object obj) {
-        this.aRx = obj;
+        this.aTS = obj;
     }
 
-    public List<v> getThreadList() {
-        return this.aRy;
+    public List<f> getThreadList() {
+        return this.aTT;
     }
 
-    public void setThreadList(List<v> list) {
-        this.aRy = list;
+    public void setThreadList(List<f> list) {
+        this.aTT = list;
     }
 
-    public List<Object> Jk() {
-        return this.aRA;
+    public List<Object> JC() {
+        return this.aTV;
     }
 
-    public void K(List<Object> list) {
-        this.aRA = list;
+    public void N(List<Object> list) {
+        this.aTV = list;
     }
 
-    public List<v> Jl() {
-        return this.aRz;
+    public List<f> JD() {
+        return this.aTU;
     }
 
-    public void L(List<v> list) {
-        this.aRz = list;
+    public void O(List<f> list) {
+        this.aTU = list;
     }
 
-    public boolean Jm() {
-        return this.aRB;
+    public boolean JE() {
+        return this.aTW;
     }
 
-    public void cg(boolean z) {
-        this.aRB = z;
+    public void cj(boolean z) {
+        this.aTW = z;
     }
 
-    public boolean Jn() {
-        return this.aRC;
+    public boolean JF() {
+        return this.aTX;
     }
 
-    public void ch(boolean z) {
-        this.aRC = z;
+    public void ck(boolean z) {
+        this.aTX = z;
     }
 
-    public int Jo() {
-        return this.aRD;
+    public int JG() {
+        return this.aTY;
     }
 
-    public void bW(int i) {
-        this.aRD = i;
+    public void bX(int i) {
+        this.aTY = i;
     }
 
     public int getSkinType() {
-        return this.aoa;
+        return this.aql;
     }
 
     public void setSkinType(int i) {
-        this.aoa = i;
+        this.aql = i;
     }
 
-    public boolean Jp() {
-        return this.aRE;
+    public boolean JH() {
+        return this.aTZ;
     }
 
-    public void ci(boolean z) {
-        this.aRE = z;
+    public void cl(boolean z) {
+        this.aTZ = z;
     }
 
     public int getPageNum() {
@@ -116,27 +116,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String Jq() {
-        return this.aRF;
+    public String JI() {
+        return this.aUa;
     }
 
-    public void gQ(String str) {
-        this.aRF = str;
+    public void hb(String str) {
+        this.aUa = str;
     }
 
-    public String Jr() {
-        return this.aRG;
+    public String JJ() {
+        return this.aUb;
     }
 
-    public void gR(String str) {
-        this.aRG = str;
+    public void hc(String str) {
+        this.aUb = str;
     }
 
-    public String Js() {
-        return this.aRH;
+    public String JK() {
+        return this.aUc;
     }
 
-    public void gS(String str) {
-        this.aRH = str;
+    public void hd(String str) {
+        this.aUc = str;
     }
 }

@@ -20,10 +20,11 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.coreExtra.share.d;
 import com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity;
+import com.baidu.tieba.im.c;
 import com.baidu.tieba.im.chat.GroupMsgImageActivity;
+import com.baidu.tieba.im.d.a.e;
 import com.baidu.tieba.im.d.a.f;
 import com.baidu.tieba.im.d.a.g;
-import com.baidu.tieba.im.e;
 import com.baidu.tieba.im.message.ResponseAddGroupUserMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 import com.baidu.tieba.im.message.ResponseDelSystemMessage;
@@ -44,22 +45,22 @@ public class TbLaunchStatic {
 
     private static void initRegisterIntent() {
         TbadkApplication.getInst().RegisterIntent(GroupMsgImageActivityConfig.class, GroupMsgImageActivity.class);
-        TbadkCoreApplication.m9getInst().RegisterOrUpdateIntent(WXEntryActivityConfig.class, WXEntryActivity.class);
-        TbadkCoreApplication.m9getInst().RegisterIntent(ChangeSystemPhotoActivityConfig.class, ChangeSystemPhotoActivity.class);
+        TbadkCoreApplication.getInst().RegisterOrUpdateIntent(WXEntryActivityConfig.class, WXEntryActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(ChangeSystemPhotoActivityConfig.class, ChangeSystemPhotoActivity.class);
     }
 
     private static void initRegisterTask() {
-        e.b(202004, ResponseDelSystemMessage.class, false);
-        e.b(103112, ResponseRemoveMembersMessage.class, false);
-        e.b(202001, ResponseCommitGroupMessage.class, false);
-        e.b(103111, ResponseAddGroupUserMessage.class, false);
-        e.b(103105, ResponseUpgradeMemberGroupMessage.class, false);
-        e.b(103008, ResponseUserPermissionMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-        e.b(103102, ResponseUpdateGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
-        e.b(103104, ResponseDismissGroupMessage.class, false);
-        e.b(CmdConfigCustom.CMD_LOAD_DRAFT_GROUP, com.baidu.tieba.im.d.a.e.class);
-        e.b(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, g.class);
-        e.b(CmdConfigCustom.CMD_SAVE_DRAFT_GROUP, f.class);
+        c.b(202004, ResponseDelSystemMessage.class, false);
+        c.b(103112, ResponseRemoveMembersMessage.class, false);
+        c.b(202001, ResponseCommitGroupMessage.class, false);
+        c.b(103111, ResponseAddGroupUserMessage.class, false);
+        c.b(103105, ResponseUpgradeMemberGroupMessage.class, false);
+        c.b(103008, ResponseUserPermissionMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+        c.b(103102, ResponseUpdateGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+        c.b(103104, ResponseDismissGroupMessage.class, false);
+        c.b(CmdConfigCustom.CMD_LOAD_DRAFT_GROUP, e.class);
+        c.b(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, g.class);
+        c.b(CmdConfigCustom.CMD_SAVE_DRAFT_GROUP, f.class);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new CustomMessageTask.CustomRunnable<ShareDialogConfig>() { // from class: com.baidu.tbadk.TbLaunchStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
@@ -83,11 +84,11 @@ public class TbLaunchStatic {
                         Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                         while (it.hasNext()) {
                             Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                            TextView H = dVar.H(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
+                            TextView I = dVar.I(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
                             if (data.isInsertBack) {
-                                dVar.a(H, dVar.AF(), (View.OnClickListener) ((Pair) next.second).second);
+                                dVar.a(I, dVar.AY(), (View.OnClickListener) ((Pair) next.second).second);
                             } else {
-                                dVar.a(H, (View.OnClickListener) ((Pair) next.second).second);
+                                dVar.a(I, (View.OnClickListener) ((Pair) next.second).second);
                             }
                         }
                     }
@@ -109,7 +110,7 @@ public class TbLaunchStatic {
                     long j = b.getInstance().getLong("clear_redundance_files_time", 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - j > 86400000) {
-                        PluginPackageManager.jw().jM();
+                        PluginPackageManager.jE().jU();
                         b.getInstance().putLong("clear_redundance_files_time", currentTimeMillis);
                     }
                 }

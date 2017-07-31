@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.message.a;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -21,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f {
+    @SuppressLint({"NewApi"})
     public static void a(Context context, PublicMsg publicMsg, String str) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
         Intent intent = new Intent(context, PushService.class);
@@ -102,7 +104,7 @@ public class f {
         cVar.a(context, activity, str5);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0047 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x004a A[ORIG_RETURN, RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

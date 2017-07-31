@@ -36,7 +36,7 @@ public class g extends l {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x003e  */
+    /* JADX WARN: Removed duplicated region for block: B:7:0x0042  */
     @Override // com.baidu.android.pushservice.h.l
     /*
         Code decompiled incorrectly, please refer to instructions dump.

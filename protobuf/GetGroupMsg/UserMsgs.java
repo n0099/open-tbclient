@@ -11,10 +11,6 @@ public final class UserMsgs extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<MsgInfo> msgs;
 
-    /* synthetic */ UserMsgs(Builder builder, boolean z, UserMsgs userMsgs) {
-        this(builder, z);
-    }
-
     private UserMsgs(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -46,7 +42,7 @@ public final class UserMsgs extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public UserMsgs build(boolean z) {
-            return new UserMsgs(this, z, null);
+            return new UserMsgs(this, z);
         }
     }
 }

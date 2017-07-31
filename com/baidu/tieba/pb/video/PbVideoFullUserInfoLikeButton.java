@@ -3,9 +3,9 @@ package com.baidu.tieba.pb.video;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ai;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
     public PbVideoFullUserInfoLikeButton(Context context) {
@@ -22,13 +22,13 @@ public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.anL) {
+        if (this.apV) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            as.i(this, w.e.cp_bg_line_d_alpha80);
+            ai.i(this, d.e.cp_bg_line_d_alpha80);
             setBackgroundDrawable(null);
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds(as.getDrawable(w.g.icon_add_home_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        as.i(this, w.e.cp_cont_i);
+        setCompoundDrawablesWithIntrinsicBounds(ai.getDrawable(d.g.icon_add_home_s), (Drawable) null, (Drawable) null, (Drawable) null);
+        ai.i(this, d.e.cp_cont_i);
     }
 }

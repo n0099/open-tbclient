@@ -23,10 +23,6 @@ public final class MaskInfo extends Message {
     public static final Integer DEFAULT_REMINDMASK = 0;
     public static final Integer DEFAULT_SHIELDSTATUS = 0;
 
-    /* synthetic */ MaskInfo(Builder builder, boolean z, MaskInfo maskInfo) {
-        this(builder, z);
-    }
-
     private MaskInfo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -98,7 +94,7 @@ public final class MaskInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public MaskInfo build(boolean z) {
-            return new MaskInfo(this, z, null);
+            return new MaskInfo(this, z);
         }
     }
 }

@@ -24,20 +24,10 @@ public final class Util {
     public enum VersionCompare {
         EQUAL,
         LESS,
-        GREATER;
-
-        /* JADX DEBUG: Replace access to removed values field (Fz) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static VersionCompare[] valuesCustom() {
-            VersionCompare[] valuesCustom = values();
-            int length = valuesCustom.length;
-            VersionCompare[] versionCompareArr = new VersionCompare[length];
-            System.arraycopy(valuesCustom, 0, versionCompareArr, 0, length);
-            return versionCompareArr;
-        }
+        GREATER
     }
 
-    public static boolean ki() {
+    public static boolean kr() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -49,7 +39,7 @@ public final class Util {
         }
     }
 
-    public static i l(InputStream inputStream) throws IOException {
+    public static f r(InputStream inputStream) throws IOException {
         if (inputStream == null) {
             return null;
         }
@@ -59,9 +49,9 @@ public final class Util {
         }
         int d = d(bArr, 6);
         int d2 = d(bArr, 8);
-        i iVar = new i();
-        iVar.set(((d2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
-        return iVar;
+        f fVar = new f();
+        fVar.set(((d2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
+        return fVar;
     }
 
     private static int d(byte[] bArr, int i) {
@@ -72,19 +62,19 @@ public final class Util {
     }
 
     public static final boolean k(long j) {
-        long kk = kk();
+        long kt = kt();
         if (j <= 0) {
-            return kk <= 0 || kk >= 31457280;
+            return kt <= 0 || kt >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < kk;
+        return (j2 <= 31457280 ? j2 : 31457280L) < kt;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [160=4, 162=4, 163=4, 164=4, 165=4, 167=4, 170=4] */
     public static String a(InputStream inputStream, File file) {
         if (inputStream == null || file == null) {
@@ -215,15 +205,15 @@ public final class Util {
         }
     }
 
-    public static File bB(String str) {
-        PluginSetting be = PluginPackageManager.jw().be(str);
-        if (be == null || be.apkPath == null || be.apkPath.length() <= ".apk".length()) {
+    public static File bJ(String str) {
+        PluginSetting bm = PluginPackageManager.jE().bm(str);
+        if (bm == null || bm.apkPath == null || bm.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(be.apkPath.substring(0, be.apkPath.length() - ".apk".length()));
+        return new File(bm.apkPath.substring(0, bm.apkPath.length() - ".apk".length()));
     }
 
-    public static File kj() {
+    public static File ks() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -343,24 +333,24 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return String.valueOf(pluginSetting.packageName) + ".apk_" + pluginSetting.tempVersionCode;
+        return pluginSetting.packageName + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bC(String str) {
+    public static String bK(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return String.valueOf(str) + ".apk_";
+        return str + ".apk_";
     }
 
     public static String f(PluginSetting pluginSetting) {
         if (pluginSetting == null) {
             return null;
         }
-        return kj() + File.separator + e(pluginSetting);
+        return ks() + File.separator + e(pluginSetting);
     }
 
-    public static long kk() {
+    public static long kt() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

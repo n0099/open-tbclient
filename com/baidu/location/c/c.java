@@ -10,12 +10,12 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class c {
-    private static c MW = null;
+    private static c Ov = null;
     private static final String k = com.baidu.location.h.h.a + "/conlts.dat";
     private static int l = -1;
     private static int m = -1;
     private static int n = 0;
-    private a MX = null;
+    private a Ow = null;
     public boolean a = true;
     public boolean b = true;
     public boolean c = false;
@@ -122,13 +122,13 @@ public class c {
             try {
                 if (bArr.length < 640) {
                     com.baidu.location.h.i.u = false;
-                    com.baidu.location.h.i.ME = com.baidu.location.h.i.MC + 0.025d;
-                    com.baidu.location.h.i.MD = com.baidu.location.h.i.MB - 0.025d;
+                    com.baidu.location.h.i.Od = com.baidu.location.h.i.Ob + 0.025d;
+                    com.baidu.location.h.i.Oc = com.baidu.location.h.i.Oa - 0.025d;
                     i = 1;
                 } else {
                     com.baidu.location.h.i.u = true;
-                    com.baidu.location.h.i.MD = Double.longBitsToDouble(((bArr[7] & 255) << 56) | ((bArr[6] & 255) << 48) | ((bArr[5] & 255) << 40) | ((bArr[4] & 255) << 32) | ((bArr[3] & 255) << 24) | ((bArr[2] & 255) << 16) | ((bArr[1] & 255) << 8) | (bArr[0] & 255));
-                    com.baidu.location.h.i.ME = Double.longBitsToDouble(((bArr[15] & 255) << 56) | ((bArr[14] & 255) << 48) | ((bArr[13] & 255) << 40) | ((bArr[12] & 255) << 32) | ((bArr[11] & 255) << 24) | ((bArr[10] & 255) << 16) | ((bArr[9] & 255) << 8) | (bArr[8] & 255));
+                    com.baidu.location.h.i.Oc = Double.longBitsToDouble(((bArr[7] & 255) << 56) | ((bArr[6] & 255) << 48) | ((bArr[5] & 255) << 40) | ((bArr[4] & 255) << 32) | ((bArr[3] & 255) << 24) | ((bArr[2] & 255) << 16) | ((bArr[1] & 255) << 8) | (bArr[0] & 255));
+                    com.baidu.location.h.i.Od = Double.longBitsToDouble(((bArr[15] & 255) << 56) | ((bArr[14] & 255) << 48) | ((bArr[13] & 255) << 40) | ((bArr[12] & 255) << 32) | ((bArr[11] & 255) << 24) | ((bArr[10] & 255) << 16) | ((bArr[9] & 255) << 8) | (bArr[8] & 255));
                     com.baidu.location.h.i.t = new byte[625];
                     while (i < 625) {
                         com.baidu.location.h.i.t[i] = bArr[i + 16];
@@ -245,13 +245,13 @@ public class c {
                                 com.baidu.location.h.i.L = Integer.parseInt(split3[0]);
                             }
                             if (split3[1] != null && !split3[1].equals("")) {
-                                com.baidu.location.h.i.Pp = Float.parseFloat(split3[1]);
+                                com.baidu.location.h.i.QO = Float.parseFloat(split3[1]);
                             }
                             if (split3[2] != null && !split3[2].equals("")) {
                                 com.baidu.location.h.i.N = Integer.parseInt(split3[2]);
                             }
                             if (split3[3] != null && !split3[3].equals("")) {
-                                com.baidu.location.h.i.Pq = Float.parseFloat(split3[3]);
+                                com.baidu.location.h.i.QP = Float.parseFloat(split3[3]);
                             }
                         }
                     }
@@ -259,10 +259,10 @@ public class c {
                         String[] split4 = jSONObject.getString("ab").split("\\|");
                         if (split4.length > 3) {
                             if (split4[0] != null && !split4[0].equals("")) {
-                                com.baidu.location.h.i.Pr = Float.parseFloat(split4[0]);
+                                com.baidu.location.h.i.QR = Float.parseFloat(split4[0]);
                             }
                             if (split4[1] != null && !split4[1].equals("")) {
-                                com.baidu.location.h.i.Ps = Float.parseFloat(split4[1]);
+                                com.baidu.location.h.i.QS = Float.parseFloat(split4[1]);
                             }
                             if (split4[2] != null && !split4[2].equals("")) {
                                 com.baidu.location.h.i.R = Integer.parseInt(split4[2]);
@@ -276,10 +276,10 @@ public class c {
                         String[] split5 = jSONObject.getString("zxd").split("\\|");
                         if (split5.length > 4) {
                             if (split5[0] != null && !split5[0].equals("")) {
-                                com.baidu.location.h.i.Pz = Float.parseFloat(split5[0]);
+                                com.baidu.location.h.i.QZ = Float.parseFloat(split5[0]);
                             }
                             if (split5[1] != null && !split5[1].equals("")) {
-                                com.baidu.location.h.i.PA = Float.parseFloat(split5[1]);
+                                com.baidu.location.h.i.Ra = Float.parseFloat(split5[1]);
                             }
                             if (split5[2] != null && !split5[2].equals("")) {
                                 com.baidu.location.h.i.ap = Integer.parseInt(split5[2]);
@@ -304,23 +304,23 @@ public class c {
                             }
                             if (split6[1] != null && !split6[1].equals("")) {
                                 if (Integer.parseInt(split6[1]) > 0) {
-                                    com.baidu.location.h.i.Pt = true;
+                                    com.baidu.location.h.i.QT = true;
                                 } else {
-                                    com.baidu.location.h.i.Pt = false;
+                                    com.baidu.location.h.i.QT = false;
                                 }
                             }
                             if (split6[2] != null && !split6[2].equals("")) {
                                 com.baidu.location.h.i.Z = Integer.parseInt(split6[2]);
                             }
                             if (split6[3] != null && !split6[3].equals("")) {
-                                com.baidu.location.h.i.Pv = Integer.parseInt(split6[3]);
+                                com.baidu.location.h.i.QV = Integer.parseInt(split6[3]);
                             }
                             if (split6[4] != null && !split6[4].equals("")) {
                                 int parseInt2 = Integer.parseInt(split6[4]);
                                 if (parseInt2 > 0) {
-                                    com.baidu.location.h.i.Px = parseInt2;
-                                    com.baidu.location.h.i.ac = com.baidu.location.h.i.Px * 1000 * 60;
-                                    com.baidu.location.h.i.Py = com.baidu.location.h.i.ac >> 2;
+                                    com.baidu.location.h.i.QX = parseInt2;
+                                    com.baidu.location.h.i.ac = com.baidu.location.h.i.QX * 1000 * 60;
+                                    com.baidu.location.h.i.QY = com.baidu.location.h.i.ac >> 2;
                                 } else {
                                     com.baidu.location.h.i.m = false;
                                 }
@@ -394,16 +394,16 @@ public class c {
     }
 
     private void e() {
-        String str = "&ver=" + com.baidu.location.h.i.v + "&usr=" + com.baidu.location.h.c.nl().b() + "&app=" + com.baidu.location.h.c.c + "&prod=" + com.baidu.location.h.c.d;
-        if (this.MX == null) {
-            this.MX = new a();
+        String str = "&ver=" + com.baidu.location.h.i.v + "&usr=" + com.baidu.location.h.c.ns().b() + "&app=" + com.baidu.location.h.c.c + "&prod=" + com.baidu.location.h.c.d;
+        if (this.Ow == null) {
+            this.Ow = new a();
         }
-        this.MX.a(str, false);
+        this.Ow.a(str, false);
     }
 
     private void f() {
         String str = com.baidu.location.h.h.a + "/config.dat";
-        byte[] bytes = String.format(Locale.CHINA, "{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\",\"zxd\":\"%.1f|%.1f|%d|%d|%d\",\"shak\":\"%d|%d|%.1f\",\"dmx\":%d}", Integer.valueOf(com.baidu.location.h.i.v), Float.valueOf(com.baidu.location.h.i.w), Float.valueOf(com.baidu.location.h.i.x), Float.valueOf(com.baidu.location.h.i.y), Float.valueOf(com.baidu.location.h.i.z), Integer.valueOf(com.baidu.location.h.i.A), Integer.valueOf(com.baidu.location.h.i.B), Integer.valueOf(com.baidu.location.h.i.C), Integer.valueOf(com.baidu.location.h.i.D), Integer.valueOf(com.baidu.location.h.i.E), Integer.valueOf(com.baidu.location.h.i.F), Integer.valueOf(com.baidu.location.h.i.G), Float.valueOf(com.baidu.location.h.i.H), Float.valueOf(com.baidu.location.h.i.I), Float.valueOf(com.baidu.location.h.i.J), Float.valueOf(com.baidu.location.h.i.K), Integer.valueOf(com.baidu.location.h.i.L), Float.valueOf(com.baidu.location.h.i.Pp), Integer.valueOf(com.baidu.location.h.i.N), Float.valueOf(com.baidu.location.h.i.Pq), Float.valueOf(com.baidu.location.h.i.Pr), Float.valueOf(com.baidu.location.h.i.Ps), Integer.valueOf(com.baidu.location.h.i.R), Integer.valueOf(com.baidu.location.h.i.S), Integer.valueOf(com.baidu.location.h.i.X ? 1 : 0), Integer.valueOf(com.baidu.location.h.i.Pt ? 1 : 0), Integer.valueOf(com.baidu.location.h.i.Z), Integer.valueOf(com.baidu.location.h.i.Pv), Long.valueOf(com.baidu.location.h.i.Px), Integer.valueOf(com.baidu.location.h.i.aj), Float.valueOf(com.baidu.location.h.i.Pz), Float.valueOf(com.baidu.location.h.i.PA), Integer.valueOf(com.baidu.location.h.i.ap), Integer.valueOf(com.baidu.location.h.i.aq), Integer.valueOf(com.baidu.location.h.i.ar), Integer.valueOf(com.baidu.location.h.i.ak), Integer.valueOf(com.baidu.location.h.i.al), Float.valueOf(com.baidu.location.h.i.am), Integer.valueOf(com.baidu.location.h.i.ai)).getBytes();
+        byte[] bytes = String.format(Locale.CHINA, "{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\",\"zxd\":\"%.1f|%.1f|%d|%d|%d\",\"shak\":\"%d|%d|%.1f\",\"dmx\":%d}", Integer.valueOf(com.baidu.location.h.i.v), Float.valueOf(com.baidu.location.h.i.w), Float.valueOf(com.baidu.location.h.i.x), Float.valueOf(com.baidu.location.h.i.y), Float.valueOf(com.baidu.location.h.i.z), Integer.valueOf(com.baidu.location.h.i.A), Integer.valueOf(com.baidu.location.h.i.B), Integer.valueOf(com.baidu.location.h.i.C), Integer.valueOf(com.baidu.location.h.i.D), Integer.valueOf(com.baidu.location.h.i.E), Integer.valueOf(com.baidu.location.h.i.F), Integer.valueOf(com.baidu.location.h.i.G), Float.valueOf(com.baidu.location.h.i.H), Float.valueOf(com.baidu.location.h.i.I), Float.valueOf(com.baidu.location.h.i.J), Float.valueOf(com.baidu.location.h.i.K), Integer.valueOf(com.baidu.location.h.i.L), Float.valueOf(com.baidu.location.h.i.QO), Integer.valueOf(com.baidu.location.h.i.N), Float.valueOf(com.baidu.location.h.i.QP), Float.valueOf(com.baidu.location.h.i.QR), Float.valueOf(com.baidu.location.h.i.QS), Integer.valueOf(com.baidu.location.h.i.R), Integer.valueOf(com.baidu.location.h.i.S), Integer.valueOf(com.baidu.location.h.i.X ? 1 : 0), Integer.valueOf(com.baidu.location.h.i.QT ? 1 : 0), Integer.valueOf(com.baidu.location.h.i.Z), Integer.valueOf(com.baidu.location.h.i.QV), Long.valueOf(com.baidu.location.h.i.QX), Integer.valueOf(com.baidu.location.h.i.aj), Float.valueOf(com.baidu.location.h.i.QZ), Float.valueOf(com.baidu.location.h.i.Ra), Integer.valueOf(com.baidu.location.h.i.ap), Integer.valueOf(com.baidu.location.h.i.aq), Integer.valueOf(com.baidu.location.h.i.ar), Integer.valueOf(com.baidu.location.h.i.ak), Integer.valueOf(com.baidu.location.h.i.al), Float.valueOf(com.baidu.location.h.i.am), Integer.valueOf(com.baidu.location.h.i.ai)).getBytes();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -452,8 +452,8 @@ public class c {
             randomAccessFile2.seek(1L);
             randomAccessFile2.writeBoolean(true);
             randomAccessFile2.seek(IjkMediaMeta.AV_CH_SIDE_RIGHT);
-            randomAccessFile2.writeDouble(com.baidu.location.h.i.MD);
-            randomAccessFile2.writeDouble(com.baidu.location.h.i.ME);
+            randomAccessFile2.writeDouble(com.baidu.location.h.i.Oc);
+            randomAccessFile2.writeDouble(com.baidu.location.h.i.Od);
             randomAccessFile2.writeBoolean(com.baidu.location.h.i.u);
             if (com.baidu.location.h.i.u && com.baidu.location.h.i.t != null) {
                 randomAccessFile2.write(com.baidu.location.h.i.t);
@@ -478,8 +478,8 @@ public class c {
                 randomAccessFile.seek(1L);
                 if (randomAccessFile.readBoolean()) {
                     randomAccessFile.seek(IjkMediaMeta.AV_CH_SIDE_RIGHT);
-                    com.baidu.location.h.i.MD = randomAccessFile.readDouble();
-                    com.baidu.location.h.i.ME = randomAccessFile.readDouble();
+                    com.baidu.location.h.i.Oc = randomAccessFile.readDouble();
+                    com.baidu.location.h.i.Od = randomAccessFile.readDouble();
                     com.baidu.location.h.i.u = randomAccessFile.readBoolean();
                     if (com.baidu.location.h.i.u) {
                         com.baidu.location.h.i.t = new byte[625];
@@ -543,7 +543,7 @@ public class c {
                         randomAccessFile.read(bArr, 0, readInt3);
                         if (bArr[readInt3 - 1] == 0) {
                             String str = new String(bArr, 0, readInt3 - 1);
-                            com.baidu.location.h.c.nl();
+                            com.baidu.location.h.c.ns();
                             if (str.equals(com.baidu.location.h.c.c)) {
                                 l = randomAccessFile.readInt();
                                 n = i;
@@ -564,18 +564,18 @@ public class c {
         }
     }
 
-    public static c mD() {
-        if (MW == null) {
-            MW = new c();
+    public static c mK() {
+        if (Ov == null) {
+            Ov = new c();
         }
-        return MW;
+        return Ov;
     }
 
     public void a(String str) {
-        if (this.MX == null) {
-            this.MX = new a();
+        if (this.Ow == null) {
+            this.Ow = new a();
         }
-        this.MX.a(str, true);
+        this.Ow.a(str, true);
     }
 
     public void b() {
@@ -586,8 +586,8 @@ public class c {
     }
 
     public void d() {
-        if (System.currentTimeMillis() - com.baidu.location.h.d.nm().c() > 86400000) {
-            com.baidu.location.h.d.nm().b(System.currentTimeMillis());
+        if (System.currentTimeMillis() - com.baidu.location.h.d.nt().c() > 86400000) {
+            com.baidu.location.h.d.nt().b(System.currentTimeMillis());
             e();
         }
     }

@@ -11,28 +11,34 @@ import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.b.a.i;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.j;
+import com.baidu.adp.base.a;
+import com.baidu.adp.base.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.f.c;
 import com.baidu.adp.lib.util.k;
-import com.baidu.adp.widget.ListView.w;
+import com.baidu.adp.widget.ListView.g;
 /* loaded from: classes.dex */
-public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, j {
+public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, h {
     private static final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
     protected final Handler mHandler = new Handler();
-    private final Runnable preLoadRunnable = new b(this);
+    private final Runnable preLoadRunnable = new Runnable() { // from class: com.baidu.adp.plugin.pluginBase.PluginAdpBaseFragmentActivity.1
+        @Override // java.lang.Runnable
+        public void run() {
+            PluginAdpBaseFragmentActivity.this.onPreLoad(PluginAdpBaseFragmentActivity.this.onGetPreLoadListView());
+        }
+    };
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        com.baidu.adp.base.a.ca().h(getPageContext().getPageActivity());
+        a.cl().h(getPageContext().getPageActivity());
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -130,7 +136,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         MessageManager.getInstance().registerListener(i, aVar);
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.h
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -141,16 +147,16 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        c.fL().d(this.mId);
+        c.fU().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        com.baidu.adp.base.a.ca().i(getPageContext().getPageActivity());
+        a.cl().i(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
-        c.fL().e(this.mId);
+        c.fU().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -165,27 +171,27 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onStop() {
         super.onStop();
-        w onGetPreLoadListView = onGetPreLoadListView();
+        g onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
             onGetPreLoadListView.cancelRefresh();
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.h
     public boolean isScroll() {
         return this.mIsScroll;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.h
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
-    public void onPreLoad(w wVar) {
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.h
+    public void onPreLoad(g gVar) {
     }
 
-    public w onGetPreLoadListView() {
+    public g onGetPreLoadListView() {
         return null;
     }
 
@@ -216,7 +222,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginContextWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = com.baidu.adp.base.i.cg().getResources();
+        Resources resources = com.baidu.adp.base.g.cr().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

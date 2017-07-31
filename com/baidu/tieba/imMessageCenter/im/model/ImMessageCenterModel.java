@@ -7,12 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tieba.d;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.GroupSettingItemData;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.tieba.im.settingcache.j;
-import com.baidu.tieba.w;
+import com.baidu.tieba.im.settingcache.b;
+import com.baidu.tieba.im.settingcache.e;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 /* loaded from: classes2.dex */
 public class ImMessageCenterModel extends ImBaseMessageCenterModel {
@@ -44,7 +45,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData bk = com.baidu.tieba.im.settingcache.c.awa().bk(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            GroupSettingItemData bk = b.axO().bk(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (bk != null) {
                 buildNormalItem.setGroupSetting(bk);
             }
@@ -52,7 +53,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
                 if (TextUtils.isEmpty(buildNormalItem.getMsgContent())) {
                     buildNormalItem.setMsgContent("");
                 } else {
-                    buildNormalItem.setMsgContent(String.valueOf(imMessageCenterPojo.getLast_user_name()) + ":" + buildNormalItem.getMsgContent());
+                    buildNormalItem.setMsgContent(imMessageCenterPojo.getLast_user_name() + ":" + buildNormalItem.getMsgContent());
                 }
             }
             insertShowData(buildNormalItem, this.mList);
@@ -66,7 +67,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
             if (buildNormalItem != null) {
                 buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
                 buildNormalItem.setOwnerName(String.valueOf(4));
-                PersonalSettingItemData bk = j.awd().bk(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                PersonalSettingItemData bk = e.axR().bk(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                 if (bk != null) {
                     buildNormalItem.setGroupSetting(bk);
                 }
@@ -80,34 +81,34 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (buildNormalItem != null) {
             buildNormalItem.setOwnerName(String.valueOf(8));
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountName()) && !StringUtils.isNull(buildNormalItem.getMsgContent())) {
-                buildNormalItem.setMsgContent(String.valueOf(imMessageCenterPojo.getLast_user_name()) + ":" + buildNormalItem.getMsgContent());
+                buildNormalItem.setMsgContent(imMessageCenterPojo.getLast_user_name() + ":" + buildNormalItem.getMsgContent());
             }
             insertShowData(buildNormalItem, this.mList);
         }
     }
 
     private void d(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        imMessageCenterPojo.setGroup_name(TbadkCoreApplication.m9getInst().getApp().getString(w.l.subscribe_bar_title));
+        imMessageCenterPojo.setGroup_name(TbadkCoreApplication.getInst().getApp().getString(d.l.subscribe_bar_title));
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem != null) {
             buildNormalItem.setOwnerName(String.valueOf(5));
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountName()) && !StringUtils.isNull(buildNormalItem.getMsgContent())) {
-                buildNormalItem.setMsgContent(String.valueOf(TbadkCoreApplication.m9getInst().getContext().getString(w.l.chosen_pb_original_bar, imMessageCenterPojo.getLast_user_name())) + ":" + buildNormalItem.getMsgContent());
+                buildNormalItem.setMsgContent(TbadkCoreApplication.getInst().getContext().getString(d.l.chosen_pb_original_bar, imMessageCenterPojo.getLast_user_name()) + ":" + buildNormalItem.getMsgContent());
             }
             insertShowData(buildNormalItem, this.mList);
         }
     }
 
     private void e(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        imMessageCenterPojo.setGroup_name(TbadkCoreApplication.m9getInst().getApp().getString(w.l.stranger_message_activity_title));
+        imMessageCenterPojo.setGroup_name(TbadkCoreApplication.getInst().getApp().getString(d.l.stranger_message_activity_title));
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem != null) {
             buildNormalItem.setOwnerName(String.valueOf(7));
             if (!StringUtils.isNull(buildNormalItem.getMsgContent())) {
                 if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountName())) {
-                    buildNormalItem.setMsgContent(String.valueOf(imMessageCenterPojo.getLast_user_name()) + ":" + buildNormalItem.getMsgContent());
+                    buildNormalItem.setMsgContent(imMessageCenterPojo.getLast_user_name() + ":" + buildNormalItem.getMsgContent());
                 } else {
-                    buildNormalItem.setMsgContent(String.valueOf(TbadkCoreApplication.m9getInst().getApp().getString(w.l.me)) + ":" + buildNormalItem.getMsgContent());
+                    buildNormalItem.setMsgContent(TbadkCoreApplication.getInst().getApp().getString(d.l.me) + ":" + buildNormalItem.getMsgContent());
                 }
             }
             insertShowData(buildNormalItem, this.mList);
@@ -115,7 +116,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     }
 
     private void f(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        imMessageCenterPojo.setGroup_name(TbadkCoreApplication.m9getInst().getApp().getString(w.l.updates_activity_title));
+        imMessageCenterPojo.setGroup_name(TbadkCoreApplication.getInst().getApp().getString(d.l.updates_activity_title));
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem != null) {
             buildNormalItem.setOwnerName(String.valueOf(3));
@@ -124,7 +125,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     }
 
     private void g(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        imMessageCenterPojo.setGroup_name(TbadkCoreApplication.m9getInst().getApp().getString(w.l.validate));
+        imMessageCenterPojo.setGroup_name(TbadkCoreApplication.getInst().getApp().getString(d.l.validate));
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem != null) {
             buildNormalItem.setOwnerName(String.valueOf(2));
@@ -133,7 +134,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     }
 
     private void h(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        imMessageCenterPojo.setGroup_name(TbadkCoreApplication.m9getInst().getApp().getString(w.l.live_chat_room_more_livenotify));
+        imMessageCenterPojo.setGroup_name(TbadkCoreApplication.getInst().getApp().getString(d.l.live_chat_room_more_livenotify));
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem != null) {
             buildNormalItem.setOwnerName(String.valueOf(6));
@@ -146,7 +147,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
             return false;
         }
         if (imMessageCenterPojo.getCustomGroupType() == 1) {
-            return !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TbadkCoreApplication.m9getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
+            return !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
         }
         if (imMessageCenterPojo.getCustomGroupType() != -3 && imMessageCenterPojo.getCustomGroupType() != -4 && imMessageCenterPojo.getCustomGroupType() != -5) {
             if ((imMessageCenterPojo.getCustomGroupType() != 4 || imMessageCenterPojo.getUserType() != 4) && imMessageCenterPojo.getCustomGroupType() != -8 && imMessageCenterPojo.getCustomGroupType() != -7) {

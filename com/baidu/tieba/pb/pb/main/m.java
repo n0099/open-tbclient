@@ -1,20 +1,58 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
-class m implements View.OnClickListener {
-    final /* synthetic */ PbActivity ewh;
+public class m {
+    private BaseActivity bmv;
+    private PbModel eGz;
+    private a eIx = null;
+    protected final HttpMessageListener eKm = new HttpMessageListener(CmdConfigHttp.CMD_APPLY_COPY_THREAD) { // from class: com.baidu.tieba.pb.pb.main.m.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
+                if (httpResponsedMessage.getStatusCode() != 200) {
+                    m.this.eIx.i(-1, null, null);
+                    return;
+                }
+                ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
+                String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
+                int errorCode = applyCopyThreadResponseMessage.getErrorCode();
+                String tid = applyCopyThreadResponseMessage.getTid();
+                if (errorCode == 0) {
+                    errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
+                }
+                m.this.eIx.i(errorCode, errorMessage, tid);
+            }
+        }
+    };
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(PbActivity pbActivity) {
-        this.ewh = pbActivity;
+    /* loaded from: classes.dex */
+    public interface a {
+        void i(int i, String str, String str2);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        PbActivity pbActivity = this.ewh;
-        str = this.ewh.aBJ;
-        pbActivity.showToast(str);
+    public m(PbModel pbModel, BaseActivity baseActivity) {
+        this.eGz = pbModel;
+        this.bmv = baseActivity;
+        this.bmv.registerListener(this.eKm);
+    }
+
+    public void a(a aVar) {
+        this.eIx = aVar;
+    }
+
+    public void oW(int i) {
+        if (this.eGz != null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+            httpMessage.addParam("thread_id", this.eGz.getThreadID());
+            httpMessage.addParam("status", String.valueOf(i));
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
     }
 }

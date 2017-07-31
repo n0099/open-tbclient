@@ -1,45 +1,54 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class af {
-    private static ArrayList<a> afp = new ArrayList<>();
-    public static AtomicInteger afq = new AtomicInteger(0);
+public class af extends Thread {
+    private String ahM;
+    private boolean ahN;
+    private String mObjTp;
+    private String mParam;
+    private String mType;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public int afr;
-        public long afs;
-        public int aft;
-        public int mMode;
-        public long mTime;
+    public af(String str, boolean z) {
+        this.mType = null;
+        this.mParam = null;
+        this.ahM = null;
+        this.mObjTp = null;
+        this.ahN = false;
+        this.mType = str;
+        this.ahN = z;
     }
 
-    public static int cF(int i) {
-        return afq.getAndSet(i);
+    public af(String str, String str2) {
+        this.mType = null;
+        this.mParam = null;
+        this.ahM = null;
+        this.mObjTp = null;
+        this.ahN = false;
+        this.mType = str;
+        this.mParam = str2;
     }
 
-    public static int cG(int i) {
-        return afq.addAndGet(i);
-    }
-
-    public static synchronized void a(a aVar) {
-        synchronized (af.class) {
-            if (aVar != null) {
-                if (afp.size() <= 20) {
-                    afp.add(aVar);
-                }
-            }
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        String str;
+        super.run();
+        if (this.ahN) {
+            str = TbConfig.IN_PV_ADDRESS;
+        } else {
+            str = TbConfig.LOAD_REG_PV_ADDRESS;
         }
-    }
-
-    public static synchronized a vg() {
-        a remove;
-        synchronized (af.class) {
-            int size = afp.size();
-            remove = size > 0 ? afp.remove(size - 1) : null;
+        w wVar = new w(TbConfig.SERVER_ADDRESS + str);
+        wVar.n("st_type", this.mType);
+        if (this.mParam != null) {
+            wVar.n("st_param", this.mParam);
         }
-        return remove;
+        if (this.ahM != null) {
+            wVar.n("obj", this.ahM);
+        }
+        if (this.mObjTp != null) {
+            wVar.n("obj_tp", this.mObjTp);
+        }
+        wVar.uO();
     }
 }

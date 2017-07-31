@@ -1,109 +1,26 @@
 package com.baidu.adp.widget;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.text.style.DynamicDrawableSpan;
-import java.io.InputStream;
+import android.view.animation.Interpolator;
 /* loaded from: classes.dex */
-public class e extends DynamicDrawableSpan {
-    private Drawable Hk;
-    private Uri Iq;
-    private int Ir;
-    private a Is;
-    private Context mContext;
-    private Rect mRect;
-
-    /* loaded from: classes.dex */
-    public interface a {
-        Drawable a(e eVar);
-    }
-
-    public void setDrawable(Drawable drawable) {
-        this.Hk = drawable;
-    }
-
-    public e(a aVar, int i, int i2) {
-        super(i2);
-        this.mRect = new Rect();
-        this.Ir = i;
-        this.Is = aVar;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.Hk != null || this.Is == null) {
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+abstract class e {
+    public static final Interpolator sInterpolator = new Interpolator() { // from class: com.baidu.adp.widget.e.1
+        @Override // android.animation.TimeInterpolator
+        public float getInterpolation(float f) {
+            float f2 = f - 1.0f;
+            return (f2 * f2 * f2 * f2 * f2) + 1.0f;
         }
-        if (fontMetricsInt != null) {
-            fontMetricsInt.ascent = -this.mRect.bottom;
-            fontMetricsInt.descent = 0;
-            fontMetricsInt.top = fontMetricsInt.ascent;
-            fontMetricsInt.bottom = 0;
+    };
+    public static final Interpolator He = new Interpolator() { // from class: com.baidu.adp.widget.e.2
+        @Override // android.animation.TimeInterpolator
+        public float getInterpolation(float f) {
+            return f * f * f * f * f;
         }
-        return this.mRect.right;
-    }
+    };
 
-    @Override // android.text.style.DynamicDrawableSpan
-    public Drawable getDrawable() {
-        Drawable drawable = null;
-        if (this.Hk != null) {
-            drawable = this.Hk;
-        } else if (this.Is != null) {
-            drawable = this.Is.a(this);
+    public static int a(float f, float f2, boolean z) {
+        if (z) {
+            return (int) (f - (sInterpolator.getInterpolation(f2 / (f2 - f)) * f));
         }
-        if (drawable != null) {
-            return drawable;
-        }
-        if (this.Iq != null) {
-            try {
-                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.Iq);
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
-                try {
-                    bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-                    openInputStream.close();
-                    return bitmapDrawable;
-                } catch (Exception e) {
-                    return bitmapDrawable;
-                }
-            } catch (Exception e2) {
-                return drawable;
-            }
-        }
-        try {
-            Drawable drawable2 = this.mContext.getResources().getDrawable(this.Ir);
-            try {
-                drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
-                return drawable2;
-            } catch (Exception e3) {
-                return drawable2;
-            }
-        } catch (Exception e4) {
-            return drawable;
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable drawable = getDrawable();
-        if (drawable != null) {
-            canvas.save();
-            int i6 = i5 - drawable.getBounds().bottom;
-            if (this.mVerticalAlignment != 0) {
-                i5 = i4;
-            }
-            canvas.translate(f, i5 - (drawable.getBounds().bottom - 4));
-            drawable.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    public void d(int i, int i2, int i3, int i4) {
-        this.mRect.set(i, i2, i3, i4);
+        return (int) (sInterpolator.getInterpolation(f2 / f) * f);
     }
 }

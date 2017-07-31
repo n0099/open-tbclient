@@ -35,10 +35,6 @@ public final class GroupPermission extends Message {
     public static final Integer DEFAULT_CANCREATEOFFICIALNUM = 0;
     public static final Integer DEFAULT_CANCREATEPERSONALNUM = 0;
 
-    /* synthetic */ GroupPermission(Builder builder, boolean z, GroupPermission groupPermission) {
-        this(builder, z);
-    }
-
     private GroupPermission(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -142,7 +138,7 @@ public final class GroupPermission extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public GroupPermission build(boolean z) {
-            return new GroupPermission(this, z, null);
+            return new GroupPermission(this, z);
         }
     }
 }

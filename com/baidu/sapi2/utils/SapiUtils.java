@@ -1,5 +1,6 @@
 package com.baidu.sapi2.utils;
 
+import android.annotation.TargetApi;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
@@ -309,6 +310,7 @@ public class SapiUtils {
         }
     }
 
+    @TargetApi(3)
     public static String getNetworkClass(Context context) {
         NetworkInfo activeNetworkInfo;
         try {
@@ -354,8 +356,8 @@ public class SapiUtils {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [580=5, 582=4, 583=4, 584=4, 588=4, 589=4] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0084  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x007f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0085  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -795,6 +797,7 @@ public class SapiUtils {
         return hashMap;
     }
 
+    @TargetApi(4)
     public static boolean sendSms(Context context, String str, String str2) {
         if (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return false;
@@ -827,6 +830,7 @@ public class SapiUtils {
         return com.baidu.sapi2.c.a(SapiAccountManager.getInstance().getSapiConfiguration().context).q();
     }
 
+    @TargetApi(23)
     public static boolean checkRequestPermission(String str, Context context) {
         if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
             return Build.VERSION.SDK_INT < 23 && context.checkCallingOrSelfPermission(str) == 0;

@@ -1,24 +1,24 @@
 package com.baidu.tieba.write.a;
 /* loaded from: classes.dex */
 public class a {
-    public String VU;
-    public String VV;
-    public String ggI;
-    public String ggJ;
-    public String ggK;
+    public String XG;
+    public String XH;
+    public String gBU;
+    public String gBV;
+    public String gBW;
     public String linkUrl;
     public String linkUrlCode;
-    public boolean ggG = false;
-    public int ggH = 1;
+    public boolean gBS = false;
+    public int gBT = 1;
     public String videoUrl = "";
-    public long fmr = 0;
+    public long fAs = 0;
     public int videoDuration = 0;
-    public String ggL = "";
-    public int ggM = 0;
+    public String gBX = "";
+    public int gBY = 0;
     public int videoWidth = 0;
     public int videoHeight = 0;
-    public String ggN = "";
-    public int ggO = 0;
-    public int ggP = 0;
-    public int ggQ = 0;
+    public String gBZ = "";
+    public int gCa = 0;
+    public int gCb = 0;
+    public int gCc = 0;
 }

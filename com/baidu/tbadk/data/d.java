@@ -1,31 +1,18 @@
 package com.baidu.tbadk.data;
 
-import org.json.JSONObject;
-import tbclient.VipCloseAd;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class d {
-    private int ayc = 1;
-    private int ayd;
+public class d implements com.baidu.adp.widget.ListView.f {
+    public static final BdUniqueId aAv = BdUniqueId.gen();
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.ayc = jSONObject.optInt("is_open");
-            this.ayd = jSONObject.optInt("vip_close");
-        }
+    public String getName() {
+        return TbadkCoreApplication.getInst().getString(d.l.post_story);
     }
 
-    public void a(VipCloseAd vipCloseAd) {
-        if (vipCloseAd != null) {
-            this.ayc = vipCloseAd.is_open.intValue();
-            this.ayd = vipCloseAd.vip_close.intValue();
-        }
-    }
-
-    public int BY() {
-        return this.ayc;
-    }
-
-    public int BZ() {
-        return this.ayd;
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return aAv;
     }
 }

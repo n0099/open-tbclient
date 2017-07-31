@@ -1,21 +1,18 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
 /* loaded from: classes.dex */
-class i implements View.OnClickListener {
-    private final /* synthetic */ r bzU;
-    final /* synthetic */ h gah;
+public abstract class i extends ClickableSpan {
+    private boolean gwm;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar, r rVar) {
-        this.gah = hVar;
-        this.bzU = rVar;
-    }
+    public abstract void a(TextPaint textPaint, boolean z);
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.personPolymeric.event.a aVar = new com.baidu.tieba.personPolymeric.event.a();
-        aVar.bVd = 9;
-        this.bzU.a(view, aVar);
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        super.updateDrawState(textPaint);
+        a(textPaint, this.gwm);
+        textPaint.setUnderlineText(false);
+        textPaint.clearShadowLayer();
     }
 }

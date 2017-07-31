@@ -1,18 +1,82 @@
 package com.baidu.tbadk.widget.pulltorefresh.library;
 
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.HorizontalScrollView;
 import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class d implements PullToRefreshBase.d {
-    final /* synthetic */ PullToRefreshBase aNx;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(PullToRefreshBase pullToRefreshBase) {
-        this.aNx = pullToRefreshBase;
+public class d extends PullToRefreshBase<HorizontalScrollView> {
+    public d(Context context) {
+        super(context);
     }
 
-    @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase.d
-    public void HL() {
-        this.aNx.HG();
+    public d(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public d(Context context, PullToRefreshBase.Mode mode) {
+        super(context, mode);
+    }
+
+    public d(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.AnimationStyle animationStyle) {
+        super(context, mode, animationStyle);
+    }
+
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase
+    public final PullToRefreshBase.Orientation getPullToRefreshScrollDirection() {
+        return PullToRefreshBase.Orientation.HORIZONTAL;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase
+    /* renamed from: d */
+    public HorizontalScrollView createRefreshableView(Context context, AttributeSet attributeSet) {
+        HorizontalScrollView horizontalScrollView;
+        if (Build.VERSION.SDK_INT >= 9) {
+            horizontalScrollView = new a(context, attributeSet);
+        } else {
+            horizontalScrollView = new HorizontalScrollView(context, attributeSet);
+        }
+        horizontalScrollView.setId(d.h.scrollview);
+        return horizontalScrollView;
+    }
+
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase
+    protected boolean isReadyForPullStart() {
+        return ((HorizontalScrollView) this.aPD).getScrollX() == 0;
+    }
+
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase
+    protected boolean isReadyForPullEnd() {
+        View childAt = ((HorizontalScrollView) this.aPD).getChildAt(0);
+        return childAt != null && ((HorizontalScrollView) this.aPD).getScrollX() >= childAt.getWidth() - getWidth();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @TargetApi(9)
+    /* loaded from: classes.dex */
+    public final class a extends HorizontalScrollView {
+        public a(Context context, AttributeSet attributeSet) {
+            super(context, attributeSet);
+        }
+
+        @Override // android.view.View
+        protected boolean overScrollBy(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) {
+            boolean overScrollBy = super.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
+            c.a(d.this, i, i3, i2, i4, Ig(), z);
+            return overScrollBy;
+        }
+
+        private int Ig() {
+            if (getChildCount() > 0) {
+                return Math.max(0, getChildAt(0).getWidth() - ((getWidth() - getPaddingLeft()) - getPaddingRight()));
+            }
+            return 0;
+        }
     }
 }

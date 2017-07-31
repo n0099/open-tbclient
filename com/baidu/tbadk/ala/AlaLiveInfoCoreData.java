@@ -1,11 +1,11 @@
 package com.baidu.tbadk.ala;
 
-import com.baidu.tbadk.core.data.j;
+import com.baidu.tbadk.core.data.i;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
-public class AlaLiveInfoCoreData extends j implements Serializable {
+public class AlaLiveInfoCoreData extends i implements Serializable {
     private static final long serialVersionUID = 5768965545624138312L;
     private long audienceCount;
     private long groupID;
@@ -112,7 +112,7 @@ public class AlaLiveInfoCoreData extends j implements Serializable {
         return this.screenDirection;
     }
 
-    @Override // com.baidu.tbadk.core.data.j
+    @Override // com.baidu.tbadk.core.data.i
     public void parserJson(JSONObject jSONObject) {
     }
 
@@ -138,8 +138,8 @@ public class AlaLiveInfoCoreData extends j implements Serializable {
     public void fillWithInfoData(com.baidu.tbadk.core.data.c cVar) {
         if (cVar != null) {
             this.liveID = cVar.live_id;
-            if (cVar.TB != null) {
-                this.userName = cVar.TB.user_name;
+            if (cVar.Vq != null) {
+                this.userName = cVar.Vq.user_name;
             }
             this.groupID = cVar.group_id;
             this.sessionID = cVar.session_id;

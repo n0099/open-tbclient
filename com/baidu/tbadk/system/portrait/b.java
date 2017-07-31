@@ -1,25 +1,28 @@
 package com.baidu.tbadk.system.portrait;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements View.OnClickListener {
-    final /* synthetic */ ChangeSystemPhotoActivity aJP;
+public class b {
+    private int myItem;
+    private int num;
+    private String series;
+    private String url;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
-        this.aJP = changeSystemPhotoActivity;
+    public String getUrl() {
+        return this.url;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        i = this.aJP.aJI;
-        if (i != -1) {
-            this.aJP.showDialog();
-            return;
-        }
-        this.aJP.setResult(0);
-        this.aJP.finish();
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
+    public void gE(String str) {
+        this.series = str;
+    }
+
+    public void setNum(int i) {
+        this.num = i;
+    }
+
+    public void fn(int i) {
+        this.myItem = i;
     }
 }

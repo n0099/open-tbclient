@@ -1,5 +1,6 @@
 package com.baidu.sapi2.utils;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
@@ -79,9 +80,9 @@ public class d {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x007c  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0095  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00c5  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x007f  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0099  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00ca  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -212,12 +213,13 @@ public class d {
         com.baidu.sapi2.utils.L.e(" !res.isValid()", new java.lang.Object[0]);
         r0 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x004d, code lost:
         r1 = r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x004e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x004f, code lost:
         com.baidu.sapi2.utils.L.e(" res.isValid()", new java.lang.Object[0]);
      */
+    @TargetApi(17)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -269,6 +271,7 @@ public class d {
         return aVar;
     }
 
+    @TargetApi(18)
     private a a(CellInfo cellInfo) {
         boolean z;
         int intValue = Integer.valueOf(Build.VERSION.SDK_INT).intValue();

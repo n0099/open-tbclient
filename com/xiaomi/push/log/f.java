@@ -34,12 +34,12 @@ public class f implements LoggerInterface {
         this.d = this.e.getPackageName();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:105:0x01e1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:105:0x01f6 */
     /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.io.BufferedWriter */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:134:0x017c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:144:0x016c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x0187 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:132:0x0177 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v0, types: [java.nio.channels.FileLock] */
     /* JADX WARN: Type inference failed for: r2v12 */
     /* JADX WARN: Type inference failed for: r2v14 */
@@ -101,118 +101,118 @@ public class f implements LoggerInterface {
                         } else {
                             bufferedWriter = bufferedWriter4;
                         }
-                    } catch (Exception e2) {
-                        e = e2;
-                        bufferedWriter = null;
-                        randomAccessFile2 = randomAccessFile;
-                        fileLock2 = fileLock;
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                    try {
-                        File file3 = new File(file, "log1.txt");
-                        if (file3.length() >= 1048576) {
-                            File file4 = new File(file, "log0.txt");
-                            if (file4.exists() && file4.isFile()) {
-                                file4.delete();
-                            }
-                            file3.renameTo(file4);
-                        }
-                        if (bufferedWriter != null) {
-                            try {
-                                bufferedWriter.close();
-                            } catch (IOException e3) {
-                                Log.e(this.d, "", e3);
-                            }
-                        }
-                        if (fileLock != null && fileLock.isValid()) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e4) {
-                                Log.e(this.d, "", e4);
-                            }
-                        }
-                        if (randomAccessFile == null) {
-                            return;
-                        }
                         try {
-                            randomAccessFile.close();
-                            return;
-                        } catch (IOException e5) {
-                            e = e5;
-                            str = this.d;
-                            str2 = "";
-                        }
-                    } catch (Exception e6) {
-                        e = e6;
-                        fileLock2 = fileLock;
-                        randomAccessFile2 = randomAccessFile;
-                        try {
-                            Log.e(this.d, "", e);
+                            File file3 = new File(file, "log1.txt");
+                            if (file3.length() >= 1048576) {
+                                File file4 = new File(file, "log0.txt");
+                                if (file4.exists() && file4.isFile()) {
+                                    file4.delete();
+                                }
+                                file3.renameTo(file4);
+                            }
                             if (bufferedWriter != null) {
                                 try {
                                     bufferedWriter.close();
-                                } catch (IOException e7) {
-                                    Log.e(this.d, "", e7);
-                                }
-                            }
-                            if (fileLock2 != null && fileLock2.isValid()) {
-                                try {
-                                    fileLock2.release();
-                                } catch (IOException e8) {
-                                    Log.e(this.d, "", e8);
-                                }
-                            }
-                            if (randomAccessFile2 == null) {
-                                return;
-                            }
-                            try {
-                                randomAccessFile2.close();
-                                return;
-                            } catch (IOException e9) {
-                                e = e9;
-                                str = this.d;
-                                str2 = "";
-                            }
-                        } catch (Throwable th3) {
-                            th = th3;
-                            fileLock = fileLock2;
-                            randomAccessFile = randomAccessFile2;
-                            bufferedWriter2 = bufferedWriter;
-                            if (bufferedWriter2 != 0) {
-                                try {
-                                    bufferedWriter2.close();
-                                } catch (IOException e10) {
-                                    Log.e(this.d, "", e10);
+                                } catch (IOException e2) {
+                                    Log.e(this.d, "", e2);
                                 }
                             }
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();
-                                } catch (IOException e11) {
-                                    Log.e(this.d, "", e11);
+                                } catch (IOException e3) {
+                                    Log.e(this.d, "", e3);
                                 }
                             }
-                            if (randomAccessFile != null) {
-                                try {
-                                    randomAccessFile.close();
-                                } catch (IOException e12) {
-                                    Log.e(this.d, "", e12);
+                            if (randomAccessFile == null) {
+                                return;
+                            }
+                            try {
+                                randomAccessFile.close();
+                                return;
+                            } catch (IOException e4) {
+                                e = e4;
+                                str = this.d;
+                                str2 = "";
+                            }
+                        } catch (Exception e5) {
+                            e = e5;
+                            fileLock2 = fileLock;
+                            randomAccessFile2 = randomAccessFile;
+                            try {
+                                Log.e(this.d, "", e);
+                                if (bufferedWriter != null) {
+                                    try {
+                                        bufferedWriter.close();
+                                    } catch (IOException e6) {
+                                        Log.e(this.d, "", e6);
+                                    }
                                 }
+                                if (fileLock2 != null && fileLock2.isValid()) {
+                                    try {
+                                        fileLock2.release();
+                                    } catch (IOException e7) {
+                                        Log.e(this.d, "", e7);
+                                    }
+                                }
+                                if (randomAccessFile2 == null) {
+                                    return;
+                                }
+                                try {
+                                    randomAccessFile2.close();
+                                    return;
+                                } catch (IOException e8) {
+                                    e = e8;
+                                    str = this.d;
+                                    str2 = "";
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                fileLock = fileLock2;
+                                randomAccessFile = randomAccessFile2;
+                                bufferedWriter2 = bufferedWriter;
+                                if (bufferedWriter2 != 0) {
+                                    try {
+                                        bufferedWriter2.close();
+                                    } catch (IOException e9) {
+                                        Log.e(this.d, "", e9);
+                                    }
+                                }
+                                if (fileLock != null && fileLock.isValid()) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (IOException e10) {
+                                        Log.e(this.d, "", e10);
+                                    }
+                                }
+                                if (randomAccessFile != null) {
+                                    try {
+                                        randomAccessFile.close();
+                                    } catch (IOException e11) {
+                                        Log.e(this.d, "", e11);
+                                    }
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            bufferedWriter2 = bufferedWriter;
+                            if (bufferedWriter2 != 0) {
+                            }
+                            if (fileLock != null) {
+                                fileLock.release();
+                            }
+                            if (randomAccessFile != null) {
                             }
                             throw th;
                         }
+                    } catch (Exception e12) {
+                        e = e12;
+                        bufferedWriter = null;
+                        randomAccessFile2 = randomAccessFile;
+                        fileLock2 = fileLock;
                     } catch (Throwable th4) {
                         th = th4;
-                        bufferedWriter2 = bufferedWriter;
-                        if (bufferedWriter2 != 0) {
-                        }
-                        if (fileLock != null) {
-                            fileLock.release();
-                        }
-                        if (randomAccessFile != null) {
-                        }
-                        throw th;
                     }
                 } catch (Exception e13) {
                     e = e13;

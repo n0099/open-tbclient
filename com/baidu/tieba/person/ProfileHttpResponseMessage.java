@@ -2,9 +2,9 @@ package com.baidu.tieba.person;
 
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.u;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.person.o;
+import com.baidu.tieba.person.l;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Anti;
@@ -41,7 +41,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     private int pageNum;
     private List<PostInfoList> post_list;
     private TAInfo tainfo;
-    public o ucCardData;
+    public l ucCardData;
     private User user;
     private UserAgreeInfo userAgreeInfo;
     private UserGodInfo userGodInfo;
@@ -72,7 +72,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.error_hint;
     }
 
-    public o getUcCardData() {
+    public l getUcCardData() {
         return this.ucCardData;
     }
 
@@ -131,7 +131,8 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         return this.isSelf;
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ProfileRequestMessage profileRequestMessage = (ProfileRequestMessage) getOrginalMessage().getExtra();
         this.from_db = profileRequestMessage.is_from_db();
@@ -153,7 +154,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
             this.tainfo = profileResIdl.data.tainfo;
             this.post_list = profileResIdl.data.post_list;
             if (profileResIdl.data.uc_card != null) {
-                this.ucCardData = new o();
+                this.ucCardData = new l();
                 this.ucCardData.a(profileResIdl.data.uc_card);
             }
             this.bookrack = profileResIdl.data.tbbookrack;
@@ -175,7 +176,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.o<byte[]> L = com.baidu.tbadk.core.c.a.sW().L("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        com.baidu.adp.lib.cache.l<byte[]> L = com.baidu.tbadk.core.c.a.tn().L("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             L.k(PROFILE_CACHE_KEY, bArr);
         }
@@ -184,17 +185,17 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.o<String> M;
+        com.baidu.adp.lib.cache.l<String> M;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.sW().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<o.a> list = this.ucCardData.eQu;
-            if (z.s(list) > 4) {
+        if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.tn().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<l.a> list = this.ucCardData.feg;
+            if (u.u(list) > 4) {
                 list.get(4).timeStamp = 8L;
-                for (o.a aVar : list) {
-                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(M.get(aVar.title), 0L)) {
-                        aVar.eQv = true;
+                for (l.a aVar : list) {
+                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.d(M.get(aVar.title), 0L)) {
+                        aVar.feh = true;
                     } else {
-                        aVar.eQv = false;
+                        aVar.feh = false;
                     }
                 }
             }

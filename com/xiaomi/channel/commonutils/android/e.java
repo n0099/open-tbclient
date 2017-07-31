@@ -1,5 +1,6 @@
 package com.xiaomi.channel.commonutils.android;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -27,6 +28,7 @@ public class e {
         return b;
     }
 
+    @TargetApi(17)
     public static int b() {
         Object a2;
         if (Build.VERSION.SDK_INT >= 17 && (a2 = com.xiaomi.channel.commonutils.reflect.a.a("android.os.UserHandle", "myUserId", new Object[0])) != null) {

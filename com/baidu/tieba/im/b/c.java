@@ -1,21 +1,32 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.websocketBase.PingManager;
+import android.util.SparseArray;
+import com.baidu.adp.framework.a.k;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tieba.im.message.MessageSyncMessage;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
-class c extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(int i) {
-        super(i);
+public class c extends k {
+    public c() {
+        super(202003);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008017) {
-            PingManager.BK().BL();
-            b.avk().avl();
+    @Override // com.baidu.adp.framework.a.f
+    /* renamed from: d */
+    public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        StringBuilder sb = new StringBuilder(200);
+        if (socketMessage instanceof MessageSyncMessage) {
+            SparseArray<Long> groupMids = ((MessageSyncMessage) socketMessage).getGroupMids();
+            for (int i = 0; i < groupMids.size(); i++) {
+                sb.append(groupMids.keyAt(i));
+                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                sb.append(groupMids.valueAt(i));
+                sb.append("|");
+            }
+            com.baidu.tbadk.core.d.a.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + ((MessageSyncMessage) socketMessage).getSyncTypeString(), "comment", sb.toString());
         }
+        return socketMessage;
     }
 }

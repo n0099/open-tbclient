@@ -6,17 +6,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.g.b;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.atomData.PhotoLiveCommentActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams eRt;
-    private View.OnClickListener bZi;
-    private boolean bhl;
-    private List<TextView> eRs;
+    private static ViewGroup.LayoutParams ffe;
+    private boolean blJ;
+    private View.OnClickListener cfU;
+    private List<TextView> ffd;
 
     public ReplyLinearLayout(Context context) {
         this(context, null);
@@ -24,25 +34,51 @@ public class ReplyLinearLayout extends LinearLayout {
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bZi = new a(this);
-        this.eRs = new ArrayList();
+        this.cfU = new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.ReplyLinearLayout.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                boolean z;
+                String[] strArr = (String[]) view.getTag();
+                TiebaStatic.log(new aj("c12043").r("obj_type", ReplyLinearLayout.this.blJ ? 1 : 2));
+                if (strArr != null) {
+                    Context context2 = ReplyLinearLayout.this.getContext();
+                    if (strArr.length < 6 || strArr[5] == null || b.g(strArr[5], 0) != 33) {
+                        z = false;
+                    } else if ("0".equals(strArr[3])) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, strArr[1]).pn()));
+                        z = true;
+                    } else {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(context2).createPhotoLiveCommentActivityConfig(strArr[1], strArr[2], false)));
+                        z = true;
+                    }
+                    if (!z) {
+                        if ("0".equals(strArr[3])) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(context2).createNormalCfg(strArr[1], strArr[2], "person_page")));
+                        } else {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(context2).createSubPbActivityConfig(strArr[1], strArr[2], "person_post_reply", false, null, false)));
+                        }
+                    }
+                }
+            }
+        };
+        this.ffd = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (eRt == null) {
-            eRt = new LinearLayout.LayoutParams(-1, -2);
+        if (ffe == null) {
+            ffe = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.eRs.size();
+        int size2 = size - this.ffd.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.eRs.add(textView);
+            this.ffd.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.eRs.size(); i3++) {
-            TextView textView2 = this.eRs.get(i3);
+        for (int i3 = 0; i3 < this.ffd.size(); i3++) {
+            TextView textView2 = this.ffd.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -58,25 +94,25 @@ public class ReplyLinearLayout extends LinearLayout {
                     textView2.setText(charSequenceArr[4]);
                 }
                 textView2.setTag(charSequenceArr);
-                textView2.setOnClickListener(this.bZi);
+                textView2.setOnClickListener(this.cfU);
                 p(textView2, i3);
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(eRt);
-                    as.c(textView2, w.e.cp_cont_b, 1);
+                    textView2.setLayoutParams(ffe);
+                    ai.c(textView2, d.e.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
-                    as.j(textView2, w.e.cp_bg_line_b);
+                    ai.j(textView2, d.e.cp_bg_line_b);
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(eRt);
-                    as.c(textView2, w.e.cp_cont_f, 1);
+                    textView2.setLayoutParams(ffe);
+                    ai.c(textView2, d.e.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(eRt);
-                    as.c(textView2, w.e.cp_cont_d, 1);
+                    textView2.setLayoutParams(ffe);
+                    ai.c(textView2, d.e.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
             } else {
@@ -87,19 +123,19 @@ public class ReplyLinearLayout extends LinearLayout {
 
     private void p(TextView textView, int i) {
         if (i == 0) {
-            as.c(textView, w.e.common_color_10039, 1);
+            ai.c(textView, d.e.common_color_10039, 1);
             textView.setPadding(0, k.dip2px(getContext(), 10.0f), 0, k.dip2px(getContext(), 10.0f));
         } else if (i % 3 == 2) {
-            as.c(textView, w.e.common_color_10081, 1);
-            textView.setBackgroundResource(w.e.common_color_10022);
+            ai.c(textView, d.e.common_color_10081, 1);
+            textView.setBackgroundResource(d.e.common_color_10022);
             textView.setPadding(0, k.dip2px(getContext(), 10.0f), 0, k.dip2px(getContext(), 2.0f));
         } else if (i % 3 == 0) {
-            as.c(textView, w.e.common_color_10005, 1);
+            ai.c(textView, d.e.common_color_10005, 1);
             textView.setPadding(0, k.dip2px(getContext(), 2.0f), 0, k.dip2px(getContext(), 10.0f));
         }
     }
 
     public void setIsHost(boolean z) {
-        this.bhl = z;
+        this.blJ = z;
     }
 }

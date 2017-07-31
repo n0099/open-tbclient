@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import com.baidu.adp.base.BdBaseService;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ALaKeepAliveService extends BdBaseService {
     public static final String KEY_CONTENT_TEXT = "content_text";
@@ -40,7 +40,7 @@ public class ALaKeepAliveService extends BdBaseService {
             String stringExtra3 = intent.getStringExtra(KEY_TICKER);
             int intExtra = intent.getIntExtra(KEY_NOTIFICATION_ID, Integer.MAX_VALUE);
             NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
-            builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(w.g.icon_notify).setTicker(stringExtra3);
+            builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(d.g.icon_notify).setTicker(stringExtra3);
             startForeground(intExtra, builder.build());
         }
         return super.onStartCommand(intent, i, i2);

@@ -8,14 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private TbPageContext<?> ajP;
-    private ArrayList<com.baidu.tbadk.core.data.bm> gkh;
+    private TbPageContext<?> alI;
+    private ArrayList<bl> gFo;
     private Context mContext;
     private int mSkinType;
 
@@ -26,30 +34,30 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.gkh = null;
+        this.gFo = null;
         this.mSkinType = 3;
         this.mContext = context;
-        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
+        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(ArrayList<com.baidu.tbadk.core.data.bm> arrayList, TbPageContext<?> tbPageContext) {
+    public void a(ArrayList<bl> arrayList, TbPageContext<?> tbPageContext) {
         int i = 0;
-        this.ajP = tbPageContext;
+        this.alI = tbPageContext;
         if (arrayList == null || arrayList.size() == 0) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.gkh = new ArrayList<>(arrayList.subList(0, 3));
+            this.gFo = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.gkh = arrayList;
+            this.gFo = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.gkh.size()) {
-                addView(d(this.gkh.get(i2), i2));
+            if (i2 < this.gFo.size()) {
+                addView(d(this.gFo.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;
@@ -57,25 +65,34 @@ public class FeedBackTopListView extends LinearLayout {
         }
     }
 
-    private View d(com.baidu.tbadk.core.data.bm bmVar, int i) {
-        if (bmVar == null) {
+    private View d(final bl blVar, int i) {
+        if (blVar == null) {
             return null;
         }
-        View inflate = LayoutInflater.from(this.mContext).inflate(w.j.frs_top_item, (ViewGroup) null);
-        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(w.h.frs_top_item);
-        TextView textView = (TextView) inflate.findViewById(w.h.frs_top_title);
-        inflate.findViewById(w.h.frs_top_divider);
-        String tid = bmVar.getTid();
-        textView.setText(bmVar.getTitle());
-        this.ajP.getLayoutMode().ah(this.mSkinType == 1);
-        this.ajP.getLayoutMode().t(inflate);
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.as.getDrawable(w.g.icon_notice);
-        com.baidu.tbadk.core.util.as.j(linearLayout, w.g.bg_frs_top_middle_selector);
+        View inflate = LayoutInflater.from(this.mContext).inflate(d.j.frs_top_item, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(d.h.frs_top_item);
+        TextView textView = (TextView) inflate.findViewById(d.h.frs_top_title);
+        inflate.findViewById(d.h.frs_top_divider);
+        final String tid = blVar.getTid();
+        textView.setText(blVar.getTitle());
+        this.alI.getLayoutMode().ah(this.mSkinType == 1);
+        this.alI.getLayoutMode().t(inflate);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) ai.getDrawable(d.g.icon_notice);
+        ai.j(linearLayout, d.g.bg_frs_top_middle_selector);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }
         textView.setCompoundDrawables(bitmapDrawable, null, null, null);
-        linearLayout.setOnClickListener(new p(this, bmVar, tid));
+        linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.FeedBackTopListView.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (blVar.getThreadType() != 33) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(FeedBackTopListView.this.mContext).createNormalCfg(tid, null, WriteActivityConfig.FEED_BACK)));
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(FeedBackTopListView.this.mContext, blVar.getTid()).cz(blVar.rV()).pn()));
+            }
+        });
         return inflate;
     }
 }

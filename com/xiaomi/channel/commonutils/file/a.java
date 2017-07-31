@@ -155,11 +155,11 @@ public class a {
                     }
                 }
                 a(fileInputStream);
-            } catch (IOException e2) {
-                e = e2;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (IOException e2) {
+            e = e2;
         }
     }
 

@@ -2,14 +2,14 @@ package com.baidu.tieba.im.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.f;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ad;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class GroupInfoData extends AbstractImageProvider implements v, aj, Serializable {
+public class GroupInfoData extends AbstractImageProvider implements f, ad, Serializable {
     public static final BdUniqueId TYPE_FRS_GROUP = BdUniqueId.gen();
     private static final long serialVersionUID = 5616188082014345808L;
     private long authorId;
@@ -160,7 +160,7 @@ public class GroupInfoData extends AbstractImageProvider implements v, aj, Seria
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.util.aj
+    @Override // com.baidu.tbadk.core.util.ad
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
@@ -170,7 +170,7 @@ public class GroupInfoData extends AbstractImageProvider implements v, aj, Seria
         return arrayList;
     }
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
         return TYPE_FRS_GROUP;
     }

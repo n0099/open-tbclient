@@ -6,13 +6,14 @@ import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.g.f;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.PayTBeanActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class TbJsBridge {
@@ -25,7 +26,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void closePage(String str) {
-        if (!aw.isEmpty(str)) {
+        if (!al.isEmpty(str)) {
             Toast.makeText(this.mTbPageContext.getPageActivity(), str, 0).show();
         }
         this.mTbPageContext.getPageActivity().finish();
@@ -33,19 +34,19 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void jumpToLogin(int i) {
-        TbadkCoreApplication.m9getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.mTbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.g(String.valueOf(i), 0))));
+        TbadkCoreApplication.getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.mTbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.g(String.valueOf(i), 0))));
     }
 
     @JavascriptInterface
     public void showShareDialog(String str, String str2, String str3, String str4) {
-        com.baidu.tbadk.coreExtra.share.h hVar = new com.baidu.tbadk.coreExtra.share.h();
-        hVar.title = str;
-        hVar.content = str2;
-        hVar.linkUrl = str4;
-        if (!aw.isEmpty(str3)) {
-            hVar.imageUri = Uri.parse(str3);
+        com.baidu.tbadk.coreExtra.share.e eVar = new com.baidu.tbadk.coreExtra.share.e();
+        eVar.title = str;
+        eVar.content = str2;
+        eVar.linkUrl = str4;
+        if (!al.isEmpty(str3)) {
+            eVar.imageUri = Uri.parse(str3);
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), hVar, true)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), eVar, true)));
     }
 
     @JavascriptInterface
@@ -57,6 +58,6 @@ public class TbJsBridge {
         intent.putExtra(PayTBeanActivityConfig.QUAN_NUM, str3);
         intent.putExtra("is_left", str4);
         intent.putExtra("props_mon", str5);
-        com.baidu.adp.lib.g.i.h(this.mTbPageContext.getPageActivity(), intent);
+        f.h(this.mTbPageContext.getPageActivity(), intent);
     }
 }

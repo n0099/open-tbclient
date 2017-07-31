@@ -7,10 +7,6 @@ public final class UserPostReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
 
-    /* synthetic */ UserPostReqIdl(Builder builder, boolean z, UserPostReqIdl userPostReqIdl) {
-        this(builder, z);
-    }
-
     private UserPostReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -38,7 +34,7 @@ public final class UserPostReqIdl extends Message {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public UserPostReqIdl build(boolean z) {
-            return new UserPostReqIdl(this, z, null);
+            return new UserPostReqIdl(this, z);
         }
     }
 }

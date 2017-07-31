@@ -1,120 +1,221 @@
 package com.baidu.tieba.write.accountAccess;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.DialogInterface;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.TextView;
+import com.baidu.adp.lib.g.e;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.q;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.c;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class b implements NewWriteModel.d {
-    final /* synthetic */ a ged;
+public class b {
+    private float gzN;
+    private BaseActivity mContext;
+    private a gzI = null;
+    private View mBlackBackLayout = null;
+    private BaseWebView mWebView = null;
+    private View mPostThreadLoadingView = null;
+    private TextView mPostThreadLoadingText = null;
+    private com.baidu.tbadk.core.view.a mWebLoadingDialog = null;
+    private c gzO = null;
+    private boolean onPageFinishHasBeenCalled = false;
+    private float mRatio = 1.2631578f;
+    private Runnable mShowWebViewRunnable = new Runnable() { // from class: com.baidu.tieba.write.accountAccess.b.1
+        @Override // java.lang.Runnable
+        public void run() {
+            if (b.this.mWebView != null) {
+                b.this.showWebLoadingView(false);
+                b.this.bxM();
+            }
+        }
+    };
+    private Runnable gzP = new Runnable() { // from class: com.baidu.tieba.write.accountAccess.b.2
+        @Override // java.lang.Runnable
+        public void run() {
+            if (b.this.mContext != null) {
+                b.this.mContext.ShowSoftKeyPadDelay(b.this.mWebView);
+            }
+        }
+    };
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.ged = aVar;
+    public b(AccountAccessActivity accountAccessActivity) {
+        this.mContext = null;
+        if (accountAccessActivity != null) {
+            this.mContext = accountAccessActivity;
+            if (!a(accountAccessActivity)) {
+                accountAccessActivity.finish();
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, q qVar, WriteData writeData, AntiData antiData) {
-        c cVar;
-        NewWriteModel newWriteModel;
-        NewWriteModel newWriteModel2;
-        c cVar2;
-        WriteData writeData2;
-        c cVar3;
-        c cVar4;
-        c cVar5;
-        c cVar6;
-        c cVar7;
-        c cVar8;
-        c cVar9;
-        c cVar10;
-        c cVar11;
-        c cVar12;
-        c cVar13;
-        c cVar14;
-        c cVar15;
-        NewWriteModel newWriteModel3;
-        cVar = this.ged.gdZ;
-        if (cVar != null) {
-            newWriteModel = this.ged.gec;
-            if (newWriteModel != null) {
-                newWriteModel2 = this.ged.gec;
-                if (newWriteModel2.getWriteData() != null) {
-                    cVar2 = this.ged.gdZ;
-                    cVar2.showPostThreadLoadingView(false);
-                    if (writeData == null) {
-                        newWriteModel3 = this.ged.gec;
-                        writeData2 = newWriteModel3.getWriteData();
-                    } else {
-                        writeData2 = writeData;
-                    }
-                    if (z) {
-                        if (writeData2.getType() != 0 || writeData2.isUserFeedback()) {
-                            if (postWriteCallBackData == null) {
-                                cVar11 = this.ged.gdZ;
-                                Activity activity = cVar11.getContext().getActivity();
-                                cVar12 = this.ged.gdZ;
-                                com.baidu.tieba.tbadkCore.writeModel.e.c(activity, cVar12.getContext().getResources().getString(w.l.send_success), null, null);
-                            } else {
-                                cVar10 = this.ged.gdZ;
-                                com.baidu.tieba.tbadkCore.writeModel.e.c(cVar10.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                            }
-                        }
-                        Intent intent = new Intent();
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable(WriteActivityConfig.POST_WRITE_CALLBACK_DATA, postWriteCallBackData);
-                        intent.putExtras(bundle);
-                        cVar13 = this.ged.gdZ;
-                        BaseActivity context = cVar13.getContext();
-                        cVar14 = this.ged.gdZ;
-                        cVar14.getContext();
-                        context.setResult(-1, intent);
-                        cVar15 = this.ged.gdZ;
-                        cVar15.getContext().finish();
-                    } else if (writeData2 != null && qVar != null && !TextUtils.isEmpty(qVar.ye())) {
-                        writeData2.setVcodeMD5(qVar.getVcode_md5());
-                        writeData2.setVcodeUrl(qVar.getVcode_pic_url());
-                        writeData2.setVcodeExtra(qVar.yf());
-                        cVar7 = this.ged.gdZ;
-                        cVar7.getContext().setVisible(false);
-                        if (com.baidu.tbadk.o.a.gN(qVar.ye())) {
-                            MessageManager messageManager = MessageManager.getInstance();
-                            cVar9 = this.ged.gdZ;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(cVar9.getContext().getActivity(), 12006, writeData2, false, qVar.ye())));
-                            return;
-                        }
-                        MessageManager messageManager2 = MessageManager.getInstance();
-                        cVar8 = this.ged.gdZ;
-                        messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(cVar8.getContext().getActivity(), writeData2, 12006)));
-                    } else {
-                        if (postWriteCallBackData != null) {
-                            cVar4 = this.ged.gdZ;
-                            com.baidu.tieba.tbadkCore.writeModel.e.c(cVar4.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                            cVar5 = this.ged.gdZ;
-                            BaseActivity context2 = cVar5.getContext();
-                            cVar6 = this.ged.gdZ;
-                            cVar6.getContext();
-                            context2.setResult(0, null);
-                        }
-                        cVar3 = this.ged.gdZ;
-                        cVar3.getContext().finish();
-                    }
-                }
+    public void c(a aVar) {
+        this.gzI = aVar;
+    }
+
+    private boolean a(AccountAccessActivity accountAccessActivity) {
+        accountAccessActivity.setActivityBgTransparent();
+        accountAccessActivity.setSwipeBackEnabled(false);
+        accountAccessActivity.setContentView(d.j.account_access_activity);
+        this.mBlackBackLayout = accountAccessActivity.findViewById(d.h.account_access_black_layout);
+        this.mBlackBackLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.accountAccess.b.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                b.this.gzI.onPostThreadCancle();
+                b.this.mContext.finish();
             }
+        });
+        this.mPostThreadLoadingView = accountAccessActivity.findViewById(d.h.aa_post_thread_loading_view);
+        this.mPostThreadLoadingText = (TextView) this.mPostThreadLoadingView.findViewById(d.h.custom_loading_text);
+        this.mPostThreadLoadingText.setText(accountAccessActivity.getResources().getString(d.l.sending));
+        this.gzO = new c();
+        this.gzO.alm = 1000L;
+        this.gzN = k.ag(accountAccessActivity.getBaseContext()) / k.ah(accountAccessActivity.getBaseContext());
+        if (this.mWebView == null) {
+            try {
+                this.mWebView = (BaseWebView) accountAccessActivity.findViewById(d.h.account_access_webview);
+                UtilHelper.setSupportHeight(accountAccessActivity.getPageContext().getPageActivity(), this.mWebView, this.mRatio);
+                this.mWebView.setBackgroundColor(accountAccessActivity.getResources().getColor(17170443));
+                this.mWebView.setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.write.accountAccess.b.4
+                    @Override // android.webkit.WebViewClient
+                    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+                        if (StringUtils.isNull(str) || b.this.gzI == null) {
+                            return false;
+                        }
+                        if (!b.this.onPageFinishHasBeenCalled) {
+                            b.this.onPageFinishHasBeenCalled = true;
+                            b.this.showWebLoadingView(false);
+                            b.this.bxM();
+                            b.this.gzI.bxI();
+                            return true;
+                        }
+                        return b.this.gzI.sQ(str);
+                    }
+
+                    @Override // android.webkit.WebViewClient
+                    public void onPageFinished(WebView webView, String str) {
+                        super.onPageFinished(webView, str);
+                        b.this.onPageFinishHasBeenCalled = true;
+                        if (b.this.gzI != null) {
+                            b.this.gzI.bxI();
+                        }
+                    }
+
+                    @Override // android.webkit.WebViewClient
+                    public void onReceivedError(WebView webView, int i, String str, String str2) {
+                        super.onReceivedError(webView, i, str, str2);
+                        b.this.showWebLoadingView(false);
+                        b.this.mContext.showToast(d.l.neterror);
+                        b.this.mContext.finish();
+                    }
+                });
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                TbadkCoreApplication.getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() + 1);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void showPostThreadLoadingView(boolean z) {
+        if (this.mPostThreadLoadingView != null) {
+            if (z) {
+                this.mPostThreadLoadingView.setVisibility(0);
+            } else {
+                this.mPostThreadLoadingView.setVisibility(8);
+            }
+        }
+    }
+
+    public WebView getWebView() {
+        return this.mWebView;
+    }
+
+    public void onDestory() {
+        e.ga().removeCallbacks(this.mShowWebViewRunnable);
+        e.ga().removeCallbacks(this.gzP);
+        this.mWebLoadingDialog = null;
+    }
+
+    public BaseActivity getContext() {
+        return this.mContext;
+    }
+
+    public void showWebView(boolean z) {
+        if (this.mWebView != null) {
+            if (z) {
+                this.mWebView.setVisibility(0);
+            } else {
+                this.mWebView.setVisibility(4);
+            }
+        }
+    }
+
+    public void showWebViewDelay(int i) {
+        e.ga().postDelayed(this.mShowWebViewRunnable, i);
+    }
+
+    public void showWebLoadingView(boolean z) {
+        if (this.mWebLoadingDialog == null) {
+            this.mWebLoadingDialog = new com.baidu.tbadk.core.view.a(this.mContext.getPageContext());
+            this.mWebLoadingDialog.c(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.accountAccess.b.5
+                @Override // android.content.DialogInterface.OnCancelListener
+                public void onCancel(DialogInterface dialogInterface) {
+                    b.this.mContext.finish();
+                }
+            });
+        }
+        this.mWebLoadingDialog.aH(z);
+    }
+
+    public void setRatio(float f) {
+        this.mRatio = f;
+        UtilHelper.setSupportHeight(this.mContext.getPageContext().getPageActivity(), this.mWebView, f);
+    }
+
+    public float bx() {
+        return this.mRatio;
+    }
+
+    public float bxL() {
+        return this.gzN;
+    }
+
+    public void w(int i, int i2, int i3, int i4) {
+        if (this.mWebView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mWebView.getLayoutParams();
+            marginLayoutParams.setMargins(i, i2, i3, i4);
+            this.mWebView.setLayoutParams(marginLayoutParams);
+        }
+    }
+
+    public Animation m(float f, float f2) {
+        TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, f, f2);
+        translateAnimation.setFillAfter(true);
+        translateAnimation.setDuration(300L);
+        return translateAnimation;
+    }
+
+    public void bxM() {
+        if (this.mContext != null) {
+            if (this.mRatio == this.gzN) {
+                this.mWebView.startAnimation(m(k.ah(this.mContext.getBaseContext()) - (this.mWebView.getWidth() * 1.2631578f), 0.0f));
+                e.ga().postDelayed(this.gzP, 800L);
+                return;
+            }
+            this.mWebView.startAnimation(m(this.mWebView.getHeight(), 0.0f));
         }
     }
 }

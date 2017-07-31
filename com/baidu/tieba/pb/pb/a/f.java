@@ -1,59 +1,45 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.view.View;
-import com.baidu.tieba.pb.pb.a.d;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tieba.pb.data.j;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.pb.pb.main.l;
 /* loaded from: classes.dex */
-public class f implements Animator.AnimatorListener {
-    final /* synthetic */ d esN;
-    private final /* synthetic */ d.a esO;
-    private final /* synthetic */ long esP;
-    private final /* synthetic */ View val$v;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(d dVar, d.a aVar, long j, View view) {
-        this.esN = dVar;
-        this.esO = aVar;
-        this.esP = j;
-        this.val$v = view;
+public class f extends l<j, a> {
+    public f(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-        boolean z;
-        z = this.esN.esI;
-        if (!z) {
-            if (this.esO.esU != null) {
-                this.esO.cp(this.esO.esU.Uo);
-            }
-            ObjectAnimator.ofFloat(this.esN.esH, "alpha", 1.0f, 0.0f).setDuration(this.esP / 3).start();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bh */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        return new a(new com.baidu.tieba.pb.view.g(this.eGA.getPageContext()));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, a aVar) {
+        super.onFillViewHolder(i, view, viewGroup, jVar, aVar);
+        if (jVar != null && aVar != null) {
+            aVar.eFs.setData(jVar);
         }
+        return view;
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        boolean z;
-        z = this.esN.esI;
-        if (!z) {
-            this.esN.iy(true);
-            this.esN.esI = true;
-        } else {
-            this.val$v.setClickable(true);
-            this.esO.aNq();
-            this.esN.aNp();
-            ObjectAnimator.ofFloat(this.esN.esH, "alpha", 0.0f, 1.0f).setDuration(this.esP / 3).start();
-            this.esN.esI = false;
+    /* loaded from: classes.dex */
+    public static class a extends j.a {
+        public com.baidu.tieba.pb.view.g eFs;
+
+        public a(com.baidu.tieba.pb.view.g gVar) {
+            super(gVar);
+            this.eFs = gVar;
         }
-        this.esN.esM = false;
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
     }
 }

@@ -8,6 +8,7 @@ public class CheckPostRequestMessage extends TbSocketMessage {
     private String forumName;
     private long pid;
     private int postType;
+    private long tid;
 
     public CheckPostRequestMessage() {
         super(303010);
@@ -37,12 +38,17 @@ public class CheckPostRequestMessage extends TbSocketMessage {
         this.forumName = str;
     }
 
+    public void setTid(long j) {
+        this.tid = j;
+    }
+
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     protected Object encode() {
         ReqData.Builder builder = new ReqData.Builder();
         builder.pid = Long.valueOf(getPid());
         builder.postType = Integer.valueOf(getPostType());
         builder.forumName = getForumName();
+        builder.tid = Long.valueOf(this.tid);
         CheckPostReqIdl.Builder builder2 = new CheckPostReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

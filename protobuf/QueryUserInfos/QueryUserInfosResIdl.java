@@ -10,10 +10,6 @@ public final class QueryUserInfosResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ QueryUserInfosResIdl(Builder builder, boolean z, QueryUserInfosResIdl queryUserInfosResIdl) {
-        this(builder, z);
-    }
-
     private QueryUserInfosResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -44,7 +40,7 @@ public final class QueryUserInfosResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public QueryUserInfosResIdl build(boolean z) {
-            return new QueryUserInfosResIdl(this, z, null);
+            return new QueryUserInfosResIdl(this, z);
         }
     }
 }

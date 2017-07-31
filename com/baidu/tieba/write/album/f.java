@@ -1,184 +1,115 @@
 package com.baidu.tieba.write.album;
 
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.w;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class f extends BaseFragment {
-    private View Qr;
-    private com.baidu.tbadk.img.b awS;
-    private View geD;
-    private k geE;
-    private ImageView geF;
-    private View geG;
-    private TextView geH;
-    private p gei;
-    private AlbumActivity gex;
-    private View mNoDataView;
-    private ViewPager mViewPager;
-    private int aCI = -1;
-    private View.OnClickListener mOnClickListener = new g(this);
-    private ViewPager.OnPageChangeListener mOnPageChangeListener = new h(this);
+public class f {
+    private static f gAG;
+    private ContentObserver gAH;
+    private BroadcastReceiver mReceiver;
+    private Handler mHandler = new Handler(Looper.getMainLooper());
+    private ArrayList<a> jr = new ArrayList<>();
+    private Handler handler = new Handler();
+    private Runnable gAI = new Runnable() { // from class: com.baidu.tieba.write.album.f.1
+        @Override // java.lang.Runnable
+        public void run() {
+            f.this.nb(false);
+        }
+    };
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.gex = (AlbumActivity) getBaseFragmentActivity();
-        this.gei = this.gex.brM();
+    /* loaded from: classes.dex */
+    public interface a {
+        void nc(boolean z);
     }
 
-    @Override // android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.Qr = layoutInflater.inflate(w.j.album_big_image_view, (ViewGroup) null);
-        this.geD = this.Qr.findViewById(w.h.img_back);
-        this.geD.setOnClickListener(this.gex);
-        this.geF = (ImageView) this.Qr.findViewById(w.h.img_choose);
-        this.geF.setOnClickListener(this.mOnClickListener);
-        this.mViewPager = (ViewPager) this.Qr.findViewById(w.h.viewPager);
-        this.awS = this.gex.akX();
-        this.mViewPager.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.mNoDataView = this.Qr.findViewById(w.h.album_no_data);
-        this.geG = this.Qr.findViewById(w.h.btn_next_step);
-        this.geG.setOnClickListener(this.gex);
-        this.geH = (TextView) this.Qr.findViewById(w.h.original_select_btn);
-        this.geH.setOnClickListener(this.gex);
-        if (this.gei.isOriginalImg()) {
-            this.gex.brR();
+    public static f byp() {
+        if (gAG == null) {
+            synchronized (f.class) {
+                if (gAG == null) {
+                    gAG = new f();
+                    gAG.init(TbadkCoreApplication.getInst());
+                }
+            }
         }
-        return this.Qr;
+        return gAG;
+    }
+
+    private f() {
+    }
+
+    private void init(Context context) {
+        this.mReceiver = new BroadcastReceiver() { // from class: com.baidu.tieba.write.album.f.2
+            @Override // android.content.BroadcastReceiver
+            public void onReceive(Context context2, Intent intent) {
+                f.this.ad(intent);
+            }
+        };
+        this.gAH = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.f.3
+            @Override // android.database.ContentObserver
+            public void onChange(boolean z) {
+                f.this.handler.removeCallbacks(f.this.gAI);
+                f.this.handler.postDelayed(f.this.gAI, 2000L);
+            }
+        };
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
+        intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
+        intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
+        intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
+        intentFilter.addAction("android.intent.action.MEDIA_EJECT");
+        intentFilter.addDataScheme("file");
+        context.registerReceiver(this.mReceiver, intentFilter);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.gAH);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bse() {
-        if (this.gei.isOriginalImg()) {
-            this.gex.brR();
+    public void ad(Intent intent) {
+        if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
+            nb(true);
+            return;
+        }
+        this.handler.removeCallbacks(this.gAI);
+        this.handler.postDelayed(this.gAI, 2000L);
+    }
+
+    public void nb(boolean z) {
+        Iterator<a> it = this.jr.iterator();
+        while (it.hasNext()) {
+            it.next().nc(z);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onResume() {
-        super.onResume();
-        if (isShow()) {
-            aen();
+    public void a(a aVar) {
+        if (aVar != null && !this.jr.contains(aVar)) {
+            this.jr.add(aVar);
         }
     }
 
-    private void bsf() {
-        int currentIndex;
-        if (this.gei == null && this.gex != null) {
-            this.gei = this.gex.brM();
-        }
-        if (this.gei != null && this.gei.bsm() != null && (currentIndex = this.gei.getCurrentIndex()) >= 0) {
-            this.aCI = currentIndex;
-            if (this.aCI > this.gei.bsm().size() - 1) {
-                this.aCI = this.gei.bsm().size() - 1;
-            }
-            this.gei.tz(-1);
-            this.geE = null;
-            this.geE = new k(this.gex, this.awS);
-            this.mViewPager.setAdapter(this.geE);
-            if (this.aCI == 0 && this.gei.bsm() != null) {
-                ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.z.c(this.gei.bsm(), this.aCI);
-                if (this.gei.isAdded(imageFileInfo)) {
-                    c(this.geF, true);
-                } else {
-                    c(this.geF, false);
-                }
-                if (imageFileInfo.isGif()) {
-                    this.geH.setVisibility(8);
-                } else {
-                    this.geH.setVisibility(0);
-                }
-            }
-            this.geE.setData(this.gei.bsm());
-            this.mViewPager.setCurrentItem(this.aCI, false);
+    public void b(a aVar) {
+        if (this.jr.contains(aVar)) {
+            this.jr.remove(aVar);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onHiddenChanged(boolean z) {
-        super.onHiddenChanged(z);
-        if (z && this.geE != null) {
-            this.geE.setData(null);
-        }
+    public void removeAllListeners() {
+        this.jr.clear();
     }
 
-    public View bgZ() {
-        return this.geD;
-    }
-
-    public View bsg() {
-        return this.geG;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.gex.getLayoutMode().ah(i == 1);
-        this.gex.getLayoutMode().t(this.Qr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(ImageView imageView, boolean z) {
-        if (imageView != null) {
-            if (z) {
-                imageView.setImageResource(w.g.ic_post_edit_select_s);
-            } else {
-                imageView.setImageResource(w.g.ic_post_edit_select_n);
-            }
-        }
-    }
-
-    public void g(ImageFileInfo imageFileInfo, boolean z) {
-        ImageFileInfo tD;
-        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.geE != null && (tD = this.geE.tD(this.aCI)) != null && tD.getFilePath() != null && tD.getFilePath().equals(imageFileInfo.getFilePath())) {
-            c(this.geF, z);
-        }
-    }
-
-    private void aen() {
-        if (!isHidden()) {
-            this.mNoDataView.setVisibility(8);
-            this.mViewPager.setVisibility(0);
-            bsf();
-        }
-    }
-
-    public int getCurrentIndex() {
-        return this.aCI;
-    }
-
-    public View brZ() {
-        return this.geH;
-    }
-
-    public void b(boolean z, long j) {
-        if (this.gex != null && this.geH != null) {
-            String string = this.gex.getResources().getString(w.l.original_img);
-            if (z) {
-                this.geH.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.as.getDrawable(w.g.ic_post_image_original_s), (Drawable) null, (Drawable) null, (Drawable) null);
-                StringBuilder sb = new StringBuilder();
-                sb.append(string);
-                if (j > 0) {
-                    sb.append("(");
-                    sb.append(com.baidu.tbadk.core.util.aw.G(j));
-                    sb.append(")");
-                }
-                this.geH.setText(sb.toString());
-                this.geH.setTextColor(this.gex.getResources().getColor(w.e.cp_link_tip_a));
-                return;
-            }
-            this.geH.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.as.getDrawable(w.g.ic_post_image_original_n), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.geH.setText(string);
-            this.geH.setTextColor(this.gex.getResources().getColor(w.e.cp_cont_i));
-        }
+    public void destory() {
+        removeAllListeners();
+        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+        inst.unregisterReceiver(this.mReceiver);
+        inst.getContentResolver().unregisterContentObserver(this.gAH);
+        this.handler.removeCallbacks(this.gAI);
+        gAG = null;
     }
 }

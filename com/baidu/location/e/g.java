@@ -7,23 +7,23 @@ import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class g extends Thread {
-    final /* synthetic */ e.c Oo;
+    final /* synthetic */ e.c PQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e.c cVar) {
-        this.Oo = cVar;
+        this.PQ = cVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, IGET, INVOKE] complete} */
-    /* JADX WARN: Removed duplicated region for block: B:104:0x0333 A[Catch: Exception -> 0x024b, all -> 0x02bd, TryCatch #2 {Exception -> 0x024b, blocks: (B:24:0x0092, B:26:0x00a5, B:28:0x00ae, B:30:0x00bd, B:32:0x00ca, B:34:0x00d2, B:36:0x00eb, B:38:0x00f3, B:40:0x0124, B:42:0x012c, B:43:0x014b, B:45:0x0151, B:48:0x016c, B:52:0x017e, B:55:0x01be, B:58:0x01e6, B:61:0x020e, B:84:0x02b8, B:101:0x0323, B:102:0x032b, B:68:0x0244, B:104:0x0333, B:106:0x0352, B:108:0x0371, B:110:0x0390, B:112:0x0398, B:113:0x03b7, B:115:0x03bd, B:118:0x03d8, B:122:0x03ea, B:125:0x042e, B:128:0x0456, B:130:0x047c, B:133:0x04a8, B:136:0x04b2, B:137:0x04bf, B:132:0x049f, B:139:0x04c7, B:141:0x04e6, B:143:0x0505, B:144:0x0522, B:146:0x05ca, B:148:0x05d2, B:150:0x05da, B:151:0x05e1), top: B:179:0x0092, outer: #6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0352 A[Catch: Exception -> 0x024b, all -> 0x02bd, TryCatch #2 {Exception -> 0x024b, blocks: (B:24:0x0092, B:26:0x00a5, B:28:0x00ae, B:30:0x00bd, B:32:0x00ca, B:34:0x00d2, B:36:0x00eb, B:38:0x00f3, B:40:0x0124, B:42:0x012c, B:43:0x014b, B:45:0x0151, B:48:0x016c, B:52:0x017e, B:55:0x01be, B:58:0x01e6, B:61:0x020e, B:84:0x02b8, B:101:0x0323, B:102:0x032b, B:68:0x0244, B:104:0x0333, B:106:0x0352, B:108:0x0371, B:110:0x0390, B:112:0x0398, B:113:0x03b7, B:115:0x03bd, B:118:0x03d8, B:122:0x03ea, B:125:0x042e, B:128:0x0456, B:130:0x047c, B:133:0x04a8, B:136:0x04b2, B:137:0x04bf, B:132:0x049f, B:139:0x04c7, B:141:0x04e6, B:143:0x0505, B:144:0x0522, B:146:0x05ca, B:148:0x05d2, B:150:0x05da, B:151:0x05e1), top: B:179:0x0092, outer: #6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x0371 A[Catch: Exception -> 0x024b, all -> 0x02bd, TryCatch #2 {Exception -> 0x024b, blocks: (B:24:0x0092, B:26:0x00a5, B:28:0x00ae, B:30:0x00bd, B:32:0x00ca, B:34:0x00d2, B:36:0x00eb, B:38:0x00f3, B:40:0x0124, B:42:0x012c, B:43:0x014b, B:45:0x0151, B:48:0x016c, B:52:0x017e, B:55:0x01be, B:58:0x01e6, B:61:0x020e, B:84:0x02b8, B:101:0x0323, B:102:0x032b, B:68:0x0244, B:104:0x0333, B:106:0x0352, B:108:0x0371, B:110:0x0390, B:112:0x0398, B:113:0x03b7, B:115:0x03bd, B:118:0x03d8, B:122:0x03ea, B:125:0x042e, B:128:0x0456, B:130:0x047c, B:133:0x04a8, B:136:0x04b2, B:137:0x04bf, B:132:0x049f, B:139:0x04c7, B:141:0x04e6, B:143:0x0505, B:144:0x0522, B:146:0x05ca, B:148:0x05d2, B:150:0x05da, B:151:0x05e1), top: B:179:0x0092, outer: #6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x03bd A[Catch: Exception -> 0x024b, all -> 0x02bd, TryCatch #2 {Exception -> 0x024b, blocks: (B:24:0x0092, B:26:0x00a5, B:28:0x00ae, B:30:0x00bd, B:32:0x00ca, B:34:0x00d2, B:36:0x00eb, B:38:0x00f3, B:40:0x0124, B:42:0x012c, B:43:0x014b, B:45:0x0151, B:48:0x016c, B:52:0x017e, B:55:0x01be, B:58:0x01e6, B:61:0x020e, B:84:0x02b8, B:101:0x0323, B:102:0x032b, B:68:0x0244, B:104:0x0333, B:106:0x0352, B:108:0x0371, B:110:0x0390, B:112:0x0398, B:113:0x03b7, B:115:0x03bd, B:118:0x03d8, B:122:0x03ea, B:125:0x042e, B:128:0x0456, B:130:0x047c, B:133:0x04a8, B:136:0x04b2, B:137:0x04bf, B:132:0x049f, B:139:0x04c7, B:141:0x04e6, B:143:0x0505, B:144:0x0522, B:146:0x05ca, B:148:0x05d2, B:150:0x05da, B:151:0x05e1), top: B:179:0x0092, outer: #6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:139:0x04c7 A[Catch: Exception -> 0x024b, all -> 0x02bd, TryCatch #2 {Exception -> 0x024b, blocks: (B:24:0x0092, B:26:0x00a5, B:28:0x00ae, B:30:0x00bd, B:32:0x00ca, B:34:0x00d2, B:36:0x00eb, B:38:0x00f3, B:40:0x0124, B:42:0x012c, B:43:0x014b, B:45:0x0151, B:48:0x016c, B:52:0x017e, B:55:0x01be, B:58:0x01e6, B:61:0x020e, B:84:0x02b8, B:101:0x0323, B:102:0x032b, B:68:0x0244, B:104:0x0333, B:106:0x0352, B:108:0x0371, B:110:0x0390, B:112:0x0398, B:113:0x03b7, B:115:0x03bd, B:118:0x03d8, B:122:0x03ea, B:125:0x042e, B:128:0x0456, B:130:0x047c, B:133:0x04a8, B:136:0x04b2, B:137:0x04bf, B:132:0x049f, B:139:0x04c7, B:141:0x04e6, B:143:0x0505, B:144:0x0522, B:146:0x05ca, B:148:0x05d2, B:150:0x05da, B:151:0x05e1), top: B:179:0x0092, outer: #6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:141:0x04e6 A[Catch: Exception -> 0x024b, all -> 0x02bd, TryCatch #2 {Exception -> 0x024b, blocks: (B:24:0x0092, B:26:0x00a5, B:28:0x00ae, B:30:0x00bd, B:32:0x00ca, B:34:0x00d2, B:36:0x00eb, B:38:0x00f3, B:40:0x0124, B:42:0x012c, B:43:0x014b, B:45:0x0151, B:48:0x016c, B:52:0x017e, B:55:0x01be, B:58:0x01e6, B:61:0x020e, B:84:0x02b8, B:101:0x0323, B:102:0x032b, B:68:0x0244, B:104:0x0333, B:106:0x0352, B:108:0x0371, B:110:0x0390, B:112:0x0398, B:113:0x03b7, B:115:0x03bd, B:118:0x03d8, B:122:0x03ea, B:125:0x042e, B:128:0x0456, B:130:0x047c, B:133:0x04a8, B:136:0x04b2, B:137:0x04bf, B:132:0x049f, B:139:0x04c7, B:141:0x04e6, B:143:0x0505, B:144:0x0522, B:146:0x05ca, B:148:0x05d2, B:150:0x05da, B:151:0x05e1), top: B:179:0x0092, outer: #6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:143:0x0505 A[Catch: Exception -> 0x024b, all -> 0x02bd, TryCatch #2 {Exception -> 0x024b, blocks: (B:24:0x0092, B:26:0x00a5, B:28:0x00ae, B:30:0x00bd, B:32:0x00ca, B:34:0x00d2, B:36:0x00eb, B:38:0x00f3, B:40:0x0124, B:42:0x012c, B:43:0x014b, B:45:0x0151, B:48:0x016c, B:52:0x017e, B:55:0x01be, B:58:0x01e6, B:61:0x020e, B:84:0x02b8, B:101:0x0323, B:102:0x032b, B:68:0x0244, B:104:0x0333, B:106:0x0352, B:108:0x0371, B:110:0x0390, B:112:0x0398, B:113:0x03b7, B:115:0x03bd, B:118:0x03d8, B:122:0x03ea, B:125:0x042e, B:128:0x0456, B:130:0x047c, B:133:0x04a8, B:136:0x04b2, B:137:0x04bf, B:132:0x049f, B:139:0x04c7, B:141:0x04e6, B:143:0x0505, B:144:0x0522, B:146:0x05ca, B:148:0x05d2, B:150:0x05da, B:151:0x05e1), top: B:179:0x0092, outer: #6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:179:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0151 A[Catch: Exception -> 0x024b, all -> 0x02bd, TryCatch #2 {Exception -> 0x024b, blocks: (B:24:0x0092, B:26:0x00a5, B:28:0x00ae, B:30:0x00bd, B:32:0x00ca, B:34:0x00d2, B:36:0x00eb, B:38:0x00f3, B:40:0x0124, B:42:0x012c, B:43:0x014b, B:45:0x0151, B:48:0x016c, B:52:0x017e, B:55:0x01be, B:58:0x01e6, B:61:0x020e, B:84:0x02b8, B:101:0x0323, B:102:0x032b, B:68:0x0244, B:104:0x0333, B:106:0x0352, B:108:0x0371, B:110:0x0390, B:112:0x0398, B:113:0x03b7, B:115:0x03bd, B:118:0x03d8, B:122:0x03ea, B:125:0x042e, B:128:0x0456, B:130:0x047c, B:133:0x04a8, B:136:0x04b2, B:137:0x04bf, B:132:0x049f, B:139:0x04c7, B:141:0x04e6, B:143:0x0505, B:144:0x0522, B:146:0x05ca, B:148:0x05d2, B:150:0x05da, B:151:0x05e1), top: B:179:0x0092, outer: #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:104:0x0354 A[Catch: Exception -> 0x026a, all -> 0x02de, TryCatch #2 {Exception -> 0x026a, blocks: (B:24:0x0096, B:26:0x00a9, B:28:0x00b2, B:30:0x00c2, B:32:0x00cf, B:34:0x00d8, B:36:0x00f3, B:38:0x00fc, B:40:0x0133, B:42:0x013c, B:43:0x015c, B:45:0x0162, B:48:0x017e, B:52:0x0190, B:55:0x01d7, B:58:0x0201, B:61:0x022b, B:84:0x02d7, B:101:0x0344, B:102:0x034c, B:68:0x0263, B:104:0x0354, B:106:0x0374, B:108:0x0394, B:110:0x03b4, B:112:0x03bd, B:113:0x03dd, B:115:0x03e3, B:118:0x03ff, B:122:0x0411, B:125:0x045c, B:128:0x0486, B:130:0x04ae, B:133:0x04e0, B:136:0x04ec, B:137:0x04f9, B:132:0x04d7, B:139:0x0501, B:141:0x0521, B:143:0x0541, B:144:0x055f, B:146:0x0613, B:148:0x061c, B:150:0x0625, B:151:0x062c), top: B:179:0x0096, outer: #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0374 A[Catch: Exception -> 0x026a, all -> 0x02de, TryCatch #2 {Exception -> 0x026a, blocks: (B:24:0x0096, B:26:0x00a9, B:28:0x00b2, B:30:0x00c2, B:32:0x00cf, B:34:0x00d8, B:36:0x00f3, B:38:0x00fc, B:40:0x0133, B:42:0x013c, B:43:0x015c, B:45:0x0162, B:48:0x017e, B:52:0x0190, B:55:0x01d7, B:58:0x0201, B:61:0x022b, B:84:0x02d7, B:101:0x0344, B:102:0x034c, B:68:0x0263, B:104:0x0354, B:106:0x0374, B:108:0x0394, B:110:0x03b4, B:112:0x03bd, B:113:0x03dd, B:115:0x03e3, B:118:0x03ff, B:122:0x0411, B:125:0x045c, B:128:0x0486, B:130:0x04ae, B:133:0x04e0, B:136:0x04ec, B:137:0x04f9, B:132:0x04d7, B:139:0x0501, B:141:0x0521, B:143:0x0541, B:144:0x055f, B:146:0x0613, B:148:0x061c, B:150:0x0625, B:151:0x062c), top: B:179:0x0096, outer: #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x0394 A[Catch: Exception -> 0x026a, all -> 0x02de, TryCatch #2 {Exception -> 0x026a, blocks: (B:24:0x0096, B:26:0x00a9, B:28:0x00b2, B:30:0x00c2, B:32:0x00cf, B:34:0x00d8, B:36:0x00f3, B:38:0x00fc, B:40:0x0133, B:42:0x013c, B:43:0x015c, B:45:0x0162, B:48:0x017e, B:52:0x0190, B:55:0x01d7, B:58:0x0201, B:61:0x022b, B:84:0x02d7, B:101:0x0344, B:102:0x034c, B:68:0x0263, B:104:0x0354, B:106:0x0374, B:108:0x0394, B:110:0x03b4, B:112:0x03bd, B:113:0x03dd, B:115:0x03e3, B:118:0x03ff, B:122:0x0411, B:125:0x045c, B:128:0x0486, B:130:0x04ae, B:133:0x04e0, B:136:0x04ec, B:137:0x04f9, B:132:0x04d7, B:139:0x0501, B:141:0x0521, B:143:0x0541, B:144:0x055f, B:146:0x0613, B:148:0x061c, B:150:0x0625, B:151:0x062c), top: B:179:0x0096, outer: #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:115:0x03e3 A[Catch: Exception -> 0x026a, all -> 0x02de, TryCatch #2 {Exception -> 0x026a, blocks: (B:24:0x0096, B:26:0x00a9, B:28:0x00b2, B:30:0x00c2, B:32:0x00cf, B:34:0x00d8, B:36:0x00f3, B:38:0x00fc, B:40:0x0133, B:42:0x013c, B:43:0x015c, B:45:0x0162, B:48:0x017e, B:52:0x0190, B:55:0x01d7, B:58:0x0201, B:61:0x022b, B:84:0x02d7, B:101:0x0344, B:102:0x034c, B:68:0x0263, B:104:0x0354, B:106:0x0374, B:108:0x0394, B:110:0x03b4, B:112:0x03bd, B:113:0x03dd, B:115:0x03e3, B:118:0x03ff, B:122:0x0411, B:125:0x045c, B:128:0x0486, B:130:0x04ae, B:133:0x04e0, B:136:0x04ec, B:137:0x04f9, B:132:0x04d7, B:139:0x0501, B:141:0x0521, B:143:0x0541, B:144:0x055f, B:146:0x0613, B:148:0x061c, B:150:0x0625, B:151:0x062c), top: B:179:0x0096, outer: #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:139:0x0501 A[Catch: Exception -> 0x026a, all -> 0x02de, TryCatch #2 {Exception -> 0x026a, blocks: (B:24:0x0096, B:26:0x00a9, B:28:0x00b2, B:30:0x00c2, B:32:0x00cf, B:34:0x00d8, B:36:0x00f3, B:38:0x00fc, B:40:0x0133, B:42:0x013c, B:43:0x015c, B:45:0x0162, B:48:0x017e, B:52:0x0190, B:55:0x01d7, B:58:0x0201, B:61:0x022b, B:84:0x02d7, B:101:0x0344, B:102:0x034c, B:68:0x0263, B:104:0x0354, B:106:0x0374, B:108:0x0394, B:110:0x03b4, B:112:0x03bd, B:113:0x03dd, B:115:0x03e3, B:118:0x03ff, B:122:0x0411, B:125:0x045c, B:128:0x0486, B:130:0x04ae, B:133:0x04e0, B:136:0x04ec, B:137:0x04f9, B:132:0x04d7, B:139:0x0501, B:141:0x0521, B:143:0x0541, B:144:0x055f, B:146:0x0613, B:148:0x061c, B:150:0x0625, B:151:0x062c), top: B:179:0x0096, outer: #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:141:0x0521 A[Catch: Exception -> 0x026a, all -> 0x02de, TryCatch #2 {Exception -> 0x026a, blocks: (B:24:0x0096, B:26:0x00a9, B:28:0x00b2, B:30:0x00c2, B:32:0x00cf, B:34:0x00d8, B:36:0x00f3, B:38:0x00fc, B:40:0x0133, B:42:0x013c, B:43:0x015c, B:45:0x0162, B:48:0x017e, B:52:0x0190, B:55:0x01d7, B:58:0x0201, B:61:0x022b, B:84:0x02d7, B:101:0x0344, B:102:0x034c, B:68:0x0263, B:104:0x0354, B:106:0x0374, B:108:0x0394, B:110:0x03b4, B:112:0x03bd, B:113:0x03dd, B:115:0x03e3, B:118:0x03ff, B:122:0x0411, B:125:0x045c, B:128:0x0486, B:130:0x04ae, B:133:0x04e0, B:136:0x04ec, B:137:0x04f9, B:132:0x04d7, B:139:0x0501, B:141:0x0521, B:143:0x0541, B:144:0x055f, B:146:0x0613, B:148:0x061c, B:150:0x0625, B:151:0x062c), top: B:179:0x0096, outer: #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:143:0x0541 A[Catch: Exception -> 0x026a, all -> 0x02de, TryCatch #2 {Exception -> 0x026a, blocks: (B:24:0x0096, B:26:0x00a9, B:28:0x00b2, B:30:0x00c2, B:32:0x00cf, B:34:0x00d8, B:36:0x00f3, B:38:0x00fc, B:40:0x0133, B:42:0x013c, B:43:0x015c, B:45:0x0162, B:48:0x017e, B:52:0x0190, B:55:0x01d7, B:58:0x0201, B:61:0x022b, B:84:0x02d7, B:101:0x0344, B:102:0x034c, B:68:0x0263, B:104:0x0354, B:106:0x0374, B:108:0x0394, B:110:0x03b4, B:112:0x03bd, B:113:0x03dd, B:115:0x03e3, B:118:0x03ff, B:122:0x0411, B:125:0x045c, B:128:0x0486, B:130:0x04ae, B:133:0x04e0, B:136:0x04ec, B:137:0x04f9, B:132:0x04d7, B:139:0x0501, B:141:0x0521, B:143:0x0541, B:144:0x055f, B:146:0x0613, B:148:0x061c, B:150:0x0625, B:151:0x062c), top: B:179:0x0096, outer: #6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:179:0x0096 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0162 A[Catch: Exception -> 0x026a, all -> 0x02de, TryCatch #2 {Exception -> 0x026a, blocks: (B:24:0x0096, B:26:0x00a9, B:28:0x00b2, B:30:0x00c2, B:32:0x00cf, B:34:0x00d8, B:36:0x00f3, B:38:0x00fc, B:40:0x0133, B:42:0x013c, B:43:0x015c, B:45:0x0162, B:48:0x017e, B:52:0x0190, B:55:0x01d7, B:58:0x0201, B:61:0x022b, B:84:0x02d7, B:101:0x0344, B:102:0x034c, B:68:0x0263, B:104:0x0354, B:106:0x0374, B:108:0x0394, B:110:0x03b4, B:112:0x03bd, B:113:0x03dd, B:115:0x03e3, B:118:0x03ff, B:122:0x0411, B:125:0x045c, B:128:0x0486, B:130:0x04ae, B:133:0x04e0, B:136:0x04ec, B:137:0x04f9, B:132:0x04d7, B:139:0x0501, B:141:0x0521, B:143:0x0541, B:144:0x055f, B:146:0x0613, B:148:0x061c, B:150:0x0625, B:151:0x062c), top: B:179:0x0096, outer: #6 }] */
     @Override // java.lang.Thread, java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -48,14 +48,14 @@ class g extends Thread {
         e eVar;
         e eVar2;
         super.run();
-        if (e.this.NX == null || e.this.NY == null || !e.this.NX.isOpen() || !e.this.NY.isOpen()) {
-            this.Oo.f = false;
+        if (e.this.Py == null || e.this.Pz == null || !e.this.Py.isOpen() || !e.this.Pz.isOpen()) {
+            this.PQ.f = false;
             return;
         }
         JSONObject jSONObject3 = null;
         try {
-            if (this.Oo.j != null) {
-                jSONObject = new JSONObject(this.Oo.j);
+            if (this.PQ.j != null) {
+                jSONObject = new JSONObject(this.PQ.j);
                 try {
                     jSONObject2 = jSONObject.has("model") ? jSONObject.getJSONObject("model") : null;
                     try {
@@ -65,20 +65,20 @@ class g extends Thread {
                     } catch (Exception e2) {
                         e = e2;
                         e.printStackTrace();
-                        e.this.NX.beginTransaction();
-                        e.this.NY.beginTransaction();
+                        e.this.Py.beginTransaction();
+                        e.this.Pz.beginTransaction();
                         if (jSONObject3 != null) {
                         }
                         if (jSONObject != null) {
-                            this.Oo.Om = System.currentTimeMillis();
+                            this.PQ.PO = System.currentTimeMillis();
                         }
                         if (jSONObject != null) {
                             String[] split = jSONObject.getString("bdlist").split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                            eVar2 = this.Oo.Ok;
+                            eVar2 = this.PQ.PM;
                             eVar2.a(split);
                         }
                         if (jSONObject != null) {
-                            eVar = this.Oo.Ok;
+                            eVar = this.PQ.PM;
                             eVar.a(jSONObject.getJSONObject("loadurl").getString("host"), jSONObject.getJSONObject("loadurl").getString("module"), jSONObject.getJSONObject("loadurl").getString("req"));
                         }
                         if (jSONObject2 != null) {
@@ -123,23 +123,23 @@ class g extends Thread {
                             if (i > 0) {
                             }
                         }
-                        e.this.NX.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "AP", "AP", 200000));
-                        e.this.NX.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "CL", "CL", 200000));
-                        e.this.NY.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "AP", "AP", 10000));
-                        e.this.NY.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "CL", "CL", 10000));
+                        e.this.Py.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "AP", "AP", 200000));
+                        e.this.Py.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "CL", "CL", 200000));
+                        e.this.Pz.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "AP", "AP", 10000));
+                        e.this.Pz.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "CL", "CL", 10000));
                         if (jSONObject2 != null) {
-                            this.Oo.c();
+                            this.PQ.c();
                         }
-                        e.this.NX.setTransactionSuccessful();
-                        e.this.NY.setTransactionSuccessful();
-                        if (e.this.NX != null) {
-                            e.this.NX.endTransaction();
+                        e.this.Py.setTransactionSuccessful();
+                        e.this.Pz.setTransactionSuccessful();
+                        if (e.this.Py != null) {
+                            e.this.Py.endTransaction();
                         }
-                        if (e.this.NY != null) {
-                            e.this.NY.endTransaction();
+                        if (e.this.Pz != null) {
+                            e.this.Pz.endTransaction();
                         }
-                        this.Oo.j = null;
-                        this.Oo.f = false;
+                        this.PQ.j = null;
+                        this.PQ.f = false;
                     }
                 } catch (Exception e3) {
                     jSONObject2 = null;
@@ -154,52 +154,52 @@ class g extends Thread {
             jSONObject2 = null;
             e = e4;
         }
-        e.this.NX.beginTransaction();
-        e.this.NY.beginTransaction();
+        e.this.Py.beginTransaction();
+        e.this.Pz.beginTransaction();
         if (jSONObject3 != null) {
             try {
                 try {
-                    e.this.NT.mN().a(jSONObject3);
+                    e.this.Pu.mU().a(jSONObject3);
                 } catch (Exception e5) {
-                    this.Oo.c();
+                    this.PQ.c();
                     try {
-                        if (e.this.NX != null && e.this.NX.isOpen()) {
-                            e.this.NX.endTransaction();
+                        if (e.this.Py != null && e.this.Py.isOpen()) {
+                            e.this.Py.endTransaction();
                         }
-                        if (e.this.NY != null && e.this.NY.isOpen()) {
-                            e.this.NY.endTransaction();
+                        if (e.this.Pz != null && e.this.Pz.isOpen()) {
+                            e.this.Pz.endTransaction();
                         }
                     } catch (Exception e6) {
                     }
-                    this.Oo.j = null;
-                    this.Oo.f = false;
+                    this.PQ.j = null;
+                    this.PQ.f = false;
                     return;
                 }
             } catch (Throwable th) {
                 try {
-                    if (e.this.NX != null && e.this.NX.isOpen()) {
-                        e.this.NX.endTransaction();
+                    if (e.this.Py != null && e.this.Py.isOpen()) {
+                        e.this.Py.endTransaction();
                     }
-                    if (e.this.NY != null && e.this.NY.isOpen()) {
-                        e.this.NY.endTransaction();
+                    if (e.this.Pz != null && e.this.Pz.isOpen()) {
+                        e.this.Pz.endTransaction();
                     }
                 } catch (Exception e7) {
                 }
-                this.Oo.j = null;
-                this.Oo.f = false;
+                this.PQ.j = null;
+                this.PQ.f = false;
                 throw th;
             }
         }
         if (jSONObject != null && jSONObject.has("type") && jSONObject.getString("type").equals("0")) {
-            this.Oo.Om = System.currentTimeMillis();
+            this.PQ.PO = System.currentTimeMillis();
         }
         if (jSONObject != null && jSONObject.has("bdlist")) {
             String[] split2 = jSONObject.getString("bdlist").split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-            eVar2 = this.Oo.Ok;
+            eVar2 = this.PQ.PM;
             eVar2.a(split2);
         }
         if (jSONObject != null && jSONObject.has("loadurl")) {
-            eVar = this.Oo.Ok;
+            eVar = this.PQ.PM;
             eVar.a(jSONObject.getJSONObject("loadurl").getString("host"), jSONObject.getJSONObject("loadurl").getString("module"), jSONObject.getJSONObject("loadurl").getString("req"));
         }
         if (jSONObject2 != null && jSONObject2.has("cell")) {
@@ -246,19 +246,19 @@ class g extends Thread {
                     z2 = z32;
                 }
                 if (i7 >= 100) {
-                    e.this.NY.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer22.toString()));
+                    e.this.Pz.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer22.toString()));
                     z42 = true;
                     stringBuffer22.setLength(0);
                     i7 -= 100;
                 }
                 if (i8 >= 100) {
-                    e.this.NX.execSQL(String.format("INSERT OR REPLACE INTO CL (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer32.toString()));
+                    e.this.Py.execSQL(String.format("INSERT OR REPLACE INTO CL (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer32.toString()));
                     z52 = true;
                     stringBuffer32.setLength(0);
                     i8 -= 100;
                 }
                 if (i9 >= 100) {
-                    e.this.NX.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer7.toString()));
+                    e.this.Py.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer7.toString()));
                     z2 = true;
                     stringBuffer7.setLength(0);
                     i9 -= 100;
@@ -267,13 +267,13 @@ class g extends Thread {
                 i6 = i9;
             }
             if (i7 > 0) {
-                e.this.NY.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer22.toString()));
+                e.this.Pz.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer22.toString()));
             }
             if (i8 > 0) {
-                e.this.NX.execSQL(String.format("INSERT OR REPLACE INTO CL (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer32.toString()));
+                e.this.Py.execSQL(String.format("INSERT OR REPLACE INTO CL (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer32.toString()));
             }
             if (i6 > 0) {
-                e.this.NX.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer7.toString()));
+                e.this.Py.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer7.toString()));
             }
         }
         if (jSONObject2 != null && jSONObject2.has("ap")) {
@@ -323,53 +323,53 @@ class g extends Thread {
                     z = z9;
                 }
                 if (i2 >= 100) {
-                    e.this.NY.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer52.toString()));
+                    e.this.Pz.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer52.toString()));
                     z72 = true;
                     stringBuffer52.setLength(0);
                     i2 -= 100;
                 }
                 if (i4 >= 100) {
-                    e.this.NX.execSQL(String.format("INSERT OR REPLACE INTO AP (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer62.toString()));
+                    e.this.Py.execSQL(String.format("INSERT OR REPLACE INTO AP (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer62.toString()));
                     z = true;
                     stringBuffer62.setLength(0);
                     i4 -= 100;
                 }
                 if (i5 > 0) {
-                    e.this.NX.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer42.toString()));
+                    e.this.Py.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer42.toString()));
                 }
                 i = i5;
                 i3 = i4;
                 z82 = z;
             }
             if (i2 > 0) {
-                e.this.NY.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer52.toString()));
+                e.this.Pz.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer52.toString()));
             }
             if (i3 > 0) {
-                e.this.NX.execSQL(String.format("INSERT OR REPLACE INTO AP (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer62.toString()));
+                e.this.Py.execSQL(String.format("INSERT OR REPLACE INTO AP (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer62.toString()));
             }
             if (i > 0) {
-                e.this.NX.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer42.toString()));
+                e.this.Py.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer42.toString()));
             }
         }
-        e.this.NX.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "AP", "AP", 200000));
-        e.this.NX.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "CL", "CL", 200000));
-        e.this.NY.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "AP", "AP", 10000));
-        e.this.NY.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "CL", "CL", 10000));
+        e.this.Py.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "AP", "AP", 200000));
+        e.this.Py.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "CL", "CL", 200000));
+        e.this.Pz.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "AP", "AP", 10000));
+        e.this.Pz.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "CL", "CL", 10000));
         if (jSONObject2 != null && !jSONObject2.has("ap") && !jSONObject2.has("cell")) {
-            this.Oo.c();
+            this.PQ.c();
         }
-        e.this.NX.setTransactionSuccessful();
-        e.this.NY.setTransactionSuccessful();
+        e.this.Py.setTransactionSuccessful();
+        e.this.Pz.setTransactionSuccessful();
         try {
-            if (e.this.NX != null && e.this.NX.isOpen()) {
-                e.this.NX.endTransaction();
+            if (e.this.Py != null && e.this.Py.isOpen()) {
+                e.this.Py.endTransaction();
             }
-            if (e.this.NY != null && e.this.NY.isOpen()) {
-                e.this.NY.endTransaction();
+            if (e.this.Pz != null && e.this.Pz.isOpen()) {
+                e.this.Pz.endTransaction();
             }
         } catch (Exception e8) {
         }
-        this.Oo.j = null;
-        this.Oo.f = false;
+        this.PQ.j = null;
+        this.PQ.f = false;
     }
 }

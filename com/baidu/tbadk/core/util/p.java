@@ -1,24 +1,31 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class p implements a.b {
-    private final /* synthetic */ TbPageContext Qj;
+public interface p {
+    void a(BasicNameValuePair basicNameValuePair);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(TbPageContext tbPageContext) {
-        this.Qj = tbPageContext;
-    }
+    boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.Qj.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));
-        aVar.dismiss();
-    }
+    void d(String str, byte[] bArr);
+
+    void fA();
+
+    void fD();
+
+    void k(ArrayList<BasicNameValuePair> arrayList);
+
+    void n(String str, String str2);
+
+    ArrayList<BasicNameValuePair> uN();
+
+    String uO();
+
+    String uP();
+
+    String uQ();
+
+    byte[] uf();
 }

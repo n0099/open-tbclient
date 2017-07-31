@@ -1,31 +1,32 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.GetMyShelf.BookInfo;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import org.json.JSONObject;
+import tbclient.BookThread;
 /* loaded from: classes.dex */
 public class k {
-    public String TM;
-    public String TO;
-    public int TP;
-    public String TQ;
-    public int TR = -1;
-    public int TS;
-    public int TT;
-    public int TU;
-    public long TV;
-    public String authorName;
-    public long cartoonId;
-    public long forumId;
+    public String VL;
+    public long VM;
+    public int VN;
 
-    public void a(BookInfo bookInfo) {
-        if (bookInfo != null) {
-            this.forumId = bookInfo.forum_id.longValue();
-            this.cartoonId = bookInfo.cartoon_id.longValue();
-            this.TM = bookInfo.cover_img;
-            this.TO = bookInfo.cartoon_name;
-            this.TP = bookInfo.total_chapter.intValue();
-            this.TQ = bookInfo.first_chapter_id;
-            this.TS = bookInfo.is_finish.intValue();
-            this.authorName = bookInfo.author_name;
+    public void a(BookThread bookThread) {
+        if (bookThread != null) {
+            this.VL = bookThread.book_id;
+            this.VM = bookThread.chapter_id.longValue();
+            this.VN = bookThread.book_type.intValue();
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.VL = jSONObject.optString("book_id", "0");
+                this.VM = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
+                this.VN = jSONObject.optInt("book_type", 0);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
     }
 }

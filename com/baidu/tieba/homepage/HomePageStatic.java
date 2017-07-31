@@ -9,12 +9,12 @@ import com.baidu.tbadk.task.b;
 /* loaded from: classes.dex */
 public class HomePageStatic {
     static {
-        alZ();
+        anL();
     }
 
-    private static void alZ() {
+    private static void anL() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_MY_POST + "?cmd=303111");
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=303111");
         tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
         b bVar = new b(303111);

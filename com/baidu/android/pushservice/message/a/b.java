@@ -23,8 +23,8 @@ public class b extends c {
         return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0066  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00ff  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x006f  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0111  */
     @Override // com.baidu.android.pushservice.message.a.c
     /*
         Code decompiled incorrectly, please refer to instructions dump.

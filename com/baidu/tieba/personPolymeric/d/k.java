@@ -1,77 +1,90 @@
 package com.baidu.tieba.personPolymeric.d;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
-    private ImageView aXm;
-    private TextView cJY;
-    private String eUz;
-    private View mRootView;
+public class k extends LinearLayout implements View.OnClickListener {
+    private View bhj;
+    private UserData eDR;
+    private com.baidu.tieba.view.g feL;
+    private View flp;
+    private TbImageView flq;
+    private TextView flr;
+    private View fls;
+    private TbImageView flt;
+    private TextView flu;
+    private View flv;
+    private TbImageView flw;
+    private TextView flx;
 
-    public k(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        S(getView());
+    public k(Context context) {
+        super(context);
+        init();
     }
 
-    private void S(View view) {
-        this.mRootView = view.findViewById(w.h.card_null_polymeric_rootview);
-        this.aXm = (ImageView) view.findViewById(w.h.card_null_polymeric_icon);
-        this.cJY = (TextView) view.findViewById(w.h.card_null_polymeric_txt);
-    }
-
-    @Override // com.baidu.tieba.card.a
-    public void d(TbPageContext<?> tbPageContext, int i) {
-        if (this.mSkinType != i) {
-            as.j(this.mRootView, w.e.cp_bg_line_d);
-            as.c(this.aXm, w.g.emotion07);
-            as.c(this.cJY, w.e.cp_cont_c, 1);
-        }
-        this.mSkinType = i;
-    }
-
-    @Override // com.baidu.tieba.card.a
-    public int getLayout() {
-        return w.j.card_null_polymeric_view;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.a
-    public void a(com.baidu.tieba.personPolymeric.c.i iVar) {
-        String string;
-        if (iVar == null) {
-            this.mRootView.setVisibility(8);
-            return;
-        }
-        if (this.mRootView.getVisibility() != 0) {
-            this.mRootView.setVisibility(0);
-        }
-        if (StringUtils.isNull(this.eUz)) {
-            TextView textView = this.cJY;
-            String string2 = this.mContext.getString(w.l.person_polymeric_null_data);
-            Object[] objArr = new Object[1];
-            if (iVar.boT) {
-                string = this.mContext.getString(w.l.you);
-            } else {
-                string = iVar.sex == 2 ? this.mContext.getString(w.l.person_identity_she) : this.mContext.getString(w.l.he);
-            }
-            objArr[0] = string;
-            textView.setText(String.format(string2, objArr));
-            return;
-        }
-        this.cJY.setText(this.eUz);
-    }
-
-    public void setTip(String str) {
-        this.eUz = str;
+    private void init() {
+        setOrientation(1);
+        View inflate = LayoutInflater.from(getContext()).inflate(d.j.guest_function_layout, this);
+        this.flp = inflate.findViewById(d.h.guest_gift_container);
+        this.flp.setOnClickListener(this);
+        this.flq = (TbImageView) inflate.findViewById(d.h.gift_icon);
+        this.flr = (TextView) inflate.findViewById(d.h.gift_desc);
+        this.fls = inflate.findViewById(d.h.guest_video_container);
+        this.fls.setOnClickListener(this);
+        this.flu = (TextView) inflate.findViewById(d.h.video_desc);
+        this.flt = (TbImageView) inflate.findViewById(d.h.video_icon);
+        this.flv = inflate.findViewById(d.h.guest_live_container);
+        this.flv.setOnClickListener(this);
+        this.flw = (TbImageView) inflate.findViewById(d.h.live_icon);
+        this.flx = (TextView) inflate.findViewById(d.h.live_desc);
+        this.bhj = inflate.findViewById(d.h.guest_function_divider);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        if (this.feL != null) {
+            com.baidu.tieba.personCenter.c.a aVar = new com.baidu.tieba.personCenter.c.a();
+            aVar.cay = new Bundle();
+            aVar.cay.putSerializable(UserData.TYPE_USER, this.eDR);
+            if (view == this.flp) {
+                aVar.cax = 38;
+                this.feL.a(this.flp, aVar);
+            } else if (view == this.fls) {
+                aVar.cax = 39;
+                this.feL.a(this.fls, aVar);
+            } else if (view == this.flv) {
+                aVar.cax = 40;
+                this.feL.a(this.flv, aVar);
+            }
+        }
+    }
+
+    public void setOnViewResponseListener(com.baidu.tieba.view.g gVar) {
+        this.feL = gVar;
+    }
+
+    public void setUserData(UserData userData) {
+        this.eDR = userData;
+    }
+
+    public void onChangeSkinType() {
+        ai.k(this.bhj, d.e.cp_bg_line_b);
+        ai.j(this.flp, d.g.item_person_center_function_selector);
+        ai.j(this.fls, d.g.item_person_center_function_selector);
+        ai.j(this.flv, d.g.item_person_center_function_selector);
+        ai.c(this.flq, d.g.icon_liwu_caise_heibai);
+        ai.c(this.flt, d.g.icon_shipin_caise_heibai);
+        ai.c(this.flw, d.g.icon_zhibou_caise_heibai);
+        ai.i(this.flr, d.e.cp_cont_d);
+        ai.i(this.flu, d.e.cp_cont_d);
+        ai.i(this.flx, d.e.cp_cont_d);
     }
 }

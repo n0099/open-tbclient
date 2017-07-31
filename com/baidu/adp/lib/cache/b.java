@@ -10,13 +10,13 @@ public class b extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String H(String str) {
+    public String P(String str) {
         int hashCode = str.hashCode();
         if (hashCode < 0) {
             hashCode *= -1;
         }
         String str2 = "cache_kv_b" + hashCode;
-        this.th.y("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.uO.E("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
         return str2;
     }
 
@@ -25,31 +25,31 @@ public class b extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int ev() {
+    public int eE() {
         return 1;
     }
 
     /* JADX WARN: Type inference failed for: r2v15, types: [T, byte[]] */
     @Override // com.baidu.adp.lib.cache.c
-    protected h<byte[]> c(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
+    protected g<byte[]> c(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor;
         Throwable th;
-        h<byte[]> hVar = null;
+        g<byte[]> gVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.ti + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.uP + " where m_key = ?", new String[]{str});
             try {
                 if (cursor.moveToNext()) {
-                    hVar = new h<>();
-                    hVar.f0tv = cursor.getString(0);
-                    hVar.tx = cursor.getLong(1);
-                    hVar.ty = cursor.getLong(2);
-                    hVar.tz = cursor.getLong(3);
-                    hVar.sG = cursor.getBlob(4);
+                    gVar = new g<>();
+                    gVar.va = cursor.getString(0);
+                    gVar.vc = cursor.getLong(1);
+                    gVar.vd = cursor.getLong(2);
+                    gVar.ve = cursor.getLong(3);
+                    gVar.um = cursor.getBlob(4);
                     com.baidu.adp.lib.g.a.e(cursor);
                 } else {
                     com.baidu.adp.lib.g.a.e(cursor);
                 }
-                return hVar;
+                return gVar;
             } catch (Throwable th2) {
                 th = th2;
                 com.baidu.adp.lib.g.a.e(cursor);
@@ -62,24 +62,24 @@ public class b extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected ContentValues a(h<byte[]> hVar) {
+    protected ContentValues a(g<byte[]> gVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", hVar.f0tv);
-        contentValues.put("m_value", hVar.sG);
-        contentValues.put("saveTime", Long.valueOf(hVar.tx));
-        contentValues.put("lastHitTime", Long.valueOf(hVar.ty));
-        contentValues.put("timeToExpire", Long.valueOf(hVar.tz));
+        contentValues.put("m_key", gVar.va);
+        contentValues.put("m_value", gVar.um);
+        contentValues.put("saveTime", Long.valueOf(gVar.vc));
+        contentValues.put("lastHitTime", Long.valueOf(gVar.vd));
+        contentValues.put("timeToExpire", Long.valueOf(gVar.ve));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.ti, new String[0]);
+        return sQLiteDatabase.rawQuery("select * from " + this.uP, new String[0]);
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean I(String str) {
-        this.th.y("DROP TABLE IF EXISTS " + this.ti);
+    protected boolean Q(String str) {
+        this.uO.E("DROP TABLE IF EXISTS " + this.uP);
         return true;
     }
 }

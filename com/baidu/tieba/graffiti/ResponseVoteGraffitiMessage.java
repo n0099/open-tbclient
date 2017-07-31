@@ -3,7 +3,7 @@ package com.baidu.tieba.graffiti;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ResponseVoteGraffitiMessage extends JsonHttpResponsedMessage {
@@ -29,7 +29,7 @@ public class ResponseVoteGraffitiMessage extends JsonHttpResponsedMessage {
     public ResponseVoteGraffitiMessage(int i) {
         super(i);
         this.mErrCode = -1;
-        this.mErrMsg = TbadkCoreApplication.m9getInst().getResources().getString(w.l.tb_err_unknown);
+        this.mErrMsg = TbadkCoreApplication.getInst().getResources().getString(d.l.tb_err_unknown);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

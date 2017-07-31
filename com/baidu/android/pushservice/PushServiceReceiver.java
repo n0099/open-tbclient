@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -28,6 +29,7 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.util.concurrent.locks.ReentrantLock;
+@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     private final ReentrantLock a = new ReentrantLock();
@@ -68,6 +70,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         }
 
         @Override // com.baidu.android.pushservice.richmedia.f
+        @SuppressLint({"NewApi"})
         public void a(com.baidu.android.pushservice.richmedia.a aVar, com.baidu.android.pushservice.richmedia.b bVar) {
             String c = aVar.d.c();
             if (bVar.a == bVar.b || this.b == null) {

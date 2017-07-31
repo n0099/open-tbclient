@@ -1,36 +1,64 @@
 package com.baidu.tbadk.plugin;
 
-import android.app.ActivityManager;
-import android.os.Process;
-import com.baidu.adp.base.BdBaseApplication;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.g.e;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tieba.d;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class a implements Runnable {
-    final /* synthetic */ PluginErrorTipActivity aIT;
+public class a {
+    private static Runnable aIn = new Runnable() { // from class: com.baidu.tbadk.plugin.a.1
+        @Override // java.lang.Runnable
+        public void run() {
+            a.GI();
+        }
+    };
+    private static boolean aLv = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(PluginErrorTipActivity pluginErrorTipActivity) {
-        this.aIT = pluginErrorTipActivity;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        HashSet hashSet = new HashSet(10);
-        HashSet hashSet2 = new HashSet(10);
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses();
-        if (runningAppProcesses != null) {
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo != null && runningAppProcessInfo.processName != null && runningAppProcessInfo.processName.startsWith(this.aIT.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
-                    hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
-                }
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void GH() {
+        if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+            e.ga().removeCallbacks(aIn);
+            e.ga().postDelayed(aIn, 120000L);
+            if (!aLv) {
+                aLv = true;
+                String string = TbadkCoreApplication.getInst().getResources().getString(d.l.plugin_tip_installing);
+                NotificationHelper.showNotification(TbadkCoreApplication.getInst().getApplicationContext(), 1000, null, string, string, null, false);
             }
         }
-        Iterator it = hashSet2.iterator();
-        while (it.hasNext()) {
-            Process.killProcess(((Integer) it.next()).intValue());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final void GI() {
+        if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+            aLv = false;
+            e.ga().removeCallbacks(aIn);
+            NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApplicationContext(), 1000);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_COLLECT_GROUPS, new ArrayList()));
         }
-        Process.killProcess(Process.myPid());
+    }
+
+    public static void init() {
+        if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+            e.ga().post(aIn);
+            MessageManager.getInstance().registerListener(new CustomMessageListener(2000993) { // from class: com.baidu.tbadk.plugin.a.2
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.adp.framework.listener.MessageListener
+                public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                    a.GH();
+                }
+            });
+            MessageManager.getInstance().registerListener(new CustomMessageListener(2000988) { // from class: com.baidu.tbadk.plugin.a.3
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.adp.framework.listener.MessageListener
+                public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                    a.GI();
+                }
+            });
+        }
     }
 }

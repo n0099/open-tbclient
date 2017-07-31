@@ -1,21 +1,43 @@
 package com.baidu.tieba.play;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.os.Handler;
+import android.os.Message;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-class j implements a.b {
-    final /* synthetic */ c flr;
-    private final /* synthetic */ String val$url;
+public class j implements SensorEventListener {
+    private WeakReference<Handler> mHandler;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(c cVar, String str) {
-        this.flr = cVar;
-        this.val$url = str;
+    public j(Handler handler) {
+        this.mHandler = new WeakReference<>(handler);
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("video_list_confirm_play_in_mobile_net", System.currentTimeMillis());
-        this.flr.startPlay(this.val$url);
-        aVar.dismiss();
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i) {
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Handler handler;
+        Message obtainMessage;
+        if (sensorEvent != null && sensorEvent.values != null && sensorEvent.values.length >= 3) {
+            float[] fArr = sensorEvent.values;
+            float f = -fArr[0];
+            float f2 = -fArr[1];
+            float f3 = -fArr[2];
+            if ((f * f) + (f2 * f2) >= f3 * f3) {
+                int round = 90 - Math.round(((float) Math.atan2(-f2, f)) * 57.29578f);
+                if (round >= 360) {
+                    round -= 360;
+                }
+                int i = round < 0 ? round + 360 : round;
+                if (this.mHandler != null && this.mHandler.get() != null && (obtainMessage = (handler = this.mHandler.get()).obtainMessage(1)) != null) {
+                    obtainMessage.arg1 = i;
+                    handler.sendMessage(obtainMessage);
+                }
+            }
+        }
     }
 }

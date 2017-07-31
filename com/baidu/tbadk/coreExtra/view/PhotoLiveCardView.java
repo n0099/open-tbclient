@@ -18,81 +18,82 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PhotoLiveCardData;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.util.v;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.card.at;
-import com.baidu.tieba.w;
+import com.baidu.tieba.card.m;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PhotoLiveCardView extends FrameLayout {
-    public int aoa;
-    private TextView avA;
-    private TextView avB;
-    private TextView avC;
-    private TextView avD;
-    private TextView avE;
-    private TextView avF;
-    private LinearLayout avG;
-    private TextView avH;
-    private TextView avI;
-    private TextView avJ;
-    private LinearLayout avK;
-    private TextView avL;
-    private RelativeLayout avM;
-    private TbImageView avN;
-    private TextView avO;
-    private TextView avP;
-    private TextView avQ;
-    private RelativeLayout avR;
-    private TextView avS;
-    private TextView avT;
-    private TextView avU;
-    private TextView avV;
-    private int avW;
-    private ArrayList<Integer> avX;
-    private int avY;
-    private int avZ;
-    private a avh;
-    private b avi;
-    private boolean avj;
-    private boolean avk;
-    private boolean avl;
-    private boolean avm;
-    private boolean avn;
-    private boolean avo;
-    private boolean avp;
-    private boolean avq;
-    private boolean avr;
-    private boolean avs;
-    private boolean avt;
-    private boolean avu;
-    private LinearLayout avv;
-    private View avw;
-    private HeadImageView avx;
-    private FrameLayout avy;
-    private LinearLayout avz;
-    private boolean awa;
-    private boolean awb;
-    private boolean awc;
-    private boolean awd;
-    private int awe;
-    private int awf;
-    private int awg;
-    private int awh;
-    private int awi;
-    private int awj;
-    private int awk;
-    private int awl;
-    private int awm;
-    private int awn;
-    private int awo;
-    private int awp;
-    private int awq;
-    private int awr;
-    private int aws;
-    private String awt;
+    public int aql;
+    private boolean axA;
+    private boolean axB;
+    private boolean axC;
+    private boolean axD;
+    private LinearLayout axE;
+    private View axF;
+    private HeadImageView axG;
+    private FrameLayout axH;
+    private LinearLayout axI;
+    private TextView axJ;
+    private TextView axK;
+    private TextView axL;
+    private TextView axM;
+    private TextView axN;
+    private TextView axO;
+    private LinearLayout axP;
+    private TextView axQ;
+    private TextView axR;
+    private TextView axS;
+    private LinearLayout axT;
+    private TextView axU;
+    private RelativeLayout axV;
+    private TbImageView axW;
+    private TextView axX;
+    private TextView axY;
+    private TextView axZ;
+    private a axq;
+    private b axr;
+    private boolean axs;
+    private boolean axt;
+    private boolean axu;
+    private boolean axv;
+    private boolean axw;
+    private boolean axx;
+    private boolean axy;
+    private boolean axz;
+    private int ayA;
+    private int ayB;
+    private String ayC;
+    private RelativeLayout aya;
+    private TextView ayb;
+    private TextView ayc;
+    private TextView ayd;
+    private TextView aye;
+    private int ayf;
+    private ArrayList<Integer> ayg;
+    private int ayh;
+    private int ayi;
+    private boolean ayj;
+    private boolean ayk;
+    private boolean ayl;
+    private boolean aym;
+    private int ayn;
+    private int ayo;
+    private int ayp;
+    private int ayq;
+    private int ayr;
+    private int ays;
+    private int ayt;
+    private int ayu;
+    private int ayv;
+    private int ayw;
+    private int ayx;
+    private int ayy;
+    private int ayz;
     private Context context;
     private boolean isGod;
     private int padding;
@@ -112,54 +113,54 @@ public class PhotoLiveCardView extends FrameLayout {
 
     public PhotoLiveCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.avj = true;
-        this.avk = true;
-        this.avl = true;
-        this.avm = true;
-        this.avn = true;
-        this.avo = true;
-        this.avp = false;
-        this.avq = false;
-        this.avr = false;
-        this.avs = false;
-        this.avt = false;
-        this.avu = false;
-        this.avW = 0;
-        this.avX = new ArrayList<>();
+        this.axs = true;
+        this.axt = true;
+        this.axu = true;
+        this.axv = true;
+        this.axw = true;
+        this.axx = true;
+        this.axy = false;
+        this.axz = false;
+        this.axA = false;
+        this.axB = false;
+        this.axC = false;
+        this.axD = false;
+        this.ayf = 0;
+        this.ayg = new ArrayList<>();
         this.paddingBottom = 0;
         this.paddingTop = 0;
-        this.avY = 0;
-        this.avZ = 0;
-        this.awa = false;
-        this.awb = true;
-        this.awc = false;
-        this.awd = false;
+        this.ayh = 0;
+        this.ayi = 0;
+        this.ayj = false;
+        this.ayk = true;
+        this.ayl = false;
+        this.aym = false;
         this.isGod = false;
-        this.aoa = 3;
+        this.aql = 3;
         this.padding = 0;
-        this.awe = 0;
-        this.awf = 0;
-        this.awg = 0;
-        this.awh = 0;
-        this.awt = "";
+        this.ayn = 0;
+        this.ayo = 0;
+        this.ayp = 0;
+        this.ayq = 0;
+        this.ayC = "";
         this.context = context;
-        this.padding = (int) context.getResources().getDimension(w.f.ds24);
-        this.awf = (int) context.getResources().getDimension(w.f.ds100);
-        this.awe = (int) context.getResources().getDimension(w.f.ds70);
-        this.awg = (int) context.getResources().getDimension(w.f.ds18);
-        this.awh = (int) context.getResources().getDimension(w.f.ds4);
-        this.awi = (int) context.getResources().getDimension(w.f.ds80);
-        this.awj = (int) context.getResources().getDimension(w.f.ds280);
-        this.awk = (int) context.getResources().getDimension(w.f.ds170);
-        this.awl = (int) context.getResources().getDimension(w.f.ds320);
-        this.awm = (int) context.getResources().getDimension(w.f.ds200);
-        this.awn = (int) context.getResources().getDimension(w.f.ds60);
-        this.awo = (int) context.getResources().getDimension(w.f.ds120);
-        this.awp = (int) context.getResources().getDimension(w.f.ds160);
-        this.awq = (int) context.getResources().getDimension(w.f.ds220);
-        this.awr = (int) context.getResources().getDimension(w.f.ds240);
-        this.aws = (int) context.getResources().getDimension(w.f.ds180);
-        this.size = (int) context.getResources().getDimension(w.f.ds8);
+        this.padding = (int) context.getResources().getDimension(d.f.ds24);
+        this.ayo = (int) context.getResources().getDimension(d.f.ds100);
+        this.ayn = (int) context.getResources().getDimension(d.f.ds70);
+        this.ayp = (int) context.getResources().getDimension(d.f.ds18);
+        this.ayq = (int) context.getResources().getDimension(d.f.ds4);
+        this.ayr = (int) context.getResources().getDimension(d.f.ds80);
+        this.ays = (int) context.getResources().getDimension(d.f.ds280);
+        this.ayt = (int) context.getResources().getDimension(d.f.ds170);
+        this.ayu = (int) context.getResources().getDimension(d.f.ds320);
+        this.ayv = (int) context.getResources().getDimension(d.f.ds200);
+        this.ayw = (int) context.getResources().getDimension(d.f.ds60);
+        this.ayx = (int) context.getResources().getDimension(d.f.ds120);
+        this.ayy = (int) context.getResources().getDimension(d.f.ds160);
+        this.ayz = (int) context.getResources().getDimension(d.f.ds220);
+        this.ayA = (int) context.getResources().getDimension(d.f.ds240);
+        this.ayB = (int) context.getResources().getDimension(d.f.ds180);
+        this.size = (int) context.getResources().getDimension(d.f.ds8);
         init(context);
     }
 
@@ -172,28 +173,28 @@ public class PhotoLiveCardView extends FrameLayout {
     }
 
     private void init(Context context) {
-        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(w.j.photo_live_card_view, this);
-        this.avv = (LinearLayout) inflate.findViewById(w.h.pl_card_root);
-        this.avw = inflate.findViewById(w.h.author_info);
-        this.avG = (LinearLayout) inflate.findViewById(w.h.photo_live_card_title);
-        this.avK = (LinearLayout) inflate.findViewById(w.h.photo_live_card_content);
-        this.avM = (RelativeLayout) inflate.findViewById(w.h.photo_live_card_cover_and_expression);
-        this.avR = (RelativeLayout) inflate.findViewById(w.h.photo_live_card_bottom);
-        Bc();
-        Bd();
-        Be();
-        Bg();
-        Bf();
+        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(d.j.photo_live_card_view, this);
+        this.axE = (LinearLayout) inflate.findViewById(d.h.pl_card_root);
+        this.axF = inflate.findViewById(d.h.author_info);
+        this.axP = (LinearLayout) inflate.findViewById(d.h.photo_live_card_title);
+        this.axT = (LinearLayout) inflate.findViewById(d.h.photo_live_card_content);
+        this.axV = (RelativeLayout) inflate.findViewById(d.h.photo_live_card_cover_and_expression);
+        this.aya = (RelativeLayout) inflate.findViewById(d.h.photo_live_card_bottom);
+        Bv();
+        Bw();
+        Bx();
+        Bz();
+        By();
     }
 
     public void setData(PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
             setIsGod(photoLiveCardData);
-            c(this.avj, photoLiveCardData);
-            b(this.avk, this.avp, photoLiveCardData);
-            b(this.avl, photoLiveCardData);
-            a(this.avm, this.avn, photoLiveCardData);
-            a(this.avo, photoLiveCardData);
+            c(this.axs, photoLiveCardData);
+            b(this.axt, this.axy, photoLiveCardData);
+            b(this.axu, photoLiveCardData);
+            a(this.axv, this.axw, photoLiveCardData);
+            a(this.axx, photoLiveCardData);
         }
     }
 
@@ -207,18 +208,18 @@ public class PhotoLiveCardView extends FrameLayout {
 
     private void a(boolean z, boolean z2, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
-            if (z && this.awb) {
+            if (z && this.ayk) {
                 if (this.paddingBottom != 0) {
-                    this.avM.setPadding(this.padding, 0, this.padding, (int) this.context.getResources().getDimension(this.paddingBottom));
+                    this.axV.setPadding(this.padding, 0, this.padding, (int) this.context.getResources().getDimension(this.paddingBottom));
                     this.paddingBottom = 0;
                 } else {
-                    this.avM.setPadding(this.padding, 0, this.padding, 0);
+                    this.axV.setPadding(this.padding, 0, this.padding, 0);
                 }
-                this.avM.setVisibility(0);
+                this.axV.setVisibility(0);
                 setCover(photoLiveCardData.getPhotoLiveCover());
                 setExpression(photoLiveCardData);
-            } else if (this.avM != null) {
-                this.avM.setVisibility(8);
+            } else if (this.axV != null) {
+                this.axV.setVisibility(8);
             }
         }
     }
@@ -226,69 +227,69 @@ public class PhotoLiveCardView extends FrameLayout {
     private void a(boolean z, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
             if (z) {
-                this.avR.setVisibility(0);
+                this.aya.setVisibility(0);
                 setBaName(photoLiveCardData.getForumName());
-                n(photoLiveCardData.buildRefreshTimeWithoutPostNum(), this.avq);
-                i(photoLiveCardData.getDiscussNum(), this.avt);
+                n(photoLiveCardData.buildRefreshTimeWithoutPostNum(), this.axz);
+                j(photoLiveCardData.getDiscussNum(), this.axC);
                 return;
             }
-            this.avR.setVisibility(8);
+            this.aya.setVisibility(8);
         }
     }
 
     private void b(boolean z, boolean z2, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
             if (z) {
-                this.avG.setVisibility(0);
-                if (this.avZ != 0) {
-                    this.avH.setMaxLines(this.avZ);
+                this.axP.setVisibility(0);
+                if (this.ayi != 0) {
+                    this.axQ.setMaxLines(this.ayi);
                 } else {
-                    this.avH.setMaxLines(2);
+                    this.axQ.setMaxLines(2);
                 }
                 setTitle(photoLiveCardData.getTitle());
                 m(photoLiveCardData.buildRefreshTimeWithPostNum(), z2);
                 setDeleteButtonVisibility(photoLiveCardData);
-                a(this.avH, photoLiveCardData.getThreadId());
+                a(this.axQ, photoLiveCardData.getThreadId());
                 return;
             }
-            this.avG.setVisibility(8);
+            this.axP.setVisibility(8);
         }
     }
 
     private void setDeleteButtonVisibility(PhotoLiveCardData photoLiveCardData) {
-        if (this.avu) {
-            this.avJ.setVisibility(0);
-            this.avJ.setTag(photoLiveCardData);
+        if (this.axD) {
+            this.axS.setVisibility(0);
+            this.axS.setTag(photoLiveCardData);
             return;
         }
-        this.avJ.setVisibility(8);
+        this.axS.setVisibility(8);
     }
 
     private void b(boolean z, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
             if (z) {
-                this.avK.setVisibility(0);
+                this.axT.setVisibility(0);
                 if (this.paddingBottom != 0) {
-                    this.avK.setPadding(this.padding, 0, this.padding, (int) this.context.getResources().getDimension(this.paddingBottom));
+                    this.axT.setPadding(this.padding, 0, this.padding, (int) this.context.getResources().getDimension(this.paddingBottom));
                     this.paddingBottom = 0;
                 } else {
-                    this.avK.setPadding(this.padding, 0, this.padding, 0);
+                    this.axT.setPadding(this.padding, 0, this.padding, 0);
                 }
                 setContent(photoLiveCardData.getContent());
-                a(this.avL, photoLiveCardData.getThreadId());
+                a(this.axU, photoLiveCardData.getThreadId());
                 return;
             }
-            this.avK.setVisibility(8);
+            this.axT.setVisibility(8);
         }
     }
 
     private void a(TextView textView, long j) {
-        if (textView != null && this.awc) {
-            com.baidu.tieba.tbadkCore.util.r readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.ru(String.valueOf(j))) {
-                as.c(textView, w.e.cp_cont_c, 1);
+        if (textView != null && this.ayl) {
+            com.baidu.tieba.tbadkCore.util.f readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            if (readThreadHistory != null && readThreadHistory.sl(String.valueOf(j))) {
+                ai.c(textView, d.e.cp_cont_c, 1);
             } else {
-                as.c(textView, w.e.cp_cont_b, 1);
+                ai.c(textView, d.e.cp_cont_b, 1);
             }
         }
     }
@@ -296,43 +297,43 @@ public class PhotoLiveCardView extends FrameLayout {
     private void c(boolean z, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
             if (z) {
-                this.avw.setVisibility(0);
+                this.axF.setVisibility(0);
                 if (this.paddingTop != 0) {
-                    this.avw.setPadding(0, (int) this.context.getResources().getDimension(this.paddingTop), 0, 0);
+                    this.axF.setPadding(0, (int) this.context.getResources().getDimension(this.paddingTop), 0, 0);
                 } else {
-                    this.avw.setPadding(0, 0, 0, 0);
+                    this.axF.setPadding(0, 0, 0, 0);
                 }
-                ViewGroup.LayoutParams layoutParams = this.avx.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.axG.getLayoutParams();
                 if (this.isGod) {
                     if (layoutParams != null) {
-                        layoutParams.height = this.awf;
-                        layoutParams.width = this.awf;
+                        layoutParams.height = this.ayo;
+                        layoutParams.width = this.ayo;
                     }
-                    if (this.avV == null) {
-                        this.avV = new TextView(this.context);
-                        this.avV.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
-                        this.avV.setEllipsize(TextUtils.TruncateAt.END);
-                        this.avV.setTextSize(0, this.awg);
-                        as.i(this.avV, w.e.cp_cont_h);
-                        as.j(this.avV, w.g.icon_shen);
-                        this.avV.setSingleLine(true);
-                        this.avz.addView(this.avV);
+                    if (this.aye == null) {
+                        this.aye = new TextView(this.context);
+                        this.aye.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
+                        this.aye.setEllipsize(TextUtils.TruncateAt.END);
+                        this.aye.setTextSize(0, this.ayp);
+                        ai.i(this.aye, d.e.cp_cont_h);
+                        ai.j(this.aye, d.g.icon_shen);
+                        this.aye.setSingleLine(true);
+                        this.axI.addView(this.aye);
                     }
                     if (photoLiveCardData.getGodInfo() == null || StringUtils.isNull(photoLiveCardData.getGodInfo().intro)) {
-                        this.avV.setText(w.l.god_intro_default);
+                        this.aye.setText(d.l.god_intro_default);
                     } else {
-                        this.avV.setText(photoLiveCardData.getGodInfo().intro);
+                        this.aye.setText(photoLiveCardData.getGodInfo().intro);
                     }
                 } else {
-                    this.avz.removeView(this.avV);
-                    this.avV = null;
+                    this.axI.removeView(this.aye);
+                    this.aye = null;
                     if (layoutParams != null) {
-                        layoutParams.height = this.awe;
-                        layoutParams.width = this.awe;
+                        layoutParams.height = this.ayn;
+                        layoutParams.width = this.ayn;
                     }
                 }
-                this.avx.setTag(photoLiveCardData);
-                eZ(photoLiveCardData.getAuthorPortrait());
+                this.axG.setTag(photoLiveCardData);
+                fj(photoLiveCardData.getAuthorPortrait());
                 setUserName(photoLiveCardData.getAuthorName());
                 setNickName(photoLiveCardData.getNickName());
                 setFansNum(photoLiveCardData.getFansNum());
@@ -342,83 +343,97 @@ public class PhotoLiveCardView extends FrameLayout {
                 setPortraitBackground(photoLiveCardData.isHeadLive());
                 return;
             }
-            this.avz.removeView(this.avV);
-            this.avw.setVisibility(8);
+            this.axI.removeView(this.aye);
+            this.axF.setVisibility(8);
         }
     }
 
     public void setPortraitBackground(boolean z) {
         if (z) {
-            this.avx.setPadding(this.awh, this.awh, this.awh, this.awh);
+            this.axG.setPadding(this.ayq, this.ayq, this.ayq, this.ayq);
             if (this.isGod) {
-                this.avy.setBackgroundDrawable(as.getDrawable(w.g.pic_bg_jinbian));
+                this.axH.setBackgroundDrawable(ai.getDrawable(d.g.pic_bg_jinbian));
                 return;
             } else {
-                this.avy.setBackgroundDrawable(as.getDrawable(w.g.frs_touxiang_jinkuan));
+                this.axH.setBackgroundDrawable(ai.getDrawable(d.g.frs_touxiang_jinkuan));
                 return;
             }
         }
-        this.avy.setBackgroundDrawable(null);
-        this.avx.setPadding(0, 0, 0, 0);
+        this.axH.setBackgroundDrawable(null);
+        this.axG.setPadding(0, 0, 0, 0);
     }
 
-    private void Bc() {
-        if (this.avw != null) {
-            this.avx = (HeadImageView) this.avw.findViewById(w.h.author_portrait);
-            this.avy = (FrameLayout) this.avw.findViewById(w.h.author_portrait_info);
-            this.avA = (TextView) this.avw.findViewById(w.h.author_name);
-            this.avB = (TextView) this.avw.findViewById(w.h.nick_name);
-            this.avC = (TextView) this.avw.findViewById(w.h.fans_num);
-            this.avD = (TextView) this.avw.findViewById(w.h.reply_num);
-            this.avE = (TextView) this.avw.findViewById(w.h.headlive_icon);
-            this.avF = (TextView) this.avw.findViewById(w.h.refresh_time_in_head);
-            this.avz = (LinearLayout) this.avw.findViewById(w.h.author_info_and_time);
-            this.avx.setOnClickListener(new s(this));
+    private void Bv() {
+        if (this.axF != null) {
+            this.axG = (HeadImageView) this.axF.findViewById(d.h.author_portrait);
+            this.axH = (FrameLayout) this.axF.findViewById(d.h.author_portrait_info);
+            this.axJ = (TextView) this.axF.findViewById(d.h.author_name);
+            this.axK = (TextView) this.axF.findViewById(d.h.nick_name);
+            this.axL = (TextView) this.axF.findViewById(d.h.fans_num);
+            this.axM = (TextView) this.axF.findViewById(d.h.reply_num);
+            this.axN = (TextView) this.axF.findViewById(d.h.headlive_icon);
+            this.axO = (TextView) this.axF.findViewById(d.h.refresh_time_in_head);
+            this.axI = (LinearLayout) this.axF.findViewById(d.h.author_info_and_time);
+            this.axG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.PhotoLiveCardView.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    if (PhotoLiveCardView.this.axr != null) {
+                        PhotoLiveCardView.this.axr.onPortraitClick(view);
+                    }
+                }
+            });
         }
     }
 
-    private void Bd() {
-        if (this.avG != null) {
-            this.avH = (TextView) this.avG.findViewById(w.h.title);
-            this.avI = (TextView) findViewById(w.h.refresh_time_in_title);
-            this.avJ = (TextView) this.avG.findViewById(w.h.card_delete_in_title);
-            this.avJ.setOnClickListener(new t(this));
+    private void Bw() {
+        if (this.axP != null) {
+            this.axQ = (TextView) this.axP.findViewById(d.h.title);
+            this.axR = (TextView) findViewById(d.h.refresh_time_in_title);
+            this.axS = (TextView) this.axP.findViewById(d.h.card_delete_in_title);
+            this.axS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.PhotoLiveCardView.2
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    if (PhotoLiveCardView.this.axq != null) {
+                        PhotoLiveCardView.this.axq.onDeleteClick(view);
+                    }
+                }
+            });
         }
     }
 
-    private void Be() {
-        if (this.avK != null) {
-            this.avL = (TextView) this.avK.findViewById(w.h.content);
+    private void Bx() {
+        if (this.axT != null) {
+            this.axU = (TextView) this.axT.findViewById(d.h.content);
         }
     }
 
-    private void Bf() {
-        if (this.avR != null) {
-            this.avS = (TextView) this.avR.findViewById(w.h.ba_name);
-            this.avT = (TextView) this.avR.findViewById(w.h.bottom_refresh_time);
-            this.avU = (TextView) this.avR.findViewById(w.h.bottom_reply_num);
+    private void By() {
+        if (this.aya != null) {
+            this.ayb = (TextView) this.aya.findViewById(d.h.ba_name);
+            this.ayc = (TextView) this.aya.findViewById(d.h.bottom_refresh_time);
+            this.ayd = (TextView) this.aya.findViewById(d.h.bottom_reply_num);
         }
     }
 
-    private void Bg() {
-        if (this.avM != null) {
-            this.avN = (TbImageView) this.avM.findViewById(w.h.live_cover);
-            this.avN.setGifIconSupport(false);
-            Bh();
+    private void Bz() {
+        if (this.axV != null) {
+            this.axW = (TbImageView) this.axV.findViewById(d.h.live_cover);
+            this.axW.setGifIconSupport(false);
+            BA();
         }
     }
 
-    private void Bh() {
-        if (this.avM != null) {
-            this.avO = (TextView) this.avM.findViewById(w.h.first_style_first_expression);
-            this.avP = (TextView) this.avM.findViewById(w.h.first_style_second_expression);
-            this.avQ = (TextView) this.avM.findViewById(w.h.first_style_third_expression);
+    private void BA() {
+        if (this.axV != null) {
+            this.axX = (TextView) this.axV.findViewById(d.h.first_style_first_expression);
+            this.axY = (TextView) this.axV.findViewById(d.h.first_style_second_expression);
+            this.axZ = (TextView) this.axV.findViewById(d.h.first_style_third_expression);
         }
     }
 
     private void setExpression(PhotoLiveCardData photoLiveCardData) {
-        this.avX.clear();
-        Bj();
+        this.ayg.clear();
+        BC();
         if (photoLiveCardData != null && photoLiveCardData.getExpressionDatas() != null) {
             int size = photoLiveCardData.getExpressionDatas().size();
             for (int i = 0; i < size && i < 3; i++) {
@@ -427,52 +442,52 @@ public class PhotoLiveCardView extends FrameLayout {
                     a(intValue, photoLiveCardData.getExpressionDatas(), i);
                 }
             }
-            Bi();
+            BB();
         }
     }
 
-    private void Bi() {
-        if (this.avX.size() != 0) {
-            int size = this.avX.size();
+    private void BB() {
+        if (this.ayg.size() != 0) {
+            int size = this.ayg.size();
             for (int i = 0; i < size; i++) {
-                if (this.avX.get(i).intValue() == this.avO.getId()) {
-                    this.avO.setVisibility(8);
-                } else if (this.avX.get(i).intValue() == this.avP.getId()) {
-                    this.avP.setVisibility(8);
-                } else if (this.avX.get(i).intValue() == this.avQ.getId()) {
-                    this.avQ.setVisibility(8);
+                if (this.ayg.get(i).intValue() == this.axX.getId()) {
+                    this.axX.setVisibility(8);
+                } else if (this.ayg.get(i).intValue() == this.axY.getId()) {
+                    this.axY.setVisibility(8);
+                } else if (this.ayg.get(i).intValue() == this.axZ.getId()) {
+                    this.axZ.setVisibility(8);
                 }
             }
         }
     }
 
-    private void Bj() {
-        this.avO.setText("");
-        this.avP.setText("");
-        this.avQ.setText("");
-        if (this.avO.getVisibility() == 8) {
-            this.avO.setVisibility(0);
+    private void BC() {
+        this.axX.setText("");
+        this.axY.setText("");
+        this.axZ.setText("");
+        if (this.axX.getVisibility() == 8) {
+            this.axX.setVisibility(0);
         }
-        if (this.avP.getVisibility() == 8) {
-            this.avP.setVisibility(0);
+        if (this.axY.getVisibility() == 8) {
+            this.axY.setVisibility(0);
         }
-        if (this.avQ.getVisibility() == 8) {
-            this.avQ.setVisibility(0);
+        if (this.axZ.getVisibility() == 8) {
+            this.axZ.setVisibility(0);
         }
-        this.avX.add(Integer.valueOf(this.avO.getId()));
-        this.avX.add(Integer.valueOf(this.avP.getId()));
-        this.avX.add(Integer.valueOf(this.avQ.getId()));
+        this.ayg.add(Integer.valueOf(this.axX.getId()));
+        this.ayg.add(Integer.valueOf(this.axY.getId()));
+        this.ayg.add(Integer.valueOf(this.axZ.getId()));
     }
 
-    private void a(n nVar, TextView textView) {
-        if (nVar != null && textView != null) {
-            if (!a(nVar)) {
+    private void a(e eVar, TextView textView) {
+        if (eVar != null && textView != null) {
+            if (!a(eVar)) {
                 textView.setVisibility(8);
                 return;
             }
             textView.setVisibility(0);
-            textView.setText(nVar.ai(nVar.getLabelName(), String.valueOf(nVar.AV())));
-            ej(textView.getId());
+            textView.setText(eVar.ai(eVar.getLabelName(), String.valueOf(eVar.Bo())));
+            en(textView.getId());
         }
     }
 
@@ -484,166 +499,166 @@ public class PhotoLiveCardView extends FrameLayout {
         }
     }
 
-    private void a(int i, ArrayList<n> arrayList, int i2) {
+    private void a(int i, ArrayList<e> arrayList, int i2) {
         if (i >= 0 && i < 3) {
-            switch (this.avW) {
+            switch (this.ayf) {
                 case 0:
-                    a(this.awi, this.awj, this.avO);
-                    a(this.awk, this.awl, this.avP);
-                    a(this.awm, this.awn, this.avQ);
+                    a(this.ayr, this.ays, this.axX);
+                    a(this.ayt, this.ayu, this.axY);
+                    a(this.ayv, this.ayw, this.axZ);
                     break;
                 case 1:
-                    a(this.awn, this.awo, this.avO);
-                    a(this.awp, this.awn, this.avP);
-                    a(this.awq, this.awl, this.avQ);
+                    a(this.ayw, this.ayx, this.axX);
+                    a(this.ayy, this.ayw, this.axY);
+                    a(this.ayz, this.ayu, this.axZ);
                     break;
                 case 2:
-                    a(this.awn, this.awr, this.avO);
-                    a(this.aws, this.awn, this.avP);
-                    a(this.awq, this.awl, this.avQ);
+                    a(this.ayw, this.ayA, this.axX);
+                    a(this.ayB, this.ayw, this.axY);
+                    a(this.ayz, this.ayu, this.axZ);
                     break;
             }
             if (i == 0) {
-                a(arrayList.get(i2), this.avO);
+                a(arrayList.get(i2), this.axX);
             } else if (i == 1) {
-                a(arrayList.get(i2), this.avP);
+                a(arrayList.get(i2), this.axY);
             } else if (i == 2) {
-                a(arrayList.get(i2), this.avQ);
+                a(arrayList.get(i2), this.axZ);
             }
         }
     }
 
-    private void ej(int i) {
-        if (this.avX.size() != 0) {
-            int size = this.avX.size();
+    private void en(int i) {
+        if (this.ayg.size() != 0) {
+            int size = this.ayg.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.avX.get(i2).intValue() == i) {
-                    this.avX.remove(i2);
+                if (this.ayg.get(i2).intValue() == i) {
+                    this.ayg.remove(i2);
                     return;
                 }
             }
         }
     }
 
-    private boolean a(n nVar) {
-        return (nVar == null || StringUtils.isNull(nVar.getLabelName())) ? false : true;
+    private boolean a(e eVar) {
+        return (eVar == null || StringUtils.isNull(eVar.getLabelName())) ? false : true;
     }
 
     private void setCover(String str) {
-        this.avN.setVisibility(0);
+        this.axW.setVisibility(0);
         if (!TextUtils.isEmpty(str)) {
-            this.avN.c(str, 10, false);
+            this.axW.c(str, 10, false);
         } else {
-            this.avN.c(null, 10, false);
+            this.axW.c(null, 10, false);
         }
     }
 
     private void setBaName(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.avS.setText("");
+            this.ayb.setText("");
             return;
         }
         String trim = str.trim();
-        this.avS.setVisibility(0);
-        if (com.baidu.tbadk.util.y.gI(trim) > 12) {
-            trim = String.valueOf(com.baidu.tbadk.util.y.d(trim, 0, 12)) + "...";
+        this.ayb.setVisibility(0);
+        if (v.gT(trim) > 12) {
+            trim = v.d(trim, 0, 12) + "...";
         }
-        this.avS.setText(String.valueOf(trim) + TbadkCoreApplication.m9getInst().getResources().getString(w.l.bar));
+        this.ayb.setText(trim + TbadkCoreApplication.getInst().getResources().getString(d.l.bar));
     }
 
     private void setContent(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.avL.setText("");
-            this.avL.setVisibility(8);
+            this.axU.setText("");
+            this.axU.setVisibility(8);
             return;
         }
-        this.avL.setVisibility(0);
-        this.avL.setText(str);
+        this.axU.setVisibility(0);
+        this.axU.setText(str);
     }
 
     private void setTitle(String str) {
-        this.awt = str;
-        if (this.avY != 0) {
-            this.avH.setPadding(0, 0, (int) this.context.getResources().getDimension(this.avY), 0);
-            this.avY = 0;
+        this.ayC = str;
+        if (this.ayh != 0) {
+            this.axQ.setPadding(0, 0, (int) this.context.getResources().getDimension(this.ayh), 0);
+            this.ayh = 0;
         } else {
-            this.avH.setPadding(0, 0, 0, 0);
+            this.axQ.setPadding(0, 0, 0, 0);
         }
         if (TextUtils.isEmpty(str)) {
-            this.avH.setText("");
+            this.axQ.setText("");
             return;
         }
-        this.avH.setVisibility(0);
-        if (this.awa) {
-            if (this.awd) {
-                this.avH.setText(at.c(this.context, str, w.l.photo_live_tips));
+        this.axQ.setVisibility(0);
+        if (this.ayj) {
+            if (this.aym) {
+                this.axQ.setText(m.c(this.context, str, d.l.photo_live_tips));
                 return;
             } else {
-                this.avH.setText(e(str));
+                this.axQ.setText(e(str));
                 return;
             }
         }
-        this.avH.setText(str);
+        this.axQ.setText(str);
     }
 
     public static SpannableStringBuilder e(CharSequence charSequence) {
         if (charSequence == null || charSequence.length() == 0) {
             return null;
         }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf("live") + "space" + ((Object) charSequence));
-        Bitmap cO = as.cO(w.g.icon_zhibo);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cO);
-        int height = cO.getHeight();
-        bitmapDrawable.setBounds(0, 0, cO.getWidth(), height);
-        spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), 0, "live".length(), 33);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("livespace" + ((Object) charSequence));
+        Bitmap cS = ai.cS(d.g.icon_zhibo);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cS);
+        int height = cS.getHeight();
+        bitmapDrawable.setBounds(0, 0, cS.getWidth(), height);
+        spannableStringBuilder.setSpan(new com.baidu.adp.widget.b(bitmapDrawable, 1), 0, "live".length(), 33);
         ColorDrawable colorDrawable = new ColorDrawable();
         colorDrawable.setBounds(0, 0, 10, height);
-        spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(colorDrawable, 1), 1, "live".length() + "space".length(), 33);
+        spannableStringBuilder.setSpan(new com.baidu.adp.widget.b(colorDrawable, 1), 1, "live".length() + "space".length(), 33);
         return spannableStringBuilder;
     }
 
-    private void eZ(String str) {
+    private void fj(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.avx.c(str, 12, false);
+            this.axG.c(str, 12, false);
         } else {
-            this.avx.c(null, 12, false);
+            this.axG.c(null, 12, false);
         }
     }
 
     private void setUserName(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.avA.setText("");
+            this.axJ.setText("");
             return;
         }
-        this.avA.setVisibility(0);
+        this.axJ.setVisibility(0);
         String trim = str.trim();
-        if (com.baidu.tbadk.util.y.gI(trim) > 14) {
-            trim = String.valueOf(com.baidu.tbadk.util.y.d(trim, 0, 14)) + "...";
+        if (v.gT(trim) > 14) {
+            trim = v.d(trim, 0, 14) + "...";
         }
-        this.avA.setText(trim);
+        this.axJ.setText(trim);
     }
 
     private void setNickName(String str) {
         if (TextUtils.isEmpty(str)) {
-            b(this.avB, this.context.getResources().getString(w.l.fans_default_name));
+            b(this.axK, this.context.getResources().getString(d.l.fans_default_name));
         } else {
-            b(this.avB, str);
+            b(this.axK, str);
         }
     }
 
     private void b(TextView textView, String str) {
         textView.setText(str);
-        Drawable drawable = as.getDrawable(w.g.icon_fengsi_n);
+        Drawable drawable = ai.getDrawable(d.g.icon_fengsi_n);
         drawable.setBounds(0, 0, this.size, this.size);
         textView.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
     private void setFansNum(int i) {
-        this.avC.setText(aw.y(i));
+        this.axL.setText(al.z(i));
     }
 
     private void setReplyNum(int i) {
-        b(this.avD, i);
+        b(this.axM, i);
     }
 
     private void b(TextView textView, long j) {
@@ -652,124 +667,124 @@ public class PhotoLiveCardView extends FrameLayout {
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             return;
         }
-        textView.setText(aw.y(j));
-        Drawable drawable = as.getDrawable(w.g.icon_comment_n);
+        textView.setText(al.z(j));
+        Drawable drawable = ai.getDrawable(d.g.icon_comment_n);
         drawable.setBounds(0, 0, this.size, this.size);
         textView.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
-    private void i(int i, boolean z) {
+    private void j(int i, boolean z) {
         if (z) {
-            this.avU.setVisibility(0);
-            b(this.avU, i);
+            this.ayd.setVisibility(0);
+            b(this.ayd, i);
             return;
         }
-        this.avU.setVisibility(8);
+        this.ayd.setVisibility(8);
     }
 
     private void setHeadLiveIconInHead(boolean z) {
-        if (z && this.avs) {
-            this.avE.setVisibility(0);
-            as.j(this.avE, w.g.label_onthelist);
+        if (z && this.axB) {
+            this.axN.setVisibility(0);
+            ai.j(this.axN, d.g.label_onthelist);
             return;
         }
-        this.avE.setVisibility(8);
+        this.axN.setVisibility(8);
     }
 
     private void setRefreshTimeInHead(String str) {
-        if (this.avr) {
-            this.avF.setVisibility(0);
-            this.avF.setText(str);
+        if (this.axA) {
+            this.axO.setVisibility(0);
+            this.axO.setText(str);
             return;
         }
-        this.avF.setVisibility(8);
-        this.avF.setText("");
+        this.axO.setVisibility(8);
+        this.axO.setText("");
     }
 
     private void m(String str, boolean z) {
         if (!z) {
-            this.avI.setVisibility(8);
+            this.axR.setVisibility(8);
             return;
         }
-        this.avI.setVisibility(0);
-        this.avI.setText(str);
+        this.axR.setVisibility(0);
+        this.axR.setText(str);
     }
 
     private void n(String str, boolean z) {
         if (!z) {
-            this.avT.setVisibility(8);
+            this.ayc.setVisibility(8);
             return;
         }
-        this.avT.setVisibility(0);
-        this.avT.setText(str);
+        this.ayc.setVisibility(0);
+        this.ayc.setText(str);
     }
 
     public void setShowHead(boolean z) {
-        this.avj = z;
+        this.axs = z;
     }
 
     public void setShowTitle(boolean z) {
-        this.avk = z;
+        this.axt = z;
     }
 
     public void setShowRefreshTimeInTitle(boolean z) {
-        this.avp = z;
+        this.axy = z;
     }
 
     public void setShowContent(boolean z) {
-        this.avl = z;
+        this.axu = z;
     }
 
     public void setShowCover(boolean z) {
-        this.avm = z;
+        this.axv = z;
     }
 
     public void setShowExpression(boolean z) {
-        this.avn = z;
+        this.axw = z;
     }
 
     public void setShowBottom(boolean z) {
-        this.avo = z;
+        this.axx = z;
     }
 
     public void setShowRefreshTimeInHead(boolean z) {
-        this.avr = z;
+        this.axA = z;
     }
 
     public void setShowHeadLiveIcon(boolean z) {
-        this.avs = z;
+        this.axB = z;
     }
 
     public void setShowReplyNumInButtom(boolean z) {
-        this.avt = z;
+        this.axC = z;
     }
 
     public void setShowDeleteButtonInTitle(boolean z) {
-        this.avu = z;
+        this.axD = z;
     }
 
     public void setChooseStyle(int i) {
-        this.avW = i;
+        this.ayf = i;
     }
 
     public int getShowStyle() {
-        return this.avW;
+        return this.ayf;
     }
 
     public void setShowLiveIcon(boolean z) {
-        this.awa = z;
+        this.ayj = z;
     }
 
     public void setDeleteButtonClickListener(a aVar) {
-        this.avh = aVar;
+        this.axq = aVar;
     }
 
     public void setPortraitClicklistener(b bVar) {
-        this.avi = bVar;
+        this.axr = bVar;
     }
 
     public void setParentBackground(int i) {
-        as.j(this.avv, i);
+        ai.j(this.axE, i);
     }
 
     public void setContentPaddingBottom(int i) {
@@ -781,26 +796,26 @@ public class PhotoLiveCardView extends FrameLayout {
     }
 
     public void setShowImage(boolean z) {
-        this.awb = z;
+        this.ayk = z;
     }
 
     public void setShowRefreshTimeInButtom(boolean z) {
-        this.avq = z;
+        this.axz = z;
     }
 
     public void setTitlePaddingRight(int i) {
-        this.avY = i;
+        this.ayh = i;
     }
 
     public void setTitleMaxLines(int i) {
-        this.avZ = i;
+        this.ayi = i;
     }
 
     public void setAllowGreyState(boolean z) {
-        this.awc = z;
+        this.ayl = z;
     }
 
-    public void bn(boolean z) {
-        this.awd = z;
+    public void bp(boolean z) {
+        this.aym = z;
     }
 }

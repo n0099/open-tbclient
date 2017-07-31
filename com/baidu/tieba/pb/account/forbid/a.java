@@ -1,42 +1,96 @@
 package com.baidu.tieba.pb.account.forbid;
 
-import android.view.View;
-import android.widget.RadioGroup;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.pb.account.forbid.ForbidActivity;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.w;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-class a implements View.OnClickListener {
-    final /* synthetic */ ForbidActivity epE;
+public class a {
+    private static final String eCg = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(ForbidActivity forbidActivity) {
-        this.epE = forbidActivity;
+    /* loaded from: classes.dex */
+    public interface b {
+        void a(ForbidResultData forbidResultData);
+
+        void b(ForbidResultData forbidResultData);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ForbidActivity.a aVar;
-        ForbidActivity.a aVar2;
-        RadioGroup radioGroup;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        ForbidActivity.a aVar3;
-        aVar = this.epE.epC;
-        if (aVar != null) {
-            aVar2 = this.epE.epC;
-            if (!aw.isEmpty(aVar2.aLX())) {
-                ForbidActivity forbidActivity = this.epE;
-                radioGroup = this.epE.epy;
-                str = this.epE.mForumId;
-                str2 = this.epE.mForumName;
-                str3 = this.epE.mThreadId;
-                str4 = this.epE.mUserName;
-                str5 = this.epE.mPostId;
-                aVar3 = this.epE.epC;
-                f.a(str, str2, str3, str4, str5, (String) forbidActivity.findViewById(radioGroup.getCheckedRadioButtonId()).getTag(), aVar3.aLX(), new b(this));
+    public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, b bVar) {
+        new C0108a(str, str2, str3, str4, str5, str6, str7, bVar).execute(new String[0]);
+    }
+
+    /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    private static class C0108a extends BdAsyncTask<String, Object, ForbidResultData> {
+        private String Cf;
+        private WeakReference<b> aXN;
+        private String eCh;
+        private String mForumId;
+        private String mForumName;
+        private String mPostId;
+        private String mThreadId;
+        private String mUserName;
+
+        public C0108a(String str, String str2, String str3, String str4, String str5, String str6, String str7, b bVar) {
+            this.mForumId = str;
+            this.mForumName = str2;
+            this.mThreadId = str3;
+            this.mUserName = str4;
+            this.eCh = str6;
+            this.Cf = str7;
+            this.mPostId = str5;
+            this.aXN = new WeakReference<>(bVar);
+            setPriority(3);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: y */
+        public ForbidResultData doInBackground(String... strArr) {
+            w wVar = new w(a.eCg);
+            wVar.n("day", this.eCh);
+            wVar.n("un", this.mUserName);
+            wVar.n("fid", this.mForumId);
+            wVar.n("word", this.mForumName);
+            wVar.n("z", this.mThreadId);
+            wVar.n("reason", this.Cf);
+            wVar.n("ntn", "banid");
+            wVar.n("post_id", this.mPostId);
+            wVar.vl().wh().mIsNeedTbs = true;
+            String uO = wVar.uO();
+            if (wVar.vl().wi().isRequestSuccess()) {
+                try {
+                    return (ForbidResultData) OrmObject.objectWithJsonStr(uO, ForbidResultData.class);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                    ForbidResultData forbidResultData = new ForbidResultData();
+                    forbidResultData.error_code = -1000;
+                    return forbidResultData;
+                }
+            }
+            ForbidResultData forbidResultData2 = new ForbidResultData();
+            forbidResultData2.error_code = wVar.vp();
+            forbidResultData2.error_msg = wVar.getErrorString();
+            return forbidResultData2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ForbidResultData forbidResultData) {
+            super.onPostExecute(forbidResultData);
+            b bVar = this.aXN.get();
+            if (bVar != null) {
+                if (forbidResultData.error_code == 0 && al.isEmpty(forbidResultData.error_msg)) {
+                    bVar.a(forbidResultData);
+                } else {
+                    bVar.b(forbidResultData);
+                }
             }
         }
     }

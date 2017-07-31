@@ -1,33 +1,121 @@
 package com.baidu.tbadk.l;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.framework.a.c {
-    public c(int i) {
-        super(i);
+public class c extends com.baidu.adp.a.a.a implements Runnable {
+    public static String aJo = "logcat ";
+    private static Map<String, b> aJq = new HashMap();
+    private Process aJl;
+    private InputStream aJm;
+    private OutputStream aJn;
+    private a aJp;
+
+    public static void a(String str, b bVar) {
+        aJq.put(str, bVar);
+        aJo += " -s " + str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.g
-    /* renamed from: b */
-    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-            HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
-            ReloginManager uh = ReloginManager.uh();
-            if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
-                if (httpMessage.removeParam("reloin_key") == null) {
-                    httpMessage.addParam("reloin_key", "reloin_value");
-                    uh.a((HttpMessage) httpResponsedMessage.getOrginalMessage());
-                } else {
-                    uh.f(null);
+    public void gB(String str) {
+        String[] split = str.split("\n");
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < split.length) {
+                Iterator<Map.Entry<String, b>> it = aJq.entrySet().iterator();
+                while (true) {
+                    if (it.hasNext()) {
+                        Map.Entry<String, b> next = it.next();
+                        if (split[i2].contains(next.getKey().toString())) {
+                            next.getValue().gA(split[i2]);
+                            break;
+                        }
+                    }
                 }
-                return null;
+                i = i2 + 1;
+            } else {
+                return;
             }
-            return httpResponsedMessage;
         }
-        return httpResponsedMessage;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        super.start();
+        try {
+            Runtime.getRuntime().exec("logcat -c");
+            this.aJl = Runtime.getRuntime().exec(aJo);
+            this.aJn = this.aJl.getOutputStream();
+            this.aJm = this.aJl.getInputStream();
+            Gf();
+            this.aJn.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    private void Gf() throws FileNotFoundException {
+        this.aJp = new a(this.aJm);
+        this.aJp.start();
+    }
+
+    @Override // com.baidu.adp.a.a.a
+    public void stop() {
+        super.stop();
+        try {
+            if (this.aJl != null) {
+                this.aJl.destroy();
+            }
+            if (this.aJp != null) {
+                this.aJp.finish();
+            }
+            if (this.aJm != null) {
+                this.aJm.close();
+            }
+            if (this.aJn != null) {
+                this.aJn.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class a extends Thread {
+        private boolean aJr = false;
+        private InputStream in;
+
+        public a(InputStream inputStream) {
+            this.in = inputStream;
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            int read;
+            byte[] bArr = new byte[8192];
+            while (!this.aJr && (read = this.in.read(bArr)) != -1) {
+                try {
+                    String str = new String(bArr, 0, read);
+                    if (str != null) {
+                        c.this.gB(str);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+        }
+
+        public synchronized void finish() {
+            this.aJr = true;
+        }
     }
 }

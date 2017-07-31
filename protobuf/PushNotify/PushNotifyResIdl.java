@@ -13,10 +13,6 @@ public final class PushNotifyResIdl extends Message {
     public static final Long DEFAULT_PUSHTIME = 0L;
     public static final List<PusherMsg> DEFAULT_MULTIMSG = Collections.emptyList();
 
-    /* synthetic */ PushNotifyResIdl(Builder builder, boolean z, PushNotifyResIdl pushNotifyResIdl) {
-        this(builder, z);
-    }
-
     private PushNotifyResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -56,7 +52,7 @@ public final class PushNotifyResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public PushNotifyResIdl build(boolean z) {
-            return new PushNotifyResIdl(this, z, null);
+            return new PushNotifyResIdl(this, z);
         }
     }
 }

@@ -50,7 +50,7 @@ public class c {
                 z = true;
             }
             if (b.h()) {
-                b.C0103b i = b.i();
+                b.C0143b i = b.i();
                 b bVar = new b();
                 bVar.a("SYNC", "CONF");
                 bVar.a(i.c(), (String) null);
@@ -82,7 +82,6 @@ public class c {
                             break;
                         }
                     }
-                    break;
                 case 3:
                     try {
                         this.f.b(this.d.a(c2.k(), this.f));
@@ -146,33 +145,31 @@ public class c {
     b c() {
         IOException iOException;
         int i;
-        ByteBuffer e;
-        int position;
         try {
-            e = e();
-            position = e.position();
-        } catch (IOException e2) {
-            iOException = e2;
-            i = 0;
-        }
-        try {
-            e.flip();
-            b b = b.b(e);
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] Read {cmd=" + b.a() + ";chid=" + b.c() + ";len=" + position + "}");
-            return b;
+            ByteBuffer e = e();
+            int position = e.position();
+            try {
+                e.flip();
+                b b = b.b(e);
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] Read {cmd=" + b.a() + ";chid=" + b.c() + ";len=" + position + "}");
+                return b;
+            } catch (IOException e2) {
+                i = position;
+                iOException = e2;
+                if (i == 0) {
+                    i = this.a.position();
+                }
+                StringBuilder append = new StringBuilder().append("[Slim] read Blob [");
+                byte[] array = this.a.array();
+                if (i > b.n()) {
+                    i = b.n();
+                }
+                com.xiaomi.channel.commonutils.logger.b.a(append.append(com.xiaomi.channel.commonutils.misc.d.a(array, 0, i)).append("] Err:").append(iOException.getMessage()).toString());
+                throw iOException;
+            }
         } catch (IOException e3) {
-            i = position;
             iOException = e3;
-            if (i == 0) {
-                i = this.a.position();
-            }
-            StringBuilder append = new StringBuilder().append("[Slim] read Blob [");
-            byte[] array = this.a.array();
-            if (i > b.n()) {
-                i = b.n();
-            }
-            com.xiaomi.channel.commonutils.logger.b.a(append.append(com.xiaomi.channel.commonutils.misc.d.a(array, 0, i)).append("] Err:").append(iOException.getMessage()).toString());
-            throw iOException;
+            i = 0;
         }
     }
 }

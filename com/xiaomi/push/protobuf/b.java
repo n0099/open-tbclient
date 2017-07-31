@@ -1,6 +1,6 @@
 package com.xiaomi.push.protobuf;
 
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public final class b {
 
@@ -62,7 +62,7 @@ public final class b {
                 cVar.a(1, d());
             }
             if (g()) {
-                cVar.k(2, f());
+                cVar.l(2, f());
             }
             if (i()) {
                 cVar.a(3, h());
@@ -97,22 +97,22 @@ public final class b {
         public int b() {
             int c = e() ? 0 + com.google.protobuf.micro.c.c(1, d()) : 0;
             if (g()) {
-                c += com.google.protobuf.micro.c.m(2, f());
+                c += com.google.protobuf.micro.c.n(2, f());
             }
             if (i()) {
-                c += com.google.protobuf.micro.c.ad(3, h());
+                c += com.google.protobuf.micro.c.ah(3, h());
             }
             if (k()) {
-                c += com.google.protobuf.micro.c.ad(4, j());
+                c += com.google.protobuf.micro.c.ah(4, j());
             }
             if (m()) {
-                c += com.google.protobuf.micro.c.ad(5, l());
+                c += com.google.protobuf.micro.c.ah(5, l());
             }
             if (o()) {
-                c += com.google.protobuf.micro.c.ad(6, n());
+                c += com.google.protobuf.micro.c.ah(6, n());
             }
             if (r()) {
-                c += com.google.protobuf.micro.c.ad(7, q());
+                c += com.google.protobuf.micro.c.ah(7, q());
             }
             if (s()) {
                 c += com.google.protobuf.micro.c.c(8, t());
@@ -124,7 +124,7 @@ public final class b {
                 c += com.google.protobuf.micro.c.c(10, w());
             }
             if (z()) {
-                c += com.google.protobuf.micro.c.ad(11, y());
+                c += com.google.protobuf.micro.c.ah(11, y());
             }
             this.w = c;
             return c;
@@ -157,13 +157,13 @@ public final class b {
                     case 34:
                         b(bVar.g());
                         break;
-                    case w.n.View_duplicateParentState /* 42 */:
+                    case d.n.View_duplicateParentState /* 42 */:
                         c(bVar.g());
                         break;
                     case 50:
                         d(bVar.g());
                         break;
-                    case w.n.View_scaleX /* 58 */:
+                    case d.n.View_scaleX /* 58 */:
                         e(bVar.g());
                         break;
                     case 64:
@@ -328,7 +328,7 @@ public final class b {
 
     /* renamed from: com.xiaomi.push.protobuf.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0103b extends com.google.protobuf.micro.e {
+    public static final class C0143b extends com.google.protobuf.micro.e {
         private boolean a;
         private boolean c;
         private boolean e;
@@ -339,8 +339,8 @@ public final class b {
         private int h = 0;
         private int i = -1;
 
-        public static C0103b b(byte[] bArr) {
-            return (C0103b) new C0103b().a(bArr);
+        public static C0143b b(byte[] bArr) {
+            return (C0143b) new C0143b().a(bArr);
         }
 
         @Override // com.google.protobuf.micro.e
@@ -351,13 +351,13 @@ public final class b {
             return this.i;
         }
 
-        public C0103b a(int i) {
+        public C0143b a(int i) {
             this.c = true;
             this.d = i;
             return this;
         }
 
-        public C0103b a(boolean z) {
+        public C0143b a(boolean z) {
             this.a = true;
             this.b = z;
             return this;
@@ -381,21 +381,21 @@ public final class b {
 
         @Override // com.google.protobuf.micro.e
         public int b() {
-            int I = e() ? 0 + com.google.protobuf.micro.c.I(1, d()) : 0;
+            int K = e() ? 0 + com.google.protobuf.micro.c.K(1, d()) : 0;
             if (g()) {
-                I += com.google.protobuf.micro.c.c(3, f());
+                K += com.google.protobuf.micro.c.c(3, f());
             }
             if (i()) {
-                I += com.google.protobuf.micro.c.c(4, h());
+                K += com.google.protobuf.micro.c.c(4, h());
             }
             if (k()) {
-                I += com.google.protobuf.micro.c.c(5, j());
+                K += com.google.protobuf.micro.c.c(5, j());
             }
-            this.i = I;
-            return I;
+            this.i = K;
+            return K;
         }
 
-        public C0103b b(int i) {
+        public C0143b b(int i) {
             this.e = true;
             this.f = i;
             return this;
@@ -404,7 +404,7 @@ public final class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.micro.e
         /* renamed from: b */
-        public C0103b a(com.google.protobuf.micro.b bVar) {
+        public C0143b a(com.google.protobuf.micro.b bVar) {
             while (true) {
                 int a = bVar.a();
                 switch (a) {
@@ -433,7 +433,7 @@ public final class b {
             return this;
         }
 
-        public C0103b c(int i) {
+        public C0143b c(int i) {
             this.g = true;
             this.h = i;
             return this;
@@ -526,24 +526,24 @@ public final class b {
 
         @Override // com.google.protobuf.micro.e
         public int b() {
-            int ad = e() ? 0 + com.google.protobuf.micro.c.ad(1, d()) : 0;
+            int ah = e() ? 0 + com.google.protobuf.micro.c.ah(1, d()) : 0;
             if (g()) {
-                ad += com.google.protobuf.micro.c.ad(2, f());
+                ah += com.google.protobuf.micro.c.ah(2, f());
             }
             if (i()) {
-                ad += com.google.protobuf.micro.c.ad(3, h());
+                ah += com.google.protobuf.micro.c.ah(3, h());
             }
             if (k()) {
-                ad += com.google.protobuf.micro.c.ad(4, j());
+                ah += com.google.protobuf.micro.c.ah(4, j());
             }
             if (m()) {
-                ad += com.google.protobuf.micro.c.ad(5, l());
+                ah += com.google.protobuf.micro.c.ah(5, l());
             }
             if (o()) {
-                ad += com.google.protobuf.micro.c.ad(6, n());
+                ah += com.google.protobuf.micro.c.ah(6, n());
             }
-            this.m = ad;
-            return ad;
+            this.m = ah;
+            return ah;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -567,7 +567,7 @@ public final class b {
                     case 34:
                         d(bVar.g());
                         break;
-                    case w.n.View_duplicateParentState /* 42 */:
+                    case d.n.View_duplicateParentState /* 42 */:
                         e(bVar.g());
                         break;
                     case 50:
@@ -717,18 +717,18 @@ public final class b {
 
         @Override // com.google.protobuf.micro.e
         public int b() {
-            int I = e() ? 0 + com.google.protobuf.micro.c.I(1, d()) : 0;
+            int K = e() ? 0 + com.google.protobuf.micro.c.K(1, d()) : 0;
             if (g()) {
-                I += com.google.protobuf.micro.c.ad(2, f());
+                K += com.google.protobuf.micro.c.ah(2, f());
             }
             if (i()) {
-                I += com.google.protobuf.micro.c.ad(3, h());
+                K += com.google.protobuf.micro.c.ah(3, h());
             }
             if (k()) {
-                I += com.google.protobuf.micro.c.ad(4, j());
+                K += com.google.protobuf.micro.c.ah(4, j());
             }
-            this.i = I;
-            return I;
+            this.i = K;
+            return K;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -828,7 +828,7 @@ public final class b {
         private String l = "";
         private String n = "";
         private String p = "";
-        private C0103b r = null;
+        private C0143b r = null;
         private int t = 0;
         private int u = -1;
 
@@ -846,12 +846,12 @@ public final class b {
             return this;
         }
 
-        public e a(C0103b c0103b) {
-            if (c0103b == null) {
+        public e a(C0143b c0143b) {
+            if (c0143b == null) {
                 throw new NullPointerException();
             }
             this.q = true;
-            this.r = c0103b;
+            this.r = c0143b;
             return this;
         }
 
@@ -897,36 +897,36 @@ public final class b {
 
         @Override // com.google.protobuf.micro.e
         public int b() {
-            int bD = e() ? 0 + com.google.protobuf.micro.c.bD(1, d()) : 0;
+            int bG = e() ? 0 + com.google.protobuf.micro.c.bG(1, d()) : 0;
             if (g()) {
-                bD += com.google.protobuf.micro.c.ad(2, f());
+                bG += com.google.protobuf.micro.c.ah(2, f());
             }
             if (i()) {
-                bD += com.google.protobuf.micro.c.ad(3, h());
+                bG += com.google.protobuf.micro.c.ah(3, h());
             }
             if (k()) {
-                bD += com.google.protobuf.micro.c.ad(4, j());
+                bG += com.google.protobuf.micro.c.ah(4, j());
             }
             if (m()) {
-                bD += com.google.protobuf.micro.c.c(5, l());
+                bG += com.google.protobuf.micro.c.c(5, l());
             }
             if (o()) {
-                bD += com.google.protobuf.micro.c.ad(6, n());
+                bG += com.google.protobuf.micro.c.ah(6, n());
             }
             if (q()) {
-                bD += com.google.protobuf.micro.c.ad(7, p());
+                bG += com.google.protobuf.micro.c.ah(7, p());
             }
             if (s()) {
-                bD += com.google.protobuf.micro.c.ad(8, r());
+                bG += com.google.protobuf.micro.c.ah(8, r());
             }
             if (t()) {
-                bD += com.google.protobuf.micro.c.b(9, u());
+                bG += com.google.protobuf.micro.c.b(9, u());
             }
             if (w()) {
-                bD += com.google.protobuf.micro.c.c(10, v());
+                bG += com.google.protobuf.micro.c.c(10, v());
             }
-            this.u = bD;
-            return bD;
+            this.u = bG;
+            return bG;
         }
 
         public e b(int i) {
@@ -962,16 +962,16 @@ public final class b {
                     case 50:
                         d(bVar.g());
                         break;
-                    case w.n.View_scaleX /* 58 */:
+                    case d.n.View_scaleX /* 58 */:
                         e(bVar.g());
                         break;
                     case 66:
                         f(bVar.g());
                         break;
                     case 74:
-                        C0103b c0103b = new C0103b();
-                        bVar.a(c0103b);
-                        a(c0103b);
+                        C0143b c0143b = new C0143b();
+                        bVar.a(c0143b);
+                        a(c0143b);
                         break;
                     case 80:
                         c(bVar.e());
@@ -1091,7 +1091,7 @@ public final class b {
             return this.q;
         }
 
-        public C0103b u() {
+        public C0143b u() {
             return this.r;
         }
 
@@ -1111,7 +1111,7 @@ public final class b {
         private boolean e;
         private String b = "";
         private String d = "";
-        private C0103b f = null;
+        private C0143b f = null;
         private int g = -1;
 
         public static f b(byte[] bArr) {
@@ -1126,12 +1126,12 @@ public final class b {
             return this.g;
         }
 
-        public f a(C0103b c0103b) {
-            if (c0103b == null) {
+        public f a(C0143b c0143b) {
+            if (c0143b == null) {
                 throw new NullPointerException();
             }
             this.e = true;
-            this.f = c0103b;
+            this.f = c0143b;
             return this;
         }
 
@@ -1156,15 +1156,15 @@ public final class b {
 
         @Override // com.google.protobuf.micro.e
         public int b() {
-            int ad = e() ? 0 + com.google.protobuf.micro.c.ad(1, d()) : 0;
+            int ah = e() ? 0 + com.google.protobuf.micro.c.ah(1, d()) : 0;
             if (g()) {
-                ad += com.google.protobuf.micro.c.ad(2, f());
+                ah += com.google.protobuf.micro.c.ah(2, f());
             }
             if (h()) {
-                ad += com.google.protobuf.micro.c.b(3, i());
+                ah += com.google.protobuf.micro.c.b(3, i());
             }
-            this.g = ad;
-            return ad;
+            this.g = ah;
+            return ah;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1183,9 +1183,9 @@ public final class b {
                         b(bVar.g());
                         break;
                     case 26:
-                        C0103b c0103b = new C0103b();
-                        bVar.a(c0103b);
-                        a(c0103b);
+                        C0143b c0143b = new C0143b();
+                        bVar.a(c0143b);
+                        a(c0143b);
                         break;
                     default:
                         if (!a(bVar, a)) {
@@ -1224,7 +1224,7 @@ public final class b {
             return this.e;
         }
 
-        public C0103b i() {
+        public C0143b i() {
             return this.f;
         }
     }
@@ -1272,15 +1272,15 @@ public final class b {
 
         @Override // com.google.protobuf.micro.e
         public int b() {
-            int ad = e() ? 0 + com.google.protobuf.micro.c.ad(1, d()) : 0;
+            int ah = e() ? 0 + com.google.protobuf.micro.c.ah(1, d()) : 0;
             if (g()) {
-                ad += com.google.protobuf.micro.c.ad(2, f());
+                ah += com.google.protobuf.micro.c.ah(2, f());
             }
             if (i()) {
-                ad += com.google.protobuf.micro.c.ad(3, h());
+                ah += com.google.protobuf.micro.c.ah(3, h());
             }
-            this.g = ad;
-            return ad;
+            this.g = ah;
+            return ah;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1395,7 +1395,7 @@ public final class b {
         public int b() {
             int c = e() ? 0 + com.google.protobuf.micro.c.c(1, d()) : 0;
             if (g()) {
-                c += com.google.protobuf.micro.c.ad(2, f());
+                c += com.google.protobuf.micro.c.ah(2, f());
             }
             this.e = c;
             return c;
@@ -1447,7 +1447,7 @@ public final class b {
     /* loaded from: classes2.dex */
     public static final class i extends com.google.protobuf.micro.e {
         private boolean a;
-        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.gxj;
+        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.gVQ;
         private int c = -1;
 
         public static i b(byte[] bArr) {
@@ -1492,7 +1492,7 @@ public final class b {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.byC());
+                        a(bVar.bFC());
                         break;
                     default:
                         if (!a(bVar, a)) {
@@ -1518,8 +1518,8 @@ public final class b {
     public static final class j extends com.google.protobuf.micro.e {
         private boolean a;
         private boolean c;
-        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.gxj;
-        private C0103b d = null;
+        private com.google.protobuf.micro.a b = com.google.protobuf.micro.a.gVQ;
+        private C0143b d = null;
         private int e = -1;
 
         public static j b(byte[] bArr) {
@@ -1540,12 +1540,12 @@ public final class b {
             return this;
         }
 
-        public j a(C0103b c0103b) {
-            if (c0103b == null) {
+        public j a(C0143b c0143b) {
+            if (c0143b == null) {
                 throw new NullPointerException();
             }
             this.c = true;
-            this.d = c0103b;
+            this.d = c0143b;
             return this;
         }
 
@@ -1579,12 +1579,12 @@ public final class b {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.byC());
+                        a(bVar.bFC());
                         break;
                     case 18:
-                        C0103b c0103b = new C0103b();
-                        bVar.a(c0103b);
-                        a(c0103b);
+                        C0143b c0143b = new C0143b();
+                        bVar.a(c0143b);
+                        a(c0143b);
                         break;
                     default:
                         if (!a(bVar, a)) {
@@ -1609,7 +1609,7 @@ public final class b {
             return this.c;
         }
 
-        public C0103b g() {
+        public C0143b g() {
             return this.d;
         }
     }
@@ -1690,24 +1690,24 @@ public final class b {
 
         @Override // com.google.protobuf.micro.e
         public int b() {
-            int ad = e() ? 0 + com.google.protobuf.micro.c.ad(1, d()) : 0;
+            int ah = e() ? 0 + com.google.protobuf.micro.c.ah(1, d()) : 0;
             if (g()) {
-                ad += com.google.protobuf.micro.c.ad(2, f());
+                ah += com.google.protobuf.micro.c.ah(2, f());
             }
             if (i()) {
-                ad += com.google.protobuf.micro.c.l(3, h());
+                ah += com.google.protobuf.micro.c.m(3, h());
             }
             if (k()) {
-                ad += com.google.protobuf.micro.c.l(4, j());
+                ah += com.google.protobuf.micro.c.m(4, j());
             }
             if (m()) {
-                ad += com.google.protobuf.micro.c.I(5, l());
+                ah += com.google.protobuf.micro.c.K(5, l());
             }
             if (o()) {
-                ad += com.google.protobuf.micro.c.c(6, n());
+                ah += com.google.protobuf.micro.c.c(6, n());
             }
-            this.m = ad;
-            return ad;
+            this.m = ah;
+            return ah;
         }
 
         public k b(long j) {
@@ -1740,7 +1740,7 @@ public final class b {
                     case 40:
                         a(bVar.f());
                         break;
-                    case w.n.View_onClick /* 48 */:
+                    case d.n.View_onClick /* 48 */:
                         a(bVar.e());
                         break;
                     default:

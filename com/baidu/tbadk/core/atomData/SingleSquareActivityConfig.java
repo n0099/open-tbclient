@@ -28,7 +28,7 @@ public class SingleSquareActivityConfig extends IntentConfig {
             e.printStackTrace();
             sb.append("|");
         }
-        sb.append(String.valueOf(str) + "_" + str2);
+        sb.append(str + "_" + str2);
         return sb.toString();
     }
 }

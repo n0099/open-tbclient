@@ -1,43 +1,86 @@
 package com.baidu.tieba.account.appeal;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.w;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.w;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-class a implements TextWatcher {
-    final /* synthetic */ AppealActivity aVt;
+public class a {
+    private static final String aXI = TbConfig.SERVER_ADDRESS + "c/c/bawu/appeal";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(AppealActivity appealActivity) {
-        this.aVt = appealActivity;
+    /* loaded from: classes.dex */
+    public interface b {
+        void a(AppealData appealData);
+
+        void b(AppealData appealData);
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public static void a(String str, String str2, String str3, String str4, b bVar) {
+        new C0069a(str, str2, str3, str4, bVar).execute(new String[0]);
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
+    /* renamed from: com.baidu.tieba.account.appeal.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    private static class C0069a extends BdAsyncTask<String, Object, AppealData> {
+        private String aXJ;
+        private String aXK;
+        private String aXL;
+        private String aXM;
+        private WeakReference<b> aXN;
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
-        TextView textView4;
-        textView = this.aVt.aVo;
-        int length = 150 - textView.getText().toString().length();
-        textView2 = this.aVt.aVp;
-        textView2.setText(String.valueOf(length));
-        if (length < 0) {
-            textView4 = this.aVt.aVp;
-            textView4.setTextColor(this.aVt.getResources().getColor(w.e.common_color_10253));
-            return;
+        public C0069a(String str, String str2, String str3, String str4, b bVar) {
+            this.aXJ = str;
+            this.aXK = str2;
+            this.aXL = str3;
+            this.aXM = str4;
+            this.aXN = new WeakReference<>(bVar);
+            setPriority(3);
         }
-        textView3 = this.aVt.aVp;
-        as.c(textView3, w.e.common_color_10005, 1);
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: q */
+        public AppealData doInBackground(String... strArr) {
+            w wVar = new w(a.aXI);
+            wVar.n("forum_id", this.aXJ);
+            wVar.n("user_id", this.aXK);
+            wVar.n("user_name", this.aXL);
+            wVar.n("content", this.aXM);
+            String uO = wVar.uO();
+            if (wVar.vl().wi().isRequestSuccess()) {
+                try {
+                    return (AppealData) OrmObject.objectWithJsonStr(uO, AppealData.class);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                    AppealData appealData = new AppealData();
+                    appealData.errNo = -1000;
+                    return appealData;
+                }
+            }
+            AppealData appealData2 = new AppealData();
+            appealData2.errNo = wVar.vp();
+            appealData2.errMsg = wVar.getErrorString();
+            return appealData2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(AppealData appealData) {
+            super.onPostExecute(appealData);
+            b bVar = this.aXN.get();
+            if (bVar != null) {
+                if (appealData.errNo == 0 && al.isEmpty(appealData.errMsg)) {
+                    bVar.a(appealData);
+                } else {
+                    bVar.b(appealData);
+                }
+            }
+        }
     }
 }

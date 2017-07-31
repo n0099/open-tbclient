@@ -1,25 +1,22 @@
 package com.baidu.tieba.j;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.util.SparseArray;
 /* loaded from: classes.dex */
-public class b extends CustomMessageListener {
-    final /* synthetic */ a fvW;
+public class b {
+    public SparseArray<a> fKu;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(a aVar, int i) {
-        super(i);
-        this.fvW = aVar;
+    public b(SparseArray<a> sparseArray) {
+        this.fKu = sparseArray;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001120) {
-            return;
+    /* loaded from: classes.dex */
+    public static class a {
+        public boolean dTF;
+        public int mNum;
+
+        public a(boolean z, int i) {
+            this.dTF = z;
+            this.mNum = i;
         }
-        this.fvW.h(customResponsedMessage);
     }
 }

@@ -1,38 +1,50 @@
 package com.baidu.tieba.play;
 
+import android.content.Context;
+import android.view.TextureView;
 import android.view.View;
-import com.baidu.tieba.play.v;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements v.b {
-    final /* synthetic */ c flr;
+public class n extends TextureView {
+    private int fzE;
+    private int mVideoHeight;
+    private int mVideoWidth;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(c cVar) {
-        this.flr = cVar;
+    public n(Context context) {
+        super(context);
+        this.mVideoWidth = 0;
+        this.mVideoHeight = 0;
+        this.fzE = 0;
     }
 
-    @Override // com.baidu.tieba.play.v.b
-    public boolean onError(v vVar, int i, int i2) {
-        View view;
-        View view2;
-        View view3;
-        v.b bVar;
-        v.b bVar2;
-        view = this.flr.bDE;
-        view.setVisibility(0);
-        view2 = this.flr.cSw;
-        view2.setVisibility(8);
-        view3 = this.flr.fld;
-        view3.setVisibility(8);
-        this.flr.akS = 4;
-        this.flr.bDx.setRecoveryState(4);
-        bVar = this.flr.flk;
-        if (bVar != null) {
-            bVar2 = this.flr.flk;
-            bVar2.onError(vVar, i, i2);
-            return true;
+    @Override // android.view.View
+    protected void onMeasure(int i, int i2) {
+        if (this.fzE == 90 || this.fzE == 270) {
+            i = i2;
+            i2 = i;
         }
-        return true;
+        int defaultSize = View.getDefaultSize(this.mVideoWidth, i);
+        int defaultSize2 = View.getDefaultSize(this.mVideoHeight, i2);
+        if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
+            defaultSize = View.MeasureSpec.getSize(i);
+            defaultSize2 = View.MeasureSpec.getSize(i2);
+            float f = defaultSize / defaultSize2;
+            float f2 = this.mVideoWidth / this.mVideoHeight;
+            if (f2 > f) {
+                defaultSize2 = (int) (defaultSize / f2);
+            } else {
+                defaultSize = (int) (defaultSize2 * f2);
+            }
+        }
+        setMeasuredDimension(defaultSize, defaultSize2);
+    }
+
+    public void P(int i, int i2, int i3) {
+        setRotation(i3);
+        this.mVideoWidth = i;
+        this.mVideoHeight = i2;
+        this.fzE = i3;
+        if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
+            requestLayout();
+        }
     }
 }

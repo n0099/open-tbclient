@@ -3,6 +3,7 @@ package com.baidu.tieba.recapp.report;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.i;
@@ -12,35 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b fuu;
-    private CustomMessageListener fuw = new c(this, 2000994);
-    private d fuv = new f();
+    private static b fIG;
+    private CustomMessageListener fII = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && i.hr() && b.this.fIH != null) {
+                b.this.fIH.bip();
+            }
+        }
+    };
+    private c fIH = new e();
 
-    public static b beC() {
-        if (fuu == null) {
+    public static b bin() {
+        if (fIG == null) {
             synchronized (b.class) {
-                if (fuu == null) {
-                    fuu = new b();
+                if (fIG == null) {
+                    fIG = new b();
                 }
             }
         }
-        return fuu;
+        return fIG;
     }
 
-    private boolean beD() {
-        return com.baidu.adp.lib.b.e.eY().ad("ad_log_open") != 0;
+    private boolean bio() {
+        return com.baidu.adp.lib.b.d.fh().al("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.fuw);
+        MessageManager.getInstance().registerListener(this.fII);
     }
 
     public void a(a aVar) {
-        if (beD() && aVar != null && this.fuv != null) {
-            if (i.hj()) {
-                this.fuv.b(aVar);
+        if (bio() && aVar != null && this.fIH != null) {
+            if (i.hr()) {
+                this.fIH.b(aVar);
             } else {
-                this.fuv.c(aVar);
+                this.fIH.c(aVar);
             }
         }
     }
@@ -53,7 +62,7 @@ public class b {
                     sb.append(String.format("&%s=%s", entry.getKey(), entry.getValue()));
                 }
             }
-            HttpMessageTask httpMessageTask = new HttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, String.valueOf(str) + sb.toString());
+            HttpMessageTask httpMessageTask = new HttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, str + sb.toString());
             httpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             httpMessageTask.setResponsedClass(HttpResponsedMessage.class);
             MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(new ArrayList()), httpMessageTask);

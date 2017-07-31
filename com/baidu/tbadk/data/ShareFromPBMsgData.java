@@ -33,7 +33,7 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
                 jSONObject.put("shareSourceUrl", this.shareSourceUrl);
             }
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(String.valueOf(this.title) + " http://tieba.baidu.com/p/" + this.threadId + "?share=9105");
+            jSONArray.put(this.title + " http://tieba.baidu.com/p/" + this.threadId + "?share=9105");
             jSONArray.put("1");
             jSONArray.put(jSONObject);
             return jSONArray.toString();

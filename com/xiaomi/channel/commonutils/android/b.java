@@ -1,5 +1,6 @@
 package com.xiaomi.channel.commonutils.android;
 
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
+import com.baidu.adp.BuildConfig;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -51,7 +53,7 @@ public class b {
             com.xiaomi.channel.commonutils.logger.b.a(e);
             packageInfo = null;
         }
-        return packageInfo != null ? packageInfo.versionName : "1.0";
+        return packageInfo != null ? packageInfo.versionName : BuildConfig.VERSION_NAME;
     }
 
     public static int b(Context context, String str) {
@@ -94,6 +96,7 @@ public class b {
         return null;
     }
 
+    @TargetApi(19)
     public static a d(Context context, String str) {
         a aVar;
         if (context == null || TextUtils.isEmpty(str) || Build.VERSION.SDK_INT < 19) {

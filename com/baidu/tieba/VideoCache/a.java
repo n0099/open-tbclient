@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<e> aTD = new ArrayList();
-    private long aTE = 0;
+    private List<d> aVS = new ArrayList();
+    private long aVT = 0;
 
-    public List<e> JZ() {
-        return this.aTD;
+    public List<d> Kl() {
+        return this.aVS;
     }
 
-    public long Ka() {
-        return this.aTE;
+    public long Km() {
+        return this.aVT;
     }
 
-    public void a(e eVar) {
-        if (this.aTD != null) {
-            this.aTD.add(eVar);
-            if (eVar != null) {
-                this.aTE += eVar.Kh();
+    public void a(d dVar) {
+        if (this.aVS != null) {
+            this.aVS.add(dVar);
+            if (dVar != null) {
+                this.aVT += dVar.Kt();
             }
         }
     }
 
-    public void b(e eVar) {
-        if (this.aTD != null) {
-            this.aTD.remove(eVar);
-            if (eVar != null) {
-                this.aTE -= eVar.Kh();
+    public void b(d dVar) {
+        if (this.aVS != null) {
+            this.aVS.remove(dVar);
+            if (dVar != null) {
+                this.aVT -= dVar.Kt();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.aTD != null) {
-            e eVar = this.aTD.get(i);
-            if (eVar != null) {
-                this.aTE -= eVar.Kh();
+        if (this.aVS != null) {
+            d dVar = this.aVS.get(i);
+            if (dVar != null) {
+                this.aVT -= dVar.Kt();
             }
-            this.aTD.remove(i);
+            this.aVS.remove(i);
         }
     }
 
-    public int Kb() {
-        if (this.aTD != null) {
-            return this.aTD.size();
+    public int Kn() {
+        if (this.aVS != null) {
+            return this.aVS.size();
         }
         return 0;
     }
 
-    public e fJ(int i) {
-        if (this.aTD != null) {
-            return this.aTD.get(i);
+    public d fO(int i) {
+        if (this.aVS != null) {
+            return this.aVS.get(i);
         }
         return null;
     }

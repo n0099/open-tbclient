@@ -83,11 +83,11 @@ public class d {
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x004e A[Catch: IOException -> 0x0118, TRY_LEAVE, TryCatch #3 {IOException -> 0x0118, blocks: (B:19:0x0049, B:21:0x004e), top: B:74:0x0049 }] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0049 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v1 */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x004f A[Catch: IOException -> 0x011e, TRY_LEAVE, TryCatch #10 {IOException -> 0x011e, blocks: (B:19:0x004a, B:21:0x004f), top: B:81:0x004a }] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x004a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.io.OutputStream] */
     /* JADX WARN: Type inference failed for: r1v14 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.OutputStream] */
+    /* JADX WARN: Type inference failed for: r1v3 */
     /* JADX WARN: Type inference failed for: r1v6 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -171,12 +171,12 @@ public class d {
                         }
                     }
                     bufferedReader = new BufferedReader(new InputStreamReader(new a(b2.getInputStream())));
-                } catch (Throwable th3) {
-                    th = th3;
+                } catch (IOException e4) {
+                    e = e4;
+                    bufferedReader = null;
                 }
-            } catch (IOException e4) {
-                e = e4;
-                bufferedReader = null;
+            } catch (Throwable th3) {
+                th = th3;
             }
         } catch (Throwable th4) {
             th = th4;
@@ -314,17 +314,17 @@ public class d {
         return String.format("%s&key=%s", str, com.xiaomi.channel.commonutils.string.c.a(String.format("%sbe988a6134bc8254465424e5a70ef037", str)));
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x0168 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x017d */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x007b A[Catch: IOException -> 0x016b, TryCatch #9 {IOException -> 0x016b, blocks: (B:20:0x0076, B:22:0x007b, B:24:0x0080), top: B:76:0x0076 }] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0080 A[Catch: IOException -> 0x016b, TRY_LEAVE, TryCatch #9 {IOException -> 0x016b, blocks: (B:20:0x0076, B:22:0x007b, B:24:0x0080), top: B:76:0x0076 }] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x0076 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0083 A[Catch: IOException -> 0x0180, TryCatch #12 {IOException -> 0x0180, blocks: (B:20:0x007e, B:22:0x0083, B:24:0x0088), top: B:77:0x007e }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0088 A[Catch: IOException -> 0x0180, TRY_LEAVE, TryCatch #12 {IOException -> 0x0180, blocks: (B:20:0x007e, B:22:0x0083, B:24:0x0088), top: B:77:0x007e }] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r4v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r4v1 */
     /* JADX WARN: Type inference failed for: r4v13, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r4v2 */
     /* JADX WARN: Type inference failed for: r4v3, types: [java.io.FileInputStream] */
     /* JADX WARN: Type inference failed for: r4v4 */
-    /* JADX WARN: Type inference failed for: r4v7 */
+    /* JADX WARN: Type inference failed for: r4v6 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -447,6 +447,7 @@ public class d {
                     obj = null;
                 } catch (Throwable th4) {
                     th = th4;
+                    name = 0;
                 }
             } catch (Throwable th5) {
                 th = th5;
@@ -457,6 +458,8 @@ public class d {
             obj = null;
         } catch (Throwable th6) {
             th = th6;
+            dataOutputStream = null;
+            name = 0;
         }
     }
 

@@ -2,166 +2,228 @@ package com.baidu.tieba.f;
 
 import android.content.Context;
 import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AbsListView;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private a bVf;
-    private Animation bVg;
-    private Animation bVh;
-    private View bVi;
-    private View bVj;
+    private Animation caA;
+    private Animation caB;
+    private View caC;
+    private View caD;
+    private a caz;
     private Context mContext;
-    private boolean avf = false;
-    private int aKs = 0;
-    private boolean aKt = false;
-    private boolean bVl = true;
-    private final Handler.Callback bVm = new d(this);
-    private final Handler mHandler = new Handler(this.bVm);
-    private boolean bVk = UtilHelper.canUseStyleImmersiveSticky();
+    private boolean axo = false;
+    private int aMP = 0;
+    private boolean aMQ = false;
+    private boolean caF = true;
+    private final Handler.Callback caG = new Handler.Callback() { // from class: com.baidu.tieba.f.c.1
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            if ((message.what == 1 || message.what == 2) && c.this.acu()) {
+                c.this.mHandler.sendEmptyMessageDelayed(message.what, 100L);
+                return true;
+            }
+            switch (message.what) {
+                case 1:
+                    c.this.act();
+                    return true;
+                case 2:
+                    c.this.acr();
+                    return true;
+                case 3:
+                    c.this.acs();
+                    return true;
+                default:
+                    return false;
+            }
+        }
+    };
+    private final Handler mHandler = new Handler(this.caG);
+    private boolean caE = UtilHelper.canUseStyleImmersiveSticky();
 
     /* loaded from: classes.dex */
     public interface a {
-        void eg(boolean z);
+        void ep(boolean z);
     }
 
-    public void ee(boolean z) {
-        this.aKt = z;
+    public void en(boolean z) {
+        this.aMQ = z;
     }
 
     public c(Context context, View view, View view2) {
         this.mContext = context;
-        this.bVi = view;
-        this.bVj = view2;
-        abE();
-        ef(false);
+        this.caC = view;
+        this.caD = view2;
+        acv();
+        eo(false);
     }
 
-    private void aby() {
-        this.bVg = AnimationUtils.loadAnimation(this.mContext, w.a.pull_up_refresh_out);
-        this.bVg.setAnimationListener(new e(this));
+    private void acp() {
+        this.caA = AnimationUtils.loadAnimation(this.mContext, d.a.pull_up_refresh_out);
+        this.caA.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.f.c.2
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationEnd(Animation animation) {
+                if (c.this.caC != null) {
+                    c.this.caC.clearAnimation();
+                    c.this.caC.setVisibility(8);
+                    c.this.eo(true);
+                    if (c.this.caz != null) {
+                        c.this.caz.ep(false);
+                    }
+                }
+            }
+        });
     }
 
-    private void abz() {
-        this.bVh = AnimationUtils.loadAnimation(this.mContext, w.a.pull_up_refresh_in);
-        this.bVh.setAnimationListener(new f(this));
+    private void acq() {
+        this.caB = AnimationUtils.loadAnimation(this.mContext, d.a.pull_up_refresh_in);
+        this.caB.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.f.c.3
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationEnd(Animation animation) {
+                if (c.this.caC != null) {
+                    c.this.caC.clearAnimation();
+                    c.this.caC.setVisibility(0);
+                    c.this.eo(false);
+                    if (c.this.caz != null) {
+                        c.this.caz.ep(true);
+                    }
+                }
+            }
+        });
     }
 
-    public void abA() {
-        o(false, false);
+    public void acr() {
+        p(false, false);
     }
 
-    public void abB() {
-        o(false, true);
+    public void acs() {
+        p(false, true);
     }
 
-    public void o(boolean z, boolean z2) {
-        if (this.bVi != null && this.bVi.getVisibility() == 0 && !abD()) {
+    public void p(boolean z, boolean z2) {
+        if (this.caC != null && this.caC.getVisibility() == 0 && !acu()) {
             if (z2) {
-                this.bVi.setVisibility(8);
+                this.caC.setVisibility(8);
                 return;
             }
-            if (this.bVg == null) {
-                aby();
+            if (this.caA == null) {
+                acp();
             }
-            if (this.bVh != null) {
-                this.bVh.cancel();
+            if (this.caB != null) {
+                this.caB.cancel();
             }
-            this.bVi.startAnimation(this.bVg);
+            this.caC.startAnimation(this.caA);
         }
     }
 
-    public void abC() {
-        if (this.bVi != null && this.bVi.getVisibility() != 0 && !abD()) {
-            this.bVi.setVisibility(0);
-            if (this.bVh == null) {
-                abz();
+    public void act() {
+        if (this.caC != null && this.caC.getVisibility() != 0 && !acu()) {
+            this.caC.setVisibility(0);
+            if (this.caB == null) {
+                acq();
             }
-            if (this.bVg != null) {
-                this.bVg.cancel();
+            if (this.caA != null) {
+                this.caA.cancel();
             }
-            this.bVi.startAnimation(this.bVh);
+            this.caC.startAnimation(this.caB);
         }
     }
 
-    public void GP() {
+    public void Hm() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void GQ() {
+    public void Hn() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void GR() {
+    public void Ho() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean abD() {
-        return ae(this.bVi);
+    public boolean acu() {
+        return aj(this.caC);
     }
 
-    private boolean ae(View view) {
+    private boolean aj(View view) {
         Animation animation;
         return (view == null || (animation = view.getAnimation()) == null || !animation.hasStarted() || animation.hasEnded()) ? false : true;
     }
 
     public void hideFloatingView() {
-        if (this.bVl) {
-            if (this.avf) {
-                ef(true);
-            } else if (this.bVi != null && this.bVi.getVisibility() != 8) {
-                GQ();
+        if (this.caF) {
+            if (this.axo) {
+                eo(true);
+            } else if (this.caC != null && this.caC.getVisibility() != 8) {
+                Hn();
             }
         }
     }
 
     public void showFloatingView() {
-        if (this.bVl) {
-            if (this.avf) {
-                ef(true);
-            } else if (this.bVi != null && this.bVi.getVisibility() != 0) {
-                GP();
+        if (this.caF) {
+            if (this.axo) {
+                eo(true);
+            } else if (this.caC != null && this.caC.getVisibility() != 0) {
+                Hm();
             }
         }
     }
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.bVl && this.bVi != null) {
-            if (i > this.aKs && this.bVi.getVisibility() != 8) {
+        if (this.caF && this.caC != null) {
+            if (i > this.aMP && this.caC.getVisibility() != 8) {
                 hideFloatingView();
-            } else if (i < this.aKs && this.bVi.getVisibility() != 0) {
+            } else if (i < this.aMP && this.caC.getVisibility() != 0) {
                 showFloatingView();
             }
-            this.aKs = i;
+            this.aMP = i;
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (this.bVl) {
-            if (this.avf) {
-                ef(true);
+        if (this.caF) {
+            if (this.axo) {
+                eo(true);
             } else if (absListView != null && i == 0) {
                 int firstVisiblePosition = absListView.getFirstVisiblePosition();
-                if (firstVisiblePosition > this.aKs) {
-                    GQ();
-                } else if (firstVisiblePosition < this.aKs) {
-                    GP();
-                } else if (firstVisiblePosition == this.aKs) {
-                    if (!this.aKt || a(absListView)) {
-                        GP();
+                if (firstVisiblePosition > this.aMP) {
+                    Hn();
+                } else if (firstVisiblePosition < this.aMP) {
+                    Hm();
+                } else if (firstVisiblePosition == this.aMP) {
+                    if (!this.aMQ || a(absListView)) {
+                        Hm();
                     } else {
-                        GQ();
+                        Hn();
                     }
                 }
             }
@@ -175,26 +237,26 @@ public class c {
         return true;
     }
 
-    private void abE() {
-        if (this.bVj != null) {
-            if (this.bVk && this.bVj.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = this.bVj.getLayoutParams();
+    private void acv() {
+        if (this.caD != null) {
+            if (this.caE && this.caD.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = this.caD.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                this.bVj.setLayoutParams(layoutParams);
-                ef(true);
+                this.caD.setLayoutParams(layoutParams);
+                eo(true);
                 return;
             }
-            ef(false);
+            eo(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ef(boolean z) {
-        if (this.bVj != null) {
-            if (this.bVk && z && this.bVj.getVisibility() != 0) {
-                this.bVj.setVisibility(0);
-            } else if (!z && this.bVj.getVisibility() != 8) {
-                this.bVj.setVisibility(8);
+    public void eo(boolean z) {
+        if (this.caD != null) {
+            if (this.caE && z && this.caD.getVisibility() != 0) {
+                this.caD.setVisibility(0);
+            } else if (!z && this.caD.getVisibility() != 8) {
+                this.caD.setVisibility(8);
             }
         }
     }

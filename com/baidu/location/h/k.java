@@ -13,31 +13,31 @@ import org.apache.http.entity.mime.MIME;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends Thread {
-    final /* synthetic */ f PD;
+    final /* synthetic */ f Rc;
     final /* synthetic */ boolean a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar, boolean z) {
-        this.PD = fVar;
+        this.Rc = fVar;
         this.a = z;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.PD.h = i.c();
-        this.PD.b();
-        this.PD.a();
+        this.Rc.h = i.c();
+        this.Rc.b();
+        this.Rc.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.PD.i;
+        int i = this.Rc.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                URL url = new URL(this.PD.h);
+                URL url = new URL(this.Rc.h);
                 StringBuffer stringBuffer = new StringBuffer();
-                for (Map.Entry<String, Object> entry : this.PD.k.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.Rc.k.entrySet()) {
                     stringBuffer.append(entry.getKey());
                     stringBuffer.append("=");
                     stringBuffer.append(entry.getValue());
@@ -108,11 +108,11 @@ public class k extends Thread {
                 }
                 gZIPInputStream.close();
                 byteArrayOutputStream.close();
-                this.PD.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                this.Rc.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
                 if (this.a) {
-                    this.PD.m = byteArrayOutputStream.toByteArray();
+                    this.Rc.m = byteArrayOutputStream.toByteArray();
                 }
-                this.PD.a(true);
+                this.Rc.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -131,7 +131,7 @@ public class k extends Thread {
             return;
         }
         f.o++;
-        this.PD.j = null;
-        this.PD.a(false);
+        this.Rc.j = null;
+        this.Rc.a(false);
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.tbadk.editortools.editorinfotool;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
-import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class LocationInfoView extends EditorInfoView {
     private int mState;
@@ -24,17 +24,17 @@ public class LocationInfoView extends EditorInfoView {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(w.l.location_loading);
+                str = getResources().getString(d.l.location_loading);
             }
             setText(str);
         } else if (i == 2) {
             if (str == null) {
-                str = getResources().getString(w.l.location_default);
+                str = getResources().getString(d.l.location_default);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(w.l.location_default);
+                str = getResources().getString(d.l.location_default);
             }
             setText(str);
         }

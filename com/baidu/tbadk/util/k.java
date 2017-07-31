@@ -6,25 +6,26 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class k {
-    public static final boolean GI() {
+    public static final boolean Hf() {
+        Message message;
         int i = 0;
         Object d = com.baidu.adp.lib.OrmObject.a.a.d(Looper.myQueue(), "mMessages");
         if (d == null || !(d instanceof Message)) {
             return false;
         }
-        Message message = (Message) d;
+        Message message2 = (Message) d;
         boolean z = false;
-        while (message != null && message.obj != null && !z && i < 10) {
+        while (message2 != null && message2.obj != null && !z && i < 10) {
             i++;
-            boolean l = l(message);
-            Object d2 = com.baidu.adp.lib.OrmObject.a.a.d(message, "next");
+            boolean l = l(message2);
+            Object d2 = com.baidu.adp.lib.OrmObject.a.a.d(message2, "next");
             if (d2 != null && (d2 instanceof Message)) {
                 message = (Message) d2;
-                z = l;
             } else {
                 message = null;
-                z = l;
             }
+            message2 = message;
+            z = l;
         }
         return z;
     }

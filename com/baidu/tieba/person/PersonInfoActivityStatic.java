@@ -3,14 +3,18 @@ package com.baidu.tieba.person;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.util.y;
 import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
 import com.baidu.tieba.usermute.response.UserMuteCheckHttpResponsedMessage;
 import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
@@ -18,14 +22,35 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class PersonInfoActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSON_INFO, new i());
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSON_INFO, new CustomMessageTask.CustomRunnable<PersonInfoActivityConfig>() { // from class: com.baidu.tieba.person.PersonInfoActivityStatic.1
+            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<PersonInfoActivityConfig> run(CustomMessage<PersonInfoActivityConfig> customMessage) {
+                if (customMessage != null && customMessage.getData() != null) {
+                    PersonInfoActivityStatic.a(customMessage.getData());
+                }
+                return null;
+            }
+        });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MF();
-        be.vP().a(new j());
+        MQ();
+        at.wf().a(new at.a() { // from class: com.baidu.tieba.person.PersonInfoActivityStatic.2
+            @Override // com.baidu.tbadk.core.util.at.a
+            public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+                if (tbPageContext == null || strArr == null || strArr.length == 0) {
+                    return 3;
+                }
+                String str = strArr[0];
+                if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), y.aq(str, "userid="), y.aq(str, "un="))));
+                    return 1;
+                }
+                return 3;
+            }
+        });
     }
 
-    private static void MF() {
+    private static void MQ() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
@@ -40,7 +65,7 @@ public class PersonInfoActivityStatic {
         if (stringExtra != null && stringExtra.length() > 0 && !stringExtra.equals("0") && !stringExtra.startsWith(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
             Intent intent = personInfoActivityConfig.getIntent();
             intent.setClass(context, PersonPolymericActivity.class);
-            intent.putExtra("user_id", com.baidu.adp.lib.g.b.c(stringExtra, 0L));
+            intent.putExtra("user_id", com.baidu.adp.lib.g.b.d(stringExtra, 0L));
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 intent.putExtra(PersonPolymericActivityConfig.IS_USER_SELF, TbadkCoreApplication.getCurrentAccount().equals(stringExtra));
             } else {

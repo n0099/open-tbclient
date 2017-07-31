@@ -14,10 +14,6 @@ public final class IconInfo extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer weight;
 
-    /* synthetic */ IconInfo(Builder builder, boolean z, IconInfo iconInfo) {
-        this(builder, z);
-    }
-
     private IconInfo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -65,7 +61,7 @@ public final class IconInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public IconInfo build(boolean z) {
-            return new IconInfo(this, z, null);
+            return new IconInfo(this, z);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util.c;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends a {
     private int height;
@@ -14,25 +14,27 @@ public class f extends a {
         this.procType = 0;
         this.procType = i;
         if (z) {
-            this.width = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(w.f.ds176);
+            this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(d.f.ds176);
             this.height = this.width;
             return;
         }
-        this.width = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(w.f.ds184);
-        this.height = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(w.f.ds184);
+        this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(d.f.ds184);
+        this.height = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(d.f.ds184);
     }
 
-    @Override // com.baidu.tbadk.core.util.c.a
-    public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
+    /* renamed from: c */
+    public com.baidu.adp.widget.a.a b(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a b = super.b(str, str2, objArr);
-        if (b != null && b.kP() != null && b.kP().isRecycled()) {
+        if (b != null && b.kX() != null && b.kX().isRecycled()) {
             return null;
         }
         return b;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
-    public boolean fO() {
+    public boolean fX() {
         return true;
     }
 
@@ -52,17 +54,17 @@ public class f extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean we() {
+    public boolean wu() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wf() {
+    public boolean wv() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int wg() {
+    public int ww() {
         return this.procType;
     }
 }

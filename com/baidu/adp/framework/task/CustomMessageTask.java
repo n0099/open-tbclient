@@ -19,17 +19,7 @@ public class CustomMessageTask extends MessageTask {
     /* loaded from: classes.dex */
     public enum TASK_TYPE {
         SYNCHRONIZED,
-        ASYNCHRONIZED;
-
-        /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static TASK_TYPE[] valuesCustom() {
-            TASK_TYPE[] valuesCustom = values();
-            int length = valuesCustom.length;
-            TASK_TYPE[] task_typeArr = new TASK_TYPE[length];
-            System.arraycopy(valuesCustom, 0, task_typeArr, 0, length);
-            return task_typeArr;
-        }
+        ASYNCHRONIZED
     }
 
     public CustomMessageTask(int i, CustomRunnable<?> customRunnable) {
@@ -47,7 +37,7 @@ public class CustomMessageTask extends MessageTask {
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.K(this.mCmd);
+        return FrameHelper.N(this.mCmd);
     }
 
     public TASK_TYPE getType() {

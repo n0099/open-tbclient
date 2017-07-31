@@ -223,7 +223,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.share.a$3  reason: invalid class name */
     /* loaded from: classes.dex */
-    public final class AnonymousClass3 implements Runnable {
+    public static class AnonymousClass3 implements Runnable {
         final /* synthetic */ List a;
         final /* synthetic */ Handler b;
         final /* synthetic */ HandlerThread c;

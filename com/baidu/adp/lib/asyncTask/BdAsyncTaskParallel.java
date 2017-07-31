@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
-    private BdUniqueId tc;
-    private BdAsyncTaskParallelType td;
-    private int te;
+    private BdUniqueId uJ;
+    private BdAsyncTaskParallelType uK;
+    private int uL;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -15,54 +15,44 @@ public class BdAsyncTaskParallel {
         THREE_PARALLEL,
         FOUR_PARALLEL,
         CUSTOM_PARALLEL,
-        MAX_PARALLEL;
-
-        /* JADX DEBUG: Replace access to removed values field (tf) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static BdAsyncTaskParallelType[] valuesCustom() {
-            BdAsyncTaskParallelType[] valuesCustom = values();
-            int length = valuesCustom.length;
-            BdAsyncTaskParallelType[] bdAsyncTaskParallelTypeArr = new BdAsyncTaskParallelType[length];
-            System.arraycopy(valuesCustom, 0, bdAsyncTaskParallelTypeArr, 0, length);
-            return bdAsyncTaskParallelTypeArr;
-        }
+        MAX_PARALLEL
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.tc = null;
-        this.td = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.te = 1;
+        this.uJ = null;
+        this.uK = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.uL = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.td = bdAsyncTaskParallelType;
-        this.tc = bdUniqueId;
+        this.uK = bdAsyncTaskParallelType;
+        this.uJ = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.tc = null;
-        this.td = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.te = 1;
+        this.uJ = null;
+        this.uK = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.uL = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.td = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-        this.te = i;
-        this.tc = bdUniqueId;
+        this.uK = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.uL = i;
+        this.uJ = bdUniqueId;
     }
 
-    public int et() {
-        return this.te;
+    public int eC() {
+        return this.uL;
     }
 
     public int getTag() {
-        if (this.tc == null) {
+        if (this.uJ == null) {
             return 0;
         }
-        return this.tc.getId();
+        return this.uJ.getId();
     }
 
-    public BdAsyncTaskParallelType eu() {
-        return this.td;
+    public BdAsyncTaskParallelType eD() {
+        return this.uK;
     }
 }

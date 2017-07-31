@@ -6,7 +6,10 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.Message;
 import android.os.Messenger;
+import android.os.RemoteException;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class PluginInstallerService extends HighPriorityIntentService {
     public static final String ACTION_INSTALL = "com.baidu.adp.plugin.action.install";
@@ -19,7 +22,20 @@ public class PluginInstallerService extends HighPriorityIntentService {
 
     public PluginInstallerService() {
         super(PluginInstallerService.class.getSimpleName());
-        this.handler = new m(this, Looper.getMainLooper());
+        this.handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.plugin.install.PluginInstallerService.1
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                if (message != null && message.replyTo != null) {
+                    Message message2 = new Message();
+                    try {
+                        message2.setData(message.getData());
+                        message.replyTo.send(message2);
+                    } catch (RemoteException e) {
+                        BdLog.detailException(e);
+                    }
+                }
+            }
+        };
         this.messenger = new Messenger(this.handler);
     }
 
@@ -54,6 +70,6 @@ public class PluginInstallerService extends HighPriorityIntentService {
 
     @Override // com.baidu.adp.plugin.install.HighPriorityIntentService
     protected void onHandleIntent(Intent intent) {
-        l.onHandleIntent(intent);
+        d.onHandleIntent(intent);
     }
 }

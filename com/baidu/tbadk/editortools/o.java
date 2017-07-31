@@ -1,14 +1,17 @@
 package com.baidu.tbadk.editortools;
 
 import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class o {
-    public static p a(Context context, x xVar, int i) {
-        switch (i) {
-            case 1:
-                return new c(context, xVar.aAw, xVar.id);
-            default:
-                return new e(context, xVar.aAw, xVar.name, xVar.id);
-        }
+public class o extends r {
+    public o(Context context) {
+        super(context, null, 2, 0);
+        this.name = TbadkCoreApplication.getInst().getString(d.l.more_function);
+        this.aCN = d.g.selector_editor_btn_more;
+        this.aCc = new m(context);
+        this.aCR = true;
+        this.aCQ = 6;
+        this.aCS = new int[]{1};
     }
 }

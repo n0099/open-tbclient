@@ -21,7 +21,7 @@ public class f extends d {
         super(context);
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
     private byte[] a(long j, g gVar) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         com.baidu.android.pushservice.j.j jVar = new com.baidu.android.pushservice.j.j(byteArrayOutputStream);
@@ -40,20 +40,21 @@ public class f extends d {
                 } catch (IOException e) {
                     return byteArray;
                 }
-            } finally {
+            } catch (Exception e2) {
+                com.baidu.android.pushservice.g.a.e("MessageHandler", "wrapMsgHead error : " + e2.getMessage());
                 try {
                     byteArrayOutputStream.close();
-                } catch (IOException e2) {
-                    com.baidu.android.pushservice.g.a.a("MessageHandler", e2);
-                }
-                try {
-                    jVar.a();
                 } catch (IOException e3) {
                     com.baidu.android.pushservice.g.a.a("MessageHandler", e3);
                 }
+                try {
+                    jVar.a();
+                } catch (IOException e4) {
+                    com.baidu.android.pushservice.g.a.a("MessageHandler", e4);
+                }
+                return null;
             }
-        } catch (Exception e4) {
-            com.baidu.android.pushservice.g.a.e("MessageHandler", "wrapMsgHead error : " + e4.getMessage());
+        } finally {
             try {
                 byteArrayOutputStream.close();
             } catch (IOException e5) {
@@ -64,7 +65,6 @@ public class f extends d {
             } catch (IOException e6) {
                 com.baidu.android.pushservice.g.a.a("MessageHandler", e6);
             }
-            return null;
         }
     }
 
@@ -104,24 +104,24 @@ public class f extends d {
                     com.baidu.android.pushservice.g.a.a("MessageHandler", e);
                     return byteArray;
                 }
-            } catch (Throwable th) {
+            } catch (Exception e2) {
+                com.baidu.android.pushservice.g.a.e("MessageHandler", "error " + e2.getMessage());
                 com.baidu.android.pushservice.f.b.a(byteArrayOutputStream);
                 try {
                     jVar.a();
-                } catch (Exception e2) {
-                    com.baidu.android.pushservice.g.a.a("MessageHandler", e2);
+                } catch (Exception e3) {
+                    com.baidu.android.pushservice.g.a.a("MessageHandler", e3);
                 }
-                throw th;
+                return null;
             }
-        } catch (Exception e3) {
-            com.baidu.android.pushservice.g.a.e("MessageHandler", "error " + e3.getMessage());
+        } catch (Throwable th) {
             com.baidu.android.pushservice.f.b.a(byteArrayOutputStream);
             try {
                 jVar.a();
             } catch (Exception e4) {
                 com.baidu.android.pushservice.g.a.a("MessageHandler", e4);
             }
-            return null;
+            throw th;
         }
     }
 

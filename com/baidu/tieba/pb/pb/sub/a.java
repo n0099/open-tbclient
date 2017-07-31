@@ -6,24 +6,24 @@ import android.view.ViewGroup;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class a extends View {
-    private InterfaceC0076a eHd;
+    private InterfaceC0111a eUQ;
     private Scroller mScroller;
 
     /* renamed from: com.baidu.tieba.pb.pb.sub.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0076a {
-        void aRF();
+    public interface InterfaceC0111a {
+        void aUN();
     }
 
-    public void setScrollCallBack(InterfaceC0076a interfaceC0076a) {
-        this.eHd = interfaceC0076a;
+    public void setScrollCallBack(InterfaceC0111a interfaceC0111a) {
+        this.eUQ = interfaceC0111a;
     }
 
     public a(Context context) {
         super(context);
     }
 
-    public void aRE() {
+    public void aUM() {
         if (this.mScroller == null) {
             this.mScroller = new Scroller(getContext());
         }
@@ -45,8 +45,8 @@ public class a extends View {
                     layoutParams.height = currY;
                     setLayoutParams(layoutParams);
                 }
-            } else if (this.eHd != null) {
-                this.eHd.aRF();
+            } else if (this.eUQ != null) {
+                this.eUQ.aUN();
             }
         }
     }

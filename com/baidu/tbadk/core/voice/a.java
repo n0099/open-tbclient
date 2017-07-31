@@ -1,32 +1,48 @@
 package com.baidu.tbadk.core.voice;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.e;
+import com.baidu.adp.lib.util.p;
+import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.k;
+import java.io.File;
 /* loaded from: classes.dex */
-public class a extends CustomMessageListener {
-    final /* synthetic */ VoiceManager this$0;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(VoiceManager voiceManager, int i) {
-        super(i);
-        this.this$0 = voiceManager;
+public class a {
+    public static String xz() {
+        return p.hS();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Boolean bool;
-        Boolean isSpeakerphone;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001273) {
-            this.this$0.stopPlay();
-            if ((customResponsedMessage.getData() instanceof Boolean) && (bool = (Boolean) customResponsedMessage.getData()) != null && bool.booleanValue()) {
-                VoiceManager voiceManager = this.this$0;
-                isSpeakerphone = this.this$0.isSpeakerphone();
-                voiceManager.bSpeaker = isSpeakerphone;
-                this.this$0.setSpeakerphone(false);
+    public static String ew(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        return "tb/voice/" + str;
+    }
+
+    public static String ex(String str) {
+        return k.q(str, 1);
+    }
+
+    public static String ey(String str) {
+        return e.getFilePath(ew(str));
+    }
+
+    public static boolean delFile(String str) {
+        if (StringUtils.isNull(str)) {
+            return false;
+        }
+        File file = new File(str);
+        try {
+            if (file.exists()) {
+                return file.delete();
             }
+            return false;
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
+            TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "FileHelper DelFile error: " + th.getMessage(), str);
+            return false;
         }
     }
 }

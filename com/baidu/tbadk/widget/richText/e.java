@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
-    private String VC;
-    private int aOO;
-    private String aOP;
-    private int aOQ;
-    private int aOR;
+    private String Xo;
+    private int aRk;
+    private String aRl;
+    private int aRm;
+    private int aRn;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class e {
     public void a(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.VC = pbContent.src;
+            this.Xo = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aOO = pbContent.e_type.intValue();
-            this.aOP = pbContent.text;
+            this.aRk = pbContent.e_type.intValue();
+            this.aRl = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aOQ = pbContent.count.intValue();
-            this.aOR = pbContent.origin_size.intValue();
+            this.aRm = pbContent.count.intValue();
+            this.aRn = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class e {
     }
 
     public String getThumbUrl() {
-        return this.VC;
+        return this.Xo;
     }
 
     public int getWidth() {
@@ -44,23 +44,23 @@ public class e {
         return this.height;
     }
 
-    public String IF() {
-        return this.aOP;
+    public String IY() {
+        return this.aRl;
     }
 
-    public boolean IG() {
-        return this.aOO == 15;
+    public boolean IZ() {
+        return this.aRk == 15;
     }
 
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 
-    public int IH() {
-        return this.aOQ;
+    public int Ja() {
+        return this.aRm;
     }
 
-    public void fz(int i) {
-        this.aOQ = i;
+    public void fE(int i) {
+        this.aRm = i;
     }
 }

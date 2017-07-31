@@ -17,10 +17,6 @@ public final class GroupMsg extends Message {
     public static final List<MsgInfo> DEFAULT_MSGLIST = Collections.emptyList();
     public static final Integer DEFAULT_HASMORE = 0;
 
-    /* synthetic */ GroupMsg(Builder builder, boolean z, GroupMsg groupMsg) {
-        this(builder, z);
-    }
-
     private GroupMsg(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -64,7 +60,7 @@ public final class GroupMsg extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public GroupMsg build(boolean z) {
-            return new GroupMsg(this, z, null);
+            return new GroupMsg(this, z);
         }
     }
 }

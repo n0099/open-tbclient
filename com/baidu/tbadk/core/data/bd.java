@@ -1,42 +1,68 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.SchoolRecomUserInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SeniorLottery;
 /* loaded from: classes.dex */
 public class bd {
-    private String uid = "";
-    private String uname = "";
-    private String portrait = "";
-    private String institute = "";
-    private int isLike = -1;
+    private am YI;
+    private List<f> YJ;
+    private String YK;
+    private List<g> YL;
+    private String YM;
+    private List<al> YN;
 
-    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
-        if (schoolRecomUserInfo != null) {
-            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
-            this.uname = schoolRecomUserInfo.uname;
-            this.portrait = schoolRecomUserInfo.portrait;
-            this.institute = schoolRecomUserInfo.institute;
-            this.isLike = schoolRecomUserInfo.is_liked.intValue();
+    public am qU() {
+        return this.YI;
+    }
+
+    public List<f> qV() {
+        return this.YJ;
+    }
+
+    public String qW() {
+        return this.YK;
+    }
+
+    public List<g> qX() {
+        return this.YL;
+    }
+
+    public String qY() {
+        return this.YM;
+    }
+
+    public List<al> qZ() {
+        return this.YN;
+    }
+
+    public void a(SeniorLottery seniorLottery) {
+        if (seniorLottery != null) {
+            this.YI = new am();
+            this.YI.a(seniorLottery.theme);
+            this.YJ = new ArrayList();
+            int size = seniorLottery.award_info.size();
+            for (int i = 0; i < size; i++) {
+                f fVar = new f();
+                fVar.a(seniorLottery.award_info.get(i));
+                this.YJ.add(fVar);
+            }
+            this.YK = seniorLottery.myaward;
+            this.YL = new ArrayList();
+            int size2 = seniorLottery.luck_users.size();
+            for (int i2 = 0; i2 < size2; i2++) {
+                g gVar = new g();
+                gVar.a(seniorLottery.luck_users.get(i2));
+                this.YL.add(gVar);
+            }
+            this.YM = seniorLottery.act_desc;
+            this.YN = new ArrayList();
+            int size3 = seniorLottery.act_regular.size();
+            for (int i3 = 0; i3 < size3; i3++) {
+                al alVar = new al();
+                alVar.a(seniorLottery.act_regular.get(i3));
+                this.YN.add(alVar);
+            }
         }
-    }
-
-    public String getUid() {
-        return this.uid;
-    }
-
-    public String qF() {
-        return this.uname;
-    }
-
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public String qG() {
-        return this.institute;
-    }
-
-    public int getIsLike() {
-        return this.isLike;
     }
 }

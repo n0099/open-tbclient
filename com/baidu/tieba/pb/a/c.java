@@ -1,61 +1,89 @@
 package com.baidu.tieba.pb.a;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.w;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class c {
-    public static String aNk() {
-        int fontSize = TbadkCoreApplication.m9getInst().getFontSize();
-        if (fontSize == 0) {
-            return TbadkCoreApplication.m9getInst().getString(w.l.toast_font_size_xlarge);
-        }
-        if (fontSize == 1) {
-            return TbadkCoreApplication.m9getInst().getString(w.l.toast_font_size_big);
-        }
-        if (fontSize == 2) {
-            return TbadkCoreApplication.m9getInst().getString(w.l.toast_font_size_mid);
-        }
-        return TbadkCoreApplication.m9getInst().getString(w.l.toast_font_size_small);
+public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
+    private a eEV;
+    private View eEW;
+    private GestureDetector mGestureDetector = new GestureDetector(this);
+
+    /* loaded from: classes.dex */
+    public interface a {
+        boolean a(View view, MotionEvent motionEvent);
+
+        boolean b(View view, MotionEvent motionEvent);
+
+        boolean c(View view, MotionEvent motionEvent);
     }
 
-    public static void aNl() {
-        int i = 1;
-        int fontSize = TbadkCoreApplication.m9getInst().getFontSize();
-        if (fontSize != 0) {
-            i = fontSize == 1 ? 2 : fontSize == 2 ? 3 : 3;
-        }
-        if (fontSize != i) {
-            TbadkCoreApplication.m9getInst().setFontSize(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
-        }
-        BdToast.a(TbadkCoreApplication.m9getInst(), aNk(), w.g.icon_word_t_size, 0).ti();
+    public c(a aVar) {
+        this.eEV = aVar;
     }
 
-    public static void aNm() {
-        int i = 1;
-        int fontSize = TbadkCoreApplication.m9getInst().getFontSize();
-        if (fontSize == 0) {
-            i = 0;
-        } else if (fontSize == 1) {
-            i = 0;
-        } else if (fontSize != 2) {
-            i = 2;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        this.eEW = view;
+        if (this.mGestureDetector != null) {
+            return this.mGestureDetector.onTouchEvent(motionEvent);
         }
-        if (fontSize != i) {
-            TbadkCoreApplication.m9getInst().setFontSize(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
-        }
-        BdToast.a(TbadkCoreApplication.m9getInst(), aNk(), w.g.icon_word_t_size, 0).ti();
+        return true;
     }
 
-    public static void oE(int i) {
-        if (TbadkCoreApplication.m9getInst().getFontSize() != i) {
-            TbadkCoreApplication.m9getInst().setFontSize(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onLongPress(MotionEvent motionEvent) {
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onShowPress(MotionEvent motionEvent) {
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTap(MotionEvent motionEvent) {
+        if (this.eEV != null) {
+            return this.eEV.a(this.eEW, motionEvent);
         }
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
+        if (this.eEV != null) {
+            return this.eEV.b(this.eEW, motionEvent);
+        }
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnDoubleTapListener
+    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+        if (this.eEV != null) {
+            return this.eEV.c(this.eEW, motionEvent);
+        }
+        return false;
+    }
+
+    public void aX(View view) {
+        this.eEW = view;
     }
 }

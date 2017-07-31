@@ -12,7 +12,8 @@ public class ResponseIncrForumAccessCountHttpMessage extends TbHttpResponsedMess
         super(CmdConfigHttp.CMD_INCREASE_FORUM_ACCESS_COUNT);
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         super.decodeInBackGround(i, bArr);
         this.mResponseData = (IncrForumAccessCountResIdl) new Wire(new Class[0]).parseFrom(bArr, IncrForumAccessCountResIdl.class);

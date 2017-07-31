@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.tieba.im.util.d;
 import com.squareup.wire.Wire;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
 /* loaded from: classes.dex */
@@ -43,7 +44,7 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
             }
             long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
             setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-            setMsgId(com.baidu.tieba.im.util.g.bO(longValue));
+            setMsgId(d.bQ(longValue));
             setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
             setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));

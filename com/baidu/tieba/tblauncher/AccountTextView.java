@@ -3,21 +3,22 @@ package com.baidu.tieba.tblauncher;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class AccountTextView extends TextView {
     private String text;
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {
-        String a = com.baidu.adp.lib.util.j.a(getText(), "");
+        String a = j.a(getText(), "");
         int size = View.MeasureSpec.getSize(i);
         int measureText = (int) (getPaint().measureText(a) + getCompoundPaddingLeft() + getCompoundPaddingRight());
         if (!TextUtils.isEmpty(a) && !a.equals(this.text) && measureText > size) {
             while (measureText > size && a.length() > 1) {
                 a = a.substring(0, a.length() - 1);
-                measureText = (int) (getPaint().measureText(String.valueOf(a) + "...") + getCompoundPaddingLeft() + getCompoundPaddingRight());
+                measureText = (int) (getPaint().measureText(a + "...") + getCompoundPaddingLeft() + getCompoundPaddingRight());
             }
-            String str = String.valueOf(a) + "...";
+            String str = a + "...";
             this.text = str;
             setText(str);
         }

@@ -10,10 +10,6 @@ public final class PushMessageResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ PushMessageResIdl(Builder builder, boolean z, PushMessageResIdl pushMessageResIdl) {
-        this(builder, z);
-    }
-
     private PushMessageResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -44,7 +40,7 @@ public final class PushMessageResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public PushMessageResIdl build(boolean z) {
-            return new PushMessageResIdl(this, z, null);
+            return new PushMessageResIdl(this, z);
         }
     }
 }

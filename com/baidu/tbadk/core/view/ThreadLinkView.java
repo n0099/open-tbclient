@@ -8,15 +8,18 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.aj;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadLinkView extends RelativeLayout {
-    private TbImageView ane;
-    private TextView anf;
-    private TextView ang;
-    private TextView anh;
+    private TbImageView api;
+    private TextView apj;
+    private TextView apk;
+    private TextView apl;
     private BdUniqueId mTag;
 
     public ThreadLinkView(Context context) {
@@ -35,76 +38,76 @@ public class ThreadLinkView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(w.j.link_thread_item, (ViewGroup) this, true);
-        this.ane = (TbImageView) inflate.findViewById(w.h.link_thread_head_img);
-        this.ane.setDefaultBgResource(w.g.ic_post_url_n);
-        this.ane.setDefaultErrorResource(w.g.ic_post_url_n);
-        this.anf = (TextView) inflate.findViewById(w.h.link_thread_title);
-        this.ang = (TextView) inflate.findViewById(w.h.link_thread_abstract);
-        this.anh = (TextView) inflate.findViewById(w.h.link_thread_url);
+        View inflate = LayoutInflater.from(context).inflate(d.j.link_thread_item, (ViewGroup) this, true);
+        this.api = (TbImageView) inflate.findViewById(d.h.link_thread_head_img);
+        this.api.setDefaultBgResource(d.g.ic_post_url_n);
+        this.api.setDefaultErrorResource(d.g.ic_post_url_n);
+        this.apj = (TextView) inflate.findViewById(d.h.link_thread_title);
+        this.apk = (TextView) inflate.findViewById(d.h.link_thread_abstract);
+        this.apl = (TextView) inflate.findViewById(d.h.link_thread_url);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         this.mTag = bdUniqueId;
     }
 
-    public void setData(bm bmVar) {
-        if (bmVar == null || bmVar.sF() == null || com.baidu.tbadk.core.util.aw.isEmpty(bmVar.sF().getLinkUrl())) {
+    public void setData(bl blVar) {
+        if (blVar == null || blVar.sV() == null || al.isEmpty(blVar.sV().getLinkUrl())) {
             setVisibility(8);
             return;
         }
-        com.baidu.tbadk.core.data.ak sF = bmVar.sF();
-        if (!sF.qd() && sF.qc() != com.baidu.tbadk.core.data.ak.VS) {
+        aj sV = blVar.sV();
+        if (!sV.qq() && sV.qp() != aj.XE) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.ane.setPageId(this.mTag);
-        if (sF.qd()) {
-            this.anh.setVisibility(0);
-            this.anf.setVisibility(8);
-            this.ang.setVisibility(8);
-            this.anh.setText(sF.getLinkUrl());
-            this.ane.reset();
+        this.api.setPageId(this.mTag);
+        if (sV.qq()) {
+            this.apl.setVisibility(0);
+            this.apj.setVisibility(8);
+            this.apk.setVisibility(8);
+            this.apl.setText(sV.getLinkUrl());
+            this.api.reset();
         } else {
-            this.anh.setVisibility(8);
-            String pZ = sF.pZ();
-            String qa = sF.qa();
-            if (!com.baidu.tbadk.core.util.aw.isEmpty(pZ)) {
-                this.anf.setText(pZ);
-                this.anf.setVisibility(0);
+            this.apl.setVisibility(8);
+            String qm = sV.qm();
+            String qn = sV.qn();
+            if (!al.isEmpty(qm)) {
+                this.apj.setText(qm);
+                this.apj.setVisibility(0);
             } else {
-                this.anf.setVisibility(4);
+                this.apj.setVisibility(4);
             }
-            if (!com.baidu.tbadk.core.util.aw.isEmpty(qa)) {
-                this.ang.setText(qa);
-                this.ang.setVisibility(0);
+            if (!al.isEmpty(qn)) {
+                this.apk.setText(qn);
+                this.apk.setVisibility(0);
             } else {
-                this.ang.setVisibility(4);
+                this.apk.setVisibility(4);
             }
-            if (com.baidu.tbadk.core.util.aw.dQ(pZ) > 32) {
-                this.anf.setMaxLines(2);
-                this.ang.setMaxLines(1);
+            if (al.dZ(qm) > 32) {
+                this.apj.setMaxLines(2);
+                this.apk.setMaxLines(1);
             } else {
-                this.anf.setMaxLines(1);
-                this.ang.setMaxLines(2);
+                this.apj.setMaxLines(1);
+                this.apk.setMaxLines(2);
             }
-            if (!com.baidu.tbadk.core.util.aw.isEmpty(sF.qb())) {
-                this.ane.c(sF.qb(), 10, false);
+            if (!al.isEmpty(sV.qo())) {
+                this.api.c(sV.qo(), 10, false);
             } else {
-                this.ane.reset();
+                this.api.reset();
             }
         }
-        em(bmVar.getId());
+        ev(blVar.getId());
     }
 
     public void onChangeSkinType() {
-        com.baidu.tbadk.core.util.as.k(this, w.e.cp_bg_line_e);
+        ai.k(this, d.e.cp_bg_line_e);
     }
 
-    public void em(String str) {
-        com.baidu.tieba.card.at.a(this.anf, str, w.e.cp_cont_b, w.e.cp_cont_d);
-        com.baidu.tieba.card.at.a(this.anh, str, w.e.cp_cont_b, w.e.cp_cont_d);
-        com.baidu.tieba.card.at.a(this.ang, str, w.e.cp_cont_d, w.e.cp_cont_d);
+    public void ev(String str) {
+        com.baidu.tieba.card.m.a(this.apj, str, d.e.cp_cont_b, d.e.cp_cont_d);
+        com.baidu.tieba.card.m.a(this.apl, str, d.e.cp_cont_b, d.e.cp_cont_d);
+        com.baidu.tieba.card.m.a(this.apk, str, d.e.cp_cont_d, d.e.cp_cont_d);
     }
 }

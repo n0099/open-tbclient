@@ -2,14 +2,13 @@ package com.baidu.tieba.h;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.browser.g;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.w;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean jW(int i) {
+    public static boolean ke(int i) {
         switch (i) {
             case 202001:
             case 205001:
@@ -21,30 +20,35 @@ public class a {
         }
     }
 
-    public static boolean a(ab abVar) {
-        if (abVar == null) {
+    public static boolean a(w wVar) {
+        if (wVar == null) {
             return false;
         }
-        if ((abVar.uY() ? abVar.uZ() : abVar.va()) == 1990055) {
-            akj();
+        if ((wVar.vo() ? wVar.vp() : wVar.vq()) == 1990055) {
+            alW();
             return true;
         }
         return false;
     }
 
-    public static void akj() {
-        if (!k.hz()) {
-            TbadkCoreApplication.m9getInst().handler.post(new b());
+    public static void alW() {
+        if (!k.hH()) {
+            TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.h.a.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    a.alX();
+                }
+            });
         } else {
-            akk();
+            alX();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void akk() {
-        Context applicationContext = TbadkCoreApplication.m9getInst().getApplicationContext();
+    public static final void alX() {
+        Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder("https://wappass.baidu.com/passport/realnamewidget?tpl=tieba&adapter=3&nomenu=1");
         sb.append("&u=").append(URLEncoder.encode("http://tieba.baidu.com/?jump=finish_this_page"));
-        g.a(applicationContext, "", sb.toString(), true, true, true, true, true, false);
+        com.baidu.tbadk.browser.a.a(applicationContext, "", sb.toString(), true, true, true, true, true, false);
     }
 }

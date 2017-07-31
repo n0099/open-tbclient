@@ -1,68 +1,54 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class be {
-    private an WW;
-    private List<f> WX;
-    private String WY;
-    private List<g> WZ;
-    private String Xa;
-    private List<am> Xb;
+    private String avatar;
+    private String forumId;
+    private int forumLevel;
+    private String forumName;
 
-    public an qH() {
-        return this.WW;
+    public String getForumId() {
+        return this.forumId;
     }
 
-    public List<f> qI() {
-        return this.WX;
+    public String getForumName() {
+        return this.forumName;
     }
 
-    public String qJ() {
-        return this.WY;
+    public int ra() {
+        return this.forumLevel;
     }
 
-    public List<g> qK() {
-        return this.WZ;
+    public void setForumName(String str) {
+        this.forumName = str;
     }
 
-    public String qL() {
-        return this.Xa;
+    public void setForumLevel(int i) {
+        this.forumLevel = i;
     }
 
-    public List<am> qM() {
-        return this.Xb;
-    }
-
-    public void a(SeniorLottery seniorLottery) {
-        if (seniorLottery != null) {
-            this.WW = new an();
-            this.WW.a(seniorLottery.theme);
-            this.WX = new ArrayList();
-            int size = seniorLottery.award_info.size();
-            for (int i = 0; i < size; i++) {
-                f fVar = new f();
-                fVar.a(seniorLottery.award_info.get(i));
-                this.WX.add(fVar);
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.forumId = String.valueOf(jSONObject.optLong("id", 0L));
+                this.forumName = jSONObject.optString("name");
+                this.avatar = jSONObject.optString("avatar");
+                this.forumLevel = jSONObject.optInt("level_id");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            this.WY = seniorLottery.myaward;
-            this.WZ = new ArrayList();
-            int size2 = seniorLottery.luck_users.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                g gVar = new g();
-                gVar.a(seniorLottery.luck_users.get(i2));
-                this.WZ.add(gVar);
-            }
-            this.Xa = seniorLottery.act_desc;
-            this.Xb = new ArrayList();
-            int size3 = seniorLottery.act_regular.size();
-            for (int i3 = 0; i3 < size3; i3++) {
-                am amVar = new am();
-                amVar.a(seniorLottery.act_regular.get(i3));
-                this.Xb.add(amVar);
-            }
+        }
+    }
+
+    public void parserProtobuf(SimpleForum simpleForum) {
+        if (simpleForum != null) {
+            this.forumId = String.valueOf(simpleForum.id);
+            this.forumName = simpleForum.name;
+            this.avatar = simpleForum.avatar;
+            this.forumLevel = simpleForum.level_id.intValue();
         }
     }
 }

@@ -7,38 +7,38 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ai;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.view.r;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
+import com.baidu.tieba.view.g;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private Context eQY;
-    private ArrayList<com.baidu.tieba.personCenter.b.a> eQZ = new ArrayList<>();
-    private r eRa;
+    private Context feJ;
+    private ArrayList<com.baidu.tieba.personCenter.b.a> feK = new ArrayList<>();
+    private g feL;
 
     public a(Context context) {
-        this.eQY = context;
+        this.feJ = context;
     }
 
     public void setData(ArrayList<com.baidu.tieba.personCenter.b.a> arrayList) {
-        this.eQZ.clear();
-        this.eQZ.addAll(arrayList);
+        this.feK.clear();
+        this.feK.addAll(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.eQZ.size() == 0 || this.eQZ.size() <= i) {
+        if (this.feK.size() == 0 || this.feK.size() <= i) {
             return null;
         }
-        return this.eQZ.get(i);
+        return this.feK.get(i);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.eQZ.size();
+        return this.feK.size();
     }
 
     @Override // android.widget.Adapter
@@ -50,67 +50,67 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
-            view = LayoutInflater.from(this.eQY).inflate(w.j.person_center_function_grid_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.feJ).inflate(d.j.person_center_function_grid_item, (ViewGroup) null);
             bVar = new b();
-            bVar.aJF = (LinearLayout) view.findViewById(w.h.func_icon_and_new);
-            bVar.eRf = (TextView) view.findViewById(w.h.function_desc);
-            bVar.eRe = (TbImageView) view.findViewById(w.h.function_icon);
-            bVar.eRd = (TextView) view.findViewById(w.h.message_new);
+            bVar.aMc = (LinearLayout) view.findViewById(d.h.func_icon_and_new);
+            bVar.feQ = (TextView) view.findViewById(d.h.function_desc);
+            bVar.feP = (TbImageView) view.findViewById(d.h.function_icon);
+            bVar.feO = (TextView) view.findViewById(d.h.message_new);
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
-        com.baidu.tieba.personCenter.b.a aVar = this.eQZ.get(i);
+        com.baidu.tieba.personCenter.b.a aVar = this.feK.get(i);
         if (aVar != null) {
-            bVar.eRe.setImageDrawable(as.getDrawable(aVar.iconId));
-            bVar.eRf.setText(aVar.title);
-            if (aVar.bVe != null) {
-                if (aVar.bVe.getBoolean("person_center_item_red_tip_show", false)) {
-                    bVar.eRd.setVisibility(0);
+            bVar.feP.setImageDrawable(ai.getDrawable(aVar.iconId));
+            bVar.feQ.setText(aVar.title);
+            if (aVar.cay != null) {
+                if (aVar.cay.getBoolean("person_center_item_red_tip_show", false)) {
+                    bVar.feO.setVisibility(0);
                 } else {
-                    bVar.eRd.setVisibility(8);
+                    bVar.feO.setVisibility(8);
                 }
             }
-            View$OnClickListenerC0078a view$OnClickListenerC0078a = new View$OnClickListenerC0078a();
-            view$OnClickListenerC0078a.a(aVar);
-            bVar.aJF.setOnClickListener(view$OnClickListenerC0078a);
+            View$OnClickListenerC0113a view$OnClickListenerC0113a = new View$OnClickListenerC0113a();
+            view$OnClickListenerC0113a.a(aVar);
+            bVar.aMc.setOnClickListener(view$OnClickListenerC0113a);
         }
-        as.i(bVar.eRf, w.e.cp_cont_c);
-        as.j(bVar.eRd, w.g.icon_news_down_bar_one);
-        as.j(bVar.aJF, w.g.item_person_center_function_selector);
+        ai.i(bVar.feQ, d.e.cp_cont_c);
+        ai.j(bVar.feO, d.g.icon_news_down_bar_one);
+        ai.j(bVar.aMc, d.g.item_person_center_function_selector);
         return view;
     }
 
-    public void setOnViewResponseListener(r rVar) {
-        this.eRa = rVar;
+    public void setOnViewResponseListener(g gVar) {
+        this.feL = gVar;
     }
 
     /* renamed from: com.baidu.tieba.personCenter.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    class View$OnClickListenerC0078a implements View.OnClickListener {
-        private com.baidu.tieba.personCenter.b.a eRb;
+    class View$OnClickListenerC0113a implements View.OnClickListener {
+        private com.baidu.tieba.personCenter.b.a feM;
 
-        View$OnClickListenerC0078a() {
+        View$OnClickListenerC0113a() {
         }
 
         public void a(com.baidu.tieba.personCenter.b.a aVar) {
-            this.eRb = aVar;
+            this.feM = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.eRa != null) {
-                a.this.eRa.a(view, this.eRb.eRg);
+            if (a.this.feL != null) {
+                a.this.feL.a(view, this.feM.feR);
             }
         }
     }
 
     /* loaded from: classes.dex */
     public class b {
-        LinearLayout aJF;
-        TextView eRd;
-        TbImageView eRe;
-        TextView eRf;
+        LinearLayout aMc;
+        TextView feO;
+        TbImageView feP;
+        TextView feQ;
 
         public b() {
         }

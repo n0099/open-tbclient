@@ -1,9 +1,19 @@
 package com.baidu.tieba.h;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
-public class b implements Runnable {
-    @Override // java.lang.Runnable
-    public void run() {
-        a.akk();
+public class b extends com.baidu.adp.framework.a.c {
+    public b() {
+        super(0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: b */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !a.ke(httpResponsedMessage.getCmd())) {
+            a.alW();
+        }
+        return httpResponsedMessage;
     }
 }

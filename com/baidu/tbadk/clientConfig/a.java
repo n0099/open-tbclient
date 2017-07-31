@@ -1,61 +1,7 @@
 package com.baidu.tbadk.clientConfig;
-
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ ClientConfigModel QW;
+public interface a {
+    void onError(String str);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(ClientConfigModel clientConfigModel, int i, int i2) {
-        super(i, i2);
-        this.QW = clientConfigModel;
-    }
-
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        boolean checkMessageIsBelongToCurPage;
-        b bVar;
-        b bVar2;
-        b bVar3;
-        b bVar4;
-        b bVar5;
-        b bVar6;
-        checkMessageIsBelongToCurPage = this.QW.checkMessageIsBelongToCurPage(responsedMessage);
-        if (!checkMessageIsBelongToCurPage) {
-            bVar5 = this.QW.QU;
-            if (bVar5 != null) {
-                bVar6 = this.QW.QU;
-                bVar6.onError("");
-            }
-        } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-            String errorString = responsedMessage.getErrorString();
-            String string = TbadkCoreApplication.m9getInst().getString(w.l.neterror);
-            if (!StringUtils.isNull(errorString)) {
-                string = errorString;
-            }
-            bVar = this.QW.QU;
-            if (bVar != null) {
-                bVar2 = this.QW.QU;
-                bVar2.onError(string);
-            }
-        } else if (!(responsedMessage instanceof ClientConfigHttpProtoResponse)) {
-            if (!(responsedMessage instanceof ClientConfigSocketResponse)) {
-                bVar3 = this.QW.QU;
-                if (bVar3 != null) {
-                    bVar4 = this.QW.QU;
-                    bVar4.onError("");
-                    return;
-                }
-                return;
-            }
-            this.QW.a(((ClientConfigSocketResponse) responsedMessage).getData());
-        } else {
-            this.QW.a(((ClientConfigHttpProtoResponse) responsedMessage).getData());
-        }
-    }
+    void z(Object obj);
 }

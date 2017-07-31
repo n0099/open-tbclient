@@ -1,16 +1,15 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
 /* loaded from: classes.dex */
-public class k implements v {
-    public static final BdUniqueId esc = BdUniqueId.gen();
+public class k implements com.baidu.adp.widget.ListView.f {
+    public static final BdUniqueId eEy = BdUniqueId.gen();
     public int mType = 0;
-    public boolean aDG = true;
-    public boolean esd = false;
+    public boolean aFV = true;
+    public boolean eEz = false;
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return esc;
+        return eEy;
     }
 }

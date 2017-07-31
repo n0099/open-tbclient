@@ -1,5 +1,6 @@
 package tv.danmaku.ijk.media.player;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.Uri;
 import android.view.Surface;
@@ -87,6 +88,7 @@ public interface IMediaPlayer {
 
     void setDataSource(Context context, Uri uri) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException;
 
+    @TargetApi(14)
     void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException;
 
     void setDataSource(FileDescriptor fileDescriptor) throws IOException, IllegalArgumentException, IllegalStateException;

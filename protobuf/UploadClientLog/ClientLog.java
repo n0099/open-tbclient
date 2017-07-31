@@ -17,10 +17,6 @@ public final class ClientLog extends Message {
     public static final Integer DEFAULT_PUSHCNT = 0;
     public static final Integer DEFAULT_PROCESS_TYPE = 0;
 
-    /* synthetic */ ClientLog(Builder builder, boolean z, ClientLog clientLog) {
-        this(builder, z);
-    }
-
     private ClientLog(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -76,7 +72,7 @@ public final class ClientLog extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public ClientLog build(boolean z) {
-            return new ClientLog(this, z, null);
+            return new ClientLog(this, z);
         }
     }
 }

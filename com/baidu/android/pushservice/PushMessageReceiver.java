@@ -151,7 +151,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
 
     public abstract void onNotificationClicked(Context context, String str, String str2, String str3);
 
-    /* JADX WARN: Type inference failed for: r0v188, types: [com.baidu.android.pushservice.PushMessageReceiver$2] */
+    /* JADX WARN: Type inference failed for: r4v187, types: [com.baidu.android.pushservice.PushMessageReceiver$2] */
     @Override // android.content.BroadcastReceiver
     public final void onReceive(final Context context, final Intent intent) {
         int i;

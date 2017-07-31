@@ -28,13 +28,13 @@ public class PvCacheModel {
 
     public void addCacheData(String str, Long l) {
         if (str != null && str.length() > 0) {
-            this.mCache.put(String.valueOf(TbadkApplication.getCurrentAccount()) + str, String.valueOf(l));
+            this.mCache.put(TbadkApplication.getCurrentAccount() + str, String.valueOf(l));
         }
     }
 
     public void removeCacheData(String str) {
         if (str != null && str.length() > 0) {
-            this.mCache.remove(String.valueOf(TbadkApplication.getCurrentAccount()) + str);
+            this.mCache.remove(TbadkApplication.getCurrentAccount() + str);
         }
     }
 
@@ -42,10 +42,10 @@ public class PvCacheModel {
         if (str == null || str.length() <= 0) {
             return false;
         }
-        String str2 = this.mCache.get(String.valueOf(TbadkApplication.getCurrentAccount()) + str);
+        String str2 = this.mCache.get(TbadkApplication.getCurrentAccount() + str);
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return UtilHelper.isSameDay(b.c(str2, 0L), System.currentTimeMillis());
+        return UtilHelper.isSameDay(b.d(str2, 0L), System.currentTimeMillis());
     }
 }

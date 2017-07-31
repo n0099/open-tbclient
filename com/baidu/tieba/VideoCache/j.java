@@ -1,13 +1,13 @@
 package com.baidu.tieba.VideoCache;
 
-import android.os.Environment;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes2.dex */
 public class j {
-    public static final String aUh = Environment.getExternalStorageDirectory() + "/tieba";
-    public static final String aUi = String.valueOf(aUh) + "/.tieba_video_cache";
-    public static final String aUj = String.valueOf(aUi) + "/v2";
-    public static final String aUk = String.valueOf(aUj) + "/";
-    public static final String aUl = String.valueOf(aUj) + "/files";
-    public static final String aUm = String.valueOf(aUl) + "/";
-    public static final String aUn = String.valueOf(aUk) + "server_port";
+    private static long mStartTime = 0;
+
+    public static void log(String str, String str2) {
+        if (System.currentTimeMillis() - mStartTime > TbConfig.NOTIFY_SOUND_INTERVAL) {
+            mStartTime = System.currentTimeMillis();
+        }
+    }
 }

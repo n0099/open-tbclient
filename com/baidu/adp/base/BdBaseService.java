@@ -4,14 +4,14 @@ import android.content.Intent;
 import com.baidu.megapp.ma.MAService;
 /* loaded from: classes.dex */
 public abstract class BdBaseService extends MAService {
-    private static com.baidu.adp.framework.client.socket.link.j sCallBack;
+    private static com.baidu.adp.framework.client.socket.link.e sCallBack;
     public static int serviceStartFlag = 1;
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
         if (sCallBack != null) {
-            sCallBack.dp();
+            sCallBack.dz();
         }
     }
 
@@ -21,7 +21,7 @@ public abstract class BdBaseService extends MAService {
         return serviceStartFlag;
     }
 
-    public static void setServiceOnCreateCallBack(com.baidu.adp.framework.client.socket.link.j jVar) {
-        sCallBack = jVar;
+    public static void setServiceOnCreateCallBack(com.baidu.adp.framework.client.socket.link.e eVar) {
+        sCallBack = eVar;
     }
 }

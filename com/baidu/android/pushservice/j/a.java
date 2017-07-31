@@ -9,7 +9,7 @@ import java.util.Properties;
 public class a {
     private final Properties a = new Properties();
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0048 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -17,8 +17,8 @@ public class a {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         try {
-            fileInputStream = new FileInputStream(new File(Environment.getRootDirectory(), "build.prop"));
             try {
+                fileInputStream = new FileInputStream(new File(Environment.getRootDirectory(), "build.prop"));
                 try {
                     this.a.load(fileInputStream);
                     if (fileInputStream != null) {

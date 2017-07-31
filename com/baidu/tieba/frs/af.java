@@ -1,27 +1,15 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
-public class af implements NoNetworkView.a {
-    final /* synthetic */ r cdl;
+public interface af {
+    com.baidu.adp.widget.ListView.a<? extends bl, ? extends j.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public af(r rVar) {
-        this.cdl = rVar;
-    }
+    d<ICardInfo, ? extends j.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aL(boolean z) {
-        if (this.cdl.ccs.agN() == 1 && z && !this.cdl.ccj.ael()) {
-            if (this.cdl.cbN == null || com.baidu.tbadk.core.util.z.t(this.cdl.cbN.getThreadList())) {
-                this.cdl.hideNetRefreshView(this.cdl.ccj.Vf());
-                this.cdl.showLoadingView(this.cdl.ccj.Vf(), true);
-                this.cdl.ccj.ex(false);
-                this.cdl.refresh();
-                return;
-            }
-            this.cdl.ccj.aey();
-        }
-    }
+    com.baidu.adp.widget.ListView.a<? extends bl, ? extends j.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
 }

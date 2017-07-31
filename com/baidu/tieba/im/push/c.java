@@ -1,47 +1,153 @@
 package com.baidu.tieba.im.push;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.client.socket.i;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tieba.im.util.MessageUtils;
-import java.util.Vector;
-import tv.danmaku.ijk.media.player.IjkMediaPlayer;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes.dex */
-public class c extends Handler {
-    final /* synthetic */ a dnl;
+public class c {
+    private static c dxn = null;
+    private int dxo = 0;
+    private List<Long> dxp = new ArrayList();
+    private final CustomMessageListener dwp = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.push.c.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                c.this.clear();
+            }
+        }
+    };
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(a aVar, Looper looper) {
-        super(looper);
-        this.dnl = aVar;
+    private c() {
+        MessageManager.getInstance().registerListener(this.dwp);
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Vector vector;
-        CustomMessageListener customMessageListener;
-        switch (message.what) {
-            case IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND /* 10001 */:
-                MessageUtils.updateGroupNotExist(message.getData());
-                return;
-            case IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND /* 10002 */:
-                MessageManager messageManager = MessageManager.getInstance();
-                customMessageListener = this.dnl.dmu;
-                messageManager.registerListener(customMessageListener);
-                return;
-            case IjkMediaPlayer.FFP_PROP_FLOAT_PLAYBACK_RATE /* 10003 */:
-                if (message.getData() != null && message.getData().containsKey("groupId")) {
-                    vector = this.dnl.dnk;
-                    vector.remove(Long.valueOf(message.getData().getLong("groupId")));
-                    return;
+    public static c axt() {
+        if (dxn == null) {
+            synchronized (c.class) {
+                if (dxn == null) {
+                    dxn = new c();
                 }
-                return;
-            default:
-                return;
+            }
         }
+        return dxn;
+    }
+
+    public synchronized void init(String str, String str2) {
+        clear();
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            try {
+                this.dxo = Integer.parseInt(str);
+                try {
+                    String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    if (split != null && split.length > 0) {
+                        for (int i = 0; i < split.length; i++) {
+                            if (!TextUtils.isEmpty(split[i])) {
+                                this.dxp.add(Long.valueOf(Long.parseLong(split[i])));
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
+            }
+        }
+    }
+
+    public synchronized void clear() {
+        this.dxo = 0;
+        this.dxp.clear();
+    }
+
+    public int getGid() {
+        return this.dxo;
+    }
+
+    public Long axu() {
+        return com.baidu.tieba.im.memorycache.b.awy().awI().get(this.dxo);
+    }
+
+    public synchronized List<Long> axv() {
+        ArrayList arrayList;
+        arrayList = new ArrayList();
+        for (Long l : this.dxp) {
+            if (l != null) {
+                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.bR(l.longValue())));
+            }
+        }
+        return arrayList;
+    }
+
+    public synchronized void axw() {
+        this.dxp.clear();
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x005b, code lost:
+        r8.dxp.add(java.lang.Long.valueOf(r10));
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void g(int i, long j) {
+        if (this.dxo != 0 && this.dxo != i) {
+            this.dxp.clear();
+            i.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + i + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.dxo);
+        }
+        this.dxo = i;
+        Iterator<Long> it = this.dxp.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            Long next = it.next();
+            if (next != null && next.longValue() == j) {
+                break;
+            }
+        }
+    }
+
+    public synchronized boolean axx() {
+        boolean z;
+        if (this.dxo > 0) {
+            z = this.dxp.size() > 0;
+        }
+        return z;
+    }
+
+    public synchronized boolean bN(long j) {
+        boolean z;
+        Iterator<Long> it = this.dxp.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                z = false;
+                break;
+            }
+            Long next = it.next();
+            if (next != null && next.longValue() == j) {
+                z = true;
+                break;
+            }
+        }
+        return z;
+    }
+
+    public synchronized String axy() {
+        String str;
+        str = "";
+        for (Long l : this.dxp) {
+            str = (l == null || l.longValue() == 0) ? str : (str + l.longValue()) + Constants.ACCEPT_TIME_SEPARATOR_SP;
+        }
+        return str;
     }
 }

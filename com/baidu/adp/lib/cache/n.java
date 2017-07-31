@@ -1,19 +1,56 @@
 package com.baidu.adp.lib.cache;
 
-import com.baidu.adp.lib.cache.o;
+import com.baidu.adp.lib.cache.l;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-public interface n<T> {
-    void S(String str);
+public class n<T> extends m<T> {
+    public n(String str, k<T> kVar) {
+        super(str, kVar);
+    }
 
-    void T(String str);
+    @Override // com.baidu.adp.lib.cache.m, com.baidu.adp.lib.cache.l
+    public T get(String str) {
+        try {
+            return (T) super.get(str);
+        } catch (Throwable th) {
+            if (BdLog.isDebugMode()) {
+                BdLog.e(th);
+            }
+            return null;
+        }
+    }
 
-    void a(String str, String str2, T t, long j);
+    @Override // com.baidu.adp.lib.cache.m, com.baidu.adp.lib.cache.l
+    public l.c<T> ac(String str) {
+        try {
+            return super.ac(str);
+        } catch (Throwable th) {
+            if (BdLog.isDebugMode()) {
+                BdLog.e(th);
+            }
+            return null;
+        }
+    }
 
-    f ez();
+    @Override // com.baidu.adp.lib.cache.m, com.baidu.adp.lib.cache.l
+    public void a(String str, T t, long j) {
+        try {
+            super.a(str, t, j);
+        } catch (Throwable th) {
+            if (BdLog.isDebugMode()) {
+                BdLog.e(th);
+            }
+        }
+    }
 
-    T k(String str, String str2);
-
-    o.c<T> l(String str, String str2);
-
-    void m(String str, String str2);
+    @Override // com.baidu.adp.lib.cache.m, com.baidu.adp.lib.cache.l
+    public void remove(String str) {
+        try {
+            super.remove(str);
+        } catch (Throwable th) {
+            if (BdLog.isDebugMode()) {
+                BdLog.e(th);
+            }
+        }
+    }
 }

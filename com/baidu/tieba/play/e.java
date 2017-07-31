@@ -1,15 +1,19 @@
 package com.baidu.tieba.play;
+
+import android.view.View;
 /* loaded from: classes.dex */
-class e implements Runnable {
-    final /* synthetic */ c flr;
+public interface e {
+    int getCurrentPosition();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar) {
-        this.flr = cVar;
-    }
+    String getPlayUrl();
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.flr.aBs();
-    }
+    View getVideoContainer();
+
+    boolean isPlayStarted();
+
+    boolean isPlaying();
+
+    void startPlay();
+
+    void stopPlay();
 }

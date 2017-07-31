@@ -10,10 +10,6 @@ public final class UpdateForumMaskResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* synthetic */ UpdateForumMaskResIdl(Builder builder, boolean z, UpdateForumMaskResIdl updateForumMaskResIdl) {
-        this(builder, z);
-    }
-
     private UpdateForumMaskResIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -44,7 +40,7 @@ public final class UpdateForumMaskResIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public UpdateForumMaskResIdl build(boolean z) {
-            return new UpdateForumMaskResIdl(this, z, null);
+            return new UpdateForumMaskResIdl(this, z);
         }
     }
 }

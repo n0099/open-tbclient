@@ -3,6 +3,8 @@ package com.baidu.tieba.imMessageCenter.mention;
 import android.os.Bundle;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
@@ -19,151 +21,159 @@ import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tbadk.mvc.model.NetModel;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class AtMeModelController extends BdBaseModel<AtMessageActivity> implements CacheModel.a<f>, NetModel.b<e, f> {
-    private com.baidu.tbadk.mvc.d.a bIK;
-    private AtMessageActivity dtS;
-    private e dtT;
-    private AtMeNetModel dtU;
-    private AtMeCacheModel dtV;
-    private FeedData dtW;
-    private ac dtX;
+public class AtMeModelController extends BdBaseModel<AtMessageActivity> implements CacheModel.a<c>, NetModel.b<b, c> {
+    private com.baidu.tbadk.mvc.d.a bOe;
+    private AtMessageActivity dDL;
+    private b dDM;
+    private AtMeNetModel dDN;
+    private AtMeCacheModel dDO;
+    private FeedData dDP;
+    private f dDQ;
     final CustomMessageListener mNetworkChangedMessageListener;
 
     public AtMeModelController(AtMessageActivity atMessageActivity) {
-        super(com.baidu.adp.base.k.Z(atMessageActivity.getPageContext().getPageActivity()));
-        this.mNetworkChangedMessageListener = new d(this, 2000994);
-        this.dtS = atMessageActivity;
+        super(com.baidu.adp.base.i.aa(atMessageActivity.getPageContext().getPageActivity()));
+        this.mNetworkChangedMessageListener = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.imMessageCenter.mention.AtMeModelController.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                    AtMeModelController.this.dDL.azs();
+                }
+            }
+        };
+        this.dDL = atMessageActivity;
     }
 
     public void f(Bundle bundle) {
-        this.dtT = new e();
-        this.dtU = new AtMeNetModel((TbPageContext) com.baidu.adp.base.k.Z(this.dtS.getPageContext().getPageActivity()), this.dtT);
-        this.dtU.a(this);
-        if (this.dtS != null) {
-            this.dtU.setUniqueId(this.dtS.getUniqueId());
+        this.dDM = new b();
+        this.dDN = new AtMeNetModel((TbPageContext) com.baidu.adp.base.i.aa(this.dDL.getPageContext().getPageActivity()), this.dDM);
+        this.dDN.a(this);
+        if (this.dDL != null) {
+            this.dDN.setUniqueId(this.dDL.getUniqueId());
         }
-        this.dtU.registerListener(this.mNetworkChangedMessageListener);
-        this.dtV = new AtMeCacheModel((TbPageContext) com.baidu.adp.base.k.Z(this.dtS.getPageContext().getPageActivity()));
-        this.dtV.a(this);
-        if (this.dtS != null) {
-            this.dtV.setUniqueId(this.dtS.getUniqueId());
+        this.dDN.registerListener(this.mNetworkChangedMessageListener);
+        this.dDO = new AtMeCacheModel((TbPageContext) com.baidu.adp.base.i.aa(this.dDL.getPageContext().getPageActivity()));
+        this.dDO.a(this);
+        if (this.dDL != null) {
+            this.dDO.setUniqueId(this.dDL.getUniqueId());
         }
-        this.dtX = new ac();
-        this.bIK = new com.baidu.tbadk.mvc.d.a();
+        this.dDQ = new f();
+        this.bOe = new com.baidu.tbadk.mvc.d.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Xc() {
-        if (!this.dtU.wI() && this.bIK.Fi() && axD()) {
-            this.bIK.bR(true);
-            this.bIK.bT(true);
-            this.dtT.g(this.dtW);
-            this.dtU.setNeedCache(false);
-            this.dtU.EX();
-            this.dtS.b(this.bIK);
+    public boolean XP() {
+        if (!this.dDN.xc() && this.bOe.FG() && azr()) {
+            this.bOe.bU(true);
+            this.bOe.bW(true);
+            this.dDM.h(this.dDP);
+            this.dDN.setNeedCache(false);
+            this.dDN.Fw();
+            this.dDL.b(this.bOe);
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean axC() {
-        if (this.dtU.wI() || !axD()) {
+    public boolean azq() {
+        if (this.dDN.xc() || !azr()) {
             return false;
         }
-        this.dtW = null;
-        this.dtT.reset();
-        this.dtU.setNeedCache(true);
-        this.dtU.EX();
+        this.dDP = null;
+        this.dDM.reset();
+        this.dDN.setNeedCache(true);
+        this.dDN.Fw();
         return true;
     }
 
-    protected boolean axD() {
+    protected boolean azr() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.dtX != null && this.dtX.duE != null) {
-            this.dtX.duE.clear();
+        if (this.dDQ != null && this.dDQ.dEw != null) {
+            this.dDQ.dEw.clear();
         }
-        this.dtS.axE();
-        this.dtS.a(this.dtX);
+        this.dDL.azs();
+        this.dDL.a(this.dDQ);
         return false;
     }
 
-    public boolean Xb() {
-        if (axD()) {
-            if (this.dtS != null) {
-                this.dtS.axF();
+    public boolean XO() {
+        if (azr()) {
+            if (this.dDL != null) {
+                this.dDL.azt();
             }
-            this.dtV.a((com.baidu.tbadk.mvc.b.e) this.dtT);
+            this.dDO.a((com.baidu.tbadk.mvc.b.e) this.dDM);
             return true;
         }
         return true;
     }
 
-    protected boolean a(e eVar, f fVar) {
-        if (eVar.getUpdateType() != 4) {
-            this.dtX.axM().clear();
+    protected boolean a(b bVar, c cVar) {
+        if (bVar.getUpdateType() != 4) {
+            this.dDQ.azA().clear();
         }
-        this.dtX.a(fVar);
-        if (fVar != null && fVar.axM() != null && fVar.axM().size() > 0) {
-            this.dtW = fVar.axM().get(fVar.axM().size() - 1);
-            if (this.dtX.qu() != null) {
-                this.bIK.bS(this.dtX.qu().qq() == 1);
+        this.dDQ.a(cVar);
+        if (cVar != null && cVar.azA() != null && cVar.azA().size() > 0) {
+            this.dDP = cVar.azA().get(cVar.azA().size() - 1);
+            if (this.dDQ.qH() != null) {
+                this.bOe.bV(this.dDQ.qH().qD() == 1);
             } else {
-                this.bIK.bS(true);
+                this.bOe.bV(true);
             }
-            if (eVar != null) {
-                eVar.toNextPage();
+            if (bVar != null) {
+                bVar.toNextPage();
             }
-            this.bIK.bT(true);
+            this.bOe.bW(true);
         } else {
-            this.dtW = null;
-            this.bIK.bS(false);
-            this.bIK.bT(false);
+            this.dDP = null;
+            this.bOe.bV(false);
+            this.bOe.bW(false);
         }
-        this.bIK.bR(false);
-        this.bIK.bQ(false);
-        com.baidu.tbadk.coreExtra.messageCenter.a.yG().yW();
+        this.bOe.bU(false);
+        this.bOe.bT(false);
+        com.baidu.tbadk.coreExtra.messageCenter.a.yZ().zp();
         if (!TbadkCoreApplication.isLogin()) {
-            this.dtX.axM().clear();
+            this.dDQ.azA().clear();
         } else {
-            this.dtS.b(this.bIK);
+            this.dDL.b(this.bOe);
         }
-        this.dtS.a(this.dtX);
+        this.dDL.a(this.dDQ);
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
-    public void a(ReadCacheRespMsg<List<f>> readCacheRespMsg, ReadCacheMessage<f> readCacheMessage) {
+    public void a(ReadCacheRespMsg<List<c>> readCacheRespMsg, ReadCacheMessage<c> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.dtT, readCacheRespMsg.getData().get(0));
+            a(this.dDM, readCacheRespMsg.getData().get(0));
         }
-        this.dtW = null;
-        this.dtT.reset();
-        this.dtU.setNeedCache(true);
-        this.dtU.EX();
+        this.dDP = null;
+        this.dDM.reset();
+        this.dDN.setNeedCache(true);
+        this.dDN.Fw();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
-    public void a(WriteCacheRespMsg<List<f>> writeCacheRespMsg, WriteCacheMessage<f> writeCacheMessage) {
+    public void a(WriteCacheRespMsg<List<c>> writeCacheRespMsg, WriteCacheMessage<c> writeCacheMessage) {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
-    public void a(MvcHttpResponsedMessage<f> mvcHttpResponsedMessage, MvcHttpMessage<e, f> mvcHttpMessage, MvcNetMessage<e, f> mvcNetMessage) {
-        f fVar;
-        this.dtS.axE();
+    public void a(MvcHttpResponsedMessage<c> mvcHttpResponsedMessage, MvcHttpMessage<b, c> mvcHttpMessage, MvcNetMessage<b, c> mvcNetMessage) {
+        c cVar;
+        this.dDL.azs();
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-            fVar = mvcHttpResponsedMessage.getData();
+            cVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
             if (mvcNetMessage != null) {
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.yG().setMsgAtme(0);
-            fVar = null;
+            com.baidu.tbadk.coreExtra.messageCenter.a.yZ().setMsgAtme(0);
+            cVar = null;
         }
-        if (r1 == null || fVar == null || !a(r1, fVar)) {
+        if (r1 == null || cVar == null || !a(r1, cVar)) {
             if (mvcHttpResponsedMessage != null) {
                 this.mErrorCode = mvcHttpResponsedMessage.getError();
                 this.mErrorString = mvcHttpResponsedMessage.getErrorString();
@@ -171,25 +181,25 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.dtS.a(errorData);
+            this.dDL.a(errorData);
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
-    public void a(MvcSocketResponsedMessage<f, ?> mvcSocketResponsedMessage, MvcSocketMessage<e, f> mvcSocketMessage, MvcNetMessage<e, f> mvcNetMessage) {
-        f fVar;
-        this.dtS.axE();
+    public void a(MvcSocketResponsedMessage<c, ?> mvcSocketResponsedMessage, MvcSocketMessage<b, c> mvcSocketMessage, MvcNetMessage<b, c> mvcNetMessage) {
+        c cVar;
+        this.dDL.azs();
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
-            fVar = mvcSocketResponsedMessage.getData();
+            cVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
             if (mvcNetMessage != null) {
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.yG().setMsgAtme(0);
-            fVar = null;
+            com.baidu.tbadk.coreExtra.messageCenter.a.yZ().setMsgAtme(0);
+            cVar = null;
         }
-        if (r1 == null || fVar == null || !a(r1, fVar)) {
+        if (r1 == null || cVar == null || !a(r1, cVar)) {
             if (mvcSocketResponsedMessage != null) {
                 this.mErrorCode = mvcSocketResponsedMessage.getError();
                 this.mErrorString = mvcSocketResponsedMessage.getErrorString();
@@ -197,7 +207,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.dtS.a(errorData);
+            this.dDL.a(errorData);
         }
     }
 

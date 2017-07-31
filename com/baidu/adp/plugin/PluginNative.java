@@ -1,5 +1,6 @@
 package com.baidu.adp.plugin;
 
+import com.baidu.adp.lib.util.g;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
@@ -17,6 +18,6 @@ public class PluginNative {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.g.gV().i(PLUGIN_NATIVE_HOOK_LIB, 2);
+        bLoadLibrary = g.hd().i(PLUGIN_NATIVE_HOOK_LIB, 2);
     }
 }

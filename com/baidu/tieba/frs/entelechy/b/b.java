@@ -2,21 +2,20 @@ package com.baidu.tieba.frs.entelechy.b;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.frs.av;
-import com.baidu.tieba.frs.f.m;
+import com.baidu.tieba.frs.g.f;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.tbadkCore.n;
+import com.baidu.tieba.tbadkCore.i;
 /* loaded from: classes.dex */
 public interface b {
     int a(int i, FrsRequestData frsRequestData);
 
     void a(BdTypeListView bdTypeListView, com.baidu.tieba.frs.view.b bVar);
 
-    void a(m mVar, n nVar);
+    void a(f fVar, i iVar);
 
-    void a(boolean z, d dVar, m mVar, av avVar, n nVar);
+    void a(boolean z, d dVar, f fVar, com.baidu.tieba.frs.i iVar, i iVar2);
 
-    void af(View view);
+    void ak(View view);
 
-    boolean iF(int i);
+    boolean iP(int i);
 }

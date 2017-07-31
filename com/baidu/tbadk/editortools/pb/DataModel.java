@@ -4,14 +4,14 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public abstract class DataModel<T> extends BdBaseModel<T> {
-    public abstract boolean Da();
+    public abstract boolean Du();
 
-    public abstract String Db();
+    public abstract String Dv();
 
-    public abstract WriteData fI(String str);
+    public abstract WriteData fS(String str);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public DataModel(com.baidu.adp.base.g<T> gVar) {
-        super(gVar);
+    public DataModel(com.baidu.adp.base.e<T> eVar) {
+        super(eVar);
     }
 }

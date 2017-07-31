@@ -22,39 +22,39 @@ public class x implements Runnable {
     private int c = 0;
     private boolean d = false;
     private boolean e = true;
-    private a.C0018a f;
+    private a.C0020a f;
 
-    public x(Context context, a.C0018a c0018a) {
+    public x(Context context, a.C0020a c0020a) {
         this.a = context.getApplicationContext();
-        this.f = c0018a;
+        this.f = c0020a;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.io.Closeable[] */
     /* JADX WARN: Can't wrap try/catch for region: R(13:1|(2:3|(1:5))|6|(4:7|8|9|10)|(2:12|(10:14|(1:16)(1:35)|17|18|19|20|21|(1:23)(2:27|28)|24|25)(1:36))(1:38)|37|19|20|21|(0)(0)|24|25|(1:(0))) */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x017b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0195, code lost:
         com.baidu.android.pushservice.g.a.e("TokenRequester", "error : " + r3.getMessage());
         com.baidu.android.pushservice.g.a.b("TokenRequester", "io exception, schedule retry");
         r9.d = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x01a1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x01bf, code lost:
         com.baidu.android.pushservice.f.b.a(r4);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x01af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x01cd, code lost:
         r3 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x01b5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x01d3, code lost:
         com.baidu.android.pushservice.g.a.e("TokenRequester", "Connect Exception:" + r3);
         r9.d = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x01d0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x01f0, code lost:
         com.baidu.android.pushservice.f.b.a(r4);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x01e9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0209, code lost:
         r3 = e;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0117 A[Catch: IOException -> 0x01af, all -> 0x01e3, Exception -> 0x01e9, TRY_LEAVE, TryCatch #0 {all -> 0x01e3, blocks: (B:11:0x007d, B:13:0x00a6, B:15:0x00b4, B:16:0x00ba, B:19:0x0113, B:21:0x0117, B:34:0x01ab, B:31:0x017b, B:40:0x01b5, B:24:0x0122, B:25:0x0129, B:27:0x0143), top: B:54:0x0067 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x01aa  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x012a A[Catch: IOException -> 0x01cd, all -> 0x0203, Exception -> 0x0209, TRY_LEAVE, TryCatch #1 {all -> 0x0203, blocks: (B:11:0x0083, B:13:0x00af, B:15:0x00bf, B:16:0x00c6, B:19:0x0126, B:21:0x012a, B:34:0x01c9, B:31:0x0195, B:40:0x01d3, B:24:0x0135, B:25:0x013d, B:27:0x0159), top: B:54:0x006c }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x01c8  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

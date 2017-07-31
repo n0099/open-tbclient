@@ -1,32 +1,24 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
-public class s extends Thread {
-    private int aKp;
-    private int aKq;
-    private String type = null;
+public class s {
+    private static String mThreadId;
 
-    public s(int i, int i2) {
-        this.aKp = 0;
-        this.aKq = 0;
-        this.aKp = i;
-        this.aKq = i2;
+    public static void gS(String str) {
+        mThreadId = str;
     }
 
-    public void setType(String str) {
-        this.type = str;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        com.baidu.tbadk.core.util.ab abVar = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
-        abVar.n("img_num", String.valueOf(this.aKp));
-        abVar.n("img_total", String.valueOf(this.aKq));
-        if (this.type != null) {
-            abVar.n("img_type", this.type);
+    public static String Hr() {
+        if (StringUtils.isNull(mThreadId)) {
+            return null;
         }
-        abVar.uy();
+        return mThreadId;
+    }
+
+    public static void Hs() {
+        if (mThreadId != null) {
+            mThreadId = null;
+        }
     }
 }

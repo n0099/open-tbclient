@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -102,14 +103,20 @@ public class PluginSettings implements Serializable, Cloneable {
 
     public boolean setAllPluginEnable(boolean z) {
         boolean z2 = false;
-        for (Map.Entry<String, PluginSetting> entry : this.mPlugins.entrySet()) {
-            PluginSetting value = entry.getValue();
-            if (value != null && value.enable != z) {
-                value.enable = z;
-                z2 = true;
+        Iterator<Map.Entry<String, PluginSetting>> it = this.mPlugins.entrySet().iterator();
+        while (true) {
+            boolean z3 = z2;
+            if (it.hasNext()) {
+                PluginSetting value = it.next().getValue();
+                if (value != null && value.enable != z) {
+                    value.enable = z;
+                    z3 = true;
+                }
+                z2 = z3;
+            } else {
+                return z3;
             }
         }
-        return z2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

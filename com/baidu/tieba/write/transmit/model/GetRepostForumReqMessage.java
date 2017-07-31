@@ -1,8 +1,9 @@
 package com.baidu.tieba.write.transmit.model;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.n;
 import tbclient.GetRepostRecommendForum.DataReq;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumReqIdl;
 /* loaded from: classes.dex */
@@ -20,7 +21,7 @@ public class GetRepostForumReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                p.bindCommonParamsToProtobufData(builder, true);
+                n.bindCommonParamsToProtobufData(builder, true);
             }
             builder.title = this.threadTitle;
             builder.content = this.threadContent;
@@ -42,6 +43,6 @@ public class GetRepostForumReqMessage extends NetMessage {
     }
 
     public void setForumId(String str) {
-        this.forumId = com.baidu.adp.lib.g.b.c(str, 0L);
+        this.forumId = b.d(str, 0L);
     }
 }

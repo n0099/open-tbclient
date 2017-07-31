@@ -1,21 +1,21 @@
 package com.baidu.adp.framework.c;
 /* loaded from: classes.dex */
 public class c extends d {
-    private static c qY = null;
+    private static c sE = null;
 
-    public static c du() {
-        if (qY == null) {
+    public static c dE() {
+        if (sE == null) {
             synchronized (c.class) {
-                if (qY == null) {
-                    qY = new c();
+                if (sE == null) {
+                    sE = new c();
                 }
             }
         }
-        return qY;
+        return sE;
     }
 
     private c() {
-        this.qZ = new e(20000, 10000, 5000);
+        this.sF = new e(20000, 10000, 5000);
         this.mRetryCount = 3;
     }
 
@@ -29,6 +29,6 @@ public class c extends d {
         if (i3 < 3000) {
             i3 = 3000;
         }
-        this.qZ = new e(i, i2, i3);
+        this.sF = new e(i, i2, i3);
     }
 }

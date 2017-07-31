@@ -1,16 +1,49 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-class i implements CustomMessageTask.CustomRunnable<PersonInfoActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<PersonInfoActivityConfig> run(CustomMessage<PersonInfoActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            PersonInfoActivityStatic.a(customMessage.getData());
+public class i extends Dialog {
+    private LinearLayout aMc;
+    private Context context;
+    private View mContentView;
+
+    public i(Context context, View view) {
+        super(context, 16973835);
+        this.context = context;
+        this.mContentView = view;
+    }
+
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        requestWindowFeature(1);
+        setContentView(d.j.person_info_more_dialog);
+        Display defaultDisplay = ((WindowManager) this.context.getSystemService("window")).getDefaultDisplay();
+        WindowManager.LayoutParams attributes = getWindow().getAttributes();
+        attributes.width = defaultDisplay.getWidth();
+        getWindow().setAttributes(attributes);
+        getWindow().setBackgroundDrawableResource(d.e.transparent);
+        getWindow().setDimAmount(0.3f);
+        getWindow().setGravity(80);
+        getWindow().setWindowAnimations(d.m.pb_more_pop_anim);
+        setCanceledOnTouchOutside(true);
+        setCancelable(true);
+        this.aMc = (LinearLayout) findViewById(d.h.root_view);
+        if (this.mContentView != null) {
+            this.aMc.addView(this.mContentView);
         }
-        return null;
+        this.aMc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.i.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                i.this.dismiss();
+            }
+        });
     }
 }

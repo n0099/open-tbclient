@@ -1,21 +1,38 @@
 package com.baidu.adp.lib.network.http;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    public long vt = -1;
-    public long vu = -1;
-    public long connectTime = -1;
-    public long vv = -1;
-    public int vw = 0;
-    public long vx = -1;
-    public long vy = -1;
-    public String vz = "";
-    public int vA = -1;
-    public int errorCode = 0;
-    public int vB = 0;
-    public String vC = null;
-    public String vD = null;
-    public String url = null;
-    public String vE = null;
-    public String vF = null;
-    public int vG = 0;
+    protected f xk = new f();
+    protected g xl = new g();
+    private LinkedList<d> xm = new LinkedList<>();
+    private d xn = null;
+
+    public f fJ() {
+        return this.xk;
+    }
+
+    public g fK() {
+        return this.xl;
+    }
+
+    public List<d> fL() {
+        return Collections.unmodifiableList(this.xm);
+    }
+
+    public void a(d dVar) {
+        if (dVar != null) {
+            this.xm.add(dVar);
+        }
+    }
+
+    public d fM() {
+        return this.xn;
+    }
+
+    public void b(d dVar) {
+        this.xn = dVar;
+    }
 }

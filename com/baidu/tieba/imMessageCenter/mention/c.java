@@ -1,21 +1,26 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.view.View;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-class c implements View.OnClickListener {
-    final /* synthetic */ a dtR;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.dtR = aVar;
+public class c extends j implements com.baidu.tbadk.mvc.b.f {
+    @Override // com.baidu.tbadk.mvc.b.d
+    public String getCacheKey() {
+        return "atme_cache";
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ViewEventCenter Fp;
-        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9484, this.dtR.getData(), null, null);
-        Fp = this.dtR.Fp();
-        Fp.dispatchMvcEvent(bVar);
+    @Override // com.baidu.tbadk.mvc.b.f
+    public String Fc() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.f
+    public boolean gy(String str) {
+        try {
+            n(new JSONObject(str));
+            return true;
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return false;
+        }
     }
 }

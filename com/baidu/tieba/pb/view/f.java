@@ -1,51 +1,49 @@
 package com.baidu.tieba.pb.view;
 
 import android.app.Activity;
-import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.util.TypedValue;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bl;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.PopupWindow;
+import com.baidu.tbadk.core.view.d;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    final /* synthetic */ PbGiftListView eLr;
+public class f extends PopupWindow {
+    private int fah;
+    private com.baidu.tbadk.core.view.d mContainer;
+    private View mContentView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(PbGiftListView pbGiftListView) {
-        this.eLr = pbGiftListView;
+    public f(Activity activity, View view, Drawable drawable, d.a aVar) {
+        super(activity);
+        this.mContainer = null;
+        this.mContentView = null;
+        this.fah = 0;
+        init(activity, view, drawable, aVar);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        String str;
-        long j;
-        String str2;
-        long j2;
-        long j3;
-        context = this.eLr.mContext;
-        TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.k.Z(context);
-        if (tbPageContext != null) {
-            if (TbadkCoreApplication.isLogin()) {
-                str = this.eLr.toUserName;
-                if (!StringUtils.isNull(str)) {
-                    Activity pageActivity = tbPageContext.getPageActivity();
-                    j = this.eLr.toUserId;
-                    str2 = this.eLr.toUserName;
-                    j2 = this.eLr.threadId;
-                    j3 = this.eLr.postId;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(pageActivity, j, str2, GiftTabActivityConfig.FROM_PB, j2, j3)));
-                    return;
-                }
-                return;
+    private void init(Activity activity, View view, Drawable drawable, d.a aVar) {
+        if (activity != null) {
+            this.mContentView = view;
+            this.mContainer = new com.baidu.tbadk.core.view.d(activity, this.mContentView, aVar);
+            TypedValue typedValue = new TypedValue();
+            if (activity.getApplicationContext().getTheme() != null && activity.getApplicationContext().getTheme().resolveAttribute(16843499, typedValue, true)) {
+                this.fah = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
             }
-            bl.aN(tbPageContext.getPageActivity());
+            setContentView(this.mContainer);
+            setOutsideTouchable(true);
+            setFocusable(true);
+            setHeight(-1);
+            setWidth(-1);
+            setSoftInputMode(16);
+            setFocusable(false);
+            setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(d.e.common_color_10022)));
+            setAnimationStyle(d.m.pb_more_pop_anim);
         }
+    }
+
+    @Override // android.widget.PopupWindow
+    public View getContentView() {
+        return this.mContentView;
     }
 }

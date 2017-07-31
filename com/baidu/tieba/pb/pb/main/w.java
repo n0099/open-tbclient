@@ -1,24 +1,97 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import java.util.List;
 /* loaded from: classes.dex */
-class w extends CustomMessageListener {
-    final /* synthetic */ PbActivity ewh;
+public class w {
+    private PbModel eGz;
+    public a eHQ;
+    protected final com.baidu.adp.framework.listener.a eMb = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PB_GOD_MORE, 309446) { // from class: com.baidu.tieba.pb.pb.main.w.1
+        @Override // com.baidu.adp.framework.listener.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (responsedMessage != null) {
+                if (responsedMessage instanceof LookMoreHttpResMessage) {
+                    LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
+                    List<PostData> data = lookMoreHttpResMessage.getData();
+                    String errorString = lookMoreHttpResMessage.getErrorString();
+                    int error = lookMoreHttpResMessage.getError();
+                    if (error == 0) {
+                        if (!com.baidu.tbadk.core.util.u.v(data)) {
+                            w.this.eHQ.B(data);
+                            return;
+                        }
+                        return;
+                    }
+                    w.this.eHQ.h(error, errorString, "");
+                } else if (responsedMessage instanceof LookMoreSocketResMessage) {
+                    LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
+                    List<PostData> data2 = lookMoreSocketResMessage.getData();
+                    String errorString2 = lookMoreSocketResMessage.getErrorString();
+                    int error2 = lookMoreSocketResMessage.getError();
+                    if (error2 == 0) {
+                        if (data2 != null) {
+                            w.this.eHQ.B(data2);
+                            return;
+                        }
+                        return;
+                    }
+                    w.this.eHQ.h(error2, errorString2, "");
+                }
+            }
+        }
+    };
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(PbActivity pbActivity, int i) {
-        super(i);
-        this.ewh = pbActivity;
+    /* loaded from: classes.dex */
+    public interface a {
+        void B(List<PostData> list);
+
+        void h(int i, String str, String str2);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()).getId() != this.ewh.getUniqueId().getId()) {
-            this.ewh.eva = false;
+    public w(PbModel pbModel, BaseActivity baseActivity) {
+        this.eGz = pbModel;
+        Eo();
+        MessageManager.getInstance().registerListener(this.eMb);
+        this.eHQ = null;
+    }
+
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.eMb);
+    }
+
+    public void a(a aVar) {
+        this.eHQ = aVar;
+    }
+
+    private void Eo() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, com.baidu.tieba.tbadkCore.a.a.az(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
+        tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        com.baidu.tieba.tbadkCore.a.a.c(309446, LookMoreSocketResMessage.class, false);
+    }
+
+    public void cC(List<Long> list) {
+        if (this.eGz != null && this.eGz.getPbData() != null) {
+            int ag = com.baidu.adp.lib.util.k.ag(TbadkCoreApplication.getInst());
+            int ah = com.baidu.adp.lib.util.k.ah(TbadkCoreApplication.getInst());
+            LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
+            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.g.b.d(this.eGz.eKN, 0L)));
+            lookMoreReqMessage.setPost_id(list);
+            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.g.b.g(this.eGz.mStType, 0));
+            lookMoreReqMessage.setWith_floor(1);
+            lookMoreReqMessage.setScr_w(ag);
+            lookMoreReqMessage.setScr_h(ah);
+            MessageManager.getInstance().sendMessage(lookMoreReqMessage);
         }
     }
 }

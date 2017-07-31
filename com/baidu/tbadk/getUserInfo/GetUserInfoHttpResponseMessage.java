@@ -14,7 +14,8 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
         super(i);
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         super.decodeInBackGround(i, bArr);
         if (bArr != null) {
@@ -34,8 +35,8 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (this.mData != null && this.mData.DS() != null) {
-            b.DT().a(this.mData.DS());
+        if (this.mData != null && this.mData.Em() != null) {
+            b.En().a(this.mData.Em());
         } else {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED));
         }

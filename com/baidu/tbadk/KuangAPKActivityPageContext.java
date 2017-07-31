@@ -20,22 +20,22 @@ public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
         this.orginal = baseActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public String getString(int i) {
         return getResources().getString(i);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void sendMessage(Message<?> message) {
         this.orginal.sendMessage(message);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void sendMessage(NetMessage netMessage) {
         this.orginal.sendMessage(netMessage);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void registerListener(a aVar) {
         this.orginal.registerListener(aVar);
     }
@@ -44,38 +44,38 @@ public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
         this.orginal.registerListener(i, aVar);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void registerListener(MessageListener<?> messageListener) {
         this.orginal.registerListener(messageListener);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public void registerListener(int i, MessageListener<?> messageListener) {
         this.orginal.registerListener(i, messageListener);
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public BdUniqueId getUniqueId() {
         return this.orginal.getUniqueId();
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public Context getContext() {
         return this.orginal.getActivity();
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public Activity getPageActivity() {
         return this.orginal.getActivity();
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [T, com.baidu.tbadk.BaseActivity<T>] */
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public T getOrignalPage() {
         return this.orginal;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.e
     public Resources getResources() {
         return getPageActivity().getResources();
     }

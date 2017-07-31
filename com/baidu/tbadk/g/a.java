@@ -1,35 +1,66 @@
 package com.baidu.tbadk.g;
 
-import android.content.Context;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.sharedPref.b;
+import com.baidu.tbadk.core.util.c;
+import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<com.baidu.tbadk.mainTab.b> QX = new ArrayList<>();
-    private Context mContext;
+    private static long SD = 86400000;
 
-    public a(Context context) {
-        this.mContext = context;
-    }
-
-    public void a(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.Ez() != null) {
-            Iterator<com.baidu.tbadk.mainTab.b> it = this.QX.iterator();
-            while (it.hasNext()) {
-                com.baidu.tbadk.mainTab.b next = it.next();
-                if (next != null && next.Ez() != null && next.Ez().type == bVar.Ez().type) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void n(File file) {
+        if (file != null) {
+            try {
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (int i = 0; i < listFiles.length; i++) {
+                            if (listFiles[i].isDirectory()) {
+                                n(listFiles[i]);
+                            } else if (!listFiles[i].delete()) {
+                            }
+                        }
+                        return;
+                    }
                     return;
                 }
+                if (!file.delete()) {
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            this.QX.add(bVar);
         }
     }
 
-    public ArrayList<com.baidu.tbadk.mainTab.b> oj() {
-        return this.QX;
-    }
-
-    public Context getContext() {
-        return this.mContext;
+    public static void init() {
+        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tbadk.g.a.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.tbadk.g.a$1$1] */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                long j = b.getInstance().getLong("key_clear_resource", 0L);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - j > a.SD) {
+                    new Thread() { // from class: com.baidu.tbadk.g.a.1.1
+                        @Override // java.lang.Thread, java.lang.Runnable
+                        public void run() {
+                            super.run();
+                            try {
+                                c.uF();
+                                a.n(TbadkCoreApplication.getInst().getCacheDir());
+                            } catch (Exception e) {
+                            }
+                        }
+                    }.start();
+                    b.getInstance().putLong("key_clear_resource", currentTimeMillis);
+                }
+            }
+        });
     }
 }

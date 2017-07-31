@@ -13,7 +13,7 @@ import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.baidu.tieba.im.sendmessage.a;
-import com.baidu.tieba.im.util.h;
+import com.baidu.tieba.im.util.e;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class CommonMsgPojo extends OrmObject implements Serializable {
@@ -90,9 +90,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.dof);
+                this.gid = String.valueOf(a.dxZ);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.dog);
+                this.gid = String.valueOf(a.dya);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());
@@ -172,15 +172,15 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         this.taskId = str;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0097  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00c1  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00f8  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x002f  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0096  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x00c0  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00f7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public ChatMessage toChatMessage() {
-        Exception e;
+        Exception exc;
         long j;
         long j2;
         long j3;
@@ -192,18 +192,20 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         OldUserData oldUserData2;
         long j5 = 0;
         try {
-            j = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
-        } catch (Exception e2) {
-            e = e2;
+            j2 = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
+        } catch (Exception e) {
+            exc = e;
             j = 0;
         }
         try {
-        } catch (Exception e3) {
-            e = e3;
-            e.printStackTrace();
+            j3 = (this.toUid == null || this.toUid.length() <= 0) ? 0L : Long.parseLong(this.toUid);
+        } catch (Exception e2) {
+            j = j2;
+            exc = e2;
+            exc.printStackTrace();
             j2 = j;
             j3 = 0;
-            if (TextUtils.isEmpty(this.toUid)) {
+            if (!TextUtils.isEmpty(this.toUid)) {
             }
             personalChatMessage.setMsgId(this.mid);
             personalChatMessage.setUserId(j2);
@@ -225,63 +227,15 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             toUserInfo = personalChatMessage.getToUserInfo();
             if (toUserInfo != null) {
             }
-            h.w(personalChatMessage);
+            e.x(personalChatMessage);
             personalChatMessage.setIsFriend(this.isFriend);
             return personalChatMessage;
         }
-        if (this.toUid != null && this.toUid.length() > 0) {
-            j3 = Long.parseLong(this.toUid);
-            j2 = j;
-            if (TextUtils.isEmpty(this.toUid)) {
-                personalChatMessage = new GroupChatMessage();
-                ((GroupChatMessage) personalChatMessage).setGroupId(this.gid);
-            } else {
-                personalChatMessage = new PersonalChatMessage();
-            }
-            personalChatMessage.setMsgId(this.mid);
-            personalChatMessage.setUserId(j2);
-            personalChatMessage.setToUserId(j3);
-            personalChatMessage.setRecordId(this.rid);
-            this.user_info_data = (UserData) OrmObject.objectWithJsonStr(this.user_info, UserData.class);
-            this.to_user_info_data = (UserData) OrmObject.objectWithJsonStr(this.to_user_info, UserData.class);
-            personalChatMessage.setUserInfo(this.user_info_data);
-            personalChatMessage.setToUserInfo(this.to_user_info_data);
-            personalChatMessage.setTime(this.create_time);
-            personalChatMessage.setMsgType((short) this.msg_type);
-            MsgLocalData msgLocalData2 = new MsgLocalData();
-            msgLocalData2.setStatus(Short.valueOf((short) this.msg_status));
-            personalChatMessage.setLocalData(msgLocalData2);
-            personalChatMessage.setContent(this.content);
-            userInfo = personalChatMessage.getUserInfo();
-            if (userInfo != null) {
-                if (j.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
-                    oldUserData2.setToUserData(userInfo);
-                }
-                try {
-                    j4 = Long.parseLong(userInfo.getUserId());
-                } catch (Exception e4) {
-                    j4 = 0;
-                }
-                personalChatMessage.setUserId(j4);
-            }
-            toUserInfo = personalChatMessage.getToUserInfo();
-            if (toUserInfo != null) {
-                if (j.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
-                    oldUserData.setToUserData(toUserInfo);
-                }
-                try {
-                    j5 = Long.parseLong(toUserInfo.getUserId());
-                } catch (Exception e5) {
-                }
-                personalChatMessage.setToUserId(j5);
-            }
-            h.w(personalChatMessage);
-            personalChatMessage.setIsFriend(this.isFriend);
-            return personalChatMessage;
-        }
-        j2 = j;
-        j3 = 0;
-        if (TextUtils.isEmpty(this.toUid)) {
+        if (!TextUtils.isEmpty(this.toUid)) {
+            personalChatMessage = new GroupChatMessage();
+            ((GroupChatMessage) personalChatMessage).setGroupId(this.gid);
+        } else {
+            personalChatMessage = new PersonalChatMessage();
         }
         personalChatMessage.setMsgId(this.mid);
         personalChatMessage.setUserId(j2);
@@ -293,17 +247,34 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         personalChatMessage.setToUserInfo(this.to_user_info_data);
         personalChatMessage.setTime(this.create_time);
         personalChatMessage.setMsgType((short) this.msg_type);
-        MsgLocalData msgLocalData22 = new MsgLocalData();
-        msgLocalData22.setStatus(Short.valueOf((short) this.msg_status));
-        personalChatMessage.setLocalData(msgLocalData22);
+        MsgLocalData msgLocalData2 = new MsgLocalData();
+        msgLocalData2.setStatus(Short.valueOf((short) this.msg_status));
+        personalChatMessage.setLocalData(msgLocalData2);
         personalChatMessage.setContent(this.content);
         userInfo = personalChatMessage.getUserInfo();
         if (userInfo != null) {
+            if (j.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
+                oldUserData2.setToUserData(userInfo);
+            }
+            try {
+                j4 = Long.parseLong(userInfo.getUserId());
+            } catch (Exception e3) {
+                j4 = 0;
+            }
+            personalChatMessage.setUserId(j4);
         }
         toUserInfo = personalChatMessage.getToUserInfo();
         if (toUserInfo != null) {
+            if (j.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
+                oldUserData.setToUserData(toUserInfo);
+            }
+            try {
+                j5 = Long.parseLong(toUserInfo.getUserId());
+            } catch (Exception e4) {
+            }
+            personalChatMessage.setToUserId(j5);
         }
-        h.w(personalChatMessage);
+        e.x(personalChatMessage);
         personalChatMessage.setIsFriend(this.isFriend);
         return personalChatMessage;
     }
@@ -359,7 +330,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         if (this.user_info_data == null || this.to_user_info_data == null) {
             return null;
         }
-        if (b.c(TbadkCoreApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
+        if (b.d(TbadkCoreApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
             return this.to_user_info_data;
         }
         return this.user_info_data;

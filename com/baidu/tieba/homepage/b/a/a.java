@@ -4,14 +4,14 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public class a extends b {
-    public static final BdUniqueId cLn = BdUniqueId.gen();
-    public String cLo;
-    public long cLp;
+    public static final BdUniqueId cVk = BdUniqueId.gen();
+    public String cVl;
+    public long cVm;
     public boolean isSelected;
     public int level;
 
-    @Override // com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return cLn;
+        return cVk;
     }
 }

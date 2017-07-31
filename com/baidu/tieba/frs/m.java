@@ -1,14 +1,86 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import tbclient.FrsPage.FrsPageResIdl;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.d;
+import com.baidu.tieba.pb.ThreadSkinView;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-class m extends BdAsyncTask<Void, Void, Void> {
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.tbadk.util.ac.a(com.baidu.tieba.tbadkCore.l.WIRE, FrsPageResIdl.class);
-        return null;
+public class m extends j.a {
+    public TextView aof;
+    public TextView aoi;
+    public UserIconBox apm;
+    public UserIconBox apn;
+    public int aql;
+    public ThreadSkinView ble;
+    public int ckU;
+    public FrameLayout ckV;
+    public LinearLayout ckW;
+    public RelativeLayout ckX;
+    public TbImageView ckY;
+    public TextView ckZ;
+    public TextView ckj;
+    public TextView ckk;
+    public PlayVoiceBnt cla;
+    public FrsCommonImageLayout clb;
+    public TextView clc;
+    public HeadImageView cld;
+    public TextView cle;
+    public TextView clf;
+    public RelativeLayout clg;
+    public LinearLayout clh;
+    public LinearLayout cli;
+    public LinearLayout clj;
+    public View clk;
+    public TbImageView cll;
+    public RelativeLayout clm;
+    public TbImageView cln;
+    public TextView clo;
+    public TextView mTitle;
+
+    public m(View view, int i) {
+        super(view);
+        this.aql = 3;
+        this.ckU = 0;
+        this.ckU = i;
+        this.ckV = (FrameLayout) view.findViewById(d.h.frs_list);
+        this.clg = (RelativeLayout) view.findViewById(d.h.frs_item_user_info_view);
+        this.clh = (LinearLayout) view.findViewById(d.h.frs_item_base_user_info);
+        this.ckW = (LinearLayout) view.findViewById(d.h.frs_list_item_top_linear_layout);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ckW.getLayoutParams();
+        layoutParams.topMargin = i;
+        this.ckW.setLayoutParams(layoutParams);
+        this.ckX = (RelativeLayout) view.findViewById(d.h.frs_list_item_top_card);
+        this.ckY = (TbImageView) view.findViewById(d.h.frs_normal_item_theme_card);
+        this.cld = (HeadImageView) view.findViewById(d.h.frs_photo);
+        this.apm = (UserIconBox) view.findViewById(d.h.frs_user_tshow_icon_box);
+        this.apn = (UserIconBox) view.findViewById(d.h.frs_user_icon_box);
+        this.clc = (TextView) view.findViewById(d.h.frs_lv_author);
+        this.aof = (TextView) view.findViewById(d.h.frs_lv_reply_time);
+        this.mTitle = (TextView) view.findViewById(d.h.frs_lv_title);
+        this.ckZ = (TextView) view.findViewById(d.h.abstract_text);
+        this.cla = (PlayVoiceBnt) view.findViewById(d.h.abstract_voice);
+        this.clb = (FrsCommonImageLayout) view.findViewById(d.h.abstract_img_layout);
+        this.aoi = (TextView) view.findViewById(d.h.frs_praise_num);
+        this.cle = (TextView) view.findViewById(d.h.action_button);
+        this.ckk = (TextView) view.findViewById(d.h.frs_reply_num);
+        this.clf = (TextView) view.findViewById(d.h.frs_more_abstract);
+        this.cli = (LinearLayout) view.findViewById(d.h.frs_item_num);
+        this.clj = (LinearLayout) view.findViewById(d.h.frs_item_loc_view);
+        this.ckj = (TextView) view.findViewById(d.h.frs_item_location_address);
+        this.clk = view.findViewById(d.h.frs_item_location_sep);
+        this.cll = (TbImageView) view.findViewById(d.h.game_activity_banner);
+        this.cln = (TbImageView) view.findViewById(d.h.app_code_banner);
+        this.clo = (TextView) view.findViewById(d.h.app_code_btn);
+        this.clm = (RelativeLayout) view.findViewById(d.h.app_code_wrapper);
+        this.ble = (ThreadSkinView) view.findViewById(d.h.frs_thread_skin);
     }
 }

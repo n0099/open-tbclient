@@ -2,8 +2,8 @@ package com.baidu.tbadk;
 
 import com.baidu.adp.base.a.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes.dex */
 public class TiebaDatabase {
     private static TiebaDatabase _instance = new TiebaDatabase();
@@ -26,7 +26,7 @@ public class TiebaDatabase {
             if (this.mainDB != null) {
                 bVar = this.mainDB;
             } else {
-                this.mainDB = new b(new az(TbadkCoreApplication.m9getInst().getContext()));
+                this.mainDB = new b(new ao(TbadkCoreApplication.getInst().getContext()));
                 bVar = this.mainDB;
             }
         }
@@ -42,7 +42,7 @@ public class TiebaDatabase {
             if (this.mainSdDB != null) {
                 bVar = this.mainSdDB;
             } else {
-                this.mainSdDB = new b(new ba());
+                this.mainSdDB = new b(new ap());
                 bVar = this.mainSdDB;
             }
         }

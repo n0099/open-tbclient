@@ -6,6 +6,7 @@ import tbclient.CheckPost.CheckPostResIdl;
 /* loaded from: classes2.dex */
 public class CheckPostResponseMessage extends SocketResponsedMessage {
     private long forumId;
+    private String forumName;
     private long postState;
     private long quoteId;
     private long repostId;
@@ -46,6 +47,10 @@ public class CheckPostResponseMessage extends SocketResponsedMessage {
         this.repostId = j;
     }
 
+    public String getForumName() {
+        return this.forumName;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -55,6 +60,7 @@ public class CheckPostResponseMessage extends SocketResponsedMessage {
         if (getError() == 0) {
             this.postState = checkPostResIdl.data.postState.longValue();
             this.forumId = checkPostResIdl.data.forumId.longValue();
+            this.forumName = checkPostResIdl.data.fname;
             if (checkPostResIdl.data.quoteId != null) {
                 this.quoteId = checkPostResIdl.data.quoteId.longValue();
             }

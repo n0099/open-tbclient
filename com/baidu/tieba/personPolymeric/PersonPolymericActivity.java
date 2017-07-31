@@ -3,28 +3,28 @@ package com.baidu.tieba.personPolymeric;
 import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
+import com.baidu.tieba.personCenter.a;
 /* loaded from: classes.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity {
-    private com.baidu.tieba.personCenter.a eUu;
+    private a fig;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.j.person_new_fragment_view);
-        this.eUu = new com.baidu.tieba.personCenter.a();
+        setContentView(d.j.person_new_fragment_view);
+        this.fig = new a();
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE, true);
-        this.eUu.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().add(w.h.fragment_container, this.eUu).commit();
+        this.fig.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().add(d.h.fragment_container, this.fig).commit();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        if (this.eUu != null) {
-            this.eUu.onChangeSkinType(i);
+    protected void onChangeSkinType(int i) {
+        if (this.fig != null) {
+            this.fig.onChangeSkinType(i);
         }
     }
 

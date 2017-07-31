@@ -3,60 +3,60 @@ package com.baidu.tieba.g;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String cwm;
-    private String cwn;
-    private String cwo;
-    private String cwp;
-    private String cwq;
-    private String cwr;
+    private String cER;
+    private String cES;
+    private String cET;
+    private String cEU;
+    private String cEV;
+    private String cEW;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.cwm = String.valueOf(esportRank.rank);
-            this.cwn = esportRank.text;
-            this.cwr = esportRank.url;
+            this.cER = String.valueOf(esportRank.rank);
+            this.cES = esportRank.text;
+            this.cEW = esportRank.url;
             if (esportRank.user != null) {
-                this.cwo = esportRank.user.steam_name;
-                this.cwp = esportRank.user.steam_portrait;
+                this.cET = esportRank.user.steam_name;
+                this.cEU = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String ajh() {
+    public String akU() {
         return this.mTitle;
     }
 
-    public String aji() {
-        return this.cwm;
+    public String akV() {
+        return this.cER;
     }
 
-    public String ajj() {
-        return this.cwn;
+    public String akW() {
+        return this.cES;
     }
 
-    public String ajk() {
-        return this.cwo;
+    public String akX() {
+        return this.cET;
     }
 
-    public String ajl() {
-        return this.cwp;
+    public String akY() {
+        return this.cEU;
     }
 
-    public String ajm() {
-        return this.cwq;
+    public String akZ() {
+        return this.cEV;
     }
 
-    public void kp(String str) {
-        this.cwq = str;
+    public void kG(String str) {
+        this.cEV = str;
     }
 
-    public String ajn() {
-        return this.cwr;
+    public String ala() {
+        return this.cEW;
     }
 
-    public void kq(String str) {
-        this.cwr = str;
+    public void kH(String str) {
+        this.cEW = str;
     }
 }

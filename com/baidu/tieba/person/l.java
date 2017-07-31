@@ -1,17 +1,53 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.UcCard;
+import tbclient.UcCardInfo;
 /* loaded from: classes.dex */
-class l implements View.OnClickListener {
-    final /* synthetic */ k eQi;
+public class l {
+    public String document;
+    public String fef;
+    public List<a> feg;
+    public String icon;
+    public String name;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar) {
-        this.eQi = kVar;
+    public void a(UcCard ucCard) {
+        if (ucCard != null) {
+            this.name = ucCard.name;
+            this.icon = ucCard.icon;
+            this.document = ucCard.doc;
+            this.fef = ucCard.jmp;
+            this.feg = new ArrayList();
+            if (ucCard.uc_cards != null) {
+                for (UcCardInfo ucCardInfo : ucCard.uc_cards) {
+                    if (ucCardInfo != null) {
+                        a aVar = new a();
+                        aVar.a(ucCardInfo);
+                        this.feg.add(aVar);
+                    }
+                }
+            }
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.eQi.dismiss();
+    /* loaded from: classes.dex */
+    public static class a {
+        public String fef;
+        public boolean feh;
+        public String pic;
+        public long timeStamp;
+        public String tip;
+        public String title;
+
+        public void a(UcCardInfo ucCardInfo) {
+            if (ucCardInfo != null) {
+                this.title = ucCardInfo.title;
+                this.pic = ucCardInfo.pic;
+                this.fef = ucCardInfo.jmp;
+                this.tip = ucCardInfo.tip;
+                this.timeStamp = ucCardInfo.st.intValue();
+            }
+        }
     }
 }

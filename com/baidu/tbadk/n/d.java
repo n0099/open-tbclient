@@ -1,33 +1,27 @@
 package com.baidu.tbadk.n;
+
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.lib.b.a {
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.b.a
-    public void X(int i) {
+public class d extends com.baidu.adp.framework.a.d {
+    public d(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "is_support_lego_ad_style";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eP() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eQ() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eR() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eS() {
-        return 10;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.f
+    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
+            TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
+            if (httpMessage.removeParam("reloin_key") == null && ReloginManager.uy().uA() && tbHttpMessageTask.isNeedLogin()) {
+                httpMessage.addParam("reloin_key", "reloin_value");
+                ReloginManager.uy().a(httpMessage);
+                return null;
+            }
+            return httpMessage;
+        }
+        return httpMessage;
     }
 }

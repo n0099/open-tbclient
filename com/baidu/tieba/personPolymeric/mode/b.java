@@ -3,5 +3,5 @@ package com.baidu.tieba.personPolymeric.mode;
 public interface b {
     void b(com.baidu.tieba.personPolymeric.c.a aVar);
 
-    void jS(boolean z);
+    void kn(boolean z);
 }

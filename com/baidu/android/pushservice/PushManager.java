@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +11,7 @@ import com.baidu.android.pushservice.j.q;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import java.util.Iterator;
 import java.util.List;
+@SuppressLint({"WorldReadableFiles"})
 /* loaded from: classes2.dex */
 public class PushManager {
     private static final String TAG = "PushManager";

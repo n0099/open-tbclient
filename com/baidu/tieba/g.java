@@ -1,51 +1,87 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.LogoActivity;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tieba.d;
+import com.baidu.tieba.tbadkCore.s;
+import java.util.Date;
 /* loaded from: classes.dex */
-class g extends CustomMessageListener {
-    final /* synthetic */ LogoActivity aRW;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(LogoActivity logoActivity, int i) {
-        super(i);
-        this.aRW = logoActivity;
+public class g {
+    public static String getTiebaApkMd5() {
+        String str = null;
+        try {
+            String versionName = TbadkCoreApplication.getInst().getVersionName();
+            String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("version_name", "");
+            if (!TextUtils.isEmpty(versionName)) {
+                if (versionName.equals(string)) {
+                    str = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("apk_md5", "");
+                } else {
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putString("version_name", versionName);
+                    String d = an.d(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putString("apk_md5", d);
+                    str = d;
+                }
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            BdLog.detailException(e);
+        }
+        return str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        LogoActivity.a aVar;
-        boolean Jv;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016311) {
-            Object data = customResponsedMessage.getData();
-            if (data instanceof String) {
-                String str = (String) data;
-                if (!TextUtils.isEmpty(str) && !TextUtils.equals("advertevent", Uri.parse(str).getScheme())) {
-                    Jv = this.aRW.Jv();
-                    if (Jv) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SPLASH_AD_JUMP_URL, str));
-                    } else {
-                        Intent intent = new Intent();
-                        intent.putExtra("class", 30);
-                        intent.putExtra("jump_url", str);
-                        intent.putExtra("is_ad", true);
-                        TbadkCoreApplication.setIntent(intent);
-                    }
+    public static boolean b(PackageManager packageManager) {
+        for (PackageInfo packageInfo : packageManager.getInstalledPackages(8192)) {
+            if (packageInfo != null) {
+                String str = packageInfo.packageName;
+                if (!TextUtils.isEmpty(str) && str.equals("com.baidu.appsearch")) {
+                    return packageInfo.versionCode >= 16782633;
                 }
-                com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
-                aVar = this.aRW.aRQ;
-                fR.removeCallbacks(aVar);
-                this.aRW.JC();
             }
         }
+        return false;
+    }
+
+    public static boolean a(Context context, CombineDownload combineDownload) {
+        return (combineDownload == null || s.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
+    }
+
+    public static void a(Context context, VersionData versionData) {
+        String str = "-1";
+        try {
+            str = an.b(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
+        } catch (PackageManager.NameNotFoundException e) {
+            BdLog.detailException(e);
+        } catch (NumberFormatException e2) {
+            BdLog.detailException(e2);
+        }
+        Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+        intent.setFlags(268435488);
+        intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+        intent.putExtra("backup", "0");
+        intent.putExtra("func", "11");
+        Bundle bundle = new Bundle();
+        bundle.putInt("versioncode", versionData.getNewVersionCode());
+        bundle.putLong("patch_size", com.baidu.adp.lib.g.b.d(versionData.getPatchSize(), 0L));
+        bundle.putString("patch_url", versionData.getPatch());
+        bundle.putString("sname", context.getString(d.l.app_name));
+        bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+        bundle.putString("downurl", versionData.getUrl());
+        bundle.putString("versionname", versionData.getNewVersion());
+        bundle.putString("iconurl", versionData.getTiebaIconUrl());
+        bundle.putString("updatetime", al.d(new Date(System.currentTimeMillis())));
+        bundle.putString("size", versionData.getSize());
+        bundle.putString("signmd5", str);
+        bundle.putString("tj", str + context.getString(d.l.app_name));
+        intent.putExtra("extra_client_downloadinfo", bundle);
+        context.startActivity(intent);
     }
 }

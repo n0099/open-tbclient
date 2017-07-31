@@ -6,11 +6,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean ah(String str) {
+    public static boolean ap(String str) {
         return str != null && str.contains("vnd.wap.wml");
     }
 
-    public static byte[] i(InputStream inputStream) throws IOException {
+    public static byte[] o(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         copy(inputStream, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();

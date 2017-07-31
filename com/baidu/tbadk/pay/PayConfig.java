@@ -12,6 +12,7 @@ public class PayConfig implements Serializable {
     private static final long serialVersionUID = 1473520404420820966L;
     private int isAutoPay;
     public long mCategoryId;
+    private int mFrom;
     private String mIsLeft;
     private boolean mIsPay;
     private boolean mIsPayDialog;
@@ -215,5 +216,13 @@ public class PayConfig implements Serializable {
 
     public void setAutoPay(int i) {
         this.isAutoPay = i;
+    }
+
+    public void setFrom(int i) {
+        this.mFrom = i;
+    }
+
+    public int getFrom() {
+        return this.mFrom;
     }
 }

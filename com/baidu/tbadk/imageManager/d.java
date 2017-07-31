@@ -1,23 +1,60 @@
 package com.baidu.tbadk.imageManager;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class d extends com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> {
-    final /* synthetic */ c aDQ;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(c cVar, int i) {
-        super(i);
-        this.aDQ = cVar;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aj;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes.dex */
+public class d {
+    public static String aGn = "add_user_collect_emotoin";
+    public static String aGo = "image_url";
+    public static String aGp = "package_id";
+    public static String aGq = "#(meme,setting)";
+    public static String aGr = "#(meme,collect_";
+    public static String aGs = "meme,collect_";
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public String pkgId;
+        public String url;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.e.a
-    /* renamed from: a */
-    public void entryRemoved(boolean z, String str, com.baidu.adp.widget.a.a aVar, com.baidu.adp.widget.a.a aVar2) {
-        if (aVar != null) {
-            aVar.kO();
+    public static String EB() {
+        return "collect_" + (TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
+    }
+
+    public static String EC() {
+        return Math.abs(EB().hashCode()) + "";
+    }
+
+    public static void gq(String str) {
+        int i = 0;
+        if (!TextUtils.isEmpty(str)) {
+            Matcher matcher = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(str);
+            int i2 = 0;
+            while (matcher.find()) {
+                String[] split = matcher.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                if (split != null && split.length == 5) {
+                    if (split[1].contains("_")) {
+                        i++;
+                    } else {
+                        i2++;
+                    }
+                }
+            }
+            if (i2 > 0) {
+                aj ajVar = new aj("c12223");
+                ajVar.r("obj_param1", i2);
+                TiebaStatic.log(ajVar);
+            }
+            if (i > 0) {
+                aj ajVar2 = new aj("c12231");
+                ajVar2.r("obj_param1", i);
+                TiebaStatic.log(ajVar2);
+            }
         }
     }
 }

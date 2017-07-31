@@ -4,18 +4,33 @@ import android.view.animation.Animation;
 /* loaded from: classes.dex */
 public abstract class d implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        h.fR().post(new e(this, animation));
+    public void onAnimationStart(final Animation animation) {
+        e.ga().post(new Runnable() { // from class: com.baidu.adp.lib.g.d.1
+            @Override // java.lang.Runnable
+            public void run() {
+                d.this.a(animation);
+            }
+        });
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        h.fR().post(new f(this, animation));
+    public void onAnimationEnd(final Animation animation) {
+        e.ga().post(new Runnable() { // from class: com.baidu.adp.lib.g.d.2
+            @Override // java.lang.Runnable
+            public void run() {
+                d.this.b(animation);
+            }
+        });
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-        h.fR().post(new g(this, animation));
+    public void onAnimationRepeat(final Animation animation) {
+        e.ga().post(new Runnable() { // from class: com.baidu.adp.lib.g.d.3
+            @Override // java.lang.Runnable
+            public void run() {
+                d.this.c(animation);
+            }
+        });
     }
 
     public void a(Animation animation) {

@@ -1,26 +1,33 @@
 package com.baidu.tieba.emotion.editortool;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.List;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.r;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-class c extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(int i) {
-        super(i);
+public class c extends r {
+    public c(Context context, int i, boolean z) {
+        super(context, TbadkCoreApplication.getInst().getString(d.l.editor_express), 5, i);
+        this.aCN = d.g.pbeditor_face_button;
+        b bVar = new b(context);
+        bVar.setShowBigEmotion(z);
+        this.aCc = bVar;
+        this.aCR = true;
+        this.aCQ = 6;
+        this.aCS = new int[]{1, 34, 35};
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
-            for (com.baidu.tbadk.editortools.emotiontool.a aVar : (List) customResponsedMessage.getData()) {
-                z.aam().b(aVar);
-            }
-            z.aam().aan();
-            MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
-        }
+    public c(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(d.l.editor_express), 5, i);
+        this.aCN = d.g.pbeditor_face_button;
+        this.aCc = new b(context);
+        this.aCR = true;
+        this.aCQ = 6;
+        this.aCS = new int[]{1, 34, 35};
+    }
+
+    @Override // com.baidu.tbadk.editortools.r
+    public void bH(boolean z) {
+        ((b) this.aCc).setShowUserCollect(z);
     }
 }

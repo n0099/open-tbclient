@@ -151,9 +151,9 @@ public class FragmentActivity extends Activity {
         return super.onCreatePanelMenu(i, menu);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0067 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x006f */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0079 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x006a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0072 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x007c */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v0, types: [android.view.View] */
     /* JADX WARN: Type inference failed for: r1v1 */

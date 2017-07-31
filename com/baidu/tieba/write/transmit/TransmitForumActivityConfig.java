@@ -1,6 +1,7 @@
 package com.baidu.tieba.write.transmit;
 
 import android.content.Context;
+import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;

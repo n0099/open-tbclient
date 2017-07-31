@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -407,6 +408,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
         b = 1;
     }
 
+    @TargetApi(11)
     public static Notification a(Context context) {
         Intent intent = new Intent(context, XMPushService.class);
         if (Build.VERSION.SDK_INT < 11) {

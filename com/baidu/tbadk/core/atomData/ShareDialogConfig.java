@@ -6,7 +6,7 @@ import android.util.Pair;
 import android.util.SparseArray;
 import android.view.View;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.coreExtra.share.h;
+import com.baidu.tbadk.coreExtra.share.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ShareDialogConfig extends IntentConfig {
@@ -17,38 +17,38 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean isSetCopyLink;
     public SparseArray<String> mtjStatistics;
     public DialogInterface.OnDismissListener onDismissListener;
-    public h shareItem;
+    public e shareItem;
     public boolean showLocation;
     public ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> textViewList;
 
-    public ShareDialogConfig(Context context, h hVar, boolean z) {
+    public ShareDialogConfig(Context context, e eVar, boolean z) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
         this.isLandscape = false;
-        this.shareItem = hVar;
+        this.shareItem = eVar;
         this.showLocation = z;
     }
 
-    public ShareDialogConfig(Context context, h hVar, boolean z, SparseArray<String> sparseArray) {
+    public ShareDialogConfig(Context context, e eVar, boolean z, SparseArray<String> sparseArray) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
         this.isLandscape = false;
-        this.shareItem = hVar;
+        this.shareItem = eVar;
         this.showLocation = z;
         this.mtjStatistics = sparseArray;
     }
 
-    public ShareDialogConfig(Context context, h hVar, boolean z, boolean z2) {
+    public ShareDialogConfig(Context context, e eVar, boolean z, boolean z2) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
         this.isLandscape = false;
-        this.shareItem = hVar;
+        this.shareItem = eVar;
         this.showLocation = z;
         this.isInsertBack = z2;
     }

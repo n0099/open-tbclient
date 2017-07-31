@@ -6,7 +6,7 @@ import android.content.IntentFilter;
 import android.os.IBinder;
 /* loaded from: classes2.dex */
 public class ScreenLockNotifyService extends Service {
-    public p mLockReceiver = null;
+    public b mLockReceiver = null;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -16,7 +16,7 @@ public class ScreenLockNotifyService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mLockReceiver = new p();
+        this.mLockReceiver = new b();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");

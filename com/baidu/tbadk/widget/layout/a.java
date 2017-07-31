@@ -1,13 +1,13 @@
 package com.baidu.tbadk.widget.layout;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.z;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.util.u;
+import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a implements f {
-    @Override // com.baidu.tbadk.widget.layout.f
-    public int fn(int i) {
+public class a implements c {
+    @Override // com.baidu.tbadk.widget.layout.c
+    public int fs(int i) {
         if (i < 4) {
             return 1;
         }
@@ -17,72 +17,73 @@ public class a implements f {
         return 3;
     }
 
-    @Override // com.baidu.tbadk.widget.layout.f
-    public int a(c cVar, List<String> list, int i, int i2) {
-        if (z.s(list) > 0) {
+    @Override // com.baidu.tbadk.widget.layout.c
+    public int a(b bVar, List<String> list, int i, int i2) {
+        if (u.u(list) > 0) {
             if (i == 0) {
-                return a(cVar, list, i2);
+                return a(bVar, list, i2);
             }
             if (i == 1) {
-                return b(cVar, list, i2);
+                return b(bVar, list, i2);
             }
             if (i == 2) {
-                return c(cVar, list, i2);
+                return c(bVar, list, i2);
             }
             return i2;
         }
         return i2;
     }
 
-    private int a(c cVar, List<String> list, int i) {
-        if (cVar == null || z.t(list)) {
+    private int a(b bVar, List<String> list, int i) {
+        if (bVar == null || u.v(list)) {
             return i;
         }
-        int s = z.s(list);
-        if (s == 1) {
-            cVar.f(list, i);
+        int u = u.u(list);
+        int i2 = u - 3;
+        if (u == 1) {
+            bVar.f(list, i);
             return 0;
-        } else if (s == 2 || s == 4 || s == 5) {
-            int i2 = i + 2;
-            cVar.f(z.a(list, i, i2), i);
-            return i2;
-        } else {
-            int i3 = i + 3;
-            cVar.f(z.a(list, i, i3), i);
+        } else if (u == 2 || u == 4 || u == 5) {
+            int i3 = i + 2;
+            bVar.f(u.a(list, i, i3), i);
             return i3;
+        } else {
+            int i4 = i + 3;
+            bVar.f(u.a(list, i, i4), i);
+            return i4;
         }
     }
 
-    private int b(c cVar, List<String> list, int i) {
-        if (cVar == null || z.t(list)) {
+    private int b(b bVar, List<String> list, int i) {
+        if (bVar == null || u.v(list)) {
             return i;
         }
-        if (z.s(list) == 4) {
+        if (u.u(list) == 4) {
             int i2 = i + 2;
-            cVar.f(z.a(list, i, i2), i);
+            bVar.f(u.a(list, i, i2), i);
             return i2;
         }
         int i3 = i + 3;
-        cVar.f(z.a(list, i, i3), i);
+        bVar.f(u.a(list, i, i3), i);
         return i3;
     }
 
-    private int c(c cVar, List<String> list, int i) {
-        if (cVar == null || z.t(list)) {
+    private int c(b bVar, List<String> list, int i) {
+        if (bVar == null || u.v(list)) {
             return i;
         }
-        int s = z.s(list);
-        cVar.setImageMaxChildCount(3);
-        int i2 = s - 9;
+        int u = u.u(list);
+        bVar.setImageMaxChildCount(3);
+        int i2 = u - 9;
         if (i2 > 0) {
             int i3 = i + 3;
-            List<String> a = z.a(list, i, i3);
-            cVar.setExtraCenterText(TbadkCoreApplication.m9getInst().getString(w.l.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
-            cVar.a(a, i, true);
+            List<String> a = u.a(list, i, i3);
+            bVar.setExtraCenterText(TbadkCoreApplication.getInst().getString(d.l.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
+            bVar.a(a, i, true);
             return i3;
         }
-        cVar.f(z.a(list, i, s), i);
-        cVar.setExtraCenterText(null);
-        return s;
+        bVar.f(u.a(list, i, u), i);
+        bVar.setExtraCenterText(null);
+        return u;
     }
 }

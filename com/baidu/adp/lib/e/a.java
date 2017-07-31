@@ -52,15 +52,15 @@ public class a<K, V> {
         return put;
     }
 
-    public synchronized boolean ai(int i) {
+    public synchronized boolean al(int i) {
         if (this.size + i > this.maxSize * 0.8d) {
             trimToSize(this.size - i);
         }
         return true;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0031, code lost:
-        throw new java.lang.IllegalStateException(java.lang.String.valueOf(getClass().getName()) + ".sizeOf() is reporting inconsistent results!");
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0032, code lost:
+        throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -139,7 +139,7 @@ public class a<K, V> {
         return this.maxSize;
     }
 
-    public final void aj(int i) {
+    public final void am(int i) {
         synchronized (this) {
             this.maxSize = i;
             trimToSize(i);

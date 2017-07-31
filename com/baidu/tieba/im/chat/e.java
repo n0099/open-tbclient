@@ -1,49 +1,88 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.coreExtra.view.MultiImageView;
-import com.baidu.tieba.im.chat.AbsMsgImageActivity;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.c.b;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.im.data.MsgCacheData;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class e implements c.b {
-    final /* synthetic */ AbsMsgImageActivity cWn;
+public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
+    protected TbPageContext<MsglistActivity<?>> alI;
+    protected com.baidu.adp.lib.c.a dhg;
+    protected b dhh;
+    protected long dhn;
+    private boolean dho;
+    private boolean dhp;
+    protected int dhq;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.cWn = absMsgImageActivity;
+    public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.dhg = null;
+        this.dhh = null;
+        this.dhn = 0L;
+        this.dho = false;
+        this.dhp = false;
+        this.alI = tbPageContext;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        com.baidu.tbadk.core.dialog.c listMenu;
-        MultiImageView multiImageView;
-        MultiImageView multiImageView2;
-        AbsMsgImageActivity.a aVar;
-        listMenu = this.cWn.getListMenu();
-        if (cVar == listMenu) {
-            switch (i) {
-                case 0:
-                    try {
-                        multiImageView = this.cWn.cWb;
-                        byte[] currentImageData = multiImageView.getCurrentImageData();
-                        if (currentImageData != null) {
-                            multiImageView2 = this.cWn.cWb;
-                            String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.cWn.cVY = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
-                            aVar = this.cWn.cVY;
-                            aVar.execute(new String[0]);
-                            this.cWn.cVZ.setClickable(false);
-                        } else {
-                            this.cWn.showToast(this.cWn.getPageContext().getString(w.l.no_data));
-                        }
-                        break;
-                    } catch (Exception e) {
-                        break;
-                    }
-            }
-            cVar.dismiss();
+    public void a(com.baidu.adp.lib.c.a aVar) {
+        this.dhg = aVar;
+    }
+
+    public void setOnItemViewLongClickListener(b bVar) {
+        this.dhh = bVar;
+    }
+
+    private void arQ() {
+        this.dhn = System.currentTimeMillis() / 1000;
+    }
+
+    public boolean arR() {
+        return this.dho;
+    }
+
+    public void fS(boolean z) {
+        this.dho = z;
+    }
+
+    public boolean arS() {
+        return this.dhp;
+    }
+
+    public void fT(boolean z) {
+        this.dhp = z;
+    }
+
+    public void lK(int i) {
+        this.dhq = i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, a<T> aVar) {
+        if (chatMessage != null && chatMessage.getCacheData() == null) {
+            chatMessage.setCacheData(new MsgCacheData());
+        }
+        arQ();
+        return view;
+    }
+
+    /* loaded from: classes.dex */
+    public static class a<T> extends j.a {
+        private T dhr;
+
+        public a(View view, T t) {
+            super(view);
+            this.dhr = t;
+        }
+
+        public T arT() {
+            return this.dhr;
         }
     }
 }

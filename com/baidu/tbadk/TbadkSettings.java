@@ -12,10 +12,6 @@ public abstract class TbadkSettings {
     private TbadkSettings() {
     }
 
-    /* synthetic */ TbadkSettings(TbadkSettings tbadkSettings) {
-        this();
-    }
-
     public static TbadkSettings getInst() {
         return mSettings;
     }

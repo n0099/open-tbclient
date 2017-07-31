@@ -1,42 +1,34 @@
 package com.baidu.tieba.pb.video;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.bm;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.d;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes.dex */
-public class j extends CustomMessageListener {
-    final /* synthetic */ h eJN;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(h hVar, int i) {
-        super(i);
-        this.eJN = hVar;
+public class j extends com.baidu.tieba.pb.pb.main.l<k, o> {
+    public j(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bm bmVar;
-        bm bmVar2;
-        bm bmVar3;
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.pb.data.l)) {
-            bmVar = this.eJN.eJM;
-            if (bmVar != null) {
-                bmVar2 = this.eJN.eJM;
-                if (bmVar2.getId() != null) {
-                    com.baidu.tieba.pb.data.l lVar = (com.baidu.tieba.pb.data.l) customResponsedMessage.getData();
-                    if (!TextUtils.isEmpty(lVar.pid)) {
-                        String str = lVar.pid;
-                        bmVar3 = this.eJN.eJM;
-                        if (str.equals(bmVar3.rH())) {
-                            this.eJN.a(lVar.ese == 0, lVar.esf.getPraiseNum());
-                        }
-                    }
-                }
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bs */
+    public o onCreateViewHolder(ViewGroup viewGroup) {
+        return new o(this.eGA.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_video_item_layout, viewGroup, false));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, o oVar) {
+        super.onFillViewHolder(i, view, viewGroup, kVar, oVar);
+        if (kVar != null) {
+            oVar.a(kVar);
         }
+        return view;
     }
 }

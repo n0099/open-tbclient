@@ -446,9 +446,9 @@ public final class DeviceId {
         return getOrCreateCUIDInfo(context).deviceId;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x004f  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00b6  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0052  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00bd  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -601,8 +601,8 @@ public final class DeviceId {
         return getOrCreateCUIDInfo(context).imei;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0026  */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x001b A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0029  */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x001c A[ORIG_RETURN, RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -799,18 +799,18 @@ public final class DeviceId {
                     }
                 }
                 return true;
-            } catch (Exception e2) {
-                handleThrowable(e2);
+            } catch (Throwable th) {
                 if (fileOutputStream != null) {
                     try {
                         fileOutputStream.close();
-                    } catch (Exception e3) {
-                        handleThrowable(e3);
+                    } catch (Exception e2) {
+                        handleThrowable(e2);
                     }
                 }
-                return false;
+                throw th;
             }
-        } catch (Throwable th) {
+        } catch (Exception e3) {
+            handleThrowable(e3);
             if (fileOutputStream != null) {
                 try {
                     fileOutputStream.close();
@@ -818,7 +818,7 @@ public final class DeviceId {
                     handleThrowable(e4);
                 }
             }
-            throw th;
+            return false;
         }
     }
 

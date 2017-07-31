@@ -10,6 +10,6 @@ public class ReceiverStatic {
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         intentFilter.addAction("android.intent.action.USER_PRESENT");
-        TbadkCoreApplication.m9getInst().registerReceiver(screenLockReceiver, intentFilter);
+        TbadkCoreApplication.getInst().registerReceiver(screenLockReceiver, intentFilter);
     }
 }

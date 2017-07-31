@@ -18,9 +18,9 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class m {
-    private static final double[] OA = {45.0d, 135.0d, 225.0d, 315.0d};
-    private final d NT;
-    private final SQLiteDatabase OB;
+    private static final double[] Qc = {45.0d, 135.0d, 225.0d, 315.0d};
+    private final d Pu;
+    private final SQLiteDatabase Qd;
     private final int c;
     private int e = -1;
     private int f = -1;
@@ -51,7 +51,7 @@ public final class m {
         public static final b b = new o("ROAD", 1, "RGCROAD", "road", "addrv", 1000, 10000);
         public static final b c = new p("SITE", 2, "RGCSITE", "site", "addrv", 100, 50000);
         public static final b d = new q("POI", 3, "RGCPOI", "poi", "poiv", 1000, 5000);
-        private static final /* synthetic */ b[] OC = {a, b, c, d};
+        private static final /* synthetic */ b[] Qe = {a, b, c, d};
 
         private b(String str, int i, String str2, String str3, String str4, int i2, int i3) {
             this.f = str2;
@@ -76,7 +76,7 @@ public final class m {
         }
 
         public static b[] a() {
-            return (b[]) OC.clone();
+            return (b[]) Qe.clone();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -88,10 +88,10 @@ public final class m {
                 int i2 = 0;
                 while (true) {
                     int i3 = i2;
-                    if (i3 >= m.OA.length) {
+                    if (i3 >= m.Qc.length) {
                         break;
                     }
-                    double[] b2 = m.b(d3, d2, d4, m.OA[i3]);
+                    double[] b2 = m.b(d3, d2, d4, m.Qc[i3]);
                     hashSet.add(m.a(i, b2[1], b2[0]));
                     i2 = i3 + 1;
                 }
@@ -124,18 +124,18 @@ public final class m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(d dVar, SQLiteDatabase sQLiteDatabase, int i) {
-        this.NT = dVar;
-        this.OB = sQLiteDatabase;
+        this.Pu = dVar;
+        this.Qd = sQLiteDatabase;
         this.c = i;
-        if (this.OB == null || !this.OB.isOpen()) {
+        if (this.Qd == null || !this.Qd.isOpen()) {
             return;
         }
         try {
-            this.OB.execSQL("CREATE TABLE IF NOT EXISTS RGCAREA(gridkey VARCHAR(10) PRIMARY KEY, country VARCHAR(100),countrycode VARCHAR(100), province VARCHAR(100), city VARCHAR(100), citycode VARCHAR(100), district VARCHAR(100), timestamp INTEGER, version VARCHAR(50))");
-            this.OB.execSQL("CREATE TABLE IF NOT EXISTS RGCROAD(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), x1 DOUBLE, y1 DOUBLE, x2 DOUBLE, y2 DOUBLE)");
-            this.OB.execSQL("CREATE TABLE IF NOT EXISTS RGCSITE(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), streetnumber VARCHAR(100), x DOUBLE, y DOUBLE)");
-            this.OB.execSQL("CREATE TABLE IF NOT EXISTS RGCPOI(pid VARCHAR(50) PRIMARY KEY , gridkey VARCHAR(10), name VARCHAR(100), type VARCHAR(50), x DOUBLE, y DOUBLE, rank INTEGER)");
-            this.OB.execSQL("CREATE TABLE IF NOT EXISTS RGCUPDATE(gridkey VARCHAR(10), version VARCHAR(50), type INTEGER, timestamp INTEGER, PRIMARY KEY(gridkey, type))");
+            this.Qd.execSQL("CREATE TABLE IF NOT EXISTS RGCAREA(gridkey VARCHAR(10) PRIMARY KEY, country VARCHAR(100),countrycode VARCHAR(100), province VARCHAR(100), city VARCHAR(100), citycode VARCHAR(100), district VARCHAR(100), timestamp INTEGER, version VARCHAR(50))");
+            this.Qd.execSQL("CREATE TABLE IF NOT EXISTS RGCROAD(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), x1 DOUBLE, y1 DOUBLE, x2 DOUBLE, y2 DOUBLE)");
+            this.Qd.execSQL("CREATE TABLE IF NOT EXISTS RGCSITE(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), streetnumber VARCHAR(100), x DOUBLE, y DOUBLE)");
+            this.Qd.execSQL("CREATE TABLE IF NOT EXISTS RGCPOI(pid VARCHAR(50) PRIMARY KEY , gridkey VARCHAR(10), name VARCHAR(100), type VARCHAR(50), x DOUBLE, y DOUBLE, rank INTEGER)");
+            this.Qd.execSQL("CREATE TABLE IF NOT EXISTS RGCUPDATE(gridkey VARCHAR(10), version VARCHAR(50), type INTEGER, timestamp INTEGER, PRIMARY KEY(gridkey, type))");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -169,7 +169,7 @@ public final class m {
             d = -0.5d;
             i3 = 0;
         }
-        return ((int) ((d * i2) + i3)) + i;
+        return ((int) (i3 + (d * i2))) + i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -178,12 +178,12 @@ public final class m {
         double d3;
         int i2;
         int i3;
-        boolean z = true;
         int i4 = i * 5;
         char[] cArr = new char[i + 1];
         a aVar2 = new a(90.0d, -90.0d);
         a aVar3 = new a(180.0d, -180.0d);
         int i5 = 1;
+        boolean z = true;
         int i6 = 0;
         while (i5 <= i4) {
             if (z) {
@@ -244,11 +244,11 @@ public final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONObject jSONObject) {
         b[] a2;
-        if (this.OB == null || !this.OB.isOpen()) {
+        if (this.Qd == null || !this.Qd.isOpen()) {
             return;
         }
         try {
-            this.OB.beginTransaction();
+            this.Qd.beginTransaction();
             for (b bVar : b.a()) {
                 if (jSONObject.has(bVar.g)) {
                     String string = jSONObject.has(bVar.h) ? jSONObject.getString(bVar.h) : "";
@@ -257,25 +257,25 @@ public final class m {
                     arrayList.add(bVar.a(jSONObject2));
                     arrayList.addAll(bVar.a(jSONObject2, string, bVar.i));
                     for (String str : arrayList) {
-                        this.OB.execSQL(str);
+                        this.Qd.execSQL(str);
                     }
                 }
             }
-            this.OB.setTransactionSuccessful();
+            this.Qd.setTransactionSuccessful();
             this.e = -1;
             this.f = -1;
             try {
-                this.OB.endTransaction();
+                this.Qd.endTransaction();
             } catch (Exception e) {
             }
         } catch (Exception e2) {
             try {
-                this.OB.endTransaction();
+                this.Qd.endTransaction();
             } catch (Exception e3) {
             }
         } catch (Throwable th) {
             try {
-                this.OB.endTransaction();
+                this.Qd.endTransaction();
             } catch (Exception e4) {
             }
             throw th;
@@ -286,62 +286,62 @@ public final class m {
     public boolean a() {
         Cursor cursor;
         Cursor cursor2 = null;
-        if (this.NT.mO().l() && this.f == -1 && this.e == -1 && this.OB != null && this.OB.isOpen()) {
+        if (this.Pu.mV().l() && this.f == -1 && this.e == -1 && this.Qd != null && this.Qd.isOpen()) {
             try {
-                cursor = this.OB.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
-                try {
-                    cursor.moveToFirst();
-                    this.f = cursor.getInt(0);
-                    cursor2 = this.OB.rawQuery("SELECT COUNT(*) FROM RGCAREA;", null);
-                    cursor2.moveToFirst();
-                    this.e = cursor2.getInt(0);
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e) {
-                        }
-                    }
-                    if (cursor2 != null) {
-                        try {
-                            cursor2.close();
-                        } catch (Exception e2) {
-                        }
-                    }
-                } catch (Exception e3) {
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e4) {
-                        }
-                    }
-                    if (cursor2 != null) {
-                        try {
-                            cursor2.close();
-                        } catch (Exception e5) {
-                        }
-                    }
-                    return this.f != 0 ? false : false;
-                } catch (Throwable th) {
-                    th = th;
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e6) {
-                        }
-                    }
-                    if (cursor2 != null) {
-                        try {
-                            cursor2.close();
-                        } catch (Exception e7) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception e8) {
+                cursor = this.Qd.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
+            } catch (Exception e) {
                 cursor = null;
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            try {
+                cursor.moveToFirst();
+                this.f = cursor.getInt(0);
+                cursor2 = this.Qd.rawQuery("SELECT COUNT(*) FROM RGCAREA;", null);
+                cursor2.moveToFirst();
+                this.e = cursor2.getInt(0);
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e2) {
+                    }
+                }
+                if (cursor2 != null) {
+                    try {
+                        cursor2.close();
+                    } catch (Exception e3) {
+                    }
+                }
+            } catch (Exception e4) {
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e5) {
+                    }
+                }
+                if (cursor2 != null) {
+                    try {
+                        cursor2.close();
+                    } catch (Exception e6) {
+                    }
+                }
+                return this.f != 0 ? false : false;
             } catch (Throwable th2) {
                 th = th2;
-                cursor = null;
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e7) {
+                    }
+                }
+                if (cursor2 != null) {
+                    try {
+                        cursor2.close();
+                    } catch (Exception e8) {
+                    }
+                }
+                throw th;
             }
         }
         if (this.f != 0 && this.e == 0) {
@@ -349,39 +349,41 @@ public final class m {
         }
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:174:0x00af */
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Can't wrap try/catch for region: R(23:21|22|(22:163|164|165|(0)|82|83|84|85|86|(0)|149|(0)|(0)|(0)|(0)|(0)|(0)|(0)|(0)|(0)(0)|121|122)|24|(0)|82|83|84|85|86|(0)|149|(0)|(0)|(0)|(0)|(0)|(0)|(0)|(0)|(0)(0)|121|122) */
-    /* JADX WARN: Code restructure failed: missing block: B:104:0x0274, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(7:21|(16:(22:161|162|163|(0)|80|81|82|83|84|(0)|147|(0)|(0)|(0)|(0)|(0)|(0)|(0)|(0)|(0)(0)|120|121)|83|84|(0)|147|(0)|(0)|(0)|(0)|(0)|(0)|(0)|(0)|(0)(0)|120|121)|23|(0)|80|81|82) */
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x0277, code lost:
         r5 = null;
         r6 = null;
         r7 = null;
         r8 = null;
         r9 = null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:149:0x02f3  */
-    /* JADX WARN: Removed duplicated region for block: B:170:0x01ab A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:148:0x02f1  */
+    /* JADX WARN: Removed duplicated region for block: B:162:0x01ae A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:22:0x0080  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0160 A[Catch: Exception -> 0x0273, all -> 0x02ac, TryCatch #4 {all -> 0x02ac, blocks: (B:58:0x015a, B:60:0x0160, B:62:0x0166, B:63:0x0170, B:64:0x017a, B:65:0x0184, B:66:0x018e, B:67:0x0198), top: B:164:0x015a }] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x01b0  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x01c0  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x01d0  */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x01e0  */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x01f0  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x0200  */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x0210  */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x0220  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x015d A[Catch: Exception -> 0x0276, all -> 0x02af, TryCatch #7 {Exception -> 0x0276, blocks: (B:56:0x014e, B:57:0x0157, B:59:0x015d, B:61:0x0163), top: B:170:0x014e }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x01b3  */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x01c3  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x01d3  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x01e3  */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x01f3  */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x0203  */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x0213  */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x0223  */
+    /* JADX WARN: Type inference failed for: r4v56 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Address b(double d, double d2) {
         Cursor cursor;
-        Cursor cursor2;
         String str;
         String str2;
         String str3;
         String str4;
+        Cursor cursor2;
         Cursor cursor3;
-        Cursor cursor4;
         Throwable th;
         String str5;
         String str6;
@@ -393,52 +395,47 @@ public final class m {
         String str12;
         String str13;
         String str14;
+        Cursor cursor4;
         Cursor cursor5;
-        Cursor cursor6;
         String str15;
-        String str16;
+        double d3;
         double c;
-        String str17;
-        String str18;
+        Cursor cursor6 = null;
         try {
-            cursor = this.OB.rawQuery(b.c.b(this.c, d, d2), null);
+            cursor = this.Qd.rawQuery(b.c.b(this.c, d, d2), null);
             try {
                 try {
                     if (cursor.moveToFirst()) {
-                        double d3 = Double.MAX_VALUE;
-                        String str19 = null;
-                        String str20 = null;
+                        double d4 = Double.MAX_VALUE;
+                        String str16 = null;
+                        String str17 = null;
                         while (!cursor.isAfterLast()) {
                             try {
-                                str16 = cursor.getString(2);
-                                String string = cursor.getString(3);
+                                String string = cursor.getString(2);
+                                String string2 = cursor.getString(3);
                                 c = c(d2, d, cursor.getDouble(5), cursor.getDouble(4));
-                                if (c >= d3 || c > b.c.e) {
-                                    c = d3;
-                                    str17 = str19;
-                                    str18 = str20;
+                                if (c >= d4 || c > b.c.e) {
+                                    c = d4;
+                                    str = str16;
+                                    str2 = str17;
                                 } else {
-                                    str17 = string;
-                                    str18 = str16;
+                                    str = string2;
+                                    str2 = string;
                                 }
                             } catch (Exception e) {
-                                cursor2 = cursor;
-                                str = str19;
-                                str2 = str20;
+                                str = str16;
+                                str2 = str17;
                             }
                             try {
                                 cursor.moveToNext();
-                                d3 = c;
-                                str19 = str17;
-                                str20 = str18;
+                                d4 = c;
+                                str16 = str;
+                                str17 = str2;
                             } catch (Exception e2) {
-                                str2 = str18;
-                                str = str17;
-                                cursor2 = cursor;
                                 try {
-                                    if (cursor2 != null) {
+                                    if (cursor != null) {
                                         try {
-                                            cursor2.close();
+                                            cursor.close();
                                             str3 = str;
                                             str4 = str2;
                                         } catch (Exception e3) {
@@ -447,9 +444,9 @@ public final class m {
                                         }
                                         if (str3 == null) {
                                         }
-                                        cursor3 = null;
-                                        cursor3 = this.OB.rawQuery(b.a.b(this.c, d, d2), null);
-                                        if (cursor3.moveToFirst()) {
+                                        cursor2 = null;
+                                        cursor2 = this.Qd.rawQuery(b.a.b(this.c, d, d2), null);
+                                        if (cursor2.moveToFirst()) {
                                         }
                                         str14 = null;
                                         str13 = null;
@@ -457,7 +454,7 @@ public final class m {
                                         str11 = null;
                                         str10 = null;
                                         str9 = null;
-                                        if (cursor3 != null) {
+                                        if (cursor2 != null) {
                                         }
                                         if (str9 != null) {
                                         }
@@ -475,7 +472,7 @@ public final class m {
                                         }
                                         return new Address.Builder().country(str9).countryCode(str10).province(str11).city(str12).cityCode(str13).district(str14).street(str4).streetNumber(str3 != null ? new String(com.baidu.location.b.a.b.a(str3.getBytes())) : str3).build();
                                     }
-                                    if (cursor3.moveToFirst()) {
+                                    if (cursor2.moveToFirst()) {
                                     }
                                     str14 = null;
                                     str13 = null;
@@ -483,7 +480,7 @@ public final class m {
                                     str11 = null;
                                     str10 = null;
                                     str9 = null;
-                                    if (cursor3 != null) {
+                                    if (cursor2 != null) {
                                     }
                                     if (str9 != null) {
                                     }
@@ -501,11 +498,11 @@ public final class m {
                                     }
                                     return new Address.Builder().country(str9).countryCode(str10).province(str11).city(str12).cityCode(str13).district(str14).street(str4).streetNumber(str3 != null ? new String(com.baidu.location.b.a.b.a(str3.getBytes())) : str3).build();
                                 } catch (Throwable th2) {
-                                    cursor4 = cursor3;
+                                    cursor3 = cursor2;
                                     th = th2;
-                                    if (cursor4 != null) {
+                                    if (cursor3 != null) {
                                         try {
-                                            cursor4.close();
+                                            cursor3.close();
                                         } catch (Exception e4) {
                                         }
                                     }
@@ -515,38 +512,37 @@ public final class m {
                                 str4 = str2;
                                 if (str3 == null) {
                                 }
-                                cursor3 = null;
-                                cursor3 = this.OB.rawQuery(b.a.b(this.c, d, d2), null);
+                                cursor2 = null;
+                                cursor2 = this.Qd.rawQuery(b.a.b(this.c, d, d2), null);
                             }
                         }
-                        str = str19;
-                        str2 = str20;
+                        str = str16;
+                        str2 = str17;
                     } else {
                         str = null;
                         str2 = null;
                     }
                 } catch (Exception e5) {
-                    cursor2 = cursor;
                     str = null;
                     str2 = null;
                 }
             } catch (Throwable th3) {
+                cursor6 = cursor;
                 th = th3;
-                if (cursor != null) {
+                if (cursor6 != null) {
                     try {
-                        cursor.close();
+                        cursor6.close();
                     } catch (Exception e6) {
                     }
                 }
                 throw th;
             }
         } catch (Exception e7) {
-            cursor2 = null;
+            cursor = null;
             str = null;
             str2 = null;
         } catch (Throwable th4) {
             th = th4;
-            cursor = null;
         }
         try {
             if (cursor != null) {
@@ -560,43 +556,46 @@ public final class m {
                 }
                 if (str3 == null) {
                     try {
-                        cursor5 = this.OB.rawQuery(b.b.b(this.c, d, d2), null);
+                        cursor4 = this.Qd.rawQuery(b.b.b(this.c, d, d2), null);
                         try {
                             try {
-                                if (cursor5.moveToFirst()) {
-                                    double d4 = Double.MAX_VALUE;
+                                if (cursor4.moveToFirst()) {
+                                    double d5 = Double.MAX_VALUE;
                                     double[] coorEncrypt = Jni.coorEncrypt(d, d2, "wgs842mc");
+                                    str15 = "wgs842mc";
                                     while (true) {
                                         try {
-                                            str16 = str4;
-                                            if (cursor5.isAfterLast()) {
+                                            str15 = str4;
+                                            if (cursor4.isAfterLast()) {
                                                 break;
                                             }
-                                            String string2 = cursor5.getString(2);
-                                            double[] coorEncrypt2 = Jni.coorEncrypt(cursor5.getDouble(3), cursor5.getDouble(4), "wgs842mc");
-                                            double[] coorEncrypt3 = Jni.coorEncrypt(cursor5.getDouble(5), cursor5.getDouble(6), "wgs842mc");
+                                            String string3 = cursor4.getString(2);
+                                            double[] coorEncrypt2 = Jni.coorEncrypt(cursor4.getDouble(3), cursor4.getDouble(4), "wgs842mc");
+                                            double[] coorEncrypt3 = Jni.coorEncrypt(cursor4.getDouble(5), cursor4.getDouble(6), "wgs842mc");
                                             double a2 = a(coorEncrypt[0], coorEncrypt[1], coorEncrypt2[0], coorEncrypt2[1], coorEncrypt3[0], coorEncrypt3[1]);
-                                            if (a2 >= d4 || a2 > b.b.e) {
-                                                a2 = d4;
-                                                str4 = str16;
+                                            if (a2 >= d5 || a2 > b.b.e) {
+                                                str4 = str15;
+                                                d3 = d5;
                                             } else {
-                                                str4 = string2;
+                                                d3 = a2;
+                                                str4 = string3;
                                             }
-                                            cursor5.moveToNext();
-                                            d4 = a2;
+                                            cursor4.moveToNext();
+                                            d5 = d3;
+                                            str15 = d3;
                                         } catch (Exception e9) {
-                                            cursor6 = cursor5;
-                                            str15 = str16;
-                                            if (cursor6 != null) {
+                                            cursor5 = cursor4;
+                                            str15 = str15;
+                                            if (cursor5 != null) {
                                                 try {
-                                                    cursor6.close();
+                                                    cursor5.close();
                                                     str4 = str15;
                                                 } catch (Exception e10) {
                                                     str4 = str15;
                                                 }
-                                                cursor3 = null;
-                                                cursor3 = this.OB.rawQuery(b.a.b(this.c, d, d2), null);
-                                                if (cursor3.moveToFirst()) {
+                                                cursor2 = null;
+                                                cursor2 = this.Qd.rawQuery(b.a.b(this.c, d, d2), null);
+                                                if (cursor2.moveToFirst()) {
                                                 }
                                                 str14 = null;
                                                 str13 = null;
@@ -604,7 +603,7 @@ public final class m {
                                                 str11 = null;
                                                 str10 = null;
                                                 str9 = null;
-                                                if (cursor3 != null) {
+                                                if (cursor2 != null) {
                                                 }
                                                 if (str9 != null) {
                                                 }
@@ -623,9 +622,9 @@ public final class m {
                                                 return new Address.Builder().country(str9).countryCode(str10).province(str11).city(str12).cityCode(str13).district(str14).street(str4).streetNumber(str3 != null ? new String(com.baidu.location.b.a.b.a(str3.getBytes())) : str3).build();
                                             }
                                             str4 = str15;
-                                            cursor3 = null;
-                                            cursor3 = this.OB.rawQuery(b.a.b(this.c, d, d2), null);
-                                            if (cursor3.moveToFirst()) {
+                                            cursor2 = null;
+                                            cursor2 = this.Qd.rawQuery(b.a.b(this.c, d, d2), null);
+                                            if (cursor2.moveToFirst()) {
                                             }
                                             str14 = null;
                                             str13 = null;
@@ -633,7 +632,7 @@ public final class m {
                                             str11 = null;
                                             str10 = null;
                                             str9 = null;
-                                            if (cursor3 != null) {
+                                            if (cursor2 != null) {
                                             }
                                             if (str9 != null) {
                                             }
@@ -652,44 +651,43 @@ public final class m {
                                             return new Address.Builder().country(str9).countryCode(str10).province(str11).city(str12).cityCode(str13).district(str14).street(str4).streetNumber(str3 != null ? new String(com.baidu.location.b.a.b.a(str3.getBytes())) : str3).build();
                                         }
                                     }
-                                    str15 = str16;
                                 } else {
                                     str15 = str4;
                                 }
-                                if (cursor5 != null) {
+                                if (cursor4 != null) {
                                     try {
-                                        cursor5.close();
+                                        cursor4.close();
                                         str4 = str15;
                                     } catch (Exception e11) {
                                         str4 = str15;
                                     }
                                 }
                             } catch (Exception e12) {
-                                cursor6 = cursor5;
+                                cursor5 = cursor4;
                                 str15 = str4;
                             }
                         } catch (Throwable th5) {
                             th = th5;
-                            if (cursor5 != null) {
+                            if (cursor4 != null) {
                                 try {
-                                    cursor5.close();
+                                    cursor4.close();
                                 } catch (Exception e13) {
                                 }
                             }
                             throw th;
                         }
                     } catch (Exception e14) {
-                        cursor6 = null;
+                        cursor5 = null;
                         str15 = str4;
                     } catch (Throwable th6) {
                         th = th6;
-                        cursor5 = null;
+                        cursor4 = null;
                     }
                     str4 = str15;
                 }
-                cursor3 = null;
-                cursor3 = this.OB.rawQuery(b.a.b(this.c, d, d2), null);
-                if (cursor3.moveToFirst() || cursor3.isAfterLast()) {
+                cursor2 = null;
+                cursor2 = this.Qd.rawQuery(b.a.b(this.c, d, d2), null);
+                if (cursor2.moveToFirst() || cursor2.isAfterLast()) {
                     str14 = null;
                     str13 = null;
                     str12 = null;
@@ -697,66 +695,66 @@ public final class m {
                     str10 = null;
                     str9 = null;
                 } else {
-                    String str21 = cursor3.getString(cursor3.getColumnIndex("country"));
+                    String str18 = cursor2.getString(cursor2.getColumnIndex("country"));
                     try {
-                        str8 = cursor3.getString(cursor3.getColumnIndex("countrycode"));
+                        str8 = cursor2.getString(cursor2.getColumnIndex("countrycode"));
                         try {
-                            str7 = cursor3.getString(cursor3.getColumnIndex("province"));
+                            str7 = cursor2.getString(cursor2.getColumnIndex("province"));
                             try {
-                                str6 = cursor3.getString(cursor3.getColumnIndex("city"));
+                                str6 = cursor2.getString(cursor2.getColumnIndex("city"));
                                 try {
-                                    str5 = cursor3.getString(cursor3.getColumnIndex("citycode"));
-                                    try {
-                                        str9 = str21;
-                                        str10 = str8;
-                                        str11 = str7;
-                                        str12 = str6;
-                                        str13 = str5;
-                                        str14 = cursor3.getString(cursor3.getColumnIndex("district"));
-                                    } catch (Exception e15) {
-                                        if (cursor3 != null) {
-                                            try {
-                                                cursor3.close();
-                                                str9 = str21;
-                                                str10 = str8;
-                                                str11 = str7;
-                                                str12 = str6;
-                                                str13 = str5;
-                                                str14 = null;
-                                            } catch (Exception e16) {
-                                                str9 = str21;
-                                                str10 = str8;
-                                                str11 = str7;
-                                                str12 = str6;
-                                                str13 = str5;
-                                                str14 = null;
-                                            }
-                                        } else {
-                                            str9 = str21;
+                                    str5 = cursor2.getString(cursor2.getColumnIndex("citycode"));
+                                } catch (Exception e15) {
+                                    str5 = null;
+                                }
+                                try {
+                                    str9 = str18;
+                                    str10 = str8;
+                                    str11 = str7;
+                                    str12 = str6;
+                                    str13 = str5;
+                                    str14 = cursor2.getString(cursor2.getColumnIndex("district"));
+                                } catch (Exception e16) {
+                                    if (cursor2 != null) {
+                                        try {
+                                            cursor2.close();
+                                            str9 = str18;
+                                            str10 = str8;
+                                            str11 = str7;
+                                            str12 = str6;
+                                            str13 = str5;
+                                            str14 = null;
+                                        } catch (Exception e17) {
+                                            str9 = str18;
                                             str10 = str8;
                                             str11 = str7;
                                             str12 = str6;
                                             str13 = str5;
                                             str14 = null;
                                         }
-                                        if (str9 != null) {
-                                        }
-                                        if (str10 != null) {
-                                        }
-                                        if (str11 != null) {
-                                        }
-                                        if (str12 != null) {
-                                        }
-                                        if (str13 != null) {
-                                        }
-                                        if (str14 != null) {
-                                        }
-                                        if (str4 != null) {
-                                        }
-                                        return new Address.Builder().country(str9).countryCode(str10).province(str11).city(str12).cityCode(str13).district(str14).street(str4).streetNumber(str3 != null ? new String(com.baidu.location.b.a.b.a(str3.getBytes())) : str3).build();
+                                    } else {
+                                        str9 = str18;
+                                        str10 = str8;
+                                        str11 = str7;
+                                        str12 = str6;
+                                        str13 = str5;
+                                        str14 = null;
                                     }
-                                } catch (Exception e17) {
-                                    str5 = null;
+                                    if (str9 != null) {
+                                    }
+                                    if (str10 != null) {
+                                    }
+                                    if (str11 != null) {
+                                    }
+                                    if (str12 != null) {
+                                    }
+                                    if (str13 != null) {
+                                    }
+                                    if (str14 != null) {
+                                    }
+                                    if (str4 != null) {
+                                    }
+                                    return new Address.Builder().country(str9).countryCode(str10).province(str11).city(str12).cityCode(str13).district(str14).street(str4).streetNumber(str3 != null ? new String(com.baidu.location.b.a.b.a(str3.getBytes())) : str3).build();
                                 }
                             } catch (Exception e18) {
                                 str5 = null;
@@ -774,9 +772,9 @@ public final class m {
                         str8 = null;
                     }
                 }
-                if (cursor3 != null) {
+                if (cursor2 != null) {
                     try {
-                        cursor3.close();
+                        cursor2.close();
                     } catch (Exception e21) {
                     }
                 }
@@ -803,8 +801,8 @@ public final class m {
                 }
                 return new Address.Builder().country(str9).countryCode(str10).province(str11).city(str12).cityCode(str13).district(str14).street(str4).streetNumber(str3 != null ? new String(com.baidu.location.b.a.b.a(str3.getBytes())) : str3).build();
             }
-            cursor3 = this.OB.rawQuery(b.a.b(this.c, d, d2), null);
-            if (cursor3.moveToFirst()) {
+            cursor2 = this.Qd.rawQuery(b.a.b(this.c, d, d2), null);
+            if (cursor2.moveToFirst()) {
             }
             str14 = null;
             str13 = null;
@@ -812,7 +810,7 @@ public final class m {
             str11 = null;
             str10 = null;
             str9 = null;
-            if (cursor3 != null) {
+            if (cursor2 != null) {
             }
             if (str9 != null) {
             }
@@ -830,14 +828,14 @@ public final class m {
             }
             return new Address.Builder().country(str9).countryCode(str10).province(str11).city(str12).cityCode(str13).district(str14).street(str4).streetNumber(str3 != null ? new String(com.baidu.location.b.a.b.a(str3.getBytes())) : str3).build();
         } catch (Throwable th7) {
-            cursor4 = null;
+            cursor3 = null;
             th = th7;
         }
         str3 = str;
         str4 = str2;
         if (str3 == null) {
         }
-        cursor3 = null;
+        cursor2 = null;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION] complete} */
@@ -850,13 +848,13 @@ public final class m {
         StringBuffer stringBuffer2 = new StringBuffer();
         int currentTimeMillis = (int) (System.currentTimeMillis() / 86400000);
         try {
-            if (this.OB != null && this.OB.isOpen()) {
+            if (this.Qd != null && this.Qd.isOpen()) {
                 JSONArray jSONArray = new JSONArray();
                 JSONArray jSONArray2 = new JSONArray();
                 JSONArray jSONArray3 = new JSONArray();
                 JSONArray jSONArray4 = new JSONArray();
-                cursor2 = this.OB.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.NT.mO().p())), null);
-                cursor = this.OB.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.NT.mO().q())), null);
+                cursor2 = this.Qd.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Pu.mV().p())), null);
+                cursor = this.Qd.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Pu.mV().q())), null);
                 if (cursor2.moveToFirst()) {
                     HashSet hashSet = new HashSet();
                     while (!cursor2.isAfterLast()) {
@@ -909,10 +907,10 @@ public final class m {
                 }
             }
             if (stringBuffer2.length() > 0) {
-                this.OB.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 0, stringBuffer2.toString()));
+                this.Qd.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 0, stringBuffer2.toString()));
             }
             if (stringBuffer.length() > 0) {
-                this.OB.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 1, stringBuffer.toString()));
+                this.Qd.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 1, stringBuffer.toString()));
             }
             if (cursor2 != null) {
                 try {
@@ -961,88 +959,78 @@ public final class m {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x0087, code lost:
-        if (r2 > r12) goto L23;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0097  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0095  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public List<Poi> c(double d, double d2) {
         Cursor cursor;
         Cursor cursor2;
-        Poi poi;
         ArrayList arrayList = new ArrayList();
-        Poi poi2 = null;
+        Poi poi = null;
         int i = 0;
         try {
-            cursor = this.OB.rawQuery(b.d.b(this.c, d, d2), null);
-            try {
-                try {
-                    if (cursor.moveToFirst()) {
-                        while (true) {
-                            try {
-                                int i2 = i;
-                                poi = poi2;
-                                if (cursor.isAfterLast()) {
-                                    break;
-                                }
-                                String string = cursor.getString(0);
-                                String string2 = cursor.getString(2);
-                                double d3 = cursor.getDouble(4);
-                                double d4 = cursor.getDouble(5);
-                                int i3 = cursor.getInt(6);
-                                double c = c(d2, d, d4, d3);
-                                if (c < b.d.e) {
-                                    poi2 = new Poi(new String(com.baidu.location.b.a.b.a(string.getBytes())), new String(com.baidu.location.b.a.b.a(string2.getBytes())), 1.0d);
-                                    i = a(i3, Math.round((float) c));
-                                }
-                                i = i2;
-                                poi2 = poi;
-                                cursor.moveToNext();
-                            } catch (Exception e) {
-                                poi2 = poi;
-                                cursor2 = cursor;
-                                if (cursor2 != null) {
-                                    try {
-                                        cursor2.close();
-                                    } catch (Exception e2) {
-                                    }
-                                }
-                                if (poi2 != null) {
-                                }
-                                return arrayList;
-                            }
-                        }
-                        poi2 = poi;
-                    }
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e3) {
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e4) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception e5) {
-                cursor2 = cursor;
-            }
-        } catch (Exception e6) {
+            cursor = this.Qd.rawQuery(b.d.b(this.c, d, d2), null);
+        } catch (Exception e) {
             cursor2 = null;
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th) {
+            th = th;
             cursor = null;
         }
-        if (poi2 != null) {
-            arrayList.add(poi2);
+        try {
+            if (cursor.moveToFirst()) {
+                while (true) {
+                    int i2 = i;
+                    if (cursor.isAfterLast()) {
+                        break;
+                    }
+                    String string = cursor.getString(0);
+                    String string2 = cursor.getString(2);
+                    double d3 = cursor.getDouble(4);
+                    double d4 = cursor.getDouble(5);
+                    int i3 = cursor.getInt(6);
+                    double c = c(d2, d, d4, d3);
+                    if (c < b.d.e) {
+                        Poi poi2 = new Poi(new String(com.baidu.location.b.a.b.a(string.getBytes())), new String(com.baidu.location.b.a.b.a(string2.getBytes())), 1.0d);
+                        i = a(i3, Math.round((float) c));
+                        if (i > i2) {
+                            poi = poi2;
+                            cursor.moveToNext();
+                        }
+                    }
+                    i = i2;
+                    cursor.moveToNext();
+                }
+            }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e2) {
+                }
+            }
+        } catch (Exception e3) {
+            cursor2 = cursor;
+            if (cursor2 != null) {
+                try {
+                    cursor2.close();
+                } catch (Exception e4) {
+                }
+            }
+            if (poi != null) {
+            }
+            return arrayList;
+        } catch (Throwable th2) {
+            th = th2;
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e5) {
+                }
+            }
+            throw th;
+        }
+        if (poi != null) {
+            arrayList.add(poi);
         }
         return arrayList;
     }

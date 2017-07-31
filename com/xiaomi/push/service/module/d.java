@@ -65,17 +65,17 @@ public class d {
                             }
                         }
                         if (b != null) {
+                            com.xiaomi.channel.commonutils.logger.b.b("download apk success.");
                             try {
-                                com.xiaomi.channel.commonutils.logger.b.b("download apk success.");
                                 try {
                                     file = new File(this.c + ".tmp");
                                     file.delete();
                                     fileOutputStream = new FileOutputStream(file);
-                                } catch (Exception e) {
-                                    e = e;
+                                } catch (Throwable th) {
+                                    th = th;
                                 }
-                            } catch (Throwable th) {
-                                th = th;
+                            } catch (Exception e) {
+                                e = e;
                             }
                             try {
                                 fileOutputStream.write(b);

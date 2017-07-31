@@ -1,21 +1,47 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.util.u;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BannerUserStory;
+import tbclient.UserStory;
 /* loaded from: classes.dex */
-public class e extends TbConfig {
-    public static final Long aye = 3600000L;
-    public static final Long ayf = 36000000L;
-    public static final Long ayg = 36000000L;
-    public static final Long ayh = 86400000L;
-    public static final String RECOMMEND_APP_ADDRESS = String.valueOf(SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/136_1";
-    public static final String ayi = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/recommend/";
-    public static final String ayj = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/classic";
-    public static int ayk = 80;
-    private static int PB_LIST_ITEM_MAX_NUM = 300;
-    private static int IMG_CHUNK_UPLOAD_ENABLE = 1;
-    public static final Long ayl = 3600000L;
+public class e implements com.baidu.adp.widget.ListView.f {
+    public static final BdUniqueId aAw = BdUniqueId.gen();
+    private List<com.baidu.adp.widget.ListView.f> aAx;
 
-    public static int getPbListItemMaxNum() {
-        return PB_LIST_ITEM_MAX_NUM;
+    @Override // com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return aAw;
+    }
+
+    public List<com.baidu.adp.widget.ListView.f> Ct() {
+        return this.aAx;
+    }
+
+    public void x(List<com.baidu.adp.widget.ListView.f> list) {
+        this.aAx = list;
+    }
+
+    public void a(BannerUserStory bannerUserStory, long j) {
+        List<com.baidu.adp.widget.ListView.f> arrayList = new ArrayList<>();
+        arrayList.add(new d());
+        if (bannerUserStory == null || u.v(bannerUserStory.user_story)) {
+            x(arrayList);
+            return;
+        }
+        List<UserStory> list = bannerUserStory.user_story;
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            UserStory userStory = list.get(i);
+            if (userStory != null && userStory != null) {
+                f fVar = new f();
+                fVar.a(userStory);
+                fVar.aAB = String.valueOf(j);
+                arrayList.add(fVar);
+            }
+        }
+        x(arrayList);
     }
 }

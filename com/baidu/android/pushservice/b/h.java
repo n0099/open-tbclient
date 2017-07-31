@@ -63,11 +63,13 @@ public class h extends e {
             z = false;
             if (z) {
                 try {
-                    String a = com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(a(this.a), 0), "utf-8");
-                    com.baidu.android.pushservice.j.b.a(this.b, "com.baidu.push.sdkr", a);
-                    return a;
-                } catch (Exception e2) {
-                    com.baidu.android.pushservice.g.a.e(e, "error : " + e2.getMessage());
+                    try {
+                        String a = com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(a(this.a), 0), "utf-8");
+                        com.baidu.android.pushservice.j.b.a(this.b, "com.baidu.push.sdkr", a);
+                        return a;
+                    } catch (Exception e2) {
+                        com.baidu.android.pushservice.g.a.e(e, "error : " + e2.getMessage());
+                    }
                 } catch (UnsatisfiedLinkError e3) {
                     com.baidu.android.pushservice.g.a.a(e, e3);
                 }

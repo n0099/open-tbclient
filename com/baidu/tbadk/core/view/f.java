@@ -1,115 +1,69 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Rect;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
 /* loaded from: classes.dex */
-class f extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ HorizontalListView ajt;
+public class f extends BdGridView {
+    private int alG;
+    private int columnCount;
+    private int rowCount;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(HorizontalListView horizontalListView) {
-        this.ajt = horizontalListView;
+    public f(Context context) {
+        super(context);
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
-        return this.ajt.onDown(motionEvent);
-    }
-
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        return this.ajt.onFling(motionEvent, motionEvent2, f, f2);
-    }
-
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        synchronized (this.ajt) {
-            this.ajt.aje += (int) f;
-        }
-        this.ajt.requestLayout();
-        return true;
-    }
-
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
-    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        AdapterView.OnItemClickListener onItemClickListener;
-        AdapterView.OnItemSelectedListener onItemSelectedListener;
-        AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        int i;
-        int i2;
-        AdapterView.OnItemClickListener onItemClickListener2;
-        int i3;
-        int i4;
-        int i5 = 0;
-        while (true) {
-            int i6 = i5;
-            if (i6 < this.ajt.getChildCount()) {
-                View childAt = this.ajt.getChildAt(i6);
-                if (a(motionEvent, childAt)) {
-                    onItemClickListener = this.ajt.ajk;
-                    if (onItemClickListener != null) {
-                        onItemClickListener2 = this.ajt.ajk;
-                        HorizontalListView horizontalListView = this.ajt;
-                        i3 = this.ajt.ajb;
-                        ListAdapter listAdapter = this.ajt.mAdapter;
-                        i4 = this.ajt.ajb;
-                        onItemClickListener2.onItemClick(horizontalListView, childAt, i3 + 1 + i6, listAdapter.getItemId(i4 + 1 + i6));
-                    }
-                    onItemSelectedListener = this.ajt.ajj;
-                    if (onItemSelectedListener != null) {
-                        onItemSelectedListener2 = this.ajt.ajj;
-                        HorizontalListView horizontalListView2 = this.ajt;
-                        i = this.ajt.ajb;
-                        ListAdapter listAdapter2 = this.ajt.mAdapter;
-                        i2 = this.ajt.ajb;
-                        onItemSelectedListener2.onItemSelected(horizontalListView2, childAt, i + 1 + i6, listAdapter2.getItemId(i2 + 1 + i6));
-                        return true;
-                    }
-                    return true;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.view.BdGridView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        View childAt;
+        super.dispatchDraw(canvas);
+        if (getChildCount() > 0 && (childAt = getChildAt(0)) != null) {
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setColor(this.alG);
+            paint.setStrokeWidth(1.0f);
+            int width = childAt.getWidth() * this.columnCount;
+            int height = childAt.getHeight() * this.rowCount;
+            int width2 = childAt.getWidth();
+            int height2 = childAt.getHeight();
+            int i = 1;
+            while (true) {
+                int i2 = i;
+                if (i2 >= this.rowCount) {
+                    break;
                 }
-                i5 = i6 + 1;
-            } else {
-                return true;
+                canvas.drawLine(0.0f, height2 * i2, width, height2 * i2, paint);
+                i = i2 + 1;
+            }
+            for (int i3 = 0; i3 < this.columnCount; i3++) {
+                canvas.drawLine(width2 * i3, 0.0f, width2 * i3, height, paint);
             }
         }
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-        AdapterView.OnItemLongClickListener onItemLongClickListener;
-        AdapterView.OnItemLongClickListener onItemLongClickListener2;
-        int i;
-        int i2;
-        int childCount = this.ajt.getChildCount();
-        for (int i3 = 0; i3 < childCount; i3++) {
-            View childAt = this.ajt.getChildAt(i3);
-            if (a(motionEvent, childAt)) {
-                onItemLongClickListener = this.ajt.ajl;
-                if (onItemLongClickListener != null) {
-                    onItemLongClickListener2 = this.ajt.ajl;
-                    HorizontalListView horizontalListView = this.ajt;
-                    i = this.ajt.ajb;
-                    ListAdapter listAdapter = this.ajt.mAdapter;
-                    i2 = this.ajt.ajb;
-                    onItemLongClickListener2.onItemLongClick(horizontalListView, childAt, i + 1 + i3, listAdapter.getItemId(i3 + i2 + 1));
-                    return;
-                }
-                return;
-            }
-        }
+    public int getRowCount() {
+        return this.rowCount;
     }
 
-    private boolean a(MotionEvent motionEvent, View view) {
-        Rect rect = new Rect();
-        int[] iArr = new int[2];
-        view.getLocationOnScreen(iArr);
-        int i = iArr[0];
-        int i2 = iArr[1];
-        rect.set(i, i2, view.getWidth() + i, view.getHeight() + i2);
-        return rect.contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY());
+    public void setRowCount(int i) {
+        this.rowCount = i;
+    }
+
+    public int getColumnCount() {
+        return this.columnCount;
+    }
+
+    public void setColumnCount(int i) {
+        this.columnCount = i;
+    }
+
+    public int getBackgroundLineResource() {
+        return this.alG;
+    }
+
+    public void setBackgroundLineResource(int i) {
+        this.alG = i;
     }
 }

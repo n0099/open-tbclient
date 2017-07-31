@@ -1,23 +1,28 @@
 package com.baidu.tieba.im.push;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.c.e;
 /* loaded from: classes.dex */
-class b extends CustomMessageListener {
-    final /* synthetic */ a dnl;
+public class b {
+    private static b dxl = null;
+    private e dxm;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(a aVar, int i) {
-        super(i);
-        this.dnl = aVar;
+    private b() {
+        this.dxm = null;
+        this.dxm = new e(1000, 1000, 1000);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            this.dnl.clearAll();
+    public static b axs() {
+        if (dxl == null) {
+            synchronized (b.class) {
+                if (dxl == null) {
+                    dxl = new b();
+                }
+            }
         }
+        return dxl;
+    }
+
+    public e dF() {
+        return this.dxm;
     }
 }

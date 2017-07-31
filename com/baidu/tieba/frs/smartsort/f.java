@@ -1,30 +1,31 @@
 package com.baidu.tieba.frs.smartsort;
 
-import com.baidu.adp.lib.cache.o;
-import java.util.ArrayList;
-import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class f implements o.a<String> {
-    final /* synthetic */ e cnp;
+public class f {
+    public int cvA;
+    public String forumName;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.cnp = eVar;
+    public f() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.cache.o.a
-    /* renamed from: aT */
-    public void m(String str, String str2) {
-        ArrayList kg;
-        HashMap hashMap;
-        if (str2 != null) {
-            String ahe = this.cnp.ahe();
-            kg = this.cnp.kg(str2);
-            hashMap = this.cnp.cnn;
-            hashMap.put(ahe, kg);
+    public f(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            throw new NullPointerException("JSONObject is Null");
         }
-        this.cnp.cng = true;
+        this.forumName = jSONObject.optString("forum_name");
+        this.cvA = jSONObject.optInt("sort_tabId");
+    }
+
+    public JSONObject aiX() {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("forum_name", this.forumName);
+            jSONObject.put("sort_tabId", this.cvA);
+            return jSONObject;
+        } catch (JSONException e) {
+            return null;
+        }
     }
 }

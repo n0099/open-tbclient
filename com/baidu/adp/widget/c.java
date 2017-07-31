@@ -1,10 +1,109 @@
 package com.baidu.adp.widget;
 
-import android.view.animation.Interpolator;
+import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.text.style.DynamicDrawableSpan;
+import java.io.InputStream;
 /* loaded from: classes.dex */
-class c implements Interpolator {
-    @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        return f * f * f * f * f;
+public class c extends DynamicDrawableSpan {
+    private Drawable IK;
+    private Uri JQ;
+    private int JR;
+    private a JS;
+    private Context mContext;
+    private Rect mRect;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        Drawable a(c cVar);
+    }
+
+    public void setDrawable(Drawable drawable) {
+        this.IK = drawable;
+    }
+
+    public c(a aVar, int i, int i2) {
+        super(i2);
+        this.mRect = new Rect();
+        this.JR = i;
+        this.JS = aVar;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        if (this.IK != null || this.JS == null) {
+            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        }
+        if (fontMetricsInt != null) {
+            fontMetricsInt.ascent = -this.mRect.bottom;
+            fontMetricsInt.descent = 0;
+            fontMetricsInt.top = fontMetricsInt.ascent;
+            fontMetricsInt.bottom = 0;
+        }
+        return this.mRect.right;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan
+    public Drawable getDrawable() {
+        Drawable drawable = null;
+        if (this.IK != null) {
+            drawable = this.IK;
+        } else if (this.JS != null) {
+            drawable = this.JS.a(this);
+        }
+        if (drawable != null) {
+            return drawable;
+        }
+        if (this.JQ != null) {
+            try {
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.JQ);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
+                try {
+                    bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
+                    openInputStream.close();
+                    return bitmapDrawable;
+                } catch (Exception e) {
+                    return bitmapDrawable;
+                }
+            } catch (Exception e2) {
+                return drawable;
+            }
+        }
+        try {
+            Drawable drawable2 = this.mContext.getResources().getDrawable(this.JR);
+            try {
+                drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+                return drawable2;
+            } catch (Exception e3) {
+                return drawable2;
+            }
+        } catch (Exception e4) {
+            return drawable;
+        }
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable drawable = getDrawable();
+        if (drawable != null) {
+            canvas.save();
+            int i6 = i5 - drawable.getBounds().bottom;
+            if (this.mVerticalAlignment != 0) {
+                i5 = i4;
+            }
+            canvas.translate(f, i5 - (drawable.getBounds().bottom - 4));
+            drawable.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    public void e(int i, int i2, int i3, int i4) {
+        this.mRect.set(i, i2, i3, i4);
     }
 }

@@ -14,11 +14,11 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean bff() {
-        return TbadkSettings.getInst().loadInt(new StringBuilder(String.valueOf(TbadkCoreApplication.getCurrentAccount())).append("remind_recommend_server_switch").toString(), 1) == 1;
+    public static boolean biQ() {
+        return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage rE(String str) {
+    public static RemindRecommendMessage sv(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -52,12 +52,12 @@ public class a {
         }
     }
 
-    public static long cH(long j) {
+    public static long cU(long j) {
         int i;
         int i2;
         int i3;
         int i4;
-        String loadString = TbadkSettings.getInst().loadString(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_dialog_time", "12:05:00");
+        String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_dialog_time", "12:05:00");
         if (TextUtils.isEmpty(loadString)) {
             loadString = "12:05:00";
         }
@@ -82,7 +82,7 @@ public class a {
         calendar.setTimeInMillis(j);
         calendar.set(12, i2);
         calendar.set(13, i);
-        Application app = TbadkCoreApplication.m9getInst().getApp();
+        Application app = TbadkCoreApplication.getInst().getApp();
         if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
             calendar.set(11, i4);
         } else {
@@ -97,11 +97,11 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long bor() {
-        return cH(System.currentTimeMillis());
+    public static long buu() {
+        return cU(System.currentTimeMillis());
     }
 
-    public static boolean cI(long j) {
+    public static boolean cV(long j) {
         Time time = new Time();
         time.set(j);
         int i = time.year;
@@ -111,7 +111,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean bos() {
+    public static boolean buv() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("sync_local_dialog", 1) == 1;
     }
 }

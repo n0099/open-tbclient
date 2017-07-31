@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.d;
 
+import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -28,7 +29,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.android.pushservice.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public enum EnumC0016a {
+    public enum EnumC0018a {
         alarmMsgInfoId,
         msgId,
         sendtime,
@@ -79,6 +80,7 @@ public class a {
         private d() {
         }
 
+        @TargetApi(16)
         private void a(String str) {
             if (str.equalsIgnoreCase(":memory:") || str.trim().length() == 0) {
                 return;
@@ -95,8 +97,8 @@ public class a {
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:18:0x005a  */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x0072  */
+        /* JADX WARN: Removed duplicated region for block: B:18:0x005c  */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x0074  */
         @Override // android.database.DatabaseErrorHandler
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -117,11 +119,6 @@ public class a {
                 list = null;
                 th = th2;
                 if (list == null) {
-                    for (Pair<String, String> pair : list) {
-                        a((String) pair.second);
-                    }
-                } else {
-                    a(sQLiteDatabase.getPath());
                 }
                 throw th;
             }
@@ -132,6 +129,11 @@ public class a {
                 list = list2;
                 th = th3;
                 if (list == null) {
+                    for (Pair<String, String> pair : list) {
+                        a((String) pair.second);
+                    }
+                } else {
+                    a(sQLiteDatabase.getPath());
                 }
                 throw th;
             }
@@ -176,7 +178,7 @@ public class a {
                 sQLiteDatabase.execSQL("CREATE TABLE StatisticsInfo (" + j.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + j.packageName.name() + " TEXT NOT NULL, " + j.open_type.name() + " TEXT NOT NULL, " + j.msgid.name() + " TEXT, " + j.app_open_time.name() + " TEXT NOT NULL, " + j.app_close_time.name() + " TEXT NOT NULL, " + j.use_duration.name() + " TEXT NOT NULL, " + j.extra.name() + " TEXT);");
                 sQLiteDatabase.execSQL("CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG  NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.openByPackageName.name() + " Text);");
                 sQLiteDatabase.execSQL("CREATE TABLE MsgArriveApp (" + h.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + h.msgId.name() + " TEXT NOT NULL, " + h.timeStamp.name() + " LONG NOT NULL);");
-                sQLiteDatabase.execSQL("CREATE TABLE AlarmMsgInfo (" + EnumC0016a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0016a.msgId.name() + " TEXT NOT NULL, " + EnumC0016a.sendtime.name() + " LONG NOT NULL, " + EnumC0016a.showtime.name() + " LONG NOT NULL, " + EnumC0016a.expiretime.name() + " LONG NOT NULL, " + EnumC0016a.msgEnable.name() + " INTEGER, " + EnumC0016a.isAlarm.name() + " INTEGER);");
+                sQLiteDatabase.execSQL("CREATE TABLE AlarmMsgInfo (" + EnumC0018a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0018a.msgId.name() + " TEXT NOT NULL, " + EnumC0018a.sendtime.name() + " LONG NOT NULL, " + EnumC0018a.showtime.name() + " LONG NOT NULL, " + EnumC0018a.expiretime.name() + " LONG NOT NULL, " + EnumC0018a.msgEnable.name() + " INTEGER, " + EnumC0018a.isAlarm.name() + " INTEGER);");
                 sQLiteDatabase.execSQL("CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT UNIQUE, " + b.appType.name() + " INTEGER, " + b.rsaUserId.name() + " TEXT, " + b.userId.name() + " TEXT, " + b.packageName.name() + " TEXT, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);");
                 sQLiteDatabase.execSQL("CREATE TABLE FileDownloadingInfo (" + f.belongTo.name() + " TEXT, " + f.downloadUrl.name() + " TEXT PRIMARY KEY, " + f.savePath.name() + " TEXT NOT NULL, " + f.title.name() + " TEXT, " + f.description.name() + " TEXT, " + f.fileName.name() + " TEXT NOT NULL, " + f.downloadBytes.name() + " INTEGER NOT NULL, " + f.totalBytes.name() + " INTEGER NOT NULL, " + f.downloadStatus.name() + " INTEGER NOT NULL," + f.timeStamp.name() + " INTEGER NOT NULL);");
                 sQLiteDatabase.execSQL("CREATE TABLE NoDisturb (" + i.pkgName.name() + " TEXT NOT NULL, " + i.startHour.name() + " INTEGER, " + i.startMinute.name() + " INTEGER, " + i.endHour.name() + " INTEGER, " + i.endMinute.name() + " INTEGER);");
@@ -293,7 +295,7 @@ public class a {
                     return -1;
                 }
                 try {
-                    cursor = e2.query("AlarmMsgInfo", null, EnumC0016a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
+                    cursor = e2.query("AlarmMsgInfo", null, EnumC0018a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
                     try {
                     } catch (Exception e3) {
                         e = e3;
@@ -333,7 +335,7 @@ public class a {
                     return -2;
                 }
                 if (cursor.getCount() > 0) {
-                    e2.execSQL("UPDATE AlarmMsgInfo SET " + EnumC0016a.msgEnable.name() + " = " + i2 + " WHERE " + EnumC0016a.msgId + " = " + str);
+                    e2.execSQL("UPDATE AlarmMsgInfo SET " + EnumC0018a.msgEnable.name() + " = " + i2 + " WHERE " + EnumC0018a.msgId + " = " + str);
                     com.baidu.android.pushservice.g.a.c("PushDatabase", "setAlarmMsgEnable  msgID = " + str + "  enable = " + i2);
                 }
                 if (cursor != null) {
@@ -446,28 +448,28 @@ public class a {
             SQLiteDatabase e3 = e(context);
             if (e3 != null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(EnumC0016a.msgId.name(), aVar.a);
-                contentValues.put(EnumC0016a.sendtime.name(), Long.valueOf(aVar.b));
-                contentValues.put(EnumC0016a.showtime.name(), Long.valueOf(aVar.c));
-                contentValues.put(EnumC0016a.expiretime.name(), Long.valueOf(aVar.d));
-                contentValues.put(EnumC0016a.isAlarm.name(), Integer.valueOf(aVar.e));
-                contentValues.put(EnumC0016a.msgEnable.name(), Integer.valueOf(aVar.f));
+                contentValues.put(EnumC0018a.msgId.name(), aVar.a);
+                contentValues.put(EnumC0018a.sendtime.name(), Long.valueOf(aVar.b));
+                contentValues.put(EnumC0018a.showtime.name(), Long.valueOf(aVar.c));
+                contentValues.put(EnumC0018a.expiretime.name(), Long.valueOf(aVar.d));
+                contentValues.put(EnumC0018a.isAlarm.name(), Integer.valueOf(aVar.e));
+                contentValues.put(EnumC0018a.msgEnable.name(), Integer.valueOf(aVar.f));
                 try {
                     j2 = e3.insert("AlarmMsgInfo", null, contentValues);
-                    try {
-                        com.baidu.android.pushservice.g.a.c("PushDatabase", "AlarmMsgInfoEnum:  insert into database");
-                        q.b("AlarmMsgInfoEnum:  insert into database", context);
-                        j3 = j2;
-                    } catch (Exception e4) {
-                        e2 = e4;
-                        com.baidu.android.pushservice.g.a.a("PushDatabase", e2);
-                        j3 = j2;
-                        e3.close();
-                        return j3;
-                    }
-                } catch (Exception e5) {
+                } catch (Exception e4) {
                     j2 = -1;
+                    e2 = e4;
+                }
+                try {
+                    com.baidu.android.pushservice.g.a.c("PushDatabase", "AlarmMsgInfoEnum:  insert into database");
+                    q.b("AlarmMsgInfoEnum:  insert into database", context);
+                    j3 = j2;
+                } catch (Exception e5) {
                     e2 = e5;
+                    com.baidu.android.pushservice.g.a.a("PushDatabase", e2);
+                    j3 = j2;
+                    e3.close();
+                    return j3;
                 }
                 e3.close();
             }
@@ -624,8 +626,8 @@ public class a {
         return j2;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:45:0x01b9 A[Catch: all -> 0x012c, TryCatch #4 {, blocks: (B:5:0x0005, B:7:0x000b, B:24:0x0120, B:26:0x0125, B:27:0x0129, B:45:0x01b9, B:47:0x01be, B:48:0x01c1, B:39:0x01aa, B:41:0x01af), top: B:57:0x0005 }] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x01be A[Catch: all -> 0x012c, TryCatch #4 {, blocks: (B:5:0x0005, B:7:0x000b, B:24:0x0120, B:26:0x0125, B:27:0x0129, B:45:0x01b9, B:47:0x01be, B:48:0x01c1, B:39:0x01aa, B:41:0x01af), top: B:57:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x01d0 A[Catch: all -> 0x013a, TryCatch #2 {, blocks: (B:5:0x0005, B:7:0x000b, B:24:0x012e, B:26:0x0133, B:27:0x0137, B:45:0x01d0, B:47:0x01d5, B:48:0x01d8, B:39:0x01c1, B:41:0x01c6), top: B:57:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x01d5 A[Catch: all -> 0x013a, TryCatch #2 {, blocks: (B:5:0x0005, B:7:0x000b, B:24:0x012e, B:26:0x0133, B:27:0x0137, B:45:0x01d0, B:47:0x01d5, B:48:0x01d8, B:39:0x01c1, B:41:0x01c6), top: B:57:0x0005 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -638,11 +640,10 @@ public class a {
             if (e2 == null) {
                 return -1L;
             }
-            Cursor cursor2 = null;
             try {
+                com.baidu.android.pushservice.g.a.c("PushDatabase", "package name: " + str + " setNoDisturbMode -- startHour: " + i2 + " startMinute: " + i3 + " endHour: " + i4 + " endMinute: " + i5);
+                cursor = e2.query("NoDisturb", new String[]{i.pkgName.name()}, i.pkgName.name() + "= ?", new String[]{str}, null, null, null);
                 try {
-                    com.baidu.android.pushservice.g.a.c("PushDatabase", "package name: " + str + " setNoDisturbMode -- startHour: " + i2 + " startMinute: " + i3 + " endHour: " + i4 + " endMinute: " + i5);
-                    cursor = e2.query("NoDisturb", new String[]{i.pkgName.name()}, i.pkgName.name() + "= ?", new String[]{str}, null, null, null);
                     try {
                         ContentValues contentValues = new ContentValues();
                         contentValues.put(i.pkgName.name(), str);
@@ -682,8 +683,8 @@ public class a {
                     }
                 } catch (Throwable th) {
                     th = th;
-                    if (0 != 0) {
-                        cursor2.close();
+                    if (cursor != null) {
+                        cursor.close();
                     }
                     if (e2 != null) {
                         e2.close();
@@ -695,7 +696,8 @@ public class a {
                 cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                if (0 != 0) {
+                cursor = null;
+                if (cursor != null) {
                 }
                 if (e2 != null) {
                 }
@@ -711,7 +713,7 @@ public class a {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0112 A[Catch: all -> 0x00fa, TryCatch #3 {, blocks: (B:4:0x0004, B:6:0x000a, B:9:0x000d, B:17:0x00f0, B:18:0x00f3, B:19:0x00f7, B:28:0x0106, B:29:0x0109, B:33:0x0112, B:34:0x0115, B:35:0x0118), top: B:48:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0117 A[Catch: all -> 0x00fe, TryCatch #5 {, blocks: (B:4:0x0004, B:6:0x000a, B:9:0x000d, B:17:0x00f4, B:18:0x00f7, B:19:0x00fb, B:28:0x010b, B:29:0x010e, B:33:0x0117, B:34:0x011a, B:35:0x011d), top: B:51:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -760,6 +762,7 @@ public class a {
                                     th = th;
                                     cursor = cursor2;
                                     if (cursor != null) {
+                                        cursor.close();
                                     }
                                     e2.close();
                                     throw th;
@@ -781,7 +784,6 @@ public class a {
                 } catch (Throwable th2) {
                     th = th2;
                     if (cursor != null) {
-                        cursor.close();
                     }
                     e2.close();
                     throw th;
@@ -797,27 +799,34 @@ public class a {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0128  */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0134 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0130  */
+    /* JADX WARN: Type inference failed for: r2v10, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r2v7, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    /* JADX WARN: Type inference failed for: r8v0, types: [android.database.sqlite.SQLiteDatabase] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static com.baidu.android.pushservice.h.i a(SQLiteDatabase sQLiteDatabase, com.baidu.android.pushservice.h.i iVar) {
-        Cursor cursor;
         Throwable th;
-        if (sQLiteDatabase == null) {
+        Cursor cursor;
+        if (sQLiteDatabase == 0) {
             return null;
         }
         com.baidu.android.pushservice.h.i iVar2 = new com.baidu.android.pushservice.h.i(iVar.a());
+        ?? r2 = "SELECT * FROM AppInfo WHERE " + b.appid.name() + " = " + iVar.a() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT * FROM AppInfo WHERE " + b.appid.name() + " = " + iVar.a() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null);
-            boolean z = false;
             try {
+                cursor = sQLiteDatabase.rawQuery(r2, null);
+                boolean z = false;
                 try {
                     if (cursor.moveToNext()) {
                         z = true;
                         int i2 = cursor.getInt(cursor.getColumnIndex(b.appInfoId.name()));
                         if (!TextUtils.equals(iVar.c(), cursor.getString(cursor.getColumnIndex(b.userId.name()))) || !TextUtils.equals(iVar.f(), cursor.getString(cursor.getColumnIndex(b.cFrom.name()))) || !TextUtils.equals(iVar.g() + "", cursor.getInt(cursor.getColumnIndex(b.versionCode.name())) + "") || !TextUtils.equals(iVar.i() + "", cursor.getString(cursor.getColumnIndex(b.intergratedPushVersion.name())))) {
-                            a(sQLiteDatabase, i2, iVar);
+                            a((SQLiteDatabase) sQLiteDatabase, i2, iVar);
                         }
                     }
                     if (z) {
@@ -842,8 +851,8 @@ public class a {
                 }
             } catch (Throwable th2) {
                 th = th2;
-                if (cursor != null) {
-                    cursor.close();
+                if (r2 != 0) {
+                    r2.close();
                 }
                 throw th;
             }
@@ -851,26 +860,21 @@ public class a {
             e = e3;
             cursor = null;
         } catch (Throwable th3) {
-            cursor = null;
+            r2 = 0;
             th = th3;
-            if (cursor != null) {
+            if (r2 != 0) {
             }
             throw th;
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x00fc */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00f5 A[Catch: all -> 0x00ed, TRY_ENTER, TryCatch #3 {, blocks: (B:4:0x0004, B:6:0x000a, B:8:0x000c, B:23:0x00e6, B:24:0x00e9, B:20:0x00e0, B:18:0x00da, B:19:0x00dd, B:31:0x00f5, B:32:0x00f8, B:33:0x00fb), top: B:39:0x0004 }] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00f7 A[Catch: all -> 0x00ef, TRY_ENTER, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000a, B:8:0x000c, B:23:0x00e8, B:24:0x00eb, B:20:0x00e2, B:18:0x00dc, B:19:0x00df, B:31:0x00f7, B:32:0x00fa, B:33:0x00fd), top: B:41:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static List<com.baidu.android.pushservice.h.i> a(Context context) {
-        Throwable th;
         Cursor cursor;
+        Throwable th;
         Exception e2;
         synchronized (c) {
             SQLiteDatabase e3 = e(context);
@@ -878,11 +882,10 @@ public class a {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            ?? r2 = "SELECT * FROM AppInfo;";
             try {
-                try {
-                    cursor = e3.rawQuery("SELECT * FROM AppInfo;", null);
-                    while (cursor.moveToNext()) {
+                cursor = e3.rawQuery("SELECT * FROM AppInfo;", null);
+                while (cursor.moveToNext()) {
+                    try {
                         try {
                             com.baidu.android.pushservice.h.i iVar = new com.baidu.android.pushservice.h.i();
                             iVar.a(cursor.getString(cursor.getColumnIndex(b.appid.name())));
@@ -905,26 +908,26 @@ public class a {
                             e3.close();
                             return arrayList;
                         }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        e3.close();
+                        throw th;
                     }
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    e3.close();
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (r2 != 0) {
-                        r2.close();
-                    }
-                    e3.close();
-                    throw th;
                 }
+                if (cursor != null) {
+                    cursor.close();
+                }
+                e3.close();
             } catch (Exception e5) {
                 cursor = null;
                 e2 = e5;
             } catch (Throwable th3) {
-                r2 = 0;
+                cursor = null;
                 th = th3;
-                if (r2 != 0) {
+                if (cursor != null) {
                 }
                 e3.close();
                 throw th;
@@ -933,31 +936,24 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x01a2 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x019b A[Catch: all -> 0x0193, TRY_ENTER, TryCatch #1 {, blocks: (B:4:0x0004, B:6:0x000a, B:8:0x000c, B:23:0x018c, B:24:0x018f, B:20:0x0186, B:18:0x0180, B:19:0x0183, B:31:0x019b, B:32:0x019e, B:33:0x01a1), top: B:39:0x0004 }] */
-    /* JADX WARN: Type inference failed for: r2v12, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v13 */
-    /* JADX WARN: Type inference failed for: r2v16, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r4v0, types: [android.database.sqlite.SQLiteDatabase] */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x01a3 A[Catch: all -> 0x019b, TRY_ENTER, TryCatch #3 {, blocks: (B:4:0x0004, B:6:0x000a, B:8:0x000c, B:23:0x0194, B:24:0x0197, B:20:0x018e, B:18:0x0188, B:19:0x018b, B:31:0x01a3, B:32:0x01a6, B:33:0x01a9), top: B:41:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static List<com.baidu.android.pushservice.h.e> a(Context context, long j2, long j3, int i2) {
-        Throwable th;
         Cursor cursor;
+        Throwable th;
         Exception e2;
         synchronized (c) {
-            ?? e3 = e(context);
-            if (e3 == 0) {
+            SQLiteDatabase e3 = e(context);
+            if (e3 == null) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            ?? r2 = "SELECT * FROM PushBehavior WHERE " + c.timeStamp.name() + " < " + j2 + " AND " + c.timeStamp.name() + " >= " + j3 + " LIMIT " + i2 + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
             try {
-                try {
-                    cursor = e3.rawQuery(r2, null);
-                    while (cursor.moveToNext()) {
+                cursor = e3.rawQuery("SELECT * FROM PushBehavior WHERE " + c.timeStamp.name() + " < " + j2 + " AND " + c.timeStamp.name() + " >= " + j3 + " LIMIT " + i2 + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null);
+                while (cursor.moveToNext()) {
+                    try {
                         try {
                             com.baidu.android.pushservice.h.e eVar = new com.baidu.android.pushservice.h.e();
                             eVar.a(cursor.getInt(cursor.getColumnIndex(c.actionId.name())));
@@ -984,26 +980,26 @@ public class a {
                             e3.close();
                             return arrayList;
                         }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        e3.close();
+                        throw th;
                     }
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    e3.close();
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (r2 != 0) {
-                        r2.close();
-                    }
-                    e3.close();
-                    throw th;
                 }
+                if (cursor != null) {
+                    cursor.close();
+                }
+                e3.close();
             } catch (Exception e5) {
                 cursor = null;
                 e2 = e5;
             } catch (Throwable th3) {
-                r2 = 0;
+                cursor = null;
                 th = th3;
-                if (r2 != 0) {
+                if (cursor != null) {
                 }
                 e3.close();
                 throw th;
@@ -1145,22 +1141,19 @@ public class a {
         return j2;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0108 A[Catch: all -> 0x0101, TRY_ENTER, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000f, B:22:0x00fa, B:23:0x00fd, B:19:0x00f4, B:17:0x00ee, B:18:0x00f1, B:30:0x0108, B:31:0x010b, B:32:0x010e), top: B:37:0x0004 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static List<g> b(Context context) {
         Cursor cursor;
+        Cursor cursor2 = null;
         synchronized (c) {
             ArrayList arrayList = new ArrayList();
             SQLiteDatabase e2 = e(context);
-            if (e2 == null) {
-                return arrayList;
-            }
             try {
-                cursor = e2.query("FileDownloadingInfo", null, null, null, null, null, f.timeStamp.name() + " DESC");
-                while (cursor.moveToNext()) {
-                    try {
+                if (e2 == null) {
+                    return arrayList;
+                }
+                try {
+                    cursor = e2.query("FileDownloadingInfo", null, null, null, null, null, f.timeStamp.name() + " DESC");
+                    while (cursor.moveToNext()) {
                         try {
                             g gVar = new g();
                             gVar.a = cursor.getString(cursor.getColumnIndex(f.belongTo.name()));
@@ -1183,36 +1176,31 @@ public class a {
                             e2.close();
                             return arrayList;
                         }
-                    } catch (Throwable th) {
-                        th = th;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        e2.close();
-                        throw th;
                     }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    e2.close();
+                } catch (Exception e4) {
+                    e = e4;
+                    cursor = null;
+                } catch (Throwable th) {
+                    th = th;
+                    if (0 != 0) {
+                        cursor2.close();
+                    }
+                    e2.close();
+                    throw th;
                 }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                e2.close();
-            } catch (Exception e4) {
-                e = e4;
-                cursor = null;
+                return arrayList;
             } catch (Throwable th2) {
                 th = th2;
-                cursor = null;
-                if (cursor != null) {
-                }
-                e2.close();
-                throw th;
             }
-            return arrayList;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00d0 A[Catch: all -> 0x0099, TryCatch #3 {, blocks: (B:4:0x0005, B:6:0x000b, B:8:0x000d, B:19:0x008e, B:21:0x0093, B:22:0x0096, B:37:0x00d0, B:39:0x00d5, B:40:0x00d8, B:31:0x00bf, B:33:0x00c4), top: B:48:0x0005 }] */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00d5 A[Catch: all -> 0x0099, TryCatch #3 {, blocks: (B:4:0x0005, B:6:0x000b, B:8:0x000d, B:19:0x008e, B:21:0x0093, B:22:0x0096, B:37:0x00d0, B:39:0x00d5, B:40:0x00d8, B:31:0x00bf, B:33:0x00c4), top: B:48:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00da A[Catch: all -> 0x00a1, TryCatch #0 {, blocks: (B:4:0x0005, B:6:0x000b, B:8:0x000d, B:19:0x0096, B:21:0x009b, B:22:0x009e, B:37:0x00da, B:39:0x00df, B:40:0x00e2, B:31:0x00c9, B:33:0x00ce), top: B:48:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00df A[Catch: all -> 0x00a1, TryCatch #0 {, blocks: (B:4:0x0005, B:6:0x000b, B:8:0x000d, B:19:0x0096, B:21:0x009b, B:22:0x009e, B:37:0x00da, B:39:0x00df, B:40:0x00e2, B:31:0x00c9, B:33:0x00ce), top: B:48:0x0005 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1290,7 +1278,7 @@ public class a {
         return z2;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00e7 A[Catch: all -> 0x00e0, TRY_ENTER, TryCatch #1 {, blocks: (B:4:0x0004, B:6:0x000a, B:9:0x000d, B:14:0x004b, B:15:0x004e, B:16:0x0051, B:22:0x00c7, B:23:0x00ca, B:24:0x00cd, B:37:0x00e7, B:38:0x00ea, B:39:0x00ed, B:29:0x00d9, B:30:0x00dc), top: B:48:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00ef A[Catch: all -> 0x00e8, TRY_ENTER, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000a, B:9:0x000d, B:14:0x0050, B:15:0x0053, B:16:0x0056, B:22:0x00ce, B:23:0x00d1, B:24:0x00d4, B:37:0x00ef, B:38:0x00f2, B:39:0x00f5, B:29:0x00e1, B:30:0x00e4), top: B:48:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1304,39 +1292,39 @@ public class a {
             }
             com.baidu.android.pushservice.h.a aVar = new com.baidu.android.pushservice.h.a();
             try {
-                cursor = e2.query("AlarmMsgInfo", null, EnumC0016a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
-            } catch (Exception e3) {
-                e = e3;
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-            }
-            try {
-            } catch (Exception e4) {
-                e = e4;
-                cursor2 = cursor;
+                cursor = e2.query("AlarmMsgInfo", null, EnumC0018a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
                 try {
-                    com.baidu.android.pushservice.g.a.a("PushDatabase", e);
-                    if (cursor2 != null) {
-                        cursor2.close();
+                } catch (Exception e3) {
+                    e = e3;
+                    cursor2 = cursor;
+                    try {
+                        com.baidu.android.pushservice.g.a.a("PushDatabase", e);
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        e2.close();
+                        return aVar;
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = cursor2;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        e2.close();
+                        throw th;
                     }
-                    e2.close();
-                    return aVar;
                 } catch (Throwable th2) {
                     th = th2;
-                    cursor = cursor2;
                     if (cursor != null) {
-                        cursor.close();
                     }
                     e2.close();
                     throw th;
                 }
+            } catch (Exception e4) {
+                e = e4;
             } catch (Throwable th3) {
                 th = th3;
-                if (cursor != null) {
-                }
-                e2.close();
-                throw th;
+                cursor = null;
             }
             if (cursor == null) {
                 com.baidu.android.pushservice.g.a.d("PushDatabase", "no msgid info table!!");
@@ -1349,11 +1337,11 @@ public class a {
             if (cursor.getCount() > 0) {
                 com.baidu.android.pushservice.g.a.c("PushDatabase", "getAlarmMsgInfo  msgID = " + str);
                 cursor.moveToFirst();
-                aVar.b = cursor.getLong(cursor.getColumnIndex(EnumC0016a.sendtime.name()));
-                aVar.c = cursor.getLong(cursor.getColumnIndex(EnumC0016a.showtime.name()));
-                aVar.d = cursor.getLong(cursor.getColumnIndex(EnumC0016a.expiretime.name()));
-                aVar.e = cursor.getInt(cursor.getColumnIndex(EnumC0016a.isAlarm.name()));
-                aVar.f = cursor.getInt(cursor.getColumnIndex(EnumC0016a.msgEnable.name()));
+                aVar.b = cursor.getLong(cursor.getColumnIndex(EnumC0018a.sendtime.name()));
+                aVar.c = cursor.getLong(cursor.getColumnIndex(EnumC0018a.showtime.name()));
+                aVar.d = cursor.getLong(cursor.getColumnIndex(EnumC0018a.expiretime.name()));
+                aVar.e = cursor.getInt(cursor.getColumnIndex(EnumC0018a.isAlarm.name()));
+                aVar.f = cursor.getInt(cursor.getColumnIndex(EnumC0018a.msgEnable.name()));
             }
             if (cursor != null) {
                 cursor.close();
@@ -1374,12 +1362,12 @@ public class a {
                 cursor = e2.rawQuery("SELECT * FROM AlarmMsgInfo;", null);
                 while (cursor.moveToNext()) {
                     com.baidu.android.pushservice.h.a aVar = new com.baidu.android.pushservice.h.a();
-                    aVar.a = cursor.getString(cursor.getColumnIndex(EnumC0016a.msgId.name()));
-                    aVar.b = cursor.getLong(cursor.getColumnIndex(EnumC0016a.sendtime.name()));
-                    aVar.c = cursor.getLong(cursor.getColumnIndex(EnumC0016a.showtime.name()));
-                    aVar.d = cursor.getLong(cursor.getColumnIndex(EnumC0016a.expiretime.name()));
-                    aVar.e = cursor.getInt(cursor.getColumnIndex(EnumC0016a.isAlarm.name()));
-                    aVar.f = cursor.getInt(cursor.getColumnIndex(EnumC0016a.msgEnable.name()));
+                    aVar.a = cursor.getString(cursor.getColumnIndex(EnumC0018a.msgId.name()));
+                    aVar.b = cursor.getLong(cursor.getColumnIndex(EnumC0018a.sendtime.name()));
+                    aVar.c = cursor.getLong(cursor.getColumnIndex(EnumC0018a.showtime.name()));
+                    aVar.d = cursor.getLong(cursor.getColumnIndex(EnumC0018a.expiretime.name()));
+                    aVar.e = cursor.getInt(cursor.getColumnIndex(EnumC0018a.isAlarm.name()));
+                    aVar.f = cursor.getInt(cursor.getColumnIndex(EnumC0018a.msgEnable.name()));
                     if (aVar.f == 0 || aVar.d < System.currentTimeMillis()) {
                         d(context, aVar.a);
                         com.baidu.android.pushservice.g.a.c("PushDatabase", "deleteInvalidAlarmMsg   msgID = " + aVar.a);
@@ -1433,7 +1421,7 @@ public class a {
                     return;
                 }
                 try {
-                    cursor = e2.query("AlarmMsgInfo", null, EnumC0016a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
+                    cursor = e2.query("AlarmMsgInfo", null, EnumC0018a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
                     try {
                     } catch (Exception e3) {
                         e = e3;
@@ -1468,7 +1456,7 @@ public class a {
                     }
                     return;
                 }
-                e2.delete("AlarmMsgInfo", EnumC0016a.msgId.name() + "= ?", new String[]{str});
+                e2.delete("AlarmMsgInfo", EnumC0018a.msgId.name() + "= ?", new String[]{str});
                 com.baidu.android.pushservice.g.a.c("PushDatabase", "deleteAlarmMsg  msgID = " + str);
                 if (cursor != null) {
                     cursor.close();
@@ -1582,50 +1570,54 @@ public class a {
         return a;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x0125 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x012c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x012e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:57:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:58:? */
     /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: android.database.sqlite.SQLiteDatabase */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x010e A[Catch: all -> 0x0115, TRY_ENTER, TryCatch #2 {, blocks: (B:4:0x0004, B:6:0x000a, B:20:0x00bd, B:21:0x00c0, B:22:0x00c3, B:27:0x00d8, B:28:0x00db, B:29:0x00de, B:32:0x00e4, B:33:0x00e7, B:34:0x00ea, B:48:0x011c, B:49:0x011f, B:50:0x0122, B:40:0x010e, B:41:0x0111), top: B:56:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0117 A[Catch: all -> 0x011e, TRY_ENTER, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000a, B:20:0x00c4, B:21:0x00c7, B:22:0x00ca, B:27:0x00df, B:28:0x00e2, B:29:0x00e5, B:32:0x00eb, B:33:0x00ee, B:34:0x00f1, B:48:0x0125, B:49:0x0128, B:50:0x012b, B:40:0x0117, B:41:0x011a), top: B:59:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0125 A[Catch: all -> 0x011e, TRY_ENTER, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000a, B:20:0x00c4, B:21:0x00c7, B:22:0x00ca, B:27:0x00df, B:28:0x00e2, B:29:0x00e5, B:32:0x00eb, B:33:0x00ee, B:34:0x00f1, B:48:0x0125, B:49:0x0128, B:50:0x012b, B:40:0x0117, B:41:0x011a), top: B:59:0x0004 }] */
     /* JADX WARN: Type inference failed for: r0v1, types: [android.database.sqlite.SQLiteDatabase] */
     /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4, types: [int[]] */
+    /* JADX WARN: Type inference failed for: r0v4, types: [android.database.sqlite.SQLiteDatabase] */
     /* JADX WARN: Type inference failed for: r0v5 */
-    /* JADX WARN: Type inference failed for: r0v6 */
+    /* JADX WARN: Type inference failed for: r0v6, types: [int[]] */
     /* JADX WARN: Type inference failed for: r0v7 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:41:0x0111 -> B:34:0x00ea). Please submit an issue!!! */
+    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r0v9 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:41:0x011a -> B:34:0x00f1). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static int[] f(Context context, String str) {
         Cursor cursor;
-        Cursor cursor2 = null;
         synchronized (c) {
             SQLiteDatabase e2 = e(context);
+            if (e2 == 0) {
+                return null;
+            }
             try {
-                if (e2 == 0) {
-                    return null;
-                }
-                try {
-                    cursor = e2.query("NoDisturb", null, i.pkgName.name() + "= ?", new String[]{str}, null, null, null);
-                } catch (Exception e3) {
-                    e = e3;
-                    cursor = null;
-                    com.baidu.android.pushservice.g.a.e("PushDatabase", "error " + e.getMessage());
-                    if (cursor != null) {
-                    }
-                    e2.close();
-                    e2 = 0;
-                    return e2;
-                } catch (Throwable th) {
-                    th = th;
-                    if (0 != 0) {
-                        cursor2.close();
-                    }
-                    e2.close();
-                    throw th;
-                }
+                cursor = e2.query("NoDisturb", null, i.pkgName.name() + "= ?", new String[]{str}, null, null, null);
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
+                com.baidu.android.pushservice.g.a.e("PushDatabase", "error " + e.getMessage());
                 if (cursor != null) {
+                }
+                e2.close();
+                e2 = 0;
+                return e2;
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+                if (cursor != null) {
+                }
+                e2.close();
+                throw th;
+            }
+            if (cursor != null) {
+                try {
                     try {
                     } catch (Exception e4) {
                         e = e4;
@@ -1660,16 +1652,21 @@ public class a {
                         }
                         return e2;
                     }
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    e2.close();
+                    throw th;
                 }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                e2.close();
-                e2 = 0;
-                return e2;
-            } catch (Throwable th2) {
-                th = th2;
             }
+            if (cursor != null) {
+                cursor.close();
+            }
+            e2.close();
+            e2 = 0;
+            return e2;
         }
     }
 }

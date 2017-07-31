@@ -1,35 +1,69 @@
 package com.baidu.tieba.e;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.e.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 /* loaded from: classes.dex */
-public class b implements Handler.Callback {
-    final /* synthetic */ a bQS;
+public class b extends com.baidu.tieba.e.a {
+    private ScaleGestureDetector bWh;
+    private a bWi;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.bQS = aVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void ee(boolean z);
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        a.InterfaceC0062a interfaceC0062a;
-        a.InterfaceC0062a interfaceC0062a2;
-        int i = message.arg1;
-        int i2 = message.arg2;
-        switch (message.what) {
-            case 0:
-                interfaceC0062a2 = this.bQS.bQR;
-                interfaceC0062a2.ah(i, i2);
-                return true;
-            case 1:
-                interfaceC0062a = this.bQS.bQR;
-                interfaceC0062a.ai(i, i2);
-                return true;
-            default:
-                return false;
+    public b(Context context) {
+        this.bWh = new ScaleGestureDetector(context, new C0080b());
+    }
+
+    public void a(a aVar) {
+        this.bWi = aVar;
+    }
+
+    /* renamed from: com.baidu.tieba.e.b$b  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    private final class C0080b extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        private boolean bWj;
+
+        private C0080b() {
+            this.bWj = false;
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
+            this.bWj = false;
+            return true;
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+            if (scaleGestureDetector != null && b.this.bWi != null) {
+                float scaleFactor = scaleGestureDetector.getScaleFactor();
+                if (!this.bWj && scaleFactor > 1.0f) {
+                    this.bWj = true;
+                    b.this.bWi.ee(true);
+                } else if (!this.bWj && scaleFactor > 0.0f && scaleFactor < 1.0f) {
+                    this.bWj = true;
+                    b.this.bWi.ee(false);
+                }
+            }
+            return true;
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
+            this.bWj = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.e.a
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        try {
+            this.bWh.onTouchEvent(motionEvent);
+            return super.onTouchEvent(motionEvent);
+        } catch (Exception e) {
+            return false;
         }
     }
 }

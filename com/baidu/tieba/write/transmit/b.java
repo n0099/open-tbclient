@@ -1,73 +1,115 @@
 package com.baidu.tieba.write.transmit;
 
-import android.content.Intent;
-import android.os.Parcelable;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.atomData.ForumSearchActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
-    final /* synthetic */ SelectForumActivity ghv;
+public class b extends BaseAdapter {
+    private static int gCG = 3;
+    private Context mContext;
+    private List<TransmitForumData> mDataList = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(SelectForumActivity selectForumActivity) {
-        this.ghv = selectForumActivity;
+    public b(Context context) {
+        this.mContext = context;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        View view2;
-        ImageView imageView;
-        TextView textView2;
-        List<v> list;
-        if (view != null) {
-            int id = view.getId();
-            textView = this.ghv.gho;
-            if (id == textView.getId()) {
-                Intent intent = new Intent();
-                ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
-                list = this.ghv.mDataList;
-                for (v vVar : list) {
-                    if (vVar instanceof TransmitForumData) {
-                        arrayList.add((TransmitForumData) vVar);
-                    }
-                }
-                intent.putParcelableArrayListExtra(SelectForumActivityConfig.KEY_OUTPUT_FORUM_LIST, arrayList);
-                this.ghv.setResult(-1, intent);
-                this.ghv.finish();
-                return;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return this.mDataList.size();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return null;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar = null;
+        if (view == null) {
+            view = LayoutInflater.from(this.mContext).inflate(d.j.layout_select_forum_item, (ViewGroup) null);
+            a aVar2 = new a(view);
+            view.setTag(d.h.key_select_forum_holder, aVar2);
+            aVar = aVar2;
+        } else {
+            Object tag = view.getTag(d.h.key_select_forum_holder);
+            if (tag instanceof a) {
+                aVar = (a) tag;
             }
-            int id2 = view.getId();
-            view2 = this.ghv.dyF;
-            if (id2 == view2.getId()) {
-                this.ghv.setResult(0);
-                this.ghv.finish();
-                return;
-            }
-            int id3 = view.getId();
-            imageView = this.ghv.ghs;
-            if (id3 != imageView.getId()) {
-                int id4 = view.getId();
-                textView2 = this.ghv.ght;
-                if (id4 != textView2.getId()) {
-                    return;
-                }
-            }
-            ForumSearchActivityConfig forumSearchActivityConfig = new ForumSearchActivityConfig(this.ghv.getPageContext().getPageActivity());
-            forumSearchActivityConfig.setRequestCode(25019);
-            forumSearchActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, forumSearchActivityConfig));
-            TiebaStatic.log("c12259");
         }
+        if (aVar != null) {
+            aVar.xd();
+            aVar.b(this.mDataList.get(i));
+        }
+        return view;
+    }
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public TextView bFy;
+        public CheckBox gCH;
+        public BarImageView gCI;
+        private Drawable gCJ;
+        private Drawable gCK;
+        public int mSkinType = 3;
+
+        public a(View view) {
+            if (view != null) {
+                this.bFy = (TextView) view.findViewById(d.h.transmit_forum_name);
+                this.gCH = (CheckBox) view.findViewById(d.h.transmit_check_box);
+                this.gCI = (BarImageView) view.findViewById(d.h.forum_avatar);
+            }
+        }
+
+        public void b(TransmitForumData transmitForumData) {
+            if (transmitForumData != null) {
+                this.bFy.setText(transmitForumData.forumName);
+                this.gCH.setChecked(transmitForumData.abi);
+                this.gCI.c(transmitForumData.avatar, 10, false);
+                if (transmitForumData.abj) {
+                    this.gCH.setButtonDrawable(this.gCJ);
+                } else {
+                    this.gCH.setButtonDrawable(this.gCK);
+                }
+            }
+        }
+
+        public void xd() {
+            if (b.gCG != this.mSkinType) {
+                ai.i(this.bFy, d.e.cp_cont_b);
+                this.gCJ = ai.getDrawable(d.g.icon_list_confirm_d);
+                this.gCK = ai.getDrawable(d.g.transmit_check_box);
+            }
+            this.mSkinType = b.gCG;
+        }
+    }
+
+    public void Z(List<TransmitForumData> list) {
+        this.mDataList.clear();
+        this.mDataList.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    public void um(int i) {
+        if (gCG != i) {
+            notifyDataSetChanged();
+        }
+        gCG = i;
     }
 }

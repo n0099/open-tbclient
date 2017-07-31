@@ -22,17 +22,7 @@ public abstract class NetMessage {
     public enum NetType {
         SOCKET,
         HTTP,
-        AUTO;
-
-        /* JADX DEBUG: Replace access to removed values field (qI) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static NetType[] valuesCustom() {
-            NetType[] valuesCustom = values();
-            int length = valuesCustom.length;
-            NetType[] netTypeArr = new NetType[length];
-            System.arraycopy(valuesCustom, 0, netTypeArr, 0, length);
-            return netTypeArr;
-        }
+        AUTO
     }
 
     /* loaded from: classes.dex */

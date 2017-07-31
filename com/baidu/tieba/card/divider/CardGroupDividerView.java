@@ -8,15 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private static final int bFh = w.e.cp_bg_line_c;
-    private static final int bFi = w.e.cp_bg_line_c;
-    private View bFf;
-    private View bFg;
-    private int bFj;
+    private static final int bKD = d.e.cp_bg_line_c;
+    private static final int bKE = d.e.cp_bg_line_c;
+    private View bKB;
+    private View bKC;
+    private int bKF;
     private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
@@ -27,35 +27,35 @@ public class CardGroupDividerView extends LinearLayout {
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.bFj = bFi;
+        this.bKF = bKE;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bFj = bFi;
+        this.bKF = bKE;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bFj = bFi;
+        this.bKF = bKE;
         init();
     }
 
     private void init() {
-        LayoutInflater.from(getContext()).inflate(w.j.card_divider_view, (ViewGroup) this, true);
-        this.bFf = findViewById(w.h.card_divider_top_margin);
-        this.mTitle = (TextView) findViewById(w.h.card_divider_tv);
-        this.bFg = findViewById(w.h.bottom_line);
+        LayoutInflater.from(getContext()).inflate(d.j.card_divider_view, (ViewGroup) this, true);
+        this.bKB = findViewById(d.h.card_divider_top_margin);
+        this.mTitle = (TextView) findViewById(d.h.card_divider_tv);
+        this.bKC = findViewById(d.h.bottom_line);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        as.k(this, w.e.cp_bg_line_d);
-        as.k(this.bFf, w.e.cp_bg_line_c);
-        as.i(this.mTitle, w.e.cp_cont_d);
-        as.k(this.bFg, this.bFj);
+        ai.k(this, d.e.cp_bg_line_d);
+        ai.k(this.bKB, d.e.cp_bg_line_c);
+        ai.i(this.mTitle, d.e.cp_cont_d);
+        ai.k(this.bKC, this.bKF);
     }
 
     public void setTitleText(String str) {
@@ -66,34 +66,34 @@ public class CardGroupDividerView extends LinearLayout {
         this.mTitle.setTextSize(i, f);
     }
 
-    public void Wm() {
-        if (this.bFf.getVisibility() != 8) {
-            this.bFf.setVisibility(8);
+    public void WZ() {
+        if (this.bKB.getVisibility() != 8) {
+            this.bKB.setVisibility(8);
         }
     }
 
-    public void Wn() {
-        if (this.bFf.getVisibility() != 0) {
-            this.bFf.setVisibility(0);
+    public void Xa() {
+        if (this.bKB.getVisibility() != 0) {
+            this.bKB.setVisibility(0);
         }
     }
 
-    public void Wo() {
-        Wm();
+    public void Xb() {
+        WZ();
         if (this.mTitle.getVisibility() != 8) {
             this.mTitle.setVisibility(8);
         }
-        if (this.bFg.getVisibility() != 0) {
-            this.bFg.setVisibility(0);
-            setDividerColor(bFi);
+        if (this.bKC.getVisibility() != 0) {
+            this.bKC.setVisibility(0);
+            setDividerColor(bKE);
         }
     }
 
     public void A(String str, boolean z) {
         if (z) {
-            Wn();
+            Xa();
         } else {
-            Wm();
+            WZ();
         }
         if (TextUtils.isEmpty(str)) {
             this.mTitle.setVisibility(8);
@@ -101,18 +101,18 @@ public class CardGroupDividerView extends LinearLayout {
             this.mTitle.setVisibility(0);
             this.mTitle.setText(str);
         }
-        if (this.bFg.getVisibility() != 0) {
-            this.bFg.setVisibility(0);
-            setDividerColor(bFh);
+        if (this.bKC.getVisibility() != 0) {
+            this.bKC.setVisibility(0);
+            setDividerColor(bKD);
         }
     }
 
     private void setDividerColor(int i) {
-        this.bFj = i;
-        as.k(this.bFg, this.bFj);
+        this.bKF = i;
+        ai.k(this.bKC, this.bKF);
     }
 
     public View getBotttomLine() {
-        return this.bFg;
+        return this.bKC;
     }
 }

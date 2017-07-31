@@ -82,7 +82,6 @@ public class s {
     }
 
     public static void a(XMPushService xMPushService, String str, byte[] bArr, Intent intent, boolean z) {
-        boolean z2;
         com.xiaomi.xmpush.thrift.ab a = a(bArr);
         com.xiaomi.xmpush.thrift.r m = a.m();
         if (c(a) && a(xMPushService, str)) {
@@ -104,14 +103,13 @@ public class s {
                 aw.a().b("Registe Success, package name is " + j);
             }
             if (m != null && !TextUtils.isEmpty(m.h()) && !TextUtils.isEmpty(m.j()) && m.h != 1 && (ac.a(m.s()) || !ac.a(xMPushService, a.f))) {
+                boolean z2 = false;
                 if (m != null) {
                     r0 = m.j != null ? m.j.get("jobkey") : null;
                     if (TextUtils.isEmpty(r0)) {
                         r0 = m.b();
                     }
                     z2 = ad.a(xMPushService, a.f, r0);
-                } else {
-                    z2 = false;
                 }
                 if (z2) {
                     com.xiaomi.channel.commonutils.logger.b.a("drop a duplicate message, key=" + r0);

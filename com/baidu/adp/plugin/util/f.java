@@ -1,198 +1,69 @@
 package com.baidu.adp.plugin.util;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
-public class f {
-    private static final HashMap<Class<?>, Class<?>> Fq = new HashMap<>();
+public class f implements Comparable<f> {
+    int GS;
+    int GT;
+    int GU;
+    int GV;
+    int GW;
+    int GX;
 
-    /* loaded from: classes.dex */
-    public static class a<T> {
-        public final Class<? extends T> clazz;
-        public final T obj;
+    public final void set(int i, int i2, int i3, int i4, int i5, int i6) {
+        this.GS = i;
+        this.GT = i2;
+        this.GU = i3;
+        this.GV = i4;
+        this.GW = i5;
+        this.GX = i6;
     }
 
-    static {
-        Fq.put(Boolean.class, Boolean.TYPE);
-        Fq.put(Byte.class, Byte.TYPE);
-        Fq.put(Character.class, Character.TYPE);
-        Fq.put(Short.class, Short.TYPE);
-        Fq.put(Integer.class, Integer.TYPE);
-        Fq.put(Float.class, Float.TYPE);
-        Fq.put(Long.class, Long.TYPE);
-        Fq.put(Double.class, Double.TYPE);
-        Fq.put(Boolean.TYPE, Boolean.TYPE);
-        Fq.put(Byte.TYPE, Byte.TYPE);
-        Fq.put(Character.TYPE, Character.TYPE);
-        Fq.put(Short.TYPE, Short.TYPE);
-        Fq.put(Integer.TYPE, Integer.TYPE);
-        Fq.put(Float.TYPE, Float.TYPE);
-        Fq.put(Long.TYPE, Long.TYPE);
-        Fq.put(Double.TYPE, Double.TYPE);
+    public String toString() {
+        return this.GS + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.GT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.GU + " " + this.GV + ":" + this.GW + ":" + this.GX;
     }
 
-    public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        return (T) d(obj, str, objArr);
-    }
-
-    public static <T> T d(Object obj, String str, Object[] objArr) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-        return (T) e(obj.getClass(), str, f(objArr)).invoke(obj, g(objArr));
-    }
-
-    public static void a(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
-        Field declaredField = cls.getDeclaredField(str);
-        declaredField.setAccessible(true);
-        declaredField.set(obj, obj2);
-    }
-
-    private static Method e(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException, SecurityException {
-        Method b = b(cls.getDeclaredMethods(), str, clsArr);
-        if (b != null) {
-            b.setAccessible(true);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(f fVar) {
+        if (this.GS - fVar.GS > 0) {
+            return 1;
         }
-        return b;
-    }
-
-    private static Method b(Method[] methodArr, String str, Class<?>[] clsArr) throws NoSuchMethodException {
-        if (str == null) {
-            throw new NullPointerException("Method name must not be null.");
+        if (this.GS - fVar.GS < 0) {
+            return -1;
         }
-        for (Method method : methodArr) {
-            if (method.getName().equals(str) && b(method.getParameterTypes(), clsArr)) {
-                return method;
+        if (this.GT - fVar.GT <= 0) {
+            if (this.GT - fVar.GT < 0) {
+                return -1;
             }
-        }
-        throw new NoSuchMethodException(str);
-    }
-
-    private static boolean b(Class<?>[] clsArr, Class<?>[] clsArr2) {
-        if (clsArr == null) {
-            return clsArr2 == null || clsArr2.length == 0;
-        }
-        int length = clsArr.length;
-        if (clsArr2 == null) {
-            return length == 0;
-        } else if (length != clsArr2.length) {
-            return false;
-        } else {
-            for (int i = length - 1; i >= 0; i--) {
-                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (Fq.containsKey(clsArr[i]) && Fq.get(clsArr[i]).equals(Fq.get(clsArr2[i])))) {
-                    return true;
+            if (this.GU - fVar.GU <= 0) {
+                if (this.GU - fVar.GU < 0) {
+                    return -1;
                 }
-            }
-            return false;
-        }
-    }
-
-    public static Object d(Object obj, Object obj2) {
-        if (obj == null) {
-            return obj2;
-        }
-        if (obj2 != null) {
-            if (obj.getClass().isArray() && obj2.getClass().isArray()) {
-                Class<?> componentType = obj.getClass().getComponentType();
-                int length = Array.getLength(obj);
-                int length2 = length + Array.getLength(obj2);
-                Object newInstance = Array.newInstance(componentType, length2);
-                for (int i = 0; i < length2; i++) {
-                    if (i < length) {
-                        Array.set(newInstance, i, Array.get(obj, i));
-                    } else {
-                        Array.set(newInstance, i, Array.get(obj2, i - length));
+                if (this.GV - fVar.GV <= 0) {
+                    if (this.GV - fVar.GV < 0) {
+                        return -1;
                     }
+                    if (this.GW - fVar.GW <= 0) {
+                        if (this.GW - fVar.GW < 0) {
+                            return -1;
+                        }
+                        if (this.GX - fVar.GX <= 0) {
+                            return this.GX - fVar.GX < 0 ? -1 : 0;
+                        }
+                        return 1;
+                    }
+                    return 1;
                 }
-                return newInstance;
-            } else if ((obj instanceof List) && (obj2 instanceof List)) {
-                List list = (List) obj;
-                List list2 = (List) obj2;
-                ArrayList arrayList = new ArrayList(list.size() + list2.size());
-                arrayList.addAll(list);
-                arrayList.addAll(list2);
-                return arrayList;
-            } else {
-                return obj;
+                return 1;
             }
+            return 1;
         }
-        return obj;
+        return 1;
     }
 
-    private static Class<?>[] f(Object[] objArr) {
-        if (objArr == null || objArr.length <= 0) {
-            return null;
-        }
-        Class<?>[] clsArr = new Class[objArr.length];
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= objArr.length) {
-                return clsArr;
-            }
-            Object obj = objArr[i2];
-            if (obj != null && (obj instanceof a)) {
-                clsArr[i2] = ((a) obj).clazz;
-            } else {
-                clsArr[i2] = obj == null ? null : obj.getClass();
-            }
-            i = i2 + 1;
-        }
-    }
-
-    private static Object[] g(Object[] objArr) {
-        if (objArr == null || objArr.length <= 0) {
-            return null;
-        }
-        Object[] objArr2 = new Object[objArr.length];
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= objArr.length) {
-                return objArr2;
-            }
-            Object obj = objArr[i2];
-            if (obj != null && (obj instanceof a)) {
-                objArr2[i2] = ((a) obj).obj;
-            } else {
-                objArr2[i2] = obj;
-            }
-            i = i2 + 1;
-        }
-    }
-
-    public static Method a(Object obj, String str, Class<?>[] clsArr) {
-        for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
-            try {
-                return cls.getDeclaredMethod(str, clsArr);
-            } catch (Exception e) {
-            }
-        }
-        return null;
-    }
-
-    public static Object a(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
-        Method a2 = a(obj, str, clsArr);
-        if (a2 != null) {
-            try {
-                a2.setAccessible(true);
-                return a2.invoke(obj, objArr);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
-            }
-        }
-        return null;
-    }
-
-    public static Object a(Object obj, Class<?> cls, String str) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
-        Field declaredField = cls.getDeclaredField(str);
-        declaredField.setAccessible(true);
-        return declaredField.get(obj);
+    public boolean equals(Object obj) {
+        return (obj instanceof f) && compareTo((f) obj) == 0;
     }
 }

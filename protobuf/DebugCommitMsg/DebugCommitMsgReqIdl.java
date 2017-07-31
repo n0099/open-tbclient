@@ -7,10 +7,6 @@ public final class DebugCommitMsgReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
 
-    /* synthetic */ DebugCommitMsgReqIdl(Builder builder, boolean z, DebugCommitMsgReqIdl debugCommitMsgReqIdl) {
-        this(builder, z);
-    }
-
     private DebugCommitMsgReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -37,7 +33,7 @@ public final class DebugCommitMsgReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public DebugCommitMsgReqIdl build(boolean z) {
-            return new DebugCommitMsgReqIdl(this, z, null);
+            return new DebugCommitMsgReqIdl(this, z);
         }
     }
 }

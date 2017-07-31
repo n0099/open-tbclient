@@ -3,17 +3,17 @@ package com.baidu.adp.lib.guide;
 import android.graphics.Rect;
 import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.lib.guide.h;
+import com.baidu.adp.lib.guide.e;
 /* loaded from: classes.dex */
 class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static View a(LayoutInflater layoutInflater, b bVar) {
         View a = bVar.a(layoutInflater);
-        h.a aVar = new h.a(-2, -2);
-        aVar.uS = bVar.getXOffset();
-        aVar.uT = bVar.getYOffset();
-        aVar.uQ = bVar.eZ();
-        aVar.uR = bVar.fa();
+        e.a aVar = new e.a(-2, -2);
+        aVar.ww = bVar.getXOffset();
+        aVar.wx = bVar.getYOffset();
+        aVar.wu = bVar.fi();
+        aVar.wv = bVar.fj();
         a.setLayoutParams(aVar);
         return a;
     }

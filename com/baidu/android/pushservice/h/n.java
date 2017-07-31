@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import com.baidu.adp.BuildConfig;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.PushSettings;
@@ -39,8 +40,8 @@ public final class n {
             hashMap.put("stats", str2);
             hashMap.put("pbVer", str3);
             hashMap.put("os", "android");
-            InputStream inputStream2 = null;
             long j = 1000;
+            InputStream inputStream2 = null;
             for (int i = 0; i < 3; i++) {
                 try {
                     com.baidu.android.pushservice.g.a.b("StatisticPoster", "Statistics request time=" + i + ", url=" + str);
@@ -133,10 +134,9 @@ public final class n {
 
     public String a(long j, long j2, int i) {
         byte[] bArr;
-        String str;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", "1.0");
+            jSONObject.put("version", BuildConfig.VERSION_NAME);
             String a2 = a();
             if (!TextUtils.isEmpty(a2)) {
                 jSONObject.put("common", new JSONObject(a2));
@@ -158,12 +158,11 @@ public final class n {
             return null;
         }
         try {
-            str = com.baidu.android.pushservice.k.b.a(bArr, "utf-8");
+            return com.baidu.android.pushservice.k.b.a(bArr, "utf-8");
         } catch (UnsupportedEncodingException e3) {
             com.baidu.android.pushservice.g.a.e("StatisticPoster", "error " + e3.getMessage());
-            str = null;
+            return null;
         }
-        return str;
     }
 
     public void a(String str) {
@@ -244,7 +243,7 @@ public final class n {
         String a2 = a(j, j2, i);
         try {
             if (!TextUtils.isEmpty(a2)) {
-                return a("https://statsonline.pushct.baidu.com/pushlog_special", a2, "1.0");
+                return a("https://statsonline.pushct.baidu.com/pushlog_special", a2, BuildConfig.VERSION_NAME);
             }
         } catch (OutOfMemoryError e) {
             com.baidu.android.pushservice.g.a.e("StatisticPoster", "OutOfMemoryError when posting");

@@ -3,14 +3,15 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private String apA;
-    private List<d> apz = new ArrayList();
+    private List<d> arJ = new ArrayList();
+    private String arK;
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
@@ -20,33 +21,41 @@ public class c {
                 if (jSONObject2 != null) {
                     d dVar = new d();
                     dVar.parserJson(jSONObject2);
-                    this.apz.add(dVar);
+                    this.arJ.add(dVar);
                 }
             }
         }
     }
 
-    public String xK() {
-        if (TextUtils.isEmpty(this.apA)) {
+    public String yd() {
+        if (TextUtils.isEmpty(this.arK)) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
-            for (d dVar : this.apz) {
-                if (dVar.xM()) {
-                    if (i == 0) {
-                        sb.append(dVar.getAppId());
+            Iterator<d> it = this.arJ.iterator();
+            while (true) {
+                int i2 = i;
+                if (!it.hasNext()) {
+                    break;
+                }
+                d next = it.next();
+                if (next.yf()) {
+                    if (i2 == 0) {
+                        sb.append(next.getAppId());
                     } else {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                        sb.append(dVar.getAppId());
+                        sb.append(next.getAppId());
                     }
-                    i++;
+                    i = i2 + 1;
+                } else {
+                    i = i2;
                 }
             }
-            this.apA = sb.toString();
+            this.arK = sb.toString();
         }
-        return this.apA;
+        return this.arK;
     }
 
-    public List<d> xL() {
-        return this.apz;
+    public List<d> ye() {
+        return this.arJ;
     }
 }

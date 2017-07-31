@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -13,6 +14,7 @@ import com.baidu.android.pushservice.j.q;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.tbadk.TbConfig;
 import java.io.IOException;
+@SuppressLint({"WorldReadableFiles", "InlinedApi"})
 /* loaded from: classes2.dex */
 public class g {
     public static e a;

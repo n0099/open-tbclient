@@ -1,33 +1,33 @@
 package com.baidu.tbadk.n;
+
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.lib.b.a {
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.b.a
-    public void X(int i) {
+public class c extends com.baidu.adp.framework.a.c {
+    public c(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eP() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eQ() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eR() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eS() {
-        return 10;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "ad_log_open";
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: b */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
+            HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
+            ReloginManager uy = ReloginManager.uy();
+            if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
+                if (httpMessage.removeParam("reloin_key") == null) {
+                    httpMessage.addParam("reloin_key", "reloin_value");
+                    uy.a((HttpMessage) httpResponsedMessage.getOrginalMessage());
+                } else {
+                    uy.f(null);
+                }
+                return null;
+            }
+            return httpResponsedMessage;
+        }
+        return httpResponsedMessage;
     }
 }

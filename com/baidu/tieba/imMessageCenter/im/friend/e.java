@@ -1,16 +1,64 @@
 package com.baidu.tieba.imMessageCenter.im.friend;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.IMBlackListActivityConfig;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.adp.base.BdBaseModel;
+import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
+import com.baidu.tieba.imMessageCenter.RequestCommitInviteMessage;
+import protobuf.CommitInviteMsg.DataReq;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-class e implements CustomMessageTask.CustomRunnable<IMBlackListActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<IMBlackListActivityConfig> run(CustomMessage<IMBlackListActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().startActivity(IMBlackListActivity.class);
+public class e extends BdBaseModel<InviteFriendListActivity> {
+    private RequestCommitInviteMessage dCO;
+    private int dCP;
+    private int dxo;
+
+    public e(InviteFriendListActivity inviteFriendListActivity) {
+        super(inviteFriendListActivity.getPageContext());
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    protected boolean LoadData() {
+        return false;
+    }
+
+    public void initWithIntent(Intent intent) {
+        if (intent != null) {
+            this.dxo = intent.getIntExtra("gid", -1);
+            this.dCP = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
         }
-        return null;
+    }
+
+    public void initWithBundle(Bundle bundle) {
+        if (bundle != null) {
+            this.dxo = bundle.getInt("gid", -1);
+            this.dCP = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
+        }
+    }
+
+    public void p(Bundle bundle) {
+        bundle.putInt("gid", this.dxo);
+        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.dCP);
+    }
+
+    public void mH(String str) {
+        this.dCO = c(this.dxo, this.dCP, str);
+        super.sendMessage(this.dCO);
+    }
+
+    private RequestCommitInviteMessage c(int i, int i2, String str) {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.groupId = Integer.valueOf(i);
+        builder.msgType = 5;
+        builder.toUids = str;
+        builder.content = "{\"type\":" + String.valueOf(1) + ",\"groupId\":" + String.valueOf(i2) + "}";
+        RequestCommitInviteMessage requestCommitInviteMessage = new RequestCommitInviteMessage();
+        requestCommitInviteMessage.setReqData(builder.build(false));
+        return requestCommitInviteMessage;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return true;
     }
 }

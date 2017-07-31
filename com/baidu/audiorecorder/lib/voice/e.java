@@ -1,236 +1,259 @@
 package com.baidu.audiorecorder.lib.voice;
+
+import android.os.Handler;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.voice.h;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.j;
+import com.baidu.tbadk.core.util.k;
+import com.baidu.tbadk.core.voice.service.MediaService;
+import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
-public class e {
-    private static e Jt;
-    private static int[] Ju = {8000, 11025, 16000, 22050, 32000, 44100, 47250, 48000};
-    private static short[] Jv = {2, 3};
-    private static short[] Jw = {2, 16, 12, 3};
-    private int Jp;
-    private short Jq;
-    private short Jr;
-    private int Js = -2;
-
-    public static e lC() {
-        e eVar;
-        if (Jt == null) {
-            synchronized (e.class) {
-                if (Jt == null) {
-                    Jt = new e();
-                }
-                eVar = Jt;
+public class e implements com.baidu.tieba.tbadkCore.voice.a {
+    com.baidu.adp.lib.voice.f Lf;
+    private TbPageContext<?> context;
+    private boolean isAddScreenView;
+    private String Lg = null;
+    private com.baidu.adp.lib.voice.g Lh = null;
+    Runnable Li = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.3
+        @Override // java.lang.Runnable
+        public void run() {
+            if (e.this.Lf != null && h.Bj == 2) {
+                e.this.Lf.onStopingRecorder();
             }
-            return eVar;
         }
-        return Jt;
+    };
+    private Handler mHandle = new Handler();
+
+    static {
+        h.Bj = 1;
     }
 
-    private e() {
+    public static e lQ() {
+        return new e();
     }
 
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [149=6, 150=6, 151=6] */
-    public android.media.AudioRecord lD() throws java.lang.IllegalArgumentException {
-        /*
-            r18 = this;
-            r0 = r18
-            int r1 = r0.Jp
-            if (r1 <= 0) goto L29
-            r0 = r18
-            short r1 = r0.Jq
-            if (r1 <= 0) goto L29
-            r0 = r18
-            short r1 = r0.Jr
-            if (r1 <= 0) goto L29
-            android.media.AudioRecord r1 = new android.media.AudioRecord
-            r2 = 1
-            r0 = r18
-            int r3 = r0.Jp
-            r0 = r18
-            short r4 = r0.Jr
-            r0 = r18
-            short r5 = r0.Jq
-            r0 = r18
-            int r6 = r0.Js
-            r1.<init>(r2, r3, r4, r5, r6)
-        L28:
-            return r1
-        L29:
-            r2 = 0
-            int[] r12 = com.baidu.audiorecorder.lib.voice.e.Ju
-            int r13 = r12.length
-            r1 = 0
-            r9 = r1
-            r1 = r2
-        L30:
-            if (r9 < r13) goto L3a
-            java.lang.IllegalArgumentException r1 = new java.lang.IllegalArgumentException
-            java.lang.String r2 = "getInstance() failed : no suitable audio configurations on this device."
-            r1.<init>(r2)
-            throw r1
-        L3a:
-            r3 = r12[r9]
-            short[] r14 = com.baidu.audiorecorder.lib.voice.e.Jv
-            int r15 = r14.length
-            r2 = 0
-            r10 = r2
-            r2 = r1
-        L42:
-            if (r10 < r15) goto L49
-            int r1 = r9 + 1
-            r9 = r1
-            r1 = r2
-            goto L30
-        L49:
-            short r5 = r14[r10]
-            short[] r16 = com.baidu.audiorecorder.lib.voice.e.Jw
-            r0 = r16
-            int r0 = r0.length
-            r17 = r0
-            r1 = 0
-            r11 = r1
-            r7 = r2
-        L55:
-            r0 = r17
-            if (r11 < r0) goto L5e
-            int r1 = r10 + 1
-            r10 = r1
-            r2 = r7
-            goto L42
-        L5e:
-            short r4 = r16[r11]
-            int r1 = android.media.AudioRecord.getMinBufferSize(r3, r4, r5)     // Catch: java.lang.Throwable -> L126
-            r0 = r18
-            r0.Js = r1     // Catch: java.lang.Throwable -> L126
-            r0 = r18
-            int r1 = r0.Js     // Catch: java.lang.Throwable -> L126
-            r2 = -2
-            if (r1 != r2) goto L81
-            if (r7 == 0) goto L12a
-            int r1 = r7.getState()
-            r2 = 1
-            if (r1 == r2) goto L12a
-            r7.release()
-            r1 = 0
-        L7c:
-            int r2 = r11 + 1
-            r11 = r2
-            r7 = r1
-            goto L55
-        L81:
-            r0 = r18
-            int r1 = r0.Js     // Catch: java.lang.Throwable -> L126
-            int r1 = r1 * 8
-            r2 = 4096(0x1000, float:5.74E-42)
-            int r6 = java.lang.Math.min(r1, r2)     // Catch: java.lang.Throwable -> L126
-            android.media.AudioRecord r8 = new android.media.AudioRecord     // Catch: java.lang.Throwable -> L126
-            r2 = 1
-            r1 = r8
-            r1.<init>(r2, r3, r4, r5, r6)     // Catch: java.lang.Throwable -> L126
-            int r1 = r8.getState()     // Catch: java.lang.Throwable -> Le8
-            r2 = 1
-            if (r1 != r2) goto Lba
-            r0 = r18
-            r0.Jp = r3     // Catch: java.lang.Throwable -> Le8
-            r0 = r18
-            r0.Jq = r5     // Catch: java.lang.Throwable -> Le8
-            r0 = r18
-            r0.Jr = r4     // Catch: java.lang.Throwable -> Le8
-            r0 = r18
-            r0.Js = r6     // Catch: java.lang.Throwable -> Le8
-            if (r8 == 0) goto Lb7
-            int r1 = r8.getState()
-            r2 = 1
-            if (r1 == r2) goto Lb7
-            r8.release()
-        Lb7:
-            r1 = r8
-            goto L28
-        Lba:
-            r8.release()     // Catch: java.lang.Throwable -> Le8
-            android.media.AudioRecord r1 = new android.media.AudioRecord     // Catch: java.lang.Throwable -> Le8
-            r2 = 1
-            r0 = r18
-            int r6 = r0.Js     // Catch: java.lang.Throwable -> Le8
-            r1.<init>(r2, r3, r4, r5, r6)     // Catch: java.lang.Throwable -> Le8
-            int r2 = r1.getState()     // Catch: java.lang.Throwable -> L124
-            r6 = 1
-            if (r2 != r6) goto L10a
-            r0 = r18
-            r0.Jp = r3     // Catch: java.lang.Throwable -> L124
-            r0 = r18
-            r0.Jq = r5     // Catch: java.lang.Throwable -> L124
-            r0 = r18
-            r0.Jr = r4     // Catch: java.lang.Throwable -> L124
-            if (r1 == 0) goto L28
-            int r2 = r1.getState()
-            r3 = 1
-            if (r2 == r3) goto L28
-            r1.release()
-            goto L28
-        Le8:
-            r1 = move-exception
-            r2 = r1
-            r1 = r8
-        Leb:
-            r2.printStackTrace()     // Catch: java.lang.Throwable -> L11d
-            if (r1 == 0) goto L7c
-            int r2 = r1.getState()
-            r4 = 1
-            if (r2 == r4) goto L7c
-            r1.release()
-            r1 = 0
-            goto L7c
-        Lfc:
-            r1 = move-exception
-        Lfd:
-            if (r8 == 0) goto L109
-            int r2 = r8.getState()
-            r3 = 1
-            if (r2 == r3) goto L109
-            r8.release()
-        L109:
-            throw r1
-        L10a:
-            if (r1 == 0) goto L7c
-            int r2 = r1.getState()
-            r4 = 1
-            if (r2 == r4) goto L7c
-            r1.release()
-            r1 = 0
-            goto L7c
-        L119:
-            r2 = move-exception
-            r8 = r1
-            r1 = r2
-            goto Lfd
-        L11d:
-            r2 = move-exception
-            r8 = r1
-            r1 = r2
-            goto Lfd
-        L121:
-            r1 = move-exception
-            r8 = r7
-            goto Lfd
-        L124:
-            r2 = move-exception
-            goto Leb
-        L126:
-            r1 = move-exception
-            r2 = r1
-            r1 = r7
-            goto Leb
-        L12a:
-            r1 = r7
-            goto L7c
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.audiorecorder.lib.voice.e.lD():android.media.AudioRecord");
+    @Override // com.baidu.tieba.tbadkCore.voice.a
+    public boolean a(com.baidu.adp.lib.voice.f fVar, int i) {
+        if (fVar != null && !aa.aJ(null)) {
+            this.Lf = fVar;
+            if (!k.dR()) {
+                String uI = k.uI();
+                if (uI == null) {
+                    uI = h.getString(d.l.voice_error_sdcard);
+                }
+                this.Lf.onShowErr(0, uI);
+                return false;
+            }
+            X(true);
+            this.Lg = com.baidu.tbadk.core.voice.a.xz();
+            String ew = com.baidu.tbadk.core.voice.a.ew(this.Lg);
+            if (this.Lh == null) {
+                this.Lh = new a();
+            }
+            com.baidu.audiorecorder.lib.voice.a.stop();
+            releaseWakeLock();
+            boolean a2 = com.baidu.audiorecorder.lib.voice.a.a(ew, i, this.Lh);
+            if (a2) {
+                this.Lf.onStartedRecorder(true);
+                h.Bj = 2;
+                return a2;
+            }
+            h.Bj = 1;
+            com.baidu.audiorecorder.lib.voice.a.stop();
+            j jVar = new j();
+            jVar.n("voiceType", Integer.valueOf(i));
+            TiebaStatic.voiceError(TbErrInfo.ERR_VOI_START, "onTouch-getBtnMsgsendVoice: user click too often", jVar.toString());
+            this.Lf.onStartedRecorder(false);
+            return a2;
+        }
+        return false;
+    }
+
+    public void X(boolean z) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_VOICE_STOP_PLAY, Boolean.valueOf(z)));
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.voice.a
+    public void lR() {
+        com.baidu.audiorecorder.lib.voice.a.cancel();
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.voice.a
+    public void bM(final String str) {
+        stopRecord();
+        X(false);
+        if (this.Lf != null) {
+            this.Lf.onDeletedVoice(str);
+        }
+        if (this.mHandle != null) {
+            this.mHandle.postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (com.baidu.tbadk.core.voice.a.delFile(com.baidu.tbadk.core.voice.a.ex(str))) {
+                    }
+                }
+            }, 200L);
+        }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.voice.a
+    public boolean lS() {
+        return h.Bj == 1;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void p(final String str, final int i) {
+        if (str != null && i >= 1) {
+            h.Bj = 3;
+            new Thread(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    final String str2 = com.baidu.tbadk.core.voice.a.b.ez(com.baidu.tbadk.core.voice.a.ey(str)).md5;
+                    if (e.this.mHandle != null) {
+                        e.this.mHandle.removeCallbacks(e.this.Li);
+                        if (StringUtils.isNull(str2)) {
+                            e.this.mHandle.post(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.2.1
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    e.this.Lf.onShowErr(4, e.this.context.getString(d.l.voice_error_file_md5));
+                                    h.Bj = 1;
+                                }
+                            });
+                        } else {
+                            e.this.mHandle.post(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.2.2
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    h.Bj = 1;
+                                    e.this.Lf.onSendVoice(str2, i);
+                                }
+                            });
+                        }
+                    }
+                }
+            }).start();
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    private class a implements com.baidu.adp.lib.voice.g {
+        private a() {
+        }
+
+        @Override // com.baidu.adp.lib.voice.e
+        public void k(String str, int i) {
+            e.this.releaseWakeLock();
+            h.Bj = 1;
+            if (e.this.Lg == null || str == null) {
+                j jVar = new j();
+                jVar.n("file", str);
+                jVar.n("dur", Integer.valueOf(i));
+                TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "RecoreCallback.succ: file is null", jVar.toString());
+            } else if (e.this.Lf != null) {
+                if (i > 1000) {
+                    if (str.endsWith(e.this.Lg)) {
+                        e.this.p(e.this.Lg, (int) Math.round((i * 1.0d) / 1000.0d));
+                        e.this.Lg = null;
+                        return;
+                    }
+                    j jVar2 = new j();
+                    jVar2.n("file", str);
+                    jVar2.n("dur", Integer.valueOf(i));
+                    TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILENAME, "RecoreCallback.succ: filename error", jVar2.toString());
+                    return;
+                }
+                e.this.Lf.onShowErr(2, h.getString(d.l.voice_record_short_tip));
+                j jVar3 = new j();
+                jVar3.n("file", str);
+                jVar3.n("dur", Integer.valueOf(i));
+                TiebaStatic.voiceError(TbErrInfo.ERR_VOI_LEN, "voice too short", jVar3.toString());
+            }
+        }
+
+        @Override // com.baidu.adp.lib.voice.e
+        public void f(int i, String str) {
+            e.this.releaseWakeLock();
+            TiebaStatic.voiceError(i, "RecoreCallback.error: " + str, "");
+            if (e.this.Lf == null) {
+                h.Bj = 1;
+            } else if (i == 7) {
+                if (e.this.Lg != null) {
+                    e.this.p(e.this.Lg, com.baidu.adp.lib.voice.d.Bi / 1000);
+                    e.this.Lg = null;
+                    e.this.Lf.onShowErr(3, e.this.context.getString(d.l.voice_record_timeout_tip));
+                    return;
+                }
+                TiebaStatic.voiceError(i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
+            } else {
+                h.Bj = 1;
+                if (i == 8) {
+                    i = 2;
+                }
+                e.this.Lf.onShowErr(i, str);
+                TiebaStatic.voiceError(i, "RecoreCallback.err: " + str, "");
+            }
+        }
+
+        @Override // com.baidu.adp.lib.voice.e
+        public void aB(int i) {
+            if (e.this.Lf != null) {
+                e.this.Lf.onShowRecording(i);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.voice.g
+        public void aC(int i) {
+            if (e.this.Lf != null) {
+                e.this.Lf.onShowRecordTime(i / 1000);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.voice.g
+        public void hV() {
+            h.Bj = 1;
+        }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.voice.a
+    public void release() {
+        stopRecord();
+        if (this.context != null && this.context.getPageActivity() != null) {
+            MediaService.stopMy(this.context.getPageActivity());
+        }
+        if (this.mHandle != null) {
+            this.mHandle.removeCallbacks(this.Li);
+        }
+        this.context = null;
+        this.Lf = null;
+        this.mHandle = null;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.voice.a
+    public void stopRecord() {
+        com.baidu.audiorecorder.lib.voice.a.stop();
+        if (this.mHandle != null) {
+            this.mHandle.postDelayed(this.Li, 100L);
+        }
+        releaseWakeLock();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void releaseWakeLock() {
+        removeBlackScreen();
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.voice.a
+    public void a(TbPageContext<?> tbPageContext) {
+        this.context = tbPageContext;
+    }
+
+    private void removeBlackScreen() {
+        this.isAddScreenView = false;
     }
 }

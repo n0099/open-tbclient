@@ -4,28 +4,28 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.model.NetModel;
 /* loaded from: classes2.dex */
-public class AtMeNetModel extends NetModel<e, f, ad> {
-    public AtMeNetModel(TbPageContext<ad> tbPageContext, e eVar) {
-        super(tbPageContext, eVar, NetModel.NetModelType.TYPE_NETWORK);
+public class AtMeNetModel extends NetModel<b, c, g> {
+    public AtMeNetModel(TbPageContext<g> tbPageContext, b bVar) {
+        super(tbPageContext, bVar, NetModel.NetModelType.TYPE_NETWORK);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int ET() {
+    protected int Fs() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String EV() {
+    protected String Fu() {
         return "c/u/feed/atme";
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<f> getResponseDataClass() {
-        return f.class;
+    protected Class<c> getResponseDataClass() {
+        return c.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int EU() {
+    protected int Ft() {
         return 0;
     }
 }

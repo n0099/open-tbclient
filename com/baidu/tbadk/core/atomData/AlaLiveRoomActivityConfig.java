@@ -7,14 +7,17 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_ALTER_PLAY = "alter_play";
+    public static final String FROM_TYPE_END_VIEW = "end_view";
     public static final String FROM_TYPE_FRS_AUTO_PLAY = "frs_auto_play";
     public static final String FROM_TYPE_FRS_LIVE_AUTO_PLAY = "frs_live_auto_play";
     public static final String FROM_TYPE_FRS_LIVE_PLAY = "frs_live_play";
     public static final String FROM_TYPE_FRS_PLAY = "frs_play";
+    public static final String FROM_TYPE_HOME_CONCERN_TAB = "home_concern_tab";
     public static final String FROM_TYPE_HOME_LIVE_AUTO_PLAY = "home_live_auto_play";
     public static final String FROM_TYPE_HOME_LIVE_PLAY = "home_live_play";
     public static final String FROM_TYPE_HOME_REC_AUTO_PLAY = "home_rec_auto_play";
     public static final String FROM_TYPE_HOME_REC_PLAY = "home_rec_play";
+    public static final String FROM_TYPE_OUTSIDE = "safari_play";
     public static final String FROM_TYPE_PB_AUTO_PLAY = "pb_auto_play";
     public static final String FROM_TYPE_PB_PLAY = "pb_play";
     public static final String FROM_TYPE_PERSON_ATTENTION = "person_attention";
@@ -52,7 +55,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         getIntent().putExtra(LIVE_IS_HOST, z);
         getIntent().putExtra(LIVE_INFO, alaLiveInfoCoreData);
         getIntent().putExtra(LIVE_FROM_TYPE, str);
-        getIntent().putExtra(LIVE_FORUM_NAME, str3);
+        getIntent().putExtra("live_forum_name", str3);
     }
 
     public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, AlaLiveInfoListCoreData alaLiveInfoListCoreData, String str, String str2, boolean z) {
@@ -84,8 +87,8 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
 
     public AlaLiveRoomActivityConfig(Context context, String str, String str2, String str3, boolean z, boolean z2) {
         super(context);
-        getIntent().putExtra(LIVE_FORUM_NAME, str);
-        getIntent().putExtra(LIVE_FORUM_ID, str2);
+        getIntent().putExtra("live_forum_name", str);
+        getIntent().putExtra("live_forum_id", str2);
         getIntent().putExtra(LIVE_IS_CREATE_LIVE_ROOM, true);
         getIntent().putExtra("user_id", str3);
         getIntent().putExtra(LIVE_IS_FROM_GAME_FORUM, z2);

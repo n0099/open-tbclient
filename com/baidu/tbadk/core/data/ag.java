@@ -1,108 +1,26 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.GraffitiRankItem;
-import tbclient.GraffitiRankListInfo;
-import tbclient.User;
+import tbclient.TwAnchorProfitItem;
+import tbclient.TwZhiBoUser;
 /* loaded from: classes.dex */
-public class ag extends PostData {
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private int VE;
-    private int VF;
-    private List<UserData> VH;
-    private int VI;
-    private int VJ;
-    private boolean VK;
-    private int VL;
-    private String mForumId;
-    private String mThreadId;
-    public boolean VM = false;
-    private List<af> VG = new ArrayList();
+public class ag {
+    private List<TwAnchorProfitItem> XA;
+    private TwZhiBoUser Xz;
 
-    public void setThreadId(String str) {
-        this.mThreadId = str;
+    public TwZhiBoUser qi() {
+        return this.Xz;
     }
 
-    public String getForumId() {
-        return this.mForumId;
+    public void a(TwZhiBoUser twZhiBoUser) {
+        this.Xz = twZhiBoUser;
     }
 
-    public void setForumId(String str) {
-        this.mForumId = str;
+    public List<TwAnchorProfitItem> qj() {
+        return this.XA;
     }
 
-    public String getThreadId() {
-        return this.mThreadId;
-    }
-
-    public List<af> getItems() {
-        return this.VG;
-    }
-
-    public void m(List<af> list) {
-        this.VG = list;
-    }
-
-    public int pT() {
-        return this.VI;
-    }
-
-    public boolean pU() {
-        return this.VK;
-    }
-
-    public void an(boolean z) {
-        this.VK = z;
-    }
-
-    public int getRole() {
-        return this.VL;
-    }
-
-    public void bE(int i) {
-        this.VL = i;
-    }
-
-    public void a(GraffitiRankListInfo graffitiRankListInfo) {
-        if (graffitiRankListInfo != null) {
-            this.VE = graffitiRankListInfo.has_more.intValue();
-            this.VF = graffitiRankListInfo.total.intValue();
-            this.VI = graffitiRankListInfo.show_list_count.intValue();
-            this.VJ = graffitiRankListInfo.quick_list_count.intValue();
-            this.VK = graffitiRankListInfo.has_state.intValue() == 1;
-            if (this.VG == null) {
-                this.VG = new ArrayList();
-            }
-            this.VG.clear();
-            List<GraffitiRankItem> list = graffitiRankListInfo.list;
-            if (list != null) {
-                for (GraffitiRankItem graffitiRankItem : list) {
-                    af afVar = new af();
-                    afVar.a(graffitiRankItem);
-                    if (afVar.pS()) {
-                        this.VG.add(afVar);
-                    }
-                }
-            }
-            if (this.VH == null) {
-                this.VH = new ArrayList();
-            }
-            this.VH.clear();
-            if (graffitiRankListInfo.consent_list != null) {
-                for (User user : graffitiRankListInfo.consent_list) {
-                    UserData userData = new UserData();
-                    userData.parserProtobuf(user);
-                    this.VH.add(userData);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return TYPE;
+    public void p(List<TwAnchorProfitItem> list) {
+        this.XA = list;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.adp.base.g;
+import com.baidu.adp.base.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
@@ -25,8 +25,8 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     protected abstract void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ImBaseMessageCenterModel(g gVar) {
-        super(gVar);
+    public ImBaseMessageCenterModel(e eVar) {
+        super(eVar);
         this.mList = new LinkedList<>();
     }
 

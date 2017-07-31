@@ -8,26 +8,31 @@ import java.io.LineNumberReader;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class c {
-    /* JADX WARN: Removed duplicated region for block: B:47:0x009b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.io.FileWriter */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [java.io.Reader] */
+    /* JADX WARN: Type inference failed for: r2v4 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static ArrayList<String> a(String str, File file) {
         InputStreamReader inputStreamReader;
-        FileWriter fileWriter = null;
+        FileWriter fileWriter = 0;
         ArrayList<String> arrayList = new ArrayList<>();
         try {
-            Process exec = Runtime.getRuntime().exec(str);
-            inputStreamReader = new InputStreamReader(exec.getInputStream(), "utf-8");
             try {
+                Process exec = Runtime.getRuntime().exec(str);
+                inputStreamReader = new InputStreamReader(exec.getInputStream(), "utf-8");
                 try {
                     LineNumberReader lineNumberReader = new LineNumberReader(inputStreamReader);
                     if (file != null) {
                         if (!file.exists()) {
                             file.createNewFile();
                         }
-                        fileWriter = new FileWriter(file, true);
-                        fileWriter.append((CharSequence) ("\n\n\n---------------   CMD : " + str + "   ---------------\n\n\n"));
+                        FileWriter fileWriter2 = new FileWriter(file, true);
+                        fileWriter2.append((CharSequence) ("\n\n\n---------------   CMD : " + str + "   ---------------\n\n\n"));
+                        fileWriter = fileWriter2;
                     }
                     while (true) {
                         String readLine = lineNumberReader.readLine();
@@ -35,11 +40,11 @@ public class c {
                             break;
                         }
                         arrayList.add(readLine);
-                        if (fileWriter != null) {
+                        if (fileWriter != 0) {
                             fileWriter.append((CharSequence) (readLine + "\n"));
                         }
                     }
-                    if (fileWriter != null) {
+                    if (fileWriter != 0) {
                         fileWriter.flush();
                         fileWriter.close();
                     }
@@ -66,9 +71,9 @@ public class c {
                 }
             } catch (Throwable th) {
                 th = th;
-                if (inputStreamReader != null) {
+                if (0 != 0) {
                     try {
-                        inputStreamReader.close();
+                        fileWriter.close();
                     } catch (IOException e4) {
                         e4.printStackTrace();
                     }
@@ -80,8 +85,7 @@ public class c {
             inputStreamReader = null;
         } catch (Throwable th2) {
             th = th2;
-            inputStreamReader = null;
-            if (inputStreamReader != null) {
+            if (0 != 0) {
             }
             throw th;
         }

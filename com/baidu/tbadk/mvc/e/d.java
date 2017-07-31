@@ -3,7 +3,7 @@ package com.baidu.tbadk.mvc.e;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.cache.o;
+import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.b.d;
 import com.baidu.tbadk.mvc.b.f;
@@ -24,14 +24,14 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
         WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String str = currentAccount == null ? "" : currentAccount;
-        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) Fk();
+        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) FI();
         if (dVar != null) {
             if (dVar instanceof com.baidu.tbadk.mvc.b.b) {
-                o<byte[]> L = com.baidu.tbadk.core.c.a.sW().L(this.ti, str);
+                l<byte[]> L = com.baidu.tbadk.core.c.a.tn().L(this.uP, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar2 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar2 == null) {
-                        BdCacheService.eH().a(L);
+                        BdCacheService.eQ().a(L);
                     } else {
                         L.remove(dVar2.getCacheKey());
                     }
@@ -41,15 +41,15 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (dVar3 == null) {
                         return writeCacheRespMsg;
                     }
-                    L.k(dVar3.getCacheKey(), ((com.baidu.tbadk.mvc.b.b) dVar3).EA());
+                    L.k(dVar3.getCacheKey(), ((com.baidu.tbadk.mvc.b.b) dVar3).EZ());
                     writeCacheRespMsg.setSuccess(true);
                 }
             } else if (dVar instanceof f) {
-                o<String> M = com.baidu.tbadk.core.c.a.sW().M(this.ti, str);
+                l<String> M = com.baidu.tbadk.core.c.a.tn().M(this.uP, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar4 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar4 == null) {
-                        BdCacheService.eH().a(M);
+                        BdCacheService.eQ().a(M);
                     } else {
                         M.remove(dVar4.getCacheKey());
                     }
@@ -59,9 +59,9 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (dVar5 == null) {
                         return writeCacheRespMsg;
                     }
-                    String ED = ((f) dVar5).ED();
-                    if (ED != null) {
-                        M.k(dVar5.getCacheKey(), ED);
+                    String Fc = ((f) dVar5).Fc();
+                    if (Fc != null) {
+                        M.k(dVar5.getCacheKey(), Fc);
                         writeCacheRespMsg.setSuccess(true);
                     }
                 }

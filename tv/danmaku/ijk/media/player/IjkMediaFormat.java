@@ -144,10 +144,6 @@ public class IjkMediaFormat implements IMediaFormat {
         private Formatter() {
         }
 
-        /* synthetic */ Formatter(Formatter formatter) {
-            this();
-        }
-
         public String format(IjkMediaFormat ijkMediaFormat) {
             String doFormat = doFormat(ijkMediaFormat);
             if (TextUtils.isEmpty(doFormat)) {

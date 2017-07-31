@@ -4,38 +4,40 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.im.chat.ao;
+import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class MsgMidViewItemAdapter extends ao<ap> {
+public class MsgMidViewItemAdapter extends e<f> {
     public MsgMidViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.ao
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ao.a<ap> aVar) {
+    @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<f> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        aVar.aqb().setData(chatMessage);
-        this.ajP.getLayoutMode().ah(false);
-        this.ajP.getLayoutMode().t(view);
+        aVar.arT().setData(chatMessage);
+        this.alI.getLayoutMode().ah(false);
+        this.alI.getLayoutMode().t(view);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public ao.a<ap> onCreateViewHolder(ViewGroup viewGroup) {
-        ap apVar = new ap(this.ajP);
-        return new a(apVar.cf(), apVar);
+    /* renamed from: aB */
+    public e.a<f> onCreateViewHolder(ViewGroup viewGroup) {
+        f fVar = new f(this.alI);
+        return new a(fVar.cq(), fVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class a extends ao.a<ap> {
-        public a(View view, ap apVar) {
-            super(view, apVar);
+    public class a extends e.a<f> {
+        public a(View view, f fVar) {
+            super(view, fVar);
         }
     }
 }

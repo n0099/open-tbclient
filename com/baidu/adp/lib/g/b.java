@@ -12,7 +12,7 @@ public abstract class b {
         return i;
     }
 
-    public static long c(String str, long j) {
+    public static long d(String str, long j) {
         if (str != null) {
             try {
                 return Long.parseLong(str);

@@ -4,17 +4,17 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.f;
 import com.baidu.tbadk.core.view.viewpager.b;
 import com.baidu.tbadk.core.view.viewpager.b.a;
 /* loaded from: classes.dex */
-public abstract class c<T extends v, V extends b.a> {
-    protected a<T, V> aoc;
+public abstract class c<T extends f, V extends b.a> {
+    protected a<T, V> aqn;
     protected Context mContext;
     protected BdUniqueId mType;
 
     /* loaded from: classes.dex */
-    public interface a<T extends v, V extends b.a> {
+    public interface a<T extends f, V extends b.a> {
         void c(V v, T t);
     }
 
@@ -36,10 +36,10 @@ public abstract class c<T extends v, V extends b.a> {
     }
 
     public void setOnItemClickListener(a<T, V> aVar) {
-        this.aoc = aVar;
+        this.aqn = aVar;
     }
 
-    public a<T, V> xa() {
-        return this.aoc;
+    public a<T, V> xt() {
+        return this.aqn;
     }
 }

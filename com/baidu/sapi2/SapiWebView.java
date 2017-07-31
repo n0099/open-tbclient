@@ -1,5 +1,7 @@
 package com.baidu.sapi2;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -472,6 +474,8 @@ public final class SapiWebView extends WebView {
         }
     }
 
+    @SuppressLint({"AddJavascriptInterface"})
+    @TargetApi(11)
     private void c() {
         this.av = DEFAULT_TIMEOUT_MILLIS;
         this.I = SapiAccountManager.getInstance().getSapiConfiguration();
@@ -518,6 +522,7 @@ public final class SapiWebView extends WebView {
             }
 
             @Override // android.webkit.WebChromeClient
+            @TargetApi(5)
             public void onReachedMaxAppCacheSize(long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
                 quotaUpdater.updateQuota(2 * j2);
             }
@@ -1251,6 +1256,7 @@ public final class SapiWebView extends WebView {
         }
     }
 
+    @SuppressLint({"SetJavaScriptEnabled"})
     private void e() {
         try {
             getSettings().setJavaScriptEnabled(true);
@@ -3758,6 +3764,7 @@ public final class SapiWebView extends WebView {
         }
 
         @Override // android.content.BroadcastReceiver
+        @TargetApi(4)
         public void onReceive(Context context, Intent intent) {
             try {
                 Object[] objArr = (Object[]) intent.getExtras().get("pdus");

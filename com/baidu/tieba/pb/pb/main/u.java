@@ -1,38 +1,49 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-class u extends CustomMessageListener {
-    final /* synthetic */ PbActivity ewh;
+public class u {
+    private BaseActivity bmv;
+    private PbModel eGz;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(PbActivity pbActivity, int i) {
-        super(i);
-        this.ewh = pbActivity;
+    public u(PbModel pbModel, BaseActivity baseActivity) {
+        this.eGz = pbModel;
+        this.bmv = baseActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
-                if (!updateAttentionMessage.getData().CB) {
-                    if (updateAttentionMessage.getData().errorString != null) {
-                        this.ewh.showToast(updateAttentionMessage.getData().errorString);
-                        return;
-                    }
-                    return;
-                }
-                this.ewh.b(updateAttentionMessage);
-                if (this.ewh.aMC().getAuthor() != null && this.ewh.aMC().getAuthor().getGodUserData() != null) {
-                    this.ewh.aMC().getAuthor().getGodUserData().setIsLike(updateAttentionMessage.isAttention());
-                }
-                this.ewh.c(updateAttentionMessage);
-            }
+    public String W(Intent intent) {
+        int length;
+        if (intent == null || intent.getData() == null) {
+            return null;
         }
+        String dataString = intent.getDataString();
+        if (StringUtils.isNull(dataString) || !dataString.startsWith("tbpb://")) {
+            return null;
+        }
+        String decode = Uri.decode(intent.getData().getEncodedPath());
+        if (StringUtils.isNull(decode)) {
+            return null;
+        }
+        Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\\\d]+).*").matcher(decode);
+        if (matcher.find()) {
+            if ("mpush".equals(matcher.group(1))) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c11895").aa("tid", matcher.group(2)));
+            } else if ("bpush".equals(matcher.group(1))) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c10320").r("obj_locate", 3).r("obj_type", 1));
+            }
+            return matcher.group(2);
+        }
+        TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c10320").r("obj_locate", 3).r("obj_type", 1));
+        int indexOf = decode.indexOf("tid=");
+        if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
+            return null;
+        }
+        return decode.substring(length);
     }
 }

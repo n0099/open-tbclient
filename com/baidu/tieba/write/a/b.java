@@ -2,6 +2,7 @@ package com.baidu.tieba.write.a;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.StoryPageActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,30 +10,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private final ArrayList<MetaData> ggR = new ArrayList<>();
-    private HashMap<String, String> ggS = null;
+    private final ArrayList<MetaData> gCd = new ArrayList<>();
+    private HashMap<String, String> gCe = null;
 
     public void b(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.ggS == null) {
-                        this.ggS = new HashMap<>();
+                    if (this.gCe == null) {
+                        this.gCe = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     return;
                 }
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+            JSONArray optJSONArray = jSONObject.optJSONArray(StoryPageActivityConfig.USER_LIST);
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.ggR.add(metaData);
+                        this.gCd.add(metaData);
                         if (z) {
-                            this.ggS.put(metaData.getName_show(), metaData.getPortrait());
+                            this.gCe.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,7 +41,7 @@ public class b {
         }
     }
 
-    public void sj(String str) {
+    public void sV(String str) {
         try {
             b(new JSONObject(str), true);
         } catch (Exception e) {
@@ -48,11 +49,11 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> bsI() {
-        return this.ggR;
+    public ArrayList<MetaData> byy() {
+        return this.gCd;
     }
 
-    public HashMap<String, String> bsJ() {
-        return this.ggS;
+    public HashMap<String, String> byz() {
+        return this.gCe;
     }
 }

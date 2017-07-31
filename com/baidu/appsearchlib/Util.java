@@ -14,7 +14,7 @@ public class Util {
         return System.currentTimeMillis() / 1000;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0005: INVOKE  (r1v0 long A[REMOVE]) =  type: STATIC call: com.baidu.appsearchlib.Util.getTime():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0005: INVOKE  (r2v0 long A[REMOVE]) =  type: STATIC call: com.baidu.appsearchlib.Util.getTime():long)] */
     public static String getTimeStr() {
         return new StringBuilder().append(getTime()).toString();
     }
@@ -33,7 +33,7 @@ public class Util {
         return packageInfo2 == null ? "0" : packageInfo2.versionName;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x004d -> B:17:0x000a). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x004e -> B:17:0x000a). Please submit an issue!!! */
     public static String getDeviceId(Context context) {
         String str;
         String deviceId;

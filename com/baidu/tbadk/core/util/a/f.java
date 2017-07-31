@@ -10,14 +10,16 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.trafficStats.ITrafficStatsNativeManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.regex.Pattern;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -34,96 +36,102 @@ import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.DefaultRedirectHandler;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.protocol.HttpContext;
 /* loaded from: classes.dex */
-public class f implements a.InterfaceC0005a {
-    private static int afd;
-    public static String ahn;
-    private static HttpClient aho;
-    private static String aht;
-    private static int ahu;
-    private static long ahv;
-    private HttpGet ahj;
-    private final com.baidu.adp.lib.network.http.f ahm;
-    public boolean ahr;
+public class f implements a.InterfaceC0006a {
+    private static int agU;
+    public static String ajc;
+    private static HttpClient ajd;
+    private static String aji;
+    private static int ajj;
+    private static long ajk;
+    private HttpGet aiY;
+    private final com.baidu.adp.lib.network.http.e ajb;
+    public boolean ajg;
     private final Context mContext;
-    private static volatile String ahh = null;
-    private static volatile boolean ahi = false;
+    private static volatile String aiW = null;
+    private static volatile boolean aiX = false;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
-    public static BasicHttpParams ahp = new BasicHttpParams();
-    private boolean sa = false;
-    private boolean ahq = false;
-    private int ahs = 0;
-    private int ahk = 0;
-    private volatile boolean ahl = false;
+    public static BasicHttpParams aje = new BasicHttpParams();
+    private boolean tI = false;
+    private boolean ajf = false;
+    private int ajh = 0;
+    private int aiZ = 0;
+    private volatile boolean aja = false;
 
     static {
-        afd = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
-        HttpConnectionParams.setConnectionTimeout(ahp, 5000);
-        HttpConnectionParams.setSoTimeout(ahp, 30000);
-        HttpConnectionParams.setSocketBufferSize(ahp, 1024);
-        HttpConnectionParams.setTcpNoDelay(ahp, true);
-        HttpClientParams.setRedirecting(ahp, true);
-        ConnManagerParams.setMaxConnectionsPerRoute(ahp, new ConnPerRouteBean(15));
-        ConnManagerParams.setTimeout(ahp, 10000L);
-        ConnManagerParams.setMaxTotalConnections(ahp, 15);
-        HttpProtocolParams.setUserAgent(ahp, "bdtb for Android " + TbConfig.getVersion());
+        agU = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
+        HttpConnectionParams.setConnectionTimeout(aje, 5000);
+        HttpConnectionParams.setSoTimeout(aje, 30000);
+        HttpConnectionParams.setSocketBufferSize(aje, 1024);
+        HttpConnectionParams.setTcpNoDelay(aje, true);
+        HttpClientParams.setRedirecting(aje, true);
+        ConnManagerParams.setMaxConnectionsPerRoute(aje, new ConnPerRouteBean(15));
+        ConnManagerParams.setTimeout(aje, 10000L);
+        ConnManagerParams.setMaxTotalConnections(aje, 15);
+        HttpProtocolParams.setUserAgent(aje, "bdtb for Android " + TbConfig.getVersion());
         SchemeRegistry schemeRegistry = new SchemeRegistry();
         schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
         schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
-        aho = new DefaultHttpClient(new ThreadSafeClientConnManager(ahp, schemeRegistry), ahp);
-        aho.setRedirectHandler(new g());
+        ajd = new DefaultHttpClient(new ThreadSafeClientConnManager(aje, schemeRegistry), aje);
+        ajd.setRedirectHandler(new DefaultRedirectHandler() { // from class: com.baidu.tbadk.core.util.a.f.1
+            public boolean isRedirectRequested(HttpResponse httpResponse, HttpContext httpContext) {
+                return false;
+            }
+        });
         if (Runtime.getRuntime().maxMemory() >= 67108864) {
-            afd = 4194304;
+            agU = 4194304;
         }
-        aht = null;
-        ahu = 0;
-        ahv = System.currentTimeMillis();
+        aji = null;
+        ajj = 0;
+        ajk = System.currentTimeMillis();
     }
 
-    public f(com.baidu.adp.lib.network.http.f fVar) {
-        vW();
-        this.ahm = fVar;
-        this.mContext = TbadkCoreApplication.m9getInst().getApp();
+    public f(com.baidu.adp.lib.network.http.e eVar) {
+        wm();
+        this.ajb = eVar;
+        this.mContext = TbadkCoreApplication.getInst().getApp();
     }
 
-    public static void vW() {
+    public static void wm() {
         synchronized (f.class) {
-            if (!ahi) {
-                ahi = true;
-                vX();
+            if (!aiX) {
+                aiX = true;
+                wn();
             }
         }
     }
 
-    public static synchronized void vX() {
+    public static synchronized void wn() {
         synchronized (f.class) {
             try {
-                Cursor query = TbadkCoreApplication.m9getInst().getApp().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
+                Cursor query = TbadkCoreApplication.getInst().getApp().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
                 if (query != null && query.moveToNext()) {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    ahh = "Basic " + com.baidu.adp.lib.util.c.encodeBytes((String.valueOf(string) + ":" + string2).getBytes());
+                    aiW = "Basic " + com.baidu.adp.lib.util.c.encodeBytes((string + ":" + string2).getBytes());
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    public void fr() {
-        this.ahl = true;
-        this.ahm.fB().vP = true;
-        vY();
+    public void fA() {
+        this.aja = true;
+        this.ajb.fK().xs = true;
+        wo();
     }
 
-    private void vY() {
+    private void wo() {
         try {
-            if (this.ahj != null) {
-                this.ahj.abort();
+            if (this.aiY != null) {
+                this.aiY.abort();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -133,28 +141,28 @@ public class f implements a.InterfaceC0005a {
     private void l(String str, String str2, String str3) {
         boolean z;
         if (e.getInstance() != null) {
-            if (!e.getInstance().ahf) {
+            if (!e.getInstance().aiU) {
                 e.getInstance().init();
             }
             z = true;
         } else {
             z = false;
         }
-        if (com.baidu.adp.lib.util.i.hj()) {
-            this.ahr = false;
+        if (com.baidu.adp.lib.util.i.hr()) {
+            this.ajg = false;
             try {
-                if (com.baidu.adp.lib.util.i.hl()) {
+                if (com.baidu.adp.lib.util.i.ht()) {
                     URL url = new URL(str);
                     synchronized (f.class) {
-                        if (ahn == null) {
-                            ahn = com.baidu.adp.lib.util.i.ht();
+                        if (ajc == null) {
+                            ajc = com.baidu.adp.lib.util.i.hB();
                         }
-                        if (ahn != null && ahn.length() > 0) {
-                            this.ahr = true;
-                            if (ec(ahn) && com.baidu.adp.lib.util.i.hv()) {
+                        if (ajc != null && ajc.length() > 0) {
+                            this.ajg = true;
+                            if (el(ajc) && com.baidu.adp.lib.util.i.hD()) {
                                 StringBuilder sb = new StringBuilder(80);
                                 sb.append("http://");
-                                sb.append(ahn);
+                                sb.append(ajc);
                                 String file = url.getFile();
                                 if (file != null && file.startsWith("?")) {
                                     sb.append("/");
@@ -162,41 +170,41 @@ public class f implements a.InterfaceC0005a {
                                 sb.append(file);
                                 if (z) {
                                     if (str2 == null || str2.length() == 0) {
-                                        this.ahj = e.getInstance().httpGetFactory(sb.toString(), this.ahs, false);
+                                        this.aiY = e.getInstance().httpGetFactory(sb.toString(), this.ajh, false);
                                     } else {
-                                        this.ahj = e.getInstance().httpGetFactory(str, str2, str3);
+                                        this.aiY = e.getInstance().httpGetFactory(str, str2, str3);
                                     }
                                 } else {
-                                    this.ahj = new HttpGet(sb.toString());
+                                    this.aiY = new HttpGet(sb.toString());
                                 }
-                                this.ahj.setHeader("X-Online-Host", url.getHost());
+                                this.aiY.setHeader("X-Online-Host", url.getHost());
                                 if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                                    this.ahj.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
+                                    this.aiY.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
                                 }
                             } else {
-                                Object parameter = ahp.getParameter("http.route.default-proxy");
+                                Object parameter = aje.getParameter("http.route.default-proxy");
                                 if (parameter == null || !(parameter instanceof HttpHost)) {
-                                    ahp.setParameter("http.route.default-proxy", new HttpHost(ahn, com.baidu.adp.lib.util.i.hu()));
+                                    aje.setParameter("http.route.default-proxy", new HttpHost(ajc, com.baidu.adp.lib.util.i.hC()));
                                 } else {
                                     HttpHost httpHost = (HttpHost) parameter;
-                                    if (httpHost.getHostName() == null || !httpHost.getHostName().equals(ahn) || httpHost.getPort() != com.baidu.adp.lib.util.i.hu()) {
-                                        ahp.setParameter("http.route.default-proxy", new HttpHost(ahn, com.baidu.adp.lib.util.i.hu()));
+                                    if (httpHost.getHostName() == null || !httpHost.getHostName().equals(ajc) || httpHost.getPort() != com.baidu.adp.lib.util.i.hC()) {
+                                        aje.setParameter("http.route.default-proxy", new HttpHost(ajc, com.baidu.adp.lib.util.i.hC()));
                                     }
                                 }
                                 if (z) {
                                     if (str2 == null || str2.length() == 0) {
-                                        this.ahj = e.getInstance().httpGetFactory(str, this.ahs, false);
+                                        this.aiY = e.getInstance().httpGetFactory(str, this.ajh, false);
                                     } else {
-                                        this.ahj = e.getInstance().httpGetFactory(str, str2, str3);
+                                        this.aiY = e.getInstance().httpGetFactory(str, str2, str3);
                                     }
                                 } else {
-                                    this.ahj = new HttpGet(str);
+                                    this.aiY = new HttpGet(str);
                                 }
-                                if (ahh != null) {
-                                    this.ahj.setHeader("Proxy-Authorization", ahh);
+                                if (aiW != null) {
+                                    this.aiY.setHeader("Proxy-Authorization", aiW);
                                 }
                                 if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                                    this.ahj.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
+                                    this.aiY.setHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
                                 }
                             }
                         }
@@ -204,76 +212,114 @@ public class f implements a.InterfaceC0005a {
                 }
                 if (z) {
                     if (str2 == null || str2.length() == 0) {
-                        if (com.baidu.adp.lib.util.i.hl()) {
-                            if (!this.ahr || this.ahj == null) {
-                                this.ahj = e.getInstance().httpGetFactory(str, this.ahs, false);
+                        if (com.baidu.adp.lib.util.i.ht()) {
+                            if (!this.ajg || this.aiY == null) {
+                                this.aiY = e.getInstance().httpGetFactory(str, this.ajh, false);
                             }
                         } else {
-                            this.ahj = e.getInstance().httpGetFactory(str, this.ahs, true);
+                            this.aiY = e.getInstance().httpGetFactory(str, this.ajh, true);
                         }
                     } else {
-                        this.ahj = e.getInstance().httpGetFactory(str, str2, str3);
+                        this.aiY = e.getInstance().httpGetFactory(str, str2, str3);
                     }
                 } else {
-                    this.ahj = new HttpGet(str);
+                    this.aiY = new HttpGet(str);
                 }
-                this.ahj.setHeader("needginfo", "1");
+                this.aiY.setHeader("needginfo", "1");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private boolean ec(String str) {
+    private boolean el(String str) {
         if (mPattern.matcher(str).find()) {
             return true;
         }
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [633=13, 634=13, 638=13, 644=13, 645=13, 646=13, 647=13, 648=13, 649=26, 651=13, 652=13, 653=13, 654=13, 657=13, 658=26, 659=13, 660=13, 661=26, 662=13, 663=13, 664=13, 665=13, 667=26, 668=13] */
-    /* JADX WARN: Code restructure failed: missing block: B:483:0x09a7, code lost:
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [633=13, 634=13, 638=13, 644=13, 645=13, 646=13, 647=13, 648=13, 649=26, 651=13, 652=13, 654=13, 657=13, 659=26, 660=13, 662=13, 665=13, 667=13, 672=6] */
+    /* JADX WARN: Code restructure failed: missing block: B:492:0x097d, code lost:
         r12.close();
      */
-    /* JADX WARN: Removed duplicated region for block: B:652:0x0c75  */
-    /* JADX WARN: Removed duplicated region for block: B:664:0x0c93  */
-    /* JADX WARN: Removed duplicated region for block: B:672:0x0cb6  */
-    /* JADX WARN: Removed duplicated region for block: B:757:0x0c55 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x031e  */
+    /* JADX WARN: Removed duplicated region for block: B:163:0x033b  */
+    /* JADX WARN: Removed duplicated region for block: B:185:0x03da  */
+    /* JADX WARN: Removed duplicated region for block: B:197:0x03f7  */
+    /* JADX WARN: Removed duplicated region for block: B:219:0x04bb  */
+    /* JADX WARN: Removed duplicated region for block: B:231:0x04d8  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00f6  */
+    /* JADX WARN: Removed duplicated region for block: B:452:0x08a3 A[Catch: SocketException -> 0x0536, SocketTimeoutException -> 0x09f5, HttpException -> 0x09ff, all -> 0x0c20, Throwable -> 0x0ce4, IllegalStateException -> 0x0cf4, IOException -> 0x0d00, TRY_ENTER, TryCatch #0 {all -> 0x0c20, blocks: (B:238:0x0500, B:240:0x050b, B:242:0x0516, B:244:0x0519, B:246:0x052d, B:247:0x0535, B:250:0x053a, B:252:0x0540, B:254:0x055c, B:256:0x0563, B:339:0x0699, B:341:0x06a2, B:383:0x074d, B:385:0x0767, B:387:0x0778, B:392:0x0785, B:394:0x07ae, B:395:0x07bb, B:397:0x07c6, B:399:0x07de, B:400:0x07e4, B:402:0x07ea, B:404:0x07ee, B:406:0x07f8, B:409:0x080b, B:452:0x08a3, B:454:0x08a7, B:455:0x08ab, B:457:0x08b4, B:459:0x08be, B:461:0x08c7, B:464:0x08de, B:466:0x08f9, B:468:0x0904, B:470:0x090e, B:520:0x09f8, B:472:0x091b, B:474:0x0922, B:476:0x0930, B:610:0x0b45, B:209:0x0446, B:175:0x036c, B:141:0x02b0, B:61:0x0149, B:517:0x09d7, B:407:0x0804), top: B:759:0x0500 }] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0113  */
+    /* JADX WARN: Removed duplicated region for block: B:540:0x0a3a  */
+    /* JADX WARN: Removed duplicated region for block: B:554:0x0a70  */
+    /* JADX WARN: Removed duplicated region for block: B:568:0x0aa6  */
+    /* JADX WARN: Removed duplicated region for block: B:582:0x0adc  */
+    /* JADX WARN: Removed duplicated region for block: B:596:0x0b12  */
+    /* JADX WARN: Removed duplicated region for block: B:620:0x0bb3  */
+    /* JADX WARN: Removed duplicated region for block: B:632:0x0bd0  */
+    /* JADX WARN: Removed duplicated region for block: B:639:0x0bf2  */
+    /* JADX WARN: Removed duplicated region for block: B:662:0x0c42  */
+    /* JADX WARN: Removed duplicated region for block: B:674:0x0c5f  */
+    /* JADX WARN: Removed duplicated region for block: B:682:0x0c80  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x01b7  */
+    /* JADX WARN: Removed duplicated region for block: B:768:0x0b95 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:770:0x049d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:772:0x03bc A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:774:0x0c24 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:776:0x00d8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:784:0x0300 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:786:0x0199 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:793:0x0816 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x01d4  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void d(String str, String str2, int i) {
         long currentTimeMillis;
-        com.baidu.adp.lib.network.http.e eVar;
+        com.baidu.adp.lib.network.http.d dVar;
         String c;
         InputStream inputStream;
         Throwable th;
+        boolean hs;
         boolean z;
+        boolean hs2;
         boolean z2;
+        boolean hs3;
         boolean z3;
-        boolean hk;
+        boolean hs4;
         boolean z4;
+        boolean hs5;
         boolean z5;
+        boolean hs6;
         boolean z6;
+        boolean hs7;
         boolean z7;
         long currentTimeMillis2;
         boolean z8;
         boolean z9;
+        int i2;
         boolean z10;
         boolean z11;
         boolean z12;
         String value;
-        String value2;
+        byte[] bArr;
+        byte[] bArr2;
+        byte[] bArr3;
+        byte[] bArr4;
+        byte[] bArr5;
+        byte[] bArr6;
         int read;
         String obj;
         boolean z13;
         boolean z14;
         Header[] headers;
-        byte[] bArr = null;
+        byte[] bArr7 = null;
         boolean z15 = false;
         if (e.getInstance() != null) {
             z15 = true;
-            if (!e.getInstance().ahf) {
+            if (!e.getInstance().aiU) {
                 e.getInstance().init();
             }
         }
@@ -282,86 +328,86 @@ public class f implements a.InterfaceC0005a {
             i = 5;
         }
         boolean z17 = false;
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
-            if (this.ahl || i2 >= i) {
+            if (this.aja || i3 >= i) {
                 break;
             }
-            this.ahs = i2;
+            this.ajh = i3;
             currentTimeMillis = System.currentTimeMillis();
-            eVar = new com.baidu.adp.lib.network.http.e();
-            this.ahm.a(eVar);
-            eVar.vB = -1;
+            dVar = new com.baidu.adp.lib.network.http.d();
+            this.ajb.a(dVar);
+            dVar.xe = -1;
             InputStream inputStream2 = null;
-            c = this.ahm.fA().c(eVar);
+            c = this.ajb.fJ().c(dVar);
             try {
-                eVar.vB = -2;
+                dVar.xe = -2;
                 currentTimeMillis2 = System.currentTimeMillis();
                 if (str == null || str.length() == 0) {
                     l(c, null, null);
                     if (z16) {
-                        eVar.vC = e.getInstance().getCachedCdnIp(this.ahs);
+                        dVar.xf = e.getInstance().getCachedCdnIp(this.ajh);
                     }
                 } else {
                     l(c, str, str2);
-                    eVar.vC = str;
+                    dVar.xf = str;
                 }
-                eVar.vB = -3;
-            } catch (IllegalStateException e) {
+                dVar.xe = -3;
+            } catch (SocketException e) {
                 e = e;
-                inputStream = null;
-            } catch (SocketException e2) {
+            } catch (SocketTimeoutException e2) {
                 e = e2;
+                inputStream = null;
             } catch (IOException e3) {
                 e = e3;
                 inputStream = null;
-            } catch (HttpException e4) {
+            } catch (IllegalStateException e4) {
                 e = e4;
                 inputStream = null;
-            } catch (SocketTimeoutException e5) {
+            } catch (HttpException e5) {
                 e = e5;
                 inputStream = null;
             } catch (Throwable th2) {
                 th = th2;
                 inputStream = null;
             }
-            if (this.ahj == null) {
+            if (this.aiY == null) {
                 throw new SocketException("network not available.");
             }
-            if (this.ahl) {
+            if (this.aja) {
                 if (0 != 0) {
                     try {
                         inputStream2.close();
                     } catch (Exception e6) {
                     }
                 }
-                vY();
-                this.ahm.b(eVar);
+                wo();
+                this.ajb.b(dVar);
                 if ((str == null || str.length() == 0) && c != null) {
-                    boolean hk2 = com.baidu.adp.lib.util.i.hk();
-                    if ((hk2 ? eVar.vC != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
+                    boolean hs8 = com.baidu.adp.lib.util.i.hs();
+                    if ((hs8 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
                         long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis;
-                        if (hk2) {
-                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                        } else if (com.baidu.adp.lib.util.i.ho()) {
-                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().QM);
+                        if (hs8) {
+                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                        } else if (com.baidu.adp.lib.util.i.hw()) {
+                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().Sy);
                         } else {
-                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().QL);
+                            z8 = currentTimeMillis3 > ((long) e.getInstance().getCDNImageTimeData().Sx);
                         }
-                        e.getInstance().result(c, eVar.vC, z17, z8, hk2);
+                        e.getInstance().result(c, dVar.xf, z17, z8, hs8);
                     }
                 }
             } else {
-                eVar.vB = -8;
-                HttpResponse execute = aho.execute(this.ahj);
+                dVar.xe = -8;
+                HttpResponse execute = ajd.execute(this.aiY);
                 if (execute == null) {
                     throw new SocketException("httpResponse is null.");
                 }
                 if (execute.getStatusLine() == null) {
                     throw new SocketException("httpResponse getStatusLine is null.");
                 }
-                this.ahm.fB().responseCode = execute.getStatusLine().getStatusCode();
-                eVar.vA = this.ahm.fB().responseCode;
+                this.ajb.fK().responseCode = execute.getStatusLine().getStatusCode();
+                dVar.xd = this.ajb.fK().responseCode;
                 if (execute.getEntity() == null) {
                     throw new SocketException("httpResponse getEntity is null.");
                 }
@@ -370,23 +416,23 @@ public class f implements a.InterfaceC0005a {
                 try {
                     try {
                         if (c.contains("c.tieba.baidu.com") && (headers = execute.getHeaders("Tracecode")) != null && headers.length > 0) {
-                            eVar.vE = headers[0].getValue();
-                            eVar.vF = headers[1].getValue();
+                            dVar.xh = headers[0].getValue();
+                            dVar.xi = headers[1].getValue();
                         }
                     } catch (Throwable th3) {
                         th = th3;
                     }
-                } catch (HttpException e7) {
+                } catch (SocketTimeoutException e7) {
                     e = e7;
-                } catch (SocketException e8) {
+                } catch (IOException e8) {
                     e = e8;
-                    inputStream2 = inputStream;
-                } catch (SocketTimeoutException e9) {
+                } catch (HttpException e9) {
                     e = e9;
-                } catch (IOException e10) {
+                } catch (IllegalStateException e10) {
                     e = e10;
-                } catch (IllegalStateException e11) {
+                } catch (SocketException e11) {
                     e = e11;
+                    inputStream2 = inputStream;
                 } catch (Throwable th4) {
                     th = th4;
                 }
@@ -395,37 +441,37 @@ public class f implements a.InterfaceC0005a {
                 }
                 if (entity.getContentType() != null) {
                     String obj2 = entity.getContentType().toString();
-                    this.ahm.fB().contentType = obj2;
+                    this.ajb.fK().contentType = obj2;
                     if (obj2.contains("text/vnd.wap.wml")) {
-                        if (this.ahk < 1) {
-                            vY();
-                            this.ahk++;
-                            this.ahm.fB().responseCode = 0;
-                            i2--;
+                        if (this.aiZ < 1) {
+                            wo();
+                            this.aiZ++;
+                            this.ajb.fK().responseCode = 0;
+                            i3--;
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
                                 } catch (Exception e12) {
                                 }
                             }
-                            vY();
-                            this.ahm.b(eVar);
+                            wo();
+                            this.ajb.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
-                                boolean hk3 = com.baidu.adp.lib.util.i.hk();
-                                if ((hk3 ? eVar.vC != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
+                                boolean hs9 = com.baidu.adp.lib.util.i.hs();
+                                if ((hs9 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
                                     long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis;
-                                    if (hk3) {
-                                        z14 = currentTimeMillis4 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                                    } else if (com.baidu.adp.lib.util.i.ho()) {
-                                        z14 = currentTimeMillis4 > ((long) e.getInstance().getCDNImageTimeData().QM);
+                                    if (hs9) {
+                                        z14 = currentTimeMillis4 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                                    } else if (com.baidu.adp.lib.util.i.hw()) {
+                                        z14 = currentTimeMillis4 > ((long) e.getInstance().getCDNImageTimeData().Sy);
                                     } else {
-                                        z14 = currentTimeMillis4 > ((long) e.getInstance().getCDNImageTimeData().QL);
+                                        z14 = currentTimeMillis4 > ((long) e.getInstance().getCDNImageTimeData().Sx);
                                     }
-                                    e.getInstance().result(c, eVar.vC, z17, z14, hk3);
+                                    e.getInstance().result(c, dVar.xf, z17, z14, hs9);
                                 }
                             }
-                            i2++;
-                            bArr = bArr;
+                            i3++;
+                            bArr7 = bArr7;
                         } else {
                             if (inputStream != null) {
                                 try {
@@ -433,359 +479,509 @@ public class f implements a.InterfaceC0005a {
                                 } catch (Exception e13) {
                                 }
                             }
-                            vY();
-                            this.ahm.b(eVar);
+                            wo();
+                            this.ajb.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
-                                boolean hk4 = com.baidu.adp.lib.util.i.hk();
-                                if ((hk4 ? eVar.vC != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
+                                boolean hs10 = com.baidu.adp.lib.util.i.hs();
+                                if ((hs10 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
                                     long currentTimeMillis5 = System.currentTimeMillis() - currentTimeMillis;
-                                    if (hk4) {
-                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                                    } else if (com.baidu.adp.lib.util.i.ho()) {
-                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().QM);
+                                    if (hs10) {
+                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                                    } else if (com.baidu.adp.lib.util.i.hw()) {
+                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().Sy);
                                     } else {
-                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().QL);
+                                        z13 = currentTimeMillis5 > ((long) e.getInstance().getCDNImageTimeData().Sx);
                                     }
-                                    e.getInstance().result(c, eVar.vC, z17, z13, hk4);
+                                    e.getInstance().result(c, dVar.xf, z17, z13, hs10);
                                 }
                             }
                         }
                     }
                 }
-                if (((int) entity.getContentLength()) > afd) {
-                    this.ahm.fB().vQ = -11;
-                    eVar.vz = this.mContext.getResources().getString(w.l.data_too_big);
+                if (((int) entity.getContentLength()) > agU) {
+                    this.ajb.fK().xt = -11;
+                    dVar.xc = this.mContext.getResources().getString(d.l.data_too_big);
                     if (inputStream != null) {
                         try {
                             inputStream.close();
                         } catch (Exception e14) {
                         }
                     }
-                    vY();
-                    this.ahm.b(eVar);
+                    wo();
+                    this.ajb.b(dVar);
                     if ((str == null || str.length() == 0) && c != null) {
-                        boolean hk5 = com.baidu.adp.lib.util.i.hk();
-                        if ((hk5 ? eVar.vC != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
+                        boolean hs11 = com.baidu.adp.lib.util.i.hs();
+                        if ((hs11 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
                             long currentTimeMillis6 = System.currentTimeMillis() - currentTimeMillis;
-                            if (hk5) {
-                                z9 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                            } else if (com.baidu.adp.lib.util.i.ho()) {
-                                z9 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().QM);
+                            if (hs11) {
+                                z9 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                            } else if (com.baidu.adp.lib.util.i.hw()) {
+                                z9 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().Sy);
                             } else {
-                                z9 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().QL);
+                                z9 = currentTimeMillis6 > ((long) e.getInstance().getCDNImageTimeData().Sx);
                             }
-                            e.getInstance().result(c, eVar.vC, z17, z9, hk5);
+                            e.getInstance().result(c, dVar.xf, z17, z9, hs11);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                byte[] bArr2 = new byte[1024];
+                byte[] bArr8 = new byte[1024];
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                int i3 = 0;
+                int i4 = 0;
                 boolean z18 = false;
                 if (execute.getFirstHeader("imgsrc") != null && (obj = execute.getFirstHeader("imgsrc").toString()) != null && obj.length() > 0) {
                     z18 = true;
                 }
                 if (z18) {
-                    byte[] bArr3 = new byte[23];
-                    int read2 = inputStream.read(bArr3, 0, 23);
-                    if (!new String(bArr3, 0, bArr3.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
-                        byteArrayOutputStream.write(bArr3, 0, read2);
-                        i3 = 0 + read2;
+                    byte[] bArr9 = new byte[23];
+                    int read2 = inputStream.read(bArr9, 0, 23);
+                    if (!new String(bArr9, 0, bArr9.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
+                        byteArrayOutputStream.write(bArr9, 0, read2);
+                        i4 = 0 + read2;
                     }
                 }
                 if (execute.getFirstHeader("Src-Content-Type") != null) {
                     if ("image/gif".equalsIgnoreCase(execute.getFirstHeader("Src-Content-Type").getValue())) {
-                        this.sa = true;
-                    } else {
-                        this.sa = false;
-                    }
-                }
-                while (!this.ahl && i3 < afd && (read = inputStream.read(bArr2)) != -1) {
-                    byteArrayOutputStream.write(bArr2, 0, read);
-                    i3 += read;
-                }
-                eVar.vB = -9;
-                if (this.ahl) {
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e15) {
+                        this.tI = true;
+                        i2 = i4;
+                        while (!this.aja && i2 < agU && (read = inputStream.read(bArr8)) != -1) {
+                            byteArrayOutputStream.write(bArr8, 0, read);
+                            i2 = read + i2;
                         }
-                    }
-                    vY();
-                    this.ahm.b(eVar);
-                    if ((str == null || str.length() == 0) && c != null) {
-                        boolean hk6 = com.baidu.adp.lib.util.i.hk();
-                        if ((hk6 ? eVar.vC != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
-                            long currentTimeMillis7 = System.currentTimeMillis() - currentTimeMillis;
-                            if (hk6) {
-                                z10 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                            } else if (com.baidu.adp.lib.util.i.ho()) {
-                                z10 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().QM);
-                            } else {
-                                z10 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().QL);
-                            }
-                            e.getInstance().result(c, eVar.vC, z17, z10, hk6);
-                        }
-                    }
-                } else {
-                    if (i3 < afd) {
-                        bArr = byteArrayOutputStream.toByteArray();
-                        byteArrayOutputStream.close();
-                        if (entity.getContentEncoding() != null && (value2 = entity.getContentEncoding().getValue()) != null && value2.contains("gzip")) {
-                            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-                            ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                            com.baidu.adp.lib.util.f.c(byteArrayInputStream, byteArrayOutputStream2);
-                            bArr = byteArrayOutputStream2.toByteArray();
-                        }
-                    } else {
-                        this.ahm.fB().vQ = -11;
-                        eVar.vz = this.mContext.getResources().getString(w.l.data_too_big);
-                    }
-                    eVar.vu = i3;
-                    eVar.vw = i2 + 1;
-                    eVar.vv = System.currentTimeMillis() - currentTimeMillis2;
-                    if (execute.getFirstHeader("Error-Message") != null) {
-                        Header firstHeader = execute.getFirstHeader("Error-Message");
-                        if (firstHeader == null || TextUtils.isEmpty(firstHeader.getValue()) || firstHeader.getValue().equalsIgnoreCase("OK")) {
-                            this.ahq = false;
-                        } else {
-                            this.ahq = true;
-                        }
-                    }
-                    z11 = (i3 <= 0 || !(this.ahm.fB().responseCode == 200 || this.ahm.fB().responseCode == 302)) ? z17 : true;
-                    try {
-                        if (ITrafficStatsNativeManager.kl() != null && eVar != null) {
-                            ITrafficStatsNativeManager.kl().c(TbConfig.TMP_PIC_DIR_NAME, eVar.vt, eVar.vu);
-                        }
-                        if (execute.getFirstHeader("ginfo") != null && (value = execute.getFirstHeader("ginfo").getValue()) != null && value.length() > 0) {
-                            ed(value);
-                            break;
-                        }
-                        break;
-                    } catch (HttpException e16) {
-                        e = e16;
-                        z17 = z11;
-                        this.ahm.fB().vQ = -18;
-                        eVar.vz = "errorCode:" + String.valueOf(this.ahm.fB().vQ) + "|" + e.getClass() + "|" + e.getMessage();
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Exception e17) {
-                            }
-                        }
-                        vY();
-                        this.ahm.b(eVar);
-                        if ((str == null || str.length() == 0) && c != null) {
-                            boolean hk7 = com.baidu.adp.lib.util.i.hk();
-                            if ((hk7 ? eVar.vC != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
-                                long currentTimeMillis8 = System.currentTimeMillis() - currentTimeMillis;
-                                if (hk7) {
-                                    z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                                } else if (com.baidu.adp.lib.util.i.ho()) {
-                                    z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().QM);
-                                } else {
-                                    z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().QL);
-                                }
-                                e.getInstance().result(c, eVar.vC, z17, z7, hk7);
-                            }
-                        }
-                        i2++;
-                        bArr = bArr;
-                    } catch (IllegalStateException e18) {
-                        e = e18;
-                        z17 = z11;
-                        this.ahm.fB().vQ = -19;
-                        eVar.vz = "errorCode:" + String.valueOf(this.ahm.fB().vQ) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Exception e19) {
-                            }
-                        }
-                        vY();
-                        this.ahm.b(eVar);
-                        if ((str == null || str.length() == 0) && c != null) {
-                            boolean hk8 = com.baidu.adp.lib.util.i.hk();
-                            if ((hk8 ? eVar.vC != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
-                                long currentTimeMillis9 = System.currentTimeMillis() - currentTimeMillis;
-                                if (hk8) {
-                                    z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                                } else if (com.baidu.adp.lib.util.i.ho()) {
-                                    z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().QM);
-                                } else {
-                                    z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().QL);
-                                }
-                                e.getInstance().result(c, eVar.vC, z17, z6, hk8);
-                            }
-                        }
-                        i2++;
-                        bArr = bArr;
-                    } catch (SocketException e20) {
-                        e = e20;
-                        inputStream2 = inputStream;
-                        z17 = z11;
-                        try {
-                            this.ahm.fB().vQ = -12;
-                            eVar.vz = "errorCode:" + String.valueOf(this.ahm.fB().vQ) + "|" + e.getClass() + "|" + e.getMessage();
-                            if (inputStream2 != null) {
-                                try {
-                                    inputStream2.close();
-                                } catch (Exception e21) {
-                                }
-                            }
-                            vY();
-                            this.ahm.b(eVar);
-                            if ((str == null || str.length() == 0) && c != null) {
-                                boolean hk9 = com.baidu.adp.lib.util.i.hk();
-                                if ((hk9 ? eVar.vC != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
-                                    long currentTimeMillis10 = System.currentTimeMillis() - currentTimeMillis;
-                                    if (hk9) {
-                                        z5 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                                    } else if (com.baidu.adp.lib.util.i.ho()) {
-                                        z5 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().QM);
-                                    } else {
-                                        z5 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().QL);
-                                    }
-                                    e.getInstance().result(c, eVar.vC, z17, z5, hk9);
-                                }
-                            }
-                            i2++;
-                            bArr = bArr;
-                        } catch (Throwable th5) {
-                            th = th5;
-                            inputStream = inputStream2;
+                        dVar.xe = -9;
+                        if (!this.aja) {
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
-                                } catch (Exception e22) {
+                                } catch (Exception e15) {
                                 }
                             }
-                            vY();
-                            this.ahm.b(eVar);
-                            if ((str != null || str.length() == 0) && c != null) {
-                                hk = com.baidu.adp.lib.util.i.hk();
-                                if ((hk ? eVar.vC != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
-                                    long currentTimeMillis11 = System.currentTimeMillis() - currentTimeMillis;
-                                    if (!hk) {
-                                        z4 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                                    } else if (com.baidu.adp.lib.util.i.ho()) {
-                                        z4 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().QM);
+                            wo();
+                            this.ajb.b(dVar);
+                            if ((str == null || str.length() == 0) && c != null) {
+                                boolean hs12 = com.baidu.adp.lib.util.i.hs();
+                                if ((hs12 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
+                                    long currentTimeMillis7 = System.currentTimeMillis() - currentTimeMillis;
+                                    if (hs12) {
+                                        z10 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                                    } else if (com.baidu.adp.lib.util.i.hw()) {
+                                        z10 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().Sy);
                                     } else {
-                                        z4 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().QL);
+                                        z10 = currentTimeMillis7 > ((long) e.getInstance().getCDNImageTimeData().Sx);
                                     }
-                                    e.getInstance().result(c, eVar.vC, z17, z4, hk);
+                                    e.getInstance().result(c, dVar.xf, z17, z10, hs12);
                                 }
                             }
-                            throw th;
-                        }
-                    } catch (SocketTimeoutException e23) {
-                        e = e23;
-                        z17 = z11;
-                        this.ahm.fB().vQ = -13;
-                        eVar.vz = "errorCode:" + String.valueOf(this.ahm.fB().vQ) + "|" + e.getClass() + "|" + e.getMessage();
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Exception e24) {
+                        } else {
+                            if (i2 < agU) {
+                                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                                try {
+                                    byteArrayOutputStream.close();
+                                    if (entity.getContentEncoding() != null) {
+                                        String value2 = entity.getContentEncoding().getValue();
+                                        if (value2 != null && value2.contains("gzip")) {
+                                            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
+                                            ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
+                                            com.baidu.adp.lib.util.f.c(byteArrayInputStream, byteArrayOutputStream2);
+                                            byteArray = byteArrayOutputStream2.toByteArray();
+                                        }
+                                        bArr7 = byteArray;
+                                    } else {
+                                        bArr7 = byteArray;
+                                    }
+                                } catch (IllegalStateException e16) {
+                                    bArr7 = bArr6;
+                                    e = e16;
+                                    this.ajb.fK().xt = -19;
+                                    dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception e17) {
+                                        }
+                                    }
+                                    wo();
+                                    this.ajb.b(dVar);
+                                    if ((str != null || str.length() == 0) && c != null) {
+                                        hs7 = com.baidu.adp.lib.util.i.hs();
+                                        if ((hs7 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
+                                            long currentTimeMillis8 = System.currentTimeMillis() - currentTimeMillis;
+                                            if (!hs7) {
+                                                z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                                            } else if (com.baidu.adp.lib.util.i.hw()) {
+                                                z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().Sy);
+                                            } else {
+                                                z7 = currentTimeMillis8 > ((long) e.getInstance().getCDNImageTimeData().Sx);
+                                            }
+                                            e.getInstance().result(c, dVar.xf, z17, z7, hs7);
+                                        }
+                                    }
+                                    i3++;
+                                    bArr7 = bArr7;
+                                } catch (SocketException e18) {
+                                    bArr7 = bArr5;
+                                    e = e18;
+                                    inputStream2 = inputStream;
+                                    try {
+                                        this.ajb.fK().xt = -12;
+                                        dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + e.getClass() + "|" + e.getMessage();
+                                        if (inputStream2 != null) {
+                                            try {
+                                                inputStream2.close();
+                                            } catch (Exception e19) {
+                                            }
+                                        }
+                                        wo();
+                                        this.ajb.b(dVar);
+                                        if ((str != null || str.length() == 0) && c != null) {
+                                            hs6 = com.baidu.adp.lib.util.i.hs();
+                                            if ((hs6 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
+                                                long currentTimeMillis9 = System.currentTimeMillis() - currentTimeMillis;
+                                                if (!hs6) {
+                                                    z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                                                } else if (com.baidu.adp.lib.util.i.hw()) {
+                                                    z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().Sy);
+                                                } else {
+                                                    z6 = currentTimeMillis9 > ((long) e.getInstance().getCDNImageTimeData().Sx);
+                                                }
+                                                e.getInstance().result(c, dVar.xf, z17, z6, hs6);
+                                            }
+                                        }
+                                        i3++;
+                                        bArr7 = bArr7;
+                                    } catch (Throwable th5) {
+                                        th = th5;
+                                        inputStream = inputStream2;
+                                        if (inputStream != null) {
+                                            try {
+                                                inputStream.close();
+                                            } catch (Exception e20) {
+                                            }
+                                        }
+                                        wo();
+                                        this.ajb.b(dVar);
+                                        if ((str != null || str.length() == 0) && c != null) {
+                                            hs5 = com.baidu.adp.lib.util.i.hs();
+                                            if ((hs5 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
+                                                long currentTimeMillis10 = System.currentTimeMillis() - currentTimeMillis;
+                                                if (!hs5) {
+                                                    z5 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                                                } else if (com.baidu.adp.lib.util.i.hw()) {
+                                                    z5 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().Sy);
+                                                } else {
+                                                    z5 = currentTimeMillis10 > ((long) e.getInstance().getCDNImageTimeData().Sx);
+                                                }
+                                                e.getInstance().result(c, dVar.xf, z17, z5, hs5);
+                                            }
+                                        }
+                                        throw th;
+                                    }
+                                } catch (SocketTimeoutException e21) {
+                                    bArr7 = bArr4;
+                                    e = e21;
+                                    this.ajb.fK().xt = -13;
+                                    dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + e.getClass() + "|" + e.getMessage();
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception e22) {
+                                        }
+                                    }
+                                    wo();
+                                    this.ajb.b(dVar);
+                                    if ((str != null || str.length() == 0) && c != null) {
+                                        hs2 = com.baidu.adp.lib.util.i.hs();
+                                        if ((hs2 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
+                                            long currentTimeMillis11 = System.currentTimeMillis() - currentTimeMillis;
+                                            if (!hs2) {
+                                                z2 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                                            } else if (com.baidu.adp.lib.util.i.hw()) {
+                                                z2 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().Sy);
+                                            } else {
+                                                z2 = currentTimeMillis11 > ((long) e.getInstance().getCDNImageTimeData().Sx);
+                                            }
+                                            e.getInstance().result(c, dVar.xf, z17, z2, hs2);
+                                        }
+                                    }
+                                    i3++;
+                                    bArr7 = bArr7;
+                                } catch (HttpException e23) {
+                                    bArr7 = bArr3;
+                                    e = e23;
+                                    this.ajb.fK().xt = -18;
+                                    dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + e.getClass() + "|" + e.getMessage();
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception e24) {
+                                        }
+                                    }
+                                    wo();
+                                    this.ajb.b(dVar);
+                                    if ((str != null || str.length() == 0) && c != null) {
+                                        hs3 = com.baidu.adp.lib.util.i.hs();
+                                        if ((hs3 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
+                                            long currentTimeMillis12 = System.currentTimeMillis() - currentTimeMillis;
+                                            if (!hs3) {
+                                                z3 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                                            } else if (com.baidu.adp.lib.util.i.hw()) {
+                                                z3 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().Sy);
+                                            } else {
+                                                z3 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().Sx);
+                                            }
+                                            e.getInstance().result(c, dVar.xf, z17, z3, hs3);
+                                        }
+                                    }
+                                    i3++;
+                                    bArr7 = bArr7;
+                                } catch (IOException e25) {
+                                    bArr7 = bArr2;
+                                    e = e25;
+                                    this.ajb.fK().xt = -19;
+                                    dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + e.getClass() + "|" + e.getMessage();
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception e26) {
+                                        }
+                                    }
+                                    wo();
+                                    this.ajb.b(dVar);
+                                    if ((str != null || str.length() == 0) && c != null) {
+                                        hs4 = com.baidu.adp.lib.util.i.hs();
+                                        if ((hs4 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
+                                            long currentTimeMillis13 = System.currentTimeMillis() - currentTimeMillis;
+                                            if (!hs4) {
+                                                z4 = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                                            } else if (com.baidu.adp.lib.util.i.hw()) {
+                                                z4 = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().Sy);
+                                            } else {
+                                                z4 = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().Sx);
+                                            }
+                                            e.getInstance().result(c, dVar.xf, z17, z4, hs4);
+                                        }
+                                    }
+                                    i3++;
+                                    bArr7 = bArr7;
+                                } catch (Throwable th6) {
+                                    bArr7 = bArr;
+                                    th = th6;
+                                    this.ajb.fK().xt = -10;
+                                    dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + th.getClass() + "|" + th.getMessage();
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception e27) {
+                                        }
+                                    }
+                                    wo();
+                                    this.ajb.b(dVar);
+                                    if ((str != null || str.length() == 0) && c != null) {
+                                        hs = com.baidu.adp.lib.util.i.hs();
+                                        if ((hs ? dVar.xf != null || z17 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
+                                            long currentTimeMillis14 = System.currentTimeMillis() - currentTimeMillis;
+                                            if (!hs) {
+                                                z = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                                            } else if (com.baidu.adp.lib.util.i.hw()) {
+                                                z = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().Sy);
+                                            } else {
+                                                z = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().Sx);
+                                            }
+                                            e.getInstance().result(c, dVar.xf, z17, z, hs);
+                                        }
+                                    }
+                                    this.aiZ = 0;
+                                    this.ajb.fK().xv = bArr7;
+                                }
+                            } else {
+                                this.ajb.fK().xt = -11;
+                                dVar.xc = this.mContext.getResources().getString(d.l.data_too_big);
                             }
-                        }
-                        vY();
-                        this.ahm.b(eVar);
-                        if ((str == null || str.length() == 0) && c != null) {
-                            boolean hk10 = com.baidu.adp.lib.util.i.hk();
-                            if ((hk10 ? eVar.vC != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
-                                long currentTimeMillis12 = System.currentTimeMillis() - currentTimeMillis;
-                                if (hk10) {
-                                    z3 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                                } else if (com.baidu.adp.lib.util.i.ho()) {
-                                    z3 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().QM);
+                            dVar.wY = i2;
+                            dVar.retry = i3 + 1;
+                            dVar.wZ = System.currentTimeMillis() - currentTimeMillis2;
+                            if (execute.getFirstHeader("Error-Message") != null) {
+                                Header firstHeader = execute.getFirstHeader("Error-Message");
+                                if (firstHeader == null || TextUtils.isEmpty(firstHeader.getValue()) || firstHeader.getValue().equalsIgnoreCase("OK")) {
+                                    this.ajf = false;
                                 } else {
-                                    z3 = currentTimeMillis12 > ((long) e.getInstance().getCDNImageTimeData().QL);
+                                    this.ajf = true;
                                 }
-                                e.getInstance().result(c, eVar.vC, z17, z3, hk10);
                             }
-                        }
-                        i2++;
-                        bArr = bArr;
-                    } catch (IOException e25) {
-                        e = e25;
-                        z17 = z11;
-                        this.ahm.fB().vQ = -19;
-                        eVar.vz = "errorCode:" + String.valueOf(this.ahm.fB().vQ) + "|" + e.getClass() + "|" + e.getMessage();
-                        if (inputStream != null) {
+                            z11 = (i2 <= 0 || !(this.ajb.fK().responseCode == 200 || this.ajb.fK().responseCode == 302)) ? z17 : true;
                             try {
-                                inputStream.close();
-                            } catch (Exception e26) {
-                            }
-                        }
-                        vY();
-                        this.ahm.b(eVar);
-                        if ((str == null || str.length() == 0) && c != null) {
-                            boolean hk11 = com.baidu.adp.lib.util.i.hk();
-                            if ((hk11 ? eVar.vC != null || z17 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
-                                long currentTimeMillis13 = System.currentTimeMillis() - currentTimeMillis;
-                                if (hk11) {
-                                    z2 = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                                } else if (com.baidu.adp.lib.util.i.ho()) {
-                                    z2 = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().QM);
-                                } else {
-                                    z2 = currentTimeMillis13 > ((long) e.getInstance().getCDNImageTimeData().QL);
+                                if (ITrafficStatsNativeManager.ku() != null && dVar != null) {
+                                    ITrafficStatsNativeManager.ku().c(TbConfig.TMP_PIC_DIR_NAME, dVar.wX, dVar.wY);
                                 }
-                                e.getInstance().result(c, eVar.vC, z17, z2, hk11);
+                                if (execute.getFirstHeader("ginfo") != null && (value = execute.getFirstHeader("ginfo").getValue()) != null && value.length() > 0) {
+                                    em(value);
+                                    break;
+                                }
+                                break;
+                            } catch (IllegalStateException e28) {
+                                e = e28;
+                                z17 = z11;
+                                this.ajb.fK().xt = -19;
+                                dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                                if (inputStream != null) {
+                                }
+                                wo();
+                                this.ajb.b(dVar);
+                                if (str != null) {
+                                }
+                                hs7 = com.baidu.adp.lib.util.i.hs();
+                                if (hs7 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) {
+                                    long currentTimeMillis82 = System.currentTimeMillis() - currentTimeMillis;
+                                    if (!hs7) {
+                                    }
+                                    e.getInstance().result(c, dVar.xf, z17, z7, hs7);
+                                }
+                                i3++;
+                                bArr7 = bArr7;
+                            } catch (SocketException e29) {
+                                e = e29;
+                                inputStream2 = inputStream;
+                                z17 = z11;
+                                this.ajb.fK().xt = -12;
+                                dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + e.getClass() + "|" + e.getMessage();
+                                if (inputStream2 != null) {
+                                }
+                                wo();
+                                this.ajb.b(dVar);
+                                if (str != null) {
+                                }
+                                hs6 = com.baidu.adp.lib.util.i.hs();
+                                if (hs6 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) {
+                                    long currentTimeMillis92 = System.currentTimeMillis() - currentTimeMillis;
+                                    if (!hs6) {
+                                    }
+                                    e.getInstance().result(c, dVar.xf, z17, z6, hs6);
+                                }
+                                i3++;
+                                bArr7 = bArr7;
+                            } catch (IOException e30) {
+                                e = e30;
+                                z17 = z11;
+                                this.ajb.fK().xt = -19;
+                                dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + e.getClass() + "|" + e.getMessage();
+                                if (inputStream != null) {
+                                }
+                                wo();
+                                this.ajb.b(dVar);
+                                if (str != null) {
+                                }
+                                hs4 = com.baidu.adp.lib.util.i.hs();
+                                if (hs4 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) {
+                                    long currentTimeMillis132 = System.currentTimeMillis() - currentTimeMillis;
+                                    if (!hs4) {
+                                    }
+                                    e.getInstance().result(c, dVar.xf, z17, z4, hs4);
+                                }
+                                i3++;
+                                bArr7 = bArr7;
+                            } catch (HttpException e31) {
+                                e = e31;
+                                z17 = z11;
+                                this.ajb.fK().xt = -18;
+                                dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + e.getClass() + "|" + e.getMessage();
+                                if (inputStream != null) {
+                                }
+                                wo();
+                                this.ajb.b(dVar);
+                                if (str != null) {
+                                }
+                                hs3 = com.baidu.adp.lib.util.i.hs();
+                                if (hs3 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) {
+                                    long currentTimeMillis122 = System.currentTimeMillis() - currentTimeMillis;
+                                    if (!hs3) {
+                                    }
+                                    e.getInstance().result(c, dVar.xf, z17, z3, hs3);
+                                }
+                                i3++;
+                                bArr7 = bArr7;
+                            } catch (SocketTimeoutException e32) {
+                                e = e32;
+                                z17 = z11;
+                                this.ajb.fK().xt = -13;
+                                dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + e.getClass() + "|" + e.getMessage();
+                                if (inputStream != null) {
+                                }
+                                wo();
+                                this.ajb.b(dVar);
+                                if (str != null) {
+                                }
+                                hs2 = com.baidu.adp.lib.util.i.hs();
+                                if (hs2 ? dVar.xf != null || z17 || i3 >= i + (-1) : true) {
+                                    long currentTimeMillis112 = System.currentTimeMillis() - currentTimeMillis;
+                                    if (!hs2) {
+                                    }
+                                    e.getInstance().result(c, dVar.xf, z17, z2, hs2);
+                                }
+                                i3++;
+                                bArr7 = bArr7;
+                            } catch (Throwable th7) {
+                                th = th7;
+                                z17 = z11;
+                                this.ajb.fK().xt = -10;
+                                dVar.xc = "errorCode:" + String.valueOf(this.ajb.fK().xt) + "|" + th.getClass() + "|" + th.getMessage();
+                                if (inputStream != null) {
+                                }
+                                wo();
+                                this.ajb.b(dVar);
+                                if (str != null) {
+                                }
+                                hs = com.baidu.adp.lib.util.i.hs();
+                                if (hs ? dVar.xf != null || z17 || i3 >= i + (-1) : true) {
+                                    long currentTimeMillis142 = System.currentTimeMillis() - currentTimeMillis;
+                                    if (!hs) {
+                                    }
+                                    e.getInstance().result(c, dVar.xf, z17, z, hs);
+                                }
+                                this.aiZ = 0;
+                                this.ajb.fK().xv = bArr7;
                             }
                         }
-                        i2++;
-                        bArr = bArr;
-                    } catch (Throwable th6) {
-                        th = th6;
-                        z17 = z11;
-                        if (inputStream != null) {
-                        }
-                        vY();
-                        this.ahm.b(eVar);
-                        if (str != null) {
-                        }
-                        hk = com.baidu.adp.lib.util.i.hk();
-                        if (hk ? eVar.vC != null || z17 || i2 >= i + (-1) : true) {
-                            long currentTimeMillis112 = System.currentTimeMillis() - currentTimeMillis;
-                            if (!hk) {
-                            }
-                            e.getInstance().result(c, eVar.vC, z17, z4, hk);
-                        }
-                        throw th;
+                    } else {
+                        this.tI = false;
                     }
                 }
-            }
-        }
-        vY();
-        this.ahm.b(eVar);
-        if ((str == null || str.length() == 0) && c != null) {
-            boolean hk12 = com.baidu.adp.lib.util.i.hk();
-            if ((hk12 ? eVar.vC != null || z11 || i2 >= i + (-1) : true) && com.baidu.tbadk.util.i.gw(c) && z16) {
-                long currentTimeMillis14 = System.currentTimeMillis() - currentTimeMillis;
-                if (hk12) {
-                    z12 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().QK);
-                } else if (com.baidu.adp.lib.util.i.ho()) {
-                    z12 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().QM);
-                } else {
-                    z12 = currentTimeMillis14 > ((long) e.getInstance().getCDNImageTimeData().QL);
+                i2 = i4;
+                while (!this.aja) {
+                    byteArrayOutputStream.write(bArr8, 0, read);
+                    i2 = read + i2;
                 }
-                e.getInstance().result(c, eVar.vC, z11, z12, hk12);
+                dVar.xe = -9;
+                if (!this.aja) {
+                }
             }
         }
-        this.ahk = 0;
-        this.ahm.fB().vS = bArr;
+        wo();
+        this.ajb.b(dVar);
+        if ((str == null || str.length() == 0) && c != null) {
+            boolean hs13 = com.baidu.adp.lib.util.i.hs();
+            if ((hs13 ? dVar.xf != null || z11 || i3 >= i + (-1) : true) && com.baidu.tbadk.util.i.gH(c) && z16) {
+                long currentTimeMillis15 = System.currentTimeMillis() - currentTimeMillis;
+                if (hs13) {
+                    z12 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().Sw);
+                } else if (com.baidu.adp.lib.util.i.hw()) {
+                    z12 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().Sy);
+                } else {
+                    z12 = currentTimeMillis15 > ((long) e.getInstance().getCDNImageTimeData().Sx);
+                }
+                e.getInstance().result(c, dVar.xf, z11, z12, hs13);
+            }
+        }
+        this.aiZ = 0;
+        this.ajb.fK().xv = bArr7;
     }
 
-    private void ed(String str) {
-        if (!TextUtils.isEmpty(str) && !str.equals(aht) && (System.currentTimeMillis() - ahv) - (1800000 * (ahu / 3)) >= 0) {
-            ahu++;
+    private void em(String str) {
+        if (!TextUtils.isEmpty(str) && !str.equals(aji) && (System.currentTimeMillis() - ajk) - (1800000 * (ajj / 3)) >= 0) {
+            ajj++;
             try {
-                char[] charArray = TbadkCoreApplication.m9getInst().getCuid().toCharArray();
+                char[] charArray = TbadkCoreApplication.getInst().getCuid().toCharArray();
                 StringBuilder sb = new StringBuilder();
                 sb.append("http://");
                 sb.append(str);
@@ -797,9 +993,19 @@ public class f implements a.InterfaceC0005a {
                     }
                 }
                 sb.append(".tieba.galileo.baiduyundns.com");
-                URL url = new URL(sb.toString());
-                aht = str;
-                new Thread(new h(this, url)).start();
+                final URL url = new URL(sb.toString());
+                aji = str;
+                new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.a.f.2
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        try {
+                            BdLog.i("testcdn" + url.getHost());
+                            InetAddress.getByName(url.getHost()).getHostAddress();
+                        } catch (UnknownHostException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -807,15 +1013,15 @@ public class f implements a.InterfaceC0005a {
     }
 
     public boolean isGif() {
-        return this.sa;
+        return this.tI;
     }
 
-    public boolean vZ() {
-        return this.ahq;
+    public boolean wp() {
+        return this.ajf;
     }
 
-    @Override // com.baidu.adp.lib.f.a.InterfaceC0005a
+    @Override // com.baidu.adp.lib.f.a.InterfaceC0006a
     public void cancel() {
-        fr();
+        fA();
     }
 }

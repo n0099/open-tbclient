@@ -39,8 +39,8 @@ public class PushInfoProvider extends ContentProvider {
         return true;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00af */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x000c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00ba */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x000c */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v23 */
     /* JADX WARN: Type inference failed for: r0v27 */
@@ -59,77 +59,77 @@ public class PushInfoProvider extends ContentProvider {
         synchronized (com.baidu.android.pushservice.d.c.a()) {
             try {
                 cursor = c.match(uri);
-                try {
-                    switch (cursor) {
-                        case 1:
-                            this.a = com.baidu.android.pushservice.d.c.a(this.b);
-                            cursor = this.a != null ? this.a.query("PushShareInfo", null, null, null, null, null, null) : 0;
-                            if (cursor != 0) {
-                                com.baidu.android.pushservice.g.a.c("PushInfoProvider", "return contentprovider Cursor : " + ((Object) cursor));
-                                cursor = cursor;
-                                break;
-                            }
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                switch (cursor) {
+                    case 1:
+                        this.a = com.baidu.android.pushservice.d.c.a(this.b);
+                        cursor = this.a != null ? this.a.query("PushShareInfo", null, null, null, null, null, null) : 0;
+                        if (cursor != 0) {
+                            com.baidu.android.pushservice.g.a.c("PushInfoProvider", "return contentprovider Cursor : " + ((Object) cursor));
+                            cursor = cursor;
                             break;
-                        case 2:
-                            this.a = com.baidu.android.pushservice.d.c.a(this.b);
-                            cursor = this.a != null ? this.a.query("PushVerifInfo", strArr, str, strArr2, null, null, str2) : null;
-                            if (cursor != null) {
-                                com.baidu.android.pushservice.g.a.c("PushInfoProvider", "return PushVerifInfoEnum provider Cursor : " + cursor);
-                                cursor = cursor;
-                                break;
-                            }
+                        }
+                        break;
+                    case 2:
+                        this.a = com.baidu.android.pushservice.d.c.a(this.b);
+                        cursor = this.a != null ? this.a.query("PushVerifInfo", strArr, str, strArr2, null, null, str2) : null;
+                        if (cursor != null) {
+                            com.baidu.android.pushservice.g.a.c("PushInfoProvider", "return PushVerifInfoEnum provider Cursor : " + cursor);
+                            cursor = cursor;
                             break;
-                        case 3:
-                            this.a = com.baidu.android.pushservice.d.c.a(this.b);
-                            cursor = this.a != null ? this.a.query("PushMsgInfos", strArr, str, strArr2, null, null, str2) : null;
-                            if (cursor != null) {
-                                com.baidu.android.pushservice.g.a.c("PushInfoProvider", "return PushMsgInfoEnum provider Cursor : " + cursor);
-                                cursor = cursor;
-                                break;
-                            }
+                        }
+                        break;
+                    case 3:
+                        this.a = com.baidu.android.pushservice.d.c.a(this.b);
+                        cursor = this.a != null ? this.a.query("PushMsgInfos", strArr, str, strArr2, null, null, str2) : null;
+                        if (cursor != null) {
+                            com.baidu.android.pushservice.g.a.c("PushInfoProvider", "return PushMsgInfoEnum provider Cursor : " + cursor);
+                            cursor = cursor;
                             break;
-                        default:
-                            com.baidu.android.pushservice.g.a.c("PushInfoProvider", "unknow provider uri request!");
-                            cursor = 0;
-                            break;
-                    }
-                } catch (Exception e) {
-                    cursor2 = cursor;
-                    e = e;
-                    com.baidu.android.pushservice.g.a.a("PushInfoProvider", e);
-                    p.a(this.b, e);
-                    cursor = cursor2;
-                    return cursor;
+                        }
+                        break;
+                    default:
+                        com.baidu.android.pushservice.g.a.c("PushInfoProvider", "unknow provider uri request!");
+                        cursor = 0;
+                        break;
                 }
             } catch (Exception e2) {
+                cursor2 = cursor;
                 e = e2;
+                com.baidu.android.pushservice.g.a.a("PushInfoProvider", e);
+                p.a(this.b, e);
+                cursor = cursor2;
+                return cursor;
             }
         }
         return cursor;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0085 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:66:0x0017 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:67:0x0038 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x008b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x0017 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:65:0x0039 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:11:0x001e A[Catch: all -> 0x008b, TryCatch #4 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:29:0x0082, B:31:0x0087, B:41:0x00c3, B:43:0x00c8, B:44:0x00cb), top: B:63:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00c3 A[Catch: all -> 0x008b, TRY_ENTER, TryCatch #4 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:29:0x0082, B:31:0x0087, B:41:0x00c3, B:43:0x00c8, B:44:0x00cb), top: B:63:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00c8 A[Catch: all -> 0x008b, TryCatch #4 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:29:0x0082, B:31:0x0087, B:41:0x00c3, B:43:0x00c8, B:44:0x00cb), top: B:63:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0019 A[Catch: all -> 0x008b, TRY_ENTER, TryCatch #4 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:29:0x0082, B:31:0x0087, B:41:0x00c3, B:43:0x00c8, B:44:0x00cb), top: B:63:0x0009 }] */
-    /* JADX WARN: Type inference failed for: r5v0 */
-    /* JADX WARN: Type inference failed for: r5v1 */
-    /* JADX WARN: Type inference failed for: r5v12 */
-    /* JADX WARN: Type inference failed for: r5v13 */
-    /* JADX WARN: Type inference failed for: r5v14 */
-    /* JADX WARN: Type inference failed for: r5v15 */
-    /* JADX WARN: Type inference failed for: r5v16 */
-    /* JADX WARN: Type inference failed for: r5v17 */
-    /* JADX WARN: Type inference failed for: r5v2, types: [long] */
-    /* JADX WARN: Type inference failed for: r5v3 */
-    /* JADX WARN: Type inference failed for: r5v4 */
-    /* JADX WARN: Type inference failed for: r5v5 */
-    /* JADX WARN: Type inference failed for: r5v8 */
-    /* JADX WARN: Type inference failed for: r5v9 */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x001e A[Catch: all -> 0x0091, TryCatch #1 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:29:0x0088, B:31:0x008d, B:41:0x00cd, B:43:0x00d2, B:44:0x00d5), top: B:61:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00cd A[Catch: all -> 0x0091, TRY_ENTER, TryCatch #1 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:29:0x0088, B:31:0x008d, B:41:0x00cd, B:43:0x00d2, B:44:0x00d5), top: B:61:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00d2 A[Catch: all -> 0x0091, TryCatch #1 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:29:0x0088, B:31:0x008d, B:41:0x00cd, B:43:0x00d2, B:44:0x00d5), top: B:61:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:9:0x0019 A[Catch: all -> 0x0091, TRY_ENTER, TryCatch #1 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:29:0x0088, B:31:0x008d, B:41:0x00cd, B:43:0x00d2, B:44:0x00d5), top: B:61:0x0009 }] */
+    /* JADX WARN: Type inference failed for: r6v0 */
+    /* JADX WARN: Type inference failed for: r6v1 */
+    /* JADX WARN: Type inference failed for: r6v10 */
+    /* JADX WARN: Type inference failed for: r6v11 */
+    /* JADX WARN: Type inference failed for: r6v12 */
+    /* JADX WARN: Type inference failed for: r6v13 */
+    /* JADX WARN: Type inference failed for: r6v14 */
+    /* JADX WARN: Type inference failed for: r6v15 */
+    /* JADX WARN: Type inference failed for: r6v2, types: [long] */
+    /* JADX WARN: Type inference failed for: r6v3 */
+    /* JADX WARN: Type inference failed for: r6v4 */
+    /* JADX WARN: Type inference failed for: r6v5 */
+    /* JADX WARN: Type inference failed for: r6v7 */
+    /* JADX WARN: Type inference failed for: r6v8 */
     @Override // android.content.ContentProvider
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -137,7 +137,7 @@ public class PushInfoProvider extends ContentProvider {
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         Cursor cursor;
         SQLiteDatabase sQLiteDatabase;
-        ?? r5;
+        ?? r6;
         Cursor cursor2;
         SQLiteDatabase a;
         SQLiteDatabase sQLiteDatabase2 = null;
@@ -148,7 +148,7 @@ public class PushInfoProvider extends ContentProvider {
                         a = com.baidu.android.pushservice.d.c.a(this.b);
                         if (a != null) {
                             try {
-                                r5 = 0;
+                                r6 = 0;
                                 cursor = a.query("PushShareInfo", null, null, null, null, null, null);
                                 try {
                                     if (cursor != null) {
@@ -157,10 +157,10 @@ public class PushInfoProvider extends ContentProvider {
                                                 if (cursor.getCount() != 0) {
                                                     long update = a.update("PushShareInfo", contentValues, str, null);
                                                     com.baidu.android.pushservice.g.a.c("PushInfoProvider", "update  selection = " + str + "  ret = " + update);
-                                                    r5 = update;
+                                                    r6 = update;
                                                 }
                                             } catch (Exception e) {
-                                                r5 = -1;
+                                                r6 = -1;
                                                 sQLiteDatabase = a;
                                                 e = e;
                                                 cursor2 = cursor;
@@ -173,17 +173,15 @@ public class PushInfoProvider extends ContentProvider {
                                                     if (sQLiteDatabase != null) {
                                                         sQLiteDatabase.close();
                                                     }
-                                                    return (int) r5;
+                                                    return (int) r6;
                                                 } catch (Throwable th) {
                                                     th = th;
                                                     Cursor cursor3 = cursor2;
                                                     sQLiteDatabase2 = sQLiteDatabase;
                                                     cursor = cursor3;
                                                     if (cursor != null) {
-                                                        cursor.close();
                                                     }
                                                     if (sQLiteDatabase2 != null) {
-                                                        sQLiteDatabase2.close();
                                                     }
                                                     throw th;
                                                 }
@@ -192,24 +190,26 @@ public class PushInfoProvider extends ContentProvider {
                                             sQLiteDatabase2 = a;
                                             th = th2;
                                             if (cursor != null) {
+                                                cursor.close();
                                             }
                                             if (sQLiteDatabase2 != null) {
+                                                sQLiteDatabase2.close();
                                             }
                                             throw th;
                                         }
                                     }
                                     long insert = a.insert("PushShareInfo", null, contentValues);
                                     com.baidu.android.pushservice.g.a.c("PushInfoProvider", "insert  selection = " + str + "  ret = " + insert);
-                                    r5 = insert;
+                                    r6 = insert;
                                 } catch (Exception e2) {
                                     cursor2 = cursor;
                                     sQLiteDatabase = a;
                                     e = e2;
-                                    r5 = r5;
+                                    r6 = r6;
                                 }
                             } catch (Exception e3) {
                                 sQLiteDatabase = a;
-                                r5 = -1;
+                                r6 = -1;
                                 e = e3;
                                 cursor2 = null;
                             } catch (Throwable th3) {
@@ -219,7 +219,7 @@ public class PushInfoProvider extends ContentProvider {
                             }
                         } else {
                             cursor = null;
-                            r5 = -1;
+                            r6 = -1;
                         }
                         if (cursor != null) {
                             cursor.close();
@@ -230,7 +230,7 @@ public class PushInfoProvider extends ContentProvider {
                     default:
                         cursor = null;
                         a = null;
-                        r5 = -1;
+                        r6 = -1;
                         if (cursor != null) {
                         }
                         if (a != null) {
@@ -240,13 +240,13 @@ public class PushInfoProvider extends ContentProvider {
             } catch (Exception e4) {
                 e = e4;
                 sQLiteDatabase = null;
-                r5 = -1;
+                r6 = -1;
                 cursor2 = null;
             } catch (Throwable th4) {
                 th = th4;
                 cursor = null;
             }
         }
-        return (int) r5;
+        return (int) r6;
     }
 }

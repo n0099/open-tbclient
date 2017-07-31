@@ -1,6 +1,6 @@
 package com.baidu.adp.framework.message;
 
-import com.baidu.adp.lib.network.http.f;
+import com.baidu.adp.lib.network.http.e;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -74,6 +74,6 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         }
     }
 
-    public void logStatInBackground(int i, f fVar) {
+    public void logStatInBackground(int i, e eVar) {
     }
 }

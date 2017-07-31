@@ -9,12 +9,12 @@ import android.widget.PopupWindow;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.view.j;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.view.d;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class MorePopupWindow extends PopupWindow {
     private Activity mActivity;
-    private j mContainer;
+    private d mContainer;
     private View mContentView;
     private View mHostView;
     private boolean mIsIntercepted;
@@ -23,7 +23,7 @@ public class MorePopupWindow extends PopupWindow {
     private int mShowRightTopXOff;
     private int mWindowHeight;
 
-    public MorePopupWindow(Activity activity, View view, View view2, Drawable drawable, j.a aVar) {
+    public MorePopupWindow(Activity activity, View view, View view2, Drawable drawable, d.a aVar) {
         super(activity);
         this.mShowRightTopXOff = 0;
         this.mShowLeftCenterXOff = 0;
@@ -37,7 +37,7 @@ public class MorePopupWindow extends PopupWindow {
         init(activity, view, drawable, aVar);
     }
 
-    public MorePopupWindow(Activity activity, View view, Drawable drawable, j.a aVar) {
+    public MorePopupWindow(Activity activity, View view, Drawable drawable, d.a aVar) {
         super(activity);
         this.mShowRightTopXOff = 0;
         this.mShowLeftCenterXOff = 0;
@@ -50,10 +50,10 @@ public class MorePopupWindow extends PopupWindow {
         init(activity, view, drawable, aVar);
     }
 
-    private void init(Activity activity, View view, Drawable drawable, j.a aVar) {
+    private void init(Activity activity, View view, Drawable drawable, d.a aVar) {
         this.mActivity = activity;
         this.mContentView = view;
-        this.mContainer = new j(activity, this.mContentView, aVar);
+        this.mContainer = new d(activity, this.mContentView, aVar);
         setContentView(this.mContainer);
         setOutsideTouchable(true);
         setFocusable(true);
@@ -110,9 +110,9 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void setWidthAsWidthOfDeviceScreen(Context context) {
-        int af = com.baidu.adp.lib.util.k.af(context);
-        this.mContentView.getLayoutParams().width = af;
-        setWidth(af);
+        int ag = com.baidu.adp.lib.util.k.ag(context);
+        this.mContentView.getLayoutParams().width = ag;
+        setWidth(ag);
     }
 
     public void setWindowHeight(int i) {
@@ -121,32 +121,32 @@ public class MorePopupWindow extends PopupWindow {
 
     public void showWindowInRightBottomOfHost() {
         if (isShowing()) {
-            com.baidu.adp.lib.g.j.a(this, this.mActivity);
+            com.baidu.adp.lib.g.g.a(this, this.mActivity);
         } else if (this.mHostView != null) {
-            com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff, 0);
+            com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff, 0);
         }
     }
 
     public void showWindowInRightBottomOfHost(int i) {
         if (isShowing()) {
-            com.baidu.adp.lib.g.j.a(this, this.mActivity);
+            com.baidu.adp.lib.g.g.a(this, this.mActivity);
         } else if (this.mHostView != null) {
-            com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff - i, 0);
+            com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff - i, 0);
         }
     }
 
     public void showWindowInCustomPosition(int i, int i2) {
         if (isShowing()) {
-            com.baidu.adp.lib.g.j.a(this, this.mActivity);
+            com.baidu.adp.lib.g.g.a(this, this.mActivity);
         } else if (this.mHostView != null) {
-            com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(this, this.mHostView, i, i2);
+            com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, this.mHostView, i, i2);
         }
     }
 
     public void showWindowInLeftCenterOfHost(View view, boolean z) {
-        setAnimationStyle(w.m.pop_window_anim);
+        setAnimationStyle(d.m.pop_window_anim);
         setFocusable(z);
-        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(this, view, this.mShowLeftCenterXOff, (-this.mWindowHeight) + ((this.mWindowHeight - view.getHeight()) / 2));
+        com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, view, this.mShowLeftCenterXOff, (-this.mWindowHeight) + ((this.mWindowHeight - view.getHeight()) / 2));
     }
 
     public void refresh() {
@@ -155,11 +155,11 @@ public class MorePopupWindow extends PopupWindow {
             int measuredWidth = this.mContentView.getMeasuredWidth();
             int measuredHeight = this.mContentView.getMeasuredHeight();
             setWidth(measuredWidth);
-            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(w.f.ds4));
+            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(d.f.ds4));
             setHeight(this.mWindowHeight);
-            int[] ai = com.baidu.adp.lib.util.k.ai(this.mActivity);
-            if (ai != null && ai.length > 1 && ai[0] > measuredWidth) {
-                this.mShowRightTopXOff = ai[0] - measuredWidth;
+            int[] aj = com.baidu.adp.lib.util.k.aj(this.mActivity);
+            if (aj != null && aj.length > 1 && aj[0] > measuredWidth) {
+                this.mShowRightTopXOff = aj[0] - measuredWidth;
             }
             this.mPadding_10 = 0;
             this.mShowLeftCenterXOff = -(measuredWidth + this.mPadding_10);

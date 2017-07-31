@@ -54,7 +54,8 @@ public class a {
     public static boolean a(String str, String str2) {
         FileWriter fileWriter;
         FileWriter fileWriter2;
-        BufferedWriter bufferedWriter = null;
+        BufferedWriter bufferedWriter;
+        BufferedWriter bufferedWriter2 = null;
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -63,36 +64,36 @@ public class a {
             }
             fileWriter = new FileWriter(str, false);
             try {
-                BufferedWriter bufferedWriter2 = new BufferedWriter(fileWriter);
-                try {
-                    bufferedWriter2.write(str2);
-                    com.baidu.android.pushservice.f.b.a(bufferedWriter2, fileWriter);
-                    return true;
-                } catch (Exception e) {
-                    e = e;
-                    bufferedWriter = bufferedWriter2;
-                    fileWriter2 = fileWriter;
-                    try {
-                        com.baidu.android.pushservice.g.a.a("AssetFileUtils", e);
-                        com.baidu.android.pushservice.f.b.a(bufferedWriter, fileWriter2);
-                        return false;
-                    } catch (Throwable th) {
-                        th = th;
-                        fileWriter = fileWriter2;
-                        com.baidu.android.pushservice.f.b.a(bufferedWriter, fileWriter);
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedWriter = bufferedWriter2;
-                    com.baidu.android.pushservice.f.b.a(bufferedWriter, fileWriter);
-                    throw th;
-                }
+                bufferedWriter = new BufferedWriter(fileWriter);
+            } catch (Exception e) {
+                e = e;
+                fileWriter2 = fileWriter;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                bufferedWriter.write(str2);
+                com.baidu.android.pushservice.f.b.a(bufferedWriter, fileWriter);
+                return true;
             } catch (Exception e2) {
                 e = e2;
+                bufferedWriter2 = bufferedWriter;
                 fileWriter2 = fileWriter;
+                try {
+                    com.baidu.android.pushservice.g.a.a("AssetFileUtils", e);
+                    com.baidu.android.pushservice.f.b.a(bufferedWriter2, fileWriter2);
+                    return false;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileWriter = fileWriter2;
+                    com.baidu.android.pushservice.f.b.a(bufferedWriter2, fileWriter);
+                    throw th;
+                }
             } catch (Throwable th3) {
                 th = th3;
+                bufferedWriter2 = bufferedWriter;
+                com.baidu.android.pushservice.f.b.a(bufferedWriter2, fileWriter);
+                throw th;
             }
         } catch (Exception e3) {
             e = e3;

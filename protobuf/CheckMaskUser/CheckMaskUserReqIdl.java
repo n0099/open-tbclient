@@ -7,10 +7,6 @@ public final class CheckMaskUserReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
 
-    /* synthetic */ CheckMaskUserReqIdl(Builder builder, boolean z, CheckMaskUserReqIdl checkMaskUserReqIdl) {
-        this(builder, z);
-    }
-
     private CheckMaskUserReqIdl(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -37,7 +33,7 @@ public final class CheckMaskUserReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public CheckMaskUserReqIdl build(boolean z) {
-            return new CheckMaskUserReqIdl(this, z, null);
+            return new CheckMaskUserReqIdl(this, z);
         }
     }
 }

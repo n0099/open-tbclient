@@ -4,7 +4,7 @@ import android.os.Build;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.u;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -28,7 +28,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         addParam(KEY_BRAND, Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
         addParam(KEY_PRODUCT_ID, 2);
-        addParam(KEY_NET_TYPE, i.hp());
+        addParam(KEY_NET_TYPE, i.hx());
         addParam(KEY_OS_TYPE, 2);
     }
 
@@ -46,7 +46,7 @@ public class AdUploadHttpRequest extends HttpMessage {
     }
 
     private String toJSONString(ArrayList<a> arrayList) {
-        if (z.s(arrayList) <= 0) {
+        if (u.u(arrayList) <= 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
@@ -54,12 +54,13 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             a next = it.next();
             if (next != null) {
-                jSONArray.put(next.beB());
+                jSONArray.put(next.bim());
             }
         }
         return jSONArray.toString();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpMessage
     public synchronized List<Map.Entry<String, Object>> encodeInBackGround() {
         removeParam("_phone_imei");

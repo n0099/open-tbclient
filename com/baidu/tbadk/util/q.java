@@ -1,66 +1,74 @@
 package com.baidu.tbadk.util;
 
-import android.net.wifi.WifiManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.compatible.CompatibleUtile;
+import android.os.Handler;
+import android.view.View;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
 public class q {
-    private static final byte[] aKk = new byte[1];
-    private static q aKl = null;
-    private CustomMessageListener mNetworkChangedListener;
+    private View aMO;
+    private int aMP;
+    private boolean aMQ;
+    private final Handler mHandler;
 
-    public static q GL() {
-        if (aKl == null) {
-            synchronized (aKk) {
-                if (aKl == null) {
-                    aKl = new q();
-                }
-            }
-        }
-        return aKl;
-    }
-
-    private q() {
-        com.baidu.adp.lib.util.i.init();
-    }
-
-    public void GM() {
-        try {
-            if (this.mNetworkChangedListener == null) {
-                this.mNetworkChangedListener = GN();
-                MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-            }
-        } catch (Exception e) {
-            this.mNetworkChangedListener = null;
-            BdLog.e(e.getMessage());
+    public void Hm() {
+        this.mHandler.removeMessages(2);
+        if (!this.mHandler.hasMessages(1)) {
+            this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    private CustomMessageListener GN() {
-        return new r(this, 2000994);
+    public void Hn() {
+        this.mHandler.removeMessages(1);
+        if (!this.mHandler.hasMessages(2)) {
+            this.mHandler.sendEmptyMessageDelayed(2, 110L);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void GO() {
-        try {
-            boolean hj = com.baidu.adp.lib.util.i.hj();
-            if (hj) {
-                if (com.baidu.adp.lib.util.i.hk()) {
-                    ax.vA().aF(true);
-                    com.baidu.tieba.recapp.d.a.bex().qC(((WifiManager) TbadkCoreApplication.m9getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
-                } else if (com.baidu.adp.lib.util.i.hl()) {
-                    ax.vA().aF(false);
+    public void Ho() {
+        this.mHandler.removeCallbacksAndMessages(null);
+    }
+
+    public void cf(boolean z) {
+        if (this.aMO != null) {
+            if (z || this.aMO.getVisibility() != 8) {
+                Hn();
+            }
+        }
+    }
+
+    public void cg(boolean z) {
+        if (this.aMO != null) {
+            if (z || this.aMO.getVisibility() != 0) {
+                Hm();
+            }
+        }
+    }
+
+    public void a(AbsListView absListView, int i, int i2, int i3, int i4) {
+        if (this.aMO != null) {
+            if (i != 0 && i2 > i && this.aMO.getVisibility() != 8) {
+                cf(false);
+            } else if ((i == 0 || i2 < i) && this.aMO.getVisibility() != 0) {
+                cg(false);
+            }
+            this.aMP = i;
+        }
+    }
+
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (absListView != null && i == 0) {
+            int firstVisiblePosition = absListView.getFirstVisiblePosition();
+            if (firstVisiblePosition > this.aMP) {
+                cf(true);
+            } else if (firstVisiblePosition < this.aMP) {
+                cg(true);
+            } else if (firstVisiblePosition == this.aMP) {
+                if (firstVisiblePosition == 0 || !this.aMQ) {
+                    cg(true);
+                } else {
+                    cf(true);
                 }
             }
-            NoNetworkView.setIsHasNetwork(hj);
-            CompatibleUtile.dealWebView(null);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
         }
     }
 }

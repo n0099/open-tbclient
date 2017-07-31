@@ -2,14 +2,15 @@ package com.baidu.tbadk.core.data;
 
 import android.graphics.Color;
 import android.text.SpannableString;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes.dex */
-public class SmallTailInfo implements Serializable {
+public class SmallTailInfo extends OrmObject implements Serializable {
     private static final long serialVersionUID = -6548060282571779153L;
     public String color;
     public List<SmallTailInfoContent> content;
@@ -18,10 +19,13 @@ public class SmallTailInfo implements Serializable {
     public transient SpannableString tailSpannable;
 
     /* loaded from: classes.dex */
-    public class SmallTailInfoContent implements Serializable {
+    public class SmallTailInfoContent extends OrmObject implements Serializable {
         private static final long serialVersionUID = -2017172862365526905L;
         public String text;
         public int type;
+
+        public SmallTailInfoContent() {
+        }
 
         public SmallTailInfoContent(String str, int i) {
             this.text = str;
@@ -30,11 +34,11 @@ public class SmallTailInfo implements Serializable {
     }
 
     public void updateShowInfo() {
-        qP();
-        qQ();
+        rc();
+        rd();
     }
 
-    private void qP() {
+    private void rc() {
         if (this.content != null) {
             StringBuilder sb = new StringBuilder();
             for (SmallTailInfoContent smallTailInfoContent : this.content) {
@@ -43,31 +47,31 @@ public class SmallTailInfo implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String fz = TbFaceManager.Ea().fz(smallTailInfoContent.text);
-                    if (!StringUtils.isNull(fz)) {
-                        sb.append("#(" + fz + ")");
+                    String fJ = TbFaceManager.Ew().fJ(smallTailInfoContent.text);
+                    if (!StringUtils.isNull(fJ)) {
+                        sb.append("#(" + fJ + ")");
                     }
                 }
             }
-            this.tailSpannable = TbFaceManager.Ea().a(TbadkCoreApplication.m9getInst(), sb.toString(), null);
+            this.tailSpannable = TbFaceManager.Ew().a(TbadkCoreApplication.getInst(), sb.toString(), null);
         }
     }
 
-    private void qQ() {
+    private void rd() {
         try {
-            this.showColorId = Color.parseColor(cv(this.color));
+            this.showColorId = Color.parseColor(cG(this.color));
         } catch (Exception e) {
-            this.showColorId = Color.parseColor(cv(TbadkCoreApplication.m9getInst().getString(w.l.tail_color_default)));
+            this.showColorId = Color.parseColor(cG(TbadkCoreApplication.getInst().getString(d.l.tail_color_default)));
         }
     }
 
-    private String cv(String str) {
+    private String cG(String str) {
         if (str == null) {
             return null;
         }
-        if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
-            return String.valueOf(TbadkCoreApplication.m9getInst().getString(w.l.color_prefix)) + TbadkCoreApplication.m9getInst().getString(w.l.tail_color_night) + str;
+        if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+            return TbadkCoreApplication.getInst().getString(d.l.color_prefix) + TbadkCoreApplication.getInst().getString(d.l.tail_color_night) + str;
         }
-        return String.valueOf(TbadkCoreApplication.m9getInst().getString(w.l.color_prefix)) + str;
+        return TbadkCoreApplication.getInst().getString(d.l.color_prefix) + str;
     }
 }

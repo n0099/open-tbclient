@@ -29,10 +29,6 @@ public final class PusherMsgInfo extends Message {
     public static final Integer DEFAULT_TYPE = 0;
     public static final Integer DEFAULT_GROUPTYPE = 0;
 
-    /* synthetic */ PusherMsgInfo(Builder builder, boolean z, PusherMsgInfo pusherMsgInfo) {
-        this(builder, z);
-    }
-
     private PusherMsgInfo(Builder builder, boolean z) {
         super(builder);
         if (z) {
@@ -120,7 +116,7 @@ public final class PusherMsgInfo extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public PusherMsgInfo build(boolean z) {
-            return new PusherMsgInfo(this, z, null);
+            return new PusherMsgInfo(this, z);
         }
     }
 }

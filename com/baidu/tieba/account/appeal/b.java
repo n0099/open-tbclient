@@ -1,34 +1,82 @@
 package com.baidu.tieba.account.appeal;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tieba.w;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.w;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
-    final /* synthetic */ AppealActivity aVt;
+public class b {
+    private static final String aXO = TbConfig.SERVER_ADDRESS + "c/u/user/getreason";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(AppealActivity appealActivity) {
-        this.aVt = appealActivity;
+    /* renamed from: com.baidu.tieba.account.appeal.b$b  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public interface InterfaceC0070b {
+        void a(ForbidReasonData forbidReasonData);
+
+        void b(ForbidReasonData forbidReasonData);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        String str;
-        String str2;
-        String str3;
-        textView = this.aVt.aVo;
-        String charSequence = textView.getText().toString();
-        if (charSequence.length() < 20) {
-            this.aVt.showToast(w.l.appeal_min_size);
-        } else if (charSequence.length() <= 150) {
-            str = this.aVt.aVq;
-            str2 = this.aVt.aVr;
-            str3 = this.aVt.mUserName;
-            f.a(str, str2, str3, charSequence, new c(this));
-        } else {
-            this.aVt.showToast(w.l.appeal_max_size);
+    public static void a(String str, String str2, InterfaceC0070b interfaceC0070b) {
+        new a(str, str2, interfaceC0070b).execute(new String[0]);
+    }
+
+    /* loaded from: classes.dex */
+    private static class a extends BdAsyncTask<String, Object, ForbidReasonData> {
+        private String aXJ;
+        private String aXK;
+        private WeakReference<InterfaceC0070b> aXN;
+
+        public a(String str, String str2, InterfaceC0070b interfaceC0070b) {
+            this.aXJ = str;
+            this.aXK = str2;
+            this.aXN = new WeakReference<>(interfaceC0070b);
+            setPriority(3);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: r */
+        public ForbidReasonData doInBackground(String... strArr) {
+            w wVar = new w(b.aXO);
+            wVar.n("forum_id", this.aXJ);
+            wVar.n("user_id", this.aXK);
+            String uO = wVar.uO();
+            if (wVar.vl().wi().isRequestSuccess()) {
+                try {
+                    ForbidReasonData forbidReasonData = (ForbidReasonData) OrmObject.objectWithJsonStr(uO, ForbidReasonData.class);
+                    forbidReasonData.reason = forbidReasonData.reason.replaceAll("\\\\n", "\n");
+                    return forbidReasonData;
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                    ForbidReasonData forbidReasonData2 = new ForbidReasonData();
+                    forbidReasonData2.error.errno = -1000;
+                    return forbidReasonData2;
+                }
+            }
+            ForbidReasonData forbidReasonData3 = new ForbidReasonData();
+            forbidReasonData3.error.errno = wVar.vp();
+            forbidReasonData3.error.errMsg = wVar.getErrorString();
+            return forbidReasonData3;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ForbidReasonData forbidReasonData) {
+            super.onPostExecute(forbidReasonData);
+            InterfaceC0070b interfaceC0070b = this.aXN.get();
+            if (interfaceC0070b != null) {
+                if (forbidReasonData.error.errno == 0 && al.isEmpty(forbidReasonData.error.errMsg)) {
+                    interfaceC0070b.a(forbidReasonData);
+                } else {
+                    interfaceC0070b.b(forbidReasonData);
+                }
+            }
         }
     }
 }

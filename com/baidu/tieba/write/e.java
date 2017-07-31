@@ -1,231 +1,151 @@
 package com.baidu.tieba.write;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
+import android.content.DialogInterface;
+import com.baidu.adp.lib.g.g;
+import com.baidu.adp.lib.util.i;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
+import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.n.ad;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.plugins.XiaoyingUtil;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.GridLayout;
-import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.w;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e {
-    private ViewGroup ZO;
-    private TbPageContext aat;
-    private View gdA;
-    private TbImageView gdB;
-    private TextView gdC;
-    private TbImageView gdD;
-    private TextView gdE;
-    private TbImageView gdF;
-    private TextView gdG;
-    private TbImageView gdH;
-    private TextView gdI;
-    private TbImageView gdJ;
-    private GridLayout gdK;
-    private a gdL;
-    private ForumWriteData gdN;
-    private String gdO;
-    private PopupWindow gdQ;
-    private boolean gdR;
-    private boolean gdM = false;
-    private boolean gdP = false;
-    private View.OnClickListener fQR = new f(this);
-    private Runnable fQQ = new g(this);
-    private Runnable fQP = new h(this);
+    private static String mForumId;
+    private static String mForumName;
+    private static a gzG = null;
+    private static com.baidu.tbadk.core.dialog.c cxi = null;
 
-    public e(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        this.aat = tbPageContext;
-        this.ZO = viewGroup;
-        initView();
+    public static void c(TbPageContext tbPageContext, String str, String str2) {
+        b(tbPageContext, str, str2, "");
     }
 
-    public void a(ForumWriteData forumWriteData) {
-        this.gdN = forumWriteData;
-    }
-
-    public void sa(String str) {
-        this.gdO = str;
-    }
-
-    private void initView() {
-        if (this.aat != null && this.aat.getPageActivity() != null && this.ZO != null) {
-            this.gdA = LayoutInflater.from(this.aat.getPageActivity()).inflate(w.j.bottom_write_thread, (ViewGroup) null);
-            this.gdB = (TbImageView) this.gdA.findViewById(w.h.home_write_PL_icon);
-            this.gdC = (TextView) this.gdA.findViewById(w.h.home_write_PL_title);
-            this.gdD = (TbImageView) this.gdA.findViewById(w.h.home_write_video_icon);
-            this.gdE = (TextView) this.gdA.findViewById(w.h.home_write_video_title);
-            this.gdF = (TbImageView) this.gdA.findViewById(w.h.home_write_live_icon);
-            this.gdG = (TextView) this.gdA.findViewById(w.h.home_write_live_title);
-            this.gdH = (TbImageView) this.gdA.findViewById(w.h.home_write_url_icon);
-            this.gdI = (TextView) this.gdA.findViewById(w.h.home_write_url_title);
-            this.gdJ = (TbImageView) this.gdA.findViewById(w.h.write_switch);
-            this.gdK = (GridLayout) this.gdA.findViewById(w.h.type_container);
-            this.gdK.setMeasureAllChild(true);
-            this.gdK.setVerNum(2);
-            this.gdR = XiaoyingUtil.showXiaoyingTool();
-            a(this.gdK, this.gdR);
-            boolean fU = ad.fU();
-            b(this.gdK, fU);
-            this.gdA.setOnClickListener(new i(this));
-            this.gdA.findViewById(w.h.home_write_live).setOnClickListener(new j(this));
-            this.gdA.findViewById(w.h.home_write_PL).setOnClickListener(new k(this));
-            if (fU) {
-                this.gdA.findViewById(w.h.home_write_url).setOnClickListener(new l(this));
+    public static void b(final TbPageContext tbPageContext, String str, String str2, String str3) {
+        final PluginNetConfigInfos.PluginConfig pluginConfig;
+        String str4;
+        String str5;
+        mForumId = str;
+        mForumName = str2;
+        if (XiaoyingUtil.isXiaoyingInstalled()) {
+            if (XiaoyingUtil.isXiaoyingForbidden()) {
+                XiaoyingUtil.showGoPluginDetailDialog(tbPageContext, tbPageContext.getPageActivity().getString(d.l.plugin_video_not_active), tbPageContext.getPageActivity().getString(d.l.setup));
+            } else {
+                XiaoyingUtil.startXiaoying(tbPageContext.getPageActivity(), false, mForumId, mForumName, str3);
             }
-            if (this.gdR) {
-                this.gdA.findViewById(w.h.home_write_video).setOnClickListener(new m(this));
+        } else if (!i.hr()) {
+            tbPageContext.showToast(d.l.neterror);
+        } else if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.kb().kc() != null && (pluginConfig = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.kb().kc().getPluginConfig(XiaoyingUtil.PKG_NAME_VIDEO)) != null) {
+            float f = (pluginConfig.newest == null || pluginConfig.newest.size <= 0) ? 0.0f : pluginConfig.newest.size / 1048576.0f;
+            String string = tbPageContext.getPageActivity().getString(d.l.plugin_imme_install);
+            String string2 = tbPageContext.getPageActivity().getString(d.l.plugin_video_install_tips_wifi);
+            if (i.ht()) {
+                String string3 = tbPageContext.getPageActivity().getString(d.l.plugin_video_install_tips_mobile);
+                str4 = f > 0.0f ? string3 + "（" + f + "MB）" : string3;
+                str5 = tbPageContext.getPageActivity().getString(d.l.install_app);
+            } else {
+                str4 = string2;
+                str5 = string;
             }
-            onChangeSkinType();
-            if (fU) {
-                brx();
-            }
-        }
-    }
-
-    public void brx() {
-        if (!this.gdP && this.gdA != null) {
-            this.gdP = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("show_write_url_tips", false);
-            if (!this.gdP) {
-                View inflate = LayoutInflater.from(this.aat.getContext()).inflate(w.j.tips_blue_right_up, (ViewGroup) null);
-                View findViewById = inflate.findViewById(w.h.arrow_up);
-                TextView textView = (TextView) inflate.findViewById(w.h.tips);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
-                if (this.gdR) {
-                    layoutParams.rightMargin = com.baidu.adp.lib.util.k.g(this.aat.getContext(), w.f.ds120);
-                } else {
-                    layoutParams.gravity = 5;
-                    layoutParams.rightMargin = com.baidu.adp.lib.util.k.g(this.aat.getContext(), w.f.ds140);
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+            aVar.cT(str4);
+            aVar.a(str5, new a.b() { // from class: com.baidu.tieba.write.e.1
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    aVar2.dismiss();
+                    e.q(TbPageContext.this);
+                    if (e.gzG == null) {
+                        a unused = e.gzG = new a();
+                    }
+                    e.gzG.d(TbPageContext.this, e.mForumId, e.mForumName);
+                    if (PluginPackageManager.jE().bu(XiaoyingUtil.PKG_NAME_VIDEO)) {
+                        PluginPackageManager.jE().a(e.gzG);
+                    } else {
+                        PluginPackageManager.jE().a(pluginConfig, e.gzG);
+                    }
                 }
-                textView.setText(w.l.write_url_tips);
-                textView.setOnClickListener(this.fQR);
-                this.gdQ = new PopupWindow(inflate, -2, -2);
-                this.gdA.removeCallbacks(this.fQP);
-                this.gdA.postDelayed(this.fQP, 400L);
-            }
+            });
+            aVar.b(d.l.cancel, new a.b() { // from class: com.baidu.tieba.write.e.2
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    aVar2.dismiss();
+                }
+            });
+            aVar.b(tbPageContext).tr();
         }
     }
 
-    public void bry() {
-        if (this.gdA != null) {
-            this.gdA.removeCallbacks(this.fQP);
-            this.gdA.removeCallbacks(this.fQQ);
-        }
-        boq();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void boq() {
-        com.baidu.adp.lib.g.j.a(this.gdQ);
-    }
-
-    private void a(GridLayout gridLayout, boolean z) {
-        if (!z) {
-            gridLayout.findViewById(w.h.home_write_video).setVisibility(8);
-            gridLayout.setVerNum(1);
-            if (gridLayout.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                ((LinearLayout.LayoutParams) gridLayout.getLayoutParams()).bottomMargin = com.baidu.adp.lib.util.k.g(this.aat.getPageActivity(), w.f.ds180);
-            }
-        }
-    }
-
-    private void b(GridLayout gridLayout, boolean z) {
-        if (!z) {
-            gridLayout.findViewById(w.h.home_write_url).setVisibility(8);
-            gridLayout.setVerNum(1);
-            if (gridLayout.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                ((LinearLayout.LayoutParams) gridLayout.getLayoutParams()).bottomMargin = com.baidu.adp.lib.util.k.g(this.aat.getPageActivity(), w.f.ds180);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class a implements Runnable {
-        private View mView;
+    private static class a implements com.baidu.adp.plugin.packageManager.d {
+        private TbPageContext cxn;
+        private String mForumId;
+        private String mForumName;
 
-        public a(View view) {
-            this.mView = view;
+        private a() {
+            this.cxn = null;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            if (this.mView != null) {
-                this.mView.setVisibility(8);
-            }
-            if (e.this.gdA.getParent() == e.this.ZO) {
-                e.this.ZO.removeView(e.this.gdA);
-            }
-            e.this.gdM = false;
+        public void d(TbPageContext tbPageContext, String str, String str2) {
+            this.cxn = tbPageContext;
+            this.mForumId = str;
+            this.mForumName = str2;
         }
-    }
 
-    public void ms(boolean z) {
-        if (!this.gdM && this.ZO != null) {
-            this.gdM = true;
-            if (this.gdA.getParent() == null) {
-                com.baidu.tbadk.i.d.K(this.ZO).a(this.ZO, this.gdA, z);
+        @Override // com.baidu.adp.plugin.packageManager.d
+        public void a(BdFileDownloadData bdFileDownloadData) {
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && e.cxi != null) {
+                e.cxi.ck((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
             }
-            com.baidu.adp.lib.g.h.fR().postDelayed(new n(this), 100L);
-            TiebaStatic.log(new au("c12052").Z("obj_locate", "1"));
         }
-    }
 
-    public void brz() {
-        d(this.gdK, this.gdJ);
+        @Override // com.baidu.adp.plugin.packageManager.d
+        public void b(BdFileDownloadData bdFileDownloadData) {
+            if (e.cxi != null) {
+                g.b(e.cxi, this.cxn);
+            }
+            this.cxn.showToast(d.l.plugin_video_installing);
+        }
+
+        @Override // com.baidu.adp.plugin.packageManager.d
+        public void c(BdFileDownloadData bdFileDownloadData) {
+            if (e.cxi != null) {
+                g.b(e.cxi, this.cxn);
+            }
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.cxn != null) {
+                this.cxn.showToast(bdFileDownloadData.getStatusMsg());
+            }
+            PluginPackageManager.jE().a((com.baidu.adp.plugin.packageManager.d) null);
+        }
+
+        @Override // com.baidu.adp.plugin.packageManager.d
+        public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
+            if (e.cxi != null) {
+                g.b(e.cxi, this.cxn);
+            }
+            if (i == 0) {
+                e.c(this.cxn, this.mForumId, this.mForumName);
+            } else {
+                this.cxn.showToast(this.cxn.getString(d.l.install_failed) + str);
+            }
+            PluginPackageManager.jE().a((com.baidu.adp.plugin.packageManager.d) null);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(View view, View view2) {
-        bry();
-        if (this.gdL != null) {
-            com.baidu.adp.lib.g.h.fR().removeCallbacks(this.gdL);
+    public static void q(TbPageContext tbPageContext) {
+        if (cxi == null) {
+            cxi = new com.baidu.tbadk.core.dialog.c(tbPageContext.getPageActivity());
+            cxi.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.e.3
+                @Override // android.content.DialogInterface.OnCancelListener
+                public void onCancel(DialogInterface dialogInterface) {
+                    com.baidu.tbadk.core.dialog.c unused = e.cxi = null;
+                    PluginPackageManager.jE().a((com.baidu.adp.plugin.packageManager.d) null);
+                }
+            });
+            cxi.setCancelable(true);
+            cxi.setCanceledOnTouchOutside(false);
+            cxi.setMessage(tbPageContext.getPageActivity().getString(d.l.plugin_video_downloading));
         }
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.aat.getPageActivity(), w.a.home_write_bgout);
-        loadAnimation.setFillAfter(true);
-        view.startAnimation(loadAnimation);
-        Animation loadAnimation2 = AnimationUtils.loadAnimation(this.aat.getPageActivity(), w.a.home_write_out);
-        loadAnimation2.setFillAfter(true);
-        view2.startAnimation(loadAnimation2);
-        this.gdL = new a(view);
-        com.baidu.adp.lib.g.h.fR().postDelayed(this.gdL, 300L);
-    }
-
-    public void onChangeSkinType() {
-        as.k(this.gdA, w.e.cp_bg_line_d);
-        as.c(this.gdB, w.g.icon_posts_photo_n);
-        as.c(this.gdD, w.g.icon_posts_video_n);
-        as.c(this.gdF, w.g.icon_posts_live_n);
-        as.c(this.gdJ, w.g.home_write_s);
-        as.c(this.gdH, w.g.icon_posts_url_n);
-        as.i(this.gdC, w.e.cp_cont_f);
-        as.i(this.gdE, w.e.cp_cont_f);
-        as.i(this.gdG, w.e.cp_cont_f);
-        as.i(this.gdI, w.e.cp_cont_f);
-    }
-
-    public void onDestroy() {
-        bry();
-        if (this.gdA != null && this.gdA.getParent() == this.ZO) {
-            this.ZO.removeView(this.gdA);
-        }
-        if (this.gdL != null) {
-            com.baidu.adp.lib.g.h.fR().removeCallbacks(this.gdL);
-            this.gdL = null;
-        }
-    }
-
-    public boolean isShowing() {
-        return this.gdM;
+        g.a(cxi, tbPageContext.getPageActivity());
     }
 }

@@ -1,23 +1,41 @@
 package com.baidu.tbadk.core.data;
 
-import android.view.View;
-import tbclient.PbContent;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.FrsPage.TopNotice;
 /* loaded from: classes.dex */
-public class bn extends com.baidu.tbadk.widget.richText.b {
-    final /* synthetic */ bm Zj;
-    private final /* synthetic */ PbContent Zk;
+public class bn {
+    private String title = null;
+    private String title_link = null;
+    private String author = null;
+    private int id = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bn(bm bmVar, int i, String str, PbContent pbContent) {
-        super(i, str);
-        this.Zj = bmVar;
-        this.Zk = pbContent;
+    public String getTitle() {
+        return this.title;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.b, android.text.style.ClickableSpan
-    public void onClick(View view) {
-        this.Zj.cD(this.Zk.link);
+    public String td() {
+        return this.title_link;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.title = jSONObject.getString(VrPlayerActivityConfig.TITLE);
+            this.title_link = jSONObject.getString("title_link");
+            this.author = jSONObject.getString("author");
+            this.id = jSONObject.getInt("id");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void a(TopNotice topNotice) {
+        if (topNotice != null) {
+            this.title = topNotice.title;
+            this.title_link = topNotice.title_link;
+            this.author = topNotice.author;
+            this.id = topNotice.id.intValue();
+        }
     }
 }

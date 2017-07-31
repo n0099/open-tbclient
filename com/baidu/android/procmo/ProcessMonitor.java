@@ -1,5 +1,6 @@
 package com.baidu.android.procmo;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -77,6 +78,7 @@ public class ProcessMonitor {
     /* JADX INFO: Access modifiers changed from: private */
     public native void exitIfRunning(String str);
 
+    @TargetApi(9)
     private static String getNativeLibraryDir(Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);

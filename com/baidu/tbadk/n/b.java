@@ -1,33 +1,21 @@
 package com.baidu.tbadk.n;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.a.e;
+import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.lib.b.a {
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.b.a
-    public void X(int i) {
+public class b extends e {
+    public b(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "ad_baichuan_open";
+    @Override // com.baidu.adp.framework.a.e
+    public void b(int i, BdUniqueId bdUniqueId) {
+        ReloginManager.uy().d(i, bdUniqueId);
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] eP() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eQ() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eR() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int eS() {
-        return 10;
+    @Override // com.baidu.adp.framework.a.e
+    public void b(BdUniqueId bdUniqueId) {
+        ReloginManager.uy().g(bdUniqueId);
     }
 }

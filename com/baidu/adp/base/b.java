@@ -1,16 +1,24 @@
 package com.baidu.adp.base;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class b implements Runnable {
-    final /* synthetic */ BdBaseActivity nt;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(BdBaseActivity bdBaseActivity) {
-        this.nt = bdBaseActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+/* loaded from: classes.dex */
+public class b<T> extends c<T> {
+    protected View pd;
+
+    public b(e<T> eVar, int i) {
+        super(eVar);
+        this.pd = null;
+        this.pd = LayoutInflater.from(eVar.getContext()).inflate(i, (ViewGroup) null);
+        this.pd.setTag(this);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.nt.onPreLoad(this.nt.onGetPreLoadListView());
+    public View cq() {
+        return this.pd;
+    }
+
+    public View findViewById(int i) {
+        return this.pd.findViewById(i);
     }
 }

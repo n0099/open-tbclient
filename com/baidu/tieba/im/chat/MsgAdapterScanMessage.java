@@ -9,8 +9,8 @@ public class MsgAdapterScanMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public List<ao> cXm;
         public TbPageContext<MsglistActivity<?>> context;
+        public List<e> dhm;
     }
 
     public MsgAdapterScanMessage(a aVar) {

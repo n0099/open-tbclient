@@ -3,12 +3,10 @@ package protobuf.PushNotify;
 import com.squareup.wire.Message;
 /* loaded from: classes.dex */
 public final class PushNotifyReqIdl extends Message {
-    /* synthetic */ PushNotifyReqIdl(Builder builder, boolean z, PushNotifyReqIdl pushNotifyReqIdl) {
-        this(builder, z);
-    }
-
     private PushNotifyReqIdl(Builder builder, boolean z) {
         super(builder);
+        if (z) {
+        }
     }
 
     /* loaded from: classes.dex */
@@ -23,7 +21,7 @@ public final class PushNotifyReqIdl extends Message {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire.Message.Builder
         public PushNotifyReqIdl build(boolean z) {
-            return new PushNotifyReqIdl(this, z, null);
+            return new PushNotifyReqIdl(this, z);
         }
     }
 }

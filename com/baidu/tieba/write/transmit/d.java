@@ -1,114 +1,149 @@
 package com.baidu.tieba.write.transmit;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.w;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.k;
+import com.baidu.adp.widget.ListView.f;
+import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.j;
+import com.baidu.tbadk.core.atomData.HotTopicChangeActivityConfig;
+import com.baidu.tbadk.core.data.HotTopicBussinessData;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.u;
+import com.baidu.tieba.d;
+import com.baidu.tieba.likedForum.a;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes.dex */
-public class d extends BaseAdapter {
-    private static int ghw = 3;
-    private Context mContext;
-    private List<TransmitForumData> mDataList = new ArrayList();
+public class d extends com.baidu.adp.widget.ListView.a<e, a> {
+    private com.baidu.tieba.likedForum.a bnR;
+    private ArrayList<HotTopicBussinessData> bnS;
+    private a.InterfaceC0104a bnU;
+    private h gCW;
+    private List<TransmitForumData> gzb;
 
-    public d(Context context) {
-        this.mContext = context;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.mDataList.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        a aVar = null;
-        if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(w.j.layout_select_forum_item, (ViewGroup) null);
-            a aVar2 = new a(view);
-            view.setTag(w.h.key_select_forum_holder, aVar2);
-            aVar = aVar2;
-        } else {
-            Object tag = view.getTag(w.h.key_select_forum_holder);
-            if (tag instanceof a) {
-                aVar = (a) tag;
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean da(long j) {
+        if (this.gzb == null) {
+            return false;
+        }
+        for (TransmitForumData transmitForumData : this.gzb) {
+            if (transmitForumData != null && transmitForumData.forumId == j) {
+                return true;
             }
         }
-        if (aVar != null) {
-            aVar.wK();
-            aVar.b(this.mDataList.get(i));
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bxw() {
+        HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.mContext, 25005, this.bnS);
+        hotTopicChangeActivityConfig.setUseOriginList(true);
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotTopicChangeActivityConfig));
+    }
+
+    public HotTopicBussinessData un(int i) {
+        if (u.v(this.bnS)) {
+            return null;
         }
+        return this.bnS.remove(i);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public d(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
+        super(context, bdUniqueId, bdUniqueId2);
+        this.gCW = new h() { // from class: com.baidu.tieba.write.transmit.d.1
+            @Override // com.baidu.adp.widget.ListView.h
+            public void a(View view, f fVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
+                if (!i.hr()) {
+                    k.showToast(d.this.mContext, d.l.neterror);
+                }
+                TiebaStatic.log(new aj("c12053"));
+                if (!u.v(d.this.bnS)) {
+                    d.this.bxw();
+                    return;
+                }
+                d.this.bnR = new com.baidu.tieba.likedForum.a(d.this.mPageId);
+                d.this.bnR.a(d.this.bnU);
+                d.this.bnR.Fw();
+            }
+        };
+        this.bnU = new a.InterfaceC0104a() { // from class: com.baidu.tieba.write.transmit.d.2
+            @Override // com.baidu.tieba.likedForum.a.InterfaceC0104a
+            public void a(boolean z, int i, String str, List<ForumInfo> list2) {
+                ArrayList arrayList = new ArrayList();
+                if (u.u(list2) > 0) {
+                    int size = list2.size();
+                    int i2 = 0;
+                    while (true) {
+                        int i3 = i2;
+                        if (i3 >= size) {
+                            break;
+                        }
+                        ForumInfo forumInfo = list2.get(i3);
+                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !d.this.da(forumInfo.forum_id.longValue())) {
+                            arrayList.add(new HotTopicBussinessData(forumInfo.forum_id.longValue(), forumInfo.forum_name, forumInfo.avatar, null, forumInfo.thread_count.longValue(), 0L, 0L, false, null, 0));
+                        }
+                        i2 = i3 + 1;
+                    }
+                    if (d.this.bnS == null) {
+                        d.this.bnS = arrayList;
+                        d.this.bxw();
+                    }
+                }
+            }
+        };
+        setOnAdapterItemClickListener(this.gCW);
+        this.gzb = list;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bT */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        return new a(LayoutInflater.from(this.mContext).inflate(d.j.transmit_select_layout, (ViewGroup) null));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, a aVar) {
+        ai.i(aVar.gCY, d.e.cp_link_tip_a);
+        ai.c(aVar.gCZ, d.g.icon_post_add_ba_n);
         return view;
     }
 
     /* loaded from: classes.dex */
-    public static class a {
-        public TextView bAh;
-        private Drawable ghA;
-        public CheckBox ghx;
-        public BarImageView ghy;
-        private Drawable ghz;
-        public int mSkinType = 3;
+    public static class a extends j.a {
+        public TextView gCY;
+        public ImageView gCZ;
 
         public a(View view) {
-            if (view != null) {
-                this.bAh = (TextView) view.findViewById(w.h.transmit_forum_name);
-                this.ghx = (CheckBox) view.findViewById(w.h.transmit_check_box);
-                this.ghy = (BarImageView) view.findViewById(w.h.forum_avatar);
-            }
-        }
-
-        public void b(TransmitForumData transmitForumData) {
-            if (transmitForumData != null) {
-                this.bAh.setText(transmitForumData.forumName);
-                this.ghx.setChecked(transmitForumData.aaP);
-                this.ghy.c(transmitForumData.avatar, 10, false);
-                if (transmitForumData.ghN) {
-                    this.ghx.setButtonDrawable(this.ghz);
-                } else {
-                    this.ghx.setButtonDrawable(this.ghA);
-                }
-            }
-        }
-
-        public void wK() {
-            if (d.ghw != this.mSkinType) {
-                as.i(this.bAh, w.e.cp_cont_b);
-                this.ghz = as.getDrawable(w.g.icon_list_confirm_d);
-                this.ghA = as.getDrawable(w.g.transmit_check_box);
-            }
-            this.mSkinType = d.ghw;
+            super(view);
+            this.gCY = (TextView) view.findViewById(d.h.select_by_self);
+            this.gCZ = (ImageView) view.findViewById(d.h.add_icon);
         }
     }
 
-    public void U(List<TransmitForumData> list) {
-        this.mDataList.clear();
-        this.mDataList.addAll(list);
-        notifyDataSetChanged();
-    }
-
-    public void tL(int i) {
-        if (ghw != i) {
-            notifyDataSetChanged();
+    public void destroy() {
+        if (this.bnR != null) {
+            this.bnR.destroy();
         }
-        ghw = i;
     }
 }

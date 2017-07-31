@@ -1,73 +1,71 @@
 package com.baidu.tieba.homepage.personalize.b;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.z;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.view.o;
-import com.baidu.tieba.card.ci;
+import com.baidu.tieba.card.j;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, a> {
-    public BdUniqueId aMp;
-    private TbPageContext<?> ajP;
-    private o.a akb;
-    private com.baidu.tieba.card.t cJE;
-    ci<com.baidu.tieba.card.data.k> cJF;
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.akb = null;
-        this.cJF = new e(this);
-        this.ajP = tbPageContext;
+public class d<T extends com.baidu.tieba.card.j> extends com.baidu.tieba.card.a.a<T> implements com.baidu.tieba.play.e {
+    public d(T t) {
+        super(t);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ab */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cJE = new com.baidu.tieba.card.t(this.ajP);
-        this.cJE.j(this.ajP.getUniqueId());
-        return new a(this.cJE);
+    @Override // com.baidu.tieba.card.a.a
+    /* renamed from: aoG */
+    public T Xc() {
+        return (T) this.bKG;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, a aVar) {
-        if (kVar != null) {
-            kVar.ho(i + 1);
+    @Override // com.baidu.tieba.play.e
+    public boolean isPlayStarted() {
+        if (this.bKG == 0) {
+            return false;
         }
-        aVar.cJH.a(kVar);
-        aVar.cJH.a(this.cJF);
-        aVar.cJH.a(this.akb);
-        int i2 = 0;
-        String str = "";
-        if (kVar != null && kVar.Mv() != null) {
-            i2 = kVar.Mv().rJ().live_type;
-            str = kVar.Mv().getTid();
-        }
-        TiebaStatic.log(new au("c11823").r("obj_type", i2).Z("tid", str));
-        return aVar.getView();
+        return ((com.baidu.tieba.card.j) this.bKG).isPlayStarted();
     }
 
-    public void setEventCallback(o.a aVar) {
-        this.akb = aVar;
+    @Override // com.baidu.tieba.play.e
+    public boolean isPlaying() {
+        if (this.bKG == 0) {
+            return false;
+        }
+        return ((com.baidu.tieba.card.j) this.bKG).isPlaying();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class a extends z.a {
-        public com.baidu.tieba.card.t cJH;
-
-        public a(com.baidu.tieba.card.t tVar) {
-            super(tVar.getView());
-            this.cJH = tVar;
+    @Override // com.baidu.tieba.play.e
+    public void startPlay() {
+        if (this.bKG != 0) {
+            ((com.baidu.tieba.card.j) this.bKG).startPlay();
         }
+    }
+
+    @Override // com.baidu.tieba.play.e
+    public void stopPlay() {
+        if (this.bKG != 0) {
+            ((com.baidu.tieba.card.j) this.bKG).stopPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.play.e
+    public View getVideoContainer() {
+        if (this.bKG == 0) {
+            return null;
+        }
+        return ((com.baidu.tieba.card.j) this.bKG).getVideoContainer();
+    }
+
+    @Override // com.baidu.tieba.play.e
+    public String getPlayUrl() {
+        if (this.bKG == 0) {
+            return null;
+        }
+        return ((com.baidu.tieba.card.j) this.bKG).getPlayUrl();
+    }
+
+    @Override // com.baidu.tieba.play.e
+    public int getCurrentPosition() {
+        if (this.bKG == 0) {
+            return 0;
+        }
+        return ((com.baidu.tieba.card.j) this.bKG).getCurrentPosition();
     }
 }

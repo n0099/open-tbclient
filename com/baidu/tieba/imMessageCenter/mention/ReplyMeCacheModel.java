@@ -4,28 +4,28 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.mvc.model.CacheModel;
 /* loaded from: classes2.dex */
-public class ReplyMeCacheModel extends CacheModel<au, ReplyMessageActivity> {
+public class ReplyMeCacheModel extends CacheModel<m, ReplyMessageActivity> {
     public ReplyMeCacheModel(TbPageContext<ReplyMessageActivity> tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<au> EQ() {
-        return au.class;
+    public Class<m> Fp() {
+        return m.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int ER() {
+    public int Fq() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int ES() {
+    public int Fr() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String EB() {
+    public String Fa() {
         return "tb_user_replyme";
     }
 }

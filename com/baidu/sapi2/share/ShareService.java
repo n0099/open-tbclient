@@ -1,5 +1,6 @@
 package com.baidu.sapi2.share;
 
+import android.annotation.TargetApi;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -40,6 +41,7 @@ public final class ShareService extends Service {
     }
 
     @Override // android.app.Service
+    @TargetApi(5)
     public int onStartCommand(Intent intent, int i, int i2) {
         d();
         return 2;

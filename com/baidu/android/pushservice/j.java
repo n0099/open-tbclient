@@ -38,9 +38,9 @@ public final class j {
         return this.b;
     }
 
-    public void a(Context context, boolean z, a.C0018a c0018a) {
+    public void a(Context context, boolean z, a.C0020a c0020a) {
         if (this.d == null || !this.d.isAlive()) {
-            x xVar = new x(context, c0018a);
+            x xVar = new x(context, c0020a);
             if (!z) {
                 xVar.a(0);
             }

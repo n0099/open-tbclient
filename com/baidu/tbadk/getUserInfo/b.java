@@ -2,51 +2,51 @@ package com.baidu.tbadk.getUserInfo;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.g.k;
+import com.baidu.adp.lib.g.h;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.data.CloseAdData;
+import com.baidu.tbadk.data.PayMemberInfoData;
 import com.baidu.tbadk.data.UserData;
-import com.baidu.tbadk.data.d;
-import com.baidu.tbadk.data.h;
 /* loaded from: classes.dex */
 public class b {
-    private static b aDd;
+    private static b aFs;
 
     private b() {
     }
 
-    public static b DT() {
-        if (aDd == null) {
+    public static b En() {
+        if (aFs == null) {
             synchronized (b.class) {
-                if (aDd == null) {
-                    aDd = new b();
+                if (aFs == null) {
+                    aFs = new b();
                 }
             }
         }
-        return aDd;
+        return aFs;
     }
 
-    public void DU() {
+    public void Eo() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void DV() {
+    public void Ep() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
-            getUserInfoRequstData.setUid(com.baidu.adp.lib.g.b.c(currentAccountObj.getID(), 0L));
+            getUserInfoRequstData.setUid(com.baidu.adp.lib.g.b.d(currentAccountObj.getID(), 0L));
         }
         MessageManager.getInstance().sendMessage(getUserInfoRequstData);
     }
 
     public void a(UserData userData) {
         if (userData != null) {
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            final AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
                 currentAccountObj = new AccountData();
             }
@@ -65,21 +65,26 @@ public class b {
             }
             currentAccountObj.setIsBigV(userData.isBigV());
             currentAccountObj.setNameShow(userData.getName_show());
-            TbadkCoreApplication.m9getInst().setDefaultBubble(userData.getBimg_url());
-            h payMemberInfoData = userData.getPayMemberInfoData();
+            TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
+            PayMemberInfoData payMemberInfoData = userData.getPayMemberInfoData();
             if (currentAccountObj.getVipInfo() != null) {
                 currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }
-            d closeAdData = userData.getCloseAdData();
+            CloseAdData closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.BY());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.BZ());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.Cr());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.Cs());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            k.fS().e(new c(this, currentAccountObj));
+            h.gb().e(new Runnable() { // from class: com.baidu.tbadk.getUserInfo.b.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    com.baidu.tbadk.core.a.b.b(currentAccountObj);
+                }
+            });
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED, payMemberInfoData));
         }
     }

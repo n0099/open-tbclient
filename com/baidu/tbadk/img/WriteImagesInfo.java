@@ -1,9 +1,10 @@
 package com.baidu.tbadk.img;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.am;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -11,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class WriteImagesInfo implements Serializable {
+public class WriteImagesInfo extends OrmObject implements Serializable {
     private LinkedList<ImageFileInfo> chosedFiles;
     private boolean isOriginalImg;
     private String lastAlbumId;
@@ -171,14 +172,8 @@ public class WriteImagesInfo implements Serializable {
             }
             if (this.chosedFiles != null) {
                 JSONArray jSONArray = new JSONArray();
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= this.chosedFiles.size()) {
-                        break;
-                    }
-                    jSONArray.put(this.chosedFiles.get(i2).toJson());
-                    i = i2 + 1;
+                for (int i = 0; i < this.chosedFiles.size(); i++) {
+                    jSONArray.put(this.chosedFiles.get(i).toJson());
                 }
                 jSONObject.put("chosedFiles", jSONArray);
             }
@@ -195,7 +190,7 @@ public class WriteImagesInfo implements Serializable {
             for (int size = chosedFiles.size() - 1; size >= 0; size--) {
                 ImageFileInfo imageFileInfo = chosedFiles.get(size);
                 if (!imageFileInfo.isHasAddPostQualityAction()) {
-                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.L(ax.vA().vG(), ax.vA().vG()));
+                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.M(am.vQ().vW(), am.vQ().vW()));
                     imageFileInfo.setHasAddPostQualityAction(true);
                 }
             }

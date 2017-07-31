@@ -1,30 +1,41 @@
 package com.baidu.tieba.account;
 
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AccountRestoreActivityConfig;
 import com.baidu.tbadk.core.atomData.AppealActivityConfig;
 import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.account.appeal.AppealActivity;
 /* loaded from: classes.dex */
 public class AccountActivityStatic {
     static {
-        KG();
-        DU();
+        KS();
+        Eo();
     }
 
-    private static void DU() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_ACCOUNT, new k());
+    private static void Eo() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_ACCOUNT, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.account.AccountActivityStatic.1
+            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
+                if (customMessage != null && customMessage.getData() != null) {
+                    customMessage.getData().startActivity(AccountActivity.class);
+                }
+                return null;
+            }
+        });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void KG() {
+    private static void KS() {
         AppealActivityConfig.isExistActivity = true;
-        TbadkCoreApplication.m9getInst().RegisterIntent(AccountRestoreActivityConfig.class, AccountRestoreActivity.class);
-        TbadkCoreApplication.m9getInst().RegisterIntent(NotLoginGuideActivityConfig.class, NotLoginGuideActivity.class);
-        TbadkCoreApplication.m9getInst().RegisterIntent(AppealActivityConfig.class, AppealActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(AccountRestoreActivityConfig.class, AccountRestoreActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(NotLoginGuideActivityConfig.class, NotLoginGuideActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(AppealActivityConfig.class, AppealActivity.class);
     }
 }

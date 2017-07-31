@@ -12,7 +12,8 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         super(CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE);
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetMoreMsgResIdl getMoreMsgResIdl = (GetMoreMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMoreMsgResIdl.class);
         if (getMoreMsgResIdl != null) {

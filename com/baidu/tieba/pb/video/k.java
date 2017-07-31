@@ -1,108 +1,60 @@
 package com.baidu.tieba.pb.video;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.data.bm;
-import com.baidu.tbadk.core.data.bt;
-import com.baidu.tieba.w;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bq;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import tbclient.VideoInfo;
 /* loaded from: classes.dex */
-public class k {
-    private BaseActivity bhX;
-    private d eJO;
-    private e eJP;
-    private com.baidu.tieba.d.a eJQ;
-    private int mSkinType = 3;
+public class k extends PostData {
+    public static final BdUniqueId eYk = BdUniqueId.gen();
+    public String Wx;
+    public long channelId;
+    public String channelName;
+    public String eYl;
+    public String eYm;
+    public String eYn;
+    public String eYo;
+    public String eYp;
+    public long eYq;
+    public long forumId;
+    public String threadId;
+    public int videoDuration;
+    public boolean csE = false;
+    public boolean eYr = true;
+    public boolean eYs = false;
+    public int position = 0;
 
-    public k(BaseActivity baseActivity) {
-        this.bhX = baseActivity;
-    }
-
-    public void a(bt btVar, bm bmVar, int i) {
-        T(bmVar);
-        b(btVar, bmVar, i);
-    }
-
-    private void T(bm bmVar) {
-        if (bmVar != null) {
-            if (this.eJO == null) {
-                this.eJO = new d(LayoutInflater.from(this.bhX.getPageContext().getPageActivity()).inflate(w.j.pb_header_video_abstract_layout, (ViewGroup) null));
+    public void a(bl blVar, boolean z, boolean z2, boolean z3, int i) {
+        if (blVar != null) {
+            this.eYr = z;
+            this.eYs = z2;
+            this.csE = z3;
+            this.threadId = blVar.getTid();
+            this.eYp = blVar.getTitle();
+            this.forumId = blVar.getFid();
+            this.eYl = blVar.aaC;
+            this.eYm = blVar.aaA;
+            this.eYn = blVar.aaB;
+            VideoInfo rW = blVar.rW();
+            if (rW != null) {
+                this.eYo = rW.thumbnail_url;
+                this.videoDuration = rW.video_duration.intValue();
+                this.eYq = rW.play_count.intValue();
             }
-            this.eJO.Q(bmVar);
-        }
-    }
-
-    public View aSN() {
-        if (this.eJO == null) {
-            return null;
-        }
-        return this.eJO.mRootView;
-    }
-
-    private void b(bt btVar, bm bmVar, int i) {
-        if (btVar != null && bmVar != null) {
-            if (this.eJP == null) {
-                this.eJP = new e(this.bhX, LayoutInflater.from(this.bhX.getPageContext().getPageActivity()).inflate(w.j.video_pb_video_channel_info_layout, (ViewGroup) null));
+            bq sJ = blVar.sJ();
+            if (sJ != null && sJ.channelId > 0) {
+                this.channelName = sJ.channelName;
+                this.channelId = sJ.channelId;
+            } else if (blVar.getAuthor() != null) {
+                this.Wx = blVar.getAuthor().getUserName();
             }
-            btVar.Zu = i;
-            this.eJP.R(bmVar);
-            bmVar.a(btVar);
+            this.position = i;
         }
     }
 
-    public View aSO() {
-        if (this.eJP == null) {
-            return null;
-        }
-        return this.eJP.getRootView();
-    }
-
-    public void U(bm bmVar) {
-        if (this.eJP != null && bmVar != null && bmVar.sv() != null && bmVar.sv().Zu == 2) {
-            if (this.eJQ == null) {
-                this.eJQ = new com.baidu.tieba.d.a(this.bhX.getPageContext(), this.eJP.aSK());
-                this.eJQ.hC(5000);
-            }
-            this.eJQ.f(this.bhX.getResources().getString(w.l.pb_order_channel_tip), "pb_show_order_channel_tip", true);
-        }
-    }
-
-    public void w(long j, int i) {
-        if (this.eJP != null && j > 0) {
-            this.eJP.j(i, j);
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            if (this.eJO != null) {
-                this.eJO.AM();
-            }
-            if (this.eJP != null) {
-                this.eJP.AM();
-            }
-            this.mSkinType = i;
-        }
-    }
-
-    public void e(BdTypeListView bdTypeListView) {
-        if (this.eJO != null) {
-            bdTypeListView.removeHeaderView(this.eJO.mRootView);
-        }
-        if (this.eJP != null) {
-            bdTypeListView.removeHeaderView(this.eJP.getRootView());
-        }
-    }
-
-    public void onDestroy() {
-        aSP();
-    }
-
-    public void aSP() {
-        if (this.eJQ != null) {
-            this.eJQ.Xv();
-        }
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
+    public BdUniqueId getType() {
+        return eYk;
     }
 }

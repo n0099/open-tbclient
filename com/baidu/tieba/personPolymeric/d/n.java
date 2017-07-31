@@ -1,89 +1,85 @@
 package com.baidu.tieba.personPolymeric.d;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoListActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.horizonalList.widget.HTypeListView;
-import com.baidu.tieba.w;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class n extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.m> {
-    private TextView aab;
-    private HTypeListView bBi;
-    private com.baidu.tieba.personPolymeric.a.t eXv;
-    private View.OnClickListener eXz;
-    private View mRootView;
-    private long uid;
+public class n extends RelativeLayout {
+    public TextView bZv;
+    public BarImageView flE;
+    public TextView flF;
+    public TextView flG;
+    public TextView flH;
+    private com.baidu.tieba.personPolymeric.c.f flI;
+    private Context mContext;
+    private View.OnClickListener mOnClickListener;
+    private int mSkinType;
 
-    public n(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        this.eXz = new o(this);
-        this.mRootView = getView();
-        this.aab = (TextView) this.mRootView.findViewById(w.h.card_person_vedio_list_title);
-        this.bBi = (HTypeListView) this.mRootView.findViewById(w.h.card_person_vedio_view_pager);
-        this.eXv = new com.baidu.tieba.personPolymeric.a.t(this.mTbPageContext, this.bBi);
+    public n(Context context) {
+        super(context);
+        this.mSkinType = 3;
+        this.mContext = context;
+        LayoutInflater.from(getContext()).inflate(d.j.person_info_common_forum_item, (ViewGroup) this, true);
+        init();
+        initListener();
     }
 
-    @Override // com.baidu.tieba.card.a
-    public void d(TbPageContext<?> tbPageContext, int i) {
-        if (i != this.mSkinType) {
-            this.mSkinType = i;
-            as.k(this.mRootView, w.e.cp_bg_line_d);
-            as.i(this.aab, w.e.cp_cont_d);
-        }
+    private void init() {
+        this.flE = (BarImageView) findViewById(d.h.forum_avatar);
+        this.bZv = (TextView) findViewById(d.h.forum_name);
+        this.flF = (TextView) findViewById(d.h.forum_post_thread);
+        this.flG = (TextView) findViewById(d.h.forum_thread_num);
+        this.flH = (TextView) findViewById(d.h.forum_thread_str);
     }
 
-    @Override // com.baidu.tieba.card.a
-    public int getLayout() {
-        return w.j.card_person_vedio_list_view;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.a
-    public void a(com.baidu.tieba.personPolymeric.c.m mVar) {
-        if (mVar == null || com.baidu.tbadk.core.util.z.t(mVar.eWO)) {
-            this.mRootView.setVisibility(8);
-            return;
-        }
-        this.uid = mVar.uid;
-        this.aab.setText(w.l.msglist_video);
-        this.bBi.setData(ct(mVar.eWO));
-        this.eXv.R(this.eXz);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aVC() {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoListActivityConfig(this.mContext).createNormalCfg(this.uid, "personal")));
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-    }
-
-    private List<com.baidu.adp.widget.ListView.v> ct(List<com.baidu.adp.widget.ListView.v> list) {
-        int s = com.baidu.tbadk.core.util.z.s(list);
-        if (s > 0) {
-            List<com.baidu.adp.widget.ListView.v> arrayList = new ArrayList<>(list);
-            int g = com.baidu.adp.lib.util.k.g(this.mTbPageContext.getPageActivity(), w.f.ds490);
-            int g2 = com.baidu.adp.lib.util.k.g(this.mTbPageContext.getPageActivity(), w.f.ds32);
-            if (s > 3) {
-                arrayList = arrayList.subList(0, 3);
-                com.baidu.tieba.personPolymeric.c.h hVar = new com.baidu.tieba.personPolymeric.c.h();
-                hVar.width = com.baidu.adp.lib.util.k.g(this.mTbPageContext.getPageActivity(), w.f.ds120);
-                hVar.height = com.baidu.adp.lib.util.k.g(this.mTbPageContext.getPageActivity(), w.f.ds396);
-                com.baidu.tbadk.core.util.z.b((List<com.baidu.tieba.personPolymeric.c.h>) arrayList, hVar);
+    private void initListener() {
+        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.d.n.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (view != null && n.this.flI != null) {
+                    TiebaStatic.log(new aj("c11594"));
+                    String str = n.this.flI.forumName;
+                    if (al.aO(str)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(n.this.mContext).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
+                    }
+                }
             }
-            com.baidu.tieba.person.h hVar2 = new com.baidu.tieba.person.h(g2, g);
-            com.baidu.tbadk.core.util.z.a((List<com.baidu.tieba.person.h>) arrayList, 0, hVar2);
-            com.baidu.tbadk.core.util.z.b((List<com.baidu.tieba.person.h>) arrayList, hVar2);
-            return arrayList;
+        };
+    }
+
+    public void setData(com.baidu.tieba.personPolymeric.c.f fVar) {
+        this.flI = fVar;
+        this.flE.c(fVar.avatar, 10, false);
+        this.bZv.setText(al.e(fVar.forumName, 7, "...") + this.mContext.getString(d.l.forum));
+        this.flG.setText(al.u(fVar.fkq));
+        this.flF.setText(String.format(this.mContext.getString(d.l.person_has_posted), al.cY(fVar.sex)));
+        if (getRootView() != null) {
+            getRootView().setOnClickListener(this.mOnClickListener);
         }
-        return list;
+        onChangeSkinType();
+    }
+
+    public void onChangeSkinType() {
+        if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
+            ai.i(this.bZv, d.e.cp_cont_b);
+            ai.i(this.flF, d.e.cp_cont_c);
+            ai.i(this.flH, d.e.cp_cont_c);
+            ai.i(this.flG, d.e.cp_link_tip_a);
+        }
+        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
     }
 }

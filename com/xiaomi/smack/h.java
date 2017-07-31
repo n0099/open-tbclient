@@ -41,12 +41,12 @@ public abstract class h extends a {
         a(bVar.e(), bVar.d());
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x01e9, code lost:
-        if (android.text.TextUtils.equals(r8, com.xiaomi.channel.commonutils.network.d.k(r13.r)) != false) goto L30;
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0235, code lost:
+        if (android.text.TextUtils.equals(r10, com.xiaomi.channel.commonutils.network.d.k(r16.r)) != false) goto L30;
      */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x00e3  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x01da  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x01ec A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x010a  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0222  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0238 A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -86,92 +86,92 @@ public abstract class h extends a {
                 this.v = next;
                 b();
                 z = true;
-            } catch (l e) {
-                e = e;
-                z = z3;
-            } catch (IOException e2) {
-                e = e2;
-                z = z3;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                this.c = System.currentTimeMillis() - currentTimeMillis;
-                this.k = k;
-                if (b != 0) {
-                    b.b(next, this.c, 0L);
-                }
-                this.u = SystemClock.elapsedRealtime();
-                com.xiaomi.channel.commonutils.logger.b.a("connected to " + next + " in " + this.c);
-                break;
-            } catch (l e3) {
-                e = e3;
-                if (b != 0) {
-                    try {
+                try {
+                    this.c = System.currentTimeMillis() - currentTimeMillis;
+                    this.k = k;
+                    if (b != 0) {
+                        b.b(next, this.c, 0L);
+                    }
+                    this.u = SystemClock.elapsedRealtime();
+                    com.xiaomi.channel.commonutils.logger.b.a("connected to " + next + " in " + this.c);
+                    break;
+                } catch (l e) {
+                    e = e;
+                    if (b != 0) {
+                        try {
+                            b.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, e);
+                        } catch (Throwable th) {
+                            th = th;
+                            if (!z) {
+                                com.xiaomi.stats.h.a(next, this.o);
+                            }
+                            throw th;
+                        }
+                    }
+                    this.o = e;
+                    com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
+                    sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" ").append(e.getMessage()).append("\n");
+                    if (!z) {
+                        com.xiaomi.stats.h.a(next, this.o);
+                        if (!TextUtils.equals(k, com.xiaomi.channel.commonutils.network.d.k(this.r))) {
+                            HostManager.getInstance().persist();
+                            if (z) {
+                            }
+                        }
+                    }
+                    z2 = z;
+                    z3 = z2;
+                } catch (IOException e2) {
+                    e = e2;
+                    if (b != null) {
                         b.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, e);
-                    } catch (Throwable th2) {
-                        th = th2;
+                    }
+                    this.o = e;
+                    com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
+                    sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" ").append(e.getMessage()).append("\n");
+                    if (!z) {
+                        com.xiaomi.stats.h.a(next, this.o);
+                        if (!TextUtils.equals(k, com.xiaomi.channel.commonutils.network.d.k(this.r))) {
+                            HostManager.getInstance().persist();
+                            if (z) {
+                            }
+                        }
+                    }
+                    z2 = z;
+                    z3 = z2;
+                } catch (Throwable th2) {
+                    th = th2;
+                    z3 = true;
+                    try {
+                        this.o = new Exception("abnormal exception", th);
+                        com.xiaomi.channel.commonutils.logger.b.a(th);
+                    } catch (Throwable th3) {
+                        th = th3;
+                        z = z3;
                         if (!z) {
                         }
                         throw th;
                     }
-                }
-                this.o = e;
-                com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
-                sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" ").append(e.getMessage()).append("\n");
-                if (!z) {
-                    com.xiaomi.stats.h.a(next, this.o);
-                    if (!TextUtils.equals(k, com.xiaomi.channel.commonutils.network.d.k(this.r))) {
-                        HostManager.getInstance().persist();
-                        if (z) {
+                    if (!z3) {
+                        com.xiaomi.stats.h.a(next, this.o);
+                        if (!TextUtils.equals(k, com.xiaomi.channel.commonutils.network.d.k(this.r))) {
+                            z = z3;
+                            HostManager.getInstance().persist();
+                            if (z) {
+                            }
                         }
                     }
+                    z2 = z3;
+                    z3 = z2;
                 }
-                z2 = z;
-                z3 = z2;
+            } catch (l e3) {
+                e = e3;
+                z = z3;
             } catch (IOException e4) {
                 e = e4;
-                if (b != null) {
-                    b.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, e);
-                }
-                this.o = e;
-                com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
-                sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" ").append(e.getMessage()).append("\n");
-                if (!z) {
-                    com.xiaomi.stats.h.a(next, this.o);
-                    if (!TextUtils.equals(k, com.xiaomi.channel.commonutils.network.d.k(this.r))) {
-                        HostManager.getInstance().persist();
-                        if (z) {
-                        }
-                    }
-                }
-                z2 = z;
-                z3 = z2;
-            } catch (Throwable th3) {
-                th = th3;
-                z3 = true;
-                try {
-                    this.o = new Exception("abnormal exception", th);
-                    com.xiaomi.channel.commonutils.logger.b.a(th);
-                } catch (Throwable th4) {
-                    th = th4;
-                    z = z3;
-                    if (!z) {
-                        com.xiaomi.stats.h.a(next, this.o);
-                    }
-                    throw th;
-                }
-                if (!z3) {
-                    com.xiaomi.stats.h.a(next, this.o);
-                    if (!TextUtils.equals(k, com.xiaomi.channel.commonutils.network.d.k(this.r))) {
-                        z = z3;
-                        HostManager.getInstance().persist();
-                        if (z) {
-                        }
-                    }
-                }
-                z2 = z3;
-                z3 = z2;
+                z = z3;
+            } catch (Throwable th4) {
+                th = th4;
             }
             z3 = z2;
         }

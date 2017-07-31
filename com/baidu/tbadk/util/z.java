@@ -1,467 +1,219 @@
 package com.baidu.tbadk.util;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.Debug;
-import android.os.Environment;
-import android.os.Process;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.plugin.Plugin;
-import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ExceptionData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bc;
-import com.xiaomi.mipush.sdk.Constants;
-import java.io.ByteArrayOutputStream;
+import com.squareup.wire.Message;
+import com.squareup.wire.Wire;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.PrintStream;
-import java.io.Writer;
-import java.lang.Thread;
+import java.io.FileOutputStream;
 import java.lang.reflect.Field;
-import java.util.Iterator;
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 /* loaded from: classes.dex */
-public class z implements Thread.UncaughtExceptionHandler {
-    private static final String aKB = String.valueOf(Environment.getExternalStorageDirectory().getPath()) + File.separator + "tieba" + File.separator + "oom" + File.separator;
-    private final Thread.UncaughtExceptionHandler aKz = Thread.getDefaultUncaughtExceptionHandler();
-    private ExceptionData aKA = null;
-
-    @Override // java.lang.Thread.UncaughtExceptionHandler
-    public void uncaughtException(Thread thread, Throwable th) {
-        a(thread, th, false);
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00d4  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Thread thread, Throwable th, boolean z) {
-        PrintStream printStream;
-        ByteArrayOutputStream byteArrayOutputStream;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
-        if (TbConfig.getDebugSwitch() && c(th)) {
-            GY();
+public class z {
+    private static final Object b(Class<?> cls, HashSet<Class<?>> hashSet) {
+        Type[] actualTypeArguments;
+        if (hashSet == null || hashSet.contains(cls)) {
+            return null;
         }
-        int GZ = GZ();
-        if (!Hb()) {
-            try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    printStream = new PrintStream(byteArrayOutputStream);
-                } catch (Exception e) {
-                    e = e;
-                    printStream = null;
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                } catch (Throwable th2) {
-                    th = th2;
-                    printStream = null;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                printStream = null;
-            } catch (Throwable th3) {
-                th = th3;
-                printStream = null;
-                byteArrayOutputStream = null;
-            }
-            try {
-                th.printStackTrace(printStream);
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                this.aKA = new ExceptionData();
-                if (z) {
-                    this.aKA.info = th.getMessage();
-                } else {
-                    this.aKA.info = new String(byteArray);
-                    this.aKA.mExcep = th;
-                }
-                GX();
-                if (!z) {
-                    a(thread, th);
-                }
-                com.baidu.adp.lib.b.e.eY().crash(this.aKA.info);
-                if (!TextUtils.isEmpty(this.aKA.info)) {
-                    BdLog.e(this.aKA.info);
-                }
-                BdLog.e("hourCrash = " + GZ);
-                if (GZ >= Ha()) {
-                    b(thread, th);
-                }
-                com.baidu.adp.lib.util.o.d(printStream);
-                com.baidu.adp.lib.util.o.d(byteArrayOutputStream);
-                if (!z) {
-                    if (TbConfig.getDebugSwitch() && this.aKz != null) {
-                        this.aKz.uncaughtException(thread, th);
-                    } else {
-                        Process.killProcess(Process.myPid());
-                    }
-                }
-            } catch (Exception e3) {
-                e = e3;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-                try {
-                    e.printStackTrace();
-                    com.baidu.adp.lib.util.o.d(printStream);
-                    com.baidu.adp.lib.util.o.d(byteArrayOutputStream2);
-                    if (!z) {
-                        if (TbConfig.getDebugSwitch() && this.aKz != null) {
-                            this.aKz.uncaughtException(thread, th);
-                        } else {
-                            Process.killProcess(Process.myPid());
-                        }
-                    }
-                } catch (Throwable th4) {
-                    th = th4;
-                    byteArrayOutputStream = byteArrayOutputStream2;
-                    com.baidu.adp.lib.util.o.d(printStream);
-                    com.baidu.adp.lib.util.o.d(byteArrayOutputStream);
-                    if (!z) {
-                        if (TbConfig.getDebugSwitch() && this.aKz != null) {
-                            this.aKz.uncaughtException(thread, th);
-                        } else {
-                            Process.killProcess(Process.myPid());
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Throwable th5) {
-                th = th5;
-                com.baidu.adp.lib.util.o.d(printStream);
-                com.baidu.adp.lib.util.o.d(byteArrayOutputStream);
-                if (!z) {
-                }
-                throw th;
-            }
-        }
-    }
-
-    private void a(FileWriter fileWriter, String str, String str2) {
+        hashSet.add(cls);
         try {
-            fileWriter.append((CharSequence) str);
-            if (str2 != null) {
-                fileWriter.append("=");
-                fileWriter.append((CharSequence) str2);
-            }
-            fileWriter.append("\n");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    private void GX() {
-        if (this.aKA != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UEXCEPTION_MESSAGE, this.aKA));
-            if (this.aKA.appendInfo != null) {
-                Iterator<String> it = this.aKA.appendInfo.keySet().iterator();
-                while (it.hasNext()) {
-                    ExceptionData exceptionData = this.aKA;
-                    exceptionData.info = String.valueOf(exceptionData.info) + "\n" + this.aKA.appendInfo.get(it.next());
-                }
-            }
-        }
-    }
-
-    private void a(Thread thread, Throwable th, String str) {
-        FileWriter fileWriter;
-        Throwable th2;
-        Exception e;
-        byte[] x;
-        FileWriter fileWriter2 = null;
-        if (this.aKA != null) {
-            try {
-                File dr = com.baidu.tbadk.core.util.n.dr(str);
-                if (dr != null && dr.length() < TbConfig.FATAL_ERROR_FILE_MAX_SIZE) {
-                    fileWriter = new FileWriter(dr, true);
-                    try {
-                        try {
-                            a(fileWriter, aw.vx(), (String) null);
-                            a(fileWriter, "tieba_crash_new_info", (String) null);
-                            a(fileWriter, "version", TbConfig.getVersion());
-                            a(fileWriter, "model", Build.MODEL);
-                            a(fileWriter, "android_version", Build.VERSION.RELEASE);
-                            a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-                            a(fileWriter, "from", TbConfig.getFrom());
-                            a(fileWriter, "current_from", TbConfig.getCurrentFrom());
-                            a(fileWriter, SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-                            a(fileWriter, "client_id", TbadkCoreApplication.getClientId());
-                            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                                a(fileWriter, "subapp_type", TbConfig.getSubappType());
+            Class<?> cls2 = Class.forName(cls.getName() + "$Builder");
+            Method declaredMethod = cls2.getDeclaredMethod("build", Boolean.TYPE);
+            Object newInstance = cls2.newInstance();
+            Field[] declaredFields = cls2.getDeclaredFields();
+            for (Field field : declaredFields) {
+                Class<?> type = field.getType();
+                if (type != null) {
+                    if (com.baidu.adp.lib.OrmObject.a.a.e(type, Message.class)) {
+                        Object b = b(type, hashSet);
+                        if (b != null) {
+                            if (com.baidu.adp.lib.OrmObject.a.a.e(b.getClass(), Message.class)) {
+                                field.setAccessible(true);
+                                field.set(newInstance, b);
+                            } else {
+                                BdLog.e("");
                             }
-                            a(fileWriter, "imei", TbadkCoreApplication.m9getInst().getImei());
-                            a(fileWriter, "uname", TbadkCoreApplication.getCurrentAccountName());
-                            a(fileWriter, "activity", bc.vM());
-                            a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
-                            a(fileWriter, "crash_type", th.getClass().getName());
-                            StringBuilder sb = new StringBuilder();
+                        }
+                    } else if (com.baidu.adp.lib.OrmObject.a.a.e(type, List.class)) {
+                        Type genericType = field.getGenericType();
+                        if ((genericType instanceof ParameterizedType) && (actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments()) != null && actualTypeArguments.length > 0) {
                             try {
-                                if (PluginCenter.getInstance() != null && PluginCenter.getInstance().getAllPlugins() != null) {
-                                    Iterator<Plugin> it = PluginCenter.getInstance().getAllPlugins().iterator();
-                                    while (it.hasNext()) {
-                                        Plugin next = it.next();
-                                        if (next != null) {
-                                            PluginSetting be = PluginPackageManager.jw().be(next.getPackageName());
-                                            sb.append(next.getPackageName());
-                                            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                                            sb.append(next.getCurrentPluginMode());
-                                            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                                            if (be != null) {
-                                                sb.append(new File(be.apkPath).exists());
-                                                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                                                sb.append(next.getVersionCode());
-                                                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                                                sb.append(be.tempVersionCode);
-                                                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                                                if (be.enable) {
-                                                    sb.append("true");
-                                                } else {
-                                                    sb.append("false");
-                                                }
-                                            } else {
-                                                sb.append("null");
-                                            }
-                                            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                                Class cls3 = (Class) actualTypeArguments[0];
+                                if (com.baidu.adp.lib.OrmObject.a.a.e(cls3, Message.class)) {
+                                    ArrayList arrayList = new ArrayList();
+                                    Object b2 = b(cls3, hashSet);
+                                    if (b2 != null) {
+                                        if (com.baidu.adp.lib.OrmObject.a.a.e(b2.getClass(), Message.class)) {
+                                            arrayList.add(b2);
+                                        } else {
+                                            BdLog.e("");
                                         }
+                                        field.setAccessible(true);
+                                        field.set(newInstance, arrayList);
                                     }
                                 }
-                            } catch (Exception e2) {
+                            } catch (Throwable th) {
                             }
-                            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TbadkCoreApplication.m9getInst().getApp().getSystemService("activity")).getRunningAppProcesses();
-                            int myPid = Process.myPid();
-                            if (runningAppProcesses != null) {
-                                int i = 0;
-                                while (true) {
-                                    int i2 = i;
-                                    if (i2 >= runningAppProcesses.size()) {
-                                        break;
-                                    } else if (runningAppProcesses.get(i2).pid != myPid) {
-                                        i = i2 + 1;
-                                    } else {
-                                        a(fileWriter, "process_name", runningAppProcesses.get(i2).processName);
-                                        break;
-                                    }
-                                }
-                            }
-                            a(fileWriter, "error", String.valueOf(this.aKA.info) + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + com.baidu.adp.base.a.ca().ce());
-                            if (this.aKA.info != null && this.aKA.info.contains("java.lang.ArrayIndexOutOfBoundsException: src.length=8192 srcPos=1 dst.length=8192 dstPos=0 length=-1")) {
-                                int nextInt = new Random().nextInt(100);
-                                try {
-                                    Field declaredField = thread.getClass().getDeclaredField("this$0");
-                                    declaredField.setAccessible(true);
-                                    Object obj = declaredField.get(thread);
-                                    Field declaredField2 = obj.getClass().getDeclaredField("mFile");
-                                    declaredField2.setAccessible(true);
-                                    Object obj2 = declaredField2.get(obj);
-                                    if (obj2 instanceof File) {
-                                        File file = (File) obj2;
-                                        if (nextInt < 5) {
-                                            if (x(file) == null) {
-                                                a(fileWriter, "--errorFile-", file.getAbsolutePath());
-                                            } else {
-                                                a(fileWriter, "--errorFile-", String.valueOf(file.getAbsolutePath()) + " - " + com.baidu.adp.lib.util.c.encodeBytes(x));
-                                            }
-                                        }
-                                        file.delete();
-                                    }
-                                } catch (Exception e3) {
-                                    if (nextInt < 5) {
-                                        a(fileWriter, "--errorFile-", e3.toString());
-                                    }
-                                }
-                            }
-                            a(fileWriter, "tieba_crash_new_info_end", (String) null);
-                            fileWriter.append("\n");
-                            fileWriter.flush();
-                            fileWriter2 = fileWriter;
-                        } catch (Exception e4) {
-                            e = e4;
-                            e.printStackTrace();
-                            com.baidu.adp.lib.util.o.b((Writer) fileWriter);
-                            return;
                         }
-                    } catch (Throwable th3) {
-                        th2 = th3;
-                        com.baidu.adp.lib.util.o.b((Writer) fileWriter);
-                        throw th2;
                     }
                 }
-                com.baidu.adp.lib.util.o.b((Writer) fileWriter2);
-            } catch (Exception e5) {
-                fileWriter = null;
-                e = e5;
-            } catch (Throwable th4) {
-                fileWriter = null;
-                th2 = th4;
-                com.baidu.adp.lib.util.o.b((Writer) fileWriter);
-                throw th2;
             }
+            return declaredMethod.invoke(newInstance, true);
+        } catch (Throwable th2) {
+            BdLog.detailException(th2);
+            return null;
         }
     }
 
-    private void a(Thread thread, Throwable th) {
-        String str;
-        if (this.aKA != null) {
-            if (TbConfig.getDebugSwitch()) {
-                str = TbConfig.FATAL_ERROR_DEBUG_FILE;
-            } else {
-                str = TbConfig.FATAL_ERROR_FILE;
-            }
-            a(thread, th, str);
-        }
-    }
-
-    private void b(Thread thread, Throwable th) {
-        BdLog.i("writeToFileForAlertLog = fatal_error_alert.log");
-        a(thread, th, TbConfig.FATAL_ERROR_ALERT_FILE);
-    }
-
-    public static boolean c(Throwable th) {
-        if ("java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
-            return true;
-        }
-        Throwable cause = th.getCause();
-        if (cause != null) {
-            return c(cause);
-        }
-        return false;
-    }
-
-    private void GY() {
-        try {
-            File file = new File(aKB);
-            if (!file.exists()) {
-                file.mkdir();
-            }
-            Debug.dumpHprofData(String.valueOf(aKB) + System.currentTimeMillis());
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
-    }
-
-    private int GZ() {
-        int i;
-        long j = 0;
-        byte[] az = com.baidu.adp.lib.util.e.az("crash_hour_record.log");
-        String str = null;
-        if (az != null) {
-            str = new String(az);
-        }
-        long j2 = StringUtils.getyyyyMMddHHTimeForNow();
-        if (TextUtils.isEmpty(str)) {
-            i = 0;
-        } else {
-            String[] split = str.split(":");
-            if (split == null || split.length != 2) {
-                i = 0;
-            } else {
-                i = com.baidu.adp.lib.g.b.g(split[0], 0);
-                j = com.baidu.adp.lib.g.b.c(split[1], j2);
-            }
-        }
-        int i2 = j != j2 ? 1 : i + 1;
-        com.baidu.adp.lib.util.e.e("crash_hour_record.log", (String.valueOf(i2) + ":" + j2).getBytes());
-        return i2;
-    }
-
-    private int Ha() {
-        return com.baidu.adp.lib.stats.switchs.a.gB().getMaxAlertCount("alert_crash", 5);
-    }
-
-    private boolean Hb() {
-        int i;
-        int i2;
-        int i3 = 10;
-        try {
-            int i4 = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("crash_limit_count", 100);
-            if (i4 >= 10) {
-                i3 = i4;
-            }
-        } catch (Throwable th) {
-            i3 = 100;
-        }
-        int vy = aw.vy();
-        byte[] az = com.baidu.adp.lib.util.e.az("crash_upload_info.log");
-        String str = null;
-        if (az != null) {
-            str = new String(az);
-        }
-        if (TextUtils.isEmpty(str)) {
-            i = vy;
-            i2 = 0;
-        } else {
-            String[] split = str.split(":");
-            if (split == null || split.length != 2) {
-                i = vy;
-                i2 = 0;
-            } else {
-                int g = com.baidu.adp.lib.g.b.g(split[0], 0);
-                int g2 = com.baidu.adp.lib.g.b.g(split[1], vy);
-                i2 = g;
-                i = g2;
-            }
-        }
-        if (i != vy) {
-            i2 = 0;
-        }
-        if (i2 > i3) {
-            return true;
-        }
-        com.baidu.adp.lib.util.e.e("crash_upload_info.log", (String.valueOf(i2 + 1) + ":" + vy).getBytes());
-        return false;
-    }
-
-    public static byte[] x(File file) {
-        FileInputStream fileInputStream;
-        Exception e;
-        byte[] bArr;
-        int read;
-        try {
-            fileInputStream = new FileInputStream(file);
+    public static final void a(Wire wire, Class<? extends Message> cls) {
+        File[] listFiles;
+        String name;
+        if (wire != null && cls != null) {
+            String str = "wire_" + cls.getName();
+            File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + "_" + TbConfig.getVersion());
+            byte[] bArr = null;
             try {
+                if (file.exists() && (bArr = y(file)) != null) {
+                    wire.parseFrom(bArr, cls);
+                }
+                if (bArr == null) {
+                    byte[] bArr2 = (byte[]) com.baidu.adp.lib.OrmObject.a.a.b(cls, "toByteArray", new Object[0]).invoke(b(cls, new HashSet()), new Object[0]);
+                    wire.parseFrom(bArr2, cls);
+                    a(file, bArr2);
+                }
+            } catch (Throwable th) {
+                BdLog.detailException(th);
                 try {
-                    bArr = new byte[(int) file.length()];
-                    int i = 0;
-                    while (i < bArr.length && (read = fileInputStream.read(bArr, i, bArr.length - i)) >= 0) {
+                    file.delete();
+                } catch (Throwable th2) {
+                }
+            }
+            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+            if (cacheDir != null && (listFiles = cacheDir.listFiles()) != null) {
+                for (File file2 : listFiles) {
+                    if (file2 != null && (name = file2.getName()) != null && name.startsWith(str) && !file.getName().equals(name)) {
                         try {
-                            i += read;
-                        } catch (Exception e2) {
-                            e = e2;
-                            BdLog.e(e.toString());
-                            com.baidu.adp.lib.util.o.j(fileInputStream);
-                            return bArr;
+                            file2.delete();
+                        } catch (Throwable th3) {
                         }
                     }
-                    com.baidu.adp.lib.util.o.j(fileInputStream);
-                } catch (Throwable th) {
-                    th = th;
-                    com.baidu.adp.lib.util.o.j(fileInputStream);
-                    throw th;
                 }
-            } catch (Exception e3) {
-                bArr = null;
-                e = e3;
             }
-        } catch (Exception e4) {
-            fileInputStream = null;
-            e = e4;
-            bArr = null;
+        }
+    }
+
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [173=4, 174=4] */
+    private static byte[] y(java.io.File r6) {
+        /*
+            r0 = 0
+            if (r6 != 0) goto L4
+        L3:
+            return r0
+        L4:
+            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L4e
+            r3.<init>(r6)     // Catch: java.lang.Throwable -> L4e
+            java.io.ByteArrayOutputStream r2 = new java.io.ByteArrayOutputStream     // Catch: java.lang.Throwable -> L52
+            r1 = 1024(0x400, float:1.435E-42)
+            r2.<init>(r1)     // Catch: java.lang.Throwable -> L52
+            r1 = 1024(0x400, float:1.435E-42)
+            byte[] r1 = new byte[r1]     // Catch: java.lang.Throwable -> L23
+        L14:
+            r4 = 0
+            r5 = 1024(0x400, float:1.435E-42)
+            int r4 = r3.read(r1, r4, r5)     // Catch: java.lang.Throwable -> L23
+            r5 = -1
+            if (r4 == r5) goto L32
+            r5 = 0
+            r2.write(r1, r5, r4)     // Catch: java.lang.Throwable -> L23
+            goto L14
+        L23:
+            r1 = move-exception
+        L24:
+            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L4c
+            com.baidu.adp.lib.util.BdLog.e(r1)     // Catch: java.lang.Throwable -> L4c
+            com.baidu.adp.lib.util.m.p(r3)
+            com.baidu.adp.lib.util.m.e(r2)
+            goto L3
+        L32:
+            byte[] r0 = r2.toByteArray()     // Catch: java.lang.Throwable -> L23
+            com.baidu.adp.lib.util.m.p(r3)
+            com.baidu.adp.lib.util.m.e(r2)
+            goto L3
+        L3d:
+            r1 = move-exception
+            r2 = r0
+            r3 = r0
+            r0 = r1
+        L41:
+            com.baidu.adp.lib.util.m.p(r3)
+            com.baidu.adp.lib.util.m.e(r2)
+            throw r0
+        L48:
+            r1 = move-exception
+            r2 = r0
+            r0 = r1
+            goto L41
+        L4c:
+            r0 = move-exception
+            goto L41
+        L4e:
+            r1 = move-exception
+            r2 = r0
+            r3 = r0
+            goto L24
+        L52:
+            r1 = move-exception
+            r2 = r0
+            goto L24
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.util.z.y(java.io.File):byte[]");
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [200=5] */
+    private static final boolean a(File file, byte[] bArr) {
+        if (file == null || bArr == null) {
+            return false;
+        }
+        FileOutputStream fileOutputStream = null;
+        try {
+            if (!file.exists() || file.delete()) {
+                if (file.createNewFile()) {
+                    FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                    try {
+                        fileOutputStream2.write(bArr, 0, bArr.length);
+                        fileOutputStream2.flush();
+                        com.baidu.adp.lib.util.m.e(fileOutputStream2);
+                        return true;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = fileOutputStream2;
+                        try {
+                            BdLog.e(th.getMessage());
+                            return false;
+                        } finally {
+                            com.baidu.adp.lib.util.m.e(fileOutputStream);
+                        }
+                    }
+                }
+                return false;
+            }
+            return false;
         } catch (Throwable th2) {
             th = th2;
-            fileInputStream = null;
-            com.baidu.adp.lib.util.o.j(fileInputStream);
-            throw th;
         }
-        return bArr;
     }
 }
