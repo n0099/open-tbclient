@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class MessageCenterActivity extends BaseFragmentActivity {
-    private NavigationBar cHR;
+    private NavigationBar cGw;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.cHR.onChangeSkinType(getPageContext(), i);
+        this.cGw.onChangeSkinType(getPageContext(), i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,14 +23,14 @@ public class MessageCenterActivity extends BaseFragmentActivity {
 
     private void initView() {
         setContentView(d.j.message_center_activity);
-        VW();
+        VR();
         getSupportFragmentManager().beginTransaction().add(d.h.fragment_container, new g()).commit();
     }
 
-    private void VW() {
-        this.cHR = (NavigationBar) findViewById(d.h.navigation_bar);
-        this.cHR.setTitleText(d.l.my_message);
-        this.cHR.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivity.1
+    private void VR() {
+        this.cGw = (NavigationBar) findViewById(d.h.navigation_bar);
+        this.cGw.setTitleText(d.l.my_message);
+        this.cGw.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageCenterActivity.this.finish();

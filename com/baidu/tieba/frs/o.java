@@ -7,16 +7,16 @@ import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class o extends j.a {
-    public int aql;
-    public TextView clq;
-    public PhotoLiveCardView clr;
-    public View cls;
+    public int aoR;
+    public TextView cki;
+    public PhotoLiveCardView ckj;
+    public View ckk;
 
     public o(View view) {
         super(view);
-        this.aql = 3;
-        this.clq = (TextView) view.findViewById(d.h.more_live_list);
-        this.clr = (PhotoLiveCardView) view.findViewById(d.h.photo_live_card);
-        this.cls = view.findViewById(d.h.make_headlines);
+        this.aoR = 3;
+        this.cki = (TextView) view.findViewById(d.h.more_live_list);
+        this.ckj = (PhotoLiveCardView) view.findViewById(d.h.photo_live_card);
+        this.ckk = view.findViewById(d.h.make_headlines);
     }
 }

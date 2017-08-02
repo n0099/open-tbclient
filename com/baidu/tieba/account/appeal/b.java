@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.w;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private static final String aXO = TbConfig.SERVER_ADDRESS + "c/u/user/getreason";
+    private static final String aWD = TbConfig.SERVER_ADDRESS + "c/u/user/getreason";
 
     /* renamed from: com.baidu.tieba.account.appeal.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -25,14 +25,14 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidReasonData> {
-        private String aXJ;
-        private String aXK;
-        private WeakReference<InterfaceC0070b> aXN;
+        private WeakReference<InterfaceC0070b> aWC;
+        private String aWy;
+        private String aWz;
 
         public a(String str, String str2, InterfaceC0070b interfaceC0070b) {
-            this.aXJ = str;
-            this.aXK = str2;
-            this.aXN = new WeakReference<>(interfaceC0070b);
+            this.aWy = str;
+            this.aWz = str2;
+            this.aWC = new WeakReference<>(interfaceC0070b);
             setPriority(3);
         }
 
@@ -41,13 +41,13 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: r */
         public ForbidReasonData doInBackground(String... strArr) {
-            w wVar = new w(b.aXO);
-            wVar.n("forum_id", this.aXJ);
-            wVar.n("user_id", this.aXK);
-            String uO = wVar.uO();
-            if (wVar.vl().wi().isRequestSuccess()) {
+            w wVar = new w(b.aWD);
+            wVar.n("forum_id", this.aWy);
+            wVar.n("user_id", this.aWz);
+            String uE = wVar.uE();
+            if (wVar.vb().vY().isRequestSuccess()) {
                 try {
-                    ForbidReasonData forbidReasonData = (ForbidReasonData) OrmObject.objectWithJsonStr(uO, ForbidReasonData.class);
+                    ForbidReasonData forbidReasonData = (ForbidReasonData) OrmObject.objectWithJsonStr(uE, ForbidReasonData.class);
                     forbidReasonData.reason = forbidReasonData.reason.replaceAll("\\\\n", "\n");
                     return forbidReasonData;
                 } catch (Exception e) {
@@ -58,7 +58,7 @@ public class b {
                 }
             }
             ForbidReasonData forbidReasonData3 = new ForbidReasonData();
-            forbidReasonData3.error.errno = wVar.vp();
+            forbidReasonData3.error.errno = wVar.vf();
             forbidReasonData3.error.errMsg = wVar.getErrorString();
             return forbidReasonData3;
         }
@@ -69,7 +69,7 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidReasonData forbidReasonData) {
             super.onPostExecute(forbidReasonData);
-            InterfaceC0070b interfaceC0070b = this.aXN.get();
+            InterfaceC0070b interfaceC0070b = this.aWC.get();
             if (interfaceC0070b != null) {
                 if (forbidReasonData.error.errno == 0 && al.isEmpty(forbidReasonData.error.errMsg)) {
                     interfaceC0070b.a(forbidReasonData);

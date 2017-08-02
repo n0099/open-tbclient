@@ -23,9 +23,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.imMessageCenter.mention.g;
 /* loaded from: classes2.dex */
 public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private TextView ayG;
-    private CustomMessageListener dBc;
-    private com.baidu.adp.framework.listener.c dBd = new com.baidu.adp.framework.listener.c(104106) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.3
+    private TextView axp;
+    private CustomMessageListener dzL;
+    private com.baidu.adp.framework.listener.c dzM = new com.baidu.adp.framework.listener.c(104106) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -33,15 +33,15 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
             if ((socketResponsedMessage instanceof ResponseUpdateForumMask) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateForumMask)) {
                 RequestUpdateForumMask requestUpdateForumMask = (RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage();
                 boolean flag = requestUpdateForumMask != null ? requestUpdateForumMask.getFlag() : false;
-                int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.yZ().getMsgChat();
-                int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.yZ().getMsgReplyme();
-                int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.yZ().getMsgAtme();
-                int zg = com.baidu.tbadk.coreExtra.messageCenter.a.yZ().zg();
-                e zu = com.baidu.tbadk.coreExtra.messageCenter.a.yZ().zu();
-                if (zu != null && flag) {
-                    i = zu.AG();
+                int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.yR().getMsgChat();
+                int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.yR().getMsgReplyme();
+                int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.yR().getMsgAtme();
+                int yY = com.baidu.tbadk.coreExtra.messageCenter.a.yR().yY();
+                e zm = com.baidu.tbadk.coreExtra.messageCenter.a.yR().zm();
+                if (zm != null && flag) {
+                    i = zm.Ay();
                 }
-                ImMessageCenterDelegateStatic.n(ImMessageCenterDelegateStatic.this.ayG, (((msgChat - i) + msgReplyme) + msgAtme) - zg);
+                ImMessageCenterDelegateStatic.n(ImMessageCenterDelegateStatic.this.axp, (((msgChat - i) + msgReplyme) + msgAtme) - yY);
             }
         }
     };
@@ -52,31 +52,31 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c EW() {
+    public com.baidu.tbadk.mainTab.c EO() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         g gVar = new g();
         gVar.ha(true);
-        cVar.aHG = gVar;
+        cVar.aGr = gVar;
         cVar.type = 3;
-        cVar.aHH = d.l.my_message;
-        cVar.aHI = d.g.s_tabbar_icon_three_bg;
-        cVar.aHM = com.baidu.tbadk.mainTab.c.aHJ;
+        cVar.aGs = d.l.my_message;
+        cVar.aGt = d.g.s_tabbar_icon_three_bg;
+        cVar.aGx = com.baidu.tbadk.mainTab.c.aGu;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator aT(Context context) {
-        this.aHt = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
-        this.ayG = (TextView) LayoutInflater.from(context).inflate(d.j.message_tip_item, (ViewGroup) null);
+    public FragmentTabIndicator aS(Context context) {
+        this.aGe = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+        this.axp = (TextView) LayoutInflater.from(context).inflate(d.j.message_tip_item, (ViewGroup) null);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.aHF = this.aHt;
-        aVar.ww = k.dip2px(context, 3.0f);
-        aVar.view = this.ayG;
-        aVar.aHD = d.g.icon_dot_orange;
-        aVar.aHE = d.e.common_color_10225;
-        this.ayG.setVisibility(8);
-        this.aHt.a(AddFriendActivityConfig.MSG, aVar);
-        return this.aHt;
+        aVar.aGq = this.aGe;
+        aVar.uT = k.dip2px(context, 3.0f);
+        aVar.view = this.axp;
+        aVar.aGo = d.g.icon_dot_orange;
+        aVar.aGp = d.e.common_color_10225;
+        this.axp.setVisibility(8);
+        this.aGe.a(AddFriendActivityConfig.MSG, aVar);
+        return this.aGe;
     }
 
     static {
@@ -92,32 +92,32 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void EV() {
-        this.dBc = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+    public void EN() {
+        this.dzL = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage)) {
                     NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
                     int a = c.a(newsNotifyMessage);
-                    if (ImMessageCenterDelegateStatic.this.ayG != null) {
-                        if (!com.baidu.tbadk.coreExtra.messageCenter.b.zw().zQ()) {
+                    if (ImMessageCenterDelegateStatic.this.axp != null) {
+                        if (!com.baidu.tbadk.coreExtra.messageCenter.b.zo().zI()) {
                             a -= newsNotifyMessage.getMsgOfficialMerge();
                         }
-                        ImMessageCenterDelegateStatic.n(ImMessageCenterDelegateStatic.this.ayG, a);
+                        ImMessageCenterDelegateStatic.n(ImMessageCenterDelegateStatic.this.axp, a);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.dBc);
-        MessageManager.getInstance().registerListener(this.dBd);
+        MessageManager.getInstance().registerListener(this.dzL);
+        MessageManager.getInstance().registerListener(this.dzM);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void cM() {
-        super.cM();
-        MessageManager.getInstance().unRegisterListener(this.dBc);
-        MessageManager.getInstance().unRegisterListener(this.dBd);
+    public void cB() {
+        super.cB();
+        MessageManager.getInstance().unRegisterListener(this.dzL);
+        MessageManager.getInstance().unRegisterListener(this.dzM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

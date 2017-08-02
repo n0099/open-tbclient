@@ -19,8 +19,8 @@ public final class j {
 
     /* loaded from: classes.dex */
     static final class a {
-        final BDLocation PW;
-        final LinkedHashMap<String, Integer> PX;
+        final BDLocation Ou;
+        final LinkedHashMap<String, Integer> Ov;
         final String a;
         final String b;
         final boolean c;
@@ -34,11 +34,11 @@ public final class j {
             if (strArr == null) {
                 this.a = null;
                 this.b = null;
-                this.PX = null;
+                this.Ov = null;
                 this.c = false;
                 this.d = false;
                 this.e = false;
-                this.PW = null;
+                this.Ou = null;
                 this.h = false;
                 this.f = 8;
                 return;
@@ -84,12 +84,12 @@ public final class j {
                                 z = false;
                                 this.a = str2;
                                 this.b = str;
-                                this.PX = linkedHashMap;
+                                this.Ov = linkedHashMap;
                                 this.c = z;
                                 this.d = z4;
                                 this.e = z3;
                                 this.f = i;
-                                this.PW = bDLocation;
+                                this.Ou = bDLocation;
                                 this.h = z2;
                             }
                         } else {
@@ -122,12 +122,12 @@ public final class j {
             z = true;
             this.a = str2;
             this.b = str;
-            this.PX = linkedHashMap;
+            this.Ov = linkedHashMap;
             this.c = z;
             this.d = z4;
             this.e = z3;
             this.f = i;
-            this.PW = bDLocation;
+            this.Ou = bDLocation;
             this.h = z2;
         }
     }
@@ -171,7 +171,7 @@ public final class j {
         ArrayList arrayList = new ArrayList();
         StringBuffer stringBuffer = new StringBuffer();
         if (aVar != null) {
-            stringBuffer.append(com.baidu.location.f.b.nd().g(aVar));
+            stringBuffer.append(com.baidu.location.f.b.mT().g(aVar));
         }
         if (iVar != null) {
             stringBuffer.append(iVar.a(30));

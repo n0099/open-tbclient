@@ -15,67 +15,67 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends p {
-    private List<l> aBP;
-    private List<a> aBQ;
-    private Paint aBR;
-    private Paint aBS;
-    private int aBT;
-    private int aBU;
-    private boolean aBV;
-    private int aBW;
-    private i aBX;
-    private boolean aBY;
-    private boolean aBZ;
-    private boolean aCa;
+    private Paint aAA;
+    private Paint aAB;
+    private int aAC;
+    private int aAD;
+    private boolean aAE;
+    private int aAF;
+    private i aAG;
+    private boolean aAH;
+    private boolean aAI;
+    private boolean aAJ;
+    private List<l> aAy;
+    private List<a> aAz;
     private int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(Context context, i iVar) {
         super(context);
         this.mSkinType = 0;
-        this.aBT = 0;
-        this.aBV = false;
-        this.aBW = 0;
-        this.aBY = false;
-        this.aBZ = false;
-        this.aCa = true;
-        this.aBX = iVar;
+        this.aAC = 0;
+        this.aAE = false;
+        this.aAF = 0;
+        this.aAH = false;
+        this.aAI = false;
+        this.aAJ = true;
+        this.aAG = iVar;
         init();
     }
 
     private void init() {
-        this.aBP = new LinkedList();
-        this.aBQ = new LinkedList();
-        this.aBR = new Paint();
-        this.aBS = new Paint();
-        this.aBR.setStyle(Paint.Style.FILL);
-        this.aBS.setStyle(Paint.Style.FILL);
-        this.aBU = com.baidu.adp.lib.util.k.dip2px(getContext(), 1.0f);
+        this.aAy = new LinkedList();
+        this.aAz = new LinkedList();
+        this.aAA = new Paint();
+        this.aAB = new Paint();
+        this.aAA.setStyle(Paint.Style.FILL);
+        this.aAB.setStyle(Paint.Style.FILL);
+        this.aAD = com.baidu.adp.lib.util.k.dip2px(getContext(), 1.0f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(l lVar) {
-        this.aBP.add(lVar);
+        this.aAy.add(lVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, l lVar) {
-        this.aBP.add(i, lVar);
+        this.aAy.add(i, lVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(s sVar, int i, boolean z) {
-        this.aBQ.add(new a(sVar, i, z));
+        this.aAz.add(new a(sVar, i, z));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Db() {
+    public void CT() {
         p.a aVar;
         bD(true);
-        Iterator<l> it = this.aBP.iterator();
+        Iterator<l> it = this.aAy.iterator();
         while (it.hasNext()) {
             c cVar = (c) it.next();
-            if (this.aBW == 1) {
+            if (this.aAF == 1) {
                 aVar = new p.a(0, cVar.getContext().getResources().getDimensionPixelSize(d.f.ds60), 48);
                 aVar.leftMargin = cVar.getContext().getResources().getDimensionPixelSize(d.f.ds32);
                 aVar.rightMargin = cVar.getContext().getResources().getDimensionPixelSize(d.f.ds32);
@@ -87,7 +87,7 @@ public class g extends p {
                 aVar.leftMargin = cVar.getContext().getResources().getDimensionPixelSize(d.f.ds10);
                 aVar.rightMargin = cVar.getContext().getResources().getDimensionPixelSize(d.f.ds10);
             }
-            aVar.eG(2);
+            aVar.eE(2);
             addView(cVar, aVar);
         }
         bD(false);
@@ -124,14 +124,14 @@ public class g extends p {
                     int intrinsicHeight = cVar.getDrawable().getIntrinsicHeight();
                     int measuredWidth = (childAt.getMeasuredWidth() - intrinsicWidth) / 2;
                     int measuredHeight = (childAt.getMeasuredHeight() - intrinsicHeight) / 2;
-                    if (this.aBW == 1) {
+                    if (this.aAF == 1) {
                         if (TextUtils.isEmpty(notice.getText())) {
                             right = childAt.getLeft() + (childAt.getMeasuredWidth() / 2) + (intrinsicWidth / 2);
                         } else {
                             right = (childAt.getRight() - measuredWidth) - com.baidu.adp.lib.util.k.dip2px(getContext(), 9.0f);
                         }
                     } else {
-                        right = this.aBW == 0 ? (childAt.getRight() - measuredWidth) - com.baidu.adp.lib.util.k.dip2px(getContext(), 9.0f) : 0;
+                        right = this.aAF == 0 ? (childAt.getRight() - measuredWidth) - com.baidu.adp.lib.util.k.dip2px(getContext(), 9.0f) : 0;
                     }
                     int top = (childAt.getTop() + measuredHeight) - com.baidu.adp.lib.util.k.dip2px(getContext(), 4.0f);
                     notice.layout(right, top, notice.getMeasuredWidth() + right, notice.getMeasuredHeight() + top);
@@ -142,8 +142,8 @@ public class g extends p {
 
     private void bD(boolean z) {
         p.a aVar;
-        for (a aVar2 : this.aBQ) {
-            View view = (View) aVar2.aCc;
+        for (a aVar2 : this.aAz) {
+            View view = (View) aVar2.aAL;
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams == null) {
                 aVar = new p.a(-2, -2, 19);
@@ -154,21 +154,21 @@ public class g extends p {
                 aVar.gravity = 19;
             }
             if (z && aVar2.position == 1) {
-                aVar.eG(2);
+                aVar.eE(2);
                 addView(view, aVar);
             } else if (!z && aVar2.position != 1) {
                 switch (aVar2.position) {
                     case 2:
-                        aVar.eG(2);
+                        aVar.eE(2);
                         break;
                     case 3:
-                        aVar.eG(1);
+                        aVar.eE(1);
                         break;
                     case 4:
-                        aVar.eG(3);
+                        aVar.eE(3);
                         break;
                     case 5:
-                        aVar.eG(2);
+                        aVar.eE(2);
                         view.setVisibility(8);
                         break;
                 }
@@ -180,72 +180,72 @@ public class g extends p {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         int i;
-        if (this.aBR == null) {
-            this.aBR = new Paint();
-            this.aBR.setStyle(Paint.Style.FILL);
+        if (this.aAA == null) {
+            this.aAA = new Paint();
+            this.aAA.setStyle(Paint.Style.FILL);
         }
         if (this.mSkinType == 0) {
-            this.aBR.setColor(getContext().getResources().getColor(d.e.cp_bg_line_b));
+            this.aAA.setColor(getContext().getResources().getColor(d.e.cp_bg_line_b));
         } else {
-            this.aBR.setColor(ai.getColor(this.mSkinType, d.e.cp_bg_line_b));
+            this.aAA.setColor(ai.getColor(this.mSkinType, d.e.cp_bg_line_b));
         }
-        if (this.aCa) {
-            if (this.aBZ) {
-                canvas.drawRect(0.0f, this.aCL[0] - this.aBU, getMeasuredWidth(), this.aCL[0], this.aBR);
+        if (this.aAJ) {
+            if (this.aAI) {
+                canvas.drawRect(0.0f, this.aBu[0] - this.aAD, getMeasuredWidth(), this.aBu[0], this.aAA);
             }
-            if (this.aBY) {
-                canvas.drawRect(0.0f, (this.aCL[0] + this.aCL[1]) - this.aBU, getMeasuredWidth(), this.aCL[0] + this.aCL[1], this.aBR);
+            if (this.aAH) {
+                canvas.drawRect(0.0f, (this.aBu[0] + this.aBu[1]) - this.aAD, getMeasuredWidth(), this.aBu[0] + this.aBu[1], this.aAA);
             }
         }
-        if (this.aBS == null) {
-            this.aBS = new Paint();
-            this.aBS.setStyle(Paint.Style.FILL);
+        if (this.aAB == null) {
+            this.aAB = new Paint();
+            this.aAB.setStyle(Paint.Style.FILL);
         }
-        if (this.aBT > 0) {
+        if (this.aAC > 0) {
             if (this.mSkinType == 0) {
-                this.aBS.setColor(getContext().getResources().getColor(this.aBT));
+                this.aAB.setColor(getContext().getResources().getColor(this.aAC));
             } else {
-                this.aBS.setColor(ai.getColor(this.mSkinType, this.aBT));
+                this.aAB.setColor(ai.getColor(this.mSkinType, this.aAC));
             }
-            if (this.aBY && this.aCa) {
-                i = (this.aCL[0] + this.aCL[1]) - this.aBU;
+            if (this.aAH && this.aAJ) {
+                i = (this.aBu[0] + this.aBu[1]) - this.aAD;
             } else {
-                i = this.aCL[0] + this.aCL[1];
+                i = this.aBu[0] + this.aBu[1];
             }
-            canvas.drawRect(0.0f, this.aCL[0], getMeasuredWidth(), i, this.aBS);
+            canvas.drawRect(0.0f, this.aBu[0], getMeasuredWidth(), i, this.aAB);
         }
         super.dispatchDraw(canvas);
     }
 
     public void bE(boolean z) {
-        this.aBY = z;
+        this.aAH = z;
     }
 
     public void bF(boolean z) {
-        this.aBZ = z;
+        this.aAI = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void clear() {
-        this.aBP.clear();
-        this.aBQ.clear();
+        this.aAy.clear();
+        this.aAz.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(r rVar) {
-        if (this.aBW == 1) {
+        if (this.aAF == 1) {
             if (rVar == null) {
-                for (l lVar : this.aBP) {
+                for (l lVar : this.aAy) {
                     if (lVar instanceof View) {
                         ((View) lVar).setSelected(false);
                     }
                 }
                 return;
             }
-            for (l lVar2 : this.aBP) {
+            for (l lVar2 : this.aAy) {
                 if (lVar2 instanceof View) {
                     View view = (View) lVar2;
-                    if (lVar2.getToolId() == rVar.id && rVar.aCO) {
+                    if (lVar2.getToolId() == rVar.id && rVar.aBx) {
                         view.setSelected(true);
                     } else {
                         view.setSelected(false);
@@ -256,32 +256,32 @@ public class g extends p {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eA(int i) {
-        if (i == 2 && Dc() && this.aBX != null) {
-            this.aBX.b(new com.baidu.tbadk.editortools.a(1, 3, null));
+    public void ey(int i) {
+        if (i == 2 && CU() && this.aAG != null) {
+            this.aAG.b(new com.baidu.tbadk.editortools.a(1, 3, null));
             return;
         }
-        a eB = eB(i);
-        if (eB != null) {
-            if (eB.position == 5) {
-                for (l lVar : this.aBP) {
+        a ez = ez(i);
+        if (ez != null) {
+            if (ez.position == 5) {
+                for (l lVar : this.aAy) {
                     if (lVar.getToolId() == 2 || lVar.getToolId() == 1) {
-                        lVar.lT();
+                        lVar.lJ();
                     } else {
                         lVar.hide();
                     }
                 }
-                for (a aVar : this.aBQ) {
-                    if (aVar.aCc != null) {
+                for (a aVar : this.aAz) {
+                    if (aVar.aAL != null) {
                         if (aVar.position == 5) {
-                            aVar.aCc.lT();
+                            aVar.aAL.lJ();
                         } else {
-                            aVar.aCc.hide();
+                            aVar.aAL.hide();
                         }
                     }
                 }
             } else {
-                for (l lVar2 : this.aBP) {
+                for (l lVar2 : this.aAy) {
                     if (lVar2.getToolId() == 1) {
                         lVar2.hide();
                     } else {
@@ -291,15 +291,15 @@ public class g extends p {
                                 cVar.hide();
                             }
                         }
-                        lVar2.lT();
+                        lVar2.lJ();
                     }
                 }
-                for (a aVar2 : this.aBQ) {
-                    if (aVar2.aCc != null) {
+                for (a aVar2 : this.aAz) {
+                    if (aVar2.aAL != null) {
                         if (aVar2.position == 5) {
-                            aVar2.aCc.hide();
+                            aVar2.aAL.hide();
                         } else {
-                            aVar2.aCc.lT();
+                            aVar2.aAL.lJ();
                         }
                     }
                 }
@@ -308,26 +308,26 @@ public class g extends p {
         }
     }
 
-    private a eB(int i) {
-        for (a aVar : this.aBQ) {
-            if (aVar.aCc != null && aVar.aCc.getToolId() == i) {
+    private a ez(int i) {
+        for (a aVar : this.aAz) {
+            if (aVar.aAL != null && aVar.aAL.getToolId() == i) {
                 return aVar;
             }
         }
         return null;
     }
 
-    private boolean Dc() {
-        for (a aVar : this.aBQ) {
-            if (aVar.position == 5 && aVar.aCc != null && (aVar.aCc instanceof View) && ((View) aVar.aCc).getVisibility() == 0) {
+    private boolean CU() {
+        for (a aVar : this.aAz) {
+            if (aVar.position == 5 && aVar.aAL != null && (aVar.aAL instanceof View) && ((View) aVar.aAL).getVisibility() == 0) {
                 return true;
             }
         }
         return false;
     }
 
-    public l eC(int i) {
-        for (l lVar : this.aBP) {
+    public l eA(int i) {
+        for (l lVar : this.aAy) {
             if (lVar.getToolId() == i) {
                 return lVar;
             }
@@ -337,23 +337,23 @@ public class g extends p {
 
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        for (l lVar : this.aBP) {
+        for (l lVar : this.aAy) {
             lVar.onChangeSkinType(i);
         }
-        for (a aVar : this.aBQ) {
-            if (aVar.aCc != null) {
-                aVar.aCc.onChangeSkinType(i);
+        for (a aVar : this.aAz) {
+            if (aVar.aAL != null) {
+                aVar.aAL.onChangeSkinType(i);
             }
         }
         invalidate();
     }
 
     public void setBackgroundColorId(int i) {
-        this.aBT = i;
+        this.aAC = i;
     }
 
     public void setBarLauncherEnabled(boolean z) {
-        for (l lVar : this.aBP) {
+        for (l lVar : this.aAy) {
             if (lVar != null && (lVar instanceof View)) {
                 ((View) lVar).setEnabled(z);
             }
@@ -361,7 +361,7 @@ public class g extends p {
     }
 
     public void c(boolean z, int i) {
-        for (l lVar : this.aBP) {
+        for (l lVar : this.aAy) {
             if (lVar instanceof View) {
                 View view = (View) lVar;
                 if (lVar.getToolId() == i) {
@@ -372,30 +372,30 @@ public class g extends p {
     }
 
     public void setBarLauncherType(int i) {
-        this.aBW = i;
+        this.aAF = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
     public static class a {
-        protected boolean aCb;
-        protected s aCc;
+        protected boolean aAK;
+        protected s aAL;
         protected int position;
 
         protected a(s sVar, int i, boolean z) {
-            this.aCb = false;
-            this.aCc = null;
+            this.aAK = false;
+            this.aAL = null;
             this.position = 0;
-            this.aCc = sVar;
+            this.aAL = sVar;
             this.position = i;
-            this.aCb = z;
+            this.aAK = z;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void h(View.OnClickListener onClickListener) {
-        if (this.aBP != null && this.aBP.size() != 0) {
-            Iterator<l> it = this.aBP.iterator();
+        if (this.aAy != null && this.aAy.size() != 0) {
+            Iterator<l> it = this.aAy.iterator();
             while (it.hasNext()) {
                 ((View) it.next()).setOnClickListener(onClickListener);
             }

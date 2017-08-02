@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a pN;
-    private SparseArray<String> pO;
+    private static volatile a ob;
+    private SparseArray<String> oc;
 
-    public static a cA() {
-        if (pN == null) {
+    public static a cp() {
+        if (ob == null) {
             synchronized (a.class) {
-                if (pN == null) {
-                    pN = new a();
+                if (ob == null) {
+                    ob = new a();
                 }
             }
         }
-        return pN;
+        return ob;
     }
 
     private a() {
-        this.pO = null;
-        this.pO = new SparseArray<>();
+        this.oc = null;
+        this.oc = new SparseArray<>();
     }
 
     public void e(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                G(str);
+                A(str);
             }
         }
     }
 
-    private void G(String str) {
+    private void A(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.pO.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.pO.get(i) + " 重复");
+                    if (this.oc.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.oc.get(i) + " 重复");
                     }
-                    this.pO.put(i, name);
+                    this.oc.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String J(int i) {
-        String str = this.pO.get(i);
+    public String G(int i) {
+        String str = this.oc.get(i);
         if (str != null) {
             return str;
         }

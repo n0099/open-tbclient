@@ -8,15 +8,15 @@ import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends e<MsgrightView> {
-    private boolean dhz;
+    private boolean dgh;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dhz = false;
+        this.dgh = false;
     }
 
     public void fV(boolean z) {
-        this.dhz = z;
+        this.dgh = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,8 +24,8 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aB */
     public e.a<MsgrightView> onCreateViewHolder(ViewGroup viewGroup) {
-        MsgrightView msgrightView = new MsgrightView(this.alI);
-        return new a(msgrightView.cq(), msgrightView);
+        MsgrightView msgrightView = new MsgrightView(this.ako);
+        return new a(msgrightView.cf(), msgrightView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,19 +34,19 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgrightView arT = aVar.arT();
-        arT.lK(this.dhq);
-        arT.fV(this.dhz);
+        MsgrightView arH = aVar.arH();
+        arH.lL(this.dfY);
+        arH.fV(this.dgh);
         chatMessage.getCacheData().setIs_left(0);
-        arT.a(this.dhg);
-        arT.setOnItemViewLongClickListener(this.dhh);
-        arT.setPosition(i);
-        arT.bC(this.dhn);
-        arT.bB(chatMessage.getCacheData().getLastMsgTime());
-        arT.a(viewGroup, chatMessage);
-        arT.b(viewGroup, chatMessage);
-        this.alI.getLayoutMode().ah(false);
-        this.alI.getLayoutMode().t(view);
+        arH.a(this.dfO);
+        arH.setOnItemViewLongClickListener(this.dfP);
+        arH.setPosition(i);
+        arH.bC(this.dfV);
+        arH.bB(chatMessage.getCacheData().getLastMsgTime());
+        arH.a(viewGroup, chatMessage);
+        arH.b(viewGroup, chatMessage);
+        this.ako.getLayoutMode().ah(false);
+        this.ako.getLayoutMode().t(view);
         return view;
     }
 

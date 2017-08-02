@@ -15,12 +15,12 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a aWL;
+    private static a aVz;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean aWM = false;
+    private boolean aVA = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable aFV = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:128:0x0314, code lost:
             r3 = e;
          */
@@ -92,7 +92,7 @@ public class a {
             int i3;
             long j2;
             String readLine;
-            while (!a.this.aWM) {
+            while (!a.this.aVA) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -100,14 +100,14 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.aWM) {
-                    String KG = a.this.KG();
-                    if (KG != null && !KG.isEmpty()) {
-                        File file = new File(c.aWB + b.hv(KG) + "/header_downloaded");
+                if (!a.this.aVA) {
+                    String KB = a.this.KB();
+                    if (KB != null && !KB.isEmpty()) {
+                        File file = new File(c.aVp + b.hq(KB) + "/header_downloaded");
                         if (file.exists()) {
-                            d.log(a.TAG, "header exists " + KG);
+                            d.log(a.TAG, "header exists " + KB);
                         } else {
-                            d.log(a.TAG, "client preload start: " + KG);
+                            d.log(a.TAG, "client preload start: " + KB);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -126,8 +126,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(KG);
-                                    int port = b.KI().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(KB);
+                                    int port = b.KD().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -185,7 +185,7 @@ public class a {
                                                 }
                                             } while (!readLine.equals(""));
                                             inputStream = socket.getInputStream();
-                                            d.log(a.TAG, "client preload check1: " + KG);
+                                            d.log(a.TAG, "client preload check1: " + KB);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -244,7 +244,7 @@ public class a {
                                     e12.printStackTrace();
                                 }
                             }
-                            d.log(a.TAG, "client preload end: " + KG);
+                            d.log(a.TAG, "client preload end: " + KB);
                         }
                     }
                 } else {
@@ -284,29 +284,29 @@ public class a {
             j = j2;
         }
     };
-    private Thread mThread = new Thread(this.runnable);
+    private Thread mThread = new Thread(this.aFV);
 
     private a() {
         this.mThread.start();
     }
 
-    public static a KF() {
-        if (aWL == null) {
+    public static a KA() {
+        if (aVz == null) {
             synchronized (a.class) {
-                if (aWL == null) {
-                    aWL = new a();
+                if (aVz == null) {
+                    aVz = new a();
                 }
             }
         }
-        return aWL;
+        return aVz;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String KG() {
+    public synchronized String KB() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void hw(String str) {
+    public synchronized void hr(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

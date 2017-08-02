@@ -9,32 +9,32 @@ import java.io.InputStreamReader;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class r {
-    private static String aKH = "tb_perfor_samllflow_time";
-    private static volatile r aKK;
-    private long aKJ;
-    private boolean aKF = false;
-    private long aKI = 86400;
-    private long aKG = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKH, 0);
+    private static String aJs = "tb_perfor_samllflow_time";
+    private static volatile r aJv;
+    private long aJu;
+    private boolean aJq = false;
+    private long aJt = 86400;
+    private long aJr = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aJs, 0);
 
-    public static r Gz() {
-        if (aKK == null) {
+    public static r Gr() {
+        if (aJv == null) {
             synchronized (r.class) {
-                if (aKK == null) {
-                    aKK = new r();
+                if (aJv == null) {
+                    aJv = new r();
                 }
             }
         }
-        return aKK;
+        return aJv;
     }
 
     private r() {
-        this.aKJ = 0L;
-        this.aKJ = this.aKI;
+        this.aJu = 0L;
+        this.aJu = this.aJt;
     }
 
-    public boolean GA() {
-        if (!this.aKF || (System.currentTimeMillis() - this.aKG) / 1000 <= this.aKJ) {
-            return this.aKF;
+    public boolean Gs() {
+        if (!this.aJq || (System.currentTimeMillis() - this.aJr) / 1000 <= this.aJu) {
+            return this.aJq;
         }
         return false;
     }
@@ -42,21 +42,21 @@ public class r {
     public void ca(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aKG || currentTimeMillis - this.aKG >= this.aKJ) {
-                this.aKG = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKH, this.aKG);
+            if (0 == this.aJr || currentTimeMillis - this.aJr >= this.aJu) {
+                this.aJr = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aJs, this.aJr);
             }
         } else {
-            this.aKG = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKH, this.aKG);
+            this.aJr = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aJs, this.aJr);
         }
-        this.aKF = z;
+        this.aJq = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            s.GF().GG();
+            s.Gx().Gy();
         }
     }
 
-    public String GB() {
+    public String Gt() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -70,7 +70,7 @@ public class r {
         }
     }
 
-    public final String GC() {
+    public final String Gu() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
@@ -86,25 +86,25 @@ public class r {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.i.hr()) {
+        if (!com.baidu.adp.lib.util.i.hh()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.i.hs()) {
+        if (com.baidu.adp.lib.util.i.hi()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.hu()) {
+        if (com.baidu.adp.lib.util.i.hk()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.i.hv()) {
+        if (com.baidu.adp.lib.util.i.hl()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.i.hw()) {
+        if (!com.baidu.adp.lib.util.i.hm()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String fj(int i) {
+    public static String fh(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -117,8 +117,8 @@ public class r {
         return "WIFI";
     }
 
-    public q fk(int i) {
-        if (GA()) {
+    public q fi(int i) {
+        if (Gs()) {
             switch (i) {
                 case 1000:
                     t tVar = new t();
@@ -153,7 +153,7 @@ public class r {
 
     public void S(long j) {
         if (j > 0) {
-            this.aKJ = j;
+            this.aJu = j;
         }
     }
 
@@ -166,7 +166,7 @@ public class r {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int GD() {
+    public int Gv() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

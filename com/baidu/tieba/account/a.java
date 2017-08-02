@@ -16,14 +16,14 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener amD;
+    private View.OnClickListener alj;
     private BaseActivity mContext;
     private List<AccountData> mData = null;
-    private boolean aXi = false;
+    private boolean aVX = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
-        this.amD = onClickListener;
+        this.alj = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -78,36 +78,36 @@ public class a extends BaseAdapter {
                 } else if (getItemViewType(i) == 0) {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.j.account_item, (ViewGroup) null);
                     c0068a = new C0068a();
-                    c0068a.aXj = (TextView) view5.findViewById(d.h.account);
-                    c0068a.aXl = (ImageView) view5.findViewById(d.h.active);
-                    c0068a.aXm = (Button) view5.findViewById(d.h.delete);
-                    c0068a.auM = view5.findViewById(d.h.account_item_line_layout);
-                    c0068a.aXm.setOnClickListener(this.amD);
+                    c0068a.aVY = (TextView) view5.findViewById(d.h.account);
+                    c0068a.aWa = (ImageView) view5.findViewById(d.h.active);
+                    c0068a.aWb = (Button) view5.findViewById(d.h.delete);
+                    c0068a.atu = view5.findViewById(d.h.account_item_line_layout);
+                    c0068a.aWb.setOnClickListener(this.alj);
                     view5.setTag(c0068a);
                 } else {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.j.account_add_item, (ViewGroup) null);
                     c0068a = new C0068a();
-                    c0068a.aXk = (TextView) view5.findViewById(d.h.add_text);
+                    c0068a.aVZ = (TextView) view5.findViewById(d.h.add_text);
                     view5.setTag(c0068a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0068a.aXl.setVisibility(8);
-                    c0068a.aXm.setVisibility(8);
-                    c0068a.aXm.setTag(accountData);
+                    c0068a.aWa.setVisibility(8);
+                    c0068a.aWb.setVisibility(8);
+                    c0068a.aWb.setTag(accountData);
                     if (accountData != null) {
-                        c0068a.aXj.setText(accountData.getAccountNameShow());
+                        c0068a.aVY.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0068a.aXl.setVisibility(0);
+                            c0068a.aWa.setVisibility(0);
                         }
-                        if (this.aXi) {
-                            c0068a.aXm.setVisibility(0);
+                        if (this.aVX) {
+                            c0068a.aWb.setVisibility(0);
                         }
                     }
                     if (i == getCount() - 2) {
-                        c0068a.auM.setVisibility(8);
+                        c0068a.atu.setVisibility(8);
                     } else {
-                        c0068a.auM.setVisibility(0);
+                        c0068a.atu.setVisibility(0);
                     }
                 }
                 this.mContext.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
@@ -151,11 +151,11 @@ public class a extends BaseAdapter {
     }
 
     public void setEditState(boolean z) {
-        this.aXi = z;
+        this.aVX = z;
     }
 
-    public boolean KT() {
-        return this.aXi;
+    public boolean KO() {
+        return this.aVX;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -174,11 +174,11 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private class C0068a {
-        TextView aXj;
-        TextView aXk;
-        ImageView aXl;
-        Button aXm;
-        View auM;
+        TextView aVY;
+        TextView aVZ;
+        ImageView aWa;
+        Button aWb;
+        View atu;
 
         private C0068a() {
         }

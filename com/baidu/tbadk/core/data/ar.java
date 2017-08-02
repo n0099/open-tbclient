@@ -5,99 +5,99 @@ import org.json.JSONObject;
 import tbclient.Page;
 /* loaded from: classes.dex */
 public class ar {
-    private int XX = 0;
+    private int WB = 0;
     private int total_num = 0;
     private int current_page = 0;
-    private int XZ = 0;
+    private int WD = 0;
     private int has_more = 0;
-    private int Ya = 0;
+    private int WE = 0;
     private int total_count = 0;
-    private int XY = 0;
+    private int WC = 0;
 
-    public int qy() {
-        return this.XX;
+    public int qo() {
+        return this.WB;
     }
 
-    public void bG(int i) {
-        this.XX = i;
+    public void bE(int i) {
+        this.WB = i;
     }
 
-    public int pr() {
+    public int ph() {
         return this.total_num;
     }
 
-    public void bH(int i) {
+    public void bF(int i) {
         this.total_num = i;
     }
 
-    public int qz() {
+    public int qp() {
         return this.total_count;
     }
 
-    public int qA() {
-        return this.XY;
+    public int qq() {
+        return this.WC;
     }
 
-    public void bI(int i) {
-        this.XY = i;
+    public void bG(int i) {
+        this.WC = i;
     }
 
-    public int qB() {
+    public int qr() {
         return this.current_page;
     }
 
-    public void bJ(int i) {
+    public void bH(int i) {
         this.current_page = i;
     }
 
-    public int qC() {
-        return this.XZ;
+    public int qs() {
+        return this.WD;
     }
 
-    public void bK(int i) {
-        this.XZ = i;
+    public void bI(int i) {
+        this.WD = i;
     }
 
-    public void bL(int i) {
+    public void bJ(int i) {
         this.has_more = i;
     }
 
-    public int qD() {
+    public int qt() {
         return this.has_more;
     }
 
-    public void bM(int i) {
-        this.Ya = i;
+    public void bK(int i) {
+        this.WE = i;
     }
 
-    public int qE() {
-        return this.Ya;
+    public int qu() {
+        return this.WE;
     }
 
     public void a(Page page) {
         if (page != null) {
-            this.XX = page.total_page.intValue();
+            this.WB = page.total_page.intValue();
             this.total_num = page.total_num.intValue();
             this.total_count = page.total_count.intValue();
             this.current_page = page.current_page.intValue();
-            this.XZ = page.page_size.intValue();
+            this.WD = page.page_size.intValue();
             this.has_more = page.has_more.intValue();
-            this.Ya = page.has_prev.intValue();
-            this.XY = page.lz_total_floor.intValue();
+            this.WE = page.has_prev.intValue();
+            this.WC = page.lz_total_floor.intValue();
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.XX = jSONObject.optInt("total_page", 0);
+                this.WB = jSONObject.optInt("total_page", 0);
                 this.total_num = jSONObject.optInt("total_num", 0);
                 this.total_count = jSONObject.optInt("total_count", 0);
                 this.current_page = jSONObject.optInt("current_page", 0);
-                this.XZ = jSONObject.optInt("page_size", 0);
+                this.WD = jSONObject.optInt("page_size", 0);
                 this.has_more = jSONObject.optInt("has_more", 0);
-                this.Ya = jSONObject.optInt("has_prev", 0);
-                this.XY = jSONObject.optInt("lz_total_floor", 0);
+                this.WE = jSONObject.optInt("has_prev", 0);
+                this.WC = jSONObject.optInt("lz_total_floor", 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

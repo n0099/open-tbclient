@@ -22,110 +22,110 @@ import java.util.List;
 import protobuf.UploadClientLog.ClientLog;
 /* loaded from: classes.dex */
 public class c {
-    private static final HashMap<String, Long> dtV = new HashMap<>();
-    private static final HashMap<String, Integer> dtW = new HashMap<>();
-    private static final HashMap<String, Long> dtX = new HashMap<>();
-    private static c dud;
-    private List<b> dtY;
-    private List<a> dtZ;
-    private String dua = null;
-    private String dub = null;
-    private long yO = -1;
-    private boolean duc = false;
+    private static final HashMap<String, Long> dsD = new HashMap<>();
+    private static final HashMap<String, Integer> dsE = new HashMap<>();
+    private static final HashMap<String, Long> dsF = new HashMap<>();
+    private static c dsL;
+    private List<b> dsG;
+    private List<a> dsH;
+    private String dsI = null;
+    private String dsJ = null;
+    private long xo = -1;
+    private boolean dsK = false;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.im.a.c.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 c.this.mHandler.removeMessages(2);
-                if (c.this.awr()) {
-                    c.this.yO = System.currentTimeMillis();
+                if (c.this.awg()) {
+                    c.this.xo = System.currentTimeMillis();
                     if (MessageManager.getInstance().getSocketClient().isValid()) {
-                        c.this.awo();
+                        c.this.awd();
                     }
                 }
-                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.awt());
+                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.awi());
             }
             if (message.what == 1) {
                 c.this.mHandler.removeMessages(2);
-                c.this.yO = System.currentTimeMillis();
+                c.this.xo = System.currentTimeMillis();
                 if (MessageManager.getInstance().getSocketClient().isValid()) {
-                    c.this.awo();
+                    c.this.awd();
                 }
-                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.awt());
+                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.awi());
             }
             if (message.what == 3) {
                 c.this.mHandler.removeMessages(3);
-                c.this.awn();
-                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(3), c.this.awv());
+                c.this.awc();
+                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(3), c.this.awk());
             }
             if (message.what == 4) {
                 c.this.mHandler.removeMessages(3);
                 c.this.mHandler.removeMessages(2);
-                c.this.yO = System.currentTimeMillis();
-                c.this.awn();
+                c.this.xo = System.currentTimeMillis();
+                c.this.awc();
                 if (MessageManager.getInstance().getSocketClient().isValid()) {
-                    c.this.awo();
+                    c.this.awd();
                 }
-                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(3), c.this.awv());
-                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.awt());
+                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(3), c.this.awk());
+                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.awi());
             }
         }
     };
-    private com.baidu.adp.framework.listener.c due = new com.baidu.adp.framework.listener.c(202006) { // from class: com.baidu.tieba.im.a.c.2
+    private com.baidu.adp.framework.listener.c dsM = new com.baidu.adp.framework.listener.c(202006) { // from class: com.baidu.tieba.im.a.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            if (c.this.awp() && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
+            if (c.this.awe() && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
                 PushNotifyMessage pushNotifyMessage = (PushNotifyMessage) socketResponsedMessage;
                 if (pushNotifyMessage.getType() != 3 && pushNotifyMessage.getType() != 4) {
                     b bVar = new b();
                     bVar.emitTime = ((PushNotifyMessage) socketResponsedMessage).getEmitTime();
-                    bVar.netType = c.this.awk();
-                    bVar.dtU = c.this.awm();
-                    if (c.this.dua == null) {
-                        c.this.dua = bVar.emitTime;
+                    bVar.netType = c.this.avZ();
+                    bVar.dsC = c.this.awb();
+                    if (c.this.dsI == null) {
+                        c.this.dsI = bVar.emitTime;
                     }
-                    if (c.this.dub == null) {
-                        c.this.dub = bVar.emitTime;
+                    if (c.this.dsJ == null) {
+                        c.this.dsJ = bVar.emitTime;
                     }
-                    if (com.baidu.adp.lib.g.b.d(c.this.dub, 0L) < com.baidu.adp.lib.g.b.d(bVar.emitTime, 0L)) {
-                        c.this.dub = bVar.emitTime;
+                    if (com.baidu.adp.lib.g.b.c(c.this.dsJ, 0L) < com.baidu.adp.lib.g.b.c(bVar.emitTime, 0L)) {
+                        c.this.dsJ = bVar.emitTime;
                     }
-                    if (com.baidu.adp.lib.g.b.d(c.this.dua, 0L) > com.baidu.adp.lib.g.b.d(bVar.emitTime, 0L)) {
-                        c.this.dua = bVar.emitTime;
+                    if (com.baidu.adp.lib.g.b.c(c.this.dsI, 0L) > com.baidu.adp.lib.g.b.c(bVar.emitTime, 0L)) {
+                        c.this.dsI = bVar.emitTime;
                     }
-                    c.this.dtY.add(bVar);
+                    c.this.dsG.add(bVar);
                 }
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c duf = new com.baidu.adp.framework.listener.c(202005) { // from class: com.baidu.tieba.im.a.c.3
+    private final com.baidu.adp.framework.listener.c dsN = new com.baidu.adp.framework.listener.c(202005) { // from class: com.baidu.tieba.im.a.c.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseUploadClientLogMessage)) {
-                c.this.duc = false;
+                c.this.dsK = false;
                 if (socketResponsedMessage.getError() == 0) {
-                    c.this.dtZ.clear();
+                    c.this.dsH.clear();
                 }
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c dug = new com.baidu.adp.framework.listener.c(202003) { // from class: com.baidu.tieba.im.a.c.4
+    private final com.baidu.adp.framework.listener.c dsO = new com.baidu.adp.framework.listener.c(202003) { // from class: com.baidu.tieba.im.a.c.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsePullMessage) && socketResponsedMessage.getError() == 0) {
-                c.this.awg();
+                c.this.avV();
             }
         }
     };
-    private final CustomMessageListener duh = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.im.a.c.5
+    private final CustomMessageListener dsP = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.im.a.c.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                c.this.awj();
+                c.this.avY();
             }
         }
     };
@@ -134,89 +134,89 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                c.this.mp(c.this.awk());
+                c.this.ml(c.this.avZ());
             }
         }
     };
 
     static {
-        dtV.put("2g", 60L);
-        dtV.put("3g", 40L);
-        dtV.put("4g", 40L);
-        dtV.put("wifi", 10L);
-        dtW.put("2g", 10);
-        dtW.put("3g", 10);
-        dtW.put("4g", 10);
-        dtW.put("wifi", 10);
-        dtX.put("2g", 300L);
-        dtX.put("3g", 60L);
-        dtX.put("4g", 60L);
-        dtX.put("wifi", 5L);
-        dud = null;
+        dsD.put("2g", 60L);
+        dsD.put("3g", 40L);
+        dsD.put("4g", 40L);
+        dsD.put("wifi", 10L);
+        dsE.put("2g", 10);
+        dsE.put("3g", 10);
+        dsE.put("4g", 10);
+        dsE.put("wifi", 10);
+        dsF.put("2g", 300L);
+        dsF.put("3g", 60L);
+        dsF.put("4g", 60L);
+        dsF.put("wifi", 5L);
+        dsL = null;
     }
 
-    public String awe() {
-        return this.dub;
+    public String avT() {
+        return this.dsJ;
     }
 
-    public String awf() {
-        return this.dua;
+    public String avU() {
+        return this.dsI;
     }
 
-    public void awg() {
-        this.dua = null;
-        this.dub = null;
+    public void avV() {
+        this.dsI = null;
+        this.dsJ = null;
     }
 
-    public static synchronized c awh() {
+    public static synchronized c avW() {
         c cVar;
         synchronized (c.class) {
-            if (dud == null) {
-                dud = new c();
+            if (dsL == null) {
+                dsL = new c();
             }
-            cVar = dud;
+            cVar = dsL;
         }
         return cVar;
     }
 
     public void start() {
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), awv());
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), awt());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), awk());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), awi());
     }
 
     public c() {
-        this.dtY = null;
-        this.dtZ = null;
-        awi();
-        this.dtZ = new ArrayList();
-        this.dtY = new ArrayList();
+        this.dsG = null;
+        this.dsH = null;
+        avX();
+        this.dsH = new ArrayList();
+        this.dsG = new ArrayList();
     }
 
-    private void awi() {
+    private void avX() {
         MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-        MessageManager.getInstance().registerListener(this.due);
-        MessageManager.getInstance().registerListener(this.duf);
-        MessageManager.getInstance().registerListener(this.dug);
-        MessageManager.getInstance().registerListener(this.duh);
+        MessageManager.getInstance().registerListener(this.dsM);
+        MessageManager.getInstance().registerListener(this.dsN);
+        MessageManager.getInstance().registerListener(this.dsO);
+        MessageManager.getInstance().registerListener(this.dsP);
     }
 
-    public void awj() {
+    public void avY() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(4));
     }
 
-    public void mp(String str) {
+    public void ml(String str) {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
-        if (awr() && System.currentTimeMillis() - this.yO > awt()) {
+        if (awg() && System.currentTimeMillis() - this.xo > awi()) {
             this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
         }
     }
 
-    public String awk() {
-        return String.valueOf(i.hx());
+    public String avZ() {
+        return String.valueOf(i.hn());
     }
 
-    public String awl() {
-        switch (i.hx()) {
+    public String awa() {
+        switch (i.hn()) {
             case 1:
                 return "wifi";
             case 2:
@@ -230,64 +230,64 @@ public class c {
         }
     }
 
-    public int awm() {
+    public int awb() {
         return TbadkCoreApplication.getInst().isInBackground() ? 2 : 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awn() {
-        if (!this.duc) {
-            if (this.dtY != null && this.dtY.size() > 0) {
+    public void awc() {
+        if (!this.dsK) {
+            if (this.dsG != null && this.dsG.size() > 0) {
                 ArrayList arrayList = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= this.dtY.size()) {
+                    if (i2 >= this.dsG.size()) {
                         break;
                     }
-                    b bVar = this.dtY.get(i2);
+                    b bVar = this.dsG.get(i2);
                     if (bVar != null && !arrayList.contains(bVar)) {
                         a aVar = new a();
                         aVar.emitTime = bVar.emitTime;
                         aVar.netType = bVar.netType;
-                        aVar.dtU = bVar.dtU;
-                        aVar.dtT = 1;
+                        aVar.dsC = bVar.dsC;
+                        aVar.dsB = 1;
                         arrayList.add(bVar);
-                        for (int i3 = i2; i3 < this.dtY.size(); i3++) {
-                            b bVar2 = this.dtY.get(i3);
-                            if (bVar2 != null && !arrayList.contains(bVar2) && bVar2.netType != null && aVar.netType != null && bVar2.netType.equals(aVar.netType) && bVar2.dtU == aVar.dtU) {
-                                if (bVar2.emitTime != null && aVar.emitTime != null && com.baidu.adp.lib.g.b.d(bVar2.emitTime, 0L) < com.baidu.adp.lib.g.b.d(aVar.emitTime, 0L)) {
+                        for (int i3 = i2; i3 < this.dsG.size(); i3++) {
+                            b bVar2 = this.dsG.get(i3);
+                            if (bVar2 != null && !arrayList.contains(bVar2) && bVar2.netType != null && aVar.netType != null && bVar2.netType.equals(aVar.netType) && bVar2.dsC == aVar.dsC) {
+                                if (bVar2.emitTime != null && aVar.emitTime != null && com.baidu.adp.lib.g.b.c(bVar2.emitTime, 0L) < com.baidu.adp.lib.g.b.c(aVar.emitTime, 0L)) {
                                     aVar.emitTime = bVar2.emitTime;
                                 }
-                                aVar.dtT++;
+                                aVar.dsB++;
                                 arrayList.add(bVar2);
                             }
                         }
-                        this.dtZ.add(aVar);
+                        this.dsH.add(aVar);
                     }
                     i = i2 + 1;
                 }
             }
-            this.dtY.clear();
-            if (this.dtZ.size() > awu() && awq() && i.hr()) {
+            this.dsG.clear();
+            if (this.dsH.size() > awj() && awf() && i.hh()) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
             }
-            if (this.dtZ.size() > 100 && !awr() && !awq()) {
-                this.dtZ.clear();
+            if (this.dsH.size() > 100 && !awg() && !awf()) {
+                this.dsH.clear();
             }
         }
     }
 
-    public void awo() {
-        if (this.dtZ.size() > 0) {
-            this.duc = true;
+    public void awd() {
+        if (this.dsH.size() > 0) {
+            this.dsK = true;
             ArrayList arrayList = new ArrayList();
             ClientLog.Builder builder = new ClientLog.Builder();
-            for (a aVar : this.dtZ) {
+            for (a aVar : this.dsH) {
                 builder.et = aVar.emitTime;
                 builder.net = aVar.netType;
-                builder.pushcnt = Integer.valueOf(aVar.dtT);
-                builder.process_type = Integer.valueOf(aVar.dtU);
+                builder.pushcnt = Integer.valueOf(aVar.dsB);
+                builder.process_type = Integer.valueOf(aVar.dsC);
                 arrayList.add(builder.build(false));
             }
             RequestUploadClientLogMessage requestUploadClientLogMessage = new RequestUploadClientLogMessage();
@@ -297,54 +297,54 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean awp() {
+    public boolean awe() {
         String str;
-        g aws = aws();
-        return (aws == null || (str = aws.aAL) == null || !str.equals("1")) ? false : true;
+        g awh = awh();
+        return (awh == null || (str = awh.azu) == null || !str.equals("1")) ? false : true;
     }
 
-    private boolean awq() {
+    private boolean awf() {
         String str;
-        g aws = aws();
-        return aws == null || (str = aws.aAJ.get(awl())) == null || !str.equals("-1");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean awr() {
-        String str;
-        g aws = aws();
-        return aws == null || (str = aws.aAI.get(awl())) == null || !str.equals("-1");
-    }
-
-    private g aws() {
-        return g.Cu();
+        g awh = awh();
+        return awh == null || (str = awh.azs.get(awa())) == null || !str.equals("-1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long awt() {
+    public boolean awg() {
         String str;
-        g aws = aws();
-        if (aws != null && (str = aws.aAI.get(awl())) != null && str.length() > 0) {
-            long d = com.baidu.adp.lib.g.b.d(str, 0L);
-            if (d > 2) {
-                return d * 1000;
+        g awh = awh();
+        return awh == null || (str = awh.azr.get(awa())) == null || !str.equals("-1");
+    }
+
+    private g awh() {
+        return g.Cm();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public long awi() {
+        String str;
+        g awh = awh();
+        if (awh != null && (str = awh.azr.get(awa())) != null && str.length() > 0) {
+            long c = com.baidu.adp.lib.g.b.c(str, 0L);
+            if (c > 2) {
+                return c * 1000;
             }
         }
-        return dtV.get(awl()).longValue() * 1000;
+        return dsD.get(awa()).longValue() * 1000;
     }
 
-    private int awu() {
+    private int awj() {
         String str;
         int g;
-        g aws = aws();
-        return (aws == null || (str = aws.aAJ.get(awl())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? dtW.get(awl()).intValue() : g;
+        g awh = awh();
+        return (awh == null || (str = awh.azs.get(awa())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? dsE.get(awa()).intValue() : g;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long awv() {
+    public long awk() {
         String str;
         int g;
-        g aws = aws();
-        return (aws == null || (str = aws.aAK.get(awl())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? dtX.get(awl()).longValue() * 1000 : g * 1000;
+        g awh = awh();
+        return (awh == null || (str = awh.azt.get(awa())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? dsF.get(awa()).longValue() * 1000 : g * 1000;
     }
 }

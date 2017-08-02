@@ -51,7 +51,7 @@ public class ClientStartStatic {
         public Void doInBackground(Void... voidArr) {
             w wVar = new w(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
             wVar.n("type", "1");
-            wVar.uO();
+            wVar.uE();
             return null;
         }
     }

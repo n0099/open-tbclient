@@ -15,8 +15,8 @@ public class d extends h.b {
 
     @Override // com.xiaomi.channel.commonutils.misc.h.b
     public void b() {
-        b.C0141b c0141b = (b.C0141b) this.b.a.peek();
-        if (c0141b == null || !c0141b.d()) {
+        b.C0142b c0142b = (b.C0142b) this.b.a.peek();
+        if (c0142b == null || !c0142b.d()) {
             return;
         }
         this.a = (h.b) this.b.a.remove();

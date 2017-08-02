@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int bwa;
-    private static int cQq;
+    private static int buQ;
+    private static int cOX;
 
     public d(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.cQx);
-        bwa = k.g(context, d.f.ds40);
-        cQq = k.g(context, d.f.ds120);
+        super(context, com.baidu.tieba.homepage.concern.b.a.cPe);
+        buQ = k.g(context, d.f.ds40);
+        cOX = k.g(context, d.f.ds120);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,14 +38,14 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.cQr.setText(aVar.akh);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.cQr.getLayoutParams();
-        if (aVar.cQy) {
-            layoutParams.bottomMargin = cQq;
-            aVar2.cQs.setVisibility(0);
+        aVar2.cOY.setText(aVar.aiO);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.cOY.getLayoutParams();
+        if (aVar.cPf) {
+            layoutParams.bottomMargin = cOX;
+            aVar2.cOZ.setVisibility(0);
         } else {
-            layoutParams.bottomMargin = bwa;
-            aVar2.cQs.setVisibility(8);
+            layoutParams.bottomMargin = buQ;
+            aVar2.cOZ.setVisibility(8);
         }
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
@@ -53,22 +53,22 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes.dex */
     public class a extends j.a {
-        private int aql;
-        public TextView cQr;
-        public View cQs;
+        private int aoR;
+        public TextView cOY;
+        public View cOZ;
 
         public a(View view) {
             super(view);
-            this.aql = 3;
-            this.cQr = (TextView) view.findViewById(d.h.concern_tip_txt);
-            this.cQs = view.findViewById(d.h.concern_tip_top_line);
+            this.aoR = 3;
+            this.cOY = (TextView) view.findViewById(d.h.concern_tip_txt);
+            this.cOZ = view.findViewById(d.h.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.aql != i) {
+            if (this.aoR != i) {
                 ai.k(getView(), d.e.cp_bg_line_d);
-                ai.i(this.cQr, d.e.cp_cont_d);
-                ai.j(this.cQs, d.e.cp_bg_line_c);
+                ai.i(this.cOY, d.e.cp_cont_d);
+                ai.j(this.cOZ, d.e.cp_bg_line_c);
             }
         }
     }

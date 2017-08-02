@@ -4,12 +4,12 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class b {
     private String mName;
-    private int vH;
-    private a vK;
-    private int vJ = 0;
-    private String[] vM = null;
-    private int vI = 0;
-    private String[] vN = null;
+    private int ue;
+    private a uh;
+    private int ug = 0;
+    private String[] uj = null;
+    private int uf = 0;
+    private String[] uk = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,53 +18,53 @@ public class b {
 
     public b(String str, int i, a aVar) {
         this.mName = null;
-        this.vK = null;
-        this.vH = 0;
+        this.uh = null;
+        this.ue = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.vK = aVar;
-        this.vH = i;
+        this.uh = aVar;
+        this.ue = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.vJ = i;
-        this.vM = strArr;
-        this.vI = i2;
+        this.ug = i;
+        this.uj = strArr;
+        this.uf = i2;
     }
 
     public void g(String[] strArr) {
-        this.vN = strArr;
+        this.uk = strArr;
     }
 
-    public String[] fc() {
-        return this.vN;
+    public String[] eR() {
+        return this.uk;
     }
 
     public String getName() {
         return this.mName;
     }
 
-    public int fb() {
-        return this.vJ;
+    public int eQ() {
+        return this.ug;
     }
 
-    public String[] fe() {
-        return this.vM;
+    public String[] eT() {
+        return this.uj;
     }
 
-    public int fa() {
-        return this.vI;
+    public int eP() {
+        return this.uf;
     }
 
-    public int eZ() {
-        return this.vH;
+    public int eO() {
+        return this.ue;
     }
 
     public void d(int i, boolean z) {
-        if (this.vK != null) {
-            this.vK.a(this.mName, i, z);
+        if (this.uh != null) {
+            this.uh.a(this.mName, i, z);
         }
     }
 }

@@ -8,35 +8,35 @@ import tbclient.ThreadInfo;
 import tbclient.ThreadModule;
 /* loaded from: classes.dex */
 public class k extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fed = BdUniqueId.gen();
-    private long bEp;
-    private String bEq;
-    private long fee;
+    public static final BdUniqueId fcR = BdUniqueId.gen();
+    private long bDf;
+    private String bDg;
+    private long fcS;
     public boolean mHasMore;
     private ArrayList<e> mThreadList;
     private UserData mUserData;
 
     public void a(ThreadModule threadModule) {
         if (threadModule != null) {
-            this.bEp = threadModule.module_id.longValue();
-            this.bEq = threadModule.module_name;
+            this.bDf = threadModule.module_id.longValue();
+            this.bDg = threadModule.module_name;
             if (!u.v(threadModule.thread_info)) {
                 this.mThreadList = new ArrayList<>();
                 for (ThreadInfo threadInfo : threadModule.thread_info) {
                     if (threadInfo != null) {
                         e eVar = new e();
                         eVar.a(threadInfo);
-                        eVar.fdM = this.bEp;
-                        eVar.fdP = false;
+                        eVar.fcA = this.bDf;
+                        eVar.fcD = false;
                         this.mThreadList.add(eVar);
                     }
                 }
             }
             if (!u.v(this.mThreadList)) {
-                this.mThreadList.get(0).fdP = true;
+                this.mThreadList.get(0).fcD = true;
             }
-            this.mHasMore = u.u(this.mThreadList) > 3 || this.bEp == -1;
-            this.fee = threadModule.show_num.longValue();
+            this.mHasMore = u.u(this.mThreadList) > 3 || this.bDf == -1;
+            this.fcS = threadModule.show_num.longValue();
         }
     }
 
@@ -44,17 +44,17 @@ public class k extends com.baidu.tieba.card.data.b {
         return this.mThreadList;
     }
 
-    public long aXc() {
-        return this.bEp;
+    public long aWR() {
+        return this.bDf;
     }
 
     public String getModuleName() {
-        return this.bEq;
+        return this.bDg;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return fed;
+        return fcR;
     }
 
     public void setUserData(UserData userData) {

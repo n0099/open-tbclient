@@ -82,8 +82,8 @@ public class c {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 GifView.this.setVisibility(0);
-                GifView.this.Eq();
-                com.baidu.adp.lib.g.e.ga().postDelayed(new Runnable() { // from class: com.baidu.tieba.c.2.1
+                GifView.this.Ei();
+                com.baidu.adp.lib.g.e.fP().postDelayed(new Runnable() { // from class: com.baidu.tieba.c.2.1
                     @Override // java.lang.Runnable
                     public void run() {
                         textView.setVisibility(0);

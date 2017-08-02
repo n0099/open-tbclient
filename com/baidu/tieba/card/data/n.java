@@ -5,72 +5,72 @@ import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.util.aj;
 /* loaded from: classes.dex */
 public class n extends c {
-    public static final BdUniqueId bJN = BdUniqueId.gen();
-    public static final BdUniqueId bJO = BdUniqueId.gen();
-    public static String bJP = "";
-    public static String bJQ = "";
-    public static String bJR = "";
-    public static String bJS = "";
-    public static String bJT = "";
-    public static String bJU = "";
-    public static String bJV = "";
-    public bl bcL;
-    public boolean bJI = false;
-    public boolean bJW = true;
+    public static final BdUniqueId bID = BdUniqueId.gen();
+    public static final BdUniqueId bIE = BdUniqueId.gen();
+    public static String bIF = "";
+    public static String bIG = "";
+    public static String bIH = "";
+    public static String bII = "";
+    public static String bIJ = "";
+    public static String bIK = "";
+    public static String bIL = "";
+    public bl bbB;
+    public boolean bIy = false;
+    public boolean bIM = true;
     public int sourceType = 0;
 
     public n(bl blVar) {
-        this.bcL = blVar;
+        this.bbB = blVar;
     }
 
     public static boolean B(bl blVar) {
-        return (blVar == null || blVar.rW() == null) ? false : true;
+        return (blVar == null || blVar.rM() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (this.bcL == null) {
-            return bJN;
+        if (this.bbB == null) {
+            return bID;
         }
-        if (this.bcL.rI() || this.bcL.rJ()) {
-            return bJO;
+        if (this.bbB.ry() || this.bbB.rz()) {
+            return bIE;
         }
-        return bJN;
+        return bID;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bl MF() {
-        return this.bcL;
+    public bl MA() {
+        return this.bbB;
     }
 
-    public aj jk(String str) {
-        aj jj = jj(str);
-        if (jj != null && this.bcL != null) {
-            jj.g("fid", this.bcL.getFid());
-            jj.aa("tid", this.bcL.getTid());
-            jj.r("obj_type", 2);
+    public aj jf(String str) {
+        aj je = je(str);
+        if (je != null && this.bbB != null) {
+            je.f("fid", this.bbB.getFid());
+            je.aa("tid", this.bbB.getTid());
+            je.r("obj_type", 2);
         }
-        return jj;
+        return je;
     }
 
-    public aj WO() {
-        aj v = v(bJS, true);
-        if (v != null && MF() != null) {
-            bl MF = MF();
-            v.r("obj_name", MF.sU() != null && (MF.sU().aAP() != null || MF.sU().Iv() != null) ? 1 : 0);
+    public aj WJ() {
+        aj v = v(bII, true);
+        if (v != null && MA() != null) {
+            bl MA = MA();
+            v.r("obj_name", MA.sK() != null && (MA.sK().aAE() != null || MA.sK().Io() != null) ? 1 : 0);
         }
         return v;
     }
 
     public aj C(bl blVar) {
-        return (blVar.sJ() == null || blVar.sJ().channelId <= 0) ? v(bJT, true) : v(bJU, true);
+        return (blVar.sz() == null || blVar.sz().channelId <= 0) ? v(bIJ, true) : v(bIK, true);
     }
 
-    public aj WQ() {
-        return v(bJQ, true);
+    public aj WL() {
+        return v(bIG, true);
     }
 
     public aj D(bl blVar) {
-        return (blVar.sJ() == null || blVar.sJ().channelId <= 0) ? v(bJP, true) : v(bJV, true);
+        return (blVar.sz() == null || blVar.sz().channelId <= 0) ? v(bIF, true) : v(bIL, true);
     }
 }

@@ -1,16 +1,17 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tieba.pb.CustomDialogData;
 /* loaded from: classes.dex */
 public class b {
     final AntiData antiData;
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String gll;
-    private String glm;
+    private String gka;
+    private String gkb;
     private int isCopyTWZhibo;
-    private String mNickNameActivityMoney;
+    private CustomDialogData mActDialogData;
     private String preMsg;
     private String threadId = null;
     private String postId = null;
@@ -25,15 +26,15 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean btF() {
+    public boolean bty() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean btG() {
+    public boolean btz() {
         return this.errorCode == 1990055;
     }
 
-    public boolean btH() {
+    public boolean btA() {
         return this.errorCode == 227001;
     }
 
@@ -49,7 +50,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData aAV() {
+    public AntiData aAK() {
         return this.antiData;
     }
 
@@ -93,27 +94,27 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String btI() {
-        return this.gll;
+    public String btB() {
+        return this.gka;
     }
 
-    public void sq(String str) {
-        this.gll = str;
+    public void sl(String str) {
+        this.gka = str;
     }
 
-    public String btJ() {
-        return this.glm;
+    public String btC() {
+        return this.gkb;
     }
 
-    public void sr(String str) {
-        this.glm = str;
+    public void sm(String str) {
+        this.gkb = str;
     }
 
-    public String getNickNameActivityMoney() {
-        return this.mNickNameActivityMoney;
+    public CustomDialogData getActivityDialog() {
+        return this.mActDialogData;
     }
 
-    public void setNickNameActivityMoney(String str) {
-        this.mNickNameActivityMoney = str;
+    public void setActivityDialog(CustomDialogData customDialogData) {
+        this.mActDialogData = customDialogData;
     }
 }

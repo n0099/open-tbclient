@@ -10,20 +10,18 @@ public class DiskFileOperate {
     protected String mName;
     private OutputStream mOutputStream;
     protected String mPath;
-    private e.a tA;
-    private OperateType tp;
-    protected boolean tq;
-    protected Action tr;
-    protected volatile byte[] ts;
-    private volatile boolean tt;
-    private boolean tu;
-
-    /* renamed from: tv  reason: collision with root package name */
-    private File f0tv;
-    private boolean tw;
-    private int tx;
-    private String ty;
-    private String tz;
+    private OperateType rH;
+    protected boolean rI;
+    protected Action rJ;
+    protected volatile byte[] rK;
+    private volatile boolean rL;
+    private boolean rM;
+    private File rN;
+    private boolean rO;
+    private int rP;
+    private String rQ;
+    private String rR;
+    private e.a rS;
 
     /* loaded from: classes.dex */
     public enum Action {
@@ -46,56 +44,56 @@ public class DiskFileOperate {
     }
 
     public DiskFileOperate(String str, String str2, Action action) {
-        this.tp = OperateType.MUST_SUCCESS;
-        this.tq = false;
-        this.tr = Action.READ;
-        this.ts = null;
+        this.rH = OperateType.MUST_SUCCESS;
+        this.rI = false;
+        this.rJ = Action.READ;
+        this.rK = null;
         this.mLock = null;
         this.mName = null;
         this.mPath = null;
-        this.tt = false;
-        this.tu = true;
+        this.rL = false;
+        this.rM = true;
         this.mOutputStream = null;
-        this.f0tv = null;
-        this.tw = true;
-        this.tx = 0;
-        this.ty = null;
-        this.tz = null;
-        this.tA = null;
+        this.rN = null;
+        this.rO = true;
+        this.rP = 0;
+        this.rQ = null;
+        this.rR = null;
+        this.rS = null;
         this.mPath = str;
         this.mName = str2;
-        this.tr = action;
+        this.rJ = action;
     }
 
     public DiskFileOperate(String str, String str2, String str3, String str4, Action action) {
-        this.tp = OperateType.MUST_SUCCESS;
-        this.tq = false;
-        this.tr = Action.READ;
-        this.ts = null;
+        this.rH = OperateType.MUST_SUCCESS;
+        this.rI = false;
+        this.rJ = Action.READ;
+        this.rK = null;
         this.mLock = null;
         this.mName = null;
         this.mPath = null;
-        this.tt = false;
-        this.tu = true;
+        this.rL = false;
+        this.rM = true;
         this.mOutputStream = null;
-        this.f0tv = null;
-        this.tw = true;
-        this.tx = 0;
-        this.ty = null;
-        this.tz = null;
-        this.tA = null;
+        this.rN = null;
+        this.rO = true;
+        this.rP = 0;
+        this.rQ = null;
+        this.rR = null;
+        this.rS = null;
         this.mPath = str;
         this.mName = str2;
-        this.ty = str3;
-        this.tz = str4;
-        this.tr = action;
+        this.rQ = str3;
+        this.rR = str4;
+        this.rJ = action;
     }
 
     public void k(Object obj) {
         this.mLock = obj;
     }
 
-    public void dZ() {
+    public void dO() {
         if (this.mLock != null) {
             try {
                 synchronized (this.mLock) {
@@ -108,11 +106,11 @@ public class DiskFileOperate {
     }
 
     public byte[] getData() {
-        return this.ts;
+        return this.rK;
     }
 
     public void setData(byte[] bArr) {
-        this.ts = bArr;
+        this.rK = bArr;
     }
 
     public String getName() {
@@ -123,32 +121,32 @@ public class DiskFileOperate {
         return this.mPath;
     }
 
-    public Action ea() {
-        return this.tr;
+    public Action dP() {
+        return this.rJ;
     }
 
-    public boolean n(byte[] bArr) {
+    public boolean k(byte[] bArr) {
         return true;
     }
 
-    public byte[] eb() {
+    public byte[] dQ() {
         return null;
     }
 
     public boolean isSuccess() {
-        return this.tt;
+        return this.rL;
     }
 
     public void setSuccess(boolean z) {
-        this.tt = z;
+        this.rL = z;
     }
 
     public void s(boolean z) {
-        this.tq = z;
+        this.rI = z;
     }
 
-    public String ec() {
-        if (this.tq && this.mName != null) {
+    public String dR() {
+        if (this.rI && this.mName != null) {
             int hashCode = this.mName.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
@@ -162,38 +160,38 @@ public class DiskFileOperate {
         return this.mPath;
     }
 
-    public String ed() {
-        if (this.tq && this.tz != null) {
-            int hashCode = this.tz.hashCode();
+    public String dS() {
+        if (this.rI && this.rR != null) {
+            int hashCode = this.rR.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
             }
             int i = (hashCode % 100) + 1;
-            if (this.ty == null) {
+            if (this.rQ == null) {
                 return String.valueOf(i);
             }
-            return this.ty + "/" + i;
+            return this.rQ + "/" + i;
         }
-        return this.ty;
+        return this.rQ;
     }
 
-    public OperateType ee() {
-        return this.tp;
+    public OperateType dT() {
+        return this.rH;
     }
 
     public void a(OperateType operateType) {
-        this.tp = operateType;
+        this.rH = operateType;
     }
 
     public void p(boolean z) {
     }
 
-    public boolean ef() {
-        return this.tu;
+    public boolean dU() {
+        return this.rM;
     }
 
     public void t(boolean z) {
-        this.tu = z;
+        this.rM = z;
     }
 
     protected void finalize() throws Throwable {
@@ -212,7 +210,7 @@ public class DiskFileOperate {
     public void release() {
         synchronized (this) {
             if (this.mOutputStream != null) {
-                com.baidu.adp.lib.g.a.e(this.mOutputStream);
+                com.baidu.adp.lib.g.a.d(this.mOutputStream);
                 this.mOutputStream = null;
             }
         }
@@ -227,43 +225,43 @@ public class DiskFileOperate {
         }
     }
 
-    public File eg() {
-        return this.f0tv;
+    public File dV() {
+        return this.rN;
     }
 
     public void e(File file) {
-        this.f0tv = file;
+        this.rN = file;
     }
 
-    public boolean eh() {
-        return this.tw;
+    public boolean dW() {
+        return this.rO;
     }
 
     public void u(boolean z) {
-        this.tw = z;
+        this.rO = z;
     }
 
-    public boolean dT() {
-        return com.baidu.adp.lib.Disk.d.dS().b(this);
+    public boolean dI() {
+        return com.baidu.adp.lib.Disk.d.dH().b(this);
     }
 
-    public int ei() {
-        return this.tx;
+    public int dX() {
+        return this.rP;
     }
 
-    public void Z(int i) {
-        this.tx = i;
+    public void W(int i) {
+        this.rP = i;
     }
 
-    public String ej() {
-        return this.ty;
+    public String dY() {
+        return this.rQ;
     }
 
-    public String ek() {
-        return this.tz;
+    public String dZ() {
+        return this.rR;
     }
 
-    public e.a el() {
-        return this.tA;
+    public e.a ea() {
+        return this.rS;
     }
 }

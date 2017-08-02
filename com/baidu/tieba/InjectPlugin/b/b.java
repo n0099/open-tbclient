@@ -5,99 +5,99 @@ import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends g {
-    private Object aTS;
-    private List<f> aTT;
-    private List<f> aTU;
-    private List<Object> aTV;
-    private boolean aTW;
-    private boolean aTX;
-    private int aTY;
-    private boolean aTZ;
-    private String aUa;
-    private String aUb;
-    private String aUc;
-    private int aql;
+    private Object aSG;
+    private List<f> aSH;
+    private List<f> aSI;
+    private List<Object> aSJ;
+    private boolean aSK;
+    private boolean aSL;
+    private int aSM;
+    private boolean aSN;
+    private String aSO;
+    private String aSP;
+    private String aSQ;
+    private int aoR;
     private String forumId;
     private int pageNum;
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
-        this.aTW = false;
-        this.aTX = false;
-        this.aTY = 0;
-        this.aTZ = false;
+        this.aSK = false;
+        this.aSL = false;
+        this.aSM = 0;
+        this.aSN = false;
     }
 
-    public Object JB() {
-        return this.aTS;
+    public Object Jv() {
+        return this.aSG;
     }
 
     public void setExtraData(Object obj) {
-        this.aTS = obj;
+        this.aSG = obj;
     }
 
     public List<f> getThreadList() {
-        return this.aTT;
+        return this.aSH;
     }
 
     public void setThreadList(List<f> list) {
-        this.aTT = list;
+        this.aSH = list;
     }
 
-    public List<Object> JC() {
-        return this.aTV;
+    public List<Object> Jw() {
+        return this.aSJ;
     }
 
     public void N(List<Object> list) {
-        this.aTV = list;
+        this.aSJ = list;
     }
 
-    public List<f> JD() {
-        return this.aTU;
+    public List<f> Jx() {
+        return this.aSI;
     }
 
     public void O(List<f> list) {
-        this.aTU = list;
+        this.aSI = list;
     }
 
-    public boolean JE() {
-        return this.aTW;
+    public boolean Jy() {
+        return this.aSK;
     }
 
     public void cj(boolean z) {
-        this.aTW = z;
+        this.aSK = z;
     }
 
-    public boolean JF() {
-        return this.aTX;
+    public boolean Jz() {
+        return this.aSL;
     }
 
     public void ck(boolean z) {
-        this.aTX = z;
+        this.aSL = z;
     }
 
-    public int JG() {
-        return this.aTY;
+    public int JA() {
+        return this.aSM;
     }
 
-    public void bX(int i) {
-        this.aTY = i;
+    public void bV(int i) {
+        this.aSM = i;
     }
 
     public int getSkinType() {
-        return this.aql;
+        return this.aoR;
     }
 
     public void setSkinType(int i) {
-        this.aql = i;
+        this.aoR = i;
     }
 
-    public boolean JH() {
-        return this.aTZ;
+    public boolean JB() {
+        return this.aSN;
     }
 
     public void cl(boolean z) {
-        this.aTZ = z;
+        this.aSN = z;
     }
 
     public int getPageNum() {
@@ -116,27 +116,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String JI() {
-        return this.aUa;
+    public String JC() {
+        return this.aSO;
     }
 
-    public void hb(String str) {
-        this.aUa = str;
+    public void gW(String str) {
+        this.aSO = str;
     }
 
-    public String JJ() {
-        return this.aUb;
+    public String JD() {
+        return this.aSP;
     }
 
-    public void hc(String str) {
-        this.aUb = str;
+    public void gX(String str) {
+        this.aSP = str;
     }
 
-    public String JK() {
-        return this.aUc;
+    public String JE() {
+        return this.aSQ;
     }
 
-    public void hd(String str) {
-        this.aUc = str;
+    public void gY(String str) {
+        this.aSQ = str;
     }
 }

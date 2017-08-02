@@ -3,7 +3,7 @@ package com.baidu.tbadk.c;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 public class a {
-    private ImageFileInfo Rx;
+    private ImageFileInfo PZ;
     private String albumId;
     private String count;
     private String name;
@@ -12,7 +12,7 @@ public class a {
         return this.albumId;
     }
 
-    public void cd(String str) {
+    public void bX(String str) {
         this.albumId = str;
     }
 
@@ -24,19 +24,19 @@ public class a {
         this.name = str;
     }
 
-    public String nF() {
+    public String nv() {
         return this.count;
     }
 
-    public void ce(String str) {
+    public void bY(String str) {
         this.count = str;
     }
 
-    public ImageFileInfo nG() {
-        return this.Rx;
+    public ImageFileInfo nw() {
+        return this.PZ;
     }
 
     public void a(ImageFileInfo imageFileInfo) {
-        this.Rx = imageFileInfo;
+        this.PZ = imageFileInfo;
     }
 }

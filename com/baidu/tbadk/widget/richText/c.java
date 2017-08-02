@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    public static Drawable fD(int i) {
+    public static Drawable fB(int i) {
         switch (i) {
             case 0:
                 return ai.getDrawable(d.g.icon_xiangqing_n);

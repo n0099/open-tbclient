@@ -3,54 +3,54 @@ package com.baidu.adp.plugin.util;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class f implements Comparable<f> {
-    int GS;
-    int GT;
-    int GU;
-    int GV;
-    int GW;
-    int GX;
+    int Ft;
+    int Fu;
+    int Fv;
+    int Fw;
+    int Fx;
+    int Fy;
 
     public final void set(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.GS = i;
-        this.GT = i2;
-        this.GU = i3;
-        this.GV = i4;
-        this.GW = i5;
-        this.GX = i6;
+        this.Ft = i;
+        this.Fu = i2;
+        this.Fv = i3;
+        this.Fw = i4;
+        this.Fx = i5;
+        this.Fy = i6;
     }
 
     public String toString() {
-        return this.GS + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.GT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.GU + " " + this.GV + ":" + this.GW + ":" + this.GX;
+        return this.Ft + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Fu + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Fv + " " + this.Fw + ":" + this.Fx + ":" + this.Fy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(f fVar) {
-        if (this.GS - fVar.GS > 0) {
+        if (this.Ft - fVar.Ft > 0) {
             return 1;
         }
-        if (this.GS - fVar.GS < 0) {
+        if (this.Ft - fVar.Ft < 0) {
             return -1;
         }
-        if (this.GT - fVar.GT <= 0) {
-            if (this.GT - fVar.GT < 0) {
+        if (this.Fu - fVar.Fu <= 0) {
+            if (this.Fu - fVar.Fu < 0) {
                 return -1;
             }
-            if (this.GU - fVar.GU <= 0) {
-                if (this.GU - fVar.GU < 0) {
+            if (this.Fv - fVar.Fv <= 0) {
+                if (this.Fv - fVar.Fv < 0) {
                     return -1;
                 }
-                if (this.GV - fVar.GV <= 0) {
-                    if (this.GV - fVar.GV < 0) {
+                if (this.Fw - fVar.Fw <= 0) {
+                    if (this.Fw - fVar.Fw < 0) {
                         return -1;
                     }
-                    if (this.GW - fVar.GW <= 0) {
-                        if (this.GW - fVar.GW < 0) {
+                    if (this.Fx - fVar.Fx <= 0) {
+                        if (this.Fx - fVar.Fx < 0) {
                             return -1;
                         }
-                        if (this.GX - fVar.GX <= 0) {
-                            return this.GX - fVar.GX < 0 ? -1 : 0;
+                        if (this.Fy - fVar.Fy <= 0) {
+                            return this.Fy - fVar.Fy < 0 ? -1 : 0;
                         }
                         return 1;
                     }

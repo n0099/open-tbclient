@@ -58,71 +58,71 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalChatActivity> {
-    private b dAD;
-    private PersonalMsglistModel dAF;
-    private PersonalChatView dAG;
+    private b dzm;
+    private PersonalMsglistModel dzo;
+    private PersonalChatView dzp;
     private UserData mUser;
-    private CustomMessageListener dAB = new CustomMessageListener(CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.1
+    private CustomMessageListener dzk = new CustomMessageListener(CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseNewFriendDataMessage)) {
                 a data = ((ResponseNewFriendDataMessage) customResponsedMessage).getData();
-                PersonalMsglistModel.CardStatus j = PersonalChatActivity.this.dAF.j(data);
-                PersonalChatActivity.this.dAF.a(j);
+                PersonalMsglistModel.CardStatus j = PersonalChatActivity.this.dzo.j(data);
+                PersonalChatActivity.this.dzo.a(j);
                 if (j != PersonalMsglistModel.CardStatus.AGREE) {
-                    PersonalChatActivity.this.dAG.a(j, false, new String[0]);
+                    PersonalChatActivity.this.dzp.a(j, false, new String[0]);
                     return;
                 }
-                PersonalChatActivity.this.dAG.a(j, false, data.getContent());
+                PersonalChatActivity.this.dzp.a(j, false, data.getContent());
             }
         }
     };
     private Handler mHandler = new Handler();
-    private long dAC = 0;
-    private String dAE = TbadkCoreApplication.getCurrentAccount();
-    private Runnable dAH = new Runnable() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.4
+    private long dzl = 0;
+    private String dzn = TbadkCoreApplication.getCurrentAccount();
+    private Runnable dzq = new Runnable() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.4
         @Override // java.lang.Runnable
         public void run() {
-            PersonalChatActivity.this.dig.refreshPersonalHeadFooter(PersonalChatActivity.this.mUser.getName_show(), PersonalChatActivity.this.dAD);
-            if (PersonalChatActivity.this.dAC != 0) {
-                PersonalChatActivity.this.mHandler.postDelayed(PersonalChatActivity.this.dAH, PersonalChatActivity.this.dAC);
+            PersonalChatActivity.this.dgO.refreshPersonalHeadFooter(PersonalChatActivity.this.mUser.getName_show(), PersonalChatActivity.this.dzm);
+            if (PersonalChatActivity.this.dzl != 0) {
+                PersonalChatActivity.this.mHandler.postDelayed(PersonalChatActivity.this.dzq, PersonalChatActivity.this.dzl);
             }
         }
     };
-    private CustomMessageListener dAI = new CustomMessageListener(CmdConfigCustom.CMD_IM_GROUP_CONFIRM_PASSED) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.5
+    private CustomMessageListener dzr = new CustomMessageListener(CmdConfigCustom.CMD_IM_GROUP_CONFIRM_PASSED) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001214 && PersonalChatActivity.this.dig != null && PersonalChatActivity.this.dig.getAdapter() != null) {
-                PersonalChatActivity.this.dig.getAdapter().notifyDataSetChanged();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001214 && PersonalChatActivity.this.dgO != null && PersonalChatActivity.this.dgO.getAdapter() != null) {
+                PersonalChatActivity.this.dgO.getAdapter().notifyDataSetChanged();
             }
         }
     };
-    private c dAJ = new c(205101, true) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.6
+    private c dzs = new c(205101, true) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205101 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponsePersonalLbsInfoMessage)) {
-                PersonalChatActivity.this.dAD = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
-                if (PersonalChatActivity.this.dAD != null) {
-                    UserData user = ((PersonalMsglistModel) PersonalChatActivity.this.dih).getUser();
+                PersonalChatActivity.this.dzm = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
+                if (PersonalChatActivity.this.dzm != null) {
+                    UserData user = ((PersonalMsglistModel) PersonalChatActivity.this.dgP).getUser();
                     if (user != null) {
-                        PersonalChatActivity.this.dig.refreshPersonalHeadFooter(user.getUserName(), PersonalChatActivity.this.dAD);
-                        PersonalChatActivity.this.dAC = PersonalChatActivity.this.mF(al.o(PersonalChatActivity.this.dAD.getTime()));
-                        if (PersonalChatActivity.this.dAC != 0) {
-                            PersonalChatActivity.this.mHandler.postDelayed(PersonalChatActivity.this.dAH, PersonalChatActivity.this.dAC);
+                        PersonalChatActivity.this.dgO.refreshPersonalHeadFooter(user.getUserName(), PersonalChatActivity.this.dzm);
+                        PersonalChatActivity.this.dzl = PersonalChatActivity.this.mB(al.o(PersonalChatActivity.this.dzm.getTime()));
+                        if (PersonalChatActivity.this.dzl != 0) {
+                            PersonalChatActivity.this.mHandler.postDelayed(PersonalChatActivity.this.dzq, PersonalChatActivity.this.dzl);
                         }
-                        PersonalChatActivityStatic.ayv().a(PersonalChatActivity.this.dAE + "&" + user.getUserId(), new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(PersonalChatActivity.this.dAD, System.currentTimeMillis()));
+                        PersonalChatActivityStatic.ayk().a(PersonalChatActivity.this.dzn + "&" + user.getUserId(), new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(PersonalChatActivity.this.dzm, System.currentTimeMillis()));
                     } else {
                         return;
                     }
                 }
-                TbadkCoreApplication.getInst().getAlarmManager().nD();
+                TbadkCoreApplication.getInst().getAlarmManager().nt();
             }
         }
     };
-    private CustomMessageListener dAK = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.7
+    private CustomMessageListener dzt = new CustomMessageListener(0) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -134,24 +134,24 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                     if (!TextUtils.isEmpty(content)) {
                         try {
                             JSONObject optJSONObject = new JSONObject(content).optJSONObject("eventParam");
-                            if (optJSONObject != null && optJSONObject.optLong("user_id") == com.baidu.adp.lib.g.b.d(PersonalChatActivity.this.dAF.getUser().getUserId(), 0L)) {
+                            if (optJSONObject != null && optJSONObject.optLong("user_id") == com.baidu.adp.lib.g.b.c(PersonalChatActivity.this.dzo.getUser().getUserId(), 0L)) {
                                 String optString = optJSONObject.optString(PushConstants.EXTRA_PUSH_MESSAGE);
                                 if (cmd.equals("apply_new_friend")) {
-                                    PersonalChatActivity.this.dAG.a(PersonalMsglistModel.CardStatus.AGREE, true, optString);
-                                    PersonalChatActivity.this.dAF.a(PersonalMsglistModel.CardStatus.AGREE);
+                                    PersonalChatActivity.this.dzp.a(PersonalMsglistModel.CardStatus.AGREE, true, optString);
+                                    PersonalChatActivity.this.dzo.a(PersonalMsglistModel.CardStatus.AGREE);
                                 } else if (cmd.equals("passed_new_friend")) {
-                                    PersonalChatActivity.this.dAG.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                                    PersonalChatActivity.this.dAF.a(PersonalMsglistModel.CardStatus.PASS);
-                                    PersonalChatActivity.this.dAF.setIsFriend(1);
-                                    PersonalChatActivity.this.dAG.getBtnGroupInfo().setVisibility(0);
+                                    PersonalChatActivity.this.dzp.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
+                                    PersonalChatActivity.this.dzo.a(PersonalMsglistModel.CardStatus.PASS);
+                                    PersonalChatActivity.this.dzo.setIsFriend(1);
+                                    PersonalChatActivity.this.dzp.getBtnGroupInfo().setVisibility(0);
                                 } else if (cmd.equals("apply_add_friend")) {
-                                    PersonalChatActivity.this.dAG.a(PersonalMsglistModel.CardStatus.WAIT, true, new String[0]);
-                                    PersonalChatActivity.this.dAF.a(PersonalMsglistModel.CardStatus.WAIT);
+                                    PersonalChatActivity.this.dzp.a(PersonalMsglistModel.CardStatus.WAIT, true, new String[0]);
+                                    PersonalChatActivity.this.dzo.a(PersonalMsglistModel.CardStatus.WAIT);
                                 } else if (cmd.equals("apply_pass_friend")) {
-                                    PersonalChatActivity.this.dAG.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                                    PersonalChatActivity.this.dAF.a(PersonalMsglistModel.CardStatus.PASS);
-                                    PersonalChatActivity.this.dAF.setIsFriend(1);
-                                    PersonalChatActivity.this.dAG.getBtnGroupInfo().setVisibility(0);
+                                    PersonalChatActivity.this.dzp.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
+                                    PersonalChatActivity.this.dzo.a(PersonalMsglistModel.CardStatus.PASS);
+                                    PersonalChatActivity.this.dzo.setIsFriend(1);
+                                    PersonalChatActivity.this.dzp.getBtnGroupInfo().setVisibility(0);
                                 }
                             }
                         } catch (JSONException e) {
@@ -168,7 +168,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             if (i == 0 && address != null) {
                 String valueOf = String.valueOf(address.getLatitude());
                 String valueOf2 = String.valueOf(address.getLongitude());
-                UserData user = ((PersonalMsglistModel) PersonalChatActivity.this.dih).getUser();
+                UserData user = ((PersonalMsglistModel) PersonalChatActivity.this.dgP).getUser();
                 if (user != null) {
                     PersonalChatActivity.this.mUser = user;
                     PersonalChatActivity.this.sendMessage(new RequestPersonalLbsInfoMessage(205101, user.getUserIdLong(), valueOf, valueOf2));
@@ -176,19 +176,19 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             }
         }
     };
-    private boolean dAL = false;
+    private boolean dzu = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public void arZ() {
-        ayq();
-        super.arZ();
+    public void arN() {
+        ayf();
+        super.arN();
     }
 
-    private void ayq() {
+    private void ayf() {
         ChatMessage chatMessage;
         boolean z;
-        Iterator<ChatMessage> it = this.dih.getData().getChatMessages().iterator();
+        Iterator<ChatMessage> it = this.dgP.getData().getChatMessages().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -204,11 +204,11 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         z = true;
         if (!z) {
             chatMessage.setSt_type("aio");
-            this.dih.doSendText(chatMessage);
+            this.dgP.doSendText(chatMessage);
         }
     }
 
-    public long mF(String str) {
+    public long mB(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0L;
         }
@@ -223,16 +223,16 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    public void arm() {
+    public void ara() {
         final UserData user;
-        super.arm();
-        if ((this.dih instanceof CommonPersonalMsglistModel) && (user = ((CommonPersonalMsglistModel) this.dih).getUser()) != null) {
+        super.ara();
+        if ((this.dgP instanceof CommonPersonalMsglistModel) && (user = ((CommonPersonalMsglistModel) this.dgP).getUser()) != null) {
             u.b(new t<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.9
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.t
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(e.axR().bl(TbadkCoreApplication.getCurrentAccount(), String.valueOf(user.getUserId())));
+                    return Boolean.valueOf(e.axG().bl(TbadkCoreApplication.getCurrentAccount(), String.valueOf(user.getUserId())));
                 }
             }, new h<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.10
                 /* JADX DEBUG: Method merged with bridge method */
@@ -240,9 +240,9 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 public void onReturnDataInUI(Boolean bool) {
                     if (bool != null) {
                         if (bool.booleanValue()) {
-                            PersonalChatActivity.this.dig.closeNotNotify();
+                            PersonalChatActivity.this.dgO.closeNotNotify();
                         } else {
-                            PersonalChatActivity.this.dig.showNotNotfiy();
+                            PersonalChatActivity.this.dgO.showNotNotfiy();
                         }
                     }
                 }
@@ -261,20 +261,20 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!this.dAL) {
-            this.dAL = true;
-            ayr();
+        if (!this.dzu) {
+            this.dzu = true;
+            ayg();
         }
         ChatStatusManager.getInst().setIsOpen(0, true);
         String curId = ChatStatusManager.getInst().getCurId(0);
-        com.baidu.tbadk.coreExtra.messageCenter.a.yZ().eN(curId);
+        com.baidu.tbadk.coreExtra.messageCenter.a.yR().eH(curId);
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 2)));
-        if (this.dih != null && (this.dih instanceof PersonalMsglistModel)) {
-            ((PersonalMsglistModel) this.dih).azi();
+        if (this.dgP != null && (this.dgP instanceof PersonalMsglistModel)) {
+            ((PersonalMsglistModel) this.dgP).ayX();
         }
     }
 
-    private void ayr() {
+    private void ayg() {
         MessageManager.getInstance().dispatchResponsedMessage(new PersonalChatDisplayResponse());
     }
 
@@ -283,9 +283,9 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         u.b(new t<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.11
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.t
-            /* renamed from: Lp */
+            /* renamed from: Lk */
             public Void doInBackground() {
-                e.axR().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), userData);
+                e.axG().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), userData);
                 return null;
             }
         }, null);
@@ -294,40 +294,40 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     protected void initView() {
         UserData user;
-        this.dig = new PersonalChatView(this, this.dih.getIsAcceptNotify());
-        this.dig.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
-        this.dAG = (PersonalChatView) this.dig;
-        int i = com.baidu.tieba.im.sendmessage.a.dxZ;
-        if ((this.dih instanceof PersonalMsglistModel) && (user = ((PersonalMsglistModel) this.dih).getUser()) != null) {
+        this.dgO = new PersonalChatView(this, this.dgP.getIsAcceptNotify());
+        this.dgO.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
+        this.dzp = (PersonalChatView) this.dgO;
+        int i = com.baidu.tieba.im.sendmessage.a.dwH;
+        if ((this.dgP instanceof PersonalMsglistModel) && (user = ((PersonalMsglistModel) this.dgP).getUser()) != null) {
             this.mUser = user;
-            this.dig.refreshPersonalHeadFooter(this.mUser.getName_show(), this.dAD);
-            this.dig.bindDataAndRefresh(this.dih.getData(), i);
-            this.dig.setRecordCallback(new AbsMsglistView.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.2
+            this.dgO.refreshPersonalHeadFooter(this.mUser.getName_show(), this.dzm);
+            this.dgO.bindDataAndRefresh(this.dgP.getData(), i);
+            this.dgO.setRecordCallback(new AbsMsglistView.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.2
                 @Override // com.baidu.tieba.im.chat.AbsMsglistView.a
                 public void d(VoiceData.VoiceModel voiceModel) {
                     if (voiceModel != null) {
-                        PersonalChatActivity.this.dih.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
+                        PersonalChatActivity.this.dgP.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
                     }
                 }
 
                 @Override // com.baidu.tieba.im.chat.AbsMsglistView.a
-                public void arl() {
+                public void aqZ() {
                 }
             });
-            if (!ayu()) {
-                ayt();
+            if (!ayj()) {
+                ayi();
             }
-            if (!TextUtils.isEmpty(this.dAF.azh())) {
-                this.dAF.mJ(this.dAF.azh());
+            if (!TextUtils.isEmpty(this.dzo.ayW())) {
+                this.dzo.mF(this.dzo.ayW());
             }
         }
     }
 
-    public PersonalMsglistModel ays() {
-        return this.dAF;
+    public PersonalMsglistModel ayh() {
+        return this.dzo;
     }
 
-    private void ayt() {
+    private void ayi() {
         sendMessage(new RequestNewFriendDataMessage(this.mUser.getUserIdLong()));
     }
 
@@ -335,16 +335,16 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     public void onClick(View view) {
         UserData user;
         super.onClick(view);
-        if (view == this.dig.getBtnGroupInfo()) {
+        if (view == this.dgO.getBtnGroupInfo()) {
             TiebaStatic.log("personal_chat_page_morebutton");
-            if ((this.dih instanceof PersonalMsglistModel) && (user = ((PersonalMsglistModel) this.dih).getUser()) != null) {
+            if ((this.dgP instanceof PersonalMsglistModel) && (user = ((PersonalMsglistModel) this.dgP).getUser()) != null) {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalTalkSettingActivityConfig(getPageContext().getPageActivity(), user.getUserIdLong())));
             }
-        } else if (view == this.dAG.ayy()) {
-            if (this.dAF.azj() == PersonalMsglistModel.CardStatus.APPLY || this.dAF.azj() == PersonalMsglistModel.CardStatus.WAIT) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(getPageContext().getPageActivity(), this.dAF.getUser().getUserId(), this.dAF.getUser().getUserName(), this.dAF.getUser().getPortrait(), "", false, AddFriendActivityConfig.TYPE_STRANGER_CHAT)));
-            } else if (this.dAF.azj() == PersonalMsglistModel.CardStatus.AGREE) {
-                com.baidu.tbadk.newFriends.a.b(com.baidu.adp.lib.g.b.d(this.dAF.getUser().getUserId(), 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
+        } else if (view == this.dzp.ayn()) {
+            if (this.dzo.ayY() == PersonalMsglistModel.CardStatus.APPLY || this.dzo.ayY() == PersonalMsglistModel.CardStatus.WAIT) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(getPageContext().getPageActivity(), this.dzo.getUser().getUserId(), this.dzo.getUser().getUserName(), this.dzo.getUser().getPortrait(), "", false, AddFriendActivityConfig.TYPE_STRANGER_CHAT)));
+            } else if (this.dzo.ayY() == PersonalMsglistModel.CardStatus.AGREE) {
+                com.baidu.tbadk.newFriends.a.b(com.baidu.adp.lib.g.b.c(this.dzo.getUser().getUserId(), 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
                 TiebaStatic.eventStat(getActivity(), "add_fri_aio", "click", 1, new Object[0]);
             }
         }
@@ -353,26 +353,26 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     protected boolean n(Bundle bundle) {
         try {
-            registerListener(this.dAJ);
-            registerListener(CmdConfigCustom.CMD_APPLY_NEW_FRIEND_LOCAL, this.dAK);
-            registerListener(CmdConfigCustom.CMD_PASSED_NEW_FRIEND_LOCAL, this.dAK);
-            registerListener(CmdConfigCustom.CMD_APPLY_REPLY_MESSAGE, this.dAK);
-            registerListener(CmdConfigCustom.CMD_APPLY_ADDFRIEND, this.dAK);
-            registerListener(CmdConfigCustom.CMD_APPLY_PASSFRIEND, this.dAK);
-            registerListener(this.dAI);
-            registerListener(this.dAB);
-            if (PersonalChatActivityStatic.ayv() == null) {
+            registerListener(this.dzs);
+            registerListener(CmdConfigCustom.CMD_APPLY_NEW_FRIEND_LOCAL, this.dzt);
+            registerListener(CmdConfigCustom.CMD_PASSED_NEW_FRIEND_LOCAL, this.dzt);
+            registerListener(CmdConfigCustom.CMD_APPLY_REPLY_MESSAGE, this.dzt);
+            registerListener(CmdConfigCustom.CMD_APPLY_ADDFRIEND, this.dzt);
+            registerListener(CmdConfigCustom.CMD_APPLY_PASSFRIEND, this.dzt);
+            registerListener(this.dzr);
+            registerListener(this.dzk);
+            if (PersonalChatActivityStatic.ayk() == null) {
                 PersonalChatActivityStatic.a(new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e());
             }
-            this.dih = new PersonalMsglistModel(this);
-            this.dih.setLoadDataCallBack(this.dis);
-            this.dAF = (PersonalMsglistModel) this.dih;
+            this.dgP = new PersonalMsglistModel(this);
+            this.dgP.setLoadDataCallBack(this.dha);
+            this.dzo = (PersonalMsglistModel) this.dgP;
             if (bundle != null) {
                 l(bundle);
             } else {
-                arn();
+                arb();
             }
-            return aro();
+            return arc();
         } catch (Exception e) {
             return false;
         }
@@ -380,41 +380,41 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     protected boolean a(d dVar) {
-        this.dih.loadFirst(dVar);
+        this.dgP.loadFirst(dVar);
         return true;
     }
 
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.c.a
     public void a(View view, int i, int i2, long j) {
-        a.C0101a mK;
+        a.C0102a mG;
         ChatMessage msg;
-        String L;
+        String M;
         super.a(view, i, i2, j);
         switch (i) {
             case 2:
-                ChatMessage msg2 = this.dih.getMsg(i2);
+                ChatMessage msg2 = this.dgP.getMsg(i2);
                 if (msg2 != null && msg2.getUserInfo() != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getContext(), msg2.getUserInfo().getUserId(), msg2.getUserInfo().getUserName())));
                     return;
                 }
                 return;
             case 4:
-                if (arY() && (msg = this.dih.getMsg(i2)) != null && com.baidu.tieba.im.util.e.r(msg) && (L = com.baidu.tieba.im.util.e.L(msg.getContent(), true)) != null && (this.dih instanceof CommonPersonalMsglistModel) && ((CommonPersonalMsglistModel) this.dih).getUser() != null) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalMsgImageActivityConfig(getPageContext().getContext(), L, ((CommonPersonalMsglistModel) this.dih).getUser().getUserIdLong(), String.valueOf(msg.getMsgId()))));
+                if (arM() && (msg = this.dgP.getMsg(i2)) != null && com.baidu.tieba.im.util.e.r(msg) && (M = com.baidu.tieba.im.util.e.M(msg.getContent(), true)) != null && (this.dgP instanceof CommonPersonalMsglistModel) && ((CommonPersonalMsglistModel) this.dgP).getUser() != null) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalMsgImageActivityConfig(getPageContext().getContext(), M, ((CommonPersonalMsglistModel) this.dgP).getUser().getUserIdLong(), String.valueOf(msg.getMsgId()))));
                     return;
                 }
                 return;
             case 14:
-                ChatMessage msg3 = this.dih.getMsg(i2);
-                if (msg3 != null && msg3.getContent() != null && (mK = com.baidu.tieba.imMessageCenter.im.stranger.a.mK(msg3.getContent())) != null) {
-                    if (mK.threadType == 33) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), mK.threadId).pn()));
+                ChatMessage msg3 = this.dgP.getMsg(i2);
+                if (msg3 != null && msg3.getContent() != null && (mG = com.baidu.tieba.imMessageCenter.im.stranger.a.mG(msg3.getContent())) != null) {
+                    if (mG.threadType == 33) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), mG.threadId).pd()));
                         return;
-                    } else if (mK.type == 1) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(mK.threadId, mK.postId, null, false)));
+                    } else if (mG.type == 1) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(mG.threadId, mG.postId, null, false)));
                         return;
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(mK.threadId, mK.postId, null)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(mG.threadId, mG.postId, null)));
                         return;
                     }
                 }
@@ -428,34 +428,34 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity
     public void m(Bundle bundle) {
         super.m(bundle);
-        art();
-        ((PersonalMsglistModel) this.dih).setIsFriend(bundle.getInt(PersonalChatActivityConfig.KEY_IS_FRIEND));
-        ((PersonalMsglistModel) this.dih).mI(bundle.getString(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
+        arh();
+        ((PersonalMsglistModel) this.dgP).setIsFriend(bundle.getInt(PersonalChatActivityConfig.KEY_IS_FRIEND));
+        ((PersonalMsglistModel) this.dgP).mE(bundle.getString(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity
     public void P(Intent intent) {
         super.P(intent);
-        art();
-        ((PersonalMsglistModel) this.dih).setIsFriend(intent.getIntExtra(PersonalChatActivityConfig.KEY_IS_FRIEND, 1));
-        ((PersonalMsglistModel) this.dih).mI(intent.getStringExtra(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
+        arh();
+        ((PersonalMsglistModel) this.dgP).setIsFriend(intent.getIntExtra(PersonalChatActivityConfig.KEY_IS_FRIEND, 1));
+        ((PersonalMsglistModel) this.dgP).mE(intent.getStringExtra(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity, com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putInt(PersonalChatActivityConfig.KEY_IS_FRIEND, ((PersonalMsglistModel) this.dih).getIsFriend());
-        bundle.putString(PersonalChatActivityConfig.KEY_REPLY_CONTENT, ((PersonalMsglistModel) this.dih).azh());
+        bundle.putInt(PersonalChatActivityConfig.KEY_IS_FRIEND, ((PersonalMsglistModel) this.dgP).getIsFriend());
+        bundle.putString(PersonalChatActivityConfig.KEY_REPLY_CONTENT, ((PersonalMsglistModel) this.dgP).ayW());
     }
 
-    private void art() {
-        if (this.dih == null || !(this.dih instanceof PersonalMsglistModel)) {
+    private void arh() {
+        if (this.dgP == null || !(this.dgP instanceof PersonalMsglistModel)) {
             ChatStatusManager.getInst().setCurId(0, "");
             return;
         }
-        UserData user = ((PersonalMsglistModel) this.dih).getUser();
+        UserData user = ((PersonalMsglistModel) this.dgP).getUser();
         if (user != null) {
             ChatStatusManager.getInst().setCurId(0, String.valueOf(user.getUserId()));
         } else {
@@ -464,34 +464,34 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void arr() {
-        super.arr();
+    public void arf() {
+        super.arf();
         this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity.3
             @Override // java.lang.Runnable
             public void run() {
-                PersonalChatActivity.this.ars();
+                PersonalChatActivity.this.arg();
             }
         }, 60L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ars() {
+    public void arg() {
         if (getIntent() != null) {
             String stringExtra = getIntent().getStringExtra(PersonalChatActivityConfig.KEY_SHARE_MSG);
             if (!j.isEmpty(stringExtra)) {
                 getIntent().removeExtra(PersonalChatActivityConfig.KEY_SHARE_MSG);
-                this.dih.sendExtraMessage(stringExtra);
+                this.dgP.sendExtraMessage(stringExtra);
             }
             String stringExtra2 = getIntent().getStringExtra(PersonalChatActivityConfig.KEY_LEAVE_MSG);
             if (!j.isEmpty(stringExtra2) && stringExtra2.trim().length() > 0) {
                 getIntent().removeExtra(PersonalChatActivityConfig.KEY_LEAVE_MSG);
-                this.dih.sendTextMessage(stringExtra2);
+                this.dgP.sendTextMessage(stringExtra2);
             }
         }
     }
 
-    public boolean ayu() {
-        return ((PersonalMsglistModel) this.dih).getIsFriend() == 1;
+    public boolean ayj() {
+        return ((PersonalMsglistModel) this.dgP).getIsFriend() == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -500,8 +500,8 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         super.onDestroy();
         ChatStatusManager.getInst().setCurId(0, "");
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.dAH);
+            this.mHandler.removeCallbacks(this.dzq);
         }
-        com.baidu.adp.lib.d.a.fo().a(this.locationCallBack);
+        com.baidu.adp.lib.d.a.fd().a(this.locationCallBack);
     }
 }

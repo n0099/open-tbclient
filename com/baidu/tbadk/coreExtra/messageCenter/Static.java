@@ -11,18 +11,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        a.yZ();
+        a.yR();
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.METHOD_INVOKE_ACCOUNT_CHANGE, new CustomMessageTask.CustomRunnable<AccountData>() { // from class: com.baidu.tbadk.coreExtra.messageCenter.Static.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
-                if (k.hH()) {
-                    a.yZ().zd();
+                if (k.hx()) {
+                    a.yR().yV();
                     return null;
                 } else if (TbadkCoreApplication.getInst() != null) {
                     TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tbadk.coreExtra.messageCenter.Static.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.yZ().zd();
+                            a.yR().yV();
                         }
                     });
                     return null;

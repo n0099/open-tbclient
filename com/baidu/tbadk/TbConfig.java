@@ -668,7 +668,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.Ex().eU(i);
+            c.Ep().eS(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -789,7 +789,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(k.ag(context) * k.ah(context));
+            int sqrt = (int) Math.sqrt(k.af(context) * k.ag(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

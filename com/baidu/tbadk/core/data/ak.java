@@ -6,23 +6,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ak {
-    private ArrayList<String> XN;
+    private ArrayList<String> Wr;
     private int smsCodeTime = 0;
-    private UserData XL = new UserData();
-    private AntiData XM = new AntiData();
+    private UserData Wp = new UserData();
+    private AntiData Wq = new AntiData();
 
     public ak() {
-        this.XN = null;
-        this.XN = new ArrayList<>();
+        this.Wr = null;
+        this.Wr = new ArrayList<>();
         setSmsCodeTime(0);
     }
 
     public UserData getUser() {
-        return this.XL;
+        return this.Wp;
     }
 
-    public AntiData qr() {
-        return this.XM;
+    public AntiData qh() {
+        return this.Wq;
     }
 
     public void parserJson(String str) {
@@ -35,12 +35,12 @@ public class ak {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.XL.parserJson(jSONObject.optJSONObject("user"));
-            this.XM.parserJson(jSONObject.optJSONObject("anti"));
+            this.Wp.parserJson(jSONObject.optJSONObject("user"));
+            this.Wq.parserJson(jSONObject.optJSONObject("anti"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.XN.add(optJSONArray.optString(i, null));
+                    this.Wr.add(optJSONArray.optString(i, null));
                 }
             }
             setSmsCodeTime(jSONObject.optInt("retrytime"));

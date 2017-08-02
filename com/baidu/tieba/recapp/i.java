@@ -28,5 +28,5 @@ public interface i {
 
     boolean b(Context context, String[] strArr);
 
-    boolean hE(String str);
+    boolean hz(String str);
 }

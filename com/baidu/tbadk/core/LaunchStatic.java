@@ -43,13 +43,13 @@ public class LaunchStatic {
         initRegisterIntent();
         initRegisterTask();
         initRegisterListeners();
-        oW();
-        ai.GT();
+        oM();
+        ai.GL();
         com.baidu.tieba.tbadkCore.location.b.init();
-        com.baidu.tieba.im.widget.c.ayn();
+        com.baidu.tieba.im.widget.c.ayc();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.awK();
-        com.baidu.tieba.im.db.h.atX();
+        ImMemoryCacheRegister.awz();
+        com.baidu.tieba.im.db.h.atL();
         com.baidu.tbadk.browser.d.init();
         g.init();
         com.baidu.tieba.wallet.d.init();
@@ -87,7 +87,7 @@ public class LaunchStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        com.baidu.tbadk.getUserInfo.b.En().Eo();
+        com.baidu.tbadk.getUserInfo.b.Ef().Eg();
         com.baidu.tieba.tbadkCore.a.a.c(303039, ClientConfigSocketResponse.class, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.az(TbConfig.GET_PAY_CONFIG, 303039));
         tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
@@ -132,28 +132,28 @@ public class LaunchStatic {
         }
     }
 
-    private static void oW() {
-        com.baidu.adp.lib.f.c.fU().a(10, new o(true, 10));
-        com.baidu.adp.lib.f.c.fU().a(11, new o(false, 10));
-        com.baidu.adp.lib.f.c.fU().a(12, new m(false, false, false, 12));
-        com.baidu.adp.lib.f.c.fU().a(26, new m(true, false, false, 26));
-        com.baidu.adp.lib.f.c.fU().a(28, new m(false, false, true, 26));
-        com.baidu.adp.lib.f.c.fU().a(13, new com.baidu.tbadk.core.util.c.e(true, false, false, 13));
-        com.baidu.adp.lib.f.c.fU().a(14, new com.baidu.tbadk.core.util.c.e(false, false, false, 13));
-        com.baidu.adp.lib.f.c.fU().a(15, new com.baidu.tbadk.core.util.c.f(false, 15));
-        com.baidu.adp.lib.f.c.fU().a(16, new com.baidu.tbadk.core.util.c.f(true, 16));
-        com.baidu.adp.lib.f.c.fU().a(17, new l(true, false, false, 17));
-        com.baidu.adp.lib.f.c.fU().a(18, new l(false, false, false, 17));
-        com.baidu.adp.lib.f.c.fU().a(19, new k(19));
-        com.baidu.adp.lib.f.c.fU().a(21, new com.baidu.tbadk.core.util.c.g(21));
-        com.baidu.adp.lib.f.c.fU().a(22, new p(22));
-        com.baidu.adp.lib.f.c.fU().a(24, new j(24));
-        com.baidu.adp.lib.f.c.fU().a(25, new m(false, true, false, 26));
-        com.baidu.adp.lib.f.c.fU().a(27, new com.baidu.tbadk.core.util.c.c(27));
-        com.baidu.adp.lib.f.c.fU().a(29, new n(true, 29));
-        com.baidu.adp.lib.f.c.fU().a(30, new com.baidu.tbadk.core.util.c.b(true, false, false, 30));
-        com.baidu.adp.lib.f.c.fU().a(31, new com.baidu.tbadk.core.util.c.b(false, false, false, 31));
-        com.baidu.adp.lib.f.c.fU().a(32, new i(32));
-        com.baidu.adp.lib.f.c.fU().a(23, new com.baidu.tbadk.core.voice.a.c());
+    private static void oM() {
+        com.baidu.adp.lib.f.c.fJ().a(10, new o(true, 10));
+        com.baidu.adp.lib.f.c.fJ().a(11, new o(false, 10));
+        com.baidu.adp.lib.f.c.fJ().a(12, new m(false, false, false, 12));
+        com.baidu.adp.lib.f.c.fJ().a(26, new m(true, false, false, 26));
+        com.baidu.adp.lib.f.c.fJ().a(28, new m(false, false, true, 26));
+        com.baidu.adp.lib.f.c.fJ().a(13, new com.baidu.tbadk.core.util.c.e(true, false, false, 13));
+        com.baidu.adp.lib.f.c.fJ().a(14, new com.baidu.tbadk.core.util.c.e(false, false, false, 13));
+        com.baidu.adp.lib.f.c.fJ().a(15, new com.baidu.tbadk.core.util.c.f(false, 15));
+        com.baidu.adp.lib.f.c.fJ().a(16, new com.baidu.tbadk.core.util.c.f(true, 16));
+        com.baidu.adp.lib.f.c.fJ().a(17, new l(true, false, false, 17));
+        com.baidu.adp.lib.f.c.fJ().a(18, new l(false, false, false, 17));
+        com.baidu.adp.lib.f.c.fJ().a(19, new k(19));
+        com.baidu.adp.lib.f.c.fJ().a(21, new com.baidu.tbadk.core.util.c.g(21));
+        com.baidu.adp.lib.f.c.fJ().a(22, new p(22));
+        com.baidu.adp.lib.f.c.fJ().a(24, new j(24));
+        com.baidu.adp.lib.f.c.fJ().a(25, new m(false, true, false, 26));
+        com.baidu.adp.lib.f.c.fJ().a(27, new com.baidu.tbadk.core.util.c.c(27));
+        com.baidu.adp.lib.f.c.fJ().a(29, new n(true, 29));
+        com.baidu.adp.lib.f.c.fJ().a(30, new com.baidu.tbadk.core.util.c.b(true, false, false, 30));
+        com.baidu.adp.lib.f.c.fJ().a(31, new com.baidu.tbadk.core.util.c.b(false, false, false, 31));
+        com.baidu.adp.lib.f.c.fJ().a(32, new i(32));
+        com.baidu.adp.lib.f.c.fJ().a(23, new com.baidu.tbadk.core.voice.a.c());
     }
 }

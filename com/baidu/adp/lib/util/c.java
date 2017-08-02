@@ -13,42 +13,42 @@ import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
 public class c {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final byte[] zD;
-    private static final byte[] zE;
-    private static final byte[] zF;
-    private static final byte[] zG;
-    private static final byte[] zH;
-    private static final byte[] zI;
+    private static final byte[] yd;
+    private static final byte[] ye;
+    private static final byte[] yf;
+    private static final byte[] yg;
+    private static final byte[] yh;
+    private static final byte[] yi;
 
     static {
         $assertionsDisabled = !c.class.desiredAssertionStatus();
-        zD = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
-        zE = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        zF = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
-        zG = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        zH = new byte[]{45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122};
-        zI = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        yd = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        ye = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        yf = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
+        yg = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        yh = new byte[]{45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122};
+        yi = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
     }
 
-    private static final byte[] at(int i) {
+    private static final byte[] aq(int i) {
         if ((i & 16) == 16) {
-            return zF;
+            return yf;
         }
         if ((i & 32) == 32) {
-            return zH;
+            return yh;
         }
-        return zD;
+        return yd;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final byte[] au(int i) {
+    public static final byte[] ar(int i) {
         if ((i & 16) == 16) {
-            return zG;
+            return yg;
         }
         if ((i & 32) == 32) {
-            return zI;
+            return yi;
         }
-        return zE;
+        return ye;
     }
 
     private c() {
@@ -61,26 +61,26 @@ public class c {
     }
 
     private static byte[] c(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) {
-        byte[] at = at(i4);
+        byte[] aq = aq(i4);
         int i5 = (i2 > 2 ? (bArr[i + 2] << 24) >>> 24 : 0) | (i2 > 1 ? (bArr[i + 1] << 24) >>> 16 : 0) | (i2 > 0 ? (bArr[i] << 24) >>> 8 : 0);
         switch (i2) {
             case 1:
-                bArr2[i3] = at[i5 >>> 18];
-                bArr2[i3 + 1] = at[(i5 >>> 12) & 63];
+                bArr2[i3] = aq[i5 >>> 18];
+                bArr2[i3 + 1] = aq[(i5 >>> 12) & 63];
                 bArr2[i3 + 2] = 61;
                 bArr2[i3 + 3] = 61;
                 break;
             case 2:
-                bArr2[i3] = at[i5 >>> 18];
-                bArr2[i3 + 1] = at[(i5 >>> 12) & 63];
-                bArr2[i3 + 2] = at[(i5 >>> 6) & 63];
+                bArr2[i3] = aq[i5 >>> 18];
+                bArr2[i3 + 1] = aq[(i5 >>> 12) & 63];
+                bArr2[i3 + 2] = aq[(i5 >>> 6) & 63];
                 bArr2[i3 + 3] = 61;
                 break;
             case 3:
-                bArr2[i3] = at[i5 >>> 18];
-                bArr2[i3 + 1] = at[(i5 >>> 12) & 63];
-                bArr2[i3 + 2] = at[(i5 >>> 6) & 63];
-                bArr2[i3 + 3] = at[i5 & 63];
+                bArr2[i3] = aq[i5 >>> 18];
+                bArr2[i3 + 1] = aq[(i5 >>> 12) & 63];
+                bArr2[i3 + 2] = aq[(i5 >>> 6) & 63];
+                bArr2[i3 + 3] = aq[i5 & 63];
                 break;
         }
         return bArr2;
@@ -269,17 +269,17 @@ public class c {
         if (i2 < 0 || i2 + 2 >= bArr2.length) {
             throw new IllegalArgumentException(String.format("Destination array with length %d cannot have offset of %d and still store three bytes.", Integer.valueOf(bArr2.length), Integer.valueOf(i2)));
         }
-        byte[] au = au(i3);
+        byte[] ar = ar(i3);
         if (bArr[i + 2] == 61) {
-            bArr2[i2] = (byte) ((((au[bArr[i]] & 255) << 18) | ((au[bArr[i + 1]] & 255) << 12)) >>> 16);
+            bArr2[i2] = (byte) ((((ar[bArr[i]] & 255) << 18) | ((ar[bArr[i + 1]] & 255) << 12)) >>> 16);
             return 1;
         } else if (bArr[i + 3] == 61) {
-            int i4 = ((au[bArr[i]] & 255) << 18) | ((au[bArr[i + 1]] & 255) << 12) | ((au[bArr[i + 2]] & 255) << 6);
+            int i4 = ((ar[bArr[i]] & 255) << 18) | ((ar[bArr[i + 1]] & 255) << 12) | ((ar[bArr[i + 2]] & 255) << 6);
             bArr2[i2] = (byte) (i4 >>> 16);
             bArr2[i2 + 1] = (byte) (i4 >>> 8);
             return 2;
         } else {
-            int i5 = ((au[bArr[i]] & 255) << 18) | ((au[bArr[i + 1]] & 255) << 12) | ((au[bArr[i + 2]] & 255) << 6) | (au[bArr[i + 3]] & 255);
+            int i5 = ((ar[bArr[i]] & 255) << 18) | ((ar[bArr[i + 1]] & 255) << 12) | ((ar[bArr[i + 2]] & 255) << 6) | (ar[bArr[i + 3]] & 255);
             bArr2[i2] = (byte) (i5 >> 16);
             bArr2[i2 + 1] = (byte) (i5 >> 8);
             bArr2[i2 + 2] = (byte) i5;
@@ -313,7 +313,7 @@ public class c {
         if (i2 < 4) {
             throw new IllegalArgumentException("Base64-encoded string must have at least four characters, but length specified was " + i2);
         }
-        byte[] au = au(i3);
+        byte[] ar = ar(i3);
         byte[] bArr2 = new byte[(i2 * 3) / 4];
         byte[] bArr3 = new byte[4];
         int i7 = i;
@@ -324,7 +324,7 @@ public class c {
                 i4 = i9;
                 break;
             }
-            byte b = au[bArr[i7] & 255];
+            byte b = ar[bArr[i7] & 255];
             if (b >= -5) {
                 if (b >= -1) {
                     i5 = i8 + 1;
@@ -475,64 +475,64 @@ public class c {
     public static class a extends FilterOutputStream {
         private byte[] buffer;
         private int position;
-        private boolean zJ;
-        private int zK;
-        private int zL;
-        private boolean zM;
-        private byte[] zN;
-        private boolean zO;
-        private int zP;
-        private byte[] zQ;
+        private boolean yj;
+        private int yk;
+        private int yl;
+        private boolean ym;
+        private byte[] yn;
+        private boolean yo;
+        private int yp;
+        private byte[] yq;
 
         public a(OutputStream outputStream, int i) {
             super(outputStream);
-            this.zM = (i & 8) != 0;
-            this.zJ = (i & 1) != 0;
-            this.zK = this.zJ ? 3 : 4;
-            this.buffer = new byte[this.zK];
+            this.ym = (i & 8) != 0;
+            this.yj = (i & 1) != 0;
+            this.yk = this.yj ? 3 : 4;
+            this.buffer = new byte[this.yk];
             this.position = 0;
-            this.zL = 0;
-            this.zO = false;
-            this.zN = new byte[4];
-            this.zP = i;
-            this.zQ = c.au(i);
+            this.yl = 0;
+            this.yo = false;
+            this.yn = new byte[4];
+            this.yp = i;
+            this.yq = c.ar(i);
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
         public void write(int i) throws IOException {
-            if (this.zO) {
+            if (this.yo) {
                 this.out.write(i);
-            } else if (this.zJ) {
+            } else if (this.yj) {
                 byte[] bArr = this.buffer;
                 int i2 = this.position;
                 this.position = i2 + 1;
                 bArr[i2] = (byte) i;
-                if (this.position >= this.zK) {
-                    this.out.write(c.d(this.zN, this.buffer, this.zK, this.zP));
-                    this.zL += 4;
-                    if (this.zM && this.zL >= 76) {
+                if (this.position >= this.yk) {
+                    this.out.write(c.d(this.yn, this.buffer, this.yk, this.yp));
+                    this.yl += 4;
+                    if (this.ym && this.yl >= 76) {
                         this.out.write(10);
-                        this.zL = 0;
+                        this.yl = 0;
                     }
                     this.position = 0;
                 }
-            } else if (this.zQ[i & TransportMediator.KEYCODE_MEDIA_PAUSE] > -5) {
+            } else if (this.yq[i & TransportMediator.KEYCODE_MEDIA_PAUSE] > -5) {
                 byte[] bArr2 = this.buffer;
                 int i3 = this.position;
                 this.position = i3 + 1;
                 bArr2[i3] = (byte) i;
-                if (this.position >= this.zK) {
-                    this.out.write(this.zN, 0, c.c(this.buffer, 0, this.zN, 0, this.zP));
+                if (this.position >= this.yk) {
+                    this.out.write(this.yn, 0, c.c(this.buffer, 0, this.yn, 0, this.yp));
                     this.position = 0;
                 }
-            } else if (this.zQ[i & TransportMediator.KEYCODE_MEDIA_PAUSE] != -5) {
+            } else if (this.yq[i & TransportMediator.KEYCODE_MEDIA_PAUSE] != -5) {
                 throw new IOException("Invalid character in Base64 data.");
             }
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
         public void write(byte[] bArr, int i, int i2) throws IOException {
-            if (this.zO) {
+            if (this.yo) {
                 this.out.write(bArr, i, i2);
                 return;
             }
@@ -543,8 +543,8 @@ public class c {
 
         public void flushBase64() throws IOException {
             if (this.position > 0) {
-                if (this.zJ) {
-                    this.out.write(c.d(this.zN, this.buffer, this.position, this.zP));
+                if (this.yj) {
+                    this.out.write(c.d(this.yn, this.buffer, this.position, this.yp));
                     this.position = 0;
                     return;
                 }

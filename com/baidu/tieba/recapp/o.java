@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 public interface o {
     void a(AdvertAppInfo advertAppInfo, String str);
 
-    void afn();
+    void afi();
 
     String getFid();
 
     int getPageNum();
 
-    TbPageContext<?> yg();
+    TbPageContext<?> xY();
 }

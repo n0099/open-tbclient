@@ -21,31 +21,31 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static final HashMap<Integer, Integer[]> ace = new HashMap<>(2);
-    private List<CharSequence> Xs;
-    private AlertDialog abJ;
-    private final ViewGroup abK;
-    private InterfaceC0043b abW;
-    private final TextView abX;
-    private final View abY;
-    private LinearLayout.LayoutParams acd;
+    private static final HashMap<Integer, Integer[]> aaH = new HashMap<>(2);
+    private List<CharSequence> VW;
+    private final TextView aaA;
+    private final View aaB;
+    private LinearLayout.LayoutParams aaG;
+    private AlertDialog aam;
+    private final ViewGroup aan;
+    private InterfaceC0043b aaz;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
     private String mTitle;
-    private int aca = -1;
-    private int aby = -1;
-    private int acb = -1;
-    private boolean abM = false;
-    private int acc = -1;
-    private int abZ = d.j.dialog_bdlist_item;
+    private int aaD = -1;
+    private int aab = -1;
+    private int aaE = -1;
+    private boolean aap = false;
+    private int aaF = -1;
+    private int aaC = d.j.dialog_bdlist_item;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int aci = d.m.dialog_ani_b2t;
-        public static final int acj = d.m.dialog_ani_t2b;
-        public static final int ack = d.m.dialog_ani_l2r;
-        public static final int acl = d.m.dialog_ani_r2l;
+        public static final int aaL = d.m.dialog_ani_b2t;
+        public static final int aaM = d.m.dialog_ani_t2b;
+        public static final int aaN = d.m.dialog_ani_l2r;
+        public static final int aaO = d.m.dialog_ani_r2l;
     }
 
     /* renamed from: com.baidu.tbadk.core.dialog.b$b  reason: collision with other inner class name */
@@ -55,29 +55,29 @@ public class b {
     }
 
     static {
-        ace.put(0, new Integer[]{Integer.valueOf(d.g.dialg_alert_btn_bg), Integer.valueOf(d.g.dialog_bdalert_button_textcolor_pressed)});
-        ace.put(1, new Integer[]{Integer.valueOf(d.g.btn_blue_square), Integer.valueOf(d.e.cp_bg_line_d)});
+        aaH.put(0, new Integer[]{Integer.valueOf(d.g.dialg_alert_btn_bg), Integer.valueOf(d.g.dialog_bdalert_button_textcolor_pressed)});
+        aaH.put(1, new Integer[]{Integer.valueOf(d.g.btn_blue_square), Integer.valueOf(d.e.cp_bg_line_d)});
     }
 
     public b(Activity activity) {
         this.mActivity = activity;
-        this.abK = (ViewGroup) LayoutInflater.from(activity).inflate(d.j.dialog_bdlist, (ViewGroup) null);
-        this.abX = (TextView) this.abK.findViewById(d.h.dialog_title_list);
-        this.mContentView = (ViewGroup) this.abK.findViewById(d.h.dialog_content);
-        this.abY = this.abK.findViewById(d.h.line_bg);
+        this.aan = (ViewGroup) LayoutInflater.from(activity).inflate(d.j.dialog_bdlist, (ViewGroup) null);
+        this.aaA = (TextView) this.aan.findViewById(d.h.dialog_title_list);
+        this.mContentView = (ViewGroup) this.aan.findViewById(d.h.dialog_content);
+        this.aaB = this.aan.findViewById(d.h.line_bg);
     }
 
     public View getRootView() {
-        return this.abK;
+        return this.aan;
     }
 
-    public b cU(String str) {
+    public b cO(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public b cf(int i) {
-        return cU(this.mActivity.getResources().getString(i));
+    public b cd(int i) {
+        return cO(this.mActivity.getResources().getString(i));
     }
 
     public b a(CharSequence[] charSequenceArr, InterfaceC0043b interfaceC0043b) {
@@ -89,40 +89,40 @@ public class b {
 
     public b a(List<CharSequence> list, InterfaceC0043b interfaceC0043b) {
         if (list != null && list.size() > 0) {
-            this.Xs = list;
+            this.VW = list;
             if (interfaceC0043b != null) {
-                this.abW = interfaceC0043b;
+                this.aaz = interfaceC0043b;
             }
         }
         return this;
     }
 
-    public b cg(int i) {
-        this.aca = i;
+    public b ce(int i) {
+        this.aaD = i;
         return this;
     }
 
-    public b ch(int i) {
-        this.aby = i;
+    public b cf(int i) {
+        this.aab = i;
         return this;
     }
 
     public b d(com.baidu.adp.base.e<?> eVar) {
-        if (!this.abM) {
+        if (!this.aap) {
             this.mContext = eVar;
-            this.abM = true;
+            this.aap = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.abX.setText(this.mTitle);
-                this.abX.setVisibility(0);
-                this.abY.setVisibility(0);
+                this.aaA.setText(this.mTitle);
+                this.aaA.setVisibility(0);
+                this.aaB.setVisibility(0);
             } else {
-                this.abX.setVisibility(8);
-                this.abY.setVisibility(8);
+                this.aaA.setVisibility(8);
+                this.aaB.setVisibility(8);
             }
-            if (this.Xs != null && this.Xs.size() > 0) {
-                int size = this.Xs.size();
+            if (this.VW != null && this.VW.size() > 0) {
+                int size = this.VW.size();
                 for (int i = 0; i < size; i++) {
-                    ci(i);
+                    cg(i);
                 }
             }
             c(eVar);
@@ -131,34 +131,34 @@ public class b {
     }
 
     public void reset() {
-        this.abM = false;
+        this.aap = false;
         if (this.mContentView != null) {
             this.mContentView.removeAllViews();
         }
     }
 
-    public b tu() {
-        if (!this.abM) {
+    public b tk() {
+        if (!this.aap) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.abJ != null) {
-            g.a(this.abJ, this.mActivity);
+        if (this.aam != null) {
+            g.a(this.aam, this.mActivity);
         } else {
-            this.abJ = new AlertDialog.Builder(this.mActivity, d.m.NoBackDimEnableDialog).create();
-            this.abJ.setCanceledOnTouchOutside(true);
-            if (g.a(this.abJ, this.mActivity)) {
-                Window window = this.abJ.getWindow();
-                if (this.aca == -1) {
-                    this.aca = a.aci;
+            this.aam = new AlertDialog.Builder(this.mActivity, d.m.NoBackDimEnableDialog).create();
+            this.aam.setCanceledOnTouchOutside(true);
+            if (g.a(this.aam, this.mActivity)) {
+                Window window = this.aam.getWindow();
+                if (this.aaD == -1) {
+                    this.aaD = a.aaL;
                 }
-                if (this.aby == -1) {
-                    this.aby = 17;
+                if (this.aab == -1) {
+                    this.aab = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.aby);
-                window.setContentView(this.abK);
+                window.setGravity(this.aab);
+                window.setContentView(this.aan);
             }
         }
         return this;
@@ -168,47 +168,47 @@ public class b {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (eVar instanceof TbPageContext) {
             ((TbPageContext) eVar).getLayoutMode().ah(skinType == 1);
-            ((TbPageContext) eVar).getLayoutMode().t(this.abK);
+            ((TbPageContext) eVar).getLayoutMode().t(this.aan);
         }
-        this.abK.setBackgroundResource(d.g.transparent_bg);
+        this.aan.setBackgroundResource(d.g.transparent_bg);
     }
 
     public void hide() {
-        if (this.abJ != null) {
-            this.abJ.hide();
+        if (this.aam != null) {
+            this.aam.hide();
         }
     }
 
     public void dismiss() {
-        if (this.abJ != null) {
-            g.b(this.abJ, this.mActivity);
+        if (this.aam != null) {
+            g.b(this.aam, this.mActivity);
         }
     }
 
-    private View ci(final int i) {
-        View inflate = LayoutInflater.from(this.mActivity).inflate(this.abZ, this.mContentView, false);
+    private View cg(final int i) {
+        View inflate = LayoutInflater.from(this.mActivity).inflate(this.aaC, this.mContentView, false);
         LinearLayout linearLayout = (LinearLayout) inflate;
         final TextView textView = (TextView) inflate.findViewById(d.h.dialog_item_btn);
-        if (this.acd != null) {
-            textView.setLayoutParams(this.acd);
+        if (this.aaG != null) {
+            textView.setLayoutParams(this.aaG);
         }
-        if (this.acb != -1) {
-            textView.setTextSize(0, this.acb);
+        if (this.aaE != -1) {
+            textView.setTextSize(0, this.aaE);
         }
-        if (this.acc != -1) {
+        if (this.aaF != -1) {
             textView.setPadding(0, 0, 0, 0);
-            textView.setGravity(this.acc);
+            textView.setGravity(this.aaF);
         }
         View findViewById = inflate.findViewById(d.h.line);
-        CharSequence charSequence = this.Xs.get(i);
+        CharSequence charSequence = this.VW.get(i);
         if (charSequence.length() <= 0) {
             charSequence = "";
         }
         textView.setText(charSequence);
-        if (i == this.Xs.size() - 1) {
+        if (i == this.VW.size() - 1) {
             findViewById.setVisibility(8);
             ai.j(inflate, d.g.dialog_single_button_bg_selector);
-        } else if (this.Xs.size() == 1) {
+        } else if (this.VW.size() == 1) {
             findViewById.setVisibility(8);
             ai.j(inflate, d.g.dialog_single_button_only_one_bg_selector);
         } else if (i == 0 && StringUtils.isNull(this.mTitle)) {
@@ -216,11 +216,11 @@ public class b {
         } else {
             ai.j(inflate, d.g.dialg_alert_btn_bg);
         }
-        if (this.abW != null) {
+        if (this.aaz != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.abW.a(b.this, i, textView);
+                    b.this.aaz.a(b.this, i, textView);
                 }
             });
         }
@@ -228,7 +228,7 @@ public class b {
         return inflate;
     }
 
-    public View cj(int i) {
+    public View ch(int i) {
         if (this.mContentView == null) {
             return null;
         }

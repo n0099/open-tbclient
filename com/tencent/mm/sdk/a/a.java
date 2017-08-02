@@ -11,7 +11,7 @@ public final class a {
 
     /* renamed from: com.tencent.mm.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0132a {
+    public static class C0133a {
         public int flags = -1;
         public String h;
         public String i;
@@ -19,32 +19,32 @@ public final class a {
         public Bundle k;
     }
 
-    public static boolean a(Context context, C0132a c0132a) {
-        if (context == null || c0132a == null) {
+    public static boolean a(Context context, C0133a c0133a) {
+        if (context == null || c0133a == null) {
             com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.MMessageAct", "send fail, invalid argument");
             return false;
-        } else if (c.a(c0132a.h)) {
-            com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.MMessageAct", "send fail, invalid targetPkgName, targetPkgName = " + c0132a.h);
+        } else if (c.a(c0133a.h)) {
+            com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.MMessageAct", "send fail, invalid targetPkgName, targetPkgName = " + c0133a.h);
             return false;
         } else {
-            if (c.a(c0132a.i)) {
-                c0132a.i = c0132a.h + ".wxapi.WXEntryActivity";
+            if (c.a(c0133a.i)) {
+                c0133a.i = c0133a.h + ".wxapi.WXEntryActivity";
             }
-            com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.MMessageAct", "send, targetPkgName = " + c0132a.h + ", targetClassName = " + c0132a.i);
+            com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.MMessageAct", "send, targetPkgName = " + c0133a.h + ", targetClassName = " + c0133a.i);
             Intent intent = new Intent();
-            intent.setClassName(c0132a.h, c0132a.i);
-            if (c0132a.k != null) {
-                intent.putExtras(c0132a.k);
+            intent.setClassName(c0133a.h, c0133a.i);
+            if (c0133a.k != null) {
+                intent.putExtras(c0133a.k);
             }
             String packageName = context.getPackageName();
             intent.putExtra(ConstantsAPI.SDK_VERSION, 570425345);
             intent.putExtra(ConstantsAPI.APP_PACKAGE, packageName);
-            intent.putExtra(ConstantsAPI.CONTENT, c0132a.j);
-            intent.putExtra(ConstantsAPI.CHECK_SUM, b.a(c0132a.j, 570425345, packageName));
-            if (c0132a.flags == -1) {
+            intent.putExtra(ConstantsAPI.CONTENT, c0133a.j);
+            intent.putExtra(ConstantsAPI.CHECK_SUM, b.a(c0133a.j, 570425345, packageName));
+            if (c0133a.flags == -1) {
                 intent.addFlags(268435456).addFlags(134217728);
             } else {
-                intent.setFlags(c0132a.flags);
+                intent.setFlags(c0133a.flags);
             }
             try {
                 context.startActivity(intent);

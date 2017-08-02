@@ -4,34 +4,34 @@ import java.util.ArrayList;
 import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class u {
-    private r WB;
+    private r Vf;
     private long threadId;
-    private long Ww = 0;
-    private String Wx = "";
-    private long Wy = 0;
-    private String Wz = "";
+    private long Va = 0;
+    private String Vb = "";
+    private long Vc = 0;
+    private String Vd = "";
     private String imgUrl = "";
-    private String WA = "";
+    private String Ve = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
             this.threadId = forumHeadlineImgInfo.thread_id.longValue();
-            this.Ww = forumHeadlineImgInfo.thread_user_id.longValue();
-            this.Wx = forumHeadlineImgInfo.thread_user_name;
-            this.Wy = forumHeadlineImgInfo.img_user_id.longValue();
-            this.Wz = forumHeadlineImgInfo.img_user_name;
+            this.Va = forumHeadlineImgInfo.thread_user_id.longValue();
+            this.Vb = forumHeadlineImgInfo.thread_user_name;
+            this.Vc = forumHeadlineImgInfo.img_user_id.longValue();
+            this.Vd = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.WA = forumHeadlineImgInfo.headline_url;
-            this.WB = new r();
+            this.Ve = forumHeadlineImgInfo.headline_url;
+            this.Vf = new r();
             ArrayList<t> arrayList = new ArrayList<>();
-            t tVar = new t(this.imgUrl == null ? "" : this.imgUrl, this.WA == null ? "" : this.WA, null);
+            t tVar = new t(this.imgUrl == null ? "" : this.imgUrl, this.Ve == null ? "" : this.Ve, null);
             tVar.am(true);
             arrayList.add(tVar);
-            this.WB.f(arrayList);
+            this.Vf.f(arrayList);
         }
     }
 
-    public String pV() {
+    public String pL() {
         return this.imgUrl;
     }
 }

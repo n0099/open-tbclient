@@ -3,104 +3,104 @@ package com.baidu.tbadk.l;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class n extends q {
-    public static int aKt = 100;
-    public static int aKu = 10;
+    public static int aJe = 100;
+    public static int aJf = 10;
 
-    public static void Gx() {
-        if (r.Gz().GA()) {
-            if (b.aKy > aKu) {
-                b.Gr();
+    public static void Gp() {
+        if (r.Gr().Gs()) {
+            if (b.aJj > aJf) {
+                b.Gj();
             }
-            if (a.aKv > aKu) {
-                a.Gr();
+            if (a.aJg > aJf) {
+                a.Gj();
             }
         }
     }
 
     public static void d(boolean z, boolean z2, boolean z3) {
-        a.aKv++;
+        a.aJg++;
         if (z2) {
-            a.aKw++;
+            a.aJh++;
         } else if (z3) {
-            a.aKx++;
+            a.aJi++;
         }
-        if (a.aKv > aKt) {
-            a.Gr();
+        if (a.aJg > aJe) {
+            a.Gj();
         }
     }
 
     public void c(i iVar) {
-        if (r.Gz().GA()) {
-            if (b.aKy < aKt) {
-                b.aKz += iVar.wP;
-                b.aKA += iVar.Hc;
-                b.aKB += iVar.aJQ;
-                b.aKC += iVar.aJR;
-                b.aKE += iVar.IF;
-                b.aKD += iVar.aJH;
-                b.aKy++;
+        if (r.Gr().Gs()) {
+            if (b.aJj < aJe) {
+                b.aJk += iVar.vm;
+                b.aJl += iVar.FD;
+                b.aJm += iVar.aIB;
+                b.aJn += iVar.aIC;
+                b.aJp += iVar.Hf;
+                b.aJo += iVar.aIs;
+                b.aJj++;
                 return;
             }
-            b.Gr();
+            b.Gj();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int aKv;
-        public static int aKw;
-        public static int aKx;
+        public static int aJg;
+        public static int aJh;
+        public static int aJi;
 
-        public static void Gr() {
-            com.baidu.adp.lib.stats.a fV = q.fV();
-            fV.p("action", "imbusy");
-            fV.p("totalNum", String.valueOf(aKv));
-            fV.p("tfailNum", String.valueOf(aKw));
-            fV.p("qfailNum", String.valueOf(aKx));
-            BdStatisticsManager.getInstance().performance("im", fV);
+        public static void Gj() {
+            com.baidu.adp.lib.stats.a fK = q.fK();
+            fK.p("action", "imbusy");
+            fK.p("totalNum", String.valueOf(aJg));
+            fK.p("tfailNum", String.valueOf(aJh));
+            fK.p("qfailNum", String.valueOf(aJi));
+            BdStatisticsManager.getInstance().performance("im", fK);
             resetData();
         }
 
         public static void resetData() {
-            aKv = 0;
-            aKw = 0;
-            aKx = 0;
+            aJg = 0;
+            aJh = 0;
+            aJi = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static long aKA;
-        public static long aKB;
-        public static int aKC;
-        public static int aKD;
-        public static long aKE;
-        public static int aKy;
-        public static long aKz;
+        public static int aJj;
+        public static long aJk;
+        public static long aJl;
+        public static long aJm;
+        public static int aJn;
+        public static int aJo;
+        public static long aJp;
 
-        public static void Gr() {
-            com.baidu.adp.lib.stats.a fV = q.fV();
-            fV.p("action", "imcost");
-            fV.p("dect", String.valueOf(aKz));
-            fV.p("dlsize", String.valueOf(aKA));
-            fV.p("dbt", String.valueOf(aKB));
-            fV.p("pnum", String.valueOf(aKC));
-            fV.p("reqcost", String.valueOf(aKE));
-            fV.p("cpu", String.valueOf(aKD));
-            fV.p("totalNum", String.valueOf(aKy));
-            BdStatisticsManager.getInstance().performance("im", fV);
-            Gy();
+        public static void Gj() {
+            com.baidu.adp.lib.stats.a fK = q.fK();
+            fK.p("action", "imcost");
+            fK.p("dect", String.valueOf(aJk));
+            fK.p("dlsize", String.valueOf(aJl));
+            fK.p("dbt", String.valueOf(aJm));
+            fK.p("pnum", String.valueOf(aJn));
+            fK.p("reqcost", String.valueOf(aJp));
+            fK.p("cpu", String.valueOf(aJo));
+            fK.p("totalNum", String.valueOf(aJj));
+            BdStatisticsManager.getInstance().performance("im", fK);
+            Gq();
         }
 
-        public static void Gy() {
-            aKy = 0;
-            aKz = 0L;
-            aKA = 0L;
-            aKB = 0L;
-            aKC = 0;
-            aKD = 0;
+        public static void Gq() {
+            aJj = 0;
+            aJk = 0L;
+            aJl = 0L;
+            aJm = 0L;
+            aJn = 0;
+            aJo = 0;
         }
     }
 }

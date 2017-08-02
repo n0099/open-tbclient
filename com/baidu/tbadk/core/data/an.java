@@ -3,16 +3,16 @@ package com.baidu.tbadk.core.data;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class an {
-    private String XS;
-    public SparseArray<String> XT = null;
+    private String Ww;
+    public SparseArray<String> Wx = null;
     private String fid;
 
     public String getTid() {
-        return this.XS;
+        return this.Ww;
     }
 
-    public void cF(String str) {
-        this.XS = str;
+    public void cz(String str) {
+        this.Ww = str;
     }
 
     public String getFid() {
@@ -23,11 +23,11 @@ public class an {
         this.fid = String.valueOf(j);
     }
 
-    public SparseArray<String> qw() {
-        return this.XT;
+    public SparseArray<String> qm() {
+        return this.Wx;
     }
 
     public void a(SparseArray<String> sparseArray) {
-        this.XT = sparseArray;
+        this.Wx = sparseArray;
     }
 }

@@ -15,12 +15,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes.dex */
 public final class d {
-    private static volatile d Pm;
+    private static volatile d NK;
     private static Context c;
-    private final k Pn;
-    private final e Po;
-    private final m Pp;
-    private final h Pq;
+    private final k NL;
+    private final e NM;
+    private final m NN;
+    private final h NP;
     private final File e;
     static final String b = "com.baidu.lbs.offlinelocationprovider";
     static final String a = "http://loc.map.baidu.com/offline_loc";
@@ -60,37 +60,37 @@ public final class d {
             file = null;
         }
         this.e = file;
-        this.Po = new e(this);
-        this.Pn = new k(this.Po.a());
-        this.Pq = new h(this, this.Po.a());
-        this.Pp = new m(this, this.Po.a(), this.Pq.n());
+        this.NM = new e(this);
+        this.NL = new k(this.NM.a());
+        this.NP = new h(this, this.NM.a());
+        this.NN = new m(this, this.NM.a(), this.NP.n());
     }
 
     public static void a(Context context) {
         if (c == null) {
             c = context;
-            com.baidu.location.h.c.ns().a(c);
+            com.baidu.location.h.c.ni().a(c);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final Uri cb(String str) {
+    public static final Uri bV(String str) {
         return Uri.parse(String.format("content://%s/", str));
     }
 
-    public static d mR() {
-        if (Pm == null) {
+    public static d mH() {
+        if (NK == null) {
             synchronized (d.class) {
-                if (Pm == null) {
+                if (NK == null) {
                     if (c == null) {
                         a(com.baidu.location.f.getServiceContext());
                     }
-                    Pm = new d();
+                    NK = new d();
                 }
             }
         }
-        Pm.q();
-        return Pm;
+        NK.q();
+        return NK;
     }
 
     private BDLocation n(String[] strArr) {
@@ -111,7 +111,7 @@ public final class d {
                 newSingleThreadExecutor.shutdown();
                 return null;
             } catch (TimeoutException e3) {
-                com.baidu.location.c.f.mN().a("offlineLocation Timeout Exception!");
+                com.baidu.location.c.f.mD().a("offlineLocation Timeout Exception!");
                 futureTask.cancel(true);
                 newSingleThreadExecutor.shutdown();
                 return null;
@@ -123,7 +123,7 @@ public final class d {
     }
 
     private void q() {
-        this.Pq.g();
+        this.NP.g();
     }
 
     private boolean r() {
@@ -131,9 +131,9 @@ public final class d {
         String packageName = c.getPackageName();
         ProviderInfo resolveContentProvider = c.getPackageManager().resolveContentProvider(b, 0);
         if (resolveContentProvider == null) {
-            String[] na = this.Pq.na();
+            String[] mQ = this.NP.mQ();
             providerInfo = resolveContentProvider;
-            for (int i = 0; i < na.length && (providerInfo = c.getPackageManager().resolveContentProvider(na[i], 0)) == null; i++) {
+            for (int i = 0; i < mQ.length && (providerInfo = c.getPackageManager().resolveContentProvider(mQ[i], 0)) == null; i++) {
             }
         } else {
             providerInfo = resolveContentProvider;
@@ -142,17 +142,17 @@ public final class d {
     }
 
     public long a(String str) {
-        return this.Pq.a(str);
+        return this.NP.a(str);
     }
 
     public BDLocation a(com.baidu.location.f.a aVar, com.baidu.location.f.i iVar, BDLocation bDLocation, b bVar, a aVar2) {
         String d;
         int i;
         if (bVar == b.IS_MIX_MODE) {
-            i = this.Pq.a();
-            d = com.baidu.location.h.c.ns().d() + "&mixMode=1";
+            i = this.NP.a();
+            d = com.baidu.location.h.c.ni().d() + "&mixMode=1";
         } else {
-            d = com.baidu.location.h.c.ns().d();
+            d = com.baidu.location.h.c.ni().d();
             i = 0;
         }
         String[] a2 = j.a(aVar, iVar, bDLocation, d, (aVar2 == a.NEED_TO_LOG).booleanValue(), i);
@@ -167,53 +167,53 @@ public final class d {
     }
 
     public boolean d() {
-        return this.Pq.h();
+        return this.NP.h();
     }
 
     public boolean e() {
-        return this.Pq.i();
+        return this.NP.i();
     }
 
     public boolean f() {
-        return this.Pq.j();
+        return this.NP.j();
     }
 
     public boolean g() {
-        return this.Pq.k();
+        return this.NP.k();
     }
 
     public boolean h() {
-        return this.Pq.m();
+        return this.NP.m();
     }
 
     public void i() {
-        this.Pn.a();
+        this.NL.a();
     }
 
     public void m() {
         if (r()) {
-            this.Po.b();
+            this.NM.b();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public File mS() {
+    public File mI() {
         return this.e;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k mT() {
-        return this.Pn;
+    public k mJ() {
+        return this.NL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m mU() {
-        return this.Pp;
+    public m mK() {
+        return this.NN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h mV() {
-        return this.Pq;
+    public h mL() {
+        return this.NP;
     }
 
     public void n() {
@@ -238,19 +238,19 @@ public final class d {
             }
         }
         if (cVar == c.NETWORK_UNKNOWN) {
-            return this.Pq.b();
+            return this.NP.b();
         }
         if (cVar == c.NETWORK_WIFI) {
-            return this.Pq.c();
+            return this.NP.c();
         }
         if (cVar == c.NETWORK_2G) {
-            return this.Pq.mX();
+            return this.NP.mN();
         }
         if (cVar == c.NETWORK_3G) {
-            return this.Pq.mY();
+            return this.NP.mO();
         }
         if (cVar == c.NETWORK_4G) {
-            return this.Pq.mZ();
+            return this.NP.mP();
         }
         return 0.0d;
     }

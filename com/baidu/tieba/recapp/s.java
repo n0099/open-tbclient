@@ -29,9 +29,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.UI;
-        if (StringUtils.isNull(str) && advertAppInfo.UT != null) {
-            str = advertAppInfo.UT.userName;
+        String str = advertAppInfo.Tj;
+        if (StringUtils.isNull(str) && advertAppInfo.Tt != null) {
+            str = advertAppInfo.Tt.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -47,17 +47,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        a.CK().b(advertAppInfo);
-        String str2 = advertAppInfo.UI;
+        a.CC().b(advertAppInfo);
+        String str2 = advertAppInfo.Tj;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.c.a.bhI().a(advertAppInfo.UM, advertAppInfo.UL, str2, i, com.baidu.tieba.recapp.c.a.qY(advertAppInfo.UM).intValue(), null, true, false, true, advertAppInfo.UT.userPortrait, downloadStaticsData, advertAppInfo.UT.userName);
+        com.baidu.tieba.recapp.c.a.bhy().a(advertAppInfo.Tn, advertAppInfo.Tm, str2, i, com.baidu.tieba.recapp.c.a.qT(advertAppInfo.Tn).intValue(), null, true, false, true, advertAppInfo.Tt.userPortrait, downloadStaticsData, advertAppInfo.Tt.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.c.a.bhI().i(advertAppInfo.UL, advertAppInfo.UM, true);
+        com.baidu.tieba.recapp.c.a.bhy().i(advertAppInfo.Tm, advertAppInfo.Tn, true);
     }
 
     public static final void aq(Context context, String str) {
@@ -65,11 +65,11 @@ public class s {
             com.baidu.adp.lib.util.k.showToast(context, d.l.download_error);
             return;
         }
-        File dv = com.baidu.tbadk.core.util.k.dv(str.replace(".", "_") + ".apk");
-        if (dv != null) {
+        File dp = com.baidu.tbadk.core.util.k.dp(str.replace(".", "_") + ".apk");
+        if (dp != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(dv, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(dp, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -103,14 +103,14 @@ public class s {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean aI = aa.aI(activity);
+        boolean aH = aa.aH(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return aI;
+        return aH;
     }
 
-    public static List<String> bJ(Context context) {
+    public static List<String> bK(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             return arrayList;
@@ -184,11 +184,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bhF().sendFRS(z, str, str2, str3, list, str4);
+        r.bhv().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bhF().a(z, str, str2, str3, str4, list, str5);
+        r.bhv().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int h(TbPageContext tbPageContext, String str) {
@@ -207,14 +207,14 @@ public class s {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        i bhE = r.bhF().bhE();
-        if (bhE == null) {
+        i bhu = r.bhv().bhu();
+        if (bhu == null) {
             return false;
         }
-        if (bhE.hE(str)) {
-            bhE.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bhu.hz(str)) {
+            bhu.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bhE.b(tbPageContext.getPageActivity(), strArr);
+        return bhu.b(tbPageContext.getPageActivity(), strArr);
     }
 }

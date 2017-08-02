@@ -10,8 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private List<d> arJ = new ArrayList();
-    private String arK;
+    private List<d> aqq = new ArrayList();
+    private String aqr;
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
@@ -21,24 +21,24 @@ public class c {
                 if (jSONObject2 != null) {
                     d dVar = new d();
                     dVar.parserJson(jSONObject2);
-                    this.arJ.add(dVar);
+                    this.aqq.add(dVar);
                 }
             }
         }
     }
 
-    public String yd() {
-        if (TextUtils.isEmpty(this.arK)) {
+    public String xV() {
+        if (TextUtils.isEmpty(this.aqr)) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
-            Iterator<d> it = this.arJ.iterator();
+            Iterator<d> it = this.aqq.iterator();
             while (true) {
                 int i2 = i;
                 if (!it.hasNext()) {
                     break;
                 }
                 d next = it.next();
-                if (next.yf()) {
+                if (next.xX()) {
                     if (i2 == 0) {
                         sb.append(next.getAppId());
                     } else {
@@ -50,12 +50,12 @@ public class c {
                     i = i2;
                 }
             }
-            this.arK = sb.toString();
+            this.aqr = sb.toString();
         }
-        return this.arK;
+        return this.aqr;
     }
 
-    public List<d> ye() {
-        return this.arJ;
+    public List<d> xW() {
+        return this.aqq;
     }
 }

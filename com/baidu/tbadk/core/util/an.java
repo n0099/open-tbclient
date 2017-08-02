@@ -39,7 +39,7 @@ public class an {
         }
     }
 
-    public static String A(byte[] bArr) {
+    public static String x(byte[] bArr) {
         int i = 0;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
@@ -67,7 +67,7 @@ public class an {
         File file = new File(packageInfo.applicationInfo.publicSourceDir);
         if (file.exists()) {
             try {
-                return com.baidu.adp.lib.util.r.q(new FileInputStream(file));
+                return com.baidu.adp.lib.util.r.k(new FileInputStream(file));
             } catch (FileNotFoundException e) {
                 BdLog.detailException(e);
                 return null;
@@ -76,7 +76,7 @@ public class an {
         return null;
     }
 
-    public static String eb(String str) {
-        return com.baidu.adp.lib.util.r.aV(str);
+    public static String dV(String str) {
+        return com.baidu.adp.lib.util.r.aP(str);
     }
 }

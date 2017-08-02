@@ -6,55 +6,55 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class q implements View.OnTouchListener {
-    private a ggJ;
+    private a gfy;
     private int count = 0;
-    private long eEQ = 0;
-    private long eER = 0;
-    private long eET = 500;
+    private long eDD = 0;
+    private long eDE = 0;
+    private long eDG = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.tbadkCore.q.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 q.this.count = 0;
-                q.this.eEQ = 0L;
-                q.this.eER = 0L;
+                q.this.eDD = 0L;
+                q.this.eDE = 0L;
             } else if (message.what == 1 && q.this.count == 1) {
-                if (q.this.ggJ != null) {
-                    q.this.ggJ.afZ();
+                if (q.this.gfy != null) {
+                    q.this.gfy.afS();
                 }
                 q.this.count = 0;
-                q.this.eEQ = 0L;
-                q.this.eER = 0L;
+                q.this.eDD = 0L;
+                q.this.eDE = 0L;
             }
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void afZ();
+        void afS();
 
-        void aga();
+        void afT();
     }
 
     public q(a aVar) {
-        this.ggJ = aVar;
+        this.gfy = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.ggJ == null) {
+            if (this.gfy == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.eEQ = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.eET);
+                this.eDD = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.eDG);
                 return true;
             } else if (this.count == 2) {
-                this.eER = System.currentTimeMillis();
-                if (this.eER - this.eEQ < this.eET) {
-                    this.ggJ.aga();
+                this.eDE = System.currentTimeMillis();
+                if (this.eDE - this.eDD < this.eDG) {
+                    this.gfy.afT();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

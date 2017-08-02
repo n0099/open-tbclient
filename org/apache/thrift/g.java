@@ -9,7 +9,7 @@ public class g {
     private org.apache.thrift.protocol.e c;
 
     public g() {
-        this(new a.C0147a());
+        this(new a.C0148a());
     }
 
     public g(org.apache.thrift.protocol.g gVar) {

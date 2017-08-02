@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.view.HeadImageViewGroup;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends j.a {
-    public HeadImageViewGroup aGe;
+    public HeadImageViewGroup aEO;
     public TextView mName;
     public View mRootView;
     private int mSkinType;
@@ -20,23 +20,23 @@ public class c extends j.a {
         this.mStatus = 0;
         this.mRootView = view.findViewById(d.h.rootview);
         this.mName = (TextView) view.findViewById(d.h.name_txt);
-        this.aGe = (HeadImageViewGroup) view.findViewById(d.h.img_group);
+        this.aEO = (HeadImageViewGroup) view.findViewById(d.h.img_group);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            Ev();
-            this.aGe.onChangeSkinType(i);
+            En();
+            this.aEO.onChangeSkinType(i);
             this.mSkinType = i;
         }
     }
 
     public void setStatus(int i) {
         this.mStatus = i;
-        Ev();
+        En();
     }
 
-    private void Ev() {
+    private void En() {
         switch (this.mStatus) {
             case 0:
                 ai.c(this.mName, d.e.cp_cont_f, 1);

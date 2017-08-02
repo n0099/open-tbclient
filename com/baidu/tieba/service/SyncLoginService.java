@@ -81,14 +81,14 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork = new w(TbConfig.SERVER_ADDRESS + "c/s/switch");
                 this.mNetWork.n("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(k.ag(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(k.af(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                stringBuffer.append(String.valueOf(k.ah(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(k.ag(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.n("_phone_screen", stringBuffer.toString());
-                this.mNetWork.n("scr_w", String.valueOf(k.ag(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.n("scr_h", String.valueOf(k.ah(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.n("scr_dip", String.valueOf(k.ai(TbadkCoreApplication.getInst().getApp())));
-                if (b.zw().zz() > 0) {
+                this.mNetWork.n("scr_w", String.valueOf(k.af(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.n("scr_h", String.valueOf(k.ag(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.n("scr_dip", String.valueOf(k.ah(TbadkCoreApplication.getInst().getApp())));
+                if (b.zo().zr() > 0) {
                     this.mNetWork.n("_msg_status", "0");
                 } else {
                     this.mNetWork.n("_msg_status", "1");
@@ -109,11 +109,11 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.n("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
                 this.mNetWork.n("signmd5", an.d(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.mNetWork.n("md5", g.getTiebaApkMd5());
-                String uO = this.mNetWork.uO();
-                if (this.mNetWork.vl().wi().isRequestSuccess()) {
+                String uE = this.mNetWork.uE();
+                if (this.mNetWork.vb().vY().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(uO);
+                        cVar.parserJson(uE);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {
@@ -133,7 +133,7 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
             if (this.mNetWork != null) {
-                this.mNetWork.fA();
+                this.mNetWork.fp();
             }
             super.cancel(true);
         }

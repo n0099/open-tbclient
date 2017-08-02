@@ -7,51 +7,51 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class a implements d {
-    private RandomAccessFile aqD;
-    private int aqE;
-    private int aqF;
-    private short aqG;
-    private short aqH;
+    public static int apd = 8000;
+    public static int ape = 2;
+    public static int apf = 2;
+    public static int apg = 1;
+    private RandomAccessFile apj;
+    private int apk;
+    private int apl;
+    private short apm;
+    private short apn;
     private int dataSize;
     private String filePath;
     private int frequency;
-    public static int aqx = 8000;
-    public static int aqy = 2;
-    public static int aqz = 2;
-    public static int aqA = 1;
-    private int aqB = 0;
-    private boolean aqC = false;
+    private int aph = 0;
+    private boolean api = false;
     private AudioRecord mAudioRecord = null;
     private File file = null;
 
     public boolean a(int i, int i2, int i3, int i4, String str) {
-        this.aqB = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
+        this.aph = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
         this.frequency = i2;
-        this.aqE = i3;
-        this.aqF = i4;
+        this.apk = i3;
+        this.apl = i4;
         if (this.mAudioRecord != null) {
             this.mAudioRecord.release();
         }
-        this.mAudioRecord = new AudioRecord(i, this.frequency, this.aqE, this.aqF, this.aqB);
-        this.aqG = (short) (this.aqE == 12 ? 2 : 1);
-        this.aqH = (short) (this.aqF == 2 ? 16 : 8);
+        this.mAudioRecord = new AudioRecord(i, this.frequency, this.apk, this.apl, this.aph);
+        this.apm = (short) (this.apk == 12 ? 2 : 1);
+        this.apn = (short) (this.apl == 2 ? 16 : 8);
         this.file = new File(str);
         if (this.file.exists()) {
             this.file.delete();
         }
         try {
             this.file.createNewFile();
-            if (this.aqD != null) {
+            if (this.apj != null) {
                 try {
-                    this.aqD.close();
+                    this.apj.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     return false;
                 }
             }
             try {
-                this.aqD = new RandomAccessFile(this.file, "rw");
-                xE();
+                this.apj = new RandomAccessFile(this.file, "rw");
+                xw();
                 setFilePath(this.file.getParent());
                 return true;
             } catch (FileNotFoundException e2) {
@@ -65,30 +65,30 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean eA(String str) {
-        return a(aqA, aqx, aqy, aqz, str);
+    public boolean eu(String str) {
+        return a(apg, apd, ape, apf, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xB() {
+    public void xt() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
-                this.aqC = true;
-                byte[] bArr = new byte[this.aqB];
+                this.api = true;
+                byte[] bArr = new byte[this.aph];
                 this.mAudioRecord.startRecording();
-                while (this.aqC) {
+                while (this.api) {
                     this.mAudioRecord.read(bArr, 0, bArr.length);
-                    this.aqD.write(bArr);
+                    this.apj.write(bArr);
                     this.dataSize += bArr.length;
                 }
-                this.aqD.seek(4L);
-                this.aqD.writeInt(Integer.reverseBytes(this.dataSize + 36));
-                this.aqD.seek(40L);
-                this.aqD.writeInt(Integer.reverseBytes(this.dataSize));
-                this.aqD.close();
+                this.apj.seek(4L);
+                this.apj.writeInt(Integer.reverseBytes(this.dataSize + 36));
+                this.apj.seek(40L);
+                this.apj.writeInt(Integer.reverseBytes(this.dataSize));
+                this.apj.close();
                 this.mAudioRecord.stop();
                 this.mAudioRecord.release();
-                this.aqC = false;
+                this.api = false;
             } catch (Throwable th) {
                 if (this.file.exists()) {
                     this.file.delete();
@@ -98,11 +98,11 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean xC() {
+    public boolean xu() {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.xB();
+                a.this.xt();
             }
         });
         thread.setPriority(10);
@@ -112,31 +112,31 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void xD() {
-        this.aqC = false;
+    public void xv() {
+        this.api = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
     public boolean isRecording() {
-        return this.aqC;
+        return this.api;
     }
 
-    private void xE() {
+    private void xw() {
         try {
-            this.aqD.setLength(0L);
-            this.aqD.writeBytes("RIFF");
-            this.aqD.writeInt(0);
-            this.aqD.writeBytes("WAVE");
-            this.aqD.writeBytes("fmt ");
-            this.aqD.writeInt(Integer.reverseBytes(16));
-            this.aqD.writeShort(Short.reverseBytes((short) 1));
-            this.aqD.writeShort(Short.reverseBytes(this.aqG));
-            this.aqD.writeInt(Integer.reverseBytes(this.frequency));
-            this.aqD.writeInt(Integer.reverseBytes(((this.frequency * this.aqG) * this.aqH) / 8));
-            this.aqD.writeShort(Short.reverseBytes((short) ((this.aqG * this.aqH) / 8)));
-            this.aqD.writeShort(Short.reverseBytes(this.aqH));
-            this.aqD.writeBytes("data");
-            this.aqD.writeInt(0);
+            this.apj.setLength(0L);
+            this.apj.writeBytes("RIFF");
+            this.apj.writeInt(0);
+            this.apj.writeBytes("WAVE");
+            this.apj.writeBytes("fmt ");
+            this.apj.writeInt(Integer.reverseBytes(16));
+            this.apj.writeShort(Short.reverseBytes((short) 1));
+            this.apj.writeShort(Short.reverseBytes(this.apm));
+            this.apj.writeInt(Integer.reverseBytes(this.frequency));
+            this.apj.writeInt(Integer.reverseBytes(((this.frequency * this.apm) * this.apn) / 8));
+            this.apj.writeShort(Short.reverseBytes((short) ((this.apm * this.apn) / 8)));
+            this.apj.writeShort(Short.reverseBytes(this.apn));
+            this.apj.writeBytes("data");
+            this.apj.writeInt(0);
         } catch (IOException e) {
             if (this.file.exists()) {
                 this.file.delete();

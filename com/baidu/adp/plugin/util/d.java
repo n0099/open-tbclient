@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> GP = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> Fq = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class d {
     }
 
     static {
-        GP.put(Boolean.class, Boolean.TYPE);
-        GP.put(Byte.class, Byte.TYPE);
-        GP.put(Character.class, Character.TYPE);
-        GP.put(Short.class, Short.TYPE);
-        GP.put(Integer.class, Integer.TYPE);
-        GP.put(Float.class, Float.TYPE);
-        GP.put(Long.class, Long.TYPE);
-        GP.put(Double.class, Double.TYPE);
-        GP.put(Boolean.TYPE, Boolean.TYPE);
-        GP.put(Byte.TYPE, Byte.TYPE);
-        GP.put(Character.TYPE, Character.TYPE);
-        GP.put(Short.TYPE, Short.TYPE);
-        GP.put(Integer.TYPE, Integer.TYPE);
-        GP.put(Float.TYPE, Float.TYPE);
-        GP.put(Long.TYPE, Long.TYPE);
-        GP.put(Double.TYPE, Double.TYPE);
+        Fq.put(Boolean.class, Boolean.TYPE);
+        Fq.put(Byte.class, Byte.TYPE);
+        Fq.put(Character.class, Character.TYPE);
+        Fq.put(Short.class, Short.TYPE);
+        Fq.put(Integer.class, Integer.TYPE);
+        Fq.put(Float.class, Float.TYPE);
+        Fq.put(Long.class, Long.TYPE);
+        Fq.put(Double.class, Double.TYPE);
+        Fq.put(Boolean.TYPE, Boolean.TYPE);
+        Fq.put(Byte.TYPE, Byte.TYPE);
+        Fq.put(Character.TYPE, Character.TYPE);
+        Fq.put(Short.TYPE, Short.TYPE);
+        Fq.put(Integer.TYPE, Integer.TYPE);
+        Fq.put(Float.TYPE, Float.TYPE);
+        Fq.put(Long.TYPE, Long.TYPE);
+        Fq.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (GP.containsKey(clsArr[i]) && GP.get(clsArr[i]).equals(GP.get(clsArr2[i]))) {
+                if (Fq.containsKey(clsArr[i]) && Fq.get(clsArr[i]).equals(Fq.get(clsArr2[i]))) {
                     return true;
                 }
             }

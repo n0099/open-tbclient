@@ -10,32 +10,32 @@ import com.baidu.tieba.d;
 public class a extends r {
     public a(Context context) {
         super(context, (String) null, 4);
-        this.aCR = false;
-        this.aCQ = 2;
-        this.aCS = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9, 40};
-        this.aCc = new SendView(context);
+        this.aBA = false;
+        this.aBz = 2;
+        this.aBB = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9, 40};
+        this.aAL = new SendView(context);
         p.a aVar = new p.a(context.getResources().getDimensionPixelSize(d.f.ds100), context.getResources().getDimensionPixelSize(d.f.ds78));
         aVar.gravity = 16;
         aVar.leftMargin = context.getResources().getDimensionPixelSize(d.f.ds10);
         aVar.rightMargin = context.getResources().getDimensionPixelSize(d.f.ds10);
-        ((View) this.aCc).setLayoutParams(aVar);
+        ((View) this.aAL).setLayoutParams(aVar);
     }
 
     public void setText(int i) {
-        if (this.aCc != null && (this.aCc instanceof TextView)) {
-            ((TextView) this.aCc).setText(i);
+        if (this.aAL != null && (this.aAL instanceof TextView)) {
+            ((TextView) this.aAL).setText(i);
         }
     }
 
     public void setType(int i) {
-        if (this.aCc != null) {
-            ((SendView) this.aCc).setType(i);
+        if (this.aAL != null) {
+            ((SendView) this.aAL).setType(i);
         }
     }
 
-    public void eP(int i) {
-        if (this.aCc != null) {
-            ((SendView) this.aCc).eP(i);
+    public void eN(int i) {
+        if (this.aAL != null) {
+            ((SendView) this.aAL).eN(i);
         }
     }
 }

@@ -487,10 +487,10 @@ public class CmdConfigCustom {
     public static final int CMD_SHARE_DIALOG_DISMISS = 2001277;
     public static final int CMD_SHARE_DIALOG_SHOW = 2001276;
     public static final int CMD_SHARE_SDK_RESULT = 2001250;
+    public static final int CMD_SHOW_ACT_DIALOG = 2921027;
     public static final int CMD_SHOW_FLOATING_LAYER_MAINTAB = 2001307;
     public static final int CMD_SHOW_GAME_MSG_TIP = 2001230;
     public static final int CMD_SHOW_GO_TO_MY_LIVE_TIPS = 2016305;
-    public static final int CMD_SHOW_NICK_NAME_ACT = 2921027;
     public static final int CMD_SHOW_RECOMMEND_LABEL = 2921029;
     public static final int CMD_SHOW_SPRING_EGG = 2001121;
     public static final int CMD_SIGNALL_ON_CLICK = 2001253;

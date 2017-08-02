@@ -10,37 +10,37 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.a.a {
-    private b aJh;
-    private InterfaceC0060a aJi = null;
+    private b aHS;
+    private InterfaceC0060a aHT = null;
     private WindowManager jn;
 
     /* renamed from: com.baidu.tbadk.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0060a {
-        void ff(int i);
+        void fd(int i);
     }
 
     public a(Context context) {
-        this.aJh = null;
+        this.aHS = null;
         this.jn = null;
-        this.aJh = new b(context);
+        this.aHS = new b(context);
         this.jn = (WindowManager) context.getSystemService("window");
     }
 
-    private void Gd() {
+    private void FV() {
         try {
-            this.jn.removeView(this.aJh);
+            this.jn.removeView(this.aHS);
         } catch (Throwable th) {
         }
     }
 
-    private void Ge() {
+    private void FW() {
         try {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-2, -2, 2006, 0, -3);
             layoutParams.gravity = 51;
             layoutParams.height = 1;
             layoutParams.width = 1;
-            this.jn.addView(this.aJh, layoutParams);
+            this.jn.addView(this.aHS, layoutParams);
         } catch (Throwable th) {
         }
     }
@@ -48,20 +48,20 @@ public class a extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        Gd();
+        FV();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
         super.start();
-        Gd();
-        Ge();
+        FV();
+        FW();
         new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tbadk.l.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cv()) {
-                    a.this.aJh.invalidate();
-                    a.this.aJh.post(this);
+                if (a.this.ck()) {
+                    a.this.aHS.invalidate();
+                    a.this.aHS.post(this);
                 }
             }
         });
@@ -70,14 +70,14 @@ public class a extends com.baidu.adp.a.a.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b extends ImageView {
-        private int aJk;
+        private int aHV;
         private final Paint mPaint;
         private long mStartTime;
 
         public b(Context context) {
             super(context);
             this.mStartTime = -1L;
-            this.aJk = 0;
+            this.aHV = 0;
             this.mPaint = new Paint();
             this.mPaint.setColor(0);
             this.mPaint.setAlpha(0);
@@ -89,26 +89,26 @@ public class a extends com.baidu.adp.a.a.a {
         public void draw(Canvas canvas) {
             if (this.mStartTime == -1) {
                 this.mStartTime = SystemClock.elapsedRealtime();
-                this.aJk = 0;
+                this.aHV = 0;
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
             super.draw(canvas);
             if (elapsedRealtime - this.mStartTime > 1000) {
                 this.mStartTime = elapsedRealtime;
-                if (a.this.aJi != null) {
-                    a.this.aJi.ff(this.aJk);
+                if (a.this.aHT != null) {
+                    a.this.aHT.fd(this.aHV);
                 } else {
-                    com.baidu.adp.a.a.d.I(this.aJk);
+                    com.baidu.adp.a.a.d.F(this.aHV);
                 }
-                this.aJk = 0;
+                this.aHV = 0;
             }
-            this.aJk++;
+            this.aHV++;
         }
     }
 
     public void a(InterfaceC0060a interfaceC0060a) {
-        if (this.aJi == null) {
-            this.aJi = interfaceC0060a;
+        if (this.aHT == null) {
+            this.aHT = interfaceC0060a;
         }
     }
 }

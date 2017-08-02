@@ -17,29 +17,29 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes.dex */
 public class b {
-    private static b aeB;
-    private c aeC = new c();
+    private static b adg;
+    private c adh = new c();
 
     private b() {
     }
 
-    public static b uq() {
-        if (aeB == null) {
+    public static b uf() {
+        if (adg == null) {
             synchronized (b.class) {
-                if (aeB == null) {
-                    aeB = new b();
+                if (adg == null) {
+                    adg = new b();
                 }
             }
         }
-        return aeB;
+        return adg;
     }
 
-    public CacheEntry di(String str) {
-        return this.aeC.di(dk(str));
+    public CacheEntry dc(String str) {
+        return this.adh.dc(de(str));
     }
 
-    public synchronized boolean dj(String str) {
-        return this.aeC.dj(dk(str));
+    public synchronized boolean dd(String str) {
+        return this.adh.dd(de(str));
     }
 
     public synchronized boolean saveCache(String str, String str2, boolean z, byte[] bArr) {
@@ -47,24 +47,24 @@ public class b {
         if (TextUtils.isEmpty(str) || bArr == null || bArr.length == 0) {
             z2 = false;
         } else {
-            String dk = dk(str);
+            String de = de(str);
             CacheEntry cacheEntry = new CacheEntry();
             cacheEntry.seteTag(str2);
-            cacheEntry.setUrl(dk);
+            cacheEntry.setUrl(de);
             cacheEntry.setWriteTime(System.currentTimeMillis());
             cacheEntry.setSize(bArr.length);
             cacheEntry.setForever(z);
             if (!TextUtils.isEmpty(str2)) {
                 cacheEntry.setName(str2);
             } else {
-                cacheEntry.setName(r.aV(dk));
+                cacheEntry.setName(r.aP(de));
             }
-            z2 = this.aeC.a(cacheEntry, bArr);
+            z2 = this.adh.a(cacheEntry, bArr);
         }
         return z2;
     }
 
-    private String dk(String str) {
+    private String de(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -75,11 +75,11 @@ public class b {
         return substring;
     }
 
-    public void ur() {
+    public void ug() {
         File[] listFiles;
-        List<CacheEntry> up = a.um().up();
-        if (up != null && up.size() != 0) {
-            Collections.sort(up, new Comparator<CacheEntry>() { // from class: com.baidu.tbadk.core.hybrid.cache.b.1
+        List<CacheEntry> ue = a.ub().ue();
+        if (ue != null && ue.size() != 0) {
+            Collections.sort(ue, new Comparator<CacheEntry>() { // from class: com.baidu.tbadk.core.hybrid.cache.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
@@ -103,7 +103,7 @@ public class b {
             long j = 0;
             long j2 = 200 * 1048576;
             long j3 = j2 > 31457280 ? j2 : 31457280L;
-            for (CacheEntry cacheEntry : up) {
+            for (CacheEntry cacheEntry : ue) {
                 j += cacheEntry.getSize();
                 if (System.currentTimeMillis() - cacheEntry.getWriteTime() > 7776000000L) {
                     arrayList.add(cacheEntry);
@@ -112,10 +112,10 @@ public class b {
                 }
             }
             for (CacheEntry cacheEntry2 : arrayList) {
-                this.aeC.dj(cacheEntry2.getUrl());
+                this.adh.dd(cacheEntry2.getUrl());
             }
             ArrayList arrayList2 = new ArrayList();
-            for (CacheEntry cacheEntry3 : up) {
+            for (CacheEntry cacheEntry3 : ue) {
                 arrayList2.add(cacheEntry3.getName());
             }
             File file = new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache/files");
@@ -134,7 +134,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean us() {
+    public boolean uh() {
         InputStream inputStream;
         File file;
         byte[] p;

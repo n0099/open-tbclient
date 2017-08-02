@@ -42,15 +42,15 @@ public class c {
     public static void a(w wVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
             wVar.n("is_location", "2");
-            Address C = com.baidu.adp.lib.d.a.fo().C(false);
+            Address C = com.baidu.adp.lib.d.a.fd().C(false);
             if (C != null) {
                 wVar.n("lat", String.valueOf(C.getLatitude()));
                 wVar.n("lng", String.valueOf(C.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bte().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bsX().getLocationData();
             if (locationData != null) {
-                wVar.n("name", locationData.bta());
-                wVar.n("sn", locationData.btc());
+                wVar.n("name", locationData.bsT());
+                wVar.n("sn", locationData.bsV());
             }
         }
     }

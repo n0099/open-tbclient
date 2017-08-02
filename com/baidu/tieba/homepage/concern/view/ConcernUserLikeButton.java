@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ConcernUserLikeButton extends CommonUserLikeButton {
-    private boolean apY;
-    private boolean cQX;
+    private boolean aoE;
+    private boolean cPE;
 
     public ConcernUserLikeButton(Context context) {
         super(context);
-        this.apY = false;
-        this.cQX = false;
+        this.aoE = false;
+        this.cPE = false;
     }
 
     public ConcernUserLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.apY = false;
-        this.cQX = false;
+        this.aoE = false;
+        this.cPE = false;
     }
 
     public ConcernUserLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.apY = false;
-        this.cQX = false;
+        this.aoE = false;
+        this.cPE = false;
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.apV) {
+        if (this.aoB) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             ai.i(this, d.e.cp_cont_d);
             setBackgroundDrawable(null);
@@ -40,7 +40,7 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
         }
         setCompoundDrawablesWithIntrinsicBounds(ai.getDrawable(d.g.btn_concern_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
         ai.i(this, d.e.btn_concern_like_focus_color);
-        if (this.apY) {
+        if (this.aoE) {
             ai.j(this, d.g.btn_transparent_focus_border_bg);
         } else {
             ai.j(this, d.g.btn_focus_border_bg);
@@ -49,17 +49,17 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void aQ(boolean z) {
-        this.apV = z;
+        this.aoB = z;
         if (z) {
             setClickable(false);
-            setText(this.apT);
+            setText(this.aoz);
             setPadding(0, 0, 0, 0);
-            this.cQX = true;
+            this.cPE = true;
         } else {
             setClickable(true);
-            setText(this.apU);
+            setText(this.aoA);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds10), 0);
-            this.cQX = false;
+            this.cPE = false;
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }

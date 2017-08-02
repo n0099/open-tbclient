@@ -13,10 +13,10 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
 public final class e {
-    private static WeakReference<byte[]> GR;
+    private static WeakReference<byte[]> Fs;
     private static Object mSync = new Object();
 
-    public static Signature[] bI(String str) throws CertificateEncodingException, IOException {
+    public static Signature[] bC(String str) throws CertificateEncodingException, IOException {
         byte[] bArr;
         byte[] bArr2;
         WeakReference<byte[]> weakReference;
@@ -26,9 +26,9 @@ public final class e {
             return null;
         }
         synchronized (mSync) {
-            WeakReference<byte[]> weakReference2 = GR;
+            WeakReference<byte[]> weakReference2 = Fs;
             if (weakReference2 != null) {
-                GR = null;
+                Fs = null;
                 bArr = weakReference2.get();
             } else {
                 bArr = null;
@@ -85,7 +85,7 @@ public final class e {
             }
             jarFile.close();
             synchronized (mSync) {
-                GR = weakReference;
+                Fs = weakReference;
             }
             if (certificateArr2 != null && certificateArr2.length > 0) {
                 int length = certificateArr2.length;
@@ -129,11 +129,11 @@ public final class e {
                     }
                 } while (bufferedInputStream.read(bArr, 0, bArr.length) != -1);
                 Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
-                com.baidu.adp.lib.g.a.p(bufferedInputStream);
+                com.baidu.adp.lib.g.a.j(bufferedInputStream);
                 return certificates;
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.adp.lib.g.a.p(null);
+                com.baidu.adp.lib.g.a.j(null);
                 throw th;
             }
         } catch (IOException e5) {
@@ -142,7 +142,7 @@ public final class e {
             e = e6;
         } catch (Throwable th3) {
             th = th3;
-            com.baidu.adp.lib.g.a.p(null);
+            com.baidu.adp.lib.g.a.j(null);
             throw th;
         }
     }

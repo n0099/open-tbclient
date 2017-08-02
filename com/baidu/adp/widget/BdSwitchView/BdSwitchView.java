@@ -11,16 +11,16 @@ import android.view.View;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class BdSwitchView extends View implements View.OnTouchListener {
-    private float Hf;
-    private float Hg;
-    private Bitmap Hh;
-    private Bitmap Hi;
-    private Bitmap Hj;
-    private boolean Hk;
-    private boolean Hl;
-    private boolean Hm;
-    private int Hn;
-    private a Ho;
+    private float FG;
+    private float FH;
+    private Bitmap FI;
+    private Bitmap FJ;
+    private Bitmap FK;
+    private boolean FL;
+    private boolean FM;
+    private boolean FN;
+    private int FO;
+    private a FP;
     private int height;
     private Runnable mRunnable;
     private SwitchState mState;
@@ -48,18 +48,18 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     public BdSwitchView(Context context) {
         super(context);
         this.mState = SwitchState.ON;
-        this.Hk = false;
-        this.Hl = false;
-        this.Hm = false;
+        this.FL = false;
+        this.FM = false;
+        this.FN = false;
         this.paint = new Paint();
         this.width = 0;
         this.height = 0;
-        this.Hn = 0;
-        this.Ho = null;
+        this.FO = 0;
+        this.FP = null;
         this.mRunnable = new Runnable() { // from class: com.baidu.adp.widget.BdSwitchView.BdSwitchView.1
             @Override // java.lang.Runnable
             public void run() {
-                BdSwitchView.this.kA();
+                BdSwitchView.this.kq();
             }
         };
         init(context);
@@ -68,30 +68,30 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     public BdSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mState = SwitchState.ON;
-        this.Hk = false;
-        this.Hl = false;
-        this.Hm = false;
+        this.FL = false;
+        this.FM = false;
+        this.FN = false;
         this.paint = new Paint();
         this.width = 0;
         this.height = 0;
-        this.Hn = 0;
-        this.Ho = null;
+        this.FO = 0;
+        this.FP = null;
         this.mRunnable = new Runnable() { // from class: com.baidu.adp.widget.BdSwitchView.BdSwitchView.1
             @Override // java.lang.Runnable
             public void run() {
-                BdSwitchView.this.kA();
+                BdSwitchView.this.kq();
             }
         };
         init(context);
     }
 
     private void init(Context context) {
-        this.Hh = BitmapFactory.decodeResource(getResources(), R.drawable.bg_switch_open);
-        this.Hi = BitmapFactory.decodeResource(getResources(), R.drawable.bg_switch_close);
-        this.Hj = BitmapFactory.decodeResource(getResources(), R.drawable.btn_handle);
-        this.width = this.Hh.getWidth();
-        this.height = this.Hh.getHeight();
-        this.Hn = this.Hj.getWidth();
+        this.FI = BitmapFactory.decodeResource(getResources(), R.drawable.bg_switch_open);
+        this.FJ = BitmapFactory.decodeResource(getResources(), R.drawable.bg_switch_close);
+        this.FK = BitmapFactory.decodeResource(getResources(), R.drawable.btn_handle);
+        this.width = this.FI.getWidth();
+        this.height = this.FI.getHeight();
+        this.FO = this.FK.getWidth();
         setOnTouchListener(this);
     }
 
@@ -103,7 +103,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (this.Hm) {
+        if (this.FN) {
             return false;
         }
         if (getParent() != null) {
@@ -115,53 +115,53 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                     return false;
                 }
                 postDelayed(this.mRunnable, 200L);
-                this.Hk = true;
-                this.Hf = motionEvent.getX();
-                this.Hg = this.Hf;
+                this.FL = true;
+                this.FG = motionEvent.getX();
+                this.FH = this.FG;
                 return true;
             case 1:
-                this.Hk = false;
+                this.FL = false;
                 SwitchState switchState = this.mState;
-                if (Math.abs(this.Hg - this.Hf) <= 0.02d * this.width) {
+                if (Math.abs(this.FH - this.FG) <= 0.02d * this.width) {
                     invalidate();
                     return true;
                 }
                 removeCallbacks(this.mRunnable);
-                this.Hm = true;
+                this.FN = true;
                 if (motionEvent.getX() >= this.width / 2.0f) {
                     this.mState = SwitchState.ON;
                 } else {
                     this.mState = SwitchState.OFF;
                 }
-                if (this.Hl && switchState != this.mState && this.Ho != null) {
-                    this.Ho.a(this, this.mState);
+                if (this.FM && switchState != this.mState && this.FP != null) {
+                    this.FP.a(this, this.mState);
                 }
-                this.Hm = false;
+                this.FN = false;
                 invalidate();
                 return true;
             case 2:
-                this.Hg = motionEvent.getX();
-                if (Math.abs(this.Hg - this.Hf) > 0.05d * this.width) {
+                this.FH = motionEvent.getX();
+                if (Math.abs(this.FH - this.FG) > 0.05d * this.width) {
                     removeCallbacks(this.mRunnable);
-                    if (Math.abs(this.Hg - this.Hf) > 0.1d * this.width) {
+                    if (Math.abs(this.FH - this.FG) > 0.1d * this.width) {
                         invalidate();
                     }
                 }
                 return true;
             case 3:
-                this.Hk = false;
+                this.FL = false;
                 SwitchState switchState2 = this.mState;
                 removeCallbacks(this.mRunnable);
-                this.Hm = true;
-                if (this.Hg >= this.width / 2.0f) {
+                this.FN = true;
+                if (this.FH >= this.width / 2.0f) {
                     this.mState = SwitchState.ON;
                 } else {
                     this.mState = SwitchState.OFF;
                 }
-                if (this.Hl && switchState2 != this.mState && this.Ho != null) {
-                    this.Ho.a(this, this.mState);
+                if (this.FM && switchState2 != this.mState && this.FP != null) {
+                    this.FP.a(this, this.mState);
                 }
-                this.Hm = false;
+                this.FN = false;
                 invalidate();
                 return true;
             default:
@@ -173,103 +173,103 @@ public class BdSwitchView extends View implements View.OnTouchListener {
     protected void onDraw(Canvas canvas) {
         float f;
         super.onDraw(canvas);
-        if (this.Hk) {
-            if (this.Hg < this.width / 2.0f) {
-                canvas.drawBitmap(this.Hi, 0.0f, 0.0f, this.paint);
+        if (this.FL) {
+            if (this.FH < this.width / 2.0f) {
+                canvas.drawBitmap(this.FJ, 0.0f, 0.0f, this.paint);
             } else {
-                canvas.drawBitmap(this.Hh, 0.0f, 0.0f, this.paint);
+                canvas.drawBitmap(this.FI, 0.0f, 0.0f, this.paint);
             }
         } else if (this.mState == SwitchState.ON) {
-            canvas.drawBitmap(this.Hh, 0.0f, 0.0f, this.paint);
+            canvas.drawBitmap(this.FI, 0.0f, 0.0f, this.paint);
         } else if (this.mState == SwitchState.OFF) {
-            canvas.drawBitmap(this.Hi, 0.0f, 0.0f, this.paint);
+            canvas.drawBitmap(this.FJ, 0.0f, 0.0f, this.paint);
         }
-        if (this.Hk) {
-            if (this.Hg > this.Hh.getWidth()) {
-                f = this.width - (this.Hn / 2.0f);
+        if (this.FL) {
+            if (this.FH > this.FI.getWidth()) {
+                f = this.width - (this.FO / 2.0f);
             } else {
-                f = this.Hg - (this.Hn / 2.0f);
+                f = this.FH - (this.FO / 2.0f);
             }
         } else if (this.mState == SwitchState.ON) {
-            f = this.width - this.Hn;
+            f = this.width - this.FO;
         } else {
             f = this.mState == SwitchState.OFF ? 0.0f : 0.0f;
         }
         if (f < 0.0f) {
             f = 0.0f;
-        } else if (f > this.width - this.Hn) {
-            f = this.width - this.Hn;
+        } else if (f > this.width - this.FO) {
+            f = this.width - this.FO;
         }
-        canvas.drawBitmap(this.Hj, f, 0.0f, this.paint);
+        canvas.drawBitmap(this.FK, f, 0.0f, this.paint);
     }
 
     private void a(SwitchState switchState, boolean z) {
-        if (!this.Hm) {
-            this.Hm = true;
+        if (!this.FN) {
+            this.FN = true;
             if (switchState == SwitchState.ON) {
-                this.Hg = this.width;
+                this.FH = this.width;
             } else if (switchState == SwitchState.OFF) {
-                this.Hg = 0.0f;
+                this.FH = 0.0f;
             }
-            if (z && switchState != this.mState && this.Ho != null) {
-                this.Ho.a(this, switchState);
+            if (z && switchState != this.mState && this.FP != null) {
+                this.FP.a(this, switchState);
             }
             this.mState = switchState;
-            this.Hm = false;
+            this.FN = false;
             invalidate();
         }
     }
 
     public void a(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3) {
-        this.Hh = bitmap;
-        this.Hi = bitmap2;
-        this.Hj = bitmap3;
+        this.FI = bitmap;
+        this.FJ = bitmap2;
+        this.FK = bitmap3;
         invalidate();
     }
 
-    public void kw() {
+    public void km() {
         if (this.mState != SwitchState.ON) {
             a(SwitchState.ON, false);
         }
     }
 
-    public void kx() {
+    public void kn() {
         if (this.mState != SwitchState.OFF) {
             a(SwitchState.OFF, false);
         }
     }
 
-    public void ky() {
+    public void ko() {
         a(SwitchState.ON, true);
     }
 
     public void P(boolean z) {
         if (this.mState != SwitchState.ON) {
-            ky();
+            ko();
         }
     }
 
-    public void kz() {
+    public void kp() {
         a(SwitchState.OFF, true);
     }
 
     public void Q(boolean z) {
         if (this.mState != SwitchState.OFF) {
-            kz();
+            kp();
         }
     }
 
-    public boolean ge() {
+    public boolean fS() {
         return this.mState == SwitchState.ON;
     }
 
     public void setOnSwitchStateChangeListener(a aVar) {
-        this.Hl = true;
-        this.Ho = aVar;
+        this.FM = true;
+        this.FP = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kA() {
+    public void kq() {
         if (this.mState == SwitchState.ON) {
             a(SwitchState.OFF, true);
         } else if (this.mState == SwitchState.OFF) {

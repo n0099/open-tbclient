@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e {
-    private TbPageContext alI;
-    public TextView eUF;
+    private TbPageContext ako;
+    public TextView eTs;
     private int mSkinType = 3;
-    private int eUG = 0;
-    private boolean eUH = true;
-    private CustomMessageListener eUI = new CustomMessageListener(CmdConfigCustom.CMD_PB_VIDEO_PALY_ADD_COUNT) { // from class: com.baidu.tieba.pb.pb.main.view.e.1
+    private int eTt = 0;
+    private boolean eTu = true;
+    private CustomMessageListener eTv = new CustomMessageListener(CmdConfigCustom.CMD_PB_VIDEO_PALY_ADD_COUNT) { // from class: com.baidu.tieba.pb.pb.main.view.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -31,36 +31,36 @@ public class e {
     };
 
     public e(TbPageContext tbPageContext, View view) {
-        this.alI = tbPageContext;
-        this.eUF = (TextView) view.findViewById(d.h.pb_list_video_item_play_count);
+        this.ako = tbPageContext;
+        this.eTs = (TextView) view.findViewById(d.h.pb_list_video_item_play_count);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        tbPageContext.registerListener(this.eUI);
+        tbPageContext.registerListener(this.eTv);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tbadk.widget.richText.e eVar) {
         if (eVar != null) {
-            this.eUG++;
-            eVar.fE(this.eUG);
+            this.eTt++;
+            eVar.fC(this.eTt);
         }
     }
 
     public void d(com.baidu.tbadk.widget.richText.e eVar) {
-        if (this.eUF != null && eVar != null) {
-            if (eVar.Ja() < this.eUG) {
-                eVar.fE(this.eUG);
+        if (this.eTs != null && eVar != null) {
+            if (eVar.IT() < this.eTt) {
+                eVar.fC(this.eTt);
             } else {
-                this.eUG = eVar.Ja();
+                this.eTt = eVar.IT();
             }
-            this.eUF.setText(al.u(this.eUG));
+            this.eTs.setText(al.u(this.eTt));
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.eUF.setCompoundDrawablesWithIntrinsicBounds(d.g.icon_pb_video_num_gray, 0, 0, 0);
-            this.eUF.setCompoundDrawablePadding(k.g(this.alI.getPageActivity(), d.f.ds12));
-            ai.c(this.eUF, d.e.cp_cont_c, 1);
+            this.eTs.setCompoundDrawablesWithIntrinsicBounds(d.g.icon_pb_video_num_gray, 0, 0, 0);
+            this.eTs.setCompoundDrawablePadding(k.g(this.ako.getPageActivity(), d.f.ds12));
+            ai.c(this.eTs, d.e.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }

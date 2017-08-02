@@ -4,7 +4,7 @@ import android.webkit.WebView;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes.dex */
 public interface b {
-    boolean bxK();
+    boolean bxD();
 
     void d(NewWriteModel.d dVar);
 

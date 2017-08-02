@@ -9,29 +9,29 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tieba.card.a<c> {
-    private View Sd;
-    private final TbPageContext<?> alI;
-    private View cUS;
-    private View cUT;
-    private TextView cUU;
-    private String cUV;
-    private c cUW;
+    private View QE;
+    private final TbPageContext<?> ako;
+    private View cTA;
+    private TextView cTB;
+    private String cTC;
+    private c cTD;
+    private View cTz;
     private int mSkinType;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.alI = tbPageContext;
-        this.Sd = getView();
-        this.cUU = (TextView) this.Sd.findViewById(d.h.read_progress_bar_time);
-        this.cUS = this.Sd.findViewById(d.h.divider_line_under_homepage_read_progress);
-        this.cUT = this.Sd.findViewById(d.h.divider_line_under_homepage_read_time);
-        this.cUV = this.alI.getResources().getString(d.l.read_here);
-        this.Sd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.c.a.1
+        this.ako = tbPageContext;
+        this.QE = getView();
+        this.cTB = (TextView) this.QE.findViewById(d.h.read_progress_bar_time);
+        this.cTz = this.QE.findViewById(d.h.divider_line_under_homepage_read_progress);
+        this.cTA = this.QE.findViewById(d.h.divider_line_under_homepage_read_time);
+        this.cTC = this.ako.getResources().getString(d.l.read_here);
+        this.QE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.c.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.We() != null) {
-                    a.this.We().a(view, a.this.cUW);
+                if (a.this.VZ() != null) {
+                    a.this.VZ().a(view, a.this.cTD);
                 }
             }
         });
@@ -40,10 +40,10 @@ public class a extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ai.i(this.cUU, d.e.cp_link_tip_a);
-            ai.j(this.Sd, d.g.addresslist_item_bg);
-            ai.k(this.cUS, d.e.cp_bg_line_c);
-            ai.k(this.cUT, d.e.cp_bg_line_c);
+            ai.i(this.cTB, d.e.cp_link_tip_a);
+            ai.j(this.QE, d.g.addresslist_item_bg);
+            ai.k(this.cTz, d.e.cp_bg_line_c);
+            ai.k(this.cTA, d.e.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
@@ -57,14 +57,14 @@ public class a extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void a(c cVar) {
         if (cVar != null) {
-            this.cUW = cVar;
-            this.cUU.setText(al.s(cVar.mTimeStamp) + this.cUV);
+            this.cTD = cVar;
+            this.cTB.setText(al.s(cVar.mTimeStamp) + this.cTC);
             if (cVar.showBottomDivider) {
-                this.cUT.setVisibility(0);
+                this.cTA.setVisibility(0);
             } else {
-                this.cUT.setVisibility(8);
+                this.cTA.setVisibility(8);
             }
-            d(this.alI, TbadkCoreApplication.getInst().getSkinType());
+            d(this.ako, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 

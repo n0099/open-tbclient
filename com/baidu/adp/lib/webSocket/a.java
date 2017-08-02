@@ -6,22 +6,22 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
-    private final int Bm;
-    private final int Bn;
     private ByteBuffer mBuffer;
+    private final int zL;
+    private final int zM;
 
     public a() {
         this(131072, 65536);
     }
 
     public a(int i, int i2) {
-        this.Bm = i;
-        this.Bn = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.Bm);
+        this.zL = i;
+        this.zM = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.zL);
         this.mBuffer.clear();
     }
 
-    public ByteBuffer hX() {
+    public ByteBuffer hN() {
         return this.mBuffer;
     }
 
@@ -37,11 +37,11 @@ public class a extends OutputStream {
         return this.mBuffer.remaining();
     }
 
-    public synchronized void r(int i) {
+    public synchronized void aA(int i) {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.Bn) + 1) * this.Bn);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.zM) + 1) * this.zM);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);
@@ -52,7 +52,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(int i) throws IOException {
         if (this.mBuffer.position() + 1 > this.mBuffer.capacity()) {
-            r(this.mBuffer.capacity() + 1);
+            aA(this.mBuffer.capacity() + 1);
         }
         this.mBuffer.put((byte) i);
     }
@@ -60,7 +60,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
         if (this.mBuffer.position() + i2 > this.mBuffer.capacity()) {
-            r(this.mBuffer.capacity() + i2);
+            aA(this.mBuffer.capacity() + i2);
         }
         this.mBuffer.put(bArr, i, i2);
     }
@@ -74,7 +74,7 @@ public class a extends OutputStream {
         write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void hY() throws IOException {
+    public synchronized void hO() throws IOException {
         write(13);
         write(10);
     }

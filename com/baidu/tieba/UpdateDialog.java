@@ -27,16 +27,16 @@ import com.baidu.tieba.service.TiebaUpdateService;
 import java.io.File;
 /* loaded from: classes.dex */
 public class UpdateDialog extends BaseActivity<UpdateDialog> {
-    private boolean aVJ;
-    private boolean aVK;
-    private boolean aVL;
-    private boolean aVM;
-    private VersionData aVN;
-    private String aVO;
-    private e aVP;
-    private b aVQ;
-    private boolean aVj;
-    private boolean aVk;
+    private boolean aTX;
+    private boolean aTY;
+    private boolean aUA;
+    private VersionData aUB;
+    private String aUC;
+    private e aUD;
+    private b aUE;
+    private boolean aUx;
+    private boolean aUy;
+    private boolean aUz;
     private CombineDownload mCombineDownload;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,98 +48,98 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         attributes.alpha = 0.0f;
         getWindow().setAttributes(attributes);
         initData(bundle);
-        Ki();
+        Kc();
     }
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
             try {
-                this.aVN = (VersionData) bundle.getSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
+                this.aUB = (VersionData) bundle.getSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
                 this.mCombineDownload = (CombineDownload) bundle.getSerializable(UpdateDialogConfig.KEY_OTHER_APK_DATA);
             } catch (Throwable th) {
                 try {
-                    this.aVN = (VersionData) bundle.getSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
+                    this.aUB = (VersionData) bundle.getSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
                     this.mCombineDownload = (CombineDownload) bundle.getSerializable(UpdateDialogConfig.KEY_OTHER_APK_DATA);
                 } catch (Throwable th2) {
                     this.mCombineDownload = null;
                 }
             }
-            if (this.aVN != null) {
-                this.aVO = this.aVN.getAsDownloadUrl();
+            if (this.aUB != null) {
+                this.aUC = this.aUB.getAsDownloadUrl();
             }
         } else {
             Intent intent = getIntent();
             if (intent != null) {
                 try {
-                    this.aVN = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
+                    this.aUB = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
                     this.mCombineDownload = (CombineDownload) intent.getSerializableExtra(UpdateDialogConfig.KEY_OTHER_APK_DATA);
                 } catch (Throwable th3) {
                     try {
-                        this.aVN = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
+                        this.aUB = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
                         this.mCombineDownload = (CombineDownload) intent.getSerializableExtra(UpdateDialogConfig.KEY_OTHER_APK_DATA);
                     } catch (Throwable th4) {
                         this.mCombineDownload = null;
                     }
                 }
-                if (this.aVN != null) {
-                    this.aVO = this.aVN.getAsDownloadUrl();
+                if (this.aUB != null) {
+                    this.aUC = this.aUB.getAsDownloadUrl();
                 }
             }
         }
-        if (this.aVN != null) {
-            this.aVk = this.aVN.forceUpdate();
+        if (this.aUB != null) {
+            this.aTY = this.aUB.forceUpdate();
         }
-        this.aVP = new e(getPageContext().getPageActivity(), d.m.common_alert_dialog);
-        this.aVP.setCancelable(false);
-        this.aVP.a(this.aVN, this.mCombineDownload, new a());
-        this.aVP.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.UpdateDialog.1
+        this.aUD = new e(getPageContext().getPageActivity(), d.m.common_alert_dialog);
+        this.aUD.setCancelable(false);
+        this.aUD.a(this.aUB, this.mCombineDownload, new a());
+        this.aUD.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.UpdateDialog.1
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                UpdateDialog.this.aVP.dismiss();
+                UpdateDialog.this.aUD.dismiss();
                 UpdateDialog.this.finish();
             }
         });
-        this.aVP.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.UpdateDialog.2
+        this.aUD.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.UpdateDialog.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                UpdateDialog.this.aVP.dismiss();
+                UpdateDialog.this.aUD.dismiss();
                 UpdateDialog.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.UpdateDialog.2.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (UpdateDialog.this.aVN.forceUpdate()) {
+                        if (UpdateDialog.this.aUB.forceUpdate()) {
                             com.baidu.tbadk.core.e.b.i(UpdateDialog.this.getPageContext().getPageActivity(), 200);
                         }
                     }
                 }, 100L);
             }
         });
-        this.aVP.i(new View.OnClickListener() { // from class: com.baidu.tieba.UpdateDialog.3
+        this.aUD.i(new View.OnClickListener() { // from class: com.baidu.tieba.UpdateDialog.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (UpdateDialog.this.aVj) {
-                    UpdateDialog.this.Kj();
+                if (UpdateDialog.this.aTX) {
+                    UpdateDialog.this.Kd();
                 }
-                UpdateDialog.this.aVP.dismiss();
+                UpdateDialog.this.aUD.dismiss();
                 UpdateDialog.this.finish();
             }
         });
-        this.aVP.j(new View.OnClickListener() { // from class: com.baidu.tieba.UpdateDialog.4
+        this.aUD.j(new View.OnClickListener() { // from class: com.baidu.tieba.UpdateDialog.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                UpdateDialog.this.aVP.Kf();
-                UpdateDialog.this.e(UpdateDialog.this.aVK, UpdateDialog.this.aVL, UpdateDialog.this.aVM);
+                UpdateDialog.this.aUD.JZ();
+                UpdateDialog.this.e(UpdateDialog.this.aUy, UpdateDialog.this.aUz, UpdateDialog.this.aUA);
             }
         });
         if (!isFinishing()) {
-            com.baidu.adp.lib.g.g.a(this.aVP, getPageContext());
+            com.baidu.adp.lib.g.g.a(this.aUD, getPageContext());
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.aVN != null) {
-            bundle.putSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.aVN);
+        if (this.aUB != null) {
+            bundle.putSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.aUB);
         }
         if (this.mCombineDownload != null) {
             bundle.putSerializable(UpdateDialogConfig.KEY_OTHER_APK_DATA, this.mCombineDownload);
@@ -160,41 +160,41 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.aVP != null) {
-            this.aVP.dismiss();
+        if (this.aUD != null) {
+            this.aUD.dismiss();
         }
-        if (this.aVQ != null) {
-            unregisterReceiver(this.aVQ);
+        if (this.aUE != null) {
+            unregisterReceiver(this.aUE);
         }
     }
 
-    private void Ki() {
-        this.aVQ = new b();
+    private void Kc() {
+        this.aUE = new b();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.APP_UPDATE_ACTION);
-        registerReceiver(this.aVQ, intentFilter);
+        registerReceiver(this.aUE, intentFilter);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(boolean z, boolean z2, boolean z3) {
-        if (!k.dR()) {
-            showToast(k.uI());
+        if (!k.dG()) {
+            showToast(k.uy());
             return;
         }
-        this.aVK = z;
-        this.aVL = z2;
-        this.aVM = z3;
+        this.aUy = z;
+        this.aUz = z2;
+        this.aUA = z3;
         Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
         intent.addFlags(268435456);
-        if (z && this.aVN != null && URLUtil.isNetworkUrl(this.aVN.getUrl()) && !TextUtils.isEmpty(this.aVN.getApkMD5RSA())) {
-            intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_URL, this.aVN.getUrl());
-            intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.aVN);
-            intent.putExtra("MD5_RSA_tieba_apk", this.aVN.getApkMD5RSA());
+        if (z && this.aUB != null && URLUtil.isNetworkUrl(this.aUB.getUrl()) && !TextUtils.isEmpty(this.aUB.getApkMD5RSA())) {
+            intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_URL, this.aUB.getUrl());
+            intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.aUB);
+            intent.putExtra("MD5_RSA_tieba_apk", this.aUB.getApkMD5RSA());
         }
-        if (z2 && URLUtil.isNetworkUrl(this.aVO) && !TextUtils.isEmpty(this.aVN.getAsApkMD5RSA())) {
-            intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.aVN);
-            intent.putExtra(UpdateDialogConfig.KEY_AS_APK_URL, this.aVO);
-            intent.putExtra("MD5_RSA_as_apk", this.aVN.getAsApkMD5RSA());
+        if (z2 && URLUtil.isNetworkUrl(this.aUC) && !TextUtils.isEmpty(this.aUB.getAsApkMD5RSA())) {
+            intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.aUB);
+            intent.putExtra(UpdateDialogConfig.KEY_AS_APK_URL, this.aUC);
+            intent.putExtra("MD5_RSA_as_apk", this.aUB.getAsApkMD5RSA());
         }
         if (z3 && this.mCombineDownload != null && URLUtil.isNetworkUrl(this.mCombineDownload.getAppUrl()) && !TextUtils.isEmpty(this.mCombineDownload.getApkMD5RSA())) {
             intent.putExtra(UpdateDialogConfig.KEY_OTHER_APK_URL, this.mCombineDownload.getAppUrl());
@@ -204,7 +204,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kj() {
+    public void Kd() {
         Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
         intent.setAction("action_stop");
         getPageContext().getPageActivity().startService(intent);
@@ -213,8 +213,8 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.aVP != null) {
-            this.aVP.c(getPageContext(), i);
+        if (this.aUD != null) {
+            this.aUD.c(getPageContext(), i);
         }
     }
 
@@ -226,11 +226,11 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
 
         @Override // com.baidu.tieba.e.a
         public void cn(boolean z) {
-            UpdateDialog.this.aVj = true;
+            UpdateDialog.this.aTX = true;
             UpdateDialog.this.e(true, false, z && g.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload));
             UpdateDialog.this.showToast(d.l.download_begin_tip);
-            if (!UpdateDialog.this.aVk) {
-                UpdateDialog.this.aVP.dismiss();
+            if (!UpdateDialog.this.aTY) {
+                UpdateDialog.this.aUD.dismiss();
                 UpdateDialog.this.finish();
             }
         }
@@ -238,13 +238,13 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         @Override // com.baidu.tieba.e.a
         public void co(boolean z) {
             boolean z2 = true;
-            if (UpdateDialog.this.Kk()) {
-                UpdateDialog.this.aVP.dismiss();
+            if (UpdateDialog.this.Ke()) {
+                UpdateDialog.this.aUD.dismiss();
                 UpdateDialog.this.finish();
                 return;
             }
             if (g.b(UpdateDialog.this.getPageContext().getPageActivity().getPackageManager())) {
-                g.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.aVN);
+                g.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.aUB);
                 UpdateDialog updateDialog = UpdateDialog.this;
                 if (!z || !g.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload)) {
                     z2 = false;
@@ -253,25 +253,25 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             } else {
                 UpdateDialog.this.e(false, true, z && g.a(UpdateDialog.this.getPageContext().getPageActivity(), UpdateDialog.this.mCombineDownload));
             }
-            if (!UpdateDialog.this.aVk) {
-                UpdateDialog.this.aVP.dismiss();
+            if (!UpdateDialog.this.aTY) {
+                UpdateDialog.this.aUD.dismiss();
                 UpdateDialog.this.finish();
             }
         }
 
         @Override // com.baidu.tieba.e.a
-        public void Kh() {
-            UpdateDialog.this.aVP.dismiss();
+        public void Kb() {
+            UpdateDialog.this.aUD.dismiss();
             UpdateDialog.this.finish();
         }
 
         @Override // com.baidu.tieba.e.a
         public void stopService() {
-            UpdateDialog.this.Kj();
+            UpdateDialog.this.Kd();
         }
 
         @Override // com.baidu.tieba.e.a
-        public void Kg() {
+        public void Ka() {
             UpdateDialog.this.finish();
         }
     }
@@ -284,23 +284,23 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            UpdateDialog.this.aVJ = intent.getBooleanExtra("action_background_downloading", false);
-            if (UpdateDialog.this.aVJ) {
+            UpdateDialog.this.aUx = intent.getBooleanExtra("action_background_downloading", false);
+            if (UpdateDialog.this.aUx) {
                 UpdateDialog.this.showToast(d.l.background_updating);
-                UpdateDialog.this.aVP.dismiss();
+                UpdateDialog.this.aUD.dismiss();
                 UpdateDialog.this.finish();
             } else if (intent.getBooleanExtra("action_update_complete", false)) {
-                UpdateDialog.this.aVP.dismiss();
+                UpdateDialog.this.aUD.dismiss();
                 UpdateDialog.this.finish();
             } else if (intent.getBooleanExtra("action_update_progress_interrupted", false)) {
-                UpdateDialog.this.aVP.dismiss();
+                UpdateDialog.this.aUD.dismiss();
                 UpdateDialog.this.showToast(UpdateDialog.this.getPageContext().getString(d.l.update_app_error));
                 UpdateDialog.this.finish();
-                UpdateDialog.this.Kj();
+                UpdateDialog.this.Kd();
             } else {
                 int intExtra = intent.getIntExtra("action_update_download_progress", 0);
-                if (UpdateDialog.this.aVP != null) {
-                    UpdateDialog.this.aVP.fN(intExtra);
+                if (UpdateDialog.this.aUD != null) {
+                    UpdateDialog.this.aUD.fL(intExtra);
                 }
             }
         }
@@ -312,25 +312,25 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean Kk() {
+    public boolean Ke() {
         boolean z;
-        File dv;
+        File dp;
         PackageInfo packageArchiveInfo;
-        if (this.aVN == null || StringUtils.isNull(this.aVN.getUrl()) || !URLUtil.isNetworkUrl(this.aVN.getUrl())) {
+        if (this.aUB == null || StringUtils.isNull(this.aUB.getUrl()) || !URLUtil.isNetworkUrl(this.aUB.getUrl())) {
             return false;
         }
         String str = getPageContext().getString(d.l.app_name) + TbadkCoreApplication.getInst().getVersionName() + ".apk";
-        String du = k.du(str);
-        if (du != null && (packageArchiveInfo = getPageContext().getPageActivity().getPackageManager().getPackageArchiveInfo(du, 1)) != null) {
+        String m9do = k.m9do(str);
+        if (m9do != null && (packageArchiveInfo = getPageContext().getPageActivity().getPackageManager().getPackageArchiveInfo(m9do, 1)) != null) {
             String str2 = packageArchiveInfo.versionName;
             if (!TextUtils.isEmpty(str2) && str2.compareTo(TbConfig.getVersion()) >= 0) {
                 z = true;
-                dv = k.dv(str);
-                if (dv == null && dv.exists() && z) {
+                dp = k.dp(str);
+                if (dp == null && dp.exists() && z) {
                     UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), str);
                     return true;
-                } else if (dv == null) {
-                    dv.delete();
+                } else if (dp == null) {
+                    dp.delete();
                     return false;
                 } else {
                     return false;
@@ -338,10 +338,10 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
         z = false;
-        dv = k.dv(str);
-        if (dv == null) {
+        dp = k.dp(str);
+        if (dp == null) {
         }
-        if (dv == null) {
+        if (dp == null) {
         }
     }
 }

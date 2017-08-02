@@ -1,181 +1,118 @@
 package com.baidu.tieba.frs.h;
 
-import android.text.Html;
-import android.view.LayoutInflater;
+import android.app.Activity;
+import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.data.z;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.d;
-import com.baidu.tieba.frs.e.c;
 /* loaded from: classes.dex */
-public class a extends d<bl, b> implements c {
-    public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
-    }
-
-    private View a(int i, View view, bl blVar, b bVar) {
-        String str;
-        String str2;
-        if (blVar == null || !(blVar instanceof z)) {
-            return null;
-        }
-        if (this.mSkinType == 1) {
-            ai.k(bVar.mRootView, d.e.cp_bg_line_d_1);
-            ai.k(bVar.cAG, d.e.cp_bg_line_c_1);
-            ai.i(bVar.cAJ, d.e.cp_cont_e);
-            ai.i(bVar.cAL, d.e.cp_cont_e);
-            ai.i(bVar.cAI, d.e.cp_cont_b);
-            ai.i(bVar.cAK, d.e.cp_cont_b);
-            str = "#4f93ef";
-        } else {
-            ai.k(bVar.mRootView, d.e.cp_bg_line_d);
-            ai.k(bVar.cAG, d.e.cp_bg_line_c);
-            ai.i(bVar.cAJ, d.e.common_color_10139);
-            ai.i(bVar.cAL, d.e.common_color_10139);
-            ai.i(bVar.cAI, d.e.cp_bg_line_k);
-            ai.i(bVar.cAK, d.e.cp_bg_line_k);
-            str = "#3385ff";
-        }
-        final z zVar = (z) blVar;
-        String str3 = zVar.WS;
-        if (!StringUtils.isNull(str3)) {
-            bVar.cAH.setVisibility(0);
-            bVar.bFM.setVisibility(8);
-            bVar.cAH.setIsRound(true);
-            bVar.cAH.setUserId(blVar.getAuthor().getUserId());
-            bVar.cAH.setImageDrawable(null);
-            bVar.cAH.c(str3, 10, false);
-        }
-        bVar.cAI.setText(zVar.userName);
-        bVar.cAJ.setText(zVar.tips);
-        if (StringUtils.isNull(zVar.type)) {
-            str2 = zVar.title;
-        } else {
-            str2 = "<font color='" + str + "'>" + zVar.type + "·</font>" + zVar.title;
-        }
-        bVar.cAK.setText(Html.fromHtml(str2));
-        bVar.cAL.setText(zVar.WT);
-        if (zVar.pics != null) {
-            int size = zVar.pics.size();
-            if (size == 1) {
-                bVar.cAR.setVisibility(0);
-                bVar.cAM.setVisibility(8);
-                bVar.cAN.setVisibility(8);
-                bVar.cAO.setVisibility(8);
-                bVar.cAP.setVisibility(8);
-                bVar.cAQ.setVisibility(8);
-                bVar.cAR.c(zVar.pics.get(0), 10, false);
-            } else if (size == 2) {
-                bVar.cAR.setVisibility(8);
-                bVar.cAM.setVisibility(8);
-                bVar.cAN.setVisibility(8);
-                bVar.cAO.setVisibility(8);
-                bVar.cAP.setVisibility(0);
-                bVar.cAQ.setVisibility(8);
-                bVar.cBb.c(zVar.pics.get(0), 10, false);
-                bVar.cBc.c(zVar.pics.get(1), 10, false);
-            } else if (size == 3) {
-                bVar.cAR.setVisibility(8);
-                bVar.cAM.setVisibility(0);
-                bVar.cAN.setVisibility(8);
-                bVar.cAO.setVisibility(8);
-                bVar.cAP.setVisibility(8);
-                bVar.cAQ.setVisibility(8);
-                bVar.cAS.c(zVar.pics.get(0), 10, false);
-                bVar.cAT.c(zVar.pics.get(1), 10, false);
-                bVar.cAU.c(zVar.pics.get(2), 10, false);
-            } else if (size == 4) {
-                bVar.cAR.setVisibility(8);
-                bVar.cAM.setVisibility(8);
-                bVar.cAN.setVisibility(8);
-                bVar.cAO.setVisibility(8);
-                bVar.cAP.setVisibility(0);
-                bVar.cAQ.setVisibility(0);
-                bVar.cBb.c(zVar.pics.get(0), 10, false);
-                bVar.cBc.c(zVar.pics.get(1), 10, false);
-                bVar.cBd.c(zVar.pics.get(2), 10, false);
-                bVar.cBe.c(zVar.pics.get(3), 10, false);
-            } else if (size == 5) {
-                bVar.cAR.setVisibility(8);
-                bVar.cAM.setVisibility(0);
-                bVar.cAN.setVisibility(8);
-                bVar.cAO.setVisibility(8);
-                bVar.cAP.setVisibility(0);
-                bVar.cAQ.setVisibility(8);
-                bVar.cBb.c(zVar.pics.get(0), 10, false);
-                bVar.cBc.c(zVar.pics.get(1), 10, false);
-                bVar.cAS.c(zVar.pics.get(2), 10, false);
-                bVar.cAT.c(zVar.pics.get(3), 10, false);
-                bVar.cAU.c(zVar.pics.get(4), 10, false);
-            } else if (size >= 6 && size < 9) {
-                bVar.cAR.setVisibility(8);
-                bVar.cAM.setVisibility(0);
-                bVar.cAN.setVisibility(0);
-                bVar.cAO.setVisibility(8);
-                bVar.cAP.setVisibility(8);
-                bVar.cAQ.setVisibility(8);
-                bVar.cAS.c(zVar.pics.get(0), 10, false);
-                bVar.cAT.c(zVar.pics.get(1), 10, false);
-                bVar.cAU.c(zVar.pics.get(2), 10, false);
-                bVar.cAV.c(zVar.pics.get(3), 10, false);
-                bVar.cAW.c(zVar.pics.get(4), 10, false);
-                bVar.cAX.c(zVar.pics.get(5), 10, false);
-            } else if (size >= 9) {
-                bVar.cAR.setVisibility(8);
-                bVar.cAM.setVisibility(0);
-                bVar.cAN.setVisibility(0);
-                bVar.cAO.setVisibility(0);
-                bVar.cAP.setVisibility(8);
-                bVar.cAQ.setVisibility(8);
-                bVar.cAS.c(zVar.pics.get(0), 10, false);
-                bVar.cAT.c(zVar.pics.get(1), 10, false);
-                bVar.cAU.c(zVar.pics.get(2), 10, false);
-                bVar.cAV.c(zVar.pics.get(3), 10, false);
-                bVar.cAW.c(zVar.pics.get(4), 10, false);
-                bVar.cAX.c(zVar.pics.get(5), 10, false);
-                bVar.cAY.c(zVar.pics.get(6), 10, false);
-                bVar.cAZ.c(zVar.pics.get(7), 10, false);
-                bVar.cBa.c(zVar.pics.get(8), 10, false);
+public class a implements View.OnClickListener {
+    private View akK;
+    private TbPageContext ako;
+    private boolean cvV;
+    private boolean cvW;
+    private PopupWindow cvX;
+    private int cvU = d.l.attention_post_update_tip;
+    private Handler mHandler = new Handler();
+    private Runnable cvY = new Runnable() { // from class: com.baidu.tieba.frs.h.a.1
+        @Override // java.lang.Runnable
+        public void run() {
+            if (a.this.ako != null && a.this.akK != null) {
+                Activity pageActivity = a.this.ako.getPageActivity();
+                int g = k.g(pageActivity, d.f.ds64);
+                View f = a.this.f(pageActivity, a.this.cvU);
+                int[] iArr = new int[2];
+                a.this.akK.getLocationInWindow(iArr);
+                int g2 = k.g(pageActivity, d.f.ds32);
+                int g3 = k.g(pageActivity, d.f.ds16) + (iArr[1] - g);
+                a.this.cvX = new PopupWindow(f, -2, g);
+                a.this.cvX.showAtLocation(a.this.akK, 53, g2, g3);
+                a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.h.a.1.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        if (a.this.cvX != null) {
+                            a.this.aiW();
+                        }
+                    }
+                }, 3000L);
             }
         }
-        bVar.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.h.a.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                String str4 = zVar.linkUrl;
-                if (!at.wf().a(a.this.alI, "", new String[]{str4}, false, null, true) && !at.wf().ej(str4)) {
-                    a.this.alI.showToast(d.l.pluginstatus_tip_unknown);
+    };
+
+    public a(TbPageContext tbPageContext, boolean z) {
+        this.ako = tbPageContext;
+        this.cvW = z;
+    }
+
+    public void ao(View view) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (this.ako != null && view != null && !StringUtils.isNull(currentAccount)) {
+            this.akK = view;
+            if (this.cvV) {
+                this.cvU = d.l.smart_frs_tip;
+                String str = "smart_frs_smart_sort_tip_show_counts_" + currentAccount;
+                int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str, 0);
+                if (i < 1) {
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str, i + 1);
+                    this.mHandler.postDelayed(this.cvY, 500L);
+                    return;
                 }
-                TiebaStatic.log(new aj("c11683").aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
             }
-        });
-        return view;
+            if (this.cvW) {
+                this.cvU = d.l.attention_post_update_tip;
+                String str2 = currentAccount + "frs_god_new_post_tip_count";
+                int i2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str2, 0);
+                if (i2 >= 3) {
+                    this.cvW = false;
+                    return;
+                }
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str2, i2 + 1);
+                this.cvW = false;
+                this.mHandler.postDelayed(this.cvY, 500L);
+            }
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ad */
-    public b onCreateViewHolder(ViewGroup viewGroup) {
-        return new b(this.alI, LayoutInflater.from(this.mContext).inflate(d.j.frs_wefan_item, (ViewGroup) null), this.mPageId);
+    /* JADX INFO: Access modifiers changed from: private */
+    public View f(Activity activity, int i) {
+        TextView textView = new TextView(activity);
+        int g = k.g(activity, d.f.ds20);
+        textView.setPadding(g, 0 - activity.getResources().getDimensionPixelSize(d.f.ds12), g, 0);
+        textView.setHeight(activity.getResources().getDimensionPixelSize(d.f.ds76));
+        textView.setGravity(17);
+        textView.setTextSize(0, k.g(activity, d.f.fontsize28));
+        textView.setText(i);
+        textView.setOnClickListener(this);
+        ai.j(textView, d.g.bg_tip_blue_left);
+        ai.i(textView, d.e.cp_cont_i);
+        textView.setOnClickListener(this);
+        return textView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.d, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bl blVar, b bVar) {
-        super.onFillViewHolder(i, view, viewGroup, blVar, bVar);
-        return a(i, view, blVar, bVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        aiW();
+    }
+
+    public void aiW() {
+        if (this.cvX != null) {
+            this.cvX.dismiss();
+            this.cvX = null;
+        }
+    }
+
+    public void cj(boolean z) {
+        this.cvV = z;
+    }
+
+    public void destory() {
+        this.mHandler.removeCallbacksAndMessages(null);
+        aiW();
     }
 }

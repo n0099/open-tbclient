@@ -3,12 +3,12 @@ package com.baidu.tbadk.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId aAk = BdUniqueId.gen();
+    public static final BdUniqueId ayT = BdUniqueId.gen();
     private int size;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return aAk;
+        return ayT;
     }
 
     public void setSize(int i) {

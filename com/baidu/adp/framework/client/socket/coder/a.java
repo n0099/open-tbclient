@@ -3,31 +3,31 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    public static byte ru = 4;
-    private static byte rv = Byte.MIN_VALUE;
-    private static byte rw = 64;
-    private static byte rx = 8;
-    private static byte ry = 4;
-    private int rC;
-    private int rD;
-    private boolean rz = false;
-    private boolean rA = false;
-    private boolean rB = false;
-    private boolean rE = false;
+    public static byte pR = 4;
+    private static byte pS = Byte.MIN_VALUE;
+    private static byte pT = 64;
+    private static byte pU = 8;
+    private static byte pV = 4;
+    private int pZ;
+    private int qa;
+    private boolean pW = false;
+    private boolean pX = false;
+    private boolean pY = false;
+    private boolean qb = false;
 
-    public static int dm() {
+    public static int db() {
         return 9;
     }
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr, boolean z3) {
-        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + dm());
-        byte b = z ? (byte) (rv | 0) : (byte) 0;
+        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + db());
+        byte b = z ? (byte) (pS | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | rw);
+            b = (byte) (b | pT);
         }
-        byte b2 = (byte) (b | rx);
+        byte b2 = (byte) (b | pU);
         if (z3) {
-            b2 = (byte) (b2 | ry);
+            b2 = (byte) (b2 | pV);
         }
         allocate.put(b2);
         allocate.putInt(i);
@@ -39,49 +39,48 @@ public class a {
         return allocate.array();
     }
 
-    public static a k(byte[] bArr) {
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, dm());
+    public static a h(byte[] bArr) {
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, db());
         a aVar = new a();
         byte b = wrap.get();
-        if ((rv & b) != 0) {
-            aVar.rz = true;
+        if ((pS & b) != 0) {
+            aVar.pW = true;
         }
-        if ((rw & b) != 0) {
-            aVar.rA = true;
+        if ((pT & b) != 0) {
+            aVar.pX = true;
         }
-        if ((rx & b) != 0) {
-            aVar.rB = true;
+        if ((pU & b) != 0) {
+            aVar.pY = true;
         }
-        if ((b & ry) != 0) {
-            aVar.rE = true;
+        if ((b & pV) != 0) {
+            aVar.qb = true;
         }
-        aVar.rC = wrap.getInt();
-        aVar.rD = wrap.getInt();
+        aVar.pZ = wrap.getInt();
+        aVar.qa = wrap.getInt();
         return aVar;
     }
 
-    public boolean dn() {
-        return this.rA;
+    public boolean dc() {
+        return this.pX;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public int m2do() {
-        return this.rC;
+    public int dd() {
+        return this.pZ;
     }
 
-    public boolean dp() {
-        return this.rz;
+    public boolean de() {
+        return this.pW;
     }
 
-    public int dq() {
-        return this.rD;
+    public int df() {
+        return this.qa;
     }
 
-    public boolean dr() {
-        return this.rB;
+    public boolean dg() {
+        return this.pY;
     }
 
-    public boolean ds() {
-        return this.rE;
+    public boolean dh() {
+        return this.qb;
     }
 }

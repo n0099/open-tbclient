@@ -12,96 +12,96 @@ import com.baidu.tieba.d;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class f {
-    private static c avp = null;
-    private static boolean avq = false;
-    private a avr;
-    private b avs;
-    private String avt = TbadkCoreApplication.getInst().getContext().getString(d.l.share_tail);
-    private String avu = TbadkCoreApplication.getInst().getContext().getString(d.l.weibo_share_tail) + this.avt;
+    private static c atY = null;
+    private static boolean atZ = false;
+    private a aua;
+    private b aub;
+    private String auc = TbadkCoreApplication.getInst().getContext().getString(d.l.share_tail);
+    private String aud = TbadkCoreApplication.getInst().getContext().getString(d.l.weibo_share_tail) + this.auc;
     private final Context mContext;
 
     public f(Context context, a aVar) {
-        this.avr = null;
-        this.avs = null;
+        this.aua = null;
+        this.aub = null;
         this.mContext = context;
         if (aVar != null) {
-            this.avr = aVar;
+            this.aua = aVar;
         }
-        aQ(this.mContext);
-        if (avp != null) {
-            this.avs = avp.createWorker(this.mContext, this.avr);
+        aP(this.mContext);
+        if (atY != null) {
+            this.aub = atY.createWorker(this.mContext, this.aua);
         }
     }
 
-    public static boolean aQ(Context context) {
+    public static boolean aP(Context context) {
         if (context == null) {
             return false;
         }
-        if (!avq) {
+        if (!atZ) {
             try {
-                avp = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
+                atY = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            avq = true;
+            atZ = true;
         }
-        return avp != null;
+        return atY != null;
     }
 
     public void c(e eVar) {
-        if (this.avs != null && eVar != null) {
-            if (!StringUtils.isNull(eVar.avj)) {
-                eVar.content = eVar.avj;
+        if (this.aub != null && eVar != null) {
+            if (!StringUtils.isNull(eVar.atS)) {
+                eVar.content = eVar.atS;
             }
-            eVar.content = b(eVar.content, 80, 20, this.avt);
-            this.avs.a(a(eVar, "weixin"), 3, false);
+            eVar.content = b(eVar.content, 80, 20, this.auc);
+            this.aub.a(a(eVar, "weixin"), 3, false);
         }
     }
 
     public void d(e eVar) {
-        if (this.avs != null && eVar != null) {
-            eVar.content = b(eVar.content, 80, 20, this.avt);
-            if (StringUtils.isNull(eVar.avk)) {
+        if (this.aub != null && eVar != null) {
+            eVar.content = b(eVar.content, 80, 20, this.auc);
+            if (StringUtils.isNull(eVar.atT)) {
                 eVar.title = eVar.content;
             } else {
-                eVar.title = eVar.avk;
+                eVar.title = eVar.atT;
             }
-            this.avs.a(a(eVar, "weixin_timeline"), 2, false);
+            this.aub.a(a(eVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void e(e eVar) {
-        if (this.avs != null && eVar != null) {
-            eVar.content = b(eVar.content, 80, 32, this.avt);
-            this.avs.a(a(eVar, "qqfriend"), 8, true);
+        if (this.aub != null && eVar != null) {
+            eVar.content = b(eVar.content, 80, 32, this.auc);
+            this.aub.a(a(eVar, "qqfriend"), 8, true);
         }
     }
 
     public void f(e eVar) {
-        if (this.avs != null) {
-            eVar.content = b(eVar.content, 80, 32, this.avt);
-            this.avs.a(a(eVar, "qzone"), 4, true);
+        if (this.aub != null) {
+            eVar.content = b(eVar.content, 80, 32, this.auc);
+            this.aub.a(a(eVar, "qzone"), 4, true);
         }
     }
 
     public void g(e eVar) {
-        if (this.avs != null) {
-            eVar.content = b(eVar.content, 140, 20, this.avt);
-            this.avs.a(a(eVar, "tencent_weibo"), 5, true);
+        if (this.aub != null) {
+            eVar.content = b(eVar.content, 140, 20, this.auc);
+            this.aub.a(a(eVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void h(e eVar) {
-        if (this.avs != null) {
-            eVar.content = b(eVar.content, 140, 20, this.avu);
-            this.avs.a(a(eVar, "sina_weibo"), 6, true);
+        if (this.aub != null) {
+            eVar.content = b(eVar.content, 140, 20, this.aud);
+            this.aub.a(a(eVar, "sina_weibo"), 6, true);
         }
     }
 
     public void i(e eVar) {
-        if (this.avs != null) {
-            eVar.content = b(eVar.content, 140, 20, this.avt);
-            this.avs.a(a(eVar, "renren"), 7, true);
+        if (this.aub != null) {
+            eVar.content = b(eVar.content, 140, 20, this.auc);
+            this.aub.a(a(eVar, "renren"), 7, true);
         }
     }
 
@@ -126,7 +126,7 @@ public class f {
         }
         if (eVar.imageUri != null && !eVar.imageUri.equals("")) {
             String uri = eVar.imageUri.toString();
-            if (!fe(uri)) {
+            if (!eY(uri)) {
                 eVar.imageUri = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
                 eVar.imageUri = Uri.parse(uri);
@@ -144,9 +144,9 @@ public class f {
         return str + "&" + str2;
     }
 
-    private boolean fe(String str) {
+    private boolean eY(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-        if (at.wf().ej(str)) {
+        if (at.vV().ed(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

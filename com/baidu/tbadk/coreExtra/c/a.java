@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private C0046a atv;
+    private C0046a asd;
     private com.baidu.adp.base.d mLoadDataCallBack;
 
     public a(com.baidu.adp.base.d dVar) {
@@ -33,18 +33,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.atv == null) {
-            this.atv = new C0046a();
-            this.atv.setPriority(2);
-            this.atv.bj(z);
-            this.atv.setPortrait(str);
-            this.atv.setToUid(str2);
-            this.atv.setIsGod(z2);
-            this.atv.setFrom(str3);
-            this.atv.setPageId(bdUniqueId);
-            this.atv.setForumId(str4);
-            this.atv.setInLive(str5);
-            this.atv.execute(new Integer[0]);
+        if (this.asd == null) {
+            this.asd = new C0046a();
+            this.asd.setPriority(2);
+            this.asd.bj(z);
+            this.asd.setPortrait(str);
+            this.asd.setToUid(str2);
+            this.asd.setIsGod(z2);
+            this.asd.setFrom(str3);
+            this.asd.setPageId(bdUniqueId);
+            this.asd.setForumId(str4);
+            this.asd.setInLive(str5);
+            this.asd.execute(new Integer[0]);
         }
     }
 
@@ -127,8 +127,8 @@ public class a {
                         this.mNetwork.n("forum_id", this.forumId);
                     }
                     this.mNetwork.n("in_live", this.inLive);
-                    this.mNetwork.vl().wh().mIsNeedTbs = true;
-                    return this.mNetwork.uO();
+                    this.mNetwork.vb().vX().mIsNeedTbs = true;
+                    return this.mNetwork.uE();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -141,10 +141,10 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0046a) str);
-            a.this.atv = null;
+            a.this.asd = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.Ea = this.mNetwork.vl().wi().isRequestSuccess();
+                aVar.CB = this.mNetwork.vb().vY().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
@@ -160,12 +160,12 @@ public class a {
         public void cancel() {
             super.cancel(true);
             if (this.mNetwork != null) {
-                this.mNetwork.fA();
+                this.mNetwork.fp();
                 this.mNetwork = null;
             }
-            if (a.this.atv != null) {
-                a.this.atv.cancel();
-                a.this.atv = null;
+            if (a.this.asd != null) {
+                a.this.asd.cancel();
+                a.this.asd = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.g(false);
@@ -174,8 +174,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.atv != null) {
-            this.atv.cancel();
+        if (this.asd != null) {
+            this.asd.cancel();
         }
     }
 }

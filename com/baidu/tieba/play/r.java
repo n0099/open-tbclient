@@ -6,64 +6,64 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class r {
-    private static h fAo = null;
-    private static boolean fAp = true;
-    private static boolean fAq = true;
+    private static h fzc = null;
+    private static boolean fzd = true;
+    private static boolean fze = true;
 
-    private static h bfV() {
-        if (fAo == null) {
-            fAp = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
+    private static h bfL() {
+        if (fzc == null) {
+            fzd = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("prefs_save_paled_video", true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, h.class);
             if (runTask != null) {
-                fAo = (h) runTask.getData();
+                fzc = (h) runTask.getData();
             }
         }
-        return fAo;
+        return fzc;
     }
 
-    public static String hx(String str) {
-        if (fAq && fAp && bfV() != null) {
-            return bfV().hx(str);
+    public static String hs(String str) {
+        if (fze && fzd && bfL() != null) {
+            return bfL().hs(str);
         }
         return str;
     }
 
-    public static String hy(String str) {
-        if (bfV() != null) {
-            return bfV().hy(str);
+    public static String ht(String str) {
+        if (bfL() != null) {
+            return bfL().ht(str);
         }
         return null;
     }
 
     public static void af(Context context, String str) {
-        if (bfV() != null) {
-            bfV().af(context, str);
+        if (bfL() != null) {
+            bfL().af(context, str);
         }
     }
 
     public static void ag(Context context, String str) {
-        if (fAq && fAp && bfV() != null) {
-            bfV().ag(context, str);
+        if (fze && fzd && bfL() != null) {
+            bfL().ag(context, str);
         }
     }
 
-    public static void hz(String str) {
-        if (fAq && fAp && bfV() != null) {
-            bfV().hz(str);
+    public static void hu(String str) {
+        if (fze && fzd && bfL() != null) {
+            bfL().hu(str);
         }
     }
 
-    public static void aZ(Context context) {
-        if (bfV() != null) {
-            bfV().aZ(context);
+    public static void aY(Context context) {
+        if (bfL() != null) {
+            bfL().aY(context);
         }
     }
 
     public static void lw(boolean z) {
-        fAp = z;
+        fzd = z;
     }
 
-    public static void bfW() {
-        fAq = com.baidu.adp.lib.b.d.fh().al("android_video_cache_open") == 1;
+    public static void bfM() {
+        fze = com.baidu.adp.lib.b.d.eW().af("android_video_cache_open") == 1;
     }
 }

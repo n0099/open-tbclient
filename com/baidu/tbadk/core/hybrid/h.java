@@ -4,7 +4,7 @@ import android.widget.Toast;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class h {
-    public static void cz(int i) {
+    public static void cx(int i) {
         String str = "";
         switch (i) {
             case 1:

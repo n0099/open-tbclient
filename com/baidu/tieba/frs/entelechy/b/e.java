@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes.dex */
 public interface e {
-    boolean afG();
+    boolean afB();
 
-    void ahc();
+    void agV();
 
-    void ahd();
+    void agW();
 
-    void ahe();
+    void agX();
 
-    boolean ahf();
+    boolean agY();
 
     void eF(boolean z);
 

@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.tab;
 public interface c {
     void F(float f);
 
-    void ajc();
+    void aiQ();
 
-    void lh();
+    void kX();
 }

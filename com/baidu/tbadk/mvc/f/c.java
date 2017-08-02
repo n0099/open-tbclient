@@ -19,38 +19,38 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends BaseAdapter implements l {
-    protected List<D> XD;
-    protected S aHQ;
-    protected final TbPageContext<?> aIF;
-    protected final ViewEventCenter aIG;
-    private j aII;
-    private FrameLayout aIJ;
-    private NoDataViewFactory.d aIK;
-    private NoDataViewFactory.c aIL;
-    private NoDataViewFactory.b aIM;
-    private FrameLayout.LayoutParams aIN;
-    protected final List<H> aID = new ArrayList();
-    protected final SparseArray<H> aIE = new SparseArray<>();
-    protected boolean aIH = true;
+    protected List<D> Wh;
+    protected S aGB;
+    protected final TbPageContext<?> aHq;
+    protected final ViewEventCenter aHr;
+    private j aHt;
+    private FrameLayout aHu;
+    private NoDataViewFactory.d aHv;
+    private NoDataViewFactory.c aHw;
+    private NoDataViewFactory.b aHx;
+    private FrameLayout.LayoutParams aHy;
+    protected final List<H> aHo = new ArrayList();
+    protected final SparseArray<H> aHp = new SparseArray<>();
+    protected boolean aHs = true;
 
     public c(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        this.aIF = tbPageContext;
-        this.aIG = viewEventCenter;
+        this.aHq = tbPageContext;
+        this.aHr = viewEventCenter;
     }
 
     public void C(List<D> list) {
         if (list != null) {
-            if (this.XD == null) {
-                this.XD = new ArrayList();
+            if (this.Wh == null) {
+                this.Wh = new ArrayList();
             }
-            this.XD.addAll(list);
+            this.Wh.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     public void C(D d) {
-        if (d != null && this.XD != null) {
-            this.XD.remove(d);
+        if (d != null && this.Wh != null) {
+            this.Wh.remove(d);
             notifyDataSetChanged();
         }
     }
@@ -62,55 +62,55 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
 
     public void D(D d) {
         H h;
-        if (d != null && this.XD != null && this.XD.contains(d) && (h = this.aIE.get(this.XD.indexOf(d))) != null) {
+        if (d != null && this.Wh != null && this.Wh.contains(d) && (h = this.aHp.get(this.Wh.indexOf(d))) != null) {
             h.E(d);
         }
     }
 
     protected void E(List<D> list) {
         if (list != null) {
-            if (this.XD == null) {
-                this.XD = new ArrayList();
+            if (this.Wh == null) {
+                this.Wh = new ArrayList();
             }
-            this.XD.clear();
-            this.XD.addAll(list);
-            this.aIE.clear();
+            this.Wh.clear();
+            this.Wh.addAll(list);
+            this.aHp.clear();
         }
     }
 
     public List<D> getDataList() {
-        return this.XD == null ? new ArrayList() : new ArrayList(this.XD);
+        return this.Wh == null ? new ArrayList() : new ArrayList(this.Wh);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.XD == null) {
+        if (this.Wh == null) {
             return 0;
         }
-        if (this.XD.size() == 0 && this.aIH) {
+        if (this.Wh.size() == 0 && this.aHs) {
             return 1;
         }
-        return this.XD.size();
+        return this.Wh.size();
     }
 
-    public int FJ() {
-        if (this.XD == null) {
+    public int FB() {
+        if (this.Wh == null) {
             return 0;
         }
-        return this.XD.size();
+        return this.Wh.size();
     }
 
     @Override // android.widget.Adapter
     public D getItem(int i) {
-        if (this.XD != null && this.XD.size() != 0 && i >= 0 && i < this.XD.size()) {
-            return this.XD.get(i);
+        if (this.Wh != null && this.Wh.size() != 0 && i >= 0 && i < this.Wh.size()) {
+            return this.Wh.get(i);
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.XD != null && this.XD.size() != 0 && i >= 0 && i < this.XD.size()) {
+        if (this.Wh != null && this.Wh.size() != 0 && i >= 0 && i < this.Wh.size()) {
             return i;
         }
         return 0L;
@@ -118,15 +118,15 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
 
     @Override // com.baidu.tieba.tbadkCore.l
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        int size = this.aID.size();
+        int size = this.aHo.size();
         for (int i2 = 0; i2 < size; i2++) {
-            H h = this.aID.get(i2);
+            H h = this.aHo.get(i2);
             if (h != null) {
                 h.b(tbPageContext, i);
             }
         }
-        if (this.aII != null) {
-            this.aII.onChangeSkinType(this.aIF, i);
+        if (this.aHt != null) {
+            this.aHt.onChangeSkinType(this.aHq, i);
             return true;
         }
         return true;
@@ -135,22 +135,22 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     /* JADX INFO: Access modifiers changed from: protected */
     public final View a(View view, int i, Class<?> cls, int i2) {
         H a = a(view, cls, i2);
-        if (this.aIE.indexOfValue(a) >= 0) {
-            this.aIE.remove(a.getPosition());
+        if (this.aHp.indexOfValue(a) >= 0) {
+            this.aHp.remove(a.getPosition());
         }
-        this.aIE.put(i, a);
+        this.aHp.put(i, a);
         a(a, i);
         return a.getRootView();
     }
 
     private final H a(View view, Class<?> cls, int i) {
         if (view == null || view.getTag() == null) {
-            View inflate = this.aIF.getPageActivity().getLayoutInflater().inflate(i, (ViewGroup) null);
+            View inflate = this.aHq.getPageActivity().getLayoutInflater().inflate(i, (ViewGroup) null);
             try {
-                H h = (H) cls.getConstructor(TbPageContext.class, View.class, ViewEventCenter.class).newInstance(this.aIF, inflate, this.aIG);
-                h.b(this.aIF, TbadkCoreApplication.getInst().getSkinType());
+                H h = (H) cls.getConstructor(TbPageContext.class, View.class, ViewEventCenter.class).newInstance(this.aHq, inflate, this.aHr);
+                h.b(this.aHq, TbadkCoreApplication.getInst().getSkinType());
                 inflate.setTag(h);
-                this.aID.add(h);
+                this.aHo.add(h);
                 return h;
             } catch (IllegalAccessException e) {
                 throw new RuntimeException(e);
@@ -173,56 +173,56 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
         D item = getItem(i);
         if (item != null) {
             h.position = i;
-            h.a(item, this.aHQ);
+            h.a(item, this.aGB);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void FK() {
-        if (this.aIJ != null && this.aII != null) {
-            this.aIJ.removeView(this.aII);
-            this.aII = null;
+    public void FC() {
+        if (this.aHu != null && this.aHt != null) {
+            this.aHu.removeView(this.aHt);
+            this.aHt = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View FL() {
-        if (this.aIJ == null) {
-            this.aIJ = new FrameLayout(this.aIF.getPageActivity());
+    public View FD() {
+        if (this.aHu == null) {
+            this.aHu = new FrameLayout(this.aHq.getPageActivity());
         }
-        if (this.aII == null) {
-            this.aII = NoDataViewFactory.a(this.aIF.getPageActivity(), this.aIJ, this.aIL, this.aIK, this.aIM);
+        if (this.aHt == null) {
+            this.aHt = NoDataViewFactory.a(this.aHq.getPageActivity(), this.aHu, this.aHw, this.aHv, this.aHx);
         }
-        this.aII.setVisibility(0);
-        if (this.aIN != null) {
-            this.aII.setLayoutParams(this.aIN);
+        this.aHt.setVisibility(0);
+        if (this.aHy != null) {
+            this.aHt.setLayoutParams(this.aHy);
         }
-        this.aIJ.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-        this.aII.onChangeSkinType(this.aIF, TbadkCoreApplication.getInst().getSkinType());
-        return this.aIJ;
+        this.aHu.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+        this.aHt.onChangeSkinType(this.aHq, TbadkCoreApplication.getInst().getSkinType());
+        return this.aHu;
     }
 
     public void a(NoDataViewFactory.c cVar, NoDataViewFactory.d dVar, NoDataViewFactory.b bVar, FrameLayout.LayoutParams layoutParams) {
-        this.aIL = cVar;
-        this.aIK = dVar;
-        this.aIM = bVar;
-        this.aIN = layoutParams;
-        if (this.aII != null) {
-            this.aII.setTextOption(dVar);
-            this.aII.setImgOption(cVar);
-            this.aII.setButtonOption(bVar);
+        this.aHw = cVar;
+        this.aHv = dVar;
+        this.aHx = bVar;
+        this.aHy = layoutParams;
+        if (this.aHt != null) {
+            this.aHt.setTextOption(dVar);
+            this.aHt.setImgOption(cVar);
+            this.aHt.setButtonOption(bVar);
             if (layoutParams != null) {
-                this.aII.setLayoutParams(layoutParams);
+                this.aHt.setLayoutParams(layoutParams);
             }
         }
     }
 
     public void bX(boolean z) {
-        this.aIH = z;
+        this.aHs = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean FM() {
-        return this.XD != null && this.XD.size() == 0;
+    public boolean FE() {
+        return this.Wh != null && this.Wh.size() == 0;
     }
 }

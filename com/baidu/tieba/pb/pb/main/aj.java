@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class aj extends l<com.baidu.tieba.pb.data.k, ak> {
-    private View.OnClickListener cLO;
+    private View.OnClickListener cKt;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public aj(PbActivity pbActivity, BdUniqueId bdUniqueId) {
@@ -34,20 +34,20 @@ public class aj extends l<com.baidu.tieba.pb.data.k, ak> {
         if (kVar != null && akVar != null) {
             switch (kVar.mType) {
                 case 0:
-                    akVar.eNL.setSelected(false);
-                    akVar.eNL.setClickable(false);
-                    akVar.eNL.setText(this.mContext.getString(d.l.god_reply));
-                    akVar.eub.setVisibility(8);
-                    akVar.eNM.setVisibility(8);
+                    akVar.eMy.setSelected(false);
+                    akVar.eMy.setClickable(false);
+                    akVar.eMy.setText(this.mContext.getString(d.l.god_reply));
+                    akVar.esJ.setVisibility(8);
+                    akVar.eMz.setVisibility(8);
                     break;
                 case 1:
-                    akVar.eNL.setClickable(true);
-                    akVar.eNL.setText(this.mContext.getString(d.l.all_reply));
-                    akVar.eub.setVisibility(0);
-                    akVar.eNM.setVisibility(0);
-                    akVar.jB(kVar.eEz);
-                    akVar.jA(kVar.aFV);
-                    akVar.H(this.cLO);
+                    akVar.eMy.setClickable(true);
+                    akVar.eMy.setText(this.mContext.getString(d.l.all_reply));
+                    akVar.esJ.setVisibility(0);
+                    akVar.eMz.setVisibility(0);
+                    akVar.jB(kVar.eDm);
+                    akVar.jA(kVar.aEF);
+                    akVar.H(this.cKt);
                     break;
             }
         }
@@ -58,14 +58,14 @@ public class aj extends l<com.baidu.tieba.pb.data.k, ak> {
     private void a(ak akVar) {
         if (akVar != null) {
             if (akVar.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-                com.baidu.tbadk.core.util.ai.c(akVar.eNL, d.e.cp_cont_d, 1);
-                com.baidu.tbadk.core.util.ai.k(akVar.cQR, d.e.cp_bg_line_c);
+                com.baidu.tbadk.core.util.ai.c(akVar.eMy, d.e.cp_cont_d, 1);
+                com.baidu.tbadk.core.util.ai.k(akVar.cPy, d.e.cp_bg_line_c);
             }
             akVar.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
     }
 
     public void setCommonClickListener(View.OnClickListener onClickListener) {
-        this.cLO = onClickListener;
+        this.cKt = onClickListener;
     }
 }

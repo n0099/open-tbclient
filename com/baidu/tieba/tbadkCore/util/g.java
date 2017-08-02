@@ -1,17 +1,17 @@
 package com.baidu.tieba.tbadkCore.util;
 /* loaded from: classes.dex */
 public class g {
-    private static boolean gks = false;
+    private static boolean gjh = false;
 
-    public static void btu() {
-        gks = true;
+    public static void btn() {
+        gjh = true;
     }
 
-    public static void btv() {
-        gks = false;
+    public static void bto() {
+        gjh = false;
     }
 
-    public static boolean btw() {
-        return gks;
+    public static boolean btp() {
+        return gjh;
     }
 }

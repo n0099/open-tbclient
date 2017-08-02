@@ -9,88 +9,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class a {
-    protected Bitmap Iq;
-    protected byte[] eRA;
-    protected byte[] eRB;
-    protected int eRC;
-    protected byte[] eRD;
-    protected int eRy;
+    protected Bitmap GR;
+    protected int eQl;
+    protected byte[] eQn;
+    protected byte[] eQo;
+    protected int eQp;
+    protected byte[] eQq;
     protected int height;
     protected OutputStream out;
     protected int width;
     protected int x = 0;
     protected int y = 0;
     protected int transparent = -1;
-    protected int eRz = -1;
+    protected int eQm = -1;
     protected int delay = 0;
     protected boolean started = false;
-    protected boolean[] eRE = new boolean[256];
-    protected int eRF = 7;
-    protected int eRG = -1;
-    protected boolean eRH = false;
-    protected boolean eRI = true;
-    protected boolean eRJ = false;
-    protected int eRK = 10;
+    protected boolean[] eQr = new boolean[256];
+    protected int eQs = 7;
+    protected int eQt = -1;
+    protected boolean eQu = false;
+    protected boolean eQv = true;
+    protected boolean eQw = false;
+    protected int eQx = 10;
 
-    public void pm(int i) {
+    public void pn(int i) {
         if (i >= 0) {
-            this.eRz = i;
+            this.eQm = i;
         }
     }
 
-    public boolean n(Bitmap bitmap) {
+    public boolean m(Bitmap bitmap) {
         if (bitmap == null || !this.started) {
             return false;
         }
         try {
-            if (!this.eRJ) {
+            if (!this.eQw) {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
-            this.Iq = bitmap;
-            aUf();
-            aUe();
-            if (this.eRI) {
-                aUi();
-                aUk();
-                if (this.eRz >= 0) {
-                    aUj();
+            this.GR = bitmap;
+            aTU();
+            aTT();
+            if (this.eQv) {
+                aTX();
+                aTZ();
+                if (this.eQm >= 0) {
+                    aTY();
                 }
             }
-            aUg();
-            aUh();
-            if (!this.eRI) {
-                aUk();
+            aTV();
+            aTW();
+            if (!this.eQv) {
+                aTZ();
             }
-            aUl();
-            this.eRI = false;
+            aUa();
+            this.eQv = false;
             return true;
         } catch (IOException e) {
             return false;
         }
     }
 
-    public boolean aUd() {
+    public boolean aTS() {
         boolean z;
         if (this.started) {
             this.started = false;
             try {
                 this.out.write(59);
                 this.out.flush();
-                if (this.eRH) {
+                if (this.eQu) {
                     this.out.close();
                 }
                 z = true;
             } catch (IOException e) {
                 z = false;
             }
-            this.eRy = 0;
+            this.eQl = 0;
             this.out = null;
-            this.Iq = null;
-            this.eRA = null;
-            this.eRB = null;
-            this.eRD = null;
-            this.eRH = false;
-            this.eRI = true;
+            this.GR = null;
+            this.eQn = null;
+            this.eQo = null;
+            this.eQq = null;
+            this.eQu = false;
+            this.eQv = true;
             return z;
         }
         return false;
@@ -105,15 +105,15 @@ public class a {
         if (this.height < 1) {
             this.height = 240;
         }
-        this.eRJ = true;
+        this.eQw = true;
     }
 
-    public boolean h(OutputStream outputStream) {
+    public boolean g(OutputStream outputStream) {
         if (outputStream == null) {
             return false;
         }
         boolean z = true;
-        this.eRH = false;
+        this.eQu = false;
         this.out = outputStream;
         try {
             writeString("GIF89a");
@@ -124,56 +124,56 @@ public class a {
         return z;
     }
 
-    protected void aUe() {
-        int length = this.eRA.length;
+    protected void aTT() {
+        int length = this.eQn.length;
         int i = length / 3;
-        this.eRB = new byte[i];
-        c cVar = new c(this.eRA, length, this.eRK);
-        this.eRD = cVar.aUr();
-        for (int i2 = 0; i2 < this.eRD.length; i2 += 3) {
-            byte b = this.eRD[i2];
-            this.eRD[i2] = this.eRD[i2 + 2];
-            this.eRD[i2 + 2] = b;
-            this.eRE[i2 / 3] = false;
+        this.eQo = new byte[i];
+        c cVar = new c(this.eQn, length, this.eQx);
+        this.eQq = cVar.aUg();
+        for (int i2 = 0; i2 < this.eQq.length; i2 += 3) {
+            byte b = this.eQq[i2];
+            this.eQq[i2] = this.eQq[i2 + 2];
+            this.eQq[i2 + 2] = b;
+            this.eQr[i2 / 3] = false;
         }
         int i3 = 0;
         for (int i4 = 0; i4 < i; i4++) {
             int i5 = i3 + 1;
             int i6 = i5 + 1;
             i3 = i6 + 1;
-            int L = cVar.L(this.eRA[i3] & 255, this.eRA[i5] & 255, this.eRA[i6] & 255);
-            this.eRE[L] = true;
-            this.eRB[i4] = (byte) L;
+            int L = cVar.L(this.eQn[i3] & 255, this.eQn[i5] & 255, this.eQn[i6] & 255);
+            this.eQr[L] = true;
+            this.eQo[i4] = (byte) L;
         }
-        this.eRA = null;
-        this.eRC = 8;
-        this.eRF = 7;
+        this.eQn = null;
+        this.eQp = 8;
+        this.eQs = 7;
         if (this.transparent != -1) {
-            this.eRy = pn(this.transparent);
+            this.eQl = po(this.transparent);
         }
     }
 
-    protected int pn(int i) {
+    protected int po(int i) {
         int i2;
         int i3 = 0;
-        if (this.eRD == null) {
+        if (this.eQq == null) {
             return -1;
         }
         int i4 = (i >> 16) & MotionEventCompat.ACTION_MASK;
         int i5 = (i >> 8) & MotionEventCompat.ACTION_MASK;
         int i6 = (i >> 0) & MotionEventCompat.ACTION_MASK;
         int i7 = ViewCompat.MEASURED_STATE_TOO_SMALL;
-        int length = this.eRD.length;
+        int length = this.eQq.length;
         int i8 = 0;
         while (i3 < length) {
             int i9 = i3 + 1;
-            int i10 = i4 - (this.eRD[i3] & 255);
+            int i10 = i4 - (this.eQq[i3] & 255);
             int i11 = i9 + 1;
-            int i12 = i5 - (this.eRD[i9] & 255);
-            int i13 = i6 - (this.eRD[i11] & 255);
+            int i12 = i5 - (this.eQq[i9] & 255);
+            int i13 = i6 - (this.eQq[i11] & 255);
             int i14 = (i10 * i10) + (i12 * i12) + (i13 * i13);
             int i15 = i11 / 3;
-            if (!this.eRE[i15] || i14 >= i7) {
+            if (!this.eQr[i15] || i14 >= i7) {
                 i14 = i7;
                 i2 = i8;
             } else {
@@ -186,27 +186,27 @@ public class a {
         return i8;
     }
 
-    protected void aUf() {
-        int width = this.Iq.getWidth();
-        int height = this.Iq.getHeight();
+    protected void aTU() {
+        int width = this.GR.getWidth();
+        int height = this.GR.getHeight();
         if (width != this.width || height != this.height) {
             Bitmap createBitmap = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.RGB_565);
-            new Canvas(createBitmap).drawBitmap(this.Iq, 0.0f, 0.0f, new Paint());
-            this.Iq = createBitmap;
+            new Canvas(createBitmap).drawBitmap(this.GR, 0.0f, 0.0f, new Paint());
+            this.GR = createBitmap;
         }
-        int[] o = o(this.Iq);
-        this.eRA = new byte[o.length * 3];
-        for (int i = 0; i < o.length; i++) {
-            int i2 = o[i];
+        int[] n = n(this.GR);
+        this.eQn = new byte[n.length * 3];
+        for (int i = 0; i < n.length; i++) {
+            int i2 = n[i];
             int i3 = i * 3;
             int i4 = i3 + 1;
-            this.eRA[i3] = (byte) ((i2 >> 0) & MotionEventCompat.ACTION_MASK);
-            this.eRA[i4] = (byte) ((i2 >> 8) & MotionEventCompat.ACTION_MASK);
-            this.eRA[i4 + 1] = (byte) ((i2 >> 16) & MotionEventCompat.ACTION_MASK);
+            this.eQn[i3] = (byte) ((i2 >> 0) & MotionEventCompat.ACTION_MASK);
+            this.eQn[i4] = (byte) ((i2 >> 8) & MotionEventCompat.ACTION_MASK);
+            this.eQn[i4 + 1] = (byte) ((i2 >> 16) & MotionEventCompat.ACTION_MASK);
         }
     }
 
-    protected int[] o(Bitmap bitmap) {
+    protected int[] n(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         int[] iArr = new int[width * height];
@@ -214,7 +214,7 @@ public class a {
         return iArr;
     }
 
-    protected void aUg() throws IOException {
+    protected void aTV() throws IOException {
         int i;
         int i2;
         this.out.write(33);
@@ -227,57 +227,57 @@ public class a {
             i = 1;
             i2 = 2;
         }
-        if (this.eRG >= 0) {
-            i2 = this.eRG & 7;
+        if (this.eQt >= 0) {
+            i2 = this.eQt & 7;
         }
         this.out.write((i2 << 2) | 0 | 0 | i);
         writeShort(this.delay);
-        this.out.write(this.eRy);
+        this.out.write(this.eQl);
         this.out.write(0);
     }
 
-    protected void aUh() throws IOException {
+    protected void aTW() throws IOException {
         this.out.write(44);
         writeShort(this.x);
         writeShort(this.y);
         writeShort(this.width);
         writeShort(this.height);
-        if (this.eRI) {
+        if (this.eQv) {
             this.out.write(0);
         } else {
-            this.out.write(this.eRF | 128);
+            this.out.write(this.eQs | 128);
         }
     }
 
-    protected void aUi() throws IOException {
+    protected void aTX() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
-        this.out.write(this.eRF | 240);
+        this.out.write(this.eQs | 240);
         this.out.write(0);
         this.out.write(0);
     }
 
-    protected void aUj() throws IOException {
+    protected void aTY() throws IOException {
         this.out.write(33);
         this.out.write(MotionEventCompat.ACTION_MASK);
         this.out.write(11);
         writeString("NETSCAPE2.0");
         this.out.write(3);
         this.out.write(1);
-        writeShort(this.eRz);
+        writeShort(this.eQm);
         this.out.write(0);
     }
 
-    protected void aUk() throws IOException {
-        this.out.write(this.eRD, 0, this.eRD.length);
-        int length = 768 - this.eRD.length;
+    protected void aTZ() throws IOException {
+        this.out.write(this.eQq, 0, this.eQq.length);
+        int length = 768 - this.eQq.length;
         for (int i = 0; i < length; i++) {
             this.out.write(0);
         }
     }
 
-    protected void aUl() throws IOException {
-        new b(this.width, this.height, this.eRB, this.eRC).encode(this.out);
+    protected void aUa() throws IOException {
+        new b(this.width, this.height, this.eQo, this.eQp).encode(this.out);
     }
 
     protected void writeShort(int i) throws IOException {

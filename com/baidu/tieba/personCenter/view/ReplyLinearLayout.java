@@ -23,10 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams ffe;
-    private boolean blJ;
-    private View.OnClickListener cfU;
-    private List<TextView> ffd;
+    private static ViewGroup.LayoutParams fdS;
+    private boolean bkz;
+    private View.OnClickListener ceO;
+    private List<TextView> fdR;
 
     public ReplyLinearLayout(Context context) {
         this(context, null);
@@ -34,18 +34,18 @@ public class ReplyLinearLayout extends LinearLayout {
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cfU = new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.ReplyLinearLayout.1
+        this.ceO = new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.ReplyLinearLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 boolean z;
                 String[] strArr = (String[]) view.getTag();
-                TiebaStatic.log(new aj("c12043").r("obj_type", ReplyLinearLayout.this.blJ ? 1 : 2));
+                TiebaStatic.log(new aj("c12043").r("obj_type", ReplyLinearLayout.this.bkz ? 1 : 2));
                 if (strArr != null) {
                     Context context2 = ReplyLinearLayout.this.getContext();
                     if (strArr.length < 6 || strArr[5] == null || b.g(strArr[5], 0) != 33) {
                         z = false;
                     } else if ("0".equals(strArr[3])) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, strArr[1]).pn()));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, strArr[1]).pd()));
                         z = true;
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(context2).createPhotoLiveCommentActivityConfig(strArr[1], strArr[2], false)));
@@ -61,24 +61,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.ffd = new ArrayList();
+        this.fdR = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (ffe == null) {
-            ffe = new LinearLayout.LayoutParams(-1, -2);
+        if (fdS == null) {
+            fdS = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.ffd.size();
+        int size2 = size - this.fdR.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.ffd.add(textView);
+            this.fdR.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.ffd.size(); i3++) {
-            TextView textView2 = this.ffd.get(i3);
+        for (int i3 = 0; i3 < this.fdR.size(); i3++) {
+            TextView textView2 = this.fdR.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -94,12 +94,12 @@ public class ReplyLinearLayout extends LinearLayout {
                     textView2.setText(charSequenceArr[4]);
                 }
                 textView2.setTag(charSequenceArr);
-                textView2.setOnClickListener(this.cfU);
+                textView2.setOnClickListener(this.ceO);
                 p(textView2, i3);
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(ffe);
+                    textView2.setLayoutParams(fdS);
                     ai.c(textView2, d.e.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
@@ -107,11 +107,11 @@ public class ReplyLinearLayout extends LinearLayout {
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(ffe);
+                    textView2.setLayoutParams(fdS);
                     ai.c(textView2, d.e.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(ffe);
+                    textView2.setLayoutParams(fdS);
                     ai.c(textView2, d.e.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
@@ -136,6 +136,6 @@ public class ReplyLinearLayout extends LinearLayout {
     }
 
     public void setIsHost(boolean z) {
-        this.blJ = z;
+        this.bkz = z;
     }
 }

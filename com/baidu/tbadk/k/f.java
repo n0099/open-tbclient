@@ -13,18 +13,18 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends a {
-    private ImageView aHh;
-    private String[] aHi;
-    private TextView aHj;
-    private final int aHk;
-    private TextView ayF;
+    private ImageView aFR;
+    private String[] aFS;
+    private TextView aFT;
+    private final int aFU;
+    private Runnable aFV;
+    private TextView axo;
     private int currentIndex;
-    private Runnable runnable;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int EN() {
+    public int EF() {
         this.currentIndex++;
-        if (this.currentIndex >= this.aHk) {
+        if (this.currentIndex >= this.aFU) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
@@ -37,88 +37,88 @@ public class f extends a {
     public f(Context context, int i) {
         super(LayoutInflater.from(context).inflate(d.j.loading_view_layout, (ViewGroup) null));
         this.currentIndex = 0;
-        this.runnable = new Runnable() { // from class: com.baidu.tbadk.k.f.1
+        this.aFV = new Runnable() { // from class: com.baidu.tbadk.k.f.1
             @Override // java.lang.Runnable
             public void run() {
-                f.this.ayF.setText(f.this.aHi[f.this.EN()]);
-                TbadkCoreApplication.getInst().handler.postDelayed(f.this.runnable, 200L);
+                f.this.axo.setText(f.this.aFS[f.this.EF()]);
+                TbadkCoreApplication.getInst().handler.postDelayed(f.this.aFV, 200L);
             }
         };
-        this.aHh = (ImageView) this.aHf.findViewById(d.h.loading_animate_view);
+        this.aFR = (ImageView) this.aFP.findViewById(d.h.loading_animate_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.aHh.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aFR.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.aHh.setLayoutParams(marginLayoutParams);
+                this.aFR.setLayoutParams(marginLayoutParams);
             }
         }
-        this.ayF = (TextView) this.aHf.findViewById(d.h.loading_anim_ellipsis);
-        this.aHj = (TextView) this.aHf.findViewById(d.h.loading_text);
-        this.aHi = context.getResources().getStringArray(d.b.loading_anim_text_array);
-        this.aHk = this.aHi.length;
+        this.axo = (TextView) this.aFP.findViewById(d.h.loading_anim_ellipsis);
+        this.aFT = (TextView) this.aFP.findViewById(d.h.loading_text);
+        this.aFS = context.getResources().getStringArray(d.b.loading_anim_text_array);
+        this.aFU = this.aFS.length;
     }
 
-    private void EO() {
-        if (this.aHh != null && (this.aHh.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.aHh.getBackground()).start();
+    private void EG() {
+        if (this.aFR != null && (this.aFR.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.aFR.getBackground()).start();
         }
     }
 
-    private void EP() {
-        if (this.aHh != null && (this.aHh.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.aHh.getBackground()).stop();
+    private void EH() {
+        if (this.aFR != null && (this.aFR.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.aFR.getBackground()).stop();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.k.a
-    public void EL() {
-        ai.j(this.aHh, d.g.loading_animation);
-        EO();
-        ai.c(this.ayF, d.e.cp_cont_c, 1);
-        ai.c(this.aHj, d.e.cp_cont_c, 1);
-        ai.k(this.aHf, d.e.cp_bg_line_d);
-        this.ayF.setText(this.aHi[0]);
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
-        TbadkCoreApplication.getInst().handler.postDelayed(this.runnable, 200L);
-        this.aHf.setClickable(true);
+    public void ED() {
+        ai.j(this.aFR, d.g.loading_animation);
+        EG();
+        ai.c(this.axo, d.e.cp_cont_c, 1);
+        ai.c(this.aFT, d.e.cp_cont_c, 1);
+        ai.k(this.aFP, d.e.cp_bg_line_d);
+        this.axo.setText(this.aFS[0]);
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.aFV);
+        TbadkCoreApplication.getInst().handler.postDelayed(this.aFV, 200L);
+        this.aFP.setClickable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.k.a
-    public void EM() {
+    public void EE() {
         release();
     }
 
     public void release() {
-        EP();
-        TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
-        this.aHh.setBackgroundResource(0);
+        EH();
+        TbadkCoreApplication.getInst().handler.removeCallbacks(this.aFV);
+        this.aFR.setBackgroundResource(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType() {
-        if (EK()) {
-            ai.j(this.aHh, d.g.loading_animation);
-            EO();
-            ai.c(this.ayF, d.e.cp_cont_c, 1);
-            ai.c(this.aHj, d.e.cp_cont_c, 1);
-            ai.k(this.aHf, d.e.cp_bg_line_d);
+        if (EC()) {
+            ai.j(this.aFR, d.g.loading_animation);
+            EG();
+            ai.c(this.axo, d.e.cp_cont_c, 1);
+            ai.c(this.aFT, d.e.cp_cont_c, 1);
+            ai.k(this.aFP, d.e.cp_bg_line_d);
         }
     }
 
-    public View EQ() {
-        return this.aHf;
+    public View EI() {
+        return this.aFP;
     }
 
     public void setTopMargin(int i) {
-        if (this.aHh != null) {
-            ViewGroup.LayoutParams layoutParams = this.aHh.getLayoutParams();
+        if (this.aFR != null) {
+            ViewGroup.LayoutParams layoutParams = this.aFR.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.aHh.setLayoutParams(marginLayoutParams);
+                this.aFR.setLayoutParams(marginLayoutParams);
             }
         }
     }

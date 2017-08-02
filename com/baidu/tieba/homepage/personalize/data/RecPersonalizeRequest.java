@@ -66,9 +66,9 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.sug_count = Integer.valueOf(this.suggestCount);
         builder.tag_code = 0;
-        builder.scr_w = Integer.valueOf(k.ag(TbadkCoreApplication.getInst()));
-        builder.scr_h = Integer.valueOf(k.ah(TbadkCoreApplication.getInst()));
-        builder.scr_dip = Double.valueOf(k.ai(TbadkCoreApplication.getInst()));
+        builder.scr_w = Integer.valueOf(k.af(TbadkCoreApplication.getInst()));
+        builder.scr_h = Integer.valueOf(k.ag(TbadkCoreApplication.getInst()));
+        builder.scr_dip = Double.valueOf(k.ah(TbadkCoreApplication.getInst()));
         builder.q_type = 1;
         if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("has_requested_new_user_guide", false)) {
             i = 0;

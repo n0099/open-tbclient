@@ -18,7 +18,7 @@ public class m extends com.baidu.tieba.frs.d<com.baidu.tieba.frs.p, com.baidu.ti
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: O */
     public com.baidu.tieba.frs.entelechy.view.p onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.frs.entelechy.view.p(LayoutInflater.from(this.mContext).inflate(d.j.frs_read_progress_item, viewGroup, false), this.alI.getPageActivity());
+        return new com.baidu.tieba.frs.entelechy.view.p(LayoutInflater.from(this.mContext).inflate(d.j.frs_read_progress_item, viewGroup, false), this.ako.getPageActivity());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

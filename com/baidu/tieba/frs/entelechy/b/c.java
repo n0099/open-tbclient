@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes.dex */
 public interface c {
-    boolean agW();
+    boolean agP();
 
-    void agX();
+    void agQ();
 
-    void agY();
+    void agR();
 
     void eQ(boolean z);
 

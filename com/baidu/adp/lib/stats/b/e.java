@@ -4,7 +4,7 @@ package com.baidu.adp.lib.stats.b;
 public class e extends com.baidu.adp.lib.stats.base.a {
     public e(i iVar) {
         super(iVar);
-        this.yR = 50;
-        this.yS = "pf";
+        this.xr = 50;
+        this.xs = "pf";
     }
 }

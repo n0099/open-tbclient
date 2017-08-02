@@ -11,98 +11,98 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends a {
-    protected TbImageView aHm;
-    protected TextView aHn;
-    protected TextView aHo;
-    protected TextView aHp;
+    protected TbImageView aFX;
+    protected TextView aFY;
+    protected TextView aFZ;
+    protected TextView aGa;
 
-    public TextView ER() {
-        return this.aHo;
+    public TextView EJ() {
+        return this.aFZ;
     }
 
-    public TextView ES() {
-        return this.aHp;
+    public TextView EK() {
+        return this.aGa;
     }
 
     public g(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(d.j.net_refresh_view_layout, (ViewGroup) null));
-        this.aHm = (TbImageView) this.aHf.findViewById(d.h.net_refresh_image);
-        this.aHn = (TextView) this.aHf.findViewById(d.h.net_refresh_desc);
-        this.aHo = (TextView) this.aHf.findViewById(d.h.net_refresh_title);
-        this.aHp = (TextView) this.aHf.findViewById(d.h.net_refresh_button);
-        this.aHp.setOnClickListener(onClickListener);
-        this.aHf.setOnClickListener(null);
+        this.aFX = (TbImageView) this.aFP.findViewById(d.h.net_refresh_image);
+        this.aFY = (TextView) this.aFP.findViewById(d.h.net_refresh_desc);
+        this.aFZ = (TextView) this.aFP.findViewById(d.h.net_refresh_title);
+        this.aGa = (TextView) this.aFP.findViewById(d.h.net_refresh_button);
+        this.aGa.setOnClickListener(onClickListener);
+        this.aFP.setOnClickListener(null);
     }
 
-    public void gv(String str) {
+    public void gq(String str) {
         if (str == null) {
-            this.aHn.setVisibility(8);
+            this.aFY.setVisibility(8);
             return;
         }
-        this.aHn.setVisibility(0);
-        this.aHn.setText(str);
+        this.aFY.setVisibility(0);
+        this.aFY.setText(str);
     }
 
     public void setTitle(String str) {
         if (str != null) {
-            this.aHo.setText(str);
+            this.aFZ.setText(str);
         }
     }
 
-    public void gw(String str) {
+    public void gr(String str) {
         if (str != null) {
-            this.aHp.setText(str);
+            this.aGa.setText(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.k.a
-    public void EL() {
-        super.EL();
+    public void ED() {
+        super.ED();
         onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.k.a
-    public void EM() {
-        super.EM();
-        this.aHm.setImageResource(0);
+    public void EE() {
+        super.EE();
+        this.aFX.setImageResource(0);
     }
 
-    public void eZ(int i) {
-        ViewGroup.LayoutParams layoutParams = this.aHm.getLayoutParams();
+    public void eX(int i) {
+        ViewGroup.LayoutParams layoutParams = this.aFX.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.aHm.setLayoutParams(marginLayoutParams);
+            this.aFX.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void ET() {
-        this.aHp.setVisibility(0);
-        this.aHo.setVisibility(0);
-        ai.c(this.aHn, d.e.cp_cont_d, 1);
+    public void EL() {
+        this.aGa.setVisibility(0);
+        this.aFZ.setVisibility(0);
+        ai.c(this.aFY, d.e.cp_cont_d, 1);
     }
 
-    public void EU() {
-        this.aHp.setVisibility(8);
-        this.aHo.setVisibility(8);
-        ai.c(this.aHn, d.e.cp_cont_b, 1);
+    public void EM() {
+        this.aGa.setVisibility(8);
+        this.aFZ.setVisibility(8);
+        ai.c(this.aFY, d.e.cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
-        if (EK()) {
+        if (EC()) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            ai.c(this.aHm, d.g.net_refresh_emotion);
-            ai.b(this.aHn, d.e.cp_cont_d, 1, skinType);
-            ai.b(this.aHo, d.e.cp_cont_b, 1, skinType);
-            ai.b(this.aHp, d.e.cp_cont_g, 1, skinType);
-            ai.d(this.aHp, d.g.btn_appdownload, skinType);
-            ai.k(this.aHf, d.e.cp_bg_line_d);
+            ai.c(this.aFX, d.g.net_refresh_emotion);
+            ai.b(this.aFY, d.e.cp_cont_d, 1, skinType);
+            ai.b(this.aFZ, d.e.cp_cont_b, 1, skinType);
+            ai.b(this.aGa, d.e.cp_cont_g, 1, skinType);
+            ai.d(this.aGa, d.g.btn_appdownload, skinType);
+            ai.k(this.aFP, d.e.cp_bg_line_d);
         }
     }
 
-    public View EQ() {
-        return this.aHf;
+    public View EI() {
+        return this.aFP;
     }
 }

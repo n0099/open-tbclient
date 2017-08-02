@@ -6,16 +6,16 @@ import com.baidu.tbadk.editortools.r;
 public class b extends r {
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.aCR = false;
-        this.aCQ = 3;
-        this.aCc = new a(context);
-        ((a) this.aCc).setCallFrom(str);
-        this.aCS = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 50};
+        this.aBA = false;
+        this.aBz = 3;
+        this.aAL = new a(context);
+        ((a) this.aAL).setCallFrom(str);
+        this.aBB = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 50};
     }
 
-    public void byB() {
-        if (this.aCc instanceof a) {
-            ((a) this.aCc).byB();
+    public void byu() {
+        if (this.aAL instanceof a) {
+            ((a) this.aAL).byu();
         }
     }
 }

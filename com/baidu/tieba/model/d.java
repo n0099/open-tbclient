@@ -24,43 +24,43 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] aKf;
+        String[] aJU;
         if (bVar == null) {
             return null;
         }
         try {
-            aKf = aKf();
+            aJU = aJU();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (aKf != null) {
+        if (aJU != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
-            arrayList.add(new BasicNameValuePair("clientip", aKg()));
-            arrayList.add(new BasicNameValuePair("cert_id", aKf[0]));
+            arrayList.add(new BasicNameValuePair("clientip", aJV()));
+            arrayList.add(new BasicNameValuePair("cert_id", aJU[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(SapiAccountManager.SESSION_BDUSS, bVar.mBduss);
-            jSONObject.put("ptoken", bVar.TM);
+            jSONObject.put("ptoken", bVar.Sp);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aKf[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aJU[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", d(arrayList, TbConfig.PassConfig.ENC_KEY)));
             w wVar = new w(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-            wVar.vl().wh().mIsNeedAddCommenParam = false;
-            wVar.vl().wh().mIsUseCurrentBDUSS = false;
+            wVar.vb().vX().mIsNeedAddCommenParam = false;
+            wVar.vb().vX().mIsUseCurrentBDUSS = false;
             wVar.k(arrayList);
-            wVar.vl().wh().wk().ajp = true;
-            wVar.vl().wh().wk().mIsBaiduServer = false;
-            String uO = wVar.uO();
-            if (wVar.vl().wi().isRequestSuccess() && !al.isEmpty(uO)) {
-                JSONObject jSONObject2 = new JSONObject(uO);
+            wVar.vb().vX().wa().ahW = true;
+            wVar.vb().vX().wa().mIsBaiduServer = false;
+            String uE = wVar.uE();
+            if (wVar.vb().vY().isRequestSuccess() && !al.isEmpty(uE)) {
+                JSONObject jSONObject2 = new JSONObject(uE);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     bVar2 = new a.b();
                     bVar2.mBduss = jSONObject2.optString(SapiAccountManager.SESSION_BDUSS);
-                    bVar2.TM = jSONObject2.optString("ptoken");
-                    bVar2.TO = jSONObject2.optString("uname");
+                    bVar2.Sp = jSONObject2.optString("ptoken");
+                    bVar2.Sq = jSONObject2.optString("uname");
                     return bVar2;
                 }
             }
@@ -70,20 +70,20 @@ public class d {
         return null;
     }
 
-    private static String[] aKf() {
+    private static String[] aJU() {
         try {
             w wVar = new w(TbConfig.PassConfig.GET_CERT_URL);
-            wVar.vl().wh().mIsNeedAddCommenParam = false;
-            wVar.vl().wh().mIsUseCurrentBDUSS = false;
-            JSONObject jSONObject = new JSONObject(new String(wVar.uf()));
+            wVar.vb().vX().mIsNeedAddCommenParam = false;
+            wVar.vb().vX().mIsUseCurrentBDUSS = false;
+            JSONObject jSONObject = new JSONObject(new String(wVar.tV()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
             return null;
         }
     }
 
-    private static String aKg() {
-        if (i.hs()) {
+    private static String aJV() {
+        if (i.hi()) {
             return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
         }
         return UtilHelper.getGprsIpAddress();
@@ -115,6 +115,6 @@ public class d {
             stringBuffer.append("&");
         }
         stringBuffer.append("sign_key=" + str);
-        return r.aV(stringBuffer.toString());
+        return r.aP(stringBuffer.toString());
     }
 }

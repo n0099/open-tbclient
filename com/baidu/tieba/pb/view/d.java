@@ -20,83 +20,83 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.view.b;
 /* loaded from: classes.dex */
 public class d {
-    private View.OnClickListener aYW;
-    private long caS;
-    private View eZA;
-    private ImageView eZC;
-    private int eZD;
-    private View eZE;
-    private e eZy;
-    private long eZz;
-    private boolean eZB = false;
-    private Runnable eZF = new Runnable() { // from class: com.baidu.tieba.pb.view.d.1
+    private View.OnClickListener aXL;
+    private long bZM;
+    private e eYm;
+    private long eYn;
+    private View eYo;
+    private ImageView eYq;
+    private int eYr;
+    private View eYs;
+    private boolean eYp = false;
+    private Runnable eYt = new Runnable() { // from class: com.baidu.tieba.pb.view.d.1
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.eZB && !d.this.eZy.app()) {
+            if (d.this.eYp && !d.this.eYm.apd()) {
                 Rect rect = new Rect();
-                d.this.eZA.getGlobalVisibleRect(rect);
+                d.this.eYo.getGlobalVisibleRect(rect);
                 Rect rect2 = new Rect();
-                d.this.eZy.getGlobalVisibleRect(rect2);
+                d.this.eYm.getGlobalVisibleRect(rect2);
                 int g = (rect.bottom - ((rect.bottom - rect.top) / 2)) - (rect2.bottom - k.g(TbadkCoreApplication.getInst(), d.f.ds112));
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) d.this.eZy.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) d.this.eYm.getLayoutParams();
                 layoutParams.setMargins(0, g + layoutParams.topMargin, 0, 0);
-                d.this.eZy.setLayoutParams(layoutParams);
-                FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(d.this.eZy.getWidth(), d.this.eZy.getHeight());
+                d.this.eYm.setLayoutParams(layoutParams);
+                FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(d.this.eYm.getWidth(), d.this.eYm.getHeight());
                 layoutParams2.setMargins(0, layoutParams.topMargin, 0, 0);
                 layoutParams2.gravity = 1;
-                d.this.eZE.setX(0.0f);
-                d.this.eZE.setY(0.0f);
-                d.this.eZE.setLayoutParams(layoutParams2);
-                d.this.eZE.invalidate();
-                d.this.eZy.setVisibility(0);
-                d.this.eZy.aWo();
-                d.this.eZz = System.currentTimeMillis();
+                d.this.eYs.setX(0.0f);
+                d.this.eYs.setY(0.0f);
+                d.this.eYs.setLayoutParams(layoutParams2);
+                d.this.eYs.invalidate();
+                d.this.eYm.setVisibility(0);
+                d.this.eYm.aWd();
+                d.this.eYn = System.currentTimeMillis();
             }
         }
     };
-    private Runnable eZG = new Runnable() { // from class: com.baidu.tieba.pb.view.d.2
+    private Runnable eYu = new Runnable() { // from class: com.baidu.tieba.pb.view.d.2
         @Override // java.lang.Runnable
         public void run() {
-            d.this.aWn();
+            d.this.aWc();
         }
     };
-    private ViewTreeObserver.OnGlobalLayoutListener eZH = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.pb.view.d.3
+    private ViewTreeObserver.OnGlobalLayoutListener eYv = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.pb.view.d.3
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            if (d.this.eZD == 2 && !d.this.eZy.app()) {
-                d.this.mHandler.removeCallbacks(d.this.eZG);
-                d.this.mHandler.postDelayed(d.this.eZG, 200L);
+            if (d.this.eYr == 2 && !d.this.eYm.apd()) {
+                d.this.mHandler.removeCallbacks(d.this.eYu);
+                d.this.mHandler.postDelayed(d.this.eYu, 200L);
             }
         }
     };
     private Handler mHandler = new Handler();
 
     public d(Context context, FrameLayout frameLayout) {
-        this.eZy = new e(context);
+        this.eYm = new e(context);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 1;
-        frameLayout.addView(this.eZy, layoutParams);
-        this.eZy.setClickable(true);
-        this.eZC = new ImageView(context);
+        frameLayout.addView(this.eYm, layoutParams);
+        this.eYm.setClickable(true);
+        this.eYq = new ImageView(context);
         ViewGroup.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
-        this.eZC.setLayoutParams(layoutParams2);
-        frameLayout.addView(this.eZC, layoutParams2);
-        this.eZC.setBackgroundResource(d.e.black_alpha60);
-        this.eZC.setVisibility(8);
-        this.eZE = new View(context);
-        frameLayout.addView(this.eZE, new FrameLayout.LayoutParams(k.g(context, d.f.ds112), k.g(context, d.f.ds112)));
-        this.eZE.setVisibility(8);
-        this.eZE.setClickable(true);
+        this.eYq.setLayoutParams(layoutParams2);
+        frameLayout.addView(this.eYq, layoutParams2);
+        this.eYq.setBackgroundResource(d.e.black_alpha60);
+        this.eYq.setVisibility(8);
+        this.eYs = new View(context);
+        frameLayout.addView(this.eYs, new FrameLayout.LayoutParams(k.g(context, d.f.ds112), k.g(context, d.f.ds112)));
+        this.eYs.setVisibility(8);
+        this.eYs.setClickable(true);
     }
 
-    public void oV(int i) {
-        this.eZD = i;
+    public void oW(int i) {
+        this.eYr = i;
         if (i == 2) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.view.d.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (d.this.eZy != null && d.this.eZy.getVisibility() == 0) {
-                        d.this.eZy.setVisibility(8);
+                    if (d.this.eYm != null && d.this.eYm.getVisibility() == 0) {
+                        d.this.eYm.setVisibility(8);
                     }
                 }
             }, 200L);
@@ -104,16 +104,16 @@ public class d {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aYW = onClickListener;
+        this.aXL = onClickListener;
     }
 
     public void setOnTouchListener(View.OnTouchListener onTouchListener) {
-        this.eZE.setOnTouchListener(onTouchListener);
-        this.eZC.setOnTouchListener(onTouchListener);
+        this.eYs.setOnTouchListener(onTouchListener);
+        this.eYq.setOnTouchListener(onTouchListener);
     }
 
     public void setAnchorView(View view) {
-        this.eZA = view;
+        this.eYo = view;
     }
 
     public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -122,53 +122,53 @@ public class d {
         int[] iArr3;
         int[] iArr4;
         int i = 3;
-        if (this.eZA == null) {
+        if (this.eYo == null) {
             return false;
         }
-        if (this.eZC.getVisibility() != 0) {
-            this.eZA.getLocationOnScreen(new int[2]);
+        if (this.eYq.getVisibility() != 0) {
+            this.eYo.getLocationOnScreen(new int[2]);
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.caS = System.currentTimeMillis();
-                    if (view == this.eZE) {
-                        this.eZB = true;
+                    this.bZM = System.currentTimeMillis();
+                    if (view == this.eYs) {
+                        this.eYp = true;
                     } else {
-                        this.eZy.getLocationOnScreen(new int[2]);
+                        this.eYm.getLocationOnScreen(new int[2]);
                         Rect rect = new Rect();
-                        this.eZA.getGlobalVisibleRect(rect);
+                        this.eYo.getGlobalVisibleRect(rect);
                         if (rect.contains((int) (motionEvent.getX() + iArr4[0]), (int) (iArr4[1] + motionEvent.getY()))) {
-                            this.eZB = true;
+                            this.eYp = true;
                         } else {
-                            this.eZB = false;
+                            this.eYp = false;
                         }
                     }
-                    if (this.eZB) {
-                        this.mHandler.postDelayed(this.eZF, 300L);
+                    if (this.eYp) {
+                        this.mHandler.postDelayed(this.eYt, 300L);
                         return true;
                     }
                     return false;
                 case 1:
                 case 3:
-                    if (System.currentTimeMillis() - this.caS <= 300 && motionEvent.getRawY() < iArr[1] + this.eZA.getHeight() + 30 && motionEvent.getRawY() > iArr[1] + 30) {
-                        this.mHandler.removeCallbacks(this.eZF);
-                        if (this.aYW != null) {
-                            this.aYW.onClick(this.eZA);
+                    if (System.currentTimeMillis() - this.bZM <= 300 && motionEvent.getRawY() < iArr[1] + this.eYo.getHeight() + 30 && motionEvent.getRawY() > iArr[1] + 30) {
+                        this.mHandler.removeCallbacks(this.eYt);
+                        if (this.aXL != null) {
+                            this.aXL.onClick(this.eYo);
                             return true;
                         }
                         return true;
-                    } else if (this.eZB || this.eZy.app()) {
-                        if (this.eZy.app()) {
-                            this.eZy.getLocationOnScreen(new int[2]);
-                            int bg = this.eZy.bg((int) (motionEvent.getX() + iArr2[0]), (int) (iArr2[1] + motionEvent.getY()));
-                            this.eZy.aWo();
-                            if (bg != -1) {
-                                if (bg == 1) {
-                                    pL(1);
+                    } else if (this.eYp || this.eYm.apd()) {
+                        if (this.eYm.apd()) {
+                            this.eYm.getLocationOnScreen(new int[2]);
+                            int bf = this.eYm.bf((int) (motionEvent.getX() + iArr2[0]), (int) (iArr2[1] + motionEvent.getY()));
+                            this.eYm.aWd();
+                            if (bf != -1) {
+                                if (bf == 1) {
+                                    pM(1);
                                     i = 1;
-                                } else if (bg != 3) {
-                                    if (bg == 4) {
+                                } else if (bf != 3) {
+                                    if (bf == 4) {
                                         i = 4;
-                                        pL(4);
+                                        pM(4);
                                     } else {
                                         i = 2;
                                     }
@@ -181,31 +181,31 @@ public class d {
                             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.view.d.5
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    d.this.aWn();
-                                    d.this.eZy.aWq();
-                                    d.this.eZy.setVisibility(8);
+                                    d.this.aWc();
+                                    d.this.eYm.aWf();
+                                    d.this.eYm.setVisibility(8);
                                 }
                             }, 700L);
                         }
-                        this.eZB = false;
+                        this.eYp = false;
                         return true;
                     } else {
                         return false;
                     }
                 case 2:
-                    if (this.eZB) {
+                    if (this.eYp) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        if (currentTimeMillis - this.caS > 300) {
+                        if (currentTimeMillis - this.bZM > 300) {
                             if (motionEvent.getY() > iArr[1] + 30) {
-                                this.mHandler.removeCallbacks(this.eZF);
+                                this.mHandler.removeCallbacks(this.eYt);
                                 return true;
                             }
-                            if (!this.eZy.app()) {
-                                this.eZF.run();
+                            if (!this.eYm.apd()) {
+                                this.eYt.run();
                             }
-                            if (currentTimeMillis - this.eZz > 800) {
-                                this.eZy.getLocationOnScreen(new int[2]);
-                                this.eZy.bf((int) (iArr3[0] + motionEvent.getX()), (int) (iArr3[1] + motionEvent.getY()));
+                            if (currentTimeMillis - this.eYn > 800) {
+                                this.eYm.getLocationOnScreen(new int[2]);
+                                this.eYm.be((int) (iArr3[0] + motionEvent.getX()), (int) (iArr3[1] + motionEvent.getY()));
                                 return true;
                             }
                             return true;
@@ -220,33 +220,33 @@ public class d {
         return true;
     }
 
-    private void pL(final int i) {
+    private void pM(final int i) {
         if (TbadkCoreApplication.isLogin()) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.view.d.6
                 @Override // java.lang.Runnable
                 public void run() {
                     int i2 = 0;
-                    d.this.eZC.setVisibility(0);
+                    d.this.eYq.setVisibility(0);
                     if (i == 1) {
-                        d.this.eZC.setPadding(0, 0, 0, k.g(d.this.eZC.getContext(), d.f.ds70));
+                        d.this.eYq.setPadding(0, 0, 0, k.g(d.this.eYq.getContext(), d.f.ds70));
                         i2 = d.b.full_screen_big_praise;
                     } else if (i == 4) {
-                        d.this.eZC.setPadding(0, 0, 0, 0);
+                        d.this.eYq.setPadding(0, 0, 0, 0);
                         i2 = d.b.full_screen_big_trample;
                     }
-                    d.this.eZC.invalidate();
-                    com.baidu.tieba.pb.pb.main.view.b b = com.baidu.tieba.pb.pb.main.view.b.b(d.this.eZC, i2, 20, 1);
+                    d.this.eYq.invalidate();
+                    com.baidu.tieba.pb.pb.main.view.b b = com.baidu.tieba.pb.pb.main.view.b.b(d.this.eYq, i2, 20, 1);
                     b.a(new b.a() { // from class: com.baidu.tieba.pb.view.d.6.1
                         @Override // com.baidu.tieba.pb.pb.main.view.b.a
-                        public void aUC() {
-                            d.this.eZC.setVisibility(8);
-                            if (d.this.eZC.getTag() != null) {
-                                ((com.baidu.tieba.pb.pb.main.view.b) d.this.eZC.getTag()).stop();
+                        public void aUr() {
+                            d.this.eYq.setVisibility(8);
+                            if (d.this.eYq.getTag() != null) {
+                                ((com.baidu.tieba.pb.pb.main.view.b) d.this.eYq.getTag()).stop();
                             }
-                            d.this.eZC.setTag(null);
+                            d.this.eYq.setTag(null);
                         }
                     });
-                    d.this.eZC.setTag(b);
+                    d.this.eYq.setTag(b);
                     b.start();
                 }
             }, 200L);
@@ -254,33 +254,33 @@ public class d {
     }
 
     public void cg(boolean z) {
-        if (this.eZy != null && this.eZA != null) {
+        if (this.eYm != null && this.eYo != null) {
             if (z) {
                 Rect rect = new Rect();
-                this.eZA.getGlobalVisibleRect(rect);
+                this.eYo.getGlobalVisibleRect(rect);
                 if (rect.top > 0) {
-                    this.eZA.getViewTreeObserver().addOnGlobalLayoutListener(this.eZH);
-                    this.eZE.setVisibility(0);
+                    this.eYo.getViewTreeObserver().addOnGlobalLayoutListener(this.eYv);
+                    this.eYs.setVisibility(0);
                     return;
                 }
-                this.eZA.getViewTreeObserver().removeGlobalOnLayoutListener(this.eZH);
-                this.eZE.setVisibility(8);
+                this.eYo.getViewTreeObserver().removeGlobalOnLayoutListener(this.eYv);
+                this.eYs.setVisibility(8);
                 return;
             }
-            this.eZA.getViewTreeObserver().removeGlobalOnLayoutListener(this.eZH);
-            this.eZE.setVisibility(8);
+            this.eYo.getViewTreeObserver().removeGlobalOnLayoutListener(this.eYv);
+            this.eYs.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWn() {
-        if (!this.eZy.app()) {
+    public void aWc() {
+        if (!this.eYm.apd()) {
             int[] iArr = new int[2];
-            this.eZA.getLocationOnScreen(iArr);
-            this.eZE.setLayoutParams(new FrameLayout.LayoutParams(k.g(this.eZE.getContext(), d.f.ds112), k.g(this.eZE.getContext(), d.f.ds112)));
-            this.eZE.setX(iArr[0]);
-            this.eZE.setY(iArr[1]);
-            this.eZE.invalidate();
+            this.eYo.getLocationOnScreen(iArr);
+            this.eYs.setLayoutParams(new FrameLayout.LayoutParams(k.g(this.eYs.getContext(), d.f.ds112), k.g(this.eYs.getContext(), d.f.ds112)));
+            this.eYs.setX(iArr[0]);
+            this.eYs.setY(iArr[1]);
+            this.eYs.invalidate();
         }
     }
 }

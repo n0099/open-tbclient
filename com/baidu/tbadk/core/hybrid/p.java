@@ -4,8 +4,8 @@ import android.content.Context;
 import android.webkit.WebView;
 /* loaded from: classes.dex */
 public abstract class p {
-    protected final WebView adZ;
-    protected final b aea;
+    protected final WebView acC;
+    protected final b acD;
 
     public abstract void a(q qVar);
 
@@ -13,15 +13,15 @@ public abstract class p {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public p(WebView webView, b bVar) {
-        this.adZ = webView;
-        this.aea = bVar;
+        this.acC = webView;
+        this.acD = bVar;
     }
 
     public final Context getContext() {
-        return this.adZ.getContext();
+        return this.acC.getContext();
     }
 
     public final void a(t tVar) {
-        a(tVar.oh(), tVar);
+        a(tVar.nX(), tVar);
     }
 }

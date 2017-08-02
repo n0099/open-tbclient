@@ -10,28 +10,28 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class i {
-    private BaseActivity bmv;
-    private PbModel eGz;
-    private a eJP = null;
-    private final HttpMessageListener eJQ = new HttpMessageListener(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD) { // from class: com.baidu.tieba.pb.pb.main.i.1
+    private BaseActivity bll;
+    private PbModel eFm;
+    private a eIC = null;
+    private final HttpMessageListener eID = new HttpMessageListener(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD) { // from class: com.baidu.tieba.pb.pb.main.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001803 && i.this.eJP != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001803 && i.this.eIC != null) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 String errorString = httpResponsedMessage.getErrorString();
                 if (!(httpResponsedMessage instanceof HideChudianPostResponseMessage)) {
-                    i.this.eJP.onError(error, errorString);
+                    i.this.eIC.onError(error, errorString);
                     return;
                 }
                 HideChudianPostResponseMessage hideChudianPostResponseMessage = (HideChudianPostResponseMessage) httpResponsedMessage;
                 if (statusCode != 200 || error != 0) {
-                    i.this.eJP.onError(error, errorString);
+                    i.this.eIC.onError(error, errorString);
                     return;
                 }
                 hideChudianPostResponseMessage.getResultFlag();
-                i.this.eJP.i(hideChudianPostResponseMessage.getResultFlag(), hideChudianPostResponseMessage.getTemplateId());
+                i.this.eIC.i(hideChudianPostResponseMessage.getResultFlag(), hideChudianPostResponseMessage.getTemplateId());
             }
         }
     };
@@ -44,17 +44,17 @@ public class i {
     }
 
     public i(PbModel pbModel, BaseActivity baseActivity) {
-        this.eGz = pbModel;
-        this.bmv = baseActivity;
-        aRn();
-        this.bmv.registerListener(this.eJQ);
+        this.eFm = pbModel;
+        this.bll = baseActivity;
+        aRc();
+        this.bll.registerListener(this.eID);
     }
 
     public void a(a aVar) {
-        this.eJP = aVar;
+        this.eIC = aVar;
     }
 
-    public void aRn() {
+    public void aRc() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/b/commit/tpointhide");
         tbHttpMessageTask.setIsNeedTbs(true);

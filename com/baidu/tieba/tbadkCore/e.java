@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.widget.ListView.f {
-    private int eEr;
-    private String ead;
+    private String dYM;
+    private int eDe;
     private String icon;
     private String obj_id;
     private int time;
@@ -14,12 +14,12 @@ public class e implements com.baidu.adp.widget.ListView.f {
     private String url;
     private int weight;
 
-    public int aPK() {
-        return this.eEr;
+    public int aPz() {
+        return this.eDe;
     }
 
-    public void sT(int i) {
-        this.eEr = i;
+    public void sU(int i) {
+        this.eDe = i;
     }
 
     public String getIcon() {
@@ -30,7 +30,7 @@ public class e implements com.baidu.adp.widget.ListView.f {
         this.icon = str;
     }
 
-    public void sU(int i) {
+    public void sV(int i) {
         this.weight = i;
     }
 
@@ -42,7 +42,7 @@ public class e implements com.baidu.adp.widget.ListView.f {
         this.title = str;
     }
 
-    public void sV(int i) {
+    public void sW(int i) {
         this.type = i;
     }
 
@@ -58,24 +58,24 @@ public class e implements com.baidu.adp.widget.ListView.f {
         this.time = i;
     }
 
-    public String bqv() {
+    public String bqo() {
         return this.obj_id;
     }
 
-    public String aGw() {
-        return this.ead;
+    public String aGl() {
+        return this.dYM;
     }
 
     public void a(StarEnter starEnter) {
         setIcon(starEnter.icon);
         setTime(starEnter.time.intValue());
         setTitle(starEnter.title);
-        sV(starEnter.type.intValue());
+        sW(starEnter.type.intValue());
         setUrl(starEnter.url);
-        sU(starEnter.weight.intValue());
-        sT(starEnter.rank_num.intValue());
+        sV(starEnter.weight.intValue());
+        sU(starEnter.rank_num.intValue());
         this.obj_id = starEnter.obj_id;
-        this.ead = starEnter.text;
+        this.dYM = starEnter.text;
     }
 
     @Override // com.baidu.adp.widget.ListView.f

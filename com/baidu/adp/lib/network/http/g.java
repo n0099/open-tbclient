@@ -5,28 +5,28 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
-    public Map<String, List<String>> xu;
-    public byte[] xv;
-    public int xw;
-    public volatile boolean xs = false;
+    public Map<String, List<String>> vS;
+    public byte[] vT;
+    public int vU;
+    public volatile boolean vQ = false;
     public int responseCode = -1;
-    public int xt = -1;
+    public int vR = -1;
     public String contentEncoding = "";
     public String contentType = "";
     public String contentLength = "";
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void g(HttpURLConnection httpURLConnection) throws Exception {
+    public void f(HttpURLConnection httpURLConnection) throws Exception {
         if (httpURLConnection != null) {
             this.responseCode = httpURLConnection.getResponseCode();
             this.contentEncoding = httpURLConnection.getContentEncoding();
             this.contentType = httpURLConnection.getContentType();
             this.contentLength = httpURLConnection.getContentLength() + "";
-            this.xu = httpURLConnection.getHeaderFields();
+            this.vS = httpURLConnection.getHeaderFields();
         }
     }
 
-    public boolean fQ() {
+    public boolean fF() {
         return this.responseCode == 200;
     }
 }

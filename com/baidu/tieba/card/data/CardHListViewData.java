@@ -29,7 +29,7 @@ public class CardHListViewData extends b implements Serializable {
 
     public void parseProtobuf(GuessLikeStruct guessLikeStruct) {
         if (guessLikeStruct != null && u.u(guessLikeStruct.thread_list) >= 3) {
-            this.title = al.ea(guessLikeStruct.title);
+            this.title = al.dU(guessLikeStruct.title);
             List<GuessLikeThreadInfo> list = guessLikeStruct.thread_list;
             if (u.u(list) > 9) {
                 list = u.a(list, 0, 9);
@@ -37,7 +37,7 @@ public class CardHListViewData extends b implements Serializable {
             if (!u.v(list)) {
                 this.mList.clear();
                 for (GuessLikeThreadInfo guessLikeThreadInfo : list) {
-                    if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !al.aP(guessLikeThreadInfo.recom_cover) && !al.aP(guessLikeThreadInfo.title)) {
+                    if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !al.aJ(guessLikeThreadInfo.recom_cover) && !al.aJ(guessLikeThreadInfo.title)) {
                         CardHListViewNormalItemData cardHListViewNormalItemData = new CardHListViewNormalItemData();
                         cardHListViewNormalItemData.parseProtobuf(guessLikeThreadInfo);
                         this.mList.add(cardHListViewNormalItemData);

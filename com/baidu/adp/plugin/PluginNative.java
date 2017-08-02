@@ -18,6 +18,6 @@ public class PluginNative {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = g.hd().i(PLUGIN_NATIVE_HOOK_LIB, 2);
+        bLoadLibrary = g.gT().i(PLUGIN_NATIVE_HOOK_LIB, 2);
     }
 }

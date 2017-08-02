@@ -84,11 +84,11 @@ public class TbLaunchStatic {
                         Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                         while (it.hasNext()) {
                             Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                            TextView I = dVar.I(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
+                            TextView H = dVar.H(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
                             if (data.isInsertBack) {
-                                dVar.a(I, dVar.AY(), (View.OnClickListener) ((Pair) next.second).second);
+                                dVar.a(H, dVar.AQ(), (View.OnClickListener) ((Pair) next.second).second);
                             } else {
-                                dVar.a(I, (View.OnClickListener) ((Pair) next.second).second);
+                                dVar.a(H, (View.OnClickListener) ((Pair) next.second).second);
                             }
                         }
                     }
@@ -110,7 +110,7 @@ public class TbLaunchStatic {
                     long j = b.getInstance().getLong("clear_redundance_files_time", 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - j > 86400000) {
-                        PluginPackageManager.jE().jU();
+                        PluginPackageManager.ju().jK();
                         b.getInstance().putLong("clear_redundance_files_time", currentTimeMillis);
                     }
                 }

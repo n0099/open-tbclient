@@ -30,19 +30,19 @@ public class b extends com.baidu.adp.widget.ListView.a<h, com.baidu.tieba.person
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, h hVar, com.baidu.tieba.personCenter.d.a aVar) {
         if (hVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.aql != skinType) {
-                aVar.aql = skinType;
-                ai.j(aVar.bGC, hVar.fdU);
+            if (aVar.aoR != skinType) {
+                aVar.aoR = skinType;
+                ai.j(aVar.bFs, hVar.fcI);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.bGC.getLayoutParams();
-            if (hVar.faE > 0) {
-                layoutParams.height = hVar.faE;
+            ViewGroup.LayoutParams layoutParams = aVar.bFs.getLayoutParams();
+            if (hVar.eZs > 0) {
+                layoutParams.height = hVar.eZs;
             }
-            if (hVar.faD > 0) {
-                layoutParams.width = hVar.faD;
+            if (hVar.eZr > 0) {
+                layoutParams.width = hVar.eZr;
             }
-            aVar.bGC.setLayoutParams(layoutParams);
-            aVar.bGC.setOnClickListener(null);
+            aVar.bFs.setLayoutParams(layoutParams);
+            aVar.bFs.setOnClickListener(null);
         }
         return view;
     }

@@ -3,38 +3,38 @@ package com.baidu.tbadk.core.util.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class e extends a {
-    private boolean ajJ;
-    private boolean ajK;
-    private boolean ajL;
-    private int ajN;
-    private int ajO;
+    private boolean aiq;
+    private boolean air;
+    private boolean ais;
+    private int aiu;
+    private int aiv;
     private int procType;
 
     public e(boolean z, boolean z2, boolean z3, int i) {
-        this.ajJ = true;
-        this.ajK = false;
-        this.ajL = false;
+        this.aiq = true;
+        this.air = false;
+        this.ais = false;
         this.procType = 0;
-        this.ajN = 0;
-        this.ajO = 0;
-        this.ajJ = z;
-        this.ajK = z2;
-        this.ajL = z3;
+        this.aiu = 0;
+        this.aiv = 0;
+        this.aiq = z;
+        this.air = z2;
+        this.ais = z3;
         this.procType = i;
-        int ag = com.baidu.adp.lib.util.k.ag(TbadkCoreApplication.getInst().getApp());
-        this.ajN = ag <= 0 ? 200 : ag;
-        if (this.ajN > 480) {
-            this.ajN = 480;
+        int af = com.baidu.adp.lib.util.k.af(TbadkCoreApplication.getInst().getApp());
+        this.aiu = af <= 0 ? 200 : af;
+        if (this.aiu > 480) {
+            this.aiu = 480;
         }
-        if (this.ajN > com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.getInst().getApp(), 320.0f)) {
-            this.ajN = com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.getInst().getApp(), 320.0f);
+        if (this.aiu > com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.getInst().getApp(), 320.0f)) {
+            this.aiu = com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.getInst().getApp(), 320.0f);
         }
-        this.ajO = (int) (this.ajN * 0.4f);
+        this.aiv = (int) (this.aiu * 0.4f);
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
     public int getWidth() {
-        return com.baidu.adp.lib.util.i.hs() ? this.ajN : this.ajO;
+        return com.baidu.adp.lib.util.i.hi() ? this.aiu : this.aiv;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
@@ -44,21 +44,21 @@ public class e extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.ajJ;
+        return this.aiq;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wu() {
-        return this.ajL;
+    public boolean wk() {
+        return this.ais;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wv() {
-        return this.ajK;
+    public boolean wl() {
+        return this.air;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int ww() {
+    public int wm() {
         return this.procType;
     }
 }

@@ -11,21 +11,21 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-    private int JR;
-    private List<d> XD;
-    private f cYj;
-    public final ArrayList<f> cYk = new ArrayList<>();
+    private int Ir;
+    private List<d> Wh;
+    private f cWQ;
+    public final ArrayList<f> cWR = new ArrayList<>();
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
 
     public c(Context context, int i, f fVar) {
         this.mInflater = LayoutInflater.from(context);
-        this.JR = i;
-        this.cYj = fVar;
+        this.Ir = i;
+        this.cWQ = fVar;
     }
 
     public void setData(List<d> list) {
-        this.XD = list;
+        this.Wh = list;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -39,34 +39,34 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return u.u(this.XD);
+        return u.u(this.Wh);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return u.c(this.XD, i);
+        return u.c(this.Wh, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (u.c(this.XD, i) == null) {
+        if (u.c(this.Wh, i) == null) {
             return -1L;
         }
-        return ((d) u.c(this.XD, i)).hashCode();
+        return ((d) u.c(this.Wh, i)).hashCode();
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = this.mInflater.inflate(this.JR, viewGroup, false);
-            f V = this.cYj.V(view);
+            view = this.mInflater.inflate(this.Ir, viewGroup, false);
+            f V = this.cWQ.V(view);
             V.setOnClickListener(this.mOnClickListener);
             view.setTag(V);
-            this.cYk.add(V);
+            this.cWR.add(V);
         }
         f fVar = (f) view.getTag();
-        if (u.c(this.XD, i) != null) {
-            a(fVar, this.XD.get(i));
+        if (u.c(this.Wh, i) != null) {
+            a(fVar, this.Wh.get(i));
         }
         return fVar.getView();
     }
@@ -77,9 +77,9 @@ public class c extends BaseAdapter {
         }
     }
 
-    public void di(int i) {
-        if (u.u(this.cYk) > 0) {
-            Iterator<f> it = this.cYk.iterator();
+    public void dg(int i) {
+        if (u.u(this.cWR) > 0) {
+            Iterator<f> it = this.cWR.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

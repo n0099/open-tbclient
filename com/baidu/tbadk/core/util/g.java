@@ -7,24 +7,24 @@ import com.baidu.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class g extends DiskFileOperate {
-    protected a afW;
+    protected a aeC;
     protected Bitmap mBitmap;
-    protected BitmapFactory.Options tE;
+    protected BitmapFactory.Options rW;
 
     public g(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.tE = null;
-        this.afW = null;
-        this.afW = new a();
+        this.rW = null;
+        this.aeC = null;
+        this.aeC = new a();
     }
 
     public boolean isGif() {
-        return this.afW.tI;
+        return this.aeC.sa;
     }
 
     public void v(boolean z) {
-        this.afW.tI = z;
+        this.aeC.sa = z;
     }
 
     public Bitmap getBitmap() {
@@ -34,36 +34,36 @@ public class g extends DiskFileOperate {
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void setData(byte[] bArr) {
         super.setData(bArr);
-        if (!isGif() && com.baidu.adp.lib.util.k.p(bArr)) {
+        if (!isGif() && com.baidu.adp.lib.util.k.m(bArr)) {
             v(true);
         }
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] eb() {
-        if (this.ts == null) {
+    public byte[] dQ() {
+        if (this.rK == null) {
             return null;
         }
-        return this.afW.toByteArray();
+        return this.aeC.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean n(byte[] bArr) {
+    public boolean k(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
-        if (this.tE == null) {
-            this.tE = new BitmapFactory.Options();
-            this.tE.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (this.rW == null) {
+            this.rW = new BitmapFactory.Options();
+            this.rW.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean o = this.afW.o(bArr);
-        if (this.afW.tJ == 0 || this.afW.tJ >= System.currentTimeMillis()) {
+        boolean l = this.aeC.l(bArr);
+        if (this.aeC.sb == 0 || this.aeC.sb >= System.currentTimeMillis()) {
             int headerSize = a.getHeaderSize();
-            if (!o) {
+            if (!l) {
                 headerSize = 0;
             }
             try {
-                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.tE);
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.rW);
             } catch (Error e) {
                 BdLog.e(e.getMessage());
             }
@@ -75,9 +75,9 @@ public class g extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte tG = Byte.MIN_VALUE;
-        boolean tI = false;
-        long tJ = 0;
+        private static byte rY = Byte.MIN_VALUE;
+        boolean sa = false;
+        long sb = 0;
 
         a() {
         }
@@ -89,22 +89,22 @@ public class g extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600510);
-            allocate.put(this.tI ? (byte) (0 | tG) : (byte) 0);
-            allocate.putLong(this.tJ);
+            allocate.put(this.sa ? (byte) (0 | rY) : (byte) 0);
+            allocate.putLong(this.sb);
             allocate.flip();
             return allocate.array();
         }
 
-        public boolean o(byte[] bArr) {
+        public boolean l(byte[] bArr) {
             if (bArr == null || bArr.length < getHeaderSize()) {
                 return false;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600510) {
-                if ((wrap.get() & tG) != 0) {
-                    this.tI = true;
+                if ((wrap.get() & rY) != 0) {
+                    this.sa = true;
                 }
-                this.tJ = wrap.getLong();
+                this.sb = wrap.getLong();
                 return true;
             }
             return false;

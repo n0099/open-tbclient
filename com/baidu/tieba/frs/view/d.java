@@ -15,22 +15,22 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends LinearLayout {
-    private LinearLayout aMc;
-    private EditText cAj;
-    private HeadImageView cAk;
-    private TextView cAl;
-    private TextView cAm;
-    private ShareFromFrsMsgData cAn;
+    private LinearLayout aKN;
     private Context context;
+    private EditText cyP;
+    private HeadImageView cyQ;
+    private TextView cyR;
+    private TextView cyS;
+    private ShareFromFrsMsgData cyT;
     private TextView name;
 
     public EditText getChatMsgView() {
-        return this.cAj;
+        return this.cyP;
     }
 
-    public void J(String str, boolean z) {
-        if (this.cAk != null) {
-            this.cAk.c(str, 15, false);
+    public void K(String str, boolean z) {
+        if (this.cyQ != null) {
+            this.cyQ.c(str, 15, false);
         }
     }
 
@@ -41,34 +41,34 @@ public class d extends LinearLayout {
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.cAk.setPageId(bdUniqueId);
+        this.cyQ.setPageId(bdUniqueId);
     }
 
     private void bk(Context context) {
         LayoutInflater.from(context).inflate(d.j.frs_share_card_view, this);
         setOrientation(1);
-        this.aMc = (LinearLayout) findViewById(d.h.share_content);
+        this.aKN = (LinearLayout) findViewById(d.h.share_content);
         this.name = (TextView) findViewById(d.h.frs_card_name);
-        this.cAj = (EditText) findViewById(d.h.chat_msg);
-        this.cAk = (HeadImageView) findViewById(d.h.frs_card_img);
-        this.cAm = (TextView) findViewById(d.h.frs_card_member_num);
-        this.cAl = (TextView) findViewById(d.h.frs_card_post_num);
+        this.cyP = (EditText) findViewById(d.h.chat_msg);
+        this.cyQ = (HeadImageView) findViewById(d.h.frs_card_img);
+        this.cyS = (TextView) findViewById(d.h.frs_card_member_num);
+        this.cyR = (TextView) findViewById(d.h.frs_card_post_num);
         ai.c(this.name, d.e.cp_cont_b, 1);
-        ai.c(this.cAj, d.e.cp_cont_b, 2);
-        this.cAj.setHintTextColor(ai.getColor(d.e.cp_cont_e));
-        this.cAj.setPadding(context.getResources().getDimensionPixelSize(d.f.ds20), 0, 0, 0);
-        ajQ();
+        ai.c(this.cyP, d.e.cp_cont_b, 2);
+        this.cyP.setHintTextColor(ai.getColor(d.e.cp_cont_e));
+        this.cyP.setPadding(context.getResources().getDimensionPixelSize(d.f.ds20), 0, 0, 0);
+        ajD();
     }
 
-    public void ajQ() {
-        this.aMc.setFocusable(true);
-        this.aMc.setFocusableInTouchMode(true);
-        this.aMc.requestFocus();
+    public void ajD() {
+        this.aKN.setFocusable(true);
+        this.aKN.setFocusableInTouchMode(true);
+        this.aKN.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.cAj != null) {
-            return j.a(this.cAj.getText(), null);
+        if (this.cyP != null) {
+            return j.a(this.cyP.getText(), null);
         }
         return null;
     }
@@ -81,19 +81,19 @@ public class d extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.cAn = shareFromFrsMsgData;
-        wP();
+        this.cyT = shareFromFrsMsgData;
+        wG();
     }
 
-    private void wP() {
-        this.name.setText(ed(this.cAn.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.cAn.getImageUrl());
-        this.cAk.c(this.cAn.getImageUrl(), 15, false);
-        this.cAm.setText(al.z(this.cAn.getMemberNum()));
-        this.cAl.setText(al.z(this.cAn.getPostNum()));
+    private void wG() {
+        this.name.setText(dX(this.cyT.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.cyT.getImageUrl());
+        this.cyQ.c(this.cyT.getImageUrl(), 15, false);
+        this.cyS.setText(al.z(this.cyT.getMemberNum()));
+        this.cyR.setText(al.z(this.cyT.getPostNum()));
     }
 
-    private String ed(String str) {
+    private String dX(String str) {
         return al.j(str, 18) + this.context.getString(d.l.forum);
     }
 }

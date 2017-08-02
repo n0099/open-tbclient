@@ -18,12 +18,12 @@ import com.baidu.tieba.frs.tab.e;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements a {
-    private e cwA;
-    private e.b cwb;
-    private BdListView cwz;
+    private e.b cuJ;
+    private BdListView cvh;
+    private e cvi;
     private Context mContext;
     private List<as> mData;
-    private final BaseAdapter cwB = new BaseAdapter() { // from class: com.baidu.tieba.frs.tab.f.1
+    private final BaseAdapter cvj = new BaseAdapter() { // from class: com.baidu.tieba.frs.tab.f.1
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
             if (view == null) {
@@ -31,9 +31,9 @@ public class f implements a {
                 view.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(d.f.ds80)));
                 e.c cVar = new e.c();
                 cVar.name = (TextView) view.findViewById(d.h.tab_menu_name);
-                cVar.cww = (ImageView) view.findViewById(d.h.tab_menu_check);
-                cVar.cwx = view.findViewById(d.h.tab_menu_line_s);
-                cVar.cwy = view.findViewById(d.h.tab_menu_line_f);
+                cVar.cve = (ImageView) view.findViewById(d.h.tab_menu_check);
+                cVar.cvf = view.findViewById(d.h.tab_menu_line_s);
+                cVar.cvg = view.findViewById(d.h.tab_menu_line_f);
                 view.setTag(cVar);
             }
             ai.j(view, d.e.cp_bg_line_d);
@@ -43,20 +43,20 @@ public class f implements a {
                 cVar2.name.setText(item.name);
                 if (item.isSelected) {
                     ai.c(cVar2.name, d.e.cp_link_tip_a, 1);
-                    ai.c(cVar2.cww, d.g.chx_tips_list_ok);
-                    cVar2.cww.setVisibility(0);
+                    ai.c(cVar2.cve, d.g.chx_tips_list_ok);
+                    cVar2.cve.setVisibility(0);
                 } else {
                     ai.c(cVar2.name, d.e.cp_cont_c, 1);
-                    cVar2.cww.setVisibility(8);
+                    cVar2.cve.setVisibility(8);
                 }
                 if (i >= 0 && i == getCount() - 1) {
-                    cVar2.cwy.setVisibility(0);
-                    cVar2.cwx.setVisibility(8);
-                    ai.k(cVar2.cwy, d.e.cp_bg_line_b);
+                    cVar2.cvg.setVisibility(0);
+                    cVar2.cvf.setVisibility(8);
+                    ai.k(cVar2.cvg, d.e.cp_bg_line_b);
                 } else {
-                    cVar2.cwx.setVisibility(0);
-                    cVar2.cwy.setVisibility(8);
-                    ai.k(cVar2.cwx, d.e.cp_bg_line_b);
+                    cVar2.cvf.setVisibility(0);
+                    cVar2.cvg.setVisibility(8);
+                    ai.k(cVar2.cvf, d.e.cp_bg_line_b);
                 }
             }
             return view;
@@ -88,41 +88,41 @@ public class f implements a {
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.tab.f.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (f.this.cwA != null) {
-                f.this.cwA.ajd();
+            if (f.this.cvi != null) {
+                f.this.cvi.aiR();
             }
-            if (f.this.cwB != null && f.this.cwb != null) {
+            if (f.this.cvj != null && f.this.cuJ != null) {
                 for (as asVar : f.this.mData) {
                     if (asVar != null) {
                         asVar.isSelected = false;
                     }
                 }
-                as asVar2 = (as) f.this.cwB.getItem(i);
+                as asVar2 = (as) f.this.cvj.getItem(i);
                 if (asVar2 != null) {
                     asVar2.isSelected = true;
-                    f.this.cwb.jq(asVar2.clK);
+                    f.this.cuJ.jq(asVar2.ckC);
                 }
             }
         }
     };
 
     private void initView() {
-        this.cwz = new BdListView(this.mContext);
-        this.cwz.setAlwaysDrawnWithCacheEnabled(false);
-        this.cwz.setDivider(null);
-        this.cwz.setDividerHeight(0);
-        this.cwz.setSelector(17170445);
-        this.cwz.setCacheColorHint(this.mContext.getResources().getColor(17170445));
-        this.cwz.setOnItemClickListener(this.mOnItemClickListener);
-        this.cwz.setAdapter((ListAdapter) this.cwB);
+        this.cvh = new BdListView(this.mContext);
+        this.cvh.setAlwaysDrawnWithCacheEnabled(false);
+        this.cvh.setDivider(null);
+        this.cvh.setDividerHeight(0);
+        this.cvh.setSelector(17170445);
+        this.cvh.setCacheColorHint(this.mContext.getResources().getColor(17170445));
+        this.cvh.setOnItemClickListener(this.mOnItemClickListener);
+        this.cvh.setAdapter((ListAdapter) this.cvj);
     }
 
     @Override // com.baidu.tieba.frs.tab.a
     public void a(Context context, e eVar) {
         if (context != null && eVar != null) {
             this.mContext = context;
-            this.cwA = eVar;
-            this.cwb = eVar.aje();
+            this.cvi = eVar;
+            this.cuJ = eVar.aiS();
             initView();
         }
     }
@@ -130,21 +130,21 @@ public class f implements a {
     @Override // com.baidu.tieba.frs.tab.a
     public void setData(List<as> list) {
         this.mData = list;
-        this.cwB.notifyDataSetChanged();
+        this.cvj.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.frs.tab.a
     public View getView() {
-        return this.cwz;
+        return this.cvh;
     }
 
     @Override // com.baidu.tieba.frs.tab.a
-    public void xd() {
-        this.cwB.notifyDataSetChanged();
+    public void wV() {
+        this.cvj.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.frs.tab.a
-    public int ajb() {
+    public int aiP() {
         return 0;
     }
 }

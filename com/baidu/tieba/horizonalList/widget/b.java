@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class b {
-    private static ArrayList<b> cXw = new ArrayList<>(5);
-    public int cXA;
-    public int cXB;
-    int cXC;
+    private static ArrayList<b> cWd = new ArrayList<>(5);
+    public int cWh;
+    public int cWi;
+    int cWj;
     public int type;
 
-    private void resetState() {
-        this.cXA = 0;
-        this.cXB = 0;
-        this.cXC = 0;
+    private void wF() {
+        this.cWh = 0;
+        this.cWi = 0;
+        this.cWj = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long apq() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.cXA, this.cXB) : ExpandableListView.getPackedPositionForGroup(this.cXA);
+    public long ape() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.cWh, this.cWi) : ExpandableListView.getPackedPositionForGroup(this.cWh);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b kY(int i) {
-        return n(2, i, 0, 0);
+    public static b kZ(int i) {
+        return m(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b n(int i, int i2, int i3, int i4) {
-        b apr = apr();
-        apr.type = i;
-        apr.cXA = i2;
-        apr.cXB = i3;
-        apr.cXC = i4;
-        return apr;
+    public static b m(int i, int i2, int i3, int i4) {
+        b apf = apf();
+        apf.type = i;
+        apf.cWh = i2;
+        apf.cWi = i3;
+        apf.cWj = i4;
+        return apf;
     }
 
-    private static b apr() {
+    private static b apf() {
         b bVar;
-        synchronized (cXw) {
-            if (cXw.size() > 0) {
-                bVar = cXw.remove(0);
-                bVar.resetState();
+        synchronized (cWd) {
+            if (cWd.size() > 0) {
+                bVar = cWd.remove(0);
+                bVar.wF();
             } else {
                 bVar = new b();
             }
@@ -54,9 +54,9 @@ class b {
     }
 
     public void recycle() {
-        synchronized (cXw) {
-            if (cXw.size() < 5) {
-                cXw.add(this);
+        synchronized (cWd) {
+            if (cWd.size() < 5) {
+                cWd.add(this);
             }
         }
     }

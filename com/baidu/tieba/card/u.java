@@ -6,45 +6,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u {
-    private static u bIQ;
-    private List<aj> bbY;
+    private static u bHG;
+    private List<aj> baO;
 
-    public static u WB() {
-        if (bIQ == null) {
+    public static u Ww() {
+        if (bHG == null) {
             synchronized (u.class) {
-                if (bIQ == null) {
-                    bIQ = new u();
+                if (bHG == null) {
+                    bHG = new u();
                 }
             }
         }
-        return bIQ;
+        return bHG;
     }
 
     public void a(aj ajVar) {
         if (ajVar != null) {
-            if (this.bbY == null) {
-                this.bbY = new ArrayList();
+            if (this.baO == null) {
+                this.baO = new ArrayList();
             }
-            if (this.bbY != null) {
-                this.bbY.add(ajVar);
+            if (this.baO != null) {
+                this.baO.add(ajVar);
             }
         }
     }
 
-    public void jg(String str) {
+    public void jb(String str) {
         if (str != null) {
-            if (this.bbY == null) {
-                this.bbY = new ArrayList();
+            if (this.baO == null) {
+                this.baO = new ArrayList();
             }
-            if (this.bbY != null) {
-                this.bbY.add(new aj(str));
+            if (this.baO != null) {
+                this.baO.add(new aj(str));
             }
         }
     }
 
     public void cA(boolean z) {
-        if (com.baidu.tbadk.core.util.u.u(this.bbY) != 0) {
-            for (aj ajVar : this.bbY) {
+        if (com.baidu.tbadk.core.util.u.u(this.baO) != 0) {
+            for (aj ajVar : this.baO) {
                 if (ajVar != null) {
                     int i = 0;
                     if (z) {
@@ -54,13 +54,13 @@ public class u {
                     TiebaStatic.log(ajVar);
                 }
             }
-            this.bbY.clear();
+            this.baO.clear();
         }
     }
 
     public void dE(boolean z) {
-        if (com.baidu.tbadk.core.util.u.u(this.bbY) != 0) {
-            for (aj ajVar : this.bbY) {
+        if (com.baidu.tbadk.core.util.u.u(this.baO) != 0) {
+            for (aj ajVar : this.baO) {
                 if (ajVar != null) {
                     int i = 0;
                     if (z) {
@@ -70,7 +70,7 @@ public class u {
                     TiebaStatic.log(ajVar);
                 }
             }
-            this.bbY.clear();
+            this.baO.clear();
         }
     }
 }

@@ -8,29 +8,29 @@ import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes.dex */
 public class a {
-    private List<ForumInfo> dUA;
+    private List<ForumInfo> dTj;
     private BdUniqueId mBdUniqueId;
-    private InterfaceC0104a dUB = null;
-    private com.baidu.adp.framework.listener.a bEP = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440) { // from class: com.baidu.tieba.likedForum.a.1
+    private InterfaceC0105a dTk = null;
+    private com.baidu.adp.framework.listener.a bDF = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440) { // from class: com.baidu.tieba.likedForum.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof GetBottleForumListHttpResMessage) || (responsedMessage instanceof GetBottleForumListSocketResMessage)) {
                     if (responsedMessage.hasError()) {
-                        if (a.this.dUB != null) {
-                            a.this.dUB.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                        if (a.this.dTk != null) {
+                            a.this.dTk.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
                             return;
                         }
                         return;
                     }
                     if (responsedMessage instanceof GetBottleForumListHttpResMessage) {
-                        a.this.dUA = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
+                        a.this.dTj = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
                     }
                     if (responsedMessage instanceof GetBottleForumListSocketResMessage) {
-                        a.this.dUA = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
+                        a.this.dTj = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
                     }
-                    if (a.this.dUB != null) {
-                        a.this.dUB.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.dUA);
+                    if (a.this.dTk != null) {
+                        a.this.dTk.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.dTj);
                     }
                 }
             }
@@ -39,33 +39,33 @@ public class a {
 
     /* renamed from: com.baidu.tieba.likedForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0104a {
+    public interface InterfaceC0105a {
         void a(boolean z, int i, String str, List<ForumInfo> list);
     }
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.bEP.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.bEP);
+        this.bDF.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.bDF);
     }
 
-    public boolean Fw() {
+    public boolean Fo() {
         GetBottleForumListReqMessage getBottleForumListReqMessage = new GetBottleForumListReqMessage();
         getBottleForumListReqMessage.setTag(this.mBdUniqueId);
         MessageManager.getInstance().sendMessage(getBottleForumListReqMessage);
         return false;
     }
 
-    public void aDN() {
+    public void aDC() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, this.mBdUniqueId);
         MessageManager.getInstance().removeMessage(309440, this.mBdUniqueId);
     }
 
-    public void a(InterfaceC0104a interfaceC0104a) {
-        this.dUB = interfaceC0104a;
+    public void a(InterfaceC0105a interfaceC0105a) {
+        this.dTk = interfaceC0105a;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.bEP);
+        MessageManager.getInstance().unRegisterListener(this.bDF);
     }
 }

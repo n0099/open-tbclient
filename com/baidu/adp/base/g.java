@@ -12,25 +12,25 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g pf = null;
-    private Resources pg = null;
-    private ArrayList<String> ph = null;
-    private HashSet<String> pi = null;
-    private String pj = null;
+    private static g nx = null;
+    private Resources ny = null;
+    private ArrayList<String> nz = null;
+    private HashSet<String> nA = null;
+    private String nB = null;
 
-    public static g cr() {
-        if (pf == null) {
+    public static g cg() {
+        if (nx == null) {
             synchronized (g.class) {
-                if (pf == null) {
-                    pf = new g();
+                if (nx == null) {
+                    nx = new g();
                 }
             }
         }
-        return pf;
+        return nx;
     }
 
     public synchronized void a(Resources resources) {
-        this.pg = resources;
+        this.ny = resources;
     }
 
     public synchronized void g(String str, String str2) throws IllegalAccessException, InstantiationException, SecurityException, IllegalArgumentException, NoSuchMethodException, InvocationTargetException {
@@ -38,25 +38,25 @@ public class g {
         if (TextUtils.isEmpty(str2)) {
             throw new IllegalArgumentException("param resPath is null");
         }
-        if (this.pg == null) {
+        if (this.ny == null) {
             throw new RuntimeException("hostResources is null");
         }
         if (!TextUtils.isEmpty(str)) {
-            if (this.pi == null) {
-                this.pi = new HashSet<>();
+            if (this.nA == null) {
+                this.nA = new HashSet<>();
             }
-            if (this.pi.contains(str)) {
-                com.baidu.adp.plugin.b.a.jr().e("plugin_load", "repeat_inject_res", str, str2);
+            if (this.nA.contains(str)) {
+                com.baidu.adp.plugin.b.a.jh().e("plugin_load", "repeat_inject_res", str, str2);
             }
-            this.pi.add(str);
+            this.nA.add(str);
         }
-        if (this.ph == null) {
-            this.ph = new ArrayList<>();
+        if (this.nz == null) {
+            this.nz = new ArrayList<>();
         }
-        if (!this.ph.contains(str2)) {
+        if (!this.nz.contains(str2)) {
             if (Build.VERSION.SDK_INT >= 24) {
-                com.baidu.adp.plugin.util.d.c(this.pg.getAssets(), "addAssetPath", new Object[]{str2});
-                if (TextUtils.isEmpty(this.pj)) {
+                com.baidu.adp.plugin.util.d.c(this.ny.getAssets(), "addAssetPath", new Object[]{str2});
+                if (TextUtils.isEmpty(this.nB)) {
                     try {
                         Method declaredMethod = Class.forName("android.webkit.WebViewFactory").getDeclaredMethod("getWebViewContextAndSetProvider", new Class[0]);
                         declaredMethod.setAccessible(true);
@@ -72,31 +72,31 @@ public class g {
                                 }
                                 strArr2[length - 1] = str3;
                                 BdBaseApplication.getInst().getApplicationInfo().sharedLibraryFiles = strArr2;
-                                this.pj = str3;
+                                this.nB = str3;
                             }
                         }
                     } catch (Exception e) {
                     }
                 }
             } else if (Build.VERSION.SDK_INT >= 20) {
-                com.baidu.adp.plugin.util.d.c(this.pg.getAssets(), "addAssetPath", new Object[]{str2});
+                com.baidu.adp.plugin.util.d.c(this.ny.getAssets(), "addAssetPath", new Object[]{str2});
             } else {
                 AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                if (this.ph.size() > 0) {
-                    Iterator<String> it = this.ph.iterator();
+                if (this.nz.size() > 0) {
+                    Iterator<String> it = this.nz.iterator();
                     while (it.hasNext()) {
                         com.baidu.adp.plugin.util.d.c(assetManager, "addAssetPath", new Object[]{it.next()});
                     }
                 }
                 com.baidu.adp.plugin.util.d.c(assetManager, "addAssetPath", new Object[]{str2});
                 com.baidu.adp.plugin.util.d.c(assetManager, "addAssetPath", new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
-                this.pg = new Resources(assetManager, this.pg.getDisplayMetrics(), this.pg.getConfiguration());
+                this.ny = new Resources(assetManager, this.ny.getDisplayMetrics(), this.ny.getConfiguration());
             }
-            this.ph.add(str2);
+            this.nz.add(str2);
         }
     }
 
     public synchronized Resources getResources() {
-        return this.pg;
+        return this.ny;
     }
 }
