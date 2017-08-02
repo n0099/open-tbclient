@@ -17,7 +17,7 @@ public class ag extends l<com.baidu.tbadk.core.data.au, ah> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bo */
     public ah onCreateViewHolder(ViewGroup viewGroup) {
-        return new ah(this.eGA.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_novel, viewGroup, false));
+        return new ah(this.eFn.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_novel, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

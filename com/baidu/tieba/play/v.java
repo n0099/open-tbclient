@@ -8,33 +8,33 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class v {
-    private static v fAu = null;
-    private HashMap<String, a> fAv = new HashMap<>();
+    private static v fzi = null;
+    private HashMap<String, a> fzj = new HashMap<>();
 
     private v() {
     }
 
-    public static v bfZ() {
-        if (fAu == null) {
+    public static v bfP() {
+        if (fzi == null) {
             synchronized (v.class) {
-                if (fAu == null) {
-                    fAu = new v();
+                if (fzi == null) {
+                    fzi = new v();
                 }
             }
         }
-        return fAu;
+        return fzi;
     }
 
     public void aq(String str, int i) {
-        a aVar = this.fAv.get(str);
+        a aVar = this.fzj.get(str);
         if (aVar == null) {
-            this.fAv.put(str, new a(i, System.currentTimeMillis()));
+            this.fzj.put(str, new a(i, System.currentTimeMillis()));
         } else {
             aVar.lastUpdateTime = System.currentTimeMillis();
             aVar.position = i;
         }
-        if (this.fAv.size() > 20) {
-            ArrayList arrayList = new ArrayList(this.fAv.entrySet());
+        if (this.fzj.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.fzj.entrySet());
             Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.v.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -47,7 +47,7 @@ public class v {
             while (true) {
                 int i3 = i2;
                 if (i3 < 10) {
-                    this.fAv.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    this.fzj.remove(((Map.Entry) arrayList.get(i3)).getKey());
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -58,12 +58,12 @@ public class v {
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fAv.remove(str);
+            this.fzj.remove(str);
         }
     }
 
-    public int qI(String str) {
-        a aVar = this.fAv.get(str);
+    public int qD(String str) {
+        a aVar = this.fzj.get(str);
         if (aVar != null) {
             return aVar.position;
         }

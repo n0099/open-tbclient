@@ -5,7 +5,7 @@ public interface l extends b {
 
     void hide();
 
-    void lT();
+    void lJ();
 
     void onChangeSkinType(int i);
 }

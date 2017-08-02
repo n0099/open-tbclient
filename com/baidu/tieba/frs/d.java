@@ -12,24 +12,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class d<T, V extends j.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int ciA;
-    protected static final int ciy;
-    protected static final int ciz;
-    protected TbPageContext<?> alI;
-    protected com.baidu.tieba.tbadkCore.i ciB;
-    protected b ciC;
-    protected ListView ciD;
-    protected int ciE;
-    protected c ciF;
-    private boolean ciG;
+    protected static final int chr;
+    protected static final int chs;
+    protected static final int cht;
+    protected TbPageContext<?> ako;
+    protected com.baidu.tieba.tbadkCore.i chu;
+    protected b chv;
+    protected ListView chw;
+    protected int chx;
+    protected c chy;
+    private boolean chz;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        ciy = resources.getDimensionPixelSize(d.f.ds8);
-        ciz = resources.getDimensionPixelSize(d.f.ds16);
-        ciA = resources.getDimensionPixelSize(d.f.ds1);
+        chr = resources.getDimensionPixelSize(d.f.ds8);
+        chs = resources.getDimensionPixelSize(d.f.ds16);
+        cht = resources.getDimensionPixelSize(d.f.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,20 +49,20 @@ public abstract class d<T, V extends j.a> extends com.baidu.adp.widget.ListView.
     public void a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         if (tbPageContext != null) {
             this.mContext = tbPageContext.getPageActivity();
-            this.alI = tbPageContext;
+            this.ako = tbPageContext;
             this.mPageId = bdUniqueId;
         }
     }
 
     public void release() {
         this.mContext = null;
-        this.alI = null;
-        this.ciC = null;
+        this.ako = null;
+        this.chv = null;
         this.mAdapterItemClickListener = null;
         this.mAdapterItemLongClickListener = null;
-        if (this.ciF != null) {
-            this.ciF.destory();
-            this.ciF = null;
+        if (this.chy != null) {
+            this.chy.destory();
+            this.chy = null;
         }
     }
 
@@ -70,7 +70,7 @@ public abstract class d<T, V extends j.a> extends com.baidu.adp.widget.ListView.
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.ciD = (ListView) viewGroup;
+        this.chw = (ListView) viewGroup;
         return null;
     }
 
@@ -79,26 +79,26 @@ public abstract class d<T, V extends j.a> extends com.baidu.adp.widget.ListView.
     }
 
     public void a(com.baidu.tieba.tbadkCore.i iVar) {
-        this.ciB = iVar;
+        this.chu = iVar;
     }
 
     public void a(b bVar) {
-        this.ciC = bVar;
+        this.chv = bVar;
     }
 
     public void iz(int i) {
-        this.ciE = i;
+        this.chx = i;
     }
 
     public void a(c cVar) {
-        this.ciF = cVar;
+        this.chy = cVar;
     }
 
     public void cH(boolean z) {
-        this.ciG = z;
+        this.chz = z;
     }
 
-    public boolean aeO() {
-        return this.ciG;
+    public boolean aeJ() {
+        return this.chz;
     }
 }

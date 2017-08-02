@@ -30,7 +30,7 @@ public class b {
                 if ((fVar instanceof r) && (fVar2 instanceof r)) {
                     r rVar = (r) fVar;
                     r rVar2 = (r) fVar2;
-                    if (rVar.WK()) {
+                    if (rVar.WF()) {
                         rVar2.dF(false);
                         if (rVar2 instanceof com.baidu.tieba.homepage.personalize.c.c) {
                             rVar.dG(false);
@@ -50,7 +50,7 @@ public class b {
 
     private static void b(DataRes.Builder builder, List<f> list) {
         com.baidu.tieba.card.data.c cVar;
-        bl MF;
+        bl MA;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
             HashMap hashMap = new HashMap();
@@ -62,17 +62,17 @@ public class b {
             int u = u.u(list);
             for (int i = 0; i < u; i++) {
                 f fVar = (f) u.c(list, i);
-                if ((fVar instanceof com.baidu.tieba.card.data.c) && (MF = (cVar = (com.baidu.tieba.card.data.c) fVar).MF()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.g.b.d(MF.getTid(), 0L)))) != null) {
+                if ((fVar instanceof com.baidu.tieba.card.data.c) && (MA = (cVar = (com.baidu.tieba.card.data.c) fVar).MA()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.g.b.c(MA.getTid(), 0L)))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.jh(threadPersonalized.abtest_tag);
+                    cVar.jc(threadPersonalized.abtest_tag);
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {
                         SparseArray<String> sparseArray = new SparseArray<>();
                         for (DislikeReason dislikeReason : list2) {
                             sparseArray.put(dislikeReason.dislike_id.intValue(), dislikeReason.dislike_reason);
                         }
-                        cVar.XT = sparseArray;
+                        cVar.Wx = sparseArray;
                     }
                 }
             }

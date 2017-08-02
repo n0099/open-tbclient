@@ -26,17 +26,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements k.b, com.baidu.tbadk.mvc.c.a {
-    private d dDW;
-    private AtMeModelController dDX;
-    private ViewEventCenter dDY;
-    private CustomMessageListener dDZ = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.AtMessageActivity.1
+    private d dCF;
+    private AtMeModelController dCG;
+    private ViewEventCenter dCH;
+    private CustomMessageListener dCI = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.AtMessageActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (AtMessageActivity.this.dDX != null) {
-                    AtMessageActivity.this.dDX.XO();
+                if (AtMessageActivity.this.dCG != null) {
+                    AtMessageActivity.this.dCG.XJ();
                 }
             }
         }
@@ -46,31 +46,31 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dDX = new AtMeModelController(this);
-        registerListener(this.dDZ);
-        this.dDX.setUniqueId(getUniqueId());
-        this.dDW = new d(this);
+        this.dCG = new AtMeModelController(this);
+        registerListener(this.dCI);
+        this.dCG.setUniqueId(getUniqueId());
+        this.dCF = new d(this);
         if (bundle != null) {
-            this.dDX.f(bundle);
+            this.dCG.f(bundle);
         } else {
-            this.dDX.f(null);
+            this.dCG.f(null);
         }
-        this.dDW.XR();
-        FN().addEventDelegate(this);
-        this.dDX.XO();
+        this.dCF.XM();
+        FF().addEventDelegate(this);
+        this.dCG.XJ();
     }
 
     @Override // com.baidu.tbadk.core.view.k.b
     public void onListPullRefresh(boolean z) {
-        this.dDX.azq();
+        this.dCG.azf();
     }
 
-    public void Nv() {
-        this.dDX.XP();
+    public void Nq() {
+        this.dCG.XK();
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean Fe() {
+    public boolean EW() {
         return false;
     }
 
@@ -79,20 +79,20 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (bVar == null) {
             return true;
         }
-        if (bVar.Ff() == 9484) {
-            com.baidu.tbadk.mvc.b.a Fg = bVar.Fg();
-            if (Fg instanceof FeedData) {
-                return d((FeedData) Fg);
+        if (bVar.EX() == 9484) {
+            com.baidu.tbadk.mvc.b.a EY = bVar.EY();
+            if (EY instanceof FeedData) {
+                return d((FeedData) EY);
             }
-        } else if (bVar.Ff() == 9483) {
-            com.baidu.tbadk.mvc.b.a Fg2 = bVar.Fg();
-            if (Fg2 instanceof FeedData) {
-                return b((FeedData) Fg2);
+        } else if (bVar.EX() == 9483) {
+            com.baidu.tbadk.mvc.b.a EY2 = bVar.EY();
+            if (EY2 instanceof FeedData) {
+                return b((FeedData) EY2);
             }
-        } else if (bVar.Ff() == 9489) {
-            com.baidu.tbadk.mvc.b.a Fg3 = bVar.Fg();
-            if (Fg3 instanceof FeedData) {
-                return c((FeedData) Fg3);
+        } else if (bVar.EX() == 9489) {
+            com.baidu.tbadk.mvc.b.a EY3 = bVar.EY();
+            if (EY3 instanceof FeedData) {
+                return c((FeedData) EY3);
             }
         }
         return false;
@@ -129,7 +129,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         metaData.setUserIdLong(TbadkCoreApplication.getCurrentAccountId());
         metaData.setUserName(TbadkCoreApplication.getCurrentAccountName());
         arrayList.add(metaData);
-        return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new StoryPageActivityConfig(getActivity()).createNormalConfig(arrayList, 0, feedData.getFromForumId(), com.baidu.adp.lib.g.b.d(feedData.getThread_id(), 0L))));
+        return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new StoryPageActivityConfig(getActivity()).createNormalConfig(arrayList, 0, feedData.getFromForumId(), com.baidu.adp.lib.g.b.c(feedData.getThread_id(), 0L))));
     }
 
     private boolean d(FeedData feedData) {
@@ -151,7 +151,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             TiebaStatic.log("new_at_me_visit_pb");
             if (feedData.getThread_Type() == 33) {
                 TiebaStatic.log("c10384");
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).cz(feedData.getPost_id()).cA("mention").pn()));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).ct(feedData.getPost_id()).cu("mention").pd()));
                 return false;
             }
             PbActivityConfig createNormalCfg = new PbActivityConfig(getActivity()).createNormalCfg(feedData.getThread_id(), feedData.getPost_id(), 1, "mention");
@@ -163,27 +163,27 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return false;
     }
 
-    public ViewEventCenter FN() {
-        if (this.dDY == null) {
-            this.dDY = new ViewEventCenter();
+    public ViewEventCenter FF() {
+        if (this.dCH == null) {
+            this.dCH = new ViewEventCenter();
         }
-        return this.dDY;
+        return this.dCH;
     }
 
-    public void azs() {
-        this.dDW.azs();
+    public void azh() {
+        this.dCF.azh();
     }
 
     public void b(com.baidu.tbadk.mvc.d.b bVar) {
-        this.dDW.b(bVar);
+        this.dCF.b(bVar);
     }
 
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
-        this.dDW.a(aVar);
+        this.dCF.a(aVar);
     }
 
-    public void azt() {
-        this.dDW.azt();
+    public void azi() {
+        this.dCF.azi();
     }
 
     public void a(ErrorData errorData) {
@@ -196,6 +196,6 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.dDW.d(getPageContext(), i);
+        this.dCF.d(getPageContext(), i);
     }
 }

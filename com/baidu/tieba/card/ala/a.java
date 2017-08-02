@@ -21,94 +21,94 @@ import com.baidu.tieba.play.i;
 import com.baidu.tieba.play.m;
 /* loaded from: classes.dex */
 public class a implements e {
-    private m bGN;
-    private i bHa;
-    private c bJj;
-    private String bJk;
-    private bl bgF;
-    private AlaVideoContainer bkX;
+    private m bFD;
+    private i bFQ;
+    private c bHZ;
+    private String bIa;
+    private bl bfu;
+    private AlaVideoContainer bjN;
     private String mForumName;
-    private boolean bGY = false;
-    private i.a bHj = new i.a() { // from class: com.baidu.tieba.card.ala.a.1
+    private boolean bFO = false;
+    private i.a bFZ = new i.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.i.a
-        public void Wr() {
-            a.this.WE();
+        public void Wm() {
+            a.this.Wz();
         }
     };
 
     public a(AlaVideoContainer alaVideoContainer) {
-        this.bkX = alaVideoContainer;
-        if (this.bkX != null) {
-            this.bHa = new i();
-            this.bHa.setPlayer(this.bkX.getVideoView());
-            this.bHa.a(this.bHj);
-            if (this.bkX.getVideoView() != null) {
-                this.bGN = new m(this.bkX.getVideoView().getContext());
-                this.bkX.getVideoView().setBusiness(this.bGN);
+        this.bjN = alaVideoContainer;
+        if (this.bjN != null) {
+            this.bFQ = new i();
+            this.bFQ.setPlayer(this.bjN.getVideoView());
+            this.bFQ.a(this.bFZ);
+            if (this.bjN.getVideoView() != null) {
+                this.bFD = new m(this.bjN.getVideoView().getContext());
+                this.bjN.getVideoView().setBusiness(this.bFD);
             }
         }
     }
 
     public void a(bl blVar, String str, String str2, boolean z) {
-        this.bJk = str2;
+        this.bIa = str2;
         this.mForumName = str;
         if (blVar != null) {
-            this.bgF = blVar;
-            if (this.bkX != null && this.bgF.rX() != null) {
-                this.bJj = this.bgF.rX();
-                this.bkX.setVideoThumbnail(this.bJj.cover);
-                if (this.bGN != null && this.bGN.bfO() != null) {
-                    this.bGN.bfO().b(this.bJj);
+            this.bfu = blVar;
+            if (this.bjN != null && this.bfu.rN() != null) {
+                this.bHZ = this.bfu.rN();
+                this.bjN.setVideoThumbnail(this.bHZ.cover);
+                if (this.bFD != null && this.bFD.bfE() != null) {
+                    this.bFD.bfE().b(this.bHZ);
                 }
                 if (z) {
-                    this.bkX.setTitle(this.bgF.getTitle());
+                    this.bjN.setTitle(this.bfu.getTitle());
                 } else {
-                    this.bkX.setTitle("");
+                    this.bjN.setTitle("");
                 }
             }
         }
     }
 
-    public void WD() {
-        if (this.bJj != null) {
-            if (this.bJj.live_status == 1) {
-                this.bkX.aa(d.g.btn_icon_play_live, 0);
-                this.bkX.setLivingLogLeftDrawable(d.g.icon_video_direct_seeding);
-                this.bkX.setLivingLogText(d.l.ala_live_card_view_live_label);
+    public void Wy() {
+        if (this.bHZ != null) {
+            if (this.bHZ.live_status == 1) {
+                this.bjN.Z(d.g.btn_icon_play_live, 0);
+                this.bjN.setLivingLogLeftDrawable(d.g.icon_video_direct_seeding);
+                this.bjN.setLivingLogText(d.l.ala_live_card_view_live_label);
                 return;
             }
-            this.bkX.aa(d.g.icon_play_video, 0);
-            this.bkX.setLivingLogLeftDrawable(d.g.icon_video_direct_seeding_replay);
-            this.bkX.setLivingLogText(d.l.ala_live_card_view_record_label);
+            this.bjN.Z(d.g.icon_play_video, 0);
+            this.bjN.setLivingLogLeftDrawable(d.g.icon_video_direct_seeding_replay);
+            this.bjN.setLivingLogText(d.l.ala_live_card_view_record_label);
         }
     }
 
     public void bi(Context context) {
-        if (context != null && this.bgF != null && this.bJj != null) {
-            if (!com.baidu.adp.lib.util.i.hr()) {
+        if (context != null && this.bfu != null && this.bHZ != null) {
+            if (!com.baidu.adp.lib.util.i.hh()) {
                 k.showToast(context, d.l.no_network_guide);
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             String str = AlaLiveRoomActivityConfig.FROM_TYPE_FRS_PLAY;
-            if (this.bgF.rw() != null) {
-                str = this.bgF.rw();
+            if (this.bfu.rm() != null) {
+                str = this.bfu.rm();
             }
             if (str.equals(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY)) {
-                if (this.bgF.rK().equals(this.mForumName)) {
-                    TiebaStatic.log(new aj("c11843").aa(SapiAccountManager.SESSION_UID, currentAccount).g("fid", this.bgF.getFid()));
+                if (this.bfu.rA().equals(this.mForumName)) {
+                    TiebaStatic.log(new aj("c11843").aa(SapiAccountManager.SESSION_UID, currentAccount).f("fid", this.bfu.getFid()));
                 } else {
-                    TiebaStatic.log(new aj("c11845").aa(SapiAccountManager.SESSION_UID, currentAccount).g("fid", this.bgF.getFid()));
+                    TiebaStatic.log(new aj("c11845").aa(SapiAccountManager.SESSION_UID, currentAccount).f("fid", this.bfu.getFid()));
                 }
             }
             boolean z = false;
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && this.bgF.getAuthor() != null) {
-                z = TextUtils.equals(this.bgF.getAuthor().getUserId(), TbadkCoreApplication.getCurrentAccount());
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && this.bfu.getAuthor() != null) {
+                z = TextUtils.equals(this.bfu.getAuthor().getUserId(), TbadkCoreApplication.getCurrentAccount());
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(this.bJj);
-            if (this.bJj.Vq != null) {
-                alaLiveInfoCoreData.setUserName(this.bJj.Vq.user_name);
+            alaLiveInfoCoreData.fillWithInfoData(this.bHZ);
+            if (this.bHZ.TR != null) {
+                alaLiveInfoCoreData.setUserName(this.bHZ.TR.user_name);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, str, "", z, this.mForumName)));
         }
@@ -116,7 +116,7 @@ public class a implements e {
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        return this.bGY;
+        return this.bFO;
     }
 
     @Override // com.baidu.tieba.play.e
@@ -130,43 +130,43 @@ public class a implements e {
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.bkX != null && this.bkX.getVideoView() != null) {
-            this.bkX.getVideoView().stopPlayback();
-            this.bkX.WC();
-            if (this.bHa != null) {
-                this.bHa.stop();
+        if (this.bjN != null && this.bjN.getVideoView() != null) {
+            this.bjN.getVideoView().stopPlayback();
+            this.bjN.Wx();
+            if (this.bFQ != null) {
+                this.bFQ.stop();
             }
         }
-        this.bGY = false;
+        this.bFO = false;
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.bkX != null) {
-            return this.bkX.getView();
+        if (this.bjN != null) {
+            return this.bjN.getView();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        if (this.bgF == null || this.bgF.rW() == null) {
+        if (this.bfu == null || this.bfu.rM() == null) {
             return null;
         }
-        return this.bgF.rW().video_url;
+        return this.bfu.rM().video_url;
     }
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.bkX == null || this.bkX.getVideoView() == null) {
+        if (this.bjN == null || this.bjN.getVideoView() == null) {
             return 0;
         }
-        return this.bkX.getVideoView().getCurrentPosition();
+        return this.bjN.getVideoView().getCurrentPosition();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WE() {
-        if (this.bgF == null || this.bgF.rW() == null) {
+    public void Wz() {
+        if (this.bfu == null || this.bfu.rM() == null) {
         }
     }
 }

@@ -9,29 +9,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static b RK = null;
-    private static a RL = null;
-    private static boolean RM = false;
-    private static String RO = "";
-    private static transient List<String> RP = new ArrayList(5);
+    private static b Qm = null;
+    private static a Qn = null;
+    private static boolean Qo = false;
+    private static String Qp = "";
+    private static transient List<String> Qq = new ArrayList(5);
 
     /* renamed from: com.baidu.tbadk.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0052a {
-        private static SparseIntArray RQ = new SparseIntArray();
+        private static SparseIntArray Qr = new SparseIntArray();
 
         static {
-            RQ.put(2, 1);
-            RQ.put(4, 2);
-            RQ.put(8, 3);
-            RQ.put(12, 4);
-            RQ.put(16, 5);
-            RQ.put(20, 6);
-            RQ.put(24, 7);
+            Qr.put(2, 1);
+            Qr.put(4, 2);
+            Qr.put(8, 3);
+            Qr.put(12, 4);
+            Qr.put(16, 5);
+            Qr.put(20, 6);
+            Qr.put(24, 7);
         }
 
-        public static int aX(int i) {
-            return RQ.get(i);
+        public static int aV(int i) {
+            return Qr.get(i);
         }
     }
 
@@ -39,158 +39,158 @@ public class a {
     }
 
     public static a a(BaseFragmentActivity baseFragmentActivity) {
-        if (RL == null) {
+        if (Qn == null) {
             synchronized (a.class) {
-                if (RL == null) {
-                    RL = new a();
-                    RK = b.b(baseFragmentActivity);
+                if (Qn == null) {
+                    Qn = new a();
+                    Qm = b.b(baseFragmentActivity);
                 }
             }
-        } else if (RK != null) {
-            RK.a(baseFragmentActivity.getPageContext());
+        } else if (Qm != null) {
+            Qm.a(baseFragmentActivity.getPageContext());
         }
-        if (RM && RK != null) {
-            RK.oa();
-            RK.ob();
-            RM = false;
+        if (Qo && Qm != null) {
+            Qm.nQ();
+            Qm.nR();
+            Qo = false;
         }
-        return RL;
+        return Qn;
     }
 
     public static a b(BaseActivity baseActivity) {
-        if (RL == null) {
+        if (Qn == null) {
             synchronized (a.class) {
-                if (RL == null) {
-                    RL = new a();
-                    RK = b.c(baseActivity);
+                if (Qn == null) {
+                    Qn = new a();
+                    Qm = b.c(baseActivity);
                 }
             }
-        } else if (RK != null) {
-            RK.a(baseActivity.getPageContext());
+        } else if (Qm != null) {
+            Qm.a(baseActivity.getPageContext());
         }
-        if (RM && RK != null) {
-            RK.oa();
-            RK.ob();
-            RM = false;
+        if (Qo && Qm != null) {
+            Qm.nQ();
+            Qm.nR();
+            Qo = false;
         }
-        return RL;
+        return Qn;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        nV();
+        nL();
         if (z) {
-            nP();
+            nF();
         }
         if (z2) {
-            nQ();
+            nG();
         }
         ad(z3);
         a(aVar);
     }
 
     public void a(TbPageContext tbPageContext, String str, String str2, String str3) {
-        nV();
-        if (RK != null) {
-            RK.a(tbPageContext, str, str2, str3);
+        nL();
+        if (Qm != null) {
+            Qm.a(tbPageContext, str, str2, str3);
         }
     }
 
-    public void nP() {
-        nV();
-        if (RK != null) {
-            RK.oa();
-            RM = false;
+    public void nF() {
+        nL();
+        if (Qm != null) {
+            Qm.nQ();
+            Qo = false;
         }
     }
 
-    public void nQ() {
-        nV();
-        if (RK != null) {
-            RK.ob();
-            RM = false;
+    public void nG() {
+        nL();
+        if (Qm != null) {
+            Qm.nR();
+            Qo = false;
         }
     }
 
     public void ad(boolean z) {
-        nV();
-        if (RK != null) {
-            RK.ad(z);
+        nL();
+        if (Qm != null) {
+            Qm.ad(z);
         }
     }
 
-    public boolean nR() {
-        nV();
-        if (RK != null) {
-            return RK.nR();
+    public boolean nH() {
+        nL();
+        if (Qm != null) {
+            return Qm.nH();
         }
         return false;
     }
 
     public void a(b.a aVar) {
-        nV();
-        if (RK != null) {
-            RK.c(aVar);
+        nL();
+        if (Qm != null) {
+            Qm.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        nV();
-        if (RK != null) {
-            if (RK.nX()) {
-                RK.c(aVar);
+        nL();
+        if (Qm != null) {
+            if (Qm.nN()) {
+                Qm.c(aVar);
             }
-            RK.nZ();
+            Qm.nP();
         }
     }
 
     public void a(int i, b.a aVar) {
-        nV();
-        if (RK != null) {
-            if (RK.nX()) {
-                RK.c(aVar);
+        nL();
+        if (Qm != null) {
+            if (Qm.nN()) {
+                Qm.c(aVar);
             }
-            RK.aY(i);
+            Qm.aW(i);
         }
     }
 
-    public void nS() {
-        nV();
-        if (RK != null) {
-            RK.nS();
-            RM = true;
+    public void nI() {
+        nL();
+        if (Qm != null) {
+            Qm.nI();
+            Qo = true;
         }
     }
 
-    public void nT() {
-        nV();
-        if (RK != null) {
-            RK.nT();
+    public void nJ() {
+        nL();
+        if (Qm != null) {
+            Qm.nJ();
         }
     }
 
-    public void nU() {
-        nV();
-        nT();
-        nS();
+    public void nK() {
+        nL();
+        nJ();
+        nI();
     }
 
-    private void nV() {
-        if (RK == null) {
+    private void nL() {
+        if (Qm == null) {
         }
     }
 
-    public static void nW() {
+    public static void nM() {
         try {
-            if (RK != null) {
-                if (RL != null) {
-                    RL.nU();
+            if (Qm != null) {
+                if (Qn != null) {
+                    Qn.nK();
                 }
-                RK.nY();
-                RK.oc();
-                RK = null;
+                Qm.nO();
+                Qm.nS();
+                Qm = null;
             }
-            if (RL != null) {
-                RL = null;
+            if (Qn != null) {
+                Qn = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

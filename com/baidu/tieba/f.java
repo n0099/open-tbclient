@@ -18,30 +18,30 @@ public class f {
             return false;
         }
         try {
-            PublicKey s = t.s(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
-            if (s == null) {
+            PublicKey p = t.p(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+            if (p == null) {
                 TiebaStatic.log(new aj("c10836").aa("obj_type", "publicKeyCode is null").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] hf = hf(str);
-            if (hf == null || hf.length <= 0) {
+            byte[] ha = ha(str);
+            if (ha == null || ha.length <= 0) {
                 TiebaStatic.log(new aj("c10836").aa("obj_type", "server_data is null").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] b = t.b(s, hf);
+            byte[] b = t.b(p, ha);
             if (b == null || b.length <= 0) {
                 TiebaStatic.log(new aj("c10836").aa("obj_type", "des is null").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
             String trim = new String(b, "UTF-8").trim();
-            String q = r.q(new FileInputStream(file));
-            if (q != null) {
-                q = q.trim();
+            String k = r.k(new FileInputStream(file));
+            if (k != null) {
+                k = k.trim();
             }
-            if (TextUtils.isEmpty(q) || TextUtils.isEmpty(trim)) {
+            if (TextUtils.isEmpty(k) || TextUtils.isEmpty(trim)) {
                 TiebaStatic.log(new aj("c10836").aa("obj_type", "apkMd5 or serverMD5 is null").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
-            } else if (q.equalsIgnoreCase(trim)) {
+            } else if (k.equalsIgnoreCase(trim)) {
                 return true;
             } else {
                 TiebaStatic.log(new aj("c10836").aa("obj_type", "apkMd5 != serverMD5").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
@@ -63,7 +63,7 @@ public class f {
         return digit;
     }
 
-    public static byte[] hf(String str) {
+    public static byte[] ha(String str) {
         int i = 0;
         if (str == null) {
             throw new IllegalArgumentException("binary string is null");

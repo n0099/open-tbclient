@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public interface f {
-    void VU();
+    void VP();
 
     void a(Context context, NavigationBar navigationBar);
 

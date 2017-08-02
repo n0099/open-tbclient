@@ -7,9 +7,9 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
-    private BdUniqueId dEE;
-    private ReplyMessageActivity dEF;
-    private a dEG;
+    private BdUniqueId dDn;
+    private ReplyMessageActivity dDo;
+    private a dDp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -22,10 +22,10 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
     }
 
     public ReplyMeModel(ReplyMessageActivity replyMessageActivity) {
-        super(com.baidu.adp.base.i.aa(replyMessageActivity.getPageContext().getPageActivity()));
-        this.dEE = BdUniqueId.gen();
-        this.dEF = replyMessageActivity;
-        azB();
+        super(com.baidu.adp.base.i.Z(replyMessageActivity.getPageContext().getPageActivity()));
+        this.dDn = BdUniqueId.gen();
+        this.dDo = replyMessageActivity;
+        azq();
     }
 
     public void a(long j, int i, String str, String str2) {
@@ -33,27 +33,27 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
         checkPostRequestMessage.setPid(j);
         checkPostRequestMessage.setPostType(i);
         checkPostRequestMessage.setForumName(str);
-        checkPostRequestMessage.setTid(com.baidu.adp.lib.g.b.d(str2, 0L));
-        checkPostRequestMessage.setTag(this.dEF.getUniqueId());
+        checkPostRequestMessage.setTid(com.baidu.adp.lib.g.b.c(str2, 0L));
+        checkPostRequestMessage.setTag(this.dDo.getUniqueId());
         sendMessage(checkPostRequestMessage);
     }
 
-    public void azB() {
+    public void azq() {
         com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-                    ReplyMeModel.this.dEF.showToast(d.l.neterror);
+                    ReplyMeModel.this.dDo.showToast(d.l.neterror);
                     return;
                 }
                 CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
                 if (checkPostResponseMessage.hasError()) {
                     if (!TextUtils.isEmpty(checkPostResponseMessage.getErrorString())) {
-                        ReplyMeModel.this.dEF.showToast(checkPostResponseMessage.getErrorString());
+                        ReplyMeModel.this.dDo.showToast(checkPostResponseMessage.getErrorString());
                         return;
                     } else {
-                        ReplyMeModel.this.dEF.showToast(d.l.neterror);
+                        ReplyMeModel.this.dDo.showToast(d.l.neterror);
                         return;
                     }
                 }
@@ -63,17 +63,17 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
                 long repostId = checkPostResponseMessage.getRepostId();
                 String forumName = checkPostResponseMessage.getForumName();
                 if (postState == 1) {
-                    ReplyMeModel.this.dEG.a(forumId, quoteId, repostId, forumName);
+                    ReplyMeModel.this.dDp.a(forumId, quoteId, repostId, forumName);
                 } else if (postState == 0) {
-                    ReplyMeModel.this.dEF.showToast(d.l.thread_delete_tip);
+                    ReplyMeModel.this.dDo.showToast(d.l.thread_delete_tip);
                 } else if (postState == -1) {
-                    ReplyMeModel.this.dEF.showToast(d.l.thread_shield_tip);
+                    ReplyMeModel.this.dDo.showToast(d.l.thread_shield_tip);
                 }
             }
         };
-        cVar.setTag(this.dEF.getUniqueId());
+        cVar.setTag(this.dDo.getUniqueId());
         cVar.setSelfListener(true);
-        this.dEF.registerListener(cVar);
+        this.dDo.registerListener(cVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -87,6 +87,6 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
     }
 
     public void a(a aVar) {
-        this.dEG = aVar;
+        this.dDp = aVar;
     }
 }

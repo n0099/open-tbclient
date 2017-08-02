@@ -19,12 +19,12 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes.dex */
     public static class a {
-        public View aVt;
-        public TbImageView bZu;
-        public TextView bZv;
-        public TextView bZw;
-        public TextView bZx;
-        public View bZy;
+        public View aUh;
+        public TbImageView bYo;
+        public TextView bYp;
+        public TextView bYq;
+        public TextView bYr;
+        public View bYs;
     }
 
     public c(Context context) {
@@ -63,29 +63,29 @@ public class c extends BaseAdapter {
         } else {
             View inflate = LayoutInflater.from(this.mContext).inflate(d.j.item_recommend_forum_by_tag, viewGroup, false);
             aVar = new a();
-            aVar.bZu = (TbImageView) inflate.findViewById(d.h.imageview_forum);
-            aVar.bZv = (TextView) inflate.findViewById(d.h.textview_forum_name);
-            aVar.bZw = (TextView) inflate.findViewById(d.h.textview_forum_concern_count);
-            aVar.bZx = (TextView) inflate.findViewById(d.h.textview_forum_thread_count);
-            aVar.bZy = inflate.findViewById(d.h.view_check_state);
-            aVar.aVt = inflate.findViewById(d.h.view_bottom_line);
+            aVar.bYo = (TbImageView) inflate.findViewById(d.h.imageview_forum);
+            aVar.bYp = (TextView) inflate.findViewById(d.h.textview_forum_name);
+            aVar.bYq = (TextView) inflate.findViewById(d.h.textview_forum_concern_count);
+            aVar.bYr = (TextView) inflate.findViewById(d.h.textview_forum_thread_count);
+            aVar.bYs = inflate.findViewById(d.h.view_check_state);
+            aVar.aUh = inflate.findViewById(d.h.view_bottom_line);
             inflate.setTag(aVar);
             view2 = inflate;
         }
         if (item != null) {
-            aVar.bZu.c(item.avatar, 10, false);
-            aVar.bZv.setText(item.forumName);
-            aVar.bZw.setText(String.format(this.mContext.getString(d.l.forum_concern_number), al.u(item.followNum)));
-            aVar.bZx.setText(String.format(this.mContext.getString(d.l.forum_thread_number), al.u(item.threadNum)));
+            aVar.bYo.c(item.avatar, 10, false);
+            aVar.bYp.setText(item.forumName);
+            aVar.bYq.setText(String.format(this.mContext.getString(d.l.forum_concern_number), al.u(item.followNum)));
+            aVar.bYr.setText(String.format(this.mContext.getString(d.l.forum_thread_number), al.u(item.threadNum)));
             if (item.isSelected) {
-                ai.j(aVar.bZy, d.g.icon_list_confirm_s);
+                ai.j(aVar.bYs, d.g.icon_list_confirm_s);
             } else {
-                ai.j(aVar.bZy, d.g.icon_jinba_confirm_n);
+                ai.j(aVar.bYs, d.g.icon_jinba_confirm_n);
             }
-            ai.i(aVar.bZv, d.e.cp_cont_b);
-            ai.i(aVar.bZw, d.e.cp_cont_f);
-            ai.i(aVar.bZx, d.e.cp_cont_f);
-            ai.k(aVar.aVt, d.e.cp_bg_line_c);
+            ai.i(aVar.bYp, d.e.cp_cont_b);
+            ai.i(aVar.bYq, d.e.cp_cont_f);
+            ai.i(aVar.bYr, d.e.cp_cont_f);
+            ai.k(aVar.aUh, d.e.cp_bg_line_c);
         }
         return view2;
     }

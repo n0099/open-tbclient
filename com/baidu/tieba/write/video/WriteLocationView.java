@@ -22,10 +22,10 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.tbadkCore.location.c;
 /* loaded from: classes.dex */
 public class WriteLocationView extends LocationInfoView {
-    private LocationModel aDT;
-    private int aEc;
-    private final LocationModel.a aEj;
-    private final CustomMessageListener gjZ;
+    private LocationModel aCD;
+    private int aCM;
+    private final LocationModel.a aCT;
+    private final CustomMessageListener giO;
     private BaseActivity<?> mBaseActivity;
 
     public WriteLocationView(Context context) {
@@ -34,16 +34,16 @@ public class WriteLocationView extends LocationInfoView {
 
     public WriteLocationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aEc = 0;
-        this.aEj = new LocationModel.a() { // from class: com.baidu.tieba.write.video.WriteLocationView.2
+        this.aCM = 0;
+        this.aCT = new LocationModel.a() { // from class: com.baidu.tieba.write.video.WriteLocationView.2
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-            public void DR() {
+            public void DJ() {
                 WriteLocationView.this.mBaseActivity.showToast(d.l.no_network_guide);
                 WriteLocationView.this.c(0, true, null);
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-            public void ga(String str) {
+            public void fU(String str) {
                 BaseActivity baseActivity = WriteLocationView.this.mBaseActivity;
                 if (StringUtils.isNull(str)) {
                     str = WriteLocationView.this.mBaseActivity.getResources().getString(d.l.location_fail);
@@ -54,26 +54,26 @@ public class WriteLocationView extends LocationInfoView {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.bta())) {
-                    WriteLocationView.this.c(2, true, aVar.bta());
+                if (aVar != null && !StringUtils.isNull(aVar.bsT())) {
+                    WriteLocationView.this.c(2, true, aVar.bsT());
                 } else {
-                    ga(null);
+                    fU(null);
                 }
             }
         };
-        this.gjZ = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.5
+        this.giO = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof ResponsedSelectLocation) {
                     ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                     if (responsedSelectLocation.isShowLocation()) {
-                        WriteLocationView.this.aDT.mA(false);
-                        WriteLocationView.this.aDT.cj(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                        WriteLocationView.this.aCD.mA(false);
+                        WriteLocationView.this.aCD.cj(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                         WriteLocationView.this.c(2, true, responsedSelectLocation.getName());
                         return;
                     }
-                    WriteLocationView.this.aDT.mA(true);
+                    WriteLocationView.this.aCD.mA(true);
                     WriteLocationView.this.c(0, true, null);
                 }
             }
@@ -82,73 +82,73 @@ public class WriteLocationView extends LocationInfoView {
 
     public void f(BaseActivity<?> baseActivity) {
         this.mBaseActivity = baseActivity;
-        this.mBaseActivity.registerListener(this.gjZ);
-        this.aDT = new LocationModel(this.mBaseActivity);
-        this.aDT.a(this.aEj);
+        this.mBaseActivity.registerListener(this.giO);
+        this.aCD = new LocationModel(this.mBaseActivity);
+        this.aCD.a(this.aCT);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.video.WriteLocationView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                switch (WriteLocationView.this.aEc) {
+                switch (WriteLocationView.this.aCM) {
                     case 0:
-                        WriteLocationView.this.DD();
+                        WriteLocationView.this.Dv();
                         return;
                     case 1:
                     default:
                         return;
                     case 2:
-                        WriteLocationView.this.DC();
+                        WriteLocationView.this.Du();
                         return;
                 }
             }
         });
-        DF();
+        Dx();
     }
 
-    public boolean Tm() {
-        if (this.aDT == null) {
+    public boolean Th() {
+        if (this.aCD == null) {
             return false;
         }
-        return this.aDT.Tm();
+        return this.aCD.Th();
     }
 
-    public void DD() {
+    public void Dv() {
         if (!UtilHelper.isSystemLocationProviderEnabled(this.mBaseActivity.getPageContext().getPageActivity())) {
             this.mBaseActivity.showToast(d.l.location_system_permission_prompt);
             c(0, true, null);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
-            DE();
-        } else if (this.aDT.bti()) {
-            DC();
+            Dw();
+        } else if (this.aCD.btb()) {
+            Du();
         } else {
-            this.aDT.mA(false);
+            this.aCD.mA(false);
             c(1, true, null);
-            this.aDT.btg();
+            this.aCD.bsZ();
         }
     }
 
-    private void DF() {
-        if (this.aDT.Tm()) {
-            if (this.aDT.bti()) {
-                c(2, true, c.bte().getLocationData().bta());
+    private void Dx() {
+        if (this.aCD.Th()) {
+            if (this.aCD.btb()) {
+                c(2, true, c.bsX().getLocationData().bsT());
                 return;
             }
             c(1, true, null);
-            this.aDT.btg();
+            this.aCD.bsZ();
             return;
         }
         c(0, true, null);
     }
 
-    private void DE() {
+    private void Dw() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mBaseActivity.getPageContext().getPageActivity());
-        aVar.cc(d.l.location_app_permission_prompt).a(d.l.isopen, new a.b() { // from class: com.baidu.tieba.write.video.WriteLocationView.4
+        aVar.ca(d.l.location_app_permission_prompt).a(d.l.isopen, new a.b() { // from class: com.baidu.tieba.write.video.WriteLocationView.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                if (i.hr()) {
+                if (i.hh()) {
                     WriteLocationView.this.c(1, true, null);
-                    WriteLocationView.this.aDT.Tq();
+                    WriteLocationView.this.aCD.Tl();
                 } else {
-                    WriteLocationView.this.aEj.DR();
+                    WriteLocationView.this.aCT.DJ();
                 }
                 aVar2.dismiss();
             }
@@ -159,24 +159,24 @@ public class WriteLocationView extends LocationInfoView {
                 aVar2.dismiss();
             }
         }).b(this.mBaseActivity.getPageContext());
-        aVar.tr();
+        aVar.th();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void blV() {
-        if (this.aDT != null) {
-            this.aDT.cancelLoadData();
+    public void blL() {
+        if (this.aCD != null) {
+            this.aCD.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void DC() {
+    public void Du() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectLocationActivityConfig(this.mBaseActivity.getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i, boolean z, String str) {
-        this.aEc = i;
+        this.aCM = i;
         setVisibility(z ? 0 : 8);
         l(i, str);
     }

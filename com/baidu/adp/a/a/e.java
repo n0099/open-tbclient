@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int pH;
-    private a pI;
+    private int nV;
+    private a nW;
 
-    public a cy() throws IOException {
+    public a cn() throws IOException {
         a aVar = new a();
-        aVar.pK = F("/proc/uid_stat/" + this.pH + "/tcp_rcv");
-        aVar.pL = F("/proc/uid_stat/" + this.pH + "/tcp_snd");
-        aVar.pJ = d.c(aVar.pK + aVar.pL);
+        aVar.nY = z("/proc/uid_stat/" + this.nV + "/tcp_rcv");
+        aVar.nZ = z("/proc/uid_stat/" + this.nV + "/tcp_snd");
+        aVar.nX = d.c(aVar.nY + aVar.nZ);
         return aVar;
     }
 
-    public a cz() throws IOException {
-        a cy = cy();
-        this.pI.pK = d.c(cy.pK - d.cx().pK);
-        this.pI.pL = d.c(cy.pL - d.cx().pL);
-        this.pI.pJ = d.c(cy.pJ - d.cx().pJ);
-        return this.pI;
+    public a co() throws IOException {
+        a cn = cn();
+        this.nW.nY = d.c(cn.nY - d.cm().nY);
+        this.nW.nZ = d.c(cn.nZ - d.cm().nZ);
+        this.nW.nX = d.c(cn.nX - d.cm().nX);
+        return this.nW;
     }
 
-    public double F(String str) {
+    public double z(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(cz());
+                d.a(co());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!cv()) {
+            if (!ck()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double pJ = 0.0d;
-        double pK = 0.0d;
-        double pL = 0.0d;
+        double nX = 0.0d;
+        double nY = 0.0d;
+        double nZ = 0.0d;
 
         public a() {
         }

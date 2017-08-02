@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<d> aVS = new ArrayList();
-    private long aVT = 0;
+    private List<d> aUG = new ArrayList();
+    private long aUH = 0;
 
-    public List<d> Kl() {
-        return this.aVS;
+    public List<d> Kf() {
+        return this.aUG;
     }
 
-    public long Km() {
-        return this.aVT;
+    public long Kg() {
+        return this.aUH;
     }
 
     public void a(d dVar) {
-        if (this.aVS != null) {
-            this.aVS.add(dVar);
+        if (this.aUG != null) {
+            this.aUG.add(dVar);
             if (dVar != null) {
-                this.aVT += dVar.Kt();
+                this.aUH += dVar.Kn();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.aVS != null) {
-            this.aVS.remove(dVar);
+        if (this.aUG != null) {
+            this.aUG.remove(dVar);
             if (dVar != null) {
-                this.aVT -= dVar.Kt();
+                this.aUH -= dVar.Kn();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.aVS != null) {
-            d dVar = this.aVS.get(i);
+        if (this.aUG != null) {
+            d dVar = this.aUG.get(i);
             if (dVar != null) {
-                this.aVT -= dVar.Kt();
+                this.aUH -= dVar.Kn();
             }
-            this.aVS.remove(i);
+            this.aUG.remove(i);
         }
     }
 
-    public int Kn() {
-        if (this.aVS != null) {
-            return this.aVS.size();
+    public int Kh() {
+        if (this.aUG != null) {
+            return this.aUG.size();
         }
         return 0;
     }
 
-    public d fO(int i) {
-        if (this.aVS != null) {
-            return this.aVS.get(i);
+    public d fM(int i) {
+        if (this.aUG != null) {
+            return this.aUG.get(i);
         }
         return null;
     }

@@ -28,7 +28,7 @@ public class StoryPageActivityConfig extends IntentConfig {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static int TX = 1;
+        public static int Sz = 1;
         public static int FROM_FRS = 2;
     }
 
@@ -48,15 +48,15 @@ public class StoryPageActivityConfig extends IntentConfig {
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean asynStart() {
-        if (this.mDoneCallback != null && (i.aa(getContext()) instanceof TbPageContext)) {
+        if (this.mDoneCallback != null && (i.Z(getContext()) instanceof TbPageContext)) {
             Intent intent = getIntent();
             ArrayList arrayList = (ArrayList) intent.getSerializableExtra(USER_LIST);
             int intExtra = intent.getIntExtra("index", 0);
             long longExtra = intent.getLongExtra("forum_id", -1L);
             long longExtra2 = intent.getLongExtra("thread_id", -1L);
-            this.mStoryModel = makeStoryModel(i.aa(getContext()));
+            this.mStoryModel = makeStoryModel(i.Z(getContext()));
             if (this.mStoryModel != null) {
-                return l.boh().a(this.mStoryModel, arrayList, intExtra, longExtra, longExtra2, new f() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.1
+                return l.bnY().a(this.mStoryModel, arrayList, intExtra, longExtra, longExtra2, new f() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.1
                     @Override // com.baidu.tieba.story.f
                     public void a(int i, String str, MetaData metaData, List<UserStoryData> list) {
                         Class<?> intentClass = TbadkCoreApplication.getInst().getIntentClass(StoryPageActivityConfig.this.getConfig().getClass());
@@ -79,7 +79,7 @@ public class StoryPageActivityConfig extends IntentConfig {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void unRegisterListener() {
-        e.ga().post(new Runnable() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.2
+        e.fP().post(new Runnable() { // from class: com.baidu.tbadk.core.atomData.StoryPageActivityConfig.2
             @Override // java.lang.Runnable
             public void run() {
                 if (StoryPageActivityConfig.this.mStoryModel != null) {
@@ -104,7 +104,7 @@ public class StoryPageActivityConfig extends IntentConfig {
         if (!u.v(list)) {
             for (UserStoryData userStoryData : list) {
                 if (userStoryData != null && userStoryData.storyUser != null) {
-                    l.boh().a(userStoryData.storyUser.getUserIdLong(), userStoryData);
+                    l.bnY().a(userStoryData.storyUser.getUserIdLong(), userStoryData);
                 }
             }
         }

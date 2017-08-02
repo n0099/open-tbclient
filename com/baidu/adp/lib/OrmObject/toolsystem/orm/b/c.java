@@ -6,7 +6,7 @@ import java.util.Set;
 public interface c {
     Object b(String str, Type type);
 
-    Set<String> eq();
+    Set<String> ef();
 
     void j(String str, Object obj);
 }

@@ -48,13 +48,13 @@ public class d extends PullToRefreshBase<HorizontalScrollView> {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase
     protected boolean isReadyForPullStart() {
-        return ((HorizontalScrollView) this.aPD).getScrollX() == 0;
+        return ((HorizontalScrollView) this.aOp).getScrollX() == 0;
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase
     protected boolean isReadyForPullEnd() {
-        View childAt = ((HorizontalScrollView) this.aPD).getChildAt(0);
-        return childAt != null && ((HorizontalScrollView) this.aPD).getScrollX() >= childAt.getWidth() - getWidth();
+        View childAt = ((HorizontalScrollView) this.aOp).getChildAt(0);
+        return childAt != null && ((HorizontalScrollView) this.aOp).getScrollX() >= childAt.getWidth() - getWidth();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -68,11 +68,11 @@ public class d extends PullToRefreshBase<HorizontalScrollView> {
         @Override // android.view.View
         protected boolean overScrollBy(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) {
             boolean overScrollBy = super.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
-            c.a(d.this, i, i3, i2, i4, Ig(), z);
+            c.a(d.this, i, i3, i2, i4, HY(), z);
             return overScrollBy;
         }
 
-        private int Ig() {
+        private int HY() {
             if (getChildCount() > 0) {
                 return Math.max(0, getChildAt(0).getWidth() - ((getWidth() - getPaddingLeft()) - getPaddingRight()));
             }

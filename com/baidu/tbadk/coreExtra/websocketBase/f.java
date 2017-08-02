@@ -12,31 +12,31 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class f {
-    private static f azS = null;
-    private int azT;
+    private static f ayB = null;
+    private int ayC;
     private int currentIndex = 0;
-    private boolean azU = false;
-    private boolean azV = false;
-    private List<String> azk = null;
-    private boolean azW = false;
-    private final g.a azX = new g.a() { // from class: com.baidu.tbadk.coreExtra.websocketBase.f.1
+    private boolean ayD = false;
+    private boolean ayE = false;
+    private List<String> axT = null;
+    private boolean ayF = false;
+    private final g.a ayG = new g.a() { // from class: com.baidu.tbadk.coreExtra.websocketBase.f.1
         @Override // com.baidu.adp.lib.webSocket.g.a
-        public void f(Map<String, String> map) {
-            if (f.this.azT >= 5) {
+        public void e(Map<String, String> map) {
+            if (f.this.ayC >= 5) {
                 i.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.h.getUrl());
-                a.BO().fn(com.baidu.adp.framework.client.socket.h.getUrl());
-                a.BO().BS();
+                a.BG().fh(com.baidu.adp.framework.client.socket.h.getUrl());
+                a.BG().BK();
             }
-            f.this.azT = 0;
+            f.this.ayC = 0;
         }
 
         @Override // com.baidu.adp.lib.webSocket.g.a
         public void e(int i, String str) {
-            if ((i == 2 || i == 9) && com.baidu.adp.lib.util.i.hr()) {
+            if ((i == 2 || i == 9) && com.baidu.adp.lib.util.i.hh()) {
                 f.b(f.this);
-                if (f.this.azT >= 5) {
+                if (f.this.ayC >= 5) {
                     i.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist");
-                    f.this.Ck();
+                    f.this.Cc();
                 }
             }
         }
@@ -46,15 +46,15 @@ public class f {
         }
 
         @Override // com.baidu.adp.lib.webSocket.g.a
-        public void id() {
+        public void hT() {
         }
 
         @Override // com.baidu.adp.lib.webSocket.g.a
-        public void I(String str) {
+        public void C(String str) {
         }
 
         @Override // com.baidu.adp.lib.webSocket.g.a
-        public void u(byte[] bArr) {
+        public void r(byte[] bArr) {
         }
 
         @Override // com.baidu.adp.lib.webSocket.g.a
@@ -75,31 +75,31 @@ public class f {
     };
 
     static /* synthetic */ int b(f fVar) {
-        int i = fVar.azT;
-        fVar.azT = i + 1;
+        int i = fVar.ayC;
+        fVar.ayC = i + 1;
         return i;
     }
 
-    public static synchronized f Ch() {
+    public static synchronized f BZ() {
         f fVar;
         synchronized (f.class) {
-            if (azS == null) {
+            if (ayB == null) {
                 synchronized (f.class) {
-                    if (azS == null) {
-                        azS = new f();
+                    if (ayB == null) {
+                        ayB = new f();
                     }
                 }
             }
-            fVar = azS;
+            fVar = ayB;
         }
         return fVar;
     }
 
     public void init() {
-        com.baidu.adp.lib.webSocket.h.ie().a(this.azX);
+        com.baidu.adp.lib.webSocket.h.hU().a(this.ayG);
     }
 
-    public static String fs(String str) {
+    public static String fm(String str) {
         int lastIndexOf;
         if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
@@ -111,99 +111,99 @@ public class f {
         return null;
     }
 
-    private String Ci() {
-        if (this.azk == null || this.currentIndex <= -1 || this.currentIndex >= this.azk.size()) {
+    private String Ca() {
+        if (this.axT == null || this.currentIndex <= -1 || this.currentIndex >= this.axT.size()) {
             return null;
         }
-        return a.BO().BR().get(this.currentIndex);
+        return a.BG().BJ().get(this.currentIndex);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ft(final String str) {
-        String Ci = Ci();
-        if (Ci == null) {
-            if (!a.BO().BT()) {
-                a.BO().a(new a.InterfaceC0051a() { // from class: com.baidu.tbadk.coreExtra.websocketBase.f.2
+    public void fn(final String str) {
+        String Ca = Ca();
+        if (Ca == null) {
+            if (!a.BG().BL()) {
+                a.BG().a(new a.InterfaceC0051a() { // from class: com.baidu.tbadk.coreExtra.websocketBase.f.2
                     @Override // com.baidu.tbadk.coreExtra.websocketBase.a.InterfaceC0051a
-                    public void BU() {
+                    public void BM() {
                         f.this.currentIndex = 0;
-                        f.this.azk = a.BO().BR();
-                        if (f.this.azk != null) {
-                            f.this.ft(str);
+                        f.this.axT = a.BG().BJ();
+                        if (f.this.axT != null) {
+                            f.this.fn(str);
                         } else {
-                            f.this.azW = false;
+                            f.this.ayF = false;
                         }
                     }
                 });
             }
             com.baidu.adp.framework.client.socket.h.setUrl(TiebaIMConfig.url);
             BdSocketLinkService.setAvailable(false);
-            Cj();
-        } else if (fs(Ci) == null) {
-            Cj();
+            Cb();
+        } else if (fm(Ca) == null) {
+            Cb();
         } else {
-            this.azW = false;
+            this.ayF = false;
             BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-            com.baidu.adp.framework.client.socket.h.setUrl(Ci);
+            com.baidu.adp.framework.client.socket.h.setUrl(Ca);
             BdSocketLinkService.init();
             BdSocketLinkService.startService(true, str);
-            this.azU = true;
+            this.ayD = true;
             this.currentIndex++;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cj() {
-        NoNetworkView.wP();
-        this.azV = false;
+    public void Cb() {
+        NoNetworkView.wG();
+        this.ayE = false;
         this.currentIndex = 0;
-        this.azW = false;
-        this.azU = false;
+        this.ayF = false;
+        this.ayD = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ck() {
-        if (!this.azW) {
-            this.azW = true;
-            if (this.azU) {
-                this.azU = false;
-                b.BW().fp(TiebaIMConfig.url);
+    public void Cc() {
+        if (!this.ayF) {
+            this.ayF = true;
+            if (this.ayD) {
+                this.ayD = false;
+                b.BO().fj(TiebaIMConfig.url);
             }
-            b.BW().BX();
-            if (!this.azV) {
+            b.BO().BP();
+            if (!this.ayE) {
                 new d("www.baidu.com", new d.b() { // from class: com.baidu.tbadk.coreExtra.websocketBase.f.3
                     @Override // com.baidu.tbadk.coreExtra.websocketBase.d.b
                     public void bv(boolean z) {
-                        b.BW().ep(z ? 2 : 1);
+                        b.BO().en(z ? 2 : 1);
                         if (z) {
-                            f.this.azk = a.BO().BR();
-                            if (f.this.azk != null) {
-                                f.this.ft("change ip to reconnect with DNS' failed.");
+                            f.this.axT = a.BG().BJ();
+                            if (f.this.axT != null) {
+                                f.this.fn("change ip to reconnect with DNS' failed.");
                                 return;
                             } else {
-                                a.BO().a(new a.InterfaceC0051a() { // from class: com.baidu.tbadk.coreExtra.websocketBase.f.3.1
+                                a.BG().a(new a.InterfaceC0051a() { // from class: com.baidu.tbadk.coreExtra.websocketBase.f.3.1
                                     @Override // com.baidu.tbadk.coreExtra.websocketBase.a.InterfaceC0051a
-                                    public void BU() {
+                                    public void BM() {
                                         f.this.currentIndex = 0;
-                                        f.this.azk = a.BO().BR();
-                                        if (f.this.azk != null) {
-                                            f.this.ft("change ip to reconnect with DNS' failed.");
+                                        f.this.axT = a.BG().BJ();
+                                        if (f.this.axT != null) {
+                                            f.this.fn("change ip to reconnect with DNS' failed.");
                                         } else {
-                                            f.this.azW = false;
+                                            f.this.ayF = false;
                                         }
                                     }
                                 });
                                 return;
                             }
                         }
-                        f.this.azW = false;
-                        f.this.Cj();
+                        f.this.ayF = false;
+                        f.this.Cb();
                     }
                 });
-                this.azV = true;
+                this.ayE = true;
                 return;
             }
-            ft("change ip to reconnect with DNS' failed.");
+            fn("change ip to reconnect with DNS' failed.");
         }
     }
 }

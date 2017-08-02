@@ -13,20 +13,20 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0112a c0112a = new C0112a();
-            c0112a.fdH = str;
-            c0112a.fdI = bVar;
-            c0112a.execute("");
+            C0113a c0113a = new C0113a();
+            c0113a.fcv = str;
+            c0113a.fcw = bVar;
+            c0113a.execute("");
         }
     }
 
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0112a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String fdH;
-        public b fdI;
+    private static class C0113a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String fcv;
+        public b fcw;
 
-        private C0112a() {
+        private C0113a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: p */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.d("user_pics").s(com.baidu.tbadk.core.util.k.du(this.fdH), false);
+            return new com.baidu.tbadk.img.d("user_pics").s(com.baidu.tbadk.core.util.k.m9do(this.fcv), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,14 +43,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.fdI != null) {
+            if (this.fcw != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.fdI.a(i, str, imageUploadResult);
+                this.fcw.a(i, str, imageUploadResult);
             }
         }
     }

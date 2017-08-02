@@ -15,17 +15,17 @@ import com.baidu.tieba.card.data.a;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
-    protected RelativeLayout bFB;
-    protected TextView bFC;
-    public TextView bFD;
-    public TextView bFE;
-    private View bFF;
-    private View bFG;
-    private View bFH;
-    public ImageView bFI;
-    public LinearLayout bFJ;
-    public View bFK;
-    public View bFL;
+    public View bEA;
+    public View bEB;
+    protected RelativeLayout bEr;
+    protected TextView bEs;
+    public TextView bEt;
+    public TextView bEu;
+    private View bEv;
+    private View bEw;
+    private View bEx;
+    public ImageView bEy;
+    public LinearLayout bEz;
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.card.b<T extends com.baidu.tieba.card.data.a> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -36,54 +36,54 @@ public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.bFB = null;
-        this.bFC = null;
-        this.bFD = null;
-        this.bFE = null;
-        this.bFF = null;
-        this.bFG = null;
-        this.bFH = null;
-        this.bFJ = null;
+        this.bEr = null;
+        this.bEs = null;
+        this.bEt = null;
+        this.bEu = null;
+        this.bEv = null;
+        this.bEw = null;
+        this.bEx = null;
+        this.bEz = null;
         O(getView());
     }
 
     private void O(View view) {
-        this.bFB = (RelativeLayout) view.findViewById(d.h.item_layout_group_title);
-        this.bFC = (TextView) view.findViewById(d.h.item_group_title);
-        this.bFD = (TextView) view.findViewById(d.h.item_right_tv);
-        this.bFE = (TextView) view.findViewById(d.h.item_bottom_more_tv);
-        this.bFF = view.findViewById(d.h.divider_line_top);
-        this.bFG = view.findViewById(d.h.divider_line_middle);
-        this.bFH = view.findViewById(d.h.divider_line_bottom);
-        this.bFJ = (LinearLayout) view.findViewById(d.h.card_container);
-        this.bFK = view.findViewById(d.h.divider_card);
-        this.bFL = view.findViewById(d.h.divider_card_top);
-        this.bFI = (ImageView) view.findViewById(d.h.item_right_arrow);
+        this.bEr = (RelativeLayout) view.findViewById(d.h.item_layout_group_title);
+        this.bEs = (TextView) view.findViewById(d.h.item_group_title);
+        this.bEt = (TextView) view.findViewById(d.h.item_right_tv);
+        this.bEu = (TextView) view.findViewById(d.h.item_bottom_more_tv);
+        this.bEv = view.findViewById(d.h.divider_line_top);
+        this.bEw = view.findViewById(d.h.divider_line_middle);
+        this.bEx = view.findViewById(d.h.divider_line_bottom);
+        this.bEz = (LinearLayout) view.findViewById(d.h.card_container);
+        this.bEA = view.findViewById(d.h.divider_card);
+        this.bEB = view.findViewById(d.h.divider_card_top);
+        this.bEy = (ImageView) view.findViewById(d.h.item_right_arrow);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void Wf() {
+    private void Wa() {
         if (getFrom() != null && getFrom().equals("home")) {
-            ai.c(this.bFC, d.e.cp_cont_d, 1);
-            this.bFI.setVisibility(8);
+            ai.c(this.bEs, d.e.cp_cont_d, 1);
+            this.bEy.setVisibility(8);
         } else {
-            ai.c(this.bFC, d.e.cp_cont_f, 1);
-            ai.c(this.bFI, d.g.icon_arrow_tab);
+            ai.c(this.bEs, d.e.cp_cont_f, 1);
+            ai.c(this.bEy, d.g.icon_arrow_tab);
         }
-        ai.c(this.bFD, d.e.cp_link_tip_c, 1);
-        ai.c(this.bFE, d.e.cp_cont_d, 1);
+        ai.c(this.bEt, d.e.cp_link_tip_c, 1);
+        ai.c(this.bEu, d.e.cp_cont_d, 1);
         ai.k(getView(), d.e.cp_bg_line_d);
-        ai.k(this.bFF, d.e.cp_bg_line_c);
-        ai.k(this.bFG, d.e.cp_bg_line_c);
-        ai.k(this.bFH, d.e.cp_bg_line_c);
-        ai.k(this.bFK, d.e.cp_bg_line_c);
-        ai.k(this.bFL, d.e.cp_bg_line_c);
+        ai.k(this.bEv, d.e.cp_bg_line_c);
+        ai.k(this.bEw, d.e.cp_bg_line_c);
+        ai.k(this.bEx, d.e.cp_bg_line_c);
+        ai.k(this.bEA, d.e.cp_bg_line_c);
+        ai.k(this.bEB, d.e.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            Wf();
+            Wa();
         }
         this.mSkinType = i;
     }
@@ -93,44 +93,44 @@ public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
             getView().setVisibility(8);
             return;
         }
-        this.bFC.setText(t.mGroupTitle);
+        this.bEs.setText(t.mGroupTitle);
         if (t.mRightIconResId > 0) {
-            this.bFD.setBackgroundResource(t.mRightIconResId);
+            this.bEt.setBackgroundResource(t.mRightIconResId);
         }
         if (t.showTopDivider) {
-            this.bFL.setVisibility(0);
+            this.bEB.setVisibility(0);
         } else {
-            this.bFL.setVisibility(8);
+            this.bEB.setVisibility(8);
         }
         if (t.showBottomDivider) {
-            this.bFK.setVisibility(0);
+            this.bEA.setVisibility(0);
         } else {
-            this.bFK.setVisibility(8);
+            this.bEA.setVisibility(8);
         }
         if (!StringUtils.isNull(t.mBottomText)) {
-            this.bFE.setVisibility(0);
-            this.bFH.setVisibility(0);
-            this.bFG.setVisibility(0);
-            this.bFE.setText(t.mBottomText);
+            this.bEu.setVisibility(0);
+            this.bEx.setVisibility(0);
+            this.bEw.setVisibility(0);
+            this.bEu.setText(t.mBottomText);
             String str = t.mBottomLink;
             if (!StringUtils.isNull(str)) {
-                this.bFE.setTag(str);
-                this.bFE.setOnClickListener(this);
+                this.bEu.setTag(str);
+                this.bEu.setOnClickListener(this);
                 return;
             }
             return;
         }
-        this.bFE.setVisibility(8);
-        this.bFH.setVisibility(8);
-        this.bFG.setVisibility(8);
+        this.bEu.setVisibility(8);
+        this.bEx.setVisibility(8);
+        this.bEw.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bFE == view && view != null && (view.getTag() instanceof String)) {
+        if (this.bEu == view && view != null && (view.getTag() instanceof String)) {
             String str = (String) view.getTag();
             if (!StringUtils.isNull(str)) {
-                at.wf().c(Wd(), new String[]{str});
+                at.vV().c(VY(), new String[]{str});
             }
         }
     }
@@ -140,27 +140,27 @@ public abstract class b<T extends com.baidu.tieba.card.data.a> extends a<T> {
         return d.j.card_group;
     }
 
-    public void hs(int i) {
-        if (this.bFF != null && this.bFF.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams = this.bFF.getLayoutParams();
+    public void hr(int i) {
+        if (this.bEv != null && this.bEv.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams = this.bEv.getLayoutParams();
             layoutParams.height = i;
-            this.bFF.setLayoutParams(layoutParams);
+            this.bEv.setLayoutParams(layoutParams);
         }
-        if (this.bFG != null && this.bFG.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams2 = this.bFG.getLayoutParams();
+        if (this.bEw != null && this.bEw.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams2 = this.bEw.getLayoutParams();
             layoutParams2.height = i;
-            this.bFG.setLayoutParams(layoutParams2);
+            this.bEw.setLayoutParams(layoutParams2);
         }
-        if (this.bFH != null && this.bFH.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams3 = this.bFH.getLayoutParams();
+        if (this.bEx != null && this.bEx.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams3 = this.bEx.getLayoutParams();
             layoutParams3.height = i;
-            this.bFH.setLayoutParams(layoutParams3);
+            this.bEx.setLayoutParams(layoutParams3);
         }
     }
 
     public void dC(boolean z) {
-        if (this.bFK != null) {
-            this.bFK.setVisibility(z ? 0 : 8);
+        if (this.bEA != null) {
+            this.bEA.setVisibility(z ? 0 : 8);
         }
     }
 }

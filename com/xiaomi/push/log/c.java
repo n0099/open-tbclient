@@ -5,7 +5,7 @@ import java.io.File;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-public class c extends b.C0141b {
+public class c extends b.C0142b {
     File a;
     final /* synthetic */ int b;
     final /* synthetic */ Date c;
@@ -28,7 +28,7 @@ public class c extends b.C0141b {
         this.g = z;
     }
 
-    @Override // com.xiaomi.push.log.b.C0141b, com.xiaomi.channel.commonutils.misc.h.b
+    @Override // com.xiaomi.push.log.b.C0142b, com.xiaomi.channel.commonutils.misc.h.b
     public void b() {
         if (com.xiaomi.channel.commonutils.file.c.d()) {
             try {

@@ -6,24 +6,24 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a art = null;
-    private boolean ars;
-    private int aru;
+    private static volatile a aqa = null;
+    private boolean apZ;
+    private int aqb;
 
     private a() {
-        this.ars = false;
-        this.aru = 0;
+        this.apZ = false;
+        this.aqb = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.u(true);
             dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (dVar.dT()) {
+            if (dVar.dI()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.aru = Integer.parseInt(content);
+                    this.aqb = Integer.parseInt(content);
                 }
-                if (this.aru == 1 || this.aru == 2) {
-                    this.ars = true;
+                if (this.aqb == 1 || this.aqb == 2) {
+                    this.apZ = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a xQ() {
-        if (art == null) {
+    public static a xI() {
+        if (aqa == null) {
             synchronized (a.class) {
-                if (art == null) {
-                    art = new a();
+                if (aqa == null) {
+                    aqa = new a();
                 }
             }
         }
-        return art;
+        return aqa;
     }
 
-    public boolean xR() {
-        return this.ars;
+    public boolean xJ() {
+        return this.apZ;
     }
 
-    public int xS() {
-        return this.aru;
+    public int xK() {
+        return this.aqb;
     }
 
-    public String xT() {
-        return this.ars ? "pub_env=" + this.aru + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String xL() {
+        return this.apZ ? "pub_env=" + this.aqb + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

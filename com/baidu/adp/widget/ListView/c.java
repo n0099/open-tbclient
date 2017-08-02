@@ -8,9 +8,9 @@ import java.security.InvalidParameterException;
 public abstract class c {
     private Context mContext;
     private View mView = null;
-    private boolean Jw = true;
-    private int Jx = 0;
-    private int Jy = 0;
+    private boolean HV = true;
+    private int HW = 0;
+    private int HX = 0;
 
     public abstract void S(boolean z);
 
@@ -18,13 +18,13 @@ public abstract class c {
 
     public abstract void U(boolean z);
 
-    public abstract View lk();
+    public abstract View la();
 
-    public abstract void ll();
+    public abstract void lb();
 
-    public abstract void lm();
+    public abstract void lc();
 
-    public abstract void ln();
+    public abstract void ld();
 
     public c(Context context) {
         this.mContext = null;
@@ -40,13 +40,13 @@ public abstract class c {
 
     public final View getView() {
         if (this.mView == null) {
-            this.mView = lk();
+            this.mView = la();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
             q(this.mView);
-            this.Jx = this.mView.getMeasuredHeight();
-            this.Jy = this.mView.getMeasuredWidth();
+            this.HW = this.mView.getMeasuredHeight();
+            this.HX = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
@@ -57,12 +57,12 @@ public abstract class c {
         }
     }
 
-    public boolean lo() {
-        return this.Jw;
+    public boolean le() {
+        return this.HV;
     }
 
     public void V(boolean z) {
-        this.Jw = z;
+        this.HV = z;
     }
 
     private void q(View view) {
@@ -81,7 +81,7 @@ public abstract class c {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int lp() {
-        return this.Jx;
+    public int lf() {
+        return this.HW;
     }
 }

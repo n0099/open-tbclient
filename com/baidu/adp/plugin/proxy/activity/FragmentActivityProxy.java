@@ -299,7 +299,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.cr().getResources();
+            Resources resources = g.cg().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -1569,18 +1569,18 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         d.a aVar = null;
         if (stringExtra != null) {
-            aVar = com.baidu.adp.plugin.d.iV().ba(stringExtra);
+            aVar = com.baidu.adp.plugin.d.iL().aU(stringExtra);
         }
-        if (aVar == null || aVar.Ew == null) {
+        if (aVar == null || aVar.CX == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
-        } else if (com.baidu.adp.plugin.d.iV().iW() == 1) {
-            com.baidu.adp.plugin.d.iV().bb(stringExtra);
-            aVar.Ew.stopSelf();
+        } else if (com.baidu.adp.plugin.d.iL().iM() == 1) {
+            com.baidu.adp.plugin.d.iL().aV(stringExtra);
+            aVar.CX.stopSelf();
             return true;
         } else {
-            aVar.Ew.onDestroy();
-            com.baidu.adp.plugin.d.iV().bb(stringExtra);
+            aVar.CX.onDestroy();
+            com.baidu.adp.plugin.d.iL().aV(stringExtra);
             return true;
         }
     }

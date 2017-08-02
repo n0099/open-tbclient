@@ -18,58 +18,58 @@ import com.baidu.tieba.horizonalList.widget.HListView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f extends b<com.baidu.tieba.card.data.h> {
-    private TbPageContext<?> acp;
-    private View.OnClickListener akk;
-    private com.baidu.tieba.horizonalList.widget.c bFZ;
-    private HListView bGm;
-    public g bGn;
-    private List<com.baidu.tieba.horizonalList.widget.d> bGo;
+    private TbPageContext<?> aaS;
+    private View.OnClickListener aiR;
+    private com.baidu.tieba.horizonalList.widget.c bEP;
+    private HListView bFc;
+    public g bFd;
+    private List<com.baidu.tieba.horizonalList.widget.d> bFe;
 
     public f(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
-        this.akk = new View.OnClickListener() { // from class: com.baidu.tieba.card.f.1
+        this.aiR = new View.OnClickListener() { // from class: com.baidu.tieba.card.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.We() != null) {
-                    f.this.We().a(view, null);
+                if (f.this.VZ() != null) {
+                    f.this.VZ().a(view, null);
                 }
             }
         };
-        this.acp = tbPageContext;
-        this.bGm = new HListView(getContext());
-        this.bGm.setHeaderDividersEnabled(false);
-        this.bGm.setFooterDividersEnabled(false);
-        this.bGm.setSelector(d.g.list_selector_transparent);
-        this.bGm.setPadding(tbPageContext.getResources().getDimensionPixelSize(d.f.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(d.f.ds4), 0);
-        this.bGn = new g(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.j.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext);
-        this.bFZ = new com.baidu.tieba.horizonalList.widget.c(getContext(), d.j.card_homepage_rec_god_item, this.bGn);
-        this.bFZ.setOnClickListener(this.akk);
-        this.bGm.setAdapter((ListAdapter) this.bFZ);
-        this.bFJ.addView(this.bGm);
-        this.bFI.setVisibility(8);
-        this.bFC.setTextSize(0, com.baidu.adp.lib.util.k.g(this.acp.getPageActivity(), d.f.ds28));
-        this.bFD.setVisibility(0);
-        this.bFD.setText(this.acp.getResources().getString(d.l.recommend_frs_hot_thread_more));
-        this.bFB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.f.2
+        this.aaS = tbPageContext;
+        this.bFc = new HListView(getContext());
+        this.bFc.setHeaderDividersEnabled(false);
+        this.bFc.setFooterDividersEnabled(false);
+        this.bFc.setSelector(d.g.list_selector_transparent);
+        this.bFc.setPadding(tbPageContext.getResources().getDimensionPixelSize(d.f.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(d.f.ds4), 0);
+        this.bFd = new g(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.j.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext);
+        this.bEP = new com.baidu.tieba.horizonalList.widget.c(getContext(), d.j.card_homepage_rec_god_item, this.bFd);
+        this.bEP.setOnClickListener(this.aiR);
+        this.bFc.setAdapter((ListAdapter) this.bEP);
+        this.bEz.addView(this.bFc);
+        this.bEy.setVisibility(8);
+        this.bEs.setTextSize(0, com.baidu.adp.lib.util.k.g(this.aaS.getPageActivity(), d.f.ds28));
+        this.bEt.setVisibility(0);
+        this.bEt.setText(this.aaS.getResources().getString(d.l.recommend_frs_hot_thread_more));
+        this.bEr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(GodSquareActivityConfig.class)) {
-                    f.this.acp.showToast(d.l.pluginstatus_tip_timeout_last);
+                    f.this.aaS.showToast(d.l.pluginstatus_tip_timeout_last);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GodSquareActivityConfig(f.this.acp.getPageActivity())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GodSquareActivityConfig(f.this.aaS.getPageActivity())));
                 }
             }
         });
-        this.bGn.setUniqueId(bdUniqueId);
+        this.bFd.setUniqueId(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.card.b, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        if (this.bGm != null && this.bFZ != null) {
-            ai.i(this.bFD, d.e.cp_cont_d);
-            ai.i(this.bFC, d.e.cp_cont_d);
-            this.bFZ.di(i);
+        if (this.bFc != null && this.bEP != null) {
+            ai.i(this.bEt, d.e.cp_cont_d);
+            ai.i(this.bEs, d.e.cp_cont_d);
+            this.bEP.dg(i);
         }
     }
 
@@ -79,12 +79,12 @@ public class f extends b<com.baidu.tieba.card.data.h> {
         super.a((f) hVar);
         if (hVar != null && !com.baidu.tbadk.core.util.u.v(hVar.getDataList())) {
             if (StringUtils.isNull(hVar.mGroupTitle)) {
-                this.bFC.setText(this.acp.getPageActivity().getResources().getString(d.l.the_gods_you_may_interest_in));
+                this.bEs.setText(this.aaS.getPageActivity().getResources().getString(d.l.the_gods_you_may_interest_in));
             }
             if (ai(hVar.getDataList())) {
-                this.bGo = hVar.getDataList();
-                this.bFZ.setData(this.bGo);
-                this.bFZ.notifyDataSetChanged();
+                this.bFe = hVar.getDataList();
+                this.bEP.setData(this.bFe);
+                this.bEP.notifyDataSetChanged();
             }
         }
     }
@@ -93,9 +93,9 @@ public class f extends b<com.baidu.tieba.card.data.h> {
         if (com.baidu.tbadk.core.util.u.v(list)) {
             return false;
         }
-        if (!com.baidu.tbadk.core.util.u.v(this.bGo) && com.baidu.tbadk.core.util.u.u(this.bGo) == com.baidu.tbadk.core.util.u.u(list)) {
-            for (int i = 0; i < com.baidu.tbadk.core.util.u.u(this.bGo); i++) {
-                com.baidu.tieba.horizonalList.widget.d dVar = (com.baidu.tieba.horizonalList.widget.d) com.baidu.tbadk.core.util.u.c(this.bGo, i);
+        if (!com.baidu.tbadk.core.util.u.v(this.bFe) && com.baidu.tbadk.core.util.u.u(this.bFe) == com.baidu.tbadk.core.util.u.u(list)) {
+            for (int i = 0; i < com.baidu.tbadk.core.util.u.u(this.bFe); i++) {
+                com.baidu.tieba.horizonalList.widget.d dVar = (com.baidu.tieba.horizonalList.widget.d) com.baidu.tbadk.core.util.u.c(this.bFe, i);
                 com.baidu.tieba.horizonalList.widget.d dVar2 = (com.baidu.tieba.horizonalList.widget.d) com.baidu.tbadk.core.util.u.c(list, i);
                 if ((dVar instanceof com.baidu.tieba.card.data.i) && (dVar2 instanceof com.baidu.tieba.card.data.i)) {
                     com.baidu.tieba.card.data.i iVar = (com.baidu.tieba.card.data.i) dVar;

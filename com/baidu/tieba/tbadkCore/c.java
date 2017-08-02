@@ -17,34 +17,34 @@ import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class c {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static c geN;
-    private com.baidu.adp.lib.cache.l<byte[]> bdB;
+    private static c gdC;
+    private com.baidu.adp.lib.cache.l<byte[]> bcr;
     private g responseData = null;
 
     private c() {
-        this.bdB = null;
-        this.bdB = BdCacheService.eQ().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.bcr = null;
+        this.bcr = BdCacheService.eF().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static synchronized c bqu() {
+    public static synchronized c bqn() {
         c cVar;
         synchronized (c.class) {
-            if (geN == null) {
-                geN = new c();
+            if (gdC == null) {
+                gdC = new c();
             }
-            cVar = geN;
+            cVar = gdC;
         }
         return cVar;
     }
 
-    public boolean rM(String str) {
-        if (this.bdB != null && str != null) {
-            byte[] bArr = this.bdB.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public boolean rH(String str) {
+        if (this.bcr != null && str != null) {
+            byte[] bArr = this.bcr.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 this.responseData = new g();
-                this.responseData.F(bArr);
-                if (this.responseData.eDL != null && this.responseData.eDL.getFrsBannerData() != null) {
-                    this.responseData.eDL.getFrsBannerData().WL = false;
+                this.responseData.C(bArr);
+                if (this.responseData.eCy != null && this.responseData.eCy.getFrsBannerData() != null) {
+                    this.responseData.eCy.getFrsBannerData().Vp = false;
                 }
                 return true;
             }
@@ -53,8 +53,8 @@ public class c {
     }
 
     public void cc(String str, String str2) {
-        if (this.bdB != null && str != null) {
-            byte[] bArr = this.bdB.get(TbadkCoreApplication.getCurrentAccount() + str);
+        if (this.bcr != null && str != null) {
+            byte[] bArr = this.bcr.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -81,8 +81,8 @@ public class c {
     }
 
     public void cd(String str, String str2) {
-        if (this.bdB != null && str != null) {
-            byte[] bArr = this.bdB.get(TbadkCoreApplication.getCurrentAccount() + str);
+        if (this.bcr != null && str != null) {
+            byte[] bArr = this.bcr.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -115,29 +115,29 @@ public class c {
     public void b(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.bdB.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                this.bcr.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
                 return;
             }
-            this.bdB.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            this.bcr.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }
 
-    public void Z(String str, boolean z) {
+    public void aa(String str, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.bdB.remove(TbadkCoreApplication.getCurrentAccount() + str);
+                this.bcr.remove(TbadkCoreApplication.getCurrentAccount() + str);
                 return;
             }
-            this.bdB.ad(TbadkCoreApplication.getCurrentAccount() + str);
+            this.bcr.X(TbadkCoreApplication.getCurrentAccount() + str);
         }
     }
 
     public boolean isSameDay(String str) {
-        l.c<byte[]> ac;
-        if (str == null || str.length() <= 0 || (ac = this.bdB.ac(str)) == null) {
+        l.c<byte[]> W;
+        if (str == null || str.length() <= 0 || (W = this.bcr.W(str)) == null) {
             return false;
         }
-        return UtilHelper.isSameDay(ac.vt, System.currentTimeMillis());
+        return UtilHelper.isSameDay(W.tP, System.currentTimeMillis());
     }
 
     public g getResponseData() {

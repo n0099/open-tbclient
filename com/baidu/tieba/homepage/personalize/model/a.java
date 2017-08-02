@@ -17,12 +17,12 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.homepage.personalize.c.d cQG = new com.baidu.tieba.homepage.personalize.c.d();
-    private final c cQF = new c();
-    private final int beW = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
+    private com.baidu.tieba.homepage.personalize.c.d cPn = new com.baidu.tieba.homepage.personalize.c.d();
+    private final c cPm = new c();
+    private final int bdL = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
-    public int aoK() {
-        return this.beW;
+    public int aoy() {
+        return this.bdL;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -38,16 +38,16 @@ public class a {
         d.f(builder);
         d.f(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.beW);
+        a(builder, i, this.bdL);
         d.g(builder);
         List<r> e = d.e(builder);
         bw(e);
         List<f> m = m(builder.thread_list, e);
-        this.cQG.by(m);
+        this.cPn.by(m);
         a(m, builder);
         b.a(builder, m);
-        this.cQF.aTT = m;
-        return this.cQF;
+        this.cPm.aSH = m;
+        return this.cPm;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -100,7 +100,7 @@ public class a {
                 int u2 = u.u(list2) - 1;
                 i2 = 0;
                 while (u2 >= 0) {
-                    this.cQG.a(z, u2, list, list2);
+                    this.cPn.a(z, u2, list, list2);
                     ThreadInfo threadInfo3 = (ThreadInfo) u.c(list2, u2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (!hashSet2.contains(threadInfo3.lego_card)) {
@@ -121,7 +121,7 @@ public class a {
                     i2 = i3;
                 }
             }
-            this.cQF.cUP = (u.u(list) - u) - i2;
+            this.cPm.cTw = (u.u(list) - u) - i2;
         }
     }
 
@@ -153,15 +153,15 @@ public class a {
             if (threadInfo != null) {
                 bl blVar = new bl();
                 blVar.a(threadInfo);
-                blVar.bX(1);
-                if (!TextUtils.isEmpty(blVar.sA())) {
+                blVar.bV(1);
+                if (!TextUtils.isEmpty(blVar.sq())) {
                     ah ahVar = new ah();
-                    ahVar.cE(blVar.sA());
+                    ahVar.cy(blVar.sq());
                     linkedList.add(ahVar);
                 } else {
                     com.baidu.tieba.card.data.c S = d.S(blVar);
                     if (S != null) {
-                        S.XS = blVar.getTid();
+                        S.Ww = blVar.getTid();
                     }
                     if (S != null && S.isValid()) {
                         linkedList.add(S);

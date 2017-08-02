@@ -196,10 +196,10 @@ public class PhotoLiveCardData implements Serializable {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("livespace" + ((Object) charSequence));
-        Bitmap cS = com.baidu.tbadk.core.util.ai.cS(d.g.icon_zhibo);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cS);
-        int height = cS.getHeight();
-        bitmapDrawable.setBounds(0, 0, cS.getWidth(), height);
+        Bitmap cQ = com.baidu.tbadk.core.util.ai.cQ(d.g.icon_zhibo);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cQ);
+        int height = cQ.getHeight();
+        bitmapDrawable.setBounds(0, 0, cQ.getWidth(), height);
         spannableStringBuilder.setSpan(new com.baidu.adp.widget.b(bitmapDrawable, 1), 0, "live".length(), 33);
         ColorDrawable colorDrawable = new ColorDrawable();
         colorDrawable.setBounds(0, 0, 10, height);
@@ -289,7 +289,7 @@ public class PhotoLiveCardData implements Serializable {
                 for (int i = 0; i < size; i++) {
                     if (zhiBoInfoTW.labelInfo.get(i) != null) {
                         com.baidu.tbadk.coreExtra.view.e eVar = new com.baidu.tbadk.coreExtra.view.e();
-                        eVar.em(zhiBoInfoTW.labelInfo.get(i).labelHot.intValue());
+                        eVar.ek(zhiBoInfoTW.labelInfo.get(i).labelHot.intValue());
                         eVar.setLabelId(zhiBoInfoTW.labelInfo.get(i).labelId);
                         eVar.setLabelName(zhiBoInfoTW.labelInfo.get(i).labelContent);
                         this.expressionList.add(eVar);

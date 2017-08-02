@@ -7,34 +7,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class av {
-    private ArrayList<UserData> Yn = new ArrayList<>();
-    private ArrayList<UserData> Yo = new ArrayList<>();
-    private ar Yp = new ar();
-    private int Yq = 0;
-    private int Yr = 0;
+    private ArrayList<UserData> WR = new ArrayList<>();
+    private ArrayList<UserData> WS = new ArrayList<>();
+    private ar WT = new ar();
+    private int WU = 0;
+    private int WV = 0;
 
     public void a(ar arVar) {
-        this.Yp = arVar;
+        this.WT = arVar;
     }
 
-    public ar qH() {
-        return this.Yp;
+    public ar qx() {
+        return this.WT;
     }
 
-    public ArrayList<UserData> qI() {
-        return this.Yn;
+    public ArrayList<UserData> qy() {
+        return this.WR;
     }
 
-    public ArrayList<UserData> qJ() {
-        return this.Yo;
+    public ArrayList<UserData> qz() {
+        return this.WS;
     }
 
-    public int qK() {
-        return this.Yq;
+    public int qA() {
+        return this.WU;
     }
 
-    public int qL() {
-        return this.Yr;
+    public int qB() {
+        return this.WV;
     }
 
     public void parserJson(String str) {
@@ -55,7 +55,7 @@ public class av {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.Yn.add(userData);
+                        this.WR.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -63,12 +63,12 @@ public class av {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.Yo.add(userData2);
+                        this.WS.add(userData2);
                     }
                 }
-                this.Yp.parserJson(jSONObject.optJSONObject("page"));
-                this.Yq = jSONObject.optInt("tafriendnum", 0);
-                this.Yr = jSONObject.optInt("commonfriendnum", 0);
+                this.WT.parserJson(jSONObject.optJSONObject("page"));
+                this.WU = jSONObject.optInt("tafriendnum", 0);
+                this.WV = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

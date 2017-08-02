@@ -9,12 +9,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static String aGn = "add_user_collect_emotoin";
-    public static String aGo = "image_url";
-    public static String aGp = "package_id";
-    public static String aGq = "#(meme,setting)";
-    public static String aGr = "#(meme,collect_";
-    public static String aGs = "meme,collect_";
+    public static String aEX = "add_user_collect_emotoin";
+    public static String aEY = "image_url";
+    public static String aEZ = "package_id";
+    public static String aFa = "#(meme,setting)";
+    public static String aFb = "#(meme,collect_";
+    public static String aFc = "meme,collect_";
 
     /* loaded from: classes.dex */
     public static class a {
@@ -22,15 +22,15 @@ public class d {
         public String url;
     }
 
-    public static String EB() {
+    public static String Et() {
         return "collect_" + (TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
     }
 
-    public static String EC() {
-        return Math.abs(EB().hashCode()) + "";
+    public static String Eu() {
+        return Math.abs(Et().hashCode()) + "";
     }
 
-    public static void gq(String str) {
+    public static void gl(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Matcher matcher = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(str);

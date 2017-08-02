@@ -3,23 +3,23 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class y {
-    private static y ahb;
-    private static volatile int ahc = 0;
-    private static int ahd = 300000;
-    private static int ahe = 10;
-    public static int ahf;
+    private static y afG;
+    private static volatile int afH = 0;
+    private static int afI = 300000;
+    private static int afJ = 10;
+    public static int afK;
 
     private y() {
-        ahf = TbadkCoreApplication.getInst().getNetWorkCoreType();
+        afK = TbadkCoreApplication.getInst().getNetWorkCoreType();
     }
 
-    public static synchronized y vv() {
+    public static synchronized y vl() {
         y yVar;
         synchronized (y.class) {
-            if (ahb == null) {
-                ahb = new y();
+            if (afG == null) {
+                afG = new y();
             }
-            yVar = ahb;
+            yVar = afG;
         }
         return yVar;
     }
@@ -28,7 +28,7 @@ public class y {
         return new x(aVar);
     }
 
-    public static void cI(int i) {
-        ahf = i;
+    public static void cG(int i) {
+        afK = i;
     }
 }

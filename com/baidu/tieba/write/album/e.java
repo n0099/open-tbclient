@@ -8,145 +8,145 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private List<com.baidu.tbadk.c.a> RG;
-    private int aEX;
-    private WriteImagesInfo fhe;
-    private List<ImageFileInfo> gAC;
-    private List<ImageFileInfo> gAD;
-    private String gAE;
-    private boolean gAF = false;
-    private final AlbumActivity gAh;
-    private String gAw;
+    private List<com.baidu.tbadk.c.a> Qi;
+    private int aDH;
+    private WriteImagesInfo ffS;
+    private final AlbumActivity gyW;
+    private String gzl;
+    private List<ImageFileInfo> gzr;
+    private List<ImageFileInfo> gzs;
+    private String gzt;
+    private boolean gzu = false;
 
     public e(AlbumActivity albumActivity) {
-        this.gAh = albumActivity;
+        this.gyW = albumActivity;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.fhe == null) {
-            this.fhe = new WriteImagesInfo();
+        if (this.ffS == null) {
+            this.ffS = new WriteImagesInfo();
         }
-        this.fhe.addChooseFile(imageFileInfo);
+        this.ffS.addChooseFile(imageFileInfo);
     }
 
     public void delChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.fhe != null) {
-            this.fhe.delChooseFile(imageFileInfo);
+        if (this.ffS != null) {
+            this.ffS.delChooseFile(imageFileInfo);
         }
     }
 
     public boolean isAdded(ImageFileInfo imageFileInfo) {
-        if (this.fhe == null) {
+        if (this.ffS == null) {
             return false;
         }
-        return this.fhe.isAdded(imageFileInfo);
+        return this.ffS.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> byi() {
-        if (this.fhe != null) {
-            return this.fhe.getChosedFiles();
+    public List<ImageFileInfo> byb() {
+        if (this.ffS != null) {
+            return this.ffS.getChosedFiles();
         }
         return null;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {
-        return this.fhe;
+        return this.ffS;
     }
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
-        this.fhe = writeImagesInfo;
+        this.ffS = writeImagesInfo;
     }
 
     public String getLastAlbumId() {
-        if (this.fhe != null) {
-            return this.fhe.getLastAlbumId();
+        if (this.ffS != null) {
+            return this.ffS.getLastAlbumId();
         }
         return null;
     }
 
     public void setLastAlbumId(String str) {
-        if (this.fhe == null) {
-            this.fhe = new WriteImagesInfo();
+        if (this.ffS == null) {
+            this.ffS = new WriteImagesInfo();
         }
-        this.fhe.setLastAlbumId(str);
+        this.ffS.setLastAlbumId(str);
     }
 
     public int getMaxImagesAllowed() {
-        if (this.fhe != null) {
-            return this.fhe.getMaxImagesAllowed();
+        if (this.ffS != null) {
+            return this.ffS.getMaxImagesAllowed();
         }
         return 0;
     }
 
-    public String byj() {
-        return this.gAw;
+    public String byc() {
+        return this.gzl;
     }
 
-    public void sS(String str) {
-        this.gAw = str;
+    public void sN(String str) {
+        this.gzl = str;
     }
 
-    public List<ImageFileInfo> byk() {
-        return this.gAC;
+    public List<ImageFileInfo> byd() {
+        return this.gzr;
     }
 
     public void dz(List<ImageFileInfo> list) {
-        this.gAC = list;
+        this.gzr = list;
     }
 
     public int getCurrentIndex() {
-        return this.aEX;
+        return this.aDH;
     }
 
-    public void ub(int i) {
-        this.aEX = i;
+    public void uc(int i) {
+        this.aDH = i;
     }
 
-    public List<com.baidu.tbadk.c.a> byl() {
-        return this.RG;
+    public List<com.baidu.tbadk.c.a> bye() {
+        return this.Qi;
     }
 
     public void dA(List<com.baidu.tbadk.c.a> list) {
-        this.RG = list;
+        this.Qi = list;
     }
 
-    public List<ImageFileInfo> bym() {
-        return this.gAD;
+    public List<ImageFileInfo> byf() {
+        return this.gzs;
     }
 
     public void dB(List<ImageFileInfo> list) {
-        this.gAD = list;
+        this.gzs = list;
     }
 
     public int size() {
-        if (this.fhe == null) {
+        if (this.ffS == null) {
             return 0;
         }
-        return this.fhe.size();
+        return this.ffS.size();
     }
 
-    public String byn() {
-        return this.gAE;
+    public String byg() {
+        return this.gzt;
     }
 
-    public void sT(String str) {
-        this.gAE = str;
+    public void sO(String str) {
+        this.gzt = str;
     }
 
     public void setOriginalImg(boolean z) {
-        this.fhe.setOriginalImg(z);
+        this.ffS.setOriginalImg(z);
     }
 
     public boolean isOriginalImg() {
-        return this.fhe.isOriginalImg();
+        return this.ffS.isOriginalImg();
     }
 
     public void na(boolean z) {
-        this.gAF = z;
+        this.gzu = z;
     }
 
-    public List<m> byo() {
-        List<ImageFileInfo> list = this.gAC;
+    public List<m> byh() {
+        List<ImageFileInfo> list = this.gzr;
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 3; i++) {
             m mVar = new m();
@@ -160,11 +160,11 @@ public class e {
             mVar2.b(list.get(i2));
             arrayList.add(mVar2);
         }
-        int ah = ((((com.baidu.adp.lib.util.k.ah(this.gAh.getPageContext().getPageActivity()) - this.gAh.getResources().getDimensionPixelSize(d.f.ds300)) / (com.baidu.adp.lib.util.k.ag(this.gAh.getPageContext().getPageActivity()) / 3)) + 1) * 3) - u;
-        if (ah <= 0) {
-            ah = u % 3 == 0 ? 0 : 3 - (u % 3);
+        int ag = ((((com.baidu.adp.lib.util.k.ag(this.gyW.getPageContext().getPageActivity()) - this.gyW.getResources().getDimensionPixelSize(d.f.ds300)) / (com.baidu.adp.lib.util.k.af(this.gyW.getPageContext().getPageActivity()) / 3)) + 1) * 3) - u;
+        if (ag <= 0) {
+            ag = u % 3 == 0 ? 0 : 3 - (u % 3);
         }
-        int i3 = ah + 3;
+        int i3 = ag + 3;
         for (int i4 = 0; i4 < i3; i4++) {
             m mVar3 = new m();
             mVar3.setType(1);

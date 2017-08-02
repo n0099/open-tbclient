@@ -33,24 +33,24 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class InputView extends EditText implements s {
-    private static final Pattern aDA = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    private static final Pattern aDB = Pattern.compile("#\\([^#\\)\\(]+\\)$");
-    private int Lq;
-    private i Lr;
-    private TextWatcher aDC;
-    private boolean aDD;
-    private boolean aDE;
-    private int aDF;
-    private boolean aDz;
+    private static final Pattern aCk = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    private static final Pattern aCl = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    private int JS;
+    private i JT;
+    private boolean aCj;
+    private TextWatcher aCm;
+    private boolean aCn;
+    private boolean aCo;
+    private int aCp;
 
     public InputView(Context context, boolean z) {
         super(context);
-        this.Lq = 0;
-        this.aDz = false;
-        this.aDC = null;
-        this.aDD = true;
-        this.aDE = true;
-        this.aDF = -1;
+        this.JS = 0;
+        this.aCj = false;
+        this.aCm = null;
+        this.aCn = true;
+        this.aCo = true;
+        this.aCp = -1;
         setMinHeight(context.getResources().getDimensionPixelSize(d.f.ds80));
         setMaxLines(4);
         if (z) {
@@ -66,29 +66,29 @@ public class InputView extends EditText implements s {
         addTextChangedListener(new TextWatcher() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (InputView.this.aDC != null) {
-                    InputView.this.aDC.beforeTextChanged(charSequence, i, i2, i3);
+                if (InputView.this.aCm != null) {
+                    InputView.this.aCm.beforeTextChanged(charSequence, i, i2, i3);
                 }
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (InputView.this.aDC != null) {
-                    InputView.this.aDC.onTextChanged(charSequence, i, i2, i3);
+                if (InputView.this.aCm != null) {
+                    InputView.this.aCm.onTextChanged(charSequence, i, i2, i3);
                 }
-                if (!InputView.this.aDE) {
-                    InputView.this.aDE = true;
-                    if (InputView.this.aDF != -1) {
-                        InputView.this.setSelection(InputView.this.aDF);
-                        InputView.this.aDF = -1;
+                if (!InputView.this.aCo) {
+                    InputView.this.aCo = true;
+                    if (InputView.this.aCp != -1) {
+                        InputView.this.setSelection(InputView.this.aCp);
+                        InputView.this.aCp = -1;
                     }
                 }
             }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (InputView.this.aDC != null) {
-                    InputView.this.aDC.afterTextChanged(editable);
+                if (InputView.this.aCm != null) {
+                    InputView.this.aCm.afterTextChanged(editable);
                 }
                 if (editable != null && editable.toString().trim() != null) {
                     InputView.this.b(new com.baidu.tbadk.editortools.a(4, -1, InputView.this.getText().toString()));
@@ -114,7 +114,7 @@ public class InputView extends EditText implements s {
                 case 3:
                     if (getSelectionStart() > 0) {
                         String substring = getText().toString().substring(0, getSelectionStart());
-                        Matcher matcher = aDB.matcher(substring);
+                        Matcher matcher = aCl.matcher(substring);
                         if (matcher.find()) {
                             getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                             return;
@@ -129,7 +129,7 @@ public class InputView extends EditText implements s {
                         setText((CharSequence) null);
                         return;
                     } else if (aVar.data instanceof String) {
-                        setText(fP((String) aVar.data));
+                        setText(fJ((String) aVar.data));
                         setSelection(getText().length());
                         b(new com.baidu.tbadk.editortools.a(5, -1, null));
                         requestFocus();
@@ -152,18 +152,18 @@ public class InputView extends EditText implements s {
                 case 24:
                     if (aVar.data != null && (aVar.data instanceof l)) {
                         l lVar = (l) aVar.data;
-                        if ((!this.aDz || lVar.yp() == EmotionGroupType.LOCAL) && lVar.getName() != null) {
+                        if ((!this.aCj || lVar.yh() == EmotionGroupType.LOCAL) && lVar.getName() != null) {
                             String obj = getText().toString();
-                            if (this.aDD && fR(obj) >= 10 && getContext() != null) {
-                                e.uG().showToast(d.l.too_many_face);
+                            if (this.aCn && fL(obj) >= 10 && getContext() != null) {
+                                e.uw().showToast(d.l.too_many_face);
                                 return;
                             }
                             String name = lVar.getName();
-                            final EmotionGroupType yp = lVar.yp();
-                            if (yp == EmotionGroupType.LOCAL || yp == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
+                            final EmotionGroupType yh = lVar.yh();
+                            if (yh == EmotionGroupType.LOCAL || yh == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
                                 if (name != null) {
                                     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
-                                    c.fU().a(name, 20, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.3
+                                    c.fJ().a(name, 20, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.3
                                         /* JADX DEBUG: Method merged with bridge method */
                                         /* JADX INFO: Access modifiers changed from: protected */
                                         @Override // com.baidu.adp.lib.f.b
@@ -174,7 +174,7 @@ public class InputView extends EditText implements s {
                                                 if (selectionStart < 0) {
                                                     selectionStart = 0;
                                                 }
-                                                InputView.this.a(InputView.this, spannableStringBuilder, selectionStart, aVar2, yp);
+                                                InputView.this.a(InputView.this, spannableStringBuilder, selectionStart, aVar2, yh);
                                             }
                                         }
                                     }, 0, 0, BdUniqueId.gen(), null, name, false, null);
@@ -190,7 +190,7 @@ public class InputView extends EditText implements s {
                     return;
                 case d.n.View_minWidth /* 44 */:
                     if (aVar.data != null && (aVar.data instanceof String)) {
-                        fQ((String) aVar.data);
+                        fK((String) aVar.data);
                         return;
                     }
                     return;
@@ -202,17 +202,17 @@ public class InputView extends EditText implements s {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(InputView inputView, SpannableStringBuilder spannableStringBuilder, int i, com.baidu.adp.widget.a.a aVar, EmotionGroupType emotionGroupType) {
-        Bitmap kX = aVar.kX();
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(kX);
-        int width = kX.getWidth();
+        Bitmap kN = aVar.kN();
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(kN);
+        int width = kN.getWidth();
         if (emotionGroupType == EmotionGroupType.LOCAL) {
             int i2 = (int) (width * 0.5d);
             bitmapDrawable.setBounds(0, 0, i2, i2);
         } else if (emotionGroupType == EmotionGroupType.USER_COLLECT || spannableStringBuilder.toString().startsWith("#(")) {
             int dimensionPixelSize = getResources().getDimensionPixelSize(d.f.ds80);
-            int width2 = (int) (kX.getWidth() * ((dimensionPixelSize * 1.0d) / kX.getHeight()));
+            int width2 = (int) (kN.getWidth() * ((dimensionPixelSize * 1.0d) / kN.getHeight()));
             if (width2 > getMeasuredWidth()) {
-                width2 = (int) (kX.getWidth() * 0.5d);
+                width2 = (int) (kN.getWidth() * 0.5d);
             }
             bitmapDrawable.setBounds(0, 0, width2, dimensionPixelSize);
         }
@@ -221,25 +221,25 @@ public class InputView extends EditText implements s {
         inputView.getText().insert(i, spannableStringBuilder);
     }
 
-    private SpannableStringBuilder fP(String str) {
+    private SpannableStringBuilder fJ(String str) {
         CustomResponsedMessage runTask;
         final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        Matcher matcher = aDA.matcher(spannableStringBuilder);
+        Matcher matcher = aCk.matcher(spannableStringBuilder);
         while (matcher.find()) {
             String group = matcher.group();
             final int start = matcher.start();
             final int end = matcher.end();
             if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_LOCAL) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                c.fU().a(group, 20, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.4
+                c.fJ().a(group, 20, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.4
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.f.b
                     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str2, int i) {
                         super.onLoaded((AnonymousClass4) aVar, str2, i);
                         if (aVar != null) {
-                            Bitmap kX = aVar.kX();
-                            BitmapDrawable bitmapDrawable = new BitmapDrawable(kX);
-                            int width = (int) (0.5d * kX.getWidth());
+                            Bitmap kN = aVar.kN();
+                            BitmapDrawable bitmapDrawable = new BitmapDrawable(kN);
+                            int width = (int) (0.5d * kN.getWidth());
                             bitmapDrawable.setBounds(0, 0, width, width);
                             bitmapDrawable.setGravity(119);
                             spannableStringBuilder.setSpan(new com.baidu.adp.widget.b(bitmapDrawable, 1), start, end, 33);
@@ -255,19 +255,19 @@ public class InputView extends EditText implements s {
             if (split != null && split.length == 5) {
                 final int start2 = matcher2.start();
                 final int end2 = matcher2.end();
-                c.fU().a(group2, 20, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.5
+                c.fJ().a(group2, 20, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tbadk.editortools.inputtool.InputView.5
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.f.b
                     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str2, int i) {
                         super.onLoaded((AnonymousClass5) aVar, str2, i);
                         if (aVar != null) {
-                            Bitmap kX = aVar.kX();
-                            BitmapDrawable bitmapDrawable = new BitmapDrawable(kX);
+                            Bitmap kN = aVar.kN();
+                            BitmapDrawable bitmapDrawable = new BitmapDrawable(kN);
                             int dimensionPixelSize = InputView.this.getResources().getDimensionPixelSize(d.f.ds80);
-                            int width = (int) (kX.getWidth() * ((dimensionPixelSize * 1.0d) / kX.getHeight()));
-                            if (width > k.ag(InputView.this.getContext()) * 0.6d) {
-                                width = (int) (kX.getWidth() * 0.5d);
+                            int width = (int) (kN.getWidth() * ((dimensionPixelSize * 1.0d) / kN.getHeight()));
+                            if (width > k.af(InputView.this.getContext()) * 0.6d) {
+                                width = (int) (kN.getWidth() * 0.5d);
                             }
                             bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                             bitmapDrawable.setGravity(119);
@@ -300,20 +300,20 @@ public class InputView extends EditText implements s {
         }
     }
 
-    private void fQ(String str) {
+    private void fK(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
-    private static int fR(String str) {
+    private static int fL(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = aDA.matcher(str);
+        Matcher matcher = aCk.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {
@@ -336,29 +336,29 @@ public class InputView extends EditText implements s {
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        this.aDz = z;
+        this.aCj = z;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setEditorTools(i iVar) {
-        this.Lr = iVar;
+        this.JT = iVar;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.Lr != null) {
-            this.Lr.b(aVar);
+        if (this.JT != null) {
+            this.JT.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setToolId(int i) {
-        this.Lq = i;
+        this.JS = i;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public int getToolId() {
-        return this.Lq;
+        return this.JS;
     }
 
     @Override // com.baidu.tbadk.editortools.s
@@ -366,7 +366,7 @@ public class InputView extends EditText implements s {
     }
 
     @Override // com.baidu.tbadk.editortools.s
-    public void lT() {
+    public void lJ() {
         setVisibility(0);
     }
 
@@ -387,12 +387,12 @@ public class InputView extends EditText implements s {
     }
 
     public void setOutTextWather(TextWatcher textWatcher) {
-        if (this.aDC != textWatcher) {
-            this.aDC = textWatcher;
+        if (this.aCm != textWatcher) {
+            this.aCm = textWatcher;
         }
     }
 
     public void setNeedFaceMaxCount(boolean z) {
-        this.aDD = z;
+        this.aCn = z;
     }
 }

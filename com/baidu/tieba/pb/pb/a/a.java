@@ -14,7 +14,7 @@ public interface a {
 
     void iR(boolean z);
 
-    void oO(int i);
+    void oP(int i);
 
     void setCommonClickListener(View.OnClickListener onClickListener);
 

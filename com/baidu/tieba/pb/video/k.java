@@ -7,47 +7,47 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class k extends PostData {
-    public static final BdUniqueId eYk = BdUniqueId.gen();
-    public String Wx;
+    public static final BdUniqueId eWY = BdUniqueId.gen();
+    public String Vb;
     public long channelId;
     public String channelName;
-    public String eYl;
-    public String eYm;
-    public String eYn;
-    public String eYo;
-    public String eYp;
-    public long eYq;
+    public String eWZ;
+    public String eXa;
+    public String eXb;
+    public String eXc;
+    public String eXd;
+    public long eXe;
     public long forumId;
     public String threadId;
     public int videoDuration;
-    public boolean csE = false;
-    public boolean eYr = true;
-    public boolean eYs = false;
+    public boolean crt = false;
+    public boolean eXf = true;
+    public boolean eXg = false;
     public int position = 0;
 
     public void a(bl blVar, boolean z, boolean z2, boolean z3, int i) {
         if (blVar != null) {
-            this.eYr = z;
-            this.eYs = z2;
-            this.csE = z3;
+            this.eXf = z;
+            this.eXg = z2;
+            this.crt = z3;
             this.threadId = blVar.getTid();
-            this.eYp = blVar.getTitle();
+            this.eXd = blVar.getTitle();
             this.forumId = blVar.getFid();
-            this.eYl = blVar.aaC;
-            this.eYm = blVar.aaA;
-            this.eYn = blVar.aaB;
-            VideoInfo rW = blVar.rW();
-            if (rW != null) {
-                this.eYo = rW.thumbnail_url;
-                this.videoDuration = rW.video_duration.intValue();
-                this.eYq = rW.play_count.intValue();
+            this.eWZ = blVar.Zg;
+            this.eXa = blVar.Ze;
+            this.eXb = blVar.Zf;
+            VideoInfo rM = blVar.rM();
+            if (rM != null) {
+                this.eXc = rM.thumbnail_url;
+                this.videoDuration = rM.video_duration.intValue();
+                this.eXe = rM.play_count.intValue();
             }
-            bq sJ = blVar.sJ();
-            if (sJ != null && sJ.channelId > 0) {
-                this.channelName = sJ.channelName;
-                this.channelId = sJ.channelId;
+            bq sz = blVar.sz();
+            if (sz != null && sz.channelId > 0) {
+                this.channelName = sz.channelName;
+                this.channelId = sz.channelId;
             } else if (blVar.getAuthor() != null) {
-                this.Wx = blVar.getAuthor().getUserName();
+                this.Vb = blVar.getAuthor().getUserName();
             }
             this.position = i;
         }
@@ -55,6 +55,6 @@ public class k extends PostData {
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return eYk;
+        return eWY;
     }
 }

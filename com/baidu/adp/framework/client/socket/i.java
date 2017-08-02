@@ -52,20 +52,20 @@ public class i {
         a(str, i, -1L, i2, str2, i3, str3);
     }
 
-    public static void dk() {
+    public static void cZ() {
         try {
-            BdStatisticsManager.getInstance().debug("socket", "url", com.baidu.adp.lib.webSocket.h.ie().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.ie().ib()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.ie().il()), "remote_ip", com.baidu.adp.lib.webSocket.h.ie().ia(), "local_dns", com.baidu.adp.lib.webSocket.h.ie().hJ(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.ie().hK(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
+            BdStatisticsManager.getInstance().debug("socket", "url", com.baidu.adp.lib.webSocket.h.hU().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.hU().hR()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.hU().ib()), "remote_ip", com.baidu.adp.lib.webSocket.h.hU().hQ(), "local_dns", com.baidu.adp.lib.webSocket.h.hU().hz(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.hU().hA(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public static void dl() {
+    public static void da() {
         try {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
             statsItem.p("action", "imconn");
-            statsItem.p(TiebaStatic.CON_COST, String.valueOf(com.baidu.adp.lib.webSocket.h.ie().il()));
-            statsItem.p("nettype", com.baidu.adp.lib.stats.d.ad(BdBaseApplication.getInst()));
+            statsItem.p(TiebaStatic.CON_COST, String.valueOf(com.baidu.adp.lib.webSocket.h.hU().ib()));
+            statsItem.p("nettype", com.baidu.adp.lib.stats.d.ac(BdBaseApplication.getInst()));
             BdStatisticsManager.getInstance().performance("im", statsItem);
         } catch (Exception e) {
             BdLog.e(e.getMessage());

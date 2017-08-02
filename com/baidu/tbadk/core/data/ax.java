@@ -8,13 +8,13 @@ import tbclient.LabelInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class ax extends bl {
-    public static final BdUniqueId Yt = BdUniqueId.gen();
-    private List<PhotoLiveCardData> Yu;
-    private int Yv = 0;
+    public static final BdUniqueId WX = BdUniqueId.gen();
+    private List<PhotoLiveCardData> WY;
+    private int WZ = 0;
     private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
     public void r(List<PhotoLiveCardData> list) {
-        this.Yu = list;
+        this.WY = list;
     }
 
     public void a(bl blVar, int i) {
@@ -22,26 +22,26 @@ public class ax extends bl {
             setAuthor(blVar.getAuthor());
             setTitle(blVar.getTitle());
             setPhotoLiveCover(blVar.getPhotoLiveCover());
-            cJ(blVar.rK());
-            cF(blVar.getTid());
-            m(blVar.rz());
+            cD(blVar.rA());
+            cz(blVar.getTid());
+            m(blVar.rp());
             setAddress(blVar.getAddress());
             setId(blVar.getId());
             setThreadType(blVar.getThreadType());
-            a(blVar.rv());
-            bR(blVar.rx());
+            a(blVar.rl());
+            bP(blVar.rn());
             setPost_num(blVar.getPost_num());
-            cK(blVar.rN());
-            cF(blVar.getTid());
-            setExpressionDatas(blVar.rY());
-            setShowExpressionViewIndexList(blVar.rY());
+            cE(blVar.rD());
+            cz(blVar.getTid());
+            setExpressionDatas(blVar.rO());
+            setShowExpressionViewIndexList(blVar.rO());
             setId(blVar.getId());
-            a(blVar.qw());
-            this.aaD = blVar.sb();
-            this.aaE = blVar.sc();
-            this.aaF = blVar.sd();
+            a(blVar.qm());
+            this.Zh = blVar.rR();
+            this.Zi = blVar.rS();
+            this.Zj = blVar.rT();
             if (getShowStyle() < 0) {
-                this.Yv = getRandom(3, i);
+                this.WZ = getRandom(3, i);
             }
         }
     }
@@ -57,21 +57,21 @@ public class ax extends bl {
                 metaData.setFansNum(zhiBoInfoTW.user.fans_num.intValue());
                 setAuthor(metaData);
             }
-            cK(zhiBoInfoTW.content);
+            cE(zhiBoInfoTW.content);
             setFid(zhiBoInfoTW.forum_id.longValue());
             setExpressionDatas(s(zhiBoInfoTW.labelInfo));
-            bR(zhiBoInfoTW.reply_num.intValue());
-            cJ(zhiBoInfoTW.forum_name);
+            bP(zhiBoInfoTW.reply_num.intValue());
+            cD(zhiBoInfoTW.forum_name);
             setPhotoLiveCover(zhiBoInfoTW.livecover_src);
             m(zhiBoInfoTW.last_modified_time.longValue());
             setPost_num(zhiBoInfoTW.post_num.intValue());
             setTitle(zhiBoInfoTW.title);
             setShowExpressionViewIndexList(s(zhiBoInfoTW.labelInfo));
-            this.Yv = getRandom(3, i);
-            cF(String.valueOf(zhiBoInfoTW.thread_id));
+            this.WZ = getRandom(3, i);
+            cz(String.valueOf(zhiBoInfoTW.thread_id));
             setId(String.valueOf(zhiBoInfoTW.thread_id));
             setThreadType(33);
-            cJ(zhiBoInfoTW.forum_name);
+            cD(zhiBoInfoTW.forum_name);
         }
     }
 
@@ -85,7 +85,7 @@ public class ax extends bl {
             LabelInfo labelInfo = list.get(i);
             if (labelInfo != null) {
                 com.baidu.tbadk.coreExtra.view.e eVar = new com.baidu.tbadk.coreExtra.view.e();
-                eVar.em(labelInfo.labelHot.intValue());
+                eVar.ek(labelInfo.labelHot.intValue());
                 eVar.setLabelId(labelInfo.labelId);
                 eVar.setLabelName(labelInfo.labelContent);
                 arrayList.add(eVar);
@@ -140,11 +140,11 @@ public class ax extends bl {
     }
 
     public int getShowStyle() {
-        return this.Yv;
+        return this.WZ;
     }
 
     @Override // com.baidu.tbadk.core.data.bl, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return Yt;
+        return WX;
     }
 }

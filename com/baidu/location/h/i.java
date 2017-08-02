@@ -44,10 +44,10 @@ public class i {
     public static String l = "gcj02";
     public static boolean m = true;
     public static int n = 3;
-    public static double Oa = 0.0d;
-    public static double Ob = 0.0d;
-    public static double Oc = 0.0d;
-    public static double Od = 0.0d;
+    public static double MB = 0.0d;
+    public static double MC = 0.0d;
+    public static double MD = 0.0d;
+    public static double ME = 0.0d;
     public static int s = 0;
     public static byte[] t = null;
     public static boolean u = false;
@@ -68,11 +68,11 @@ public class i {
     public static float J = 50.0f;
     public static float K = 200.0f;
     public static int L = 16;
-    public static float QO = 0.9f;
+    public static float Pp = 0.9f;
     public static int N = 10000;
-    public static float QP = 0.5f;
-    public static float QR = 0.0f;
-    public static float QS = 0.1f;
+    public static float Pq = 0.5f;
+    public static float Pr = 0.0f;
+    public static float Ps = 0.1f;
     public static int R = 30;
     public static int S = 100;
     public static int T = 0;
@@ -80,23 +80,23 @@ public class i {
     public static int V = 0;
     public static int W = 420000;
     public static boolean X = true;
-    public static boolean QT = true;
+    public static boolean Pt = true;
     public static int Z = 20;
-    public static int QU = 300;
-    public static int QV = 1000;
+    public static int Pu = 300;
+    public static int Pv = 1000;
     public static long ac = 900000;
     public static long ad = 420000;
     public static long ae = 180000;
-    public static long QW = 0;
-    public static long QX = 15;
-    public static long QY = ReportUserInfoModel.TIME_INTERVAL;
+    public static long Pw = 0;
+    public static long Px = 15;
+    public static long Py = ReportUserInfoModel.TIME_INTERVAL;
     public static int ai = 1000;
     public static int aj = 0;
     public static int ak = 30000;
     public static int al = 30000;
     public static float am = 10.0f;
-    public static float QZ = 6.0f;
-    public static float Ra = 10.0f;
+    public static float Pz = 6.0f;
+    public static float PA = 10.0f;
     public static int ap = 60;
     public static int aq = 70;
     public static int ar = 6;
@@ -139,7 +139,7 @@ public class i {
         String f2;
         String g2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (g2 = com.baidu.location.f.b.nd().g(aVar)) != null) {
+        if (aVar != null && (g2 = com.baidu.location.f.b.mT().g(aVar)) != null) {
             stringBuffer.append(g2);
         }
         if (iVar != null) {
@@ -154,20 +154,20 @@ public class i {
                 stringBuffer.append(h2);
             }
         }
-        String a2 = c.ns().a(i2 == 0);
+        String a2 = c.ni().a(i2 == 0);
         if (a2 != null) {
             stringBuffer.append(a2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        String d2 = com.baidu.location.c.b.mJ().d();
+        String d2 = com.baidu.location.c.b.mz().d();
         if (!TextUtils.isEmpty(d2)) {
             stringBuffer.append("&bc=").append(d2);
         }
         if (i2 == 0) {
         }
-        if (aVar != null && (f2 = com.baidu.location.f.c.ni().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (f2 = com.baidu.location.f.c.mY().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(f2);
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -180,9 +180,9 @@ public class i {
                 int d3 = iVar.d();
                 int a3 = iVar.a();
                 boolean e2 = iVar.e();
-                if (speed < QZ && ((i3 == 1 || i3 == 0) && (d3 < ap || e2))) {
+                if (speed < Pz && ((i3 == 1 || i3 == 0) && (d3 < ap || e2))) {
                     n = 1;
-                } else if (speed >= Ra || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= ar))) {
+                } else if (speed >= PA || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= ar))) {
                     n = 3;
                 } else {
                     n = 2;

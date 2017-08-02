@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -9,18 +8,19 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.CustomDialogData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PbFloorAgreeModel {
-    private PbModel eGz;
-    private final HttpMessageListener eKC = new HttpMessageListener(CmdConfigHttp.CMD_PB_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.1
+    private PbModel eFm;
+    private final HttpMessageListener eJp = new HttpMessageListener(CmdConfigHttp.CMD_PB_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             PbFloorAgreeModel.this.a(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
         }
     };
-    private final HttpMessageListener eKD = new HttpMessageListener(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.2
+    private final HttpMessageListener eJq = new HttpMessageListener(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.PbFloorAgreeModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -31,19 +31,19 @@ public class PbFloorAgreeModel {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void oT(int i);
+        void a(CustomDialogData customDialogData);
 
-        void pp(String str);
+        void oU(int i);
     }
 
     public PbFloorAgreeModel(PbModel pbModel) {
-        this.eGz = pbModel;
-        Eo();
-        MessageManager.getInstance().registerListener(this.eKC);
-        MessageManager.getInstance().registerListener(this.eKD);
+        this.eFm = pbModel;
+        Eg();
+        MessageManager.getInstance().registerListener(this.eJp);
+        MessageManager.getInstance().registerListener(this.eJq);
     }
 
-    private void Eo() {
+    private void Eg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_FLOOR_AGREE, TbConfig.SERVER_ADDRESS + TbConfig.PB_FLOOR_AGREE_URL);
         tbHttpMessageTask.setResponsedClass(PbFloorAgreeResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -55,16 +55,16 @@ public class PbFloorAgreeModel {
     }
 
     public void a(String str, int i, a aVar) {
-        if (this.eGz != null && this.eGz.getPbData() != null) {
+        if (this.eFm != null && this.eFm.getPbData() != null) {
             a(str, i, 1, 2, "", aVar);
         }
     }
 
     public void a(String str, int i, int i2, int i3, String str2, a aVar) {
-        if (this.eGz != null && this.eGz.getPbData() != null) {
+        if (this.eFm != null && this.eFm.getPbData() != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("post_id", str);
-            httpMessage.addParam("thread_id", this.eGz.getPbData().getThreadId());
+            httpMessage.addParam("thread_id", this.eFm.getPbData().getThreadId());
             httpMessage.addParam("op_type", i);
             httpMessage.addParam("obj_type", i2);
             httpMessage.addParam("agree_type", i3);
@@ -75,9 +75,9 @@ public class PbFloorAgreeModel {
     }
 
     public void a(String str, int i, int i2, String str2, a aVar) {
-        if (this.eGz != null && this.eGz.getPbData() != null) {
+        if (this.eFm != null && this.eFm.getPbData() != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
-            httpMessage.addParam("thread_id", this.eGz.getPbData().getThreadId());
+            httpMessage.addParam("thread_id", this.eFm.getPbData().getThreadId());
             httpMessage.addParam("post_id", str);
             httpMessage.addParam("obj_type", i);
             httpMessage.addParam("agree_type", i2);
@@ -100,11 +100,11 @@ public class PbFloorAgreeModel {
             if (aVar != null) {
                 PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage;
                 if (!pbFloorAgreeResponseMessage.hasError()) {
-                    aVar.oT(pbFloorAgreeResponseMessage.getScore());
-                    if (TextUtils.isEmpty(pbFloorAgreeResponseMessage.getNickNameActivityMoney())) {
+                    aVar.oU(pbFloorAgreeResponseMessage.getScore());
+                    if (pbFloorAgreeResponseMessage.getActivityDialogData() == null) {
                         return;
                     }
-                    aVar.pp(pbFloorAgreeResponseMessage.mNickNameActivityMoney);
+                    aVar.a(pbFloorAgreeResponseMessage.mActDialogData);
                 }
             }
         }
@@ -112,7 +112,7 @@ public class PbFloorAgreeModel {
 
     /* loaded from: classes.dex */
     public static class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
-        private String mNickNameActivityMoney;
+        private CustomDialogData mActDialogData;
         private int mScore;
 
         public PbFloorAgreeResponseMessage(int i) {
@@ -130,7 +130,7 @@ public class PbFloorAgreeModel {
                 if (optJSONObject2 != null) {
                     this.mScore = optJSONObject2.optInt("score");
                 }
-                this.mNickNameActivityMoney = com.baidu.tieba.pb.c.H(optJSONObject);
+                this.mActDialogData = com.baidu.tieba.pb.c.H(optJSONObject);
             }
         }
 
@@ -138,14 +138,14 @@ public class PbFloorAgreeModel {
             return this.mScore;
         }
 
-        public String getNickNameActivityMoney() {
-            return this.mNickNameActivityMoney;
+        public CustomDialogData getActivityDialogData() {
+            return this.mActDialogData;
         }
     }
 
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eKC);
-        MessageManager.getInstance().unRegisterListener(this.eKD);
+        MessageManager.getInstance().unRegisterListener(this.eJp);
+        MessageManager.getInstance().unRegisterListener(this.eJq);
         return true;
     }
 }

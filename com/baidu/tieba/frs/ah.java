@@ -6,13 +6,13 @@ import com.baidu.tbadk.util.r;
 public interface ah {
     void L(Intent intent);
 
-    void afg();
+    void afb();
 
-    void afh();
+    void afc();
 
-    void afu();
+    void afp();
 
-    ForumWriteData afv();
+    ForumWriteData afq();
 
     void setHeaderViewHeight(int i);
 
@@ -20,5 +20,5 @@ public interface ah {
 
     void showFloatingView();
 
-    void xd();
+    void wV();
 }

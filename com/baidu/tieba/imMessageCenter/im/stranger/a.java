@@ -12,16 +12,16 @@ public class a {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.stranger.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0101a {
-        public String dCQ;
-        public String dDn;
-        public int dDo;
-        public String dDp;
-        public String dDq;
-        public int dDr;
-        public String dDs;
-        public String dDt;
-        public String dDu;
+    public static class C0102a {
+        public String dBW;
+        public int dBX;
+        public String dBY;
+        public String dBZ;
+        public String dBz;
+        public int dCa;
+        public String dCb;
+        public String dCc;
+        public String dCd;
         public String postId;
         public String threadId;
         public int threadType;
@@ -29,37 +29,37 @@ public class a {
         public int type;
     }
 
-    public static C0101a mK(String str) {
+    public static C0102a mG(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        C0101a c0101a = new C0101a();
+        C0102a c0102a = new C0102a();
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0101a.dDp = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
-                c0101a.dCQ = optJSONObject.optString("content");
-                c0101a.dDs = optJSONObject.optString("quote_content");
-                c0101a.dDu = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
-                c0101a.threadId = optJSONObject.optString("thread_id");
-                c0101a.postId = optJSONObject.optString("post_id");
-                c0101a.type = optJSONObject.optInt("type");
-                c0101a.title = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
-                c0101a.threadType = optJSONObject.optInt("thread_type");
+                c0102a.dBY = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
+                c0102a.dBz = optJSONObject.optString("content");
+                c0102a.dCb = optJSONObject.optString("quote_content");
+                c0102a.dCd = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                c0102a.threadId = optJSONObject.optString("thread_id");
+                c0102a.postId = optJSONObject.optString("post_id");
+                c0102a.type = optJSONObject.optInt("type");
+                c0102a.title = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
+                c0102a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0101a.dDq = optJSONObject2.optString("id");
-                    c0101a.dDt = optJSONObject2.optString(IntentConfig.PORTRAIT);
-                    c0101a.dDr = optJSONObject2.optInt("gender");
+                    c0102a.dBZ = optJSONObject2.optString("id");
+                    c0102a.dCc = optJSONObject2.optString(IntentConfig.PORTRAIT);
+                    c0102a.dCa = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    c0101a.dDn = optJSONObject3.optString("id");
-                    c0101a.dDo = optJSONObject3.optInt("gender");
+                    c0102a.dBW = optJSONObject3.optString("id");
+                    c0102a.dBX = optJSONObject3.optInt("gender");
                 }
             }
-            return c0101a;
+            return c0102a;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

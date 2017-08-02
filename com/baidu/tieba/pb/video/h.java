@@ -10,14 +10,14 @@ import com.baidu.tbadk.core.data.bq;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h {
-    private BaseActivity bmv;
-    private d eXA;
-    private e eXB;
-    private com.baidu.tieba.d.a eXC;
+    private BaseActivity bll;
+    private d eWo;
+    private e eWp;
+    private com.baidu.tieba.d.b eWq;
     private int mSkinType = 3;
 
     public h(BaseActivity baseActivity) {
-        this.bmv = baseActivity;
+        this.bll = baseActivity;
     }
 
     public void a(bq bqVar, bl blVar, int i) {
@@ -27,82 +27,82 @@ public class h {
 
     private void Z(bl blVar) {
         if (blVar != null) {
-            if (this.eXA == null) {
-                this.eXA = new d(LayoutInflater.from(this.bmv.getPageContext().getPageActivity()).inflate(d.j.pb_header_video_abstract_layout, (ViewGroup) null));
+            if (this.eWo == null) {
+                this.eWo = new d(LayoutInflater.from(this.bll.getPageContext().getPageActivity()).inflate(d.j.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.eXA.W(blVar);
+            this.eWo.W(blVar);
         }
     }
 
-    public View aVV() {
-        if (this.eXA == null) {
+    public View aVK() {
+        if (this.eWo == null) {
             return null;
         }
-        return this.eXA.mRootView;
+        return this.eWo.mRootView;
     }
 
     private void b(bq bqVar, bl blVar, int i) {
         if (bqVar != null && blVar != null) {
-            if (this.eXB == null) {
-                this.eXB = new e(this.bmv, LayoutInflater.from(this.bmv.getPageContext().getPageActivity()).inflate(d.j.video_pb_video_channel_info_layout, (ViewGroup) null));
+            if (this.eWp == null) {
+                this.eWp = new e(this.bll, LayoutInflater.from(this.bll.getPageContext().getPageActivity()).inflate(d.j.video_pb_video_channel_info_layout, (ViewGroup) null));
             }
-            bqVar.abl = i;
-            this.eXB.X(blVar);
+            bqVar.ZP = i;
+            this.eWp.X(blVar);
             blVar.a(bqVar);
         }
     }
 
-    public View aVW() {
-        if (this.eXB == null) {
+    public View aVL() {
+        if (this.eWp == null) {
             return null;
         }
-        return this.eXB.getRootView();
+        return this.eWp.getRootView();
     }
 
     public void aa(bl blVar) {
-        if (this.eXB != null && blVar != null && blVar.sJ() != null && blVar.sJ().abl == 2) {
-            if (this.eXC == null) {
-                this.eXC = new com.baidu.tieba.d.a(this.bmv.getPageContext(), this.eXB.aVS());
-                this.eXC.hJ(5000);
+        if (this.eWp != null && blVar != null && blVar.sz() != null && blVar.sz().ZP == 2) {
+            if (this.eWq == null) {
+                this.eWq = new com.baidu.tieba.d.b(this.bll.getPageContext(), this.eWp.aVH());
+                this.eWq.hI(5000);
             }
-            this.eXC.f(this.bmv.getResources().getString(d.l.pb_order_channel_tip), "pb_show_order_channel_tip", true);
+            this.eWq.f(this.bll.getResources().getString(d.l.pb_order_channel_tip), "pb_show_order_channel_tip", true);
         }
     }
 
     public void w(long j, int i) {
-        if (this.eXB != null && j > 0) {
-            this.eXB.j(i, j);
+        if (this.eWp != null && j > 0) {
+            this.eWp.j(i, j);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.eXA != null) {
-                this.eXA.Bf();
+            if (this.eWo != null) {
+                this.eWo.AX();
             }
-            if (this.eXB != null) {
-                this.eXB.Bf();
+            if (this.eWp != null) {
+                this.eWp.AX();
             }
             this.mSkinType = i;
         }
     }
 
     public void e(BdTypeListView bdTypeListView) {
-        if (this.eXA != null) {
-            bdTypeListView.removeHeaderView(this.eXA.mRootView);
+        if (this.eWo != null) {
+            bdTypeListView.removeHeaderView(this.eWo.mRootView);
         }
-        if (this.eXB != null) {
-            bdTypeListView.removeHeaderView(this.eXB.getRootView());
+        if (this.eWp != null) {
+            bdTypeListView.removeHeaderView(this.eWp.getRootView());
         }
     }
 
     public void onDestroy() {
-        aVX();
+        aVM();
     }
 
-    public void aVX() {
-        if (this.eXC != null) {
-            this.eXC.Yi();
+    public void aVM() {
+        if (this.eWq != null) {
+            this.eWq.Yd();
         }
     }
 }

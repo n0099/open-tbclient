@@ -11,29 +11,29 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
 /* loaded from: classes.dex */
 public class VoiceButton extends ImageView {
-    f gla;
-    private boolean glb;
+    f gjP;
+    private boolean gjQ;
 
     public VoiceButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.glb = false;
+        this.gjQ = false;
     }
 
     public void setRecorderView(f fVar) {
-        this.gla = fVar;
+        this.gjP = fVar;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         a recorderManager = getRecorderManager();
         if (motionEvent.getAction() == 0) {
-            if (recorderManager == null || !recorderManager.lS()) {
+            if (recorderManager == null || !recorderManager.lI()) {
                 return false;
             }
-            this.glb = recorderManager.a(this.gla, -1);
+            this.gjQ = recorderManager.a(this.gjP, -1);
             setPressed(true);
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            if (this.glb && recorderManager != null) {
+            if (this.gjQ && recorderManager != null) {
                 recorderManager.stopRecord();
             }
             setPressed(false);
@@ -49,7 +49,7 @@ public class VoiceButton extends ImageView {
         if (context instanceof VoiceManager.c) {
             return ((VoiceManager.c) context).getVoiceManager();
         }
-        if ((i.aa(getContext()) instanceof e) && (tbPageContext = (TbPageContext) i.aa(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
+        if ((i.Z(getContext()) instanceof e) && (tbPageContext = (TbPageContext) i.Z(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
             return ((VoiceManager.c) tbPageContext.getOrignalPage()).getVoiceManager();
         }
         return null;

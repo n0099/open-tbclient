@@ -14,7 +14,7 @@ public class m {
         this.type = i;
     }
 
-    public ImageFileInfo amk() {
+    public ImageFileInfo alX() {
         return this.imageFileInfo;
     }
 

@@ -9,30 +9,30 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class am extends l<com.baidu.tieba.pb.data.m, an> {
-    private View.OnTouchListener aMS;
-    private com.baidu.tieba.pb.a.c aRN;
-    private View.OnClickListener aYW;
-    private com.baidu.tieba.pb.view.d eNT;
-    private FrameLayout eNU;
+    private View.OnTouchListener aLD;
+    private com.baidu.tieba.pb.a.c aQB;
+    private View.OnClickListener aXL;
+    private com.baidu.tieba.pb.view.d eMG;
+    private FrameLayout eMH;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public am(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.aMS = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.am.1
+        this.aLD = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.am.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (am.this.eNT != null) {
-                    return am.this.eNT.onTouch(view, motionEvent);
+                if (am.this.eMG != null) {
+                    return am.this.eMG.onTouch(view, motionEvent);
                 }
                 return false;
             }
         };
-        this.eNU = new FrameLayout(pbActivity.getPageContext().getPageActivity());
+        this.eMH = new FrameLayout(pbActivity.getPageContext().getPageActivity());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.eNU.setBackgroundResource(d.e.transparent);
-        this.eNU.setTag("PraiseContainerView");
-        ((FrameLayout) pbActivity.getPageContext().getPageActivity().getWindow().getDecorView()).addView(this.eNU, layoutParams);
-        this.eNT = new com.baidu.tieba.pb.view.d(pbActivity.getPageContext().getPageActivity(), this.eNU);
+        this.eMH.setBackgroundResource(d.e.transparent);
+        this.eMH.setTag("PraiseContainerView");
+        ((FrameLayout) pbActivity.getPageContext().getPageActivity().getWindow().getDecorView()).addView(this.eMH, layoutParams);
+        this.eMG = new com.baidu.tieba.pb.view.d(pbActivity.getPageContext().getPageActivity(), this.eMH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,9 +41,9 @@ public class am extends l<com.baidu.tieba.pb.data.m, an> {
     /* renamed from: bq */
     public an onCreateViewHolder(ViewGroup viewGroup) {
         an anVar = new an(LayoutInflater.from(this.mContext).inflate(d.j.layout_thread_praise_item, viewGroup, false));
-        if (this.aRN != null && anVar.mRootView != null) {
+        if (this.aQB != null && anVar.mRootView != null) {
             anVar.mRootView.setClickable(true);
-            anVar.mRootView.setOnTouchListener(this.aRN);
+            anVar.mRootView.setOnTouchListener(this.aQB);
         }
         return anVar;
     }
@@ -56,40 +56,40 @@ public class am extends l<com.baidu.tieba.pb.data.m, an> {
         super.onFillViewHolder(i, view, viewGroup, mVar, anVar);
         if (mVar != null && anVar != null) {
             anVar.b(mVar);
-            anVar.eNW.setTag(d.h.pb_main_thread_praise_data, mVar);
-            anVar.eNW.setTag(d.h.pb_main_thread_praise_view, anVar);
-            if (this.eNT != null) {
-                this.eNT.setAnchorView(anVar.eNW);
-                this.eNT.setOnTouchListener(this.aMS);
+            anVar.eMJ.setTag(d.h.pb_main_thread_praise_data, mVar);
+            anVar.eMJ.setTag(d.h.pb_main_thread_praise_view, anVar);
+            if (this.eMG != null) {
+                this.eMG.setAnchorView(anVar.eMJ);
+                this.eMG.setOnTouchListener(this.aLD);
             } else {
-                anVar.eNW.setOnClickListener(this.aYW);
+                anVar.eMJ.setOnClickListener(this.aXL);
             }
-            anVar.eNX.setOnClickListener(this.aYW);
-            anVar.eNY.setOnClickListener(this.aYW);
+            anVar.eMK.setOnClickListener(this.aXL);
+            anVar.eML.setOnClickListener(this.aXL);
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aYW = onClickListener;
-        if (this.eNT != null) {
-            this.eNT.setOnClickListener(onClickListener);
+        this.aXL = onClickListener;
+        if (this.eMG != null) {
+            this.eMG.setOnClickListener(onClickListener);
         }
     }
 
     public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
-        this.aRN = cVar;
+        this.aQB = cVar;
     }
 
-    public void oV(int i) {
-        if (i == 3 && this.eGA != null && this.eNU != null) {
-            this.eNU.removeAllViews();
-            ((FrameLayout) this.eGA.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.eNU);
+    public void oW(int i) {
+        if (i == 3 && this.eFn != null && this.eMH != null) {
+            this.eMH.removeAllViews();
+            ((FrameLayout) this.eFn.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.eMH);
         }
-        this.eNT.oV(i);
+        this.eMG.oW(i);
     }
 
     public void jC(boolean z) {
-        this.eNT.cg(z);
+        this.eMG.cg(z);
     }
 }

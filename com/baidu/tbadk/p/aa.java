@@ -1,10 +1,10 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class aa extends com.baidu.adp.lib.b.a {
-    public static final String[] aLX = {"cn.jingling.lib"};
+    public static final String[] aKI = {"cn.jingling.lib"};
 
     @Override // com.baidu.adp.lib.b.a
-    protected void aa(int i) {
+    protected void X(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -13,22 +13,22 @@ public class aa extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eY() {
-        return aLX;
+    protected String[] eN() {
+        return aKI;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eZ() {
+    protected int eO() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int fa() {
+    protected int eP() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int fb() {
+    protected int eQ() {
         return 10;
     }
 }

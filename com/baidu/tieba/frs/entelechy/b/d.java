@@ -16,11 +16,11 @@ public interface d {
 
     void a(ai aiVar);
 
-    TabData agZ();
+    TabData agS();
 
-    View aha();
+    View agT();
 
-    View ahb();
+    View agU();
 
     void al(View view);
 

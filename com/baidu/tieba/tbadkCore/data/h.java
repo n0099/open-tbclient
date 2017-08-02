@@ -12,15 +12,15 @@ import tbclient.Timgs;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class h {
-    private VideoInfo Vk;
-    private String Vl;
-    private int ghA;
-    public String ghu;
-    public boolean ghv;
-    private int ghw;
-    private ArrayList<g> ghx;
-    private ArrayList<j> ghy;
-    private i ghz;
+    private VideoInfo TK;
+    private String TL;
+    public String ggj;
+    public boolean ggk;
+    private int ggl;
+    private ArrayList<g> ggm;
+    private ArrayList<j> ggn;
+    private i ggo;
+    private int ggp;
     public String position;
     public long templateId;
 
@@ -29,29 +29,29 @@ public class h {
             try {
                 this.position = tPointPost.position;
                 this.templateId = tPointPost.template_id.longValue();
-                this.ghv = tPointPost.is_tuiguang.intValue() != 0;
-                this.ghw = tPointPost.template_type.intValue();
+                this.ggk = tPointPost.is_tuiguang.intValue() != 0;
+                this.ggl = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.ghx = new ArrayList<>();
+                    this.ggm = new ArrayList<>();
                     for (int i = 0; i != list.size(); i++) {
-                        this.ghx.add(new g(list.get(i)));
+                        this.ggm.add(new g(list.get(i)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.ghy = new ArrayList<>();
+                    this.ggn = new ArrayList<>();
                     for (int i2 = 0; i2 != list2.size(); i2++) {
-                        this.ghy.add(new j(list2.get(i2)));
+                        this.ggn.add(new j(list2.get(i2)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
-                    this.ghz = new i(tPointPost.detail_info);
+                    this.ggo = new i(tPointPost.detail_info);
                 }
-                this.ghu = tPointPost.monitor_id;
-                this.ghA = tPointPost.hidden_day.intValue();
-                this.Vk = tPointPost.t_video;
-                this.Vl = tPointPost.tag_name;
+                this.ggj = tPointPost.monitor_id;
+                this.ggp = tPointPost.hidden_day.intValue();
+                this.TK = tPointPost.t_video;
+                this.TL = tPointPost.tag_name;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -64,27 +64,27 @@ public class h {
             try {
                 this.position = jSONObject.optString("position");
                 this.templateId = jSONObject.optLong("template_id");
-                this.ghv = jSONObject.optInt("is_tuiguang") != 0;
-                this.ghw = jSONObject.optInt("template_type");
+                this.ggk = jSONObject.optInt("is_tuiguang") != 0;
+                this.ggl = jSONObject.optInt("template_type");
                 JSONArray optJSONArray = jSONObject.optJSONArray("act_btn");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.ghx = new ArrayList<>();
+                    this.ggm = new ArrayList<>();
                     for (int i = 0; i != optJSONArray.length(); i++) {
-                        this.ghx.add(new g(optJSONArray.getJSONObject(i)));
+                        this.ggm.add(new g(optJSONArray.getJSONObject(i)));
                     }
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("t_imgs");
                 if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    this.ghy = new ArrayList<>();
+                    this.ggn = new ArrayList<>();
                     for (int i2 = 0; i2 != optJSONArray2.length(); i2++) {
-                        this.ghy.add(new j(optJSONArray2.getJSONObject(i2)));
+                        this.ggn.add(new j(optJSONArray2.getJSONObject(i2)));
                     }
                 }
-                this.ghz = new i(jSONObject.getJSONObject("detail_info"));
-                this.ghu = jSONObject.optString("monitor_id");
-                this.ghA = jSONObject.optInt("hidden_day");
-                this.Vl = jSONObject.optString("tag_name");
-                if (this.ghw == 3 && (jSONObject2 = jSONObject.getJSONObject("t_video")) != null) {
+                this.ggo = new i(jSONObject.getJSONObject("detail_info"));
+                this.ggj = jSONObject.optString("monitor_id");
+                this.ggp = jSONObject.optInt("hidden_day");
+                this.TL = jSONObject.optString("tag_name");
+                if (this.ggl == 3 && (jSONObject2 = jSONObject.getJSONObject("t_video")) != null) {
                     VideoInfo.Builder builder = new VideoInfo.Builder();
                     builder.video_md5 = jSONObject2.optString("video_md5");
                     builder.video_url = jSONObject2.optString("video_url");
@@ -96,7 +96,7 @@ public class h {
                     builder.thumbnail_height = Integer.valueOf(jSONObject2.optInt("thumbnail_height"));
                     builder.video_length = Integer.valueOf(jSONObject2.optInt("video_length"));
                     builder.play_count = Integer.valueOf(jSONObject2.optInt("play_count"));
-                    this.Vk = builder.build(false);
+                    this.TK = builder.build(false);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -104,35 +104,35 @@ public class h {
         }
     }
 
-    public j bsb() {
-        return (j) u.c(this.ghy, 0);
+    public j brU() {
+        return (j) u.c(this.ggn, 0);
     }
 
     public long getTemplateId() {
         return this.templateId;
     }
 
-    public ArrayList<g> bsc() {
-        return this.ghx;
+    public ArrayList<g> brV() {
+        return this.ggm;
     }
 
-    public ArrayList<j> bsd() {
-        return this.ghy;
+    public ArrayList<j> brW() {
+        return this.ggn;
     }
 
-    public i bse() {
-        return this.ghz;
+    public i brX() {
+        return this.ggo;
     }
 
-    public int bsf() {
-        return this.ghw;
+    public int brY() {
+        return this.ggl;
     }
 
-    public String bsg() {
-        return this.ghu;
+    public String brZ() {
+        return this.ggj;
     }
 
     public String getTagName() {
-        return this.Vl;
+        return this.TL;
     }
 }

@@ -21,70 +21,70 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
-    private TbImageView bEa;
-    private ImageView bEb;
-    private View bGI;
-    private ImageView eaX;
-    private WriteVideoActivity gDB;
-    private TextView gDC;
-    private EditText gDD;
-    private TextView gDE;
-    private WriteLocationView gDF;
-    private HeadImageView gDG;
+    public static int gCo = 31;
+    private static int gCp = -100;
+    private TbImageView bCQ;
+    private ImageView bCR;
+    private View bFy;
+    private ImageView dZG;
+    private WriteVideoActivity gCq;
+    private TextView gCr;
+    private EditText gCs;
+    private TextView gCt;
+    private WriteLocationView gCu;
+    private HeadImageView gCv;
     private NavigationBar mNavigationBar;
-    public static int gDz = 31;
-    private static int gDA = -100;
 
     public a(WriteVideoActivity writeVideoActivity) {
-        this.gDB = writeVideoActivity;
-        this.gDB.setContentView(d.j.write_video_activity);
-        byT();
+        this.gCq = writeVideoActivity;
+        this.gCq.setContentView(d.j.write_video_activity);
+        byM();
         initView();
     }
 
-    private void byT() {
-        this.bGI = this.gDB.findViewById(d.h.layout_root);
-        this.mNavigationBar = (NavigationBar) this.gDB.findViewById(d.h.navigation_bar);
-        this.gDG = (HeadImageView) this.gDB.findViewById(d.h.write_user_head_portrait);
-        this.gDD = (EditText) this.gDB.findViewById(d.h.edit_content);
-        this.gDE = (TextView) this.gDB.findViewById(d.h.text_content_size);
-        this.bEa = (TbImageView) this.gDB.findViewById(d.h.image_video);
-        this.bEb = (ImageView) this.gDB.findViewById(d.h.image_video_play);
-        this.gDF = (WriteLocationView) this.gDB.findViewById(d.h.location);
+    private void byM() {
+        this.bFy = this.gCq.findViewById(d.h.layout_root);
+        this.mNavigationBar = (NavigationBar) this.gCq.findViewById(d.h.navigation_bar);
+        this.gCv = (HeadImageView) this.gCq.findViewById(d.h.write_user_head_portrait);
+        this.gCs = (EditText) this.gCq.findViewById(d.h.edit_content);
+        this.gCt = (TextView) this.gCq.findViewById(d.h.text_content_size);
+        this.bCQ = (TbImageView) this.gCq.findViewById(d.h.image_video);
+        this.bCR = (ImageView) this.gCq.findViewById(d.h.image_video_play);
+        this.gCu = (WriteLocationView) this.gCq.findViewById(d.h.location);
     }
 
     private void initView() {
-        this.bEa.setOnClickListener(this.gDB);
-        this.eaX = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.j.nav_close_layout, this.gDB);
-        this.mNavigationBar.setCenterTextTitle(this.gDB.getPageContext().getString(d.l.new_video_post));
-        this.gDC = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.j.nav_text_send_layout, this.gDB);
-        this.gDE.setText(String.valueOf(gDz));
-        this.gDG.setIsRound(true);
-        this.gDG.setDrawBorder(false);
-        this.gDG.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.bCQ.setOnClickListener(this.gCq);
+        this.dZG = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.j.nav_close_layout, this.gCq);
+        this.mNavigationBar.setCenterTextTitle(this.gCq.getPageContext().getString(d.l.new_video_post));
+        this.gCr = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.j.nav_text_send_layout, this.gCq);
+        this.gCt.setText(String.valueOf(gCo));
+        this.gCv.setIsRound(true);
+        this.gCv.setDrawBorder(false);
+        this.gCv.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         String currentPortrait = TbadkCoreApplication.getCurrentPortrait();
         if (!StringUtils.isNull(currentPortrait)) {
-            String dL = n.dL(currentPortrait);
-            this.gDG.setUrl(dL);
-            this.gDG.c(dL, 12, false);
+            String dF = n.dF(currentPortrait);
+            this.gCv.setUrl(dF);
+            this.gCv.c(dF, 12, false);
         }
-        this.gDD.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.video.a.1
+        this.gCs.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.video.a.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                long byU = a.gDz - a.this.byU();
-                if (byU >= 0) {
-                    ai.i(a.this.gDE, d.e.cp_cont_e);
+                long byN = a.gCo - a.this.byN();
+                if (byN >= 0) {
+                    ai.i(a.this.gCt, d.e.cp_cont_e);
                 } else {
-                    ai.i(a.this.gDE, d.e.cp_cont_h);
+                    ai.i(a.this.gCt, d.e.cp_cont_h);
                 }
-                if (byU <= a.gDA) {
-                    a.this.gDE.setText(al.vP());
+                if (byN <= a.gCp) {
+                    a.this.gCt.setText(al.vF());
                 } else {
-                    a.this.gDE.setText(String.valueOf(byU));
+                    a.this.gCt.setText(String.valueOf(byN));
                 }
             }
 
@@ -92,7 +92,7 @@ public class a {
             public void afterTextChanged(Editable editable) {
             }
         });
-        this.gDD.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.tieba.write.video.a.2
+        this.gCs.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.tieba.write.video.a.2
             @Override // android.view.View.OnKeyListener
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 return keyEvent != null && keyEvent.getKeyCode() == 66;
@@ -100,14 +100,14 @@ public class a {
         });
     }
 
-    public void ta(String str) {
-        Bitmap tb = tb(str);
-        if (tb != null) {
-            this.bEa.setImageBitmap(tb);
+    public void sV(String str) {
+        Bitmap sW = sW(str);
+        if (sW != null) {
+            this.bCQ.setImageBitmap(sW);
         }
     }
 
-    private Bitmap tb(String str) {
+    private Bitmap sW(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = TbConfig.BitmapConfig;
@@ -123,28 +123,28 @@ public class a {
     }
 
     public void onChangeSkinType(int i) {
-        this.gDB.getLayoutMode().ah(i == 1);
-        this.gDB.getLayoutMode().t(this.bGI);
-        this.mNavigationBar.onChangeSkinType(this.gDB.getPageContext(), i);
-        ai.c(this.eaX, d.g.icon_nav_close_selector);
-        ai.c(this.gDC, d.e.cp_link_tip_a, 1);
-        if (this.gDF != null) {
-            this.gDF.xd();
+        this.gCq.getLayoutMode().ah(i == 1);
+        this.gCq.getLayoutMode().t(this.bFy);
+        this.mNavigationBar.onChangeSkinType(this.gCq.getPageContext(), i);
+        ai.c(this.dZG, d.g.icon_nav_close_selector);
+        ai.c(this.gCr, d.e.cp_link_tip_a, 1);
+        if (this.gCu != null) {
+            this.gCu.wV();
         }
     }
 
     public String getContent() {
-        if (this.gDD.getText() == null) {
+        if (this.gCs.getText() == null) {
             return null;
         }
-        return this.gDD.getText().toString();
+        return this.gCs.getText().toString();
     }
 
-    public long byU() {
-        if (this.gDD.getText() == null || this.gDD.getText().toString() == null) {
+    public long byN() {
+        if (this.gCs.getText() == null || this.gCs.getText().toString() == null) {
             return 0L;
         }
-        return g(this.gDD.getText().toString().trim());
+        return g(this.gCs.getText().toString().trim());
     }
 
     public static long g(CharSequence charSequence) {
@@ -160,33 +160,33 @@ public class a {
         return Math.round(d);
     }
 
-    public WriteLocationView byV() {
-        return this.gDF;
+    public WriteLocationView byO() {
+        return this.gCu;
     }
 
-    public View byW() {
-        return this.bEa;
+    public View byP() {
+        return this.bCQ;
     }
 
-    public View byX() {
-        return this.gDC;
+    public View byQ() {
+        return this.gCr;
     }
 
     public View getBackButton() {
-        return this.eaX;
+        return this.dZG;
     }
 
-    public View byY() {
-        return this.gDD;
+    public View byR() {
+        return this.gCs;
     }
 
     public void db(long j) {
-        if (this.bEa != null) {
-            this.bEa.setContentDescription(this.gDB.getResources().getString(d.l.video) + al.t(j));
+        if (this.bCQ != null) {
+            this.bCQ.setContentDescription(this.gCq.getResources().getString(d.l.video) + al.t(j));
         }
     }
 
-    public void tc(String str) {
-        this.gDD.setText(str);
+    public void sX(String str) {
+        this.gCs.setText(str);
     }
 }

@@ -11,54 +11,54 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
-    private static a gIp = null;
-    private IWXAPIEventHandler gIs;
-    private IWXAPIEventHandler gIt = new IWXAPIEventHandler() { // from class: com.baidu.tieba.wxapi.a.1
+    private static a gHe = null;
+    private IWXAPIEventHandler gHh;
+    private IWXAPIEventHandler gHi = new IWXAPIEventHandler() { // from class: com.baidu.tieba.wxapi.a.1
         @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
         public void onReq(BaseReq baseReq) {
-            if (a.this.gIs != null) {
-                a.this.gIs.onReq(baseReq);
+            if (a.this.gHh != null) {
+                a.this.gHh.onReq(baseReq);
             }
         }
 
         @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
         public void onResp(BaseResp baseResp) {
             try {
-                IWXAPIEventHandler iWXAPIEventHandler = (IWXAPIEventHandler) a.this.gIr.get(baseResp.transaction);
+                IWXAPIEventHandler iWXAPIEventHandler = (IWXAPIEventHandler) a.this.gHg.get(baseResp.transaction);
                 if (iWXAPIEventHandler != null) {
                     iWXAPIEventHandler.onResp(baseResp);
-                    a.this.gIr.remove(baseResp.transaction);
+                    a.this.gHg.remove(baseResp.transaction);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     };
-    private IWXAPI gIq = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
-    private ConcurrentHashMap<String, IWXAPIEventHandler> gIr = new ConcurrentHashMap<>();
+    private IWXAPI gHf = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+    private ConcurrentHashMap<String, IWXAPIEventHandler> gHg = new ConcurrentHashMap<>();
 
-    public static a bAS() {
-        if (gIp == null) {
+    public static a bAL() {
+        if (gHe == null) {
             synchronized (a.class) {
-                if (gIp == null) {
-                    gIp = new a();
+                if (gHe == null) {
+                    gHe = new a();
                 }
             }
         }
-        return gIp;
+        return gHe;
     }
 
     private a() {
         if (isAvailable()) {
-            this.gIq.registerApp(TbConfig.WEIXIN_SHARE_APP_ID);
+            this.gHf.registerApp(TbConfig.WEIXIN_SHARE_APP_ID);
         }
     }
 
     public boolean isAvailable() {
-        return this.gIq.isWXAppInstalled() && this.gIq.isWXAppSupportAPI();
+        return this.gHf.isWXAppInstalled() && this.gHf.isWXAppSupportAPI();
     }
 
     public void ak(Intent intent) {
-        this.gIq.handleIntent(intent, this.gIt);
+        this.gHf.handleIntent(intent, this.gHi);
     }
 }

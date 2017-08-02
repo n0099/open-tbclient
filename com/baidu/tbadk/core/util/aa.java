@@ -9,10 +9,10 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class aa {
-    public static boolean aC(Context context) {
+    public static boolean aB(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.a.a.nw()) {
+        if (com.baidu.a.a.nm()) {
             if (context == null) {
                 return false;
             }
@@ -23,7 +23,7 @@ public class aa {
                 z = false;
             }
             try {
-                z2 = aD(context);
+                z2 = aC(context);
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
@@ -36,8 +36,8 @@ public class aa {
         return true;
     }
 
-    public static boolean aD(Context context) {
-        if (com.baidu.a.a.nw()) {
+    public static boolean aC(Context context) {
+        if (com.baidu.a.a.nm()) {
             if (context != null) {
                 try {
                     if (!com.baidu.a.a.a.R(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -56,8 +56,8 @@ public class aa {
         return true;
     }
 
-    public static boolean aE(Context context) {
-        if (!com.baidu.a.a.nw()) {
+    public static boolean aD(Context context) {
+        if (!com.baidu.a.a.nm()) {
             return true;
         }
         if (context != null) {
@@ -71,8 +71,8 @@ public class aa {
         return false;
     }
 
-    public static boolean aF(Context context) {
-        if (!com.baidu.a.a.nw()) {
+    public static boolean aE(Context context) {
+        if (!com.baidu.a.a.nm()) {
             return true;
         }
         if (context != null) {
@@ -86,14 +86,14 @@ public class aa {
         return false;
     }
 
-    public static boolean aG(Context context) {
-        Context aK = aK(context);
-        if (aK == null) {
+    public static boolean aF(Context context) {
+        Context aJ = aJ(context);
+        if (aJ == null) {
             return true;
         }
         try {
-            if (com.baidu.a.a.nw() && com.baidu.a.a.a.S(aK, "android.permission.RECORD_AUDIO")) {
-                com.baidu.adp.lib.util.k.showToast(aK, d.l.record_audio_permission_denied_fun_disable);
+            if (com.baidu.a.a.nm() && com.baidu.a.a.a.S(aJ, "android.permission.RECORD_AUDIO")) {
+                com.baidu.adp.lib.util.k.showToast(aJ, d.l.record_audio_permission_denied_fun_disable);
                 return true;
             }
         } catch (Exception e) {
@@ -102,8 +102,8 @@ public class aa {
         return false;
     }
 
-    public static boolean aH(Context context) {
-        if (!com.baidu.a.a.nw()) {
+    public static boolean aG(Context context) {
+        if (!com.baidu.a.a.nm()) {
             return true;
         }
         if (context != null) {
@@ -117,8 +117,8 @@ public class aa {
         return false;
     }
 
-    public static boolean aI(Context context) {
-        if (!com.baidu.a.a.nw()) {
+    public static boolean aH(Context context) {
+        if (!com.baidu.a.a.nm()) {
             return true;
         }
         if (context != null) {
@@ -132,14 +132,14 @@ public class aa {
         return false;
     }
 
-    public static boolean aJ(Context context) {
-        Context aK = aK(context);
-        if (aK == null) {
+    public static boolean aI(Context context) {
+        Context aJ = aJ(context);
+        if (aJ == null) {
             return true;
         }
         try {
-            if (com.baidu.a.a.nw() && com.baidu.a.a.a.S(aK, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                com.baidu.adp.lib.util.k.showToast(aK, d.l.write_external_storage_permission_denied_fun_disable);
+            if (com.baidu.a.a.nm() && com.baidu.a.a.a.S(aJ, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                com.baidu.adp.lib.util.k.showToast(aJ, d.l.write_external_storage_permission_denied_fun_disable);
                 return true;
             }
         } catch (Exception e) {
@@ -148,7 +148,7 @@ public class aa {
         return false;
     }
 
-    public static Context aK(Context context) {
+    public static Context aJ(Context context) {
         return context == null ? TbadkCoreApplication.getInst().getContext() : context;
     }
 
@@ -173,10 +173,10 @@ public class aa {
 
     public static boolean d(Activity activity, int i) {
         ArrayList arrayList = new ArrayList(2);
-        if (!aI(activity.getApplicationContext())) {
+        if (!aH(activity.getApplicationContext())) {
             arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
         }
-        if (!aE(activity.getApplicationContext())) {
+        if (!aD(activity.getApplicationContext())) {
             arrayList.add("android.permission.CAMERA");
         }
         if (arrayList.size() == 0) {
@@ -192,7 +192,7 @@ public class aa {
 
     public static boolean e(Activity activity, int i) {
         ArrayList arrayList = new ArrayList();
-        if (!aF(activity.getApplicationContext())) {
+        if (!aE(activity.getApplicationContext())) {
             arrayList.add("android.permission.RECORD_AUDIO");
         }
         if (arrayList.size() == 0) {

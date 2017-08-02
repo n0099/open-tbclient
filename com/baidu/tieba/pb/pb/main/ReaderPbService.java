@@ -44,14 +44,14 @@ public class ReaderPbService extends BdBaseService {
                 ReaderPbService.this.postId = adVar.postId;
                 ReaderPbService.this.isAlive = adVar.isAlive;
                 ReaderPbService.this.setReadModel(adVar);
-                if (adVar.eNh >= 0) {
-                    ReaderPbService.this.mReaderManager.b(adVar.pbData, adVar.isSquence, adVar.loadType, adVar.eNg);
-                    ReaderPbService.this.mReaderManager.eNi = adVar.eNi;
-                    ReaderPbService.this.mReaderManager.B(adVar.eNh, adVar.eNj);
-                } else if (adVar.eNh == -2) {
-                    ReaderPbService.this.mReaderManager.a(adVar.pbData, adVar.isSquence, adVar.loadType, adVar.eNg, false);
+                if (adVar.eLU >= 0) {
+                    ReaderPbService.this.mReaderManager.b(adVar.pbData, adVar.isSquence, adVar.loadType, adVar.eLT);
+                    ReaderPbService.this.mReaderManager.eLV = adVar.eLV;
+                    ReaderPbService.this.mReaderManager.A(adVar.eLU, adVar.eLW);
+                } else if (adVar.eLU == -2) {
+                    ReaderPbService.this.mReaderManager.a(adVar.pbData, adVar.isSquence, adVar.loadType, adVar.eLT, false);
                 } else {
-                    ReaderPbService.this.mReaderManager.b(adVar.pbData, adVar.isSquence, adVar.loadType, adVar.eNg);
+                    ReaderPbService.this.mReaderManager.b(adVar.pbData, adVar.isSquence, adVar.loadType, adVar.eLT);
                 }
             }
         }
@@ -64,10 +64,10 @@ public class ReaderPbService extends BdBaseService {
                 int intValue = ((Integer) customResponsedMessage.getData()).intValue();
                 if (intValue == 1) {
                     TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c10833").aa("obj_locate", "1"));
-                    ReaderPbService.this.mRefreshCallback.bc(ReaderPbService.this.mReaderManager.eNh, ReaderPbService.this.mReaderManager.aSC());
+                    ReaderPbService.this.mRefreshCallback.bb(ReaderPbService.this.mReaderManager.eLU, ReaderPbService.this.mReaderManager.aSr());
                 } else if (intValue == 2) {
                     TiebaStatic.log(new com.baidu.tbadk.core.util.aj("c10833").aa("obj_locate", "2"));
-                    ReaderPbService.this.mRefreshCallback.aSF();
+                    ReaderPbService.this.mRefreshCallback.aSu();
                 }
             }
         }
@@ -87,75 +87,75 @@ public class ReaderPbService extends BdBaseService {
                 ReaderPbService.this.postId = adVar.postId;
                 ReaderPbService.this.isAlive = adVar.isAlive;
                 ReaderPbService.this.setReadModel(adVar);
-                if (adVar.eNh >= 0) {
-                    ReaderPbService.this.mReaderManager.a(adVar.pbData, adVar.isSquence, adVar.loadType, adVar.eNg, false);
-                    int aSB = ReaderPbService.this.mReaderManager.aSB();
-                    if (aSB == 1 || aSB == 3) {
-                        ReaderPbService.this.mReaderManager.pg(0);
+                if (adVar.eLU >= 0) {
+                    ReaderPbService.this.mReaderManager.a(adVar.pbData, adVar.isSquence, adVar.loadType, adVar.eLT, false);
+                    int aSq = ReaderPbService.this.mReaderManager.aSq();
+                    if (aSq == 1 || aSq == 3) {
+                        ReaderPbService.this.mReaderManager.ph(0);
                     } else {
-                        ReaderPbService.this.mReaderManager.pg(1);
+                        ReaderPbService.this.mReaderManager.ph(1);
                     }
-                    ReaderPbService.this.mReaderManager.B(adVar.eNh, adVar.eNj);
+                    ReaderPbService.this.mReaderManager.A(adVar.eLU, adVar.eLW);
                     return;
                 }
-                ReaderPbService.this.mReaderManager.a(adVar.pbData, adVar.isSquence, adVar.loadType, adVar.eNg, true);
+                ReaderPbService.this.mReaderManager.a(adVar.pbData, adVar.isSquence, adVar.loadType, adVar.eLT, true);
             }
         }
     };
     private ae.a mRefreshCallback = new ae.a() { // from class: com.baidu.tieba.pb.pb.main.ReaderPbService.4
         @Override // com.baidu.tieba.pb.pb.main.ae.a
-        public void aSE() {
+        public void aSt() {
             if (!ReaderPbService.this.isAlive) {
                 if (ReaderPbService.this.mReaderModel != null && ReaderPbService.this.mReaderModel != null) {
-                    ReaderPbService.this.mReaderModel.pu(ReaderPbService.this.threadId);
+                    ReaderPbService.this.mReaderModel.pp(ReaderPbService.this.threadId);
                     return;
                 }
                 return;
             }
             com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
             aVar.tag = ReaderPbService.this.mTagId;
-            aVar.eWK = 0;
+            aVar.eVx = 0;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
         }
 
         @Override // com.baidu.tieba.pb.pb.main.ae.a
-        public void aSF() {
+        public void aSu() {
             if (!ReaderPbService.this.isAlive) {
                 if (ReaderPbService.this.mReaderModel != null) {
-                    ReaderPbService.this.mReaderModel.aSG();
+                    ReaderPbService.this.mReaderModel.aSv();
                     return;
                 }
                 return;
             }
             com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
             aVar.tag = ReaderPbService.this.mTagId;
-            aVar.eWK = 1;
+            aVar.eVx = 1;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
         }
 
         @Override // com.baidu.tieba.pb.pb.main.ae.a
-        public void bc(int i, int i2) {
+        public void bb(int i, int i2) {
             if (ReaderPbService.this.isAlive) {
                 com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
                 aVar.tag = ReaderPbService.this.mTagId;
-                aVar.eWK = 2;
-                aVar.eWL = ReaderPbService.this.mReaderManager.eNh;
-                aVar.eWM = ReaderPbService.this.mReaderManager.aSC();
+                aVar.eVx = 2;
+                aVar.eVy = ReaderPbService.this.mReaderManager.eLU;
+                aVar.eVz = ReaderPbService.this.mReaderManager.aSr();
                 String str = "";
-                if (ReaderPbService.this.mReaderManager.aSD() != null) {
-                    str = ReaderPbService.this.mReaderManager.aSD().getId();
+                if (ReaderPbService.this.mReaderManager.aSs() != null) {
+                    str = ReaderPbService.this.mReaderManager.aSs().getId();
                 }
                 aVar.postId = str;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
                 return;
             }
             String str2 = "";
-            if (ReaderPbService.this.mReaderManager.aSD() != null) {
-                str2 = ReaderPbService.this.mReaderManager.aSD().getId();
+            if (ReaderPbService.this.mReaderManager.aSs() != null) {
+                str2 = ReaderPbService.this.mReaderManager.aSs().getId();
             }
-            boolean z = ReaderPbService.this.mReaderManager.eNm;
+            boolean z = ReaderPbService.this.mReaderManager.eLZ;
             boolean z2 = ReaderPbService.this.mReaderManager.isSquence;
-            int i3 = ReaderPbService.this.mReaderManager.eNh;
+            int i3 = ReaderPbService.this.mReaderManager.eLU;
             PbActivityConfig pbActivityConfig = new PbActivityConfig(ReaderPbService.this);
             pbActivityConfig.createReaderServiceCfg(ReaderPbService.this.threadId, str2, i3, z, z2, null);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
@@ -173,7 +173,7 @@ public class ReaderPbService extends BdBaseService {
         @Override // com.baidu.tieba.pb.pb.main.PbModel.a
         public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4) {
             if (!ReaderPbService.this.isAlive && ReaderPbService.this.mReaderManager != null && ReaderPbService.this.mReaderModel != null) {
-                ReaderPbService.this.mReaderManager.b(ReaderPbService.this.mReaderModel.getPbData(), ReaderPbService.this.mReaderModel.aSH(), i2, ReaderPbService.this.mReaderModel.aSI());
+                ReaderPbService.this.mReaderManager.b(ReaderPbService.this.mReaderModel.getPbData(), ReaderPbService.this.mReaderModel.aSw(), i2, ReaderPbService.this.mReaderModel.aSx());
             }
         }
     };
@@ -187,8 +187,8 @@ public class ReaderPbService extends BdBaseService {
                 this.mReaderModel.b(this.mLoadDataCallback);
             }
             this.mReaderModel.setPbData(adVar.pbData);
-            this.mReaderModel.jy(adVar.eEM);
-            this.mReaderModel.setHostMode(adVar.eNg);
+            this.mReaderModel.jy(adVar.eDz);
+            this.mReaderModel.setHostMode(adVar.eLT);
             this.mReaderModel.jx(adVar.isSquence);
             this.mReaderModel.setThreadId(this.threadId);
             this.mReaderModel.setPostId(this.postId);

@@ -15,26 +15,26 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    private ArrayList<f> acF = new ArrayList<>();
-    private TbPageContext<?> acp;
+    private TbPageContext<?> aaS;
+    private ArrayList<f> abi = new ArrayList<>();
 
     public e(TbPageContext<?> tbPageContext) {
-        this.acp = tbPageContext;
+        this.aaS = tbPageContext;
     }
 
     public void setData(ArrayList<f> arrayList) {
-        this.acF = arrayList;
+        this.abi = arrayList;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.acF.size();
+        return this.abi.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.acF.get(i);
+        return this.abi.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,53 +45,53 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        f fVar = this.acF.get(i);
+        f fVar = this.abi.get(i);
         if (fVar == null) {
             return null;
         }
         if (view == null) {
-            view = LayoutInflater.from(this.acp.getPageActivity()).inflate(d.j.dialog_rich_bdlist_item, viewGroup, false);
+            view = LayoutInflater.from(this.aaS.getPageActivity()).inflate(d.j.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.acG = (TextView) view.findViewById(d.h.text_tip);
-            aVar2.acH = (TextView) view.findViewById(d.h.text_desc);
-            aVar2.acI = (CheckBox) view.findViewById(d.h.checked_icon);
-            aVar2.acJ = view.findViewById(d.h.line);
+            aVar2.abj = (TextView) view.findViewById(d.h.text_tip);
+            aVar2.abk = (TextView) view.findViewById(d.h.text_desc);
+            aVar2.abl = (CheckBox) view.findViewById(d.h.checked_icon);
+            aVar2.abm = view.findViewById(d.h.line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.acG.setText(fVar.tA());
+        aVar.abj.setText(fVar.tq());
         if (StringUtils.isNull(fVar.getDesc())) {
-            aVar.acH.setVisibility(8);
+            aVar.abk.setVisibility(8);
         } else {
-            aVar.acH.setText(fVar.getDesc());
-            aVar.acH.setVisibility(0);
+            aVar.abk.setText(fVar.getDesc());
+            aVar.abk.setVisibility(0);
         }
-        aVar.acI.setChecked(fVar.isChecked());
-        aVar.acI.setButtonDrawable(fVar.isChecked() ? ai.getDrawable(d.g.icon_set_list_ok_s) : new ColorDrawable(d.e.common_color_10022));
-        if (ct(i)) {
-            aVar.acJ.setVisibility(8);
+        aVar.abl.setChecked(fVar.isChecked());
+        aVar.abl.setButtonDrawable(fVar.isChecked() ? ai.getDrawable(d.g.icon_set_list_ok_s) : new ColorDrawable(d.e.common_color_10022));
+        if (cr(i)) {
+            aVar.abm.setVisibility(8);
             ai.j(view, d.g.dialog_single_button_bg_selector);
         } else {
-            aVar.acJ.setVisibility(0);
+            aVar.abm.setVisibility(0);
             ai.j(view, d.g.dialg_alert_btn_bg);
         }
         view.setTag(aVar);
-        this.acp.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.acp.getLayoutMode().t(view);
+        this.aaS.getLayoutMode().ah(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.aaS.getLayoutMode().t(view);
         return view;
     }
 
-    private boolean ct(int i) {
-        return this.acF != null && i == this.acF.size() + (-1);
+    private boolean cr(int i) {
+        return this.abi != null && i == this.abi.size() + (-1);
     }
 
     /* loaded from: classes.dex */
     private class a {
-        TextView acG;
-        TextView acH;
-        CheckBox acI;
-        View acJ;
+        TextView abj;
+        TextView abk;
+        CheckBox abl;
+        View abm;
 
         private a() {
         }

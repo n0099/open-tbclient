@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int aql;
-    private GradientDrawable ggL;
-    protected int ggM;
-    protected int ggN;
+    private int aoR;
+    private GradientDrawable gfA;
+    protected int gfB;
+    protected int gfC;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -24,10 +24,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aql = 3;
-        this.ggM = (int) context.getResources().getDimension(d.f.ds18);
-        this.ggN = (int) context.getResources().getDimension(d.f.ds6);
-        setPadding(this.ggM, this.ggN, this.ggM, this.ggN);
+        this.aoR = 3;
+        this.gfB = (int) context.getResources().getDimension(d.f.ds18);
+        this.gfC = (int) context.getResources().getDimension(d.f.ds6);
+        setPadding(this.gfB, this.gfC, this.gfB, this.gfC);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(d.f.ds24));
@@ -39,21 +39,21 @@ public class EditorInfoView extends TextView {
         setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(d.f.ds48));
     }
 
-    public void xd() {
+    public void wV() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.aql) {
-            this.aql = skinType;
+        if (skinType != this.aoR) {
+            this.aoR = skinType;
             onChangeSkinType();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType() {
-        if (this.ggL == null) {
-            this.ggL = new GradientDrawable();
-            this.ggL.setCornerRadius(getContext().getResources().getDimension(d.f.ds24));
+        if (this.gfA == null) {
+            this.gfA = new GradientDrawable();
+            this.gfA.setCornerRadius(getContext().getResources().getDimension(d.f.ds24));
         }
         ai.c(this, d.e.cp_cont_c, 1);
-        this.ggL.setColor(ai.getColor(d.e.cp_bg_line_e));
+        this.gfA.setColor(ai.getColor(d.e.cp_bg_line_e));
     }
 }

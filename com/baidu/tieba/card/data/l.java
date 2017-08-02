@@ -7,30 +7,30 @@ import com.baidu.tbadk.core.util.u;
 /* loaded from: classes.dex */
 public class l extends c {
     public bl threadData;
-    public static String bJv = "";
-    public static String bJw = "";
-    public static String bJx = "";
-    public static String bJy = "";
-    public static String bJz = "";
-    public static String bJA = "";
-    public static String bJB = "";
-    public static String bJC = "";
-    public static String bJD = "";
-    public static String bJE = "";
-    public static String bJF = "";
+    public static String bIl = "";
+    public static String bIm = "";
+    public static String bIn = "";
+    public static String bIo = "";
+    public static String bIp = "";
+    public static String bIq = "";
+    public static String bIr = "";
+    public static String bIs = "";
+    public static String bIt = "";
+    public static String bIu = "";
+    public static String bIv = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId bJG = BdUniqueId.gen();
-    public static final BdUniqueId Zb = BdUniqueId.gen();
-    public boolean bJH = false;
+    public static final BdUniqueId bIw = BdUniqueId.gen();
+    public static final BdUniqueId XF = BdUniqueId.gen();
+    public boolean bIx = false;
     public boolean isLinkThread = false;
-    public boolean bJI = false;
-    public boolean aDu = true;
+    public boolean bIy = false;
+    public boolean aCd = true;
 
     public static boolean B(bl blVar) {
         if (blVar == null) {
             return false;
         }
-        return blVar.getType() == bl.Za || blVar.getType() == bl.Zc || blVar.getType() == bl.Zb;
+        return blVar.getType() == bl.XE || blVar.getType() == bl.XG || blVar.getType() == bl.XF;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
@@ -38,127 +38,127 @@ public class l extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.bJH) {
-            return bJG;
+        if (this.bIx) {
+            return bIw;
         }
         if (this.isLinkThread) {
-            return Zb;
+            return XF;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bl MF() {
+    public bl MA() {
         return this.threadData;
     }
 
-    public boolean WN() {
-        return (this.threadData == null || u.u(this.threadData.rT()) == 0) ? false : true;
+    public boolean WI() {
+        return (this.threadData == null || u.u(this.threadData.rJ()) == 0) ? false : true;
     }
 
-    public aj WO() {
-        if (WN()) {
-            aj jj = jj(bJA);
-            if (jj != null && MF() != null) {
-                bl MF = MF();
-                jj.r("obj_name", MF.sU() != null && (MF.sU().aAP() != null || MF.sU().Iv() != null) ? 1 : 0);
+    public aj WJ() {
+        if (WI()) {
+            aj je = je(bIq);
+            if (je != null && MA() != null) {
+                bl MA = MA();
+                je.r("obj_name", MA.sK() != null && (MA.sK().aAE() != null || MA.sK().Io() != null) ? 1 : 0);
             }
-            return jj;
+            return je;
         }
-        aj jj2 = jj(bJv);
-        if (jj2 != null) {
-            jj2.aa("ab_tag", WH()).aa("ab_action", "show");
-            if (MF() != null) {
-                bl MF2 = MF();
-                jj2.r("obj_name", MF2.sU() != null && (MF2.sU().aAP() != null || MF2.sU().Iv() != null) ? 1 : 0);
-            }
-        }
-        return jj2;
-    }
-
-    public aj jk(String str) {
-        aj jj = jj(str);
-        if (jj != null) {
-            jj.g("fid", this.threadData.getFid());
-            jj.aa("tid", this.threadData.getTid());
-            jj.r("obj_type", this.threadData.isLinkThread() ? 4 : 1);
-        }
-        return jj;
-    }
-
-    public aj jl(String str) {
-        aj jj = jj(str);
-        if (jj != null) {
-            jj.aa("ab_tag", WH()).aa("ab_action", "show");
-            if (MF() != null) {
-                bl MF = MF();
-                jj.r("obj_name", MF.sU() != null && (MF.sU().aAP() != null || MF.sU().Iv() != null) ? 1 : 0);
+        aj je2 = je(bIl);
+        if (je2 != null) {
+            je2.aa("ab_tag", WC()).aa("ab_action", "show");
+            if (MA() != null) {
+                bl MA2 = MA();
+                je2.r("obj_name", MA2.sK() != null && (MA2.sK().aAE() != null || MA2.sK().Io() != null) ? 1 : 0);
             }
         }
-        return jj;
+        return je2;
     }
 
-    public aj jm(String str) {
-        aj jj = jj(str);
-        if (jj != null) {
-            jj.aa("ab_tag", WH()).aa("ab_action", "click");
+    public aj jf(String str) {
+        aj je = je(str);
+        if (je != null) {
+            je.f("fid", this.threadData.getFid());
+            je.aa("tid", this.threadData.getTid());
+            je.r("obj_type", this.threadData.isLinkThread() ? 4 : 1);
         }
-        return jj;
+        return je;
     }
 
-    public aj WP() {
-        if (WN()) {
-            return jj(bJB);
+    public aj jg(String str) {
+        aj je = je(str);
+        if (je != null) {
+            je.aa("ab_tag", WC()).aa("ab_action", "show");
+            if (MA() != null) {
+                bl MA = MA();
+                je.r("obj_name", MA.sK() != null && (MA.sK().aAE() != null || MA.sK().Io() != null) ? 1 : 0);
+            }
         }
-        aj jj = jj(bJw);
-        if (jj != null) {
-            jj.aa("ab_tag", WH()).aa("ab_action", "click");
-            return jj;
-        }
-        return jj;
+        return je;
     }
 
-    public aj WQ() {
-        if (WN()) {
-            return jj(bJC);
+    public aj jh(String str) {
+        aj je = je(str);
+        if (je != null) {
+            je.aa("ab_tag", WC()).aa("ab_action", "click");
         }
-        aj J = J(bJx, 0);
+        return je;
+    }
+
+    public aj WK() {
+        if (WI()) {
+            return je(bIr);
+        }
+        aj je = je(bIm);
+        if (je != null) {
+            je.aa("ab_tag", WC()).aa("ab_action", "click");
+            return je;
+        }
+        return je;
+    }
+
+    public aj WL() {
+        if (WI()) {
+            return je(bIs);
+        }
+        aj J = J(bIn, 0);
         if (J != null) {
-            J.aa("ab_tag", WH()).aa("ab_action", "click");
+            J.aa("ab_tag", WC()).aa("ab_action", "click");
             return J;
         }
         return J;
     }
 
-    public aj WR() {
-        if (WN()) {
-            return jj(bJD);
+    public aj WM() {
+        if (WI()) {
+            return je(bIt);
         }
-        aj jj = jj(bJy);
-        if (jj != null) {
-            jj.aa("ab_tag", WH()).aa("ab_action", "click");
-            return jj;
+        aj je = je(bIo);
+        if (je != null) {
+            je.aa("ab_tag", WC()).aa("ab_action", "click");
+            return je;
         }
-        return jj;
+        return je;
     }
 
-    public aj WS() {
-        if (WN()) {
-            return jj(bJE);
+    public aj WN() {
+        if (WI()) {
+            return je(bIu);
         }
-        aj jj = jj(bJz);
-        if (jj != null) {
-            jj.aa("ab_tag", WH()).aa("ab_action", "click");
-            return jj;
+        aj je = je(bIp);
+        if (je != null) {
+            je.aa("ab_tag", WC()).aa("ab_action", "click");
+            return je;
         }
-        return jj;
+        return je;
     }
 
-    public aj WT() {
-        return jj(bJF);
+    public aj WO() {
+        return je(bIv);
     }
 
-    public aj jn(String str) {
-        return jj(str);
+    public aj ji(String str) {
+        return je(str);
     }
 }

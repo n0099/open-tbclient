@@ -36,7 +36,7 @@ public class g {
         a(context, imageView, i, null);
     }
 
-    public static void ama() {
+    public static void alN() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
     }
 }

@@ -16,12 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends LinearLayout {
-    private View aVB;
-    public ListViewPager dSU;
-    private com.baidu.tieba.personPolymeric.c.c fkL;
-    private com.baidu.adp.lib.e.b<n> fkN;
-    private Context fly;
-    private a flz;
+    private View aUp;
+    public ListViewPager dRD;
+    private com.baidu.adp.lib.e.b<n> fjB;
+    private com.baidu.tieba.personPolymeric.c.c fjz;
+    private Context fkm;
+    private a fkn;
     private int mSkinType;
     public TextView mTitle;
     private View rootView;
@@ -29,13 +29,13 @@ public class l extends LinearLayout {
     public l(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.flz = new a();
-        this.fkN = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<n>() { // from class: com.baidu.tieba.personPolymeric.d.l.1
+        this.fkn = new a();
+        this.fjB = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<n>() { // from class: com.baidu.tieba.personPolymeric.d.l.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aYc */
-            public n fT() {
-                return new n(l.this.fly);
+            /* renamed from: aXR */
+            public n fI() {
+                return new n(l.this.fkm);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -65,22 +65,22 @@ public class l extends LinearLayout {
     }
 
     private void init(Context context) {
-        this.fly = context;
-        this.rootView = LayoutInflater.from(this.fly).inflate(d.j.person_info_common_forum_layout, this);
+        this.fkm = context;
+        this.rootView = LayoutInflater.from(this.fkm).inflate(d.j.person_info_common_forum_layout, this);
         this.mTitle = (TextView) this.rootView.findViewById(d.h.common_forum_title);
-        this.dSU = (ListViewPager) this.rootView.findViewById(d.h.common_forum_viewpager);
-        this.aVB = this.rootView.findViewById(d.h.divider_line);
-        this.dSU.setOffscreenPageLimit(1);
+        this.dRD = (ListViewPager) this.rootView.findViewById(d.h.common_forum_viewpager);
+        this.aUp = this.rootView.findViewById(d.h.divider_line);
+        this.dRD.setOffscreenPageLimit(1);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             ai.j(this.rootView, d.e.cp_bg_line_d);
             ai.i(this.mTitle, d.e.cp_cont_d);
-            ai.k(this.aVB, d.e.cp_bg_line_b);
-            int childCount = this.dSU.getChildCount();
+            ai.k(this.aUp, d.e.cp_bg_line_b);
+            int childCount = this.dRD.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.dSU.getChildAt(i2);
+                View childAt = this.dRD.getChildAt(i2);
                 if (childAt instanceof m) {
                     ((m) childAt).onChangeSkinType();
                 }
@@ -96,11 +96,11 @@ public class l extends LinearLayout {
     public void a(com.baidu.tieba.personPolymeric.c.c cVar) {
         if (cVar != null) {
             if (b(cVar)) {
-                this.fkL = cVar;
-                if (u.u(cVar.fkm) <= 2) {
-                    this.dSU.getLayoutParams().height = com.baidu.adp.lib.util.k.g(this.fly, d.f.ds140);
+                this.fjz = cVar;
+                if (u.u(cVar.fja) <= 2) {
+                    this.dRD.getLayoutParams().height = com.baidu.adp.lib.util.k.g(this.fkm, d.f.ds140);
                 }
-                this.dSU.setAdapter(this.flz);
+                this.dRD.setAdapter(this.fkn);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -113,10 +113,10 @@ public class l extends LinearLayout {
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            if (l.this.fkL == null || u.v(l.this.fkL.fkm)) {
+            if (l.this.fjz == null || u.v(l.this.fjz.fja)) {
                 return 0;
             }
-            return l.this.fkL.fkm.size() % 4 == 0 ? l.this.fkL.fkm.size() / 4 : (l.this.fkL.fkm.size() / 4) + 1;
+            return l.this.fjz.fja.size() % 4 == 0 ? l.this.fjz.fja.size() / 4 : (l.this.fjz.fja.size() / 4) + 1;
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -135,13 +135,13 @@ public class l extends LinearLayout {
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            List<com.baidu.tieba.personPolymeric.c.f> qf = l.this.qf(i);
-            if (u.v(qf)) {
+            List<com.baidu.tieba.personPolymeric.c.f> qg = l.this.qg(i);
+            if (u.v(qg)) {
                 return null;
             }
-            m mVar = new m(l.this.fly);
-            mVar.setForumItemViewBdObjectPool(l.this.fkN);
-            mVar.setData(qf);
+            m mVar = new m(l.this.fkm);
+            mVar.setForumItemViewBdObjectPool(l.this.fjB);
+            mVar.setData(qg);
             mVar.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.f.ds32));
             viewGroup.addView(mVar);
             return mVar;
@@ -149,8 +149,8 @@ public class l extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tieba.personPolymeric.c.f> qf(int i) {
-        if (this.fkL == null || u.v(this.fkL.fkm)) {
+    public List<com.baidu.tieba.personPolymeric.c.f> qg(int i) {
+        if (this.fjz == null || u.v(this.fjz.fja)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
@@ -160,7 +160,7 @@ public class l extends LinearLayout {
             if (i3 >= (i * 4) + 4) {
                 return arrayList;
             }
-            com.baidu.tieba.personPolymeric.c.f fVar = (com.baidu.tieba.personPolymeric.c.f) u.c(this.fkL.fkm, i3);
+            com.baidu.tieba.personPolymeric.c.f fVar = (com.baidu.tieba.personPolymeric.c.f) u.c(this.fjz.fja, i3);
             if (fVar != null) {
                 arrayList.add(fVar);
             }
@@ -169,24 +169,24 @@ public class l extends LinearLayout {
     }
 
     public void setForumCardItemViewPool(com.baidu.adp.lib.e.b<n> bVar) {
-        this.fkN = bVar;
+        this.fjB = bVar;
     }
 
     private boolean b(com.baidu.tieba.personPolymeric.c.c cVar) {
-        if (cVar == null || u.v(cVar.fkm) || cVar == this.fkL) {
+        if (cVar == null || u.v(cVar.fja) || cVar == this.fjz) {
             return false;
         }
-        if (this.fkL == null || u.v(this.fkL.fkm)) {
+        if (this.fjz == null || u.v(this.fjz.fja)) {
             return true;
         }
-        if (u.v(cVar.fkm)) {
+        if (u.v(cVar.fja)) {
             return false;
         }
-        if (cVar.fkm.size() != this.fkL.fkm.size()) {
+        if (cVar.fja.size() != this.fjz.fja.size()) {
             return true;
         }
-        for (int i = 0; i < cVar.fkm.size(); i++) {
-            if (this.fkL.fkm.get(i) == null || cVar.fkm.get(i).forumId != this.fkL.fkm.get(i).forumId) {
+        for (int i = 0; i < cVar.fja.size(); i++) {
+            if (this.fjz.fja.get(i) == null || cVar.fja.get(i).forumId != this.fjz.fja.get(i).forumId) {
                 return true;
             }
         }

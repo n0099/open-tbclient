@@ -161,7 +161,7 @@ public class BaseWebView extends WebView {
         if (Build.VERSION.SDK_INT >= 11) {
             removeJavascriptInterface("searchBoxJavaBridge_");
         }
-        com.baidu.tbadk.browser.a.as(getContext());
+        com.baidu.tbadk.browser.a.ar(getContext());
         this.webCacheData = WebCacheWhiteListData.createBySP();
     }
 
@@ -271,7 +271,7 @@ public class BaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
             WebResourceResponse shouldInterceptRequest;
-            return (!BaseWebView.this.isUrlHitCache || (shouldInterceptRequest = HybridManager.tW().shouldInterceptRequest(webView, str)) == null) ? super.shouldInterceptRequest(webView, str) : shouldInterceptRequest;
+            return (!BaseWebView.this.isUrlHitCache || (shouldInterceptRequest = HybridManager.tM().shouldInterceptRequest(webView, str)) == null) ? super.shouldInterceptRequest(webView, str) : shouldInterceptRequest;
         }
     }
 

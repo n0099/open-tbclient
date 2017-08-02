@@ -1,6 +1,7 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.tbadk.coreExtra.data.AccessState;
+import com.baidu.tieba.pb.CustomDialogData;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PostWriteCallBackData implements Serializable {
@@ -15,7 +16,7 @@ public class PostWriteCallBackData implements Serializable {
     private int errorCode;
     private String errorString;
     private int isCopyTWZhibo;
-    private String mNickNameActivityMoney;
+    private CustomDialogData mActDialogData;
     private String preMsg;
     private String threadId = null;
     private String postId = null;
@@ -95,11 +96,11 @@ public class PostWriteCallBackData implements Serializable {
         this.accessState = accessState;
     }
 
-    public String getNickNameActivityMoney() {
-        return this.mNickNameActivityMoney;
+    public CustomDialogData getActivityDialog() {
+        return this.mActDialogData;
     }
 
-    public void setNickNameActivityMoney(String str) {
-        this.mNickNameActivityMoney = str;
+    public void setActivityDialog(CustomDialogData customDialogData) {
+        this.mActDialogData = customDialogData;
     }
 }

@@ -9,22 +9,22 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.h> {
-    private TbImageView dTa;
-    private View flm;
+    private TbImageView dRJ;
+    private View fka;
     private View mRootView;
 
     public f(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.dTa = (TbImageView) this.mRootView.findViewById(d.h.center_image);
-        this.flm = this.mRootView.findViewById(d.h.more_view_container);
+        this.dRJ = (TbImageView) this.mRootView.findViewById(d.h.center_image);
+        this.fka = this.mRootView.findViewById(d.h.more_view_container);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ai.c(this.dTa, d.g.icon_mine_more);
+            ai.c(this.dRJ, d.g.icon_mine_more);
             ai.j(this.mRootView, d.g.btn_look_more_selector);
         }
     }
@@ -40,7 +40,7 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (hVar == null) {
             this.mRootView.setVisibility(8);
         }
-        ViewGroup.LayoutParams layoutParams = this.flm.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.fka.getLayoutParams();
         if (layoutParams != null) {
             if (layoutParams.width > 0) {
                 layoutParams.width = hVar.width;
@@ -49,7 +49,7 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 layoutParams.height = hVar.height;
             }
         }
-        this.flm.setLayoutParams(layoutParams);
+        this.fka.setLayoutParams(layoutParams);
         this.mRootView.setVisibility(0);
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

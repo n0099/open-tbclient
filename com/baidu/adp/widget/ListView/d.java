@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d extends BaseAdapter {
-    private boolean Jz;
+    private boolean HY;
     private DataSetObserver mAdapterDataSetObserver;
     private Context mContext;
     private ArrayList<b> mFooterViewInfos;
@@ -37,7 +37,7 @@ public class d extends BaseAdapter {
         this.mContext = null;
         this.mHeaderViewInfos = null;
         this.mFooterViewInfos = null;
-        this.Jz = false;
+        this.HY = false;
         this.mAdapterDataSetObserver = null;
         this.mContext = context;
         this.mHeaderViewInfos = new ArrayList<>();
@@ -45,7 +45,7 @@ public class d extends BaseAdapter {
         if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
             z = true;
         }
-        this.Jz = z;
+        this.HY = z;
         this.mAdapterDataSetObserver = new DataSetObserver() { // from class: com.baidu.adp.widget.ListView.d.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
@@ -143,7 +143,7 @@ public class d extends BaseAdapter {
                 if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Jz = z;
+                this.HY = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -162,7 +162,7 @@ public class d extends BaseAdapter {
                 if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.Jz = z;
+                this.HY = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -257,7 +257,7 @@ public class d extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.Jz && this.mAdapter.areAllItemsEnabled();
+            return this.HY && this.mAdapter.areAllItemsEnabled();
         }
         return super.areAllItemsEnabled();
     }
@@ -316,7 +316,7 @@ public class d extends BaseAdapter {
         if (i < headersCount) {
             View view4 = this.mHeaderViewInfos.get(i).view;
             if (view4 == null) {
-                return lq();
+                return lg();
             }
             return view4;
         }
@@ -337,7 +337,7 @@ public class d extends BaseAdapter {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return lq();
+                return lg();
             }
             return view3;
         }
@@ -348,12 +348,12 @@ public class d extends BaseAdapter {
             view2 = null;
         }
         if (view2 == null) {
-            return lq();
+            return lg();
         }
         return view2;
     }
 
-    private View lq() {
+    private View lg() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = k.dip2px(this.mContext, 15.0f);

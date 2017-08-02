@@ -22,32 +22,32 @@ import com.baidu.tieba.face.view.EmotionView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends LinearLayout {
-    private float Hf;
-    private float bue;
-    private ImageView cVd;
-    private float caW;
-    private int dCh;
-    private ViewGroup dCw;
-    private boolean eTA;
-    private boolean eTB;
-    private LinearLayout eTC;
-    private LinearLayout eTD;
-    private boolean eTE;
-    private boolean eTF;
-    private int eTG;
-    private long eTH;
-    private float eTf;
-    private double eTp;
-    private double eTq;
-    private int eTr;
-    private int eTs;
-    private int eTt;
-    private int eTu;
-    private a eTv;
-    private b eTw;
-    private int eTx;
-    private boolean eTy;
-    private boolean eTz;
+    private float FG;
+    private float bZQ;
+    private float bsT;
+    private ImageView cTK;
+    private int dAQ;
+    private ViewGroup dBf;
+    private float eRS;
+    private double eSc;
+    private double eSd;
+    private int eSe;
+    private int eSf;
+    private int eSg;
+    private int eSh;
+    private a eSi;
+    private b eSj;
+    private int eSk;
+    private boolean eSl;
+    private boolean eSm;
+    private boolean eSn;
+    private boolean eSo;
+    private LinearLayout eSp;
+    private LinearLayout eSq;
+    private boolean eSr;
+    private boolean eSs;
+    private int eSt;
+    private long eSu;
     private com.baidu.tieba.pb.pb.main.emotion.a.a mData;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -69,51 +69,51 @@ public class c extends LinearLayout {
 
     public c(Context context) {
         super(context);
-        this.eTy = false;
-        this.eTz = false;
-        this.eTA = false;
-        this.eTB = false;
-        this.eTE = false;
+        this.eSl = false;
+        this.eSm = false;
+        this.eSn = false;
+        this.eSo = false;
+        this.eSr = false;
         init();
     }
 
     private void init() {
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
-        this.eTy = bVar.getBoolean("pb_emotion_bar_slide", true);
-        this.eTA = bVar.getBoolean("pb_emotion_bar_search", true);
-        this.mScreenWidth = k.ag(getContext());
-        this.caW = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.eSl = bVar.getBoolean("pb_emotion_bar_slide", true);
+        this.eSn = bVar.getBoolean("pb_emotion_bar_search", true);
+        this.mScreenWidth = k.af(getContext());
+        this.bZQ = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
         this.mFlingDistance = k.g(getContext(), d.f.ds150);
-        this.eTt = k.g(getContext(), d.f.ds60);
-        this.eTu = k.g(getContext(), d.f.ds116);
-        this.dCh = k.g(getContext(), d.f.ds10);
-        this.eTs = this.mScreenWidth - k.g(getContext(), d.f.ds130);
-        setPadding(this.dCh, this.dCh * 2, this.dCh, this.dCh * 2);
+        this.eSg = k.g(getContext(), d.f.ds60);
+        this.eSh = k.g(getContext(), d.f.ds116);
+        this.dAQ = k.g(getContext(), d.f.ds10);
+        this.eSf = this.mScreenWidth - k.g(getContext(), d.f.ds130);
+        setPadding(this.dAQ, this.dAQ * 2, this.dAQ, this.dAQ * 2);
         ai.k(this, d.e.cp_bg_line_d);
     }
 
-    private void pq(int i) {
-        int i2 = (int) (this.eTq * (i - this.eTr));
+    private void pr(int i) {
+        int i2 = (int) (this.eSd * (i - this.eSe));
         if (i2 <= 255 && i2 >= 0) {
             getBackground().setAlpha(i2);
-            if (this.cVd != null) {
-                this.cVd.getBackground().setAlpha(i2);
+            if (this.cTK != null) {
+                this.cTK.getBackground().setAlpha(i2);
             }
         }
     }
 
     public void a(ViewGroup viewGroup, int i, com.baidu.tieba.pb.pb.main.emotion.a.a aVar) {
-        if (aVar != null && aVar.acx() != null && !aVar.acx().isEmpty()) {
-            this.dCw = viewGroup;
-            this.eTG = i;
+        if (aVar != null && aVar.acs() != null && !aVar.acs().isEmpty()) {
+            this.dBf = viewGroup;
+            this.eSt = i;
             this.mData = aVar;
-            List<EmotionImageData> acx = aVar.acx();
-            this.eTp = (this.eTt - this.eTu) * (1.0d / this.eTs);
-            setData(acx);
+            List<EmotionImageData> acs = aVar.acs();
+            this.eSc = (this.eSg - this.eSh) * (1.0d / this.eSf);
+            setData(acs);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.leftMargin = this.eTs;
+            layoutParams.leftMargin = this.eSf;
             layoutParams.bottomMargin = i;
             layoutParams.gravity = 80;
             int i2 = 0;
@@ -124,48 +124,48 @@ public class c extends LinearLayout {
                     break;
                 }
             }
-            this.eTx = i2;
-            viewGroup.addView(this, this.eTx, layoutParams);
+            this.eSk = i2;
+            viewGroup.addView(this, this.eSk, layoutParams);
             jP(true);
-            aUy();
+            aUn();
         }
     }
 
     public void setBottomMargin(int i) {
         FrameLayout.LayoutParams layoutParams;
-        if (this.eTG != i) {
-            this.eTG = i;
+        if (this.eSt != i) {
+            this.eSt = i;
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) getLayoutParams();
             if (layoutParams2 != null && layoutParams2.bottomMargin != i) {
                 layoutParams2.bottomMargin = i;
                 setLayoutParams(layoutParams2);
             }
-            if (this.cVd != null && (layoutParams = (FrameLayout.LayoutParams) this.cVd.getLayoutParams()) != null && layoutParams.bottomMargin != i) {
+            if (this.cTK != null && (layoutParams = (FrameLayout.LayoutParams) this.cTK.getLayoutParams()) != null && layoutParams.bottomMargin != i) {
                 layoutParams.bottomMargin = i;
-                this.cVd.setLayoutParams(layoutParams);
+                this.cTK.setLayoutParams(layoutParams);
             }
         }
     }
 
-    private void aUy() {
-        this.cVd = new ImageView(getContext());
-        ai.c(this.cVd, d.g.icon_pb_emotion_search);
-        this.cVd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.c.1
+    private void aUn() {
+        this.cTK = new ImageView(getContext());
+        ai.c(this.cTK, d.g.icon_pb_emotion_search);
+        this.cTK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.eTv != null) {
-                    c.this.eTv.cD(c.this.mData.aUc());
+                if (c.this.eSi != null) {
+                    c.this.eSi.cD(c.this.mData.aTR());
                 }
                 TiebaStatic.log("c12177");
             }
         });
-        ai.k(this.cVd, d.e.cp_bg_line_d);
-        this.cVd.setTranslationX(this.eTu);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.eTt, this.eTt + (this.dCh * 4));
-        layoutParams.leftMargin = this.dCh * 2;
-        layoutParams.bottomMargin = this.eTG;
+        ai.k(this.cTK, d.e.cp_bg_line_d);
+        this.cTK.setTranslationX(this.eSh);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.eSg, this.eSg + (this.dAQ * 4));
+        layoutParams.leftMargin = this.dAQ * 2;
+        layoutParams.bottomMargin = this.eSt;
         layoutParams.gravity = 85;
-        this.dCw.addView(this.cVd, this.eTx + 1, layoutParams);
+        this.dBf.addView(this.cTK, this.eSk + 1, layoutParams);
     }
 
     private void setData(List<EmotionImageData> list) {
@@ -175,23 +175,23 @@ public class c extends LinearLayout {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (((FrameLayout.LayoutParams) c.this.getLayoutParams()).leftMargin <= 0) {
-                        if (c.this.eTv != null && (view instanceof EmotionView)) {
-                            c.this.eTv.b(emotionImageData, ((EmotionView) view).getIsGif());
+                        if (c.this.eSi != null && (view instanceof EmotionView)) {
+                            c.this.eSi.b(emotionImageData, ((EmotionView) view).getIsGif());
                         }
                         TiebaStatic.log("c12176");
                     }
                 }
             });
-            emotionView.acy();
-            e(emotionView, this.dCh);
+            emotionView.act();
+            e(emotionView, this.dAQ);
             emotionView.a(emotionImageData);
         }
-        this.eTr = this.mScreenWidth - Math.max(((list.size() + 1) * this.eTu) + ((list.size() + 4) * this.dCh), this.mScreenWidth);
-        this.eTq = 255.0d * (1.0d / (this.eTr - this.eTs));
+        this.eSe = this.mScreenWidth - Math.max(((list.size() + 1) * this.eSh) + ((list.size() + 4) * this.dAQ), this.mScreenWidth);
+        this.eSd = 255.0d * (1.0d / (this.eSe - this.eSf));
     }
 
     private void e(ImageView imageView, int i) {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.eTt, this.eTt);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.eSg, this.eSg);
         layoutParams.leftMargin = i;
         layoutParams.gravity = 16;
         addView(imageView, layoutParams);
@@ -202,17 +202,17 @@ public class c extends LinearLayout {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) getLayoutParams();
         switch (motionEvent.getAction()) {
             case 0:
-                this.eTH = System.currentTimeMillis();
+                this.eSu = System.currentTimeMillis();
                 if (((FrameLayout.LayoutParams) getLayoutParams()).leftMargin > 0) {
                     setCanChildShowPreview(false);
                 }
-                this.Hf = motionEvent.getRawX();
-                this.bue = motionEvent.getRawY();
-                this.eTf = motionEvent.getRawX();
+                this.FG = motionEvent.getRawX();
+                this.bsT = motionEvent.getRawY();
+                this.eRS = motionEvent.getRawX();
                 jQ(false);
                 return false;
             case 1:
-                if (layoutParams.leftMargin == this.eTs && t(motionEvent) && System.currentTimeMillis() - this.eTH < 300) {
+                if (layoutParams.leftMargin == this.eSf && t(motionEvent) && System.currentTimeMillis() - this.eSu < 300) {
                     jO(true);
                 }
                 return false;
@@ -265,7 +265,7 @@ public class c extends LinearLayout {
             case 1:
                 this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                 float xVelocity = this.mVelocityTracker.getXVelocity();
-                int rawX = (int) (motionEvent.getRawX() - this.Hf);
+                int rawX = (int) (motionEvent.getRawX() - this.FG);
                 if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                     if (rawX > 0) {
                         jO(false);
@@ -285,20 +285,20 @@ public class c extends LinearLayout {
             case 2:
                 jP(false);
                 setCanChildShowPreview(false);
-                int rawX2 = layoutParams.leftMargin + ((int) (motionEvent.getRawX() - this.eTf));
-                if (rawX2 >= this.eTr && rawX2 <= this.eTs) {
+                int rawX2 = layoutParams.leftMargin + ((int) (motionEvent.getRawX() - this.eRS));
+                if (rawX2 >= this.eSe && rawX2 <= this.eSf) {
                     layoutParams.leftMargin = rawX2;
-                    int pr = pr(rawX2);
-                    if (pr <= this.eTu && pr >= this.eTt) {
-                        ps(pr);
-                        pq(rawX2);
-                        pt(layoutParams.leftMargin);
+                    int ps = ps(rawX2);
+                    if (ps <= this.eSh && ps >= this.eSg) {
+                        pt(ps);
+                        pr(rawX2);
+                        pu(layoutParams.leftMargin);
                     }
                     setLayoutParams(layoutParams);
                 }
-                this.eTf = motionEvent.getRawX();
+                this.eRS = motionEvent.getRawX();
                 l(motionEvent.getRawX(), motionEvent.getRawY());
-                if (rawX2 <= this.eTr && this.eTr < 0) {
+                if (rawX2 <= this.eSe && this.eSe < 0) {
                     jQ(true);
                     break;
                 }
@@ -316,16 +316,16 @@ public class c extends LinearLayout {
     }
 
     private boolean t(MotionEvent motionEvent) {
-        return Math.abs(motionEvent.getRawX() - this.Hf) < this.caW && Math.abs(motionEvent.getRawY() - this.bue) < this.caW;
+        return Math.abs(motionEvent.getRawX() - this.FG) < this.bZQ && Math.abs(motionEvent.getRawY() - this.bsT) < this.bZQ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int pr(int i) {
-        return (int) ((this.eTp * i) + this.eTu);
+    public int ps(int i) {
+        return (int) ((this.eSc * i) + this.eSh);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ps(int i) {
+    public void pt(int i) {
         for (int i2 = 0; i2 < getChildCount(); i2++) {
             View childAt = getChildAt(i2);
             ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
@@ -333,27 +333,27 @@ public class c extends LinearLayout {
             layoutParams.height = i;
             childAt.setLayoutParams(layoutParams);
         }
-        if (this.cVd != null) {
-            ViewGroup.LayoutParams layoutParams2 = this.cVd.getLayoutParams();
+        if (this.cTK != null) {
+            ViewGroup.LayoutParams layoutParams2 = this.cTK.getLayoutParams();
             layoutParams2.width = i;
-            layoutParams2.height = (this.dCh * 4) + i;
-            this.cVd.setLayoutParams(layoutParams2);
+            layoutParams2.height = (this.dAQ * 4) + i;
+            this.cTK.setLayoutParams(layoutParams2);
         }
     }
 
-    public void aUz() {
+    public void aUo() {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) getLayoutParams();
         setCanChildShowPreview(false);
-        if (this.eTz) {
+        if (this.eSm) {
             jP(false);
         }
-        if (this.eTB) {
+        if (this.eSo) {
             jQ(false);
         }
-        be(layoutParams.leftMargin, this.eTs);
+        bd(layoutParams.leftMargin, this.eSf);
     }
 
-    private void be(int i, final int i2) {
+    private void bd(int i, final int i2) {
         if (i != i2) {
             final FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) getLayoutParams();
             ValueAnimator ofInt = ValueAnimator.ofInt(i, i2);
@@ -361,9 +361,9 @@ public class c extends LinearLayout {
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     layoutParams.leftMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                    c.this.ps(c.this.pr(layoutParams.leftMargin));
+                    c.this.pt(c.this.ps(layoutParams.leftMargin));
                     c.this.setLayoutParams(layoutParams);
-                    c.this.pt(layoutParams.leftMargin);
+                    c.this.pu(layoutParams.leftMargin);
                 }
             });
             ofInt.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.c.4
@@ -373,7 +373,7 @@ public class c extends LinearLayout {
                     if (((FrameLayout.LayoutParams) c.this.getLayoutParams()).leftMargin <= 0) {
                         c.this.setCanChildShowPreview(true);
                     }
-                    if (i2 == 0 && c.this.eTr == 0) {
+                    if (i2 == 0 && c.this.eSe == 0) {
                         c.this.jQ(true);
                     }
                 }
@@ -389,55 +389,55 @@ public class c extends LinearLayout {
             return;
         }
         int i = layoutParams.leftMargin;
-        int i2 = this.eTs;
+        int i2 = this.eSf;
         if (z) {
             i2 = 0;
             TiebaStatic.log("c12175");
         }
-        be(i, i2);
+        bd(i, i2);
     }
 
     public void setOnEmotionClickListener(a aVar) {
-        this.eTv = aVar;
+        this.eSi = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pt(int i) {
-        if (this.eTw != null) {
-            this.eTw.ag((this.eTs - i) * (1.0f / this.eTs));
+    public void pu(int i) {
+        if (this.eSj != null) {
+            this.eSj.ag((this.eSf - i) * (1.0f / this.eSf));
         }
-        pu(i);
+        pv(i);
     }
 
-    private void pu(int i) {
-        if (this.cVd != null) {
-            float f = (1.0f - ((this.eTu - i) * (1.0f / this.eTu))) * this.eTu;
+    private void pv(int i) {
+        if (this.cTK != null) {
+            float f = (1.0f - ((this.eSh - i) * (1.0f / this.eSh))) * this.eSh;
             if (f < 0.0f) {
                 f = 0.0f;
-            } else if (f > this.eTu) {
-                f = this.eTu;
+            } else if (f > this.eSh) {
+                f = this.eSh;
             }
-            if (i <= this.eTu && !this.eTF) {
-                this.cVd.setTranslationX(f);
+            if (i <= this.eSh && !this.eSs) {
+                this.cTK.setTranslationX(f);
                 if (f == 0.0f) {
-                    this.eTF = true;
+                    this.eSs = true;
                 }
-            } else if (i <= this.eTu && this.eTF) {
-                this.cVd.setTranslationX(f);
-                if (f == this.eTu) {
-                    this.eTF = false;
+            } else if (i <= this.eSh && this.eSs) {
+                this.cTK.setTranslationX(f);
+                if (f == this.eSh) {
+                    this.eSs = false;
                 }
-            } else if (i > this.eTu) {
-                this.cVd.setTranslationX(this.eTu);
-                if (f == this.eTu) {
-                    this.eTF = false;
+            } else if (i > this.eSh) {
+                this.cTK.setTranslationX(this.eSh);
+                if (f == this.eSh) {
+                    this.eSs = false;
                 }
             }
         }
     }
 
     public void setOnMoveListener(b bVar) {
-        this.eTw = bVar;
+        this.eSj = bVar;
     }
 
     public void onResume() {
@@ -458,40 +458,40 @@ public class c extends LinearLayout {
 
     private void jP(boolean z) {
         if (z) {
-            if (this.eTy) {
+            if (this.eSl) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("pb_emotion_bar_slide", false);
-                this.eTy = false;
-                this.eTz = true;
-                if (this.eTC == null) {
-                    this.eTC = new LinearLayout(getContext());
-                    this.eTC.setBackgroundResource(d.g.icon_pb_emotion_bar_slide_tip);
-                    this.eTC.setOrientation(1);
+                this.eSl = false;
+                this.eSm = true;
+                if (this.eSp == null) {
+                    this.eSp = new LinearLayout(getContext());
+                    this.eSp.setBackgroundResource(d.g.icon_pb_emotion_bar_slide_tip);
+                    this.eSp.setOrientation(1);
                     TextView textView = new TextView(getContext());
                     textView.setText(getContext().getText(d.l.pb_emotion_bar_slide_tip));
                     textView.setTextColor(getResources().getColor(d.e.cp_cont_g));
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams.gravity = 17;
                     layoutParams.topMargin = k.g(getContext(), d.f.ds10);
-                    this.eTC.addView(textView, layoutParams);
+                    this.eSp.addView(textView, layoutParams);
                 }
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
-                layoutParams2.rightMargin = this.eTt / 3;
-                layoutParams2.bottomMargin = (int) (((FrameLayout.LayoutParams) getLayoutParams()).bottomMargin + (this.eTt * 1.5d));
+                layoutParams2.rightMargin = this.eSg / 3;
+                layoutParams2.bottomMargin = (int) (((FrameLayout.LayoutParams) getLayoutParams()).bottomMargin + (this.eSg * 1.5d));
                 layoutParams2.gravity = 85;
-                this.dCw.addView(this.eTC, this.eTx + 1, layoutParams2);
+                this.dBf.addView(this.eSp, this.eSk + 1, layoutParams2);
             }
-        } else if (this.eTC != null && this.eTC.getVisibility() == 0 && this.eTz) {
-            this.eTz = false;
+        } else if (this.eSp != null && this.eSp.getVisibility() == 0 && this.eSm) {
+            this.eSm = false;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
             ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.c.5
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    c.this.eTC.setAlpha(floatValue);
+                    c.this.eSp.setAlpha(floatValue);
                     if (floatValue == 0.0f) {
-                        c.this.eTC.setVisibility(8);
-                        if (c.this.eTC.getParent() != null && c.this.eTC.getParent() == c.this.dCw) {
-                            c.this.dCw.removeView(c.this.eTC);
+                        c.this.eSp.setVisibility(8);
+                        if (c.this.eSp.getParent() != null && c.this.eSp.getParent() == c.this.dBf) {
+                            c.this.dBf.removeView(c.this.eSp);
                         }
                     }
                 }
@@ -503,14 +503,14 @@ public class c extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void jQ(boolean z) {
         if (z) {
-            if (this.cVd != null && this.eTA) {
+            if (this.cTK != null && this.eSn) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("pb_emotion_bar_search", false);
-                this.eTA = false;
-                this.eTB = true;
-                if (this.eTD == null) {
-                    this.eTD = new LinearLayout(getContext());
-                    this.eTD.setBackgroundResource(d.g.icon_pb_emotion_bar_search_tip);
-                    this.eTD.setOrientation(1);
+                this.eSn = false;
+                this.eSo = true;
+                if (this.eSq == null) {
+                    this.eSq = new LinearLayout(getContext());
+                    this.eSq.setBackgroundResource(d.g.icon_pb_emotion_bar_search_tip);
+                    this.eSq.setOrientation(1);
                     TextView textView = new TextView(getContext());
                     textView.setSingleLine(true);
                     textView.setText(getContext().getText(d.l.pb_emotion_bar_search_tip));
@@ -518,21 +518,21 @@ public class c extends LinearLayout {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams.gravity = 17;
                     layoutParams.topMargin = k.g(getContext(), d.f.ds10);
-                    this.eTD.addView(textView, layoutParams);
+                    this.eSq.addView(textView, layoutParams);
                 }
                 int[] iArr = new int[2];
-                this.cVd.getLocationOnScreen(iArr);
+                this.cTK.getLocationOnScreen(iArr);
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams2.leftMargin = iArr[0] - k.g(getContext(), d.f.ds350);
-                layoutParams2.bottomMargin = (int) (((FrameLayout.LayoutParams) getLayoutParams()).bottomMargin + (this.eTu * 1.2d));
+                layoutParams2.bottomMargin = (int) (((FrameLayout.LayoutParams) getLayoutParams()).bottomMargin + (this.eSh * 1.2d));
                 layoutParams2.gravity = 80;
-                this.dCw.addView(this.eTD, this.eTx + 1, layoutParams2);
+                this.dBf.addView(this.eSq, this.eSk + 1, layoutParams2);
             }
-        } else if (this.eTD != null) {
-            this.eTD.setVisibility(8);
-            this.eTB = false;
-            if (this.eTD.getParent() != null && this.eTD.getParent() == this.dCw) {
-                this.dCw.removeView(this.eTD);
+        } else if (this.eSq != null) {
+            this.eSq.setVisibility(8);
+            this.eSo = false;
+            if (this.eSq.getParent() != null && this.eSq.getParent() == this.dBf) {
+                this.dBf.removeView(this.eSq);
             }
         }
     }
@@ -540,14 +540,14 @@ public class c extends LinearLayout {
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        if (this.eTz && this.eTC != null) {
-            this.eTC.setVisibility(i);
+        if (this.eSm && this.eSp != null) {
+            this.eSp.setVisibility(i);
         }
-        if (this.eTB && this.eTD != null) {
-            this.eTD.setVisibility(i);
+        if (this.eSo && this.eSq != null) {
+            this.eSq.setVisibility(i);
         }
-        if (this.cVd != null) {
-            this.cVd.setVisibility(i);
+        if (this.cTK != null) {
+            this.cTK.setVisibility(i);
         }
     }
 }

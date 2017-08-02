@@ -12,28 +12,28 @@ import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class l extends k {
-    protected boolean aoa;
-    private CustomMessageListener aob;
-    private CustomMessageListener aoc;
+    protected boolean amH;
+    private CustomMessageListener amI;
+    private CustomMessageListener amJ;
     protected boolean isDone;
 
     public l(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.isDone = true;
-        this.aob = new CustomMessageListener(CmdConfigCustom.CMD_PULL_IMAGE_CHANGE) { // from class: com.baidu.tbadk.core.view.l.1
+        this.amI = new CustomMessageListener(CmdConfigCustom.CMD_PULL_IMAGE_CHANGE) { // from class: com.baidu.tbadk.core.view.l.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (l.this.isDone) {
-                    l.this.dp(TbadkCoreApplication.getInst().getSkinType());
+                    l.this.dn(TbadkCoreApplication.getInst().getSkinType());
                 }
             }
         };
-        this.aoc = new CustomMessageListener(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE) { // from class: com.baidu.tbadk.core.view.l.2
+        this.amJ = new CustomMessageListener(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE) { // from class: com.baidu.tbadk.core.view.l.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                l.this.anK.setBackgroundColor(ae.vz().cN(TbadkCoreApplication.getInst().getSkinType()));
+                l.this.amr.setBackgroundColor(ae.vp().cL(TbadkCoreApplication.getInst().getSkinType()));
             }
         };
         e(tbPageContext);
@@ -41,7 +41,7 @@ public class l extends k {
 
     @Override // com.baidu.tbadk.core.view.k, com.baidu.adp.widget.ListView.c
     public void T(boolean z) {
-        this.anL.setBackgroundDrawable(null);
+        this.ams.setBackgroundDrawable(null);
         super.T(z);
         this.isDone = true;
     }
@@ -50,35 +50,35 @@ public class l extends k {
     public void S(boolean z) {
         super.S(z);
         this.isDone = false;
-        if (!this.aoa) {
-            dp(TbadkCoreApplication.getInst().getSkinType());
+        if (!this.amH) {
+            dn(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tbadk.core.view.k, com.baidu.adp.widget.ListView.c
-    public void lm() {
-        super.lm();
+    public void lc() {
+        super.lc();
         this.isDone = false;
     }
 
     @Override // com.baidu.tbadk.core.view.k
-    public void dp(int i) {
-        super.dp(i);
-        if (this.anK != null && this.anL != null) {
-            this.aoa = false;
-            if (!vH()) {
-                this.anP = ae.vz().cL(i);
-                if (this.anP != null) {
-                    this.aoa = true;
+    public void dn(int i) {
+        super.dn(i);
+        if (this.amr != null && this.ams != null) {
+            this.amH = false;
+            if (!vx()) {
+                this.amw = ae.vp().cJ(i);
+                if (this.amw != null) {
+                    this.amH = true;
                 } else {
-                    this.anP = new AnimationDrawable();
+                    this.amw = new AnimationDrawable();
                 }
-                this.anK.setBackgroundColor(ae.vz().cN(i));
-                if (!this.aoa) {
-                    this.anP = ae.vz().cM(i);
+                this.amr.setBackgroundColor(ae.vp().cL(i));
+                if (!this.amH) {
+                    this.amw = ae.vp().cK(i);
                 }
-                this.anP.setOneShot(false);
-                this.anL.setBackgroundDrawable(this.anP);
+                this.amw.setOneShot(false);
+                this.ams.setBackgroundDrawable(this.amw);
             }
         }
     }
@@ -90,25 +90,25 @@ public class l extends k {
     }
 
     private void e(TbPageContext<?> tbPageContext) {
-        this.aob.setTag(tbPageContext.getUniqueId());
-        this.aoc.setTag(tbPageContext.getUniqueId());
-        tbPageContext.registerListener(this.aob);
-        tbPageContext.registerListener(this.aoc);
+        this.amI.setTag(tbPageContext.getUniqueId());
+        this.amJ.setTag(tbPageContext.getUniqueId());
+        tbPageContext.registerListener(this.amI);
+        tbPageContext.registerListener(this.amJ);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
-        if (this.aob != null) {
-            this.aob.setTag(bdUniqueId);
+        if (this.amI != null) {
+            this.amI.setTag(bdUniqueId);
         }
-        if (this.aoc != null) {
-            this.aoc.setTag(bdUniqueId);
+        if (this.amJ != null) {
+            this.amJ.setTag(bdUniqueId);
         }
-        MessageManager.getInstance().registerListener(this.aob);
-        MessageManager.getInstance().registerListener(this.aoc);
+        MessageManager.getInstance().registerListener(this.amI);
+        MessageManager.getInstance().registerListener(this.amJ);
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.aob);
-        MessageManager.getInstance().unRegisterListener(this.aoc);
+        MessageManager.getInstance().unRegisterListener(this.amI);
+        MessageManager.getInstance().unRegisterListener(this.amJ);
     }
 }

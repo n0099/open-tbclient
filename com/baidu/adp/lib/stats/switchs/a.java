@@ -25,7 +25,7 @@ public class a {
             switch (message.what) {
                 case 1:
                     if (message.obj instanceof BdUploadStatMsgData) {
-                        g.gR().aA(((BdUploadStatMsgData) message.obj).parentType);
+                        g.gH().au(((BdUploadStatMsgData) message.obj).parentType);
                         return;
                     }
                     return;
@@ -34,31 +34,31 @@ public class a {
             }
         }
     };
-    private static volatile a zc;
+    private static volatile a xC;
     private Context mContext;
     private boolean mIsMainProcess;
-    private b zb;
-    private boolean yZ = false;
-    private String za = null;
-    private BdStatSwitchData zd = new BdStatSwitchData();
-    private com.baidu.adp.lib.stats.switchs.b ze = new com.baidu.adp.lib.stats.switchs.b();
-    InterfaceC0007a zf = null;
+    private b xB;
+    private boolean xz = false;
+    private String xA = null;
+    private BdStatSwitchData xD = new BdStatSwitchData();
+    private com.baidu.adp.lib.stats.switchs.b xE = new com.baidu.adp.lib.stats.switchs.b();
+    InterfaceC0007a xF = null;
 
     /* renamed from: com.baidu.adp.lib.stats.switchs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0007a {
-        void gd();
+        void fR();
     }
 
-    public static a gJ() {
-        if (zc == null) {
+    public static a gz() {
+        if (xC == null) {
             synchronized (a.class) {
-                if (zc == null) {
-                    zc = new a();
+                if (xC == null) {
+                    xC = new a();
                 }
             }
         }
-        return zc;
+        return xC;
     }
 
     private a() {
@@ -66,26 +66,26 @@ public class a {
 
     public void a(boolean z, String str, Context context, InterfaceC0007a interfaceC0007a) {
         this.mIsMainProcess = z;
-        this.za = str;
+        this.xA = str;
         this.mContext = context;
         try {
-            if (this.zb == null && this.mContext != null) {
-                this.zb = new b();
+            if (this.xB == null && this.mContext != null) {
+                this.xB = new b();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("com.baidu.adp.stats.background");
                 intentFilter.addAction("com.baidu.adp.stats.switch");
                 intentFilter.addAction("com.baidu.adp.stats.updatecmd");
                 intentFilter.addAction("com.baidu.adp.stats.uploadallfile");
-                this.mContext.registerReceiver(this.zb, intentFilter);
+                this.mContext.registerReceiver(this.xB, intentFilter);
             }
         } catch (Exception e) {
             BdLog.e(e);
         }
-        this.zf = interfaceC0007a;
-        gK();
+        this.xF = interfaceC0007a;
+        gA();
     }
 
-    public void gK() {
+    public void gA() {
         c cVar = new c();
         cVar.setPriority(4);
         cVar.execute(new Object[0]);
@@ -103,16 +103,16 @@ public class a {
         /* renamed from: e */
         public BdStatSwitchData doInBackground(Object... objArr) {
             BdStatSwitchData bdStatSwitchData = new BdStatSwitchData();
-            if (a.this.ze.gN()) {
-                bdStatSwitchData.parserJson(a.this.ze.zh);
+            if (a.this.xE.gD()) {
+                bdStatSwitchData.parserJson(a.this.xE.xH);
             }
-            a.this.yZ = false;
-            if (a.this.mIsMainProcess && a.this.aw(a.this.ze.zh)) {
-                String gL = a.this.gL();
-                if (!TextUtils.isEmpty(gL) && !gL.equals(a.this.ze.zh)) {
-                    a.this.yZ = true;
-                    bdStatSwitchData.parserJson(gL);
-                    a.this.ze.ay(gL);
+            a.this.xz = false;
+            if (a.this.mIsMainProcess && a.this.aq(a.this.xE.xH)) {
+                String gB = a.this.gB();
+                if (!TextUtils.isEmpty(gB) && !gB.equals(a.this.xE.xH)) {
+                    a.this.xz = true;
+                    bdStatSwitchData.parserJson(gB);
+                    a.this.xE.as(gB);
                 }
             }
             return bdStatSwitchData;
@@ -125,32 +125,32 @@ public class a {
         public void onPostExecute(BdStatSwitchData bdStatSwitchData) {
             super.onPostExecute(bdStatSwitchData);
             if (bdStatSwitchData != null) {
-                a.this.zd = bdStatSwitchData;
-                if (a.this.mIsMainProcess && a.this.yZ) {
-                    a.this.gM();
-                    g.gR().gU();
+                a.this.xD = bdStatSwitchData;
+                if (a.this.mIsMainProcess && a.this.xz) {
+                    a.this.gC();
+                    g.gH().gK();
                 }
-                if (a.this.zf != null) {
-                    a.this.zf.gd();
+                if (a.this.xF != null) {
+                    a.this.xF.fR();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aw(String str) {
-        return TextUtils.isEmpty(str) || System.currentTimeMillis() - this.ze.zg >= 86400000;
+    public boolean aq(String str) {
+        return TextUtils.isEmpty(str) || System.currentTimeMillis() - this.xE.xG >= 86400000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String gL() {
-        if (TextUtils.isEmpty(this.za)) {
+    public String gB() {
+        if (TextUtils.isEmpty(this.xA)) {
             return null;
         }
         try {
-            com.baidu.adp.lib.network.http.g a = new com.baidu.adp.lib.network.a.a().a(this.za, 3, -1, 30000, -1, (LinkedList<BasicNameValuePair>) null);
+            com.baidu.adp.lib.network.http.g a = new com.baidu.adp.lib.network.a.a().a(this.xA, 3, -1, 30000, -1, (LinkedList<BasicNameValuePair>) null);
             if (a != null) {
-                return new String(a.xv, "utf-8");
+                return new String(a.vT, "utf-8");
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -159,7 +159,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gM() {
+    public void gC() {
         if (this.mIsMainProcess) {
             Intent intent = new Intent("com.baidu.adp.stats.switch");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -189,19 +189,19 @@ public class a {
                 if ("com.baidu.adp.stats.background".equals(action)) {
                     BdStatisticsManager.getInstance().save();
                     if (a.this.mIsMainProcess) {
-                        g.gR().gY();
+                        g.gH().gO();
                     }
                 } else if ("com.baidu.adp.stats.switch".equals(action)) {
                     if (!a.this.mIsMainProcess) {
-                        a.this.gK();
-                        g.gR().gU();
+                        a.this.gA();
+                        g.gH().gK();
                     }
                 } else if ("com.baidu.adp.stats.updatecmd".equals(action) && !a.this.mIsMainProcess && (serializableExtra = intent.getSerializableExtra("switchsCmdBrdMsg")) != null && (serializableExtra instanceof BdUploadStatMsgData)) {
                     BdUploadStatMsgData bdUploadStatMsgData = (BdUploadStatMsgData) serializableExtra;
                     if (bdUploadStatMsgData.parentType != null || bdUploadStatMsgData.childType != null) {
                         String str = TextUtils.isEmpty(bdUploadStatMsgData.childType) ? bdUploadStatMsgData.parentType : bdUploadStatMsgData.childType;
                         if (!TextUtils.isEmpty(str)) {
-                            a.this.zd.putTmpSwitchConfData(str, bdUploadStatMsgData);
+                            a.this.xD.putTmpSwitchConfData(str, bdUploadStatMsgData);
                             a.this.b(bdUploadStatMsgData);
                         }
                     }
@@ -214,47 +214,47 @@ public class a {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.zd.isWrite(com.baidu.adp.lib.stats.base.a.av(str), str2);
+        return this.xD.isWrite(com.baidu.adp.lib.stats.base.a.ap(str), str2);
     }
 
     public boolean isUpload(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.zd.isUpload(com.baidu.adp.lib.stats.base.a.av(str), str2);
+        return this.xD.isUpload(com.baidu.adp.lib.stats.base.a.ap(str), str2);
     }
 
     public boolean onlyWifiUpload(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.zd.onlyWifiUpload(com.baidu.adp.lib.stats.base.a.av(str), str2);
+        return this.xD.onlyWifiUpload(com.baidu.adp.lib.stats.base.a.ap(str), str2);
     }
 
     public boolean isExactWriteFile(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.zd.isExactWriteFile(com.baidu.adp.lib.stats.base.a.av(str));
+        return this.xD.isExactWriteFile(com.baidu.adp.lib.stats.base.a.ap(str));
     }
 
     public int getMaxAlertCount(String str, int i) {
-        return TextUtils.isEmpty(str) ? i : this.zd.getMaxAlertCount(str, i);
+        return TextUtils.isEmpty(str) ? i : this.xD.getMaxAlertCount(str, i);
     }
 
     public int geUploadCycle(String str, int i) {
-        return TextUtils.isEmpty(str) ? i : this.zd.geUploadCycle(str, i);
+        return TextUtils.isEmpty(str) ? i : this.xD.geUploadCycle(str, i);
     }
 
     public boolean smallFlowUpload(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return true;
         }
-        return this.zd.smallFlowUpload(com.baidu.adp.lib.stats.base.a.av(str), str2);
+        return this.xD.smallFlowUpload(com.baidu.adp.lib.stats.base.a.ap(str), str2);
     }
 
-    public ArrayList<String> ax(String str) {
-        return this.zd.getChiledTypes(str);
+    public ArrayList<String> ar(String str) {
+        return this.xD.getChiledTypes(str);
     }
 
     public boolean a(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
@@ -264,16 +264,16 @@ public class a {
         if (!TextUtils.isEmpty(str2)) {
             str = str2;
         }
-        if (this.zd.getTmpSwitchConfData(str) == null) {
-            this.zd.putTmpSwitchConfData(str, bdUploadStatMsgData);
+        if (this.xD.getTmpSwitchConfData(str) == null) {
+            this.xD.putTmpSwitchConfData(str, bdUploadStatMsgData);
             a(bdUploadStatMsgData);
             b(bdUploadStatMsgData);
             return true;
         } else if (0 == bdUploadStatMsgData.deadLineTime) {
-            this.zd.rmTmpSwitchConfData(str);
+            this.xD.rmTmpSwitchConfData(str);
             return false;
         } else if (0 < bdUploadStatMsgData.deadLineTime) {
-            this.zd.putTmpSwitchConfData(str, bdUploadStatMsgData);
+            this.xD.putTmpSwitchConfData(str, bdUploadStatMsgData);
             a(bdUploadStatMsgData);
             b(bdUploadStatMsgData);
             return true;

@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    private Bitmap aNS;
+    private Bitmap aME;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
@@ -41,7 +41,7 @@ public class a extends LinearLayout {
         view.buildDrawingCache();
         Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache != null) {
-            this.aNS = Bitmap.createBitmap(drawingCache);
+            this.aME = Bitmap.createBitmap(drawingCache);
         }
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
@@ -55,17 +55,17 @@ public class a extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.view != null) {
-            if (this.mScroller.computeScrollOffset() && this.aNS != null) {
+            if (this.mScroller.computeScrollOffset() && this.aME != null) {
                 canvas.save();
-                canvas.drawBitmap(this.aNS, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.aME, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.aNS != null) {
-                this.aNS.recycle();
+            if (this.aME != null) {
+                this.aME.recycle();
             }
-            this.aNS = null;
+            this.aME = null;
             this.view = null;
         }
     }
@@ -74,10 +74,10 @@ public class a extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.aNS != null) {
-            this.aNS.recycle();
+        if (this.aME != null) {
+            this.aME.recycle();
         }
-        this.aNS = null;
+        this.aME = null;
         this.view = null;
     }
 }

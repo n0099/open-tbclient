@@ -8,7 +8,7 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class n extends ImageSpan {
-    private WeakReference<Drawable> Hs;
+    private WeakReference<Drawable> FT;
 
     public n(Drawable drawable) {
         super(drawable);
@@ -16,7 +16,7 @@ public class n extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Rect bounds = kB().getBounds();
+        Rect bounds = kr().getBounds();
         if (fontMetricsInt != null) {
             Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
             int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
@@ -33,22 +33,22 @@ public class n extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable kB = kB();
+        Drawable kr = kr();
         canvas.save();
-        canvas.translate(f, ((i5 - kB.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
-        kB.draw(canvas);
+        canvas.translate(f, ((i5 - kr.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
+        kr.draw(canvas);
         canvas.restore();
     }
 
-    private Drawable kB() {
-        WeakReference<Drawable> weakReference = this.Hs;
+    private Drawable kr() {
+        WeakReference<Drawable> weakReference = this.FT;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.Hs = new WeakReference<>(drawable2);
+            this.FT = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;

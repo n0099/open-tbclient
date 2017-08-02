@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a anH;
+    private a amo;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -24,35 +24,35 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        xd();
+        wV();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        bg();
+        wU();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        bg();
+        wU();
     }
 
-    private void bg() {
+    private void wU() {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.TbCheckBox.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TbCheckBox.this.setChecked(!TbCheckBox.this.xe());
+                TbCheckBox.this.setChecked(!TbCheckBox.this.wW());
             }
         });
-        xd();
+        wV();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.anH = aVar;
+        this.amo = aVar;
     }
 
-    public void xd() {
-        if (xe()) {
+    public void wV() {
+        if (wW()) {
             ai.c(this, d.g.icon_set_list_ok_s);
             setContentDescription(getResources().getString(d.l.check_box_checked));
             return;
@@ -62,11 +62,11 @@ public class TbCheckBox extends ImageView {
     }
 
     public boolean isChecked() {
-        return xe();
+        return wW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean xe() {
+    public boolean wW() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -79,9 +79,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        xd();
-        if (this.anH != null) {
-            this.anH.a(this, z, getTag());
+        wV();
+        if (this.amo != null) {
+            this.amo.a(this, z, getTag());
         }
     }
 }

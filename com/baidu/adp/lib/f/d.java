@@ -3,31 +3,31 @@ package com.baidu.adp.lib.f;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class d {
-    private static int xX = 0;
-    private static int xY = 0;
-    private static int xZ = 0;
-    private static int ya = 0;
-    private static int yb = 0;
-    private static int yc = 0;
-    private static Object yd = new Object();
+    private static int ww = 0;
+    private static int wx = 0;
+    private static int wy = 0;
+    private static int wz = 0;
+    private static int wA = 0;
+    private static int wB = 0;
+    private static Object wC = new Object();
 
-    public static com.baidu.adp.lib.stats.a fV() {
+    public static com.baidu.adp.lib.stats.a fK() {
         return BdStatisticsManager.getInstance().getStatsItem("dbg");
     }
 
     public static void a(com.baidu.adp.lib.stats.a aVar, com.baidu.adp.lib.stats.a aVar2) {
         if (aVar != null || aVar2 != null) {
-            synchronized (yd) {
+            synchronized (wC) {
                 if (aVar != null) {
-                    xZ = (int) (xZ + aVar.gf());
+                    wy = (int) (wy + aVar.fU());
                 }
                 if (aVar2 != null) {
-                    xY = (int) (xY + aVar2.gf());
+                    wx = (int) (wx + aVar2.fU());
                 }
-                int i = xX + 1;
-                xX = i;
-                if (i + ya > 100) {
-                    fW();
+                int i = ww + 1;
+                ww = i;
+                if (i + wz > 100) {
+                    fL();
                 }
             }
         }
@@ -35,40 +35,40 @@ public class d {
 
     public static void b(com.baidu.adp.lib.stats.a aVar, com.baidu.adp.lib.stats.a aVar2) {
         if (aVar != null || aVar2 != null) {
-            synchronized (yd) {
+            synchronized (wC) {
                 if (aVar != null) {
-                    yc = (int) (yc + aVar.gf());
+                    wB = (int) (wB + aVar.fU());
                 }
                 if (aVar2 != null) {
-                    yb = (int) (yb + aVar2.gf());
+                    wA = (int) (wA + aVar2.fU());
                 }
-                int i = ya + 1;
-                ya = i;
-                if (i + xX > 100) {
-                    fW();
+                int i = wz + 1;
+                wz = i;
+                if (i + ww > 100) {
+                    fL();
                 }
             }
         }
     }
 
-    public static void fW() {
-        if (xX + ya > 10) {
-            com.baidu.adp.lib.stats.a fV = fV();
-            fV.p("act", "allStat");
-            fV.p("diskTaskCostTime", String.valueOf(xZ));
-            fV.p("diskCostTime", String.valueOf(xY));
-            fV.p("diskNum", String.valueOf(xX));
-            fV.p("netTaskCostTime", String.valueOf(yc));
-            fV.p("netCostTime", String.valueOf(yb));
-            fV.p("netNum", String.valueOf(ya));
-            fV.p("isWifi", "1");
-            BdStatisticsManager.getInstance().debug("img", fV);
-            xY = 0;
-            xX = 0;
-            yb = 0;
-            ya = 0;
-            xZ = 0;
-            yc = 0;
+    public static void fL() {
+        if (ww + wz > 10) {
+            com.baidu.adp.lib.stats.a fK = fK();
+            fK.p("act", "allStat");
+            fK.p("diskTaskCostTime", String.valueOf(wy));
+            fK.p("diskCostTime", String.valueOf(wx));
+            fK.p("diskNum", String.valueOf(ww));
+            fK.p("netTaskCostTime", String.valueOf(wB));
+            fK.p("netCostTime", String.valueOf(wA));
+            fK.p("netNum", String.valueOf(wz));
+            fK.p("isWifi", "1");
+            BdStatisticsManager.getInstance().debug("img", fK);
+            wx = 0;
+            ww = 0;
+            wA = 0;
+            wz = 0;
+            wy = 0;
+            wB = 0;
         }
     }
 }

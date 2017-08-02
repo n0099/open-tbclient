@@ -6,31 +6,31 @@ import android.widget.Toast;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f {
-    private static Toast AE;
+    private static Toast zd;
     private static Handler mHandler = new Handler();
-    private static String afV = null;
-    private static Runnable afT = new Runnable() { // from class: com.baidu.tbadk.core.util.f.1
+    private static String aeB = null;
+    private static Runnable aez = new Runnable() { // from class: com.baidu.tbadk.core.util.f.1
         @Override // java.lang.Runnable
         public void run() {
-            f.AE.cancel();
+            f.zd.cancel();
         }
     };
 
     public static void showToast(Context context, String str, int i) {
         if (str != null && str.length() > 0) {
-            mHandler.removeCallbacks(afT);
-            if (AE != null) {
-                if (!str.equals(afV)) {
-                    afV = str;
-                    AE.setText(str);
+            mHandler.removeCallbacks(aez);
+            if (zd != null) {
+                if (!str.equals(aeB)) {
+                    aeB = str;
+                    zd.setText(str);
                 }
             } else {
-                afV = str;
-                AE = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
-                AE.setGravity(17, 0, com.baidu.adp.lib.util.k.dip2px(context, 100.0f));
+                aeB = str;
+                zd = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
+                zd.setGravity(17, 0, com.baidu.adp.lib.util.k.dip2px(context, 100.0f));
             }
-            mHandler.postDelayed(afT, i);
-            AE.show();
+            mHandler.postDelayed(aez, i);
+            zd.show();
         }
     }
 

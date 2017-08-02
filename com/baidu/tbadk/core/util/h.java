@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class h {
-    public static void dr(String str) {
+    public static void dl(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -46,7 +46,7 @@ public class h {
         }
     }
 
-    public static void uH() {
+    public static void ux() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.h.1
             @Override // java.lang.Runnable
             public void run() {
@@ -55,7 +55,7 @@ public class h {
                 int i;
                 com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
                 try {
-                    cursor = mainDBDatabaseManager.cs().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                    cursor = mainDBDatabaseManager.ch().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
                     i = 0;
                     while (cursor.moveToNext()) {
                         try {

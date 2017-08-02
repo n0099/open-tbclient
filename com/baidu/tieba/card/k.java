@@ -11,45 +11,45 @@ import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class k extends j {
-    private bl akj;
-    private TbPageContext alI;
-    private com.baidu.tieba.card.data.n bHm;
-    private View.OnClickListener bHn;
-    private View.OnClickListener bHo;
+    private bl aiQ;
+    private TbPageContext ako;
+    private com.baidu.tieba.card.data.n bGc;
+    private View.OnClickListener bGd;
+    private View.OnClickListener bGe;
     private int mSkinType;
 
     public k(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.bHn = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
+        this.bGd = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.akj != null && k.this.akj.getAuthor() != null && !StringUtils.isNull(k.this.akj.getAuthor().getName_show()) && !StringUtils.isNull(k.this.akj.getAuthor().getUserId()) && k.this.akj.rK() != null) {
-                    if (k.this.We() != null) {
-                        k.this.We().a(view, k.this.bHm);
+                if (k.this.aiQ != null && k.this.aiQ.getAuthor() != null && !StringUtils.isNull(k.this.aiQ.getAuthor().getName_show()) && !StringUtils.isNull(k.this.aiQ.getAuthor().getUserId()) && k.this.aiQ.rA() != null) {
+                    if (k.this.VZ() != null) {
+                        k.this.VZ().a(view, k.this.bGc);
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(k.this.alI.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.d(k.this.akj.getAuthor().getUserId(), 0L), false, k.this.akj.getAuthor().isBigV())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(k.this.ako.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.c(k.this.aiQ.getAuthor().getUserId(), 0L), false, k.this.aiQ.getAuthor().isBigV())));
                 }
             }
         };
-        this.bHo = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.2
+        this.bGe = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.We() != null) {
-                    k.this.We().a(view, k.this.bHm);
+                if (k.this.VZ() != null) {
+                    k.this.VZ().a(view, k.this.bGc);
                 }
             }
         };
-        this.alI = tbPageContext;
+        this.ako = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.j, com.baidu.tieba.card.a
     public void a(com.baidu.tieba.card.data.n nVar) {
         super.a(nVar);
-        if (nVar != null && nVar.bcL != null) {
-            this.bHm = nVar;
-            this.akj = nVar.bcL;
+        if (nVar != null && nVar.bbB != null) {
+            this.bGc = nVar;
+            this.aiQ = nVar.bbB;
             nVar.sourceType = 0;
         }
     }

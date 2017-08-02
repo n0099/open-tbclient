@@ -8,38 +8,38 @@ import com.baidu.tbadk.core.util.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class e {
-    public static final String avo = k.zU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public String avj;
-    public String avk;
+    public static final String atX = k.yu + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public String atS;
+    public String atT;
     public String fid;
-    public boolean ava = false;
-    public boolean avb = false;
-    public boolean avc = false;
-    public boolean avd = false;
-    public boolean ave = false;
-    public boolean avf = false;
-    public String avg = "";
-    public int avl = 0;
-    public int avm = 3;
+    public boolean atJ = false;
+    public boolean atK = false;
+    public boolean atL = false;
+    public boolean atM = false;
+    public boolean atN = false;
+    public boolean atO = false;
+    public String atP = "";
+    public int atU = 0;
+    public int atV = 3;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String avh = null;
+    public String atQ = null;
     public Uri imageUri = null;
     public Location location = null;
-    private WeakReference<Bitmap> avn = null;
-    public String avi = null;
+    private WeakReference<Bitmap> atW = null;
+    public String atR = null;
     public String extData = null;
 
     public Bitmap getImageData() {
         Bitmap bitmap;
-        if (this.avn == null || (bitmap = this.avn.get()) == null || bitmap.isRecycled()) {
+        if (this.atW == null || (bitmap = this.atW.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
-    public void i(Bitmap bitmap) {
-        this.avn = new WeakReference<>(bitmap);
+    public void h(Bitmap bitmap) {
+        this.atW = new WeakReference<>(bitmap);
     }
 }

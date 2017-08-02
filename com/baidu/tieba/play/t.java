@@ -7,8 +7,8 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class t {
     private int duration;
-    private long fAs;
-    private String fAt;
+    private long fzg;
+    private String fzh;
     private String videoUrl;
 
     public void a(VideoInfo videoInfo, boolean z) {
@@ -26,8 +26,8 @@ public class t {
                     }
                     VideoDesc next = it.next();
                     if (next != null && !StringUtils.isNull(next.video_url)) {
-                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.i.hs()) {
-                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.i.ht()) {
+                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.i.hi()) {
+                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.i.hj()) {
                                 videoDesc = next;
                                 break;
                             }
@@ -42,16 +42,16 @@ public class t {
                     String str3 = videoDesc.video_width;
                     String str4 = videoDesc.video_height;
                     this.videoUrl = str;
-                    this.fAs = videoInfo.video_length.intValue();
+                    this.fzg = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.fAt = videoInfo.video_width + "x" + videoInfo.video_height;
+                    this.fzh = videoInfo.video_width + "x" + videoInfo.video_height;
                 }
             }
             str = str2;
             this.videoUrl = str;
-            this.fAs = videoInfo.video_length.intValue();
+            this.fzg = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.fAt = videoInfo.video_width + "x" + videoInfo.video_height;
+            this.fzh = videoInfo.video_width + "x" + videoInfo.video_height;
         }
     }
 
@@ -65,15 +65,15 @@ public class t {
         }
     }
 
-    public long bfX() {
-        return this.fAs;
+    public long bfN() {
+        return this.fzg;
     }
 
     public int getDuration() {
         return this.duration;
     }
 
-    public String bfY() {
-        return this.fAt;
+    public String bfO() {
+        return this.fzh;
     }
 }

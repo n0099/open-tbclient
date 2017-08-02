@@ -8,7 +8,7 @@ public class v {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int gT(String str) {
+    public static int gO(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -23,7 +23,7 @@ public class v {
         return i;
     }
 
-    public static int gU(String str) {
+    public static int gP(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -34,7 +34,7 @@ public class v {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += gT(substring);
+                i += gO(substring);
             }
         }
         return i;
@@ -44,7 +44,7 @@ public class v {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (gT(str) > i) {
+        if (gO(str) > i) {
             return d(str, 0, i - 2) + "...";
         }
         return str;
@@ -54,7 +54,7 @@ public class v {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (gT(str) > i) {
+        if (gO(str) > i) {
             return d(str, 0, i);
         }
         return str;
@@ -126,7 +126,7 @@ public class v {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (gU(substring) > i) {
+            if (gP(substring) > i) {
                 break;
             }
             i2++;

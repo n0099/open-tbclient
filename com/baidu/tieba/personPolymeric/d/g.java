@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
-    private ImageView aZN;
-    private TextView cQr;
-    private String fil;
+    private ImageView aYC;
+    private TextView cOY;
+    private String fgY;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -21,16 +21,16 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void S(View view) {
         this.mRootView = view.findViewById(d.h.card_null_polymeric_rootview);
-        this.aZN = (ImageView) view.findViewById(d.h.card_null_polymeric_icon);
-        this.cQr = (TextView) view.findViewById(d.h.card_null_polymeric_txt);
+        this.aYC = (ImageView) view.findViewById(d.h.card_null_polymeric_icon);
+        this.cOY = (TextView) view.findViewById(d.h.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ai.j(this.mRootView, d.e.cp_bg_line_d);
-            ai.c(this.aZN, d.g.emotion07);
-            ai.c(this.cQr, d.e.cp_cont_c, 1);
+            ai.c(this.aYC, d.g.emotion07);
+            ai.c(this.cOY, d.e.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -51,11 +51,11 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.fil)) {
-            TextView textView = this.cQr;
+        if (StringUtils.isNull(this.fgY)) {
+            TextView textView = this.cOY;
             String string2 = this.mContext.getString(d.l.person_polymeric_null_data);
             Object[] objArr = new Object[1];
-            if (iVar.buk) {
+            if (iVar.bsZ) {
                 string = this.mContext.getString(d.l.you);
             } else if (iVar.sex == 2) {
                 string = this.mContext.getString(d.l.person_identity_she);
@@ -66,11 +66,11 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.cQr.setText(this.fil);
+        this.cOY.setText(this.fgY);
     }
 
     public void setTip(String str) {
-        this.fil = str;
+        this.fgY = str;
     }
 
     @Override // android.view.View.OnClickListener

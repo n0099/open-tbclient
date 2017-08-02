@@ -8,12 +8,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, com.baidu.tbadk.j.a> {
-    private View.OnClickListener aYV;
-    private TbPageContext alI;
+    private View.OnClickListener aXK;
+    private TbPageContext ako;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.d.aAv, bdUniqueId);
-        this.alI = tbPageContext;
+        super(tbPageContext.getPageActivity(), com.baidu.tbadk.data.d.aze, bdUniqueId);
+        this.ako = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: d */
     public com.baidu.tbadk.j.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tbadk.j.a(LayoutInflater.from(this.alI.getPageActivity()).inflate(d.j.entrance_pic_add_item, (ViewGroup) null));
+        return new com.baidu.tbadk.j.a(LayoutInflater.from(this.ako.getPageActivity()).inflate(d.j.entrance_pic_add_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,12 +32,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.d, c
         if (aVar == null || dVar == null) {
             return null;
         }
-        aVar.setOnClick(this.aYV);
+        aVar.setOnClick(this.aXK);
         aVar.c(dVar);
         return aVar.getView();
     }
 
     public void setOnClick(View.OnClickListener onClickListener) {
-        this.aYV = onClickListener;
+        this.aXK = onClickListener;
     }
 }

@@ -46,7 +46,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<g, 
                 this.needCache = frsRequestData.isNeedCache();
                 this.mCategoryId = frsRequestData.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = frsRequestData.Om();
+                this.mSortType = frsRequestData.Oh();
                 this.mIsGood = frsRequestData.getIsGood();
                 this.mLoadType = frsRequestData.getLoadType();
             }
@@ -57,9 +57,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<g, 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         this.responseData = new g();
-        FrsPageResIdl F = this.responseData.F(bArr);
-        setError(F.error.errorno.intValue());
-        setErrorString(F.error.usermsg);
+        FrsPageResIdl C = this.responseData.C(bArr);
+        setError(C.error.errorno.intValue());
+        setErrorString(C.error.usermsg);
         setData(this.responseData);
     }
 
@@ -69,7 +69,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<g, 
         int g;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bqY() != null && !StringUtils.isNull(this.responseData.bqY().getBookId(), true) && !this.responseData.bqY().getBookId().equals("0") && this.responseData.bqY().pP() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.bqY().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
+        if (this.responseData.bqR() != null && !StringUtils.isNull(this.responseData.bqR().getBookId(), true) && !this.responseData.bqR().getBookId().equals("0") && this.responseData.bqR().pF() == 3 && (g = com.baidu.adp.lib.g.b.g(this.responseData.bqR().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
             this.responseData.i(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -79,8 +79,8 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<g, 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null) {
             boolean z = com.baidu.tbadk.core.util.u.u(this.responseData.getThreadList()) >= 15;
-            if (this.needCache && this.responseData.aPh() != null && z) {
-                c.bqu().b(c.bqu().g(this.responseData.aPh().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+            if (this.needCache && this.responseData.aOW() != null && z) {
+                c.bqn().b(c.bqn().g(this.responseData.aOW().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
             }
         }
     }

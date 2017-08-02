@@ -9,23 +9,23 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.d;
 /* loaded from: classes.dex */
 public class ListViewPager extends ViewPager {
-    private float aOI;
-    private float aSx;
-    private float aSy;
-    private float aSz;
-    private boolean alf;
-    private d.c alh;
+    private float aNu;
+    private float aRl;
+    private float aRm;
+    private float aRn;
+    private boolean ajM;
+    private d.c ajO;
     private GestureDetector mGestureDetector;
 
     public ListViewPager(Context context) {
         super(context);
-        this.alf = false;
+        this.ajM = false;
         init();
     }
 
     public ListViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.alf = false;
+        this.ajM = false;
         init();
     }
 
@@ -41,8 +41,8 @@ public class ListViewPager extends ViewPager {
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            if (ListViewPager.this.alh != null) {
-                ListViewPager.this.alh.lz();
+            if (ListViewPager.this.ajO != null) {
+                ListViewPager.this.ajO.lp();
             }
             return Math.abs(f) > Math.abs(f2);
         }
@@ -53,7 +53,7 @@ public class ListViewPager extends ViewPager {
         if (k(motionEvent)) {
             return true;
         }
-        if (this.alf) {
+        if (this.ajM) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -75,7 +75,7 @@ public class ListViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.alf) {
+        if (this.ajM) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -89,31 +89,31 @@ public class ListViewPager extends ViewPager {
             case 0:
             case 5:
             case 6:
-                if (this.alh != null) {
-                    this.alh.lz();
+                if (this.ajO != null) {
+                    this.ajO.lp();
                 }
-                this.aOI = motionEvent.getX();
-                this.aSx = motionEvent.getY();
+                this.aNu = motionEvent.getX();
+                this.aRl = motionEvent.getY();
                 break;
             case 1:
             case 3:
-                if (this.alh != null) {
-                    this.alh.lz();
+                if (this.ajO != null) {
+                    this.ajO.lp();
                 }
-                this.aOI = 0.0f;
-                this.aSx = 0.0f;
-                this.aSy = 0.0f;
-                this.aSz = 0.0f;
+                this.aNu = 0.0f;
+                this.aRl = 0.0f;
+                this.aRm = 0.0f;
+                this.aRn = 0.0f;
                 break;
             case 2:
-                if (this.alh != null) {
-                    this.alh.lz();
+                if (this.ajO != null) {
+                    this.ajO.lp();
                 }
-                this.aSy = motionEvent.getX() - this.aOI;
-                this.aSz = motionEvent.getY() - this.aSx;
-                this.aOI = motionEvent.getX();
-                this.aSx = motionEvent.getY();
-                if (getCurrentItem() != 0 && Math.abs(this.aSy) > Math.abs(this.aSz)) {
+                this.aRm = motionEvent.getX() - this.aNu;
+                this.aRn = motionEvent.getY() - this.aRl;
+                this.aNu = motionEvent.getX();
+                this.aRl = motionEvent.getY();
+                if (getCurrentItem() != 0 && Math.abs(this.aRm) > Math.abs(this.aRn)) {
                     aS(true);
                     break;
                 }
@@ -141,10 +141,10 @@ public class ListViewPager extends ViewPager {
     }
 
     public void setSwipeControlInterface(d.c cVar) {
-        this.alh = cVar;
+        this.ajO = cVar;
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.alf = z;
+        this.ajM = z;
     }
 }

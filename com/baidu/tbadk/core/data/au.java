@@ -7,30 +7,30 @@ import java.util.List;
 import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
 public class au extends PostData {
-    public static final BdUniqueId Yg = BdUniqueId.gen();
-    public int VN;
-    public String Wi;
-    public String Wj;
-    public String Yh;
-    public String Yi;
-    public String Yj;
-    public List<String> Yk;
-    public String Yl;
-    public String Ym;
+    public static final BdUniqueId WK = BdUniqueId.gen();
+    public String UL;
+    public String UM;
+    public int Uo;
+    public String WL;
+    public String WM;
+    public String WN;
+    public List<String> WO;
+    public String WP;
+    public String WQ;
     public String bookId;
 
     public void a(RecommendBook recommendBook) {
         if (recommendBook != null) {
-            this.Yh = recommendBook.recommend_text;
-            this.Yi = recommendBook.suggest_text;
-            this.Yj = recommendBook.suggest_url;
+            this.WL = recommendBook.recommend_text;
+            this.WM = recommendBook.suggest_text;
+            this.WN = recommendBook.suggest_url;
             this.bookId = recommendBook.book_id;
-            this.VN = recommendBook.book_type.intValue();
-            this.Wj = recommendBook.book_cover;
-            this.Wi = recommendBook.book_title;
-            this.Yk = recommendBook.book_tips;
-            this.Yl = recommendBook.botton_text;
-            this.Ym = recommendBook.subscript_icon;
+            this.Uo = recommendBook.book_type.intValue();
+            this.UM = recommendBook.book_cover;
+            this.UL = recommendBook.book_title;
+            this.WO = recommendBook.book_tips;
+            this.WP = recommendBook.botton_text;
+            this.WQ = recommendBook.subscript_icon;
         }
     }
 
@@ -40,6 +40,6 @@ public class au extends PostData {
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return Yg;
+        return WK;
     }
 }

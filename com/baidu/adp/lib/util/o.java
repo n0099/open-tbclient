@@ -4,22 +4,22 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class o {
-    public static String AT = "yyyy-MM-dd HH:mm:ss";
-    public static HashMap<String, String> AU = new HashMap<>();
+    public static String zs = "yyyy-MM-dd HH:mm:ss";
+    public static HashMap<String, String> zt = new HashMap<>();
 
     static {
-        AU.put("java.lang.String", "java.lang.String");
-        AU.put("java.lang.Integer", "java.lang.Integer");
-        AU.put("java.lang.Double", "java.lang.Double");
-        AU.put("java.lang.Float", "java.lang.Float");
-        AU.put("java.lang.Boolean", "java.lang.Boolean");
-        AU.put("java.lang.Character", "java.lang.Character");
-        AU.put("java.lang.Short", "java.lang.Short");
-        AU.put("java.lang.Long", "java.lang.Long");
-        AU.put("java.lang.Byte", "java.lang.Byte");
-        AU.put("java.util.Date", "java.util.Date");
-        AU.put("java.lang.Integer", "java.lang.Integer");
-        AU.put("java.lang.Integer", "java.lang.Integer");
+        zt.put("java.lang.String", "java.lang.String");
+        zt.put("java.lang.Integer", "java.lang.Integer");
+        zt.put("java.lang.Double", "java.lang.Double");
+        zt.put("java.lang.Float", "java.lang.Float");
+        zt.put("java.lang.Boolean", "java.lang.Boolean");
+        zt.put("java.lang.Character", "java.lang.Character");
+        zt.put("java.lang.Short", "java.lang.Short");
+        zt.put("java.lang.Long", "java.lang.Long");
+        zt.put("java.lang.Byte", "java.lang.Byte");
+        zt.put("java.util.Date", "java.util.Date");
+        zt.put("java.lang.Integer", "java.lang.Integer");
+        zt.put("java.lang.Integer", "java.lang.Integer");
     }
 
     public static Object a(Object obj, Field field) {

@@ -11,6 +11,6 @@ public class i extends Thread {
         wVar.n("st_type", TbConfig.ST_TYPE_ENTER_FORE);
         wVar.n("os_version", Build.VERSION.RELEASE);
         wVar.n("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-        wVar.uO();
+        wVar.uE();
     }
 }

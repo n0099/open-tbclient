@@ -20,7 +20,7 @@ public class k extends l {
     }
 
     @Override // com.baidu.tieba.card.data.l, com.baidu.tieba.card.data.c
-    public bl MF() {
+    public bl MA() {
         return this.threadData;
     }
 }

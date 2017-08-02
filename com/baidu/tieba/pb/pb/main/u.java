@@ -9,12 +9,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class u {
-    private BaseActivity bmv;
-    private PbModel eGz;
+    private BaseActivity bll;
+    private PbModel eFm;
 
     public u(PbModel pbModel, BaseActivity baseActivity) {
-        this.eGz = pbModel;
-        this.bmv = baseActivity;
+        this.eFm = pbModel;
+        this.bll = baseActivity;
     }
 
     public String W(Intent intent) {

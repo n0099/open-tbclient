@@ -8,16 +8,16 @@ public class o extends a {
     }
 
     @Override // com.baidu.tieba.personPolymeric.c.a
-    public void VG() {
-        this.fjV.clear();
-        if (this.fjT != null) {
-            this.fjV.add(this.fjT);
+    public void VB() {
+        this.fiJ.clear();
+        if (this.fiH != null) {
+            this.fiJ.add(this.fiH);
         }
-        if (this.mCardNullPolymericData != null && this.fjT == null) {
-            this.fjV.add(this.mCardNullPolymericData);
+        if (this.mCardNullPolymericData != null && this.fiH == null) {
+            this.fiJ.add(this.mCardNullPolymericData);
         }
-        if (!u.v(this.fjU)) {
-            this.fjV.addAll(this.fjU);
+        if (!u.v(this.fiI)) {
+            this.fiJ.addAll(this.fiI);
         }
     }
 }

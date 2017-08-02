@@ -5,53 +5,53 @@ import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
-    private String gAf;
-    private String gAg;
-    private AlbumActivity gAh;
-    private Fragment[] gAi;
-    private String[] gAj;
-    private l gAk;
-    private b gAl;
+    private String gyU;
+    private String gyV;
+    private AlbumActivity gyW;
+    private Fragment[] gyX;
+    private String[] gyY;
+    private l gyZ;
+    private b gza;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.gAf = "tag_image";
-        this.gAg = "tag_b_image";
-        this.gAh = albumActivity;
+        this.gyU = "tag_image";
+        this.gyV = "tag_b_image";
+        this.gyW = albumActivity;
     }
 
-    public void aLD() {
-        this.gAi = new Fragment[2];
-        this.gAj = new String[2];
-        this.gAk = new l();
-        this.gAi[0] = this.gAk;
-        this.gAj[0] = this.gAf;
-        this.gAl = new b();
-        this.gAi[1] = this.gAl;
-        this.gAj[1] = this.gAg;
+    public void aLs() {
+        this.gyX = new Fragment[2];
+        this.gyY = new String[2];
+        this.gyZ = new l();
+        this.gyX[0] = this.gyZ;
+        this.gyY[0] = this.gyU;
+        this.gza = new b();
+        this.gyX[1] = this.gza;
+        this.gyY[1] = this.gyV;
     }
 
-    public Fragment ud(int i) {
+    public Fragment ue(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.gAi[i];
+        return this.gyX[i];
     }
 
-    public String ue(int i) {
+    public String uf(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.gAj[i];
+        return this.gyY[i];
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.gAi.length) {
-                if (this.gAi[i3] != null && (this.gAi[i3] instanceof l)) {
-                    ((l) this.gAi[i3]).onChangeSkinType(i);
+            if (i3 < this.gyX.length) {
+                if (this.gyX[i3] != null && (this.gyX[i3] instanceof l)) {
+                    ((l) this.gyX[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -60,59 +60,59 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView bxX() {
-        if (this.gAk == null) {
+    public TbCameraView bxQ() {
+        if (this.gyZ == null) {
             return null;
         }
-        return this.gAk.bxX();
+        return this.gyZ.bxQ();
     }
 
-    public View bxY() {
-        if (this.gAk == null) {
+    public View bxR() {
+        if (this.gyZ == null) {
             return null;
         }
-        return this.gAk.bkK();
+        return this.gyZ.bkA();
     }
 
-    public View bxZ() {
-        if (this.gAk == null) {
+    public View bxS() {
+        if (this.gyZ == null) {
             return null;
         }
-        return this.gAk.byt();
+        return this.gyZ.bym();
     }
 
-    public View bya() {
-        if (this.gAl == null) {
+    public View bxT() {
+        if (this.gza == null) {
             return null;
         }
-        return this.gAl.bkK();
+        return this.gza.bkA();
     }
 
-    public View byb() {
-        if (this.gAl == null) {
+    public View bxU() {
+        if (this.gza == null) {
             return null;
         }
-        return this.gAl.byh();
+        return this.gza.bya();
     }
 
-    public View byc() {
-        if (this.gAl == null) {
+    public View bxV() {
+        if (this.gza == null) {
             return null;
         }
-        return this.gAl.byc();
+        return this.gza.bxV();
     }
 
     public void onDestroy() {
-        if (this.gAh.amK() != null) {
-            this.gAh.amK().EH();
+        if (this.gyW.amx() != null) {
+            this.gyW.amx().Ez();
         }
     }
 
-    public b byd() {
-        return this.gAl;
+    public b bxW() {
+        return this.gza;
     }
 
-    public l bye() {
-        return this.gAk;
+    public l bxX() {
+        return this.gyZ;
     }
 }

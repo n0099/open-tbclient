@@ -9,5 +9,5 @@ public interface e {
 
     e bu(String str, String str2);
 
-    e p(String str, long j);
+    e o(String str, long j);
 }

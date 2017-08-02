@@ -6,18 +6,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class c {
-    public static void uF() {
+    public static void uv() {
         com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() != null && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
-            mainDBDatabaseManager.k("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
+            mainDBDatabaseManager.g("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
         }
     }
 
-    public static void dp(String str) {
+    public static void dj(String str) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (str != null && mainDBDatabaseManager != null) {
-                mainDBDatabaseManager.k("delete from chunk_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+                mainDBDatabaseManager.g("delete from chunk_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
             }
         }
     }
@@ -31,11 +31,11 @@ public class c {
         if (gVar == null || mainDBDatabaseManager == null) {
             return false;
         }
-        mainDBDatabaseManager.k("delete from chunk_upload_data where md5=? and account=?", new String[]{gVar.getMd5(), TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.k("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{gVar.getMd5(), Long.valueOf(gVar.getTotalLength()), Integer.valueOf(gVar.yk()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        mainDBDatabaseManager.g("delete from chunk_upload_data where md5=? and account=?", new String[]{gVar.getMd5(), TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.g("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{gVar.getMd5(), Long.valueOf(gVar.getTotalLength()), Integer.valueOf(gVar.yc()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static com.baidu.tbadk.coreExtra.data.g dq(String str) {
+    public static com.baidu.tbadk.coreExtra.data.g dk(String str) {
         Cursor cursor;
         Exception e;
         com.baidu.tbadk.coreExtra.data.g gVar;
@@ -51,7 +51,7 @@ public class c {
                         gVar = new com.baidu.tbadk.coreExtra.data.g();
                         try {
                             gVar.setMd5(str);
-                            gVar.dH(cursor.getInt(3));
+                            gVar.dF(cursor.getInt(3));
                             gVar.O(cursor.getLong(2));
                         } catch (Exception e2) {
                             e = e2;

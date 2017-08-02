@@ -11,33 +11,33 @@ import com.baidu.tbadk.core.util.w;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class u {
-    private String ajt = "bar_detail";
-    private a ggY;
+    private String aia = "bar_detail";
+    private a gfN;
 
     /* loaded from: classes.dex */
     public interface a {
-        void j(String str, long j);
+        void i(String str, long j);
 
-        void k(String str, long j);
+        void j(String str, long j);
     }
 
     public void setFrom(String str) {
-        this.ajt = str;
+        this.aia = str;
     }
 
     public void a(a aVar) {
-        this.ggY = aVar;
+        this.gfN = aVar;
     }
 
-    public void s(String str, long j) {
-        new b(str, j, this.ajt, this.ggY).execute(new Integer[0]);
+    public void r(String str, long j) {
+        new b(str, j, this.aia, this.gfN).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<Integer, Integer, Integer> {
-        private String ajt;
-        private WeakReference<a> ggZ;
+        private String aia;
+        private WeakReference<a> gfO;
         private long mForumId;
         private String mForumName;
         private w mNetwork = null;
@@ -45,11 +45,11 @@ public class u {
         public b(String str, long j, String str2, a aVar) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.ggZ = null;
+            this.gfO = null;
             this.mForumName = str;
             this.mForumId = j;
-            this.ggZ = new WeakReference<>(aVar);
-            this.ajt = str2;
+            this.gfO = new WeakReference<>(aVar);
+            this.aia = str2;
             setPriority(3);
         }
 
@@ -65,10 +65,10 @@ public class u {
                     this.mNetwork.n("fid", String.valueOf(this.mForumId));
                     this.mNetwork.n("kw", this.mForumName);
                     this.mNetwork.n("favo_type", "1");
-                    this.mNetwork.n("st_type", this.ajt);
-                    this.mNetwork.vl().wh().mIsNeedTbs = true;
-                    this.mNetwork.uO();
-                    if (this.mNetwork.vl().wi().isRequestSuccess()) {
+                    this.mNetwork.n("st_type", this.aia);
+                    this.mNetwork.vb().vX().mIsNeedTbs = true;
+                    this.mNetwork.uE();
+                    if (this.mNetwork.vb().vY().isRequestSuccess()) {
                         i = 1;
                         return i;
                     }
@@ -86,22 +86,22 @@ public class u {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.ggZ != null) {
+            if (this.gfO != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.ggZ.get();
+                a aVar2 = this.gfO.get();
                 if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.vl().wi().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.vb().vY().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
-                        aVar2.j(this.mForumName, this.mForumId);
+                        aVar2.i(this.mForumName, this.mForumId);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM_NAME, this.mForumName));
                         aVar.isSuccess = true;
                     } else {
-                        aVar2.k(this.mForumName, this.mForumId);
+                        aVar2.j(this.mForumName, this.mForumId);
                         aVar.isSuccess = false;
                         if (this.mNetwork != null) {
-                            aVar.errorMessage = this.mNetwork.vo() ? this.mNetwork.getErrorString() : this.mNetwork.vr();
+                            aVar.errorMessage = this.mNetwork.ve() ? this.mNetwork.getErrorString() : this.mNetwork.vh();
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM, aVar));

@@ -13,20 +13,20 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.e.a;
 /* loaded from: classes.dex */
 public class a {
-    private int aMP = 0;
-    private boolean aMQ = false;
-    private a.InterfaceC0079a bWf = new a.InterfaceC0079a() { // from class: com.baidu.tieba.frs.gametab.a.1
-        final int byc = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
+    private int aLA = 0;
+    private boolean aLB = false;
+    private a.InterfaceC0080a bUZ = new a.InterfaceC0080a() { // from class: com.baidu.tieba.frs.gametab.a.1
+        final int bwS = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0079a
-        public void ah(int i, int i2) {
+        @Override // com.baidu.tieba.e.a.InterfaceC0080a
+        public void ag(int i, int i2) {
             if (Y(i2)) {
                 a.this.en(false);
             }
         }
 
-        @Override // com.baidu.tieba.e.a.InterfaceC0079a
-        public void ai(int i, int i2) {
+        @Override // com.baidu.tieba.e.a.InterfaceC0080a
+        public void ah(int i, int i2) {
             if (Y(i2)) {
                 a.this.en(true);
             }
@@ -36,34 +36,34 @@ public class a {
             return Math.abs(f) >= 1.0f;
         }
     };
-    private BaseFragment biJ;
-    private com.baidu.tieba.e.b cma;
-    private boolean ctD;
+    private BaseFragment bhx;
+    private com.baidu.tieba.e.b ckS;
+    private boolean css;
 
     public a(BaseFragment baseFragment, boolean z) {
-        this.biJ = baseFragment;
-        this.ctD = z;
-        if (this.ctD) {
-            this.cma = new com.baidu.tieba.e.b(baseFragment.getActivity());
-            this.cma.a(this.bWf);
+        this.bhx = baseFragment;
+        this.css = z;
+        if (this.css) {
+            this.ckS = new com.baidu.tieba.e.b(baseFragment.getActivity());
+            this.ckS.a(this.bUZ);
         }
     }
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.ctD) {
-            this.aMP = i;
+        if (this.css) {
+            this.aLA = i;
         }
     }
 
     public void a(AbsListView absListView, int i, int i2) {
-        if (this.ctD && i == 0) {
+        if (this.css && i == 0) {
             int firstVisiblePosition = absListView.getFirstVisiblePosition() + i2;
-            if (firstVisiblePosition > 0 && firstVisiblePosition > this.aMP) {
+            if (firstVisiblePosition > 0 && firstVisiblePosition > this.aLA) {
                 m(false, true);
-            } else if (firstVisiblePosition < this.aMP) {
+            } else if (firstVisiblePosition < this.aLA) {
                 m(true, true);
-            } else if (firstVisiblePosition == this.aMP) {
-                if (!this.aMQ || firstVisiblePosition <= 0 || a(absListView)) {
+            } else if (firstVisiblePosition == this.aLA) {
+                if (!this.aLB || firstVisiblePosition <= 0 || a(absListView)) {
                     m(true, true);
                 } else {
                     m(false, true);
@@ -73,14 +73,14 @@ public class a {
     }
 
     public void d(View view, MotionEvent motionEvent) {
-        if (this.ctD && this.cma != null) {
-            this.cma.onTouchEvent(motionEvent);
+        if (this.css && this.ckS != null) {
+            this.ckS.onTouchEvent(motionEvent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void en(boolean z) {
-        this.aMQ = z;
+        this.aLB = z;
     }
 
     private boolean a(AbsListView absListView) {
@@ -93,14 +93,14 @@ public class a {
     private void m(boolean z, boolean z2) {
         if (z) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB);
-            customMessage.setTag(this.biJ.getBaseFragmentActivity().getUniqueId());
+            customMessage.setTag(this.bhx.getBaseFragmentActivity().getUniqueId());
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB, Boolean.valueOf(z2));
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             return;
         }
         CustomMessage customMessage2 = new CustomMessage(CmdConfigCustom.CMD_GAME_FRS_HIDE_TAB);
-        customMessage2.setTag(this.biJ.getBaseFragmentActivity().getUniqueId());
+        customMessage2.setTag(this.bhx.getBaseFragmentActivity().getUniqueId());
         CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_HIDE_TAB, Boolean.valueOf(z2));
         customResponsedMessage2.setOrginalMessage(customMessage2);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);

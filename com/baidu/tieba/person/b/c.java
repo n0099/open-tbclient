@@ -18,35 +18,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends j.a {
-    public TextView Se;
-    public TbPageContext alI;
-    public int aql;
-    public View bPb;
-    public HTypeListView feB;
-    public d feC;
+    public TextView QF;
+    public TbPageContext ako;
+    public int aoR;
+    public View bNR;
+    public HTypeListView fdp;
+    public d fdq;
     public View rootView;
 
     public c(View view, TbPageContext tbPageContext) {
         super(view);
-        this.aql = 3;
+        this.aoR = 3;
         this.rootView = view;
-        this.alI = tbPageContext;
-        this.bPb = view.findViewById(d.h.divider_view_under_photo_album);
-        this.Se = (TextView) view.findViewById(d.h.text_view_photo_album);
-        this.feB = (HTypeListView) view.findViewById(d.h.listview_photo_album);
-        this.feC = new com.baidu.tieba.person.a.d(this.alI, this.feB);
+        this.ako = tbPageContext;
+        this.bNR = view.findViewById(d.h.divider_view_under_photo_album);
+        this.QF = (TextView) view.findViewById(d.h.text_view_photo_album);
+        this.fdp = (HTypeListView) view.findViewById(d.h.listview_photo_album);
+        this.fdq = new com.baidu.tieba.person.a.d(this.ako, this.fdp);
     }
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.feC.setDatas(cG(eVar.getPhotoAlbum()));
+            this.fdq.setDatas(cG(eVar.getPhotoAlbum()));
         }
     }
 
     private List<f> cG(List<f> list) {
         if (u.u(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
-            h hVar = new h(k.g(this.alI.getPageActivity(), d.f.ds32), k.g(this.alI.getPageActivity(), d.f.ds120));
+            h hVar = new h(k.g(this.ako.getPageActivity(), d.f.ds32), k.g(this.ako.getPageActivity(), d.f.ds120));
             u.a(arrayList, 0, hVar);
             u.b(arrayList, hVar);
             return arrayList;
@@ -54,13 +54,13 @@ public class c extends j.a {
         return list;
     }
 
-    public void Eu() {
-        if (this.aql != TbadkCoreApplication.getInst().getSkinType()) {
-            this.aql = TbadkCoreApplication.getInst().getSkinType();
+    public void Em() {
+        if (this.aoR != TbadkCoreApplication.getInst().getSkinType()) {
+            this.aoR = TbadkCoreApplication.getInst().getSkinType();
             ai.k(this.rootView, d.e.cp_bg_line_d);
-            ai.k(this.bPb, d.e.cp_bg_line_c);
-            ai.c(this.Se, d.e.cp_cont_d, 1);
-            this.feC.notifyDataSetChanged();
+            ai.k(this.bNR, d.e.cp_bg_line_c);
+            ai.c(this.QF, d.e.cp_cont_d, 1);
+            this.fdq.notifyDataSetChanged();
         }
     }
 }

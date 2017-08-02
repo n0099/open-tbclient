@@ -11,13 +11,13 @@ import com.baidu.tbadk.util.u;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class b extends a {
-    private static b dyD = new b();
+    private static b dxl = new b();
 
     private b() {
     }
 
-    public static b axO() {
-        return dyD;
+    public static b axD() {
+        return dxl;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,8 +29,8 @@ public class b extends a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.dyA) {
-            ChatSetting chatSetting = this.dyA.get(str3);
+        synchronized (this.dxi) {
+            ChatSetting chatSetting = this.dxi.get(str3);
             groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
         }
         if (groupSettingItemData == null) {
@@ -39,7 +39,7 @@ public class b extends a {
             groupSettingItemData2.setGid(str2);
             groupSettingItemData2.setAcceptNotify(true);
             groupSettingItemData2.setInGroup(true);
-            if (k.hH()) {
+            if (k.hx()) {
                 a(groupSettingItemData2, null);
                 return groupSettingItemData2;
             }
@@ -49,7 +49,7 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void atQ() {
+    public void atE() {
         super.m(GroupSettingItemData.class);
     }
 
@@ -88,8 +88,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> axN() {
-        return com.baidu.tbadk.core.c.a.tn().cQ("tb.im_group_setting");
+    protected l<String> axC() {
+        return com.baidu.tbadk.core.c.a.td().cK("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -104,13 +104,13 @@ public class b extends a {
                 }
                 return;
             }
-            l<String> axN = axN();
+            l<String> axC = axC();
             String str = uid + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.dyA) {
-                this.dyA.put(str, groupSettingItemData);
+            synchronized (this.dxi) {
+                this.dxi.put(str, groupSettingItemData);
             }
-            axN.k(str, jsonStrWithObject);
+            axC.k(str, jsonStrWithObject);
         }
     }
 
@@ -127,15 +127,15 @@ public class b extends a {
                 return;
             }
             final String str = uid + "@" + gid;
-            synchronized (this.dyA) {
-                this.dyA.put(str, groupSettingItemData);
+            synchronized (this.dxi) {
+                this.dxi.put(str, groupSettingItemData);
             }
             u.b(new t<Void>() { // from class: com.baidu.tieba.im.settingcache.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.t
-                /* renamed from: Lp */
+                /* renamed from: Lk */
                 public Void doInBackground() {
-                    b.this.axN().k(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.axC().k(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, hVar);
@@ -145,15 +145,15 @@ public class b extends a {
     public void b(String str, String str2, h<Void> hVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             final String str3 = str + "@" + str2;
-            synchronized (this.dyA) {
-                this.dyA.remove(str3);
+            synchronized (this.dxi) {
+                this.dxi.remove(str3);
             }
             u.b(new t<Void>() { // from class: com.baidu.tieba.im.settingcache.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.t
-                /* renamed from: Lp */
+                /* renamed from: Lk */
                 public Void doInBackground() {
-                    b.this.axN().remove(str3);
+                    b.this.axC().remove(str3);
                     return null;
                 }
             }, hVar);

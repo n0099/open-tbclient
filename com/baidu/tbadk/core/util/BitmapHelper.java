@@ -364,7 +364,7 @@ public class BitmapHelper {
             android.graphics.BitmapFactory.decodeStream(r2, r3, r6)     // Catch: java.lang.Throwable -> L70
             android.graphics.Bitmap$Config r3 = com.baidu.tbadk.TbConfig.BitmapConfig     // Catch: java.lang.Throwable -> L70
             r6.inPreferredConfig = r3     // Catch: java.lang.Throwable -> L70
-            com.baidu.adp.lib.util.m.p(r2)     // Catch: java.lang.Throwable -> L70
+            com.baidu.adp.lib.util.m.j(r2)     // Catch: java.lang.Throwable -> L70
         L35:
             int r3 = r6.outWidth     // Catch: java.lang.Throwable -> L70
             int r7 = r1 * 2
@@ -386,7 +386,7 @@ public class BitmapHelper {
             r1 = 0
             android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r3, r1, r6)     // Catch: java.lang.Throwable -> L72
             monitor-exit(r5)     // Catch: java.lang.Throwable -> L72
-            com.baidu.adp.lib.util.m.p(r3)
+            com.baidu.adp.lib.util.m.j(r3)
             r0 = r1
             goto Le
         L5b:
@@ -398,14 +398,14 @@ public class BitmapHelper {
         L5f:
             r1 = move-exception
         L60:
-            com.baidu.adp.lib.util.m.p(r2)
+            com.baidu.adp.lib.util.m.j(r2)
             goto Le
         L64:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L67:
-            com.baidu.adp.lib.util.m.p(r2)
+            com.baidu.adp.lib.util.m.j(r2)
             throw r0
         L6b:
             r0 = move-exception
@@ -459,7 +459,7 @@ public class BitmapHelper {
             r1 = 0
             android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r4)     // Catch: java.lang.Throwable -> L49
             monitor-exit(r3)     // Catch: java.lang.Throwable -> L49
-            com.baidu.adp.lib.util.m.p(r2)
+            com.baidu.adp.lib.util.m.j(r2)
             r0 = r1
             goto L9
         L34:
@@ -471,14 +471,14 @@ public class BitmapHelper {
         L38:
             r1 = move-exception
         L39:
-            com.baidu.adp.lib.util.m.p(r2)
+            com.baidu.adp.lib.util.m.j(r2)
             goto L9
         L3d:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L40:
-            com.baidu.adp.lib.util.m.p(r2)
+            com.baidu.adp.lib.util.m.j(r2)
             throw r0
         L44:
             r0 = move-exception
@@ -504,19 +504,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream dB = k.dB(str);
-                BitmapFactory.decodeStream(dB, null, options);
+                InputStream dv = k.dv(str);
+                BitmapFactory.decodeStream(dv, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.m.p(dB);
+                com.baidu.adp.lib.util.m.j(dv);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream dB2 = k.dB(str);
-                        decodeStream = BitmapFactory.decodeStream(dB2, null, options);
-                        com.baidu.adp.lib.util.m.p(dB2);
+                        InputStream dv2 = k.dv(str);
+                        decodeStream = BitmapFactory.decodeStream(dv2, null, options);
+                        com.baidu.adp.lib.util.m.j(dv2);
                     }
                 }
             }
@@ -539,7 +539,7 @@ public class BitmapHelper {
                 InputStream q = k.q(new File(str));
                 BitmapFactory.decodeStream(q, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.m.p(q);
+                com.baidu.adp.lib.util.m.j(q);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
@@ -548,7 +548,7 @@ public class BitmapHelper {
                         options.inSampleSize = i2;
                         InputStream q2 = k.q(new File(str));
                         decodeStream = BitmapFactory.decodeStream(q2, null, options);
-                        com.baidu.adp.lib.util.m.p(q2);
+                        com.baidu.adp.lib.util.m.j(q2);
                     }
                 }
             }

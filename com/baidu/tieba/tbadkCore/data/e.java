@@ -3,56 +3,56 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class e {
-    public static final int[] ghm = {3, 8, 13};
-    public static final int[] ghn = {2, 12};
-    public static final int[] gho = {20};
-    public static final int[] ghp = {3, 13, 23};
-    private SparseIntArray ghq = new SparseIntArray();
-    private String ghr;
-    private final int[] ghs;
+    public static final int[] ggb = {3, 8, 13};
+    public static final int[] ggc = {2, 12};
+    public static final int[] ggd = {20};
+    public static final int[] gge = {3, 13, 23};
+    private SparseIntArray ggf = new SparseIntArray();
+    private String ggg;
+    private final int[] ggh;
 
     public e(String str, int[] iArr) {
-        this.ghs = iArr;
-        this.ghr = str;
+        this.ggh = iArr;
+        this.ggg = str;
     }
 
-    public void te(int i) {
+    public void tf(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
         }
-        if (this.ghq != null) {
-            this.ghq.clear();
-            if (this.ghs != null) {
-                for (int i2 : this.ghs) {
+        if (this.ggf != null) {
+            this.ggf.clear();
+            if (this.ggh != null) {
+                for (int i2 : this.ggh) {
                     if (i2 >= 0) {
-                        this.ghq.append(i2 + i, i2);
+                        this.ggf.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void brZ() {
-        te(0);
+    public void brS() {
+        tf(0);
     }
 
-    public void bw(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.ghq != null) {
-            this.ghq.append(i2, i);
+    public void bv(int i, int i2) {
+        if (i >= 0 && i2 >= 0 && this.ggf != null) {
+            this.ggf.append(i2, i);
         }
     }
 
-    public int tf(int i) {
-        if (i >= 0 && this.ghq != null) {
-            return this.ghq.get(i, -1);
+    public int tg(int i) {
+        if (i >= 0 && this.ggf != null) {
+            return this.ggf.get(i, -1);
         }
         return -1;
     }
 
-    public void tg(int i) {
-        if (this.ghq != null) {
-            this.ghq.delete(i);
+    public void th(int i) {
+        if (this.ggf != null) {
+            this.ggf.delete(i);
         }
     }
 }

@@ -9,32 +9,32 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d {
-    public TextView abX;
-    public TextView eWX;
-    public TextView eWY;
+    public TextView aaA;
+    public TextView eVL;
+    public TextView eVM;
     public View mRootView;
 
     public d(View view) {
         if (view != null) {
             this.mRootView = view;
-            this.abX = (TextView) this.mRootView.findViewById(d.h.view_video_title);
-            this.eWX = (TextView) this.mRootView.findViewById(d.h.pb_video_replay_num);
-            this.eWY = (TextView) this.mRootView.findViewById(d.h.pb_video_play_count);
+            this.aaA = (TextView) this.mRootView.findViewById(d.h.view_video_title);
+            this.eVL = (TextView) this.mRootView.findViewById(d.h.pb_video_replay_num);
+            this.eVM = (TextView) this.mRootView.findViewById(d.h.pb_video_play_count);
         }
     }
 
     public void W(bl blVar) {
-        if (blVar != null && blVar.rW() != null) {
-            this.abX.setText(blVar.getTitle());
-            this.eWX.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.pb_video_header_replay_num), al.x(blVar.rx())));
-            this.eWY.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.pb_video_header_play_count), al.x(blVar.rW().play_count.intValue())));
-            Bf();
+        if (blVar != null && blVar.rM() != null) {
+            this.aaA.setText(blVar.getTitle());
+            this.eVL.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.pb_video_header_replay_num), al.x(blVar.rn())));
+            this.eVM.setText(String.format(TbadkCoreApplication.getInst().getString(d.l.pb_video_header_play_count), al.x(blVar.rM().play_count.intValue())));
+            AX();
         }
     }
 
-    public void Bf() {
-        ai.c(this.abX, d.e.cp_cont_b, 1);
-        ai.c(this.eWX, d.e.cp_cont_f, 1);
-        ai.c(this.eWY, d.e.cp_cont_f, 1);
+    public void AX() {
+        ai.c(this.aaA, d.e.cp_cont_b, 1);
+        ai.c(this.eVL, d.e.cp_cont_f, 1);
+        ai.c(this.eVM, d.e.cp_cont_f, 1);
     }
 }

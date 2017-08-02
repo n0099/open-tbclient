@@ -18,31 +18,31 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private com.baidu.tieba.pb.pb.main.emotion.a eHX;
+    private com.baidu.tieba.pb.pb.main.emotion.a eGK;
     private List<EmotionImageData> mList;
-    private final Runnable err = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.2
+    private final Runnable eqa = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.2
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.erq != null) {
-                for (String str : b.this.erq) {
+            if (b.this.epZ != null) {
+                for (String str : b.this.epZ) {
                     if (!TextUtils.isEmpty(str)) {
-                        c.Ex().gn(str);
+                        c.Ep().gi(str);
                     }
                 }
             }
         }
     };
     private Context mContext = BdBaseApplication.getInst().getApp();
-    private Set<String> erq = new HashSet();
-    private int afL = k.g(this.mContext, d.f.ds116);
-    private int dCh = (int) (((k.ag(this.mContext) - k.g(this.mContext, d.f.ds88)) - (this.afL * 4)) * 0.333d);
+    private Set<String> epZ = new HashSet();
+    private int aeq = k.g(this.mContext, d.f.ds116);
+    private int dAQ = (int) (((k.af(this.mContext) - k.g(this.mContext, d.f.ds88)) - (this.aeq * 4)) * 0.333d);
 
     public b(List<EmotionImageData> list) {
         this.mList = list;
     }
 
     public void a(com.baidu.tieba.pb.pb.main.emotion.a aVar) {
-        this.eHX = aVar;
+        this.eGK = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -66,14 +66,14 @@ public class b extends BaseAdapter {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.j.list_search_emotion_item, (ViewGroup) null);
-            aVar.eRt = (EmotionView) view.findViewById(d.h.emotion_view1);
-            aVar.eRu = (EmotionView) view.findViewById(d.h.emotion_view2);
-            aVar.eRv = (EmotionView) view.findViewById(d.h.emotion_view3);
-            aVar.eRw = (EmotionView) view.findViewById(d.h.emotion_view4);
+            aVar.eQg = (EmotionView) view.findViewById(d.h.emotion_view1);
+            aVar.eQh = (EmotionView) view.findViewById(d.h.emotion_view2);
+            aVar.eQi = (EmotionView) view.findViewById(d.h.emotion_view3);
+            aVar.eQj = (EmotionView) view.findViewById(d.h.emotion_view4);
             aVar.initView();
-            A(aVar.eRu, this.dCh);
-            A(aVar.eRv, this.dCh);
-            A(aVar.eRw, this.dCh);
+            A(aVar.eQh, this.dAQ);
+            A(aVar.eQi, this.dAQ);
+            A(aVar.eQj, this.dAQ);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -85,16 +85,16 @@ public class b extends BaseAdapter {
                 EmotionImageData emotionImageData = this.mList.get(i3);
                 switch (i3 - i2) {
                     case 0:
-                        a(aVar.eRt, emotionImageData);
+                        a(aVar.eQg, emotionImageData);
                         continue;
                     case 1:
-                        a(aVar.eRu, emotionImageData);
+                        a(aVar.eQh, emotionImageData);
                         continue;
                     case 2:
-                        a(aVar.eRv, emotionImageData);
+                        a(aVar.eQi, emotionImageData);
                         continue;
                     case 3:
-                        a(aVar.eRw, emotionImageData);
+                        a(aVar.eQj, emotionImageData);
                         continue;
                 }
             }
@@ -103,16 +103,16 @@ public class b extends BaseAdapter {
     }
 
     public void removeListener() {
-        this.eHX = null;
+        this.eGK = null;
     }
 
     private void a(EmotionView emotionView, EmotionImageData emotionImageData) {
         if (emotionView != null && emotionImageData != null) {
             emotionView.setTag(emotionView.getId(), emotionImageData);
-            emotionView.acy();
+            emotionView.act();
             emotionView.a(emotionImageData);
-            if (this.erq != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                this.erq.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
+            if (this.epZ != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                this.epZ.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
             }
         }
     }
@@ -125,8 +125,8 @@ public class b extends BaseAdapter {
                 public void onClick(View view) {
                     Object tag = view.getTag(view.getId());
                     if (tag != null && (tag instanceof EmotionImageData)) {
-                        if (b.this.eHX != null && (view instanceof EmotionView)) {
-                            b.this.eHX.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
+                        if (b.this.eGK != null && (view instanceof EmotionView)) {
+                            b.this.eGK.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
                         }
                         TiebaStatic.log("c12180");
                     }
@@ -135,8 +135,8 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void aLB() {
-        new Thread(this.err).start();
+    public void aLq() {
+        new Thread(this.eqa).start();
     }
 
     private void A(View view, int i) {
@@ -149,19 +149,19 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes.dex */
     class a {
-        public EmotionView eRt;
-        public EmotionView eRu;
-        public EmotionView eRv;
-        public EmotionView eRw;
+        public EmotionView eQg;
+        public EmotionView eQh;
+        public EmotionView eQi;
+        public EmotionView eQj;
 
         a() {
         }
 
         public void initView() {
-            b.this.k(this.eRt);
-            b.this.k(this.eRu);
-            b.this.k(this.eRv);
-            b.this.k(this.eRw);
+            b.this.k(this.eQg);
+            b.this.k(this.eQh);
+            b.this.k(this.eQi);
+            b.this.k(this.eQj);
         }
     }
 }

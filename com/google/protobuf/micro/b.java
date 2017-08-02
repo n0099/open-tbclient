@@ -82,7 +82,7 @@ public final class b {
         this.b -= this.c;
     }
 
-    public static b x(InputStream inputStream) {
+    public static b r(InputStream inputStream) {
         return new b(inputStream);
     }
 
@@ -133,7 +133,7 @@ public final class b {
                 e();
                 return true;
             case 1:
-                bFE();
+                bEn();
                 return true;
             case 2:
                 f(j());
@@ -152,35 +152,35 @@ public final class b {
         }
     }
 
-    public a bFC() {
+    public a bEl() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return a.M(vr(j));
+            return a.J(vo(j));
         }
         a k = a.k(this.a, this.d, j);
         this.d = j + this.d;
         return k;
     }
 
-    public long bFD() {
+    public long bEm() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
-            byte bFF = bFF();
-            j |= (bFF & Byte.MAX_VALUE) << i;
-            if ((bFF & 128) == 0) {
+            byte bEo = bEo();
+            j |= (bEo & Byte.MAX_VALUE) << i;
+            if ((bEo & 128) == 0) {
                 return j;
             }
         }
         throw d.c();
     }
 
-    public long bFE() {
-        byte bFF = bFF();
-        byte bFF2 = bFF();
-        return ((bFF2 & 255) << 8) | (bFF & 255) | ((bFF() & 255) << 16) | ((bFF() & 255) << 24) | ((bFF() & 255) << 32) | ((bFF() & 255) << 40) | ((bFF() & 255) << 48) | ((bFF() & 255) << 56);
+    public long bEn() {
+        byte bEo = bEo();
+        byte bEo2 = bEo();
+        return ((bEo2 & 255) << 8) | (bEo & 255) | ((bEo() & 255) << 16) | ((bEo() & 255) << 24) | ((bEo() & 255) << 32) | ((bEo() & 255) << 40) | ((bEo() & 255) << 48) | ((bEo() & 255) << 56);
     }
 
-    public byte bFF() {
+    public byte bEo() {
         if (this.d == this.b) {
             a(true);
         }
@@ -205,11 +205,11 @@ public final class b {
     }
 
     public long c() {
-        return bFD();
+        return bEm();
     }
 
     public long d() {
-        return bFD();
+        return bEm();
     }
 
     public void d(int i) {
@@ -254,7 +254,7 @@ public final class b {
     public String g() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return new String(vr(j), "UTF-8");
+            return new String(vo(j), "UTF-8");
         }
         String str = new String(this.a, this.d, j, "UTF-8");
         this.d = j + this.d;
@@ -266,31 +266,31 @@ public final class b {
     }
 
     public int j() {
-        byte bFF = bFF();
-        if (bFF >= 0) {
-            return bFF;
+        byte bEo = bEo();
+        if (bEo >= 0) {
+            return bEo;
         }
-        int i = bFF & Byte.MAX_VALUE;
-        byte bFF2 = bFF();
-        if (bFF2 >= 0) {
-            return i | (bFF2 << 7);
+        int i = bEo & Byte.MAX_VALUE;
+        byte bEo2 = bEo();
+        if (bEo2 >= 0) {
+            return i | (bEo2 << 7);
         }
-        int i2 = i | ((bFF2 & Byte.MAX_VALUE) << 7);
-        byte bFF3 = bFF();
-        if (bFF3 >= 0) {
-            return i2 | (bFF3 << 14);
+        int i2 = i | ((bEo2 & Byte.MAX_VALUE) << 7);
+        byte bEo3 = bEo();
+        if (bEo3 >= 0) {
+            return i2 | (bEo3 << 14);
         }
-        int i3 = i2 | ((bFF3 & Byte.MAX_VALUE) << 14);
-        byte bFF4 = bFF();
-        if (bFF4 >= 0) {
-            return i3 | (bFF4 << 21);
+        int i3 = i2 | ((bEo3 & Byte.MAX_VALUE) << 14);
+        byte bEo4 = bEo();
+        if (bEo4 >= 0) {
+            return i3 | (bEo4 << 21);
         }
-        int i4 = i3 | ((bFF4 & Byte.MAX_VALUE) << 21);
-        byte bFF5 = bFF();
-        int i5 = i4 | (bFF5 << 28);
-        if (bFF5 < 0) {
+        int i4 = i3 | ((bEo4 & Byte.MAX_VALUE) << 21);
+        byte bEo5 = bEo();
+        int i5 = i4 | (bEo5 << 28);
+        if (bEo5 < 0) {
             for (int i6 = 0; i6 < 5; i6++) {
-                if (bFF() >= 0) {
+                if (bEo() >= 0) {
                     return i5;
                 }
             }
@@ -300,14 +300,14 @@ public final class b {
     }
 
     public int l() {
-        return (bFF() & 255) | ((bFF() & 255) << 8) | ((bFF() & 255) << 16) | ((bFF() & 255) << 24);
+        return (bEo() & 255) | ((bEo() & 255) << 8) | ((bEo() & 255) << 16) | ((bEo() & 255) << 24);
     }
 
     public boolean n() {
         return this.d == this.b && !a(false);
     }
 
-    public byte[] vr(int i) {
+    public byte[] vo(int i) {
         if (i < 0) {
             throw d.b();
         }

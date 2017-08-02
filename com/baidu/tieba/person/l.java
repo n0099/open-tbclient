@@ -7,8 +7,8 @@ import tbclient.UcCardInfo;
 /* loaded from: classes.dex */
 public class l {
     public String document;
-    public String fef;
-    public List<a> feg;
+    public String fcT;
+    public List<a> fcU;
     public String icon;
     public String name;
 
@@ -17,14 +17,14 @@ public class l {
             this.name = ucCard.name;
             this.icon = ucCard.icon;
             this.document = ucCard.doc;
-            this.fef = ucCard.jmp;
-            this.feg = new ArrayList();
+            this.fcT = ucCard.jmp;
+            this.fcU = new ArrayList();
             if (ucCard.uc_cards != null) {
                 for (UcCardInfo ucCardInfo : ucCard.uc_cards) {
                     if (ucCardInfo != null) {
                         a aVar = new a();
                         aVar.a(ucCardInfo);
-                        this.feg.add(aVar);
+                        this.fcU.add(aVar);
                     }
                 }
             }
@@ -33,8 +33,8 @@ public class l {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String fef;
-        public boolean feh;
+        public String fcT;
+        public boolean fcV;
         public String pic;
         public long timeStamp;
         public String tip;
@@ -44,7 +44,7 @@ public class l {
             if (ucCardInfo != null) {
                 this.title = ucCardInfo.title;
                 this.pic = ucCardInfo.pic;
-                this.fef = ucCardInfo.jmp;
+                this.fcT = ucCardInfo.jmp;
                 this.tip = ucCardInfo.tip;
                 this.timeStamp = ucCardInfo.st.intValue();
             }

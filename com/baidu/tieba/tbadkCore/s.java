@@ -17,11 +17,11 @@ public class s {
             com.baidu.adp.lib.util.k.showToast(context, d.l.download_error);
             return;
         }
-        File dv = com.baidu.tbadk.core.util.k.dv(str.replace(".", "_") + ".apk");
-        if (dv != null) {
+        File dp = com.baidu.tbadk.core.util.k.dp(str.replace(".", "_") + ".apk");
+        if (dp != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(dv, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(dp, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -38,10 +38,10 @@ public class s {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean aI = aa.aI(activity);
+        boolean aH = aa.aH(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return aI;
+        return aH;
     }
 }

@@ -11,8 +11,8 @@ import java.util.Map;
 import java.util.Properties;
 /* loaded from: classes.dex */
 public class s {
-    private static final Map<String, String> aeh = new HashMap();
-    private static final Map<String, String> aei = new HashMap();
+    private static final Map<String, String> acK = new HashMap();
+    private static final Map<String, String> acL = new HashMap();
 
     static {
         add("application/andrew-inset", "ez");
@@ -342,17 +342,17 @@ public class s {
         add("video/x-webex", "wrf");
         add("x-conference/x-cooltalk", "ice");
         add("x-epoc/x-sisx-app", "sisx");
-        uc();
+        tS();
     }
 
     private static void add(String str, String str2) {
-        if (!aeh.containsKey(str)) {
-            aeh.put(str, str2);
+        if (!acK.containsKey(str)) {
+            acK.put(str, str2);
         }
-        aei.put(str2, str);
+        acL.put(str2, str);
     }
 
-    private static InputStream ub() {
+    private static InputStream tR() {
         String property = System.getProperty("content.types.user.table");
         if (property != null) {
             File file = new File(property);
@@ -373,24 +373,24 @@ public class s {
         return null;
     }
 
-    private static void uc() {
-        InputStream ub = ub();
-        if (ub != null) {
+    private static void tS() {
+        InputStream tR = tR();
+        if (tR != null) {
             try {
                 Properties properties = new Properties();
-                properties.load(ub);
+                properties.load(tR);
                 for (Map.Entry entry : properties.entrySet()) {
                     add((String) entry.getValue(), (String) entry.getKey());
                 }
-                ub.close();
+                tR.close();
             }
         }
     }
 
-    public static String dc(String str) {
+    public static String cW(String str) {
         if (str == null || str.isEmpty()) {
             return null;
         }
-        return aei.get(str);
+        return acL.get(str);
     }
 }
