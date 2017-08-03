@@ -30,7 +30,7 @@ public class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sd */
+    /* renamed from: sc */
     public e getItem(int i) {
         if (this.fJI == null || i >= this.fJI.size()) {
             return null;

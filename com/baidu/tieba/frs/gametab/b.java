@@ -337,7 +337,7 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
         NavigationBar afl;
         if ((fragment instanceof com.baidu.tieba.frs.aj) && this.csA != null && this.csA.aOW() != null && (afl = ((com.baidu.tieba.frs.aj) fragment).afl()) != null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(UtilHelper.getFixedBarText(this.csA.aOW().getName(), 5, true, true) + this.csu.getActivity().getString(d.l.forum));
+            sb.append(UtilHelper.getFixedBarText(this.csA.aOW().getName(), 5, true, true) + TbadkCoreApplication.getInst().getString(d.l.forum));
             FrsTabInfo frsTabInfo = (FrsTabInfo) u.c(this.csB.agb(), i);
             if (frsTabInfo != null) {
                 sb.append(" · ");

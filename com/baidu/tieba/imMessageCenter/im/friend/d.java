@@ -111,7 +111,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         this.dBo.setOnClickListener(this.dBj);
         wV();
         ayK();
-        mL(0);
+        mK(0);
     }
 
     private void VR() {
@@ -301,7 +301,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
     public void g(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
             this.dBm.d(aVar);
-            mL(this.dBm.getItemLength());
+            mK(this.dBm.getItemLength());
             ayT();
         }
     }
@@ -309,7 +309,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
     public void h(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
             this.dBm.f(aVar);
-            mL(this.dBm.getItemLength());
+            mK(this.dBm.getItemLength());
             ayT();
         }
     }
@@ -326,7 +326,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         k.b(this.dBj.getPageContext().getPageActivity(), this.dxI);
     }
 
-    private void mL(int i) {
+    private void mK(int i) {
         this.dBo.setText(String.format(this.dBj.getPageContext().getString(d.l.invite_friend_candidate_send), Integer.valueOf(i)));
     }
 
@@ -334,7 +334,7 @@ public class d extends com.baidu.adp.base.c<InviteFriendListActivity> implements
         return this.dBp;
     }
 
-    public void mM(int i) {
+    public void mL(int i) {
         this.dBp = i;
         this.dBm.setMaxCount(i);
     }

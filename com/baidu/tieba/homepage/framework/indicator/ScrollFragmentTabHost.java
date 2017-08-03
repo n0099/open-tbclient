@@ -55,7 +55,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void kF(int i);
+        void kE(int i);
     }
 
     public ScrollFragmentTabHost(Context context) {
@@ -71,14 +71,14 @@ public class ScrollFragmentTabHost extends FrameLayout {
         this.cQR = new b();
         this.cQS = new com.baidu.tieba.homepage.framework.e() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.3
             @Override // com.baidu.tieba.homepage.framework.e
-            public void ky(int i) {
+            public void kx(int i) {
                 ScrollFragmentTabHost.this.h(i, false);
-                ScrollFragmentTabHost.this.cQO.kC(i);
+                ScrollFragmentTabHost.this.cQO.kB(i);
             }
         };
         this.cQT = new d() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.4
             @Override // com.baidu.tieba.homepage.framework.d
-            public void kx(int i) {
+            public void kw(int i) {
                 ScrollFragmentTabHost.this.cQR.a(i, ScrollFragmentTabHost.this.cQS);
             }
         };
@@ -98,14 +98,14 @@ public class ScrollFragmentTabHost extends FrameLayout {
         this.cQR = new b();
         this.cQS = new com.baidu.tieba.homepage.framework.e() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.3
             @Override // com.baidu.tieba.homepage.framework.e
-            public void ky(int i) {
+            public void kx(int i) {
                 ScrollFragmentTabHost.this.h(i, false);
-                ScrollFragmentTabHost.this.cQO.kC(i);
+                ScrollFragmentTabHost.this.cQO.kB(i);
             }
         };
         this.cQT = new d() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.4
             @Override // com.baidu.tieba.homepage.framework.d
-            public void kx(int i) {
+            public void kw(int i) {
                 ScrollFragmentTabHost.this.cQR.a(i, ScrollFragmentTabHost.this.cQS);
             }
         };
@@ -136,7 +136,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
                 if (ScrollFragmentTabHost.this.cQQ != null) {
-                    ScrollFragmentTabHost.this.cQQ.kF(i);
+                    ScrollFragmentTabHost.this.cQQ.kE(i);
                 }
                 if (ScrollFragmentTabHost.this.cQP != null && ScrollFragmentTabHost.this.cQP.size() > i && ScrollFragmentTabHost.this.cQP.get(i) != null) {
                     if (((com.baidu.tieba.homepage.b.a.a) ScrollFragmentTabHost.this.cQP.get(i)).cTT == -2) {
@@ -155,7 +155,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
                     if (anZ && ScrollFragmentTabHost.this.cQO != null) {
                         ScrollFragmentTabHost.this.setShowConcernRedTip(false);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RECOMMEND_FRS_TIP_SHOW, 0));
-                        ScrollFragmentTabHost.this.cQO.kB(com.baidu.tieba.homepage.framework.indicator.a.cQy);
+                        ScrollFragmentTabHost.this.cQO.kA(com.baidu.tieba.homepage.framework.indicator.a.cQy);
                     }
                 }
             }
@@ -237,7 +237,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
     public void h(int i, boolean z) {
         if (i >= 0 && i < this.cQO.getCount()) {
             this.cQL.setTabItemClicked(z);
-            this.cQO.kD(i);
+            this.cQO.kC(i);
             this.adS.setCurrentItem(i);
         }
     }

@@ -152,7 +152,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
 
     private void initView() {
         this.dAU = new d(this, this.isFromInviteChat);
-        this.dAU.mM(100);
+        this.dAU.mL(100);
     }
 
     private void Pm() {

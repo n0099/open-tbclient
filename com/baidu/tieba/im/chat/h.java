@@ -46,8 +46,8 @@ public class h {
         this.aaS = tbPageContext;
         this.mListView = bdTypeListView;
         initAdapters();
-        this.dgC.lL(i);
-        this.dgD.lL(i);
+        this.dgC.lK(i);
+        this.dgD.lK(i);
     }
 
     private void initAdapters() {

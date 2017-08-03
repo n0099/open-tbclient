@@ -108,7 +108,7 @@ public class TextSizeSeekBar extends View {
                             i = i2 + 1;
                         } else {
                             this.index = i2;
-                            com.baidu.tieba.pb.a.b.oO(Math.abs(this.index - 3));
+                            com.baidu.tieba.pb.a.b.oN(Math.abs(this.index - 3));
                             invalidate();
                             return true;
                         }

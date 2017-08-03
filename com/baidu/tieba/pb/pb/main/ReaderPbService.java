@@ -91,9 +91,9 @@ public class ReaderPbService extends BdBaseService {
                     ReaderPbService.this.mReaderManager.a(adVar.pbData, adVar.isSquence, adVar.loadType, adVar.eLT, false);
                     int aSq = ReaderPbService.this.mReaderManager.aSq();
                     if (aSq == 1 || aSq == 3) {
-                        ReaderPbService.this.mReaderManager.ph(0);
+                        ReaderPbService.this.mReaderManager.pg(0);
                     } else {
-                        ReaderPbService.this.mReaderManager.ph(1);
+                        ReaderPbService.this.mReaderManager.pg(1);
                     }
                     ReaderPbService.this.mReaderManager.A(adVar.eLU, adVar.eLW);
                     return;

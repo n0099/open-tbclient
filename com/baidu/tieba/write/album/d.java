@@ -43,7 +43,7 @@ public class d extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uh */
+    /* renamed from: ug */
     public com.baidu.tbadk.c.a getItem(int i) {
         if (this.mList == null || i < 0 || i >= this.mList.size()) {
             return null;

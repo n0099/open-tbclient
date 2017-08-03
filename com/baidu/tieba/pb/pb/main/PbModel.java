@@ -519,7 +519,7 @@ public class PbModel extends DataModel {
         return this.eJQ.nA();
     }
 
-    public boolean oZ(int i) {
+    public boolean oY(int i) {
         this.eJH = i;
         if (this.eJH > this.eJQ.qx().qo()) {
             this.eJH = this.eJQ.qx().qo();
@@ -530,10 +530,10 @@ public class PbModel extends DataModel {
         if (this.eJA == null) {
             return false;
         }
-        return pd(5);
+        return pc(5);
     }
 
-    public boolean pa(int i) {
+    public boolean oZ(int i) {
         int sj = this.eJQ.aOY().sj();
         if (i <= sj) {
             sj = i;
@@ -543,16 +543,16 @@ public class PbModel extends DataModel {
             return false;
         }
         this.eKj = i2;
-        return pd(7);
+        return pc(7);
     }
 
-    public void pb(int i) {
+    public void pa(int i) {
         this.eJH = i;
         this.eJI = i;
         this.eJJ = i;
     }
 
-    public void pc(int i) {
+    public void pb(int i) {
         if (this.eJI < i) {
             this.eJI = i;
             if (this.eJI - this.eJJ >= eJz) {
@@ -607,14 +607,14 @@ public class PbModel extends DataModel {
             this.bXR = new com.baidu.tieba.tbadkCore.d.b("pbStat");
             this.bXR.start();
         }
-        boolean pd = pd(3);
+        boolean pc = pc(3);
         if (this.opType != null) {
             this.opType = null;
             this.eJX = null;
             this.opUrl = null;
-            return pd;
+            return pc;
         }
-        return pd;
+        return pc;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -653,14 +653,14 @@ public class PbModel extends DataModel {
         }
     }
 
-    public boolean pd(int i) {
+    public boolean pc(int i) {
         int i2;
         this.mRequestType = i;
         if (this.isLoading) {
             return false;
         }
         this.isLoading = true;
-        pe(i);
+        pd(i);
         final com.baidu.tieba.pb.data.f pbData = ai.aSy().getPbData();
         if (pbData != null && pbData.aOY() != null) {
             pbData.aOY().bO(0);
@@ -874,7 +874,7 @@ public class PbModel extends DataModel {
         }
     }
 
-    protected void pe(int i) {
+    protected void pd(int i) {
         boolean z = false;
         ArrayList<PostData> aPa = this.eJQ.aPa();
         this.eKe = false;
@@ -1054,7 +1054,7 @@ public class PbModel extends DataModel {
             this.bXR = null;
         }
         if (z4 && !z3 && !TextUtils.isEmpty(aRm()) && com.baidu.tieba.recapp.r.bhv().bhr() != null) {
-            com.baidu.tieba.recapp.r.bhv().bhr().g(aRm(), pf(aRD()), true);
+            com.baidu.tieba.recapp.r.bhv().bhr().g(aRm(), pe(aRD()), true);
         }
         if (fVar == null || (this.eJH == 1 && i == 5 && fVar.aPa() != null && fVar.aPa().size() < 1)) {
             if (this.eJW != null) {
@@ -1065,7 +1065,7 @@ public class PbModel extends DataModel {
             this.eJE = this.eJF;
             this.eJO = false;
             if (fVar.qx() != null) {
-                pc(fVar.qx().qr());
+                pb(fVar.qx().qr());
                 this.bLe = fVar.qx().qo();
             }
             this.bLe = this.bLe < 1 ? 1 : this.bLe;
@@ -1198,7 +1198,7 @@ public class PbModel extends DataModel {
         }
     }
 
-    private int pf(int i) {
+    private int pe(int i) {
         switch (i) {
             case 1:
                 return 2;
@@ -1228,7 +1228,7 @@ public class PbModel extends DataModel {
     public void k(com.baidu.tieba.pb.data.f fVar) {
         fVar.pd(this.eJQ.aPp());
         this.eJQ = fVar;
-        pb(fVar.qx().qr());
+        pa(fVar.qx().qr());
     }
 
     private void aRv() {
@@ -1252,9 +1252,9 @@ public class PbModel extends DataModel {
         }
         cancelMessage();
         if (this.isFromMark) {
-            return pd(4);
+            return pc(4);
         }
-        return pd(6);
+        return pc(6);
     }
 
     public boolean jh(boolean z) {
@@ -1262,7 +1262,7 @@ public class PbModel extends DataModel {
             return false;
         }
         if (z || this.eJQ.qx().qt() != 0) {
-            return pd(1);
+            return pc(1);
         }
         return false;
     }
@@ -1272,7 +1272,7 @@ public class PbModel extends DataModel {
             return false;
         }
         if ((z || this.eJQ.qx().qu() != 0) && this.eJQ.aPa() != null && this.eJQ.aPa().size() >= 1) {
-            return pd(2);
+            return pc(2);
         }
         return false;
     }
@@ -1280,7 +1280,7 @@ public class PbModel extends DataModel {
     public boolean pm(String str) {
         this.eJD = !this.eJD;
         this.eJB = str;
-        pd(6);
+        pc(6);
         return true;
     }
 
@@ -1290,7 +1290,7 @@ public class PbModel extends DataModel {
         }
         this.eJD = z;
         this.eJB = str;
-        pd(6);
+        pc(6);
         return true;
     }
 
@@ -1353,7 +1353,7 @@ public class PbModel extends DataModel {
         return writeData;
     }
 
-    public MarkData pg(int i) {
+    public MarkData pf(int i) {
         if (i < 0) {
             i = 0;
         }

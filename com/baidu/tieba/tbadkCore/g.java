@@ -170,7 +170,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
                         }
                     }
                 }
-                mP(dataRes.is_new_url.intValue());
+                mO(dataRes.is_new_url.intValue());
                 this.gei = dataRes.fortune_bag.intValue() == 1;
                 this.gej = dataRes.fortune_desc;
                 if (dataRes.forum != null) {
@@ -209,7 +209,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
                     this.gex = dataRes.nav_tab_info;
                 }
                 this.alaLiveCount = dataRes.ala_live_count.intValue();
-                sX(dataRes.frs_tab_default.intValue());
+                sW(dataRes.frs_tab_default.intValue());
                 List<ZhiBoInfoTW> list3 = dataRes.twzhibo_info;
                 if (list3 != null && list3.size() > 0) {
                     this.gep = new ArrayList();
@@ -359,7 +359,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.geU = agreeBanner;
     }
 
-    private void sX(int i) {
+    private void sW(int i) {
         this.gey = 1;
         if (this.gew != null && this.gew.size() > 0) {
             for (FrsTabInfo frsTabInfo : this.gew) {
@@ -409,7 +409,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         return this.alaLiveCount;
     }
 
-    public void sY(int i) {
+    public void sX(int i) {
         this.alaLiveCount = i;
     }
 
@@ -444,7 +444,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         return this.geN;
     }
 
-    public void sZ(int i) {
+    public void sY(int i) {
         this.geN = i;
     }
 
@@ -452,7 +452,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         return this.geO;
     }
 
-    public void ta(int i) {
+    public void sZ(int i) {
         this.geO = i;
     }
 
@@ -584,7 +584,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         return this.geo;
     }
 
-    public void mP(int i) {
+    public void mO(int i) {
         this.geo = i;
     }
 
@@ -636,7 +636,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         return this.geq;
     }
 
-    public void tb(int i) {
+    public void ta(int i) {
         this.geq = i;
     }
 
@@ -687,7 +687,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         return this.gey;
     }
 
-    public void tc(int i) {
+    public void tb(int i) {
         this.gey = i;
     }
 
@@ -719,7 +719,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         return this.geK;
     }
 
-    public void td(int i) {
+    public void tc(int i) {
         this.geK = i;
     }
 

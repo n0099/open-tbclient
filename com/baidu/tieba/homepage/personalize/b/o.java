@@ -146,7 +146,7 @@ public class o {
     public void onChangeSkinType(int i) {
         notifyDataSetChanged();
         this.cSW.onChangeSkinType(i);
-        this.cTe.kI(i);
+        this.cTe.kH(i);
     }
 
     public void notifyDataSetChanged() {

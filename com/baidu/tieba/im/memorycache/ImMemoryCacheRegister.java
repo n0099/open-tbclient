@@ -131,9 +131,9 @@ public class ImMemoryCacheRegister {
                     chatMessage.setRecordId(recordId);
                     chatMessage.getLocalData().setStatus((short) 3);
                     if (responseCommitPersonalMessage.getToUserType() == 0) {
-                        com.baidu.tieba.im.sendmessage.a.mA(com.baidu.adp.lib.g.b.g(responseCommitPersonalMessage.getGroupId(), 0));
+                        com.baidu.tieba.im.sendmessage.a.mz(com.baidu.adp.lib.g.b.g(responseCommitPersonalMessage.getGroupId(), 0));
                     } else {
-                        com.baidu.tieba.im.sendmessage.a.mB(com.baidu.adp.lib.g.b.g(responseCommitPersonalMessage.getGroupId(), 0));
+                        com.baidu.tieba.im.sendmessage.a.mA(com.baidu.adp.lib.g.b.g(responseCommitPersonalMessage.getGroupId(), 0));
                     }
                 }
                 com.baidu.tbadk.core.d.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), "comment", "uType " + toUserType, "touid", Long.valueOf(chatMessage.getToUserId()), "content", chatMessage.getContent());
@@ -467,8 +467,8 @@ public class ImMemoryCacheRegister {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
                 ImMemoryCacheRegister.this.dti = null;
+                com.baidu.tieba.im.sendmessage.a.mz(0);
                 com.baidu.tieba.im.sendmessage.a.mA(0);
-                com.baidu.tieba.im.sendmessage.a.mB(0);
                 b.awn().init();
             }
         }
@@ -1217,7 +1217,7 @@ public class ImMemoryCacheRegister {
                     BdLog.i("gid-serverMaxMid:" + groupUpdateMessage.getGroupId() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + groupUpdateMessage.getLastMsgId());
                     ImMessageCenterPojo imMessageCenterPojo5 = new ImMessageCenterPojo();
                     imMessageCenterPojo5.setGid(String.valueOf(groupUpdateMessage.getGroupId()));
-                    imMessageCenterPojo5.setCustomGroupType(com.baidu.tieba.im.b.a.mt(groupUpdateMessage.getGroupType()));
+                    imMessageCenterPojo5.setCustomGroupType(com.baidu.tieba.im.b.a.ms(groupUpdateMessage.getGroupType()));
                     imMessageCenterPojo5.setGroup_head(groupUpdateMessage.getPortrait());
                     imMessageCenterPojo5.setGroup_name(groupUpdateMessage.getName());
                     imMessageCenterPojo5.setPulled_msgId(com.baidu.tieba.im.util.d.bQ(groupUpdateMessage.getLastMsgId()));
@@ -1261,7 +1261,7 @@ public class ImMemoryCacheRegister {
                             break;
                         }
                         GroupUpdateMessage next = it.next();
-                        if (com.baidu.tieba.im.b.a.mt(next.getGroupType()) == 1 && imMessageCenterPojo10.getGid().equals(String.valueOf(next.getGroupId()))) {
+                        if (com.baidu.tieba.im.b.a.ms(next.getGroupType()) == 1 && imMessageCenterPojo10.getGid().equals(String.valueOf(next.getGroupId()))) {
                             z = false;
                         }
                         z2 = z;
@@ -1290,7 +1290,7 @@ public class ImMemoryCacheRegister {
                     imMessageCenterPojo = imMessageCenterPojo8;
                     imMessageCenterPojo3 = imMessageCenterPojo10;
                 } else if (imMessageCenterPojo10.getCustomGroupType() == -1) {
-                    com.baidu.tieba.im.sendmessage.a.mA(com.baidu.adp.lib.g.b.g(imMessageCenterPojo10.getGid(), 0));
+                    com.baidu.tieba.im.sendmessage.a.mz(com.baidu.adp.lib.g.b.g(imMessageCenterPojo10.getGid(), 0));
                     imMessageCenterPojo2 = imMessageCenterPojo9;
                     imMessageCenterPojo3 = imMessageCenterPojo6;
                     imMessageCenterPojo4 = imMessageCenterPojo7;
@@ -1300,7 +1300,7 @@ public class ImMemoryCacheRegister {
                     imMessageCenterPojo = imMessageCenterPojo10;
                     arrayList = arrayList8;
                 } else if (imMessageCenterPojo10.getCustomGroupType() == -9) {
-                    com.baidu.tieba.im.sendmessage.a.mB(com.baidu.adp.lib.g.b.g(imMessageCenterPojo10.getGid(), 0));
+                    com.baidu.tieba.im.sendmessage.a.mA(com.baidu.adp.lib.g.b.g(imMessageCenterPojo10.getGid(), 0));
                     imMessageCenterPojo2 = imMessageCenterPojo10;
                     imMessageCenterPojo4 = imMessageCenterPojo7;
                     arrayList = arrayList6;

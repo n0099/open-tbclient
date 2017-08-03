@@ -135,16 +135,16 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ImMessageCenterShowItemData lN;
-        if (this.dCe != null && this.dCe.azd() != null && (lN = this.dCe.azd().getItem(i)) != null) {
-            sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.dCg.getPageContext().getContext(), com.baidu.adp.lib.g.b.c(lN.getFriendId(), 0L), lN.getFriendName(), lN.getFriendPortrait(), 0, 0)));
+        ImMessageCenterShowItemData lM;
+        if (this.dCe != null && this.dCe.azd() != null && (lM = this.dCe.azd().getItem(i)) != null) {
+            sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.dCg.getPageContext().getContext(), com.baidu.adp.lib.g.b.c(lM.getFriendId(), 0L), lM.getFriendName(), lM.getFriendPortrait(), 0, 0)));
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        final ImMessageCenterShowItemData lN;
-        if (this.dCe == null || this.dCe.azd() == null || (lN = this.dCe.azd().getItem(i)) == null) {
+        final ImMessageCenterShowItemData lM;
+        if (this.dCe == null || this.dCe.azd() == null || (lM = this.dCe.azd().getItem(i)) == null) {
             return false;
         }
         final int size = this.dCf.getData().size();
@@ -157,7 +157,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     StrangerListActivity.this.finish();
                     return;
                 }
-                StrangerListActivity.this.dCf.deleteItem(lN, StrangerListActivity.this.diB);
+                StrangerListActivity.this.dCf.deleteItem(lM, StrangerListActivity.this.diB);
             }
         });
         return true;

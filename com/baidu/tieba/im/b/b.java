@@ -185,7 +185,7 @@ public class b {
         int N = MessageManager.getInstance().getSocketClient().N(202003);
         if (a2 || N > 0) {
             n.d(false, false, true);
-            mx(i);
+            mw(i);
             return;
         }
         awX();
@@ -288,8 +288,8 @@ public class b {
     public void awQ() {
         int[] socketGetMsgStratgy = TbadkCoreApplication.getInst().getSocketGetMsgStratgy();
         if (socketGetMsgStratgy.length == 2) {
-            mu(socketGetMsgStratgy[0] * 1000);
-            mv(socketGetMsgStratgy[1] * 1000);
+            mt(socketGetMsgStratgy[0] * 1000);
+            mu(socketGetMsgStratgy[1] * 1000);
         }
     }
 
@@ -310,13 +310,13 @@ public class b {
         awP().duL = awP().duJ;
     }
 
-    public void mu(int i) {
+    public void mt(int i) {
         if (i > 0) {
             this.duK = i;
         }
     }
 
-    public void mv(int i) {
+    public void mu(int i) {
         if (i > 0) {
             this.duJ = i;
         }
@@ -460,11 +460,11 @@ public class b {
     }
 
     public synchronized void awU() {
-        mw(2);
+        mv(2);
     }
 
     public synchronized void awV() {
-        mw(3);
+        mv(3);
     }
 
     public void awW() {
@@ -483,13 +483,13 @@ public class b {
         }
     }
 
-    private synchronized void mw(int i) {
+    private synchronized void mv(int i) {
         this.duW = true;
         this.duT = i;
         a((SparseArray<Long>) null, i);
     }
 
-    private void mx(int i) {
+    private void mw(int i) {
         if (i == 1) {
             if (this.duP != 2) {
                 this.duP = 1;

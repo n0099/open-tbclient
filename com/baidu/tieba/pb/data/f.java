@@ -258,7 +258,7 @@ public class f {
                         }
                     }
                 }
-                mP(dataRes.is_new_url.intValue());
+                mO(dataRes.is_new_url.intValue());
                 this.eCy.parserProtobuf(dataRes.forum);
                 this.eCz.parserProtobuf(dataRes.display_forum);
                 this.bbB.setUserMap(this.userMap);
@@ -474,7 +474,7 @@ public class f {
         return this.dEB;
     }
 
-    public void mP(int i) {
+    public void mO(int i) {
         this.dEB = i;
     }
 

@@ -195,14 +195,14 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
                     if (i == 0) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ReplyMessageActivityConfig(e.this.dCK.getPageContext().getPageActivity())));
                         com.baidu.tbadk.coreExtra.messageCenter.a.yR().zg();
-                        e.this.dCL.mJ(0);
+                        e.this.dCL.mI(0);
                         com.baidu.tbadk.coreExtra.messageCenter.a.yR().setMsgReplyme(0);
                         TiebaStatic.eventStat(e.this.dCK.getPageContext().getPageActivity(), "msg_reply_tab_click", "click", 1, new Object[0]);
                     } else if (i == 1) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtMessageActivityConfig(e.this.dCK.getPageContext().getPageActivity())));
                         com.baidu.tbadk.coreExtra.messageCenter.a.yR().zh();
                         com.baidu.tbadk.coreExtra.messageCenter.a.yR().setMsgAtme(0);
-                        e.this.dCL.mK(0);
+                        e.this.dCL.mJ(0);
                         TiebaStatic.eventStat(e.this.dCK.getPageContext().getPageActivity(), "msg_atme_tab_click", "click", 1, new Object[0]);
                     }
                     e.this.dCL.notifyDataSetChanged();
@@ -669,8 +669,8 @@ public class e extends com.baidu.adp.base.c<g> implements k.b {
     }
 
     private void aV(int i, int i2) {
-        this.dCL.mJ(i);
-        this.dCL.mK(i2);
+        this.dCL.mI(i);
+        this.dCL.mJ(i2);
         this.dCL.notifyDataSetChanged();
     }
 

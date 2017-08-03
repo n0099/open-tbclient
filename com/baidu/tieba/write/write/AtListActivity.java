@@ -127,7 +127,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uA(int i) {
+    public void uz(int i) {
         if (i == 2) {
             this.Ib.setVisibility(8);
             this.mNoDataView.setVisibility(0);
@@ -264,7 +264,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 AtListActivity.this.finish();
             }
         });
-        mL(0);
+        mK(0);
         this.gDJ = (AtSelectFriendList) this.mParent.findViewById(d.h.candidate_list);
         this.gDJ.setMaxCount(5);
         this.gDJ.setItemOPerationHandler(new AtSelectFriendList.a() { // from class: com.baidu.tieba.write.write.AtListActivity.11
@@ -395,9 +395,9 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                         it.next().setChecked(false);
                     }
                     if (byr != null && !byr.isEmpty()) {
-                        uA(0);
+                        uz(0);
                     } else {
-                        uA(1);
+                        uz(1);
                     }
                     this.gDN.setData(byr);
                 } else {
@@ -436,7 +436,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     public void d(MetaData metaData) {
         if (metaData != null) {
             this.gDJ.f(metaData);
-            mL(this.gDJ.getItemLength());
+            mK(this.gDJ.getItemLength());
             ayT();
         }
     }
@@ -445,7 +445,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     public void e(MetaData metaData) {
         if (metaData != null) {
             this.gDJ.h(metaData);
-            mL(this.gDJ.getItemLength());
+            mK(this.gDJ.getItemLength());
             ayT();
         }
     }
@@ -458,7 +458,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
         }
     }
 
-    private void mL(int i) {
+    private void mK(int i) {
         this.dBo.setText(String.format(getPageContext().getString(d.l.at_friend_candidate_send), Integer.valueOf(i), 5));
     }
 
@@ -523,9 +523,9 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
             AtListActivity.this.mProgress.setVisibility(8);
             if (this.mNetwork.vb().vY().isRequestSuccess() && this.gDV != null && com.baidu.adp.lib.util.j.a(AtListActivity.this.dxI.getText(), "").equals(this.gDV)) {
                 if (dVar == null || dVar.byt().isEmpty()) {
-                    AtListActivity.this.uA(1);
+                    AtListActivity.this.uz(1);
                 } else {
-                    AtListActivity.this.uA(0);
+                    AtListActivity.this.uz(0);
                 }
                 AtListActivity.this.gDM.a(dVar);
                 AtListActivity.this.gDN.setData(dVar.byt());
@@ -596,16 +596,16 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                     if (com.baidu.adp.lib.util.j.a(AtListActivity.this.dxI.getText(), "").length() != 0) {
                         if (AtListActivity.this.gDM.byy() != null) {
                             if (bVar != null && bVar.bys() != null && !bVar.bys().isEmpty()) {
-                                AtListActivity.this.uA(2);
+                                AtListActivity.this.uz(2);
                             }
                             AtListActivity.this.gDM.byy().k(bVar.bys());
                             AtListActivity.this.gDN.notifyDataSetInvalidated();
                         }
                     } else {
                         if (bVar == null || bVar.byr() == null || !bVar.byr().isEmpty()) {
-                            AtListActivity.this.uA(0);
+                            AtListActivity.this.uz(0);
                         } else {
-                            AtListActivity.this.uA(2);
+                            AtListActivity.this.uz(2);
                         }
                         AtListActivity.this.gDI = bVar.byr();
                         AtListActivity.this.gDN.setData(AtListActivity.this.gDI);

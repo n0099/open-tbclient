@@ -16,7 +16,7 @@ public class e {
         this.ggg = str;
     }
 
-    public void tf(int i) {
+    public void te(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
@@ -34,7 +34,7 @@ public class e {
     }
 
     public void brS() {
-        tf(0);
+        te(0);
     }
 
     public void bv(int i, int i2) {
@@ -43,14 +43,14 @@ public class e {
         }
     }
 
-    public int tg(int i) {
+    public int tf(int i) {
         if (i >= 0 && this.ggf != null) {
             return this.ggf.get(i, -1);
         }
         return -1;
     }
 
-    public void th(int i) {
+    public void tg(int i) {
         if (this.ggf != null) {
             this.ggf.delete(i);
         }

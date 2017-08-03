@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.inputmethod.InputMethodManager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
@@ -37,7 +38,7 @@ public class e {
             aVar.a(d.l.share, new a.b() { // from class: com.baidu.tieba.frs.g.e.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) com.baidu.tieba.frs.f.this.getActivity().getSystemService("input_method"), dVar.getChatMsgView());
+                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), dVar.getChatMsgView());
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(com.baidu.tieba.frs.f.this.getPageContext().getPageActivity(), j, str, str2, 0, dVar.getLeaveMsg(), shareFromFrsMsgData.toChatMessageContent())));
                     aVar2.dismiss();
                 }
@@ -45,7 +46,7 @@ public class e {
             aVar.b(d.l.alert_no_button, new a.b() { // from class: com.baidu.tieba.frs.g.e.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) com.baidu.tieba.frs.f.this.getActivity().getSystemService("input_method"), dVar.getChatMsgView());
+                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), dVar.getChatMsgView());
                     aVar2.dismiss();
                 }
             });
@@ -69,7 +70,7 @@ public class e {
             aVar.a(d.l.share, new a.b() { // from class: com.baidu.tieba.frs.g.e.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) com.baidu.tieba.frs.f.this.getActivity().getSystemService("input_method"), dVar.getChatMsgView());
+                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), dVar.getChatMsgView());
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(com.baidu.tieba.frs.f.this.xY().getPageActivity(), i, str, j, "from_share", dVar.getLeaveMsg(), e.toChatMessageContent())));
                     aVar2.dismiss();
                 }
@@ -77,7 +78,7 @@ public class e {
             aVar.b(d.l.alert_no_button, new a.b() { // from class: com.baidu.tieba.frs.g.e.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) com.baidu.tieba.frs.f.this.getActivity().getSystemService("input_method"), dVar.getChatMsgView());
+                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), dVar.getChatMsgView());
                     aVar2.dismiss();
                 }
             });

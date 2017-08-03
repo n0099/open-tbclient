@@ -342,7 +342,7 @@ public class n extends a<com.baidu.tieba.card.data.l> {
                     this.bGq.setTag(voiceModel);
                     this.bGq.bhH();
                     if (voiceModel != null) {
-                        this.bGq.mH(voiceModel.voice_status.intValue());
+                        this.bGq.mG(voiceModel.voice_status.intValue());
                     }
                     z3 = true;
                 }

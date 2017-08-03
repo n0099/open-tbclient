@@ -302,7 +302,7 @@ public class l extends com.baidu.tieba.card.a<bl> implements v {
             this.bGq.setTag(voiceModel);
             this.bGq.bhH();
             if (voiceModel != null) {
-                this.bGq.mH(voiceModel.voice_status.intValue());
+                this.bGq.mG(voiceModel.voice_status.intValue());
             }
         }
         if (com.baidu.tbadk.core.h.oN().oT() && u.u(rF) != 0) {

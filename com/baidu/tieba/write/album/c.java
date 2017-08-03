@@ -54,11 +54,11 @@ public class c extends PagerAdapter {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public ImageFileInfo ot(int i) {
+    public ImageFileInfo os(int i) {
         return (ImageFileInfo) u.c(this.mList, i);
     }
 
-    public boolean ug(int i) {
+    public boolean uf(int i) {
         if (this.gzh.get(Integer.valueOf(i)) == null) {
             return false;
         }
@@ -74,17 +74,17 @@ public class c extends PagerAdapter {
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setDefaultBgResource(d.e.black_alpha100);
         tbImageView.setBg(this.gzi);
-        ImageFileInfo ot = ot(i);
+        ImageFileInfo os = os(i);
         this.gzh.put(Integer.valueOf(i), false);
-        if (ot != null) {
-            ot.clearPageActions();
-            ot.addPageAction(com.baidu.tbadk.img.effect.d.L(this.BS, this.mMaxHeight));
-            tbImageView.setTag(ot.toCachedKey(false));
-            if (this.axK.a(ot, false) != null) {
+        if (os != null) {
+            os.clearPageActions();
+            os.addPageAction(com.baidu.tbadk.img.effect.d.L(this.BS, this.mMaxHeight));
+            tbImageView.setTag(os.toCachedKey(false));
+            if (this.axK.a(os, false) != null) {
                 tbImageView.invalidate();
                 this.gzh.put(Integer.valueOf(i), true);
             } else {
-                this.axK.a(ot, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.c.1
+                this.axK.a(os, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.c.1
                     @Override // com.baidu.tbadk.imageManager.b
                     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
                         TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(str);

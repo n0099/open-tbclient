@@ -759,7 +759,7 @@ public class c {
                 i4 = 0;
             } else {
                 int size = this.eUC.size() - eUf;
-                pA(size);
+                pz(size);
                 int firstVisiblePosition = this.Ib.getFirstVisiblePosition() - size;
                 View childAt = this.Ib.getChildAt(0);
                 i2 = childAt == null ? 0 : childAt.getTop();
@@ -780,7 +780,7 @@ public class c {
         }
     }
 
-    private void pA(int i) {
+    private void pz(int i) {
         if (this.eUC != null) {
             if (this.eUC.size() <= i) {
                 this.eUC.clear();
@@ -1217,7 +1217,7 @@ public class c {
     public void pB(String str) {
         int pC = this.eUh.pC(str);
         if (pC > -1) {
-            this.eUh.pB(pC);
+            this.eUh.pA(pC);
             if (pC > 2) {
                 this.Ib.setSelection(pC - 2);
             } else {

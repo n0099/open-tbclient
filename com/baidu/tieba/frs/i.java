@@ -489,7 +489,7 @@ public class i {
     }
 
     private void afD() {
-        if (this.cjr == null) {
+        if (this.cjr == null && this.cjg.getPageContext() != null) {
             String[] strArr = {this.cjg.getPageContext().getPageActivity().getString(d.l.take_photo), this.cjg.getPageContext().getPageActivity().getString(d.l.album)};
             this.cjr = new com.baidu.tbadk.core.dialog.b(this.cjg.getPageContext().getPageActivity());
             this.cjr.cO(this.cjg.getPageContext().getPageActivity().getString(d.l.operation));
@@ -499,7 +499,7 @@ public class i {
                     bVar.dismiss();
                     if (i == 0) {
                         i.this.cjg.Sz();
-                    } else if (i == 1) {
+                    } else if (i == 1 && i.this.cjg.getPageContext() != null) {
                         com.baidu.tbadk.core.util.ah.q(i.this.cjg.getPageContext().getPageActivity());
                     }
                 }

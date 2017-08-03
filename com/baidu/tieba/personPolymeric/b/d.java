@@ -113,7 +113,7 @@ public class d implements com.baidu.tieba.personPolymeric.mode.b {
             this.bDw.cw(this.mUserId);
         } else {
             this.bDz.Ni();
-            this.bDz.ks(8);
+            this.bDz.kr(8);
             this.bDz.L(this.bDs.getString(d.l.neterror), true);
         }
     }

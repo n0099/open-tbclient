@@ -106,7 +106,7 @@ public class b extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void un(int i) {
+    public void um(int i) {
         if (gBv != i) {
             notifyDataSetChanged();
         }

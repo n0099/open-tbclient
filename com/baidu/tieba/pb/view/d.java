@@ -89,7 +89,7 @@ public class d {
         this.eYs.setClickable(true);
     }
 
-    public void oW(int i) {
+    public void oV(int i) {
         this.eYr = i;
         if (i == 2) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.view.d.4
@@ -163,12 +163,12 @@ public class d {
                             this.eYm.aWd();
                             if (bf != -1) {
                                 if (bf == 1) {
-                                    pM(1);
+                                    pL(1);
                                     i = 1;
                                 } else if (bf != 3) {
                                     if (bf == 4) {
                                         i = 4;
-                                        pM(4);
+                                        pL(4);
                                     } else {
                                         i = 2;
                                     }
@@ -220,7 +220,7 @@ public class d {
         return true;
     }
 
-    private void pM(final int i) {
+    private void pL(final int i) {
         if (TbadkCoreApplication.isLogin()) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.view.d.6
                 @Override // java.lang.Runnable

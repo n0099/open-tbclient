@@ -73,7 +73,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                             AddFriendActivity.this.showToast(AddFriendActivity.this.getPageContext().getPageActivity().getString(d.l.group_apply_succ), false);
                         }
                         AddFriendActivity.this.finish();
-                    } else if (AntiHelper.to(error)) {
+                    } else if (AntiHelper.tn(error)) {
                         AntiHelper.ar(AddFriendActivity.this.getPageContext().getPageActivity(), errorString);
                     } else {
                         k.showToast(AddFriendActivity.this.getPageContext().getPageActivity(), errorString);

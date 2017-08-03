@@ -71,7 +71,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         this.gyH = new com.baidu.tieba.write.album.a(this);
         this.gyH.aLs();
         initData(bundle);
-        ud(0);
+        uc(0);
         boolean z = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("add_img_water_tip_show", true);
         if (!(com.baidu.tbadk.core.h.oN().oR() != 0) && z && bxG()) {
             bxH();
@@ -288,7 +288,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             }
             bxN();
         } else if (view == this.gyH.bxT()) {
-            ud(0);
+            uc(0);
         } else if (view == this.gyH.bxV()) {
             bxJ();
         }
@@ -318,19 +318,19 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ud(int i) {
+    public void uc(int i) {
         if (!this.gyI) {
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.gyH.uf(this.mCurrentPage));
+            Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.gyH.ue(this.mCurrentPage));
             if (findFragmentByTag != null) {
                 beginTransaction.hide(findFragmentByTag);
                 this.axK.Ez();
             }
             this.mCurrentPage = i;
-            if (getSupportFragmentManager().findFragmentByTag(this.gyH.uf(i)) != null) {
-                beginTransaction.show(this.gyH.ue(i));
+            if (getSupportFragmentManager().findFragmentByTag(this.gyH.ue(i)) != null) {
+                beginTransaction.show(this.gyH.ud(i));
             } else {
-                beginTransaction.add(d.h.fragment, this.gyH.ue(i), this.gyH.uf(i));
+                beginTransaction.add(d.h.fragment, this.gyH.ud(i), this.gyH.ue(i));
             }
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
@@ -408,7 +408,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
                 bxN();
                 return true;
             } else if (this.mCurrentPage == 1) {
-                ud(0);
+                uc(0);
                 return true;
             } else {
                 return true;
@@ -419,31 +419,31 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void H(int i, boolean z) {
-        Fragment ue;
+        Fragment ud;
         int i2 = i + 3;
-        if (this.gyH != null && (ue = this.gyH.ue(0)) != null && (ue instanceof l)) {
-            ((l) ue).I(i2, z);
+        if (this.gyH != null && (ud = this.gyH.ud(0)) != null && (ud instanceof l)) {
+            ((l) ud).I(i2, z);
         }
     }
 
     void e(ImageFileInfo imageFileInfo, boolean z) {
-        Fragment ue;
-        if (this.gyH != null && (ue = this.gyH.ue(0)) != null && (ue instanceof l)) {
-            ((l) ue).g(imageFileInfo, z);
+        Fragment ud;
+        if (this.gyH != null && (ud = this.gyH.ud(0)) != null && (ud instanceof l)) {
+            ((l) ud).g(imageFileInfo, z);
         }
     }
 
     private void bxM() {
-        Fragment ue;
-        if (this.gyH != null && (ue = this.gyH.ue(0)) != null && (ue instanceof l)) {
-            ((l) ue).refresh();
+        Fragment ud;
+        if (this.gyH != null && (ud = this.gyH.ud(0)) != null && (ud instanceof l)) {
+            ((l) ud).refresh();
         }
     }
 
     void f(ImageFileInfo imageFileInfo, boolean z) {
-        Fragment ue;
-        if (this.gyH != null && (ue = this.gyH.ue(1)) != null && (ue instanceof com.baidu.tieba.write.album.b)) {
-            ((com.baidu.tieba.write.album.b) ue).g(imageFileInfo, z);
+        Fragment ud;
+        if (this.gyH != null && (ud = this.gyH.ud(1)) != null && (ud instanceof com.baidu.tieba.write.album.b)) {
+            ((com.baidu.tieba.write.album.b) ud).g(imageFileInfo, z);
         }
     }
 
@@ -498,7 +498,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             if (this.gyG.byd() != null && this.gyG.byd().size() > 0) {
                 this.gyG.byd().add(0, imageFileInfo);
                 e(imageFileInfo);
-                this.gyG.uc(this.gyG.byd().indexOf(imageFileInfo));
+                this.gyG.ub(this.gyG.byd().indexOf(imageFileInfo));
                 bxM();
             }
         }

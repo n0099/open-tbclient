@@ -136,11 +136,11 @@ public class e {
             int i4 = (i + i2) - 1;
             if (!this.cOM && this.cOK != i4) {
                 this.cOK = i4;
-                e.this.kG(this.cOK);
+                e.this.kF(this.cOK);
             }
             if (this.cOM && this.cOK != i) {
                 this.cOK = i;
-                e.this.kG(this.cOK);
+                e.this.kF(this.cOK);
             }
             e.this.cSd = i;
             e.this.ciX = i;
@@ -381,7 +381,7 @@ public class e {
     private int cSd = 0;
     private d cSf = new d() { // from class: com.baidu.tieba.homepage.personalize.e.12
         @Override // com.baidu.tieba.homepage.personalize.d
-        public void kx(final int i) {
+        public void kw(final int i) {
             if (e.this.cSe == null) {
                 e.this.cSe = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.e.12.1
                     @Override // java.lang.Runnable
@@ -485,7 +485,7 @@ public class e {
         if (this.cRy != null) {
             this.cRy.setOnTabSelectedListener(new ScrollFragmentTabHost.a() { // from class: com.baidu.tieba.homepage.personalize.e.1
                 @Override // com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.a
-                public void kF(int i) {
+                public void kE(int i) {
                     if (i != com.baidu.tieba.homepage.framework.indicator.a.cQz && e.this.cRM != null) {
                         e.this.cRM.hideTip();
                     }
@@ -556,7 +556,7 @@ public class e {
     }
 
     public void update() {
-        if (com.baidu.tieba.homepage.framework.a.anR().kw(1) == -1) {
+        if (com.baidu.tieba.homepage.framework.a.anR().kv(1) == -1) {
             com.baidu.tieba.homepage.framework.a.anR().f(System.currentTimeMillis(), 1);
         }
         this.mPn = 1;
@@ -680,7 +680,7 @@ public class e {
     }
 
     public void onPause() {
-        kH(this.cSd);
+        kG(this.cSd);
         gb(CmdConfigCustom.CMD_VIEW_PAGER_END_AUTO_SCROLL);
     }
 
@@ -821,9 +821,9 @@ public class e {
             }
         }
         com.baidu.tieba.homepage.framework.a.anR().d(System.currentTimeMillis() - currentTimeMillis, 1);
-        long kw = com.baidu.tieba.homepage.framework.a.anR().kw(1);
-        if (kw > 0) {
-            com.baidu.tieba.homepage.framework.a.anR().e(System.currentTimeMillis() - kw, 1);
+        long kv = com.baidu.tieba.homepage.framework.a.anR().kv(1);
+        if (kv > 0) {
+            com.baidu.tieba.homepage.framework.a.anR().e(System.currentTimeMillis() - kv, 1);
             com.baidu.tieba.homepage.framework.a.anR().f(0L, 1);
             return z4;
         }
@@ -1158,9 +1158,9 @@ public class e {
         }
     }
 
-    public void kG(int i) {
-        if ((this.chM != null ? this.chM.tg(i) : -1) >= 0 && this.mListView != null && this.mListView.getData() != null && this.mListView.getData().size() > i) {
-            this.chM.th(i);
+    public void kF(int i) {
+        if ((this.chM != null ? this.chM.tf(i) : -1) >= 0 && this.mListView != null && this.mListView.getData() != null && this.mListView.getData().size() > i) {
+            this.chM.tg(i);
         }
     }
 
@@ -1172,7 +1172,7 @@ public class e {
         this.cRP = z;
     }
 
-    public void kH(final int i) {
+    public void kG(final int i) {
         com.baidu.tbadk.util.u.a(new t<Object>() { // from class: com.baidu.tieba.homepage.personalize.e.10
             @Override // com.baidu.tbadk.util.t
             public Object doInBackground() {
@@ -1204,7 +1204,7 @@ public class e {
             /* renamed from: lk */
             public void onReturnDataInUI(String str) {
                 if (dVar != null) {
-                    dVar.kx(com.baidu.adp.lib.g.b.g(str, 0));
+                    dVar.kw(com.baidu.adp.lib.g.b.g(str, 0));
                 }
             }
         });

@@ -48,7 +48,7 @@ public class a {
     private int csU = aib();
 
     public void a(f fVar, AlaLiveNotify alaLiveNotify) {
-        if (fVar != null && alaLiveNotify != null) {
+        if (fVar != null && alaLiveNotify != null && fVar.isAdded()) {
             this.csV = new WeakReference<>(fVar);
             if (!TextUtils.isEmpty(alaLiveNotify.noti_content) && !TextUtils.isEmpty(alaLiveNotify.noti_url)) {
                 this.csT = alaLiveNotify;
@@ -139,7 +139,7 @@ public class a {
     public void ahY() {
         f fVar;
         aic();
-        if (this.csV != null && this.csT != null && this.csT.noti_url != null && (fVar = this.csV.get()) != null) {
+        if (this.csV != null && this.csT != null && this.csT.noti_url != null && (fVar = this.csV.get()) != null && fVar.isAdded()) {
             TiebaStatic.log(new aj("c12331"));
             if (at.vV().c(fVar.getPageContext(), new String[]{this.csT.noti_url + "&from=frs_hot_live_tip"})) {
                 e.fP().post(new Runnable() { // from class: com.baidu.tieba.frs.d.a.4

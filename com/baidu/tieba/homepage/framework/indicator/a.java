@@ -82,7 +82,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         return null;
     }
 
-    private Intent kz(int i) {
+    private Intent ky(int i) {
         com.baidu.tieba.homepage.b.a.a aVar = (com.baidu.tieba.homepage.b.a.a) u.c(this.cQt, i);
         if (aVar == null) {
             return null;
@@ -110,7 +110,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
         Fragment anX = anX();
         if (anX instanceof ah) {
-            ((ah) anX).L(kz(i));
+            ((ah) anX).L(ky(i));
             return anX;
         }
         return anX;
@@ -182,7 +182,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
                 if (a < 0) {
                     a = cQB;
                 }
-                kA(a);
+                kz(a);
                 completePullRefresh();
             }
             ((BaseFragment) this.cQq).setPrimary(z);
@@ -211,7 +211,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
     }
 
-    public void kA(final int i) {
+    public void kz(final int i) {
         com.baidu.tbadk.util.u.a(new t<Object>() { // from class: com.baidu.tieba.homepage.framework.indicator.a.1
             @Override // com.baidu.tbadk.util.t
             public Object doInBackground() {
@@ -228,7 +228,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     public void a(d dVar) {
         if (!this.cQu) {
             this.cQu = true;
-            dVar.kx(cQB);
+            dVar.kw(cQB);
         }
     }
 
@@ -290,7 +290,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void kB(int i) {
+    public void kA(int i) {
         Fragment fragment = (Fragment) u.c(xj(), i);
         if (fragment != null && (fragment instanceof ah)) {
             ((ah) fragment).afp();
@@ -312,13 +312,13 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
     }
 
-    public void kC(int i) {
+    public void kB(int i) {
         if (i == cQz && this.cQo != null) {
             this.cQo.aof();
         }
     }
 
-    public void kD(int i) {
+    public void kC(int i) {
         if (com.baidu.tieba.homepage.framework.a.a.aoe().cQY == i) {
             this.cQv = -1;
         } else {

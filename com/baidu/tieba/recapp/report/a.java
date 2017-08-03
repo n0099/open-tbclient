@@ -33,11 +33,11 @@ public class a {
         this.extInfo = str;
     }
 
-    public void rU(int i) {
+    public void rT(int i) {
         this.fHd = i;
     }
 
-    public void rV(int i) {
+    public void rU(int i) {
         this.fHe = i;
     }
 
@@ -53,15 +53,15 @@ public class a {
         this.fHg = str;
     }
 
-    public void rW(int i) {
+    public void rV(int i) {
         this.fHl = i;
     }
 
-    public void rX(int i) {
+    public void rW(int i) {
         this.fHm = i;
     }
 
-    public void rY(int i) {
+    public void rX(int i) {
         this.fHn = i;
     }
 

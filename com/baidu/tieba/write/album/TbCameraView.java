@@ -240,7 +240,7 @@ public class TbCameraView extends SurfaceView {
                                 if (i <= maxZoom) {
                                     maxZoom = i;
                                 }
-                                ul(maxZoom);
+                                uk(maxZoom);
                                 this.gbB = this.gAr;
                                 break;
                             } else if (f < (-this.gco)) {
@@ -248,7 +248,7 @@ public class TbCameraView extends SurfaceView {
                                 if (i2 < 0) {
                                     i2 = 0;
                                 }
-                                ul(i2);
+                                uk(i2);
                                 this.gbB = this.gAr;
                                 break;
                             }
@@ -280,7 +280,7 @@ public class TbCameraView extends SurfaceView {
         return (float) Math.sqrt((x * x) + (y * y));
     }
 
-    public void ul(int i) {
+    public void uk(int i) {
         if (this.mCamera != null) {
             this.gAp = this.mCamera.getParameters();
             if (this.gAp != null) {

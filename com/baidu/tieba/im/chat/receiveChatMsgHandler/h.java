@@ -37,7 +37,7 @@ public class h {
         }
     }
 
-    public long lR(int i) {
+    public long lQ(int i) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + i, -1L);
     }
 

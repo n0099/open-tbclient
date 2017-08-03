@@ -320,7 +320,7 @@ public class c {
             if (c.this.bHI != null && (duration = c.this.bHI.getDuration()) > 0 && c.this.fxQ != null) {
                 c.this.fxQ.setProgress((int) ((i * c.this.dNg.getWidth()) / duration));
             }
-            c.this.nj(i);
+            c.this.ni(i);
         }
     };
     private SeekBar.OnSeekBarChangeListener aXt = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.c.8
@@ -637,14 +637,14 @@ public class c {
             }
         }
         aCG();
-        String rD = this.dNi.rD(this.dNK);
+        String rC = this.dNi.rC(this.dNK);
         if (f2 > 0.0f) {
             this.dNI.setImageResource(d.g.icon_kuaitui);
         } else {
             this.dNI.setImageResource(d.g.icon_kuaijin);
         }
-        if (!StringUtils.isNull(rD)) {
-            this.dNF.setText(new StringBuilder().append(rD).append("/").append(this.dNi.rD(this.bHI.getDuration())));
+        if (!StringUtils.isNull(rC)) {
+            this.dNF.setText(new StringBuilder().append(rC).append("/").append(this.dNi.rC(this.bHI.getDuration())));
         }
         this.dNi.C(this.dNK, z ? false : true);
         this.dNp.setVisibility(8);
@@ -685,7 +685,7 @@ public class c {
         }
     }
 
-    public boolean rB(int i) {
+    public boolean rA(int i) {
         switch (i) {
             case 4:
                 if (this.cXZ) {
@@ -753,7 +753,7 @@ public class c {
                 this.fxX.aCZ();
             }
             this.dNo.setImageResource(d.g.icon_suoxiao);
-            nh(this.dNO);
+            ng(this.dNO);
             aCI();
         } else {
             this.cXZ = false;
@@ -778,7 +778,7 @@ public class c {
             }
             aCF();
             this.dNo.setImageResource(d.g.icon_fangda);
-            nh(0);
+            ng(0);
             this.dNg.setSystemUiVisibility(0);
         }
         if (this.bHI.isPlaying()) {
@@ -805,7 +805,7 @@ public class c {
         }
     }
 
-    private void nh(int i) {
+    private void ng(int i) {
         if (this.dNi != null && (this.dNi.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dNi.getLayoutParams();
             layoutParams.leftMargin = i;
@@ -1124,7 +1124,7 @@ public class c {
         this.fxX = bVar;
     }
 
-    public void nj(int i) {
+    public void ni(int i) {
         if (this.bHI.getDuration() - i <= 3000) {
             aCX();
             if (this.dNp != null) {

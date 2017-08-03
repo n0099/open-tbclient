@@ -535,7 +535,7 @@ public class f extends BaseFragment implements a.InterfaceC0000a, BdListView.e, 
     public final View.OnClickListener ciP = new View.OnClickListener() { // from class: com.baidu.tieba.frs.f.11
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (f.this.chQ == null || view != f.this.chQ.afA()) {
+            if (f.this.chQ == null || view != f.this.chQ.afA() || f.this.getActivity() == null) {
                 if (f.this.chu != null && f.this.chu.aOW() != null) {
                     if (f.this.chQ == null || view != f.this.chQ.afG()) {
                         if (f.this.chQ != null && view == f.this.chQ.afH()) {
@@ -1076,7 +1076,7 @@ public class f extends BaseFragment implements a.InterfaceC0000a, BdListView.e, 
                 this.chx = this.chu.aio();
                 if (this.chM != null) {
                     this.chL = true;
-                    this.chM.tf(this.chx);
+                    this.chM.te(this.chx);
                     com.baidu.tieba.frs.g.a.a(this, this.chu.aOW(), this.chu.getThreadList(), this.chL, getPn());
                 }
                 if (this.cil != null) {
@@ -1275,7 +1275,7 @@ public class f extends BaseFragment implements a.InterfaceC0000a, BdListView.e, 
 
     private void K(Intent intent) {
         if (intent != null) {
-            if (!com.baidu.tieba.frs.g.f.a(this, getForumName(), "from", intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false))) {
+            if (!com.baidu.tieba.frs.g.f.a(this, getForumName(), "from", intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false)) && getActivity() != null) {
                 getActivity().finish();
                 return;
             }
@@ -1310,18 +1310,16 @@ public class f extends BaseFragment implements a.InterfaceC0000a, BdListView.e, 
     }
 
     private void initData(Bundle bundle) {
+        Intent intent;
         registerListener(CmdConfigCustom.CMD_FILE_DOWNLOAD, this.ciS);
         if (bundle != null) {
             this.chI = bundle.getString("name");
             this.aia = bundle.getString("from");
             this.mFlag = bundle.getInt(FrsActivityConfig.FLAG, 0);
-        } else {
-            Intent intent = getActivity().getIntent();
-            if (intent != null) {
-                this.chI = intent.getStringExtra("name");
-                this.aia = intent.getStringExtra("from");
-                this.mFlag = intent.getIntExtra(FrsActivityConfig.FLAG, 0);
-            }
+        } else if (getActivity() != null && (intent = getActivity().getIntent()) != null) {
+            this.chI = intent.getStringExtra("name");
+            this.aia = intent.getStringExtra("from");
+            this.mFlag = intent.getIntExtra(FrsActivityConfig.FLAG, 0);
         }
         if (TextUtils.isEmpty(this.aia) || FrsActivityConfig.FRS_FROM_WRITESHARE.equals(this.aia)) {
         }
@@ -1390,7 +1388,7 @@ public class f extends BaseFragment implements a.InterfaceC0000a, BdListView.e, 
         bundle.putString("name", this.chI);
         bundle.putString("from", this.aia);
         this.chZ.onSaveInstanceState(bundle);
-        if (this.chP != null) {
+        if (this.chP != null && getPageContext() != null && getPageContext().getPageActivity() != null) {
             this.chP.onSaveInstanceState(getPageContext().getPageActivity());
         }
     }
@@ -1490,7 +1488,7 @@ public class f extends BaseFragment implements a.InterfaceC0000a, BdListView.e, 
     }
 
     public void closeActivity() {
-        com.baidu.tieba.frs.g.i.a(getPageContext(), getActivity().getIntent(), this.aia);
+        com.baidu.tieba.frs.g.i.a(getPageContext(), getActivity() == null ? null : getActivity().getIntent(), this.aia);
     }
 
     private void initUI() {
@@ -1640,7 +1638,7 @@ public class f extends BaseFragment implements a.InterfaceC0000a, BdListView.e, 
     public void onStop() {
         super.onStop();
         com.baidu.tieba.card.u.Ww().dE(false);
-        if (this.chu != null && this.chu.aOW() != null) {
+        if (this.chu != null && this.chu.aOW() != null && getPageContext() != null && getPageContext().getPageActivity() != null) {
             com.baidu.tbadk.distribute.a.CC().a(getPageContext().getPageActivity(), "frs", this.chu.aOW().getId(), 0L);
         }
         if (this.chP != null) {

@@ -49,7 +49,7 @@ public class i {
         void bfx();
     }
 
-    public void rC(int i) {
+    public void rB(int i) {
         if (i > 0) {
             this.fye = i;
         }

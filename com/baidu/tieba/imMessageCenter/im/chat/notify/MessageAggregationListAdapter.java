@@ -47,7 +47,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.chat.a.b, android.widget.Adapter
-    /* renamed from: lN */
+    /* renamed from: lM */
     public ImMessageCenterShowItemData getItem(int i) {
         int i2;
         if (this.mList == null || this.mList.size() == 0 || i - 2 < 0 || i2 >= getCount()) {
@@ -207,11 +207,11 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
         }
     }
 
-    public void mJ(int i) {
+    public void mI(int i) {
         this.dAf = i;
     }
 
-    public void mK(int i) {
+    public void mJ(int i) {
         this.dAg = i;
     }
 }

@@ -197,7 +197,7 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ad {
         this.ggP--;
     }
 
-    public void ti(int i) {
+    public void th(int i) {
         this.ggP = i;
     }
 
@@ -233,7 +233,7 @@ public class PostData implements com.baidu.adp.widget.ListView.f, ad {
         return this.floor_num;
     }
 
-    public void tj(int i) {
+    public void ti(int i) {
         this.floor_num = i;
     }
 

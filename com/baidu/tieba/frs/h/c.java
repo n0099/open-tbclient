@@ -52,7 +52,7 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (bool.booleanValue() && c.this.ajf()) {
+            if (bool.booleanValue() && c.this.ajf() && c.this.cjg.isAdded()) {
                 final PopInfo popInfo = c.this.cjg.afm().geS;
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.cjg.getActivity());
                 aVar.cM(popInfo.title);

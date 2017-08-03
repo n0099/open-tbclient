@@ -58,8 +58,8 @@ public class g extends i {
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void A(int i, String str) {
-                    if (g.this.cpT && !TextUtils.isEmpty(str)) {
-                        if (AntiHelper.to(i)) {
+                    if (g.this.cna != null && g.this.cna.getPageContext() != null && g.this.cpT && !TextUtils.isEmpty(str)) {
+                        if (AntiHelper.tn(i)) {
                             AntiHelper.ar(g.this.cna.getPageContext().getPageActivity(), str);
                         } else {
                             g.this.cna.showToast(str);

@@ -26,12 +26,12 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b kZ(int i) {
-        return m(2, i, 0, 0);
+    public static b kY(int i) {
+        return n(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b m(int i, int i2, int i3, int i4) {
+    public static b n(int i, int i2, int i3, int i4) {
         b apf = apf();
         apf.type = i;
         apf.cWh = i2;

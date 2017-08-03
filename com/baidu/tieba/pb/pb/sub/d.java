@@ -48,7 +48,7 @@ public class d extends BaseAdapter {
         this.mIsFromCDN = z;
     }
 
-    public void pB(int i) {
+    public void pA(int i) {
         this.mSelectedPosition = i;
     }
 

@@ -10,21 +10,21 @@ public class b {
     public void a(e eVar) {
         this.cQW = true;
         if (this.cQV != -1 && this.cQX) {
-            eVar.ky(this.cQV);
+            eVar.kx(this.cQV);
         }
     }
 
     public void a(int i, e eVar) {
         this.cQV = i;
         if (this.cQW && this.cQX) {
-            eVar.ky(this.cQV);
+            eVar.kx(this.cQV);
         }
     }
 
     public void b(e eVar) {
         this.cQX = true;
         if (this.cQV != -1 && this.cQW) {
-            eVar.ky(this.cQV);
+            eVar.kx(this.cQV);
         }
     }
 }

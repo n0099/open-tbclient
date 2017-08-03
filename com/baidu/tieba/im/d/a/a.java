@@ -22,7 +22,7 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
         String str;
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.mCmd);
         if (customMessage == null || !(customMessage instanceof LoadDraftMessage)) {
-            return mD(this.mCmd);
+            return mC(this.mCmd);
         }
         LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
         if (TbadkCoreApplication.getCurrentAccountObj() == null) {
@@ -33,7 +33,7 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
         LoadDraftMessage.a data = loadDraftMessage.getData();
         ChatSetting bk = this.dxA.bk(str, data.id);
         if (bk == null) {
-            return mD(loadDraftMessage.getCmd());
+            return mC(loadDraftMessage.getCmd());
         }
         String draft = bk.getDraft();
         LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
@@ -47,7 +47,7 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
         return loadDraftResponsedMessage;
     }
 
-    private LoadDraftResponsedMessage mD(int i) {
+    private LoadDraftResponsedMessage mC(int i) {
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
         loadDraftResponsedMessage.setError(-18);
         return loadDraftResponsedMessage;

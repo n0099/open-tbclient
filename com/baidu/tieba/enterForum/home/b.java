@@ -120,7 +120,7 @@ public class b implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
     private com.baidu.adp.base.d bXC = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.enterForum.home.b.4
         @Override // com.baidu.adp.base.d
         public void g(Object obj) {
-            if (AntiHelper.to(b.this.bES.getErrorCode())) {
+            if (AntiHelper.tn(b.this.bES.getErrorCode())) {
                 AntiHelper.ar(b.this.aYd.getPageContext().getPageActivity(), b.this.bES.getErrorString());
             } else if (obj != null) {
                 b.this.bXr.ek(!StringUtils.isNull(b.this.bXu));

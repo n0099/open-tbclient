@@ -254,7 +254,7 @@ public class d {
         ai.k(this.bZl, d.e.cp_cont_f_alpha60);
     }
 
-    public void py(int i) {
+    public void px(int i) {
         this.mNavigationBar.onChangeSkinType(this.eFn.getPageContext(), i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
         this.mNavigationBar.getTopCoverBgView().setBackgroundResource(d.g.bg_pb_header_gradient_top);

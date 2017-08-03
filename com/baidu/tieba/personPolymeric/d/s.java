@@ -187,7 +187,7 @@ public class s extends com.baidu.tieba.view.h {
             this.mNavigationBar.setY(0.0f);
         }
         this.fhv.setVisibility(8);
-        this.flg.pb(this.bxP);
+        this.flg.pa(this.bxP);
         ((RelativeLayout.LayoutParams) this.bdg.getLayoutParams()).addRule(3, d.h.person_center_navigation_bar);
     }
 
@@ -198,7 +198,7 @@ public class s extends com.baidu.tieba.view.h {
         }
         this.mNavigationBar.setVisibility(4);
         this.fhv.setVisibility(0);
-        pb(this.bxP);
+        pa(this.bxP);
         ((RelativeLayout.LayoutParams) this.bdg.getLayoutParams()).addRule(3, d.h.person_center_blank_view);
     }
 
@@ -446,7 +446,7 @@ public class s extends com.baidu.tieba.view.h {
         }
     }
 
-    public void qh(int i) {
+    public void qg(int i) {
         this.flh = false;
         int i2 = i == 0 ? 1 : 0;
         this.guS.a(i2, this.guS.hn(i2));
@@ -470,10 +470,10 @@ public class s extends com.baidu.tieba.view.h {
     }
 
     @Override // com.baidu.tieba.view.h
-    public void qi(int i) {
+    public void qh(int i) {
         if (i != this.bxP && this.guS != null) {
             this.bxP = i;
-            qh(i);
+            qg(i);
         }
     }
 

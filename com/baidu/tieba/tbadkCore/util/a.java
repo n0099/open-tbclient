@@ -20,10 +20,10 @@ public class a {
     }
 
     public static void btf() {
-        tp(2);
+        to(2);
     }
 
-    private static void tp(int i) {
+    private static void to(int i) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             TiebaDatabase.getInstance().getMainDBDatabaseManager().g("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkCoreApplication.getCurrentAccount()});
         }
@@ -34,14 +34,14 @@ public class a {
     }
 
     public static ArrayList<String> btg() {
-        return tq(0);
+        return tp(0);
     }
 
     public static ArrayList<String> bth() {
-        return tq(1);
+        return tp(1);
     }
 
-    private static ArrayList<String> tq(int i) {
+    private static ArrayList<String> tp(int i) {
         Cursor cursor = null;
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         ArrayList<String> arrayList = new ArrayList<>();
@@ -115,14 +115,14 @@ public class a {
     }
 
     public static void bti() {
-        tr(0);
+        tq(0);
     }
 
     public static void btj() {
-        tr(1);
+        tq(1);
     }
 
-    public static void tr(int i) {
+    public static void tq(int i) {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         switch (i) {
             case 0:

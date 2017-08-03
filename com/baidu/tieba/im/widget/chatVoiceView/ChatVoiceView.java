@@ -105,10 +105,10 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         }
     }
 
-    public void mG(int i) {
+    public void mF(int i) {
     }
 
-    public void mH(int i) {
+    public void mG(int i) {
         if (i == 3) {
             if (this.dyL != null) {
                 this.dyL.setVisibility(0);
@@ -264,13 +264,13 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
             if (this.dyP.voice_status.intValue() != 1 && (voiceManager = getVoiceManager()) != null) {
                 voiceManager.resetPlayView(this);
             }
-            mH(this.dyP.voice_status.intValue());
+            mG(this.dyP.voice_status.intValue());
         }
     }
 
     public void reset() {
         this.dyP = null;
-        mH(1);
+        mG(1);
     }
 
     private void setBubbleLength(int i) {
@@ -306,13 +306,13 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void b(VoiceData.VoiceModel voiceModel) {
         if (voiceModel != null) {
-            mH(voiceModel.voice_status.intValue());
+            mG(voiceModel.voice_status.intValue());
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void aO(int i) {
-        mG(i);
+        mF(i);
         if (this.dyP != null) {
             this.dyP.elapse = i;
         }

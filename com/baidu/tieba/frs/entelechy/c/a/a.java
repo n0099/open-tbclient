@@ -115,7 +115,7 @@ public class a {
             this.cjg = fVar;
             this.aan = viewGroup;
             this.cnk = new TextView(fVar.getActivity());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, k.g(fVar.getActivity(), d.f.ds82));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, k.g(TbadkCoreApplication.getInst(), d.f.ds82));
             layoutParams.topMargin = k.g(fVar.getActivity(), d.f.ds26);
             int g = k.g(fVar.getActivity(), d.f.ds30);
             this.cnk.setPadding(g, 0, g, 0);

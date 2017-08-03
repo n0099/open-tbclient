@@ -297,7 +297,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
 
     @Override // com.baidu.tieba.frs.tab.c
     public void kX() {
-        if (this.cwc != null) {
+        if (this.cwc != null && this.cjg != null && this.cjg.getPageContext() != null) {
             if (!this.cwc.isShown()) {
                 this.cwc.setVisibility(0);
                 ai.c(this.cwc, d.g.icon_pop_refresh);

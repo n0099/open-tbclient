@@ -52,7 +52,7 @@ public class a {
         return this.dlj;
     }
 
-    public void lU(int i) {
+    public void lT(int i) {
         this.dlj = i;
     }
 }

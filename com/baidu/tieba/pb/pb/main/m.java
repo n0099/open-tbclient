@@ -47,7 +47,7 @@ public class m {
         this.eHk = aVar;
     }
 
-    public void oX(int i) {
+    public void oW(int i) {
         if (this.eFm != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
             httpMessage.addParam("thread_id", this.eFm.getThreadID());

@@ -10,8 +10,8 @@ public class d {
             return null;
         }
         a aVar = new a();
-        aVar.rV(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
-        aVar.rU(i);
+        aVar.rU(com.baidu.adp.lib.g.b.g(advertAppInfo.adPosition, 0));
+        aVar.rT(i);
         aVar.rf(advertAppInfo.price);
         aVar.rd(advertAppInfo.extensionInfo);
         aVar.setPageNumber(i2);
@@ -28,15 +28,15 @@ public class d {
         }
         a aVar = new a();
         aVar.setDownloadStaticsData(downloadStaticsData);
-        aVar.rU(i);
+        aVar.rT(i);
         aVar.setPageNumber(i2);
         return aVar;
     }
 
     public static a Q(int i, int i2, int i3) {
         a aVar = new a();
-        aVar.rU(i);
-        aVar.rV(i2);
+        aVar.rT(i);
+        aVar.rU(i2);
         aVar.setPageNumber(i3);
         return aVar;
     }
@@ -47,10 +47,10 @@ public class d {
         }
         AppData bsg = lVar.bsg();
         a aVar = new a();
-        aVar.rV(com.baidu.adp.lib.g.b.g(bsg.pos_name, 0));
+        aVar.rU(com.baidu.adp.lib.g.b.g(bsg.pos_name, 0));
         aVar.rd(bsg.ext_info);
         aVar.setPageNumber(lVar.pageNumber);
-        aVar.rU(i);
+        aVar.rT(i);
         aVar.rf(bsg.price);
         aVar.rh(lVar.Tv);
         aVar.ri(lVar.Tw);
@@ -61,9 +61,9 @@ public class d {
 
     public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4, int i5) {
         a c = c(advertAppInfo, i, i2);
-        c.rW(i3);
-        c.rY(i4);
-        c.rX(i5);
+        c.rV(i3);
+        c.rX(i4);
+        c.rW(i5);
         c.rk(advertAppInfo.SO);
         if (i == 2) {
             c.rg("video");
@@ -77,7 +77,7 @@ public class d {
 
     public static a b(String str, int i, String str2, String str3) {
         a aVar = new a();
-        aVar.rU(i);
+        aVar.rT(i);
         aVar.re(str2);
         aVar.rk("HOMEPAGE");
         aVar.rd(str);
@@ -87,7 +87,7 @@ public class d {
 
     public static a a(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         a c = c(advertAppInfo, i, i2);
-        c.rW(i3);
+        c.rV(i3);
         return c;
     }
 }

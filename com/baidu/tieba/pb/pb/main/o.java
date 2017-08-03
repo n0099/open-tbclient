@@ -111,7 +111,7 @@ public class o extends l<PostData, p> implements View.OnClickListener {
         });
     }
 
-    public void oY(int i) {
+    public void oX(int i) {
         this.eJg = com.baidu.tbadk.core.util.al.z(i);
     }
 
@@ -532,7 +532,7 @@ public class o extends l<PostData, p> implements View.OnClickListener {
         this.eEj = fVar;
     }
 
-    public void oP(int i) {
+    public void oO(int i) {
         this.eEg = i;
     }
 

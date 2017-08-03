@@ -120,14 +120,14 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
                         }
                         TbadkCoreApplication.getInst().addSignedForum(name, signData.sign_bonus_point, i);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE, signData));
-                        if (AntiHelper.to(signMessage.mSignErrorCode)) {
+                        if (AntiHelper.tn(signMessage.mSignErrorCode)) {
                             AntiHelper.ar(f.this.getPageContext().getPageActivity(), signMessage.mSignErrorString);
                         } else if (!f.this.ajn()) {
                             f.this.cna.showToast(f.this.getPageContext().getResources().getString(d.l.frs_sign_success, Integer.valueOf(signData.user_sign_rank)));
                         } else {
                             f.this.cna.showToast(f.this.getPageContext().getResources().getString(d.l.frs_sign_pointer, Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)));
                         }
-                    } else if (AntiHelper.to(signMessage.mSignErrorCode)) {
+                    } else if (AntiHelper.tn(signMessage.mSignErrorCode)) {
                         AntiHelper.ar(f.this.getPageContext().getPageActivity(), signMessage.mSignErrorString);
                     } else {
                         if (signMessage.mSignErrorCode == 160002) {
@@ -281,9 +281,10 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
             this.cij.a(this.cqr, this.cwI);
         }
         if (this.cna.afo()) {
-            this.cwI.jC(k.g(this.cna.getActivity(), d.f.ds40));
+            this.cwI.m(0, k.g(TbadkCoreApplication.getInst(), d.f.ds40), 0, k.g(this.mContext.getPageActivity(), d.f.ds20));
         } else {
-            this.cwI.jC(k.g(this.cna.getActivity(), d.f.ds20));
+            int g = k.g(TbadkCoreApplication.getInst(), d.f.ds34);
+            this.cwI.m(0, g, 0, g);
         }
         ajk();
     }
@@ -604,7 +605,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
             @Override // com.baidu.adp.base.d
             public void g(Object obj) {
                 o oVar;
-                if (AntiHelper.to(f.this.bES.getErrorCode())) {
+                if (AntiHelper.tn(f.this.bES.getErrorCode())) {
                     AntiHelper.ar(f.this.getPageContext().getPageActivity(), f.this.bES.getErrorString());
                     return;
                 }
@@ -624,7 +625,7 @@ public class f extends com.baidu.adp.base.c<BaseFragmentActivity> {
                     if (oVar == null || !z) {
                         if (f.this.bES.getErrorCode() == 22) {
                             f.this.cna.showToast(f.this.getPageContext().getString(d.l.had_liked_forum));
-                        } else if (AntiHelper.to(f.this.bES.getErrorCode())) {
+                        } else if (AntiHelper.tn(f.this.bES.getErrorCode())) {
                             AntiHelper.ar(f.this.getPageContext().getPageActivity(), f.this.bES.getErrorString());
                         } else {
                             f.this.cna.showToast(f.this.bES.getErrorString());

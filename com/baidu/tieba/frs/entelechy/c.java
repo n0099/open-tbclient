@@ -488,10 +488,12 @@ public class c extends a {
         aVar.a(d.l.open_now, new a.b() { // from class: com.baidu.tieba.frs.entelechy.c.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(c.this.aaS.getPageActivity(), c.this.mMemberType, "exp_acce", 2);
-                memberPayActivityConfig.setSceneId("4004001000");
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
-                aVar2.dismiss();
+                if (c.this.aaS != null && c.this.aaS.getPageActivity() != null) {
+                    MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(c.this.aaS.getPageActivity(), c.this.mMemberType, "exp_acce", 2);
+                    memberPayActivityConfig.setSceneId("4004001000");
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
+                    aVar2.dismiss();
+                }
             }
         });
     }
@@ -506,9 +508,11 @@ public class c extends a {
             contentView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.baidu.adp.lib.g.g.a(c.this.cxS, c.this.aaS.getPageActivity());
-                    c.this.cjg.chD = false;
-                    com.baidu.tbadk.browser.a.a(c.this.aaS.getPageActivity(), c.this.aaS.getResources().getString(d.l.experion_speed), com.baidu.tbadk.data.c.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
+                    if (c.this.aaS != null && c.this.aaS.getPageActivity() != null) {
+                        com.baidu.adp.lib.g.g.a(c.this.cxS, c.this.aaS.getPageActivity());
+                        c.this.cjg.chD = false;
+                        com.baidu.tbadk.browser.a.a(c.this.aaS.getPageActivity(), c.this.aaS.getResources().getString(d.l.experion_speed), com.baidu.tbadk.data.c.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
+                    }
                 }
             });
             this.cxS.setWidth(this.aaS.getResources().getDimensionPixelSize(d.f.ds300));

@@ -165,21 +165,21 @@ public class o extends j.a {
     }
 
     private void a(k kVar, int i) {
-        ArrayList<String> pL;
+        ArrayList<String> pK;
         if (kVar != null && !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
             if (i < 1 || i > 10) {
                 i = 1;
             }
             if (i == 10) {
-                pL = null;
+                pK = null;
             } else {
-                pL = pL(i);
+                pK = pK(i);
             }
-            a(kVar, pL);
+            a(kVar, pK);
         }
     }
 
-    private ArrayList<String> pL(int i) {
+    private ArrayList<String> pK(int i) {
         if (i <= 0) {
             return null;
         }

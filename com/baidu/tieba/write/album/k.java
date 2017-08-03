@@ -43,7 +43,7 @@ public class k extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void ui(int i) {
+    public void uh(int i) {
         this.cad = i;
     }
 
@@ -54,7 +54,7 @@ public class k extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ot */
+    /* renamed from: os */
     public ImageFileInfo getItem(int i) {
         if (this.mDataList.get(i) != null) {
             return this.mDataList.get(i).alX();

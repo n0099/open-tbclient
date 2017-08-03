@@ -144,9 +144,9 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
         if (r.Gr().Gs() && com.baidu.tieba.homepage.framework.a.anR().getCreateTime() > 0) {
-            long kv = com.baidu.tieba.homepage.framework.a.anR().kv(1);
+            long ku = com.baidu.tieba.homepage.framework.a.anR().ku(1);
             long createTime = com.baidu.tieba.homepage.framework.a.anR().getCreateTime();
-            g gVar = new g(1005, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.anR().ku(1), false, kv + createTime);
+            g gVar = new g(1005, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.anR().kt(1), false, ku + createTime);
             if (gVar != null) {
                 gVar.pageType = i;
                 gVar.Gm();

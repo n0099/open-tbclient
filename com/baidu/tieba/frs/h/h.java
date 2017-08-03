@@ -38,18 +38,20 @@ public class h extends i {
         this.amt = new k.b() { // from class: com.baidu.tieba.frs.h.h.2
             @Override // com.baidu.tbadk.core.view.k.b
             public void onListPullRefresh(boolean z) {
-                h.this.cna.refresh();
-                if (h.this.chQ != null) {
-                    h.this.chQ.ck(true);
-                    h.this.cna.eE(true);
-                    TiebaStatic.log(new aj("c11749").aa("fid", h.this.cna.getFid()).aa("obj_locate", "1"));
+                if (h.this.cna != null && h.this.cna.isAdded()) {
+                    h.this.cna.refresh();
+                    if (h.this.chQ != null) {
+                        h.this.chQ.ck(true);
+                        h.this.cna.eE(true);
+                        TiebaStatic.log(new aj("c11749").aa("fid", h.this.cna.getFid()).aa("obj_locate", "1"));
+                    }
                 }
             }
         };
         this.amv = new k.c() { // from class: com.baidu.tieba.frs.h.h.3
             @Override // com.baidu.tbadk.core.view.k.c
             public void aN(boolean z) {
-                if (h.this.chQ != null && h.this.ctU != null && h.this.cia != null) {
+                if (h.this.chQ != null && h.this.ctU != null && h.this.cia != null && h.this.cna != null && h.this.cna.isAdded()) {
                     if (h.this.chQ != null && h.this.chQ.afu() != null) {
                         h.this.chQ.afu().apM();
                     }
@@ -68,33 +70,35 @@ public class h extends i {
         this.amu = new k.a() { // from class: com.baidu.tieba.frs.h.h.4
             @Override // com.baidu.tbadk.core.view.k.a
             public void b(View view, boolean z) {
-                if (h.this.cif != null && h.this.cna.aeU() != null && h.this.cna.aeU().afw() != null && !h.this.cna.aeU().afw().agY()) {
-                    h.this.cif.aiG();
-                }
-                if (h.this.chQ != null && h.this.ctU != null && h.this.cia != null && h.this.cif != null) {
-                    AlaLiveNotify brc = h.this.cna.afm().brc();
-                    if (brc != null) {
-                        new com.baidu.tieba.frs.d.a().a(h.this.cna, brc);
+                if (h.this.cna != null && h.this.cna.isAdded()) {
+                    if (h.this.cif != null && h.this.cna.aeU() != null && h.this.cna.aeU().afw() != null && !h.this.cna.aeU().afw().agY()) {
+                        h.this.cif.aiG();
                     }
-                    h.this.cna.eE(true);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
-                    if (TbadkCoreApplication.isLogin() && h.this.cna.getListView().getVisibility() == 0 && !u.v(h.this.cna.afm().getThreadList())) {
-                        if (h.this.cwZ == null) {
-                            h.this.cwZ = new com.baidu.tieba.d.a(h.this.cna.getPageContext(), h.this.chQ.VM());
-                            h.this.cwZ.hH(d.g.story_frs_guide_bg);
-                            h.this.cwZ.hK(1);
-                            h.this.cwZ.hJ(500);
-                            h.this.cwZ.hI(-1);
-                            h.this.cwZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.h.h.4.1
-                                @Override // android.view.View.OnClickListener
-                                public void onClick(View view2) {
-                                    if (h.this.cwZ != null) {
-                                        h.this.cwZ.Yd();
-                                    }
-                                }
-                            });
+                    if (h.this.chQ != null && h.this.ctU != null && h.this.cia != null && h.this.cif != null) {
+                        AlaLiveNotify brc = h.this.cna.afm().brc();
+                        if (brc != null) {
+                            new com.baidu.tieba.frs.d.a().a(h.this.cna, brc);
                         }
-                        h.this.cwZ.jk("story_frs_guide_mask");
+                        h.this.cna.eE(true);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
+                        if (TbadkCoreApplication.isLogin() && h.this.cna.getListView().getVisibility() == 0 && !u.v(h.this.cna.afm().getThreadList())) {
+                            if (h.this.cwZ == null) {
+                                h.this.cwZ = new com.baidu.tieba.d.a(h.this.cna.getPageContext(), h.this.chQ.VM());
+                                h.this.cwZ.hH(d.g.story_frs_guide_bg);
+                                h.this.cwZ.hK(1);
+                                h.this.cwZ.hJ(500);
+                                h.this.cwZ.hI(-1);
+                                h.this.cwZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.h.h.4.1
+                                    @Override // android.view.View.OnClickListener
+                                    public void onClick(View view2) {
+                                        if (h.this.cwZ != null) {
+                                            h.this.cwZ.Yd();
+                                        }
+                                    }
+                                });
+                            }
+                            h.this.cwZ.jk("story_frs_guide_mask");
+                        }
                     }
                 }
             }

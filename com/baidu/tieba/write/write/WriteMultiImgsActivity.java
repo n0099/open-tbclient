@@ -114,7 +114,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.WriteMultiImgsActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                WriteMultiImgsActivity.this.gGa.uC(Integer.parseInt(view.getTag().toString()));
+                WriteMultiImgsActivity.this.gGa.uB(Integer.parseInt(view.getTag().toString()));
             }
         };
         button.setOnClickListener(onClickListener);

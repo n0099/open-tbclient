@@ -447,7 +447,7 @@ public class RecommendFrsControlFragment extends BaseFragment {
         this.cPL.a(getChildFragmentManager(), this.cPZ, this.cQa);
         this.cPL.setPageUniqueId(getUniqueId());
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        a.anR().setCreateTime(System.currentTimeMillis() - a.anR().kt(1));
+        a.anR().setCreateTime(System.currentTimeMillis() - a.anR().ks(1));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment

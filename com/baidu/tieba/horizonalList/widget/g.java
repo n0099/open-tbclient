@@ -233,7 +233,7 @@ public class g {
             this.cWZ = this.mStart + Math.round((this.cXa - this.mStart) * f);
         }
 
-        private static float lk(int i) {
+        private static float lj(int i) {
             return i > 0 ? -2000.0f : 2000.0f;
         }
 
@@ -283,7 +283,7 @@ public class g {
             this.mStart = i;
             this.cXa = i2;
             int i4 = i - i2;
-            this.cXd = lk(i4);
+            this.cXd = lj(i4);
             this.cXb = -i4;
             this.cXh = Math.abs(i4);
             this.Ii = (int) (Math.sqrt((i4 * (-2.0d)) / this.cXd) * 1000.0d);
@@ -300,16 +300,16 @@ public class g {
             this.mStart = i;
             this.cWZ = i;
             if (i > i4 || i < i3) {
-                n(i, i3, i4, i2);
+                o(i, i3, i4, i2);
                 return;
             }
             this.mState = 0;
             double d = 0.0d;
             if (i2 != 0) {
-                int ln = ln(i2);
-                this.cXe = ln;
-                this.Ii = ln;
-                d = lm(i2);
+                int lm = lm(i2);
+                this.cXe = lm;
+                this.Ii = lm;
+                d = ll(i2);
             }
             this.cXf = (int) (d * Math.signum(i2));
             this.cXa = this.cXf + i;
@@ -323,16 +323,16 @@ public class g {
             }
         }
 
-        private double ll(int i) {
+        private double lk(int i) {
             return Math.log((0.35f * Math.abs(i)) / (this.cXi * this.cXj));
         }
 
-        private double lm(int i) {
-            return Math.exp(ll(i) * (cXk / (cXk - 1.0d))) * this.cXi * this.cXj;
+        private double ll(int i) {
+            return Math.exp(lk(i) * (cXk / (cXk - 1.0d))) * this.cXi * this.cXj;
         }
 
-        private int ln(int i) {
-            return (int) (Math.exp(ll(i) / (cXk - 1.0d)) * 1000.0d);
+        private int lm(int i) {
+            return (int) (Math.exp(lk(i) / (cXk - 1.0d)) * 1000.0d);
         }
 
         private void E(int i, int i2, int i3) {
@@ -344,12 +344,12 @@ public class g {
         }
 
         private void F(int i, int i2, int i3) {
-            this.cXd = lk(i3 == 0 ? i - i2 : i3);
+            this.cXd = lj(i3 == 0 ? i - i2 : i3);
             E(i, i2, i3);
             apm();
         }
 
-        private void n(int i, int i2, int i3, int i4) {
+        private void o(int i, int i2, int i3, int i4) {
             if (i > i2 && i < i3) {
                 Log.e("OverScroller", "startAfterEdge called from a valid position");
                 this.cXg = true;
@@ -360,7 +360,7 @@ public class g {
             int i6 = i - i5;
             if (i6 * i4 >= 0) {
                 F(i, i5, i4);
-            } else if (lm(i4) > Math.abs(i6)) {
+            } else if (ll(i4) > Math.abs(i6)) {
                 f(i, i4, z ? i2 : i, z ? i : i3, this.cXh);
             } else {
                 D(i, i5, i4);
@@ -371,7 +371,7 @@ public class g {
             if (this.mState == 0) {
                 this.cXh = i3;
                 this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
-                n(i, i2, i2, (int) this.cXc);
+                o(i, i2, i2, (int) this.cXc);
             }
         }
 
@@ -398,7 +398,7 @@ public class g {
                     if (this.Ii < this.cXe) {
                         this.mStart = this.cXa;
                         this.cXb = (int) this.cXc;
-                        this.cXd = lk(this.cXb);
+                        this.cXd = lj(this.cXb);
                         this.mStartTime += this.Ii;
                         apm();
                         break;

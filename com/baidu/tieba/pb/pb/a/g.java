@@ -623,7 +623,7 @@ public class g extends l<PostData, h> implements View.OnClickListener {
         this.eEj = fVar;
     }
 
-    public void oP(int i) {
+    public void oO(int i) {
         this.eEg = i;
     }
 
