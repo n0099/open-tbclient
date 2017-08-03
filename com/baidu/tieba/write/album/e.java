@@ -98,7 +98,7 @@ public class e {
         return this.aDH;
     }
 
-    public void uc(int i) {
+    public void ub(int i) {
         this.aDH = i;
     }
 

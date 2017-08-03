@@ -32,7 +32,7 @@ public class a {
         }
     }
 
-    public static void ts(int i) {
+    public static void tr(int i) {
         if (i <= 0) {
             gjj = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
@@ -40,7 +40,7 @@ public class a {
         }
     }
 
-    public static void tt(int i) {
+    public static void ts(int i) {
         if (i <= 0) {
             chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
@@ -48,7 +48,7 @@ public class a {
         }
     }
 
-    public static void tu(int i) {
+    public static void tt(int i) {
         if (i <= 0) {
             gji = 6144000;
         } else {

@@ -135,13 +135,13 @@ public class l extends LinearLayout {
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            List<com.baidu.tieba.personPolymeric.c.f> qg = l.this.qg(i);
-            if (u.v(qg)) {
+            List<com.baidu.tieba.personPolymeric.c.f> qf = l.this.qf(i);
+            if (u.v(qf)) {
                 return null;
             }
             m mVar = new m(l.this.fkm);
             mVar.setForumItemViewBdObjectPool(l.this.fjB);
-            mVar.setData(qg);
+            mVar.setData(qf);
             mVar.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(d.f.ds32));
             viewGroup.addView(mVar);
             return mVar;
@@ -149,7 +149,7 @@ public class l extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tieba.personPolymeric.c.f> qg(int i) {
+    public List<com.baidu.tieba.personPolymeric.c.f> qf(int i) {
         if (this.fjz == null || u.v(this.fjz.fja)) {
             return null;
         }

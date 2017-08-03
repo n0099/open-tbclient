@@ -244,20 +244,20 @@ public abstract class h implements View.OnClickListener {
         return this.mNavigationBar;
     }
 
-    public void qi(int i) {
+    public void qh(int i) {
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == d.h.fourm_name_btn) {
-            qi(0);
+            qh(0);
             this.fkC.setVisibility(0);
             this.fkD.setVisibility(4);
             this.guV.setTextColor(this.alR);
             this.guW.setTextColor(this.alS);
             this.aSM = 0;
         } else if (view.getId() == d.h.reply_btn) {
-            qi(1);
+            qh(1);
             this.fkC.setVisibility(4);
             this.fkD.setVisibility(0);
             this.guV.setTextColor(this.alS);
@@ -282,7 +282,7 @@ public abstract class h implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void pb(int i) {
+    public void pa(int i) {
         cA(i);
     }
 }

@@ -57,7 +57,7 @@ public class b {
                     List<ImMessageCenterPojo> data = memoryGetFromDBMessage.getData();
                     if (data != null) {
                         for (ImMessageCenterPojo imMessageCenterPojo : data) {
-                            if (imMessageCenterPojo != null && c.mq(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
+                            if (imMessageCenterPojo != null && c.mp(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
                                 b.this.e(imMessageCenterPojo);
                             }
                         }
@@ -122,25 +122,25 @@ public class b {
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                 String data = customMessage.getData();
                 LinkedList<ImMessageCenterPojo> atP = i.atN().atP();
-                long lR = h.ase().lR(11);
-                long lR2 = h.ase().lR(12);
+                long lQ = h.ase().lQ(11);
+                long lQ2 = h.ase().lQ(12);
                 if (atP == null) {
                     atP = new LinkedList<>();
                 }
-                if (lR != -1) {
+                if (lQ != -1) {
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     atP.add(imMessageCenterPojo);
                     imMessageCenterPojo.setCustomGroupType(7);
                     imMessageCenterPojo.setGid(String.valueOf(11));
-                    imMessageCenterPojo.setPulled_msgId(d.bQ(lR));
+                    imMessageCenterPojo.setPulled_msgId(d.bQ(lQ));
                     imMessageCenterPojo.setIs_hidden(1);
                 }
-                if (lR2 != -1) {
+                if (lQ2 != -1) {
                     ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                     atP.add(imMessageCenterPojo2);
                     imMessageCenterPojo2.setCustomGroupType(8);
                     imMessageCenterPojo2.setGid(String.valueOf(12));
-                    imMessageCenterPojo2.setPulled_msgId(d.bQ(lR2));
+                    imMessageCenterPojo2.setPulled_msgId(d.bQ(lQ2));
                     imMessageCenterPojo2.setIs_hidden(1);
                 }
                 return new MemoryGetFromDBMessage(atP, data);
@@ -155,8 +155,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void awo() {
         ImMessageCenterPojo mm;
-        a mo = mo(-4);
-        if (mo != null && (mm = mo.mm("-1003")) != null) {
+        a mn = mn(-4);
+        if (mn != null && (mm = mn.mm("-1003")) != null) {
             String last_content = mm.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
@@ -193,8 +193,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void awp() {
         ImMessageCenterPojo mm;
-        a mo = mo(-3);
-        if (mo != null && (mm = mo.mm("-1002")) != null) {
+        a mn = mn(-3);
+        if (mn != null && (mm = mn.mm("-1002")) != null) {
             String last_content = mm.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
@@ -209,8 +209,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void awq() {
         ImMessageCenterPojo mm;
-        a mo = mo(-5);
-        if (mo != null && (mm = mo.mm("-1004")) != null) {
+        a mn = mn(-5);
+        if (mn != null && (mm = mn.mm("-1004")) != null) {
             String last_content = mm.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
@@ -225,14 +225,14 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            mo(imMessageCenterPojo.getCustomGroupType()).d(imMessageCenterPojo);
+            mn(imMessageCenterPojo.getCustomGroupType()).d(imMessageCenterPojo);
         }
     }
 
     public ImMessageCenterPojo aa(String str, int i) {
-        a mo;
-        if (this.dsU.get() && (mo = mo(i)) != null) {
-            return mo.mm(str);
+        a mn;
+        if (this.dsU.get() && (mn = mn(i)) != null) {
+            return mn.mm(str);
         }
         return null;
     }
@@ -248,12 +248,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ac(String str, int i) {
-        a mo;
-        if (this.dsU.get() && (mo = mo(i)) != null) {
+        a mn;
+        if (this.dsU.get() && (mn = mn(i)) != null) {
             if (i == 9) {
                 BdLog.i("quit live group. ");
             }
-            mo.mn(str);
+            mn.mn(str);
         }
     }
 
@@ -698,9 +698,9 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public ImMessageCenterPojo gB(boolean z) {
         ImMessageCenterPojo imMessageCenterPojo = null;
-        a mo = mo(-7);
-        if (mo != null) {
-            imMessageCenterPojo = mo.mm("-1001");
+        a mn = mn(-7);
+        if (mn != null) {
+            imMessageCenterPojo = mn.mm("-1001");
         }
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
@@ -769,9 +769,9 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public ImMessageCenterPojo gC(boolean z) {
         ImMessageCenterPojo imMessageCenterPojo = null;
-        a mo = mo(-8);
-        if (mo != null) {
-            imMessageCenterPojo = mo.mm("-1000");
+        a mn = mn(-8);
+        if (mn != null) {
+            imMessageCenterPojo = mn.mm("-1000");
         }
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
@@ -894,7 +894,7 @@ public class b {
         if (TbadkCoreApplication.getInst().getCustomizedFilter() != null) {
             return TbadkCoreApplication.getInst().getCustomizedFilter().bt(imMessageCenterPojo.getCustomGroupType());
         }
-        return c.mp(imMessageCenterPojo.getCustomGroupType());
+        return c.mo(imMessageCenterPojo.getCustomGroupType());
     }
 
     public long ae(String str, int i) {
@@ -914,7 +914,7 @@ public class b {
         return j + 1;
     }
 
-    private a mo(int i) {
+    private a mn(int i) {
         if (i == 2) {
             return this.dsW;
         }

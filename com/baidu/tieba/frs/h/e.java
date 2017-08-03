@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
 import com.baidu.sapi2.SapiSafeFacade;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ai;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.d;
@@ -20,8 +21,6 @@ public class e {
     private TextView cwD;
     private final Runnable cwE;
     private NoPressedRelativeLayout cwb;
-    private final Animation mInAnimation;
-    private final Animation mOutAnimation;
     private int ciX = -1;
     private int cwF = 0;
     private int cwG = -1;
@@ -35,12 +34,12 @@ public class e {
             return false;
         }
     });
+    private final Animation mInAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_in);
+    private final Animation mOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
 
     public e(com.baidu.tieba.frs.f fVar, NoPressedRelativeLayout noPressedRelativeLayout) {
         this.cwb = noPressedRelativeLayout;
         this.csY = fVar;
-        this.mInAnimation = AnimationUtils.loadAnimation(fVar.getActivity(), d.a.fade_in);
-        this.mOutAnimation = AnimationUtils.loadAnimation(fVar.getActivity(), d.a.fade_out);
         this.mOutAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.h.e.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
@@ -67,7 +66,7 @@ public class e {
     }
 
     private void initView() {
-        this.cwD = new TextView(this.csY.getActivity());
+        this.cwD = new TextView(TbadkCoreApplication.getInst());
         this.cwD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.h.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -87,7 +86,7 @@ public class e {
         ai.i(this.cwD, d.e.cp_link_tip_a);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
-        layoutParams.topMargin = this.csY.afl().getBottom() + k.g(this.csY.getActivity(), d.f.ds8);
+        layoutParams.topMargin = this.csY.afl().getBottom() + k.g(TbadkCoreApplication.getInst(), d.f.ds8);
         this.cwD.setLayoutParams(layoutParams);
     }
 

@@ -200,7 +200,7 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
             public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, q qVar, WriteData writeData, AntiData antiData) {
                 n.this.dDo.hideProgressBar();
                 n.this.dDz.CS().hide();
-                if (postWriteCallBackData != null && qVar == null && !AntiHelper.to(postWriteCallBackData.getErrorCode()) && postWriteCallBackData.getErrorCode() != 230277 && postWriteCallBackData.getErrorCode() != 230278) {
+                if (postWriteCallBackData != null && qVar == null && !AntiHelper.tn(postWriteCallBackData.getErrorCode()) && postWriteCallBackData.getErrorCode() != 230277 && postWriteCallBackData.getErrorCode() != 230278) {
                     n.this.dDo.showToast(postWriteCallBackData.getErrorString());
                 }
             }

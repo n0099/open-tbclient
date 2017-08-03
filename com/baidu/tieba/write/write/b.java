@@ -82,7 +82,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void uC(int i) {
+    public void uB(int i) {
         if (this.gEk[this.aDH].bzH()) {
             this.gEi[this.aDH].addPageAction(e.eW(i));
             this.gEh.bAs();

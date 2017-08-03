@@ -95,7 +95,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             if (i == GuideActivity.this.dJz - 1) {
                 switch (GuideActivity.this.dJy) {
                     case 1:
-                        GuideActivity.this.mU(d.f.ds154);
+                        GuideActivity.this.mT(d.f.ds154);
                         GuideActivity.this.dJt.setVisibility(0);
                         GuideActivity.this.dJs.setVisibility(0);
                         break;
@@ -109,7 +109,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 }
             } else {
                 GuideActivity.this.dJt.setVisibility(8);
-                GuideActivity.this.mU(d.f.ds120);
+                GuideActivity.this.mT(d.f.ds120);
                 switch (GuideActivity.this.dJy) {
                     case 1:
                         GuideActivity.this.dJs.setVisibility(0);
@@ -209,7 +209,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 this.dJr.setOnPageChangeListener(this.dJC);
                 this.dJt = findViewById(d.h.start_app);
                 if (this.dJy == 1 && this.dJz <= 1) {
-                    mU(d.f.ds90);
+                    mT(d.f.ds90);
                     this.dJt.setVisibility(0);
                     this.dJt.requestFocus();
                 } else {
@@ -299,7 +299,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mU(int i) {
+    public void mT(int i) {
         w(this.dJt, i);
     }
 

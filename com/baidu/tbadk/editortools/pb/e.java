@@ -74,7 +74,7 @@ public class e extends com.baidu.tbadk.editortools.f {
                     if (writeData2 != null && writeData2 != null && writeData2.getType() == 2) {
                         e.this.aDh.Dm();
                     }
-                } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.to(i)) {
+                } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.tn(i)) {
                     e.this.m(i, str);
                 } else if (qVar != null && writeData != null && !StringUtils.isNull(qVar.getVcode_pic_url())) {
                     writeData.setVcodeMD5(qVar.getVcode_md5());
@@ -231,7 +231,7 @@ public class e extends com.baidu.tbadk.editortools.f {
     }
 
     public void m(int i, String str) {
-        if (AntiHelper.to(i)) {
+        if (AntiHelper.tn(i)) {
             AntiHelper.ar(xY().getPageActivity(), str);
         } else if (i == 230277 || i == 230278) {
             fW(str);

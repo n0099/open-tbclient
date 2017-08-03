@@ -92,12 +92,12 @@ public class b {
                         com.baidu.tieba.im.b.b.awP().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                         return;
                     }
-                    int mt = com.baidu.tieba.im.b.a.mt(pushNotifyMessage.getGroupType());
-                    if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().bt(mt)) {
-                        if (com.baidu.tieba.im.memorycache.b.awn().aa(String.valueOf(pushNotifyMessage.getGroupId()), mt) != null) {
+                    int ms = com.baidu.tieba.im.b.a.ms(pushNotifyMessage.getGroupType());
+                    if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().bt(ms)) {
+                        if (com.baidu.tieba.im.memorycache.b.awn().aa(String.valueOf(pushNotifyMessage.getGroupId()), ms) != null) {
                             com.baidu.tieba.im.b.b.awP().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                         } else {
-                            c(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), mt);
+                            c(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), ms);
                         }
                     }
                 }

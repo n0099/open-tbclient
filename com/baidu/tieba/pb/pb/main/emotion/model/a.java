@@ -32,7 +32,7 @@ public class a {
     protected boolean eQw = false;
     protected int eQx = 10;
 
-    public void pn(int i) {
+    public void pm(int i) {
         if (i >= 0) {
             this.eQm = i;
         }
@@ -149,11 +149,11 @@ public class a {
         this.eQp = 8;
         this.eQs = 7;
         if (this.transparent != -1) {
-            this.eQl = po(this.transparent);
+            this.eQl = pn(this.transparent);
         }
     }
 
-    protected int po(int i) {
+    protected int pn(int i) {
         int i2;
         int i3 = 0;
         if (this.eQq == null) {

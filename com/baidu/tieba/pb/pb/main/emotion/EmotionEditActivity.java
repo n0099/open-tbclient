@@ -94,7 +94,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         this.ePP = (ChooseColorLayout) findViewById(d.h.choose_color_layout);
         this.ePP.setOnChooseColorChangeListener(new ChooseColorLayout.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.EmotionEditActivity.2
             @Override // com.baidu.tieba.pb.pb.main.emotion.view.ChooseColorLayout.a
-            public void pm(int i) {
+            public void pl(int i) {
                 EmotionEditActivity.this.ePR.setTextColor(i);
             }
         });

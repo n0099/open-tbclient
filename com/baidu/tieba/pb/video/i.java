@@ -443,11 +443,11 @@ public class i {
         }
     }
 
-    public boolean pE(int i) {
+    public boolean pD(int i) {
         if (this.eWw == null) {
             return false;
         }
-        return this.eWw.rB(i);
+        return this.eWw.rA(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -469,9 +469,9 @@ public class i {
         }
     }
 
-    public void py(int i) {
+    public void px(int i) {
         if (this.eWs != null) {
-            this.eWs.py(i);
+            this.eWs.px(i);
         }
         if (this.eWP != null) {
             this.eWP.onChangeSkinType(i);
@@ -495,17 +495,17 @@ public class i {
                 if (i != 0) {
                     y = aVT().getHeight();
                 }
-                pF(y);
+                pE(y);
             } else if (this.eWG == 2) {
                 int y2 = (int) aVT().getY();
                 if (this.eWH == y2) {
                     if (i != 0) {
                         y2 = aVT().getHeight();
                     }
-                    pF(y2);
+                    pE(y2);
                 } else {
                     this.eWH = y2;
-                    pF(y2);
+                    pE(y2);
                 }
                 if (i == 0 && this.eWK) {
                     this.eWK = false;
@@ -518,29 +518,29 @@ public class i {
                 }
             } else if (this.eWG == 0) {
                 if (this.eWw.bfq()) {
-                    pK(aVT().getHeight() - Math.abs((int) aVT().getY()));
+                    pJ(aVT().getHeight() - Math.abs((int) aVT().getY()));
                     return;
                 }
                 int y3 = (int) aVT().getY();
                 if (i != 0) {
                     y3 = aVT().getHeight();
                 }
-                pF(y3);
+                pE(y3);
             }
         }
     }
 
-    private void pF(int i) {
+    private void pE(int i) {
         int height = aVT().getHeight() - Math.abs(i);
-        pG(height);
-        pI(height);
-        pJ(height);
+        pF(height);
         pH(height);
-        pK(height);
+        pI(height);
+        pG(height);
+        pJ(height);
         aVQ();
     }
 
-    private void pG(int i) {
+    private void pF(int i) {
         if (i <= 0) {
             this.eWw.lu(false);
         } else if (this.eWM >= 1.0d) {
@@ -550,7 +550,7 @@ public class i {
         }
     }
 
-    private void pH(int i) {
+    private void pG(int i) {
         if (this.eWy != null) {
             float height = aVT().getHeight() - i;
             float f = height > this.eWI ? 0.0f : 1.0f - (height / this.eWI);
@@ -575,7 +575,7 @@ public class i {
         }
     }
 
-    private void pI(int i) {
+    private void pH(int i) {
         if (i < this.eWE) {
             if (this.eWs.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                 this.eWs.mNavigationBar.getBarBgView().setAlpha(1.0f);
@@ -591,7 +591,7 @@ public class i {
         }
     }
 
-    private void pJ(int i) {
+    private void pI(int i) {
         if (i < this.eWE) {
             this.eWs.aUx().setVisibility(0);
             this.eWs.eTh.setVisibility(8);
@@ -609,7 +609,7 @@ public class i {
         this.eWs.aUx().setVisibility(8);
     }
 
-    private void pK(int i) {
+    private void pJ(int i) {
         if (i < this.eWL / 2 && this.eWw.bfq()) {
             this.eWD = false;
             if (this.eWs.aUu() != null) {

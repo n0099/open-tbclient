@@ -293,7 +293,7 @@ public class ae {
         return this.eLY;
     }
 
-    public void ph(int i) {
+    public void pg(int i) {
         this.eLY = i;
     }
 

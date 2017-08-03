@@ -140,7 +140,7 @@ public class i {
 
     public static void a(com.baidu.tieba.frs.f fVar, int i, String[] strArr, int[] iArr) {
         if (fVar != null && strArr != null && iArr != null && i == 1) {
-            if (aa.aD(fVar.getActivity().getApplicationContext())) {
+            if (aa.aD(TbadkCoreApplication.getInst().getApplicationContext())) {
                 ah.c(fVar.getPageContext());
             } else {
                 fVar.showToast(d.l.system_permission_prompt_camera);

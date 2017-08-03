@@ -98,7 +98,7 @@ public class PbFloorAgreeView extends FrameLayout {
         ai.i(this.eTa, d.e.cp_cont_f);
     }
 
-    public void px(int i) {
+    public void pw(int i) {
         if (this.amQ != null && getVisibility() == 0) {
             if (getParent() != null) {
                 ((ViewGroup) getParent()).setClipChildren(false);

@@ -18,7 +18,7 @@ public class e implements com.baidu.adp.widget.ListView.f {
         return this.eDe;
     }
 
-    public void sU(int i) {
+    public void sT(int i) {
         this.eDe = i;
     }
 
@@ -30,7 +30,7 @@ public class e implements com.baidu.adp.widget.ListView.f {
         this.icon = str;
     }
 
-    public void sV(int i) {
+    public void sU(int i) {
         this.weight = i;
     }
 
@@ -42,7 +42,7 @@ public class e implements com.baidu.adp.widget.ListView.f {
         this.title = str;
     }
 
-    public void sW(int i) {
+    public void sV(int i) {
         this.type = i;
     }
 
@@ -70,10 +70,10 @@ public class e implements com.baidu.adp.widget.ListView.f {
         setIcon(starEnter.icon);
         setTime(starEnter.time.intValue());
         setTitle(starEnter.title);
-        sW(starEnter.type.intValue());
+        sV(starEnter.type.intValue());
         setUrl(starEnter.url);
-        sV(starEnter.weight.intValue());
-        sU(starEnter.rank_num.intValue());
+        sU(starEnter.weight.intValue());
+        sT(starEnter.rank_num.intValue());
         this.obj_id = starEnter.obj_id;
         this.dYM = starEnter.text;
     }

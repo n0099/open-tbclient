@@ -308,7 +308,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         ai.c(this.gBn, d.e.cp_cont_g, 1);
         ai.k(this.mRootView, d.e.cp_bg_line_d);
         ai.k(this.bfY, d.e.cp_bg_line_c);
-        this.gBo.un(i);
+        this.gBo.um(i);
         this.Ib.setSelector(ai.getDrawable(d.g.selector_select_forum_item));
         ai.k(this.gBt, d.e.cp_bg_line_d_alpha95);
     }

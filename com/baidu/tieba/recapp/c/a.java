@@ -279,7 +279,7 @@ public class a {
                 NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
                 return;
             }
-            cVar2.rS(aj);
+            cVar2.rR(aj);
             NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str, downloadData.getUser_name(), fs(downloadData.getAction()), false, cVar2.bhB(), false);
         }
     }

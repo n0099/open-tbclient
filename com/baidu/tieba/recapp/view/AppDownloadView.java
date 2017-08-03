@@ -104,15 +104,15 @@ public class AppDownloadView extends LinearLayout {
             }
             int aj = a.bhy().aj(downloadData.getId(), downloadData.getName());
             if (aj >= 0) {
-                rZ(aj);
+                rY(aj);
             } else {
-                rZ(0);
+                rY(0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rZ(int i) {
+    public void rY(int i) {
         int max = Math.max(0, i);
         this.fHS.setProgress(max);
         this.fHU.setText(max + "%");
@@ -201,7 +201,7 @@ public class AppDownloadView extends LinearLayout {
                         }
                         downloadData = null;
                         if (downloadData != null) {
-                            AppDownloadView.this.rZ(a.bhy().aj(downloadData.getId(), downloadData.getName()));
+                            AppDownloadView.this.rY(a.bhy().aj(downloadData.getId(), downloadData.getName()));
                             AppDownloadView.this.postInvalidate();
                         }
                     }

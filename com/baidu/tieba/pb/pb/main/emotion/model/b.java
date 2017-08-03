@@ -50,13 +50,13 @@ class b {
     }
 
     void h(OutputStream outputStream) throws IOException {
-        pp(this.eQW);
+        po(this.eQW);
         this.eQX = this.eRa + 2;
         this.eQY = true;
         d(this.eRa, outputStream);
     }
 
-    void pp(int i) {
+    void po(int i) {
         for (int i2 = 0; i2 < i; i2++) {
             this.eQU[i2] = -1;
         }
@@ -67,7 +67,7 @@ class b {
         this.eQZ = i;
         this.eQY = false;
         this.eQQ = this.eQZ;
-        this.eQS = pq(this.eQQ);
+        this.eQS = pp(this.eQQ);
         this.eRa = 1 << (i - 1);
         this.eRb = this.eRa + 1;
         this.eQX = this.eRa + 2;
@@ -78,7 +78,7 @@ class b {
         }
         int i4 = 8 - i2;
         int i5 = this.eQW;
-        pp(i5);
+        po(i5);
         d(this.eRa, outputStream);
         while (true) {
             int aUc2 = aUc();
@@ -142,7 +142,7 @@ class b {
         }
     }
 
-    final int pq(int i) {
+    final int pp(int i) {
         return (1 << i) - 1;
     }
 
@@ -174,14 +174,14 @@ class b {
             if (this.eQY) {
                 int i2 = this.eQZ;
                 this.eQQ = i2;
-                this.eQS = pq(i2);
+                this.eQS = pp(i2);
                 this.eQY = false;
             } else {
                 this.eQQ++;
                 if (this.eQQ == this.eQR) {
                     this.eQS = this.eQT;
                 } else {
-                    this.eQS = pq(this.eQQ);
+                    this.eQS = pp(this.eQQ);
                 }
             }
         }

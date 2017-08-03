@@ -224,7 +224,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         } else if (this.cqD.wT()) {
             return false;
         } else {
-            TiebaStatic.eventStat(this.cna.getActivity(), "frs_nextpage", "frsclick", 1, new Object[0]);
+            TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "frs_nextpage", "frsclick", 1, new Object[0]);
             FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.cti), FrsRequestData.class);
             frsRequestData.setPn(frsRequestData.getPn() + 1);
             frsRequestData.setSortType(Oh());
@@ -288,9 +288,9 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }
         frsRequestData.setWithGroup(1);
         frsRequestData.setCid(0);
-        int af = com.baidu.adp.lib.util.k.af(this.cna.getActivity());
-        int ag = com.baidu.adp.lib.util.k.ag(this.cna.getActivity());
-        float ah = com.baidu.adp.lib.util.k.ah(this.cna.getActivity());
+        int af = com.baidu.adp.lib.util.k.af(TbadkCoreApplication.getInst());
+        int ag = com.baidu.adp.lib.util.k.ag(TbadkCoreApplication.getInst());
+        float ah = com.baidu.adp.lib.util.k.ah(TbadkCoreApplication.getInst());
         int i2 = am.vG().vI() ? 2 : 1;
         frsRequestData.setScrW(af);
         frsRequestData.setScrH(ag);

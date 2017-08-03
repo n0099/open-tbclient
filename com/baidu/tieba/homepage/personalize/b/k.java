@@ -23,7 +23,7 @@ public class k extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: kJ */
+    /* renamed from: kI */
     public com.baidu.tieba.homepage.personalize.data.g getItem(int i) {
         if (this.cSE == null || this.cSE.cTq == null) {
             return null;

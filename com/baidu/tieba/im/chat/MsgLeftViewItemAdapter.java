@@ -35,7 +35,7 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
         MsgleftView arH = aVar.arH();
-        arH.lL(this.dfY);
+        arH.lK(this.dfY);
         arH.fU(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
         arH.a(this.dfO);

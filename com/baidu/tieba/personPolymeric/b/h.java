@@ -214,7 +214,7 @@ public class h implements com.baidu.tieba.model.a, a {
                                     }
                                     cVar2.ki(true);
                                     cVar2.an(personPostModel.postList);
-                                    cVar2.pY(0);
+                                    cVar2.pX(0);
                                     h.this.fif.ao(personPostModel.postList);
                                     if (!z3 && h.this.bkz) {
                                         h.this.fif.bwy();
@@ -335,7 +335,7 @@ public class h implements com.baidu.tieba.model.a, a {
         if (aVar == null) {
             this.fij.L(TbadkCoreApplication.getInst().getString(d.l.neterror), true);
             this.fij.XC();
-            this.fij.ks(8);
+            this.fij.kr(8);
             return;
         }
         this.fij.Nl();
@@ -359,10 +359,10 @@ public class h implements com.baidu.tieba.model.a, a {
             this.fii.c(aVar);
         }
         com.baidu.tieba.person.data.c cVar = this.mList.get(0);
-        cVar.pY(0);
+        cVar.pX(0);
         cVar.an(aVar.aqa());
         cVar.ki(z);
-        this.fij.ks(0);
+        this.fij.kr(0);
         this.fif.a(aVar, z);
         if ((this.fif.mRootView instanceof RelativeLayout) && !this.bkz) {
             if (this.fih == null) {

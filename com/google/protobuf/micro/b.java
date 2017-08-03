@@ -155,7 +155,7 @@ public final class b {
     public a bEl() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return a.J(vo(j));
+            return a.J(vn(j));
         }
         a k = a.k(this.a, this.d, j);
         this.d = j + this.d;
@@ -254,7 +254,7 @@ public final class b {
     public String g() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return new String(vo(j), "UTF-8");
+            return new String(vn(j), "UTF-8");
         }
         String str = new String(this.a, this.d, j, "UTF-8");
         this.d = j + this.d;
@@ -307,7 +307,7 @@ public final class b {
         return this.d == this.b && !a(false);
     }
 
-    public byte[] vo(int i) {
+    public byte[] vn(int i) {
         if (i < 0) {
             throw d.b();
         }

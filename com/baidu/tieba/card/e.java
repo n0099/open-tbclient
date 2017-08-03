@@ -89,7 +89,7 @@ public class e extends b<com.baidu.tieba.card.data.g> {
             @Override // com.baidu.adp.base.d
             public void g(Object obj) {
                 if (!(obj instanceof com.baidu.tieba.tbadkCore.o) || e.this.bES.getErrorCode() != 0) {
-                    if (AntiHelper.to(e.this.bES.getErrorCode())) {
+                    if (AntiHelper.tn(e.this.bES.getErrorCode())) {
                         AntiHelper.ar(e.this.getContext(), e.this.bES.getErrorString());
                     } else {
                         e.this.VY().showToast(e.this.bES.getErrorString());

@@ -166,7 +166,7 @@ public class c {
         }
     }
 
-    public void ks(int i) {
+    public void kr(int i) {
         this.fhu.setVisibility(i);
     }
 

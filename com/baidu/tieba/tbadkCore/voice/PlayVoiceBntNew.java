@@ -121,17 +121,17 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             VoiceManager voiceManager = getVoiceManager();
             if (voiceManager != null && voiceManager.isPlayDoing(voiceModel)) {
                 voiceManager.resetPlayView(this);
-                mG(this.dyP.elapse);
+                mF(this.dyP.elapse);
                 return;
             }
-            mH(this.dyP.voice_status.intValue());
+            mG(this.dyP.voice_status.intValue());
             this.gjN.setCertainColumnCount(getAudioVoiceColumnCount());
             this.gjN.bwv();
             this.gjK.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
         }
     }
 
-    public void mG(int i) {
+    public void mF(int i) {
         String formatVoiceTime;
         if (this.dyP != null && this.gjK != null) {
             int i2 = i / 1000;
@@ -147,7 +147,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    public void mH(int i) {
+    public void mG(int i) {
         this.gjN.setCertainColumnCount(getAudioVoiceColumnCount());
         if (i == 3) {
             this.mProgress.setVisibility(4);
@@ -240,9 +240,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
     public void b(VoiceData.VoiceModel voiceModel) {
         if (voiceModel != null) {
             if (this.dyP != voiceModel) {
-                mH(1);
+                mG(1);
             } else {
-                mH(voiceModel.voice_status.intValue());
+                mG(voiceModel.voice_status.intValue());
             }
         }
     }
@@ -250,10 +250,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void aO(int i) {
         if (!btu()) {
-            mH(1);
+            mG(1);
             return;
         }
-        mG(i);
+        mF(i);
         if (this.dyP != null) {
             this.dyP.elapse = i;
         }
@@ -301,7 +301,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
     public void reset() {
         this.dyP = null;
         setTag(null);
-        mH(1);
+        mG(1);
     }
 
     private int getAudioVoiceColumnCount() {

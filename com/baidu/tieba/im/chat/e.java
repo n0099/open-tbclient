@@ -56,7 +56,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         this.dfX = z;
     }
 
-    public void lL(int i) {
+    public void lK(int i) {
         this.dfY = i;
     }
 

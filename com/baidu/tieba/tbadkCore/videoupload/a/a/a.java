@@ -39,7 +39,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tv(int i) {
+    public void tu(int i) {
         if (this.gjx != null) {
             this.gjx.al(i / 100.0f);
         }

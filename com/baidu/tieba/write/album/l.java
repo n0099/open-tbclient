@@ -187,7 +187,7 @@ public class l extends BaseFragment implements AbsListView.OnScrollListener, f.a
     };
     private TransparentHeadGridView.b gAj = new TransparentHeadGridView.b() { // from class: com.baidu.tieba.write.album.l.15
         @Override // com.baidu.tieba.write.album.TransparentHeadGridView.b
-        public void uk(int i) {
+        public void uj(int i) {
             l.this.bHK.setAlpha(1.0f - (i / 100.0f));
             l.this.gzU.setAlpha(i / 100.0f);
             l.this.gzZ.setAlpha(1.0f - (i / 100.0f));
@@ -220,7 +220,7 @@ public class l extends BaseFragment implements AbsListView.OnScrollListener, f.a
     };
     private TransparentHeadGridView.a gAl = new TransparentHeadGridView.a() { // from class: com.baidu.tieba.write.album.l.2
         @Override // com.baidu.tieba.write.album.TransparentHeadGridView.a
-        public void uj(int i) {
+        public void ui(int i) {
             l.this.gAa = i;
             if (i <= 50) {
                 l.this.cce.setTextColor(l.this.getResources().getColor(d.e.white_alpha100));
@@ -245,8 +245,8 @@ public class l extends BaseFragment implements AbsListView.OnScrollListener, f.a
     private i gzz = new i() { // from class: com.baidu.tieba.write.album.l.3
         @Override // com.baidu.tieba.write.album.i
         public void a(int i, ImageFileInfo imageFileInfo) {
-            l.this.gyG.uc(i);
-            l.this.gyW.ud(1);
+            l.this.gyG.ub(i);
+            l.this.gyW.uc(1);
         }
     };
     private a.InterfaceC0128a gAm = new a.InterfaceC0128a() { // from class: com.baidu.tieba.write.album.l.4
@@ -356,7 +356,7 @@ public class l extends BaseFragment implements AbsListView.OnScrollListener, f.a
         ViewGroup.LayoutParams layoutParams = this.gAb.getLayoutParams();
         layoutParams.height = (this.mScreenWidth * 4) / 3;
         this.gAb.setLayoutParams(layoutParams);
-        this.gzN.ui((this.mScreenWidth - com.baidu.adp.lib.util.k.g(getPageContext().getPageActivity(), d.f.ds16)) / 3);
+        this.gzN.uh((this.mScreenWidth - com.baidu.adp.lib.util.k.g(getPageContext().getPageActivity(), d.f.ds16)) / 3);
         this.gzZ = this.mView.findViewById(d.h.icon_camera);
         this.gAc = this.mView.findViewById(d.h.view_camera_cover);
         this.gzP.setOnRequestPermissionListener(this.gAe);

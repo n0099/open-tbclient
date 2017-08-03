@@ -114,9 +114,9 @@ public class m implements com.baidu.adp.widget.ListView.f {
         return this.eDr;
     }
 
-    public void oM(int i) {
+    public void oL(int i) {
         if (!this.eDq) {
-            oN(i);
+            oM(i);
             return;
         }
         this.eDn = i;
@@ -134,7 +134,7 @@ public class m implements com.baidu.adp.widget.ListView.f {
         }
     }
 
-    public void oN(int i) {
+    public void oM(int i) {
         if (TbadkCoreApplication.isLogin()) {
             MuteUser muteUser = new MuteUser();
             muteUser.setUserId(TbadkCoreApplication.getCurrentAccount());

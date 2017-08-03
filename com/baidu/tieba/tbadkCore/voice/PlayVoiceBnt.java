@@ -141,15 +141,15 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
             VoiceManager voiceManager = getVoiceManager();
             if (voiceManager != null && voiceManager.isPlayDoing(voiceModel)) {
                 voiceManager.resetPlayView(this);
-                mG(this.dyP.elapse);
+                mF(this.dyP.elapse);
                 return;
             }
-            mH(this.dyP.voice_status.intValue());
+            mG(this.dyP.voice_status.intValue());
             this.gjK.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
         }
     }
 
-    public void mG(int i) {
+    public void mF(int i) {
         String formatVoiceTime;
         if (this.dyP != null && this.gjK != null) {
             int i2 = i / 1000;
@@ -165,7 +165,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         }
     }
 
-    public void mH(int i) {
+    public void mG(int i) {
         if (i == 3) {
             if (this.dyL != null) {
                 this.dyL.setVisibility(0);
@@ -296,9 +296,9 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     public void b(VoiceData.VoiceModel voiceModel) {
         if (voiceModel != null) {
             if (this.dyP != voiceModel) {
-                mH(1);
+                mG(1);
             } else {
-                mH(voiceModel.voice_status.intValue());
+                mG(voiceModel.voice_status.intValue());
             }
         }
     }
@@ -306,13 +306,13 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void aO(int i) {
         if (!btu()) {
-            mH(1);
+            mG(1);
             return;
         }
         if (this.ddd == null) {
-            mH(this.dyP.voice_status.intValue());
+            mG(this.dyP.voice_status.intValue());
         }
-        mG(i);
+        mF(i);
         if (this.dyP != null) {
             this.dyP.elapse = i;
         }
@@ -360,7 +360,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     public void reset() {
         this.dyP = null;
         setTag(null);
-        mH(1);
+        mG(1);
     }
 
     private int getBtnWidth() {

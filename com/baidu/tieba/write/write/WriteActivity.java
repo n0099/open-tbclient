@@ -721,7 +721,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         this.gFd.setOnClickListener(this.gFH);
         this.gEZ.setOnClickListener(this.gFH);
         this.gEX = new com.baidu.tieba.write.view.PhotoLiveView.a(this, this.writeImagesInfo, this.gEW);
-        this.gEX.up(6);
+        this.gEX.uo(6);
         this.gEW.setAdapter((ListAdapter) this.gEX);
         View findViewById = this.gFa.findViewById(d.h.live_post_content_container);
         findViewById.bringToFront();
@@ -1510,9 +1510,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
                 }
                 this.fPL.addView(cVar);
             }
-            this.fPL.uc(0);
+            this.fPL.ub(0);
             this.fPK.setText(prefixs.get(1));
-            uz(1);
+            uy(1);
             return;
         }
         this.fPN.setVisibility(8);
@@ -2899,7 +2899,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
     public void a(boolean z, PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             String errorString = postWriteCallBackData.getErrorString();
-            if (AntiHelper.to(postWriteCallBackData.getErrorCode())) {
+            if (AntiHelper.tn(postWriteCallBackData.getErrorCode())) {
                 AntiHelper.ar(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
             } else if (postWriteCallBackData.getErrorCode() != 0) {
                 String errorString2 = postWriteCallBackData.getErrorString();
@@ -2948,7 +2948,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
         }
     }
 
-    private void uz(int i) {
+    private void uy(int i) {
         if (i < this.gDw.size()) {
             for (int i2 = 0; i2 < this.gDw.size(); i2++) {
                 this.gDw.get(i2).mZ(false);
@@ -2958,10 +2958,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
     }
 
     @Override // com.baidu.tieba.write.d.a
-    public void sA(int i) {
+    public void sz(int i) {
         this.fPq = i;
-        this.fPL.uc(i);
-        uz(i);
+        this.fPL.ub(i);
+        uy(i);
         this.fPK.setText(this.mPrefixData.getPrefixs().get(i));
         blT();
         g.a(this.fPL, getPageContext().getPageActivity());

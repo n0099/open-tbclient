@@ -435,7 +435,7 @@ public class aq {
         if (headerViewsCount < 0) {
             headerViewsCount = 0;
         }
-        if (this.eNN.oV(headerViewsCount) != null && this.eNN.oV(headerViewsCount) != PostData.ggC) {
+        if (this.eNN.oU(headerViewsCount) != null && this.eNN.oU(headerViewsCount) != PostData.ggC) {
             i2 = headerViewsCount + 1;
         }
         return this.eNN.getItem(i2) instanceof PostData ? (PostData) this.eNN.getItem(i2) : null;
@@ -751,16 +751,16 @@ public class aq {
                     postData = fVar.aPa().get(0);
                 }
                 if (postData != null && postData.bsr() == 1) {
-                    s(this.aQb, this.eMR, this.aQb, this.eMS);
+                    t(this.aQb, this.eMR, this.aQb, this.eMS);
                 } else {
-                    s(this.aQb, this.eMR, this.aQb, this.eMQ);
+                    t(this.aQb, this.eMR, this.aQb, this.eMQ);
                 }
                 this.eNl.setVisibility(0);
             }
         }
     }
 
-    private void s(int i, int i2, int i3, int i4) {
+    private void t(int i, int i2, int i3, int i4) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eNk.getLayoutParams();
         layoutParams.setMargins(i, i2, i3, i4);
         this.eNk.setLayoutParams(layoutParams);
@@ -1337,10 +1337,10 @@ public class aq {
     }
 
     public int aTf() {
-        return pk(this.eNd.getFirstVisiblePosition());
+        return pj(this.eNd.getFirstVisiblePosition());
     }
 
-    private int pk(int i) {
+    private int pj(int i) {
         com.baidu.adp.widget.ListView.d dVar = (com.baidu.adp.widget.ListView.d) this.eNd.getAdapter();
         if (dVar != null) {
             if (i < dVar.getCount() && i >= 0 && (dVar.getItem(i) instanceof com.baidu.tieba.pb.data.d)) {
@@ -1367,7 +1367,7 @@ public class aq {
                 lastVisiblePosition = 0;
             }
         }
-        return pk(lastVisiblePosition);
+        return pj(lastVisiblePosition);
     }
 
     public void setSelection(int i) {
@@ -1449,7 +1449,7 @@ public class aq {
         if (userMap == null || (metaData = userMap.get(userId)) == null || metaData.getUserId() == null) {
             metaData = author;
         }
-        postData.tj(1);
+        postData.ti(1);
         postData.setId(fVar.aOY().rL());
         postData.setTitle(fVar.aOY().getTitle());
         postData.setTime(fVar.aOY().getCreateTime());
@@ -1523,7 +1523,7 @@ public class aq {
                     this.eNd.addHeaderView(this.eNj, 2);
                 }
                 if (this.eMU != null) {
-                    this.eMU.py(0);
+                    this.eMU.px(0);
                 }
                 aTj();
             } else {
@@ -2442,14 +2442,14 @@ public class aq {
 
     public void onPause() {
         aTm();
-        this.eNN.oW(1);
+        this.eNN.oV(1);
         if (this.eMU != null) {
             this.eMU.onPause();
         }
     }
 
     public void onResume() {
-        this.eNN.oW(2);
+        this.eNN.oV(2);
         if (this.eMU != null) {
             this.eMU.onResume();
         }
@@ -2490,7 +2490,7 @@ public class aq {
         }
         this.ePr = null;
         this.mHandler.removeCallbacksAndMessages(null);
-        this.eNN.oW(3);
+        this.eNN.oV(3);
         if (this.bZx != null) {
             this.bZx.setBackgroundDrawable(null);
         }
@@ -2503,9 +2503,9 @@ public class aq {
         this.bXk.getViewTreeObserver().removeGlobalOnLayoutListener(this.ePA);
     }
 
-    public boolean pl(int i) {
+    public boolean pk(int i) {
         if (this.eMU != null) {
-            return this.eMU.pE(i);
+            return this.eMU.pD(i);
         }
         return false;
     }
@@ -2635,7 +2635,7 @@ public class aq {
             }
             if (this.eMZ != null) {
                 if (this.eMU != null) {
-                    this.eMU.py(i);
+                    this.eMU.px(i);
                 } else {
                     this.eMZ.onChangeSkinType(i);
                 }
@@ -2783,7 +2783,7 @@ public class aq {
         while (true) {
             if (headerViewsCount > i2) {
                 break;
-            } else if (this.eNN.oV(headerViewsCount) != com.baidu.tieba.pb.data.m.eDp) {
+            } else if (this.eNN.oU(headerViewsCount) != com.baidu.tieba.pb.data.m.eDp) {
                 headerViewsCount++;
             } else {
                 z = true;

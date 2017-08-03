@@ -12,7 +12,7 @@ public class c {
         this.abi = arrayList;
     }
 
-    public void pY(int i) {
+    public void pX(int i) {
         this.fdk = i;
     }
 

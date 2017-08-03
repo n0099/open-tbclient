@@ -176,7 +176,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                         TiebaStatic.log(new aj("c12049").r("obj_locate", i + 1).aa("obj_type", "1"));
                         PagerSlidingTabStrip.this.cQG = true;
                         if (PagerSlidingTabStrip.this.alM.getAdapter() instanceof com.baidu.tieba.homepage.framework.indicator.a) {
-                            ((com.baidu.tieba.homepage.framework.indicator.a) PagerSlidingTabStrip.this.alM.getAdapter()).kD(i);
+                            ((com.baidu.tieba.homepage.framework.indicator.a) PagerSlidingTabStrip.this.alM.getAdapter()).kC(i);
                         }
                         PagerSlidingTabStrip.this.alM.setCurrentItem(i);
                         PagerSlidingTabStrip.this.wI();
@@ -346,7 +346,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: kE */
+            /* renamed from: kD */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

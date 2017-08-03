@@ -258,10 +258,10 @@ public class i extends g implements com.baidu.tbadk.mvc.b.l {
                         break;
                     }
                 }
-                int te = te(i);
+                int td = td(i);
                 ax axVar = new ax();
                 a(axVar, bqE);
-                getThreadList().add(te, axVar);
+                getThreadList().add(td, axVar);
             }
         }
     }
@@ -286,7 +286,7 @@ public class i extends g implements com.baidu.tbadk.mvc.b.l {
         }
     }
 
-    private int te(int i) {
+    private int td(int i) {
         int aio = aio();
         int bqK = bqK();
         if (bqH()) {
@@ -316,7 +316,7 @@ public class i extends g implements com.baidu.tbadk.mvc.b.l {
                         break;
                     }
                 }
-                threadList.add(te(i), bqO);
+                threadList.add(td(i), bqO);
             }
         }
     }
@@ -411,9 +411,9 @@ public class i extends g implements com.baidu.tbadk.mvc.b.l {
         rL(gVar.bqF());
         a(gVar.bqz());
         mt(gVar.bqC());
-        mP(gVar.aPk());
+        mO(gVar.aPk());
         dl(gVar.bqE());
-        tb(gVar.bqK());
+        ta(gVar.bqK());
         c(gVar.bqI());
         a(gVar.qx());
         a(gVar.bqv());
@@ -424,18 +424,18 @@ public class i extends g implements com.baidu.tbadk.mvc.b.l {
         setUserMap(gVar.getUserMap());
         a(gVar.bqw());
         dk(gVar.bqG());
-        tc(gVar.bqP());
+        tb(gVar.bqP());
         dn(gVar.bqM());
         rN(gVar.bqN());
         ah(gVar.bqO());
         a(gVar.bqQ());
-        td(gVar.bqT());
+        tc(gVar.bqT());
         a(gVar.bqU());
         a(gVar.bqV());
-        sY(gVar.bqs());
+        sX(gVar.bqs());
         a(gVar.bqW());
-        sZ(gVar.bqt());
-        ta(gVar.bqu());
+        sY(gVar.bqt());
+        sZ(gVar.bqu());
         this.gef = gVar.gef;
         this.geD = gVar.geD;
         this.geG = gVar.geG;

@@ -31,14 +31,14 @@ public class b extends BaseFragment {
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.album.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.gzc != null && b.this.gyG != null && b.this.gyW != null && b.this.gzc.ug(b.this.aDH)) {
-                ImageFileInfo ot = b.this.gzc.ot(b.this.aDH);
-                if (b.this.gyG.isAdded(ot)) {
-                    if (b.this.gyW.f(ot)) {
+            if (b.this.gzc != null && b.this.gyG != null && b.this.gyW != null && b.this.gzc.uf(b.this.aDH)) {
+                ImageFileInfo os = b.this.gzc.os(b.this.aDH);
+                if (b.this.gyG.isAdded(os)) {
+                    if (b.this.gyW.f(os)) {
                         b.this.c(b.this.gzd, false);
                         b.this.gyW.H(b.this.aDH, false);
                     }
-                } else if (b.this.gyW.e(ot)) {
+                } else if (b.this.gyW.e(os)) {
                     b.this.c(b.this.gzd, true);
                     b.this.gyW.H(b.this.aDH, true);
                 }
@@ -51,13 +51,13 @@ public class b extends BaseFragment {
         public void onPageSelected(int i) {
             b.this.aDH = i;
             if (b.this.gzc != null && b.this.gyG != null) {
-                ImageFileInfo ot = b.this.gzc.ot(b.this.aDH);
-                if (b.this.gyG.isAdded(ot)) {
+                ImageFileInfo os = b.this.gzc.os(b.this.aDH);
+                if (b.this.gyG.isAdded(os)) {
                     b.this.c(b.this.gzd, true);
                 } else {
                     b.this.c(b.this.gzd, false);
                 }
-                if (ot.isGif()) {
+                if (os.isGif()) {
                     b.this.gzf.setVisibility(8);
                 } else {
                     b.this.gzf.setVisibility(0);
@@ -127,7 +127,7 @@ public class b extends BaseFragment {
             if (this.aDH > this.gyG.byd().size() - 1) {
                 this.aDH = this.gyG.byd().size() - 1;
             }
-            this.gyG.uc(-1);
+            this.gyG.ub(-1);
             this.gzc = null;
             this.gzc = new c(this.gyW, this.axK);
             this.mViewPager.setAdapter(this.gzc);
@@ -184,8 +184,8 @@ public class b extends BaseFragment {
     }
 
     public void g(ImageFileInfo imageFileInfo, boolean z) {
-        ImageFileInfo ot;
-        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.gzc != null && (ot = this.gzc.ot(this.aDH)) != null && ot.getFilePath() != null && ot.getFilePath().equals(imageFileInfo.getFilePath())) {
+        ImageFileInfo os;
+        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.gzc != null && (os = this.gzc.os(this.aDH)) != null && os.getFilePath() != null && os.getFilePath().equals(imageFileInfo.getFilePath())) {
             c(this.gzd, z);
         }
     }

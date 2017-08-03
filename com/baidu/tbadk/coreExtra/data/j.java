@@ -93,9 +93,9 @@ public class j {
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("movideo");
                 if (optJSONObject2 != null) {
-                    com.baidu.tieba.tbadkCore.videoupload.a.tt(optJSONObject2.optInt("chunk_size"));
-                    com.baidu.tieba.tbadkCore.videoupload.a.tu(optJSONObject2.optInt("block_size"));
-                    com.baidu.tieba.tbadkCore.videoupload.a.ts(optJSONObject2.optInt("data_size"));
+                    com.baidu.tieba.tbadkCore.videoupload.a.ts(optJSONObject2.optInt("chunk_size"));
+                    com.baidu.tieba.tbadkCore.videoupload.a.tt(optJSONObject2.optInt("block_size"));
+                    com.baidu.tieba.tbadkCore.videoupload.a.tr(optJSONObject2.optInt("data_size"));
                 }
                 com.baidu.tbadk.l.r.Gr().S(jSONObject.optLong("small_flow_time_out"));
                 TbadkCoreApplication.getInst().setInterviewLivePollingInterval(jSONObject.optLong("interview_pulling_interval"));
@@ -133,7 +133,7 @@ public class j {
                     com.baidu.adp.lib.b.d.eW().c(this.mSwitchs);
                 }
                 com.baidu.tieba.play.r.bfM();
-                CustomPlayerSwitchStatic.rA(com.baidu.adp.lib.b.d.eW().af("android_custom_player_enabled_2"));
+                CustomPlayerSwitchStatic.rz(com.baidu.adp.lib.b.d.eW().af("android_custom_player_enabled_2"));
                 this.aqI = jSONObject.optInt("is_pushservice_open", 1) == 1;
                 TbadkCoreApplication.getInst().setIsPushServiceOpen(this.aqI);
                 if (!this.aqI) {

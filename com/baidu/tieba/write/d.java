@@ -21,7 +21,7 @@ public class d extends PopupWindow {
 
     /* loaded from: classes.dex */
     public interface a {
-        void sA(int i);
+        void sz(int i);
     }
 
     public d(Context context) {
@@ -77,7 +77,7 @@ public class d extends PopupWindow {
         this.maxHeight = i;
     }
 
-    public void uc(int i) {
+    public void ub(int i) {
         if (this.aDH != -1) {
             this.axn.getChildAt(this.aDH).setSelected(false);
         }
@@ -102,7 +102,7 @@ public class d extends PopupWindow {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (this.gyu != null) {
-                this.gyu.sA(this.position);
+                this.gyu.sz(this.position);
             }
         }
     }

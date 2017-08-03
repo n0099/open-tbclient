@@ -74,7 +74,7 @@ public class j extends com.baidu.adp.base.c {
         return this.fcM;
     }
 
-    public void pX(int i) {
+    public void pW(int i) {
         this.fcM.setVisibility(0);
         this.fcQ.setVisibility(0);
         if (i == 0) {

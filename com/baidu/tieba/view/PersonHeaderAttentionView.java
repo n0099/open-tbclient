@@ -55,10 +55,10 @@ public class PersonHeaderAttentionView extends LinearLayout implements e {
                         this.gvn.bZr = 5;
                     } else if (d.h.person_header_bar_container == id) {
                         if (PersonHeaderAttentionView.this.mUserData.getPersonPrivate() == null) {
-                            PersonHeaderAttentionView.this.tY(PersonHeaderAttentionView.this.mUserData.getSex());
+                            PersonHeaderAttentionView.this.tX(PersonHeaderAttentionView.this.mUserData.getSex());
                             return;
                         } else if (PersonHeaderAttentionView.this.mUserData.getPersonPrivate().Cp() != 1 && !equals && (!z || PersonHeaderAttentionView.this.mUserData.getPersonPrivate().Cp() != 2)) {
-                            PersonHeaderAttentionView.this.tY(PersonHeaderAttentionView.this.mUserData.getSex());
+                            PersonHeaderAttentionView.this.tX(PersonHeaderAttentionView.this.mUserData.getSex());
                             return;
                         } else {
                             this.gvn.bZr = 7;
@@ -95,10 +95,10 @@ public class PersonHeaderAttentionView extends LinearLayout implements e {
                         this.gvn.bZr = 5;
                     } else if (d.h.person_header_bar_container == id) {
                         if (PersonHeaderAttentionView.this.mUserData.getPersonPrivate() == null) {
-                            PersonHeaderAttentionView.this.tY(PersonHeaderAttentionView.this.mUserData.getSex());
+                            PersonHeaderAttentionView.this.tX(PersonHeaderAttentionView.this.mUserData.getSex());
                             return;
                         } else if (PersonHeaderAttentionView.this.mUserData.getPersonPrivate().Cp() != 1 && !equals && (!z || PersonHeaderAttentionView.this.mUserData.getPersonPrivate().Cp() != 2)) {
-                            PersonHeaderAttentionView.this.tY(PersonHeaderAttentionView.this.mUserData.getSex());
+                            PersonHeaderAttentionView.this.tX(PersonHeaderAttentionView.this.mUserData.getSex());
                             return;
                         } else {
                             this.gvn.bZr = 7;
@@ -135,10 +135,10 @@ public class PersonHeaderAttentionView extends LinearLayout implements e {
                         this.gvn.bZr = 5;
                     } else if (d.h.person_header_bar_container == id) {
                         if (PersonHeaderAttentionView.this.mUserData.getPersonPrivate() == null) {
-                            PersonHeaderAttentionView.this.tY(PersonHeaderAttentionView.this.mUserData.getSex());
+                            PersonHeaderAttentionView.this.tX(PersonHeaderAttentionView.this.mUserData.getSex());
                             return;
                         } else if (PersonHeaderAttentionView.this.mUserData.getPersonPrivate().Cp() != 1 && !equals && (!z || PersonHeaderAttentionView.this.mUserData.getPersonPrivate().Cp() != 2)) {
-                            PersonHeaderAttentionView.this.tY(PersonHeaderAttentionView.this.mUserData.getSex());
+                            PersonHeaderAttentionView.this.tX(PersonHeaderAttentionView.this.mUserData.getSex());
                             return;
                         } else {
                             this.gvn.bZr = 7;
@@ -232,7 +232,7 @@ public class PersonHeaderAttentionView extends LinearLayout implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tY(int i) {
+    public void tX(int i) {
         BdToast.b(this.mContext, String.format(this.mContext.getString(d.l.person_privacy_toast), al.cW(i)), d.g.icon_toast_game_error).tp();
     }
 

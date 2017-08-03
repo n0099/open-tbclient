@@ -15,15 +15,15 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
     public static boolean a(com.baidu.tieba.frs.f fVar, String str, String str2, boolean z) {
-        if (!z || fVar == null || TextUtils.isEmpty(str) || !i.aj(TbadkCoreApplication.getInst().getApplicationContext(), fVar.getActivity().getClass().getName())) {
-            return true;
+        if (z && fVar != null && !TextUtils.isEmpty(str) && fVar.isAdded() && i.aj(TbadkCoreApplication.getInst().getApplicationContext(), fVar.getActivity().getClass().getName())) {
+            Intent intent = new Intent();
+            intent.putExtra("class", 2);
+            intent.putExtra(ImageViewerConfig.FORUM_NAME, str);
+            intent.putExtra(str2, "short_cut");
+            fVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig(fVar.getPageContext().getPageActivity(), intent)));
+            return false;
         }
-        Intent intent = new Intent();
-        intent.putExtra("class", 2);
-        intent.putExtra(ImageViewerConfig.FORUM_NAME, str);
-        intent.putExtra(str2, "short_cut");
-        fVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig(fVar.getPageContext().getPageActivity(), intent)));
-        return false;
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -56,7 +56,7 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
             com.baidu.tieba.frs.f fVar = this.cvN.get();
-            if (fVar == null) {
+            if (fVar == null || fVar.getPageContext() == null) {
                 return false;
             }
             return Boolean.valueOf(i.ak(fVar.getPageContext().getPageActivity(), this.name));

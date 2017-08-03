@@ -94,7 +94,7 @@ public class c extends LinearLayout {
         ai.k(this, d.e.cp_bg_line_d);
     }
 
-    private void pr(int i) {
+    private void pq(int i) {
         int i2 = (int) (this.eSd * (i - this.eSe));
         if (i2 <= 255 && i2 >= 0) {
             getBackground().setAlpha(i2);
@@ -288,11 +288,11 @@ public class c extends LinearLayout {
                 int rawX2 = layoutParams.leftMargin + ((int) (motionEvent.getRawX() - this.eRS));
                 if (rawX2 >= this.eSe && rawX2 <= this.eSf) {
                     layoutParams.leftMargin = rawX2;
-                    int ps = ps(rawX2);
-                    if (ps <= this.eSh && ps >= this.eSg) {
-                        pt(ps);
-                        pr(rawX2);
-                        pu(layoutParams.leftMargin);
+                    int pr = pr(rawX2);
+                    if (pr <= this.eSh && pr >= this.eSg) {
+                        ps(pr);
+                        pq(rawX2);
+                        pt(layoutParams.leftMargin);
                     }
                     setLayoutParams(layoutParams);
                 }
@@ -320,12 +320,12 @@ public class c extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int ps(int i) {
+    public int pr(int i) {
         return (int) ((this.eSc * i) + this.eSh);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pt(int i) {
+    public void ps(int i) {
         for (int i2 = 0; i2 < getChildCount(); i2++) {
             View childAt = getChildAt(i2);
             ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
@@ -361,9 +361,9 @@ public class c extends LinearLayout {
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     layoutParams.leftMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                    c.this.pt(c.this.ps(layoutParams.leftMargin));
+                    c.this.ps(c.this.pr(layoutParams.leftMargin));
                     c.this.setLayoutParams(layoutParams);
-                    c.this.pu(layoutParams.leftMargin);
+                    c.this.pt(layoutParams.leftMargin);
                 }
             });
             ofInt.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.c.4
@@ -402,14 +402,14 @@ public class c extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pu(int i) {
+    public void pt(int i) {
         if (this.eSj != null) {
             this.eSj.ag((this.eSf - i) * (1.0f / this.eSf));
         }
-        pv(i);
+        pu(i);
     }
 
-    private void pv(int i) {
+    private void pu(int i) {
         if (this.cTK != null) {
             float f = (1.0f - ((this.eSh - i) * (1.0f / this.eSh))) * this.eSh;
             if (f < 0.0f) {

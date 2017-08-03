@@ -176,7 +176,11 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
         }
         ArrayList<MetaData> arrayList = new ArrayList<>();
         MetaData metaData = new MetaData();
-        metaData.setUserIdLong(TbadkCoreApplication.getCurrentAccountId());
+        if (feedData.getType() == 1) {
+            metaData.setUserIdLong(-1L);
+        } else {
+            metaData.setUserIdLong(TbadkCoreApplication.getCurrentAccountId());
+        }
         metaData.setUserName(TbadkCoreApplication.getCurrentAccountName());
         arrayList.add(metaData);
         return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new StoryPageActivityConfig(getActivity()).createNormalConfig(arrayList, 0, feedData.getFromForumId(), com.baidu.adp.lib.g.b.c(feedData.getThread_id(), 0L))));

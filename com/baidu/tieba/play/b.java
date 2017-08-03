@@ -15,11 +15,11 @@ public class b implements Runnable {
         this.cjw = z;
     }
 
-    public void ne(int i) {
+    public void nd(int i) {
         this.ciX = i;
     }
 
-    public void nf(int i) {
+    public void ne(int i) {
         this.bbP = i;
     }
 

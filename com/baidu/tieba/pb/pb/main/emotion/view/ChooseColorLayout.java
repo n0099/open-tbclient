@@ -20,7 +20,7 @@ public class ChooseColorLayout extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void pm(int i);
+        void pl(int i);
     }
 
     public ChooseColorLayout(Context context) {
@@ -46,7 +46,7 @@ public class ChooseColorLayout extends LinearLayout {
                     ChooseColorLayout.this.eRC = ((com.baidu.tieba.pb.pb.main.emotion.view.a) view).getChooseColor();
                     ((com.baidu.tieba.pb.pb.main.emotion.view.a) view).setIsChooseView(true);
                     if (ChooseColorLayout.this.eRE != null) {
-                        ChooseColorLayout.this.eRE.pm(ChooseColorLayout.this.eRC);
+                        ChooseColorLayout.this.eRE.pl(ChooseColorLayout.this.eRC);
                     }
                 }
             }

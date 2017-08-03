@@ -233,7 +233,7 @@ public class g extends b<MsglistActivity<?>> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void lM(int i) {
+    public void lL(int i) {
         this.dgt.setVisibility(i);
     }
 
@@ -306,7 +306,7 @@ public class g extends b<MsglistActivity<?>> {
         this.dgv = z;
     }
 
-    public void lL(int i) {
+    public void lK(int i) {
         this.dfY = i;
     }
 }

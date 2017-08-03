@@ -56,7 +56,7 @@ public class b {
         BdToast.a(TbadkCoreApplication.getInst(), aPN(), d.g.icon_word_t_size, 0).tp();
     }
 
-    public static void oO(int i) {
+    public static void oN(int i) {
         if (TbadkCoreApplication.getInst().getFontSize() != i) {
             TbadkCoreApplication.getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));

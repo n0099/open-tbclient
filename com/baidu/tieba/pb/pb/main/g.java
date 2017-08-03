@@ -289,7 +289,7 @@ public class g {
                 this.eIg.b(fVar);
                 this.eIg.setFromCDN(this.mIsFromCDN);
                 this.eIg.setHostId(this.mHostId);
-                this.eIg.oP(this.eEg);
+                this.eIg.oO(this.eEg);
                 this.eIg.iP(this.eEh);
                 this.eIg.iQ(this.eEi);
                 this.eIg.setCommonClickListener(this.cKt);
@@ -299,7 +299,7 @@ public class g {
                 this.eHR.b(fVar);
                 this.eHR.setFromCDN(this.mIsFromCDN);
                 this.eHR.setHostId(this.mHostId);
-                this.eHR.oP(this.eEg);
+                this.eHR.oO(this.eEg);
                 this.eHR.iP(this.eEh);
                 this.eHR.iQ(this.eEi);
                 this.eHR.setCommonClickListener(this.cKt);
@@ -307,7 +307,7 @@ public class g {
                 this.eHR.setOnImageClickListener(this.aQA);
                 this.eHR.setOnLongClickListener(this.auW);
                 this.eHR.setTbGestureDetector(this.aQB);
-                this.eHR.oY(fVar != null ? fVar.aOY().rn() : 0);
+                this.eHR.oX(fVar != null ? fVar.aOY().rn() : 0);
                 this.eHU.b(fVar);
                 this.eHU.setFromCDN(this.mIsFromCDN);
                 this.eHU.setHostId(this.mHostId);
@@ -335,7 +335,7 @@ public class g {
                         next.b(fVar);
                         next.setFromCDN(this.mIsFromCDN);
                         next.setHostId(this.mHostId);
-                        next.oP(this.eEg);
+                        next.oO(this.eEg);
                         next.iP(this.eEh);
                         next.iQ(this.eEi);
                         next.iR(this.eIq);
@@ -710,7 +710,7 @@ public class g {
         return this.postList;
     }
 
-    public BdUniqueId oV(int i) {
+    public BdUniqueId oU(int i) {
         if (this.mListView.getItem(i) != null) {
             return this.mListView.getItem(i).getType();
         }
@@ -831,14 +831,14 @@ public class g {
 
     private void a(com.baidu.tieba.tbadkCore.data.l lVar, int i) {
         com.baidu.tieba.recapp.report.a c = com.baidu.tieba.recapp.report.d.c(lVar, 5);
-        c.rW(i);
+        c.rV(i);
         com.baidu.tieba.recapp.report.b.bid().a(c);
     }
 
     private void b(com.baidu.tieba.tbadkCore.data.l lVar, int i) {
         if (lVar != null && lVar.bsg() != null && lVar.bsg().goods != null && lVar.bsg().goods.goods_style != 1001 && lVar.bsg().goods.goods_style != -1001) {
             com.baidu.tieba.recapp.report.a c = com.baidu.tieba.recapp.report.d.c(lVar, 5);
-            c.rW(i);
+            c.rV(i);
             com.baidu.tieba.recapp.report.b.bid().a(c);
         }
     }
@@ -931,9 +931,9 @@ public class g {
         this.cKt = onClickListener;
     }
 
-    public void oW(int i) {
+    public void oV(int i) {
         if (this.eHS != null) {
-            this.eHS.oW(i);
+            this.eHS.oV(i);
         }
         switch (i) {
             case 1:

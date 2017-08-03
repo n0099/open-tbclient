@@ -387,7 +387,7 @@ public class d {
 
     public void d(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            if (AntiHelper.to(postWriteCallBackData.getErrorCode())) {
+            if (AntiHelper.tn(postWriteCallBackData.getErrorCode())) {
                 AntiHelper.ar(this.gGF.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
             } else if (postWriteCallBackData.getErrorCode() != 0) {
                 String errorString = postWriteCallBackData.getErrorString();

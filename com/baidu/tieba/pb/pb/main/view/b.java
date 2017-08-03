@@ -35,7 +35,7 @@ public class b {
 
     public b(ImageView imageView, int i, int i2, int i3) {
         this.mBitmap = null;
-        this.eSL = pw(i);
+        this.eSL = pv(i);
         this.eSN = new SoftReference<>(imageView);
         this.eSO = 1000 / i2;
         this.eSQ = i3;
@@ -118,7 +118,7 @@ public class b {
         this.eSP = aVar;
     }
 
-    private int[] pw(int i) {
+    private int[] pv(int i) {
         TypedArray obtainTypedArray = TbadkCoreApplication.getInst().getResources().obtainTypedArray(i);
         int length = obtainTypedArray.length();
         int[] iArr = new int[obtainTypedArray.length()];

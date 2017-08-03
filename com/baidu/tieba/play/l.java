@@ -191,7 +191,7 @@ public class l {
         aDc();
     }
 
-    public void nm(int i) {
+    public void nl(int i) {
         this.dPq = i;
     }
 
@@ -224,7 +224,7 @@ public class l {
                 if (childAt.getTag() instanceof e) {
                     e eVar = (e) childAt.getTag();
                     if (eVar.isPlayStarted()) {
-                        nm(eVar.getCurrentPosition());
+                        nl(eVar.getCurrentPosition());
                         na(eVar.getPlayUrl());
                         this.dPs = childAt;
                         this.dPt = eVar.isPlaying();
@@ -278,8 +278,8 @@ public class l {
 
     public void a(int i, int i2, boolean z, boolean z2) {
         com.baidu.adp.lib.g.e.fP().removeCallbacks(this.fyj);
-        this.fyj.ne(i);
-        this.fyj.nf(i2);
+        this.fyj.nd(i);
+        this.fyj.ne(i2);
         this.fyj.eK(z);
         this.fyj.hs(z2);
         this.dPv.hs(z2);

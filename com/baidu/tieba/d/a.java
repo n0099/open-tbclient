@@ -29,7 +29,7 @@ public class a {
     private Runnable btj = new Runnable() { // from class: com.baidu.tieba.d.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.bOe == null) {
+            if (a.this.bOe == null && a.this.ako != null && a.this.ako.getPageActivity() != null) {
                 com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
                 dVar.o(a.this.jv).ad(0).z(true).A(true);
                 dVar.a(new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.d.a.1.1

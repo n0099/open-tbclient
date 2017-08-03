@@ -369,9 +369,9 @@ public abstract class b {
     public void agk() {
     }
 
-    public void jC(int i) {
+    public void m(int i, int i2, int i3, int i4) {
         if (this.cyx != null) {
-            this.cyx.setPadding(0, i, 0, k.g(this.aaS.getPageActivity(), d.f.ds20));
+            this.cyx.setPadding(i, i2, i3, i4);
         }
     }
 }

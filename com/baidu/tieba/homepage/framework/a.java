@@ -25,7 +25,7 @@ public class a {
         this.cPG = j;
     }
 
-    public long kt(int i) {
+    public long ks(int i) {
         Long l = this.cPI.get(i);
         if (l == null) {
             return -1L;
@@ -37,7 +37,7 @@ public class a {
         this.cPI.put(i, Long.valueOf(j));
     }
 
-    public long ku(int i) {
+    public long kt(int i) {
         Long l = this.cPH.get(i);
         if (l == null) {
             return -1L;
@@ -49,7 +49,7 @@ public class a {
         this.cPH.put(i, Long.valueOf(j));
     }
 
-    public long kv(int i) {
+    public long ku(int i) {
         Long l = this.cPJ.get(i);
         if (l == null) {
             return -1L;
@@ -61,7 +61,7 @@ public class a {
         this.cPJ.put(i, Long.valueOf(j));
     }
 
-    public long kw(int i) {
+    public long kv(int i) {
         Long l = this.cPK.get(i);
         if (l == null) {
             return -1L;

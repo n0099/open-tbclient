@@ -158,7 +158,7 @@ public class e implements View.OnClickListener {
         this.fhH = new j(this.ako, this);
         this.fhH.G(z, z2);
         if (i != -1) {
-            this.fhH.pX(i);
+            this.fhH.pW(i);
         }
         if (this.fhK != null && this.fhK.getUserData() != null) {
             this.fhH.setUserName(this.fhK.getUserData().getUserName());

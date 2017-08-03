@@ -55,18 +55,18 @@ public class af {
             return false;
         }
         this.eJA = str;
-        return pd(1);
+        return pc(1);
     }
 
     public boolean aSv() {
         this.eMg = !this.eMg;
         this.mPostId = aQx();
-        pd(6);
+        pc(6);
         return true;
     }
 
-    public boolean pd(int i) {
-        pi(i);
+    public boolean pc(int i) {
+        ph(i);
         if (this.isLoading) {
             return false;
         }
@@ -178,7 +178,7 @@ public class af {
 
     protected void a(com.baidu.tieba.pb.data.f fVar, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2, boolean z3) {
         ArrayList<PostData> arrayList;
-        pj(i);
+        pi(i);
         if (fVar == null) {
             if (this.eJW != null) {
                 this.eJW.a(false, i2, i, 0, null, str, 1);
@@ -276,11 +276,11 @@ public class af {
         this.eMg = z;
     }
 
-    public void pi(int i) {
+    public void ph(int i) {
         this.mRequestType = i;
     }
 
-    public void pj(int i) {
+    public void pi(int i) {
         this.eJR = i;
     }
 

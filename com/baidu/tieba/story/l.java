@@ -64,10 +64,10 @@ public class l {
     }
 
     public void boa() {
-        sJ(0);
+        sI(0);
     }
 
-    public void sJ(int i) {
+    public void sI(int i) {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), i);
     }
 }

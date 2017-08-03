@@ -61,7 +61,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         return aVar.getView();
     }
 
-    public void kI(int i) {
+    public void kH(int i) {
         if (this.cSA != null) {
             this.cSA.d(this.ako, i);
         }

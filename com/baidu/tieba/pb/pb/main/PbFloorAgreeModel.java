@@ -33,7 +33,7 @@ public class PbFloorAgreeModel {
     public interface a {
         void a(CustomDialogData customDialogData);
 
-        void oU(int i);
+        void oT(int i);
     }
 
     public PbFloorAgreeModel(PbModel pbModel) {
@@ -100,7 +100,7 @@ public class PbFloorAgreeModel {
             if (aVar != null) {
                 PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage;
                 if (!pbFloorAgreeResponseMessage.hasError()) {
-                    aVar.oU(pbFloorAgreeResponseMessage.getScore());
+                    aVar.oT(pbFloorAgreeResponseMessage.getScore());
                     if (pbFloorAgreeResponseMessage.getActivityDialogData() == null) {
                         return;
                     }

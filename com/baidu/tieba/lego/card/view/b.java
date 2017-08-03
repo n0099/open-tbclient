@@ -136,7 +136,7 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
     protected void aCl() {
     }
 
-    protected final void nd(int i) {
+    protected final void nc(int i) {
         switch (i) {
             case -1:
             case 0:
@@ -163,7 +163,7 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
     protected final void c(T t) {
         this.dMD.setVisibility(t.isShowCover() ? 0 : 8);
         int showSpace = t.getShowSpace();
-        nd(showSpace != 0 ? -1 : t.getShowLine());
+        nc(showSpace != 0 ? -1 : t.getShowLine());
         switch (showSpace) {
             case 0:
                 this.dME.setVisibility(8);
@@ -303,7 +303,7 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
     }
 
     protected final void a(TextView textView, int i, int i2, int i3) {
-        if (com.baidu.tieba.lego.card.d.a.nb(i) || com.baidu.tieba.lego.card.d.a.nb(i2)) {
+        if (com.baidu.tieba.lego.card.d.a.na(i) || com.baidu.tieba.lego.card.d.a.na(i2)) {
             ai.i(textView, i3);
             return;
         }
@@ -314,7 +314,7 @@ public abstract class b<T extends BaseLegoCardInfo> extends LinearLayout impleme
     }
 
     protected final void c(View view, int i, int i2, int i3) {
-        if (com.baidu.tieba.lego.card.d.a.nb(i) || com.baidu.tieba.lego.card.d.a.nb(i2)) {
+        if (com.baidu.tieba.lego.card.d.a.na(i) || com.baidu.tieba.lego.card.d.a.na(i2)) {
             ai.k(view, i3);
             return;
         }

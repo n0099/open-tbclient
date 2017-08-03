@@ -394,7 +394,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                     NewSubPbActivity.this.eTN.aUX();
                 }
                 if (NewSubPbActivity.this.eTZ != null && NewSubPbActivity.this.eTZ.aUF()) {
-                    NewSubPbActivity.this.eTZ.pz(d.e.cp_bg_line_k_alpha40);
+                    NewSubPbActivity.this.eTZ.py(d.e.cp_bg_line_k_alpha40);
                 }
                 if (!z) {
                     NewSubPbActivity.this.S(i, str);

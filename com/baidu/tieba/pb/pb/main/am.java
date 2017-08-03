@@ -81,12 +81,12 @@ public class am extends l<com.baidu.tieba.pb.data.m, an> {
         this.aQB = cVar;
     }
 
-    public void oW(int i) {
+    public void oV(int i) {
         if (i == 3 && this.eFn != null && this.eMH != null) {
             this.eMH.removeAllViews();
             ((FrameLayout) this.eFn.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.eMH);
         }
-        this.eMG.oW(i);
+        this.eMG.oV(i);
     }
 
     public void jC(boolean z) {

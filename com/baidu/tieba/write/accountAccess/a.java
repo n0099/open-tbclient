@@ -85,7 +85,7 @@ public class a {
             this.gyw.getContext().finish();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/input_focus")) {
-            this.gyw.v(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
+            this.gyw.w(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
             if (this.gyw.bxE() != this.gyw.bm()) {
                 this.gyw.setRatio(this.gyw.bxE());
                 this.gyw.bxF();

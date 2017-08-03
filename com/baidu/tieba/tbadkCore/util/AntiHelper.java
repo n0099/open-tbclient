@@ -25,7 +25,7 @@ public class AntiHelper {
         REPLY
     }
 
-    public static boolean to(int i) {
+    public static boolean tn(int i) {
         return i == 3250002 || i == 3250001 || i == 3250003 || i == 3250004;
     }
 

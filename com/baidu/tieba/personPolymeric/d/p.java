@@ -46,13 +46,13 @@ public class p implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == d.h.fourm_name_btn) {
             this.mCurrentPage = 0;
-            this.fkE.qi(0);
+            this.fkE.qh(0);
             this.fkC.setVisibility(0);
             this.fkD.setVisibility(4);
             this.fkA.setTextColor(this.alR);
             this.fkB.setTextColor(this.alS);
         } else if (view.getId() == d.h.reply_btn) {
-            this.fkE.qi(1);
+            this.fkE.qh(1);
             this.fkC.setVisibility(4);
             this.fkD.setVisibility(0);
             this.fkA.setTextColor(this.alS);
@@ -67,10 +67,10 @@ public class p implements View.OnClickListener {
         ai.j(this.mRootView, d.g.item_person_header_attention_bg_selector);
         ai.k(this.fkC, d.e.cp_cont_b);
         ai.k(this.fkD, d.e.cp_cont_b);
-        pb(this.mCurrentPage);
+        pa(this.mCurrentPage);
     }
 
-    public void pb(int i) {
+    public void pa(int i) {
         this.mCurrentPage = i;
         if (i == 0) {
             this.fkC.setVisibility(0);

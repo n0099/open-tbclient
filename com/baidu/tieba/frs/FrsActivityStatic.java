@@ -119,7 +119,7 @@ public class FrsActivityStatic {
                 String str;
                 String str2 = null;
                 boolean z3 = false;
-                if (strArr == null || strArr[0] == null) {
+                if (strArr == null || strArr[0] == null || tbPageContext == null || tbPageContext.getPageActivity() == null) {
                     return 3;
                 }
                 String lowerCase = strArr[0].toLowerCase();

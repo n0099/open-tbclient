@@ -95,7 +95,7 @@ public class BubbleLayout extends FrameLayout {
         return (context.getResources().getDisplayMetrics().densityDpi / 160.0f) * f;
     }
 
-    public BubbleLayout tZ(int i) {
+    public BubbleLayout tY(int i) {
         this.mBubbleColor = i;
         requestLayout();
         return this;

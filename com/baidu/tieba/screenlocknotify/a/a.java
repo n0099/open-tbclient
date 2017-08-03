@@ -52,7 +52,7 @@ public class a extends LinearLayout {
         this.fJV.setText(eVar.groupName);
         this.fJY.setText(cG(eVar.lastTime));
         this.fJZ.setText(eVar.content);
-        this.fKa.setText(se(eVar.fJR));
+        this.fKa.setText(sd(eVar.fJR));
     }
 
     public void lH(boolean z) {
@@ -69,7 +69,7 @@ public class a extends LinearLayout {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
-    public String se(int i) {
+    public String sd(int i) {
         return i < 100 ? "" + i : "99+";
     }
 

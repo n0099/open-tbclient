@@ -31,14 +31,14 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         this.gyY[1] = this.gyV;
     }
 
-    public Fragment ue(int i) {
+    public Fragment ud(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
         return this.gyX[i];
     }
 
-    public String uf(int i) {
+    public String ue(int i) {
         if (i < 0 || i > 1) {
             return null;
         }

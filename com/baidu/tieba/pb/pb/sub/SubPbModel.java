@@ -491,11 +491,11 @@ public class SubPbModel extends DataModel {
     }
 
     public boolean Fo() {
-        return pC(0);
+        return pB(0);
     }
 
     public boolean aVm() {
-        return pC(2);
+        return pB(2);
     }
 
     public void aVn() {
@@ -512,14 +512,14 @@ public class SubPbModel extends DataModel {
     }
 
     public boolean aVo() {
-        return pC(1);
+        return pB(1);
     }
 
     public boolean aVp() {
-        return pC(3);
+        return pB(3);
     }
 
-    public boolean pC(int i) {
+    public boolean pB(int i) {
         if (this.isLoading) {
             return false;
         }

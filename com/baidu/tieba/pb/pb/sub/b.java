@@ -125,7 +125,7 @@ public class b {
         return this.eTH;
     }
 
-    public void pz(int i) {
+    public void py(int i) {
         if (this.eTE != null) {
             ai.j(this.eTE, i);
         }
