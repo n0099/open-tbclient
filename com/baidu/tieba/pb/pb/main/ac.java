@@ -16,9 +16,9 @@ public class ac extends l<z, ab> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bn */
+    /* renamed from: bo */
     public ab onCreateViewHolder(ViewGroup viewGroup) {
-        return new ab(this.eFn.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_page_news, viewGroup, false));
+        return new ab(this.eIu.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_page_news, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -137,11 +137,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.afR) {
+            if (!switchData.ahn) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.afQ) {
+            if (!switchData.ahm) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -149,7 +149,7 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.afS) {
+            if (switchData.aho) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = 400;
@@ -167,32 +167,32 @@ public class NotificationHelper {
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.yT() && com.baidu.tbadk.coreExtra.messageCenter.a.yS()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.zb() && com.baidu.tbadk.coreExtra.messageCenter.a.za()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.b.zo().zx()) {
-                    aVar.afQ = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.b.zw().zF()) {
+                    aVar.ahm = true;
                     if (z || z2) {
-                        aVar.afQ = false;
+                        aVar.ahm = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.b.zo().zA()) {
-                    aVar.afR = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.b.zw().zI()) {
+                    aVar.ahn = true;
                     if (z) {
-                        aVar.afR = false;
+                        aVar.ahn = false;
                     }
                     if (z2) {
-                        aVar.afR = true;
+                        aVar.ahn = true;
                     }
                 }
                 TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.b.zo().zy()) {
-            aVar.afS = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.b.zw().zG()) {
+            aVar.aho = true;
         }
         return aVar;
     }
@@ -222,9 +222,9 @@ public class NotificationHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        boolean afQ = false;
-        boolean afR = false;
-        boolean afS = false;
+        boolean ahm = false;
+        boolean ahn = false;
+        boolean aho = false;
 
         a() {
         }

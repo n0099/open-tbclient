@@ -8,13 +8,13 @@ public interface a {
 
     void b(com.baidu.tieba.pb.data.f fVar);
 
-    void iP(boolean z);
+    void iS(boolean z);
 
-    void iQ(boolean z);
+    void iT(boolean z);
 
-    void iR(boolean z);
+    void iU(boolean z);
 
-    void oO(int i);
+    void oY(int i);
 
     void setCommonClickListener(View.OnClickListener onClickListener);
 

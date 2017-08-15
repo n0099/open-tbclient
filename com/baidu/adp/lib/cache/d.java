@@ -4,24 +4,24 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class d<T> implements k<T> {
-    protected final boolean ts;
-    protected final e tt;
+    protected final boolean uY;
+    protected final e uZ;
 
-    public abstract g<T> Q(String str);
+    public abstract g<T> W(String str);
 
-    public abstract void R(String str);
+    public abstract void X(String str);
 
-    protected abstract void S(String str);
+    protected abstract void Y(String str);
 
     public abstract void c(g<T> gVar);
 
     public d(e eVar, boolean z) {
-        this.tt = eVar;
-        this.ts = z;
+        this.uZ = eVar;
+        this.uY = z;
     }
 
     protected String h(String str, String str2) {
-        if (this.ts) {
+        if (this.uY) {
             return str + "@" + str2;
         }
         return str2;
@@ -29,24 +29,24 @@ public abstract class d<T> implements k<T> {
 
     protected g<T> j(String str, String str2) {
         String h = h(str, str2);
-        g<T> Q = Q(h);
-        if (Q == null) {
+        g<T> W = W(h);
+        if (W == null) {
             if (BdLog.isDebugMode()) {
             }
             return null;
-        } else if (Q.tA < System.currentTimeMillis()) {
-            S(h);
+        } else if (W.vg < System.currentTimeMillis()) {
+            Y(h);
             if (BdLog.isDebugMode()) {
             }
             return null;
         } else {
-            if (this.tt.ey()) {
-                Q.tz = System.currentTimeMillis();
-                c(Q);
+            if (this.uZ.eJ()) {
+                W.vf = System.currentTimeMillis();
+                c(W);
             }
             if (BdLog.isDebugMode()) {
             }
-            return Q;
+            return W;
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class d<T> implements k<T> {
         if (j == null) {
             return null;
         }
-        return j.sG;
+        return j.up;
     }
 
     @Override // com.baidu.adp.lib.cache.k
@@ -67,31 +67,31 @@ public abstract class d<T> implements k<T> {
         }
         l.c<T> cVar = new l.c<>();
         cVar.key = str2;
-        cVar.sG = j.sG;
-        cVar.tA = j.tA;
-        cVar.tP = j.ty;
+        cVar.up = j.up;
+        cVar.vg = j.vg;
+        cVar.vv = j.ve;
         return cVar;
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void a(String str, String str2, T t, long j) {
         g<T> gVar = new g<>();
-        gVar.tw = h(str, str2);
-        gVar.tx = str;
-        gVar.tA = j;
-        gVar.sG = t;
-        gVar.tz = System.currentTimeMillis();
-        gVar.ty = System.currentTimeMillis();
+        gVar.vc = h(str, str2);
+        gVar.vd = str;
+        gVar.vg = j;
+        gVar.up = t;
+        gVar.vf = System.currentTimeMillis();
+        gVar.ve = System.currentTimeMillis();
         c(gVar);
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public void m(String str, String str2) {
-        R(h(str, str2));
+        X(h(str, str2));
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public e ex() {
-        return this.tt;
+    public e eI() {
+        return this.uZ;
     }
 }

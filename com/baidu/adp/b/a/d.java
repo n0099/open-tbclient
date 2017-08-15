@@ -3,50 +3,50 @@ package com.baidu.adp.b.a;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class d {
-    public BitmapDrawable BZ;
-    public com.baidu.adp.widget.a.a Ca;
+    public BitmapDrawable DA;
+    public com.baidu.adp.widget.a.a DB;
     public volatile boolean isDefault = true;
 
-    public boolean iC() {
-        return (this.BZ == null || this.BZ.getBitmap() == null || this.BZ.getBitmap().isRecycled()) ? false : true;
+    public boolean iM() {
+        return (this.DA == null || this.DA.getBitmap() == null || this.DA.getBitmap().isRecycled()) ? false : true;
     }
 
-    public boolean iD() {
-        return this.Ca != null && this.Ca.kO();
+    public boolean iN() {
+        return this.DB != null && this.DB.kY();
     }
 
     public boolean isAvailable() {
-        return iC() || iD();
+        return iM() || iN();
     }
 
     public int getWidth() {
-        if (iC()) {
-            return this.BZ.getIntrinsicWidth();
+        if (iM()) {
+            return this.DA.getIntrinsicWidth();
         }
-        if (iD()) {
-            return this.Ca.getWidth();
+        if (iN()) {
+            return this.DB.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (iC()) {
-            return this.BZ.getIntrinsicHeight();
+        if (iM()) {
+            return this.DA.getIntrinsicHeight();
         }
-        if (iD()) {
-            return this.Ca.getHeight();
+        if (iN()) {
+            return this.DB.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.Ca = null;
-        this.BZ = null;
+        this.DB = null;
+        this.DA = null;
     }
 
     public boolean isGif() {
-        if (iD()) {
-            return this.Ca.isGif();
+        if (iN()) {
+            return this.DB.isGif();
         }
         return false;
     }

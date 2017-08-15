@@ -4,26 +4,26 @@ import android.graphics.drawable.Drawable;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c {
-    private HashMap<String, Drawable> chq = new HashMap<>();
+    private HashMap<String, Drawable> cjj = new HashMap<>();
 
-    public Drawable u(int i, int i2) {
-        String am = am(i, i2);
-        Drawable drawable = this.chq.get(am);
+    public Drawable v(int i, int i2) {
+        String an = an(i, i2);
+        Drawable drawable = this.cjj.get(an);
         if (drawable == null) {
-            Drawable u = com.baidu.tbadk.core.util.ai.u(i2, i);
-            this.chq.put(am, u);
-            return u.getConstantState().newDrawable();
+            Drawable v = com.baidu.tbadk.core.util.ai.v(i2, i);
+            this.cjj.put(an, v);
+            return v.getConstantState().newDrawable();
         }
         return drawable.getConstantState().newDrawable();
     }
 
-    private String am(int i, int i2) {
+    private String an(int i, int i2) {
         return i + "_" + i2;
     }
 
     public void destory() {
-        if (!this.chq.isEmpty()) {
-            this.chq.clear();
+        if (!this.cjj.isEmpty()) {
+            this.cjj.clear();
         }
     }
 }

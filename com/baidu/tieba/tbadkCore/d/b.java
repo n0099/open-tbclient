@@ -4,60 +4,60 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a ghG;
-    private final int ghH = 10;
-    private final int ghI = 3000;
-    public String ghJ = null;
-    public boolean ahX = false;
+    private com.baidu.adp.lib.stats.a gkK;
+    private final int gkL = 10;
+    private final int gkM = 3000;
+    public String gkN = null;
+    public boolean ajs = false;
 
     public b(String str) {
         ab(str, false);
     }
 
     public void ab(String str, boolean z) {
-        this.ghJ = str;
-        this.ahX = z;
-        this.ghG = new com.baidu.adp.lib.stats.a("dbg");
+        this.gkN = str;
+        this.ajs = z;
+        this.gkK = new com.baidu.adp.lib.stats.a("dbg");
         c.j(str, getNetType(), z);
     }
 
     public void start() {
-        this.ghG.fT();
+        this.gkK.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e bsI;
-        if (this.ghG != null && (bsI = bsI()) != null) {
+        e btx;
+        if (this.gkK != null && (btx = btx()) != null) {
             if (z) {
-                if (bsI.ghO != null) {
-                    bsI.ghO.num++;
+                if (btx.gkS != null) {
+                    btx.gkS.num++;
                     if (z2) {
-                        bsI.ghO.ghL += j2;
-                        bsI.ghO.size += j;
+                        btx.gkS.gkP += j2;
+                        btx.gkS.size += j;
                     } else {
-                        bsI.ghO.ghM++;
+                        btx.gkS.gkQ++;
                     }
                 } else {
                     return;
                 }
-            } else if (bsI.ghP != null) {
-                bsI.ghP.num++;
+            } else if (btx.gkT != null) {
+                btx.gkT.num++;
                 if (z2) {
-                    bsI.ghP.ghL += j3;
-                    bsI.ghP.size += j;
+                    btx.gkT.gkP += j3;
+                    btx.gkT.size += j;
                     j2 = j3;
                 } else {
-                    bsI.ghP.ghM++;
+                    btx.gkT.gkQ++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.ghG = null;
+            this.gkK = null;
             if (z2) {
-                c.a(bsI, 10);
+                c.a(btx, 10);
             }
-            if (this.ghJ == "frsStat") {
+            if (this.gkN == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.p("act", "frs");
@@ -74,34 +74,34 @@ public class b {
     }
 
     public void destory() {
-        e bsI;
-        if (this.ghG != null && (bsI = bsI()) != null && bsI.ghQ != null) {
-            long fU = this.ghG.fU();
-            if (fU > 3000) {
-                d dVar = bsI.ghQ;
-                dVar.ghL = fU + dVar.ghL;
-                bsI.ghQ.num++;
-                c.a(bsI, 10);
+        e btx;
+        if (this.gkK != null && (btx = btx()) != null && btx.gkU != null) {
+            long gf = this.gkK.gf();
+            if (gf > 3000) {
+                d dVar = btx.gkU;
+                dVar.gkP = gf + dVar.gkP;
+                btx.gkU.num++;
+                c.a(btx, 10);
             }
         }
     }
 
-    private e bsI() {
-        return c.k(this.ghJ, getNetType(), this.ahX);
+    private e btx() {
+        return c.k(this.gkN, getNetType(), this.ajs);
     }
 
     private String getNetType() {
-        int hn = i.hn();
-        if (hn == 0) {
+        int hx = i.hx();
+        if (hx == 0) {
             return "N";
         }
-        if (hn == 1) {
+        if (hx == 1) {
             return "WIFI";
         }
-        if (hn == 3) {
+        if (hx == 3) {
             return "3G";
         }
-        if (hn != 2) {
+        if (hx != 2) {
             return "N";
         }
         return "2G";

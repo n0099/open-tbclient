@@ -28,7 +28,7 @@ public class PushService extends Service {
         }
     };
     private int f = 0;
-    private final a.AbstractBinderC0016a g = new a.AbstractBinderC0016a() { // from class: com.baidu.android.pushservice.PushService.2
+    private final a.AbstractBinderC0015a g = new a.AbstractBinderC0015a() { // from class: com.baidu.android.pushservice.PushService.2
         @Override // com.baidu.android.pushservice.a.a
         public int a(String str, int i) throws RemoteException {
             return 0;

@@ -4,13 +4,13 @@ import com.baidu.adp.lib.webSocket.k;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface a {
-    void C(String str);
+    void I(String str);
 
     void a(com.baidu.adp.lib.webSocket.c cVar);
 
     void a(k.a aVar);
 
-    void d(Map<String, String> map);
-
     boolean d(int i, String str);
+
+    void e(Map<String, String> map);
 }

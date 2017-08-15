@@ -126,7 +126,7 @@ public class c {
                 com.baidu.android.pushservice.g.a.c("PushInfoDataBase", "CREATE TABLE PushShareInfo");
                 sQLiteDatabase.execSQL("CREATE TABLE PushVerifInfo (" + e.verifId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.msgId.name() + " TEXT  NOT NULL, " + e.md5Infos.name() + " TEXT  NOT NULL, " + e.appId.name() + " TEXT, " + e.time.name() + " TEXT );");
                 com.baidu.android.pushservice.g.a.c("PushInfoDataBase", "CREATE TABLE PushVerifInfo");
-                sQLiteDatabase.execSQL("CREATE TABLE PushMsgInfos (" + EnumC0019c.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0019c.appId.name() + "  TEXT, " + EnumC0019c.msgType.name() + "  INTEGER NOT NULL, " + EnumC0019c.msgId.name() + " LONG NOT NULL, " + EnumC0019c.secureInfo.name() + " TEXT, " + EnumC0019c.msgBody.name() + "  TEXT, " + EnumC0019c.expireTime.name() + "  LONG, " + EnumC0019c.ackRet.name() + "  INTEGER, " + EnumC0019c.arriveTime.name() + " LONG NOT NULL);");
+                sQLiteDatabase.execSQL("CREATE TABLE PushMsgInfos (" + EnumC0018c.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0018c.appId.name() + "  TEXT, " + EnumC0018c.msgType.name() + "  INTEGER NOT NULL, " + EnumC0018c.msgId.name() + " LONG NOT NULL, " + EnumC0018c.secureInfo.name() + " TEXT, " + EnumC0018c.msgBody.name() + "  TEXT, " + EnumC0018c.expireTime.name() + "  LONG, " + EnumC0018c.ackRet.name() + "  INTEGER, " + EnumC0018c.arriveTime.name() + " LONG NOT NULL);");
                 com.baidu.android.pushservice.g.a.c("PushInfoDataBase", "CREATE TABLE PushMsgInfos");
             } catch (Exception e) {
                 com.baidu.android.pushservice.g.a.a("PushInfoDataBase", e);
@@ -139,7 +139,7 @@ public class c {
                 a(sQLiteDatabase);
                 onCreate(sQLiteDatabase);
             } else if (i == 2) {
-                sQLiteDatabase.execSQL("CREATE TABLE PushMsgInfos (" + EnumC0019c.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0019c.appId.name() + "  TEXT, " + EnumC0019c.msgType.name() + "  INTEGER NOT NULL, " + EnumC0019c.msgId.name() + " LONG NOT NULL, " + EnumC0019c.secureInfo.name() + " TEXT, " + EnumC0019c.msgBody.name() + "  TEXT, " + EnumC0019c.expireTime.name() + "  LONG, " + EnumC0019c.ackRet.name() + "  INTEGER, " + EnumC0019c.arriveTime.name() + " LONG NOT NULL);");
+                sQLiteDatabase.execSQL("CREATE TABLE PushMsgInfos (" + EnumC0018c.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0018c.appId.name() + "  TEXT, " + EnumC0018c.msgType.name() + "  INTEGER NOT NULL, " + EnumC0018c.msgId.name() + " LONG NOT NULL, " + EnumC0018c.secureInfo.name() + " TEXT, " + EnumC0018c.msgBody.name() + "  TEXT, " + EnumC0018c.expireTime.name() + "  LONG, " + EnumC0018c.ackRet.name() + "  INTEGER, " + EnumC0018c.arriveTime.name() + " LONG NOT NULL);");
                 com.baidu.android.pushservice.g.a.c("PushInfoDataBase", "UpGrade CREATE TABLE PushMsgInfos");
             }
         }
@@ -147,7 +147,7 @@ public class c {
 
     /* renamed from: com.baidu.android.pushservice.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public enum EnumC0019c {
+    public enum EnumC0018c {
         MsgInfoId,
         appId,
         msgType,
@@ -518,16 +518,16 @@ public class c {
             }
             try {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(EnumC0019c.appId.name(), str);
-                contentValues.put(EnumC0019c.msgId.name(), Long.valueOf(j));
-                contentValues.put(EnumC0019c.msgType.name(), Integer.valueOf(i));
+                contentValues.put(EnumC0018c.appId.name(), str);
+                contentValues.put(EnumC0018c.msgId.name(), Long.valueOf(j));
+                contentValues.put(EnumC0018c.msgType.name(), Integer.valueOf(i));
                 if (bArr != null && bArr.length > 0) {
-                    contentValues.put(EnumC0019c.msgBody.name(), BaiduAppSSOJni.getEncrypted(context, str, bArr));
-                    contentValues.put(EnumC0019c.secureInfo.name(), bArr2);
-                    contentValues.put(EnumC0019c.expireTime.name(), Long.valueOf(j2));
+                    contentValues.put(EnumC0018c.msgBody.name(), BaiduAppSSOJni.getEncrypted(context, str, bArr));
+                    contentValues.put(EnumC0018c.secureInfo.name(), bArr2);
+                    contentValues.put(EnumC0018c.expireTime.name(), Long.valueOf(j2));
                 }
-                contentValues.put(EnumC0019c.arriveTime.name(), Long.valueOf(System.currentTimeMillis()));
-                contentValues.put(EnumC0019c.ackRet.name(), Integer.valueOf(i2));
+                contentValues.put(EnumC0018c.arriveTime.name(), Long.valueOf(System.currentTimeMillis()));
+                contentValues.put(EnumC0018c.ackRet.name(), Integer.valueOf(i2));
                 a2.insert("PushMsgInfos", null, contentValues);
                 a2.close();
             } catch (Exception e2) {
@@ -999,7 +999,7 @@ public class c {
             }
             try {
                 new ContentValues();
-                cursor = a2.query("PushMsgInfos", null, EnumC0019c.msgId.name() + " =? ", new String[]{String.valueOf(j)}, null, null, null);
+                cursor = a2.query("PushMsgInfos", null, EnumC0018c.msgId.name() + " =? ", new String[]{String.valueOf(j)}, null, null, null);
                 if (cursor != null) {
                     try {
                         try {
@@ -1620,7 +1620,7 @@ public class c {
                 }
                 try {
                     sQLiteDatabase = a.getWritableDatabase();
-                    sQLiteDatabase.delete("PushMsgInfos", EnumC0019c.arriveTime.name() + " < " + (System.currentTimeMillis() - 259200000), null);
+                    sQLiteDatabase.delete("PushMsgInfos", EnumC0018c.arriveTime.name() + " < " + (System.currentTimeMillis() - 259200000), null);
                     if (sQLiteDatabase != null) {
                         sQLiteDatabase.close();
                     }

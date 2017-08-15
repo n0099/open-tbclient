@@ -70,7 +70,7 @@ public class g {
         intent.putExtra("func", "11");
         Bundle bundle = new Bundle();
         bundle.putInt("versioncode", versionData.getNewVersionCode());
-        bundle.putLong("patch_size", com.baidu.adp.lib.g.b.c(versionData.getPatchSize(), 0L));
+        bundle.putLong("patch_size", com.baidu.adp.lib.g.b.d(versionData.getPatchSize(), 0L));
         bundle.putString("patch_url", versionData.getPatch());
         bundle.putString("sname", context.getString(d.l.app_name));
         bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());

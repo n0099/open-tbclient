@@ -1,92 +1,135 @@
 package com.baidu.tieba.frs.g;
 
-import android.content.Intent;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AbsListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.k;
+import com.baidu.sapi2.SapiSafeFacade;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e {
-    public static void a(com.baidu.tieba.frs.f fVar, com.baidu.tieba.tbadkCore.i iVar, Intent intent) {
-        a(fVar, iVar, e(iVar), intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L), intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME), intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT));
-    }
-
-    private static ShareFromFrsMsgData e(com.baidu.tieba.tbadkCore.i iVar) {
-        ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(iVar.aOW().getImage_url());
-        shareFromFrsMsgData.setName(iVar.aOW().getName());
-        shareFromFrsMsgData.setMemberNum(iVar.aOW().getMember_num());
-        shareFromFrsMsgData.setPostNum(iVar.aOW().getPost_num());
-        shareFromFrsMsgData.setContent(iVar.aOW().getSlogan());
-        return shareFromFrsMsgData;
-    }
-
-    private static void a(final com.baidu.tieba.frs.f fVar, com.baidu.tieba.tbadkCore.i iVar, final ShareFromFrsMsgData shareFromFrsMsgData, final long j, final String str, final String str2) {
-        if (iVar != null && iVar.aOW() != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fVar.getPageContext().getPageActivity());
-            final com.baidu.tieba.frs.view.d dVar = new com.baidu.tieba.frs.view.d(fVar.getPageContext().getPageActivity());
-            dVar.setPageId(fVar.getUniqueId());
-            dVar.setData(shareFromFrsMsgData);
-            aVar.cc(1);
-            aVar.v(dVar);
-            aVar.a(d.l.share, new a.b() { // from class: com.baidu.tieba.frs.g.e.1
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), dVar.getChatMsgView());
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(com.baidu.tieba.frs.f.this.getPageContext().getPageActivity(), j, str, str2, 0, dVar.getLeaveMsg(), shareFromFrsMsgData.toChatMessageContent())));
-                    aVar2.dismiss();
-                }
-            });
-            aVar.b(d.l.alert_no_button, new a.b() { // from class: com.baidu.tieba.frs.g.e.2
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), dVar.getChatMsgView());
-                    aVar2.dismiss();
-                }
-            });
-            aVar.as(true);
-            aVar.b(fVar.getPageContext()).th();
-            if (!com.baidu.adp.lib.util.j.isEmpty(shareFromFrsMsgData.getImageUrl())) {
-                dVar.K(shareFromFrsMsgData.getImageUrl(), false);
+    private com.baidu.tieba.frs.f cww;
+    private TextView czV;
+    private final Runnable czW;
+    private NoPressedRelativeLayout czt;
+    private int ckQ = -1;
+    private int czX = 0;
+    private int czY = -1;
+    private final Handler czU = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.frs.g.e.1
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            if (message.what == 111) {
+                e.this.ajZ();
+                return true;
             }
+            return false;
+        }
+    });
+    private final Animation mInAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_in);
+    private final Animation mOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
+
+    public e(com.baidu.tieba.frs.f fVar, NoPressedRelativeLayout noPressedRelativeLayout) {
+        this.czt = noPressedRelativeLayout;
+        this.cww = fVar;
+        this.mOutAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.g.e.2
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationEnd(Animation animation) {
+                if (e.this.czV.getParent() != null) {
+                    ((ViewGroup) e.this.czV.getParent()).removeView(e.this.czV);
+                }
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationRepeat(Animation animation) {
+            }
+        });
+        this.czW = new Runnable() { // from class: com.baidu.tieba.frs.g.e.3
+            @Override // java.lang.Runnable
+            public void run() {
+                e.this.aka();
+            }
+        };
+        initView();
+    }
+
+    private void initView() {
+        this.czV = new TextView(TbadkCoreApplication.getInst());
+        this.czV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.g.e.4
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                e.this.aka();
+                if (e.this.cww != null && !e.this.cww.afO() && e.this.cww.afv() != null) {
+                    e.this.cww.afv().startPullRefresh();
+                }
+            }
+        });
+        this.czV.setGravity(17);
+        this.czV.setText(d.l.frs_game_refresh_tip_text);
+        int dimensionPixelSize = this.cww.getResources().getDimensionPixelSize(d.f.ds20);
+        int dimensionPixelSize2 = this.cww.getResources().getDimensionPixelSize(d.f.ds40);
+        this.czV.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
+        this.czV.setTextSize(0, this.cww.getResources().getDimensionPixelSize(d.f.fontsize28));
+        ai.j(this.czV, d.g.bg_home_float);
+        ai.i(this.czV, d.e.cp_link_tip_a);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(14);
+        layoutParams.topMargin = this.cww.afM().getBottom() + k.g(TbadkCoreApplication.getInst(), d.f.ds8);
+        this.czV.setLayoutParams(layoutParams);
+    }
+
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        this.ckQ = i;
+        this.czX = i2;
+        if (this.czY < 0) {
+            this.czY = this.ckQ;
         }
     }
 
-    public static void a(final com.baidu.tieba.frs.f fVar, com.baidu.tieba.tbadkCore.i iVar, final int i, final String str, final long j) {
-        if (iVar != null && iVar.aOW() != null) {
-            final ShareFromFrsMsgData e = e(iVar);
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fVar.getPageContext().getPageActivity());
-            final com.baidu.tieba.frs.view.d dVar = new com.baidu.tieba.frs.view.d(fVar.getPageContext().getPageActivity());
-            dVar.setPageId(fVar.getUniqueId());
-            dVar.setData(e);
-            aVar.cc(1);
-            aVar.v(dVar);
-            aVar.a(d.l.share, new a.b() { // from class: com.baidu.tieba.frs.g.e.3
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), dVar.getChatMsgView());
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(com.baidu.tieba.frs.f.this.xY().getPageActivity(), i, str, j, "from_share", dVar.getLeaveMsg(), e.toChatMessageContent())));
-                    aVar2.dismiss();
-                }
-            });
-            aVar.b(d.l.alert_no_button, new a.b() { // from class: com.baidu.tieba.frs.g.e.4
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    com.baidu.tieba.frs.f.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), dVar.getChatMsgView());
-                    aVar2.dismiss();
-                }
-            });
-            aVar.as(true);
-            aVar.b(fVar.getPageContext()).th();
-            if (!com.baidu.adp.lib.util.j.isEmpty(e.getImageUrl())) {
-                dVar.K(e.getImageUrl(), false);
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (i == 0) {
+            if (this.ckQ > 0 && this.czY >= 0 && this.ckQ + this.czX < this.czY) {
+                this.czU.sendEmptyMessage(SapiSafeFacade.SAPIWEBVIEW_BIND_WIDGET);
             }
+            this.czY = this.ckQ;
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ajZ() {
+        if (this.czV.getParent() == null) {
+            this.czt.addView(this.czV);
+            this.czV.clearAnimation();
+            this.czV.startAnimation(this.mInAnimation);
+            this.czU.removeCallbacks(this.czW);
+            this.czU.postDelayed(this.czW, 4000L);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aka() {
+        if (this.czV.getParent() != null) {
+            this.ckQ = -1;
+            this.czY = -1;
+            this.czU.removeCallbacks(this.czW);
+            this.czV.clearAnimation();
+            this.czV.startAnimation(this.mOutAnimation);
+        }
+    }
+
+    public void onDestory() {
+        this.czU.removeCallbacksAndMessages(null);
     }
 }

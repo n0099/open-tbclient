@@ -10,20 +10,20 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.card.u;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.widget.ListView.a<q, com.baidu.tieba.card.a.a<t>> {
-    private TbPageContext<?> ako;
+    private TbPageContext<?> oV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public n(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), q.bJh);
-        this.ako = tbPageContext;
+        super(tbPageContext.getPageActivity(), q.bLa);
+        this.oV = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: w */
+    /* renamed from: x */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        t tVar = new t(this.ako);
+        t tVar = new t(this.oV);
         tVar.y("c10718", "c10719", "c10742");
         return new com.baidu.tieba.card.a.a(tVar);
     }
@@ -33,9 +33,9 @@ public class n extends com.baidu.adp.widget.ListView.a<q, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, q qVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.WX().a((com.baidu.tieba.card.a) qVar);
-        aVar.WX().d(this.ako, TbadkCoreApplication.getInst().getSkinType());
-        u.Ww().a(new aj("c10718").aa("obj_id", String.valueOf(qVar.bJi)));
+        aVar.Xy().a((com.baidu.tieba.card.a) qVar);
+        aVar.Xy().d(this.oV, TbadkCoreApplication.getInst().getSkinType());
+        u.WX().a(new aj("c10718").aa("obj_id", String.valueOf(qVar.bLb)));
         return aVar.getView();
     }
 }

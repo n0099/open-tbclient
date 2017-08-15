@@ -28,9 +28,9 @@ public class g {
     }
 
     public static void a(k kVar, BdUniqueId bdUniqueId) {
-        if (kVar != null && !StringUtils.isNull(kVar.Cu()) && u.v(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+        if (kVar != null && !StringUtils.isNull(kVar.CC()) && u.v(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", kVar.Cu());
+            httpMessage.addParam("pic_url", kVar.CC());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -38,13 +38,13 @@ public class g {
 
     public static void a(k kVar, List<com.baidu.adp.widget.ListView.f> list) {
         k kVar2;
-        if (kVar != null && !u.v(list) && !StringUtils.isNull(kVar.Cu())) {
+        if (kVar != null && !u.v(list) && !StringUtils.isNull(kVar.CC())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.f fVar = list.get(i);
-                if ((fVar instanceof k) && (kVar2 = (k) fVar) != kVar && !kVar2.Cv()) {
-                    jSONArray.put(kVar2.Cu());
+                if ((fVar instanceof k) && (kVar2 = (k) fVar) != kVar && !kVar2.CD()) {
+                    jSONArray.put(kVar2.CC());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -69,8 +69,8 @@ public class g {
                 com.baidu.adp.widget.ListView.f fVar = list.get(i);
                 if (fVar instanceof k) {
                     k kVar = (k) fVar;
-                    if (!kVar.Cv()) {
-                        jSONArray.put(kVar.Cu());
+                    if (!kVar.CD()) {
+                        jSONArray.put(kVar.CC());
                     }
                 }
             }

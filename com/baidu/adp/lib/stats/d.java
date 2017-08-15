@@ -4,17 +4,17 @@ import android.content.Context;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class d {
-    public static String ac(Context context) {
+    public static String ad(Context context) {
         if (context == null) {
             return null;
         }
-        if (i.hi()) {
+        if (i.hs()) {
             return "WIFI";
         }
-        if (i.hj()) {
-            int hq = i.hq();
+        if (i.ht()) {
+            int hA = i.hA();
             StringBuilder sb = new StringBuilder();
-            switch (hq) {
+            switch (hA) {
                 case 1:
                     sb.append('M');
                     break;
@@ -33,11 +33,11 @@ public class d {
             } else {
                 sb.append("_NET_");
             }
-            if (i.hl()) {
+            if (i.hv()) {
                 sb.append("3G");
-            } else if (i.hk()) {
+            } else if (i.hu()) {
                 sb.append("4G");
-            } else if (i.hm()) {
+            } else if (i.hw()) {
                 sb.append("2G");
             } else {
                 sb.append('N');

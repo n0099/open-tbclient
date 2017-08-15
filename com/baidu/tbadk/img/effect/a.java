@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.plugins.MotuPlugin;
 /* loaded from: classes.dex */
 public class a extends b {
-    private String aFD = "";
+    private String aGU = "";
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
         return "filter";
     }
 
-    public static ImageOperation gm(String str) {
+    public static ImageOperation gr(String str) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "filter";
         imageOperation.actionParam = str;
@@ -29,7 +29,7 @@ public class a extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.aFD = str;
+            this.aGU = str;
         }
     }
 
@@ -41,15 +41,15 @@ public class a extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Ep().eV(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if (WriteImageActivityConfig.FILTER_NAME_NORMAL.equals(this.aFD)) {
+        com.baidu.tbadk.imageManager.c.Ex().eX(BitmapHelper.getBitmapSize(bitmap) * 2);
+        if (WriteImageActivityConfig.FILTER_NAME_NORMAL.equals(this.aGU)) {
             return bitmap;
         }
         MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.getInstance().getMotuClassInstance();
         if (bitmap.isMutable()) {
             if (motuPlugin != null) {
                 try {
-                    createOneKeyFilterAndApply = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst().getApp(), this.aFD, bitmap);
+                    createOneKeyFilterAndApply = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst().getApp(), this.aGU, bitmap);
                 } catch (Throwable th) {
                     TiebaStatic.imgError(TbErrInfo.ERR_IMG_LOAD_BITMAP, "motou filter failed: " + th.toString(), "");
                     if (BdLog.isDebugMode()) {
@@ -70,7 +70,7 @@ public class a extends b {
                 try {
                     if (motuPlugin != null) {
                         try {
-                            bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst(), this.aFD, copy);
+                            bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst(), this.aGU, copy);
                         } catch (IllegalStateException e) {
                             BdLog.e(e.toString());
                             e.printStackTrace();

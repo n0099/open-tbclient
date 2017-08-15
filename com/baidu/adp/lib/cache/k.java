@@ -3,13 +3,13 @@ package com.baidu.adp.lib.cache;
 import com.baidu.adp.lib.cache.l;
 /* loaded from: classes.dex */
 public interface k<T> {
-    void U(String str);
-
-    void V(String str);
-
     void a(String str, String str2, T t, long j);
 
-    e ex();
+    void aa(String str);
+
+    void ab(String str);
+
+    e eI();
 
     T k(String str, String str2);
 

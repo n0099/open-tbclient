@@ -10,23 +10,23 @@ public class a {
     private List<C0123a> poi_info;
     private String sn;
 
-    public String bsT() {
+    public String btI() {
         return this.formatted_address;
     }
 
-    public List<C0123a> bsU() {
+    public List<C0123a> btJ() {
         return this.poi_info;
     }
 
-    public void rX(String str) {
+    public void se(String str) {
         this.formatted_address = str;
     }
 
-    public String bsV() {
+    public String btK() {
         return this.sn;
     }
 
-    public void rY(String str) {
+    public void sf(String str) {
         this.sn = str;
     }
 
@@ -60,11 +60,11 @@ public class a {
             this.name = str;
         }
 
-        public String bsW() {
+        public String btL() {
             return this.addr;
         }
 
-        public String bsV() {
+        public String btK() {
             return this.sn;
         }
 

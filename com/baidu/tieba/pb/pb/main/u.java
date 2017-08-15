@@ -9,15 +9,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class u {
-    private BaseActivity bll;
-    private PbModel eFm;
+    private BaseActivity bmE;
+    private PbModel eIt;
 
     public u(PbModel pbModel, BaseActivity baseActivity) {
-        this.eFm = pbModel;
-        this.bll = baseActivity;
+        this.eIt = pbModel;
+        this.bmE = baseActivity;
     }
 
-    public String W(Intent intent) {
+    public String Y(Intent intent) {
         int length;
         if (intent == null || intent.getData() == null) {
             return null;

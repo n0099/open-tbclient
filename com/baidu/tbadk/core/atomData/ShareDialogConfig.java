@@ -15,6 +15,7 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean isInsertBack;
     public boolean isLandscape;
     public boolean isSetCopyLink;
+    public boolean isSupportNightMode;
     public SparseArray<String> mtjStatistics;
     public DialogInterface.OnDismissListener onDismissListener;
     public e shareItem;
@@ -27,6 +28,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.isSetCopyLink = false;
         this.isCopyLink = false;
         this.isLandscape = false;
+        this.isSupportNightMode = true;
         this.shareItem = eVar;
         this.showLocation = z;
     }
@@ -37,6 +39,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.isSetCopyLink = false;
         this.isCopyLink = false;
         this.isLandscape = false;
+        this.isSupportNightMode = true;
         this.shareItem = eVar;
         this.showLocation = z;
         this.mtjStatistics = sparseArray;
@@ -48,6 +51,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.isSetCopyLink = false;
         this.isCopyLink = false;
         this.isLandscape = false;
+        this.isSupportNightMode = true;
         this.shareItem = eVar;
         this.showLocation = z;
         this.isInsertBack = z2;
@@ -60,6 +64,10 @@ public class ShareDialogConfig extends IntentConfig {
 
     public void setIsLandscape(boolean z) {
         this.isLandscape = z;
+    }
+
+    public void setIsSupportNightMode(boolean z) {
+        this.isSupportNightMode = z;
     }
 
     public void setCopyLinkListener(View.OnClickListener onClickListener) {

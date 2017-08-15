@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.view.HeadImageViewGroup;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends j.a {
-    public HeadImageViewGroup aEJ;
-    private f aEK;
+    public HeadImageViewGroup aGa;
+    private f aGb;
     public TextView mName;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
@@ -22,17 +22,17 @@ public class a extends j.a {
         this.mSkinType = 3;
         View findViewById = view.findViewById(d.h.add_pic_root);
         this.mName = (TextView) findViewById.findViewById(d.h.name_tv);
-        this.aEJ = (HeadImageViewGroup) findViewById.findViewById(d.h.img);
+        this.aGa = (HeadImageViewGroup) findViewById.findViewById(d.h.img);
     }
 
     public void c(f fVar) {
         if (fVar instanceof com.baidu.tbadk.data.d) {
-            this.aEK = fVar;
-            this.aEJ.getInnerImg().setIsRound(true);
-            this.aEJ.getInnerImg().setVisibility(0);
-            this.aEJ.getInnerImg().setTag(null);
-            this.aEJ.getInnerImg().setImageResource(d.g.btn_story_release);
-            this.aEJ.setOuterColor(d.e.cp_link_tip_g);
+            this.aGb = fVar;
+            this.aGa.getInnerImg().setIsRound(true);
+            this.aGa.getInnerImg().setVisibility(0);
+            this.aGa.getInnerImg().setTag(null);
+            this.aGa.getInnerImg().setImageResource(d.g.btn_story_release);
+            this.aGa.setOuterColor(d.e.cp_link_tip_g);
             getView().setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tbadk.j.a.1
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -55,7 +55,7 @@ public class a extends j.a {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             ai.c(this.mName, d.e.cp_cont_f, 1);
-            this.aEJ.onChangeSkinType(i);
+            this.aGa.onChangeSkinType(i);
             this.mSkinType = i;
         }
     }

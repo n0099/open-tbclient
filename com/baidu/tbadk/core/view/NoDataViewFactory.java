@@ -24,43 +24,43 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        a alk;
-        a alm;
-        int aln = -1;
+        a amF;
+        a amG;
+        int amH = -1;
 
         private b() {
         }
 
         public static b a(a aVar) {
             b bVar = new b();
-            bVar.alk = aVar;
+            bVar.amF = aVar;
             return bVar;
         }
 
         public static b a(a aVar, int i) {
             b bVar = new b();
-            bVar.alk = aVar;
-            bVar.aln = i;
+            bVar.amF = aVar;
+            bVar.amH = i;
             return bVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        String aeB;
-        View.OnClickListener alj;
+        String afX;
+        View.OnClickListener amE;
 
         public a(String str, View.OnClickListener onClickListener) {
-            this.aeB = str;
-            this.alj = onClickListener;
+            this.afX = str;
+            this.amE = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        ImgType alo = ImgType.NONE;
-        int alp = -1;
-        int alh = -1;
+        ImgType amI = ImgType.NONE;
+        int amJ = -1;
+        int amC = -1;
         int mHeight = -1;
         int mWidth = -1;
 
@@ -69,16 +69,16 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType, int i) {
             c cVar = new c();
-            cVar.alo = imgType;
-            cVar.alp = i;
+            cVar.amI = imgType;
+            cVar.amJ = i;
             return cVar;
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             c cVar = new c();
-            cVar.alo = imgType;
-            cVar.alh = i;
-            cVar.alp = i2;
+            cVar.amI = imgType;
+            cVar.amC = i;
+            cVar.amJ = i2;
             cVar.mHeight = i3;
             cVar.mWidth = i4;
             return cVar;
@@ -86,38 +86,38 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType) {
             c cVar = new c();
-            cVar.alo = imgType;
+            cVar.amI = imgType;
             return cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class d {
-        int abH;
-        String alr;
-        int als = -1;
+        int adg;
+        String amL;
+        int amM = -1;
         String mSubTitle;
         String mTitle;
 
         private d() {
         }
 
-        public static d A(int i, int i2) {
+        public static d B(int i, int i2) {
             d dVar = new d();
             dVar.mSubTitle = TbadkCoreApplication.getInst().getResources().getString(i);
-            dVar.als = i2;
+            dVar.amM = i2;
             return dVar;
         }
 
-        public static d di(int i) {
-            return eo(TbadkCoreApplication.getInst().getResources().getString(i));
+        public static d dk(int i) {
+            return eu(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
-        public static d B(int i, int i2) {
+        public static d C(int i, int i2) {
             return ad(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static d eo(String str) {
+        public static d eu(String str) {
             d dVar = new d();
             dVar.mSubTitle = str;
             return dVar;
@@ -134,7 +134,7 @@ public class NoDataViewFactory {
             d dVar = new d();
             dVar.mTitle = str2;
             dVar.mSubTitle = str;
-            dVar.abH = i;
+            dVar.adg = i;
             return dVar;
         }
     }

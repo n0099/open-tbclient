@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class HybridManager {
-    private static HybridManager acq;
+    private static HybridManager adP;
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes.dex */
@@ -33,31 +33,31 @@ public class HybridManager {
     private HybridManager() {
     }
 
-    public static HybridManager tM() {
-        if (acq == null) {
+    public static HybridManager tW() {
+        if (adP == null) {
             synchronized (HybridManager.class) {
-                if (acq == null) {
-                    acq = new HybridManager();
+                if (adP == null) {
+                    adP = new HybridManager();
                 }
             }
         }
-        return acq;
+        return adP;
     }
 
     public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
-        InterceptType cU = cU(str);
-        if (cU == null) {
+        InterceptType da = da(str);
+        if (da == null) {
             return null;
         }
-        return a(webView, str, cU);
+        return a(webView, str, da);
     }
 
     private WebResourceResponse a(WebView webView, String str, InterceptType interceptType) {
         if (interceptType == InterceptType.NORMAL) {
-            if (j.cT(str) || j.cS(str)) {
+            if (j.cZ(str) || j.cY(str)) {
                 return h(str, false);
             }
-            if (j.cR(str)) {
+            if (j.cX(str)) {
                 return h(str, true);
             }
             return null;
@@ -68,24 +68,24 @@ public class HybridManager {
     }
 
     private WebResourceResponse h(String str, boolean z) {
-        String cW = s.cW(MimeTypeMap.getFileExtensionFromUrl(str));
-        if (TextUtils.isEmpty(cW)) {
-            cW = "text/html";
+        String dc = s.dc(MimeTypeMap.getFileExtensionFromUrl(str));
+        if (TextUtils.isEmpty(dc)) {
+            dc = "text/html";
         }
         try {
             com.baidu.tbadk.core.hybrid.b.b bVar = new com.baidu.tbadk.core.hybrid.b.b();
-            WebResourceResponse webResourceResponse = new WebResourceResponse(cW, "UTF-8", new com.baidu.tbadk.core.hybrid.b.a(bVar));
-            new a(str, bVar, z, cW).execute(new Void[0]);
+            WebResourceResponse webResourceResponse = new WebResourceResponse(dc, "UTF-8", new com.baidu.tbadk.core.hybrid.b.a(bVar));
+            new a(str, bVar, z, dc).execute(new Void[0]);
             return webResourceResponse;
         } catch (IOException e) {
             e.printStackTrace();
-            h.cx(1);
+            h.cz(1);
             return null;
         }
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:23:0x0053 -> B:24:0x0007). Please submit an issue!!! */
-    private InterceptType cU(String str) {
+    private InterceptType da(String str) {
         InterceptType interceptType = null;
         if (!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) {
             try {
@@ -107,20 +107,20 @@ public class HybridManager {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Void, Void, OperateCacheType> {
-        private com.baidu.tbadk.core.hybrid.b.b act;
-        private boolean acu;
-        private String acv;
-        private String acw;
-        private boolean acx;
-        private String acy;
+        private com.baidu.tbadk.core.hybrid.b.b adS;
+        private boolean adT;
+        private String adU;
+        private String adV;
+        private boolean adW;
+        private String adX;
         private byte[] data;
         private String url;
 
         public a(String str, com.baidu.tbadk.core.hybrid.b.b bVar, boolean z, String str2) {
             this.url = str;
-            this.act = bVar;
-            this.acu = z;
-            this.acy = str2;
+            this.adS = bVar;
+            this.adT = z;
+            this.adX = str2;
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [269=6] */
@@ -132,51 +132,51 @@ public class HybridManager {
             v vVar;
             int responseCode;
             try {
-                CacheEntry dc = com.baidu.tbadk.core.hybrid.cache.b.uf().dc(this.url);
-                if (dc != null) {
-                    byte[] i = o.i(dc.getInputStream());
-                    this.acw = dc.geteTag();
-                    if (dc.isValidate(this.acw, i)) {
-                        this.act.write(i, 0, i.length);
-                        this.act.flush();
-                        this.acx = true;
-                        if (!this.acu) {
+                CacheEntry di = com.baidu.tbadk.core.hybrid.cache.b.uq().di(this.url);
+                if (di != null) {
+                    byte[] o = o.o(di.getInputStream());
+                    this.adV = di.geteTag();
+                    if (di.isValidate(this.adV, o)) {
+                        this.adS.write(o, 0, o.length);
+                        this.adS.flush();
+                        this.adW = true;
+                        if (!this.adT) {
                             return null;
                         }
-                        o.f(this.act);
+                        o.g(this.adS);
                     }
                 }
                 vVar = new v();
                 vVar.setUrl(this.url);
-                vVar.addHeader("Cookie", j.tL());
-                if (this.acx) {
-                    vVar.addHeader("If-None-Match", this.acw);
+                vVar.addHeader("Cookie", j.tV());
+                if (this.adW) {
+                    vVar.addHeader("If-None-Match", this.adV);
                 }
-                this.data = vVar.tV();
+                this.data = vVar.uf();
                 responseCode = vVar.getResponseCode();
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-                o.f(this.act);
+                o.g(this.adS);
             }
             if (304 == responseCode) {
                 return null;
             }
             if (200 == responseCode) {
-                if (!this.acx) {
-                    this.act.write(this.data, 0, this.data.length);
-                    this.act.flush();
+                if (!this.adW) {
+                    this.adS.write(this.data, 0, this.data.length);
+                    this.adS.flush();
                 }
-                Map<String, List<String>> tU = vVar.tU();
-                if (tU != null) {
-                    List<String> list = tU.get("Cache-Offline");
+                Map<String, List<String>> ue = vVar.ue();
+                if (ue != null) {
+                    List<String> list = ue.get("Cache-Offline");
                     if (list != null && list.size() > 0 && list.get(0).equals("false")) {
                         return OperateCacheType.REMOVE;
                     }
-                    List<String> list2 = tU.get("ETag");
+                    List<String> list2 = ue.get("ETag");
                     if (list2 != null && list2.size() > 0) {
-                        this.acv = list2.get(0);
-                        if (StringUtils.isNull(this.acv)) {
+                        this.adU = list2.get(0);
+                        if (StringUtils.isNull(this.adU)) {
                             return null;
                         }
                     }
@@ -193,7 +193,7 @@ public class HybridManager {
         public void onPostExecute(OperateCacheType operateCacheType) {
             super.onPostExecute(operateCacheType);
             if (operateCacheType != null) {
-                new b(this.url, this.acv, this.data, operateCacheType).execute(new Void[0]);
+                new b(this.url, this.adU, this.data, operateCacheType).execute(new Void[0]);
             }
         }
     }
@@ -201,7 +201,7 @@ public class HybridManager {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends BdAsyncTask<Void, Void, Void> {
-        private OperateCacheType acA;
+        private OperateCacheType adZ;
         private byte[] data;
         private String eTag;
         private String url;
@@ -210,19 +210,19 @@ public class HybridManager {
             this.url = str;
             this.eTag = str2;
             this.data = bArr;
-            this.acA = operateCacheType;
+            this.adZ = operateCacheType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            switch (this.acA) {
+            switch (this.adZ) {
                 case REMOVE:
-                    com.baidu.tbadk.core.hybrid.cache.b.uf().dd(this.url);
+                    com.baidu.tbadk.core.hybrid.cache.b.uq().dj(this.url);
                     return null;
                 case SAVE:
-                    com.baidu.tbadk.core.hybrid.cache.b.uf().saveCache(this.url, this.eTag, false, this.data);
+                    com.baidu.tbadk.core.hybrid.cache.b.uq().saveCache(this.url, this.eTag, false, this.data);
                     return null;
                 default:
                     return null;

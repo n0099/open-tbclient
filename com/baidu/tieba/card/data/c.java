@@ -13,60 +13,60 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ad {
-    public String Ww;
-    private String bIc;
-    private int bId;
-    private String bIe;
-    private String bIf;
+    public String XU;
+    private String bJV;
+    private int bJW;
+    private String bJX;
+    private String bJY;
     private String mSource;
-    public int bIg = 0;
-    public SparseArray<String> Wx = null;
+    public int bJZ = 0;
+    public SparseArray<String> XV = null;
 
     public void setWeight(String str) {
-        this.bIc = str;
+        this.bJV = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void hu(int i) {
-        this.bId = i;
+    public void hw(int i) {
+        this.bJW = i;
     }
 
-    public void jc(String str) {
-        this.bIe = str;
+    public void ji(String str) {
+        this.bJX = str;
     }
 
-    public int WA() {
-        return this.bId;
+    public int Xb() {
+        return this.bJW;
     }
 
-    public String WB() {
-        return this.mSource + "#" + this.bId + "#" + this.bIe;
+    public String Xc() {
+        return this.mSource + "#" + this.bJW + "#" + this.bJX;
     }
 
     public String getWeight() {
-        return this.bIc;
+        return this.bJV;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String WC() {
-        return this.bIe;
+    public String Xd() {
+        return this.bJX;
     }
 
-    public String WD() {
-        return this.bIf;
+    public String Xe() {
+        return this.bJY;
     }
 
-    public void jd(String str) {
-        this.bIf = str;
+    public void jj(String str) {
+        this.bJY = str;
     }
 
-    public bl MA() {
+    public bl MF() {
         return null;
     }
 
@@ -74,50 +74,50 @@ public abstract class c extends b implements ad {
         return true;
     }
 
-    public aj je(String str) {
+    public aj jk(String str) {
         return v(str, false);
     }
 
     public aj v(String str, boolean z) {
-        bl MA = MA();
-        if (MA == null) {
+        bl MF = MF();
+        if (MF == null) {
             return null;
         }
-        aj aa = new aj(str).aa("fid", String.valueOf(MA.getFid())).aa("tid", String.valueOf(MA.getTid())).r("obj_id", A(MA)).aa("obj_param1", getWeight()).r("obj_param2", 1).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", WA()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", com.baidu.tieba.card.m.Wn());
+        aj aa = new aj(str).aa("fid", String.valueOf(MF.getFid())).aa("tid", String.valueOf(MF.getTid())).r("obj_id", A(MF)).aa("obj_param1", getWeight()).r("obj_param2", 1).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", Xb()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", com.baidu.tieba.card.m.WO());
         if (!z) {
-            aa.r("obj_type", WE());
+            aa.r("obj_type", Xf());
             return aa;
         }
-        aa.aa("ab_tag", WC());
+        aa.aa("ab_tag", Xd());
         return aa;
     }
 
     public aj J(String str, int i) {
-        bl MA = MA();
-        if (MA == null) {
+        bl MF = MF();
+        if (MF == null) {
             return null;
         }
-        aj aa = new aj(str).aa("fid", String.valueOf(MA.getFid())).aa("tid", String.valueOf(MA.getTid())).r("obj_id", A(MA)).r("obj_param2", 1).aa("obj_param1", getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", WA()).aa("obj_name", WC()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", com.baidu.tieba.card.m.Wn());
+        aj aa = new aj(str).aa("fid", String.valueOf(MF.getFid())).aa("tid", String.valueOf(MF.getTid())).r("obj_id", A(MF)).r("obj_param2", 1).aa("obj_param1", getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", Xb()).aa("obj_name", Xd()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", com.baidu.tieba.card.m.WO());
         if (i == 0) {
-            aa.r("obj_type", WE());
+            aa.r("obj_type", Xf());
             return aa;
         }
         aa.r("obj_type", i);
         return aa;
     }
 
-    private int WE() {
+    private int Xf() {
         int i;
         int i2 = 0;
-        bl MA = MA();
-        if (MA == null) {
+        bl MF = MF();
+        if (MF == null) {
             return 0;
         }
-        ArrayList<MediaData> rF = MA.rF();
-        if (rF == null) {
+        ArrayList<MediaData> rP = MF.rP();
+        if (rP == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = rF.iterator();
+            Iterator<MediaData> it = rP.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -135,17 +135,17 @@ public abstract class c extends b implements ad {
 
     @Override // com.baidu.tbadk.core.util.ad
     public ArrayList<PreLoadImageInfo> getImages() {
-        bl MA = MA();
-        if (MA != null) {
-            return MA.getImages();
+        bl MF = MF();
+        if (MF != null) {
+            return MF.getImages();
         }
         return null;
     }
 
     private int A(bl blVar) {
-        if (blVar.sz() == null || blVar.sz().channelId <= 0) {
+        if (blVar.sJ() == null || blVar.sJ().channelId <= 0) {
             return 0;
         }
-        return (int) blVar.sz().channelId;
+        return (int) blVar.sJ().channelId;
     }
 }

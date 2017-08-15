@@ -6,7 +6,7 @@ import com.baidu.tieba.d;
 public class j extends r {
     public j() {
         super((String) null, 1, 0);
-        this.aBw = d.g.selector_msgsend_btn_softkey;
+        this.aCO = d.g.selector_msgsend_btn_softkey;
         this.name = TbadkCoreApplication.getInst().getString(d.l.switch_to_keyboard);
     }
 }

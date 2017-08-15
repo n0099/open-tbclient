@@ -14,32 +14,32 @@ public class Configuration implements Parcelable {
         public Configuration createFromParcel(Parcel parcel) {
             Configuration configuration = new Configuration();
             configuration.mAlpha = parcel.readInt();
-            configuration.ut = parcel.readInt();
-            configuration.uu = parcel.readInt();
-            configuration.uv = parcel.readInt();
-            configuration.uw = parcel.readByte() == 1;
-            configuration.ux = parcel.readByte() == 1;
+            configuration.vX = parcel.readInt();
+            configuration.vY = parcel.readInt();
+            configuration.vZ = parcel.readInt();
+            configuration.wa = parcel.readByte() == 1;
+            configuration.wb = parcel.readByte() == 1;
             return configuration;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ac */
+        /* renamed from: af */
         public Configuration[] newArray(int i) {
             return new Configuration[i];
         }
     };
-    boolean us;
+    boolean vW;
     View jv = null;
     int mAlpha = MotionEventCompat.ACTION_MASK;
-    int ut = -1;
-    int uu = -1;
-    int uv = 17170444;
-    boolean uw = true;
-    boolean ux = false;
-    boolean uy = false;
-    int uz = -1;
-    int uA = -1;
+    int vX = -1;
+    int vY = -1;
+    int vZ = 17170444;
+    boolean wa = true;
+    boolean wb = false;
+    boolean wc = false;
+    int wd = -1;
+    int we = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -49,10 +49,10 @@ public class Configuration implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mAlpha);
-        parcel.writeInt(this.ut);
-        parcel.writeInt(this.uu);
-        parcel.writeInt(this.uv);
-        parcel.writeByte((byte) (this.uw ? 1 : 0));
-        parcel.writeByte((byte) (this.ux ? 1 : 0));
+        parcel.writeInt(this.vX);
+        parcel.writeInt(this.vY);
+        parcel.writeInt(this.vZ);
+        parcel.writeByte((byte) (this.wa ? 1 : 0));
+        parcel.writeByte((byte) (this.wb ? 1 : 0));
     }
 }

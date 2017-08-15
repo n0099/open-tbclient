@@ -4,13 +4,13 @@ import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public abstract class ar {
-    protected BaseActivity bll;
+    protected BaseActivity bmE;
     protected View mRootView;
 
     protected abstract void a(c cVar);
 
     public ar(BaseActivity baseActivity, View view) {
-        this.bll = baseActivity;
+        this.bmE = baseActivity;
         this.mRootView = view;
     }
 
@@ -19,7 +19,7 @@ public abstract class ar {
     }
 
     public void b(c cVar) {
-        if (this.bll != null && this.mRootView != null) {
+        if (this.bmE != null && this.mRootView != null) {
             a(cVar);
         }
     }

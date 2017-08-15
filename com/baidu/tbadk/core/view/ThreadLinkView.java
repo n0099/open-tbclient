@@ -16,10 +16,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadLinkView extends RelativeLayout {
-    private TbImageView anP;
-    private TextView anQ;
-    private TextView anR;
-    private TextView anS;
+    private TbImageView apj;
+    private TextView apk;
+    private TextView apl;
+    private TextView apm;
     private BdUniqueId mTag;
 
     public ThreadLinkView(Context context) {
@@ -39,12 +39,12 @@ public class ThreadLinkView extends RelativeLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(d.j.link_thread_item, (ViewGroup) this, true);
-        this.anP = (TbImageView) inflate.findViewById(d.h.link_thread_head_img);
-        this.anP.setDefaultBgResource(d.g.ic_post_url_n);
-        this.anP.setDefaultErrorResource(d.g.ic_post_url_n);
-        this.anQ = (TextView) inflate.findViewById(d.h.link_thread_title);
-        this.anR = (TextView) inflate.findViewById(d.h.link_thread_abstract);
-        this.anS = (TextView) inflate.findViewById(d.h.link_thread_url);
+        this.apj = (TbImageView) inflate.findViewById(d.h.link_thread_head_img);
+        this.apj.setDefaultBgResource(d.g.ic_post_url_n);
+        this.apj.setDefaultErrorResource(d.g.ic_post_url_n);
+        this.apk = (TextView) inflate.findViewById(d.h.link_thread_title);
+        this.apl = (TextView) inflate.findViewById(d.h.link_thread_abstract);
+        this.apm = (TextView) inflate.findViewById(d.h.link_thread_url);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
@@ -52,62 +52,62 @@ public class ThreadLinkView extends RelativeLayout {
     }
 
     public void setData(bl blVar) {
-        if (blVar == null || blVar.sL() == null || al.isEmpty(blVar.sL().getLinkUrl())) {
+        if (blVar == null || blVar.sV() == null || al.isEmpty(blVar.sV().getLinkUrl())) {
             setVisibility(8);
             return;
         }
-        aj sL = blVar.sL();
-        if (!sL.qg() && sL.qf() != aj.Wi) {
+        aj sV = blVar.sV();
+        if (!sV.qq() && sV.qp() != aj.XG) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.anP.setPageId(this.mTag);
-        if (sL.qg()) {
-            this.anS.setVisibility(0);
-            this.anQ.setVisibility(8);
-            this.anR.setVisibility(8);
-            this.anS.setText(sL.getLinkUrl());
-            this.anP.reset();
+        this.apj.setPageId(this.mTag);
+        if (sV.qq()) {
+            this.apm.setVisibility(0);
+            this.apk.setVisibility(8);
+            this.apl.setVisibility(8);
+            this.apm.setText(sV.getLinkUrl());
+            this.apj.reset();
         } else {
-            this.anS.setVisibility(8);
-            String qc = sL.qc();
-            String qd = sL.qd();
-            if (!al.isEmpty(qc)) {
-                this.anQ.setText(qc);
-                this.anQ.setVisibility(0);
+            this.apm.setVisibility(8);
+            String qm = sV.qm();
+            String qn = sV.qn();
+            if (!al.isEmpty(qm)) {
+                this.apk.setText(qm);
+                this.apk.setVisibility(0);
             } else {
-                this.anQ.setVisibility(4);
+                this.apk.setVisibility(4);
             }
-            if (!al.isEmpty(qd)) {
-                this.anR.setText(qd);
-                this.anR.setVisibility(0);
+            if (!al.isEmpty(qn)) {
+                this.apl.setText(qn);
+                this.apl.setVisibility(0);
             } else {
-                this.anR.setVisibility(4);
+                this.apl.setVisibility(4);
             }
-            if (al.dT(qc) > 32) {
-                this.anQ.setMaxLines(2);
-                this.anR.setMaxLines(1);
+            if (al.dZ(qm) > 32) {
+                this.apk.setMaxLines(2);
+                this.apl.setMaxLines(1);
             } else {
-                this.anQ.setMaxLines(1);
-                this.anR.setMaxLines(2);
+                this.apk.setMaxLines(1);
+                this.apl.setMaxLines(2);
             }
-            if (!al.isEmpty(sL.qe())) {
-                this.anP.c(sL.qe(), 10, false);
+            if (!al.isEmpty(sV.qo())) {
+                this.apj.c(sV.qo(), 10, false);
             } else {
-                this.anP.reset();
+                this.apj.reset();
             }
         }
-        ep(blVar.getId());
+        ev(blVar.getId());
     }
 
     public void onChangeSkinType() {
         ai.k(this, d.e.cp_bg_line_e);
     }
 
-    public void ep(String str) {
-        com.baidu.tieba.card.m.a(this.anQ, str, d.e.cp_cont_b, d.e.cp_cont_d);
-        com.baidu.tieba.card.m.a(this.anS, str, d.e.cp_cont_b, d.e.cp_cont_d);
-        com.baidu.tieba.card.m.a(this.anR, str, d.e.cp_cont_d, d.e.cp_cont_d);
+    public void ev(String str) {
+        com.baidu.tieba.card.m.a(this.apk, str, d.e.cp_cont_b, d.e.cp_cont_d);
+        com.baidu.tieba.card.m.a(this.apm, str, d.e.cp_cont_b, d.e.cp_cont_d);
+        com.baidu.tieba.card.m.a(this.apl, str, d.e.cp_cont_d, d.e.cp_cont_d);
     }
 }

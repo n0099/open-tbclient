@@ -7,10 +7,10 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class k extends c {
-    private a Cu;
-    protected Path Cs = new Path();
-    protected Paint Ct = null;
-    protected boolean Cv = false;
+    private a DV;
+    protected Path DT = new Path();
+    protected Paint DU = null;
+    protected boolean DW = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,42 +23,42 @@ public abstract class k extends c {
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(dVar, imageView, scaleType);
-        if (this.Cu != null && (a2 = this.Cu.a(ix())) != null) {
-            this.Cs.set(a2);
-            if (this.Ct == null) {
-                this.Ct = new Paint();
-                this.Ct.setStyle(Paint.Style.STROKE);
-                this.Ct.setAntiAlias(true);
-                this.Ct.setColor(637534208);
-                this.Ct.setDither(true);
-                this.Ct.setStrokeWidth(2.0f);
+        if (this.DV != null && (a2 = this.DV.a(iH())) != null) {
+            this.DT.set(a2);
+            if (this.DU == null) {
+                this.DU = new Paint();
+                this.DU.setStyle(Paint.Style.STROKE);
+                this.DU.setAntiAlias(true);
+                this.DU.setColor(637534208);
+                this.DU.setDither(true);
+                this.DU.setStrokeWidth(2.0f);
             }
-            iF();
+            iP();
         }
     }
 
     @Override // com.baidu.adp.b.a.a
     public void a(Canvas canvas, d dVar, ImageView imageView) {
         super.a(canvas, dVar, imageView);
-        if (this.Cv) {
-            canvas.drawPath(this.Cs, this.Ct);
-            if (this.Cu != null) {
-                this.Cu.c(canvas);
+        if (this.DW) {
+            canvas.drawPath(this.DT, this.DU);
+            if (this.DV != null) {
+                this.DV.c(canvas);
             }
         }
     }
 
-    public void iF() {
+    public void iP() {
     }
 
-    public void iG() {
+    public void iQ() {
     }
 
     public void a(a aVar) {
-        this.Cu = aVar;
+        this.DV = aVar;
     }
 
     public void K(boolean z) {
-        this.Cv = z;
+        this.DW = z;
     }
 }

@@ -13,17 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends b {
-    private b.InterfaceC0043b aaz;
-    private f cjg;
-    private int cns;
+    private b.InterfaceC0043b abY;
+    private f ckZ;
+    private int cpm;
     private List<x> mDatas;
 
     public a(f fVar, b.InterfaceC0043b interfaceC0043b) {
         super(fVar.getActivity());
-        this.cns = 0;
+        this.cpm = 0;
         if (fVar != null && interfaceC0043b != null) {
-            this.cjg = fVar;
-            this.aaz = interfaceC0043b;
+            this.ckZ = fVar;
+            this.abY = interfaceC0043b;
         }
     }
 
@@ -33,8 +33,8 @@ public class a extends b {
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 x xVar = new x();
-                xVar.name = this.cjg.getResources().getString(d.l.attention_users_thread);
-                xVar.ckC = 6;
+                xVar.name = this.ckZ.getResources().getString(d.l.attention_users_thread);
+                xVar.cmw = 6;
                 this.mDatas.add(xVar);
             }
             ArrayList arrayList = new ArrayList();
@@ -44,20 +44,20 @@ public class a extends b {
                 }
             }
             reset();
-            a(arrayList, this.aaz);
+            a(arrayList, this.abY);
         }
     }
 
-    public List<x> ahd() {
+    public List<x> ahF() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.b
-    public b tk() {
-        View ch;
-        super.tk();
-        if (this.mDatas != null && (ch = ch(this.mDatas.size())) != null && (ch.findViewById(d.h.dialog_item_btn) instanceof TextView)) {
-            ai.i((TextView) ch.findViewById(d.h.dialog_item_btn), d.e.cp_link_tip_a);
+    public b tu() {
+        View cj;
+        super.tu();
+        if (this.mDatas != null && (cj = cj(this.mDatas.size())) != null && (cj.findViewById(d.h.dialog_item_btn) instanceof TextView)) {
+            ai.i((TextView) cj.findViewById(d.h.dialog_item_btn), d.e.cp_link_tip_a);
         }
         return this;
     }

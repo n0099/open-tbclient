@@ -11,24 +11,24 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class k extends BaseAdapter {
-    private com.baidu.tieba.homepage.personalize.data.f cSE;
+    private com.baidu.tieba.homepage.personalize.data.f cVW;
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cSE == null || this.cSE.cTq == null) {
+        if (this.cVW == null || this.cVW.cWI == null) {
             return 0;
         }
-        return this.cSE.cTq.size();
+        return this.cVW.cWI.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: kI */
+    /* renamed from: kS */
     public com.baidu.tieba.homepage.personalize.data.g getItem(int i) {
-        if (this.cSE == null || this.cSE.cTq == null) {
+        if (this.cVW == null || this.cVW.cWI == null) {
             return null;
         }
-        return this.cSE.cTq.get(i);
+        return this.cVW.cWI.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,7 +53,7 @@ public class k extends BaseAdapter {
         }
         com.baidu.tieba.homepage.personalize.data.g item = getItem(i);
         if (item != null) {
-            textView.setText(item.TL);
+            textView.setText(item.Vn);
             if (item.isSelect) {
                 ai.i(textView, d.e.cp_cont_g);
                 ai.j(textView, d.g.shape_semi_circle_all_selected);
@@ -66,11 +66,11 @@ public class k extends BaseAdapter {
     }
 
     public void a(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        this.cSE = fVar;
+        this.cVW = fVar;
         notifyDataSetChanged();
     }
 
-    public com.baidu.tieba.homepage.personalize.data.f aow() {
-        return this.cSE;
+    public com.baidu.tieba.homepage.personalize.data.f app() {
+        return this.cVW;
     }
 }

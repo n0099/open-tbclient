@@ -9,9 +9,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private RequestCommitInviteMessage dBx;
-    private int dBy;
-    private int dvW;
+    private RequestCommitInviteMessage dEL;
+    private int dEM;
+    private int dzl;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -24,29 +24,29 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.dvW = intent.getIntExtra("gid", -1);
-            this.dBy = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.dzl = intent.getIntExtra("gid", -1);
+            this.dEM = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.dvW = bundle.getInt("gid", -1);
-            this.dBy = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.dzl = bundle.getInt("gid", -1);
+            this.dEM = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
         }
     }
 
     public void p(Bundle bundle) {
-        bundle.putInt("gid", this.dvW);
-        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.dBy);
+        bundle.putInt("gid", this.dzl);
+        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.dEM);
     }
 
-    public void mD(String str) {
-        this.dBx = c(this.dvW, this.dBy, str);
-        super.sendMessage(this.dBx);
+    public void mL(String str) {
+        this.dEL = e(this.dzl, this.dEM, str);
+        super.sendMessage(this.dEL);
     }
 
-    private RequestCommitInviteMessage c(int i, int i2, String str) {
+    private RequestCommitInviteMessage e(int i, int i2, String str) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.groupId = Integer.valueOf(i);
         builder.msgType = 5;

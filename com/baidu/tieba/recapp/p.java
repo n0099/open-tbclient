@@ -15,15 +15,15 @@ public interface p {
 
     void a(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5);
 
-    h bJ(Context context);
+    h bI(Context context);
 
-    k bhr();
+    k bih();
 
-    m bhs();
+    m bii();
 
-    com.baidu.tieba.k.a bht();
+    com.baidu.tieba.k.a bij();
 
-    i bhu();
+    i bik();
 
     com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 

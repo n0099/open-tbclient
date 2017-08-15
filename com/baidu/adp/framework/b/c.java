@@ -18,54 +18,54 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<M extends Message<?>, T extends MessageTask, R extends f<?, ?>, N extends ResponsedMessage<?>> implements com.baidu.adp.framework.b<M, T> {
-    private static com.baidu.adp.framework.listener.b<Message<?>> qE = null;
-    protected MessageManager oe;
-    private final SparseArray<T> qy = new SparseArray<>();
-    private final SparseArray<N> qz = new SparseArray<>();
-    private final SparseArray<LinkedList<MessageListener<N>>> qA = new SparseArray<>();
-    protected com.baidu.adp.framework.c.d qB = null;
-    private boolean qC = false;
-    private final SparseIntArray qD = new SparseIntArray();
+    private static com.baidu.adp.framework.listener.b<Message<?>> sj = null;
+    protected MessageManager pS;
+    private final SparseArray<T> sd = new SparseArray<>();
+    private final SparseArray<N> se = new SparseArray<>();
+    private final SparseArray<LinkedList<MessageListener<N>>> sf = new SparseArray<>();
+    protected com.baidu.adp.framework.c.d sg = null;
+    private boolean sh = false;
+    private final SparseIntArray si = new SparseIntArray();
 
     public abstract M b(M m, T t);
 
     public c(MessageManager messageManager) {
-        this.oe = null;
-        this.oe = messageManager;
+        this.pS = null;
+        this.pS = messageManager;
     }
 
     public synchronized void registerTask(T t) {
         if (t != null) {
-            this.qy.put(t.getCmd(), t);
+            this.sd.put(t.getCmd(), t);
         }
     }
 
     public synchronized void unRegisterTask(int i) {
-        this.qy.remove(i);
+        this.sd.remove(i);
     }
 
     public synchronized T findTask(int i) {
-        return this.qy.get(i);
+        return this.sd.get(i);
     }
 
-    public synchronized ArrayList<T> dp() {
+    public synchronized ArrayList<T> dA() {
         ArrayList<T> arrayList;
         arrayList = new ArrayList<>();
-        int size = this.qy.size();
+        int size = this.sd.size();
         for (int i = 0; i < size; i++) {
-            arrayList.add(this.qy.valueAt(i));
+            arrayList.add(this.sd.valueAt(i));
         }
         return arrayList;
     }
 
-    private void P(int i) {
-        if (S(i)) {
+    private void S(int i) {
+        if (V(i)) {
             throw new IllegalStateException("MessageListener locked");
         }
     }
 
     public void registerListener(int i, MessageListener<N> messageListener) {
-        k.hw();
+        k.hG();
         if (messageListener != null) {
             if ((i == 0 && messageListener.getCmd() == 0) || (i != 0 && messageListener.getCmd() != 0)) {
                 throw new InvalidParameterException("registerListener cmd error");
@@ -73,14 +73,14 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             if (i == 0) {
                 i = messageListener.getCmd();
             }
-            P(i);
-            LinkedList<MessageListener<N>> linkedList = this.qA.get(i);
+            S(i);
+            LinkedList<MessageListener<N>> linkedList = this.sf.get(i);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
-                this.qA.put(i, linkedList);
+                this.sf.put(i, linkedList);
             }
             FrameHelper.a(linkedList, messageListener);
-            N n = this.qz.get(i);
+            N n = this.se.get(i);
             if (n != null) {
                 messageListener.onMessage(n);
             }
@@ -88,23 +88,23 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public void unRegisterListener(MessageListener<?> messageListener) {
-        k.hw();
+        k.hG();
         if (messageListener != null) {
             int cmd = messageListener.getCmd();
             if (cmd == 0) {
-                int size = this.qA.size();
+                int size = this.sf.size();
                 for (int i = 0; i < size; i++) {
-                    LinkedList<MessageListener<N>> valueAt = this.qA.valueAt(i);
-                    int keyAt = this.qA.keyAt(i);
+                    LinkedList<MessageListener<N>> valueAt = this.sf.valueAt(i);
+                    int keyAt = this.sf.keyAt(i);
                     if (valueAt.contains(messageListener)) {
-                        P(keyAt);
+                        S(keyAt);
                         valueAt.remove(messageListener);
                     }
                 }
                 return;
             }
-            P(cmd);
-            LinkedList<MessageListener<N>> linkedList = this.qA.get(cmd);
+            S(cmd);
+            LinkedList<MessageListener<N>> linkedList = this.sf.get(cmd);
             if (linkedList != null) {
                 linkedList.remove(messageListener);
             }
@@ -112,16 +112,16 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public void unRegisterListener(BdUniqueId bdUniqueId) {
-        k.hw();
+        k.hG();
         if (bdUniqueId != null) {
-            int size = this.qA.size();
+            int size = this.sf.size();
             for (int i = 0; i < size; i++) {
-                int keyAt = this.qA.keyAt(i);
-                Iterator<MessageListener<N>> it = this.qA.valueAt(i).iterator();
+                int keyAt = this.sf.keyAt(i);
+                Iterator<MessageListener<N>> it = this.sf.valueAt(i).iterator();
                 while (it.hasNext()) {
                     MessageListener<N> next = it.next();
                     if (next != null && next.getTag() == bdUniqueId) {
-                        P(keyAt);
+                        S(keyAt);
                         it.remove();
                     }
                 }
@@ -130,7 +130,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public boolean c(M m, T t) {
-        k.hw();
+        k.hG();
         if (m == null) {
             return false;
         }
@@ -140,12 +140,12 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         }
         if (t != null) {
             M b = b(m, t);
-            if (this.qB != null) {
+            if (this.sg != null) {
                 if (t.getTimeOut() == null) {
-                    t.setTimeOut(this.qB.du());
+                    t.setTimeOut(this.sg.dF());
                 }
                 if (t.getRetry() == 0) {
-                    t.setRetry(this.qB.getRetryCount());
+                    t.setRetry(this.sg.getRetryCount());
                 }
             }
             if (b != null) {
@@ -155,30 +155,30 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             BdLog.d("message is trapped:" + cmd);
             return false;
         }
-        if (qE != null) {
-            qE.a(m);
+        if (sj != null) {
+            sj.a(m);
         }
         BdLog.e("task not register:" + cmd);
         return false;
     }
 
     public void registerStickyMode(int i) {
-        if (this.qz.indexOfKey(i) < 0) {
-            this.qz.put(i, null);
+        if (this.se.indexOfKey(i) < 0) {
+            this.se.put(i, null);
         }
     }
 
     public void unRegisterStickyMode(int i) {
-        this.qz.remove(i);
+        this.se.remove(i);
     }
 
     public void abort() {
-        this.qC = true;
+        this.sh = true;
     }
 
     public void dispatchResponsedMessage(N n) {
         BdUniqueId bdUniqueId;
-        k.hw();
+        k.hG();
         if (n != null) {
             n.setProcessTime(System.currentTimeMillis());
             int cmd = n.getCmd();
@@ -188,16 +188,16 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             } else {
                 bdUniqueId = orginalMessage.getTag();
             }
-            if (this.qz.indexOfKey(cmd) >= 0) {
-                this.qz.put(cmd, n);
+            if (this.se.indexOfKey(cmd) >= 0) {
+                this.se.put(cmd, n);
             }
-            LinkedList<MessageListener<N>> linkedList = this.qA.get(cmd);
+            LinkedList<MessageListener<N>> linkedList = this.sf.get(cmd);
             if (linkedList != null) {
-                this.qC = false;
-                Q(cmd);
+                this.sh = false;
+                T(cmd);
                 try {
                     Iterator<MessageListener<N>> it = linkedList.iterator();
-                    while (it.hasNext() && !this.qC) {
+                    while (it.hasNext() && !this.sh) {
                         MessageListener<N> next = it.next();
                         if (next != null && (!next.isSelfListener() || next.getTag() == bdUniqueId)) {
                             try {
@@ -210,34 +210,34 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
                 } catch (Exception e2) {
                     BdLog.detailException(n.getClass().getName(), e2);
                 } finally {
-                    R(cmd);
+                    U(cmd);
                 }
             }
         }
     }
 
-    private synchronized void Q(int i) {
-        this.qD.put(i, this.qD.get(i, 0) + 1);
+    private synchronized void T(int i) {
+        this.si.put(i, this.si.get(i, 0) + 1);
     }
 
-    private synchronized void R(int i) {
-        int i2 = this.qD.get(i, 0);
+    private synchronized void U(int i) {
+        int i2 = this.si.get(i, 0);
         if (i2 <= 1) {
-            this.qD.delete(i);
+            this.si.delete(i);
         } else {
-            this.qD.put(i, i2 - 1);
+            this.si.put(i, i2 - 1);
         }
     }
 
-    private synchronized boolean S(int i) {
+    private synchronized boolean V(int i) {
         boolean z;
         synchronized (this) {
-            z = this.qD.get(i, 0) != 0;
+            z = this.si.get(i, 0) != 0;
         }
         return z;
     }
 
     public static void setNotFindTaskListener(com.baidu.adp.framework.listener.b<Message<?>> bVar) {
-        qE = bVar;
+        sj = bVar;
     }
 }

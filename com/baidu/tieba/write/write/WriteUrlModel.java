@@ -12,7 +12,7 @@ public class WriteUrlModel extends NewWriteModel {
         super(tbPageContext);
     }
 
-    public void aj(Intent intent) {
+    public void al(Intent intent) {
         if (intent != null) {
             WriteData writeData = new WriteData();
             writeData.setType(intent.getIntExtra("type", 0));

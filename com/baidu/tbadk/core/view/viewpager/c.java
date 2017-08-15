@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.viewpager.b;
 import com.baidu.tbadk.core.view.viewpager.b.a;
 /* loaded from: classes.dex */
 public abstract class c<T extends f, V extends b.a> {
-    protected a<T, V> aoT;
+    protected a<T, V> aqo;
     protected Context mContext;
     protected BdUniqueId mType;
 
@@ -21,7 +21,7 @@ public abstract class c<T extends f, V extends b.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract View a(ViewGroup viewGroup, V v, T t);
 
-    public abstract V b(ViewGroup viewGroup);
+    public abstract V c(ViewGroup viewGroup);
 
     protected c(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
@@ -36,10 +36,10 @@ public abstract class c<T extends f, V extends b.a> {
     }
 
     public void setOnItemClickListener(a<T, V> aVar) {
-        this.aoT = aVar;
+        this.aqo = aVar;
     }
 
-    public a<T, V> xl() {
-        return this.aoT;
+    public a<T, V> xt() {
+        return this.aqo;
     }
 }

@@ -14,52 +14,52 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout axn;
-    protected TextView axo;
-    protected TextView axp;
-    private boolean axr;
-    private View axs;
-    private View axt;
-    protected ImageView axu;
+    protected LinearLayout ayF;
+    protected TextView ayG;
+    protected TextView ayH;
+    private boolean ayJ;
+    private View ayK;
+    private View ayL;
+    protected ImageView ayM;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.axr = true;
+        this.ayJ = true;
         this.mContext = context;
-        Bw();
+        BE();
         c(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.axr = true;
+        this.ayJ = true;
         this.mContext = context;
-        Bw();
+        BE();
     }
 
     public void displayTip() {
-        if (this.axp != null) {
-            this.axp.setVisibility(0);
+        if (this.ayH != null) {
+            this.ayH.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.axp != null) {
-            this.axp.setTextColor(i);
+        if (this.ayH != null) {
+            this.ayH.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
-        if (this.axp != null) {
+        if (this.ayH != null) {
         }
     }
 
-    public void h(int i, int i2, int i3, int i4) {
-        if (this.axp != null) {
+    public void i(int i, int i2, int i3, int i4) {
+        if (this.ayH != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.axp.setLayoutParams(layoutParams);
+            this.ayH.setLayoutParams(layoutParams);
         }
     }
 
@@ -67,37 +67,37 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.axu.setVisibility(8);
+        this.ayM.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.axo.setText(str);
+        this.ayG.setText(str);
     }
 
     public void setText(int i) {
-        this.axo.setText(i);
+        this.ayG.setText(i);
     }
 
     public void setTip(String str) {
-        this.axp.setText(str);
+        this.ayH.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.axp.getText();
+        return this.ayH.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.axp.setBackgroundDrawable(drawable);
+        this.ayH.setBackgroundDrawable(drawable);
     }
 
-    protected void Bw() {
+    protected void BE() {
         LayoutInflater.from(this.mContext).inflate(d.j.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.axn = (LinearLayout) findViewById(d.h.container);
-        this.axo = (TextView) findViewById(d.h.text);
-        this.axp = (TextView) findViewById(d.h.tip);
-        this.axu = (ImageView) findViewById(d.h.arrow2);
-        this.axt = findViewById(d.h.bottom_line_ll);
-        this.axs = findViewById(d.h.top_line_ll);
+        this.ayF = (LinearLayout) findViewById(d.h.container);
+        this.ayG = (TextView) findViewById(d.h.text);
+        this.ayH = (TextView) findViewById(d.h.tip);
+        this.ayM = (ImageView) findViewById(d.h.arrow2);
+        this.ayL = findViewById(d.h.bottom_line_ll);
+        this.ayK = findViewById(d.h.top_line_ll);
     }
 
     protected void c(AttributeSet attributeSet) {
@@ -106,34 +106,34 @@ public class TbSettingTextTipView extends FrameLayout {
             String string = obtainStyledAttributes.getString(d.n.TbSettingView_settingText);
             String string2 = obtainStyledAttributes.getString(d.n.TbSettingView_settingTip);
             if (string != null) {
-                this.axo.setText(string);
+                this.ayG.setText(string);
             }
             if (string2 != null) {
-                this.axp.setText(string2);
+                this.ayH.setText(string2);
             }
-            this.axr = obtainStyledAttributes.getBoolean(d.n.TbSettingView_settingShowArraw, true);
+            this.ayJ = obtainStyledAttributes.getBoolean(d.n.TbSettingView_settingShowArraw, true);
             obtainStyledAttributes.recycle();
         }
-        this.axn.setClickable(false);
-        this.axn.setFocusable(false);
-        if (!this.axr) {
-            this.axu.setVisibility(4);
+        this.ayF.setClickable(false);
+        this.ayF.setFocusable(false);
+        if (!this.ayJ) {
+            this.ayM.setVisibility(4);
         }
     }
 
     public void setTopLineVisibility(boolean z) {
         if (z) {
-            this.axs.setVisibility(0);
+            this.ayK.setVisibility(0);
         } else {
-            this.axs.setVisibility(8);
+            this.ayK.setVisibility(8);
         }
     }
 
     public void setBottomLineVisibility(boolean z) {
         if (z) {
-            this.axt.setVisibility(0);
+            this.ayL.setVisibility(0);
         } else {
-            this.axt.setVisibility(8);
+            this.ayL.setVisibility(8);
         }
     }
 }

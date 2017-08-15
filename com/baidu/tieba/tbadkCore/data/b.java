@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import tbclient.LinkInfo;
 /* loaded from: classes.dex */
 public class b {
-    private String gfV;
+    private String giZ;
     private String mDescription;
     private String mType;
 
@@ -13,8 +13,8 @@ public class b {
         return this.mDescription;
     }
 
-    public String brN() {
-        return this.gfV;
+    public String bsC() {
+        return this.giZ;
     }
 
     public String getType() {
@@ -24,7 +24,7 @@ public class b {
     public void a(LinkInfo linkInfo) {
         if (linkInfo != null) {
             this.mDescription = linkInfo.desc;
-            this.gfV = linkInfo.link;
+            this.giZ = linkInfo.link;
             this.mType = linkInfo.type;
         }
     }
@@ -33,7 +33,7 @@ public class b {
         if (jSONObject != null) {
             try {
                 this.mDescription = jSONObject.optString("desc");
-                this.gfV = jSONObject.optString("link");
+                this.giZ = jSONObject.optString("link");
                 this.mType = jSONObject.optString("type");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

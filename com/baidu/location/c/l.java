@@ -3,17 +3,17 @@ package com.baidu.location.c;
 import com.baidu.location.c.h;
 /* loaded from: classes.dex */
 class l extends Thread {
-    final /* synthetic */ h.b Nz;
+    final /* synthetic */ h.b Pd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(h.b bVar) {
-        this.Nz = bVar;
+        this.Pd = bVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.location.e.d.mH().m();
-        com.baidu.location.e.d.mH().i();
+        com.baidu.location.e.d.mR().m();
+        com.baidu.location.e.d.mR().i();
     }
 }

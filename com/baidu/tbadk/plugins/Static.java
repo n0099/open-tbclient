@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.sharedPref.b;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static final String[] aKw = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] aLM = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tbadk.plugins.Static.1
@@ -36,7 +36,7 @@ public class Static {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
                     boolean z = true;
                     ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-                    String[] strArr = Static.aKw;
+                    String[] strArr = Static.aLM;
                     int length = strArr.length;
                     int i = 0;
                     while (true) {
@@ -47,7 +47,7 @@ public class Static {
                         if (exceptionData == null || exceptionData.info == null || !exceptionData.info.contains(str) || exceptionData.info.contains("java.lang.OutOfMemoryError")) {
                             i++;
                         } else {
-                            com.baidu.adp.plugin.b.a.jh().bc("plugin_crash_inflate");
+                            com.baidu.adp.plugin.b.a.jr().bi("plugin_crash_inflate");
                             b.getInstance().putBoolean("is_plugin_resource_open_local", false);
                             z = false;
                             break;
@@ -55,7 +55,7 @@ public class Static {
                     }
                     if (exceptionData.mExcep != null && exceptionData.mExcep.getCause() != null && exceptionData.mExcep.getCause().getStackTrace() != null && z && exceptionData != null && exceptionData.info != null) {
                         try {
-                            List<PluginSetting> pluginSettingsSortLoadPriorty = c.jX().jU().getPluginSettingsSortLoadPriorty();
+                            List<PluginSetting> pluginSettingsSortLoadPriorty = c.kh().ke().getPluginSettingsSortLoadPriorty();
                             if (pluginSettingsSortLoadPriorty != null && !pluginSettingsSortLoadPriorty.isEmpty() && (stackTrace = exceptionData.mExcep.getCause().getStackTrace()) != null && stackTrace.length != 0) {
                                 for (PluginSetting pluginSetting : pluginSettingsSortLoadPriorty) {
                                     if (pluginSetting.isPatch && pluginSetting.enable && (plugin2 = PluginCenter.getInstance().getPlugin(pluginSetting.packageName)) != null && plugin2.getDexClassLoader() != null) {

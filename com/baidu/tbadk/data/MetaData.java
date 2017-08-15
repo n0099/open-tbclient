@@ -113,7 +113,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     }
 
     public long getUserIdLong() {
-        return com.baidu.adp.lib.g.b.c(this.userId, 0L);
+        return com.baidu.adp.lib.g.b.d(this.userId, 0L);
     }
 
     public void setType(int i) {

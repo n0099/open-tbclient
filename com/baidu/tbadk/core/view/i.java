@@ -29,131 +29,131 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i {
-    private int akD;
-    private int akE;
-    private int akF;
-    private int akG;
-    private int akH;
-    private PopupWindow akJ;
-    private View akK;
-    private TextView akL;
-    private TextView akM;
-    private g akN;
-    private boolean akO;
-    private TbPageContext ako;
+    private int alY;
+    private int alZ;
+    private int ama;
+    private int amb;
+    private int amc;
+    private PopupWindow ame;
+    private View amf;
+    private TextView amg;
+    private TextView amh;
+    private g ami;
+    private boolean amj;
     private ViewGroup mContentView;
     private Context mContext;
     private int mWindowHeight;
-    private PopupWindow akA = null;
-    private an akB = null;
-    private SparseArray<String> akp = null;
-    private List<g.a> akC = new ArrayList();
-    private h.a akI = null;
-    private CompoundButton.OnCheckedChangeListener aks = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tbadk.core.view.i.1
+    private TbPageContext oV;
+    private PopupWindow alV = null;
+    private an alW = null;
+    private SparseArray<String> alK = null;
+    private List<g.a> alX = new ArrayList();
+    private h.a amd = null;
+    private CompoundButton.OnCheckedChangeListener alN = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tbadk.core.view.i.1
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            if (i.this.akI != null) {
-                i.this.akI.a(i.this.akB, compoundButton, z);
+            if (i.this.amd != null) {
+                i.this.amd.a(i.this.alW, compoundButton, z);
             }
             if (compoundButton.getTag() instanceof g.a) {
                 g.a aVar = (g.a) compoundButton.getTag();
                 if (z) {
-                    if (!i.this.akC.contains(aVar)) {
-                        i.this.akC.add(aVar);
+                    if (!i.this.alX.contains(aVar)) {
+                        i.this.alX.add(aVar);
                     }
                 } else {
-                    i.this.akC.remove(aVar);
+                    i.this.alX.remove(aVar);
                 }
             }
-            i.this.wE();
+            i.this.wO();
         }
     };
-    private View.OnClickListener akP = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.i.2
+    private View.OnClickListener amk = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.i.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (i.this.akB != null && i.this.akA != null) {
+            if (i.this.alW != null && i.this.alV != null) {
                 ArrayList<Integer> arrayList = new ArrayList<>();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.NEG_FEED_BACK_DELETE, i.this.l(arrayList)));
-                i.this.wC();
+                i.this.wM();
                 c cVar = new c();
-                cVar.ajS = 1500L;
+                cVar.alo = 1500L;
                 cVar.d(i.this.mContext.getResources().getString(d.l.reduce_related_thread_recommend));
-                if (i.this.akI != null) {
-                    i.this.akI.a(arrayList, i.this.akB);
+                if (i.this.amd != null) {
+                    i.this.amd.a(arrayList, i.this.alW);
                 }
             }
         }
     };
-    private PopupWindow.OnDismissListener akQ = new PopupWindow.OnDismissListener() { // from class: com.baidu.tbadk.core.view.i.3
+    private PopupWindow.OnDismissListener aml = new PopupWindow.OnDismissListener() { // from class: com.baidu.tbadk.core.view.i.3
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (i.this.akJ != null) {
-                i.this.akJ.dismiss();
-                i.this.akJ = null;
+            if (i.this.ame != null) {
+                i.this.ame.dismiss();
+                i.this.ame = null;
             }
         }
     };
-    private CustomMessageListener akR = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN) { // from class: com.baidu.tbadk.core.view.i.4
+    private CustomMessageListener amm = new CustomMessageListener(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN) { // from class: com.baidu.tbadk.core.view.i.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            i.this.wC();
+            i.this.wM();
         }
     };
 
     public i(TbPageContext tbPageContext, View view) {
         this.mContext = null;
         this.mContext = tbPageContext.getPageActivity();
-        this.ako = tbPageContext;
-        this.akK = view;
+        this.oV = tbPageContext;
+        this.amf = view;
         init();
     }
 
     private void init() {
-        this.akG = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds36);
-        this.akH = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds6);
-        this.akD = com.baidu.adp.lib.util.k.af(this.mContext) - (this.akG * 2);
-        this.akF = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds120);
-        this.akN = new g(this.ako);
-        this.akN.a(this.aks);
-        this.ako.registerListener(this.akR);
+        this.amb = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds36);
+        this.amc = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds6);
+        this.alY = com.baidu.adp.lib.util.k.ag(this.mContext) - (this.amb * 2);
+        this.ama = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds120);
+        this.ami = new g(this.oV);
+        this.ami.a(this.alN);
+        this.oV.registerListener(this.amm);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            if (this.akR != null) {
-                this.akR.setTag(bdUniqueId);
+            if (this.amm != null) {
+                this.amm.setTag(bdUniqueId);
             }
-            MessageManager.getInstance().registerListener(this.akR);
+            MessageManager.getInstance().registerListener(this.amm);
         }
     }
 
-    public void wB() {
-        if (this.mContext != null && this.akp != null && this.akp.size() != 0) {
+    public void wL() {
+        if (this.mContext != null && this.alK != null && this.alK.size() != 0) {
             View contentView = getContentView();
-            this.mWindowHeight = wD();
-            this.akA = new PopupWindow(contentView, this.akD, this.mWindowHeight);
-            this.akA.setFocusable(true);
-            this.akA.setTouchable(true);
-            this.akA.setOnDismissListener(this.akQ);
-            wF();
-            this.akJ = new PopupWindow(LayoutInflater.from(this.mContext).inflate(d.j.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
-            this.akJ.showAtLocation(this.akK, 0, 0, 0);
+            this.mWindowHeight = wN();
+            this.alV = new PopupWindow(contentView, this.alY, this.mWindowHeight);
+            this.alV.setFocusable(true);
+            this.alV.setTouchable(true);
+            this.alV.setOnDismissListener(this.aml);
+            resetState();
+            this.ame = new PopupWindow(LayoutInflater.from(this.mContext).inflate(d.j.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+            this.ame.showAtLocation(this.amf, 0, 0, 0);
             int[] iArr = new int[2];
-            boolean a = a(this.mContext, this.akK, this.mWindowHeight, this.akD, this.akF, this.akH, iArr);
+            boolean a = a(this.mContext, this.amf, this.mWindowHeight, this.alY, this.ama, this.amc, iArr);
             if (iArr[0] != 0 || iArr[1] != 0) {
                 if (a) {
-                    this.akA.setAnimationStyle(d.m.scale_rb2lt_anim);
-                    ai.a(this.akA, d.g.bg_home_feedback_under);
+                    this.alV.setAnimationStyle(d.m.scale_rb2lt_anim);
+                    ai.a(this.alV, d.g.bg_home_feedback_under);
                 } else {
-                    this.akA.setAnimationStyle(d.m.scale_rt2lb_anim);
-                    ai.a(this.akA, d.g.bg_home_feedback_top);
+                    this.alV.setAnimationStyle(d.m.scale_rt2lb_anim);
+                    ai.a(this.alV, d.g.bg_home_feedback_top);
                 }
-                this.akA.showAtLocation(this.akK, 0, iArr[0] - this.akG, iArr[1]);
-                if (this.akI != null) {
-                    this.akI.a(this.akB);
+                this.alV.showAtLocation(this.amf, 0, iArr[0] - this.amb, iArr[1]);
+                if (this.amd != null) {
+                    this.amd.a(this.alW);
                 }
-                this.akO = true;
+                this.amj = true;
             }
         }
     }
@@ -164,26 +164,26 @@ public class i {
         }
         if (this.mContentView == null) {
             this.mContentView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(d.j.neg_feedback_popupwindow, (ViewGroup) null);
-            this.akL = (TextView) this.mContentView.findViewById(d.h.head_text);
-            this.akM = (TextView) this.mContentView.findViewById(d.h.uninterested_text);
-            this.akM.setOnClickListener(this.akP);
-            ai.c(this.akL, d.e.cp_cont_d, 1);
-            ai.c(this.akM, d.e.cp_link_tip_a, 1);
+            this.amg = (TextView) this.mContentView.findViewById(d.h.head_text);
+            this.amh = (TextView) this.mContentView.findViewById(d.h.uninterested_text);
+            this.amh.setOnClickListener(this.amk);
+            ai.c(this.amg, d.e.cp_cont_d, 1);
+            ai.c(this.amh, d.e.cp_link_tip_a, 1);
         }
-        View view = this.akN.getView();
+        View view = this.ami.getView();
         if (view != null && view.getParent() == null) {
             this.mContentView.addView(view);
         }
         return this.mContentView;
     }
 
-    private int wD() {
+    private int wN() {
         if (this.mContentView == null) {
             return 0;
         }
         this.mContentView.measure(0, 0);
-        this.akE = this.mContentView.getMeasuredHeight() + com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds12);
-        return this.akE;
+        this.alZ = this.mContentView.getMeasuredHeight() + com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds12);
+        return this.alZ;
     }
 
     private boolean a(Context context, View view, int i, int i2, int i3, int i4, int[] iArr) {
@@ -193,10 +193,10 @@ public class i {
         int[] iArr2 = new int[2];
         view.getLocationOnScreen(iArr2);
         int height = view.getHeight();
+        int ah = com.baidu.adp.lib.util.k.ah(context);
         int ag = com.baidu.adp.lib.util.k.ag(context);
-        int af = com.baidu.adp.lib.util.k.af(context);
-        boolean z = ((ag - iArr2[1]) - height) - i3 < i;
-        iArr[0] = af - i2;
+        boolean z = ((ah - iArr2[1]) - height) - i3 < i;
+        iArr[0] = ag - i2;
         if (z) {
             iArr[1] = (iArr2[1] - i) - i4;
             return z;
@@ -219,16 +219,16 @@ public class i {
     */
     public JSONObject l(ArrayList<Integer> arrayList) {
         JSONObject jSONObject = new JSONObject();
-        if (this.akB == null || arrayList == null) {
+        if (this.alW == null || arrayList == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        if (!u.v(this.akC)) {
+        if (!u.v(this.alX)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.akC.size()) {
-                    g.a aVar = this.akC.get(i2);
+                if (i2 < this.alX.size()) {
+                    g.a aVar = this.alX.get(i2);
                     if (aVar != null) {
                         arrayList.add(Integer.valueOf(aVar.id));
                         if (sb.length() != 0) {
@@ -239,78 +239,78 @@ public class i {
                     i = i2 + 1;
                 }
             }
-            jSONObject.put("tid", this.akB.getTid());
+            jSONObject.put("tid", this.alW.getTid());
             if (sb.length() != 0) {
                 jSONObject.put("dislike_ids", sb.toString());
             }
-            jSONObject.put("fid", this.akB.getFid());
+            jSONObject.put("fid", this.alW.getFid());
             jSONObject.put("click_time", System.currentTimeMillis());
             return jSONObject;
         }
-        jSONObject.put("tid", this.akB.getTid());
+        jSONObject.put("tid", this.alW.getTid());
         if (sb.length() != 0) {
         }
-        jSONObject.put("fid", this.akB.getFid());
+        jSONObject.put("fid", this.alW.getFid());
         jSONObject.put("click_time", System.currentTimeMillis());
         return jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wE() {
-        int size = this.akC.size();
+    public void wO() {
+        int size = this.alX.size();
         if (size > 0) {
             String string = this.mContext.getResources().getString(d.l.feedback_selected_reason, Integer.valueOf(size));
             SpannableString spannableString = new SpannableString(string);
             UtilHelper.setSpan(spannableString, string, String.valueOf(size), new ForegroundColorSpan(ai.getColor(d.e.cp_link_tip_a)));
-            this.akL.setText(spannableString);
-            this.akM.setText(this.mContext.getResources().getString(d.l.confirm));
+            this.amg.setText(spannableString);
+            this.amh.setText(this.mContext.getResources().getString(d.l.confirm));
             return;
         }
-        this.akL.setText(this.mContext.getResources().getString(d.l.tell_us_reason));
-        this.akM.setText(this.mContext.getResources().getString(d.l.not_interested));
+        this.amg.setText(this.mContext.getResources().getString(d.l.tell_us_reason));
+        this.amh.setText(this.mContext.getResources().getString(d.l.not_interested));
     }
 
     public void setData(an anVar) {
         if (anVar != null) {
-            this.akB = anVar;
-            this.akp = anVar.qm();
-            this.akN.setData(anVar);
+            this.alW = anVar;
+            this.alK = anVar.qw();
+            this.ami.setData(anVar);
         }
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.akN.setFirstRowSingleColumn(z);
+        this.ami.setFirstRowSingleColumn(z);
     }
 
     public void setEventCallback(h.a aVar) {
-        this.akI = aVar;
+        this.amd = aVar;
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.akN.setDefaultReasonArray(strArr);
+        this.ami.setDefaultReasonArray(strArr);
     }
 
-    public void wC() {
-        if (this.akA != null) {
-            this.akA.dismiss();
-            this.akA = null;
+    public void wM() {
+        if (this.alV != null) {
+            this.alV.dismiss();
+            this.alV = null;
         }
-        if (this.akJ != null) {
-            this.akJ.dismiss();
-            this.akJ = null;
+        if (this.ame != null) {
+            this.ame.dismiss();
+            this.ame = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onDetachedFromWindow() {
-        MessageManager.getInstance().unRegisterListener(this.akR);
-        wC();
+        MessageManager.getInstance().unRegisterListener(this.amm);
+        wM();
     }
 
-    private void wF() {
-        if (this.akO && this.akC.size() != 0) {
-            this.akC.clear();
-            wE();
+    private void resetState() {
+        if (this.amj && this.alX.size() != 0) {
+            this.alX.clear();
+            wO();
         }
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.aj;
 /* loaded from: classes.dex */
 public class w {
-    public String Vm;
-    public String azk;
-    public String bBT;
-    public String fzl;
-    public String fzm;
-    public String fzn;
-    public String fzo;
+    public String WK;
+    public String aAC;
+    public String bDM;
+    public String fCq;
+    public String fCr;
+    public String fCs;
+    public String fCt;
     public String mLocate;
     public String mSource;
     public String mUid;
@@ -22,11 +22,11 @@ public class w {
             if (!StringUtils.isNull(this.mLocate)) {
                 ajVar.aa("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.bBT)) {
-                ajVar.aa("tid", this.bBT);
+            if (!StringUtils.isNull(this.bDM)) {
+                ajVar.aa("tid", this.bDM);
             }
-            if (!StringUtils.isNull(this.azk)) {
-                ajVar.aa("fid", this.azk);
+            if (!StringUtils.isNull(this.aAC)) {
+                ajVar.aa("fid", this.aAC);
             }
             if (!StringUtils.isNull(this.mUid)) {
                 ajVar.aa(SapiAccountManager.SESSION_UID, this.mUid);
@@ -34,20 +34,20 @@ public class w {
             if (!StringUtils.isNull(this.mSource)) {
                 ajVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
             }
-            if (!StringUtils.isNull(this.fzl)) {
-                ajVar.aa("obj_param1", this.fzl);
+            if (!StringUtils.isNull(this.fCq)) {
+                ajVar.aa("obj_param1", this.fCq);
             }
-            if (!StringUtils.isNull(this.fzm)) {
-                ajVar.aa("obj_param2", this.fzm);
+            if (!StringUtils.isNull(this.fCr)) {
+                ajVar.aa("obj_param2", this.fCr);
             }
-            if (!StringUtils.isNull(this.fzn)) {
-                ajVar.aa("obj_param3", this.fzn);
+            if (!StringUtils.isNull(this.fCs)) {
+                ajVar.aa("obj_param3", this.fCs);
             }
-            if (!StringUtils.isNull(this.Vm)) {
-                ajVar.aa("obj_id", this.Vm);
+            if (!StringUtils.isNull(this.WK)) {
+                ajVar.aa("obj_id", this.WK);
             }
-            if (!StringUtils.isNull(this.fzo)) {
-                ajVar.aa("ab_tag", this.fzo);
+            if (!StringUtils.isNull(this.fCt)) {
+                ajVar.aa("ab_tag", this.fCt);
             }
         }
         return ajVar;

@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.m, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.j>> {
-    private TbPageContext<?> ako;
+    private TbPageContext<?> oV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public m(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.m.fjp);
-        this.ako = tbPageContext;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.m.fmu);
+        this.oV = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: w */
+    /* renamed from: x */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.j> onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.d.j(this.ako));
+        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.d.j(this.oV));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,8 +27,8 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.m mVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.j> aVar) {
-        aVar.WX().a(mVar);
-        aVar.WX().d(this.ako, TbadkCoreApplication.getInst().getSkinType());
+        aVar.Xy().a(mVar);
+        aVar.Xy().d(this.oV, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

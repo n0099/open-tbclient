@@ -84,7 +84,7 @@ public class FileDownloader extends Service {
             } else {
                 fileOfUrl = getFileOfUrl(stringExtra);
             }
-            if (k.dp(fileOfUrl) != null) {
+            if (k.dv(fileOfUrl) != null) {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(1, fileOfUrl), 100L);
             } else if (this.mDowndingTask == null) {
                 this.mDowndingTask = new a(stringExtra, fileOfUrl);
@@ -124,15 +124,15 @@ public class FileDownloader extends Service {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            File ds;
+            File dy;
             Boolean bool = false;
             while (!this.mCanceled) {
                 try {
                     this.mNetWork = new w(this.mUrl);
                     bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
-                    if (bool.booleanValue() || this.mNetWork.vf() == -2) {
+                    if (bool.booleanValue() || this.mNetWork.vp() == -2) {
                         break;
-                    } else if (!this.mNetWork.vb().vY().fq()) {
+                    } else if (!this.mNetWork.vl().wi().fB()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e) {
@@ -142,10 +142,10 @@ public class FileDownloader extends Service {
                 }
             }
             if (bool.booleanValue()) {
-                k.dx(this.mFile);
-                File dp = k.dp(this.mFile + ".tmp");
-                if (dp != null && (ds = k.ds(this.mFile)) != null) {
-                    if (!dp.renameTo(ds)) {
+                k.dD(this.mFile);
+                File dv = k.dv(this.mFile + ".tmp");
+                if (dv != null && (dy = k.dy(this.mFile)) != null) {
+                    if (!dv.renameTo(dy)) {
                     }
                 }
             }
@@ -158,7 +158,7 @@ public class FileDownloader extends Service {
             FileDownloader.this.mDowndingTask = null;
             this.mCanceled = true;
             if (this.mNetWork != null) {
-                this.mNetWork.fp();
+                this.mNetWork.fA();
             }
         }
 

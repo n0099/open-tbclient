@@ -7,118 +7,118 @@ import org.json.JSONObject;
 import tbclient.App;
 /* loaded from: classes.dex */
 public class l extends PostData {
-    public String Tv;
-    public String Tw;
-    public String cqG;
+    public String UX;
+    public String UY;
+    public String csz;
     public String forumId;
-    private AppData ggA;
-    public boolean ggB = false;
+    private AppData gjE;
+    public boolean gjF = false;
     public int pageNumber;
     public long threadId;
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData
     public void parserJson(JSONObject jSONObject) {
-        this.ggA = new AppData(jSONObject);
+        this.gjE = new AppData(jSONObject);
     }
 
     public void c(App app) {
-        this.ggA = new AppData(app);
+        this.gjE = new AppData(app);
     }
 
-    public AppData bsg() {
-        return this.ggA;
+    public AppData bsV() {
+        return this.gjE;
     }
 
-    public AdvertAppInfo.ILegoAdvert bsh() {
-        if (this.ggA == null) {
+    public AdvertAppInfo.ILegoAdvert bsW() {
+        if (this.gjE == null) {
             return null;
         }
-        return this.ggA.legoCard;
+        return this.gjE.legoCard;
     }
 
-    public String bsi() {
-        return this.ggA == null ? "" : this.ggA.id;
+    public String bsX() {
+        return this.gjE == null ? "" : this.gjE.id;
     }
 
     public boolean isApp() {
-        if (this.ggA == null) {
+        if (this.gjE == null) {
             return false;
         }
-        return this.ggA.po();
+        return this.gjE.py();
     }
 
-    public int bsj() {
-        if (this.ggA == null || this.ggA.goods == null) {
+    public int bsY() {
+        if (this.gjE == null || this.gjE.goods == null) {
             return -1;
         }
-        return this.ggA.goods.goods_style;
+        return this.gjE.goods.goods_style;
     }
 
     public int getPosition() {
-        int g = this.ggA != null ? com.baidu.adp.lib.g.b.g(this.ggA.pos_name, 0) : 0;
+        int g = this.gjE != null ? com.baidu.adp.lib.g.b.g(this.gjE.pos_name, 0) : 0;
         if (g < 2 || g > 30) {
             return 7;
         }
         return g;
     }
 
-    public AdvertAppInfo bsk() {
+    public AdvertAppInfo bsZ() {
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-        if (this.ggA != null) {
-            advertAppInfo.Tz = this.ggA;
-            advertAppInfo.Ti = this.ggA.id;
-            advertAppInfo.Tj = this.ggA.name;
-            advertAppInfo.Tk = this.ggA.url_type;
-            advertAppInfo.Tl = this.ggA.url;
-            advertAppInfo.deepUrl = this.ggA.deepUrl;
-            advertAppInfo.Tm = this.ggA.apk_url;
-            advertAppInfo.Tn = this.ggA.apk_name;
-            advertAppInfo.adPosition = this.ggA.pos_name.trim();
-            advertAppInfo.To = this.ggA.first_name;
-            advertAppInfo.Tp = this.ggA.second_name;
-            advertAppInfo.cpid = this.ggA.cpid;
-            advertAppInfo.abtest = this.ggA.abtest;
-            advertAppInfo.Tq = this.ggA.plan_id;
-            advertAppInfo.userId = this.ggA.user_id;
-            advertAppInfo.Tr = this.ggA.verify;
-            advertAppInfo.price = this.ggA.price;
-            advertAppInfo.extensionInfo = this.ggA.ext_info;
-            advertAppInfo.Ts = this.ggA.app_time * 1000;
-            advertAppInfo.legoCard = this.ggA.legoCard;
-            if (this.ggA.goods != null) {
-                advertAppInfo.Tt.TE = this.ggA.goods.pop_window_text;
-                advertAppInfo.Tt.TA = this.ggA.goods.id;
-                advertAppInfo.Tt.TD = this.ggA.goods.thread_pic;
-                advertAppInfo.Tt.TF = this.ggA.goods.goods_style;
-                advertAppInfo.Tt.TB = this.ggA.goods.thread_title;
-                advertAppInfo.Tt.TC = this.ggA.goods.thread_content;
-                advertAppInfo.Tt.userName = this.ggA.goods.user_name;
-                advertAppInfo.Tt.userPortrait = this.ggA.goods.user_portrait;
-                advertAppInfo.Tt.buttonText = this.ggA.goods.button_text;
-                advertAppInfo.Tt.TI = this.ggA.goods.button_url;
-                if (this.ggA.goods.thread_pic_list != null) {
-                    advertAppInfo.Tt.TJ = new ArrayList();
-                    advertAppInfo.Tt.TJ.addAll(this.ggA.goods.thread_pic_list);
+        if (this.gjE != null) {
+            advertAppInfo.Vb = this.gjE;
+            advertAppInfo.UJ = this.gjE.id;
+            advertAppInfo.UK = this.gjE.name;
+            advertAppInfo.UL = this.gjE.url_type;
+            advertAppInfo.UM = this.gjE.url;
+            advertAppInfo.deepUrl = this.gjE.deepUrl;
+            advertAppInfo.UN = this.gjE.apk_url;
+            advertAppInfo.UO = this.gjE.apk_name;
+            advertAppInfo.adPosition = this.gjE.pos_name.trim();
+            advertAppInfo.UQ = this.gjE.first_name;
+            advertAppInfo.UR = this.gjE.second_name;
+            advertAppInfo.cpid = this.gjE.cpid;
+            advertAppInfo.abtest = this.gjE.abtest;
+            advertAppInfo.US = this.gjE.plan_id;
+            advertAppInfo.userId = this.gjE.user_id;
+            advertAppInfo.UT = this.gjE.verify;
+            advertAppInfo.price = this.gjE.price;
+            advertAppInfo.extensionInfo = this.gjE.ext_info;
+            advertAppInfo.UU = this.gjE.app_time * 1000;
+            advertAppInfo.legoCard = this.gjE.legoCard;
+            if (this.gjE.goods != null) {
+                advertAppInfo.UV.Vg = this.gjE.goods.pop_window_text;
+                advertAppInfo.UV.Vc = this.gjE.goods.id;
+                advertAppInfo.UV.Vf = this.gjE.goods.thread_pic;
+                advertAppInfo.UV.Vh = this.gjE.goods.goods_style;
+                advertAppInfo.UV.Vd = this.gjE.goods.thread_title;
+                advertAppInfo.UV.Ve = this.gjE.goods.thread_content;
+                advertAppInfo.UV.userName = this.gjE.goods.user_name;
+                advertAppInfo.UV.userPortrait = this.gjE.goods.user_portrait;
+                advertAppInfo.UV.buttonText = this.gjE.goods.button_text;
+                advertAppInfo.UV.Vk = this.gjE.goods.button_url;
+                if (this.gjE.goods.thread_pic_list != null) {
+                    advertAppInfo.UV.Vl = new ArrayList();
+                    advertAppInfo.UV.Vl.addAll(this.gjE.goods.thread_pic_list);
                 }
-                advertAppInfo.Tt.TK = this.ggA.goods.video_info;
-                advertAppInfo.Tt.TL = this.ggA.goods.tag_name;
-                advertAppInfo.Tt.adSource = this.ggA.goods.ad_source;
-                advertAppInfo.Tt.TM = this.ggA.goods.tag_name_url;
-                advertAppInfo.Tt.tagRatio = this.ggA.goods.tagRatio;
-                advertAppInfo.Tt.lego_card = this.ggA.goods.lego_card;
+                advertAppInfo.UV.Vm = this.gjE.goods.video_info;
+                advertAppInfo.UV.Vn = this.gjE.goods.tag_name;
+                advertAppInfo.UV.adSource = this.gjE.goods.ad_source;
+                advertAppInfo.UV.Vo = this.gjE.goods.tag_name_url;
+                advertAppInfo.UV.tagRatio = this.gjE.goods.tagRatio;
+                advertAppInfo.UV.lego_card = this.gjE.goods.lego_card;
             }
-            advertAppInfo.SO = "PB";
+            advertAppInfo.Uo = "PB";
         }
         return advertAppInfo;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        if (bsj() == 1001 || bsj() == -1001) {
-            return AdvertAppInfo.SZ;
+        if (bsY() == 1001 || bsY() == -1001) {
+            return AdvertAppInfo.Uz;
         }
-        if (bsh() != null) {
-            return AdvertAppInfo.Tg;
+        if (bsW() != null) {
+            return AdvertAppInfo.UH;
         }
         return null;
     }

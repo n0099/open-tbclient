@@ -23,11 +23,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private volatile boolean dPw;
-    private RelativeLayout elQ;
-    private TextView elR;
-    private Runnable elS;
-    private Runnable elT;
+    private volatile boolean dSJ;
+    private RelativeLayout epe;
+    private TextView epf;
+    private Runnable epg;
+    private Runnable eph;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
@@ -41,8 +41,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void aJW() {
-        if (!this.dPw && isMainProcess() && aJX()) {
+    public void aKO() {
+        if (!this.dSJ && isMainProcess() && aKP()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -50,73 +50,73 @@ public class c {
             if (this.mHandler == null) {
                 this.mHandler = new Handler(this.mHandlerThread.getLooper());
             }
-            if (this.elS == null) {
-                this.elS = new Runnable() { // from class: com.baidu.tieba.i.c.1
+            if (this.epg == null) {
+                this.epg = new Runnable() { // from class: com.baidu.tieba.i.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (c.this.elQ != null) {
-                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.elQ);
+                        if (c.this.epe != null) {
+                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.epe);
                             c.this.clean();
                         }
                     }
                 };
             }
-            if (this.elT == null) {
-                this.elT = new Runnable() { // from class: com.baidu.tieba.i.c.2
+            if (this.eph == null) {
+                this.eph = new Runnable() { // from class: com.baidu.tieba.i.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.nZ(c.this.mContext.getString(d.l.data_init));
+                        c.this.oi(c.this.mContext.getString(d.l.data_init));
                     }
                 };
             }
-            this.mHandler.removeCallbacks(this.elT);
-            this.mHandler.postAtFrontOfQueue(this.elT);
-            this.dPw = true;
-            this.mHandler.postDelayed(this.elS, 20000L);
+            this.mHandler.removeCallbacks(this.eph);
+            this.mHandler.postAtFrontOfQueue(this.eph);
+            this.dSJ = true;
+            this.mHandler.postDelayed(this.epg, 20000L);
         }
     }
 
     public void hide() {
-        if (this.elQ != null && this.elR != null) {
-            this.mHandler.removeCallbacks(this.elS);
-            this.mHandler.post(this.elS);
+        if (this.epe != null && this.epf != null) {
+            this.mHandler.removeCallbacks(this.epg);
+            this.mHandler.post(this.epg);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clean() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.elS);
-            this.mHandler.removeCallbacks(this.elT);
-            this.elT = null;
-            this.elS = null;
+            this.mHandler.removeCallbacks(this.epg);
+            this.mHandler.removeCallbacks(this.eph);
+            this.eph = null;
+            this.epg = null;
             this.mHandler = null;
         }
         if (this.mHandlerThread != null) {
             this.mHandlerThread.quit();
         }
-        if (this.elR != null) {
-            this.elR = null;
+        if (this.epf != null) {
+            this.epf = null;
         }
-        if (this.elQ != null) {
-            this.elQ = null;
+        if (this.epe != null) {
+            this.epe = null;
         }
-        this.dPw = false;
+        this.dSJ = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nZ(String str) {
-        if (this.elR == null) {
-            this.elR = new b(this.mContext);
-            this.elR.setTextSize(1, 18.0f);
+    public void oi(String str) {
+        if (this.epf == null) {
+            this.epf = new b(this.mContext);
+            this.epf.setTextSize(1, 18.0f);
         }
-        this.elR.setText(str);
-        this.elQ = new RelativeLayout(this.mContext);
-        this.elQ.setBackgroundResource(d.g.bg_splash_logo);
+        this.epf.setText(str);
+        this.epe = new RelativeLayout(this.mContext);
+        this.epe.setBackgroundResource(d.g.bg_splash_logo);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
         layoutParams.addRule(15);
-        this.elQ.addView(this.elR, layoutParams);
+        this.epe.addView(this.epf, layoutParams);
         WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
         layoutParams2.type = 2005;
         layoutParams2.format = 1;
@@ -126,7 +126,7 @@ public class c {
         layoutParams2.width = -1;
         layoutParams2.height = -1;
         layoutParams2.flags = 1280;
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.elQ, layoutParams2);
+        ((WindowManager) this.mContext.getSystemService("window")).addView(this.epe, layoutParams2);
     }
 
     private boolean isMainProcess() {
@@ -149,15 +149,15 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean aJX() {
-        List<String> bD = bD(this.mContext);
-        if (bD == null || bD.size() == 0) {
+    private boolean aKP() {
+        List<String> bC = bC(this.mContext);
+        if (bC == null || bC.size() == 0) {
             return false;
         }
         ActivityManager.RunningTaskInfo runningTaskInfo = ((ActivityManager) this.mContext.getSystemService("activity")).getRunningTasks(1).get(0);
         String shortString = runningTaskInfo.baseActivity.toShortString();
         String shortString2 = runningTaskInfo.topActivity.toShortString();
-        for (String str : bD) {
+        for (String str : bC) {
             if (shortString.equals(str) || shortString2.equals(str)) {
                 return true;
             }
@@ -167,7 +167,7 @@ public class c {
         return false;
     }
 
-    private List<String> bD(Context context) {
+    private List<String> bC(Context context) {
         PackageManager packageManager = context.getPackageManager();
         Intent intent = new Intent("com.baidu.tieba.SPLASH_PIPELINE_ACTION");
         intent.setPackage(context.getPackageName());
@@ -186,9 +186,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends TextView {
-        private LinearGradient elV;
-        private Matrix elW;
-        private int elX;
+        private LinearGradient epj;
+        private Matrix epk;
+        private int epl;
         private boolean mAnimating;
         private Paint mPaint;
         private int mViewWidth;
@@ -196,20 +196,20 @@ public class c {
         public b(Context context) {
             super(context);
             this.mViewWidth = 0;
-            this.elX = 0;
+            this.epl = 0;
             this.mAnimating = true;
         }
 
         @Override // android.widget.TextView, android.view.View
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.mAnimating && this.elW != null) {
-                this.elX += this.mViewWidth / 10;
-                if (this.elX > this.mViewWidth * 2) {
-                    this.elX = -this.mViewWidth;
+            if (this.mAnimating && this.epk != null) {
+                this.epl += this.mViewWidth / 10;
+                if (this.epl > this.mViewWidth * 2) {
+                    this.epl = -this.mViewWidth;
                 }
-                this.elW.setTranslate(this.elX, 0.0f);
-                this.elV.setLocalMatrix(this.elW);
+                this.epk.setTranslate(this.epl, 0.0f);
+                this.epj.setLocalMatrix(this.epk);
                 postInvalidateDelayed(50L);
             }
         }
@@ -221,9 +221,9 @@ public class c {
                 this.mViewWidth = getMeasuredWidth();
                 if (this.mViewWidth > 0) {
                     this.mPaint = getPaint();
-                    this.elV = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, Integer.MAX_VALUE, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
-                    this.mPaint.setShader(this.elV);
-                    this.elW = new Matrix();
+                    this.epj = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, Integer.MAX_VALUE, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
+                    this.mPaint.setShader(this.epj);
+                    this.epk = new Matrix();
                 }
             }
         }

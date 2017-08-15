@@ -44,8 +44,8 @@ import com.baidu.tieba.write.video.WriteVideoActivity;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class WriteActivityStatic {
-    private static int gFO = 11;
-    private static int gFP = 18;
+    private static int gIR = 11;
+    private static int gIS = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -60,8 +60,8 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SelectForumActivityConfig.class, SelectForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteUrlActivityConfig.class, WriteUrlActivity.class);
-        LocationModel.btc();
-        at.vV().a("feedback:", new at.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
+        LocationModel.btR();
+        at.wf().a("feedback:", new at.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
             @Override // com.baidu.tbadk.core.util.at.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
@@ -77,7 +77,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void C(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= gFP && Build.VERSION.SDK_INT >= gFO) {
+        if (Build.VERSION.SDK_INT <= gIS && Build.VERSION.SDK_INT >= gIR) {
             D(tbPageContext);
         } else {
             E(tbPageContext);
@@ -109,7 +109,7 @@ public class WriteActivityStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ar.vR() != null && ar.vR().indexOf("NewVcode") != -1) {
+                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ar.wb() != null && ar.wb().indexOf("NewVcode") != -1) {
                     TbadkCoreApplication.getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() + 1);
                 }
             }

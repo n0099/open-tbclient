@@ -24,13 +24,13 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public final class a {
-    private static final String abO = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> elM = new HashSet();
-    private static final boolean elN = nY(System.getProperty("java.vm.version"));
+    private static final String adn = "code_cache" + File.separator + "secondary-dexes";
+    private static final Set<String> epa = new HashSet();
+    private static final boolean epb = oh(System.getProperty("java.vm.version"));
 
-    public static void bB(Context context) {
+    public static void bA(Context context) {
         Log.i("MultiDex", "install");
-        if (elN) {
+        if (epb) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -38,11 +38,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = elM;
-                    synchronized (elM) {
+                    Set<String> set = epa;
+                    synchronized (epa) {
                         String str = applicationInfo.sourceDir;
-                        if (!elM.contains(str)) {
-                            elM.add(str);
+                        if (!epa.contains(str)) {
+                            epa.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }
@@ -52,15 +52,15 @@ public final class a {
                                     Log.e("MultiDex", "Context class loader is null. Must be running in test mode. Skip patching.");
                                     return;
                                 }
-                                bC(context);
-                                File file = new File(applicationInfo.dataDir, abO);
+                                bB(context);
+                                File file = new File(applicationInfo.dataDir, adn);
                                 List<File> a = com.baidu.tieba.i.b.a(context, applicationInfo, file, false);
-                                if (cm(a)) {
+                                if (cp(a)) {
                                     a(classLoader, file, a);
                                 } else {
                                     Log.w("MultiDex", "Files were not valid zip files.  Forcing a reload.");
                                     List<File> a2 = com.baidu.tieba.i.b.a(context, applicationInfo, file, true);
-                                    if (!cm(a2)) {
+                                    if (!cp(a2)) {
                                         throw new RuntimeException("Zip files were not valid.");
                                     }
                                     a(classLoader, file, a2);
@@ -93,7 +93,7 @@ public final class a {
         }
     }
 
-    static boolean nY(String str) {
+    static boolean oh(String str) {
         boolean z = false;
         if (str != null) {
             Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
@@ -127,7 +127,7 @@ public final class a {
         }
     }
 
-    private static boolean cm(List<File> list) {
+    private static boolean cp(List<File> list) {
         for (File file : list) {
             if (!com.baidu.tieba.i.b.F(file)) {
                 return false;
@@ -176,7 +176,7 @@ public final class a {
         g.set(obj, objArr3);
     }
 
-    private static void bC(Context context) throws Exception {
+    private static void bB(Context context) throws Exception {
         File file = new File(context.getFilesDir(), "secondary-dexes");
         if (file.isDirectory()) {
             Log.i("MultiDex", "Clearing old secondary dex dir (" + file.getPath() + ").");

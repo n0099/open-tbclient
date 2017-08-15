@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e implements c {
-    private TbHttpMessageTask fHy;
-    private HttpMessageListener bzf = new HttpMessageListener(CmdConfigHttp.CMD_AD_UPLOAD) { // from class: com.baidu.tieba.recapp.report.e.1
+    private TbHttpMessageTask fKE;
+    private HttpMessageListener bAY = new HttpMessageListener(CmdConfigHttp.CMD_AD_UPLOAD) { // from class: com.baidu.tieba.recapp.report.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -23,41 +23,41 @@ public class e implements c {
                 if (!(httpResponsedMessage.getError() == 0)) {
                     Message<?> orginalMessage = httpResponsedMessage.getOrginalMessage();
                     if (orginalMessage instanceof AdUploadHttpRequest) {
-                        e.this.cZ(((AdUploadHttpRequest) orginalMessage).getDataArray());
+                        e.this.dc(((AdUploadHttpRequest) orginalMessage).getDataArray());
                     }
                 }
             }
         }
     };
-    private ArrayList<a> fHz = new ArrayList<>();
+    private ArrayList<a> fKF = new ArrayList<>();
 
     public e() {
-        aIL();
-        MessageManager.getInstance().registerListener(this.bzf);
+        aJD();
+        MessageManager.getInstance().registerListener(this.bAY);
     }
 
-    private void aIL() {
-        this.fHy = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
-        this.fHy.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.fHy.setIsNeedAddCommenParam(true);
-        this.fHy.setResponsedClass(JsonHttpResponsedMessage.class);
+    private void aJD() {
+        this.fKE = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
+        this.fKE.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.fKE.setIsNeedAddCommenParam(true);
+        this.fKE.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.c
     public void b(a aVar) {
         if (aVar != null) {
             com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-            if (!(adAdSense == null || adAdSense.xN())) {
-                this.fHy.setUrl("http://als.baidu.com/clog/clog");
+            if (!(adAdSense == null || adAdSense.xV())) {
+                this.fKE.setUrl("http://als.baidu.com/clog/clog");
             }
             d(aVar);
-            big();
+            biW();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.c
-    public void bif() {
-        big();
+    public void biV() {
+        biW();
     }
 
     @Override // com.baidu.tieba.recapp.report.c
@@ -67,15 +67,15 @@ public class e implements c {
         }
     }
 
-    private void big() {
-        if (u.u(this.fHz) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.fHz), this.fHy);
-            this.fHz.clear();
+    private void biW() {
+        if (u.u(this.fKF) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.fKF), this.fKE);
+            this.fKF.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cZ(List<a> list) {
+    public void dc(List<a> list) {
         if (u.u(list) > 0) {
             for (a aVar : list) {
                 if (aVar != null) {
@@ -87,10 +87,10 @@ public class e implements c {
 
     private void d(a aVar) {
         if (aVar != null) {
-            if (u.u(this.fHz) >= 20) {
-                this.fHz.remove(0);
+            if (u.u(this.fKF) >= 20) {
+                this.fKF.remove(0);
             }
-            this.fHz.add(aVar);
+            this.fKF.add(aVar);
         }
     }
 }

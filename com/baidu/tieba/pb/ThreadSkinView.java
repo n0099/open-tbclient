@@ -16,8 +16,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo eAE;
-    private a.C0121a eAF;
+    private SkinInfo eDL;
+    private a.C0121a eDM;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -45,19 +45,19 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.eAE != skinInfo && c0121a != null) {
-            this.eAF = c0121a;
-            this.eAF.delete("action_type");
-            this.eAF.ch("obj_id", skinInfo.obj_id);
-            this.eAF.ch("obj_url", skinInfo.url);
-            this.eAF.ch("obj_name", skinInfo.monitor_id);
-            this.eAF.ch("action_type", "VIEW_TRUE");
-            this.eAF.save();
+        if (this.eDL != skinInfo && c0121a != null) {
+            this.eDM = c0121a;
+            this.eDM.delete("action_type");
+            this.eDM.ci("obj_id", skinInfo.obj_id);
+            this.eDM.ci("obj_url", skinInfo.url);
+            this.eDM.ci("obj_name", skinInfo.monitor_id);
+            this.eDM.ci("action_type", "VIEW_TRUE");
+            this.eDM.save();
         }
-        this.eAE = skinInfo;
-        int af = k.af(tbPageContext.getPageActivity());
+        this.eDL = skinInfo;
+        int ag = k.ag(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        layoutParams.width = af;
+        layoutParams.width = ag;
         if (!StringUtils.isNull(skinInfo.skin_size)) {
             String[] split = skinInfo.skin_size.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length > 1) {
@@ -81,13 +81,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eAE != null && !StringUtils.isNull(this.eAE.url)) {
-            if (this.eAF != null) {
-                this.eAF.delete("action_type");
-                this.eAF.ch("action_type", "CLICK");
-                this.eAF.save();
+        if (this.eDL != null && !StringUtils.isNull(this.eDL.url)) {
+            if (this.eDM != null) {
+                this.eDM.delete("action_type");
+                this.eDM.ci("action_type", "CLICK");
+                this.eDM.save();
             }
-            at.vV().c(this.mTbPageContext, new String[]{this.eAE.url});
+            at.wf().c(this.mTbPageContext, new String[]{this.eDL.url});
         }
     }
 }

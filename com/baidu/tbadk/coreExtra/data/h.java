@@ -1,25 +1,27 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class h {
-    private g aqA;
+    private g arT;
     private int mErrorCode;
     private String mErrorString;
-    private boolean rL;
 
-    public g yd() {
-        return this.aqA;
+    /* renamed from: tv  reason: collision with root package name */
+    private boolean f1tv;
+
+    public g yl() {
+        return this.arT;
     }
 
     public void b(g gVar) {
-        this.aqA = gVar;
+        this.arT = gVar;
     }
 
     public boolean isSuccess() {
-        return this.rL;
+        return this.f1tv;
     }
 
     public void ay(boolean z) {
-        this.rL = z;
+        this.f1tv = z;
     }
 
     public int getErrorCode() {

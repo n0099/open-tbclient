@@ -21,9 +21,9 @@ public class n<T> extends m<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.m, com.baidu.adp.lib.cache.l
-    public l.c<T> W(String str) {
+    public l.c<T> ac(String str) {
         try {
-            return super.W(str);
+            return super.ac(str);
         } catch (Throwable th) {
             if (BdLog.isDebugMode()) {
                 BdLog.e(th);

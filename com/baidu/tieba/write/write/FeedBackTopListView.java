@@ -22,10 +22,10 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private TbPageContext<?> ako;
-    private ArrayList<bl> gEd;
+    private ArrayList<bl> gHg;
     private Context mContext;
     private int mSkinType;
+    private TbPageContext<?> oV;
 
     public FeedBackTopListView(Context context) {
         this(context, null);
@@ -34,7 +34,7 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.gEd = null;
+        this.gHg = null;
         this.mSkinType = 3;
         this.mContext = context;
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
@@ -43,21 +43,21 @@ public class FeedBackTopListView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(ArrayList<bl> arrayList, TbPageContext<?> tbPageContext) {
         int i = 0;
-        this.ako = tbPageContext;
+        this.oV = tbPageContext;
         if (arrayList == null || arrayList.size() == 0) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.gEd = new ArrayList<>(arrayList.subList(0, 3));
+            this.gHg = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.gEd = arrayList;
+            this.gHg = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.gEd.size()) {
-                addView(d(this.gEd.get(i2), i2));
+            if (i2 < this.gHg.size()) {
+                addView(d(this.gHg.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;
@@ -75,8 +75,8 @@ public class FeedBackTopListView extends LinearLayout {
         inflate.findViewById(d.h.frs_top_divider);
         final String tid = blVar.getTid();
         textView.setText(blVar.getTitle());
-        this.ako.getLayoutMode().ah(this.mSkinType == 1);
-        this.ako.getLayoutMode().t(inflate);
+        this.oV.getLayoutMode().ah(this.mSkinType == 1);
+        this.oV.getLayoutMode().t(inflate);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) ai.getDrawable(d.g.icon_notice);
         ai.j(linearLayout, d.g.bg_frs_top_middle_selector);
         if (bitmapDrawable != null) {
@@ -90,7 +90,7 @@ public class FeedBackTopListView extends LinearLayout {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(FeedBackTopListView.this.mContext).createNormalCfg(tid, null, WriteActivityConfig.FEED_BACK)));
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(FeedBackTopListView.this.mContext, blVar.getTid()).ct(blVar.rL()).pd()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(FeedBackTopListView.this.mContext, blVar.getTid()).cz(blVar.rV()).pn()));
             }
         });
         return inflate;

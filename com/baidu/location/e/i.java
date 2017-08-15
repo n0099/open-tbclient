@@ -11,19 +11,19 @@ import java.util.concurrent.Callable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Callable<BDLocation> {
-    final /* synthetic */ d Ot;
+    final /* synthetic */ d PX;
     final /* synthetic */ String[] a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar, String[] strArr) {
-        this.Ot = dVar;
+        this.PX = dVar;
         this.a = strArr;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Callable
-    /* renamed from: mR */
+    /* renamed from: nb */
     public BDLocation call() {
         Context context;
         h hVar;
@@ -32,7 +32,7 @@ public class i implements Callable<BDLocation> {
         Cursor cursor;
         BDLocation bDLocation;
         Context context3;
-        Uri bV;
+        Uri cb;
         e eVar;
         Cursor cursor2 = null;
         BDLocation bDLocation2 = new BDLocation();
@@ -40,10 +40,10 @@ public class i implements Callable<BDLocation> {
             context = d.c;
             ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(d.b, 0);
             if (resolveContentProvider == null) {
-                hVar = this.Ot.NP;
-                String[] mQ = hVar.mQ();
+                hVar = this.PX.Ps;
+                String[] na = hVar.na();
                 providerInfo = resolveContentProvider;
-                for (String str : mQ) {
+                for (String str : na) {
                     context2 = d.c;
                     providerInfo = context2.getPackageManager().resolveContentProvider(str, 0);
                     if (providerInfo != null) {
@@ -57,8 +57,8 @@ public class i implements Callable<BDLocation> {
                 try {
                     context3 = d.c;
                     ContentResolver contentResolver = context3.getContentResolver();
-                    bV = d.bV(providerInfo.authority);
-                    Cursor query = contentResolver.query(bV, this.a, null, null, null);
+                    cb = d.cb(providerInfo.authority);
+                    Cursor query = contentResolver.query(cb, this.a, null, null, null);
                     try {
                         bDLocation = j.f(query);
                         if (query != null) {
@@ -104,7 +104,7 @@ public class i implements Callable<BDLocation> {
             } else {
                 j.a aVar = new j.a(this.a);
                 try {
-                    eVar = this.Ot.NM;
+                    eVar = this.PX.Pq;
                     cursor2 = eVar.a(aVar);
                     bDLocation2 = j.f(cursor2);
                     if (cursor2 != null) {

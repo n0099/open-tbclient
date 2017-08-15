@@ -22,11 +22,11 @@ public class x implements Runnable {
     private int c = 0;
     private boolean d = false;
     private boolean e = true;
-    private a.C0020a f;
+    private a.C0019a f;
 
-    public x(Context context, a.C0020a c0020a) {
+    public x(Context context, a.C0019a c0019a) {
         this.a = context.getApplicationContext();
-        this.f = c0020a;
+        this.f = c0019a;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.io.Closeable[] */

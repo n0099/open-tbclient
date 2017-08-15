@@ -10,13 +10,13 @@ public class r extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String J(String str) {
+    public String P(String str) {
         int hashCode = str.hashCode();
         if (hashCode < 0) {
             hashCode *= -1;
         }
         String str2 = "cache_kv_t" + hashCode;
-        this.ti.y("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.uQ.E("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
         return str2;
     }
 
@@ -25,7 +25,7 @@ public class r extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int et() {
+    public int eE() {
         return 1;
     }
 
@@ -36,15 +36,15 @@ public class r extends c<String> {
         Throwable th;
         g<String> gVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.tj + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.uR + " where m_key = ?", new String[]{str});
             try {
                 if (cursor.moveToNext()) {
                     gVar = new g<>();
-                    gVar.tw = cursor.getString(0);
-                    gVar.ty = cursor.getLong(1);
-                    gVar.tz = cursor.getLong(2);
-                    gVar.tA = cursor.getLong(3);
-                    gVar.sG = cursor.getString(4);
+                    gVar.vc = cursor.getString(0);
+                    gVar.ve = cursor.getLong(1);
+                    gVar.vf = cursor.getLong(2);
+                    gVar.vg = cursor.getLong(3);
+                    gVar.up = cursor.getString(4);
                     com.baidu.adp.lib.g.a.e(cursor);
                 } else {
                     com.baidu.adp.lib.g.a.e(cursor);
@@ -64,22 +64,22 @@ public class r extends c<String> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(g<String> gVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", gVar.tw);
-        contentValues.put("m_value", gVar.sG);
-        contentValues.put("saveTime", Long.valueOf(gVar.ty));
-        contentValues.put("lastHitTime", Long.valueOf(gVar.tz));
-        contentValues.put("timeToExpire", Long.valueOf(gVar.tA));
+        contentValues.put("m_key", gVar.vc);
+        contentValues.put("m_value", gVar.up);
+        contentValues.put("saveTime", Long.valueOf(gVar.ve));
+        contentValues.put("lastHitTime", Long.valueOf(gVar.vf));
+        contentValues.put("timeToExpire", Long.valueOf(gVar.vg));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.tj, new String[0]);
+        return sQLiteDatabase.rawQuery("select * from " + this.uR, new String[0]);
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean K(String str) {
-        this.ti.y("DROP TABLE IF EXISTS " + this.tj);
+    protected boolean Q(String str) {
+        this.uQ.E("DROP TABLE IF EXISTS " + this.uR);
         return true;
     }
 }

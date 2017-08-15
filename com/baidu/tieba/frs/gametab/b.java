@@ -51,85 +51,85 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsCommonImageLayout.c {
-    private FragmentTabHost bbc;
-    private g csA;
-    private ad csB;
-    private FrsActivity csu;
-    private f csv;
-    private FrameLayout csw;
-    private com.baidu.tieba.write.b csx;
-    private Animation csy;
-    private Animation csz;
+    private FragmentTabHost bcn;
+    private FrsActivity cvJ;
+    private f cvK;
+    private FrameLayout cvL;
+    private com.baidu.tieba.write.b cvM;
+    private Animation cvN;
+    private Animation cvO;
+    private g cvP;
+    private ad cvQ;
     private String mForumName;
-    private boolean csC = false;
+    private boolean cvR = false;
     private Handler mHandler = new Handler();
-    private com.baidu.adp.framework.listener.a csD = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FRS_HTTP_CMD, 301001) { // from class: com.baidu.tieba.frs.gametab.b.1
+    private com.baidu.adp.framework.listener.a cvS = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FRS_HTTP_CMD, 301001) { // from class: com.baidu.tieba.frs.gametab.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             g gVar = null;
-            if (!b.this.csC && !responsedMessage.hasError()) {
+            if (!b.this.cvR && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof FrsPageHttpResponseMessage) {
                     gVar = ((FrsPageHttpResponseMessage) responsedMessage).getResponseData();
                 } else if (responsedMessage instanceof FRSPageSocketResponsedMessage) {
                     gVar = ((FRSPageSocketResponsedMessage) responsedMessage).getResponseData();
                 }
                 if (gVar != null) {
-                    b.this.csC = true;
+                    b.this.cvR = true;
                     b.this.c(gVar);
                 }
             }
         }
     };
-    private CustomMessageListener csE = new CustomMessageListener(CmdConfigCustom.CMD_GET_FRS_PAGE_CACHE) { // from class: com.baidu.tieba.frs.gametab.b.4
+    private CustomMessageListener cvT = new CustomMessageListener(CmdConfigCustom.CMD_GET_FRS_PAGE_CACHE) { // from class: com.baidu.tieba.frs.gametab.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (!b.this.csC && customResponsedMessage != null && (customResponsedMessage.getData() instanceof g)) {
+            if (!b.this.cvR && customResponsedMessage != null && (customResponsedMessage.getData() instanceof g)) {
                 g gVar = (g) customResponsedMessage.getData();
-                if (gVar.aOW() != null && b.this.mForumName != null && b.this.mForumName.equals(gVar.aOW().getName())) {
+                if (gVar.aPO() != null && b.this.mForumName != null && b.this.mForumName.equals(gVar.aPO().getName())) {
                     b.this.c(gVar);
                 }
             }
         }
     };
-    private CustomMessageListener csF = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB) { // from class: com.baidu.tieba.frs.gametab.b.5
+    private CustomMessageListener cvU = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB) { // from class: com.baidu.tieba.frs.gametab.b.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof Boolean) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    b.this.ahT();
-                } else if (b.this.bbc != null) {
-                    b.this.bbc.getTabWrapper().setVisibility(0);
+                    b.this.aiI();
+                } else if (b.this.bcn != null) {
+                    b.this.bcn.getTabWrapper().setVisibility(0);
                 }
             }
         }
     };
-    private CustomMessageListener csG = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_HIDE_TAB) { // from class: com.baidu.tieba.frs.gametab.b.6
+    private CustomMessageListener cvV = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_HIDE_TAB) { // from class: com.baidu.tieba.frs.gametab.b.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof Boolean) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    b.this.ahU();
-                } else if (b.this.bbc != null) {
-                    b.this.bbc.getTabWrapper().setVisibility(8);
+                    b.this.aiJ();
+                } else if (b.this.bcn != null) {
+                    b.this.bcn.getTabWrapper().setVisibility(8);
                 }
             }
         }
     };
 
     public b(FrsActivity frsActivity) {
-        this.csu = frsActivity;
+        this.cvJ = frsActivity;
     }
 
     public void h(Bundle bundle) {
-        this.csD.getHttpMessageListener().setPriority(-1);
-        this.csD.getSocketMessageListener().setPriority(-1);
-        this.csu.registerListener(this.csD);
-        this.csu.registerListener(this.csE);
+        this.cvS.getHttpMessageListener().setPriority(-1);
+        this.cvS.getSocketMessageListener().setPriority(-1);
+        this.cvJ.registerListener(this.cvS);
+        this.cvJ.registerListener(this.cvT);
         if (bundle == null) {
-            this.mForumName = this.csu.getIntent().getStringExtra("name");
+            this.mForumName = this.cvJ.getIntent().getStringExtra("name");
         } else {
             this.mForumName = bundle.getString("name");
         }
@@ -141,37 +141,37 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
     }
 
     private void i(Bundle bundle) {
-        if (this.csv == null) {
-            this.csv = new f();
-            this.csv.setArguments(bundle);
+        if (this.cvK == null) {
+            this.cvK = new f();
+            this.cvK.setArguments(bundle);
         }
-        FragmentTransaction beginTransaction = this.csu.getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, this.csv);
+        FragmentTransaction beginTransaction = this.cvJ.getSupportFragmentManager().beginTransaction();
+        beginTransaction.add(16908290, this.cvK);
         beginTransaction.commitAllowingStateLoss();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(g gVar) {
-        if (u.u(gVar.brd()) > 0) {
-            this.csA = gVar;
+        if (u.u(gVar.brS()) > 0) {
+            this.cvP = gVar;
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.frs.gametab.b.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.aL(b.this.csA.brd());
+                    b.this.aO(b.this.cvP.brS());
                 }
             });
-        } else if (this.bbc != null) {
-            this.csw.removeView(this.bbc);
-            this.bbc = null;
-            this.csB = null;
+        } else if (this.bcn != null) {
+            this.cvL.removeView(this.bcn);
+            this.bcn = null;
+            this.cvQ = null;
             i(null);
         }
     }
 
-    private boolean ahO() {
-        FragmentManager supportFragmentManager = this.csu.getSupportFragmentManager();
+    private boolean aiD() {
+        FragmentManager supportFragmentManager = this.cvJ.getSupportFragmentManager();
         try {
-            supportFragmentManager.beginTransaction().remove(this.csv).commitAllowingStateLoss();
+            supportFragmentManager.beginTransaction().remove(this.cvK).commitAllowingStateLoss();
             supportFragmentManager.executePendingTransactions();
             return true;
         } catch (IllegalStateException e) {
@@ -180,29 +180,29 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aL(List<FrsTabInfo> list) {
-        if (this.bbc == null && ahO()) {
-            aM(list);
+    public void aO(List<FrsTabInfo> list) {
+        if (this.bcn == null && aiD()) {
+            aP(list);
         }
     }
 
-    private void aM(List<FrsTabInfo> list) {
+    private void aP(List<FrsTabInfo> list) {
         if (!u.v(list)) {
             CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB) { // from class: com.baidu.tieba.frs.gametab.b.8
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ad)) {
-                        b.this.ahQ();
+                        b.this.aiF();
                     }
                 }
             };
             customMessageListener.setPriority(Integer.MAX_VALUE);
-            this.csu.registerListener(customMessageListener);
+            this.cvJ.registerListener(customMessageListener);
             List arrayList = new ArrayList(list);
             FrsTabInfo.Builder builder = new FrsTabInfo.Builder();
             builder.tab_id = 99;
-            builder.tab_name = this.csu.getResources().getString(d.l.home_write);
+            builder.tab_name = this.cvJ.getResources().getString(d.l.home_write);
             builder.tab_type = 0;
             int u = u.u(arrayList);
             if (u > 4) {
@@ -213,104 +213,108 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
             } else {
                 arrayList.add(u / 2, builder.build(false));
             }
-            this.csB = new ad(this.csu.getActivity(), arrayList);
-            if (aey() != null) {
-                this.csB.setForumId(aey().getForumId());
-                this.csB.setForumName(aey().getForumName());
-                if (aey().afm() != null && aey().afm().aOW() != null) {
-                    this.csB.setForumGameLabel(aey().afm().aOW().getForumGameLabel());
+            this.cvQ = new ad(this.cvJ.getActivity(), arrayList);
+            if (aeY() != null) {
+                this.cvQ.setForumId(aeY().getForumId());
+                this.cvQ.setForumName(aeY().getForumName());
+                if (aeY().afN() != null && aeY().afN().aPO() != null) {
+                    this.cvQ.setForumGameLabel(aeY().afN().aPO().getForumGameLabel());
                 }
             }
-            new c(this.csv).a(this.csB);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB, this.csB));
+            new c(this.cvK).a(this.cvQ);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB, this.cvQ));
         }
     }
 
-    private void ahP() {
-        int ahV = ahV();
-        if (ahV >= 0) {
-            a(this.csv, ahV);
+    private void aiE() {
+        int aiK = aiK();
+        if (aiK >= 0) {
+            a(this.cvK, aiK);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahQ() {
-        if (this.csB != null) {
-            this.csB.agc();
-            if (!u.v(this.csB.agd())) {
-                ahP();
-                if (this.bbc == null) {
-                    this.bbc = new FragmentTabHost(this.csu.getActivity());
-                    this.bbc.setClipChildren(false);
-                    this.bbc.setClipToPadding(false);
-                    this.bbc.setup(this.csu.getSupportFragmentManager());
-                    this.bbc.setShouldDrawIndicatorLine(false);
-                    this.bbc.setShouldDrawTopLine(true);
-                    this.bbc.g(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds10), 0, 0);
-                    this.bbc.aB(true);
-                    this.bbc.setTabWidgetViewHeight(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                    this.csw = new FrameLayout(this.csu.getActivity());
-                    this.csw.setClipChildren(false);
-                    this.csw.setClipToPadding(false);
-                    this.csw.addView(this.bbc);
-                    this.csu.setContentView(this.csw);
-                    this.bbc.setOnTabSelectionListener(new FragmentTabHost.b() { // from class: com.baidu.tieba.frs.gametab.b.9
+    public void aiF() {
+        if (this.cvQ != null) {
+            this.cvQ.agE();
+            if (!u.v(this.cvQ.agF())) {
+                aiE();
+                if (this.bcn == null) {
+                    this.bcn = new FragmentTabHost(this.cvJ.getActivity());
+                    this.bcn.setClipChildren(false);
+                    this.bcn.setClipToPadding(false);
+                    this.bcn.setup(this.cvJ.getSupportFragmentManager());
+                    this.bcn.setShouldDrawIndicatorLine(false);
+                    this.bcn.setShouldDrawTopLine(true);
+                    this.bcn.h(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.f.ds10), 0, 0);
+                    this.bcn.aB(true);
+                    this.bcn.setTabWidgetViewHeight(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                    this.cvL = new FrameLayout(this.cvJ.getActivity());
+                    this.cvL.setClipChildren(false);
+                    this.cvL.setClipToPadding(false);
+                    this.cvL.addView(this.bcn);
+                    this.cvJ.setContentView(this.cvL);
+                    this.bcn.setOnTabSelectionListener(new FragmentTabHost.b() { // from class: com.baidu.tieba.frs.gametab.b.9
                         @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b
                         public void f(int i, boolean z) {
-                            b.this.a(b.this.bbc.getCurrentFragment(), i);
+                            b.this.a(b.this.bcn.getCurrentFragment(), i);
                         }
 
                         @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b
                         public boolean g(int i, boolean z) {
-                            FragmentTabHost.c cB = b.this.bbc.cB(i);
-                            if (cB.mType != 99) {
-                                TiebaStatic.log(new aj("c12334").r("obj_locate", b.this.b(cB)));
+                            String str = null;
+                            FragmentTabHost.c cD = b.this.bcn.cD(i);
+                            if (b.this.cvP != null && b.this.cvP.aPO() != null) {
+                                str = b.this.cvP.aPO().getId();
+                            }
+                            if (cD.mType != 99) {
+                                TiebaStatic.log(new aj("c12334").r("obj_locate", b.this.b(cD)).aa("fid", str));
                                 return true;
                             }
-                            b.this.ahR();
-                            TiebaStatic.log(new aj("c12342").r("obj_locate", b.this.b(b.this.bbc.cB(b.this.bbc.getCurrentTabIndex()))));
-                            TiebaStatic.log(new aj("c12334").r("obj_locate", b.this.b(cB)));
+                            b.this.aiG();
+                            TiebaStatic.log(new aj("c12342").r("obj_locate", b.this.b(b.this.bcn.cD(b.this.bcn.getCurrentTabIndex()))).aa("fid", str));
+                            TiebaStatic.log(new aj("c12334").r("obj_locate", b.this.b(cD)).aa("fid", str));
                             return false;
                         }
                     });
                 } else {
-                    this.bbc.reset();
+                    this.bcn.reset();
                 }
-                List<com.baidu.tbadk.mainTab.b> agd = this.csB.agd();
-                List<FrsTabInfo> agb = this.csB.agb();
-                if (agb.size() == agd.size()) {
-                    int size = agb.size();
+                List<com.baidu.tbadk.mainTab.b> agF = this.cvQ.agF();
+                List<FrsTabInfo> agD = this.cvQ.agD();
+                if (agD.size() == agF.size()) {
+                    int size = agD.size();
                     for (int i = 0; i < size; i++) {
-                        com.baidu.tbadk.mainTab.b bVar = agd.get(i);
+                        com.baidu.tbadk.mainTab.b bVar = agF.get(i);
                         if (bVar != null) {
-                            FrsTabInfo frsTabInfo = agb.get(i);
+                            FrsTabInfo frsTabInfo = agD.get(i);
                             if (frsTabInfo == null || TextUtils.isEmpty(frsTabInfo.tab_name)) {
-                                a(bVar, bVar.EP(), bVar.aS(this.csu.getActivity()), null);
+                                a(bVar, bVar.EX(), bVar.aT(this.cvJ.getActivity()), null);
                             } else {
-                                a(bVar, bVar.EP(), bVar.aS(this.csu.getActivity()), frsTabInfo.tab_name);
+                                a(bVar, bVar.EX(), bVar.aT(this.cvJ.getActivity()), frsTabInfo.tab_name);
                             }
                         }
                     }
                 } else {
-                    for (com.baidu.tbadk.mainTab.b bVar2 : agd) {
-                        a(bVar2, bVar2.EP(), bVar2.aS(this.csu.getActivity()), null);
+                    for (com.baidu.tbadk.mainTab.b bVar2 : agF) {
+                        a(bVar2, bVar2.EX(), bVar2.aT(this.cvJ.getActivity()), null);
                     }
                 }
-                this.bbc.ut();
-                this.bbc.cz(1);
-                this.bbc.aA(true);
-                this.bbc.setViewPagerScrollable(false);
-                int ahV = ahV();
-                if (ahV >= 0) {
-                    this.bbc.setCurrentTab(ahV);
+                this.bcn.uD();
+                this.bcn.cB(1);
+                this.bcn.aA(true);
+                this.bcn.setViewPagerScrollable(false);
+                int aiK = aiK();
+                if (aiK >= 0) {
+                    this.bcn.setCurrentTab(aiK);
                 } else {
-                    this.bbc.setCurrentTab(0);
+                    this.bcn.setCurrentTab(0);
                 }
-                this.csF.setSelfListener(true);
-                this.csu.registerListener(this.csF);
-                this.csG.setSelfListener(true);
-                this.csu.registerListener(this.csG);
-                this.bbc.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+                this.cvU.setSelfListener(true);
+                this.cvJ.registerListener(this.cvU);
+                this.cvV.setSelfListener(true);
+                this.cvJ.registerListener(this.cvV);
+                this.bcn.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
@@ -334,133 +338,142 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Fragment fragment, int i) {
-        NavigationBar afl;
-        if ((fragment instanceof com.baidu.tieba.frs.aj) && this.csA != null && this.csA.aOW() != null && (afl = ((com.baidu.tieba.frs.aj) fragment).afl()) != null) {
+        NavigationBar afM;
+        if ((fragment instanceof com.baidu.tieba.frs.aj) && this.cvP != null && this.cvP.aPO() != null && (afM = ((com.baidu.tieba.frs.aj) fragment).afM()) != null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(UtilHelper.getFixedBarText(this.csA.aOW().getName(), 5, true, true) + TbadkCoreApplication.getInst().getString(d.l.forum));
-            FrsTabInfo frsTabInfo = (FrsTabInfo) u.c(this.csB.agb(), i);
+            sb.append(UtilHelper.getFixedBarText(this.cvP.aPO().getName(), 5, true, true) + TbadkCoreApplication.getInst().getString(d.l.forum));
+            FrsTabInfo frsTabInfo = (FrsTabInfo) u.c(this.cvQ.agD(), i);
             if (frsTabInfo != null) {
                 sb.append(" · ");
                 sb.append(frsTabInfo.tab_name);
             }
-            afl.setCenterTextTitle(sb.toString());
+            afM.setCenterTextTitle(sb.toString());
         }
     }
 
     private void a(com.baidu.tbadk.mainTab.b bVar, com.baidu.tbadk.mainTab.c cVar, FragmentTabIndicator fragmentTabIndicator, String str) {
         if (cVar != null) {
             FragmentTabHost.c cVar2 = new FragmentTabHost.c();
-            cVar2.aeb = cVar.aGr;
+            cVar2.afy = cVar.aHH;
+            if (cVar2.afy.getArguments() == null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("name", this.cvP.aPO().getName());
+                bundle.putString("from", "game_frs");
+                bundle.putString("fid", this.cvP.aPO().getId());
+                cVar2.afy.setArguments(bundle);
+            } else {
+                cVar2.afy.getArguments().putString("fid", this.cvP.aPO().getId());
+            }
             cVar2.mType = cVar.type;
-            if (cVar.aGx == com.baidu.tbadk.mainTab.c.aGu && cVar.type == 99) {
-                fragmentTabIndicator.M(9, -((int) this.csu.getResources().getDimension(d.f.ds12)));
+            if (cVar.aHN == com.baidu.tbadk.mainTab.c.aHK && cVar.type == 99) {
+                fragmentTabIndicator.N(9, -((int) this.cvJ.getResources().getDimension(d.f.ds12)));
             } else if (!TextUtils.isEmpty(str)) {
                 fragmentTabIndicator.setText(str);
             } else {
-                fragmentTabIndicator.setText(cVar.aGs);
+                fragmentTabIndicator.setText(cVar.aHI);
             }
-            fragmentTabIndicator.setTextSize(0, this.csu.getResources().getDimension(d.f.ds30));
+            fragmentTabIndicator.setTextSize(0, this.cvJ.getResources().getDimension(d.f.ds30));
             fragmentTabIndicator.setTextColorResId(d.e.s_game_frs_tabbar_text_color);
-            fragmentTabIndicator.setCompoundDrawablesTopResId(cVar.aGt);
-            fragmentTabIndicator.setContentTvTopMargin(this.csu.getResources().getDimensionPixelSize(d.f.ds2));
-            fragmentTabIndicator.dr(TbadkCoreApplication.getInst().getSkinType());
+            fragmentTabIndicator.setCompoundDrawablesTopResId(cVar.aHJ);
+            fragmentTabIndicator.setContentTvTopMargin(this.cvJ.getResources().getDimensionPixelSize(d.f.ds2));
+            fragmentTabIndicator.dt(TbadkCoreApplication.getInst().getSkinType());
             fragmentTabIndicator.setTipPosType(1);
-            cVar2.aea = fragmentTabIndicator;
-            cVar2.aec = bVar;
-            this.bbc.a(cVar2);
+            cVar2.afx = fragmentTabIndicator;
+            cVar2.afz = bVar;
+            this.bcn.a(cVar2);
         }
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
     public void a(int i, com.baidu.tieba.InjectPlugin.a.a aVar) {
-        if (this.csv instanceof com.baidu.tieba.InjectPlugin.a.b) {
-            this.csv.a(i, aVar);
+        if (this.cvK instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            this.cvK.a(i, aVar);
         }
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
-    public com.baidu.tieba.InjectPlugin.a.a fG(int i) {
-        if (this.csv instanceof com.baidu.tieba.InjectPlugin.a.b) {
-            return this.csv.fG(i);
+    public com.baidu.tieba.InjectPlugin.a.a fI(int i) {
+        if (this.cvK instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            return this.cvK.fI(i);
         }
         return null;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
     public void a(com.baidu.tieba.InjectPlugin.b bVar) {
-        if (this.csv instanceof com.baidu.tieba.InjectPlugin.a.b) {
-            this.csv.a(bVar);
+        if (this.cvK instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            this.cvK.a(bVar);
         }
     }
 
     public void onNewIntent(Intent intent) {
-        if (this.csv != null) {
-            this.csv.onNewIntent(intent);
+        if (this.cvK != null) {
+            this.cvK.onNewIntent(intent);
         }
     }
 
     public void onResume() {
-        if (this.bbc == null) {
-            this.csv.setPrimary(true);
+        if (this.bcn == null) {
+            this.cvK.setPrimary(true);
             return;
         }
-        Fragment currentFragment = this.bbc.getCurrentFragment();
+        Fragment currentFragment = this.bcn.getCurrentFragment();
         if (currentFragment instanceof BaseFragment) {
             ((BaseFragment) currentFragment).setPrimary(true);
         }
     }
 
     public void onPause() {
-        if (this.bbc == null) {
-            this.csv.setPrimary(false);
+        if (this.bcn == null) {
+            this.cvK.setPrimary(false);
             return;
         }
-        Fragment currentFragment = this.bbc.getCurrentFragment();
+        Fragment currentFragment = this.bcn.getCurrentFragment();
         if (currentFragment instanceof BaseFragment) {
             ((BaseFragment) currentFragment).setPrimary(false);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bbc == null) {
-            this.csv.onChangeSkinType(i);
+        if (this.bcn == null) {
+            this.cvK.onChangeSkinType(i);
             return;
         }
-        this.bbc.aA(true);
-        this.bbc.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.bcn.aA(true);
+        this.bcn.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.bbc != null && this.csx != null && this.csx.isShowing()) {
-                this.csx.bxw();
-            } else if (this.csv != null && this.csv.isAdded()) {
-                if (this.csv.onKeyDown(i, keyEvent)) {
+            if (this.bcn != null && this.cvM != null && this.cvM.isShowing()) {
+                this.cvM.byl();
+            } else if (this.cvK != null && this.cvK.isAdded()) {
+                if (this.cvK.onKeyDown(i, keyEvent)) {
                     return true;
                 }
-                this.csv.closeActivity();
+                this.cvK.closeActivity();
             } else {
-                return this.csu.a(i, keyEvent);
+                return this.cvJ.a(i, keyEvent);
             }
             return false;
         }
-        return this.csu.a(i, keyEvent);
+        return this.cvJ.a(i, keyEvent);
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.bbc == null) {
-            this.csv.onActivityResult(i, i2, intent);
+        if (this.bcn == null) {
+            this.cvK.onActivityResult(i, i2, intent);
         } else {
-            this.bbc.getCurrentFragment().onActivityResult(i, i2, intent);
+            this.bcn.getCurrentFragment().onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.bbc == null) {
-            return this.csv.getVoiceManager();
+        if (this.bcn == null) {
+            return this.cvK.getVoiceManager();
         }
-        Fragment currentFragment = this.bbc.getCurrentFragment();
+        Fragment currentFragment = this.bcn.getCurrentFragment();
         if (currentFragment instanceof VoiceManager.c) {
             return ((VoiceManager.c) currentFragment).getVoiceManager();
         }
@@ -472,41 +485,41 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
         return null;
     }
 
-    public void ahR() {
-        if (!ahS()) {
+    public void aiG() {
+        if (!aiH()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_ENTERFORUM_GUIDE));
-            if (this.csx == null) {
-                this.csx = new com.baidu.tieba.write.b(this.csu.getPageContext(), this.csw);
-                this.csx.sK("1");
+            if (this.cvM == null) {
+                this.cvM = new com.baidu.tieba.write.b(this.cvJ.getPageContext(), this.cvL);
+                this.cvM.sR("1");
             }
-            this.csx.a(this.csv.afq());
-            this.csx.mY(false);
+            this.cvM.a(this.cvK.afS());
+            this.cvM.nb(false);
         }
     }
 
-    public boolean ahS() {
+    public boolean aiH() {
         String fixedText;
-        if (this.csv == null || !this.csv.isAdded() || this.csv.getPageContext() == null) {
+        if (this.cvK == null || !this.cvK.isAdded() || this.cvK.getPageContext() == null) {
             return false;
         }
-        i afm = this.csv.afm();
-        if (afm == null) {
+        i afN = this.cvK.afN();
+        if (afN == null) {
             return false;
         }
-        if (aw.aN(this.csv.getPageContext().getPageActivity())) {
-            AntiData qh = afm.qh();
-            if (qh != null) {
-                if (a(qh.getBlock_stat(), qh.mFrsForbidenDialogInfo)) {
+        if (aw.aO(this.cvK.getPageContext().getPageActivity())) {
+            AntiData qr = afN.qr();
+            if (qr != null) {
+                if (a(qr.getBlock_stat(), qr.mFrsForbidenDialogInfo)) {
                     return true;
                 }
-                if (qh.getIfpost() == 0 && !StringUtils.isNull(qh.getForbid_info())) {
-                    String forbid_info = qh.getForbid_info();
-                    if (al.dT(forbid_info) > 14) {
+                if (qr.getIfpost() == 0 && !StringUtils.isNull(qr.getForbid_info())) {
+                    String forbid_info = qr.getForbid_info();
+                    if (al.dZ(forbid_info) > 14) {
                         forbid_info = al.getFixedText(forbid_info, 7, false) + "\n" + forbid_info.substring(fixedText.length());
                     }
-                    BdToast b = BdToast.b(this.csv.getPageContext().getPageActivity(), forbid_info, d.g.icon_toast_game_error);
+                    BdToast b = BdToast.b(this.cvK.getPageContext().getPageActivity(), forbid_info, d.g.icon_toast_game_error);
                     b.P(1.25f);
-                    b.tp();
+                    b.tz();
                     return false;
                 }
             }
@@ -519,16 +532,16 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
         if (blockPopInfoData == null || blockPopInfoData.can_post.intValue() == 1 || !TbadkCoreApplication.isLogin()) {
             return false;
         }
-        String string = StringUtils.isNull(blockPopInfoData.block_info) ? this.csv.getResources().getString(d.l.frs_forbiden_dialog_msg) : blockPopInfoData.block_info;
+        String string = StringUtils.isNull(blockPopInfoData.block_info) ? this.cvK.getResources().getString(d.l.frs_forbiden_dialog_msg) : blockPopInfoData.block_info;
         if (i != 1 && i != 2) {
-            BdToast b = BdToast.b(this.csv.getPageContext().getPageActivity(), string, d.g.icon_toast_game_error);
+            BdToast b = BdToast.b(this.cvK.getPageContext().getPageActivity(), string, d.g.icon_toast_game_error);
             b.P(1.25f);
-            b.tp();
+            b.tz();
             return false;
         }
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.csv.getPageContext().getPageActivity());
-        aVar.cN(al.getFixedText(string, 50, true));
-        aVar.b(al.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? this.csv.getResources().getString(d.l.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.b.10
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.cvK.getPageContext().getPageActivity());
+        aVar.cT(al.getFixedText(string, 50, true));
+        aVar.b(al.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? this.cvK.getResources().getString(d.l.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.b.10
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (aVar2 != null) {
@@ -540,25 +553,25 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
             aVar.a(al.getFixedText(blockPopInfoData.ahead_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.b.11
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    at.vV().c(b.this.csv.getPageContext(), new String[]{blockPopInfoData.ahead_url});
+                    at.wf().c(b.this.cvK.getPageContext(), new String[]{blockPopInfoData.ahead_url});
                     if (aVar2 != null) {
                         aVar2.dismiss();
                     }
                 }
             });
         }
-        aVar.b(this.csv.getPageContext()).th();
+        aVar.b(this.cvK.getPageContext()).tr();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahT() {
-        if (this.bbc != null) {
-            final FrameLayout tabWrapper = this.bbc.getTabWrapper();
+    public void aiI() {
+        if (this.bcn != null) {
+            final FrameLayout tabWrapper = this.bcn.getTabWrapper();
             if (tabWrapper.getVisibility() != 0) {
-                if (this.csy == null) {
-                    this.csy = AnimationUtils.loadAnimation(this.csu.getActivity(), d.a.frs_pull_up_refresh_in);
-                    this.csy.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.gametab.b.2
+                if (this.cvN == null) {
+                    this.cvN = AnimationUtils.loadAnimation(this.cvJ.getActivity(), d.a.frs_pull_up_refresh_in);
+                    this.cvN.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.gametab.b.2
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationStart(Animation animation) {
                             tabWrapper.setVisibility(0);
@@ -575,19 +588,19 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
                     });
                 }
                 tabWrapper.clearAnimation();
-                tabWrapper.startAnimation(this.csy);
+                tabWrapper.startAnimation(this.cvN);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahU() {
-        if (this.bbc != null) {
-            final FrameLayout tabWrapper = this.bbc.getTabWrapper();
+    public void aiJ() {
+        if (this.bcn != null) {
+            final FrameLayout tabWrapper = this.bcn.getTabWrapper();
             if (tabWrapper.getVisibility() == 0) {
-                if (this.csz == null) {
-                    this.csz = AnimationUtils.loadAnimation(this.csu.getActivity(), d.a.frs_pull_up_refresh_out);
-                    this.csz.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.gametab.b.3
+                if (this.cvO == null) {
+                    this.cvO = AnimationUtils.loadAnimation(this.cvJ.getActivity(), d.a.frs_pull_up_refresh_out);
+                    this.cvO.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.gametab.b.3
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationStart(Animation animation) {
                             tabWrapper.setVisibility(8);
@@ -604,38 +617,38 @@ public class b implements VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsC
                     });
                 }
                 tabWrapper.clearAnimation();
-                tabWrapper.startAnimation(this.csz);
+                tabWrapper.startAnimation(this.cvO);
             }
         }
     }
 
-    private int ahV() {
-        if (this.csB == null) {
+    private int aiK() {
+        if (this.cvQ == null) {
             return -1;
         }
-        int u = u.u(this.csB.agb());
+        int u = u.u(this.cvQ.agD());
         for (int i = 0; i < u; i++) {
-            if (this.csB.agb().get(i).tab_id.intValue() == 1) {
+            if (this.cvQ.agD().get(i).tab_id.intValue() == 1) {
                 return i;
             }
         }
         return -1;
     }
 
-    public f aey() {
-        return this.csv;
+    public f aeY() {
+        return this.cvK;
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.e.b<TbImageView> aez() {
-        if (this.bbc == null) {
-            if (this.csv instanceof FrsCommonImageLayout.c) {
-                return ((FrsCommonImageLayout.c) this.csv).aez();
+    public com.baidu.adp.lib.e.b<TbImageView> aeZ() {
+        if (this.bcn == null) {
+            if (this.cvK instanceof FrsCommonImageLayout.c) {
+                return ((FrsCommonImageLayout.c) this.cvK).aeZ();
             }
         } else {
-            Fragment currentFragment = this.bbc.getCurrentFragment();
+            Fragment currentFragment = this.bcn.getCurrentFragment();
             if (currentFragment instanceof FrsCommonImageLayout.c) {
-                return ((FrsCommonImageLayout.c) currentFragment).aez();
+                return ((FrsCommonImageLayout.c) currentFragment).aeZ();
             }
         }
         return null;

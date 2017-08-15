@@ -10,19 +10,19 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class EnterForumActivity extends BaseFragmentActivity {
-    private a bXg;
-    private FragmentTransaction bXh;
+    private a bYY;
+    private FragmentTransaction bYZ;
     private FragmentManager mFragmentManager;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bXg = new a();
+        this.bYY = new a();
         this.mFragmentManager = getSupportFragmentManager();
-        this.bXh = this.mFragmentManager.beginTransaction();
-        this.bXh.add(16908290, this.bXg);
-        this.bXh.commit();
+        this.bYZ = this.mFragmentManager.beginTransaction();
+        this.bYZ.add(16908290, this.bYY);
+        this.bYZ.commit();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,7 +35,7 @@ public class EnterForumActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.bXg.abr();
+        this.bYY.abR();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -61,7 +61,7 @@ public class EnterForumActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.bXg.abs()) {
+        if (i == 4 && this.bYY.abS()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CANCEL));
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("enter_forum_edit_mode", false);
             return true;

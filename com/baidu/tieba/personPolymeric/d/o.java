@@ -9,26 +9,26 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.n> {
-    private TbPageContext ako;
-    private TbImageView fky;
-    private TextView fkz;
+    private TbImageView fnD;
+    private TextView fnE;
     private View mRootView;
+    private TbPageContext oV;
 
     public o(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.ako = tbPageContext;
+        this.oV = tbPageContext;
         this.mRootView.setTag(this);
-        this.fky = (TbImageView) this.mRootView.findViewById(d.h.gift_pic);
-        this.fkz = (TextView) this.mRootView.findViewById(d.h.gift_num_text);
+        this.fnD = (TbImageView) this.mRootView.findViewById(d.h.gift_pic);
+        this.fnE = (TextView) this.mRootView.findViewById(d.h.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         ai.k(this.mRootView, d.e.cp_bg_line_d);
-        ai.j(this.fky, d.g.item_gift_selector);
-        ai.k(this.fkz, d.e.common_color_10294);
-        ai.i(this.fkz, d.e.cp_link_tip_a);
+        ai.j(this.fnD, d.g.item_gift_selector);
+        ai.k(this.fnE, d.e.common_color_10294);
+        ai.i(this.fnE, d.e.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -43,20 +43,20 @@ public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             this.mRootView.setVisibility(8);
             return;
         }
-        d(this.ako, TbadkCoreApplication.getInst().getSkinType());
-        this.fky.c(nVar.picUrl, 10, false);
+        d(this.oV, TbadkCoreApplication.getInst().getSkinType());
+        this.fnD.c(nVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
-        if (nVar.fjs > 0) {
-            this.fkz.setVisibility(0);
-            if (nVar.fjs > 99) {
-                this.fkz.setText("99");
+        if (nVar.fmx > 0) {
+            this.fnE.setVisibility(0);
+            if (nVar.fmx > 99) {
+                this.fnE.setText("99");
                 return;
             } else {
-                this.fkz.setText(String.valueOf(nVar.fjs));
+                this.fnE.setText(String.valueOf(nVar.fmx));
                 return;
             }
         }
-        this.fkz.setVisibility(8);
+        this.fnE.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

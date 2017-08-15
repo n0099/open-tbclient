@@ -12,7 +12,7 @@ import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes.dex */
 public class a implements b, j {
-    protected List<Object> cTQ;
+    protected List<Object> cXi;
     protected boolean mHasMore;
     protected List<Object> mThreadList;
     protected int pn;
@@ -37,10 +37,10 @@ public class a implements b, j {
             this.mHasMore = excFrsPageResIdl.data.has_more.intValue() == 1;
             this.pn = excFrsPageResIdl.data.pn.intValue();
             if (excFrsPageResIdl.data.tag_list != null) {
-                this.cTQ = new ArrayList();
+                this.cXi = new ArrayList();
                 for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
                     if (excellentTagInfo != null) {
-                        this.cTQ.add(excellentTagInfo);
+                        this.cXi.add(excellentTagInfo);
                     }
                 }
             }
@@ -48,12 +48,12 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] ER() {
+    public byte[] EZ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean z(byte[] bArr) {
+    public boolean C(byte[] bArr) {
         try {
             a((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
             return true;

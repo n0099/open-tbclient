@@ -8,8 +8,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends AlertDialog {
-    private TextView aaP;
-    private CircleView aaQ;
+    private TextView aco;
+    private CircleView acp;
     private String mMessage;
     private TextView mTextView;
 
@@ -24,27 +24,27 @@ public class c extends AlertDialog {
         if (window != null) {
             window.setContentView(d.j.progress_dialog);
             if (!StringUtils.isNull(this.mMessage)) {
-                this.aaP = (TextView) window.findViewById(d.h.text_progress_dialog_message);
-                this.aaP.setText(this.mMessage);
+                this.aco = (TextView) window.findViewById(d.h.text_progress_dialog_message);
+                this.aco.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(d.h.text_progress_dialog_percent);
-            this.aaQ = (CircleView) window.findViewById(d.h.circle_progress_dialog);
+            this.acp = (CircleView) window.findViewById(d.h.circle_progress_dialog);
         }
     }
 
-    public void ci(int i) {
+    public void ck(int i) {
         if (this.mTextView != null) {
             this.mTextView.setText(i + "%");
         }
-        if (this.aaQ != null) {
-            this.aaQ.setProgress(i);
+        if (this.acp != null) {
+            this.acp.setProgress(i);
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.aaP != null) {
-            this.aaP.setText(this.mMessage);
+        if (this.aco != null) {
+            this.aco.setText(this.mMessage);
         }
     }
 }

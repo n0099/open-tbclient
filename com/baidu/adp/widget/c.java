@@ -12,10 +12,10 @@ import android.text.style.DynamicDrawableSpan;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class c extends DynamicDrawableSpan {
-    private Drawable Hk;
-    private Uri Iq;
-    private int Ir;
-    private a Is;
+    private Drawable IM;
+    private Uri JS;
+    private int JT;
+    private a JU;
     private Context mContext;
     private Rect mRect;
 
@@ -25,19 +25,19 @@ public class c extends DynamicDrawableSpan {
     }
 
     public void setDrawable(Drawable drawable) {
-        this.Hk = drawable;
+        this.IM = drawable;
     }
 
     public c(a aVar, int i, int i2) {
         super(i2);
         this.mRect = new Rect();
-        this.Ir = i;
-        this.Is = aVar;
+        this.JT = i;
+        this.JU = aVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.Hk != null || this.Is == null) {
+        if (this.IM != null || this.JU == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
@@ -52,17 +52,17 @@ public class c extends DynamicDrawableSpan {
     @Override // android.text.style.DynamicDrawableSpan
     public Drawable getDrawable() {
         Drawable drawable = null;
-        if (this.Hk != null) {
-            drawable = this.Hk;
-        } else if (this.Is != null) {
-            drawable = this.Is.a(this);
+        if (this.IM != null) {
+            drawable = this.IM;
+        } else if (this.JU != null) {
+            drawable = this.JU.a(this);
         }
         if (drawable != null) {
             return drawable;
         }
-        if (this.Iq != null) {
+        if (this.JS != null) {
             try {
-                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.Iq);
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.JS);
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
                 try {
                     bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
@@ -76,7 +76,7 @@ public class c extends DynamicDrawableSpan {
             }
         }
         try {
-            Drawable drawable2 = this.mContext.getResources().getDrawable(this.Ir);
+            Drawable drawable2 = this.mContext.getResources().getDrawable(this.JT);
             try {
                 drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
                 return drawable2;
@@ -103,7 +103,7 @@ public class c extends DynamicDrawableSpan {
         }
     }
 
-    public void d(int i, int i2, int i3, int i4) {
+    public void e(int i, int i2, int i3, int i4) {
         this.mRect.set(i, i2, i3, i4);
     }
 }

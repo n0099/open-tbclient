@@ -4,18 +4,18 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 /* loaded from: classes.dex */
 public abstract class b<V> extends FutureTask<V> {
-    private BdAsyncTask<?, ?, ?> sO;
+    private BdAsyncTask<?, ?, ?> ux;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void ei();
+    public abstract void et();
 
-    public BdAsyncTask<?, ?, ?> em() {
-        return this.sO;
+    public BdAsyncTask<?, ?, ?> ex() {
+        return this.ux;
     }
 
     public b(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
         super(callable);
-        this.sO = null;
-        this.sO = bdAsyncTask;
+        this.ux = null;
+        this.ux = bdAsyncTask;
     }
 }

@@ -4,27 +4,27 @@ import com.baidu.adp.widget.ListView.f;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
-    private ArrayList<f> abi;
-    private int fdk = 0;
-    private boolean fdl = true;
+    private ArrayList<f> acH;
+    private int fgp = 0;
+    private boolean fgq = true;
 
     public void an(ArrayList<f> arrayList) {
-        this.abi = arrayList;
+        this.acH = arrayList;
     }
 
-    public void pX(int i) {
-        this.fdk = i;
+    public void qh(int i) {
+        this.fgp = i;
     }
 
-    public boolean aWT() {
-        return this.fdl;
+    public boolean aXL() {
+        return this.fgq;
     }
 
-    public void ki(boolean z) {
-        this.fdl = z;
+    public void kl(boolean z) {
+        this.fgq = z;
     }
 
-    public ArrayList<f> aWU() {
-        return this.abi;
+    public ArrayList<f> aXM() {
+        return this.acH;
     }
 }

@@ -403,7 +403,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, f {
             try {
                 JSONArray jSONArray = new JSONArray(this.content);
                 if (jSONArray.length() > 0) {
-                    this.statisticsTaskId = b.c(jSONArray.optJSONObject(0).optString(InterviewLiveActivityConfig.KEY_TASK_ID), 0L);
+                    this.statisticsTaskId = b.d(jSONArray.optJSONObject(0).optString(InterviewLiveActivityConfig.KEY_TASK_ID), 0L);
                 }
             } catch (Exception e) {
             }

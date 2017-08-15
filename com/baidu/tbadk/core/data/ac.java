@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class ac {
-    public String VN;
-    public String VO;
+    public String Xl;
+    public String Xm;
 }

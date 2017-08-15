@@ -6,12 +6,12 @@ import java.util.List;
 import tbclient.ForcusUsers;
 /* loaded from: classes.dex */
 public class b implements f {
-    public static final BdUniqueId cNO = BdUniqueId.gen();
-    public int cNP;
-    public List<ForcusUsers> cNQ;
+    public static final BdUniqueId cRg = BdUniqueId.gen();
+    public int cRh;
+    public List<ForcusUsers> cRi;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return cNO;
+        return cRg;
     }
 }

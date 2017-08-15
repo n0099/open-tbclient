@@ -179,15 +179,15 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         com.baidu.adp.lib.cache.l<String> M;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.td().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<l.a> list = this.ucCardData.fcU;
+        if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.tn().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<l.a> list = this.ucCardData.ffZ;
             if (u.u(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (l.a aVar : list) {
-                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(M.get(aVar.title), 0L)) {
-                        aVar.fcV = true;
+                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.d(M.get(aVar.title), 0L)) {
+                        aVar.fga = true;
                     } else {
-                        aVar.fcV = false;
+                        aVar.fga = false;
                     }
                 }
             }
@@ -197,7 +197,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.l<byte[]> L = com.baidu.tbadk.core.c.a.td().L("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        com.baidu.adp.lib.cache.l<byte[]> L = com.baidu.tbadk.core.c.a.tn().L("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             L.k(PROFILE_CACHE_KEY, bArr);
         }

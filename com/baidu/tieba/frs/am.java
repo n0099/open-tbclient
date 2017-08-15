@@ -14,64 +14,64 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.e.a;
 /* loaded from: classes.dex */
 public class am {
-    private ViewGroup ckN;
-    private i ckO;
-    private com.baidu.tieba.frs.h.f ckP;
-    private com.baidu.tieba.e.b ckS;
+    private ViewGroup cmH;
+    private i cmI;
+    private com.baidu.tieba.frs.g.f cmJ;
+    private com.baidu.tieba.e.b cmM;
     private Context mContext;
     private NavigationBar mNavigationBar;
-    private int aLA = 0;
-    private int ckQ = 0;
-    private boolean bZz = true;
-    private boolean ckR = true;
-    private boolean aLB = false;
-    private final Handler.Callback bZA = new Handler.Callback() { // from class: com.baidu.tieba.frs.am.1
+    private int aMQ = 0;
+    private int cmK = 0;
+    private boolean cbr = true;
+    private boolean cmL = true;
+    private boolean aMR = false;
+    private final Handler.Callback cbs = new Handler.Callback() { // from class: com.baidu.tieba.frs.am.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            if ((message.what == 1 || message.what == 2) && am.this.acp()) {
+            if ((message.what == 1 || message.what == 2) && am.this.acP()) {
                 am.this.mHandler.sendEmptyMessageDelayed(message.what, 100L);
                 return true;
             }
             switch (message.what) {
                 case 1:
-                    am.this.aco();
+                    am.this.acO();
                     return true;
                 case 2:
-                    am.this.acm();
+                    am.this.acM();
                     return true;
                 case 3:
-                    am.this.acn();
+                    am.this.acN();
                     return true;
                 default:
                     return false;
             }
         }
     };
-    private final Handler mHandler = new Handler(this.bZA);
-    private a.InterfaceC0080a bUZ = new a.InterfaceC0080a() { // from class: com.baidu.tieba.frs.am.2
-        final int bwS = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
-
-        @Override // com.baidu.tieba.e.a.InterfaceC0080a
-        public void ag(int i, int i2) {
-            if (Y(i2)) {
-                am.this.en(false);
-                am.this.showFloatingView();
-            }
-            if (am.this.ckO != null) {
-                am.this.ckO.eK(true);
-            }
-        }
+    private final Handler mHandler = new Handler(this.cbs);
+    private a.InterfaceC0080a bWR = new a.InterfaceC0080a() { // from class: com.baidu.tieba.frs.am.2
+        final int byL = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
 
         @Override // com.baidu.tieba.e.a.InterfaceC0080a
         public void ah(int i, int i2) {
             if (Y(i2)) {
-                am.this.en(true);
-                if (Math.abs(i2) > this.bwS) {
+                am.this.eo(false);
+                am.this.showFloatingView();
+            }
+            if (am.this.cmI != null) {
+                am.this.cmI.eM(true);
+            }
+        }
+
+        @Override // com.baidu.tieba.e.a.InterfaceC0080a
+        public void ai(int i, int i2) {
+            if (Y(i2)) {
+                am.this.eo(true);
+                if (Math.abs(i2) > this.byL) {
                     am.this.hideFloatingView();
                 }
             }
-            if (am.this.ckO != null) {
-                am.this.ckO.eK(false);
+            if (am.this.cmI != null) {
+                am.this.cmI.eM(false);
             }
         }
 
@@ -79,72 +79,72 @@ public class am {
             return Math.abs(f) >= 1.0f;
         }
     };
-    private boolean bZy = UtilHelper.canUseStyleImmersiveSticky();
+    private boolean cbq = UtilHelper.canUseStyleImmersiveSticky();
 
-    public com.baidu.tieba.e.b age() {
-        return this.ckS;
+    public com.baidu.tieba.e.b agG() {
+        return this.cmM;
     }
 
-    public void en(boolean z) {
-        this.aLB = z;
+    public void eo(boolean z) {
+        this.aMR = z;
     }
 
-    public void eN(boolean z) {
-        this.bZz = z;
+    public void eP(boolean z) {
+        this.cbr = z;
     }
 
-    public am(Context context, i iVar, com.baidu.tieba.frs.h.f fVar) {
+    public am(Context context, i iVar, com.baidu.tieba.frs.g.f fVar) {
         this.mContext = context;
-        this.ckO = iVar;
-        this.mNavigationBar = iVar.afl();
-        this.ckN = iVar.afr();
-        this.ckP = fVar;
-        acq();
-        eo(false);
-        this.ckS = new com.baidu.tieba.e.b(context);
-        this.ckS.a(this.bUZ);
+        this.cmI = iVar;
+        this.mNavigationBar = iVar.afM();
+        this.cmH = iVar.afT();
+        this.cmJ = fVar;
+        acQ();
+        ep(false);
+        this.cmM = new com.baidu.tieba.e.b(context);
+        this.cmM.a(this.bWR);
     }
 
-    public void acm() {
-        p(false, false);
+    public void acM() {
+        q(false, false);
     }
 
-    public void acn() {
-        p(false, true);
+    public void acN() {
+        q(false, true);
     }
 
-    public void p(boolean z, boolean z2) {
-        if (this.ckN != null && this.ckO != null && this.ckO.afv() != null && this.ckO.afv().agP()) {
-            s(false, true);
+    public void q(boolean z, boolean z2) {
+        if (this.cmH != null && this.cmI != null && this.cmI.afX() != null && this.cmI.afX().ahr()) {
+            t(false, true);
         }
     }
 
-    public void aco() {
-        if (this.ckN != null && this.ckO != null && this.ckO.afv() != null && !this.ckO.afv().agP()) {
-            s(true, true);
+    public void acO() {
+        if (this.cmH != null && this.cmI != null && this.cmI.afX() != null && !this.cmI.afX().ahr()) {
+            t(true, true);
         }
     }
 
-    public void He() {
+    public void Hm() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void Hf() {
+    public void Hn() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void Hg() {
+    public void Ho() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean acp() {
-        return aj(this.ckN);
+    public boolean acP() {
+        return aj(this.cmH);
     }
 
     private boolean aj(View view) {
@@ -152,48 +152,48 @@ public class am {
         return (view == null || (animation = view.getAnimation()) == null || !animation.hasStarted() || animation.hasEnded()) ? false : true;
     }
 
-    private void s(boolean z, boolean z2) {
-        if (this.ckO != null) {
-            this.ckO.s(z, z2);
+    private void t(boolean z, boolean z2) {
+        if (this.cmI != null) {
+            this.cmI.t(z, z2);
         }
     }
 
     public void hideFloatingView() {
-        if (this.bZz && this.ckR && this.ckN != null && this.aLA >= this.ckQ && this.ckN.getVisibility() != 8) {
-            Hf();
+        if (this.cbr && this.cmL && this.cmH != null && this.aMQ >= this.cmK && this.cmH.getVisibility() != 8) {
+            Hn();
         }
     }
 
     public void showFloatingView() {
-        if (this.bZz && this.ckR && this.ckN != null && this.ckN.getVisibility() != 0) {
-            He();
+        if (this.cbr && this.cmL && this.cmH != null && this.cmH.getVisibility() != 0) {
+            Hm();
         }
     }
 
     public void a(AbsListView absListView, int i, int i2, int i3, int i4, boolean z) {
-        if (this.bZz) {
-            if (i > this.aLA && i > i4 && this.ckN.getVisibility() != 8) {
+        if (this.cbr) {
+            if (i > this.aMQ && i > i4 && this.cmH.getVisibility() != 8) {
                 hideFloatingView();
-            } else if (i < this.aLA && this.ckN.getVisibility() != 0) {
+            } else if (i < this.aMQ && this.cmH.getVisibility() != 0) {
                 showFloatingView();
             }
-            this.aLA = i;
-            this.ckQ = i4;
+            this.aMQ = i;
+            this.cmK = i4;
         }
     }
 
     public void a(AbsListView absListView, int i, int i2) {
-        if (this.bZz && absListView != null && i == 0) {
+        if (this.cbr && absListView != null && i == 0) {
             int firstVisiblePosition = absListView.getFirstVisiblePosition() + i2;
-            if (firstVisiblePosition > 0 && firstVisiblePosition > this.aLA && firstVisiblePosition > this.ckQ) {
-                Hf();
-            } else if (firstVisiblePosition < this.aLA) {
-                He();
-            } else if (firstVisiblePosition == this.aLA) {
-                if (!this.aLB || firstVisiblePosition <= this.ckQ || a(absListView)) {
-                    He();
+            if (firstVisiblePosition > 0 && firstVisiblePosition > this.aMQ && firstVisiblePosition > this.cmK) {
+                Hn();
+            } else if (firstVisiblePosition < this.aMQ) {
+                Hm();
+            } else if (firstVisiblePosition == this.aMQ) {
+                if (!this.aMR || firstVisiblePosition <= this.cmK || a(absListView)) {
+                    Hm();
                 } else {
-                    Hf();
+                    Hn();
                 }
             }
         }
@@ -206,27 +206,27 @@ public class am {
         return true;
     }
 
-    private void acq() {
-        if (this.ckO != null && this.ckO.afs() != null) {
-            View afs = this.ckO.afs();
-            if (this.bZy && afs.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = afs.getLayoutParams();
+    private void acQ() {
+        if (this.cmI != null && this.cmI.afU() != null) {
+            View afU = this.cmI.afU();
+            if (this.cbq && afU.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = afU.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                afs.setLayoutParams(layoutParams);
-                eo(true);
+                afU.setLayoutParams(layoutParams);
+                ep(true);
                 return;
             }
-            eo(false);
+            ep(false);
         }
     }
 
-    private void eo(boolean z) {
-        if (this.ckO != null && this.ckO.afs() != null) {
-            View afs = this.ckO.afs();
-            if (this.bZy && z && afs.getVisibility() != 0) {
-                afs.setVisibility(0);
-            } else if (!z && afs.getVisibility() != 8) {
-                afs.setVisibility(8);
+    private void ep(boolean z) {
+        if (this.cmI != null && this.cmI.afU() != null) {
+            View afU = this.cmI.afU();
+            if (this.cbq && z && afU.getVisibility() != 0) {
+                afU.setVisibility(0);
+            } else if (!z && afU.getVisibility() != 8) {
+                afU.setVisibility(8);
             }
         }
     }

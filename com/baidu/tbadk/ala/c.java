@@ -19,16 +19,16 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener PT = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener Rt = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
-                if (!i.hh()) {
+                if (!i.hr()) {
                     k.showToast(view.getContext(), d.l.no_network_guide);
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.PQ;
+                AlaUserInfoData alaUserInfoData = aVar.Rq;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -63,12 +63,12 @@ public class c {
         }
     };
 
-    public static TextView ap(Context context) {
+    public static TextView aq(Context context) {
         if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(d.j.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(PT);
+        textView.setOnClickListener(Rt);
         return textView;
     }
 }

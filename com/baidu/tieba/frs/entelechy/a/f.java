@@ -8,25 +8,25 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.v;
 import com.baidu.tieba.card.x;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.widget.ListView.a<bl, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.c>> implements v, com.baidu.tieba.frs.f.c {
-    private TbPageContext<?> ako;
-    private x<bl> bjm;
-    private com.baidu.tieba.frs.entelechy.view.c cmD;
-    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.b> cmE;
-    private com.baidu.adp.lib.e.b<TbImageView> cmF;
+public class f extends com.baidu.adp.widget.ListView.a<bl, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.c>> implements v, com.baidu.tieba.frs.e.c {
+    private x<bl> bkA;
+    private com.baidu.tieba.frs.entelechy.view.c cox;
+    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.b> coy;
+    private com.baidu.adp.lib.e.b<TbImageView> coz;
     private String mForumName;
+    private TbPageContext<?> oV;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: w */
+    /* renamed from: x */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cmD = new com.baidu.tieba.frs.entelechy.view.c(this.ako, this.mPageId);
-        this.cmD.setConstrainLayoutPool(this.cmE);
-        this.cmD.setConstrainImagePool(this.cmF);
-        this.cmD.setForumName(this.mForumName);
-        this.cmD.j(this.mPageId);
-        return new com.baidu.tieba.card.a.a(this.cmD);
+        this.cox = new com.baidu.tieba.frs.entelechy.view.c(this.oV, this.mPageId);
+        this.cox.setConstrainLayoutPool(this.coy);
+        this.cox.setConstrainImagePool(this.coz);
+        this.cox.setForumName(this.mForumName);
+        this.cox.j(this.mPageId);
+        return new com.baidu.tieba.card.a.a(this.cox);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,12 +34,12 @@ public class f extends com.baidu.adp.widget.ListView.a<bl, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bl blVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.WX() == null) {
+        if (aVar == null || aVar.Xy() == null) {
             return null;
         }
-        aVar.WX().a((com.baidu.tieba.card.a) blVar);
-        aVar.WX().a(this.bjm);
-        com.baidu.tieba.frs.f.b.aiM().a(cut, blVar);
+        aVar.Xy().a((com.baidu.tieba.card.a) blVar);
+        aVar.Xy().b(this.bkA);
+        com.baidu.tieba.frs.e.b.ajF().a(cxO, blVar);
         return aVar.getView();
     }
 

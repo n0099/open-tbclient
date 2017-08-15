@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public interface b {
-    long am(String str);
+    long as(String str);
 
-    void d(String str, long j);
+    void e(String str, long j);
 }

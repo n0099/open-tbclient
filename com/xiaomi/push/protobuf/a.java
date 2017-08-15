@@ -84,18 +84,18 @@ public final class a {
         @Override // com.google.protobuf.micro.e
         public int b() {
             int i = 0;
-            int bF = e() ? c.bF(1, d()) + 0 : 0;
+            int bO = e() ? c.bO(1, d()) + 0 : 0;
             if (g()) {
-                bF += c.J(2, f());
+                bO += c.K(2, f());
             }
             if (i()) {
-                bF += c.c(3, h());
+                bO += c.c(3, h());
             }
-            int J = k() ? bF + c.J(4, j()) : bF;
+            int K = k() ? bO + c.K(4, j()) : bO;
             for (String str : l()) {
                 i += c.b(str);
             }
-            int size = J + i + (l().size() * 1);
+            int size = K + i + (l().size() * 1);
             this.j = size;
             return size;
         }

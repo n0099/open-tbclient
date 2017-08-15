@@ -16,12 +16,12 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> Fq() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> Fy() {
         return FrsPageHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> Fs() {
+    protected Class<? extends MvcSocketResponsedMessage> FA() {
         return FRSPageSocketResponsedMessage.class;
     }
 
@@ -31,22 +31,22 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Fk() {
+    protected int Fs() {
         return CmdConfigHttp.FRS_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Fl() {
+    protected int Ft() {
         return 301001;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String Fm() {
+    protected String Fu() {
         return TbConfig.FRS_ADDRESS;
     }
 
     public void a(FrsRequestData frsRequestData) {
-        this.aGR = frsRequestData;
+        this.aIh = frsRequestData;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel

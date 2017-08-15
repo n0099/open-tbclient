@@ -5,10 +5,10 @@ import tbclient.GetMoreMsg.MsgContent;
 public class e {
     public String content;
     public int customGroupType;
-    public int fJR;
-    public String fJS = "";
-    public long fJT;
-    public boolean fit;
+    public int fMX;
+    public String fMY = "";
+    public long fMZ;
+    public boolean flz;
     public String groupId;
     public String groupName;
     public boolean isAcceptNotify;
@@ -34,7 +34,7 @@ public class e {
     }
 
     private static void e(e eVar) {
-        eVar.fJR = 0;
+        eVar.fMX = 0;
         eVar.msgType = 4;
         eVar.customGroupType = 4;
         eVar.lastTime = System.currentTimeMillis();

@@ -4,30 +4,30 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class h {
-    private TbPageContext aaS;
-    private com.baidu.tieba.frs.mc.k cje;
+    private TbPageContext acr;
+    private com.baidu.tieba.frs.mc.k ckX;
 
     public h(TbPageContext tbPageContext, com.baidu.tieba.frs.mc.k kVar) {
-        this.aaS = tbPageContext;
-        this.cje = kVar;
+        this.acr = tbPageContext;
+        this.ckX = kVar;
     }
 
     public void b(com.baidu.tieba.InjectPlugin.b bVar) {
-        if (this.cje != null && this.cje.aeP() != null && this.cje.aeP().ahK() != null && this.cje.aeU() != null && bVar != null && this.cje.aeU().getListView() != null && this.cje.aeR() != null) {
-            BdTypeListView listView = this.cje.aeU().getListView();
+        if (this.ckX != null && this.ckX.afq() != null && this.ckX.afq().aim() != null && this.ckX.afv() != null && bVar != null && this.ckX.afv().getListView() != null && this.ckX.afs() != null) {
+            BdTypeListView listView = this.ckX.afv().getListView();
             switch (bVar.what) {
                 case 2:
                     if (bVar.getView() != null) {
                         listView.removeHeaderView(bVar.getView());
                         listView.addHeaderView(bVar.getView(), listView.getHeaderViewsCount() - 1);
-                        this.cje.aeR().jz(8);
+                        this.ckX.afs().jJ(8);
                         return;
                     }
                     return;
                 case 3:
                     if (bVar.getView() != null) {
                         listView.removeHeaderView(bVar.getView());
-                        this.cje.aeR().jz(0);
+                        this.ckX.afs().jJ(0);
                         return;
                     }
                     return;

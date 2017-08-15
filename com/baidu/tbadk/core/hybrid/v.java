@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class v {
-    private Map<String, String> acM = new HashMap();
-    private Map<String, List<String>> acN;
+    private Map<String, String> ael = new HashMap();
+    private Map<String, List<String>> kv;
     private int responseCode;
     private String url;
 
@@ -21,21 +21,21 @@ public class v {
         return this.responseCode;
     }
 
-    public Map<String, List<String>> tU() {
-        return this.acN;
+    public Map<String, List<String>> ue() {
+        return this.kv;
     }
 
     public void addHeader(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.acM.put(str, str2);
+            this.ael.put(str, str2);
         }
     }
 
-    public byte[] tV() {
-        int retryCount = com.baidu.adp.framework.c.b.dr().getRetryCount();
+    public byte[] uf() {
+        int retryCount = com.baidu.adp.framework.c.b.dC().getRetryCount();
         for (int i = 0; i < retryCount; i++) {
             try {
-                return tW();
+                return ug();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -43,21 +43,21 @@ public class v {
         return null;
     }
 
-    private byte[] tW() throws Exception {
+    private byte[] ug() throws Exception {
         if (TextUtils.isEmpty(this.url)) {
             return null;
         }
         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.url).openConnection();
         httpURLConnection.setDoInput(true);
         httpURLConnection.setRequestMethod("GET");
-        httpURLConnection.setConnectTimeout(com.baidu.adp.framework.c.b.dr().ds().dv());
-        httpURLConnection.setReadTimeout(com.baidu.adp.framework.c.b.dr().du().dv());
-        for (Map.Entry<String, String> entry : this.acM.entrySet()) {
+        httpURLConnection.setConnectTimeout(com.baidu.adp.framework.c.b.dC().dD().dG());
+        httpURLConnection.setReadTimeout(com.baidu.adp.framework.c.b.dC().dF().dG());
+        for (Map.Entry<String, String> entry : this.ael.entrySet()) {
             httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
         }
         httpURLConnection.connect();
         this.responseCode = httpURLConnection.getResponseCode();
-        this.acN = httpURLConnection.getHeaderFields();
-        return o.i(httpURLConnection.getInputStream());
+        this.kv = httpURLConnection.getHeaderFields();
+        return o.o(httpURLConnection.getInputStream());
     }
 }

@@ -8,145 +8,145 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private List<com.baidu.tbadk.c.a> Qi;
-    private int aDH;
-    private WriteImagesInfo ffS;
-    private final AlbumActivity gyW;
-    private String gzl;
-    private List<ImageFileInfo> gzr;
-    private List<ImageFileInfo> gzs;
-    private String gzt;
-    private boolean gzu = false;
+    private List<com.baidu.tbadk.c.a> RI;
+    private int aEY;
+    private WriteImagesInfo fiZ;
+    private final AlbumActivity gBZ;
+    private String gCo;
+    private List<ImageFileInfo> gCu;
+    private List<ImageFileInfo> gCv;
+    private String gCw;
+    private boolean gCx = false;
 
     public e(AlbumActivity albumActivity) {
-        this.gyW = albumActivity;
+        this.gBZ = albumActivity;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.ffS == null) {
-            this.ffS = new WriteImagesInfo();
+        if (this.fiZ == null) {
+            this.fiZ = new WriteImagesInfo();
         }
-        this.ffS.addChooseFile(imageFileInfo);
+        this.fiZ.addChooseFile(imageFileInfo);
     }
 
     public void delChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.ffS != null) {
-            this.ffS.delChooseFile(imageFileInfo);
+        if (this.fiZ != null) {
+            this.fiZ.delChooseFile(imageFileInfo);
         }
     }
 
     public boolean isAdded(ImageFileInfo imageFileInfo) {
-        if (this.ffS == null) {
+        if (this.fiZ == null) {
             return false;
         }
-        return this.ffS.isAdded(imageFileInfo);
+        return this.fiZ.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> byb() {
-        if (this.ffS != null) {
-            return this.ffS.getChosedFiles();
+    public List<ImageFileInfo> byP() {
+        if (this.fiZ != null) {
+            return this.fiZ.getChosedFiles();
         }
         return null;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {
-        return this.ffS;
+        return this.fiZ;
     }
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
-        this.ffS = writeImagesInfo;
+        this.fiZ = writeImagesInfo;
     }
 
     public String getLastAlbumId() {
-        if (this.ffS != null) {
-            return this.ffS.getLastAlbumId();
+        if (this.fiZ != null) {
+            return this.fiZ.getLastAlbumId();
         }
         return null;
     }
 
     public void setLastAlbumId(String str) {
-        if (this.ffS == null) {
-            this.ffS = new WriteImagesInfo();
+        if (this.fiZ == null) {
+            this.fiZ = new WriteImagesInfo();
         }
-        this.ffS.setLastAlbumId(str);
+        this.fiZ.setLastAlbumId(str);
     }
 
     public int getMaxImagesAllowed() {
-        if (this.ffS != null) {
-            return this.ffS.getMaxImagesAllowed();
+        if (this.fiZ != null) {
+            return this.fiZ.getMaxImagesAllowed();
         }
         return 0;
     }
 
-    public String byc() {
-        return this.gzl;
+    public String byQ() {
+        return this.gCo;
     }
 
-    public void sN(String str) {
-        this.gzl = str;
+    public void sU(String str) {
+        this.gCo = str;
     }
 
-    public List<ImageFileInfo> byd() {
-        return this.gzr;
+    public List<ImageFileInfo> byR() {
+        return this.gCu;
     }
 
-    public void dz(List<ImageFileInfo> list) {
-        this.gzr = list;
+    public void dC(List<ImageFileInfo> list) {
+        this.gCu = list;
     }
 
     public int getCurrentIndex() {
-        return this.aDH;
+        return this.aEY;
     }
 
-    public void ub(int i) {
-        this.aDH = i;
+    public void setCurrentIndex(int i) {
+        this.aEY = i;
     }
 
-    public List<com.baidu.tbadk.c.a> bye() {
-        return this.Qi;
+    public List<com.baidu.tbadk.c.a> byS() {
+        return this.RI;
     }
 
-    public void dA(List<com.baidu.tbadk.c.a> list) {
-        this.Qi = list;
+    public void dD(List<com.baidu.tbadk.c.a> list) {
+        this.RI = list;
     }
 
-    public List<ImageFileInfo> byf() {
-        return this.gzs;
+    public List<ImageFileInfo> byT() {
+        return this.gCv;
     }
 
-    public void dB(List<ImageFileInfo> list) {
-        this.gzs = list;
+    public void dE(List<ImageFileInfo> list) {
+        this.gCv = list;
     }
 
     public int size() {
-        if (this.ffS == null) {
+        if (this.fiZ == null) {
             return 0;
         }
-        return this.ffS.size();
+        return this.fiZ.size();
     }
 
-    public String byg() {
-        return this.gzt;
+    public String byU() {
+        return this.gCw;
     }
 
-    public void sO(String str) {
-        this.gzt = str;
+    public void sV(String str) {
+        this.gCw = str;
     }
 
     public void setOriginalImg(boolean z) {
-        this.ffS.setOriginalImg(z);
+        this.fiZ.setOriginalImg(z);
     }
 
     public boolean isOriginalImg() {
-        return this.ffS.isOriginalImg();
+        return this.fiZ.isOriginalImg();
     }
 
-    public void na(boolean z) {
-        this.gzu = z;
+    public void nd(boolean z) {
+        this.gCx = z;
     }
 
-    public List<m> byh() {
-        List<ImageFileInfo> list = this.gzr;
+    public List<m> byV() {
+        List<ImageFileInfo> list = this.gCu;
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 3; i++) {
             m mVar = new m();
@@ -160,11 +160,11 @@ public class e {
             mVar2.b(list.get(i2));
             arrayList.add(mVar2);
         }
-        int ag = ((((com.baidu.adp.lib.util.k.ag(this.gyW.getPageContext().getPageActivity()) - this.gyW.getResources().getDimensionPixelSize(d.f.ds300)) / (com.baidu.adp.lib.util.k.af(this.gyW.getPageContext().getPageActivity()) / 3)) + 1) * 3) - u;
-        if (ag <= 0) {
-            ag = u % 3 == 0 ? 0 : 3 - (u % 3);
+        int ah = ((((com.baidu.adp.lib.util.k.ah(this.gBZ.getPageContext().getPageActivity()) - this.gBZ.getResources().getDimensionPixelSize(d.f.ds300)) / (com.baidu.adp.lib.util.k.ag(this.gBZ.getPageContext().getPageActivity()) / 3)) + 1) * 3) - u;
+        if (ah <= 0) {
+            ah = u % 3 == 0 ? 0 : 3 - (u % 3);
         }
-        int i3 = ag + 3;
+        int i3 = ah + 3;
         for (int i4 = 0; i4 < i3; i4++) {
             m mVar3 = new m();
             mVar3.setType(1);

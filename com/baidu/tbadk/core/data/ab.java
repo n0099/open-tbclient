@@ -1,18 +1,18 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class ab {
-    public long VB;
-    public String VC;
-    public long VD;
-    public int VE;
-    public String VF;
-    public long VG;
-    public long VH;
-    public long VI;
-    public int VJ;
-    public int VK;
-    public int VL;
-    public int VM;
+    public long WZ;
+    public String Xa;
+    public long Xb;
+    public int Xc;
+    public String Xd;
+    public long Xe;
+    public long Xf;
+    public long Xg;
+    public int Xh;
+    public int Xi;
+    public int Xj;
+    public int Xk;
     public int accountType;
     public String desc;
     public long endTime;

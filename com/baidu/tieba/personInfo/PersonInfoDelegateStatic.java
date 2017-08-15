@@ -21,22 +21,22 @@ import com.baidu.tbadk.mainTab.d;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private ImageView ecB;
-    private CustomMessageListener fgR;
-    private Boolean fgQ = false;
-    private int aGc = 0;
+    private ImageView efO;
+    private CustomMessageListener fjY;
+    private Boolean fjX = false;
+    private int aHs = 0;
 
     static {
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.personInfo.PersonInfoDelegateStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c EP;
+                c EX;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(personInfoDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (EP = personInfoDelegateStatic.EP()) != null) {
-                        EP.aGr.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (EX = personInfoDelegateStatic.EX()) != null) {
+                        EX.aHH.setArguments(new Bundle());
                     }
                 }
             }
@@ -51,56 +51,56 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c EO() {
+    public c EW() {
         c cVar = new c();
-        cVar.aGr = new com.baidu.tieba.personCenter.a();
+        cVar.aHH = new com.baidu.tieba.personCenter.a();
         cVar.type = 8;
-        cVar.aGs = d.l.mine;
-        cVar.aGt = d.g.s_tabbar_icon_four_bg;
-        cVar.aGx = c.aGu;
+        cVar.aHI = d.l.mine;
+        cVar.aHJ = d.g.s_tabbar_icon_four_bg;
+        cVar.aHN = c.aHK;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator aS(Context context) {
-        this.aGe = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
-        this.ecB = new ImageView(context);
+    public FragmentTabIndicator aT(Context context) {
+        this.aHu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+        this.efO = new ImageView(context);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.aGq = this.aGe;
-        aVar.uT = k.dip2px(context, 10.0f);
-        aVar.view = this.ecB;
-        aVar.aGo = d.g.icon_news_down_bar_one;
-        if (this.fgQ.booleanValue()) {
-            this.ecB.setVisibility(0);
+        aVar.aHG = this.aHu;
+        aVar.wy = k.dip2px(context, 10.0f);
+        aVar.view = this.efO;
+        aVar.aHE = d.g.icon_news_down_bar_one;
+        if (this.fjX.booleanValue()) {
+            this.efO.setVisibility(0);
         } else {
-            this.ecB.setVisibility(8);
+            this.efO.setVisibility(8);
         }
-        this.aGe.a("emotion", aVar);
-        return this.aGe;
+        this.aHu.a("emotion", aVar);
+        return this.aHu;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void EN() {
-        this.fgR = new CustomMessageListener(CmdConfigCustom.MAINTAB_PERSON_TIP) { // from class: com.baidu.tieba.personInfo.PersonInfoDelegateStatic.2
+    public void EV() {
+        this.fjY = new CustomMessageListener(CmdConfigCustom.MAINTAB_PERSON_TIP) { // from class: com.baidu.tieba.personInfo.PersonInfoDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null) {
                     if (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a) {
-                        PersonInfoDelegateStatic.this.fgQ = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).aGb);
-                        PersonInfoDelegateStatic.this.aGc = ((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).aGc;
-                        PersonInfoDelegateStatic.this.ecB.setVisibility(PersonInfoDelegateStatic.this.fgQ.booleanValue() ? 0 : 8);
+                        PersonInfoDelegateStatic.this.fjX = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).aHr);
+                        PersonInfoDelegateStatic.this.aHs = ((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).aHs;
+                        PersonInfoDelegateStatic.this.efO.setVisibility(PersonInfoDelegateStatic.this.fjX.booleanValue() ? 0 : 8);
                         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                        if (!PersonInfoDelegateStatic.this.fgQ.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
+                        if (!PersonInfoDelegateStatic.this.fjX.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
                             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("member_close_ad_mine_clicked", true);
                         }
                     }
-                    PersonInfoDelegateStatic.f(PersonInfoDelegateStatic.this.ecB, PersonInfoDelegateStatic.this.aGc);
+                    PersonInfoDelegateStatic.f(PersonInfoDelegateStatic.this.efO, PersonInfoDelegateStatic.this.aHs);
                 }
             }
         };
-        this.fgR.setPriority(7);
-        MessageManager.getInstance().registerListener(this.fgR);
+        this.fjY.setPriority(7);
+        MessageManager.getInstance().registerListener(this.fjY);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -115,8 +115,8 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void cB() {
-        super.cB();
-        MessageManager.getInstance().unRegisterListener(this.fgR);
+    public void cM() {
+        super.cM();
+        MessageManager.getInstance().unRegisterListener(this.fjY);
     }
 }

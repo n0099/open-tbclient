@@ -13,18 +13,18 @@ public class a {
     private long mStartTime;
     public String mType;
     public long sequenceID;
-    boolean wL;
-    private ArrayList<BasicNameValuePair> wM;
-    private StringBuilder wN;
+    boolean yo;
+    private ArrayList<BasicNameValuePair> yp;
+    private StringBuilder yq;
 
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.wL = false;
+        this.yo = false;
         this.mType = null;
-        this.wN = new StringBuilder(100);
+        this.yq = new StringBuilder(100);
         this.mType = str;
-        this.wL = false;
+        this.yo = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -32,27 +32,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.wL = false;
+        this.yo = false;
         this.mType = null;
-        this.wN = new StringBuilder(100);
+        this.yq = new StringBuilder(100);
     }
 
     public void c(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.wM == null) {
-                this.wM = new ArrayList<>();
+            if (this.yp == null) {
+                this.yp = new ArrayList<>();
             }
-            this.wM.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.yp.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.wN.length() > 0) {
-            sb.append((CharSequence) this.wN);
+        if (this.yq.length() > 0) {
+            sb.append((CharSequence) this.yq);
         }
-        if (this.wM != null) {
-            Iterator<BasicNameValuePair> it = this.wM.iterator();
+        if (this.yp != null) {
+            Iterator<BasicNameValuePair> it = this.yp.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -62,10 +62,10 @@ public class a {
                     sb.append(next.getName());
                     sb.append('=');
                     try {
-                        sb.append(URLEncoder.encode(al(next.getValue()), "utf-8"));
+                        sb.append(URLEncoder.encode(ar(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        sb.append(al(next.getValue()));
+                        sb.append(ar(next.getValue()));
                     }
                 }
             }
@@ -88,29 +88,29 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.wN.length() > 0) {
-                this.wN.append('&');
+            if (this.yq.length() > 0) {
+                this.yq.append('&');
             }
-            this.wN.append(str);
-            this.wN.append("=");
+            this.yq.append(str);
+            this.yq.append("=");
             try {
-                this.wN.append(URLEncoder.encode(al(str2), "utf-8"));
+                this.yq.append(URLEncoder.encode(ar(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.wN.append(al(str2));
+                this.yq.append(ar(str2));
             }
         }
     }
 
-    public void fT() {
+    public void startTimer() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long fU() {
+    public long gf() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    public static String al(String str) {
+    public static String ar(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

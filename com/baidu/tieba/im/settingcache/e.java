@@ -12,26 +12,26 @@ import com.baidu.tbadk.util.u;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class e extends a {
-    private static e dxt = new e();
+    private static e dAI = new e();
 
     private e() {
     }
 
-    public static e axG() {
-        return dxt;
+    public static e ayy() {
+        return dAI;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: bo */
-    public PersonalSettingItemData bk(String str, String str2) {
+    /* renamed from: bp */
+    public PersonalSettingItemData bl(String str, String str2) {
         PersonalSettingItemData personalSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.dxi) {
-            ChatSetting chatSetting = this.dxi.get(str3);
+        synchronized (this.dAx) {
+            ChatSetting chatSetting = this.dAx.get(str3);
             personalSettingItemData = (chatSetting == null || !(chatSetting instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) chatSetting;
         }
         if (personalSettingItemData == null) {
@@ -39,7 +39,7 @@ public class e extends a {
             personalSettingItemData2.setMyUid(str);
             personalSettingItemData2.setToUid(str2);
             personalSettingItemData2.setAcceptNotify(true);
-            if (k.hx()) {
+            if (k.hH()) {
                 a(personalSettingItemData2, null);
                 return personalSettingItemData2;
             }
@@ -49,22 +49,22 @@ public class e extends a {
         return personalSettingItemData;
     }
 
-    public void atE() {
+    public void aux() {
         super.m(PersonalSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        PersonalSettingItemData bk;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bk = bk(str, str2)) != null) {
-            bk.setToPortrait(userData.getPortrait());
-            bk.setToName(userData.getUserName());
-            a(bk);
+        PersonalSettingItemData bl;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bl = bl(str, str2)) != null) {
+            bl.setToPortrait(userData.getPortrait());
+            bl.setToName(userData.getUserName());
+            a(bl);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> axC() {
-        return com.baidu.tbadk.core.c.a.td().cK("tb.im_personal_chat_setting");
+    protected l<String> ayu() {
+        return com.baidu.tbadk.core.c.a.tn().cQ("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -79,13 +79,13 @@ public class e extends a {
                 }
                 return;
             }
-            l<String> axC = axC();
+            l<String> ayu = ayu();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.dxi) {
-                this.dxi.put(str, personalSettingItemData);
+            synchronized (this.dAx) {
+                this.dAx.put(str, personalSettingItemData);
             }
-            axC.k(str, jsonStrWithObject);
+            ayu.k(str, jsonStrWithObject);
         }
     }
 
@@ -102,15 +102,15 @@ public class e extends a {
                 return;
             }
             final String str = myUid + "@" + toUid;
-            synchronized (this.dxi) {
-                this.dxi.put(str, personalSettingItemData);
+            synchronized (this.dAx) {
+                this.dAx.put(str, personalSettingItemData);
             }
             u.b(new t<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.t
-                /* renamed from: Lk */
+                /* renamed from: Lp */
                 public Void doInBackground() {
-                    e.this.axC().k(str, OrmObject.jsonStrWithObject(personalSettingItemData));
+                    e.this.ayu().k(str, OrmObject.jsonStrWithObject(personalSettingItemData));
                     return null;
                 }
             }, hVar);

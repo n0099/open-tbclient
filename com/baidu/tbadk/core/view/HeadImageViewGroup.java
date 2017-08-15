@@ -9,8 +9,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.story.StoryHeaderOutView;
 /* loaded from: classes.dex */
 public class HeadImageViewGroup extends FrameLayout {
-    public StoryHeaderOutView ajp;
-    private HeadImageView ajq;
+    public StoryHeaderOutView akK;
+    private HeadImageView akL;
     private View mRootView;
 
     /* loaded from: classes.dex */
@@ -30,76 +30,76 @@ public class HeadImageViewGroup extends FrameLayout {
     private void init() {
         this.mRootView = View.inflate(getContext(), d.j.head_view_group, null);
         addView(this.mRootView);
-        this.ajp = (StoryHeaderOutView) findViewById(d.h.out_img);
-        this.ajp.setIsRound(true);
-        this.ajp.setVisibility(0);
-        this.ajq = (HeadImageView) findViewById(d.h.inner_img);
-        this.ajq.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.ajq.setDrawBorder(false);
+        this.akK = (StoryHeaderOutView) findViewById(d.h.out_img);
+        this.akK.setIsRound(true);
+        this.akK.setVisibility(0);
+        this.akL = (HeadImageView) findViewById(d.h.inner_img);
+        this.akL.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.akL.setDrawBorder(false);
     }
 
     public HeadImageView getInnerImg() {
-        return this.ajq;
+        return this.akL;
     }
 
     public void setOuterColor(int i) {
-        this.ajp.setColor(i);
+        this.akK.setColor(i);
     }
 
     public void a(a aVar, int i) {
-        if (this.ajp != null) {
-            StoryHeaderOutView storyHeaderOutView = this.ajp;
-            StoryHeaderOutView storyHeaderOutView2 = this.ajp;
+        if (this.akK != null) {
+            StoryHeaderOutView storyHeaderOutView = this.akK;
+            StoryHeaderOutView storyHeaderOutView2 = this.akK;
             storyHeaderOutView.setMaskColor(1);
-            this.ajp.invalidate();
+            this.akK.invalidate();
         }
     }
 
-    public void wr() {
-        if (this.ajp != null) {
-            this.ajp.bnX();
-            StoryHeaderOutView storyHeaderOutView = this.ajp;
-            StoryHeaderOutView storyHeaderOutView2 = this.ajp;
+    public void wB() {
+        if (this.akK != null) {
+            this.akK.boM();
+            StoryHeaderOutView storyHeaderOutView = this.akK;
+            StoryHeaderOutView storyHeaderOutView2 = this.akK;
             storyHeaderOutView.setMaskColor(0);
-            this.ajp.invalidate();
+            this.akK.invalidate();
         }
     }
 
     public void aJ(boolean z) {
         int i;
-        if (this.ajp != null) {
-            StoryHeaderOutView storyHeaderOutView = this.ajp;
+        if (this.akK != null) {
+            StoryHeaderOutView storyHeaderOutView = this.akK;
             if (z) {
-                StoryHeaderOutView storyHeaderOutView2 = this.ajp;
+                StoryHeaderOutView storyHeaderOutView2 = this.akK;
                 i = 3;
             } else {
-                StoryHeaderOutView storyHeaderOutView3 = this.ajp;
+                StoryHeaderOutView storyHeaderOutView3 = this.akK;
                 i = 0;
             }
             storyHeaderOutView.setMaskColor(i);
-            this.ajp.invalidate();
+            this.akK.invalidate();
         }
     }
 
     public void aK(boolean z) {
         int i;
-        if (this.ajp != null) {
-            StoryHeaderOutView storyHeaderOutView = this.ajp;
+        if (this.akK != null) {
+            StoryHeaderOutView storyHeaderOutView = this.akK;
             if (z) {
-                StoryHeaderOutView storyHeaderOutView2 = this.ajp;
+                StoryHeaderOutView storyHeaderOutView2 = this.akK;
                 i = 0;
             } else {
-                StoryHeaderOutView storyHeaderOutView3 = this.ajp;
+                StoryHeaderOutView storyHeaderOutView3 = this.akK;
                 i = 4;
             }
             storyHeaderOutView.setMaskColor(i);
-            this.ajp.invalidate();
+            this.akK.invalidate();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.ajp != null) {
-            this.ajp.onChangeSkinType(i);
+        if (this.akK != null) {
+            this.akK.onChangeSkinType(i);
         }
     }
 }

@@ -153,7 +153,7 @@ public class NavigationBar extends RelativeLayout {
         this.mCenterText = (TextView) this.mRootView.findViewById(d.h.center_text);
         this.bottomLine = this.mRootView.findViewById(d.h.bottom_line);
         this.topCoverBgView = this.mRootView.findViewById(d.h.navigation_bar_view_cover_bg);
-        this.topCoverBgView.setBackgroundDrawable(ai.u(0, d.g.navigation_cover_top_bg));
+        this.topCoverBgView.setBackgroundDrawable(ai.v(0, d.g.navigation_cover_top_bg));
         this.barBgView = this.mRootView.findViewById(d.h.navigation_bar_view_bg);
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.n.NavigationBar);
@@ -506,9 +506,9 @@ public class NavigationBar extends RelativeLayout {
     public void onChangeSkinType(com.baidu.adp.base.e<?> eVar, int i) {
         BitmapDrawable bitmapDrawable;
         if (this.isAutoNight) {
-            bitmapDrawable = new BitmapDrawable(ai.cR(d.g.s_navbar_bg));
+            bitmapDrawable = new BitmapDrawable(ai.cT(d.g.s_navbar_bg));
         } else {
-            bitmapDrawable = new BitmapDrawable(ai.v(d.g.s_navbar_bg, i));
+            bitmapDrawable = new BitmapDrawable(ai.w(d.g.s_navbar_bg, i));
         }
         setBackgroundDrawable(bitmapDrawable);
         ai.e(this.bottomLine, d.e.cp_bg_line_a, i);

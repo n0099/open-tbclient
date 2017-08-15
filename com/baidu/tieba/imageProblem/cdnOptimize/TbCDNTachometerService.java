@@ -64,9 +64,9 @@ public class TbCDNTachometerService extends BdBaseService {
                     if (customMsgData != null) {
                         String str = customMsgData.cdnIp;
                         boolean z = customMsgData.isSuccess;
-                        long j = customMsgData.Hf;
+                        long j = customMsgData.IH;
                         String valueOf = String.valueOf(j);
-                        if (customMsgData.dFj != null && customMsgData.dFj.length() > 0) {
+                        if (customMsgData.dIw != null && customMsgData.dIw.length() > 0) {
                             TbCDNTachometerService.this.canBroadCast = true;
                             if (!z || j > TbCDNTachometerService.this.hiPhotosMaxTime) {
                                 TbCDNTachometerService.this.isNormal = false;
@@ -91,7 +91,7 @@ public class TbCDNTachometerService extends BdBaseService {
                                         String[] split = ((String) TbCDNTachometerService.this.belowOnePointFiveIpList.get(i3)).split("_");
                                         if (split.length < 2) {
                                             i = i4;
-                                        } else if (b.c(split[1], 0L) > j) {
+                                        } else if (b.d(split[1], 0L) > j) {
                                             i4 = i3;
                                             break;
                                         } else {
@@ -143,7 +143,7 @@ public class TbCDNTachometerService extends BdBaseService {
     };
 
     public static void startTachometerService(Context context, boolean z, boolean z2) {
-        if (context != null && i.hi() && TbadkCoreApplication.getInst().isMainProcess(true)) {
+        if (context != null && i.hs() && TbadkCoreApplication.getInst().isMainProcess(true)) {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
@@ -218,28 +218,28 @@ public class TbCDNTachometerService extends BdBaseService {
         this.numOfThrowIp = 0;
         if (tbCdnIpListData == null || tbCdnIpListData.errorNum != 0) {
             broadCastAndStopSelf(null);
-        } else if (!tbCdnIpListData.dFm) {
+        } else if (!tbCdnIpListData.dIz) {
             broadCastAndStopSelf(null);
-        } else if (tbCdnIpListData.dFl.size() == 0) {
+        } else if (tbCdnIpListData.dIy.size() == 0) {
             broadCastAndStopSelf(null);
         } else {
-            breakUpIpList(tbCdnIpListData.dFl);
+            breakUpIpList(tbCdnIpListData.dIy);
             String str = tbCdnIpListData.imageUrl;
-            String str2 = tbCdnIpListData.dFn;
-            String str3 = tbCdnIpListData.dFk;
+            String str2 = tbCdnIpListData.dIA;
+            String str3 = tbCdnIpListData.dIx;
             if (str != null && str2 != null && str3 != null) {
-                int size = tbCdnIpListData.dFl.size();
+                int size = tbCdnIpListData.dIy.size();
                 if (size > 0) {
                     CustomMsgData customMsgData = new CustomMsgData(tbCdnIpListData, 0);
                     customMsgData.cdnTachometerModel = this.cdnTachometerModel;
                     customMsgData.isNormal = this.isNormal;
-                    customMsgData.dFj = "c.hiphotos.baidu.com";
+                    customMsgData.dIw = "c.hiphotos.baidu.com";
                     CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_CDN_TACHOMETER, customMsgData);
                     customMessage.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
                 for (int i = 0; i < size; i++) {
-                    ArrayList<String> arrayList = tbCdnIpListData.dFl.get(i);
+                    ArrayList<String> arrayList = tbCdnIpListData.dIy.get(i);
                     String str4 = "";
                     if (arrayList.size() > 0) {
                         str4 = arrayList.get(0);
@@ -356,14 +356,14 @@ public class TbCDNTachometerService extends BdBaseService {
 
     /* loaded from: classes2.dex */
     public class CustomMsgData {
-        public long Hf;
+        public long IH;
         public String cdnIp;
         public TbCdnTachometerModel cdnTachometerModel;
         public TbCdnIpListData ipListData;
         public boolean isSuccess;
         public int pos;
         public boolean isNormal = false;
-        public String dFj = null;
+        public String dIw = null;
 
         public CustomMsgData(TbCdnIpListData tbCdnIpListData, int i) {
             this.ipListData = tbCdnIpListData;

@@ -3,9 +3,9 @@ package com.baidu.tieba.tbadkCore.util;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class b {
-    private static String eTK = "tbgametype";
+    private static String eWQ = "tbgametype";
 
-    public static String sd(String str) {
+    public static String sk(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
             return null;

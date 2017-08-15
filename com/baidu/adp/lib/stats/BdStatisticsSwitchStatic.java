@@ -2,15 +2,15 @@ package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        com.baidu.adp.lib.b.d.eW().f(BdStatisticsSwitchStatic.class);
+        com.baidu.adp.lib.b.d.fh().f(BdStatisticsSwitchStatic.class);
     }
 
-    public static boolean fS() {
-        return com.baidu.adp.lib.b.d.eW().af("newUrlForPerf") == 1;
+    public static boolean ge() {
+        return com.baidu.adp.lib.b.d.fh().al("newUrlForPerf") == 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void X(int i) {
+    protected void aa(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -19,22 +19,22 @@ public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eN() {
+    protected String[] eY() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eO() {
+    protected int eZ() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eP() {
+    protected int fa() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eQ() {
+    protected int fb() {
         return 10;
     }
 }

@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.aj;
 /* loaded from: classes.dex */
 public class m extends c {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private aj bIA;
-    private aj bIB;
-    private aj bIC;
-    private aj bIz;
-    public bl bbB;
+    private aj bKs;
+    private aj bKt;
+    private aj bKu;
+    private aj bKv;
+    public bl bcM;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
@@ -19,7 +19,7 @@ public class m extends c {
     }
 
     public m(bl blVar) {
-        this.bbB = blVar;
+        this.bcM = blVar;
     }
 
     public static boolean B(bl blVar) {
@@ -27,43 +27,43 @@ public class m extends c {
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bl MA() {
-        return this.bbB;
+    public bl MF() {
+        return this.bcM;
     }
 
-    public int WP() {
-        return (this.bbB == null || StringUtils.isNull(this.bbB.getPhotoLiveCover())) ? 0 : 1;
+    public int Xq() {
+        return (this.bcM == null || StringUtils.isNull(this.bcM.getPhotoLiveCover())) ? 0 : 1;
     }
 
     public void b(aj ajVar) {
-        this.bIz = ajVar;
+        this.bKs = ajVar;
     }
 
     public void c(aj ajVar) {
-        this.bIA = ajVar;
+        this.bKt = ajVar;
     }
 
     public void d(aj ajVar) {
-        this.bIB = ajVar;
+        this.bKu = ajVar;
     }
 
     public void e(aj ajVar) {
-        this.bIC = ajVar;
+        this.bKv = ajVar;
     }
 
-    public aj WQ() {
-        return this.bIz != null ? this.bIz.aa("obj_param3", com.baidu.tieba.card.m.Wn()) : this.bIz;
+    public aj Xr() {
+        return this.bKs != null ? this.bKs.aa("obj_param3", com.baidu.tieba.card.m.WO()) : this.bKs;
     }
 
-    public aj WR() {
-        return this.bIA != null ? this.bIA.aa("obj_param3", com.baidu.tieba.card.m.Wn()) : this.bIA;
+    public aj Xs() {
+        return this.bKt != null ? this.bKt.aa("obj_param3", com.baidu.tieba.card.m.WO()) : this.bKt;
     }
 
-    public aj WS() {
-        return this.bIC != null ? this.bIC.aa("obj_param3", com.baidu.tieba.card.m.Wn()) : this.bIC;
+    public aj Xt() {
+        return this.bKv != null ? this.bKv.aa("obj_param3", com.baidu.tieba.card.m.WO()) : this.bKv;
     }
 
-    public aj WT() {
-        return this.bIB != null ? this.bIB.aa("obj_param3", com.baidu.tieba.card.m.Wn()) : this.bIB;
+    public aj Xu() {
+        return this.bKu != null ? this.bKu.aa("obj_param3", com.baidu.tieba.card.m.WO()) : this.bKu;
     }
 }

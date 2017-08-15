@@ -54,18 +54,18 @@ import org.json.JSONException;
 import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
-    private NewWriteModel aCE;
-    private String boC;
-    private c cvO;
-    private String eJP;
-    private com.baidu.tieba.write.video.a gCg;
-    private GestureDetector gCh;
-    private int gCi;
-    private com.baidu.tieba.write.transmit.model.a gCk;
-    private String gCl;
+    private NewWriteModel aDV;
+    private String bqt;
+    private c czg;
+    private String eMW;
+    private com.baidu.tieba.write.video.a gFj;
+    private GestureDetector gFk;
+    private int gFl;
+    private com.baidu.tieba.write.transmit.model.a gFn;
+    private String gFo;
     private InputMethodManager mInputManager;
     private final WriteData mData = new WriteData();
-    private Runnable gCj = new Runnable() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.1
+    private Runnable gFm = new Runnable() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.1
         @Override // java.lang.Runnable
         public void run() {
             Intent intent = new Intent(MotuVideoConfig.ACTION_FINISH_VIDEO_ALL_ACTIVITY);
@@ -73,18 +73,18 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
             WriteVideoActivity.this.getPageContext().getPageActivity().sendBroadcast(intent);
         }
     };
-    private a.InterfaceC0126a gxS = new a.InterfaceC0126a() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.2
+    private a.InterfaceC0126a gAV = new a.InterfaceC0126a() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.2
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0126a
-        public void bxt() {
-            WriteVideoActivity.this.dD(null);
+        public void byi() {
+            WriteVideoActivity.this.dG(null);
         }
 
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0126a
         public void B(List<SimpleForum> list) {
-            WriteVideoActivity.this.dD(list);
+            WriteVideoActivity.this.dG(list);
         }
     };
-    private final NewWriteModel.d aCV = new NewWriteModel.d() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.3
+    private final NewWriteModel.d aEm = new NewWriteModel.d() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.3
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, q qVar, WriteData writeData, AntiData antiData) {
             WriteVideoActivity.this.closeLoadingDialog();
@@ -98,7 +98,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
                     }
                 }
                 if (z) {
-                    WriteVideoActivity.this.byI();
+                    WriteVideoActivity.this.bzw();
                     WriteVideoActivity.this.a(true, postWriteCallBackData);
                     WriteVideoActivity.this.b(postWriteCallBackData);
                 } else if ((qVar == null || writeData == null || qVar.getVcode_pic_url() == null || AntiHelper.h(antiData)) && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() != 227001) {
@@ -106,9 +106,9 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
                 } else if (qVar != null && writeData != null && qVar.getVcode_pic_url() != null) {
                     writeData.setVcodeMD5(qVar.getVcode_md5());
                     writeData.setVcodeUrl(qVar.getVcode_pic_url());
-                    writeData.setVcodeExtra(qVar.yq());
-                    if (com.baidu.tbadk.q.a.gT(qVar.yp())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(WriteVideoActivity.this.getPageContext().getPageActivity(), 12006, writeData, false, qVar.yp())));
+                    writeData.setVcodeExtra(qVar.yy());
+                    if (com.baidu.tbadk.q.a.gY(qVar.yx())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(WriteVideoActivity.this.getPageContext().getPageActivity(), 12006, writeData, false, qVar.yx())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(WriteVideoActivity.this.getPageContext().getPageActivity(), writeData, 12006)));
                     }
@@ -118,26 +118,26 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
             }
         }
     };
-    private Runnable gCm = new Runnable() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.4
+    private Runnable gFp = new Runnable() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.4
         @Override // java.lang.Runnable
         public void run() {
-            if (WriteVideoActivity.this.cvO != null) {
-                WriteVideoActivity.this.cvO.ci(WriteVideoActivity.this.gCi);
+            if (WriteVideoActivity.this.czg != null) {
+                WriteVideoActivity.this.czg.ck(WriteVideoActivity.this.gFl);
             }
         }
     };
-    private a.InterfaceC0120a gbf = new a.InterfaceC0120a() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.5
+    private a.InterfaceC0120a gej = new a.InterfaceC0120a() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.5
         @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0120a
         public void onUploadProgress(int i) {
-            WriteVideoActivity.this.gCi = i;
-            e.fP().post(WriteVideoActivity.this.gCm);
+            WriteVideoActivity.this.gFl = i;
+            e.ga().post(WriteVideoActivity.this.gFp);
         }
     };
     private DialogInterface.OnCancelListener mDialogCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.6
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             WriteVideoActivity.this.destroyWaitingDialog();
-            WriteVideoActivity.this.blL();
+            WriteVideoActivity.this.bmB();
         }
     };
 
@@ -145,36 +145,36 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gCg = new com.baidu.tieba.write.video.a(this);
+        this.gFj = new com.baidu.tieba.write.video.a(this);
         setSwipeBackEnabled(false);
-        byH();
+        bzv();
         if (this.mData.getVideoInfo() != null) {
-            this.gCg.sV(this.mData.getVideoInfo().getThumbPath());
+            this.gFj.tc(this.mData.getVideoInfo().getThumbPath());
         }
-        if (this.gCg.byO() != null) {
-            this.gCg.byO().f(this);
+        if (this.gFj.bzC() != null) {
+            this.gFj.bzC().f(this);
         }
         adjustResizeForSoftInput();
-        this.gCh = new GestureDetector(getPageContext().getPageActivity(), new a());
+        this.gFk = new GestureDetector(getPageContext().getPageActivity(), new a());
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
-        ShowSoftKeyPadDelay(this.gCg.byR());
-        this.gCk = new com.baidu.tieba.write.transmit.model.a(getUniqueId());
-        this.gCk.a(this.gxS);
-        this.gCk.setForumId(this.boC);
+        ShowSoftKeyPadDelay(this.gFj.bzF());
+        this.gFn = new com.baidu.tieba.write.transmit.model.a(getUniqueId());
+        this.gFn.a(this.gAV);
+        this.gFn.setForumId(this.bqt);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dD(List<SimpleForum> list) {
+    public void dG(List<SimpleForum> list) {
         ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-        if (!StringUtils.isNull(this.boC) && !StringUtils.isNull(this.eJP)) {
-            TransmitForumData transmitForumData = new TransmitForumData(com.baidu.adp.lib.g.b.c(this.boC, 0L), this.eJP, true, 1);
+        if (!StringUtils.isNull(this.bqt) && !StringUtils.isNull(this.eMW)) {
+            TransmitForumData transmitForumData = new TransmitForumData(com.baidu.adp.lib.g.b.d(this.bqt, 0L), this.eMW, true, 1);
             if (arrayList != null) {
                 arrayList.add(transmitForumData);
             }
         }
         if (u.u(list) > 0) {
             for (SimpleForum simpleForum : list) {
-                if (simpleForum != null && simpleForum.id != null && !StringUtils.isNull(simpleForum.name) && simpleForum.id.longValue() != com.baidu.adp.lib.g.b.c(this.boC, 0L)) {
+                if (simpleForum != null && simpleForum.id != null && !StringUtils.isNull(simpleForum.name) && simpleForum.id.longValue() != com.baidu.adp.lib.g.b.d(this.bqt, 0L)) {
                     arrayList.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1));
                 }
             }
@@ -189,29 +189,29 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        e.fP().postDelayed(this.gCj, 500L);
+        e.ga().postDelayed(this.gFm, 500L);
     }
 
-    private void byH() {
+    private void bzv() {
         Intent intent = getIntent();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra(WriteVideoActivityConfig.VIDEO_INFO);
             if (serializableExtra instanceof VideoInfo) {
                 this.mData.setVideoInfo((VideoInfo) serializableExtra);
             }
-            this.boC = intent.getStringExtra("forum_id");
-            this.eJP = intent.getStringExtra("forum_name");
-            this.gCl = intent.getStringExtra("video_title");
-            if (this.gCg != null && this.mData.getVideoInfo() != null) {
-                this.gCg.db((this.mData.getVideoInfo().getVideoDuration() + 1) * 1000);
+            this.bqt = intent.getStringExtra("forum_id");
+            this.eMW = intent.getStringExtra("forum_name");
+            this.gFo = intent.getStringExtra("video_title");
+            if (this.gFj != null && this.mData.getVideoInfo() != null) {
+                this.gFj.db((this.mData.getVideoInfo().getVideoDuration() + 1) * 1000);
             }
-            if (this.gCg != null) {
-                this.gCg.sX(this.gCl);
+            if (this.gFj != null) {
+                this.gFj.te(this.gFo);
             }
         }
     }
 
-    private void sU(String str) {
+    private void tb(String str) {
         JSONArray jSONArray;
         boolean z;
         if (StringUtils.isNull(str)) {
@@ -226,39 +226,39 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
         if (jSONArray == null || jSONArray.length() <= 0) {
             z = true;
         } else {
-            this.mData.setForumId(this.boC);
+            this.mData.setForumId(this.bqt);
             z = false;
         }
-        if (StringUtils.isNull(this.boC) || Long.parseLong(this.boC) <= 0 || StringUtils.isNull(this.eJP) || z) {
+        if (StringUtils.isNull(this.bqt) || Long.parseLong(this.bqt) <= 0 || StringUtils.isNull(this.eMW) || z) {
             this.mData.setCanNoForum(true);
         } else {
             this.mData.setCanNoForum(false);
         }
-        this.mData.setForumName(this.eJP);
-        this.mData.setTitle(this.gCg.getContent());
+        this.mData.setForumName(this.eMW);
+        this.mData.setTitle(this.gFj.getContent());
         this.mData.setContent("");
         this.mData.setType(0);
         this.mData.setTransmitForumData(str);
-        if (this.gCg.byO() != null) {
-            this.mData.setHasLocationData(this.gCg.byO().Th());
+        if (this.gFj.bzC() != null) {
+            this.mData.setHasLocationData(this.gFj.bzC().TI());
         }
         this.mData.setIsNoTitle(TextUtils.isEmpty(this.mData.getTitle()));
     }
 
-    private void DM() {
-        blL();
-        QS();
-        if (this.aCE == null) {
-            this.aCE = new NewWriteModel(this);
+    private void DU() {
+        bmB();
+        Rr();
+        if (this.aDV == null) {
+            this.aDV = new NewWriteModel(this);
         }
-        this.aCE.setWriteData(this.mData);
-        this.aCE.b(this.aCV);
-        this.aCE.a(this.gbf);
-        this.aCE.startPostWrite();
+        this.aDV.setWriteData(this.mData);
+        this.aDV.b(this.aEm);
+        this.aDV.a(this.gej);
+        this.aDV.startPostWrite();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byI() {
+    public void bzw() {
         VideoInfo videoInfo;
         if (this.mData != null && (videoInfo = this.mData.getVideoInfo()) != null && videoInfo.getVideoType() == 2 && videoInfo.isCompressedVideo()) {
             File file = new File(videoInfo.getVideoPath());
@@ -272,7 +272,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
     public void a(boolean z, PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             postWriteCallBackData.getErrorString();
-            if (AntiHelper.tn(postWriteCallBackData.getErrorCode())) {
+            if (AntiHelper.tx(postWriteCallBackData.getErrorCode())) {
                 AntiHelper.ar(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
             } else if (postWriteCallBackData.getErrorCode() != 0) {
                 String errorString = postWriteCallBackData.getErrorString();
@@ -286,27 +286,27 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
         }
     }
 
-    public void QS() {
-        this.cvO = new c(getPageContext().getPageActivity());
-        this.cvO.setOnCancelListener(this.mDialogCancelListener);
-        this.cvO.setCancelable(true);
-        this.cvO.setCanceledOnTouchOutside(false);
-        g.a(this.cvO, getPageContext().getPageActivity());
+    public void Rr() {
+        this.czg = new c(getPageContext().getPageActivity());
+        this.czg.setOnCancelListener(this.mDialogCancelListener);
+        this.czg.setCancelable(true);
+        this.czg.setCanceledOnTouchOutside(false);
+        g.a(this.czg, getPageContext().getPageActivity());
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        blL();
+        bmB();
         destroyWaitingDialog();
         this.mDialogCancelListener = null;
         closeLoadingDialog();
-        e.fP().removeCallbacks(this.gCm);
+        e.ga().removeCallbacks(this.gFp);
         super.finish();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void destroyWaitingDialog() {
-        this.cvO = null;
+        this.czg = null;
     }
 
     @Override // android.app.Activity
@@ -317,8 +317,8 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
                 b((PostWriteCallBackData) intent.getExtras().getSerializable(WriteActivityConfig.POST_WRITE_CALLBACK_DATA));
             }
         } else if (i == 25013 && i2 == -1) {
-            sU(intent.getStringExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED));
-            DM();
+            tb(intent.getStringExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED));
+            DU();
         }
     }
 
@@ -334,51 +334,51 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.gCg.onChangeSkinType(i);
+        this.gFj.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gCk != null) {
-            this.gCk.destroy();
+        if (this.gFn != null) {
+            this.gFn.destroy();
         }
-        e.fP().removeCallbacks(this.gCj);
+        e.ga().removeCallbacks(this.gFm);
     }
 
-    protected void blL() {
-        if (this.aCE != null) {
-            this.aCE.cancelLoadData();
+    protected void bmB() {
+        if (this.aDV != null) {
+            this.aDV.cancelLoadData();
         }
-        if (this.gCg.byO() != null) {
-            this.gCg.byO().blL();
+        if (this.gFj.bzC() != null) {
+            this.gFj.bzC().bmB();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.cvO != null && this.cvO.isShowing()) {
-                g.b(this.cvO, getPageContext());
+            if (this.czg != null && this.czg.isShowing()) {
+                g.b(this.czg, getPageContext());
                 return true;
             }
-            byJ();
+            bzx();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void byJ() {
+    private void bzx() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.ca(d.l.give_up_video_confirm);
+        aVar.cc(d.l.give_up_video_confirm);
         aVar.a(d.l.dialog_ok, new a.b() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.7
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                WriteVideoActivity.this.blL();
+                WriteVideoActivity.this.bmB();
                 TiebaStatic.log("c10800");
-                WriteVideoActivity.this.byI();
+                WriteVideoActivity.this.bzw();
                 WriteVideoActivity.this.finish();
             }
         });
@@ -388,25 +388,25 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
                 aVar2.dismiss();
             }
         });
-        aVar.b(getPageContext()).th();
+        aVar.b(getPageContext()).tr();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gCg.byP()) {
-            byK();
-        } else if (view == this.gCg.byQ()) {
-            if (com.baidu.tieba.write.video.a.gCo - this.gCg.byN() < 0) {
+        if (view == this.gFj.bzD()) {
+            bzy();
+        } else if (view == this.gFj.bzE()) {
+            if (com.baidu.tieba.write.video.a.gFr - this.gFj.bzB() < 0) {
                 showToast(getResources().getString(d.l.video_content_overflow));
             } else {
-                byL();
+                bzz();
             }
-        } else if (view == this.gCg.getBackButton()) {
-            byJ();
+        } else if (view == this.gFj.getBackButton()) {
+            bzx();
         }
     }
 
-    private void byK() {
+    private void bzy() {
         if (this.mData.getVideoInfo() != null) {
             if (TextUtils.isEmpty(this.mData.getVideoInfo().getVideoPath())) {
                 showToast(d.l.file_not_exist);
@@ -418,23 +418,23 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
         }
     }
 
-    private void byL() {
-        if (!i.hh()) {
+    private void bzz() {
+        if (!i.hr()) {
             showToast(d.l.neterror);
             return;
         }
-        this.gCk.setThreadTitle(this.gCg.getContent());
-        this.gCk.setThreadContent("");
-        this.gCk.Pm();
+        this.gFn.setThreadTitle(this.gFj.getContent());
+        this.gFn.setThreadContent("");
+        this.gFn.Py();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeLoadingDialog() {
-        if (this.cvO != null) {
-            if (this.cvO.isShowing()) {
-                g.b(this.cvO, getPageContext());
+        if (this.czg != null) {
+            if (this.czg.isShowing()) {
+                g.b(this.czg, getPageContext());
             }
-            this.cvO = null;
+            this.czg = null;
         }
     }
 
@@ -452,7 +452,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.gCh.onTouchEvent(motionEvent)) {
+        if (this.gFk.onTouchEvent(motionEvent)) {
             motionEvent.setAction(3);
         }
         return super.dispatchTouchEvent(motionEvent);

@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class bh {
-    private int WA;
+    private int XY;
     private Object data;
 
-    public int qV() {
-        return this.WA;
+    public int rf() {
+        return this.XY;
     }
 
-    public void bM(int i) {
-        this.WA = i;
+    public void bO(int i) {
+        this.XY = i;
     }
 
     public Object getData() {

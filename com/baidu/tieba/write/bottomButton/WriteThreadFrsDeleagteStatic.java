@@ -21,13 +21,13 @@ public class WriteThreadFrsDeleagteStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c EO() {
+    public c EW() {
         c cVar = new c();
-        cVar.aGr = new a();
+        cVar.aHH = new a();
         cVar.type = 99;
-        cVar.aGs = d.l.home_write;
-        cVar.aGt = d.g.home_bottom_selector;
-        cVar.aGx = c.aGu;
+        cVar.aHI = d.l.home_write;
+        cVar.aHJ = d.g.home_bottom_selector;
+        cVar.aHN = c.aHK;
         return cVar;
     }
 
@@ -36,12 +36,12 @@ public class WriteThreadFrsDeleagteStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c EP;
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null && ((ad) customResponsedMessage.getData()).iN(99)) {
+                c EX;
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null && ((ad) customResponsedMessage.getData()).iP(99)) {
                     WriteThreadFrsDeleagteStatic writeThreadFrsDeleagteStatic = new WriteThreadFrsDeleagteStatic();
                     ((ad) customResponsedMessage.getData()).b(writeThreadFrsDeleagteStatic);
-                    if (((ad) customResponsedMessage.getData()).getContext() != null && (EP = writeThreadFrsDeleagteStatic.EP()) != null) {
-                        EP.aGr.setArguments(new Bundle());
+                    if (((ad) customResponsedMessage.getData()).getContext() != null && (EX = writeThreadFrsDeleagteStatic.EX()) != null) {
+                        EX.aHH.setArguments(new Bundle());
                     }
                 }
             }
@@ -49,9 +49,9 @@ public class WriteThreadFrsDeleagteStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator aS(Context context) {
-        this.aGe = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
-        this.aGe.setTextSize(2.0f);
-        return this.aGe;
+    public FragmentTabIndicator aT(Context context) {
+        this.aHu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+        this.aHu.setTextSize(2.0f);
+        return this.aHu;
     }
 }

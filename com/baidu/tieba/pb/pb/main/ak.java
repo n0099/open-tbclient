@@ -10,26 +10,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ak extends j.a {
-    public View cPy;
-    private List<TextLineView> eMA;
-    private int eMB;
-    private View.OnClickListener eMC;
-    private View.OnClickListener eMD;
-    private View.OnClickListener eME;
-    public TextLineView eMy;
-    public TextLineView eMz;
-    public TextView esJ;
+    public View cSQ;
+    public TextLineView ePF;
+    public TextLineView ePG;
+    private List<TextLineView> ePH;
+    private int ePI;
+    private View.OnClickListener ePJ;
+    private View.OnClickListener ePK;
+    private View.OnClickListener ePL;
+    public TextView evV;
     public int mSkinType;
 
     public ak(View view) {
         super(view);
         this.mSkinType = 3;
-        this.eMB = 0;
-        this.eMD = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ak.1
+        this.ePI = 0;
+        this.ePK = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ak.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (com.baidu.adp.lib.util.i.hh()) {
-                    for (TextLineView textLineView : ak.this.eMA) {
+                if (com.baidu.adp.lib.util.i.hr()) {
+                    for (TextLineView textLineView : ak.this.ePH) {
                         if (textLineView != null) {
                             if (textLineView != view2) {
                                 textLineView.setSelected(false);
@@ -39,74 +39,74 @@ public class ak extends j.a {
                         }
                     }
                 }
-                if (ak.this.eMC != null) {
-                    ak.this.eMC.onClick(view2);
+                if (ak.this.ePJ != null) {
+                    ak.this.ePJ.onClick(view2);
                 }
             }
         };
-        this.eME = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ak.2
+        this.ePL = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ak.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (com.baidu.adp.lib.util.i.hh()) {
-                    ak.this.aSC();
-                    view2.setTag(Boolean.valueOf(ak.this.eMB == 0));
+                if (com.baidu.adp.lib.util.i.hr()) {
+                    ak.this.aTu();
+                    view2.setTag(Boolean.valueOf(ak.this.ePI == 0));
                 }
-                if (ak.this.eMC != null) {
-                    ak.this.eMC.onClick(view2);
+                if (ak.this.ePJ != null) {
+                    ak.this.ePJ.onClick(view2);
                 }
             }
         };
         if (view != null) {
-            this.eMy = (TextLineView) view.findViewById(d.h.reply_title);
-            this.eMy.setOnClickListener(this.eMD);
-            this.eMz = (TextLineView) view.findViewById(d.h.floor_owner_reply);
-            this.eMz.setOnClickListener(this.eMD);
-            this.esJ = (TextView) view.findViewById(d.h.pb_sort);
-            this.esJ.setOnClickListener(this.eME);
-            this.eMy.setSelected(true);
-            this.eMz.setSelected(false);
-            this.eMA = new ArrayList();
-            this.eMA.add(this.eMy);
-            this.eMA.add(this.eMz);
-            this.cPy = view.findViewById(d.h.divider_with_reply_title);
-            jA(true);
+            this.ePF = (TextLineView) view.findViewById(d.h.reply_title);
+            this.ePF.setOnClickListener(this.ePK);
+            this.ePG = (TextLineView) view.findViewById(d.h.floor_owner_reply);
+            this.ePG.setOnClickListener(this.ePK);
+            this.evV = (TextView) view.findViewById(d.h.pb_sort);
+            this.evV.setOnClickListener(this.ePL);
+            this.ePF.setSelected(true);
+            this.ePG.setSelected(false);
+            this.ePH = new ArrayList();
+            this.ePH.add(this.ePF);
+            this.ePH.add(this.ePG);
+            this.cSQ = view.findViewById(d.h.divider_with_reply_title);
+            jD(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSC() {
+    public void aTu() {
         if (!TbadkCoreApplication.isLogin()) {
-            this.esJ.setVisibility(8);
+            this.evV.setVisibility(8);
             return;
         }
-        this.esJ.setVisibility(0);
-        if (this.eMB == 1) {
-            this.esJ.setText(d.l.pb_sort_new);
-            this.esJ.setCompoundDrawablesWithIntrinsicBounds(d.g.icon_pb_sort_new, 0, 0, 0);
-            this.eMB = 0;
-        } else if (this.eMB == 0) {
-            this.esJ.setText(d.l.pb_sort_old);
-            this.esJ.setCompoundDrawablesWithIntrinsicBounds(d.g.icon_pb_sort_old, 0, 0, 0);
-            this.eMB = 1;
+        this.evV.setVisibility(0);
+        if (this.ePI == 1) {
+            this.evV.setText(d.l.pb_sort_new);
+            this.evV.setCompoundDrawablesWithIntrinsicBounds(d.g.icon_pb_sort_new, 0, 0, 0);
+            this.ePI = 0;
+        } else if (this.ePI == 0) {
+            this.evV.setText(d.l.pb_sort_old);
+            this.evV.setCompoundDrawablesWithIntrinsicBounds(d.g.icon_pb_sort_old, 0, 0, 0);
+            this.ePI = 1;
         }
     }
 
-    public void jA(boolean z) {
-        this.eMB = z ? 1 : 0;
-        aSC();
+    public void jD(boolean z) {
+        this.ePI = z ? 1 : 0;
+        aTu();
     }
 
-    public void jB(boolean z) {
+    public void jE(boolean z) {
         if (z) {
-            this.eMz.setSelected(true);
-            this.eMy.setSelected(false);
+            this.ePG.setSelected(true);
+            this.ePF.setSelected(false);
             return;
         }
-        this.eMz.setSelected(false);
-        this.eMy.setSelected(true);
+        this.ePG.setSelected(false);
+        this.ePF.setSelected(true);
     }
 
     public void H(View.OnClickListener onClickListener) {
-        this.eMC = onClickListener;
+        this.ePJ = onClickListener;
     }
 }

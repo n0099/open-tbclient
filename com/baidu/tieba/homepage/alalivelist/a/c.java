@@ -10,30 +10,30 @@ import com.baidu.tbadk.core.util.aj;
 import com.baidu.tieba.card.x;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.alalivelist.view.b, a> {
-    public BdUniqueId aNy;
-    private TbPageContext<?> ako;
-    private com.baidu.tieba.homepage.alalivelist.view.c cNR;
-    x<com.baidu.tieba.homepage.alalivelist.view.b> cNS;
+    public BdUniqueId aON;
+    private com.baidu.tieba.homepage.alalivelist.view.c cRj;
+    x<com.baidu.tieba.homepage.alalivelist.view.b> cRk;
+    private TbPageContext<?> oV;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cNS = new x<com.baidu.tieba.homepage.alalivelist.view.b>() { // from class: com.baidu.tieba.homepage.alalivelist.a.c.1
+        this.cRk = new x<com.baidu.tieba.homepage.alalivelist.view.b>() { // from class: com.baidu.tieba.homepage.alalivelist.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, com.baidu.tieba.homepage.alalivelist.view.b bVar) {
             }
         };
-        this.ako = tbPageContext;
+        this.oV = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ai */
+    /* renamed from: aj */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cNR = new com.baidu.tieba.homepage.alalivelist.view.c(this.ako);
-        this.cNR.i(this.ako.getUniqueId());
-        return new a(this.cNR);
+        this.cRj = new com.baidu.tieba.homepage.alalivelist.view.c(this.oV);
+        this.cRj.i(this.oV.getUniqueId());
+        return new a(this.cRj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,11 +41,11 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.alalivelist.view.b bVar, a aVar) {
-        aVar.cNU.a(bVar);
-        aVar.cNU.a(this.cNS);
+        aVar.cRm.a(bVar);
+        aVar.cRm.b(this.cRk);
         int i2 = 0;
-        if (bVar != null && bVar.bbB != null) {
-            i2 = bVar.bbB.rN().live_type;
+        if (bVar != null && bVar.bcM != null) {
+            i2 = bVar.bcM.rX().live_type;
         }
         TiebaStatic.log(new aj("c11826").r("obj_type", i2));
         return aVar.getView();
@@ -54,11 +54,11 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends j.a {
-        public com.baidu.tieba.homepage.alalivelist.view.c cNU;
+        public com.baidu.tieba.homepage.alalivelist.view.c cRm;
 
         public a(com.baidu.tieba.homepage.alalivelist.view.c cVar) {
             super(cVar.getView());
-            this.cNU = cVar;
+            this.cRm = cVar;
         }
     }
 }

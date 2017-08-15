@@ -20,7 +20,7 @@ import com.baidu.tbadk.img.UploadedImageInfo;
 import com.baidu.tbadk.p.s;
 /* loaded from: classes.dex */
 public class b {
-    private static final s cIf = new s();
+    private static final s cLx = new s();
 
     public static boolean b(Context context, String str, String str2, int i) {
         return a(context, str, str2, null, i);
@@ -30,7 +30,7 @@ public class b {
         com.baidu.tieba.tbadkCore.util.d dVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, com.baidu.tieba.tbadkCore.util.d.class);
         if (runTask != null && (dVar = (com.baidu.tieba.tbadkCore.util.d) runTask.getData()) != null) {
-            if (dVar.amJ() <= 0) {
+            if (dVar.anC() <= 0) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i, str, str2)));
             } else {
                 new GraffitiTabActivityConfig(context, str, str2, str3).start();
@@ -44,20 +44,20 @@ public class b {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i)));
     }
 
-    public static boolean alM() {
-        return cIf.fS() && TbadkCoreApplication.getInst().appResponseToIntentClass(GraffitiPaintActivityConfig.class);
+    public static boolean amF() {
+        return cLx.ge() && TbadkCoreApplication.getInst().appResponseToIntentClass(GraffitiPaintActivityConfig.class);
     }
 
-    public static boolean aq(View view) {
-        boolean fS = cIf.fS();
+    public static boolean as(View view) {
+        boolean ge = cLx.ge();
         if (view != null && view.getVisibility() != 8) {
-            view.setVisibility(fS ? 8 : 0);
+            view.setVisibility(ge ? 8 : 0);
         }
-        return !fS;
+        return !ge;
     }
 
     public static String f(String str, int i, int i2) {
-        return r.aP(String.format("%s_%d_%d_%s", str, Integer.valueOf(i), Integer.valueOf(i2), "graffiti@TB#ub2016"));
+        return r.aV(String.format("%s_%d_%d_%s", str, Integer.valueOf(i), Integer.valueOf(i2), "graffiti@TB#ub2016"));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [109=4] */
@@ -68,8 +68,8 @@ public class b {
         return String.format("#(graffiti,%s,%d,%d,%s)", uploadedImageInfo.getPic_id(), Integer.valueOf(uploadedImageInfo.getWidth()), Integer.valueOf(uploadedImageInfo.getHeight()), f(uploadedImageInfo.getPic_id(), uploadedImageInfo.getWidth(), uploadedImageInfo.getHeight()));
     }
 
-    public static void N(Intent intent) {
-        if (intent != null || alM()) {
+    public static void P(Intent intent) {
+        if (intent != null || amF()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new d(intent.getStringExtra(GraffitiPaintActivityConfig.GRAFFITO_FILE_NAME), intent.getIntExtra("from", -1))));
         }
     }
@@ -81,7 +81,7 @@ public class b {
         TiebaStatic.log(new aj("c11001").aa("obj_id", writeData.getGraffitiImageId()).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, writeData.getType() == 0 ? 1 : 2));
     }
 
-    public static boolean O(Intent intent) {
+    public static boolean Q(Intent intent) {
         return intent != null && intent.getIntExtra("from", -1) == 5;
     }
 }

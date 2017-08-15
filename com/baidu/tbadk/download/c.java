@@ -3,8 +3,8 @@ package com.baidu.tbadk.download;
 import java.io.File;
 /* loaded from: classes.dex */
 public class c {
-    public File aAh;
-    public String aAi;
-    public String aAj;
+    public String aBA;
+    public String aBB;
+    public File aBz;
     public int maxSize;
 }

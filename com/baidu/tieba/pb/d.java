@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.view.n;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d {
-    private static String eAD;
+    private static String eDK;
 
     public static SpannableStringBuilder ao(Context context, String str) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
@@ -21,10 +21,10 @@ public class d {
         return spannableStringBuilder;
     }
 
-    public static String aOz() {
-        if (TextUtils.isEmpty(eAD)) {
-            eAD = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("nick_name_activity_link", "");
+    public static String aPr() {
+        if (TextUtils.isEmpty(eDK)) {
+            eDK = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("nick_name_activity_link", "");
         }
-        return eAD;
+        return eDK;
     }
 }

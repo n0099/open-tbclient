@@ -19,14 +19,14 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 import com.baidu.tieba.write.a.c;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout implements s {
-    private int JS;
-    private i JT;
-    private TextView bpg;
-    private boolean djj;
-    protected LocationInfoView gAV;
-    private EditorInfoView gAW;
-    private com.baidu.tieba.d.b gAX;
-    private String gAY;
+    private int Ls;
+    private i Lt;
+    private TextView bqX;
+    private boolean dmy;
+    protected LocationInfoView gDY;
+    private EditorInfoView gDZ;
+    private com.baidu.tieba.d.b gEa;
+    private String gEb;
     private View.OnClickListener mOnClickListener;
 
     public a(Context context) {
@@ -35,11 +35,11 @@ public class a extends RelativeLayout implements s {
 
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.djj = true;
+        this.dmy = true;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == a.this.bpg) {
+                if (view == a.this.bqX) {
                     a.this.b(new com.baidu.tbadk.editortools.a(51, -1, null));
                 }
             }
@@ -49,56 +49,56 @@ public class a extends RelativeLayout implements s {
         setPadding(dimension, 0, dimension, 0);
         setGravity(48);
         int dimensionPixelSize = getResources().getDimensionPixelSize(d.f.ds16);
-        this.gAV = new LocationInfoView(context);
-        this.gAV.setId(d.h.editor_id_location);
-        this.gAW = new EditorInfoView(context);
-        this.gAW.setId(d.h.view_write_thread_add_title);
+        this.gDY = new LocationInfoView(context);
+        this.gDY.setId(d.h.editor_id_location);
+        this.gDZ = new EditorInfoView(context);
+        this.gDZ.setId(d.h.view_write_thread_add_title);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = dimensionPixelSize;
-        addView(this.gAV, layoutParams);
+        addView(this.gDY, layoutParams);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams2.rightMargin = dimensionPixelSize;
         layoutParams2.addRule(1, d.h.editor_id_location);
-        addView(this.gAW, layoutParams2);
-        this.bpg = (TextView) LayoutInflater.from(context).inflate(d.j.view_select_forum, (ViewGroup) null);
+        addView(this.gDZ, layoutParams2);
+        this.bqX = (TextView) LayoutInflater.from(context).inflate(d.j.view_select_forum, (ViewGroup) null);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(d.f.ds48));
         layoutParams3.addRule(1, d.h.view_write_thread_add_title);
-        addView(this.bpg, layoutParams3);
-        this.bpg.setOnClickListener(this.mOnClickListener);
-        this.gAW.setText(context.getString(d.l.write_add_title));
+        addView(this.bqX, layoutParams3);
+        this.bqX.setOnClickListener(this.mOnClickListener);
+        this.gDZ.setText(context.getString(d.l.write_add_title));
         int dimension2 = (int) context.getResources().getDimension(d.f.ds26);
-        this.gAW.setPadding(dimension2, 0, dimension2, 0);
-        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.gAW.getLayoutParams();
+        this.gDZ.setPadding(dimension2, 0, dimension2, 0);
+        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.gDZ.getLayoutParams();
         layoutParams4.rightMargin = dimensionPixelSize;
-        this.gAW.setLayoutParams(layoutParams4);
-        ai.i(this.gAW, d.e.cp_cont_f);
-        ai.j(this.gAW, d.g.write_add_title_bg);
-        this.gAV.setPadding(dimension2, 0, dimension2, 0);
-        ai.i(this.gAV, d.e.cp_cont_f);
-        ai.j(this.gAV, d.g.write_add_title_bg);
-        this.gAW.setVisibility(0);
-        this.gAV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.b.a.1
+        this.gDZ.setLayoutParams(layoutParams4);
+        ai.i(this.gDZ, d.e.cp_cont_f);
+        ai.j(this.gDZ, d.g.write_add_title_bg);
+        this.gDY.setPadding(dimension2, 0, dimension2, 0);
+        ai.i(this.gDY, d.e.cp_cont_f);
+        ai.j(this.gDY, d.g.write_add_title_bg);
+        this.gDZ.setVisibility(0);
+        this.gDY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.b.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.b(new com.baidu.tbadk.editortools.a(18, -1, null));
             }
         });
-        this.gAW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.b.a.2
+        this.gDZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.b.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.gAW.setVisibility(8);
+                a.this.gDZ.setVisibility(8);
                 a.this.b(new com.baidu.tbadk.editortools.a(45, -1, null));
             }
         });
     }
 
     public void setCallFrom(String str) {
-        this.gAY = str;
+        this.gEb = str;
     }
 
-    public void byu() {
-        if (this.gAX != null) {
-            this.gAX.Yd();
+    public void bzi() {
+        if (this.gEa != null) {
+            this.gEa.YD();
         }
     }
 
@@ -109,7 +109,7 @@ public class a extends RelativeLayout implements s {
     }
 
     public LocationInfoView getLocationInfoView() {
-        return this.gAV;
+        return this.gDY;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -130,44 +130,44 @@ public class a extends RelativeLayout implements s {
             case 19:
                 if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.editortools.d.a)) {
                     com.baidu.tbadk.editortools.d.a aVar2 = (com.baidu.tbadk.editortools.d.a) aVar.data;
-                    this.gAV.setVisibility(aVar2.aCw ? 0 : 8);
-                    this.gAV.l(aVar2.state, aVar2.addr);
+                    this.gDY.setVisibility(aVar2.aDN ? 0 : 8);
+                    this.gDY.l(aVar2.state, aVar2.addr);
                     return;
                 }
                 return;
             case 20:
-                this.gAV.setVisibility(8);
+                this.gDY.setVisibility(8);
                 return;
             case 21:
-                this.gAW.setVisibility(8);
+                this.gDZ.setVisibility(8);
                 return;
             case 50:
                 if (aVar.data instanceof c) {
                     c cVar = (c) aVar.data;
-                    if ("1".equals(this.gAY)) {
-                        if (this.gAX == null) {
-                            this.gAX = new com.baidu.tieba.d.b(cVar.context, this.bpg);
+                    if ("1".equals(this.gEb)) {
+                        if (this.gEa == null) {
+                            this.gEa = new com.baidu.tieba.d.b(cVar.context, this.bqX);
                         }
-                        this.gAX.hH(d.g.pic_sign_tip_down);
-                        this.gAX.m(new View.OnClickListener() { // from class: com.baidu.tieba.write.b.a.4
+                        this.gEa.hJ(d.g.pic_sign_tip_down);
+                        this.gEa.m(new View.OnClickListener() { // from class: com.baidu.tieba.write.b.a.4
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
-                                a.this.gAX.Yd();
+                                a.this.gEa.YD();
                             }
                         });
                         int dimensionPixelSize = getResources().getDimensionPixelSize(d.f.ds10);
                         int dimensionPixelSize2 = getResources().getDimensionPixelSize(d.f.ds24);
-                        this.gAX.k(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
-                        this.gAX.hL(0);
-                        this.gAX.hM(-67);
-                        this.gAX.hI(5000);
-                        this.gAX.aH(getResources().getString(d.l.select_forum_tip), "show_select_forum_tip");
+                        this.gEa.l(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
+                        this.gEa.hN(0);
+                        this.gEa.hO(-67);
+                        this.gEa.hK(5000);
+                        this.gEa.aH(getResources().getString(d.l.select_forum_tip), "show_select_forum_tip");
                     }
-                    if (StringUtils.isNull(cVar.bpj)) {
-                        this.bpg.setText(getResources().getString(d.l.select_forum));
+                    if (StringUtils.isNull(cVar.bra)) {
+                        this.bqX.setText(getResources().getString(d.l.select_forum));
                         return;
                     } else {
-                        this.bpg.setText(v.C(cVar.bpj, 20));
+                        this.bqX.setText(v.C(cVar.bra, 20));
                         return;
                     }
                 }
@@ -176,9 +176,9 @@ public class a extends RelativeLayout implements s {
     }
 
     @Override // com.baidu.tbadk.editortools.s
-    public void lJ() {
-        if (this.djj) {
-            this.djj = false;
+    public void lT() {
+        if (this.dmy) {
+            this.dmy = false;
             b(new com.baidu.tbadk.editortools.a(18, -1, "first"));
         }
         setVisibility(0);
@@ -186,13 +186,13 @@ public class a extends RelativeLayout implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public int getToolId() {
-        return this.JS;
+        return this.Ls;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void hide() {
-        if (this.gAX != null) {
-            this.gAX.Yd();
+        if (this.gEa != null) {
+            this.gEa.YD();
         }
         setVisibility(8);
     }
@@ -203,33 +203,33 @@ public class a extends RelativeLayout implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
-        if (this.gAW != null) {
-            this.gAW.wV();
+        if (this.gDZ != null) {
+            this.gDZ.xd();
         }
-        if (this.gAV != null) {
-            this.gAV.wV();
+        if (this.gDY != null) {
+            this.gDY.xd();
         }
-        ai.i(this.bpg, d.e.cp_link_tip_a);
+        ai.i(this.bqX, d.e.cp_link_tip_a);
         Drawable drawable = ai.getDrawable(d.g.selector_select_forum);
         int dimensionPixelSize = getResources().getDimensionPixelSize(d.f.ds24);
         drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-        this.bpg.setCompoundDrawables(null, null, drawable, null);
+        this.bqX.setCompoundDrawables(null, null, drawable, null);
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.JT != null) {
-            this.JT.b(aVar);
+        if (this.Lt != null) {
+            this.Lt.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setEditorTools(i iVar) {
-        this.JT = iVar;
+        this.Lt = iVar;
     }
 
     @Override // com.baidu.tbadk.editortools.s
     public void setToolId(int i) {
-        this.JS = i;
+        this.Ls = i;
     }
 }

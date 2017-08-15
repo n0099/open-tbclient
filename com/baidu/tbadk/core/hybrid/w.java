@@ -6,7 +6,7 @@ import java.net.URL;
 /* loaded from: classes.dex */
 class w {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cX(String str) {
+    public static boolean dd(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
@@ -26,7 +26,7 @@ class w {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cY(String str) {
+    public static boolean de(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }

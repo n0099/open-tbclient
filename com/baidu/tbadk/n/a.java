@@ -110,8 +110,8 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String netType = h.getNetType();
         if (netType != null) {
-            if (com.baidu.tbadk.coreExtra.b.a.xI().xJ()) {
-                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xI().xK()));
+            if (com.baidu.tbadk.coreExtra.b.a.xQ().xR()) {
+                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xQ().xS()));
             }
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
@@ -155,22 +155,22 @@ public class a extends com.baidu.adp.framework.a.d {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, r.aP(stringBuffer.toString()));
+        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, r.aV(stringBuffer.toString()));
     }
 
     private void d(HttpMessage httpMessage) {
-        z.a vm = z.vm();
-        if (vm != null) {
-            httpMessage.addParam("stTime", String.valueOf(vm.mTime));
-            httpMessage.addParam("stSize", String.valueOf(vm.afO));
-            httpMessage.addParam("stTimesNum", String.valueOf(vm.afP));
-            httpMessage.addParam("stMode", String.valueOf(vm.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(vm.afN));
+        z.a vw = z.vw();
+        if (vw != null) {
+            httpMessage.addParam("stTime", String.valueOf(vw.mTime));
+            httpMessage.addParam("stSize", String.valueOf(vw.ahk));
+            httpMessage.addParam("stTimesNum", String.valueOf(vw.ahl));
+            httpMessage.addParam("stMode", String.valueOf(vw.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(vw.mMethod));
         }
-        int cH = z.cH(0);
-        if (cH == 0 && vm != null) {
-            cH = vm.afP;
+        int cJ = z.cJ(0);
+        if (cJ == 0 && vw != null) {
+            cJ = vw.ahl;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cH));
+        httpMessage.addParam("stErrorNums", String.valueOf(cJ));
     }
 }

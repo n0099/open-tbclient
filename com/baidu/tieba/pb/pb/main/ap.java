@@ -26,13 +26,13 @@ public class ap {
     }
 
     public static boolean k(PostData postData) {
-        if (postData == null || postData.bsz() == null) {
+        if (postData == null || postData.bto() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.h bsz = postData.bsz();
-        if (bsz.ggk) {
-            int brY = bsz.brY();
-            return brY == 2 || brY == 1 || brY == 3;
+        com.baidu.tieba.tbadkCore.data.h bto = postData.bto();
+        if (bto.gjo) {
+            int bsN = bto.bsN();
+            return bsN == 2 || bsN == 1 || bsN == 3;
         }
         return false;
     }

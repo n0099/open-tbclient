@@ -15,29 +15,29 @@ public interface l<T> {
     /* loaded from: classes.dex */
     public static class c<T> {
         public String key;
-        public T sG;
-        public long tA;
-        public long tP;
+        public T up;
+        public long vg;
+        public long vv;
     }
 
     /* loaded from: classes.dex */
     public interface d<T> extends l<T> {
-        String eH();
+        String eS();
 
-        k<T> eI();
+        k<T> eT();
 
-        void eJ();
+        void eU();
     }
-
-    c<T> W(String str);
-
-    void X(String str);
 
     void a(String str, a<T> aVar);
 
     void a(String str, b<T> bVar);
 
     void a(String str, T t, long j);
+
+    c<T> ac(String str);
+
+    void ad(String str);
 
     void b(String str, T t, long j);
 

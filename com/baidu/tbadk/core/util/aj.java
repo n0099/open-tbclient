@@ -34,7 +34,7 @@ public class aj {
         return this;
     }
 
-    public aj f(String str, long j) {
+    public aj g(String str, long j) {
         this.params.add(str);
         this.params.add(Long.valueOf(j));
         return this;

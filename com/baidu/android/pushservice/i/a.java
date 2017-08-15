@@ -10,15 +10,15 @@ public class a extends ThreadPoolExecutor {
 
     /* renamed from: com.baidu.android.pushservice.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    protected class C0022a<V> extends FutureTask<V> implements Comparable<C0022a<V>> {
+    protected class C0021a<V> extends FutureTask<V> implements Comparable<C0021a<V>> {
         private Object b;
 
-        public C0022a(Runnable runnable, V v) {
+        public C0021a(Runnable runnable, V v) {
             super(runnable, v);
             this.b = runnable;
         }
 
-        public C0022a(Callable<V> callable) {
+        public C0021a(Callable<V> callable) {
             super(callable);
             this.b = callable;
         }
@@ -26,17 +26,17 @@ public class a extends ThreadPoolExecutor {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         /* renamed from: a */
-        public int compareTo(C0022a<V> c0022a) {
-            if (this == c0022a) {
+        public int compareTo(C0021a<V> c0021a) {
+            if (this == c0021a) {
                 return 0;
             }
-            if (c0022a == null) {
+            if (c0021a == null) {
                 return -1;
             }
-            if (this.b == null || c0022a.b == null || !(this.b instanceof c) || !(c0022a.b instanceof c)) {
+            if (this.b == null || c0021a.b == null || !(this.b instanceof c) || !(c0021a.b instanceof c)) {
                 return 0;
             }
-            return ((c) c0022a.b).d() - ((c) this.b).d();
+            return ((c) c0021a.b).d() - ((c) this.b).d();
         }
     }
 
@@ -60,11 +60,11 @@ public class a extends ThreadPoolExecutor {
 
     @Override // java.util.concurrent.AbstractExecutorService
     protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T t) {
-        return new C0022a(runnable, t);
+        return new C0021a(runnable, t);
     }
 
     @Override // java.util.concurrent.AbstractExecutorService
     protected <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
-        return new C0022a(callable);
+        return new C0021a(callable);
     }
 }

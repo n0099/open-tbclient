@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
-    private BdUniqueId td;
-    private BdAsyncTaskParallelType te;
-    private int tf;
+    private BdUniqueId uL;
+    private BdAsyncTaskParallelType uM;
+    private int uN;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -19,40 +19,40 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.td = null;
-        this.te = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.tf = 1;
+        this.uL = null;
+        this.uM = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.uN = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.te = bdAsyncTaskParallelType;
-        this.td = bdUniqueId;
+        this.uM = bdAsyncTaskParallelType;
+        this.uL = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.td = null;
-        this.te = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.tf = 1;
+        this.uL = null;
+        this.uM = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.uN = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.te = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-        this.tf = i;
-        this.td = bdUniqueId;
+        this.uM = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.uN = i;
+        this.uL = bdUniqueId;
     }
 
-    public int er() {
-        return this.tf;
+    public int eC() {
+        return this.uN;
     }
 
     public int getTag() {
-        if (this.td == null) {
+        if (this.uL == null) {
             return 0;
         }
-        return this.td.getId();
+        return this.uL.getId();
     }
 
-    public BdAsyncTaskParallelType es() {
-        return this.te;
+    public BdAsyncTaskParallelType eD() {
+        return this.uM;
     }
 }

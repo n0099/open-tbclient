@@ -12,25 +12,25 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class TabItemView extends TextView {
-    public static int cuS = 0;
-    public static int cuT = 1;
-    public static int cuU = 2;
-    private d cuV;
-    private boolean cuW;
-    private int cuX;
+    public static int cyl = 0;
+    public static int cym = 1;
+    public static int cyn = 2;
+    private d cyo;
+    private boolean cyp;
+    private int cyq;
     private int mState;
 
     public TabItemView(Context context, d dVar, int i, boolean z) {
         super(context);
-        this.mState = cuS;
-        this.cuX = 0;
-        this.cuV = dVar;
-        this.cuW = z;
+        this.mState = cyl;
+        this.cyq = 0;
+        this.cyo = dVar;
+        this.cyp = z;
         n(context, i);
     }
 
     private void n(Context context, int i) {
-        if (this.cuW) {
+        if (this.cyp) {
             setPadding(0, k.g(getContext(), d.f.ds16), 0, 0);
             setTextSize(0, k.g(context, d.f.ds32));
         } else {
@@ -38,19 +38,19 @@ public class TabItemView extends TextView {
         }
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.cuV != null) {
-            setText(this.cuV.name);
+        if (this.cyo != null) {
+            setText(this.cyo.name);
         }
-        wV();
+        xd();
     }
 
     public void setState(int i) {
-        if (this.cuV != null && this.cuV.cuR != null && this.cuV.cuR.ckG != null && this.cuV.cuR.ckG.size() > 0) {
+        if (this.cyo != null && this.cyo.cyk != null && this.cyo.cyk.cmA != null && this.cyo.cyk.cmA.size() > 0) {
             int i2 = -k.g(getContext(), d.f.ds10);
-            if (!this.cuW) {
+            if (!this.cyp) {
                 i2 = 0;
             }
-            if (i == cuU) {
+            if (i == cyn) {
                 Drawable drawable = ai.getDrawable(d.g.icon_toolbar_arrow_up);
                 drawable.setBounds(0, i2, drawable.getMinimumWidth(), drawable.getMinimumHeight() + i2);
                 setCompoundDrawables(null, null, drawable, null);
@@ -61,14 +61,14 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(d.f.ds8));
         }
-        if (this.cuW) {
+        if (this.cyp) {
             ai.c(this, d.e.cp_cont_b, 1);
         } else {
-            if (i == cuT || i == cuU) {
-                if (this.cuX == 0) {
+            if (i == cym || i == cyn) {
+                if (this.cyq == 0) {
                     ai.c(this, d.e.cp_link_tip_a, 1);
                 } else {
-                    ai.c(this, this.cuX, 1);
+                    ai.c(this, this.cyq, 1);
                 }
             } else {
                 ai.c(this, d.e.cp_cont_f, 1);
@@ -80,17 +80,17 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.cuV == null) {
+        if (this.cyo == null) {
             return -1;
         }
-        return this.cuV.cuQ;
+        return this.cyo.cuL;
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void wV() {
+    public void xd() {
         setState(this.mState);
     }
 
@@ -98,7 +98,7 @@ public class TabItemView extends TextView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int spaceWidth = getSpaceWidth();
         if (spaceWidth >= 0) {
-            if (this.cuW) {
+            if (this.cyp) {
                 setPadding(0, k.g(getContext(), d.f.ds16), spaceWidth, 0);
             } else {
                 setPadding(0, 0, spaceWidth, 0);
@@ -127,10 +127,10 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.cuV == null) {
+        if (this.cyo == null) {
             return null;
         }
-        return this.cuV.url;
+        return this.cyo.url;
     }
 
     public int getDrawableWidth() {
@@ -143,10 +143,10 @@ public class TabItemView extends TextView {
     }
 
     public void setForNewFrame(boolean z) {
-        this.cuW = z;
+        this.cyp = z;
     }
 
     public void setSelectItemColorResId(int i) {
-        this.cuX = i;
+        this.cyq = i;
     }
 }
