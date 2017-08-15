@@ -7,24 +7,24 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.a;
 /* loaded from: classes.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity {
-    private a fgT;
+    private a fka;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.j.person_new_fragment_view);
-        this.fgT = new a();
+        this.fka = new a();
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE, true);
-        this.fgT.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().add(d.h.fragment_container, this.fgT).commit();
+        this.fka.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().add(d.h.fragment_container, this.fka).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.fgT != null) {
-            this.fgT.onChangeSkinType(i);
+        if (this.fka != null) {
+            this.fka.onChangeSkinType(i);
         }
     }
 

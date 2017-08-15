@@ -17,15 +17,15 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
-    private e dAe;
-    private int dAf;
-    private int dAg;
+    private e dDs;
+    private int dDt;
+    private int dDu;
 
     public MessageAggregationListAdapter(Context context) {
         super(context);
-        this.dAe = null;
-        this.dAf = 0;
-        this.dAg = 0;
+        this.dDs = null;
+        this.dDt = 0;
+        this.dDu = 0;
     }
 
     @Override // com.baidu.tieba.im.chat.a.b, android.widget.Adapter
@@ -47,7 +47,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.chat.a.b, android.widget.Adapter
-    /* renamed from: lM */
+    /* renamed from: lW */
     public ImMessageCenterShowItemData getItem(int i) {
         int i2;
         if (this.mList == null || this.mList.size() == 0 || i - 2 < 0 || i2 >= getCount()) {
@@ -77,56 +77,56 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
                 view = LayoutInflater.from(this.mContext).inflate(d.j.reply_and_at_item, viewGroup, false);
                 a aVar2 = new a();
-                aVar2.dAh = (LinearLayout) view.findViewById(d.h.reply_and_at_item);
-                aVar2.dAi = (TbImageView) view.findViewById(d.h.arrow_view);
-                aVar2.dhg = (HeadImageView) view.findViewById(d.h.reply_and_at_head);
-                aVar2.dhg.setIsRound(true);
-                aVar2.dhg.setDrawBorder(false);
-                aVar2.atu = view.findViewById(d.h.line);
-                aVar2.dhk = (TextView) view.findViewById(d.h.new_message);
-                aVar2.dhh = (TextView) view.findViewById(d.h.desc_view);
+                aVar2.dDv = (LinearLayout) view.findViewById(d.h.reply_and_at_item);
+                aVar2.dDw = (TbImageView) view.findViewById(d.h.arrow_view);
+                aVar2.dkv = (HeadImageView) view.findViewById(d.h.reply_and_at_head);
+                aVar2.dkv.setIsRound(true);
+                aVar2.dkv.setDrawBorder(false);
+                aVar2.auN = view.findViewById(d.h.line);
+                aVar2.dkz = (TextView) view.findViewById(d.h.new_message);
+                aVar2.dkw = (TextView) view.findViewById(d.h.desc_view);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            ai.c(aVar.dhh, d.e.cp_cont_b, 1);
+            ai.c(aVar.dkw, d.e.cp_cont_b, 1);
             ai.j(view, d.g.list_selector);
-            ai.j(aVar.atu, d.e.cp_bg_line_b);
-            ai.c(aVar.dhk, d.e.common_color_10225, 1);
-            aVar.dAi.setVisibility(8);
-            ai.c(aVar.dAi, d.g.icon_message_arrow);
+            ai.j(aVar.auN, d.e.cp_bg_line_b);
+            ai.c(aVar.dkz, d.e.common_color_10225, 1);
+            aVar.dDw.setVisibility(8);
+            ai.c(aVar.dDw, d.g.icon_message_arrow);
             if (itemViewType == 0) {
-                aVar.dAh.setTag(0);
-                a(this.dAf, aVar.dhk, aVar.dAi);
-                ai.c(aVar.dhg, d.g.icon_message_mess);
-                aVar.dhh.setText(d.l.reply_me);
+                aVar.dDv.setTag(0);
+                a(this.dDt, aVar.dkz, aVar.dDw);
+                ai.c(aVar.dkv, d.g.icon_message_mess);
+                aVar.dkw.setText(d.l.reply_me);
             } else {
-                ai.c(aVar.dhg, d.g.icon_message_at);
-                a(this.dAg, aVar.dhk, aVar.dAi);
-                aVar.dhh.setText(d.l.at_me);
-                aVar.dAh.setTag(1);
+                ai.c(aVar.dkv, d.g.icon_message_at);
+                a(this.dDu, aVar.dkz, aVar.dDw);
+                aVar.dkw.setText(d.l.at_me);
+                aVar.dDv.setTag(1);
             }
             view.setTag(aVar);
         } else {
             ImMessageCenterShowItemData item = getItem(i);
             if (item != null && String.valueOf(String.valueOf(2)).equals(item.getOwnerName())) {
                 if (item.getUnReadCount() >= 30) {
-                    if (this.dAe != null) {
-                        this.dAe.gO(true);
+                    if (this.dDs != null) {
+                        this.dDs.gR(true);
                     }
-                } else if (this.dAe != null) {
-                    this.dAe.gO(false);
+                } else if (this.dDs != null) {
+                    this.dDs.gR(false);
                 }
             }
             b.a aVar3 = view != null ? (b.a) view.getTag() : null;
             if (aVar3 == null) {
                 view = LayoutInflater.from(this.mContext).inflate(d.j.chat_list_item, viewGroup, false);
-                aVar3 = super.aE(view);
+                aVar3 = super.aG(view);
                 view.setTag(aVar3);
             }
-            ai.j(aVar3.atu, d.e.cp_bg_line_b);
-            aVar3.dhf.setVisibility(0);
-            aVar3.atu.setVisibility(0);
+            ai.j(aVar3.auN, d.e.cp_bg_line_b);
+            aVar3.dku.setVisibility(0);
+            aVar3.auN.setVisibility(0);
             if (item != null) {
                 super.a(aVar3, item);
                 super.d(aVar3, item);
@@ -136,11 +136,11 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
                 super.f(aVar3, item);
                 super.b(aVar3, item);
                 if (item.isSelected()) {
-                    ai.j(aVar3.dhn, d.g.btn_bgb_choice_s);
-                    ai.k(aVar3.dhf, d.e.cp_bg_line_e);
+                    ai.j(aVar3.dkC, d.g.btn_bgb_choice_s);
+                    ai.k(aVar3.dku, d.e.cp_bg_line_e);
                 } else {
-                    ai.j(aVar3.dhn, d.g.btn_bgb_choice_n);
-                    ai.j(aVar3.dhf, d.g.list_selector);
+                    ai.j(aVar3.dkC, d.g.btn_bgb_choice_n);
+                    ai.j(aVar3.dku, d.g.list_selector);
                 }
             }
         }
@@ -155,7 +155,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
                 if (i <= 99) {
                     String.valueOf(i);
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.b.zo().zr() == 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.b.zw().zz() == 0) {
                     valueOf = "";
                     i = 0;
                 } else {
@@ -183,35 +183,35 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
 
     @Override // com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter
     public void a(e eVar) {
-        this.dAe = eVar;
+        this.dDs = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter, com.baidu.tieba.im.chat.a.b
     public void g(b.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         super.g(aVar, imMessageCenterShowItemData);
-        aVar.dhg.setIsRound(true);
+        aVar.dkv.setIsRound(true);
     }
 
     /* loaded from: classes2.dex */
     private class a {
-        public View atu;
-        public LinearLayout dAh;
-        public TbImageView dAi;
-        public HeadImageView dhg;
-        public TextView dhh;
-        public TextView dhk;
+        public View auN;
+        public LinearLayout dDv;
+        public TbImageView dDw;
+        public HeadImageView dkv;
+        public TextView dkw;
+        public TextView dkz;
 
         private a() {
-            this.atu = null;
+            this.auN = null;
         }
     }
 
-    public void mI(int i) {
-        this.dAf = i;
+    public void mS(int i) {
+        this.dDt = i;
     }
 
-    public void mJ(int i) {
-        this.dAg = i;
+    public void mT(int i) {
+        this.dDu = i;
     }
 }

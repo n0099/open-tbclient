@@ -14,61 +14,61 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ExpandLayout extends LinearLayout {
-    public RelativeLayout cxm;
-    public AdapterLinearLayout cxn;
-    public ImageView cxo;
-    public boolean cxp;
-    private Animation cxq;
-    private Animation cxr;
+    public RelativeLayout cAE;
+    public AdapterLinearLayout cAF;
+    public ImageView cAG;
+    public boolean cAH;
+    private Animation cAI;
+    private Animation cAJ;
     private Context mContext;
 
     public ExpandLayout(Context context) {
         super(context);
-        this.cxp = false;
+        this.cAH = false;
         this.mContext = context;
         initView();
     }
 
     public ExpandLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cxp = false;
+        this.cAH = false;
         this.mContext = context;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(d.j.frs_expand_layout, this);
-        this.cxm = (RelativeLayout) findViewById(d.h.expandable_menu);
-        this.cxn = (AdapterLinearLayout) findViewById(d.h.top_layout);
-        this.cxo = (ImageView) findViewById(d.h.expandable_btn);
-        this.cxo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ExpandLayout.1
+        this.cAE = (RelativeLayout) findViewById(d.h.expandable_menu);
+        this.cAF = (AdapterLinearLayout) findViewById(d.h.top_layout);
+        this.cAG = (ImageView) findViewById(d.h.expandable_btn);
+        this.cAG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ExpandLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ExpandLayout.this.p(ExpandLayout.this.cxn, ExpandLayout.this.cxn.getVisibility() == 0 ? 1 : 0);
+                ExpandLayout.this.p(ExpandLayout.this.cAF, ExpandLayout.this.cAF.getVisibility() == 0 ? 1 : 0);
             }
         });
     }
 
     public void reset() {
-        if (this.cxp) {
-            if (this.cxo.getAnimation() != null) {
-                this.cxo.getAnimation().cancel();
+        if (this.cAH) {
+            if (this.cAG.getAnimation() != null) {
+                this.cAG.getAnimation().cancel();
             }
-            this.cxo.clearAnimation();
-            this.cxo.setVisibility(8);
-            this.cxn.setVisibility(8);
-            this.cxp = false;
+            this.cAG.clearAnimation();
+            this.cAG.setVisibility(8);
+            this.cAF.setVisibility(8);
+            this.cAH = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(final View view, final int i) {
         if (view == null || view.getAnimation() == null) {
-            int childCount = this.cxn.getChildCount();
+            int childCount = this.cAF.getChildCount();
             if (childCount < 0) {
                 childCount = 0;
             }
-            com.baidu.tieba.frs.e.a aVar = new com.baidu.tieba.frs.e.a(view, i, childCount * (((int) this.mContext.getResources().getDimension(d.f.ds80)) + ((int) this.mContext.getResources().getDimension(d.f.ds1))));
+            com.baidu.tieba.frs.d.a aVar = new com.baidu.tieba.frs.d.a(view, i, childCount * (((int) this.mContext.getResources().getDimension(d.f.ds80)) + ((int) this.mContext.getResources().getDimension(d.f.ds1))));
             if (i == 0 && view.getVisibility() != 0) {
                 view.setVisibility(0);
             }
@@ -100,40 +100,40 @@ public class ExpandLayout extends LinearLayout {
                 }
             });
             view.startAnimation(aVar);
-            if (this.cxo != null) {
-                if (this.cxo.getAnimation() == null || this.cxo.getAnimation().hasEnded()) {
+            if (this.cAG != null) {
+                if (this.cAG.getAnimation() == null || this.cAG.getAnimation().hasEnded()) {
                     if (i == 0) {
-                        if (this.cxq == null) {
-                            ajw();
+                        if (this.cAI == null) {
+                            akp();
                         }
-                        if (this.cxr != null) {
-                            this.cxr.cancel();
+                        if (this.cAJ != null) {
+                            this.cAJ.cancel();
                         }
-                        this.cxo.startAnimation(this.cxq);
+                        this.cAG.startAnimation(this.cAI);
                         return;
                     }
-                    if (this.cxr == null) {
-                        ajx();
+                    if (this.cAJ == null) {
+                        akq();
                     }
-                    if (this.cxq != null) {
-                        this.cxq.cancel();
+                    if (this.cAI != null) {
+                        this.cAI.cancel();
                     }
-                    this.cxo.startAnimation(this.cxr);
+                    this.cAG.startAnimation(this.cAJ);
                 }
             }
         }
     }
 
-    private void ajw() {
-        this.cxq = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_expand);
-        this.cxq.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.view.ExpandLayout.3
+    private void akp() {
+        this.cAI = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_expand);
+        this.cAI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.view.ExpandLayout.3
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                ExpandLayout.this.cxp = true;
+                ExpandLayout.this.cAH = true;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -142,9 +142,9 @@ public class ExpandLayout extends LinearLayout {
         });
     }
 
-    private void ajx() {
-        this.cxr = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_collapse);
-        this.cxr.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.view.ExpandLayout.4
+    private void akq() {
+        this.cAJ = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_collapse);
+        this.cAJ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.view.ExpandLayout.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -155,7 +155,7 @@ public class ExpandLayout extends LinearLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
-                ExpandLayout.this.cxp = false;
+                ExpandLayout.this.cAH = false;
             }
         });
     }

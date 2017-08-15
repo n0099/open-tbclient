@@ -6,19 +6,19 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class e {
-    private static Toast zd;
-    private boolean aeA;
+    private static Toast AG;
+    private boolean afW;
     private static Handler mHandler = new Handler();
-    private static Runnable aez = new Runnable() { // from class: com.baidu.tbadk.core.util.e.1
+    private static Runnable afV = new Runnable() { // from class: com.baidu.tbadk.core.util.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.zd != null) {
-                e.zd.cancel();
+            if (e.AG != null) {
+                e.AG.cancel();
             }
         }
     };
 
-    public static e uw() {
+    public static e uG() {
         return new e();
     }
 
@@ -26,24 +26,24 @@ public class e {
     }
 
     public void b(String str, int i, int i2) {
-        if (!this.aeA && str != null) {
+        if (!this.afW && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
-                mHandler.removeCallbacks(aez);
-                if (zd != null && zd.getView() != null) {
+                mHandler.removeCallbacks(afV);
+                if (AG != null && AG.getView() != null) {
                     try {
-                        zd.setText(trim);
+                        AG.setText(trim);
                     } catch (RuntimeException e) {
                         BdLog.e(e);
-                        zd = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                        zd.setGravity(17, 0, i2);
+                        AG = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                        AG.setGravity(17, 0, i2);
                     }
                 } else {
-                    zd = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    zd.setGravity(17, 0, i2);
+                    AG = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    AG.setGravity(17, 0, i2);
                 }
-                mHandler.postDelayed(aez, i);
-                zd.show();
+                mHandler.postDelayed(afV, i);
+                AG.show();
             }
         }
     }
@@ -65,19 +65,19 @@ public class e {
     }
 
     public void onPause() {
-        this.aeA = true;
+        this.afW = true;
         cancel();
     }
 
     public void onResume() {
-        this.aeA = false;
+        this.afW = false;
     }
 
     public static void cancel() {
-        if (zd != null) {
-            mHandler.removeCallbacks(aez);
-            zd.cancel();
-            zd = null;
+        if (AG != null) {
+            mHandler.removeCallbacks(afV);
+            AG.cancel();
+            AG = null;
         }
     }
 }

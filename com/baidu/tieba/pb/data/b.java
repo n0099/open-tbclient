@@ -3,40 +3,40 @@ package com.baidu.tieba.pb.data;
 import tbclient.Lottery.DrawInfo;
 /* loaded from: classes.dex */
 public class b {
-    private long TX;
-    private int eCn;
-    private String eCo;
-    private String eCp;
+    private long Vy;
+    private int eFu;
+    private String eFv;
+    private String eFw;
     private String mLink;
 
     private b(DrawInfo drawInfo) {
         if (drawInfo != null) {
-            this.eCn = drawInfo.draw_res_type.intValue();
+            this.eFu = drawInfo.draw_res_type.intValue();
             this.mLink = drawInfo.link;
-            this.eCp = drawInfo.award_des;
-            this.eCo = drawInfo.award_imgsrc;
-            this.TX = drawInfo.award_id.longValue();
+            this.eFw = drawInfo.award_des;
+            this.eFv = drawInfo.award_imgsrc;
+            this.Vy = drawInfo.award_id.longValue();
         }
     }
 
-    public int aOO() {
-        return this.eCn;
+    public int aPG() {
+        return this.eFu;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public String aOP() {
-        return this.eCo;
+    public String aPH() {
+        return this.eFv;
     }
 
-    public String aOQ() {
-        return this.eCp;
+    public String aPI() {
+        return this.eFw;
     }
 
-    public long ps() {
-        return this.TX;
+    public long pC() {
+        return this.Vy;
     }
 
     public static b a(DrawInfo drawInfo) {

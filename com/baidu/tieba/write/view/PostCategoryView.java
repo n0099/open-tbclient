@@ -20,103 +20,103 @@ import com.baidu.tieba.frs.x;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PostCategoryView extends TextView {
-    private MorePopupWindow QN;
-    private LinearLayout caB;
-    private View cuZ;
-    private TabMenuPopView cvn;
-    private boolean gCO;
-    private LinearLayout gCP;
-    private Drawable gCQ;
-    private Drawable gCR;
+    private MorePopupWindow So;
+    private LinearLayout cct;
+    private TabMenuPopView cyG;
+    private View cys;
+    private boolean gFR;
+    private LinearLayout gFS;
+    private Drawable gFT;
+    private Drawable gFU;
     private Context mContext;
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        this.gCO = false;
-        this.gCQ = ai.getDrawable(d.g.icon_title_down);
-        this.gCQ.setBounds(0, 0, this.gCQ.getIntrinsicWidth(), this.gCQ.getIntrinsicHeight());
-        this.gCR = ai.getDrawable(d.g.icon_title_up);
-        this.gCR.setBounds(0, 0, this.gCR.getIntrinsicWidth(), this.gCQ.getIntrinsicHeight());
-        setCompoundDrawables(null, null, this.gCQ, null);
+        this.gFR = false;
+        this.gFT = ai.getDrawable(d.g.icon_title_down);
+        this.gFT.setBounds(0, 0, this.gFT.getIntrinsicWidth(), this.gFT.getIntrinsicHeight());
+        this.gFU = ai.getDrawable(d.g.icon_title_up);
+        this.gFU.setBounds(0, 0, this.gFU.getIntrinsicWidth(), this.gFT.getIntrinsicHeight());
+        setCompoundDrawables(null, null, this.gFT, null);
         setPadding(0, 0, k.g(getContext(), d.f.ds50), 0);
-        this.caB = (LinearLayout) LayoutInflater.from(this.mContext).inflate(d.j.pop_category, (ViewGroup) null);
-        this.gCP = (LinearLayout) this.caB.findViewById(d.h.pop_category_layout);
-        this.cvn = (TabMenuPopView) this.gCP.findViewById(d.h.pop_category_view);
-        this.cuZ = this.caB.findViewById(d.h.pop_category_grav);
-        this.cuZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
+        this.cct = (LinearLayout) LayoutInflater.from(this.mContext).inflate(d.j.pop_category, (ViewGroup) null);
+        this.gFS = (LinearLayout) this.cct.findViewById(d.h.pop_category_layout);
+        this.cyG = (TabMenuPopView) this.gFS.findViewById(d.h.pop_category_view);
+        this.cys = this.cct.findViewById(d.h.pop_category_grav);
+        this.cys.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PostCategoryView.this.bzb();
+                PostCategoryView.this.bzP();
             }
         });
     }
 
     public void b(List<x> list, x xVar, int i) {
-        this.cvn.a(list, xVar, i);
+        this.cyG.a(list, xVar, i);
     }
 
     public void setCategoryContainerClickCallback(TabMenuPopView.a aVar) {
-        this.cvn.setOnItemClickCallBack(aVar);
+        this.cyG.setOnItemClickCallBack(aVar);
     }
 
-    public void bza() {
-        if (this.gCO) {
-            setCompoundDrawables(null, null, this.gCQ, null);
-            this.gCO = false;
+    public void bzO() {
+        if (this.gFR) {
+            setCompoundDrawables(null, null, this.gFT, null);
+            this.gFR = false;
         } else {
             a(this);
-            if (this.QN != null) {
-                this.QN.refresh();
-                this.QN.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
-                this.QN.setHeight(-1);
-                this.QN.showWindowInCustomPosition(0, 0);
-                setCompoundDrawables(null, null, this.gCR, null);
-                this.gCO = true;
+            if (this.So != null) {
+                this.So.refresh();
+                this.So.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
+                this.So.setHeight(-1);
+                this.So.showWindowInCustomPosition(0, 0);
+                setCompoundDrawables(null, null, this.gFU, null);
+                this.gFR = true;
             }
         }
         invalidate();
     }
 
     private void a(final PostCategoryView postCategoryView) {
-        if (this.QN == null) {
-            this.QN = new MorePopupWindow((Activity) this.mContext, this.caB, this, ai.getDrawable(d.g.transparent_bg), new d.a() { // from class: com.baidu.tieba.write.view.PostCategoryView.2
+        if (this.So == null) {
+            this.So = new MorePopupWindow((Activity) this.mContext, this.cct, this, ai.getDrawable(d.g.transparent_bg), new d.a() { // from class: com.baidu.tieba.write.view.PostCategoryView.2
                 @Override // com.baidu.tbadk.core.view.d.a
-                public void oj() {
+                public void ot() {
                 }
 
                 @Override // com.baidu.tbadk.core.view.d.a
-                public void ok() {
-                    if (PostCategoryView.this.QN != null) {
-                        PostCategoryView.this.QN.dismiss();
+                public void ou() {
+                    if (PostCategoryView.this.So != null) {
+                        PostCategoryView.this.So.dismiss();
                     }
                 }
             });
-            this.QN.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.3
+            this.So.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.3
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     if (postCategoryView != null) {
-                        postCategoryView.bza();
+                        postCategoryView.bzO();
                     }
                 }
             });
         }
     }
 
-    public void wV() {
+    public void xd() {
         ai.k(this, d.e.cp_bg_line_d);
         ai.c(this, d.e.cp_cont_b, 1);
-        if (this.gCP != null) {
-            ai.k(this.gCP, d.e.cp_bg_line_d);
+        if (this.gFS != null) {
+            ai.k(this.gFS, d.e.cp_bg_line_d);
         }
-        if (this.cvn != null) {
-            this.cvn.wV();
+        if (this.cyG != null) {
+            this.cyG.xd();
         }
     }
 
-    public void bzb() {
-        if (this.QN != null) {
-            this.QN.dismiss();
+    public void bzP() {
+        if (this.So != null) {
+            this.So.dismiss();
         }
     }
 }

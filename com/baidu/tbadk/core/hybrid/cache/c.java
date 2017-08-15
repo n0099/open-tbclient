@@ -7,30 +7,30 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
 public class c {
-    public CacheEntry dc(String str) {
-        CacheEntry da = a.ub().da(str);
-        if (da == null) {
+    public CacheEntry di(String str) {
+        CacheEntry dg = a.um().dg(str);
+        if (dg == null) {
             return null;
         }
-        File file = new File(new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache/files"), da.getName());
+        File file = new File(new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache/files"), dg.getName());
         if (!file.isFile() || file.length() <= 0) {
             return null;
         }
         try {
-            da.setInputStream(new FileInputStream(file));
-            return da;
+            dg.setInputStream(new FileInputStream(file));
+            return dg;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public boolean dd(String str) {
-        CacheEntry db = a.ub().db(str);
-        if (db == null) {
+    public boolean dj(String str) {
+        CacheEntry dh = a.um().dh(str);
+        if (dh == null) {
             return false;
         }
-        File file = new File(new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache/files"), db.getName());
+        File file = new File(new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache/files"), dh.getName());
         if (!file.isFile() || file.length() <= 0) {
             return false;
         }
@@ -38,7 +38,7 @@ public class c {
     }
 
     public boolean a(CacheEntry cacheEntry, byte[] bArr) {
-        if (cacheEntry == null || bArr == null || !a.ub().a(cacheEntry)) {
+        if (cacheEntry == null || bArr == null || !a.um().a(cacheEntry)) {
             return false;
         }
         File file = new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache/files");

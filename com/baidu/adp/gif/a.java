@@ -1,44 +1,44 @@
 package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 public interface a {
-    com.baidu.adp.widget.a.a E(String str);
+    com.baidu.adp.widget.a.a K(String str);
 
     com.baidu.adp.widget.a.a g(byte[] bArr, int i, int i2);
 
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0003a implements a {
-        private static a rj;
-        private int rk;
-        private final d rl = new d();
+    public static class C0002a implements a {
+        private static a sR;
+        private int sS;
+        private final d sT = new d();
 
-        public C0003a() {
-            this.rk = 0;
-            if (NSGif.rm) {
-                this.rk = 0;
+        public C0002a() {
+            this.sS = 0;
+            if (NSGif.sU) {
+                this.sS = 0;
             } else {
-                this.rk = 1;
+                this.sS = 1;
             }
         }
 
-        public static synchronized a dC() {
+        public static synchronized a dN() {
             a aVar;
-            synchronized (C0003a.class) {
-                if (rj == null) {
-                    rj = new C0003a();
+            synchronized (C0002a.class) {
+                if (sR == null) {
+                    sR = new C0002a();
                 }
-                aVar = rj;
+                aVar = sR;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
-        public com.baidu.adp.widget.a.a E(String str) {
-            if (this.rk != 0) {
+        public com.baidu.adp.widget.a.a K(String str) {
+            if (this.sS != 0) {
                 return null;
             }
             try {
-                return this.rl.E(str);
+                return this.sT.K(str);
             } catch (Exception e) {
                 return null;
             }
@@ -46,11 +46,11 @@ public interface a {
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.a.a g(byte[] bArr, int i, int i2) {
-            if (this.rk != 0) {
+            if (this.sS != 0) {
                 return null;
             }
             try {
-                return this.rl.g(bArr, i, i2);
+                return this.sT.g(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

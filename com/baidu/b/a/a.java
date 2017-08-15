@@ -1,31 +1,31 @@
-package com.baidu.a.a;
+package com.baidu.b.a;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
-public class a extends com.baidu.a.b.a {
+public class a extends com.baidu.b.b.a {
 
-    /* renamed from: com.baidu.a.a.a$a  reason: collision with other inner class name */
+    /* renamed from: com.baidu.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0000a {
+    public interface InterfaceC0023a {
         void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
     }
 
     public static void a(Activity activity, String[] strArr, int i) {
-        if (com.baidu.a.a.nm()) {
+        if (com.baidu.b.a.nw()) {
             b.a(activity, strArr, i);
-        } else if (activity instanceof InterfaceC0000a) {
-            a(activity, strArr, i, (InterfaceC0000a) activity);
+        } else if (activity instanceof InterfaceC0023a) {
+            a(activity, strArr, i, (InterfaceC0023a) activity);
         }
     }
 
-    public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0000a interfaceC0000a) {
-        if (com.baidu.a.a.nm()) {
+    public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0023a interfaceC0023a) {
+        if (com.baidu.b.a.nw()) {
             b.a(activity, strArr, i);
-        } else if (!activity.isFinishing() && interfaceC0000a != null) {
-            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.a.a.a.1
+        } else if (!activity.isFinishing() && interfaceC0023a != null) {
+            new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.b.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     int[] iArr = new int[strArr.length];
@@ -35,7 +35,7 @@ public class a extends com.baidu.a.b.a {
                     for (int i2 = 0; i2 < length; i2++) {
                         iArr[i2] = packageManager.checkPermission(strArr[i2], packageName);
                     }
-                    interfaceC0000a.onRequestPermissionsResult(i, strArr, iArr);
+                    interfaceC0023a.onRequestPermissionsResult(i, strArr, iArr);
                 }
             });
         }

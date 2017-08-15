@@ -1,6 +1,5 @@
 package com.baidu.adp.framework.client.socket.link;
 /* loaded from: classes.dex */
 public interface e {
-    /* renamed from: do  reason: not valid java name */
-    void mo2do();
+    void dz();
 }

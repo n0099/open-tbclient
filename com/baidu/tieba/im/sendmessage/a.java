@@ -41,20 +41,20 @@ import java.util.Map;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a dwG = null;
-    public static volatile int dwH = 0;
-    public static volatile int dwI = 0;
-    private a.c dwL;
-    private VoiceSendModel dwM;
-    private WeakReference<a.InterfaceC0058a<ChatMessage>> dwN;
+    private static volatile a dzV = null;
+    public static volatile int dzW = 0;
+    public static volatile int dzX = 0;
+    private a.c dAa;
+    private VoiceSendModel dAb;
+    private WeakReference<a.InterfaceC0058a<ChatMessage>> dAc;
     private d mSendCallback;
-    private final LinkedList<ChatMessage> dwJ = new LinkedList<>();
-    private final HashMap<String, com.baidu.tbadk.img.a<ChatMessage>> dwK = new HashMap<>();
-    VoiceSendModel.b dwO = new VoiceSendModel.b() { // from class: com.baidu.tieba.im.sendmessage.a.8
+    private final LinkedList<ChatMessage> dzY = new LinkedList<>();
+    private final HashMap<String, com.baidu.tbadk.img.a<ChatMessage>> dzZ = new HashMap<>();
+    VoiceSendModel.b dAd = new VoiceSendModel.b() { // from class: com.baidu.tieba.im.sendmessage.a.8
         @Override // com.baidu.tieba.im.sendmessage.VoiceSendModel.b
         public void a(String str, ChatMessage chatMessage) {
             try {
-                a.axA().n(chatMessage);
+                a.ays().n(chatMessage);
                 if (chatMessage != null) {
                     if (str != null && str.length() > 0) {
                         VoiceMsgData x = e.x(chatMessage);
@@ -63,9 +63,9 @@ public class a {
                             chatMessage.setContent("[" + OrmObject.jsonStrWithObject(x) + "]");
                         }
                         com.baidu.tbadk.core.d.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
-                        a.axA().p(chatMessage);
+                        a.ays().p(chatMessage);
                         if (a.this.mSendCallback != null) {
-                            a.this.mSendCallback.mB(2);
+                            a.this.mSendCallback.mL(2);
                             return;
                         }
                         return;
@@ -79,7 +79,7 @@ public class a {
                             /* JADX WARN: Can't rename method to resolve collision */
                             @Override // com.baidu.tbadk.util.t
                             public Boolean doInBackground() {
-                                return Boolean.valueOf(com.baidu.tieba.im.db.c.atF().c(commonGroupChatMessage.getGroupId(), String.valueOf(commonGroupChatMessage.getRecordId()), String.valueOf(commonGroupChatMessage.getMsgId()), 2));
+                                return Boolean.valueOf(com.baidu.tieba.im.db.c.auy().c(commonGroupChatMessage.getGroupId(), String.valueOf(commonGroupChatMessage.getRecordId()), String.valueOf(commonGroupChatMessage.getMsgId()), 2));
                             }
                         }, new h<Boolean>() { // from class: com.baidu.tieba.im.sendmessage.a.8.2
                             /* JADX DEBUG: Method merged with bridge method */
@@ -95,7 +95,7 @@ public class a {
                             /* JADX WARN: Can't rename method to resolve collision */
                             @Override // com.baidu.tbadk.util.t
                             public Boolean doInBackground() {
-                                return Boolean.valueOf(l.atT().a(personalChatMessage.getUserId(), personalChatMessage.getToUserId(), String.valueOf(personalChatMessage.getRecordId()), String.valueOf(personalChatMessage.getMsgId()), 2));
+                                return Boolean.valueOf(l.auL().a(personalChatMessage.getUserId(), personalChatMessage.getToUserId(), String.valueOf(personalChatMessage.getRecordId()), String.valueOf(personalChatMessage.getMsgId()), 2));
                             }
                         }, new h<Boolean>() { // from class: com.baidu.tieba.im.sendmessage.a.8.4
                             /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +111,7 @@ public class a {
                             /* JADX WARN: Can't rename method to resolve collision */
                             @Override // com.baidu.tbadk.util.t
                             public Boolean doInBackground() {
-                                return Boolean.valueOf(k.atS().a(officialChatMessage.getUserId(), officialChatMessage.getToUserId(), String.valueOf(officialChatMessage.getRecordId()), String.valueOf(officialChatMessage.getMsgId()), 2));
+                                return Boolean.valueOf(k.auK().a(officialChatMessage.getUserId(), officialChatMessage.getToUserId(), String.valueOf(officialChatMessage.getRecordId()), String.valueOf(officialChatMessage.getMsgId()), 2));
                             }
                         }, new h<Boolean>() { // from class: com.baidu.tieba.im.sendmessage.a.8.6
                             /* JADX DEBUG: Method merged with bridge method */
@@ -136,9 +136,9 @@ public class a {
     }
 
     private void init() {
-        this.dwM = new VoiceSendModel(null);
-        this.dwM.a(this.dwO);
-        this.dwL = new a.c() { // from class: com.baidu.tieba.im.sendmessage.a.1
+        this.dAb = new VoiceSendModel(null);
+        this.dAb.a(this.dAd);
+        this.dAa = new a.c() { // from class: com.baidu.tieba.im.sendmessage.a.1
             @Override // com.baidu.tbadk.img.a.c
             public synchronized void a(String str, ImageUploadResult imageUploadResult) {
                 com.baidu.tbadk.img.a aVar;
@@ -148,9 +148,9 @@ public class a {
                 int i2 = 0;
                 synchronized (this) {
                     synchronized (a.class) {
-                        aVar = (com.baidu.tbadk.img.a) a.this.dwK.remove(str);
+                        aVar = (com.baidu.tbadk.img.a) a.this.dzZ.remove(str);
                     }
-                    if (aVar != null && (chatMessage = (ChatMessage) aVar.Ev()) != null) {
+                    if (aVar != null && (chatMessage = (ChatMessage) aVar.ED()) != null) {
                         if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                             if (imageUploadResult != null) {
                                 com.baidu.tbadk.core.d.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", imageUploadResult.error_code, imageUploadResult.error_msg, new Object[0]);
@@ -165,7 +165,7 @@ public class a {
                                     /* JADX WARN: Can't rename method to resolve collision */
                                     @Override // com.baidu.tbadk.util.t
                                     public Boolean doInBackground() {
-                                        return Boolean.valueOf(com.baidu.tieba.im.db.c.atF().c(commonGroupChatMessage.getGroupId(), String.valueOf(commonGroupChatMessage.getRecordId()), String.valueOf(commonGroupChatMessage.getMsgId()), 2));
+                                        return Boolean.valueOf(com.baidu.tieba.im.db.c.auy().c(commonGroupChatMessage.getGroupId(), String.valueOf(commonGroupChatMessage.getRecordId()), String.valueOf(commonGroupChatMessage.getMsgId()), 2));
                                     }
                                 }, new h<Boolean>() { // from class: com.baidu.tieba.im.sendmessage.a.1.2
                                     /* JADX DEBUG: Method merged with bridge method */
@@ -181,7 +181,7 @@ public class a {
                                     /* JADX WARN: Can't rename method to resolve collision */
                                     @Override // com.baidu.tbadk.util.t
                                     public Boolean doInBackground() {
-                                        return Boolean.valueOf(l.atT().a(personalChatMessage.getUserId(), personalChatMessage.getToUserId(), String.valueOf(personalChatMessage.getRecordId()), String.valueOf(personalChatMessage.getMsgId()), 2));
+                                        return Boolean.valueOf(l.auL().a(personalChatMessage.getUserId(), personalChatMessage.getToUserId(), String.valueOf(personalChatMessage.getRecordId()), String.valueOf(personalChatMessage.getMsgId()), 2));
                                     }
                                 }, new h<Boolean>() { // from class: com.baidu.tieba.im.sendmessage.a.1.4
                                     /* JADX DEBUG: Method merged with bridge method */
@@ -197,7 +197,7 @@ public class a {
                                     /* JADX WARN: Can't rename method to resolve collision */
                                     @Override // com.baidu.tbadk.util.t
                                     public Boolean doInBackground() {
-                                        return Boolean.valueOf(k.atS().a(officialChatMessage.getUserId(), officialChatMessage.getToUserId(), String.valueOf(officialChatMessage.getRecordId()), String.valueOf(officialChatMessage.getMsgId()), 2));
+                                        return Boolean.valueOf(k.auK().a(officialChatMessage.getUserId(), officialChatMessage.getToUserId(), String.valueOf(officialChatMessage.getRecordId()), String.valueOf(officialChatMessage.getMsgId()), 2));
                                     }
                                 }, new h<Boolean>() { // from class: com.baidu.tieba.im.sendmessage.a.1.6
                                     /* JADX DEBUG: Method merged with bridge method */
@@ -214,15 +214,15 @@ public class a {
                                 str2 = imageUploadResult.picInfo.smallPic.picUrl;
                                 i2 = imageUploadResult.picInfo.smallPic.width;
                                 i = imageUploadResult.picInfo.smallPic.height;
-                                a.this.bj(str, str2);
+                                a.this.bk(str, str2);
                             } else {
                                 i = 0;
                                 str2 = null;
                             }
                             chatMessage.setContent(a.c(str3, str2, i2, i));
-                            a.axA().p(chatMessage);
+                            a.ays().p(chatMessage);
                             if (a.this.mSendCallback != null) {
-                                a.this.mSendCallback.mB(1);
+                                a.this.mSendCallback.mL(1);
                             }
                         }
                     }
@@ -253,11 +253,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bj(final String str, String str2) {
-        com.baidu.adp.widget.a.a gk = com.baidu.tbadk.imageManager.c.Ep().gk(str);
+    public void bk(final String str, String str2) {
+        com.baidu.adp.widget.a.a gp = com.baidu.tbadk.imageManager.c.Ex().gp(str);
         final String str3 = str2 + 10;
-        if (gk != null && gk.kO()) {
-            e(str3, gk);
+        if (gp != null && gp.kY()) {
+            e(str3, gp);
         } else {
             new BdAsyncTask<Void, Void, Bitmap>() { // from class: com.baidu.tieba.im.sendmessage.a.9
                 /* JADX DEBUG: Method merged with bridge method */
@@ -279,34 +279,34 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.c.Ep().c(str, aVar);
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, an.dV(str), DiskFileOperate.Action.WRITE);
+        com.baidu.tbadk.imageManager.c.Ex().c(str, aVar);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, an.eb(str), DiskFileOperate.Action.WRITE);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.s(true);
-        cVar.setData(aVar.kQ());
+        cVar.setData(aVar.la());
         cVar.v(false);
-        com.baidu.adp.lib.Disk.d.dH().c(cVar);
+        com.baidu.adp.lib.Disk.d.dS().c(cVar);
     }
 
     public void c(ChatMessage chatMessage, String str) {
-        com.baidu.tbadk.img.a<ChatMessage> aVar = this.dwK.get(str);
+        com.baidu.tbadk.img.a<ChatMessage> aVar = this.dzZ.get(str);
         if (aVar == null) {
             com.baidu.tbadk.img.a<ChatMessage> aVar2 = new com.baidu.tbadk.img.a<>(str, "IM");
-            aVar2.Ew();
+            aVar2.EE();
             aVar2.B(chatMessage);
-            if (this.dwN != null && this.dwN.get() != null) {
-                aVar2.a(this.dwN.get());
+            if (this.dAc != null && this.dAc.get() != null) {
+                aVar2.a(this.dAc.get());
             }
-            aVar2.a(this.dwL);
+            aVar2.a(this.dAa);
             if (chatMessage instanceof CommonGroupChatMessage) {
                 aVar2.setGroupId(((CommonGroupChatMessage) chatMessage).getGroupId());
             } else if (chatMessage instanceof PersonalChatMessage) {
-                aVar2.setGroupId(String.valueOf(dwH));
+                aVar2.setGroupId(String.valueOf(dzW));
             } else if (chatMessage instanceof OfficialChatMessage) {
-                aVar2.setGroupId(String.valueOf(dwI));
+                aVar2.setGroupId(String.valueOf(dzX));
             }
             synchronized (a.class) {
-                this.dwK.put(str, aVar2);
+                this.dzZ.put(str, aVar2);
             }
             aVar = aVar2;
         }
@@ -321,29 +321,29 @@ public class a {
             chatMessage.getClientLogID();
             chatMessage.getCmd();
         }
-        this.dwM.b(voiceMsgData.getVoice_md5(), chatMessage);
+        this.dAb.b(voiceMsgData.getVoice_md5(), chatMessage);
     }
 
     public boolean l(ChatMessage chatMessage) {
-        if (this.dwK == null || chatMessage == null) {
+        if (this.dzZ == null || chatMessage == null) {
             return false;
         }
-        for (Map.Entry<String, com.baidu.tbadk.img.a<ChatMessage>> entry : this.dwK.entrySet()) {
+        for (Map.Entry<String, com.baidu.tbadk.img.a<ChatMessage>> entry : this.dzZ.entrySet()) {
             com.baidu.tbadk.img.a<ChatMessage> value = entry.getValue();
-            if (value != null && value.Ev() != null) {
-                ChatMessage Ev = value.Ev();
-                if (chatMessage.getRecordId() != Ev.getRecordId()) {
+            if (value != null && value.ED() != null) {
+                ChatMessage ED = value.ED();
+                if (chatMessage.getRecordId() != ED.getRecordId()) {
                     continue;
                 } else if (chatMessage.getCustomGroupType() == 2 || chatMessage.getCustomGroupType() == 4) {
-                    if (chatMessage.getToUserId() == Ev.getToUserId()) {
-                        if (this.dwN != null && this.dwN.get() != null) {
-                            value.a(this.dwN.get());
+                    if (chatMessage.getToUserId() == ED.getToUserId()) {
+                        if (this.dAc != null && this.dAc.get() != null) {
+                            value.a(this.dAc.get());
                         }
                         return true;
                     }
-                } else if (chatMessage.getGroupId() != null && Ev.getGroupId() != null && chatMessage.getGroupId().equals(Ev.getGroupId())) {
-                    if (this.dwN != null && this.dwN.get() != null) {
-                        value.a(this.dwN.get());
+                } else if (chatMessage.getGroupId() != null && ED.getGroupId() != null && chatMessage.getGroupId().equals(ED.getGroupId())) {
+                    if (this.dAc != null && this.dAc.get() != null) {
+                        value.a(this.dAc.get());
                     }
                     return true;
                 }
@@ -354,20 +354,20 @@ public class a {
 
     private void m(ChatMessage chatMessage) {
         if (chatMessage != null) {
-            this.dwJ.add(chatMessage);
+            this.dzY.add(chatMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(ChatMessage chatMessage) {
-        int a = a(chatMessage, this.dwJ);
+        int a = a(chatMessage, this.dzY);
         if (a >= 0) {
-            this.dwJ.remove(a);
+            this.dzY.remove(a);
         }
     }
 
     public boolean o(ChatMessage chatMessage) {
-        return a(chatMessage, this.dwJ) != -1;
+        return a(chatMessage, this.dzY) != -1;
     }
 
     private int a(ChatMessage chatMessage, LinkedList<ChatMessage> linkedList) {
@@ -390,32 +390,32 @@ public class a {
         return -1;
     }
 
-    public static a axA() {
-        if (dwG == null) {
+    public static a ays() {
+        if (dzV == null) {
             synchronized (a.class) {
-                if (dwG == null) {
-                    dwG = new a();
+                if (dzV == null) {
+                    dzV = new a();
                 }
             }
         }
-        return dwG;
+        return dzV;
     }
 
-    public static void mz(int i) {
-        dwH = i;
+    public static void mJ(int i) {
+        dzW = i;
     }
 
-    public static void mA(int i) {
-        dwI = i;
+    public static void mK(int i) {
+        dzX = i;
     }
 
     public void b(final String str, final c cVar) {
         u.b(new t<LinkedHashMap<String, String>>() { // from class: com.baidu.tieba.im.sendmessage.a.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.t
-            /* renamed from: axB */
+            /* renamed from: ayt */
             public LinkedHashMap<String, String> doInBackground() {
-                return com.baidu.tieba.im.db.c.atF().a(str, 2, null, 1000);
+                return com.baidu.tieba.im.db.c.auy().a(str, 2, null, 1000);
             }
         }, new h<LinkedHashMap<String, String>>() { // from class: com.baidu.tieba.im.sendmessage.a.11
             /* JADX DEBUG: Method merged with bridge method */
@@ -456,9 +456,9 @@ public class a {
         u.b(new t<LinkedHashMap<String, String>>() { // from class: com.baidu.tieba.im.sendmessage.a.12
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.t
-            /* renamed from: axB */
+            /* renamed from: ayt */
             public LinkedHashMap<String, String> doInBackground() {
-                return l.atT().a(str, 2, null, 1000);
+                return l.auL().a(str, 2, null, 1000);
             }
         }, new h<LinkedHashMap<String, String>>() { // from class: com.baidu.tieba.im.sendmessage.a.13
             /* JADX DEBUG: Method merged with bridge method */
@@ -499,9 +499,9 @@ public class a {
         u.b(new t<LinkedHashMap<String, String>>() { // from class: com.baidu.tieba.im.sendmessage.a.14
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.t
-            /* renamed from: axB */
+            /* renamed from: ayt */
             public LinkedHashMap<String, String> doInBackground() {
-                return k.atS().a(str, 2, null, 1000);
+                return k.auK().a(str, 2, null, 1000);
             }
         }, new h<LinkedHashMap<String, String>>() { // from class: com.baidu.tieba.im.sendmessage.a.15
             /* JADX DEBUG: Method merged with bridge method */
@@ -550,7 +550,7 @@ public class a {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.t
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.db.c.atF().b(commonGroupChatMessage.getGroupId(), linkedList, false));
+                    return Boolean.valueOf(com.baidu.tieba.im.db.c.auy().b(commonGroupChatMessage.getGroupId(), linkedList, false));
                 }
             }, new h<Boolean>() { // from class: com.baidu.tieba.im.sendmessage.a.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -572,7 +572,7 @@ public class a {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.t
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(l.atT().a(e.q(personalChatMessage), linkedList2, false));
+                    return Boolean.valueOf(l.auL().a(e.q(personalChatMessage), linkedList2, false));
                 }
             }, new h<Boolean>() { // from class: com.baidu.tieba.im.sendmessage.a.5
                 /* JADX DEBUG: Method merged with bridge method */
@@ -594,7 +594,7 @@ public class a {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.t
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(k.atS().a(e.q(officialChatMessage), linkedList3, false));
+                    return Boolean.valueOf(k.auK().a(e.q(officialChatMessage), linkedList3, false));
                 }
             }, new h<Boolean>() { // from class: com.baidu.tieba.im.sendmessage.a.7
                 /* JADX DEBUG: Method merged with bridge method */
@@ -609,6 +609,6 @@ public class a {
     }
 
     public void setImageUploadUIProgressCallback(a.InterfaceC0058a<ChatMessage> interfaceC0058a) {
-        this.dwN = new WeakReference<>(interfaceC0058a);
+        this.dAc = new WeakReference<>(interfaceC0058a);
     }
 }

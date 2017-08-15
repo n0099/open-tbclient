@@ -4,16 +4,16 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b extends OutputStream {
-    private a ado;
+    private a aeL;
 
     public synchronized void a(a aVar) throws IOException {
         if (aVar == null) {
             throw new NullPointerException();
         }
-        if (this.ado != null || aVar.connected) {
+        if (this.aeL != null || aVar.connected) {
             throw new IOException("Already connected");
         }
-        this.ado = aVar;
+        this.aeL = aVar;
         aVar.in = -1;
         aVar.out = 0;
         aVar.connected = true;
@@ -21,15 +21,15 @@ public class b extends OutputStream {
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.ado == null) {
+        if (this.aeL == null) {
             throw new IOException("Pipe not connected");
         }
-        this.ado.receive(i);
+        this.aeL.receive(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.ado == null) {
+        if (this.aeL == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -39,23 +39,23 @@ public class b extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.ado.j(bArr, i, i2);
+            this.aeL.j(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.ado != null) {
-            synchronized (this.ado) {
-                this.ado.notifyAll();
+        if (this.aeL != null) {
+            synchronized (this.aeL) {
+                this.aeL.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.ado != null) {
-            this.ado.ul();
+        if (this.aeL != null) {
+            this.aeL.uv();
         }
     }
 }

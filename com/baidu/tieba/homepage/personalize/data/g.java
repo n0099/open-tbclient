@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.Personalized.TagStruct;
 /* loaded from: classes.dex */
 public class g {
-    public String TL;
+    public String Vn;
     public boolean isSelect;
 
     public static g a(TagStruct tagStruct) {
@@ -12,7 +12,7 @@ public class g {
             return null;
         }
         g gVar = new g();
-        gVar.TL = tagStruct.tag_name;
+        gVar.Vn = tagStruct.tag_name;
         gVar.isSelect = tagStruct.selected.intValue() == 1;
         return gVar;
     }

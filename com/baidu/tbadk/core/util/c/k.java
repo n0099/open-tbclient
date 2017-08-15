@@ -31,18 +31,18 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wk() {
+    public boolean wu() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wl() {
+    public boolean wv() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.c.a
-    public com.baidu.adp.lib.Disk.ops.c ej(String str) {
+    public com.baidu.adp.lib.Disk.ops.c ep(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -53,10 +53,10 @@ public class k extends a {
             return null;
         }
         com.baidu.adp.lib.Disk.ops.b bVar = (com.baidu.adp.lib.Disk.ops.b) cVar;
-        cVar.k(cVar.getData());
+        cVar.n(cVar.getData());
         Bitmap bitmap = cVar.getBitmap();
         if (bitmap != null) {
-            return new com.baidu.adp.widget.a.a(bitmap, false, str, bVar.ec());
+            return new com.baidu.adp.widget.a.a(bitmap, false, str, bVar.en());
         }
         return null;
     }
@@ -68,7 +68,7 @@ public class k extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean g(Bitmap bitmap) {
+    public boolean h(Bitmap bitmap) {
         return bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk());
     }
 
@@ -78,7 +78,7 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int wm() {
+    public int ww() {
         return this.procType;
     }
 }

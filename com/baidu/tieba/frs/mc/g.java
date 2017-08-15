@@ -16,65 +16,65 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g extends i {
-    private final CustomMessageListener anw;
-    private boolean cpT;
-    private String cpU;
-    private bl ctR;
-    private PraiseModel ctS;
+    private final CustomMessageListener aoQ;
+    private boolean crN;
+    private String crO;
+    private bl cxm;
+    private PraiseModel cxn;
 
     public g(com.baidu.tieba.frs.f fVar) {
         super(fVar);
-        this.anw = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.g.2
+        this.aoQ = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bl)) {
                     bl blVar = (bl) customResponsedMessage.getData();
-                    g.this.cpU = blVar.getId();
-                    if (!TextUtils.isEmpty(g.this.cpU) && blVar.rl() != null) {
-                        g.this.iY(blVar.rl().getIsLike());
+                    g.this.crO = blVar.getId();
+                    if (!TextUtils.isEmpty(g.this.crO) && blVar.rv() != null) {
+                        g.this.ja(blVar.rv().getIsLike());
                     }
                 }
             }
         };
-        this.cna.registerListener(this.anw);
-        this.ctS = aiy();
+        this.coU.registerListener(this.aoQ);
+        this.cxn = ajr();
     }
 
-    public final PraiseModel aiy() {
-        if (this.ctS == null) {
-            this.ctS = new PraiseModel(this.cna.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.g.1
+    public final PraiseModel ajr() {
+        if (this.cxn == null) {
+            this.cxn = new PraiseModel(this.coU.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.g.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-                public void hJ(String str) {
+                public void hP(String str) {
                     int i = 1;
-                    if (g.this.cpT) {
-                        if (g.this.ctR != null && g.this.ctR.rl().getIsLike() == 1) {
+                    if (g.this.crN) {
+                        if (g.this.cxm != null && g.this.cxm.rv().getIsLike() == 1) {
                             i = 0;
                         }
-                        g.this.iY(i);
+                        g.this.ja(i);
                     }
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
                 }
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void A(int i, String str) {
-                    if (g.this.cna != null && g.this.cna.getPageContext() != null && g.this.cpT && !TextUtils.isEmpty(str)) {
-                        if (AntiHelper.tn(i)) {
-                            AntiHelper.ar(g.this.cna.getPageContext().getPageActivity(), str);
+                    if (g.this.coU != null && g.this.coU.getPageContext() != null && g.this.crN && !TextUtils.isEmpty(str)) {
+                        if (AntiHelper.tx(i)) {
+                            AntiHelper.ar(g.this.coU.getPageContext().getPageActivity(), str);
                         } else {
-                            g.this.cna.showToast(str);
+                            g.this.coU.showToast(str);
                         }
                     }
                 }
             });
         }
-        return this.ctS;
+        return this.cxn;
     }
 
-    public void iY(int i) {
+    public void ja(int i) {
         ArrayList<com.baidu.adp.widget.ListView.f> threadList;
-        com.baidu.tieba.tbadkCore.i afm = this.cna.afm();
-        if (afm != null && this.chQ != null && (threadList = afm.getThreadList()) != null) {
+        com.baidu.tieba.tbadkCore.i afN = this.coU.afN();
+        if (afN != null && this.cjK != null && (threadList = afN.getThreadList()) != null) {
             Iterator<com.baidu.adp.widget.ListView.f> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -83,33 +83,33 @@ public class g extends i {
                 com.baidu.adp.widget.ListView.f next = it.next();
                 if (next instanceof bl) {
                     bl blVar = (bl) next;
-                    if (blVar == this.ctR) {
+                    if (blVar == this.cxm) {
                         c(blVar, i);
-                        this.ctR = null;
+                        this.cxm = null;
                         break;
-                    } else if (blVar.getId() != null && blVar.getId().equals(this.cpU)) {
+                    } else if (blVar.getId() != null && blVar.getId().equals(this.crO)) {
                         c(blVar, i);
-                        this.cpU = null;
+                        this.crO = null;
                         break;
                     }
                 }
             }
-            this.chQ.afM().b(threadList, afm);
-            this.chQ.afM().notifyDataSetChanged();
+            this.cjK.ago().b(threadList, afN);
+            this.cjK.ago().notifyDataSetChanged();
         }
     }
 
     public void c(bl blVar, int i) {
         if (blVar != null) {
             if (i == 1) {
-                PraiseData rl = blVar.rl();
+                PraiseData rv = blVar.rv();
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
                     MetaData metaData = new MetaData();
                     metaData.setName_show(currentAccountObj.getAccount());
                     metaData.setPortrait(currentAccountObj.getPortrait());
                     metaData.setUserId(currentAccountObj.getID());
-                    if (rl == null) {
+                    if (rv == null) {
                         PraiseData praiseData = new PraiseData();
                         praiseData.setIsLike(i);
                         praiseData.setNum(1L);
@@ -117,20 +117,20 @@ public class g extends i {
                         blVar.a(praiseData);
                         return;
                     }
-                    blVar.rl().getUser().add(0, metaData);
-                    blVar.rl().setNum(blVar.rl().getNum() + 1);
-                    blVar.rl().setIsLike(i);
+                    blVar.rv().getUser().add(0, metaData);
+                    blVar.rv().setNum(blVar.rv().getNum() + 1);
+                    blVar.rv().setIsLike(i);
                 }
-            } else if (blVar.rl() != null) {
-                blVar.rl().setIsLike(i);
-                blVar.rl().setNum(blVar.rl().getNum() - 1);
-                ArrayList<MetaData> user = blVar.rl().getUser();
+            } else if (blVar.rv() != null) {
+                blVar.rv().setIsLike(i);
+                blVar.rv().setNum(blVar.rv().getNum() - 1);
+                ArrayList<MetaData> user = blVar.rv().getUser();
                 if (user != null) {
                     Iterator<MetaData> it = user.iterator();
                     while (it.hasNext()) {
                         MetaData next = it.next();
                         if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
-                            blVar.rl().getUser().remove(next);
+                            blVar.rv().getUser().remove(next);
                             return;
                         }
                     }
@@ -139,7 +139,7 @@ public class g extends i {
         }
     }
 
-    public void eY(boolean z) {
-        this.cpT = z;
+    public void fb(boolean z) {
+        this.crN = z;
     }
 }

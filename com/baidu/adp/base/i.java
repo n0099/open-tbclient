@@ -6,7 +6,7 @@ import com.baidu.megapp.ma.MAFragmentActivity;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class i {
-    public static h X(Context context) {
+    public static h Y(Context context) {
         Object a;
         if (context == null) {
             return null;
@@ -30,7 +30,7 @@ public class i {
         return (h) a;
     }
 
-    public static f<?> Y(Context context) {
+    public static f<?> Z(Context context) {
         Object a;
         if (context == null) {
             return null;
@@ -48,7 +48,7 @@ public class i {
         return (f) a;
     }
 
-    public static e<?> Z(Context context) {
+    public static e<?> aa(Context context) {
         Object a;
         if (context == null) {
             return null;

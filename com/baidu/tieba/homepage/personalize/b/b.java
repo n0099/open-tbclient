@@ -15,53 +15,53 @@ import com.baidu.tieba.card.u;
 import com.baidu.tieba.card.x;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.m, com.baidu.tieba.card.a.a<p>> {
-    public BdUniqueId aNy;
-    private h.a akI;
-    private TbPageContext<?> ako;
-    private x bjp;
-    private p cSl;
+    public BdUniqueId aON;
+    private h.a amd;
+    private x bkD;
+    private p cVD;
+    private TbPageContext<?> oV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.akI = null;
-        this.bjp = new x<com.baidu.tieba.card.data.m>() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.amd = null;
+        this.bkD = new x<com.baidu.tieba.card.data.m>() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, com.baidu.tieba.card.data.m mVar) {
-                u.Ww().cA(true);
-                if (view != null && b.this.cSl != null && b.this.cSl.getView() != null && b.this.cSl.bGG != null && mVar != null && mVar.MA() != null && !StringUtils.isNull(mVar.MA().getTid())) {
-                    if (view.getId() != b.this.cSl.getView().getId()) {
-                        if (b.this.cSl.Wt() == null || view.getId() != b.this.cSl.Wt().getId()) {
-                            if (b.this.cSl.getHeaderImg() == null || view.getId() != b.this.cSl.getHeaderImg().getId()) {
-                                if (b.this.cSl.Wc() != null && b.this.cSl.Wc().getId() == view.getId()) {
-                                    TiebaStatic.log(mVar.WT());
+                u.WX().cA(true);
+                if (view != null && b.this.cVD != null && b.this.cVD.getView() != null && b.this.cVD.bIz != null && mVar != null && mVar.MF() != null && !StringUtils.isNull(mVar.MF().getTid())) {
+                    if (view.getId() != b.this.cVD.getView().getId()) {
+                        if (b.this.cVD.WU() == null || view.getId() != b.this.cVD.WU().getId()) {
+                            if (b.this.cVD.getHeaderImg() == null || view.getId() != b.this.cVD.getHeaderImg().getId()) {
+                                if (b.this.cVD.WD() != null && b.this.cVD.WD().getId() == view.getId()) {
+                                    TiebaStatic.log(mVar.Xu());
                                     return;
                                 }
                                 return;
                             }
-                            TiebaStatic.log(mVar.WT());
+                            TiebaStatic.log(mVar.Xu());
                             return;
                         }
-                        TiebaStatic.log(mVar.WS());
+                        TiebaStatic.log(mVar.Xt());
                         return;
                     }
-                    TiebaStatic.log(mVar.WQ());
+                    TiebaStatic.log(mVar.Xr());
                 }
             }
         };
-        this.ako = tbPageContext;
+        this.oV = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: w */
+    /* renamed from: x */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cSl = new p(this.ako);
-        this.cSl.Wq();
-        this.cSl.i(this.aNy);
-        return new com.baidu.tieba.card.a.a(this.cSl);
+        this.cVD = new p(this.oV);
+        this.cVD.WR();
+        this.cVD.i(this.aON);
+        return new com.baidu.tieba.card.a.a(this.cVD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -69,59 +69,59 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.m mVar, com.baidu.tieba.card.a.a<p> aVar) {
-        if (aVar == null || aVar.WX() == null) {
+        if (aVar == null || aVar.Xy() == null) {
             return null;
         }
         if (mVar != null) {
-            mVar.hu(i + 1);
+            mVar.hw(i + 1);
             mVar.b(b(mVar));
             mVar.c(c(mVar));
             mVar.d(e(mVar));
             mVar.e(d(mVar));
         }
-        aVar.WX().a(mVar);
-        aVar.WX().a(this.akI);
+        aVar.Xy().a(mVar);
+        aVar.Xy().a(this.amd);
         if (mVar != null) {
-            u.Ww().a(mVar.WR());
+            u.WX().a(mVar.Xs());
         }
-        aVar.WX().a(this.bjp);
+        aVar.Xy().b(this.bkD);
         return aVar.getView();
     }
 
     private aj b(com.baidu.tieba.card.data.m mVar) {
-        if (mVar == null || mVar.MA() == null) {
+        if (mVar == null || mVar.MF() == null) {
             return null;
         }
-        return new aj("c10732").aa("fid", String.valueOf(mVar.MA().getFid())).aa("tid", String.valueOf(mVar.MA().getTid())).aa("obj_param1", mVar.getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, mVar.getSource()).r("obj_locate", mVar.WA()).r("obj_type", mVar.WP());
+        return new aj("c10732").aa("fid", String.valueOf(mVar.MF().getFid())).aa("tid", String.valueOf(mVar.MF().getTid())).aa("obj_param1", mVar.getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, mVar.getSource()).r("obj_locate", mVar.Xb()).r("obj_type", mVar.Xq());
     }
 
     private aj c(com.baidu.tieba.card.data.m mVar) {
-        if (mVar == null || mVar.MA() == null) {
+        if (mVar == null || mVar.MF() == null) {
             return null;
         }
-        aj r = new aj("c10707").aa("fid", String.valueOf(mVar.MA().getFid())).aa("tid", String.valueOf(mVar.MA().getTid())).aa("obj_param1", mVar.getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, mVar.getSource()).r("obj_locate", mVar.WA()).r("obj_type", mVar.WP());
-        if (mVar.MA() != null) {
-            bl MA = mVar.MA();
-            r.r("obj_name", MA.sK() != null && (MA.sK().aAE() != null || MA.sK().Io() != null) ? 1 : 0);
+        aj r = new aj("c10707").aa("fid", String.valueOf(mVar.MF().getFid())).aa("tid", String.valueOf(mVar.MF().getTid())).aa("obj_param1", mVar.getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, mVar.getSource()).r("obj_locate", mVar.Xb()).r("obj_type", mVar.Xq());
+        if (mVar.MF() != null) {
+            bl MF = mVar.MF();
+            r.r("obj_name", MF.sU() != null && (MF.sU().aBw() != null || MF.sU().Iv() != null) ? 1 : 0);
         }
         return r;
     }
 
     private aj d(com.baidu.tieba.card.data.m mVar) {
-        if (mVar == null || mVar.MA() == null) {
+        if (mVar == null || mVar.MF() == null) {
             return null;
         }
-        return new aj("c10733").aa("fid", String.valueOf(mVar.MA().getFid())).aa("tid", String.valueOf(mVar.MA().getTid())).aa("obj_param1", mVar.getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, mVar.getSource()).r("obj_locate", mVar.WA()).r("obj_type", mVar.WP());
+        return new aj("c10733").aa("fid", String.valueOf(mVar.MF().getFid())).aa("tid", String.valueOf(mVar.MF().getTid())).aa("obj_param1", mVar.getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, mVar.getSource()).r("obj_locate", mVar.Xb()).r("obj_type", mVar.Xq());
     }
 
     private aj e(com.baidu.tieba.card.data.m mVar) {
-        if (mVar == null || mVar.MA() == null) {
+        if (mVar == null || mVar.MF() == null) {
             return null;
         }
-        return new aj("c10706").aa("fid", String.valueOf(mVar.MA().getFid())).aa("tid", String.valueOf(mVar.MA().getTid())).aa("obj_param1", mVar.getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, mVar.getSource()).r("obj_locate", mVar.WA()).r("obj_type", mVar.WP());
+        return new aj("c10706").aa("fid", String.valueOf(mVar.MF().getFid())).aa("tid", String.valueOf(mVar.MF().getTid())).aa("obj_param1", mVar.getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, mVar.getSource()).r("obj_locate", mVar.Xb()).r("obj_type", mVar.Xq());
     }
 
     public void setEventCallback(h.a aVar) {
-        this.akI = aVar;
+        this.amd = aVar;
     }
 }

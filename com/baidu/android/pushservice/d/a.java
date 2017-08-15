@@ -29,7 +29,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.android.pushservice.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public enum EnumC0018a {
+    public enum EnumC0017a {
         alarmMsgInfoId,
         msgId,
         sendtime,
@@ -178,7 +178,7 @@ public class a {
                 sQLiteDatabase.execSQL("CREATE TABLE StatisticsInfo (" + j.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + j.packageName.name() + " TEXT NOT NULL, " + j.open_type.name() + " TEXT NOT NULL, " + j.msgid.name() + " TEXT, " + j.app_open_time.name() + " TEXT NOT NULL, " + j.app_close_time.name() + " TEXT NOT NULL, " + j.use_duration.name() + " TEXT NOT NULL, " + j.extra.name() + " TEXT);");
                 sQLiteDatabase.execSQL("CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG  NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.openByPackageName.name() + " Text);");
                 sQLiteDatabase.execSQL("CREATE TABLE MsgArriveApp (" + h.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + h.msgId.name() + " TEXT NOT NULL, " + h.timeStamp.name() + " LONG NOT NULL);");
-                sQLiteDatabase.execSQL("CREATE TABLE AlarmMsgInfo (" + EnumC0018a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0018a.msgId.name() + " TEXT NOT NULL, " + EnumC0018a.sendtime.name() + " LONG NOT NULL, " + EnumC0018a.showtime.name() + " LONG NOT NULL, " + EnumC0018a.expiretime.name() + " LONG NOT NULL, " + EnumC0018a.msgEnable.name() + " INTEGER, " + EnumC0018a.isAlarm.name() + " INTEGER);");
+                sQLiteDatabase.execSQL("CREATE TABLE AlarmMsgInfo (" + EnumC0017a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0017a.msgId.name() + " TEXT NOT NULL, " + EnumC0017a.sendtime.name() + " LONG NOT NULL, " + EnumC0017a.showtime.name() + " LONG NOT NULL, " + EnumC0017a.expiretime.name() + " LONG NOT NULL, " + EnumC0017a.msgEnable.name() + " INTEGER, " + EnumC0017a.isAlarm.name() + " INTEGER);");
                 sQLiteDatabase.execSQL("CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT UNIQUE, " + b.appType.name() + " INTEGER, " + b.rsaUserId.name() + " TEXT, " + b.userId.name() + " TEXT, " + b.packageName.name() + " TEXT, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);");
                 sQLiteDatabase.execSQL("CREATE TABLE FileDownloadingInfo (" + f.belongTo.name() + " TEXT, " + f.downloadUrl.name() + " TEXT PRIMARY KEY, " + f.savePath.name() + " TEXT NOT NULL, " + f.title.name() + " TEXT, " + f.description.name() + " TEXT, " + f.fileName.name() + " TEXT NOT NULL, " + f.downloadBytes.name() + " INTEGER NOT NULL, " + f.totalBytes.name() + " INTEGER NOT NULL, " + f.downloadStatus.name() + " INTEGER NOT NULL," + f.timeStamp.name() + " INTEGER NOT NULL);");
                 sQLiteDatabase.execSQL("CREATE TABLE NoDisturb (" + i.pkgName.name() + " TEXT NOT NULL, " + i.startHour.name() + " INTEGER, " + i.startMinute.name() + " INTEGER, " + i.endHour.name() + " INTEGER, " + i.endMinute.name() + " INTEGER);");
@@ -295,7 +295,7 @@ public class a {
                     return -1;
                 }
                 try {
-                    cursor = e2.query("AlarmMsgInfo", null, EnumC0018a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
+                    cursor = e2.query("AlarmMsgInfo", null, EnumC0017a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
                     try {
                     } catch (Exception e3) {
                         e = e3;
@@ -335,7 +335,7 @@ public class a {
                     return -2;
                 }
                 if (cursor.getCount() > 0) {
-                    e2.execSQL("UPDATE AlarmMsgInfo SET " + EnumC0018a.msgEnable.name() + " = " + i2 + " WHERE " + EnumC0018a.msgId + " = " + str);
+                    e2.execSQL("UPDATE AlarmMsgInfo SET " + EnumC0017a.msgEnable.name() + " = " + i2 + " WHERE " + EnumC0017a.msgId + " = " + str);
                     com.baidu.android.pushservice.g.a.c("PushDatabase", "setAlarmMsgEnable  msgID = " + str + "  enable = " + i2);
                 }
                 if (cursor != null) {
@@ -448,12 +448,12 @@ public class a {
             SQLiteDatabase e3 = e(context);
             if (e3 != null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(EnumC0018a.msgId.name(), aVar.a);
-                contentValues.put(EnumC0018a.sendtime.name(), Long.valueOf(aVar.b));
-                contentValues.put(EnumC0018a.showtime.name(), Long.valueOf(aVar.c));
-                contentValues.put(EnumC0018a.expiretime.name(), Long.valueOf(aVar.d));
-                contentValues.put(EnumC0018a.isAlarm.name(), Integer.valueOf(aVar.e));
-                contentValues.put(EnumC0018a.msgEnable.name(), Integer.valueOf(aVar.f));
+                contentValues.put(EnumC0017a.msgId.name(), aVar.a);
+                contentValues.put(EnumC0017a.sendtime.name(), Long.valueOf(aVar.b));
+                contentValues.put(EnumC0017a.showtime.name(), Long.valueOf(aVar.c));
+                contentValues.put(EnumC0017a.expiretime.name(), Long.valueOf(aVar.d));
+                contentValues.put(EnumC0017a.isAlarm.name(), Integer.valueOf(aVar.e));
+                contentValues.put(EnumC0017a.msgEnable.name(), Integer.valueOf(aVar.f));
                 try {
                     j2 = e3.insert("AlarmMsgInfo", null, contentValues);
                 } catch (Exception e4) {
@@ -1292,7 +1292,7 @@ public class a {
             }
             com.baidu.android.pushservice.h.a aVar = new com.baidu.android.pushservice.h.a();
             try {
-                cursor = e2.query("AlarmMsgInfo", null, EnumC0018a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
+                cursor = e2.query("AlarmMsgInfo", null, EnumC0017a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
                 try {
                 } catch (Exception e3) {
                     e = e3;
@@ -1337,11 +1337,11 @@ public class a {
             if (cursor.getCount() > 0) {
                 com.baidu.android.pushservice.g.a.c("PushDatabase", "getAlarmMsgInfo  msgID = " + str);
                 cursor.moveToFirst();
-                aVar.b = cursor.getLong(cursor.getColumnIndex(EnumC0018a.sendtime.name()));
-                aVar.c = cursor.getLong(cursor.getColumnIndex(EnumC0018a.showtime.name()));
-                aVar.d = cursor.getLong(cursor.getColumnIndex(EnumC0018a.expiretime.name()));
-                aVar.e = cursor.getInt(cursor.getColumnIndex(EnumC0018a.isAlarm.name()));
-                aVar.f = cursor.getInt(cursor.getColumnIndex(EnumC0018a.msgEnable.name()));
+                aVar.b = cursor.getLong(cursor.getColumnIndex(EnumC0017a.sendtime.name()));
+                aVar.c = cursor.getLong(cursor.getColumnIndex(EnumC0017a.showtime.name()));
+                aVar.d = cursor.getLong(cursor.getColumnIndex(EnumC0017a.expiretime.name()));
+                aVar.e = cursor.getInt(cursor.getColumnIndex(EnumC0017a.isAlarm.name()));
+                aVar.f = cursor.getInt(cursor.getColumnIndex(EnumC0017a.msgEnable.name()));
             }
             if (cursor != null) {
                 cursor.close();
@@ -1362,12 +1362,12 @@ public class a {
                 cursor = e2.rawQuery("SELECT * FROM AlarmMsgInfo;", null);
                 while (cursor.moveToNext()) {
                     com.baidu.android.pushservice.h.a aVar = new com.baidu.android.pushservice.h.a();
-                    aVar.a = cursor.getString(cursor.getColumnIndex(EnumC0018a.msgId.name()));
-                    aVar.b = cursor.getLong(cursor.getColumnIndex(EnumC0018a.sendtime.name()));
-                    aVar.c = cursor.getLong(cursor.getColumnIndex(EnumC0018a.showtime.name()));
-                    aVar.d = cursor.getLong(cursor.getColumnIndex(EnumC0018a.expiretime.name()));
-                    aVar.e = cursor.getInt(cursor.getColumnIndex(EnumC0018a.isAlarm.name()));
-                    aVar.f = cursor.getInt(cursor.getColumnIndex(EnumC0018a.msgEnable.name()));
+                    aVar.a = cursor.getString(cursor.getColumnIndex(EnumC0017a.msgId.name()));
+                    aVar.b = cursor.getLong(cursor.getColumnIndex(EnumC0017a.sendtime.name()));
+                    aVar.c = cursor.getLong(cursor.getColumnIndex(EnumC0017a.showtime.name()));
+                    aVar.d = cursor.getLong(cursor.getColumnIndex(EnumC0017a.expiretime.name()));
+                    aVar.e = cursor.getInt(cursor.getColumnIndex(EnumC0017a.isAlarm.name()));
+                    aVar.f = cursor.getInt(cursor.getColumnIndex(EnumC0017a.msgEnable.name()));
                     if (aVar.f == 0 || aVar.d < System.currentTimeMillis()) {
                         d(context, aVar.a);
                         com.baidu.android.pushservice.g.a.c("PushDatabase", "deleteInvalidAlarmMsg   msgID = " + aVar.a);
@@ -1421,7 +1421,7 @@ public class a {
                     return;
                 }
                 try {
-                    cursor = e2.query("AlarmMsgInfo", null, EnumC0018a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
+                    cursor = e2.query("AlarmMsgInfo", null, EnumC0017a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
                     try {
                     } catch (Exception e3) {
                         e = e3;
@@ -1456,7 +1456,7 @@ public class a {
                     }
                     return;
                 }
-                e2.delete("AlarmMsgInfo", EnumC0018a.msgId.name() + "= ?", new String[]{str});
+                e2.delete("AlarmMsgInfo", EnumC0017a.msgId.name() + "= ?", new String[]{str});
                 com.baidu.android.pushservice.g.a.c("PushDatabase", "deleteAlarmMsg  msgID = " + str);
                 if (cursor != null) {
                     cursor.close();

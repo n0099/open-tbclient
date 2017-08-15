@@ -75,7 +75,7 @@ public class at {
             try {
                 bufferedInputStream = new BufferedInputStream(com.xiaomi.channel.commonutils.android.j.a().openFileInput("XMCloudCfg"));
                 try {
-                    this.c = a.C0143a.c(com.google.protobuf.micro.b.r(bufferedInputStream));
+                    this.c = a.C0143a.c(com.google.protobuf.micro.b.x(bufferedInputStream));
                     bufferedInputStream.close();
                     com.xiaomi.channel.commonutils.file.a.a(bufferedInputStream);
                 } catch (Exception e2) {
@@ -109,9 +109,9 @@ public class at {
         try {
             if (this.c != null) {
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.channel.commonutils.android.j.a().openFileOutput("XMCloudCfg", 0));
-                com.google.protobuf.micro.c j = com.google.protobuf.micro.c.j(bufferedOutputStream);
-                this.c.a(j);
-                j.a();
+                com.google.protobuf.micro.c k = com.google.protobuf.micro.c.k(bufferedOutputStream);
+                this.c.a(k);
+                k.a();
                 bufferedOutputStream.close();
             }
         } catch (Exception e2) {

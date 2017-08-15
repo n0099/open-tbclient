@@ -15,30 +15,30 @@ import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes.dex */
 class ExpandableHListConnector extends BaseAdapter implements Filterable {
-    private ExpandableListAdapter cVU;
-    private int cVW;
-    private int cVX = Integer.MAX_VALUE;
+    private ExpandableListAdapter cZm;
+    private int cZo;
+    private int cZp = Integer.MAX_VALUE;
     private final DataSetObserver mDataSetObserver = new a();
-    private ArrayList<GroupMetadata> cVV = new ArrayList<>();
+    private ArrayList<GroupMetadata> cZn = new ArrayList<>();
 
     public ExpandableHListConnector(ExpandableListAdapter expandableListAdapter) {
         a(expandableListAdapter);
     }
 
     public void a(ExpandableListAdapter expandableListAdapter) {
-        if (this.cVU != null) {
-            this.cVU.unregisterDataSetObserver(this.mDataSetObserver);
+        if (this.cZm != null) {
+            this.cZm.unregisterDataSetObserver(this.mDataSetObserver);
         }
-        this.cVU = expandableListAdapter;
+        this.cZm = expandableListAdapter;
         expandableListAdapter.registerDataSetObserver(this.mDataSetObserver);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b kW(int i) {
+    public b lg(int i) {
         int i2;
         int i3;
         int i4 = 0;
-        ArrayList<GroupMetadata> arrayList = this.cVV;
+        ArrayList<GroupMetadata> arrayList = this.cZn;
         int size = arrayList.size();
         int i5 = size - 1;
         if (size == 0) {
@@ -49,26 +49,26 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         while (i7 <= i6) {
             i4 = ((i6 - i7) / 2) + i7;
             GroupMetadata groupMetadata = arrayList.get(i4);
-            if (i > groupMetadata.cVZ) {
+            if (i > groupMetadata.cZr) {
                 i7 = i4 + 1;
-            } else if (i < groupMetadata.cVY) {
+            } else if (i < groupMetadata.cZq) {
                 i6 = i4 - 1;
-            } else if (i == groupMetadata.cVY) {
-                return b.a(i, 2, groupMetadata.cWa, -1, groupMetadata, i4);
+            } else if (i == groupMetadata.cZq) {
+                return b.a(i, 2, groupMetadata.cZs, -1, groupMetadata, i4);
             } else {
-                if (i <= groupMetadata.cVZ) {
-                    return b.a(i, 1, groupMetadata.cWa, i - (groupMetadata.cVY + 1), groupMetadata, i4);
+                if (i <= groupMetadata.cZr) {
+                    return b.a(i, 1, groupMetadata.cZs, i - (groupMetadata.cZq + 1), groupMetadata, i4);
                 }
             }
         }
         if (i7 > i4) {
             GroupMetadata groupMetadata2 = arrayList.get(i7 - 1);
-            i3 = (i - groupMetadata2.cVZ) + groupMetadata2.cWa;
+            i3 = (i - groupMetadata2.cZr) + groupMetadata2.cZs;
             i2 = i7;
         } else if (i6 < i4) {
             i2 = i6 + 1;
             GroupMetadata groupMetadata3 = arrayList.get(i2);
-            i3 = groupMetadata3.cWa - (groupMetadata3.cVY - i);
+            i3 = groupMetadata3.cZs - (groupMetadata3.cZq - i);
         } else {
             throw new RuntimeException("Unknown state");
         }
@@ -78,27 +78,27 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b a(com.baidu.tieba.horizonalList.widget.b bVar) {
         int i = 0;
-        ArrayList<GroupMetadata> arrayList = this.cVV;
+        ArrayList<GroupMetadata> arrayList = this.cZn;
         int size = arrayList.size();
         int i2 = size - 1;
         if (size == 0) {
-            return b.a(bVar.cWh, bVar.type, bVar.cWh, bVar.cWi, null, 0);
+            return b.a(bVar.cZz, bVar.type, bVar.cZz, bVar.cZA, null, 0);
         }
         int i3 = i2;
         int i4 = 0;
         while (i4 <= i3) {
             i = ((i3 - i4) / 2) + i4;
             GroupMetadata groupMetadata = arrayList.get(i);
-            if (bVar.cWh > groupMetadata.cWa) {
+            if (bVar.cZz > groupMetadata.cZs) {
                 i4 = i + 1;
-            } else if (bVar.cWh < groupMetadata.cWa) {
+            } else if (bVar.cZz < groupMetadata.cZs) {
                 i3 = i - 1;
-            } else if (bVar.cWh == groupMetadata.cWa) {
+            } else if (bVar.cZz == groupMetadata.cZs) {
                 if (bVar.type == 2) {
-                    return b.a(groupMetadata.cVY, bVar.type, bVar.cWh, bVar.cWi, groupMetadata, i);
+                    return b.a(groupMetadata.cZq, bVar.type, bVar.cZz, bVar.cZA, groupMetadata, i);
                 }
                 if (bVar.type == 1) {
-                    return b.a(groupMetadata.cVY + bVar.cWi + 1, bVar.type, bVar.cWh, bVar.cWi, groupMetadata, i);
+                    return b.a(groupMetadata.cZq + bVar.cZA + 1, bVar.type, bVar.cZz, bVar.cZA, groupMetadata, i);
                 }
                 return null;
             }
@@ -106,11 +106,11 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         if (bVar.type == 2) {
             if (i4 > i) {
                 GroupMetadata groupMetadata2 = arrayList.get(i4 - 1);
-                return b.a((bVar.cWh - groupMetadata2.cWa) + groupMetadata2.cVZ, bVar.type, bVar.cWh, bVar.cWi, null, i4);
+                return b.a((bVar.cZz - groupMetadata2.cZs) + groupMetadata2.cZr, bVar.type, bVar.cZz, bVar.cZA, null, i4);
             } else if (i3 < i) {
                 int i5 = i3 + 1;
                 GroupMetadata groupMetadata3 = arrayList.get(i5);
-                return b.a(groupMetadata3.cVY - (groupMetadata3.cWa - bVar.cWh), bVar.type, bVar.cWh, bVar.cWi, null, i5);
+                return b.a(groupMetadata3.cZq - (groupMetadata3.cZs - bVar.cZz), bVar.type, bVar.cZz, bVar.cZA, null, i5);
             } else {
                 return null;
             }
@@ -120,94 +120,94 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
-        return this.cVU.areAllItemsEnabled();
+        return this.cZm.areAllItemsEnabled();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        b kW = kW(i);
-        com.baidu.tieba.horizonalList.widget.b bVar = kW.cWe;
-        boolean isChildSelectable = bVar.type == 1 ? this.cVU.isChildSelectable(bVar.cWh, bVar.cWi) : true;
-        kW.recycle();
+        b lg = lg(i);
+        com.baidu.tieba.horizonalList.widget.b bVar = lg.cZw;
+        boolean isChildSelectable = bVar.type == 1 ? this.cZm.isChildSelectable(bVar.cZz, bVar.cZA) : true;
+        lg.recycle();
         return isChildSelectable;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.cVU.getGroupCount() + this.cVW;
+        return this.cZm.getGroupCount() + this.cZo;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         Object child;
-        b kW = kW(i);
-        if (kW.cWe.type == 2) {
-            child = this.cVU.getGroup(kW.cWe.cWh);
-        } else if (kW.cWe.type == 1) {
-            child = this.cVU.getChild(kW.cWe.cWh, kW.cWe.cWi);
+        b lg = lg(i);
+        if (lg.cZw.type == 2) {
+            child = this.cZm.getGroup(lg.cZw.cZz);
+        } else if (lg.cZw.type == 1) {
+            child = this.cZm.getChild(lg.cZw.cZz, lg.cZw.cZA);
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
-        kW.recycle();
+        lg.recycle();
         return child;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         long combinedChildId;
-        b kW = kW(i);
-        long groupId = this.cVU.getGroupId(kW.cWe.cWh);
-        if (kW.cWe.type == 2) {
-            combinedChildId = this.cVU.getCombinedGroupId(groupId);
-        } else if (kW.cWe.type == 1) {
-            combinedChildId = this.cVU.getCombinedChildId(groupId, this.cVU.getChildId(kW.cWe.cWh, kW.cWe.cWi));
+        b lg = lg(i);
+        long groupId = this.cZm.getGroupId(lg.cZw.cZz);
+        if (lg.cZw.type == 2) {
+            combinedChildId = this.cZm.getCombinedGroupId(groupId);
+        } else if (lg.cZw.type == 1) {
+            combinedChildId = this.cZm.getCombinedChildId(groupId, this.cZm.getChildId(lg.cZw.cZz, lg.cZw.cZA));
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
-        kW.recycle();
+        lg.recycle();
         return combinedChildId;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         View childView;
-        b kW = kW(i);
-        if (kW.cWe.type == 2) {
-            childView = this.cVU.getGroupView(kW.cWe.cWh, kW.apd(), view, viewGroup);
-        } else if (kW.cWe.type == 1) {
-            childView = this.cVU.getChildView(kW.cWe.cWh, kW.cWe.cWi, kW.cWf.cVZ == i, view, viewGroup);
+        b lg = lg(i);
+        if (lg.cZw.type == 2) {
+            childView = this.cZm.getGroupView(lg.cZw.cZz, lg.apW(), view, viewGroup);
+        } else if (lg.cZw.type == 1) {
+            childView = this.cZm.getChildView(lg.cZw.cZz, lg.cZw.cZA, lg.cZx.cZr == i, view, viewGroup);
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
-        kW.recycle();
+        lg.recycle();
         return childView;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int i2;
-        b kW = kW(i);
-        com.baidu.tieba.horizonalList.widget.b bVar = kW.cWe;
-        if (this.cVU instanceof HeterogeneousExpandableList) {
-            HeterogeneousExpandableList heterogeneousExpandableList = (HeterogeneousExpandableList) this.cVU;
+        b lg = lg(i);
+        com.baidu.tieba.horizonalList.widget.b bVar = lg.cZw;
+        if (this.cZm instanceof HeterogeneousExpandableList) {
+            HeterogeneousExpandableList heterogeneousExpandableList = (HeterogeneousExpandableList) this.cZm;
             if (bVar.type == 2) {
-                i2 = heterogeneousExpandableList.getGroupType(bVar.cWh);
+                i2 = heterogeneousExpandableList.getGroupType(bVar.cZz);
             } else {
-                i2 = heterogeneousExpandableList.getGroupTypeCount() + heterogeneousExpandableList.getChildType(bVar.cWh, bVar.cWi);
+                i2 = heterogeneousExpandableList.getGroupTypeCount() + heterogeneousExpandableList.getChildType(bVar.cZz, bVar.cZA);
             }
         } else if (bVar.type == 2) {
             i2 = 0;
         } else {
             i2 = 1;
         }
-        kW.recycle();
+        lg.recycle();
         return i2;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        if (this.cVU instanceof HeterogeneousExpandableList) {
-            HeterogeneousExpandableList heterogeneousExpandableList = (HeterogeneousExpandableList) this.cVU;
+        if (this.cZm instanceof HeterogeneousExpandableList) {
+            HeterogeneousExpandableList heterogeneousExpandableList = (HeterogeneousExpandableList) this.cZm;
             return heterogeneousExpandableList.getChildTypeCount() + heterogeneousExpandableList.getGroupTypeCount();
         }
         return 2;
@@ -215,29 +215,29 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean hasStableIds() {
-        return this.cVU.hasStableIds();
+        return this.cZm.hasStableIds();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void w(boolean z, boolean z2) {
+    public void x(boolean z, boolean z2) {
         int childrenCount;
         boolean z3;
         int i = 0;
-        ArrayList<GroupMetadata> arrayList = this.cVV;
+        ArrayList<GroupMetadata> arrayList = this.cZn;
         int size = arrayList.size();
-        this.cVW = 0;
+        this.cZo = 0;
         if (z2) {
             int i2 = size - 1;
             boolean z4 = false;
             while (i2 >= 0) {
                 GroupMetadata groupMetadata = arrayList.get(i2);
-                int g = g(groupMetadata.cWb, groupMetadata.cWa);
-                if (g != groupMetadata.cWa) {
+                int g = g(groupMetadata.cZt, groupMetadata.cZs);
+                if (g != groupMetadata.cZs) {
                     if (g == -1) {
                         arrayList.remove(i2);
                         size--;
                     }
-                    groupMetadata.cWa = g;
+                    groupMetadata.cZs = g;
                     if (!z4) {
                         z3 = true;
                         i2--;
@@ -256,26 +256,26 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         int i4 = 0;
         while (i < size) {
             GroupMetadata groupMetadata2 = arrayList.get(i);
-            if (groupMetadata2.cVZ == -1 || z) {
-                childrenCount = this.cVU.getChildrenCount(groupMetadata2.cWa);
+            if (groupMetadata2.cZr == -1 || z) {
+                childrenCount = this.cZm.getChildrenCount(groupMetadata2.cZs);
             } else {
-                childrenCount = groupMetadata2.cVZ - groupMetadata2.cVY;
+                childrenCount = groupMetadata2.cZr - groupMetadata2.cZq;
             }
-            this.cVW += childrenCount;
-            int i5 = i4 + (groupMetadata2.cWa - i3);
-            i3 = groupMetadata2.cWa;
-            groupMetadata2.cVY = i5;
+            this.cZo += childrenCount;
+            int i5 = i4 + (groupMetadata2.cZs - i3);
+            i3 = groupMetadata2.cZs;
+            groupMetadata2.cZq = i5;
             int i6 = childrenCount + i5;
-            groupMetadata2.cVZ = i6;
+            groupMetadata2.cZr = i6;
             i++;
             i4 = i6;
         }
     }
 
     boolean collapseGroup(int i) {
-        com.baidu.tieba.horizonalList.widget.b n = com.baidu.tieba.horizonalList.widget.b.n(2, i, -1, -1);
-        b a2 = a(n);
-        n.recycle();
+        com.baidu.tieba.horizonalList.widget.b o = com.baidu.tieba.horizonalList.widget.b.o(2, i, -1, -1);
+        b a2 = a(o);
+        o.recycle();
         if (a2 == null) {
             return false;
         }
@@ -286,97 +286,97 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(b bVar) {
-        if (bVar.cWf == null) {
+        if (bVar.cZx == null) {
             return false;
         }
-        this.cVV.remove(bVar.cWf);
-        w(false, false);
+        this.cZn.remove(bVar.cZx);
+        x(false, false);
         notifyDataSetChanged();
-        this.cVU.onGroupCollapsed(bVar.cWf.cWa);
+        this.cZm.onGroupCollapsed(bVar.cZx.cZs);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean b(b bVar) {
-        if (bVar.cWe.cWh < 0) {
+        if (bVar.cZw.cZz < 0) {
             throw new RuntimeException("Need group");
         }
-        if (this.cVX != 0 && bVar.cWf == null) {
-            if (this.cVV.size() >= this.cVX) {
-                GroupMetadata groupMetadata = this.cVV.get(0);
-                int indexOf = this.cVV.indexOf(groupMetadata);
-                collapseGroup(groupMetadata.cWa);
-                if (bVar.cWg > indexOf) {
-                    bVar.cWg--;
+        if (this.cZp != 0 && bVar.cZx == null) {
+            if (this.cZn.size() >= this.cZp) {
+                GroupMetadata groupMetadata = this.cZn.get(0);
+                int indexOf = this.cZn.indexOf(groupMetadata);
+                collapseGroup(groupMetadata.cZs);
+                if (bVar.cZy > indexOf) {
+                    bVar.cZy--;
                 }
             }
-            GroupMetadata a2 = GroupMetadata.a(-1, -1, bVar.cWe.cWh, this.cVU.getGroupId(bVar.cWe.cWh));
-            this.cVV.add(bVar.cWg, a2);
-            w(false, false);
+            GroupMetadata a2 = GroupMetadata.a(-1, -1, bVar.cZw.cZz, this.cZm.getGroupId(bVar.cZw.cZz));
+            this.cZn.add(bVar.cZy, a2);
+            x(false, false);
             notifyDataSetChanged();
-            this.cVU.onGroupExpanded(a2.cWa);
+            this.cZm.onGroupExpanded(a2.cZs);
             return true;
         }
         return false;
     }
 
-    ExpandableListAdapter apa() {
-        return this.cVU;
+    ExpandableListAdapter apT() {
+        return this.cZm;
     }
 
     @Override // android.widget.Filterable
     public Filter getFilter() {
-        ExpandableListAdapter apa = apa();
-        if (apa instanceof Filterable) {
-            return ((Filterable) apa).getFilter();
+        ExpandableListAdapter apT = apT();
+        if (apT instanceof Filterable) {
+            return ((Filterable) apT).getFilter();
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<GroupMetadata> apb() {
-        return this.cVV;
+    public ArrayList<GroupMetadata> apU() {
+        return this.cZn;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void S(ArrayList<GroupMetadata> arrayList) {
-        if (arrayList != null && this.cVU != null) {
-            int groupCount = this.cVU.getGroupCount();
+        if (arrayList != null && this.cZm != null) {
+            int groupCount = this.cZm.getGroupCount();
             for (int size = arrayList.size() - 1; size >= 0; size--) {
-                if (arrayList.get(size).cWa >= groupCount) {
+                if (arrayList.get(size).cZs >= groupCount) {
                     return;
                 }
             }
-            this.cVV = arrayList;
-            w(true, false);
+            this.cZn = arrayList;
+            x(true, false);
         }
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        ExpandableListAdapter apa = apa();
-        if (apa != null) {
-            return apa.isEmpty();
+        ExpandableListAdapter apT = apT();
+        if (apT != null) {
+            return apT.isEmpty();
         }
         return true;
     }
 
     int g(long j, int i) {
-        int groupCount = this.cVU.getGroupCount();
+        int groupCount = this.cZm.getGroupCount();
         if (groupCount == 0 || j == Long.MIN_VALUE) {
             return -1;
         }
         int min = Math.min(groupCount - 1, Math.max(0, i));
         long uptimeMillis = SystemClock.uptimeMillis() + 100;
         boolean z = false;
-        ExpandableListAdapter apa = apa();
-        if (apa == null) {
+        ExpandableListAdapter apT = apT();
+        if (apT == null) {
             return -1;
         }
         int i2 = min;
         int i3 = min;
         while (SystemClock.uptimeMillis() <= uptimeMillis) {
-            if (apa.getGroupId(i3) != j) {
+            if (apT.getGroupId(i3) != j) {
                 boolean z2 = min == groupCount + (-1);
                 boolean z3 = i2 == 0;
                 if (z2 && z3) {
@@ -404,13 +404,13 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
-            ExpandableHListConnector.this.w(true, true);
+            ExpandableHListConnector.this.x(true, true);
             ExpandableHListConnector.this.notifyDataSetChanged();
         }
 
         @Override // android.database.DataSetObserver
         public void onInvalidated() {
-            ExpandableHListConnector.this.w(true, true);
+            ExpandableHListConnector.this.x(true, true);
             ExpandableHListConnector.this.notifyDataSetInvalidated();
         }
     }
@@ -421,32 +421,32 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         public static final Parcelable.Creator<GroupMetadata> CREATOR = new Parcelable.Creator<GroupMetadata>() { // from class: com.baidu.tieba.horizonalList.widget.ExpandableHListConnector.GroupMetadata.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: m */
+            /* renamed from: n */
             public GroupMetadata createFromParcel(Parcel parcel) {
                 return GroupMetadata.a(parcel.readInt(), parcel.readInt(), parcel.readInt(), parcel.readLong());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: kX */
+            /* renamed from: lh */
             public GroupMetadata[] newArray(int i) {
                 return new GroupMetadata[i];
             }
         };
-        int cVY;
-        int cVZ;
-        int cWa;
-        long cWb;
+        int cZq;
+        int cZr;
+        int cZs;
+        long cZt;
 
         private GroupMetadata() {
         }
 
         static GroupMetadata a(int i, int i2, int i3, long j) {
             GroupMetadata groupMetadata = new GroupMetadata();
-            groupMetadata.cVY = i;
-            groupMetadata.cVZ = i2;
-            groupMetadata.cWa = i3;
-            groupMetadata.cWb = j;
+            groupMetadata.cZq = i;
+            groupMetadata.cZr = i2;
+            groupMetadata.cZs = i3;
+            groupMetadata.cZt = j;
             return groupMetadata;
         }
 
@@ -457,7 +457,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
             if (groupMetadata == null) {
                 throw new IllegalArgumentException();
             }
-            return this.cWa - groupMetadata.cWa;
+            return this.cZs - groupMetadata.cZs;
         }
 
         @Override // android.os.Parcelable
@@ -467,46 +467,46 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            parcel.writeInt(this.cVY);
-            parcel.writeInt(this.cVZ);
-            parcel.writeInt(this.cWa);
-            parcel.writeLong(this.cWb);
+            parcel.writeInt(this.cZq);
+            parcel.writeInt(this.cZr);
+            parcel.writeInt(this.cZs);
+            parcel.writeLong(this.cZt);
         }
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        private static ArrayList<b> cWd = new ArrayList<>(5);
-        public com.baidu.tieba.horizonalList.widget.b cWe;
-        public GroupMetadata cWf;
-        public int cWg;
+        private static ArrayList<b> cZv = new ArrayList<>(5);
+        public com.baidu.tieba.horizonalList.widget.b cZw;
+        public GroupMetadata cZx;
+        public int cZy;
 
-        private void wF() {
-            if (this.cWe != null) {
-                this.cWe.recycle();
-                this.cWe = null;
+        private void resetState() {
+            if (this.cZw != null) {
+                this.cZw.recycle();
+                this.cZw = null;
             }
-            this.cWf = null;
-            this.cWg = 0;
+            this.cZx = null;
+            this.cZy = 0;
         }
 
         private b() {
         }
 
         static b a(int i, int i2, int i3, int i4, GroupMetadata groupMetadata, int i5) {
-            b apc = apc();
-            apc.cWe = com.baidu.tieba.horizonalList.widget.b.n(i2, i3, i4, i);
-            apc.cWf = groupMetadata;
-            apc.cWg = i5;
-            return apc;
+            b apV = apV();
+            apV.cZw = com.baidu.tieba.horizonalList.widget.b.o(i2, i3, i4, i);
+            apV.cZx = groupMetadata;
+            apV.cZy = i5;
+            return apV;
         }
 
-        private static b apc() {
+        private static b apV() {
             b bVar;
-            synchronized (cWd) {
-                if (cWd.size() > 0) {
-                    bVar = cWd.remove(0);
-                    bVar.wF();
+            synchronized (cZv) {
+                if (cZv.size() > 0) {
+                    bVar = cZv.remove(0);
+                    bVar.resetState();
                 } else {
                     bVar = new b();
                 }
@@ -515,16 +515,16 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         }
 
         public void recycle() {
-            wF();
-            synchronized (cWd) {
-                if (cWd.size() < 5) {
-                    cWd.add(this);
+            resetState();
+            synchronized (cZv) {
+                if (cZv.size() < 5) {
+                    cZv.add(this);
                 }
             }
         }
 
-        public boolean apd() {
-            return this.cWf != null;
+        public boolean apW() {
+            return this.cZx != null;
         }
     }
 }

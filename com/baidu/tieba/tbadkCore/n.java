@@ -24,16 +24,16 @@ public class n {
                 if (list.get(i3) instanceof ah) {
                     if (z2) {
                         if (!((ah) list.get(i3)).isValid()) {
-                            ((ah) list.get(i3)).qa();
+                            ((ah) list.get(i3)).qk();
                         }
                         if (((ah) list.get(i3)).isValid()) {
-                            ICardInfo qb = ((ah) list.get(i3)).qb();
-                            int viewCount = qb.getViewCount();
+                            ICardInfo ql = ((ah) list.get(i3)).ql();
+                            int viewCount = ql.getViewCount();
                             ArrayList arrayList = new ArrayList();
                             for (int i4 = 0; i4 < viewCount; i4++) {
-                                ICardInfo viewItem = qb.getViewItem(i4, i);
+                                ICardInfo viewItem = ql.getViewItem(i4, i);
                                 if (viewItem != null) {
-                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.dLD.get(viewItem.getCardType()));
+                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.dOQ.get(viewItem.getCardType()));
                                     arrayList.add(viewItem);
                                 }
                             }
@@ -81,7 +81,7 @@ public class n {
                         for (int i4 = 0; i4 < viewCount; i4++) {
                             ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
                             if (viewItem != null) {
-                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.dLD.get(viewItem.getCardType()));
+                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.dOQ.get(viewItem.getCardType()));
                                 arrayList.add(viewItem);
                             }
                         }
@@ -110,16 +110,16 @@ public class n {
         }
     }
 
-    public static ArrayList<BdUniqueId> brB() {
-        int size = com.baidu.tieba.lego.card.e.dLD.size();
+    public static ArrayList<BdUniqueId> bsq() {
+        int size = com.baidu.tieba.lego.card.e.dOQ.size();
         ArrayList<BdUniqueId> arrayList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            arrayList.add(com.baidu.tieba.lego.card.e.dLD.valueAt(i));
+            arrayList.add(com.baidu.tieba.lego.card.e.dOQ.valueAt(i));
         }
         return arrayList;
     }
 
-    public static boolean rQ(String str) {
+    public static boolean rX(String str) {
         return str != null && str.startsWith("tieba://deeplink?");
     }
 
@@ -139,20 +139,20 @@ public class n {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        if (at.vV().ed(str)) {
-            at.vV().a(tbPageContext, strArr, true);
+        if (at.wf().ej(str)) {
+            at.wf().a(tbPageContext, strArr, true);
             return true;
         }
-        return at.vV().c(tbPageContext, strArr);
+        return at.wf().c(tbPageContext, strArr);
     }
 
-    public static boolean aWr() {
+    public static boolean aXj() {
         com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        return !(adAdSense == null || adAdSense.xP()) ? com.baidu.adp.lib.util.i.hi() : (com.baidu.adp.lib.util.i.hj() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hi() && TbadkCoreApplication.getInst().getVideoAutoPlay() != 1);
+        return !(adAdSense == null || adAdSense.xX()) ? com.baidu.adp.lib.util.i.hs() : (com.baidu.adp.lib.util.i.ht() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hs() && TbadkCoreApplication.getInst().getVideoAutoPlay() != 1);
     }
 
-    public static boolean brC() {
+    public static boolean bsr() {
         com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        return !(adAdSense != null && adAdSense.xQ()) ? com.baidu.adp.lib.util.i.hi() : (com.baidu.adp.lib.util.i.hj() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hi() && TbadkCoreApplication.getInst().getVideoAutoPlay() != 1);
+        return !(adAdSense != null && adAdSense.xY()) ? com.baidu.adp.lib.util.i.hs() : (com.baidu.adp.lib.util.i.ht() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hs() && TbadkCoreApplication.getInst().getVideoAutoPlay() != 1);
     }
 }

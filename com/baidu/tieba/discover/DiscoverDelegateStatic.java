@@ -22,12 +22,12 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c EP;
+                c EX;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(discoverDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (EP = discoverDelegateStatic.EP()) != null) {
-                        EP.aGr.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (EX = discoverDelegateStatic.EX()) != null) {
+                        EX.aHH.setArguments(new Bundle());
                     }
                 }
             }
@@ -43,32 +43,32 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c EO() {
+    public c EW() {
         c cVar = new c();
-        cVar.aGr = new a();
+        cVar.aHH = new a();
         cVar.type = 10;
-        cVar.aGs = d.l.home_discover;
-        cVar.aGt = d.g.s_icon_tabbar_discover;
+        cVar.aHI = d.l.home_discover;
+        cVar.aHJ = d.g.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator aS(Context context) {
-        this.aGe = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+    public FragmentTabIndicator aT(Context context) {
+        this.aHu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.aGq = this.aGe;
-        aVar.uT = k.dip2px(context, 3.0f);
-        aVar.aGo = d.g.icon_news_down_bar_one;
-        this.aGe.a("emotion", aVar);
-        return this.aGe;
+        aVar.aHG = this.aHu;
+        aVar.wy = k.dip2px(context, 3.0f);
+        aVar.aHE = d.g.icon_news_down_bar_one;
+        this.aHu.a("emotion", aVar);
+        return this.aHu;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void EN() {
+    public void EV() {
         isAdded = true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void cB() {
+    public void cM() {
     }
 }

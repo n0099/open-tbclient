@@ -7,88 +7,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 class b {
-    private int eQK;
-    private int eQL;
-    private byte[] eQM;
-    private int eQN;
-    private int eQO;
-    private int eQP;
-    int eQQ;
-    int eQS;
-    int eQZ;
-    int eRa;
-    int eRb;
-    int eRf;
-    int eQR = 12;
-    int eQT = 4096;
-    int[] eQU = new int[5003];
-    int[] eQV = new int[5003];
-    int eQW = 5003;
-    int eQX = 0;
-    boolean eQY = false;
-    int eRc = 0;
-    int eRd = 0;
-    int[] eRe = {0, 1, 3, 7, 15, 31, 63, TransportMediator.KEYCODE_MEDIA_PAUSE, MotionEventCompat.ACTION_MASK, 511, 1023, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
-    byte[] eRg = new byte[256];
+    private int eTQ;
+    private int eTR;
+    private byte[] eTS;
+    private int eTT;
+    private int eTU;
+    private int eTV;
+    int eTW;
+    int eTY;
+    int eUf;
+    int eUg;
+    int eUh;
+    int eUl;
+    int eTX = 12;
+    int eTZ = 4096;
+    int[] eUa = new int[5003];
+    int[] eUb = new int[5003];
+    int eUc = 5003;
+    int eUd = 0;
+    boolean eUe = false;
+    int eUi = 0;
+    int eUj = 0;
+    int[] eUk = {0, 1, 3, 7, 15, 31, 63, TransportMediator.KEYCODE_MEDIA_PAUSE, MotionEventCompat.ACTION_MASK, 511, 1023, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
+    byte[] eUm = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.eQK = i;
-        this.eQL = i2;
-        this.eQM = bArr;
-        this.eQN = Math.max(2, i3);
+        this.eTQ = i;
+        this.eTR = i2;
+        this.eTS = bArr;
+        this.eTT = Math.max(2, i3);
     }
 
     void b(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.eRg;
-        int i = this.eRf;
-        this.eRf = i + 1;
+        byte[] bArr = this.eUm;
+        int i = this.eUl;
+        this.eUl = i + 1;
         bArr[i] = b;
-        if (this.eRf >= 254) {
-            i(outputStream);
+        if (this.eUl >= 254) {
+            j(outputStream);
         }
     }
 
-    void h(OutputStream outputStream) throws IOException {
-        po(this.eQW);
-        this.eQX = this.eRa + 2;
-        this.eQY = true;
-        d(this.eRa, outputStream);
+    void i(OutputStream outputStream) throws IOException {
+        py(this.eUc);
+        this.eUd = this.eUg + 2;
+        this.eUe = true;
+        d(this.eUg, outputStream);
     }
 
-    void po(int i) {
+    void py(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.eQU[i2] = -1;
+            this.eUa[i2] = -1;
         }
     }
 
     void c(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.eQZ = i;
-        this.eQY = false;
-        this.eQQ = this.eQZ;
-        this.eQS = pp(this.eQQ);
-        this.eRa = 1 << (i - 1);
-        this.eRb = this.eRa + 1;
-        this.eQX = this.eRa + 2;
-        this.eRf = 0;
-        int aUc = aUc();
-        for (int i3 = this.eQW; i3 < 65536; i3 *= 2) {
+        this.eUf = i;
+        this.eUe = false;
+        this.eTW = this.eUf;
+        this.eTY = pz(this.eTW);
+        this.eUg = 1 << (i - 1);
+        this.eUh = this.eUg + 1;
+        this.eUd = this.eUg + 2;
+        this.eUl = 0;
+        int aUU = aUU();
+        for (int i3 = this.eUc; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.eQW;
-        po(i5);
-        d(this.eRa, outputStream);
+        int i5 = this.eUc;
+        py(i5);
+        d(this.eUg, outputStream);
         while (true) {
-            int aUc2 = aUc();
-            if (aUc2 != -1) {
-                int i6 = (aUc2 << this.eQR) + aUc;
-                int i7 = (aUc2 << i4) ^ aUc;
-                if (this.eQU[i7] == i6) {
-                    aUc = this.eQV[i7];
+            int aUU2 = aUU();
+            if (aUU2 != -1) {
+                int i6 = (aUU2 << this.eTX) + aUU;
+                int i7 = (aUU2 << i4) ^ aUU;
+                if (this.eUa[i7] == i6) {
+                    aUU = this.eUb[i7];
                 } else {
-                    if (this.eQU[i7] >= 0) {
+                    if (this.eUa[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -98,28 +98,28 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.eQU[i7] == i6) {
-                                aUc = this.eQV[i7];
+                            if (this.eUa[i7] == i6) {
+                                aUU = this.eUb[i7];
                                 break;
                             }
-                        } while (this.eQU[i7] >= 0);
+                        } while (this.eUa[i7] >= 0);
                     }
-                    d(aUc, outputStream);
-                    if (this.eQX < this.eQT) {
-                        int[] iArr = this.eQV;
-                        int i9 = this.eQX;
-                        this.eQX = i9 + 1;
+                    d(aUU, outputStream);
+                    if (this.eUd < this.eTZ) {
+                        int[] iArr = this.eUb;
+                        int i9 = this.eUd;
+                        this.eUd = i9 + 1;
                         iArr[i7] = i9;
-                        this.eQU[i7] = i6;
-                        aUc = aUc2;
+                        this.eUa[i7] = i6;
+                        aUU = aUU2;
                     } else {
-                        h(outputStream);
-                        aUc = aUc2;
+                        i(outputStream);
+                        aUU = aUU2;
                     }
                 }
             } else {
-                d(aUc, outputStream);
-                d(this.eRb, outputStream);
+                d(aUU, outputStream);
+                d(this.eUh, outputStream);
                 return;
             }
         }
@@ -127,71 +127,71 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.eQN);
-        this.eQO = this.eQK * this.eQL;
-        this.eQP = 0;
-        c(this.eQN + 1, outputStream);
+        outputStream.write(this.eTT);
+        this.eTU = this.eTQ * this.eTR;
+        this.eTV = 0;
+        c(this.eTT + 1, outputStream);
         outputStream.write(0);
     }
 
-    void i(OutputStream outputStream) throws IOException {
-        if (this.eRf > 0) {
-            outputStream.write(this.eRf);
-            outputStream.write(this.eRg, 0, this.eRf);
-            this.eRf = 0;
+    void j(OutputStream outputStream) throws IOException {
+        if (this.eUl > 0) {
+            outputStream.write(this.eUl);
+            outputStream.write(this.eUm, 0, this.eUl);
+            this.eUl = 0;
         }
     }
 
-    final int pp(int i) {
+    final int pz(int i) {
         return (1 << i) - 1;
     }
 
-    private int aUc() {
-        if (this.eQO == 0) {
+    private int aUU() {
+        if (this.eTU == 0) {
             return -1;
         }
-        this.eQO--;
-        byte[] bArr = this.eQM;
-        int i = this.eQP;
-        this.eQP = i + 1;
+        this.eTU--;
+        byte[] bArr = this.eTS;
+        int i = this.eTV;
+        this.eTV = i + 1;
         return bArr[i] & 255;
     }
 
     void d(int i, OutputStream outputStream) throws IOException {
-        this.eRc &= this.eRe[this.eRd];
-        if (this.eRd > 0) {
-            this.eRc |= i << this.eRd;
+        this.eUi &= this.eUk[this.eUj];
+        if (this.eUj > 0) {
+            this.eUi |= i << this.eUj;
         } else {
-            this.eRc = i;
+            this.eUi = i;
         }
-        this.eRd += this.eQQ;
-        while (this.eRd >= 8) {
-            b((byte) (this.eRc & MotionEventCompat.ACTION_MASK), outputStream);
-            this.eRc >>= 8;
-            this.eRd -= 8;
+        this.eUj += this.eTW;
+        while (this.eUj >= 8) {
+            b((byte) (this.eUi & MotionEventCompat.ACTION_MASK), outputStream);
+            this.eUi >>= 8;
+            this.eUj -= 8;
         }
-        if (this.eQX > this.eQS || this.eQY) {
-            if (this.eQY) {
-                int i2 = this.eQZ;
-                this.eQQ = i2;
-                this.eQS = pp(i2);
-                this.eQY = false;
+        if (this.eUd > this.eTY || this.eUe) {
+            if (this.eUe) {
+                int i2 = this.eUf;
+                this.eTW = i2;
+                this.eTY = pz(i2);
+                this.eUe = false;
             } else {
-                this.eQQ++;
-                if (this.eQQ == this.eQR) {
-                    this.eQS = this.eQT;
+                this.eTW++;
+                if (this.eTW == this.eTX) {
+                    this.eTY = this.eTZ;
                 } else {
-                    this.eQS = pp(this.eQQ);
+                    this.eTY = pz(this.eTW);
                 }
             }
         }
-        if (i == this.eRb) {
-            while (this.eRd > 0) {
-                b((byte) (this.eRc & MotionEventCompat.ACTION_MASK), outputStream);
-                this.eRc >>= 8;
-                this.eRd -= 8;
+        if (i == this.eUh) {
+            while (this.eUj > 0) {
+                b((byte) (this.eUi & MotionEventCompat.ACTION_MASK), outputStream);
+                this.eUi >>= 8;
+                this.eUj -= 8;
             }
-            i(outputStream);
+            j(outputStream);
         }
     }
 }

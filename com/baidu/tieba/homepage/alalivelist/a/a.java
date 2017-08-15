@@ -10,26 +10,26 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.homepage.alalivelist.view.a;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.widget.ListView.a<b, C0087a> {
-    private TbPageContext<?> aaS;
-    a.InterfaceC0088a cNL;
+    private TbPageContext<?> acr;
+    a.InterfaceC0088a cRd;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aaS = null;
-        this.cNL = new a.InterfaceC0088a() { // from class: com.baidu.tieba.homepage.alalivelist.a.a.1
+        this.acr = null;
+        this.cRd = new a.InterfaceC0088a() { // from class: com.baidu.tieba.homepage.alalivelist.a.a.1
             @Override // com.baidu.tieba.homepage.alalivelist.view.a.InterfaceC0088a
             public void a(View view, b bVar) {
             }
         };
-        this.aaS = tbPageContext;
+        this.acr = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ah */
+    /* renamed from: ai */
     public C0087a onCreateViewHolder(ViewGroup viewGroup) {
-        return new C0087a(new com.baidu.tieba.homepage.alalivelist.view.a(this.aaS.getPageActivity()));
+        return new C0087a(new com.baidu.tieba.homepage.alalivelist.view.a(this.acr.getPageActivity()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,20 +41,20 @@ public class a extends com.baidu.adp.widget.ListView.a<b, C0087a> {
             return null;
         }
         TiebaStatic.log("c11828");
-        c0087a.cNN.a(bVar);
-        c0087a.cNN.setAfterHeadImgOnClickListener(this.cNL);
-        c0087a.cNN.d(this.aaS, TbadkCoreApplication.getInst().getSkinType());
-        return c0087a.cNN;
+        c0087a.cRf.a(bVar);
+        c0087a.cRf.setAfterHeadImgOnClickListener(this.cRd);
+        c0087a.cRf.d(this.acr, TbadkCoreApplication.getInst().getSkinType());
+        return c0087a.cRf;
     }
 
     /* renamed from: com.baidu.tieba.homepage.alalivelist.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0087a extends j.a {
-        public com.baidu.tieba.homepage.alalivelist.view.a cNN;
+        public com.baidu.tieba.homepage.alalivelist.view.a cRf;
 
         public C0087a(com.baidu.tieba.homepage.alalivelist.view.a aVar) {
             super(aVar);
-            this.cNN = aVar;
+            this.cRf = aVar;
         }
     }
 }

@@ -24,31 +24,31 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private View.OnClickListener anD;
-    private View.OnClickListener ann;
-    private TbImageView bfd;
-    private TextView bfe;
-    private RelativeLayout bff;
-    private FrameLayout bfi;
-    private View bfj;
-    private ThreadLiveAndRecordUserInfoLayout cOe;
-    private b cOf;
+    private View.OnClickListener aoH;
+    private View.OnClickListener aoX;
+    private TbImageView bgn;
+    private TextView bgo;
+    private RelativeLayout bgp;
+    private FrameLayout bgt;
+    private View bgu;
+    private ThreadLiveAndRecordUserInfoLayout cRw;
+    private b cRx;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.anD = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.c.1
+        this.aoX = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.VZ() != null) {
-                    c.this.VZ().a(view, c.this.cOf);
+                if (c.this.WA() != null) {
+                    c.this.WA().a(view, c.this.cRx);
                 }
             }
         };
-        this.ann = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.c.2
+        this.aoH = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.VZ() != null) {
-                    c.this.VZ().a(view, c.this.cOf);
+                if (c.this.WA() != null) {
+                    c.this.WA().a(view, c.this.cRx);
                 }
             }
         };
@@ -56,21 +56,21 @@ public class c extends com.baidu.tieba.card.a<b> {
     }
 
     private void initView() {
-        this.bff = (RelativeLayout) getView().findViewById(d.h.rlAlaLivePane);
-        ViewGroup.LayoutParams layoutParams = this.bff.getLayoutParams();
-        layoutParams.height = k.af(this.mContext) * 1;
-        this.bff.setLayoutParams(layoutParams);
+        this.bgp = (RelativeLayout) getView().findViewById(d.h.rlAlaLivePane);
+        ViewGroup.LayoutParams layoutParams = this.bgp.getLayoutParams();
+        layoutParams.height = k.ag(this.mContext) * 1;
+        this.bgp.setLayoutParams(layoutParams);
         getView().setOnClickListener(this);
-        this.bfi = (FrameLayout) getView().findViewById(d.h.flAlaLiveTitlePane);
-        this.bfd = (TbImageView) getView().findViewById(d.h.imgAlaLiveView);
-        this.bfd.setDefaultErrorResource(0);
-        this.bfd.setDefaultBgResource(d.g.pic_bg_video_frs);
-        this.bfe = (TextView) getView().findViewById(d.h.tvAlaLiveTitle);
-        this.cOe = (ThreadLiveAndRecordUserInfoLayout) getView().findViewById(d.h.layoutAlaUserCard);
-        this.cOe.setForumAfterClickListener(this.ann);
-        this.cOe.setUserAfterClickListener(this.anD);
-        this.cOe.setBarNameClickEnabled(true);
-        this.bfj = getView().findViewById(d.h.dividerBottom);
+        this.bgt = (FrameLayout) getView().findViewById(d.h.flAlaLiveTitlePane);
+        this.bgn = (TbImageView) getView().findViewById(d.h.imgAlaLiveView);
+        this.bgn.setDefaultErrorResource(0);
+        this.bgn.setDefaultBgResource(d.g.pic_bg_video_frs);
+        this.bgo = (TextView) getView().findViewById(d.h.tvAlaLiveTitle);
+        this.cRw = (ThreadLiveAndRecordUserInfoLayout) getView().findViewById(d.h.layoutAlaUserCard);
+        this.cRw.setForumAfterClickListener(this.aoH);
+        this.cRw.setUserAfterClickListener(this.aoX);
+        this.cRw.setBarNameClickEnabled(true);
+        this.bgu = getView().findViewById(d.h.dividerBottom);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -79,18 +79,18 @@ public class c extends com.baidu.tieba.card.a<b> {
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        if (bdUniqueId == null || this.cOe == null) {
+        if (bdUniqueId == null || this.cRw == null) {
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(b bVar) {
-        if (bVar != null && bVar.bbB != null && bVar.bbB.rN() != null) {
-            this.cOf = bVar;
-            this.bfe.setText(bVar.bbB.getTitle());
-            this.bfd.c(bVar.bbB.rN().cover, 10, false);
-            this.cOe.x(bVar.bbB);
+        if (bVar != null && bVar.bcM != null && bVar.bcM.rX() != null) {
+            this.cRx = bVar;
+            this.bgo.setText(bVar.bcM.getTitle());
+            this.bgn.c(bVar.bcM.rX().cover, 10, false);
+            this.cRw.x(bVar.bcM);
             d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -98,10 +98,10 @@ public class c extends com.baidu.tieba.card.a<b> {
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ai.j(this.bff, d.g.addresslist_item_bg);
-            ai.i(this.bfe, d.e.cp_cont_i);
-            ai.j(this.bfj, d.e.cp_bg_line_d);
-            this.cOe.d(tbPageContext, i);
+            ai.j(this.bgp, d.g.addresslist_item_bg);
+            ai.i(this.bgo, d.e.cp_cont_i);
+            ai.j(this.bgu, d.e.cp_bg_line_d);
+            this.cRw.d(tbPageContext, i);
             this.mSkinType = i;
         }
     }
@@ -111,7 +111,7 @@ public class c extends com.baidu.tieba.card.a<b> {
         if (view == getView()) {
             if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
                 k.F(this.mContext, this.mContext.getString(d.l.plugin_config_not_found));
-            } else if (i.hh()) {
+            } else if (i.hr()) {
                 i(this.mTbPageContext);
             } else {
                 k.F(this.mContext, this.mContext.getString(d.l.no_network_guide));
@@ -120,21 +120,21 @@ public class c extends com.baidu.tieba.card.a<b> {
     }
 
     public void i(TbPageContext<?> tbPageContext) {
-        if (tbPageContext != null && this.cOf != null && this.cOf.bbB != null && this.cOf.bbB.getAuthor() != null && this.cOf.bbB.rN() != null) {
+        if (tbPageContext != null && this.cRx != null && this.cRx.bcM != null && this.cRx.bcM.getAuthor() != null && this.cRx.bcM.rX() != null) {
             boolean z = false;
             String str = "";
             if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-                String userId = this.cOf.bbB.getAuthor().getUserId();
+                String userId = this.cRx.bcM.getAuthor().getUserId();
                 str = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(this.cOf.bbB.rN());
+            alaLiveInfoCoreData.fillWithInfoData(this.cRx.bcM.rX());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_PLAY, str, z, "")));
-            int i = this.cOf.bbB.rN().live_type;
+            int i = this.cRx.bcM.rX().live_type;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             aj ajVar = new aj("c11827");
-            ajVar.aa("tid", this.cOf.bbB.getTid());
+            ajVar.aa("tid", this.cRx.bcM.getTid());
             ajVar.aa(SapiAccountManager.SESSION_UID, currentAccount);
             ajVar.r("obj_type", i);
             TiebaStatic.log(ajVar);

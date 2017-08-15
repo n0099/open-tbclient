@@ -15,12 +15,12 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
     protected Context a;
     protected l b;
     protected String c = com.baidu.android.pushservice.h.e();
-    private C0020a d = new C0020a();
+    private C0019a d = new C0019a();
 
     /* renamed from: com.baidu.android.pushservice.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0020a {
-        public C0020a() {
+    public class C0019a {
+        public C0019a() {
         }
 
         public void a(Boolean bool) {

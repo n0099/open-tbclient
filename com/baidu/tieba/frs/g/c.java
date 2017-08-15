@@ -1,53 +1,81 @@
 package com.baidu.tieba.frs.g;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.cache.l;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.at;
+import java.net.URLEncoder;
+import tbclient.PopInfo;
 /* loaded from: classes.dex */
 public class c {
-    public static void j(com.baidu.tieba.frs.i iVar) {
-        HashMap<Integer, bl> agG;
-        if (iVar != null && iVar.afM() != null && (agG = iVar.afM().agG()) != null) {
-            ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bl> entry : agG.entrySet()) {
-                bl value = entry.getValue();
-                if (value != null && (value instanceof AdvertAppInfo)) {
-                    arrayList.add((AdvertAppInfo) value);
-                }
-            }
-            com.baidu.tieba.recapp.c.a.bhy().o(arrayList);
+    private final com.baidu.tieba.frs.f ckZ;
+    private a czN;
+
+    public c(com.baidu.tieba.frs.f fVar) {
+        this.ckZ = fVar;
+    }
+
+    public void refresh() {
+        if (TbadkCoreApplication.isLogin() && this.ckZ != null && this.ckZ.afN() != null && this.ckZ.afN().aPO() != null && !StringUtils.isNull(this.ckZ.afN().aPO().getName()) && this.ckZ.afN().ghV != null && ajY() && this.czN == null) {
+            this.czN = new a();
+            this.czN.execute(new Void[0]);
         }
     }
 
-    public static void a(ResponsedMessage<?> responsedMessage, final com.baidu.tieba.frs.i iVar, com.baidu.tieba.tbadkCore.i iVar2) {
-        List<DownloadData> data;
-        boolean z;
-        if (iVar2 != null && iVar != null && (responsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) responsedMessage).getData()) != null) {
-            Iterator<DownloadData> it = data.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = false;
-                    break;
-                } else if (it.next().getStatus() == 0) {
-                    z = true;
-                    break;
-                }
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean ajY() {
+        PopInfo popInfo = this.ckZ.afN().ghV;
+        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.ckZ.afN().ghV.if_pop.intValue() == 0) ? false : true;
+    }
+
+    /* loaded from: classes.dex */
+    private class a extends BdAsyncTask<Void, Void, Boolean> {
+        private a() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Boolean doInBackground(Void... voidArr) {
+            l<String> cQ = com.baidu.tbadk.core.c.a.tn().cQ("tb.enter_frs_dialog_list");
+            String encode = URLEncoder.encode(c.this.ckZ.afN().aPO().getName());
+            if (cQ.get(encode) == null) {
+                cQ.k(encode, "1");
+                return true;
             }
-            if (z) {
-                com.baidu.adp.lib.g.e.fP().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.g.c.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        com.baidu.tieba.frs.i.this.afC();
+            return false;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            if (bool.booleanValue() && c.this.ajY() && c.this.ckZ.isAdded()) {
+                final PopInfo popInfo = c.this.ckZ.afN().ghV;
+                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.ckZ.getActivity());
+                aVar.cS(popInfo.title);
+                aVar.cT(popInfo.v_title);
+                aVar.to();
+                aVar.b(popInfo.ok_info, new a.b() { // from class: com.baidu.tieba.frs.g.c.a.1
+                    @Override // com.baidu.tbadk.core.dialog.a.b
+                    public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                        if (aVar2 != null) {
+                            aVar2.dismiss();
+                        }
                     }
-                }, TimeUnit.SECONDS.toMillis(2L));
+                });
+                aVar.a(popInfo.ahead_info, new a.b() { // from class: com.baidu.tieba.frs.g.c.a.2
+                    @Override // com.baidu.tbadk.core.dialog.a.b
+                    public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                        at.wf().c(c.this.ckZ.getPageContext(), new String[]{popInfo.ahead_url});
+                        if (aVar2 != null) {
+                            aVar2.dismiss();
+                        }
+                    }
+                });
+                aVar.b(c.this.ckZ.getPageContext()).tr();
             }
         }
     }

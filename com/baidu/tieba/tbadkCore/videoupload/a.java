@@ -7,40 +7,40 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private static int gji = 6144000;
-    private static int gjj = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b gjk;
+    private static int gml = 6144000;
+    private static int gmm = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b gmn;
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
-            if (d.eW().af("is_video_batch") == 1) {
-                this.gjk = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gjj);
+            if (d.fh().al("is_video_batch") == 1) {
+                this.gmn = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gmm);
             } else {
-                this.gjk = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gji);
+                this.gmn = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gml);
             }
-            this.gjk.a(eVar);
-            return this.gjk.aA(str2, i);
+            this.gmn.a(eVar);
+            return this.gmn.aA(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
         }
     }
 
-    public void btq() {
-        if (this.gjk != null) {
-            this.gjk.cancel();
+    public void buf() {
+        if (this.gmn != null) {
+            this.gmn.cancel();
         }
     }
 
-    public static void tr(int i) {
+    public static void tB(int i) {
         if (i <= 0) {
-            gjj = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+            gmm = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
-            gjj = i;
+            gmm = i;
         }
     }
 
-    public static void ts(int i) {
+    public static void tC(int i) {
         if (i <= 0) {
             chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
@@ -48,11 +48,11 @@ public class a {
         }
     }
 
-    public static void tt(int i) {
+    public static void tD(int i) {
         if (i <= 0) {
-            gji = 6144000;
+            gml = 6144000;
         } else {
-            gji = i;
+            gml = i;
         }
     }
 }

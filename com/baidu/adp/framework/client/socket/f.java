@@ -5,41 +5,41 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class f {
-    private static f oM = null;
-    private int ow = 0;
+    private static f qw = null;
+    private int qg = 0;
 
-    public static f cP() {
-        if (oM == null) {
+    public static f da() {
+        if (qw == null) {
             synchronized (f.class) {
-                if (oM == null) {
-                    oM = new f();
+                if (qw == null) {
+                    qw = new f();
                 }
             }
         }
-        return oM;
+        return qw;
     }
 
-    public synchronized void c(Map<String, String> map) {
+    public synchronized void d(Map<String, String> map) {
         if (map != null) {
             try {
-                this.ow = Integer.valueOf(map.get("Seq-Id")).intValue();
+                this.qg = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                i.a("SequenceManager", 0, 0, "setSequenceId", h.pH, "parser Seq-Id error");
-                if (this.ow == 0) {
-                    this.ow = new Random().nextInt();
+                i.a("SequenceManager", 0, 0, "setSequenceId", h.rl, "parser Seq-Id error");
+                if (this.qg == 0) {
+                    this.qg = new Random().nextInt();
                 }
             }
         }
     }
 
-    public synchronized int cK() {
+    public synchronized int cV() {
         int i;
-        if (this.ow == 0) {
-            this.ow++;
+        if (this.qg == 0) {
+            this.qg++;
         }
-        i = this.ow;
-        this.ow = i + 1;
+        i = this.qg;
+        this.qg = i + 1;
         return i;
     }
 }

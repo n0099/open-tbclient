@@ -4,12 +4,12 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class PluginInstallTask extends OrmObject {
-    protected String CC;
-    protected boolean Dd;
-    protected long De;
+    protected boolean EE;
+    protected long EF;
+    protected String Ed;
     protected String apkFilePath;
 
-    public long iO() {
-        return Math.max(Math.min(this.De * 80, 240000L), (long) TbConfig.USE_TIME_INTERVAL);
+    public long iY() {
+        return Math.max(Math.min(this.EF * 80, 240000L), (long) TbConfig.USE_TIME_INTERVAL);
     }
 }

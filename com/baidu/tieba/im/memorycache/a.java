@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ConcurrentHashMap<String, ImMessageCenterPojo> dsR = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, ImMessageCenterPojo> dwg = new ConcurrentHashMap<>();
 
     /* renamed from: com.baidu.tieba.im.memorycache.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -15,27 +15,27 @@ public class a {
     }
 
     public void a(InterfaceC0096a interfaceC0096a) {
-        interfaceC0096a.a(this.dsR.values().iterator());
+        interfaceC0096a.a(this.dwg.values().iterator());
     }
 
-    public void awl() {
-        this.dsR.clear();
+    public void axd() {
+        this.dwg.clear();
     }
 
     public void d(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            this.dsR.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+            this.dwg.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
         }
     }
 
-    public ImMessageCenterPojo mm(String str) {
+    public ImMessageCenterPojo mu(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.dsR.get(str);
+        return this.dwg.get(str);
     }
 
-    public boolean mn(String str) {
-        return (TextUtils.isEmpty(str) || this.dsR.remove(str) == null) ? false : true;
+    public boolean mv(String str) {
+        return (TextUtils.isEmpty(str) || this.dwg.remove(str) == null) ? false : true;
     }
 }

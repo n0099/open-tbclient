@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public interface ai {
-    void Os();
+    void Ox();
 
     void a(int i, int i2, an anVar);
 

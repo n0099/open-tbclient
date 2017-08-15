@@ -2,9 +2,9 @@ package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public class h {
     public int maxSize;
-    public String tB;
-    public int tC;
-    public long tD;
-    public String tj;
-    public String tx;
+    public String uR;
+    public String vd;
+    public String vh;
+    public int vi;
+    public long vj;
 }

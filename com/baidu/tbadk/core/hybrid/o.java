@@ -308,7 +308,7 @@ public class o {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static byte[] i(InputStream inputStream) {
+    public static byte[] o(InputStream inputStream) {
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;
         byte[] bArr = null;
@@ -371,7 +371,7 @@ public class o {
         return bArr;
     }
 
-    public static void f(OutputStream outputStream) {
+    public static void g(OutputStream outputStream) {
         if (outputStream != null) {
             try {
                 outputStream.close();

@@ -20,32 +20,32 @@ public class c extends t {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.t
-    public String nX() {
+    public String oh() {
         return "TBHY_COMMON_Utils";
     }
 
-    @u(tT = false, value = "showToast")
+    @u(ud = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString(PushConstants.EXTRA_PUSH_MESSAGE)).tp();
+            BdToast.a(getContext(), jSONObject.optString(PushConstants.EXTRA_PUSH_MESSAGE)).tz();
         }
     }
 
-    @u(tT = false, value = "showNetStatus")
+    @u(ud = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
         String str = "NotReachable";
-        if (i.hi()) {
+        if (i.hs()) {
             i = 1;
             str = "WIFI";
-        } else if (i.hm()) {
+        } else if (i.hw()) {
             i = 3;
             str = "2G";
-        } else if (i.hl()) {
+        } else if (i.hv()) {
             i = 4;
             str = "3G";
-        } else if (i.hk()) {
+        } else if (i.hu()) {
             i = 5;
             str = "4G";
         }
@@ -57,13 +57,13 @@ public class c extends t {
         return jSONObject;
     }
 
-    @u(tT = false, value = "showDeviceInfo")
+    @u(ud = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        String str3 = String.valueOf(k.af(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(k.ag(getContext()));
+        String str3 = String.valueOf(k.ag(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(k.ah(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
             jSONObject.put("systemName", "android");

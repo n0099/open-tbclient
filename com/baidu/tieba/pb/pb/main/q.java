@@ -7,64 +7,64 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
 /* loaded from: classes.dex */
 public class q {
-    private TbPageContext ako;
-    private RelativeLayout bXk;
-    private com.baidu.tbadk.editortools.pb.e eJs;
-    private PbFakeFloorModel eJt;
+    private RelativeLayout bZc;
+    private PbFakeFloorModel eMA;
+    private com.baidu.tbadk.editortools.pb.e eMz;
+    private TbPageContext oV;
 
     public q(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
-        this.ako = tbPageContext;
-        this.bXk = relativeLayout;
-        this.eJt = pbFakeFloorModel;
+        this.oV = tbPageContext;
+        this.bZc = relativeLayout;
+        this.eMA = pbFakeFloorModel;
     }
 
-    public void aRe() {
-        if (this.eJs != null) {
-            this.eJs.DQ();
+    public void aRW() {
+        if (this.eMz != null) {
+            this.eMz.DY();
         }
     }
 
-    private void aRf() {
-        if (this.bXk != null && this.eJs == null) {
-            this.eJs = (com.baidu.tbadk.editortools.pb.e) new com.baidu.tbadk.editortools.pb.f().aQ(this.ako.getPageActivity());
-            this.eJs.a(this.ako);
-            this.eJs.b(this.eJt);
-            this.eJs.CS().bE(true);
-            this.eJs.g(this.ako);
-            aRg();
+    private void aRX() {
+        if (this.bZc != null && this.eMz == null) {
+            this.eMz = (com.baidu.tbadk.editortools.pb.e) new com.baidu.tbadk.editortools.pb.f().aR(this.oV.getPageActivity());
+            this.eMz.a(this.oV);
+            this.eMz.b(this.eMA);
+            this.eMz.Da().bE(true);
+            this.eMz.g(this.oV);
+            aRY();
         }
     }
 
-    public void bL(String str, String str2) {
-        aRf();
-        this.eJs.setReplyId(str);
-        this.eJs.ga(str2);
+    public void bM(String str, String str2) {
+        aRX();
+        this.eMz.setReplyId(str);
+        this.eMz.gg(str2);
     }
 
-    private void aRg() {
-        if (this.bXk != null && this.eJs != null && this.eJs.CS() != null) {
+    private void aRY() {
+        if (this.bZc != null && this.eMz != null && this.eMz.Da() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.bXk.addView(this.eJs.CS(), layoutParams);
+            this.bZc.addView(this.eMz.Da(), layoutParams);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.eJs != null) {
-            this.eJs.onActivityResult(i, i2, intent);
+        if (this.eMz != null) {
+            this.eMz.onActivityResult(i, i2, intent);
         }
     }
 
     public void onStop() {
-        if (this.eJs != null) {
-            this.eJs.onStop();
+        if (this.eMz != null) {
+            this.eMz.onStop();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eJs != null && this.eJs.CS() != null) {
-            this.eJs.CS().onChangeSkinType(i);
+        if (this.eMz != null && this.eMz.Da() != null) {
+            this.eMz.Da().onChangeSkinType(i);
         }
     }
 }

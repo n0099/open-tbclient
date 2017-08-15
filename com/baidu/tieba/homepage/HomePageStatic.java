@@ -9,10 +9,10 @@ import com.baidu.tbadk.task.b;
 /* loaded from: classes.dex */
 public class HomePageStatic {
     static {
-        any();
+        aor();
     }
 
-    private static void any() {
+    private static void aor() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=303111");
         tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);

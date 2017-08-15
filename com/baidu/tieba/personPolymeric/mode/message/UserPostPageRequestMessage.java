@@ -128,7 +128,7 @@ public class UserPostPageRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Message encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.uid = Long.valueOf(b.c(this.uid, 0L));
+        builder.uid = Long.valueOf(b.d(this.uid, 0L));
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         builder.is_thread = Integer.valueOf(this.isThread ? 1 : 0);

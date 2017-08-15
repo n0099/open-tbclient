@@ -167,22 +167,22 @@ public class d {
             if (q.l(context, t) < com.baidu.android.pushservice.a.a() || (contentResolver = context.getContentResolver()) == null) {
                 cursor = null;
             } else {
-                cursor = contentResolver.query(Uri.parse("content://" + t + ".bdpush/msgInfo"), null, c.EnumC0019c.appId.name() + " =? AND " + c.EnumC0019c.expireTime.name() + " <? AND " + c.EnumC0019c.arriveTime.name() + " >? ", new String[]{b, String.valueOf(System.currentTimeMillis()), String.valueOf(System.currentTimeMillis() - 86400000)}, c.EnumC0019c.expireTime.name() + " DESC LIMIT 7");
+                cursor = contentResolver.query(Uri.parse("content://" + t + ".bdpush/msgInfo"), null, c.EnumC0018c.appId.name() + " =? AND " + c.EnumC0018c.expireTime.name() + " <? AND " + c.EnumC0018c.arriveTime.name() + " >? ", new String[]{b, String.valueOf(System.currentTimeMillis()), String.valueOf(System.currentTimeMillis() - 86400000)}, c.EnumC0018c.expireTime.name() + " DESC LIMIT 7");
                 if (cursor != null) {
                     try {
                         com.baidu.android.pushservice.g.a.c(a, "getMsgInfo cursor size:  " + cursor.getCount());
                         int i = 0;
                         while (cursor.moveToNext()) {
-                            long j = cursor.getLong(cursor.getColumnIndex(c.EnumC0019c.msgId.name()));
+                            long j = cursor.getLong(cursor.getColumnIndex(c.EnumC0018c.msgId.name()));
                             if (q.r(context, String.valueOf(j))) {
                                 com.baidu.android.pushservice.g.a.c(a, " msgId: " + j + " has been showed before.");
                             } else {
-                                byte[] blob = cursor.getBlob(cursor.getColumnIndex(c.EnumC0019c.msgBody.name()));
+                                byte[] blob = cursor.getBlob(cursor.getColumnIndex(c.EnumC0018c.msgBody.name()));
                                 if (blob != null && blob.length != 0) {
                                     byte[] decrypted = BaiduAppSSOJni.getDecrypted(context, b, blob);
-                                    long j2 = cursor.getLong(cursor.getColumnIndex(c.EnumC0019c.expireTime.name()));
-                                    int i2 = cursor.getInt(cursor.getColumnIndex(c.EnumC0019c.msgType.name()));
-                                    byte[] blob2 = cursor.getBlob(cursor.getColumnIndex(c.EnumC0019c.secureInfo.name()));
+                                    long j2 = cursor.getLong(cursor.getColumnIndex(c.EnumC0018c.expireTime.name()));
+                                    int i2 = cursor.getInt(cursor.getColumnIndex(c.EnumC0018c.msgType.name()));
+                                    byte[] blob2 = cursor.getBlob(cursor.getColumnIndex(c.EnumC0018c.secureInfo.name()));
                                     com.baidu.android.pushservice.g.a.c(a, " get msgType: " + i2 + " msgid: " + j + " expireTime: " + j2 + " msgBody: " + decrypted.length + " secureInfo: " + blob2.length);
                                     Intent intent = new Intent();
                                     intent.putExtra("app_id", b);

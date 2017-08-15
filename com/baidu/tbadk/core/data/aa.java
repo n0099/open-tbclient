@@ -5,27 +5,27 @@ import java.util.List;
 import tbclient.FrsPage.RecommendBook;
 /* loaded from: classes.dex */
 public class aa extends bl {
-    public static final BdUniqueId Vy = BdUniqueId.gen();
-    public String Um;
-    public List<String> VA;
-    public int Vz;
+    public static final BdUniqueId WW = BdUniqueId.gen();
+    public String VN;
+    public int WX;
+    public List<String> WY;
     public String image;
     public String linkUrl;
     public String title;
 
     public void a(RecommendBook recommendBook) {
         if (recommendBook != null) {
-            this.Vz = recommendBook.type.intValue();
-            this.Um = recommendBook.book_id;
+            this.WX = recommendBook.type.intValue();
+            this.VN = recommendBook.book_id;
             this.title = recommendBook.title;
             this.image = recommendBook.image;
-            this.VA = recommendBook.desc;
+            this.WY = recommendBook.desc;
             this.linkUrl = recommendBook.link_url;
         }
     }
 
     @Override // com.baidu.tbadk.core.data.bl, com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return Vy;
+        return WW;
     }
 }

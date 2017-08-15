@@ -13,178 +13,178 @@ public class k {
 
     /* loaded from: classes.dex */
     public static class b extends h {
-        public String AA;
-        public String AB;
+        public String Cc;
+        public String Cd;
         public String mPath = "/";
-        public String AC = null;
-        public String[] AD = null;
-        public List<BasicNameValuePair> AE = null;
+        public String Ce = null;
+        public String[] Cf = null;
+        public List<BasicNameValuePair> Cg = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b(String str) {
-            this.AA = str;
+            this.Cc = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class q extends h {
-        public boolean AM;
-        public Map<String, String> AN;
+        public boolean Co;
+        public Map<String, String> Cp;
 
         public q(boolean z, Map<String, String> map) {
-            this.AM = z;
-            this.AN = map;
+            this.Co = z;
+            this.Cp = map;
         }
     }
 
     /* loaded from: classes.dex */
     public static class d extends h {
-        public SocketException AG;
+        public SocketException Ci;
 
         public d(SocketException socketException) {
-            this.AG = socketException;
+            this.Ci = socketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class e extends h {
-        public String AH;
+        public String Cj;
         public int mStatusCode;
 
         public e(int i, String str) {
             this.mStatusCode = i;
-            this.AH = str;
+            this.Cj = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class p extends h {
-        public String AH;
+        public String Cj;
         public int mStatusCode;
 
         public p(int i, String str) {
             this.mStatusCode = i;
-            this.AH = str;
+            this.Cj = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class l extends h {
-        public WebSocketException AK;
+        public WebSocketException Cm;
 
         public l(WebSocketException webSocketException) {
-            this.AK = webSocketException;
+            this.Cm = webSocketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class f extends h {
-        public Exception AI;
+        public Exception Ck;
 
         public f(Exception exc) {
-            this.AI = exc;
+            this.Ck = exc;
         }
     }
 
     /* loaded from: classes.dex */
     public static class s extends h {
-        public String AO;
+        public String Cq;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public s(String str) {
-            this.AO = str;
+            this.Cq = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class m extends h {
-        public byte[] Az;
+        public byte[] Cb;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public m(byte[] bArr) {
-            this.Az = bArr;
+            this.Cb = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a extends h {
-        public byte[] Az;
-        public long oJ;
-        public long oK;
+        public byte[] Cb;
+        public long qt;
+        public long qu;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(byte[] bArr, long j, long j2) {
-            this.Az = bArr;
-            this.oJ = j;
-            this.oK = j2;
+            this.Cb = bArr;
+            this.qt = j;
+            this.qu = j2;
         }
     }
 
     /* loaded from: classes.dex */
     public static class i extends h {
-        com.baidu.adp.lib.webSocket.c AJ;
+        com.baidu.adp.lib.webSocket.c Cl;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public i(com.baidu.adp.lib.webSocket.c cVar) {
-            this.AJ = cVar;
+            this.Cl = cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c extends h {
-        public String AF;
+        public String Ch;
         public int mCode;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c() {
             this.mCode = -1;
-            this.AF = null;
+            this.Ch = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c(int i, String str) {
             this.mCode = i;
-            this.AF = str;
+            this.Ch = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class j extends h {
-        public byte[] Az;
+        public byte[] Cb;
 
         j() {
-            this.Az = null;
+            this.Cb = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public j(byte[] bArr) {
-            this.Az = bArr;
+            this.Cb = bArr;
         }
     }
 
     /* renamed from: com.baidu.adp.lib.webSocket.k$k  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0009k extends h {
-        public byte[] Az;
+    public static class C0008k extends h {
+        public byte[] Cb;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C0009k() {
-            this.Az = null;
+        public C0008k() {
+            this.Cb = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C0009k(byte[] bArr) {
-            this.Az = bArr;
+        public C0008k(byte[] bArr) {
+            this.Cb = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class o extends h {
-        com.baidu.adp.lib.webSocket.c AL;
+        com.baidu.adp.lib.webSocket.c Cn;
 
         public o(com.baidu.adp.lib.webSocket.c cVar) {
-            this.AL = null;
-            this.AL = cVar;
+            this.Cn = null;
+            this.Cn = cVar;
         }
     }
 

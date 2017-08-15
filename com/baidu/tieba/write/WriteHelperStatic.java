@@ -23,10 +23,10 @@ public class WriteHelperStatic {
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), NewVcodeActivity.class);
                     br brVar = (br) customResponsedMessage.getData();
-                    intent.putExtra("model", brVar.ZQ);
+                    intent.putExtra("model", brVar.abo);
                     intent.putExtra("is_ad", false);
-                    if (brVar.ZR != null) {
-                        intent.putExtra("page_type", com.baidu.adp.lib.g.b.g(brVar.ZR.yp(), 0));
+                    if (brVar.abp != null) {
+                        intent.putExtra("page_type", com.baidu.adp.lib.g.b.g(brVar.abp.yx(), 0));
                     }
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
@@ -40,7 +40,7 @@ public class WriteHelperStatic {
                     Intent intent = new Intent();
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), VcodeActivity.class);
-                    intent.putExtra("model", ((br) customResponsedMessage.getData()).ZQ);
+                    intent.putExtra("model", ((br) customResponsedMessage.getData()).abo);
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
             }
@@ -54,8 +54,8 @@ public class WriteHelperStatic {
                     intent.setFlags(268435456);
                     intent.setClass(TbadkCoreApplication.getInst().getContext(), AccountAccessActivity.class);
                     br brVar = (br) customResponsedMessage.getData();
-                    intent.putExtra(AccountAccessActivityConfig.KEY_WRITE_DATA, brVar.ZQ);
-                    intent.putExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE, brVar.ZS);
+                    intent.putExtra(AccountAccessActivityConfig.KEY_WRITE_DATA, brVar.abo);
+                    intent.putExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE, brVar.abq);
                     TbadkCoreApplication.getInst().getContext().startActivity(intent);
                 }
             }

@@ -184,7 +184,7 @@ public class i {
     }
 
     public boolean c(i iVar) {
-        return j.a(iVar, this, com.baidu.location.h.i.Pq);
+        return j.a(iVar, this, com.baidu.location.h.i.QS);
     }
 
     public int d() {
@@ -230,13 +230,13 @@ public class i {
                 Random random = new Random();
                 StringBuffer stringBuffer = new StringBuffer(512);
                 ArrayList<Long> arrayList = new ArrayList();
-                WifiInfo nd = k.nh().nd();
-                if (nd == null || nd.getBSSID() == null) {
+                WifiInfo nn = k.nr().nn();
+                if (nn == null || nn.getBSSID() == null) {
                     i2 = -1;
                     str = null;
                 } else {
-                    String replace = nd.getBSSID().replace(":", "");
-                    int rssi = nd.getRssi();
+                    String replace = nn.getBSSID().replace(":", "");
+                    int rssi = nn.getRssi();
                     if (rssi < 0) {
                         i2 = -rssi;
                         str = replace;

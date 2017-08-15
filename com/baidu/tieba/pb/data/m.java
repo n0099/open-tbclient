@@ -15,35 +15,35 @@ import tbclient.PbPage.DataRes;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class m implements com.baidu.adp.widget.ListView.f {
-    public static final BdUniqueId eDp = BdUniqueId.gen();
-    private boolean eDq;
-    private ArrayList<MuteUser> eDr;
+    public static final BdUniqueId eGw = BdUniqueId.gen();
+    private boolean eGx;
+    private ArrayList<MuteUser> eGy;
     private long praiseNum;
-    public int eDn = -1;
-    private boolean eDj = false;
+    public int eGu = -1;
+    private boolean eGq = false;
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return eDp;
+        return eGw;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.thread != null && dataRes.thread.agree != null) {
                 this.praiseNum = dataRes.thread.agree.agree_num.longValue();
-                this.eDq = dataRes.thread.agree.has_agree.intValue() == 1;
-                this.eDn = dataRes.thread.agree.agree_type.intValue();
+                this.eGx = dataRes.thread.agree.has_agree.intValue() == 1;
+                this.eGu = dataRes.thread.agree.agree_type.intValue();
             }
-            if (this.eDr == null) {
-                this.eDr = new ArrayList<>();
+            if (this.eGy == null) {
+                this.eGy = new ArrayList<>();
             }
-            this.eDr.clear();
+            this.eGy.clear();
             if (dataRes.new_agree_user != null && dataRes.new_agree_user.size() > 0) {
                 for (SimpleUser simpleUser : dataRes.new_agree_user) {
                     if (simpleUser != null) {
                         MuteUser muteUser = new MuteUser();
                         muteUser.parserProtobuf(simpleUser);
-                        this.eDr.add(muteUser);
+                        this.eGy.add(muteUser);
                     }
                 }
             }
@@ -64,32 +64,32 @@ public class m implements com.baidu.adp.widget.ListView.f {
         return str2 + str;
     }
 
-    public String g(TextView textView) {
+    public String h(TextView textView) {
         int i;
-        int af = com.baidu.adp.lib.util.k.af(textView.getContext()) - 240;
+        int ag = com.baidu.adp.lib.util.k.ag(textView.getContext()) - 240;
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
         int g = com.baidu.adp.lib.util.k.g(textView.getContext(), d.f.ds36);
-        if (u.v(this.eDr)) {
+        if (u.v(this.eGy)) {
             return sb.toString();
         }
         String accountNameShow = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow() : "";
-        if (!this.eDq || TextUtils.isEmpty(accountNameShow)) {
+        if (!this.eGx || TextUtils.isEmpty(accountNameShow)) {
             i = 0;
         } else {
-            int i2 = (this.eDn == 4 || this.eDn == 1) ? 1 : 0;
-            sb.append(Q(this.eDn, accountNameShow)).append("、");
+            int i2 = (this.eGu == 4 || this.eGu == 1) ? 1 : 0;
+            sb.append(Q(this.eGu, accountNameShow)).append("、");
             sb2.append(accountNameShow).append("、");
             i = i2;
         }
         TextPaint paint = textView.getPaint();
-        Iterator<MuteUser> it = this.eDr.iterator();
+        Iterator<MuteUser> it = this.eGy.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             MuteUser next = it.next();
-            if (paint.measureText(sb2.toString()) + (g * i) > af) {
+            if (paint.measureText(sb2.toString()) + (g * i) > ag) {
                 sb.append(textView.getContext().getResources().getString(d.l.etc));
                 break;
             }
@@ -106,24 +106,24 @@ public class m implements com.baidu.adp.widget.ListView.f {
         return sb3;
     }
 
-    public boolean aPB() {
-        return this.eDq;
+    public boolean aQt() {
+        return this.eGx;
     }
 
-    public ArrayList<MuteUser> aPC() {
-        return this.eDr;
+    public ArrayList<MuteUser> aQu() {
+        return this.eGy;
     }
 
-    public void oL(int i) {
-        if (!this.eDq) {
-            oM(i);
+    public void oV(int i) {
+        if (!this.eGx) {
+            oW(i);
             return;
         }
-        this.eDn = i;
-        this.eDq = true;
+        this.eGu = i;
+        this.eGx = true;
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (currentAccountName != null) {
-            Iterator<MuteUser> it = this.eDr.iterator();
+            Iterator<MuteUser> it = this.eGy.iterator();
             while (it.hasNext()) {
                 MuteUser next = it.next();
                 if (currentAccountName.equals(next.getUserName())) {
@@ -134,7 +134,7 @@ public class m implements com.baidu.adp.widget.ListView.f {
         }
     }
 
-    public void oM(int i) {
+    public void oW(int i) {
         if (TbadkCoreApplication.isLogin()) {
             MuteUser muteUser = new MuteUser();
             muteUser.setUserId(TbadkCoreApplication.getCurrentAccount());
@@ -143,35 +143,35 @@ public class m implements com.baidu.adp.widget.ListView.f {
                 muteUser.setNickName(TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow());
             }
             muteUser.agreeType = i;
-            if (this.eDr == null) {
-                this.eDr = new ArrayList<>();
+            if (this.eGy == null) {
+                this.eGy = new ArrayList<>();
             }
-            this.eDr.add(0, muteUser);
+            this.eGy.add(0, muteUser);
             if (this.praiseNum < 0) {
                 this.praiseNum = 0L;
             }
             this.praiseNum++;
-            this.eDq = true;
-            this.eDn = i;
+            this.eGx = true;
+            this.eGu = i;
         }
     }
 
-    public void aPD() {
+    public void aQv() {
         if (TbadkCoreApplication.isLogin()) {
             this.praiseNum--;
             if (this.praiseNum < 0) {
                 this.praiseNum = 0L;
             }
-            this.eDq = false;
-            this.eDn = -1;
-            if (!u.v(this.eDr)) {
+            this.eGx = false;
+            this.eGu = -1;
+            if (!u.v(this.eGy)) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
-                    Iterator<MuteUser> it = this.eDr.iterator();
+                    Iterator<MuteUser> it = this.eGy.iterator();
                     while (it.hasNext()) {
                         MuteUser next = it.next();
                         if (next != null && currentAccount.equals(next.getUserId())) {
-                            this.eDr.remove(next);
+                            this.eGy.remove(next);
                             return;
                         }
                     }
@@ -180,11 +180,11 @@ public class m implements com.baidu.adp.widget.ListView.f {
         }
     }
 
-    public void iO(boolean z) {
-        this.eDj = z;
+    public void iR(boolean z) {
+        this.eGq = z;
     }
 
-    public boolean aPE() {
-        return this.eDj;
+    public boolean aQw() {
+        return this.eGq;
     }
 }

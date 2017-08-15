@@ -15,17 +15,17 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void fU(boolean z) {
+    public void fX(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aB */
+    /* renamed from: aC */
     public e.a<MsgleftView> onCreateViewHolder(ViewGroup viewGroup) {
-        MsgleftView msgleftView = new MsgleftView(this.ako);
-        return new a(msgleftView.cf(), msgleftView);
+        MsgleftView msgleftView = new MsgleftView(this.oV);
+        return new a(msgleftView.cq(), msgleftView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,19 +34,19 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgleftView arH = aVar.arH();
-        arH.lK(this.dfY);
-        arH.fU(this.mNeedShowName);
+        MsgleftView asA = aVar.asA();
+        asA.lU(this.djn);
+        asA.fX(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        arH.a(this.dfO);
-        arH.setOnItemViewLongClickListener(this.dfP);
-        arH.setPosition(i);
-        arH.bC(this.dfV);
-        arH.bB(chatMessage.getCacheData().getLastMsgTime());
-        arH.a(viewGroup, chatMessage);
-        arH.b(viewGroup, chatMessage);
-        this.ako.getLayoutMode().ah(false);
-        this.ako.getLayoutMode().t(view);
+        asA.a(this.djd);
+        asA.setOnItemViewLongClickListener(this.dje);
+        asA.setPosition(i);
+        asA.bC(this.djk);
+        asA.bB(chatMessage.getCacheData().getLastMsgTime());
+        asA.a(viewGroup, chatMessage);
+        asA.b(viewGroup, chatMessage);
+        this.oV.getLayoutMode().ah(false);
+        this.oV.getLayoutMode().t(view);
         return view;
     }
 

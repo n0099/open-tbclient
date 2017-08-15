@@ -14,11 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private TbPageContext<MsglistActivity<?>> aaS;
-    private MsgLeftViewItemAdapter dgC;
-    private MsgRightViewItemAdapter dgD;
-    private MsgMidViewItemAdapter dgE;
-    private CustomMessageListener dgF;
+    private TbPageContext<MsglistActivity<?>> acr;
+    private MsgLeftViewItemAdapter djR;
+    private MsgRightViewItemAdapter djS;
+    private MsgMidViewItemAdapter djT;
+    private CustomMessageListener djU;
     private List<e> mAdapters;
     private List<ChatMessage> mData;
     private BdTypeListView mListView;
@@ -30,64 +30,64 @@ public class h {
     public h(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
         this.mData = null;
         this.mAdapters = new ArrayList();
-        this.dgF = new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.chat.h.1
+        this.djU = new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.chat.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.dfU != null && aVar.context != null) {
-                        h.this.mAdapters.addAll(aVar.dfU);
+                    if (aVar.djj != null && aVar.context != null) {
+                        h.this.mAdapters.addAll(aVar.djj);
                         h.this.mListView.addAdapters(new ArrayList(h.this.mAdapters));
                     }
                 }
             }
         };
-        this.aaS = tbPageContext;
+        this.acr = tbPageContext;
         this.mListView = bdTypeListView;
         initAdapters();
-        this.dgC.lK(i);
-        this.dgD.lK(i);
+        this.djR.lU(i);
+        this.djS.lU(i);
     }
 
     private void initAdapters() {
-        this.dgC = new MsgLeftViewItemAdapter(this.aaS, ChatMessage.TYPE_MSG_LEFT);
-        this.dgC.fT(true);
-        this.dgC.fS(true);
-        this.dgD = new MsgRightViewItemAdapter(this.aaS, ChatMessage.TYPE_MSG_RIGHT);
-        this.dgD.fT(true);
-        this.dgD.fS(true);
-        this.dgE = new MsgMidViewItemAdapter(this.aaS, ChatMessage.TYPE_MSG_MID);
-        this.mAdapters.add(this.dgC);
-        this.mAdapters.add(this.dgD);
-        this.mAdapters.add(this.dgE);
+        this.djR = new MsgLeftViewItemAdapter(this.acr, ChatMessage.TYPE_MSG_LEFT);
+        this.djR.fW(true);
+        this.djR.fV(true);
+        this.djS = new MsgRightViewItemAdapter(this.acr, ChatMessage.TYPE_MSG_RIGHT);
+        this.djS.fW(true);
+        this.djS.fV(true);
+        this.djT = new MsgMidViewItemAdapter(this.acr, ChatMessage.TYPE_MSG_MID);
+        this.mAdapters.add(this.djR);
+        this.mAdapters.add(this.djS);
+        this.mAdapters.add(this.djT);
         initListener();
         MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.dfU = new ArrayList();
-        aVar.context = this.aaS;
+        aVar.djj = new ArrayList();
+        aVar.context = this.acr;
         MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
     }
 
     private void initListener() {
-        this.dgF.setPriority(Integer.MAX_VALUE);
-        this.aaS.registerListener(this.dgF);
+        this.djU.setPriority(Integer.MAX_VALUE);
+        this.acr.registerListener(this.djU);
     }
 
-    public void fU(boolean z) {
-        if (this.dgC != null) {
-            this.dgC.fU(z);
+    public void fX(boolean z) {
+        if (this.djR != null) {
+            this.djR.fX(z);
         }
     }
 
-    public void fV(boolean z) {
-        if (this.dgD != null) {
-            this.dgD.fV(z);
+    public void fY(boolean z) {
+        if (this.djS != null) {
+            this.djS.fY(z);
         }
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
         for (e eVar : this.mAdapters) {
-            if (eVar.arG()) {
+            if (eVar.asz()) {
                 eVar.a(aVar);
             }
         }
@@ -95,7 +95,7 @@ public class h {
 
     public void setOnItemViewLongClickListener(b bVar) {
         for (e eVar : this.mAdapters) {
-            if (eVar.arF()) {
+            if (eVar.asy()) {
                 eVar.setOnItemViewLongClickListener(bVar);
             }
         }
@@ -142,9 +142,9 @@ public class h {
     }
 
     public void onDestory() {
-        if (this.dgF != null) {
-            MessageManager.getInstance().unRegisterListener(this.dgF);
-            this.dgF = null;
+        if (this.djU != null) {
+            MessageManager.getInstance().unRegisterListener(this.djU);
+            this.djU = null;
         }
     }
 }

@@ -5,13 +5,13 @@ import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListView.f {
-    public boolean ZM;
-    public boolean ZN;
+    public boolean abk;
+    public boolean abl;
     public String avatar;
     public long forumId;
     public String forumName;
     public int type;
-    public static final BdUniqueId ZL = BdUniqueId.gen();
+    public static final BdUniqueId abj = BdUniqueId.gen();
     public static final Parcelable.Creator<TransmitForumData> CREATOR = new Parcelable.Creator<TransmitForumData>() { // from class: com.baidu.tbadk.core.data.TransmitForumData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -22,7 +22,7 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: bY */
+        /* renamed from: ca */
         public TransmitForumData[] newArray(int i) {
             return new TransmitForumData[i];
         }
@@ -33,9 +33,9 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
     }
 
     public TransmitForumData(long j, String str, boolean z, int i, String str2) {
-        this.ZN = false;
+        this.abl = false;
         this.forumName = str;
-        this.ZM = z;
+        this.abk = z;
         this.forumId = j;
         this.type = i;
         this.avatar = str2;
@@ -43,7 +43,7 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return ZL;
+        return abj;
     }
 
     @Override // android.os.Parcelable
@@ -55,19 +55,19 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.forumName);
         parcel.writeLong(this.forumId);
-        parcel.writeByte(this.ZM ? (byte) 1 : (byte) 0);
+        parcel.writeByte(this.abk ? (byte) 1 : (byte) 0);
         parcel.writeInt(this.type);
         parcel.writeString(this.avatar);
-        parcel.writeByte(this.ZN ? (byte) 1 : (byte) 0);
+        parcel.writeByte(this.abl ? (byte) 1 : (byte) 0);
     }
 
     protected TransmitForumData(Parcel parcel) {
-        this.ZN = false;
+        this.abl = false;
         this.forumName = parcel.readString();
         this.forumId = parcel.readLong();
-        this.ZM = parcel.readByte() != 0;
+        this.abk = parcel.readByte() != 0;
         this.type = parcel.readInt();
         this.avatar = parcel.readString();
-        this.ZN = parcel.readByte() != 0;
+        this.abl = parcel.readByte() != 0;
     }
 }

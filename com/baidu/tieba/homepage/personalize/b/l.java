@@ -24,13 +24,13 @@ import java.util.ArrayList;
 public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.f, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public l(Context context) {
-        super(context, com.baidu.tieba.homepage.personalize.data.f.cTp);
+        super(context, com.baidu.tieba.homepage.personalize.data.f.cWH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ao */
+    /* renamed from: ap */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = View.inflate(viewGroup.getContext(), d.j.interest_guide, null);
         a aVar = new a(inflate);
@@ -45,19 +45,19 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.f fVar, a aVar) {
         aVar.c(fVar);
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        if (fVar != null && fVar.cTr != null) {
-            u.Ww().a(new aj("c10985").aa("obj_name", fVar.cTr));
+        if (fVar != null && fVar.cWJ != null) {
+            u.WX().a(new aj("c10985").aa("obj_name", fVar.cWJ));
         }
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        if (fVar != null && fVar.cTq != null && fVar.cTq.size() != 0) {
+        if (fVar != null && fVar.cWI != null && fVar.cWI.size() != 0) {
             ArrayList arrayList = new ArrayList();
-            for (com.baidu.tieba.homepage.personalize.data.g gVar : fVar.cTq) {
-                if (gVar != null && gVar.isSelect && !StringUtils.isNull(gVar.TL)) {
-                    arrayList.add(gVar.TL);
+            for (com.baidu.tieba.homepage.personalize.data.g gVar : fVar.cWI) {
+                if (gVar != null && gVar.isSelect && !StringUtils.isNull(gVar.Vn)) {
+                    arrayList.add(gVar.Vn);
                 }
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GUIDE_SET_CACHE));
@@ -67,37 +67,37 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes.dex */
     public class a extends j.a {
-        private int aoR;
-        private View buX;
-        private TextView cOY;
-        private GridView cSF;
-        private k cSG;
-        private AdapterView.OnItemClickListener cSH;
+        private int aqm;
+        private View bwQ;
+        private TextView cSq;
+        private GridView cVX;
+        private k cVY;
+        private AdapterView.OnItemClickListener cVZ;
 
         public a(View view) {
             super(view);
-            this.aoR = 3;
-            this.cSG = new k();
-            this.cSH = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.l.a.1
+            this.aqm = 3;
+            this.cVY = new k();
+            this.cVZ = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.l.a.1
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-                    if (!com.baidu.adp.lib.util.i.hh()) {
+                    if (!com.baidu.adp.lib.util.i.hr()) {
                         com.baidu.adp.lib.util.k.showToast(l.this.mContext, d.l.neterror);
                         return;
                     }
-                    com.baidu.tieba.homepage.personalize.data.g item = a.this.cSG.getItem(i);
+                    com.baidu.tieba.homepage.personalize.data.g item = a.this.cVY.getItem(i);
                     item.isSelect = !item.isSelect;
-                    a.this.cSG.notifyDataSetChanged();
-                    l.this.b(a.this.cSG.aow());
-                    TiebaStatic.log(new aj("c10986").aa("obj_name", item.TL));
+                    a.this.cVY.notifyDataSetChanged();
+                    l.this.b(a.this.cVY.app());
+                    TiebaStatic.log(new aj("c10986").aa("obj_name", item.Vn));
                 }
             };
-            this.cOY = (TextView) view.findViewById(d.h.interest_guide_tip);
-            this.buX = view.findViewById(d.h.interest_guide_close);
-            this.cSF = (GridView) view.findViewById(d.h.interest_guide_tags_layout);
-            this.cSF.setAdapter((ListAdapter) this.cSG);
-            this.cSF.setOnItemClickListener(this.cSH);
-            this.buX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.l.a.2
+            this.cSq = (TextView) view.findViewById(d.h.interest_guide_tip);
+            this.bwQ = view.findViewById(d.h.interest_guide_close);
+            this.cVX = (GridView) view.findViewById(d.h.interest_guide_tags_layout);
+            this.cVX.setAdapter((ListAdapter) this.cVY);
+            this.cVX.setOnItemClickListener(this.cVZ);
+            this.bwQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.l.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     TiebaStatic.log("c10983");
@@ -107,15 +107,15 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.aoR != i) {
+            if (this.aqm != i) {
                 ai.k(getView(), d.e.cp_bg_line_d);
-                ai.i(this.cOY, d.e.cp_cont_d);
-                ai.j(this.buX, d.g.icon_x_normal);
+                ai.i(this.cSq, d.e.cp_cont_d);
+                ai.j(this.bwQ, d.g.icon_x_normal);
             }
         }
 
         protected void c(com.baidu.tieba.homepage.personalize.data.f fVar) {
-            this.cSG.a(fVar);
+            this.cVY.a(fVar);
         }
     }
 }

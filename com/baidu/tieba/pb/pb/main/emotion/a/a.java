@@ -4,22 +4,22 @@ import com.baidu.tieba.face.data.EmotionImageData;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private List<EmotionImageData> bZE;
-    private List<String> eQk;
+    private List<EmotionImageData> cbw;
+    private List<String> eTq;
 
-    public List<EmotionImageData> acs() {
-        return this.bZE;
+    public List<EmotionImageData> acS() {
+        return this.cbw;
     }
 
     public void aw(List<EmotionImageData> list) {
-        this.bZE = list;
+        this.cbw = list;
     }
 
-    public List<String> aTR() {
-        return this.eQk;
+    public List<String> aUJ() {
+        return this.eTq;
     }
 
-    public void cE(List<String> list) {
-        this.eQk = list;
+    public void cH(List<String> list) {
+        this.eTq = list;
     }
 }

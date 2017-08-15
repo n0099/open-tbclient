@@ -3,60 +3,60 @@ package com.baidu.tieba.g;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String cDA;
-    private String cDB;
-    private String cDw;
-    private String cDx;
-    private String cDy;
-    private String cDz;
+    private String cGO;
+    private String cGP;
+    private String cGQ;
+    private String cGR;
+    private String cGS;
+    private String cGT;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.cDw = String.valueOf(esportRank.rank);
-            this.cDx = esportRank.text;
-            this.cDB = esportRank.url;
+            this.cGO = String.valueOf(esportRank.rank);
+            this.cGP = esportRank.text;
+            this.cGT = esportRank.url;
             if (esportRank.user != null) {
-                this.cDy = esportRank.user.steam_name;
-                this.cDz = esportRank.user.steam_portrait;
+                this.cGQ = esportRank.user.steam_name;
+                this.cGR = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String akH() {
+    public String alA() {
         return this.mTitle;
     }
 
-    public String akI() {
-        return this.cDw;
+    public String alB() {
+        return this.cGO;
     }
 
-    public String akJ() {
-        return this.cDx;
+    public String alC() {
+        return this.cGP;
     }
 
-    public String akK() {
-        return this.cDy;
+    public String alD() {
+        return this.cGQ;
     }
 
-    public String akL() {
-        return this.cDz;
+    public String alE() {
+        return this.cGR;
     }
 
-    public String akM() {
-        return this.cDA;
+    public String alF() {
+        return this.cGS;
     }
 
-    public void kC(String str) {
-        this.cDA = str;
+    public void kK(String str) {
+        this.cGS = str;
     }
 
-    public String akN() {
-        return this.cDB;
+    public String alG() {
+        return this.cGT;
     }
 
-    public void kD(String str) {
-        this.cDB = str;
+    public void kL(String str) {
+        this.cGT = str;
     }
 }

@@ -17,43 +17,43 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public class b {
-    private File CG;
-    private Map<String, ActivityInfo> CI;
-    private Map<String, ProviderInfo> CJ;
-    private Map<String, IntentFilter> CK;
-    private Map<String, IntentFilter> CL;
+    private File Eh;
+    private Map<String, ActivityInfo> Ej;
+    private Map<String, ProviderInfo> Ek;
+    private Map<String, IntentFilter> El;
+    private Map<String, IntentFilter> Em;
     private Context mContext;
     private Resources mPluginResource;
-    private PackageInfo CH = null;
-    private ActivityInfo CM = null;
-    private boolean CN = false;
+    private PackageInfo Ei = null;
+    private ActivityInfo En = null;
+    private boolean Eo = false;
 
     public b(Context context, File file, Resources resources) {
-        this.CI = null;
-        this.CJ = null;
-        this.CK = null;
-        this.CL = null;
+        this.Ej = null;
+        this.Ek = null;
+        this.El = null;
+        this.Em = null;
         this.mPluginResource = null;
         this.mContext = context;
-        this.CG = file;
+        this.Eh = file;
         this.mPluginResource = resources;
-        this.CI = new HashMap();
-        this.CK = new HashMap();
-        this.CL = new HashMap();
-        this.CJ = new HashMap();
+        this.Ej = new HashMap();
+        this.El = new HashMap();
+        this.Em = new HashMap();
+        this.Ek = new HashMap();
     }
 
-    public ServiceInfo aT(String str) {
+    public ServiceInfo aZ(String str) {
         ServiceInfo[] serviceInfoArr;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         PackageInfo pluginPackageInfo = getPluginPackageInfo();
-        if (pluginPackageInfo == null || pluginPackageInfo.services == null || this.CL.isEmpty()) {
+        if (pluginPackageInfo == null || pluginPackageInfo.services == null || this.Em.isEmpty()) {
             return null;
         }
         for (ServiceInfo serviceInfo : pluginPackageInfo.services) {
-            IntentFilter intentFilter = this.CL.get(serviceInfo.name);
+            IntentFilter intentFilter = this.Em.get(serviceInfo.name);
             if (intentFilter != null && intentFilter.hasAction(str)) {
                 return serviceInfo;
             }
@@ -61,31 +61,31 @@ public class b {
         return null;
     }
 
-    public Map<String, IntentFilter> iH() {
-        return this.CK;
+    public Map<String, IntentFilter> iR() {
+        return this.El;
     }
 
-    public Map<String, ProviderInfo> iI() {
-        return this.CJ;
+    public Map<String, ProviderInfo> iS() {
+        return this.Ek;
     }
 
     public PackageInfo getPluginPackageInfo() {
-        if (this.mContext == null || this.CG == null) {
+        if (this.mContext == null || this.Eh == null) {
             return null;
         }
-        if (this.CH == null) {
+        if (this.Ei == null) {
             try {
-                this.CH = this.mContext.getPackageManager().getPackageArchiveInfo(this.CG.getAbsolutePath(), 15);
+                this.Ei = this.mContext.getPackageManager().getPackageArchiveInfo(this.Eh.getAbsolutePath(), 15);
             } catch (Exception e) {
                 BdLog.e(e);
-                com.baidu.adp.plugin.b.a.jh().f("plugin_use", "plugin_manifest_pkginfo_failed", "getPluginPackageInfo", e.getMessage());
+                com.baidu.adp.plugin.b.a.jr().f("plugin_use", "plugin_manifest_pkginfo_failed", "getPluginPackageInfo", e.getMessage());
             }
         }
-        return this.CH;
+        return this.Ei;
     }
 
     private void a(XmlResourceParser xmlResourceParser, int i) throws XmlPullParserException, IOException {
-        if (this.CH != null && this.CH.activities != null) {
+        if (this.Ei != null && this.Ei.activities != null) {
             String attributeValue = xmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "name");
             while (i != 1) {
                 switch (i) {
@@ -96,11 +96,11 @@ public class b {
                                 continue;
                             } else {
                                 if (attributeValue.startsWith(".")) {
-                                    attributeValue = this.CH.packageName + attributeValue;
+                                    attributeValue = this.Ei.packageName + attributeValue;
                                 }
-                                for (int i2 = 0; i2 < this.CH.activities.length; i2++) {
-                                    if (this.CH.activities[i2].name.equals(attributeValue)) {
-                                        this.CM = this.CH.activities[i2];
+                                for (int i2 = 0; i2 < this.Ei.activities.length; i2++) {
+                                    if (this.Ei.activities[i2].name.equals(attributeValue)) {
+                                        this.En = this.Ei.activities[i2];
                                         return;
                                     }
                                 }
@@ -120,7 +120,7 @@ public class b {
         }
     }
 
-    public boolean iJ() {
+    public boolean iT() {
         XmlResourceParser openXmlResourceParser;
         char c;
         String str;
@@ -134,19 +134,19 @@ public class b {
         }
         if (pluginPackageInfo.receivers != null) {
             for (ActivityInfo activityInfo : pluginPackageInfo.receivers) {
-                this.CI.put(activityInfo.name, activityInfo);
+                this.Ej.put(activityInfo.name, activityInfo);
             }
         }
         if (pluginPackageInfo.providers != null) {
             for (ProviderInfo providerInfo : pluginPackageInfo.providers) {
-                this.CJ.put(providerInfo.name, providerInfo);
+                this.Ek.put(providerInfo.name, providerInfo);
             }
         }
         try {
             openXmlResourceParser = this.mPluginResource.getAssets().openXmlResourceParser("AndroidManifest.xml");
         } catch (Exception e) {
             BdLog.e(e);
-            com.baidu.adp.plugin.b.a.jh().f("plugin_install", "plugin_third_manifest_failed", pluginPackageInfo.packageName, e.getMessage());
+            com.baidu.adp.plugin.b.a.jr().f("plugin_install", "plugin_third_manifest_failed", pluginPackageInfo.packageName, e.getMessage());
         }
         if (openXmlResourceParser == null) {
             return false;
@@ -173,7 +173,7 @@ public class b {
                     } else if (str2 != null && "action".equals(openXmlResourceParser.getName())) {
                         String attributeValue2 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "name");
                         if (attributeValue2 != null) {
-                            Map<String, IntentFilter> map = c2 == 1 ? this.CL : this.CK;
+                            Map<String, IntentFilter> map = c2 == 1 ? this.Em : this.El;
                             IntentFilter intentFilter = map.get(str2);
                             if (intentFilter == null) {
                                 intentFilter = new IntentFilter(attributeValue2);
@@ -184,7 +184,7 @@ public class b {
                         }
                         c = c2;
                         str = str2;
-                    } else if (this.CM == null && "activity".equals(openXmlResourceParser.getName())) {
+                    } else if (this.En == null && "activity".equals(openXmlResourceParser.getName())) {
                         a(openXmlResourceParser, next);
                         c = c2;
                         str = str2;
@@ -200,7 +200,7 @@ public class b {
                 case 3:
                     if (!"receiver".equals(openXmlResourceParser.getName()) && !"service".equals(openXmlResourceParser.getName())) {
                         if ("application".equals(openXmlResourceParser.getName())) {
-                            this.CN = true;
+                            this.Eo = true;
                             return true;
                         }
                     } else {

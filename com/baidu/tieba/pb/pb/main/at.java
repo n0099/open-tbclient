@@ -5,10 +5,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class at {
-    private TbPageContext ako;
+    private TbPageContext oV;
 
     public at(TbPageContext tbPageContext) {
-        this.ako = tbPageContext;
+        this.oV = tbPageContext;
     }
 
     public void h(String str, byte[] bArr) {
@@ -18,13 +18,13 @@ public class at {
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<String, Integer, String> {
         String mUrl;
-        byte[] rK;
+        byte[] tu;
 
         public a(String str, byte[] bArr) {
             this.mUrl = null;
-            this.rK = null;
+            this.tu = null;
             this.mUrl = str;
-            this.rK = bArr;
+            this.tu = bArr;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -32,14 +32,14 @@ public class at {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            switch (com.baidu.tbadk.core.util.k.a(this.mUrl, this.rK, at.this.ako.getPageActivity())) {
+            switch (com.baidu.tbadk.core.util.k.a(this.mUrl, this.tu, at.this.oV.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.k.uy();
+                    return com.baidu.tbadk.core.util.k.uI();
                 case -1:
                 default:
-                    return at.this.ako.getString(d.l.save_error);
+                    return at.this.oV.getString(d.l.save_error);
                 case 0:
-                    return at.this.ako.getString(d.l.save_image_to_album);
+                    return at.this.oV.getString(d.l.save_image_to_album);
             }
         }
 
@@ -48,7 +48,7 @@ public class at {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            at.this.ako.showToast(str);
+            at.this.oV.showToast(str);
         }
 
         /* JADX INFO: Access modifiers changed from: protected */

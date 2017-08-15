@@ -14,20 +14,20 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.h, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f>> {
-    public BdUniqueId aNy;
-    private TbPageContext<?> ako;
-    private x<com.baidu.tieba.card.data.h> cOQ;
-    private com.baidu.tieba.card.f cSA;
+    public BdUniqueId aON;
+    private x<com.baidu.tieba.card.data.h> cSi;
+    private com.baidu.tieba.card.f cVS;
+    private TbPageContext<?> oV;
 
     public i(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.h.TYPE);
-        this.cOQ = new x<com.baidu.tieba.card.data.h>() { // from class: com.baidu.tieba.homepage.personalize.b.i.1
+        this.cSi = new x<com.baidu.tieba.card.data.h>() { // from class: com.baidu.tieba.homepage.personalize.b.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, com.baidu.tieba.card.data.h hVar) {
-                if (view != null && i.this.cSA != null && i.this.cSA.bFd != null && i.this.cSA.bFd.bFj != null && i.this.cSA.bFd.bFg != null && i.this.cSA.bFd.getView() != null) {
-                    if (view.getId() != i.this.cSA.bFd.bFj.getId() || !(view.getTag() instanceof MetaData)) {
-                        if ((view.getId() == i.this.cSA.bFd.getView().getId() || view.getId() == i.this.cSA.bFd.bFg.getId()) && (view.getTag(d.h.rec_god_item_root) instanceof String)) {
+                if (view != null && i.this.cVS != null && i.this.cVS.bGW != null && i.this.cVS.bGW.bHc != null && i.this.cVS.bGW.bGZ != null && i.this.cVS.bGW.getView() != null) {
+                    if (view.getId() != i.this.cVS.bGW.bHc.getId() || !(view.getTag() instanceof MetaData)) {
+                        if ((view.getId() == i.this.cVS.bGW.getView().getId() || view.getId() == i.this.cVS.bGW.bGZ.getId()) && (view.getTag(d.h.rec_god_item_root) instanceof String)) {
                             TiebaStatic.log(new aj("c11005").aa("obj_id", (String) view.getTag(d.h.rec_god_item_root)));
                         }
                     } else if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
@@ -36,16 +36,16 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
             }
         };
-        this.ako = tbPageContext;
+        this.oV = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: w */
+    /* renamed from: x */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cSA = new com.baidu.tieba.card.f(this.ako, this.aNy);
-        return new com.baidu.tieba.card.a.a(this.cSA);
+        this.cVS = new com.baidu.tieba.card.f(this.oV, this.aON);
+        return new com.baidu.tieba.card.a.a(this.cVS);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,17 +53,17 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> aVar) {
-        this.cSA = aVar.WX();
-        aVar.WX().a(hVar);
-        aVar.WX().a(this.cOQ);
-        aVar.WX().d(this.ako, TbadkCoreApplication.getInst().getSkinType());
-        u.Ww().a(new aj("c11006"));
+        this.cVS = aVar.Xy();
+        aVar.Xy().a(hVar);
+        aVar.Xy().b(this.cSi);
+        aVar.Xy().d(this.oV, TbadkCoreApplication.getInst().getSkinType());
+        u.WX().a(new aj("c11006"));
         return aVar.getView();
     }
 
-    public void kH(int i) {
-        if (this.cSA != null) {
-            this.cSA.d(this.ako, i);
+    public void kR(int i) {
+        if (this.cVS != null) {
+            this.cVS.d(this.oV, i);
         }
     }
 }

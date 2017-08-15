@@ -20,47 +20,47 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FragmentTabIndicator extends FrameLayout {
-    private int aGf;
-    public int aGg;
-    private int aGh;
-    private int aGi;
-    private TextView aGj;
-    private int aGk;
-    private int aGl;
-    private HashMap<String, a> aGm;
-    private ImageView aaU;
+    private int aHA;
+    private int aHB;
+    private HashMap<String, a> aHC;
+    private int aHv;
+    public int aHw;
+    private int aHx;
+    private int aHy;
+    private TextView aHz;
+    private ImageView act;
 
     public FragmentTabIndicator(Context context) {
         super(context);
-        this.aGf = 0;
-        this.aGm = new HashMap<>();
+        this.aHv = 0;
+        this.aHC = new HashMap<>();
         init();
     }
 
     public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aGf = 0;
-        this.aGm = new HashMap<>();
+        this.aHv = 0;
+        this.aHC = new HashMap<>();
         init();
     }
 
     private void init() {
-        this.aGk = getResources().getDimensionPixelSize(d.f.ds2);
-        this.aGl = getResources().getDimensionPixelSize(d.f.ds12);
-        this.aGj = new TextView(getContext());
+        this.aHA = getResources().getDimensionPixelSize(d.f.ds2);
+        this.aHB = getResources().getDimensionPixelSize(d.f.ds12);
+        this.aHz = new TextView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.aGj.setLayoutParams(layoutParams);
-        this.aGj.setGravity(17);
-        this.aGj.setDuplicateParentStateEnabled(true);
-        addView(this.aGj);
+        this.aHz.setLayoutParams(layoutParams);
+        this.aHz.setGravity(17);
+        this.aHz.setDuplicateParentStateEnabled(true);
+        addView(this.aHz);
     }
 
     public void setContentTvTopMargin(int i) {
-        if (this.aGj.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aGj.getLayoutParams();
+        if (this.aHz.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aHz.getLayoutParams();
             layoutParams.topMargin = i;
-            this.aGj.setLayoutParams(layoutParams);
+            this.aHz.setLayoutParams(layoutParams);
         }
     }
 
@@ -69,7 +69,7 @@ public class FragmentTabIndicator extends FrameLayout {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        for (Map.Entry<String, a> entry : this.aGm.entrySet()) {
+        for (Map.Entry<String, a> entry : this.aHC.entrySet()) {
             a value = entry.getValue();
             ViewGroup.LayoutParams layoutParams = value.view.getLayoutParams();
             if (layoutParams.width == -2) {
@@ -86,20 +86,20 @@ public class FragmentTabIndicator extends FrameLayout {
         int i5;
         int measuredHeight;
         super.onLayout(z, i, i2, i3, i4);
-        Iterator<Map.Entry<String, a>> it = this.aGm.entrySet().iterator();
-        while (it.hasNext() && this.aGj.getText() != null) {
+        Iterator<Map.Entry<String, a>> it = this.aHC.entrySet().iterator();
+        while (it.hasNext() && this.aHz.getText() != null) {
             a value = it.next().getValue();
             int measuredWidth2 = value.view.getMeasuredWidth();
             int measuredHeight2 = value.view.getMeasuredHeight();
-            int measureText = (int) this.aGj.getPaint().measureText(this.aGj.getText().toString());
-            if (value.aGn) {
-                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.uT;
+            int measureText = (int) this.aHz.getPaint().measureText(this.aHz.getText().toString());
+            if (value.aHD) {
+                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.wy;
             } else {
-                measuredWidth = ((getMeasuredWidth() / 2) - value.uT) - (measureText / 2);
+                measuredWidth = ((getMeasuredWidth() / 2) - value.wy) - (measureText / 2);
             }
-            if (this.aGf == 1) {
-                i5 = measuredWidth - this.aGl;
-                measuredHeight = this.aGk;
+            if (this.aHv == 1) {
+                i5 = measuredWidth - this.aHB;
+                measuredHeight = this.aHA;
             } else {
                 i5 = measuredWidth;
                 measuredHeight = (getMeasuredHeight() / 2) - (value.view.getMeasuredHeight() / 2);
@@ -109,101 +109,101 @@ public class FragmentTabIndicator extends FrameLayout {
     }
 
     public void setTipPosType(int i) {
-        this.aGf = i;
+        this.aHv = i;
     }
 
     public void a(String str, a aVar) {
         if (aVar.view != null) {
             addView(aVar.view);
-            this.aGm.put(str, aVar);
+            this.aHC.put(str, aVar);
         }
     }
 
-    public a gs(String str) {
-        return this.aGm.get(str);
+    public a gx(String str) {
+        return this.aHC.get(str);
     }
 
     public void setText(int i) {
-        this.aGj.setText(i);
+        this.aHz.setText(i);
     }
 
     public void setText(String str) {
-        this.aGj.setText(str);
-        this.aGj.setContentDescription(str);
+        this.aHz.setText(str);
+        this.aHz.setContentDescription(str);
     }
 
     public void setCheckDescriptionText(boolean z) {
-        String charSequence = this.aGj.getText().toString();
+        String charSequence = this.aHz.getText().toString();
         if (z) {
             charSequence = getContext().getString(d.l.talk_checked_tip) + charSequence;
         }
-        this.aGj.setContentDescription(charSequence);
+        this.aHz.setContentDescription(charSequence);
     }
 
     public void setTextSpan(SpannableString spannableString) {
-        this.aGj.setText(spannableString);
+        this.aHz.setText(spannableString);
     }
 
     public void setCompoundDrawablesTopResId(int i) {
-        this.aGh = i;
+        this.aHx = i;
     }
 
     public void setCompoundDrawablesRightResId(int i) {
-        this.aGi = i;
+        this.aHy = i;
     }
 
     public void setCompoundDrawablePadding(int i) {
-        this.aGj.setCompoundDrawablePadding(i);
+        this.aHz.setCompoundDrawablePadding(i);
     }
 
     public void setTextSize(float f) {
-        this.aGj.setTextSize(f);
+        this.aHz.setTextSize(f);
     }
 
     public void setTextSize(int i, float f) {
-        this.aGj.setTextSize(i, f);
+        this.aHz.setTextSize(i, f);
     }
 
     public void setTextColorResId(int i) {
-        this.aGg = i;
+        this.aHw = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        dr(TbadkCoreApplication.getInst().getSkinType());
+        dt(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void dr(int i) {
-        ai.c(this.aGj, this.aGg, 1);
-        if (this.aGj != null) {
-            if (this.aGj.getText() != null && al.isEmpty(this.aGj.getText().toString())) {
-                this.aaU.setImageDrawable(ai.c((Resources) null, this.aGh));
+    public void dt(int i) {
+        ai.c(this.aHz, this.aHw, 1);
+        if (this.aHz != null) {
+            if (this.aHz.getText() != null && al.isEmpty(this.aHz.getText().toString())) {
+                this.act.setImageDrawable(ai.c((Resources) null, this.aHx));
             } else {
-                this.aGj.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ai.c((Resources) null, this.aGh), ai.getDrawable(this.aGi), (Drawable) null);
+                this.aHz.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ai.c((Resources) null, this.aHx), ai.getDrawable(this.aHy), (Drawable) null);
             }
         }
-        for (Map.Entry<String, a> entry : this.aGm.entrySet()) {
-            entry.getValue().dr(i);
+        for (Map.Entry<String, a> entry : this.aHC.entrySet()) {
+            entry.getValue().dt(i);
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aGo;
-        public FragmentTabIndicator aGq;
-        public int uT;
+        public int aHE;
+        public FragmentTabIndicator aHG;
         public View view;
-        public boolean aGn = true;
-        public int aGp = d.e.common_color_10225;
+        public int wy;
+        public boolean aHD = true;
+        public int aHF = d.e.common_color_10225;
 
-        public void dr(int i) {
-            if (this.aGo != 0) {
-                ai.j(this.view, this.aGo);
+        public void dt(int i) {
+            if (this.aHE != 0) {
+                ai.j(this.view, this.aHE);
             }
             if (this.view instanceof TextView) {
-                if (this.aGp != 0) {
-                    ai.c((TextView) this.view, this.aGp, 1);
+                if (this.aHF != 0) {
+                    ai.c((TextView) this.view, this.aHF, 1);
                 }
                 int b = b((TextView) this.view);
                 if (b > 0 && b < 10) {
@@ -228,33 +228,33 @@ public class FragmentTabIndicator extends FrameLayout {
         }
     }
 
-    public void EQ() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aGj.getLayoutParams();
+    public void EY() {
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aHz.getLayoutParams();
         layoutParams.width = -2;
-        this.aGj.setLayoutParams(layoutParams);
+        this.aHz.setLayoutParams(layoutParams);
     }
 
     public TextView getContentTv() {
-        return this.aGj;
+        return this.aHz;
     }
 
-    public void M(int i, int i2) {
-        if (this.aGj != null) {
-            this.aGj.setVisibility(8);
+    public void N(int i, int i2) {
+        if (this.aHz != null) {
+            this.aHz.setVisibility(8);
         }
-        this.aaU = new ImageView(getContext());
+        this.act = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -1);
         layoutParams.gravity = 17;
         if (i == 9) {
-            this.aaU.setTranslationY(i2);
+            this.act.setTranslationY(i2);
             setClipToPadding(false);
             setClipChildren(false);
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(d.f.ds96);
             layoutParams.width = dimensionPixelOffset;
             layoutParams.height = dimensionPixelOffset;
         }
-        this.aaU.setLayoutParams(layoutParams);
-        addView(this.aaU);
-        this.aaU.setImageDrawable(ai.c((Resources) null, this.aGh));
+        this.act.setLayoutParams(layoutParams);
+        addView(this.act);
+        this.act.setImageDrawable(ai.c((Resources) null, this.aHx));
     }
 }

@@ -20,12 +20,12 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c EO() {
+    public c EW() {
         c cVar = new c();
-        cVar.aGr = new a();
+        cVar.aHH = new a();
         cVar.type = 1;
-        cVar.aGs = d.l.home;
-        cVar.aGt = d.g.s_tabbar_icon_two_bg;
+        cVar.aHI = d.l.home;
+        cVar.aHJ = d.g.s_tabbar_icon_two_bg;
         return cVar;
     }
 
@@ -34,12 +34,12 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c EP;
+                c EX;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
                     ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
-                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (EP = enterForumDelegateStatic.EP()) != null) {
-                        EP.aGr.setArguments(new Bundle());
+                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (EX = enterForumDelegateStatic.EX()) != null) {
+                        EX.aHH.setArguments(new Bundle());
                     }
                 }
             }
@@ -49,8 +49,8 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator aS(Context context) {
-        this.aGe = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
-        return this.aGe;
+    public FragmentTabIndicator aT(Context context) {
+        this.aHu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+        return this.aHu;
     }
 }

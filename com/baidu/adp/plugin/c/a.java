@@ -14,27 +14,27 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a DN = null;
-    private HashMap<String, ArrayList<Message<?>>> DM = null;
+    private static volatile a Fo = null;
+    private HashMap<String, ArrayList<Message<?>>> Fn = null;
 
-    public static a jk() {
-        if (DN == null) {
+    public static a ju() {
+        if (Fo == null) {
             synchronized (a.class) {
-                if (DN == null) {
-                    DN = new a();
+                if (Fo == null) {
+                    Fo = new a();
                 }
             }
         }
-        return DN;
+        return Fo;
     }
 
     public void init() {
-        this.DM = new HashMap<>();
-        jm();
-        jl();
+        this.Fn = new HashMap<>();
+        jw();
+        jv();
     }
 
-    private void jl() {
+    private void jv() {
         MessageManager.getInstance().registerListener(2000997, new CustomMessageListener(0) { // from class: com.baidu.adp.plugin.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -43,36 +43,36 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.errNo == 0 && a.this.DM.size() > 0 && (arrayList = (ArrayList) a.this.DM.get(aVar.DL)) != null && arrayList.size() > 0) {
+                    if (aVar.errNo == 0 && a.this.Fn.size() > 0 && (arrayList = (ArrayList) a.this.Fn.get(aVar.Fm)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.DM.remove(aVar.DL);
+                    a.this.Fn.remove(aVar.Fm);
                 }
             }
         });
     }
 
-    private void jm() {
+    private void jw() {
         MessageManager.getInstance().setNotFindTaskListener(new b<Message<?>>() { // from class: com.baidu.adp.plugin.c.a.2
             @Override // com.baidu.adp.framework.listener.b
             public boolean a(Message<?> message) {
                 if (message == null) {
                     return false;
                 }
-                String aD = c.jX().aD(message.getCmd());
-                if (TextUtils.isEmpty(aD) || c.jX().bx(aD)) {
+                String aF = c.kh().aF(message.getCmd());
+                if (TextUtils.isEmpty(aF) || c.kh().bD(aF)) {
                     return false;
                 }
-                if (!PluginCenter.getInstance().hasInstance(aD)) {
-                    a.this.a(aD, message);
-                    return PluginCenter.getInstance().launch(aD).CB;
-                } else if (PluginCenter.getInstance().isLoaded(aD)) {
+                if (!PluginCenter.getInstance().hasInstance(aF)) {
+                    a.this.a(aF, message);
+                    return PluginCenter.getInstance().launch(aF).Ec;
+                } else if (PluginCenter.getInstance().isLoaded(aF)) {
                     return false;
                 } else {
-                    a.this.a(aD, message);
+                    a.this.a(aF, message);
                     return true;
                 }
             }
@@ -82,10 +82,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.DM.get(str);
+            ArrayList<Message<?>> arrayList = this.Fn.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.DM.put(str, arrayList);
+                this.Fn.put(str, arrayList);
             }
             arrayList.add(message);
         }

@@ -8,33 +8,33 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private static volatile l fWt;
-    private final Map<Long, UserStoryData> fWs = new HashMap();
+    private static volatile l fZy;
+    private final Map<Long, UserStoryData> fZx = new HashMap();
 
     private l() {
     }
 
-    public static l bnY() {
-        if (fWt == null) {
+    public static l boN() {
+        if (fZy == null) {
             synchronized (l.class) {
-                if (fWt == null) {
-                    fWt = new l();
+                if (fZy == null) {
+                    fZy = new l();
                 }
             }
         }
-        return fWt;
+        return fZy;
     }
 
     public void a(long j, UserStoryData userStoryData) {
-        this.fWs.put(Long.valueOf(j), userStoryData);
+        this.fZx.put(Long.valueOf(j), userStoryData);
     }
 
     public UserStoryData cL(long j) {
-        return this.fWs.get(Long.valueOf(j));
+        return this.fZx.get(Long.valueOf(j));
     }
 
     public void clear() {
-        this.fWs.clear();
+        this.fZx.clear();
     }
 
     public boolean a(d dVar, List<MetaData> list, int i, long j, long j2, f fVar) {
@@ -59,15 +59,15 @@ public class l {
         return true;
     }
 
-    public int bnZ() {
+    public int boO() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), 0);
     }
 
-    public void boa() {
-        sI(0);
+    public void boP() {
+        sS(0);
     }
 
-    public void sI(int i) {
+    public void sS(int i) {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), i);
     }
 }

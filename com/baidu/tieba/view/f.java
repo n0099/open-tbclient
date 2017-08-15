@@ -4,13 +4,13 @@ import android.content.Context;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public interface f {
-    void VP();
+    void Wq();
 
     void a(Context context, NavigationBar navigationBar);
 
     void b(float f, boolean z);
 
-    void dA(boolean z);
+    void dB(boolean z);
 
     void m(int i, boolean z);
 

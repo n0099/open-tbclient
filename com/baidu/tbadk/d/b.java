@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> Qs = null;
-    protected static boolean Qu = false;
-    protected String Qp = "183322726";
-    protected boolean Qt = true;
-    protected transient List<String> Qq = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> RT = null;
+    protected static boolean RV = false;
+    protected String RQ = "183322726";
+    protected boolean RU = true;
+    protected transient List<String> RR = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -27,28 +27,28 @@ public abstract class b {
     public abstract void a(TbPageContext tbPageContext, String str, String str2, String str3);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void aW(int i);
+    public abstract void aY(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nI();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nO();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nP();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nQ();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nR();
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public abstract void nS();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void nY();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void nZ();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void oa();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void ob();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void oc();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static b b(BaseFragmentActivity baseFragmentActivity) {
@@ -70,33 +70,33 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (Qs == null) {
-            Qs = new WeakReference<>(tbPageContext);
+        if (RT == null) {
+            RT = new WeakReference<>(tbPageContext);
             return;
         }
-        Qs.clear();
-        Qs = null;
-        Qs = new WeakReference<>(tbPageContext);
+        RT.clear();
+        RT = null;
+        RT = new WeakReference<>(tbPageContext);
     }
 
-    public boolean nN() {
-        return Qu;
+    public boolean nX() {
+        return RV;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ad(boolean z) {
-        this.Qt = z;
+        this.RU = z;
     }
 
-    public boolean nH() {
-        return this.Qt;
+    public boolean nR() {
+        return this.RU;
     }
 
-    public void nJ() {
-        if (Qs != null) {
-            Qs.get();
-            Qs.clear();
-            Qs = null;
+    public void nT() {
+        if (RT != null) {
+            RT.get();
+            RT.clear();
+            RT = null;
         }
     }
 }

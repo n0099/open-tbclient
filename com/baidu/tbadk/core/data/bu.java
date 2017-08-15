@@ -12,7 +12,7 @@ public class bu {
     private long end_time;
     private long start_time;
 
-    public String tb() {
+    public String tl() {
         return this.activity_banner;
     }
 
@@ -20,7 +20,7 @@ public class bu {
         return this.activity_url;
     }
 
-    public String tc() {
+    public String tm() {
         return this.activity_button;
     }
 

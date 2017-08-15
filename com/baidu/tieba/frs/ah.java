@@ -4,15 +4,15 @@ import android.content.Intent;
 import com.baidu.tbadk.util.r;
 /* loaded from: classes.dex */
 public interface ah {
-    void L(Intent intent);
+    void N(Intent intent);
 
-    void afb();
+    void afC();
 
-    void afc();
+    void afD();
 
-    void afp();
+    void afR();
 
-    ForumWriteData afq();
+    ForumWriteData afS();
 
     void setHeaderViewHeight(int i);
 
@@ -20,5 +20,5 @@ public interface ah {
 
     void showFloatingView();
 
-    void wV();
+    void xd();
 }

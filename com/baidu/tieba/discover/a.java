@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private b bTT;
+    private b bVL;
     private String mUrl = TbConfig.DISCOVER_PAGE;
-    private boolean biq = true;
+    private boolean bjB = true;
     CustomMessageListener htmlLoadMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_HTML_LOADED) { // from class: com.baidu.tieba.discover.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -24,20 +24,20 @@ public class a extends BaseFragment {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (a.this.mUrl.contains(str) || str.contains(a.this.mUrl)) {
-                    a.this.bTT.Ni();
+                    a.this.bVL.Nn();
                 }
             }
         }
     };
-    private CustomMessageListener bTU = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
+    private CustomMessageListener bVM = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_LEAVE_DISCOVER_PAGE) { // from class: com.baidu.tieba.discover.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921041 && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    a.this.bTT.aak();
+                    a.this.bVL.aaK();
                 } else {
-                    a.this.bTT.aal();
+                    a.this.bVL.aaL();
                 }
             }
         }
@@ -50,28 +50,28 @@ public class a extends BaseFragment {
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.bTT = new b();
-        return this.bTT.a(layoutInflater, viewGroup);
+        this.bVL = new b();
+        return this.bVL.a(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.bTT.m(getPageContext());
+        this.bVL.m(getPageContext());
         registerListener(this.htmlLoadMessageListener);
-        registerListener(this.bTU);
+        registerListener(this.bVM);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.biq || StringUtils.isNull(this.bTT.Ok().getUrl())) {
+        if (this.bjB || StringUtils.isNull(this.bVL.Op().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.bTT.loadUrl(ia(this.mUrl));
+                this.bVL.loadUrl(ig(this.mUrl));
             } else {
-                this.bTT.loadUrl(this.mUrl);
+                this.bVL.loadUrl(this.mUrl);
             }
-            this.biq = false;
+            this.bjB = false;
         }
     }
 
@@ -85,7 +85,7 @@ public class a extends BaseFragment {
         super.onResume();
     }
 
-    private String ia(String str) {
+    private String ig(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -105,8 +105,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.bTT != null) {
-            this.bTT.onDestroy();
+        if (this.bVL != null) {
+            this.bVL.onDestroy();
         }
     }
 
@@ -118,11 +118,11 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.biq) {
+        if (!this.bjB) {
             if (i == 1) {
-                this.bTT.loadUrl(ia(this.mUrl));
+                this.bVL.loadUrl(ig(this.mUrl));
             } else {
-                this.bTT.loadUrl(this.mUrl);
+                this.bVL.loadUrl(this.mUrl);
             }
         }
     }

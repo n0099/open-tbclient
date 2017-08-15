@@ -12,41 +12,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j {
-    public static List<String> aco = new ArrayList();
-    public static List<String> acp = new ArrayList();
+    public static List<String> adN = new ArrayList();
+    public static List<String> adO = new ArrayList();
 
     static {
-        aco.add("jpg");
-        aco.add("jpeg");
-        aco.add("png");
-        aco.add("webp");
-        aco.add("gif");
-        acp.add("eot");
-        acp.add("svg");
-        acp.add("ttf");
-        acp.add("woff");
-        acp.add("ico");
+        adN.add("jpg");
+        adN.add("jpeg");
+        adN.add("png");
+        adN.add("webp");
+        adN.add("gif");
+        adO.add("eot");
+        adO.add("svg");
+        adO.add("ttf");
+        adO.add("woff");
+        adO.add("ico");
     }
 
-    public static boolean cR(String str) {
+    public static boolean cX(String str) {
         return (TextUtils.isEmpty(str) || str.contains("/api")) ? false : true;
     }
 
-    public static boolean cS(String str) {
+    public static boolean cY(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return TextUtils.equals(MimeTypeMap.getFileExtensionFromUrl(str), "js");
     }
 
-    public static boolean cT(String str) {
+    public static boolean cZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return TextUtils.equals(MimeTypeMap.getFileExtensionFromUrl(str), "css");
     }
 
-    public static String tL() {
+    public static String tV() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("_client_type=%s", "2")).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         sb.append(String.format("apid=%s", "2")).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);

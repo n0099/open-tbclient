@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<f> aoU;
-    private List<f> aoV;
-    private boolean aoW;
-    private boolean aoX;
-    private int aoZ;
-    private int aoY = 2;
-    private int apa = 1;
+    private List<f> aqp;
+    private List<f> aqq;
+    private boolean aqr;
+    private boolean aqs;
+    private int aqu;
+    private int aqt = 2;
+    private int aqv = 1;
 
     public d(List<f> list, boolean z, int i) {
-        this.aoZ = 2;
-        this.aoU = list;
-        this.aoX = z;
-        this.aoZ = i;
+        this.aqu = 2;
+        this.aqp = list;
+        this.aqs = z;
+        this.aqu = i;
         w(list);
     }
 
     public void w(List<f> list) {
-        if (list != null && list.size() >= this.aoY && list.size() <= this.aoZ) {
-            this.aoW = true;
-        } else if (list.size() > this.aoZ && this.aoX) {
-            this.aoW = true;
+        if (list != null && list.size() >= this.aqt && list.size() <= this.aqu) {
+            this.aqr = true;
+        } else if (list.size() > this.aqu && this.aqs) {
+            this.aqr = true;
         } else {
-            this.aoW = false;
+            this.aqr = false;
         }
-        this.aoV = xm();
+        this.aqq = xu();
     }
 
-    private List<f> xm() {
+    private List<f> xu() {
         ArrayList arrayList = new ArrayList();
-        if (this.aoU != null) {
-            if (this.aoW) {
-                if (this.aoU.size() > this.aoZ && this.aoU.size() >= this.apa) {
-                    arrayList.addAll(this.aoU.subList(0, this.aoZ));
-                    arrayList.addAll(0, this.aoU.subList(this.aoZ - this.apa, this.aoZ));
-                    arrayList.addAll(this.aoU.subList(0, this.apa));
+        if (this.aqp != null) {
+            if (this.aqr) {
+                if (this.aqp.size() > this.aqu && this.aqp.size() >= this.aqv) {
+                    arrayList.addAll(this.aqp.subList(0, this.aqu));
+                    arrayList.addAll(0, this.aqp.subList(this.aqu - this.aqv, this.aqu));
+                    arrayList.addAll(this.aqp.subList(0, this.aqv));
                 } else {
-                    arrayList.addAll(this.aoU);
-                    arrayList.addAll(0, this.aoU.subList(this.aoU.size() - this.apa, this.aoU.size()));
-                    arrayList.addAll(this.aoU.subList(0, this.apa));
+                    arrayList.addAll(this.aqp);
+                    arrayList.addAll(0, this.aqp.subList(this.aqp.size() - this.aqv, this.aqp.size()));
+                    arrayList.addAll(this.aqp.subList(0, this.aqv));
                 }
-            } else if (this.aoU != null && this.aoU.size() > 0 && this.aoU.size() >= this.apa) {
-                arrayList.addAll(this.aoU.subList(0, this.apa));
+            } else if (this.aqp != null && this.aqp.size() > 0 && this.aqp.size() >= this.aqv) {
+                arrayList.addAll(this.aqp.subList(0, this.aqv));
             }
         }
         return arrayList;
     }
 
-    public int dw(int i) {
-        if (this.aoW) {
-            int size = this.aoV.size();
+    public int dy(int i) {
+        if (this.aqr) {
+            int size = this.aqq.size();
             if (i == 0) {
-                return (size - 1) - this.apa;
+                return (size - 1) - this.aqv;
             }
-            if (i == size - this.apa) {
-                return this.apa;
+            if (i == size - this.aqv) {
+                return this.aqv;
             }
             return i;
         }
         return i;
     }
 
-    public int dx(int i) {
-        if (this.aoW) {
-            return i - this.apa;
+    public int dz(int i) {
+        if (this.aqr) {
+            return i - this.aqv;
         }
         return i;
     }
 
-    public int xn() {
-        if (this.aoU == null) {
+    public int xv() {
+        if (this.aqp == null) {
             return 0;
         }
-        return this.aoU.size();
+        return this.aqp.size();
     }
 
-    public int xo() {
-        if (this.aoW) {
-            return this.apa;
+    public int xw() {
+        if (this.aqr) {
+            return this.aqv;
         }
         return 0;
     }
 
-    public void dy(int i) {
-        this.aoZ = i;
-        w(this.aoU);
-    }
-
-    public void dz(int i) {
-        this.aoY = i;
-        w(this.aoU);
-    }
-
-    public List<f> xp() {
-        return this.aoV;
-    }
-
     public void dA(int i) {
-        this.apa = i;
-        w(this.aoU);
+        this.aqu = i;
+        w(this.aqp);
+    }
+
+    public void dB(int i) {
+        this.aqt = i;
+        w(this.aqp);
+    }
+
+    public List<f> xx() {
+        return this.aqq;
+    }
+
+    public void dC(int i) {
+        this.aqv = i;
+        w(this.aqp);
     }
 }

@@ -33,8 +33,8 @@ public class PersonInfoActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        ML();
-        at.vV().a(new at.a() { // from class: com.baidu.tieba.person.PersonInfoActivityStatic.2
+        MQ();
+        at.wf().a(new at.a() { // from class: com.baidu.tieba.person.PersonInfoActivityStatic.2
             @Override // com.baidu.tbadk.core.util.at.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -50,7 +50,7 @@ public class PersonInfoActivityStatic {
         });
     }
 
-    private static void ML() {
+    private static void MQ() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
@@ -65,7 +65,7 @@ public class PersonInfoActivityStatic {
         if (stringExtra != null && stringExtra.length() > 0 && !stringExtra.equals("0") && !stringExtra.startsWith(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
             Intent intent = personInfoActivityConfig.getIntent();
             intent.setClass(context, PersonPolymericActivity.class);
-            intent.putExtra("user_id", com.baidu.adp.lib.g.b.c(stringExtra, 0L));
+            intent.putExtra("user_id", com.baidu.adp.lib.g.b.d(stringExtra, 0L));
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 intent.putExtra(PersonPolymericActivityConfig.IS_USER_SELF, TbadkCoreApplication.getCurrentAccount().equals(stringExtra));
             } else {

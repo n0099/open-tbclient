@@ -5,8 +5,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class t implements com.baidu.tbadk.core.flow.a.a {
-    private String UY;
-    private boolean UZ;
+    private String Ww;
+    private boolean Wx;
     private String mImageUrl;
     private String mLinkUrl;
     private String mSubTitle;
@@ -29,27 +29,27 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String pG() {
+    public String pQ() {
         return this.mLinkUrl;
     }
 
-    public String pH() {
+    public String pR() {
         return this.tagNameUrl;
     }
 
-    public float pI() {
+    public float pS() {
         return this.tagRatio;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: pJ */
+    /* renamed from: pT */
     public t clone() {
         t tVar = new t();
         tVar.mImageUrl = this.mImageUrl;
         tVar.mLinkUrl = this.mLinkUrl;
         tVar.mTitle = this.mTitle;
         tVar.mSubTitle = this.mSubTitle;
-        tVar.UY = this.UY;
+        tVar.Ww = this.Ww;
         tVar.tagNameUrl = this.tagNameUrl;
         tVar.tagRatio = this.tagRatio;
         return tVar;
@@ -80,16 +80,16 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
                 this.mSubTitle = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.UY = headImgs.btn_text.trim();
+                this.Ww = headImgs.btn_text.trim();
             }
         }
     }
 
-    public boolean pK() {
-        return this.UZ;
+    public boolean pU() {
+        return this.Wx;
     }
 
     public void am(boolean z) {
-        this.UZ = z;
+        this.Wx = z;
     }
 }

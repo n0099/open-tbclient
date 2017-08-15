@@ -7,13 +7,13 @@ public interface a {
 
     /* renamed from: com.baidu.adp.base.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0002a {
+    public interface InterfaceC0001a {
         void c(SQLiteDatabase sQLiteDatabase);
     }
 
-    void a(InterfaceC0002a interfaceC0002a);
+    void a(InterfaceC0001a interfaceC0001a);
 
-    boolean aa(Context context);
+    boolean ab(Context context);
 
     SQLiteDatabase getWritableDatabase();
 

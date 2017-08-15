@@ -46,13 +46,13 @@ public class j extends SQLiteOpenHelper {
 
     public void t(SQLiteDatabase sQLiteDatabase) {
         try {
-            g(sQLiteDatabase, "story_" + TbadkCoreApplication.getCurrentAccount());
+            dropTable(sQLiteDatabase, "story_" + TbadkCoreApplication.getCurrentAccount());
         } catch (Throwable th) {
             BdLog.e("drop table wrong " + th.toString());
         }
     }
 
-    public void g(SQLiteDatabase sQLiteDatabase, String str) {
+    public void dropTable(SQLiteDatabase sQLiteDatabase, String str) {
         if (sQLiteDatabase != null) {
             try {
                 if (!StringUtils.isNull(str)) {

@@ -3,29 +3,29 @@ package com.baidu.tbadk.core.data;
 import tbclient.AwardInfo;
 /* loaded from: classes.dex */
 public class f {
-    private long TX;
-    private String TY;
-    private String TZ;
+    private String VA;
+    private long Vy;
+    private String Vz;
     private long mAwardActId;
 
-    public long ps() {
-        return this.TX;
+    public long pC() {
+        return this.Vy;
     }
 
-    public String pt() {
-        return this.TY;
+    public String pD() {
+        return this.Vz;
     }
 
-    public String pu() {
-        return this.TZ;
+    public String pE() {
+        return this.VA;
     }
 
     public void a(AwardInfo awardInfo) {
         if (awardInfo != null) {
-            this.TX = awardInfo.award_id.longValue();
+            this.Vy = awardInfo.award_id.longValue();
             this.mAwardActId = awardInfo.award_act_id.longValue();
-            this.TY = awardInfo.award_name;
-            this.TZ = awardInfo.award_imgsrc;
+            this.Vz = awardInfo.award_name;
+            this.VA = awardInfo.award_imgsrc;
         }
     }
 }

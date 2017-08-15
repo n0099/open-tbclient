@@ -13,34 +13,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class f {
-    private static f gzv;
-    private ContentObserver gzw;
+    private static f gCy;
+    private ContentObserver gCz;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<a> jr = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable gzx = new Runnable() { // from class: com.baidu.tieba.write.album.f.1
+    private Runnable gCA = new Runnable() { // from class: com.baidu.tieba.write.album.f.1
         @Override // java.lang.Runnable
         public void run() {
-            f.this.nb(false);
+            f.this.ne(false);
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void nc(boolean z);
+        void nf(boolean z);
     }
 
-    public static f byi() {
-        if (gzv == null) {
+    public static f byW() {
+        if (gCy == null) {
             synchronized (f.class) {
-                if (gzv == null) {
-                    gzv = new f();
-                    gzv.init(TbadkCoreApplication.getInst());
+                if (gCy == null) {
+                    gCy = new f();
+                    gCy.init(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return gzv;
+        return gCy;
     }
 
     private f() {
@@ -50,14 +50,14 @@ public class f {
         this.mReceiver = new BroadcastReceiver() { // from class: com.baidu.tieba.write.album.f.2
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context2, Intent intent) {
-                f.this.ad(intent);
+                f.this.af(intent);
             }
         };
-        this.gzw = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.f.3
+        this.gCz = new ContentObserver(this.mHandler) { // from class: com.baidu.tieba.write.album.f.3
             @Override // android.database.ContentObserver
             public void onChange(boolean z) {
-                f.this.handler.removeCallbacks(f.this.gzx);
-                f.this.handler.postDelayed(f.this.gzx, 2000L);
+                f.this.handler.removeCallbacks(f.this.gCA);
+                f.this.handler.postDelayed(f.this.gCA, 2000L);
             }
         };
         IntentFilter intentFilter = new IntentFilter();
@@ -68,23 +68,23 @@ public class f {
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
         context.registerReceiver(this.mReceiver, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.gzw);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.gCz);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ad(Intent intent) {
+    public void af(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            nb(true);
+            ne(true);
             return;
         }
-        this.handler.removeCallbacks(this.gzx);
-        this.handler.postDelayed(this.gzx, 2000L);
+        this.handler.removeCallbacks(this.gCA);
+        this.handler.postDelayed(this.gCA, 2000L);
     }
 
-    public void nb(boolean z) {
+    public void ne(boolean z) {
         Iterator<a> it = this.jr.iterator();
         while (it.hasNext()) {
-            it.next().nc(z);
+            it.next().nf(z);
         }
     }
 
@@ -108,8 +108,8 @@ public class f {
         removeAllListeners();
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.unregisterReceiver(this.mReceiver);
-        inst.getContentResolver().unregisterContentObserver(this.gzw);
-        this.handler.removeCallbacks(this.gzx);
-        gzv = null;
+        inst.getContentResolver().unregisterContentObserver(this.gCz);
+        this.handler.removeCallbacks(this.gCA);
+        gCy = null;
     }
 }

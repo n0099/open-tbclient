@@ -15,46 +15,46 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private BdTypeListView aSB;
-    private TbPageContext<?> ako;
-    private List<com.baidu.adp.widget.ListView.a> cOk = new ArrayList();
-    private com.baidu.tieba.a.d cOl;
-    private com.baidu.tieba.homepage.concern.a.d cOm;
-    private com.baidu.tieba.homepage.concern.a.a cOn;
-    private com.baidu.tieba.homepage.concern.a.c cOo;
-    private e cOp;
-    private e cOq;
-    private com.baidu.tieba.homepage.concern.a.b cOr;
-    private g clC;
+    private BdTypeListView aTO;
+    private List<com.baidu.adp.widget.ListView.a> cRC = new ArrayList();
+    private com.baidu.tieba.a.d cRD;
+    private com.baidu.tieba.homepage.concern.a.d cRE;
+    private com.baidu.tieba.homepage.concern.a.a cRF;
+    private com.baidu.tieba.homepage.concern.a.c cRG;
+    private e cRH;
+    private e cRI;
+    private com.baidu.tieba.homepage.concern.a.b cRJ;
+    private g cnx;
+    private TbPageContext<?> oV;
 
     public a(Context context, BdTypeListView bdTypeListView) {
-        this.aSB = bdTypeListView;
-        this.ako = (TbPageContext) i.Z(context);
+        this.aTO = bdTypeListView;
+        this.oV = (TbPageContext) i.aa(context);
         bm(context);
-        bdTypeListView.addAdapters(this.cOk);
+        bdTypeListView.addAdapters(this.cRC);
     }
 
     private void bm(Context context) {
-        this.cOl = new com.baidu.tieba.a.d(this.ako, com.baidu.tbadk.data.e.azf);
-        this.cOo = new com.baidu.tieba.homepage.concern.a.c(this.ako, l.TYPE);
-        this.cOp = new e(this.ako, n.bID);
-        this.cOq = new e(this.ako, n.bIE);
-        this.cOm = new com.baidu.tieba.homepage.concern.a.d(this.ako.getContext());
-        this.cOn = new com.baidu.tieba.homepage.concern.a.a(this.ako);
-        this.cOr = new com.baidu.tieba.homepage.concern.a.b(this.ako, k.TYPE);
-        this.clC = new g(this.ako, this.ako.getUniqueId(), 1, 0L, "");
-        this.cOl.setClickListener(this.clC);
-        this.cOk.add(this.cOl);
-        this.cOk.add(this.cOo);
-        this.cOk.add(this.cOp);
-        this.cOk.add(this.cOq);
-        this.cOk.add(this.cOm);
-        this.cOk.add(this.cOn);
-        this.cOk.add(this.cOr);
+        this.cRD = new com.baidu.tieba.a.d(this.oV, com.baidu.tbadk.data.e.aAx);
+        this.cRG = new com.baidu.tieba.homepage.concern.a.c(this.oV, l.TYPE);
+        this.cRH = new e(this.oV, n.bKw);
+        this.cRI = new e(this.oV, n.bKx);
+        this.cRE = new com.baidu.tieba.homepage.concern.a.d(this.oV.getContext());
+        this.cRF = new com.baidu.tieba.homepage.concern.a.a(this.oV);
+        this.cRJ = new com.baidu.tieba.homepage.concern.a.b(this.oV, k.TYPE);
+        this.cnx = new g(this.oV, this.oV.getUniqueId(), 1, 0L, "");
+        this.cRD.setClickListener(this.cnx);
+        this.cRC.add(this.cRD);
+        this.cRC.add(this.cRG);
+        this.cRC.add(this.cRH);
+        this.cRC.add(this.cRI);
+        this.cRC.add(this.cRE);
+        this.cRC.add(this.cRF);
+        this.cRC.add(this.cRJ);
     }
 
-    public void bo(List<f> list) {
-        this.aSB.setData(list);
+    public void br(List<f> list) {
+        this.aTO.setData(list);
     }
 
     public void onChangeSkinType(int i) {
@@ -62,8 +62,8 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.aSB != null && (this.aSB.getAdapter() instanceof com.baidu.adp.widget.ListView.d)) {
-            ((com.baidu.adp.widget.ListView.d) this.aSB.getAdapter()).notifyDataSetChanged();
+        if (this.aTO != null && (this.aTO.getAdapter() instanceof com.baidu.adp.widget.ListView.d)) {
+            ((com.baidu.adp.widget.ListView.d) this.aTO.getAdapter()).notifyDataSetChanged();
         }
     }
 

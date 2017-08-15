@@ -15,9 +15,9 @@ public class j extends com.baidu.tieba.pb.pb.main.l<k, o> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bs */
+    /* renamed from: bt */
     public o onCreateViewHolder(ViewGroup viewGroup) {
-        return new o(this.eFn.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_video_item_layout, viewGroup, false));
+        return new o(this.eIu.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_video_item_layout, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

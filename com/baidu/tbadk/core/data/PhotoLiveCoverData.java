@@ -22,15 +22,15 @@ public class PhotoLiveCoverData implements Serializable {
         PhotoLiveCoverData photoLiveCoverData = new PhotoLiveCoverData();
         photoLiveCoverData.photoLiveCover = blVar.getPhotoLiveCover();
         photoLiveCoverData.author = blVar.getAuthor();
-        PraiseData rl = blVar.rl();
-        if (rl != null) {
-            photoLiveCoverData.praiseNum = rl.getNum();
+        PraiseData rv = blVar.rv();
+        if (rv != null) {
+            photoLiveCoverData.praiseNum = rv.getNum();
         }
-        photoLiveCoverData.replyNum = blVar.rn();
+        photoLiveCoverData.replyNum = blVar.rx();
         photoLiveCoverData.threadID = blVar.getId();
         photoLiveCoverData.threadTitle = blVar.getTitle();
         photoLiveCoverData.isMarked = blVar.getIsMarked();
-        photoLiveCoverData.forumName = blVar.rA();
+        photoLiveCoverData.forumName = blVar.rK();
         String name = forumData != null ? forumData.getName() : null;
         if (StringUtils.isNull(photoLiveCoverData.forumName) && !StringUtils.isNull(name)) {
             photoLiveCoverData.forumName = name;

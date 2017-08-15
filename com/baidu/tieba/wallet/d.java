@@ -13,7 +13,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
     public static void init() {
-        at.vV().a(new at.a() { // from class: com.baidu.tieba.wallet.d.1
+        at.wf().a(new at.a() { // from class: com.baidu.tieba.wallet.d.1
             @Override // com.baidu.tbadk.core.util.at.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
@@ -21,7 +21,7 @@ public class d {
                 }
                 String str = strArr[0];
                 if (str.startsWith(TbConfig.URL_JUMP_TAG_WALLET)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, d.sG(str)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, d.sN(str)));
                     if (tbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
                         ((BaseWebViewActivity) tbPageContext.getOrignalPage()).finish();
                     }
@@ -33,7 +33,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String sG(String str) {
+    public static String sN(String str) {
         URL url;
         try {
             url = new URL(str);

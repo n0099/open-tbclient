@@ -5,19 +5,19 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c extends f {
-    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> gjc;
+    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> gmf;
 
     public c(int i) {
         super(i);
-        this.gjc = new HashMap<>();
+        this.gmf = new HashMap<>();
     }
 
     public void a(String str, com.baidu.tieba.myCollection.baseHistory.a aVar) {
-        sf(str);
+        sm(str);
         try {
-            Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.c(str, -1L));
+            Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.d(str, -1L));
             synchronized (this) {
-                this.gjc.put(valueOf, aVar);
+                this.gmf.put(valueOf, aVar);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -25,13 +25,13 @@ public class c extends f {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.f
-    public void bcq() {
+    public void bdh() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.gjg.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.gmj.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -44,11 +44,11 @@ public class c extends f {
                 l2 = l;
             }
             if (l2 != null) {
-                this.gjg.remove(l2);
-                this.gjc.remove(l2);
+                this.gmj.remove(l2);
+                this.gmf.remove(l2);
             } else {
-                this.gjg.clear();
-                this.gjc.clear();
+                this.gmj.clear();
+                this.gmf.clear();
             }
         }
     }

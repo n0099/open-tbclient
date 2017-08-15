@@ -10,20 +10,20 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class l extends a {
-    private static a dlD;
-    public static String dlo = "tb_private_msg_";
+    public static String doE = "tb_private_msg_";
+    private static a doT;
 
     private l() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l atT() {
+    public static synchronized l auL() {
         l lVar;
         synchronized (l.class) {
-            if (dlD == null) {
-                dlD = new l();
+            if (doT == null) {
+                doT = new l();
             }
-            lVar = (l) dlD;
+            lVar = (l) doT;
         }
         return lVar;
     }
@@ -49,10 +49,10 @@ public class l extends a {
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = dlo;
+            ?? r2 = doE;
             try {
                 try {
-                    cursor = g.atJ().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.auC().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
@@ -82,7 +82,7 @@ public class l extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        lP(str);
+                        lX(str);
                         m.e(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
@@ -96,7 +96,7 @@ public class l extends a {
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    m.e(r2);
+                    m.e((Cursor) r2);
                     throw th;
                 }
             } catch (SQLiteException e3) {
@@ -108,7 +108,7 @@ public class l extends a {
             } catch (Throwable th3) {
                 r2 = 0;
                 th = th3;
-                m.e(r2);
+                m.e((Cursor) r2);
                 throw th;
             }
         }

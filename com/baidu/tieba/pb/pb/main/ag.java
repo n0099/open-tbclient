@@ -15,9 +15,9 @@ public class ag extends l<com.baidu.tbadk.core.data.au, ah> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bo */
+    /* renamed from: bp */
     public ah onCreateViewHolder(ViewGroup viewGroup) {
-        return new ah(this.eFn.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_novel, viewGroup, false));
+        return new ah(this.eIu.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.j.pb_recommend_novel, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

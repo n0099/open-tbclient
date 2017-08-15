@@ -3,65 +3,65 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class r {
-    private String arc;
-    private String ard;
-    private String are;
-    private String arf;
-    private String arg;
-    private String arh;
-    private String ari;
-    private String arj;
-    private int ark;
-    private int arl;
-    private long arm;
-    private int arn;
-    private String arq;
-    private String arr;
-    private String ars;
-    public int aru;
-    private String arw;
-    private String arx;
+    private String asA;
+    private String asB;
+    private String asC;
+    private int asD;
+    private int asE;
+    private long asF;
+    private int asG;
+    private String asJ;
+    private String asK;
+    private String asL;
+    public int asN;
+    private String asP;
+    private String asQ;
+    private String asv;
+    private String asw;
+    private String asx;
+    private String asy;
+    private String asz;
     private String infoIconUrl;
     private String infoTargetUrl;
     private long infoTimeStamp;
     private long lastUpdateTime;
     private String uegVoiceWarning;
-    private int aro = 0;
-    private int arp = 0;
-    private int art = 2;
-    private String arv = "";
+    private int asH = 0;
+    private int asI = 0;
+    private int asM = 2;
+    private String asO = "";
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.arc = jSONObject.optString("drop_pic");
-                this.ard = jSONObject.optString("drop_pic_md5");
-                this.are = jSONObject.optString("drop_pic_num");
-                this.arf = jSONObject.optString("drop_bg_color_day");
-                this.arg = jSONObject.optString("drop_bg_color_night");
-                this.arh = jSONObject.optString("apply_vip_live_room_pid");
-                this.arq = jSONObject.optString("max_cache");
-                this.arr = jSONObject.optString("frs_max_cache");
-                this.ars = jSONObject.optString("frs_pn");
-                this.ari = jSONObject.optString("tail_link");
-                this.arj = jSONObject.optString("bubble_link");
-                this.ark = jSONObject.optInt("xiaoying_time");
+                this.asv = jSONObject.optString("drop_pic");
+                this.asw = jSONObject.optString("drop_pic_md5");
+                this.asx = jSONObject.optString("drop_pic_num");
+                this.asy = jSONObject.optString("drop_bg_color_day");
+                this.asz = jSONObject.optString("drop_bg_color_night");
+                this.asA = jSONObject.optString("apply_vip_live_room_pid");
+                this.asJ = jSONObject.optString("max_cache");
+                this.asK = jSONObject.optString("frs_max_cache");
+                this.asL = jSONObject.optString("frs_pn");
+                this.asB = jSONObject.optString("tail_link");
+                this.asC = jSONObject.optString("bubble_link");
+                this.asD = jSONObject.optInt("xiaoying_time");
                 this.lastUpdateTime = jSONObject.optLong("last_update_time", 0L);
-                this.arx = jSONObject.optString("url_analyze_text");
-                this.arl = jSONObject.optInt("new_resign", 0);
-                this.arm = jSONObject.optLong("personalized_cache_seconds", 43200L);
-                this.arn = jSONObject.optInt("personalized_max_count", 300);
+                this.asQ = jSONObject.optString("url_analyze_text");
+                this.asE = jSONObject.optInt("new_resign", 0);
+                this.asF = jSONObject.optLong("personalized_cache_seconds", 43200L);
+                this.asG = jSONObject.optInt("personalized_max_count", 300);
                 this.infoIconUrl = jSONObject.optString("info_icon_url");
                 this.infoTimeStamp = jSONObject.optLong("info_time_stamp", 0L);
                 this.infoTargetUrl = jSONObject.optString("info_target_url");
-                this.aro = jSONObject.optInt("read_thread_switch", 0);
-                this.art = jSONObject.optInt("localvideo_open", 2);
-                this.aru = jSONObject.optInt("card_show_statistic", 200);
-                this.arv = jSONObject.optString("clean_smart_frs_cookie");
-                com.baidu.tbadk.pageStayDuration.e.FM().fc(jSONObject.optInt("statlog_path_max", 3));
-                this.arp = jSONObject.optInt("photo_cache_num", 30);
+                this.asH = jSONObject.optInt("read_thread_switch", 0);
+                this.asM = jSONObject.optInt("localvideo_open", 2);
+                this.asN = jSONObject.optInt("card_show_statistic", 200);
+                this.asO = jSONObject.optString("clean_smart_frs_cookie");
+                com.baidu.tbadk.pageStayDuration.e.FU().fe(jSONObject.optInt("statlog_path_max", 3));
+                this.asI = jSONObject.optInt("photo_cache_num", 30);
                 this.uegVoiceWarning = jSONObject.optString("ueg_voice_warning");
-                this.arw = jSONObject.optString("nickname_activity_link");
+                this.asP = jSONObject.optString("nickname_activity_link");
                 new WebCacheWhiteListData().saveString(jSONObject.optString("android_h5cache_whitelist"));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -69,107 +69,107 @@ public class r {
         }
     }
 
-    public String ys() {
-        return this.arh;
-    }
-
-    public String yt() {
-        return this.arc;
-    }
-
-    public String yu() {
-        return this.ard;
-    }
-
-    public String yv() {
-        return this.are;
-    }
-
-    public String yw() {
-        return this.arf;
-    }
-
-    public String yx() {
-        return this.arg;
-    }
-
-    public String yy() {
-        return this.arq;
-    }
-
-    public String yz() {
-        return this.arr;
-    }
-
     public String yA() {
-        return this.ars;
+        return this.asA;
     }
 
     public String yB() {
-        return this.ari;
+        return this.asv;
     }
 
     public String yC() {
-        return this.arj;
+        return this.asw;
     }
 
-    public int yD() {
-        return this.ark;
+    public String yD() {
+        return this.asx;
     }
 
-    public long yE() {
-        return this.lastUpdateTime;
+    public String yE() {
+        return this.asy;
     }
 
-    public long yF() {
-        return this.arm;
+    public String yF() {
+        return this.asz;
     }
 
-    public int yG() {
-        return this.arn;
+    public String yG() {
+        return this.asJ;
     }
 
-    public int yH() {
-        return this.arl;
+    public String yH() {
+        return this.asK;
     }
 
     public String yI() {
-        return this.infoIconUrl;
+        return this.asL;
     }
 
     public String yJ() {
-        return this.infoTargetUrl;
+        return this.asB;
     }
 
-    public long yK() {
-        return this.infoTimeStamp;
+    public String yK() {
+        return this.asC;
     }
 
     public int yL() {
-        return this.aro;
+        return this.asD;
     }
 
-    public String yM() {
-        return this.arv;
+    public long yM() {
+        return this.lastUpdateTime;
     }
 
-    public boolean yN() {
-        return this.art == 1;
+    public long yN() {
+        return this.asF;
     }
 
     public int yO() {
-        return this.arp;
+        return this.asG;
+    }
+
+    public int yP() {
+        return this.asE;
+    }
+
+    public String yQ() {
+        return this.infoIconUrl;
+    }
+
+    public String yR() {
+        return this.infoTargetUrl;
+    }
+
+    public long yS() {
+        return this.infoTimeStamp;
+    }
+
+    public int yT() {
+        return this.asH;
+    }
+
+    public String yU() {
+        return this.asO;
+    }
+
+    public boolean yV() {
+        return this.asM == 1;
+    }
+
+    public int yW() {
+        return this.asI;
     }
 
     public String getUegVoiceWarning() {
         return this.uegVoiceWarning;
     }
 
-    public String yP() {
-        return this.arw;
+    public String yX() {
+        return this.asP;
     }
 
-    public String yQ() {
-        return this.arx;
+    public String yY() {
+        return this.asQ;
     }
 }

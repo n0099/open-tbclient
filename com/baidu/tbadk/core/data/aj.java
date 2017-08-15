@@ -7,13 +7,13 @@ import tbclient.LinkThreadContent;
 import tbclient.LinkThreadInfo;
 /* loaded from: classes.dex */
 public class aj {
-    public static int Wi = 1;
-    public static int Wj = 2;
-    private String Wk;
-    private String Wl;
-    private String Wm;
-    private int Wn = 0;
-    private boolean Wo = false;
+    public static int XG = 1;
+    public static int XH = 2;
+    private String XI;
+    private String XJ;
+    private String XK;
+    private int XL = 0;
+    private boolean XM = false;
     private String linkUrl;
 
     public void a(LinkThreadInfo linkThreadInfo) {
@@ -21,17 +21,17 @@ public class aj {
             this.linkUrl = linkThreadInfo.link_url;
             LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.u.c(linkThreadInfo.link_content, 0);
             if (linkThreadContent != null) {
-                this.Wk = linkThreadContent.link_title;
-                this.Wl = linkThreadContent.link_abstract;
-                this.Wm = linkThreadContent.link_head_small_pic;
-                this.Wn = linkThreadContent.link_type.intValue();
-                if (com.baidu.tbadk.core.util.al.isEmpty(this.Wk) && com.baidu.tbadk.core.util.al.isEmpty(this.Wl)) {
-                    this.Wo = true;
+                this.XI = linkThreadContent.link_title;
+                this.XJ = linkThreadContent.link_abstract;
+                this.XK = linkThreadContent.link_head_small_pic;
+                this.XL = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.al.isEmpty(this.XI) && com.baidu.tbadk.core.util.al.isEmpty(this.XJ)) {
+                    this.XM = true;
                     return;
                 }
                 return;
             }
-            this.Wo = true;
+            this.XM = true;
         }
     }
 
@@ -43,23 +43,23 @@ public class aj {
                 try {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
                     if (jSONObject2 != null) {
-                        this.Wk = jSONObject2.optString("link_title");
-                        this.Wl = jSONObject2.optString("link_abstract");
-                        this.Wm = jSONObject2.optString("link_head_small_pic");
-                        this.Wn = jSONObject2.optInt("link_type");
-                        if (com.baidu.tbadk.core.util.al.isEmpty(this.Wk) && com.baidu.tbadk.core.util.al.isEmpty(this.Wl)) {
-                            this.Wo = true;
+                        this.XI = jSONObject2.optString("link_title");
+                        this.XJ = jSONObject2.optString("link_abstract");
+                        this.XK = jSONObject2.optString("link_head_small_pic");
+                        this.XL = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.al.isEmpty(this.XI) && com.baidu.tbadk.core.util.al.isEmpty(this.XJ)) {
+                            this.XM = true;
                         }
                     } else {
-                        this.Wo = true;
+                        this.XM = true;
                     }
                     return;
                 } catch (JSONException e) {
-                    this.Wo = true;
+                    this.XM = true;
                     return;
                 }
             }
-            this.Wo = true;
+            this.XM = true;
         }
     }
 
@@ -67,23 +67,23 @@ public class aj {
         return this.linkUrl;
     }
 
-    public String qc() {
-        return this.Wk;
+    public String qm() {
+        return this.XI;
     }
 
-    public String qd() {
-        return this.Wl;
+    public String qn() {
+        return this.XJ;
     }
 
-    public String qe() {
-        return this.Wm;
+    public String qo() {
+        return this.XK;
     }
 
-    public int qf() {
-        return this.Wn;
+    public int qp() {
+        return this.XL;
     }
 
-    public boolean qg() {
-        return this.Wo;
+    public boolean qq() {
+        return this.XM;
     }
 }

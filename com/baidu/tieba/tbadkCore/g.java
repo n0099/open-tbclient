@@ -47,60 +47,60 @@ import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class g implements com.baidu.tbadk.mvc.b.c {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private AntiData Wq;
-    private AlaLiveNotify csT;
-    protected ar dDg;
-    private UserData eCE;
-    protected ForumData eCy;
+    private AntiData XO;
+    private AlaLiveNotify cwr;
+    protected ar dGu;
+    protected ForumData eFF;
+    private UserData eFL;
     private String gameName;
-    private List<CategoryInfo> geA;
-    private bl geI;
-    private ba geJ;
-    private com.baidu.tbadk.core.data.m geL;
-    private List<Integer> geP;
-    private List<com.baidu.adp.widget.ListView.f> geQ;
-    public PopInfo geS;
-    private com.baidu.tieba.g.b geT;
-    private AgreeBanner geU;
-    protected List<com.baidu.adp.widget.ListView.f> geV;
-    private List<FrsTabInfo> geW;
-    protected List<Long> geg;
-    private h geh;
-    protected boolean gei;
-    protected String gej;
-    protected j gek;
-    private b gel;
-    private boolean gem;
-    private List<PhotoLiveCardData> gep;
-    private int geq;
-    private PhotoLiveCardData ger;
-    private String ges;
-    private z geu;
-    private List<FrsTabInfo> gew;
-    private NavTabInfo gex;
-    private List<FeedForumData> gez;
+    private NavTabInfo ghA;
+    private List<FeedForumData> ghC;
+    private List<CategoryInfo> ghD;
+    private bl ghL;
+    private ba ghM;
+    private com.baidu.tbadk.core.data.m ghO;
+    private List<Integer> ghS;
+    private List<com.baidu.adp.widget.ListView.f> ghT;
+    public PopInfo ghV;
+    private com.baidu.tieba.g.b ghW;
+    private AgreeBanner ghX;
+    protected List<com.baidu.adp.widget.ListView.f> ghY;
+    private List<FrsTabInfo> ghZ;
+    protected List<Long> ghj;
+    private h ghk;
+    protected boolean ghl;
+    protected String ghm;
+    protected j ghn;
+    private b gho;
+    private boolean ghp;
+    private List<PhotoLiveCardData> ghs;
+    private int ght;
+    private PhotoLiveCardData ghu;
+    private String ghv;
+    private z ghx;
+    private List<FrsTabInfo> ghz;
     private int mSortType;
     protected ArrayList<com.baidu.adp.widget.ListView.f> threadList;
     private HashMap<String, MetaData> userMap;
-    public int gef = 0;
-    private List<e> gen = new ArrayList();
-    private int geo = 0;
-    private ArrayList<com.baidu.tbadk.core.data.o> get = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.r gev = null;
-    private int gey = 1;
-    private String geB = null;
-    private y geC = null;
-    public aa geD = null;
-    private com.baidu.tbadk.core.data.s geE = null;
-    private Integer geF = -1;
-    public w geG = null;
-    private com.baidu.tbadk.core.data.u geH = null;
-    private int geK = -1;
-    protected List<com.baidu.adp.widget.ListView.f> geM = null;
-    private int geN = 0;
-    private int geO = 0;
+    public int ghi = 0;
+    private List<e> ghq = new ArrayList();
+    private int ghr = 0;
+    private ArrayList<com.baidu.tbadk.core.data.o> ghw = new ArrayList<>();
+    protected com.baidu.tbadk.core.data.r ghy = null;
+    private int ghB = 1;
+    private String ghE = null;
+    private y ghF = null;
+    public aa ghG = null;
+    private com.baidu.tbadk.core.data.s ghH = null;
+    private Integer ghI = -1;
+    public w ghJ = null;
+    private com.baidu.tbadk.core.data.u ghK = null;
+    private int ghN = -1;
+    protected List<com.baidu.adp.widget.ListView.f> ghP = null;
+    private int ghQ = 0;
+    private int ghR = 0;
     private boolean isShowDriftingBottle = false;
-    private long geR = 0;
+    private long ghU = 0;
     private int alaLiveCount = 0;
 
     public g() {
@@ -108,21 +108,21 @@ public class g implements com.baidu.tbadk.mvc.b.c {
     }
 
     private void initData() {
-        this.eCy = new ForumData();
+        this.eFF = new ForumData();
         this.threadList = new ArrayList<>();
-        this.geM = new ArrayList();
+        this.ghP = new ArrayList();
         this.userMap = new HashMap<>();
-        this.dDg = new ar();
-        this.geh = new h();
-        this.eCE = new UserData();
-        this.gek = new j();
+        this.dGu = new ar();
+        this.ghk = new h();
+        this.eFL = new UserData();
+        this.ghn = new j();
         d(new AntiData());
         a(new b());
-        this.geQ = new ArrayList();
-        this.geP = new ArrayList();
+        this.ghT = new ArrayList();
+        this.ghS = new ArrayList();
     }
 
-    public FrsPageResIdl C(byte[] bArr) {
+    public FrsPageResIdl F(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -150,14 +150,14 @@ public class g implements com.baidu.tbadk.mvc.b.c {
                         if (colorEgg != null && !com.baidu.tbadk.core.util.u.v(colorEgg.holiday_words)) {
                             com.baidu.tbadk.core.data.o oVar = new com.baidu.tbadk.core.data.o();
                             if (oVar.a(colorEgg)) {
-                                this.get.add(oVar);
+                                this.ghw.add(oVar);
                             }
                         }
                     }
                 }
                 if (dataRes.activityhead != null && !com.baidu.tbadk.core.util.u.v(dataRes.activityhead.head_imgs)) {
-                    this.gev = new com.baidu.tbadk.core.data.r();
-                    this.gev.a(dataRes.activityhead);
+                    this.ghy = new com.baidu.tbadk.core.data.r();
+                    this.ghy.a(dataRes.activityhead);
                 }
                 List<User> list = dataRes.user_list;
                 if (list != null) {
@@ -170,49 +170,49 @@ public class g implements com.baidu.tbadk.mvc.b.c {
                         }
                     }
                 }
-                mO(dataRes.is_new_url.intValue());
-                this.gei = dataRes.fortune_bag.intValue() == 1;
-                this.gej = dataRes.fortune_desc;
+                mY(dataRes.is_new_url.intValue());
+                this.ghl = dataRes.fortune_bag.intValue() == 1;
+                this.ghm = dataRes.fortune_desc;
                 if (dataRes.forum != null) {
-                    this.gem = dataRes.forum.has_game.intValue() == 1;
-                    this.ges = dataRes.forum.game_url;
+                    this.ghp = dataRes.forum.has_game.intValue() == 1;
+                    this.ghv = dataRes.forum.game_url;
                     this.gameName = dataRes.forum.game_name;
                 }
                 List<StarEnter> list2 = dataRes.star_enter;
-                this.gen.clear();
+                this.ghq.clear();
                 if (list2 != null) {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
                         e eVar = new e();
                         eVar.a(list2.get(i2));
-                        this.gen.add(eVar);
+                        this.ghq.add(eVar);
                     }
                 }
-                this.gek.a(dataRes.gcon_account);
-                this.eCy.parserProtobuf(dataRes.forum);
+                this.ghn.a(dataRes.gcon_account);
+                this.eFF.parserProtobuf(dataRes.forum);
                 long longValue = dataRes.forum != null ? dataRes.forum.id.longValue() : 0L;
-                this.geg = dataRes.thread_id_list;
-                this.Wq.parserProtobuf(dataRes.anti);
-                this.gel.a(dataRes.group);
-                this.dDg.a(dataRes.page);
-                this.geh.a(dataRes.frs_star);
-                this.eCE.parserProtobuf(dataRes.user);
+                this.ghj = dataRes.thread_id_list;
+                this.XO.parserProtobuf(dataRes.anti);
+                this.gho.a(dataRes.group);
+                this.dGu.a(dataRes.page);
+                this.ghk.a(dataRes.frs_star);
+                this.eFL.parserProtobuf(dataRes.user);
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
-                    currentAccountObj.setIsSelectTail(this.eCE.getIsSelectTail());
+                    currentAccountObj.setIsSelectTail(this.eFL.getIsSelectTail());
                 }
-                this.gew = dataRes.frs_tab_info;
+                this.ghz = dataRes.frs_tab_info;
                 if (dataRes.nav_tab_info == null) {
                     NavTabInfo.Builder builder = new NavTabInfo.Builder();
                     builder.tab = dataRes.frs_tab_info;
-                    this.gex = builder.build(true);
+                    this.ghA = builder.build(true);
                 } else {
-                    this.gex = dataRes.nav_tab_info;
+                    this.ghA = dataRes.nav_tab_info;
                 }
                 this.alaLiveCount = dataRes.ala_live_count.intValue();
-                sW(dataRes.frs_tab_default.intValue());
+                tg(dataRes.frs_tab_default.intValue());
                 List<ZhiBoInfoTW> list3 = dataRes.twzhibo_info;
                 if (list3 != null && list3.size() > 0) {
-                    this.gep = new ArrayList();
+                    this.ghs = new ArrayList();
                     int size = list3.size();
                     int i3 = -1;
                     for (int i4 = 0; i4 < size; i4++) {
@@ -226,145 +226,145 @@ public class g implements com.baidu.tbadk.mvc.b.c {
                         if (photoLiveCardData.getPendantData() == null && (metaData2 = this.userMap.get(photoLiveCardData.getAuthorId())) != null && metaData2.getPendantData() != null) {
                             photoLiveCardData.setUserPendantData(metaData2.getPendantData());
                         }
-                        this.gep.add(photoLiveCardData);
+                        this.ghs.add(photoLiveCardData);
                     }
                 }
-                this.geq = dataRes.twzhibo_pos.intValue();
+                this.ght = dataRes.twzhibo_pos.intValue();
                 if (dataRes.hot_twzhibo_info != null) {
-                    this.ger = new PhotoLiveCardData();
-                    if (this.ger.getShowStyle() < 0) {
-                        PhotoLiveCardData photoLiveCardData2 = this.ger;
-                        this.ger.setShowStyle(PhotoLiveCardData.getRandom(3, -1));
+                    this.ghu = new PhotoLiveCardData();
+                    if (this.ghu.getShowStyle() < 0) {
+                        PhotoLiveCardData photoLiveCardData2 = this.ghu;
+                        this.ghu.setShowStyle(PhotoLiveCardData.getRandom(3, -1));
                     }
-                    this.ger.getShowStyle();
-                    this.ger.parserProtobuf(dataRes.hot_twzhibo_info);
-                    this.ger.setShowExpressionViewIndexList(this.ger.getExpressionDatas());
+                    this.ghu.getShowStyle();
+                    this.ghu.parserProtobuf(dataRes.hot_twzhibo_info);
+                    this.ghu.setShowExpressionViewIndexList(this.ghu.getExpressionDatas());
                 }
                 a(dataRes.thread_list, longValue);
-                this.geA = dataRes.category_list;
+                this.ghD = dataRes.category_list;
                 if (!al.isEmpty(dataRes.bawu_enter_url)) {
-                    this.geB = dataRes.bawu_enter_url;
+                    this.ghE = dataRes.bawu_enter_url;
                 }
                 if (dataRes.head_sdk != null) {
-                    this.geC = new y();
-                    this.geC.a(dataRes.head_sdk);
+                    this.ghF = new y();
+                    this.ghF.a(dataRes.head_sdk);
                 }
                 if (dataRes.recommend_book != null) {
-                    this.geD = new aa();
-                    this.geD.a(dataRes.recommend_book);
+                    this.ghG = new aa();
+                    this.ghG.a(dataRes.recommend_book);
                 }
                 if (dataRes.book_info != null) {
-                    this.geE = new com.baidu.tbadk.core.data.s();
-                    this.geE.a(dataRes.book_info);
+                    this.ghH = new com.baidu.tbadk.core.data.s();
+                    this.ghH.a(dataRes.book_info);
                 }
                 if (dataRes.forum_present_info != null) {
-                    this.geG = new w();
-                    this.geG.a(dataRes.forum_present_info);
+                    this.ghJ = new w();
+                    this.ghJ.a(dataRes.forum_present_info);
                 }
                 if (dataRes.forum_headline_img_info != null) {
-                    this.geH = new com.baidu.tbadk.core.data.u();
-                    this.geH.a(dataRes.forum_headline_img_info);
+                    this.ghK = new com.baidu.tbadk.core.data.u();
+                    this.ghK.a(dataRes.forum_headline_img_info);
                 }
                 if (dataRes.ntspread != null) {
-                    this.geu = new z();
-                    this.geu.a(dataRes.ntspread);
+                    this.ghx = new z();
+                    this.ghx.a(dataRes.ntspread);
                 }
                 if (dataRes.card_shipin_info != null && dataRes.card_shipin_info.size() > 0) {
-                    this.geI = new bl();
-                    this.geI.ap(true);
-                    this.geI.bU(this.geq);
-                    this.geI.setUserMap(this.userMap);
-                    this.geI.a(dataRes.card_shipin_info.get(0));
-                    this.geI.sd();
-                    if (this.geI.getFid() == 0 && longValue != 0) {
-                        this.geI.setFid(longValue);
+                    this.ghL = new bl();
+                    this.ghL.ap(true);
+                    this.ghL.bW(this.ght);
+                    this.ghL.setUserMap(this.userMap);
+                    this.ghL.a(dataRes.card_shipin_info.get(0));
+                    this.ghL.sn();
+                    if (this.ghL.getFid() == 0 && longValue != 0) {
+                        this.ghL.setFid(longValue);
                     }
-                    this.geI.i(this.get);
-                    this.geI.ao(!this.geI.rc());
-                    if (this.geI.getAuthor() != null && this.geI.getAuthor().getPendantData() == null && (metaData = this.userMap.get(this.geI.getAuthor().getUserId())) != null && metaData.getPendantData() != null) {
+                    this.ghL.i(this.ghw);
+                    this.ghL.ao(!this.ghL.rm());
+                    if (this.ghL.getAuthor() != null && this.ghL.getAuthor().getPendantData() == null && (metaData = this.userMap.get(this.ghL.getAuthor().getUserId())) != null && metaData.getPendantData() != null) {
                         com.baidu.tbadk.data.j jVar = new com.baidu.tbadk.data.j();
-                        jVar.Q(metaData.getPendantData().Ct());
-                        jVar.cB(metaData.getPendantData().pL());
-                        this.geI.getAuthor().setPendantData(jVar);
+                        jVar.Q(metaData.getPendantData().CB());
+                        jVar.cH(metaData.getPendantData().pV());
+                        this.ghL.getAuthor().setPendantData(jVar);
                     }
                 }
                 if (dataRes.school_recom_info != null) {
-                    this.geK = dataRes.school_recom_pos.intValue();
-                    this.geJ = new ba();
-                    this.geJ.a(dataRes.school_recom_info);
+                    this.ghN = dataRes.school_recom_pos.intValue();
+                    this.ghM = new ba();
+                    this.ghM.a(dataRes.school_recom_info);
                 }
                 if (dataRes.carrier_enter != null) {
-                    this.geL = new com.baidu.tbadk.core.data.m();
-                    this.geL.a(dataRes.carrier_enter);
+                    this.ghO = new com.baidu.tbadk.core.data.m();
+                    this.ghO.a(dataRes.carrier_enter);
                 }
                 if (dataRes.vitality_info != null && dataRes.vitality_info.frequently_forum_info != null) {
-                    this.geN = dataRes.vitality_info.frequently_forum_info.forum_state.intValue();
-                    this.geO = dataRes.vitality_info.frequently_forum_info.access_flag.intValue();
+                    this.ghQ = dataRes.vitality_info.frequently_forum_info.forum_state.intValue();
+                    this.ghR = dataRes.vitality_info.frequently_forum_info.access_flag.intValue();
                 }
                 this.mSortType = dataRes.sort_type.intValue();
-                this.gef = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.bhY().rc(dataRes.asp_shown_info);
-                this.geP = dataRes.card_shipin_pos;
+                this.ghi = dataRes.need_log.intValue();
+                com.baidu.tieba.recapp.d.a.biO().rj(dataRes.asp_shown_info);
+                this.ghS = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i5 = 0; i5 < dataRes.card_shipin_new.size(); i5++) {
                         bl blVar = new bl();
-                        if (this.geP != null && this.geP.size() >= dataRes.card_shipin_new.size()) {
-                            blVar.bU(this.geP.get(i5).intValue());
+                        if (this.ghS != null && this.ghS.size() >= dataRes.card_shipin_new.size()) {
+                            blVar.bW(this.ghS.get(i5).intValue());
                         }
                         blVar.ap(true);
                         blVar.a(dataRes.card_shipin_new.get(i5));
-                        this.geQ.add(blVar);
+                        this.ghT.add(blVar);
                     }
                 }
                 if (dataRes.bottle != null) {
                     this.isShowDriftingBottle = dataRes.bottle.has_enter_display.intValue() == 1;
-                    this.geR = dataRes.bottle.tid.longValue();
+                    this.ghU = dataRes.bottle.tid.longValue();
                 } else {
                     this.isShowDriftingBottle = false;
-                    this.geR = 0L;
+                    this.ghU = 0L;
                 }
-                this.geS = dataRes.enter_pop_info;
+                this.ghV = dataRes.enter_pop_info;
                 if (dataRes.esport != null) {
-                    this.geT = new com.baidu.tieba.g.b();
-                    this.geT.a(dataRes.esport);
+                    this.ghW = new com.baidu.tieba.g.b();
+                    this.ghW.a(dataRes.esport);
                 }
                 if (TbadkCoreApplication.isLogin() && dataRes.banner_user_story != null && dataRes.banner_user_story._switch.intValue() == 1) {
                     com.baidu.tbadk.data.e eVar2 = new com.baidu.tbadk.data.e();
                     eVar2.a(dataRes.banner_user_story, longValue);
-                    this.geV = eVar2.Cl();
+                    this.ghY = eVar2.Ct();
                     MessageManager.getInstance().sendMessageFromBackground(new CustomMessage((int) CmdConfigCustom.CMD_STORY_READ_CACHE, Long.valueOf(longValue)));
                 }
-                this.geU = dataRes.agree_banner;
-                this.csT = dataRes.live_frs_notify;
-                this.geW = dataRes.frs_game_tab_info;
+                this.ghX = dataRes.agree_banner;
+                this.cwr = dataRes.live_frs_notify;
+                this.ghZ = dataRes.frs_game_tab_info;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public List<com.baidu.adp.widget.ListView.f> bqq() {
-        return this.geV;
+    public List<com.baidu.adp.widget.ListView.f> brf() {
+        return this.ghY;
     }
 
-    public void dh(List<com.baidu.adp.widget.ListView.f> list) {
-        this.geV = list;
+    public void dk(List<com.baidu.adp.widget.ListView.f> list) {
+        this.ghY = list;
     }
 
-    public AgreeBanner bqr() {
-        return this.geU;
+    public AgreeBanner brg() {
+        return this.ghX;
     }
 
     public void a(AgreeBanner agreeBanner) {
-        this.geU = agreeBanner;
+        this.ghX = agreeBanner;
     }
 
-    private void sW(int i) {
-        this.gey = 1;
-        if (this.gew != null && this.gew.size() > 0) {
-            for (FrsTabInfo frsTabInfo : this.gew) {
+    private void tg(int i) {
+        this.ghB = 1;
+        if (this.ghz != null && this.ghz.size() > 0) {
+            for (FrsTabInfo frsTabInfo : this.ghz) {
                 if (frsTabInfo != null && frsTabInfo.tab_id.intValue() == i) {
-                    this.gey = i;
+                    this.ghB = i;
                     return;
                 }
             }
@@ -378,25 +378,25 @@ public class g implements com.baidu.tbadk.mvc.b.c {
                 bl blVar = new bl();
                 blVar.setUserMap(this.userMap);
                 blVar.a(list.get(i));
-                blVar.bV(3);
-                blVar.sd();
+                blVar.bX(3);
+                blVar.sn();
                 if (blVar.getFid() == 0 && j != 0) {
                     blVar.setFid(j);
                 }
-                if (StringUtils.isNull(blVar.rA())) {
-                    blVar.cD(this.eCy.getName());
+                if (StringUtils.isNull(blVar.rK())) {
+                    blVar.cJ(this.eFF.getName());
                 }
-                blVar.i(this.get);
-                if (blVar.getThreadType() == 33 && !blVar.rW()) {
+                blVar.i(this.ghw);
+                if (blVar.getThreadType() == 33 && !blVar.sg()) {
                     ax axVar = new ax();
                     axVar.a(blVar, 0);
-                    axVar.r(bqE());
+                    axVar.r(brt());
                     if (appResponseToIntentClass) {
                         this.threadList.add(axVar);
                     }
-                } else if (!TextUtils.isEmpty(blVar.sq())) {
+                } else if (!TextUtils.isEmpty(blVar.sA())) {
                     ah ahVar = new ah();
-                    ahVar.cy(blVar.sq());
+                    ahVar.cE(blVar.sA());
                     this.threadList.add(ahVar);
                 } else {
                     this.threadList.add(blVar);
@@ -405,21 +405,21 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         }
     }
 
-    public int bqs() {
+    public int brh() {
         return this.alaLiveCount;
     }
 
-    public void sX(int i) {
+    public void th(int i) {
         this.alaLiveCount = i;
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] ER() {
+    public byte[] EZ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean z(byte[] bArr) {
+    public boolean C(byte[] bArr) {
         return false;
     }
 
@@ -436,28 +436,28 @@ public class g implements com.baidu.tbadk.mvc.b.c {
     public void a(Message message) {
     }
 
-    public ForumData aOW() {
-        return this.eCy;
+    public ForumData aPO() {
+        return this.eFF;
     }
 
-    public int bqt() {
-        return this.geN;
+    public int bri() {
+        return this.ghQ;
     }
 
-    public void sY(int i) {
-        this.geN = i;
+    public void ti(int i) {
+        this.ghQ = i;
     }
 
-    public int bqu() {
-        return this.geO;
+    public int brj() {
+        return this.ghR;
     }
 
-    public void sZ(int i) {
-        this.geO = i;
+    public void tj(int i) {
+        this.ghR = i;
     }
 
     public void c(ForumData forumData) {
-        this.eCy = forumData;
+        this.eFF = forumData;
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.f> getThreadList() {
@@ -468,92 +468,92 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.threadList = arrayList;
     }
 
-    public AntiData qh() {
-        return this.Wq;
+    public AntiData qr() {
+        return this.XO;
     }
 
     public void d(AntiData antiData) {
-        this.Wq = antiData;
+        this.XO = antiData;
     }
 
-    public ar qx() {
-        return this.dDg;
+    public ar qH() {
+        return this.dGu;
     }
 
     public void a(ar arVar) {
-        this.dDg = arVar;
+        this.dGu = arVar;
     }
 
-    public h bqv() {
-        return this.geh;
+    public h brk() {
+        return this.ghk;
     }
 
     public void a(h hVar) {
-        this.geh = hVar;
+        this.ghk = hVar;
     }
 
-    public com.baidu.tbadk.core.data.r bqw() {
-        return this.gev;
+    public com.baidu.tbadk.core.data.r brl() {
+        return this.ghy;
     }
 
     public void a(com.baidu.tbadk.core.data.r rVar) {
-        this.gev = rVar;
+        this.ghy = rVar;
     }
 
-    public boolean bqx() {
-        return this.gei;
+    public boolean brm() {
+        return this.ghl;
     }
 
-    public void ms(boolean z) {
-        this.gei = z;
+    public void mv(boolean z) {
+        this.ghl = z;
     }
 
-    public String bqy() {
-        return this.gej;
+    public String brn() {
+        return this.ghm;
     }
 
-    public void rK(String str) {
-        this.gej = str;
+    public void rR(String str) {
+        this.ghm = str;
     }
 
-    public j bqz() {
-        return this.gek;
+    public j bro() {
+        return this.ghn;
     }
 
     public void a(j jVar) {
-        this.gek = jVar;
+        this.ghn = jVar;
     }
 
     public UserData getUserData() {
-        return this.eCE;
+        return this.eFL;
     }
 
     public void setUserData(UserData userData) {
-        this.eCE = userData;
+        this.eFL = userData;
     }
 
-    public List<Long> bqA() {
-        return this.geg;
+    public List<Long> brp() {
+        return this.ghj;
     }
 
-    public void di(List<Long> list) {
-        this.geg = list;
+    public void dl(List<Long> list) {
+        this.ghj = list;
     }
 
-    public b bqB() {
-        return this.gel;
+    public b brq() {
+        return this.gho;
     }
 
     public void a(b bVar) {
-        this.gel = bVar;
+        this.gho = bVar;
     }
 
-    public boolean bqC() {
-        return this.gem;
+    public boolean brr() {
+        return this.ghp;
     }
 
-    public void mt(boolean z) {
-        this.gem = z;
+    public void mw(boolean z) {
+        this.ghp = z;
     }
 
     public String getGameName() {
@@ -564,12 +564,12 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.gameName = str;
     }
 
-    public List<e> bqD() {
-        return this.gen;
+    public List<e> brs() {
+        return this.ghq;
     }
 
-    public void dj(List<e> list) {
-        this.gen = list;
+    public void dm(List<e> list) {
+        this.ghq = list;
     }
 
     public HashMap<String, MetaData> getUserMap() {
@@ -580,235 +580,235 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.userMap = hashMap;
     }
 
-    public int aPk() {
-        return this.geo;
+    public int aQc() {
+        return this.ghr;
     }
 
-    public void mO(int i) {
-        this.geo = i;
+    public void mY(int i) {
+        this.ghr = i;
     }
 
-    public List<PhotoLiveCardData> bqE() {
-        return this.gep;
+    public List<PhotoLiveCardData> brt() {
+        return this.ghs;
     }
 
-    public String bqF() {
-        return this.ges;
+    public String bru() {
+        return this.ghv;
     }
 
-    public void rL(String str) {
-        this.ges = str;
+    public void rS(String str) {
+        this.ghv = str;
     }
 
-    public List<FrsTabInfo> bqG() {
-        return this.gew;
+    public List<FrsTabInfo> brv() {
+        return this.ghz;
     }
 
-    public void dk(List<FrsTabInfo> list) {
-        this.gew = list;
+    public void dn(List<FrsTabInfo> list) {
+        this.ghz = list;
     }
 
-    public void dl(List<PhotoLiveCardData> list) {
-        this.gep = list;
+    /* renamed from: do  reason: not valid java name */
+    public void m12do(List<PhotoLiveCardData> list) {
+        this.ghs = list;
     }
 
-    public boolean bqH() {
-        return this.ger != null;
+    public boolean brw() {
+        return this.ghu != null;
     }
 
-    public PhotoLiveCardData bqI() {
-        return this.ger;
+    public PhotoLiveCardData brx() {
+        return this.ghu;
     }
 
     public void c(PhotoLiveCardData photoLiveCardData) {
-        this.ger = photoLiveCardData;
+        this.ghu = photoLiveCardData;
     }
 
-    public z bqJ() {
-        return this.geu;
+    public z bry() {
+        return this.ghx;
     }
 
     public void a(z zVar) {
-        this.geu = zVar;
+        this.ghx = zVar;
     }
 
-    public int bqK() {
-        return this.geq;
+    public int brz() {
+        return this.ght;
     }
 
-    public void ta(int i) {
-        this.geq = i;
+    public void tk(int i) {
+        this.ght = i;
     }
 
-    public List<FeedForumData> bqL() {
-        return this.gez;
+    public List<FeedForumData> brA() {
+        return this.ghC;
     }
 
-    public void dm(List<FeedForumData> list) {
-        this.gez = list;
+    public void dp(List<FeedForumData> list) {
+        this.ghC = list;
     }
 
-    public void rM(String str) {
-        if (this.gez != null && str != null) {
-            for (FeedForumData feedForumData : this.gez) {
+    public void rT(String str) {
+        if (this.ghC != null && str != null) {
+            for (FeedForumData feedForumData : this.ghC) {
                 if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(str)) {
-                    this.gez.remove(feedForumData);
+                    this.ghC.remove(feedForumData);
                     return;
                 }
             }
         }
     }
 
-    public List<CategoryInfo> bqM() {
-        return this.geA;
+    public List<CategoryInfo> brB() {
+        return this.ghD;
     }
 
-    public void dn(List<CategoryInfo> list) {
-        this.geA = list;
+    public void dq(List<CategoryInfo> list) {
+        this.ghD = list;
     }
 
-    public void rN(String str) {
-        this.geB = str;
+    public void rU(String str) {
+        this.ghE = str;
     }
 
-    public String bqN() {
-        return this.geB;
+    public String brC() {
+        return this.ghE;
     }
 
-    public bl bqO() {
-        return this.geI;
+    public bl brD() {
+        return this.ghL;
     }
 
     public void ah(bl blVar) {
-        this.geI = blVar;
+        this.ghL = blVar;
     }
 
-    public int bqP() {
-        return this.gey;
+    public int brE() {
+        return this.ghB;
     }
 
-    public void tb(int i) {
-        this.gey = i;
+    public void tl(int i) {
+        this.ghB = i;
     }
 
-    public y bqQ() {
-        return this.geC;
+    public y brF() {
+        return this.ghF;
     }
 
     public void a(y yVar) {
-        this.geC = yVar;
+        this.ghF = yVar;
     }
 
-    public com.baidu.tbadk.core.data.s bqR() {
-        return this.geE;
+    public com.baidu.tbadk.core.data.s brG() {
+        return this.ghH;
     }
 
     public void a(com.baidu.tbadk.core.data.s sVar) {
-        this.geE = sVar;
+        this.ghH = sVar;
     }
 
-    public com.baidu.tbadk.core.data.u bqS() {
-        return this.geH;
+    public com.baidu.tbadk.core.data.u brH() {
+        return this.ghK;
     }
 
     public void a(com.baidu.tbadk.core.data.u uVar) {
-        this.geH = uVar;
+        this.ghK = uVar;
     }
 
-    public int bqT() {
-        return this.geK;
+    public int brI() {
+        return this.ghN;
     }
 
-    public void tc(int i) {
-        this.geK = i;
+    public void tm(int i) {
+        this.ghN = i;
     }
 
-    public ba bqU() {
-        return this.geJ;
+    public ba brJ() {
+        return this.ghM;
     }
 
     public void a(ba baVar) {
-        this.geJ = baVar;
+        this.ghM = baVar;
     }
 
-    public NavTabInfo bqV() {
-        return this.gex;
+    public NavTabInfo brK() {
+        return this.ghA;
     }
 
     public void a(NavTabInfo navTabInfo) {
-        this.gex = navTabInfo;
+        this.ghA = navTabInfo;
     }
 
-    public com.baidu.tbadk.core.data.m bqW() {
-        return this.geL;
+    public com.baidu.tbadk.core.data.m brL() {
+        return this.ghO;
     }
 
     public void a(com.baidu.tbadk.core.data.m mVar) {
-        this.geL = mVar;
+        this.ghO = mVar;
     }
 
-    public Integer bqX() {
-        return this.geF;
+    public Integer brM() {
+        return this.ghI;
     }
 
     public void i(Integer num) {
-        this.geF = num;
+        this.ghI = num;
     }
 
-    public List<Integer> bqY() {
-        return this.geP;
+    public List<Integer> brN() {
+        return this.ghS;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public void m13do(List<Integer> list) {
-        this.geP = list;
+    public void dr(List<Integer> list) {
+        this.ghS = list;
     }
 
-    public List<com.baidu.adp.widget.ListView.f> bqZ() {
-        return this.geQ;
+    public List<com.baidu.adp.widget.ListView.f> brO() {
+        return this.ghT;
     }
 
-    public void dp(List<com.baidu.adp.widget.ListView.f> list) {
-        this.geQ = list;
+    public void ds(List<com.baidu.adp.widget.ListView.f> list) {
+        this.ghT = list;
     }
 
     public boolean isShowDriftingBottle() {
         return this.isShowDriftingBottle;
     }
 
-    public long bra() {
-        return this.geR;
+    public long brP() {
+        return this.ghU;
     }
 
-    public void mu(boolean z) {
+    public void mx(boolean z) {
         this.isShowDriftingBottle = z;
     }
 
     public void cS(long j) {
-        this.geR = j;
+        this.ghU = j;
     }
 
-    public com.baidu.tieba.g.b brb() {
-        return this.geT;
+    public com.baidu.tieba.g.b brQ() {
+        return this.ghW;
     }
 
     public void a(com.baidu.tieba.g.b bVar) {
-        this.geT = bVar;
+        this.ghW = bVar;
     }
 
-    public AlaLiveNotify brc() {
-        return this.csT;
+    public AlaLiveNotify brR() {
+        return this.cwr;
     }
 
     public void a(AlaLiveNotify alaLiveNotify) {
-        this.csT = alaLiveNotify;
+        this.cwr = alaLiveNotify;
     }
 
-    public List<FrsTabInfo> brd() {
-        return this.geW;
+    public List<FrsTabInfo> brS() {
+        return this.ghZ;
     }
 
-    public void dq(List<FrsTabInfo> list) {
-        this.geW = list;
+    public void dt(List<FrsTabInfo> list) {
+        this.ghZ = list;
     }
 }

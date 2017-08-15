@@ -34,12 +34,12 @@ public class b {
 
     /* renamed from: com.baidu.android.pushservice.h.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0021b {
-        private static C0021b c = null;
+    private static class C0020b {
+        private static C0020b c = null;
         private Context a;
         private final JSONObject b = new JSONObject();
 
-        private C0021b(Context context) {
+        private C0020b(Context context) {
             this.a = null;
             this.a = context;
             try {
@@ -77,15 +77,15 @@ public class b {
             }
         }
 
-        public static synchronized C0021b a(Context context) {
-            C0021b c0021b;
-            synchronized (C0021b.class) {
+        public static synchronized C0020b a(Context context) {
+            C0020b c0020b;
+            synchronized (C0020b.class) {
                 if (c == null) {
-                    c = new C0021b(context);
+                    c = new C0020b(context);
                 }
-                c0021b = c;
+                c0020b = c;
             }
-            return c0021b;
+            return c0020b;
         }
 
         public JSONObject a() {
@@ -364,7 +364,7 @@ public class b {
     }
 
     public static JSONObject e(Context context) {
-        return C0021b.a(context).a();
+        return C0020b.a(context).a();
     }
 
     public static JSONObject f(Context context) {

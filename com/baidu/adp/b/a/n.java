@@ -10,23 +10,23 @@ public class n extends k {
 
     @Override // com.baidu.adp.b.a.c, com.baidu.adp.b.a.a
     public void b(Canvas canvas, d dVar, ImageView imageView) {
-        if (this.Bz != null) {
-            canvas.concat(this.Bz);
+        if (this.Db != null) {
+            canvas.concat(this.Db);
         }
         canvas.save();
-        if (this.Cv) {
+        if (this.DW) {
             try {
-                canvas.clipPath(this.Cs);
+                canvas.clipPath(this.DT);
             } catch (Error e) {
             }
         }
-        if (dVar.iC()) {
-            Bitmap bitmap = dVar.BZ.getBitmap();
+        if (dVar.iM()) {
+            Bitmap bitmap = dVar.DA.getBitmap();
             this.mRect.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            canvas.drawBitmap(bitmap, this.mRect, this.BA, this.mPaint);
+            canvas.drawBitmap(bitmap, this.mRect, this.Dc, this.mPaint);
         } else {
             this.mRect.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.Ca.a(canvas, this.mRect, this.BA, this.mPaint);
+            dVar.DB.a(canvas, this.mRect, this.Dc, this.mPaint);
         }
         canvas.restore();
     }

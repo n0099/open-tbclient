@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
-    private String VS;
-    private int aPX;
-    private String aPY;
-    private int aPZ;
-    private int aQa;
+    private String Xq;
+    private int aRl;
+    private String aRm;
+    private int aRn;
+    private int aRo;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class e {
     public void a(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.VS = pbContent.src;
+            this.Xq = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aPX = pbContent.e_type.intValue();
-            this.aPY = pbContent.text;
+            this.aRl = pbContent.e_type.intValue();
+            this.aRm = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aPZ = pbContent.count.intValue();
-            this.aQa = pbContent.origin_size.intValue();
+            this.aRn = pbContent.count.intValue();
+            this.aRo = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class e {
     }
 
     public String getThumbUrl() {
-        return this.VS;
+        return this.Xq;
     }
 
     public int getWidth() {
@@ -44,23 +44,23 @@ public class e {
         return this.height;
     }
 
-    public String IR() {
-        return this.aPY;
+    public String IY() {
+        return this.aRm;
     }
 
-    public boolean IS() {
-        return this.aPX == 15;
+    public boolean IZ() {
+        return this.aRl == 15;
     }
 
     public boolean isAvaliable() {
         return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
     }
 
-    public int IT() {
-        return this.aPZ;
+    public int Ja() {
+        return this.aRn;
     }
 
-    public void fC(int i) {
-        this.aPZ = i;
+    public void fE(int i) {
+        this.aRn = i;
     }
 }

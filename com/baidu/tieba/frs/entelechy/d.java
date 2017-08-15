@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.util.u;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.g.g;
-import com.baidu.tieba.frs.h.f;
+import com.baidu.tieba.frs.f.g;
+import com.baidu.tieba.frs.g.f;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.i;
 import com.baidu.tieba.view.BdExpandListView;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.frs.entelechy.b.b {
-    private float auA = 0.16875f;
+    private float avS = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, i iVar) {
@@ -27,30 +27,30 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
                 Iterator<com.baidu.adp.widget.ListView.f> it = threadList.iterator();
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.f next = it.next();
-                    if (next.getType() == bl.XD) {
+                    if (next.getType() == bl.Zb) {
                         arrayList.add(next);
                         it.remove();
                     }
                 }
-                iVar.dr(arrayList);
+                iVar.du(arrayList);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean iP(int i) {
+    public boolean iR(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(boolean z, com.baidu.tieba.frs.entelechy.b.d dVar, f fVar, com.baidu.tieba.frs.i iVar, i iVar2) {
         if (fVar != null && iVar != null && iVar2 != null && dVar != null && iVar.getListView() != null) {
-            fVar.aji();
+            fVar.akb();
             if (z) {
                 dVar.a(iVar.getListView(), iVar.getListView().getHeaderViewsCount());
             }
-            if (iVar2 != null && iVar2.aOW() != null) {
-                iVar.a(iVar2.aOW().getFrsBannerData());
+            if (iVar2 != null && iVar2.aPO() != null) {
+                iVar.a(iVar2.aPO().getFrsBannerData());
             }
         }
     }

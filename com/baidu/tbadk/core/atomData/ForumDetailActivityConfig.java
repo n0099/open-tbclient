@@ -16,7 +16,8 @@ public class ForumDetailActivityConfig extends IntentConfig {
         BAR_RANK,
         BAR_SQUARE,
         GAME_FRS_GOOD,
-        FRS_GAME_INFO
+        FRS_GAME_INFO,
+        FRS_GAME_STRATEGY
     }
 
     public ForumDetailActivityConfig(Context context, String str, FromType fromType) {

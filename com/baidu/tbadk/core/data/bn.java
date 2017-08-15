@@ -15,7 +15,7 @@ public class bn {
         return this.title;
     }
 
-    public String sT() {
+    public String td() {
         return this.title_link;
     }
 

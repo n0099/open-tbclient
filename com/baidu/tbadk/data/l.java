@@ -4,8 +4,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class l implements com.baidu.tbadk.widget.vote.a {
-    private String aeB;
-    private long azM;
+    private long aBe;
+    private String afX;
     private boolean isSelected = false;
     private int mId;
     private int mPercent;
@@ -13,16 +13,16 @@ public class l implements com.baidu.tbadk.widget.vote.a {
 
     public l(int i, String str, String str2, long j) {
         this.mId = i;
-        this.aeB = str;
+        this.afX = str;
         this.mUrl = str2;
-        this.azM = j;
+        this.aBe = j;
     }
 
     public void setSelected(boolean z) {
         this.isSelected = z;
     }
 
-    public void ci(int i) {
+    public void ck(int i) {
         this.mPercent = i;
     }
 
@@ -32,8 +32,8 @@ public class l implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cw() {
-        return this.aeB;
+    public String CE() {
+        return this.afX;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -42,27 +42,27 @@ public class l implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cx() {
-        return this.azM + TbadkCoreApplication.getInst().getString(d.l.vote_unit);
+    public String CF() {
+        return this.aBe + TbadkCoreApplication.getInst().getString(d.l.vote_unit);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cy() {
+    public String CG() {
         return this.mPercent + TbadkCoreApplication.getInst().getString(d.l.vote_percent);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Cz() {
+    public int CH() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int CA() {
+    public int CI() {
         return this.mPercent;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String CB() {
+    public String CJ() {
         return this.mUrl;
     }
 }

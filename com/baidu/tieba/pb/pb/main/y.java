@@ -1,20 +1,20 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
 public class y {
-    public boolean eLh = false;
-    public boolean eLi = false;
-    public boolean eLj = false;
-    public boolean eDz = false;
-    public boolean eLk = false;
-    public boolean eLl = false;
-    public boolean eLm = false;
-    public boolean eLn = false;
-    public boolean eLo = false;
-    public boolean eLp = false;
-    public boolean eLq = false;
-    public boolean eLr = false;
-    public boolean eLs = false;
-    public boolean eLt = false;
-    public boolean eLu = false;
+    public boolean eOo = false;
+    public boolean eOp = false;
+    public boolean eOq = false;
+    public boolean eGG = false;
+    public boolean eOr = false;
+    public boolean eOs = false;
+    public boolean eOt = false;
+    public boolean eOu = false;
+    public boolean eOv = false;
+    public boolean eOw = false;
+    public boolean eOx = false;
+    public boolean eOy = false;
+    public boolean eOz = false;
+    public boolean eOA = false;
+    public boolean eOB = false;
     public boolean isHostOnly = false;
 }

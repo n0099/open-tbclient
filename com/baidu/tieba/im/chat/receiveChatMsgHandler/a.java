@@ -40,7 +40,7 @@ public abstract class a {
 
     /* loaded from: classes.dex */
     public interface c {
-        boolean lz(String str);
+        boolean lH(String str);
     }
 
     public static boolean a(ChatMessage chatMessage, int i) {
@@ -54,7 +54,7 @@ public abstract class a {
         }
     }
 
-    public static void ly(String str) {
+    public static void lG(String str) {
         if (!TextUtils.isEmpty(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             try {
@@ -75,27 +75,27 @@ public abstract class a {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GOD_FEED_MSG_RECIEVED, Integer.valueOf(optInt5)));
                 }
                 if (optInt >= 0 && optInt3 >= 0 && optInt6 >= 0 && optInt4 >= 0) {
-                    if (com.baidu.tbadk.coreExtra.messageCenter.b.zo().zr() <= 0) {
+                    if (com.baidu.tbadk.coreExtra.messageCenter.b.zw().zz() <= 0) {
                         optInt6 = 0;
                         optInt4 = 0;
                         optInt3 = 0;
                         optInt = 0;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.b.zo().zE()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.b.zw().zM()) {
                         optInt -= optInt2;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.b.zo().zv()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.b.zw().zD()) {
                         optInt = 0;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.b.zo().zt()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.b.zw().zB()) {
                         optInt6 = 0;
                     }
-                    int i = com.baidu.tbadk.coreExtra.messageCenter.b.zo().zu() ? optInt3 : 0;
+                    int i = com.baidu.tbadk.coreExtra.messageCenter.b.zw().zC() ? optInt3 : 0;
                     if (currentAccount != null && currentAccount.length() > 0) {
-                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.yR().getMsgChat();
-                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.yR().getMsgBookmark();
-                        com.baidu.tbadk.coreExtra.messageCenter.a.yR().k(jSONObject);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.yR().c(optInt, optInt6, msgChat, i, msgBookmark, optInt4);
+                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.yZ().getMsgChat();
+                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.yZ().getMsgBookmark();
+                        com.baidu.tbadk.coreExtra.messageCenter.a.yZ().k(jSONObject);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.yZ().c(optInt, optInt6, msgChat, i, msgBookmark, optInt4);
                     }
                 }
             } catch (Exception e) {
@@ -162,7 +162,7 @@ public abstract class a {
             if (commonMsgPojo != null) {
                 commonMsgPojo.checkRidAndSelf();
             }
-            if (cVar != null && cVar.lz(valueOf)) {
+            if (cVar != null && cVar.lH(valueOf)) {
                 i2 = 0;
             }
             imMessageCenterPojo.setUnread_count(i2);

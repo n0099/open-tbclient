@@ -4,32 +4,32 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fcx = BdUniqueId.gen();
-    public String atk;
-    public long bDf;
-    public String bDg;
-    public int emf;
-    public k fcy;
+    public static final BdUniqueId ffC = BdUniqueId.gen();
+    public String auD;
+    public long bEY;
+    public String bEZ;
+    public int ept;
+    public k ffD;
     public long mUserId;
     public String mUserName;
 
     public void b(k kVar) {
         if (kVar != null) {
-            this.bDf = kVar.aWR();
-            this.bDg = kVar.getModuleName();
+            this.bEY = kVar.aXJ();
+            this.bEZ = kVar.getModuleName();
             UserData userData = kVar.getUserData();
             if (userData != null) {
-                this.mUserId = com.baidu.adp.lib.g.b.c(userData.getUserId(), 0L);
+                this.mUserId = com.baidu.adp.lib.g.b.d(userData.getUserId(), 0L);
                 this.mUserName = userData.getUserName();
-                this.emf = userData.getSex();
-                this.atk = userData.getPortrait();
+                this.ept = userData.getSex();
+                this.auD = userData.getPortrait();
             }
-            this.fcy = kVar;
+            this.ffD = kVar;
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.f
     public BdUniqueId getType() {
-        return fcx;
+        return ffC;
     }
 }

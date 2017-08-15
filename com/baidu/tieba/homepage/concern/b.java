@@ -19,33 +19,33 @@ import java.util.List;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes.dex */
 public class b extends BaseFragment implements ah {
-    private c cOs;
-    private c.a cOt;
-    private boolean cOu = false;
+    private c cRK;
+    private c.a cRL;
+    private boolean cRM = false;
 
     public b() {
     }
 
     @SuppressLint({"ValidFragment"})
     public b(Context context) {
-        this.cOs = new c(context);
-        this.cOs.anC();
+        this.cRK = new c(context);
+        this.cRK.aov();
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.cOs.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.cOs.getParent()).removeView(this.cOs);
-            if (this.cOt != null) {
-                this.cOs.setCallback(this.cOt);
+        if (this.cRK.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.cRK.getParent()).removeView(this.cRK);
+            if (this.cRL != null) {
+                this.cRK.setCallback(this.cRL);
             }
         }
-        this.cOs.setPageUniqueId(getUniqueId());
-        if (this.cOu) {
-            this.cOs.anC();
-            this.cOu = false;
+        this.cRK.setPageUniqueId(getUniqueId());
+        if (this.cRM) {
+            this.cRK.aov();
+            this.cRM = false;
         }
-        return this.cOs;
+        return this.cRK;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -56,8 +56,8 @@ public class b extends BaseFragment implements ah {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.cOs != null) {
-            this.cOs.onLazyLoad();
+        if (this.cRK != null) {
+            this.cRK.onLazyLoad();
         }
     }
 
@@ -67,8 +67,8 @@ public class b extends BaseFragment implements ah {
 
     @Override // com.baidu.tieba.frs.ah
     public void setRecommendFrsNavigationAnimDispatcher(r rVar) {
-        if (this.cOs != null) {
-            this.cOs.setRecommendFrsNavigationAnimDispatcher(rVar);
+        if (this.cRK != null) {
+            this.cRK.setRecommendFrsNavigationAnimDispatcher(rVar);
         }
     }
 
@@ -84,13 +84,13 @@ public class b extends BaseFragment implements ah {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.cOs.setTabInForeBackgroundState(false);
+        this.cRK.setTabInForeBackgroundState(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.cOs.setTabInForeBackgroundState(true);
+        this.cRK.setTabInForeBackgroundState(true);
     }
 
     @Override // android.support.v4.app.Fragment
@@ -101,65 +101,65 @@ public class b extends BaseFragment implements ah {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.cOs.onDestroy();
-        this.cOu = true;
+        this.cRK.onDestroy();
+        this.cRM = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.cOs.anG();
+            this.cRK.aoz();
             return;
         }
-        this.cOs.anH();
+        this.cRK.aoA();
         completePullRefresh();
     }
 
-    public void anA() {
-        this.cOs.setViewForeground(true);
+    public void aot() {
+        this.cRK.setViewForeground(true);
     }
 
     public void completePullRefresh() {
-        this.cOs.completePullRefresh();
+        this.cRK.completePullRefresh();
     }
 
     public void setCallback(c.a aVar) {
-        this.cOt = aVar;
-        this.cOs.setCallback(aVar);
+        this.cRL = aVar;
+        this.cRK.setCallback(aVar);
     }
 
     public void N(String str, int i) {
-        this.cOs.N(str, i);
+        this.cRK.N(str, i);
     }
 
     public void a(DataRes dataRes, boolean z) {
-        if (this.cOs != null) {
-            this.cOs.a(dataRes, z);
+        if (this.cRK != null) {
+            this.cRK.a(dataRes, z);
         }
     }
 
-    public void anB() {
-        if (this.cOs != null) {
-            this.cOs.anE();
+    public void aou() {
+        if (this.cRK != null) {
+            this.cRK.aox();
         }
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void L(Intent intent) {
+    public void N(Intent intent) {
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void afp() {
-        this.cOs.reload();
+    public void afR() {
+        this.cRK.reload();
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void afb() {
+    public void afC() {
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void afc() {
+    public void afD() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
@@ -182,18 +182,18 @@ public class b extends BaseFragment implements ah {
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public ForumWriteData afq() {
+    public ForumWriteData afS() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cOs.onChangeSkinType(i);
+        this.cRK.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void wV() {
+    public void xd() {
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 }

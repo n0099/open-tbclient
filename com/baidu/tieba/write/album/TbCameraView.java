@@ -20,21 +20,21 @@ import java.io.IOException;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TbCameraView extends SurfaceView {
-    private c gAe;
-    private a gAf;
-    private b gAg;
-    private d gAi;
-    private Camera.Parameters gAp;
-    private String gAq;
-    private float gAr;
-    private int gAs;
-    private SurfaceHolder.Callback gAt;
-    private float gbB;
-    private boolean gcK;
-    private boolean gcN;
-    private Bitmap gcO;
-    private Camera.PictureCallback gcZ;
-    private int gco;
+    private c gDh;
+    private a gDi;
+    private b gDj;
+    private d gDl;
+    private Camera.Parameters gDs;
+    private String gDt;
+    private float gDu;
+    private int gDv;
+    private SurfaceHolder.Callback gDw;
+    private float geF;
+    private boolean gfO;
+    private boolean gfR;
+    private Bitmap gfS;
+    private int gfs;
+    private Camera.PictureCallback ggd;
     private Camera mCamera;
     private Context mContext;
     private Runnable mRunnable;
@@ -43,38 +43,38 @@ public class TbCameraView extends SurfaceView {
 
     /* loaded from: classes.dex */
     public interface a {
-        void bpV();
+        void bqK();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void bC(int i, int i2);
+        void bL(int i, int i2);
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        boolean bpU();
+        boolean bqJ();
     }
 
     /* loaded from: classes.dex */
     public interface d {
-        void bpX();
+        void bqM();
 
-        void bpY();
+        void bqN();
     }
 
     public TbCameraView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gcK = false;
-        this.gAq = null;
+        this.gfO = false;
+        this.gDt = null;
         this.mTouchMode = 0;
-        this.gcN = false;
-        this.gAt = new SurfaceHolder.Callback() { // from class: com.baidu.tieba.write.album.TbCameraView.1
+        this.gfR = false;
+        this.gDw = new SurfaceHolder.Callback() { // from class: com.baidu.tieba.write.album.TbCameraView.1
             @Override // android.view.SurfaceHolder.Callback
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
                 TbCameraView.this.mSurfaceHolder = surfaceHolder;
-                if (TbCameraView.this.gAe != null && TbCameraView.this.gAe.bpU()) {
-                    TbCameraView.this.mo(TbCameraView.this.gcN);
+                if (TbCameraView.this.gDh != null && TbCameraView.this.gDh.bqJ()) {
+                    TbCameraView.this.mr(TbCameraView.this.gfR);
                 }
             }
 
@@ -87,17 +87,17 @@ public class TbCameraView extends SurfaceView {
                 TbCameraView.this.stopCamera();
             }
         };
-        this.gcZ = new Camera.PictureCallback() { // from class: com.baidu.tieba.write.album.TbCameraView.2
+        this.ggd = new Camera.PictureCallback() { // from class: com.baidu.tieba.write.album.TbCameraView.2
             @Override // android.hardware.Camera.PictureCallback
             public void onPictureTaken(byte[] bArr, Camera camera) {
                 if (bArr != null) {
-                    TbCameraView.this.gcO = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                    TbCameraView.this.gfS = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
                     if (TbCameraView.this.mCamera != null) {
                         TbCameraView.this.mCamera.stopPreview();
                     }
-                    TbCameraView.this.gcK = false;
-                    if (TbCameraView.this.gAi != null) {
-                        TbCameraView.this.gAi.bpX();
+                    TbCameraView.this.gfO = false;
+                    if (TbCameraView.this.gDl != null) {
+                        TbCameraView.this.gDl.bqM();
                     }
                 }
             }
@@ -105,8 +105,8 @@ public class TbCameraView extends SurfaceView {
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.write.album.TbCameraView.4
             @Override // java.lang.Runnable
             public void run() {
-                if (TbCameraView.this.gAi != null) {
-                    TbCameraView.this.gAi.bpY();
+                if (TbCameraView.this.gDl != null) {
+                    TbCameraView.this.gDl.bqN();
                 }
             }
         };
@@ -114,9 +114,9 @@ public class TbCameraView extends SurfaceView {
         this.mSurfaceHolder = getHolder();
         this.mSurfaceHolder.setFormat(-2);
         this.mSurfaceHolder.setType(3);
-        this.mSurfaceHolder.addCallback(this.gAt);
-        this.gAs = getResources().getDimensionPixelSize(d.f.ds5);
-        this.gco = getResources().getDimensionPixelSize(d.f.ds20);
+        this.mSurfaceHolder.addCallback(this.gDw);
+        this.gDv = getResources().getDimensionPixelSize(d.f.ds5);
+        this.gfs = getResources().getDimensionPixelSize(d.f.ds20);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x003a  */
@@ -124,7 +124,7 @@ public class TbCameraView extends SurfaceView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void mo(boolean z) {
+    public void mr(boolean z) {
         Camera.CameraInfo cameraInfo;
         int numberOfCameras;
         int i = 0;
@@ -135,7 +135,7 @@ public class TbCameraView extends SurfaceView {
             } catch (Throwable th) {
                 th.printStackTrace();
                 this.mCamera = null;
-                if (this.gAf == null) {
+                if (this.gDi == null) {
                 }
             }
             while (true) {
@@ -147,18 +147,18 @@ public class TbCameraView extends SurfaceView {
                     if (z) {
                         if (cameraInfo.facing == 1) {
                             this.mCamera = Camera.open(i);
-                            this.gcN = true;
+                            this.gfR = true;
                             break;
                         }
                     } else if (cameraInfo.facing == 0) {
                         this.mCamera = Camera.open(i);
-                        this.gcN = false;
+                        this.gfR = false;
                         break;
                     }
                     th.printStackTrace();
                     this.mCamera = null;
-                    if (this.gAf == null) {
-                        this.gAf.bpV();
+                    if (this.gDi == null) {
+                        this.gDi.bqK();
                         return;
                     }
                     return;
@@ -171,34 +171,34 @@ public class TbCameraView extends SurfaceView {
 
     private void startPreview(SurfaceHolder surfaceHolder) {
         if (this.mCamera != null) {
-            this.gAp = this.mCamera.getParameters();
-            this.gAp.setPictureFormat(256);
-            Camera.Size e = e(this.gAp.getSupportedPictureSizes(), 1440, 1080);
-            this.gAp.setPictureSize(e.width, e.height);
-            Camera.Size e2 = e(this.gAp.getSupportedPreviewSizes(), 1440, 1080);
-            this.gAp.setPreviewSize(e2.width, e2.height);
-            if (this.gAg != null) {
-                this.gAg.bC(e2.width, e2.height);
+            this.gDs = this.mCamera.getParameters();
+            this.gDs.setPictureFormat(256);
+            Camera.Size e = e(this.gDs.getSupportedPictureSizes(), 1440, 1080);
+            this.gDs.setPictureSize(e.width, e.height);
+            Camera.Size e2 = e(this.gDs.getSupportedPreviewSizes(), 1440, 1080);
+            this.gDs.setPreviewSize(e2.width, e2.height);
+            if (this.gDj != null) {
+                this.gDj.bL(e2.width, e2.height);
             }
             this.mCamera.setDisplayOrientation(90);
-            if (this.gAp.getSupportedFocusModes().contains("continuous-video")) {
-                this.gAp.setFocusMode("continuous-video");
+            if (this.gDs.getSupportedFocusModes().contains("continuous-video")) {
+                this.gDs.setFocusMode("continuous-video");
             }
-            this.mCamera.setParameters(this.gAp);
+            this.mCamera.setParameters(this.gDs);
             try {
                 this.mCamera.setPreviewDisplay(surfaceHolder);
                 this.mCamera.startPreview();
             } catch (IOException e3) {
                 e3.printStackTrace();
             }
-            this.gcK = true;
+            this.gfO = true;
         }
     }
 
-    public void bqb() {
-        if (this.mCamera != null && !this.gcK) {
+    public void bqQ() {
+        if (this.mCamera != null && !this.gfO) {
             this.mCamera.startPreview();
-            this.gcK = true;
+            this.gfO = true;
         }
     }
 
@@ -206,21 +206,21 @@ public class TbCameraView extends SurfaceView {
         if (this.mCamera != null) {
             this.mCamera.setPreviewCallback(null);
             this.mCamera.stopPreview();
-            this.gcK = false;
+            this.gfO = false;
             this.mCamera.release();
             this.mCamera = null;
         }
     }
 
     public void takePicture() {
-        if (this.gcK && this.mCamera != null) {
-            this.mCamera.takePicture(null, null, this.gcZ);
+        if (this.gfO && this.mCamera != null) {
+            this.mCamera.takePicture(null, null, this.ggd);
         }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.gcK) {
+        if (this.gfO) {
             switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
                 case 0:
                     this.mTouchMode = 1;
@@ -229,35 +229,35 @@ public class TbCameraView extends SurfaceView {
                     this.mTouchMode = 0;
                     break;
                 case 2:
-                    if (this.gAp != null && this.gAp.isZoomSupported() && this.mTouchMode == 2) {
-                        this.gAr = z(motionEvent);
-                        if (this.gAr > this.gAs) {
-                            float f = this.gAr - this.gbB;
-                            int maxZoom = this.gAp.getMaxZoom();
+                    if (this.gDs != null && this.gDs.isZoomSupported() && this.mTouchMode == 2) {
+                        this.gDu = z(motionEvent);
+                        if (this.gDu > this.gDv) {
+                            float f = this.gDu - this.geF;
+                            int maxZoom = this.gDs.getMaxZoom();
                             int zoom = this.mCamera.getParameters().getZoom();
-                            if (f > this.gco) {
+                            if (f > this.gfs) {
                                 int i = zoom + 1;
                                 if (i <= maxZoom) {
                                     maxZoom = i;
                                 }
-                                uk(maxZoom);
-                                this.gbB = this.gAr;
+                                ut(maxZoom);
+                                this.geF = this.gDu;
                                 break;
-                            } else if (f < (-this.gco)) {
+                            } else if (f < (-this.gfs)) {
                                 int i2 = zoom - 1;
                                 if (i2 < 0) {
                                     i2 = 0;
                                 }
-                                uk(i2);
-                                this.gbB = this.gAr;
+                                ut(i2);
+                                this.geF = this.gDu;
                                 break;
                             }
                         }
                     }
                     break;
                 case 5:
-                    this.gbB = z(motionEvent);
-                    if (this.gbB > this.gAs) {
+                    this.geF = z(motionEvent);
+                    if (this.geF > this.gDv) {
                         this.mTouchMode = 2;
                         break;
                     }
@@ -280,30 +280,30 @@ public class TbCameraView extends SurfaceView {
         return (float) Math.sqrt((x * x) + (y * y));
     }
 
-    public void uk(int i) {
+    public void ut(int i) {
         if (this.mCamera != null) {
-            this.gAp = this.mCamera.getParameters();
-            if (this.gAp != null) {
-                this.gAp.setZoom(i);
-                this.mCamera.setParameters(this.gAp);
+            this.gDs = this.mCamera.getParameters();
+            if (this.gDs != null) {
+                this.gDs.setZoom(i);
+                this.mCamera.setParameters(this.gDs);
             }
         }
     }
 
-    public void bqc() {
+    public void bqR() {
         u.a(new t<Object>() { // from class: com.baidu.tieba.write.album.TbCameraView.3
             @Override // com.baidu.tbadk.util.t
             public Object doInBackground() {
-                if (TbCameraView.this.gcO != null && !StringUtils.isNull(TbCameraView.this.gAq)) {
+                if (TbCameraView.this.gfS != null && !StringUtils.isNull(TbCameraView.this.gDt)) {
                     try {
-                        Bitmap b2 = TbCameraView.this.b(TbCameraView.this.gcO, TbCameraView.this.gcN ? -90 : 90);
+                        Bitmap b2 = TbCameraView.this.b(TbCameraView.this.gfS, TbCameraView.this.gfR ? -90 : 90);
                         if (b2 != null) {
-                            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(TbCameraView.this.gAq));
+                            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(TbCameraView.this.gDt));
                             b2.compress(Bitmap.CompressFormat.JPEG, 100, bufferedOutputStream);
                             bufferedOutputStream.flush();
                             bufferedOutputStream.close();
                             b2.recycle();
-                            com.baidu.adp.lib.g.e.fP().post(TbCameraView.this.mRunnable);
+                            com.baidu.adp.lib.g.e.ga().post(TbCameraView.this.mRunnable);
                             return null;
                         }
                         return null;
@@ -320,13 +320,13 @@ public class TbCameraView extends SurfaceView {
     @Override // android.view.SurfaceView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.adp.lib.g.e.fP().removeCallbacks(this.mRunnable);
+        com.baidu.adp.lib.g.e.ga().removeCallbacks(this.mRunnable);
     }
 
-    public void byo() {
-        if (this.gcO != null) {
-            this.gcO.recycle();
-            this.gcO = null;
+    public void bzc() {
+        if (this.gfS != null) {
+            this.gfS.recycle();
+            this.gfS = null;
         }
     }
 
@@ -359,27 +359,27 @@ public class TbCameraView extends SurfaceView {
     }
 
     public void setStorePath(String str) {
-        this.gAq = str;
+        this.gDt = str;
     }
 
-    public void bqe() {
+    public void bqT() {
         stopCamera();
-        mo(!this.gcN);
+        mr(!this.gfR);
     }
 
     public void setOnGotPictureListener(d dVar) {
-        this.gAi = dVar;
+        this.gDl = dVar;
     }
 
     public void setOnPreviewSizeChangedListener(b bVar) {
-        this.gAg = bVar;
+        this.gDj = bVar;
     }
 
     public void setOnRequestPermissionListener(c cVar) {
-        this.gAe = cVar;
+        this.gDh = cVar;
     }
 
     public void setOnOpenCameraFailedListener(a aVar) {
-        this.gAf = aVar;
+        this.gDi = aVar;
     }
 }

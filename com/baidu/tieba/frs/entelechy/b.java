@@ -6,14 +6,14 @@ import com.baidu.tieba.frs.entelechy.a.q;
 import com.baidu.tieba.frs.f;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.a {
-    private a cly;
+    private a cns;
 
     public com.baidu.tieba.frs.entelechy.b.d z(f fVar) {
         return new com.baidu.tieba.frs.entelechy.c.a(fVar);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b agl() {
+    public com.baidu.tieba.frs.entelechy.b.b agN() {
         return new d();
     }
 
@@ -22,9 +22,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
         if (fVar == null) {
             return null;
         }
-        this.cly = new c(fVar, null, null, i);
-        this.cly.a(fVar.aeM());
-        return this.cly;
+        this.cns = new c(fVar, null, null, i);
+        this.cns.a(fVar.afn());
+        return this.cns;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
@@ -35,21 +35,21 @@ public class b implements com.baidu.tieba.frs.entelechy.b.a {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
-    public com.baidu.tieba.frs.h.d c(f fVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (fVar.afo()) {
+    public com.baidu.tieba.frs.g.d c(f fVar, NoPressedRelativeLayout noPressedRelativeLayout) {
+        if (fVar.afQ()) {
             return null;
         }
-        return new com.baidu.tieba.frs.h.d(fVar, noPressedRelativeLayout);
+        return new com.baidu.tieba.frs.g.d(fVar, noPressedRelativeLayout);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
     public com.baidu.tieba.frs.entelechy.b.c b(f fVar, NoPressedRelativeLayout noPressedRelativeLayout) {
-        return new com.baidu.tieba.frs.h.b(fVar, noPressedRelativeLayout);
+        return new com.baidu.tieba.frs.g.b(fVar, noPressedRelativeLayout);
     }
 
-    public c agm() {
-        if (this.cly instanceof c) {
-            return (c) this.cly;
+    public c agO() {
+        if (this.cns instanceof c) {
+            return (c) this.cns;
         }
         return null;
     }

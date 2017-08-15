@@ -5,8 +5,8 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a eDI;
-    private View eDJ;
+    private a eGP;
+    private View eGQ;
     private GestureDetector mGestureDetector = new GestureDetector(this);
 
     /* loaded from: classes.dex */
@@ -19,12 +19,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.eDI = aVar;
+        this.eGP = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.eDJ = view;
+        this.eGQ = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -61,29 +61,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.eDI != null) {
-            return this.eDI.a(this.eDJ, motionEvent);
+        if (this.eGP != null) {
+            return this.eGP.a(this.eGQ, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.eDI != null) {
-            return this.eDI.b(this.eDJ, motionEvent);
+        if (this.eGP != null) {
+            return this.eGP.b(this.eGQ, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.eDI != null) {
-            return this.eDI.c(this.eDJ, motionEvent);
+        if (this.eGP != null) {
+            return this.eGP.c(this.eGQ, motionEvent);
         }
         return false;
     }
 
-    public void aX(View view) {
-        this.eDJ = view;
+    public void aZ(View view) {
+        this.eGQ = view;
     }
 }

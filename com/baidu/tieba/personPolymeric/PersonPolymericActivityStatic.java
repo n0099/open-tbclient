@@ -26,15 +26,15 @@ import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 public class PersonPolymericActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonPolymericActivityConfig.class, PersonPolymericActivity.class);
-        ML();
-        aXN();
-        aEY();
-        aXO();
-        aXP();
-        aXQ();
+        MQ();
+        aYF();
+        aFQ();
+        aYG();
+        aYH();
+        aYI();
     }
 
-    private static void ML() {
+    private static void MQ() {
         a.a(309408, PersonPolymericSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, a.az("c/u/user/personal", 309408));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -46,13 +46,13 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aXN() {
+    private static void aYF() {
         a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
-    private static void aEY() {
-        at.vV().a(new at.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.1
+    private static void aFQ() {
+        at.wf().a(new at.a() { // from class: com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic.1
             @Override // com.baidu.tbadk.core.util.at.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -62,9 +62,9 @@ public class PersonPolymericActivityStatic {
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
                     String aq = y.aq(str, "userid=");
                     y.aq(str, "un=");
-                    long c = b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    long c2 = b.c(aq, 0L);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(c2, c2 == c, false)));
+                    long d = b.d(TbadkCoreApplication.getCurrentAccount(), 0L);
+                    long d2 = b.d(aq, 0L);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(d2, d2 == d, false)));
                     return 1;
                 }
                 return 3;
@@ -72,7 +72,7 @@ public class PersonPolymericActivityStatic {
         });
     }
 
-    private static void aXO() {
+    private static void aYG() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_USER_PICS, TbConfig.SET_USER_PICS);
         tbHttpMessageTask.setResponsedClass(SetUserPicsResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -81,7 +81,7 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public static void aXP() {
+    public static void aYH() {
         a.a(303002, UserPostPageSocketResponsedMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, a.az("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -92,7 +92,7 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aXQ() {
+    private static void aYI() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SET_PRIVATE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SET_PRIVATE);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);

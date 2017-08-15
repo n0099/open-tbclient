@@ -3,30 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class a {
-    private static a cPF = new a();
-    private long cPG = 0;
-    private SparseArray<Long> cPH = new SparseArray<>();
-    private SparseArray<Long> cPI = new SparseArray<>();
-    private SparseArray<Long> cPJ = new SparseArray<>();
-    private SparseArray<Long> cPK = new SparseArray<>();
+    private static a cSX = new a();
+    private long cSY = 0;
+    private SparseArray<Long> cSZ = new SparseArray<>();
+    private SparseArray<Long> cTa = new SparseArray<>();
+    private SparseArray<Long> cTb = new SparseArray<>();
+    private SparseArray<Long> cTc = new SparseArray<>();
 
     private a() {
     }
 
-    public static a anR() {
-        return cPF;
+    public static a aoK() {
+        return cSX;
     }
 
     public long getCreateTime() {
-        return this.cPG;
+        return this.cSY;
     }
 
     public void setCreateTime(long j) {
-        this.cPG = j;
+        this.cSY = j;
     }
 
-    public long ks(int i) {
-        Long l = this.cPI.get(i);
+    public long kC(int i) {
+        Long l = this.cTa.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void c(long j, int i) {
-        this.cPI.put(i, Long.valueOf(j));
+        this.cTa.put(i, Long.valueOf(j));
     }
 
-    public long kt(int i) {
-        Long l = this.cPH.get(i);
+    public long kD(int i) {
+        Long l = this.cSZ.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void d(long j, int i) {
-        this.cPH.put(i, Long.valueOf(j));
+        this.cSZ.put(i, Long.valueOf(j));
     }
 
-    public long ku(int i) {
-        Long l = this.cPJ.get(i);
+    public long kE(int i) {
+        Long l = this.cTb.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void e(long j, int i) {
-        this.cPJ.put(i, Long.valueOf(j));
+        this.cTb.put(i, Long.valueOf(j));
     }
 
-    public long kv(int i) {
-        Long l = this.cPK.get(i);
+    public long kF(int i) {
+        Long l = this.cTc.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void f(long j, int i) {
-        this.cPK.put(i, Long.valueOf(j));
+        this.cTc.put(i, Long.valueOf(j));
     }
 }
