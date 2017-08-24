@@ -25,7 +25,7 @@ import com.baidu.tieba.im.data.InviteMsgData;
 import com.baidu.tieba.im.memorycache.b;
 /* loaded from: classes.dex */
 public final class Invite2GroupView extends LinearLayout {
-    private TextView axR;
+    private TextView axS;
     private TbImageView dCi;
     private TextView dCj;
     private TextView dCk;
@@ -44,7 +44,7 @@ public final class Invite2GroupView extends LinearLayout {
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(d.j.invite_to_group_view, this);
         setOrientation(1);
-        this.axR = (TextView) findViewById(d.h.chat_title);
+        this.axS = (TextView) findViewById(d.h.chat_title);
         this.dCi = (TbImageView) findViewById(d.h.chat_group_img);
         this.dCj = (TextView) findViewById(d.h.chat_group_desc);
         this.dCk = (TextView) findViewById(d.h.invite_btn);
@@ -74,7 +74,7 @@ public final class Invite2GroupView extends LinearLayout {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(Invite2GroupView.this.dCk.getContext(), "" + Invite2GroupView.this.dCl.getGroupId(), Invite2GroupView.this.dCl.getFromUid(), Invite2GroupView.this.dCl.getText())));
             }
         });
-        this.axR.setText(this.dCl.getTitle());
+        this.axS.setText(this.dCl.getTitle());
         this.dCi.setTag(this.dCl.getPortrait());
         this.dCi.c(this.dCl.getPortrait(), 10, false);
         this.dCj.setText(this.dCl.getNotice());
@@ -89,7 +89,7 @@ public final class Invite2GroupView extends LinearLayout {
                 }
             }
         });
-        if (b.axf().aa(String.valueOf(this.dCl.getGroupId()), 1) != null) {
+        if (b.axa().aa(String.valueOf(this.dCl.getGroupId()), 1) != null) {
             if (String.valueOf(this.dCl.getGroupId()).equals(this.dCk.getTag())) {
                 this.dCk.setText(d.l.i_want_talk);
                 this.dCk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.3
@@ -104,7 +104,7 @@ public final class Invite2GroupView extends LinearLayout {
             }
             return;
         }
-        com.baidu.tieba.im.settingcache.b.ayv().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.dCl.getGroupId()), TbConfig.USE_TIME_INTERVAL, new h<Boolean>() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.4
+        com.baidu.tieba.im.settingcache.b.ayq().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.dCl.getGroupId()), TbConfig.USE_TIME_INTERVAL, new h<Boolean>() { // from class: com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.h
             public void onReturnDataInUI(Boolean bool) {

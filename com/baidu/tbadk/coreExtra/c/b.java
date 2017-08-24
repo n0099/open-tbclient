@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public void l(JSONObject jSONObject) {
+    public void m(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject optJSONObject;
         String str;
@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        eQ(str2);
+                        eU(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        eQ(str2);
+                        eU(str2);
                     }
                 }
             }
@@ -79,7 +79,7 @@ public class b {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void eQ(String str) {
+    public void eU(String str) {
         String zS = zS();
         if (!TextUtils.equals(zS, str) || !isFileExist(zS)) {
             ag(str, zS);
@@ -87,28 +87,28 @@ public class b {
     }
 
     private boolean isFileExist(String str) {
-        File dv = k.dv(an.eb(str));
-        return dv != null && dv.exists() && dv.isFile();
+        File dy = k.dy(an.ef(str));
+        return dy != null && dy.exists() && dy.isFile();
     }
 
     private void ag(String str, String str2) {
         if (i.hs()) {
-            new a(str, an.eb(str), str2).execute(new String[0]);
+            new a(str, an.ef(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String aty;
+        private final String atA;
         private final String atz;
         private final String mFile;
         private w mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.aty = str;
+            this.atz = str;
             this.mFile = str2;
-            this.atz = str3;
+            this.atA = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,14 +117,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new w(this.aty);
+                this.mNetWork = new w(this.atz);
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(k.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.aty) && !this.aty.equals(this.atz)) {
-                        k.dD(an.eb(this.atz));
+                    if (!StringUtils.isNull(k.g(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.atz) && !this.atz.equals(this.atA)) {
+                        k.dG(an.ef(this.atA));
                     }
                 } else {
-                    k.dD(this.mFile + ".tmp");
+                    k.dG(this.mFile + ".tmp");
                 }
             } catch (Exception e) {
             }

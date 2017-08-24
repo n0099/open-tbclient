@@ -36,7 +36,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
                 if (AtMessageActivity.this.dFU != null) {
-                    AtMessageActivity.this.dFU.Yj();
+                    AtMessageActivity.this.dFU.Yg();
                 }
             }
         }
@@ -55,18 +55,18 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         } else {
             this.dFU.f(null);
         }
-        this.dFT.Ym();
+        this.dFT.Yj();
         FN().addEventDelegate(this);
-        this.dFU.Yj();
+        this.dFU.Yg();
     }
 
     @Override // com.baidu.tbadk.core.view.k.b
     public void onListPullRefresh(boolean z) {
-        this.dFU.azX();
+        this.dFU.azS();
     }
 
     public void Nv() {
-        this.dFU.Yk();
+        this.dFU.Yh();
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
@@ -151,7 +151,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             TiebaStatic.log("new_at_me_visit_pb");
             if (feedData.getThread_Type() == 33) {
                 TiebaStatic.log("c10384");
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).cz(feedData.getPost_id()).cA("mention").pn()));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).cC(feedData.getPost_id()).cD("mention").po()));
                 return false;
             }
             PbActivityConfig createNormalCfg = new PbActivityConfig(getActivity()).createNormalCfg(feedData.getThread_id(), feedData.getPost_id(), 1, "mention");
@@ -170,8 +170,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return this.dFV;
     }
 
-    public void azZ() {
-        this.dFT.azZ();
+    public void azU() {
+        this.dFT.azU();
     }
 
     public void b(com.baidu.tbadk.mvc.d.b bVar) {
@@ -182,8 +182,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         this.dFT.a(aVar);
     }
 
-    public void aAa() {
-        this.dFT.aAa();
+    public void azV() {
+        this.dFT.azV();
     }
 
     public void a(ErrorData errorData) {

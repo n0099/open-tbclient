@@ -63,11 +63,11 @@ public class BdNativeCrash {
 
     public void initCrash(String str, String str2) {
         this.mCrashLogPath = str2;
-        d.dS().O(str);
+        d.dS().P(str);
         if (!TextUtils.isEmpty(this.mCrashLogPath)) {
             b bVar = new b();
-            bVar.N(str);
-            initCrashPath(bVar.b(this.mCrashLogPath, true, true));
+            bVar.O(str);
+            initCrashPath(bVar.a(this.mCrashLogPath, true, true));
         }
     }
 

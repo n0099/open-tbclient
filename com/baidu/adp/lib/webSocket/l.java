@@ -73,7 +73,7 @@ public class l {
         return this.BE;
     }
 
-    public void aY(String str) {
+    public void aZ(String str) {
         this.BE = str;
     }
 }

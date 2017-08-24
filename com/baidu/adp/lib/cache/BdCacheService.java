@@ -63,30 +63,30 @@ public class BdCacheService extends CustomMessageListener {
     }
 
     public synchronized String a(c<?> cVar, String str, String str2, int i) {
-        h ae;
+        h af;
         int eE = cVar.eE();
         p eR = eR();
-        ae = eR.ae(str);
-        if (ae == null) {
-            ae = new h();
-            ae.vd = str;
-            ae.vi = eE;
-            ae.vh = str2;
-            ae.maxSize = i;
-            ae.vj = System.currentTimeMillis();
-            ae.uR = cVar.P(str);
-            eR.a(ae);
-        } else if (!str2.equalsIgnoreCase(ae.vh)) {
-            throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + ae.vh);
+        af = eR.af(str);
+        if (af == null) {
+            af = new h();
+            af.vd = str;
+            af.vi = eE;
+            af.vh = str2;
+            af.maxSize = i;
+            af.vj = System.currentTimeMillis();
+            af.uR = cVar.Q(str);
+            eR.a(af);
+        } else if (!str2.equalsIgnoreCase(af.vh)) {
+            throw new IllegalArgumentException("nameSpace [" + str + "] is already taken by cacheType:" + af.vh);
         } else {
-            ae.maxSize = i;
-            ae.vj = System.currentTimeMillis();
-            if (eE != ae.vi) {
-                cVar.b(str, ae.uR, eE, ae.vi);
+            af.maxSize = i;
+            af.vj = System.currentTimeMillis();
+            if (eE != af.vi) {
+                cVar.b(str, af.uR, eE, af.vi);
             }
-            eR.a(ae);
+            eR.a(af);
         }
-        return ae.uR;
+        return af.uR;
     }
 
     public synchronized l<String> a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {

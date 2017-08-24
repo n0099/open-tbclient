@@ -249,7 +249,7 @@ public class b implements Runnable {
         }
     }
 
-    public void aX(String str) {
+    public void aY(String str) {
         this.Bc = str;
     }
 

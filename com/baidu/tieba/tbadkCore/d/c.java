@@ -45,7 +45,7 @@ public class c {
         return gkO.get(str3);
     }
 
-    public static void bty() {
+    public static void btr() {
     }
 
     public static void tt(int i) {

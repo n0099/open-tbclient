@@ -14,7 +14,7 @@ public class l {
     private l() {
     }
 
-    public static l boN() {
+    public static l boG() {
         if (fZy == null) {
             synchronized (l.class) {
                 if (fZy == null) {
@@ -59,11 +59,11 @@ public class l {
         return true;
     }
 
-    public int boO() {
+    public int boH() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("official_story_segment_last_index"), 0);
     }
 
-    public void boP() {
+    public void boI() {
         sS(0);
     }
 

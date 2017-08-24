@@ -36,10 +36,10 @@ public class h extends ImageView {
         this.alT = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.h.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                h.this.wM();
+                h.this.wN();
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - h.this.alP > 500) {
-                    h.this.wL();
+                    h.this.wM();
                 }
                 h.this.alP = currentTimeMillis;
             }
@@ -60,7 +60,7 @@ public class h extends ImageView {
         this.alS.setUniqueId(bdUniqueId);
     }
 
-    public void wK() {
+    public void wL() {
         int g = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds48);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-2, -2);
         layoutParams.height = g;
@@ -74,12 +74,12 @@ public class h extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wL() {
-        this.alS.wL();
-    }
-
     public void wM() {
         this.alS.wM();
+    }
+
+    public void wN() {
+        this.alS.wN();
     }
 
     @Override // android.widget.ImageView, android.view.View

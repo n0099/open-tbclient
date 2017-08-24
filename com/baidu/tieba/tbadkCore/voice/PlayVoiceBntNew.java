@@ -29,7 +29,7 @@ import com.baidu.tieba.view.AudioAnimationView;
 /* loaded from: classes.dex */
 public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListener, VoiceManager.b {
     private View.OnClickListener akm;
-    private VoiceManager cjJ;
+    private VoiceManager cjK;
     private ImageView dBZ;
     private VoiceData.VoiceModel dCd;
     private TextView gmN;
@@ -90,23 +90,23 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             this.mProgress.setVisibility(4);
         }
         this.mContext = context;
-        buh();
+        bua();
     }
 
-    private void buh() {
+    private void bua() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         ai.j(this.gmP, d.g.btn_audio_frame_n);
         ai.c(this.gmN, d.e.cp_cont_f, 1);
         if (this.play_type == 0) {
-            buk();
+            bud();
             this.dBZ.setPadding(k.dip2px(getContext(), 12.0f), 0, 0, 0);
         }
         this.gmQ.onChangeSkinType(skinType);
     }
 
-    private void buk() {
+    private void bud() {
         if (this.dBZ != null) {
-            if (buj()) {
+            if (buc()) {
                 ai.c(this.dBZ, d.g.icon_voice_stop);
             } else {
                 ai.c(this.dBZ, d.g.icon_voice_play);
@@ -126,7 +126,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             }
             mQ(this.dCd.voice_status.intValue());
             this.gmQ.setCertainColumnCount(getAudioVoiceColumnCount());
-            this.gmQ.bxk();
+            this.gmQ.bxd();
             this.gmN.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
         }
     }
@@ -155,7 +155,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             this.gmQ.start();
             return;
         }
-        this.gmQ.bxk();
+        this.gmQ.bxd();
         mE(false);
         if (i == 1) {
             if (this.dCd != null) {
@@ -197,7 +197,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
     }
 
     public void setVoiceManager(VoiceManager voiceManager) {
-        this.cjJ = voiceManager;
+        this.cjK = voiceManager;
     }
 
     public VoiceManager getVoiceManager() {
@@ -209,7 +209,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         if ((i.aa(getContext()) instanceof e) && (tbPageContext = (TbPageContext) i.aa(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
             return ((VoiceManager.c) tbPageContext.getOrignalPage()).getVoiceManager();
         }
-        return this.cjJ;
+        return this.cjK;
     }
 
     @Override // android.view.View
@@ -230,7 +230,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             }
             this.play_type = tbRichTextVoiceInfo.Jg();
             setVoiceModel(voiceModel);
-            buh();
+            bua();
             obj = voiceModel;
         }
         super.setTag(obj);
@@ -249,7 +249,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void aQ(int i) {
-        if (!buj()) {
+        if (!buc()) {
             mQ(1);
             return;
         }
@@ -259,7 +259,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    private boolean buj() {
+    private boolean buc() {
         if (this.dCd == null) {
             return false;
         }
@@ -277,8 +277,8 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         return this.dCd;
     }
 
-    public void bix() {
-        buh();
+    public void bis() {
+        bua();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -295,7 +295,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
-    public void ma() {
+    public void lZ() {
     }
 
     public void reset() {

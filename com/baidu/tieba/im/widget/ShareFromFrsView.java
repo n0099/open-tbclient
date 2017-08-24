@@ -60,11 +60,11 @@ public class ShareFromFrsView extends LinearLayout {
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
         this.cCl = shareFromFrsMsgData;
-        wP();
+        wQ();
     }
 
-    private void wP() {
-        this.name.setText(ed(this.cCl.getName()));
+    private void wQ() {
+        this.name.setText(eh(this.cCl.getName()));
         this.cCi.setDefaultResource(d.g.icon_default_ba_120);
         this.cCi.setAutoChangeStyle(false);
         this.cCi.c(this.cCl.getImageUrl(), 10, false);
@@ -72,7 +72,7 @@ public class ShareFromFrsView extends LinearLayout {
         this.dBR.setText(al.z(this.cCl.getPostNum()));
     }
 
-    private String ed(String str) {
+    private String eh(String str) {
         return al.j(str, 8) + this.context.getString(d.l.forum);
     }
 }

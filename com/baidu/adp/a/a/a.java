@@ -1,17 +1,17 @@
 package com.baidu.adp.a.a;
 /* loaded from: classes.dex */
 public class a {
-    private boolean pw = false;
+    private boolean px = false;
 
     public boolean cv() {
-        return this.pw;
+        return this.px;
     }
 
     public void start() {
-        this.pw = true;
+        this.px = true;
     }
 
     public void stop() {
-        this.pw = false;
+        this.px = false;
     }
 }

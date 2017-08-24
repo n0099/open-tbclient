@@ -3,17 +3,17 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    private int rE;
     private int rF;
-    public static byte rw = 4;
-    private static byte rx = Byte.MIN_VALUE;
-    private static byte ry = 64;
-    private static byte rz = 8;
-    private static byte rA = 4;
-    private boolean rB = false;
+    private int rG;
+    public static byte rx = 4;
+    private static byte ry = Byte.MIN_VALUE;
+    private static byte rz = 64;
+    private static byte rA = 8;
+    private static byte rB = 4;
     private boolean rC = false;
     private boolean rD = false;
-    private boolean rG = false;
+    private boolean rE = false;
+    private boolean rH = false;
 
     public static int dm() {
         return 9;
@@ -21,13 +21,13 @@ public class a {
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr, boolean z3) {
         ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + dm());
-        byte b = z ? (byte) (rx | 0) : (byte) 0;
+        byte b = z ? (byte) (ry | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | ry);
+            b = (byte) (b | rz);
         }
-        byte b2 = (byte) (b | rz);
+        byte b2 = (byte) (b | rA);
         if (z3) {
-            b2 = (byte) (b2 | rA);
+            b2 = (byte) (b2 | rB);
         }
         allocate.put(b2);
         allocate.putInt(i);
@@ -43,45 +43,45 @@ public class a {
         ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, dm());
         a aVar = new a();
         byte b = wrap.get();
-        if ((rx & b) != 0) {
-            aVar.rB = true;
-        }
         if ((ry & b) != 0) {
             aVar.rC = true;
         }
         if ((rz & b) != 0) {
             aVar.rD = true;
         }
-        if ((b & rA) != 0) {
-            aVar.rG = true;
+        if ((rA & b) != 0) {
+            aVar.rE = true;
         }
-        aVar.rE = wrap.getInt();
+        if ((b & rB) != 0) {
+            aVar.rH = true;
+        }
         aVar.rF = wrap.getInt();
+        aVar.rG = wrap.getInt();
         return aVar;
     }
 
     public boolean dn() {
-        return this.rC;
+        return this.rD;
     }
 
     /* renamed from: do  reason: not valid java name */
     public int m2do() {
-        return this.rE;
-    }
-
-    public boolean dp() {
-        return this.rB;
-    }
-
-    public int dq() {
         return this.rF;
     }
 
+    public boolean dp() {
+        return this.rC;
+    }
+
+    public int dq() {
+        return this.rG;
+    }
+
     public boolean dr() {
-        return this.rD;
+        return this.rE;
     }
 
     public boolean ds() {
-        return this.rG;
+        return this.rH;
     }
 }

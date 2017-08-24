@@ -32,7 +32,7 @@ public class f extends BaseAdapter implements c {
     private h cAB;
     public boolean cCs;
     private i cCu;
-    private com.baidu.tieba.frs.f ckZ;
+    private com.baidu.tieba.frs.f cla;
     private Context mContext;
     private List<com.baidu.adp.widget.ListView.f> mData;
     private boolean cCr = false;
@@ -60,9 +60,9 @@ public class f extends BaseAdapter implements c {
                             k.showToast(f.this.mContext, d.l.book_plugin_not_install_tip);
                             return;
                         }
-                        at.wf().c(f.this.ckZ.yg(), new String[]{url});
-                        a.C0121a a2 = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.brd(), f.this.ckZ.getForumId(), f.this.ckZ.getForumName(), null);
-                        a2.ci("obj_url", eVar.getUrl());
+                        at.wg().c(f.this.cla.yg(), new String[]{url});
+                        a.C0121a a2 = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", eVar.bqW(), f.this.cla.getForumId(), f.this.cla.getForumName(), null);
+                        a2.ck("obj_url", eVar.getUrl());
                         a2.save();
                     }
                 }
@@ -80,7 +80,7 @@ public class f extends BaseAdapter implements c {
                 if ((fVar instanceof bl) && (blVar = (bl) fVar) != null) {
                     com.baidu.tieba.tbadkCore.util.f readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                     if (readThreadHistory != null) {
-                        readThreadHistory.sm(blVar.getId());
+                        readThreadHistory.sr(blVar.getId());
                         ai.i(aVar.cCz, d.e.cp_cont_c);
                     }
                     f.this.cAB.a(view, blVar, BdUniqueId.gen(), null, f.this.cCs ? aVar.position + 1 : aVar.position, 0L);
@@ -100,7 +100,7 @@ public class f extends BaseAdapter implements c {
     };
 
     public f(com.baidu.tieba.frs.f fVar) {
-        this.ckZ = fVar;
+        this.cla = fVar;
         this.mContext = fVar.getPageContext().getPageActivity();
     }
 
@@ -140,7 +140,7 @@ public class f extends BaseAdapter implements c {
                 a(aVar, blVar, i);
             }
             aVar.position = i;
-            com.baidu.tieba.frs.e.b.ajF().a(cxO, blVar);
+            com.baidu.tieba.frs.e.b.ajz().a(cxO, blVar);
         } else if (fVar instanceof com.baidu.tieba.tbadkCore.e) {
             a(aVar, (com.baidu.tieba.tbadkCore.e) fVar);
         }
@@ -209,32 +209,32 @@ public class f extends BaseAdapter implements c {
     private void a(a aVar, bl blVar, int i) {
         if (aVar != null && blVar != null) {
             aVar.cCy.setText(TbadkCoreApplication.getInst().getString(d.l.top));
-            blVar.sp();
-            SpannableStringBuilder sf = blVar.sf();
-            aVar.cCz.setOnTouchListener(new l(sf));
-            aVar.cCz.setText(sf);
+            blVar.sq();
+            SpannableStringBuilder sg = blVar.sg();
+            aVar.cCz.setOnTouchListener(new l(sg));
+            aVar.cCz.setText(sg);
             aVar.cCx.setOnClickListener(this.cCt);
             aVar.cCx.setOnLongClickListener(this.cCv);
             com.baidu.tieba.tbadkCore.util.f readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            a(aVar, readThreadHistory != null && readThreadHistory.sn(blVar.getId()));
+            a(aVar, readThreadHistory != null && readThreadHistory.ss(blVar.getId()));
         }
     }
 
     private void a(a aVar, com.baidu.tieba.tbadkCore.e eVar) {
-        String kE = kE(eVar.aHd());
+        String kH = kH(eVar.aGY());
         aVar.cCz.setText(eVar.getTitle());
-        aVar.cCy.setText(kE);
-        if (eVar.aQr() != 0) {
+        aVar.cCy.setText(kH);
+        if (eVar.aQm() != 0) {
             aVar.cCA.setVisibility(0);
-            if (eVar.aQr() == -1) {
+            if (eVar.aQm() == -1) {
                 aVar.cCA.setText(this.mContext.getString(d.l.no_rank));
-            } else if (eVar.aQr() > 999) {
+            } else if (eVar.aQm() > 999) {
                 aVar.cCA.setText(this.mContext.getString(d.l.rang_orer_thousand));
             } else {
-                aVar.cCA.setText(this.mContext.getString(d.l.rang_identify) + String.valueOf(eVar.aQr()));
+                aVar.cCA.setText(this.mContext.getString(d.l.rang_identify) + String.valueOf(eVar.aQm()));
             }
             if (!StringUtils.isNull(eVar.getTitle())) {
-                aVar.cCz.setText(al.d(eVar.getTitle(), 22, "..."));
+                aVar.cCz.setText(al.e(eVar.getTitle(), 22, "..."));
             }
         } else {
             aVar.cCA.setVisibility(8);
@@ -247,9 +247,9 @@ public class f extends BaseAdapter implements c {
         if (this.cBQ != null) {
             aVar.cCx.setOnClickListener(this.cBQ);
         }
-        if (this.cBJ != null && this.cBJ.add(eVar.brd())) {
-            a.C0121a a2 = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", eVar.brd(), this.ckZ.getForumId(), this.ckZ.getForumName(), null);
-            a2.ci("obj_url", eVar.getUrl());
+        if (this.cBJ != null && this.cBJ.add(eVar.bqW())) {
+            a.C0121a a2 = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", eVar.bqW(), this.cla.getForumId(), this.cla.getForumName(), null);
+            a2.ck("obj_url", eVar.getUrl());
             a2.save();
         }
     }
@@ -264,7 +264,7 @@ public class f extends BaseAdapter implements c {
         return null;
     }
 
-    private String kE(String str) {
+    private String kH(String str) {
         if (TextUtils.isEmpty(str) || str.trim().length() == 0) {
             return TbadkCoreApplication.getInst().getString(d.l.frs_forum_member_icon_text);
         }

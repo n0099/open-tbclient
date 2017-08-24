@@ -52,60 +52,60 @@ public class ThreadLinkView extends RelativeLayout {
     }
 
     public void setData(bl blVar) {
-        if (blVar == null || blVar.sV() == null || al.isEmpty(blVar.sV().getLinkUrl())) {
+        if (blVar == null || blVar.sW() == null || al.isEmpty(blVar.sW().getLinkUrl())) {
             setVisibility(8);
             return;
         }
-        aj sV = blVar.sV();
-        if (!sV.qq() && sV.qp() != aj.XG) {
+        aj sW = blVar.sW();
+        if (!sW.qr() && sW.qq() != aj.XH) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         this.apj.setPageId(this.mTag);
-        if (sV.qq()) {
+        if (sW.qr()) {
             this.apm.setVisibility(0);
             this.apk.setVisibility(8);
             this.apl.setVisibility(8);
-            this.apm.setText(sV.getLinkUrl());
+            this.apm.setText(sW.getLinkUrl());
             this.apj.reset();
         } else {
             this.apm.setVisibility(8);
-            String qm = sV.qm();
-            String qn = sV.qn();
-            if (!al.isEmpty(qm)) {
-                this.apk.setText(qm);
+            String qn = sW.qn();
+            String qo = sW.qo();
+            if (!al.isEmpty(qn)) {
+                this.apk.setText(qn);
                 this.apk.setVisibility(0);
             } else {
                 this.apk.setVisibility(4);
             }
-            if (!al.isEmpty(qn)) {
-                this.apl.setText(qn);
+            if (!al.isEmpty(qo)) {
+                this.apl.setText(qo);
                 this.apl.setVisibility(0);
             } else {
                 this.apl.setVisibility(4);
             }
-            if (al.dZ(qm) > 32) {
+            if (al.ed(qn) > 32) {
                 this.apk.setMaxLines(2);
                 this.apl.setMaxLines(1);
             } else {
                 this.apk.setMaxLines(1);
                 this.apl.setMaxLines(2);
             }
-            if (!al.isEmpty(sV.qo())) {
-                this.apj.c(sV.qo(), 10, false);
+            if (!al.isEmpty(sW.qp())) {
+                this.apj.c(sW.qp(), 10, false);
             } else {
                 this.apj.reset();
             }
         }
-        ev(blVar.getId());
+        ez(blVar.getId());
     }
 
     public void onChangeSkinType() {
         ai.k(this, d.e.cp_bg_line_e);
     }
 
-    public void ev(String str) {
+    public void ez(String str) {
         com.baidu.tieba.card.m.a(this.apk, str, d.e.cp_cont_b, d.e.cp_cont_d);
         com.baidu.tieba.card.m.a(this.apm, str, d.e.cp_cont_b, d.e.cp_cont_d);
         com.baidu.tieba.card.m.a(this.apl, str, d.e.cp_cont_d, d.e.cp_cont_d);

@@ -57,7 +57,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode4 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean z(JSONObject jSONObject) {
+    public boolean A(JSONObject jSONObject) {
         try {
             String string = jSONObject.getString("forum_name");
             String string2 = jSONObject.getString("thread_id");
@@ -88,7 +88,7 @@ public class a implements f {
         }
     }
 
-    public JSONObject VF() {
+    public JSONObject VC() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -143,7 +143,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String aLw() {
+    public String aLr() {
         return this.threadName;
     }
 
@@ -159,7 +159,7 @@ public class a implements f {
         this.threadId = str;
     }
 
-    public void ol(String str) {
+    public void or(String str) {
         this.threadName = str;
     }
 
@@ -171,11 +171,11 @@ public class a implements f {
         return this.postID;
     }
 
-    public void om(String str) {
+    public void os(String str) {
         this.postID = str;
     }
 
-    public boolean aLx() {
+    public boolean aLs() {
         return this.isHostOnly;
     }
 
@@ -183,7 +183,7 @@ public class a implements f {
         this.isHostOnly = z;
     }
 
-    public boolean aLy() {
+    public boolean aLt() {
         return this.isSquence;
     }
 
@@ -198,14 +198,14 @@ public class a implements f {
 
     @Override // com.baidu.tbadk.mvc.b.f
     public String Fc() {
-        return VF().toString();
+        return VC().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean gy(String str) {
+    public boolean gB(String str) {
         if (str != null) {
             try {
-                return z(new JSONObject(str));
+                return A(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

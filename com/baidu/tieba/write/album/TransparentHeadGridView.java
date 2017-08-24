@@ -13,8 +13,8 @@ import android.widget.GridView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TransparentHeadGridView extends GridView {
-    private Interpolator aPL;
-    private float fEM;
+    private Interpolator aPM;
+    private float fEO;
     private View gDA;
     private d gDB;
     private int gDC;
@@ -39,7 +39,7 @@ public class TransparentHeadGridView extends GridView {
 
     /* loaded from: classes.dex */
     public interface b {
-        void bqx();
+        void bqq();
 
         void us(int i);
     }
@@ -52,7 +52,7 @@ public class TransparentHeadGridView extends GridView {
     public TransparentHeadGridView(Context context) {
         super(context);
         this.mState = 0;
-        this.fEM = 0.0f;
+        this.fEO = 0.0f;
         this.gDy = true;
         this.gDz = -1;
         this.gDG = -1;
@@ -75,7 +75,7 @@ public class TransparentHeadGridView extends GridView {
             public void If() {
                 TransparentHeadGridView.this.setVisibility(8);
                 if (TransparentHeadGridView.this.gDm != null) {
-                    TransparentHeadGridView.this.gDm.bqx();
+                    TransparentHeadGridView.this.gDm.bqq();
                 }
             }
         };
@@ -121,7 +121,7 @@ public class TransparentHeadGridView extends GridView {
     public TransparentHeadGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mState = 0;
-        this.fEM = 0.0f;
+        this.fEO = 0.0f;
         this.gDy = true;
         this.gDz = -1;
         this.gDG = -1;
@@ -144,7 +144,7 @@ public class TransparentHeadGridView extends GridView {
             public void If() {
                 TransparentHeadGridView.this.setVisibility(8);
                 if (TransparentHeadGridView.this.gDm != null) {
-                    TransparentHeadGridView.this.gDm.bqx();
+                    TransparentHeadGridView.this.gDm.bqq();
                 }
             }
         };
@@ -190,7 +190,7 @@ public class TransparentHeadGridView extends GridView {
     public TransparentHeadGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mState = 0;
-        this.fEM = 0.0f;
+        this.fEO = 0.0f;
         this.gDy = true;
         this.gDz = -1;
         this.gDG = -1;
@@ -213,7 +213,7 @@ public class TransparentHeadGridView extends GridView {
             public void If() {
                 TransparentHeadGridView.this.setVisibility(8);
                 if (TransparentHeadGridView.this.gDm != null) {
-                    TransparentHeadGridView.this.gDm.bqx();
+                    TransparentHeadGridView.this.gDm.bqq();
                 }
             }
         };
@@ -262,7 +262,7 @@ public class TransparentHeadGridView extends GridView {
         this.gDC = (int) (com.baidu.adp.lib.util.k.ah(context) * 0.22f);
     }
 
-    public void bzd() {
+    public void byV() {
         setVisibility(0);
         setPadding(0, 0, 0, 0);
         this.mState = 0;
@@ -272,7 +272,7 @@ public class TransparentHeadGridView extends GridView {
         startAnimation(this.gDD);
     }
 
-    public void bze() {
+    public void byW() {
         this.mState = 0;
         if (this.gDE == null) {
             this.gDE = AnimationUtils.loadAnimation(this.mContext, d.a.out_to_bottom);
@@ -286,7 +286,7 @@ public class TransparentHeadGridView extends GridView {
         switch (motionEvent.getAction()) {
             case 1:
                 this.mState = 0;
-                this.fEM = 0.0f;
+                this.fEO = 0.0f;
                 if (getPaddingTop() > this.gDC) {
                     a(getHeight(), 200L, 0L, this.gDH);
                     break;
@@ -295,15 +295,15 @@ public class TransparentHeadGridView extends GridView {
                     break;
                 }
             case 2:
-                if (this.fEM == 0.0f) {
-                    this.fEM = motionEvent.getY();
+                if (this.fEO == 0.0f) {
+                    this.fEO = motionEvent.getY();
                 }
                 float y = motionEvent.getY();
-                if (y > this.fEM && getPaddingTop() == 0 && this.gDy) {
+                if (y > this.fEO && getPaddingTop() == 0 && this.gDy) {
                     this.mState = 1;
                 }
                 if (this.mState == 1) {
-                    int i = (int) ((y - this.fEM) / 2.0f);
+                    int i = (int) ((y - this.fEO) / 2.0f);
                     setPadding(0, i, 0, 0);
                     if (this.gDm != null && i >= 0 && this.gDC > 0 && i <= this.gDC) {
                         this.gDm.us((i * 100) / this.gDC);
@@ -329,8 +329,8 @@ public class TransparentHeadGridView extends GridView {
         }
         int paddingTop = getPaddingTop();
         if (paddingTop != i) {
-            if (this.aPL == null) {
-                this.aPL = new DecelerateInterpolator();
+            if (this.aPM == null) {
+                this.aPM = new DecelerateInterpolator();
             }
             this.gDB = new d(paddingTop, i, j, cVar);
             if (j2 > 0) {
@@ -343,20 +343,20 @@ public class TransparentHeadGridView extends GridView {
 
     /* loaded from: classes.dex */
     public class d implements Runnable {
-        private final int aQa;
         private final int aQb;
-        private final long aQc;
+        private final int aQc;
+        private final long aQd;
         private c gDJ;
         private final Interpolator mInterpolator;
-        private boolean aQe = true;
+        private boolean aQf = true;
         private long mStartTime = -1;
-        private int aQf = -1;
+        private int aQg = -1;
 
         public d(int i, int i2, long j, c cVar) {
-            this.aQb = i;
-            this.aQa = i2;
-            this.mInterpolator = TransparentHeadGridView.this.aPL;
-            this.aQc = j;
+            this.aQc = i;
+            this.aQb = i2;
+            this.mInterpolator = TransparentHeadGridView.this.aPM;
+            this.aQd = j;
             this.gDJ = cVar;
         }
 
@@ -365,13 +365,13 @@ public class TransparentHeadGridView extends GridView {
             if (this.mStartTime == -1) {
                 this.mStartTime = System.currentTimeMillis();
             } else {
-                this.aQf = this.aQb - Math.round(this.mInterpolator.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.mStartTime) * 1000) / this.aQc, 1000L), 0L)) / 1000.0f) * (this.aQb - this.aQa));
-                TransparentHeadGridView.this.setPadding(0, this.aQf, 0, 0);
-                if (TransparentHeadGridView.this.gDm != null && this.aQf >= 0 && TransparentHeadGridView.this.gDC > 0 && this.aQf <= TransparentHeadGridView.this.gDC) {
-                    TransparentHeadGridView.this.gDm.us((this.aQf * 100) / TransparentHeadGridView.this.gDC);
+                this.aQg = this.aQc - Math.round(this.mInterpolator.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.mStartTime) * 1000) / this.aQd, 1000L), 0L)) / 1000.0f) * (this.aQc - this.aQb));
+                TransparentHeadGridView.this.setPadding(0, this.aQg, 0, 0);
+                if (TransparentHeadGridView.this.gDm != null && this.aQg >= 0 && TransparentHeadGridView.this.gDC > 0 && this.aQg <= TransparentHeadGridView.this.gDC) {
+                    TransparentHeadGridView.this.gDm.us((this.aQg * 100) / TransparentHeadGridView.this.gDC);
                 }
             }
-            if (this.aQe && this.aQa != this.aQf) {
+            if (this.aQf && this.aQb != this.aQg) {
                 TransparentHeadGridView.this.postDelayed(this, 16L);
             } else if (this.gDJ != null) {
                 this.gDJ.If();
@@ -379,7 +379,7 @@ public class TransparentHeadGridView extends GridView {
         }
 
         public void stop() {
-            this.aQe = false;
+            this.aQf = false;
             TransparentHeadGridView.this.removeCallbacks(this);
         }
     }

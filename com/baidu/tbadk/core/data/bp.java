@@ -8,21 +8,21 @@ import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
 public class bp extends PostData {
     public static final BdUniqueId abm = BdUniqueId.gen();
-    private String Yf;
+    private String Yg;
     private int position = 0;
     private String summary;
 
-    public String tg() {
-        return this.Yf;
+    public String th() {
+        return this.Yg;
     }
 
-    public String sX() {
+    public String sY() {
         return this.summary;
     }
 
     public void a(TopNews topNews) {
         if (topNews != null) {
-            this.Yf = topNews.news_link;
+            this.Yg = topNews.news_link;
             this.summary = topNews.summary;
         }
     }
@@ -30,7 +30,7 @@ public class bp extends PostData {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Yf = jSONObject.optString("news_link");
+                this.Yg = jSONObject.optString("news_link");
                 this.summary = jSONObject.optString("summary");
                 this.position = jSONObject.optInt("position", 0);
             } catch (Exception e) {

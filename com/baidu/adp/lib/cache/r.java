@@ -10,13 +10,13 @@ public class r extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String P(String str) {
+    public String Q(String str) {
         int hashCode = str.hashCode();
         if (hashCode < 0) {
             hashCode *= -1;
         }
         String str2 = "cache_kv_t" + hashCode;
-        this.uQ.E("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.uQ.F("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
         return str2;
     }
 
@@ -78,8 +78,8 @@ public class r extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean Q(String str) {
-        this.uQ.E("DROP TABLE IF EXISTS " + this.uR);
+    protected boolean R(String str) {
+        this.uQ.F("DROP TABLE IF EXISTS " + this.uR);
         return true;
     }
 }

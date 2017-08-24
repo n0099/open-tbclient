@@ -34,7 +34,7 @@ public class a {
         xz = str;
     }
 
-    public static void ao(String str) {
+    public static void ap(String str) {
         xD = str;
     }
 

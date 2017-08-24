@@ -23,7 +23,7 @@ public class b {
     private static b cxK;
     private a cxI;
     private HashSet<String> cxJ;
-    private CustomMessageListener TD = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.frs.e.b.1
+    private CustomMessageListener TE = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.frs.e.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -68,10 +68,10 @@ public class b {
 
     public b() {
         cxH = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
-        MessageManager.getInstance().registerListener(this.TD);
+        MessageManager.getInstance().registerListener(this.TE);
     }
 
-    public static b ajF() {
+    public static b ajz() {
         if (cxK == null) {
             synchronized (u.class) {
                 if (cxK == null) {
@@ -82,7 +82,7 @@ public class b {
         return cxK;
     }
 
-    private boolean ajG() {
+    private boolean ajA() {
         if (this.cxI == null) {
             this.cxI = new a();
         }
@@ -118,7 +118,7 @@ public class b {
     }
 
     public void M(bl blVar) {
-        if (blVar != null && blVar.sz()) {
+        if (blVar != null && blVar.sA()) {
             aj ajVar = new aj("c11717");
             ajVar.g("fid", blVar.getFid());
             ajVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, blVar.aaC);
@@ -126,7 +126,7 @@ public class b {
             ajVar.aa("obj_param1", blVar.aaH);
             ajVar.r("obj_locate", 1);
             ajVar.aa("tid", blVar.getTid());
-            u.WX().a(ajVar);
+            u.WU().a(ajVar);
         }
     }
 
@@ -135,7 +135,7 @@ public class b {
             if (this.cxJ == null) {
                 this.cxJ = new HashSet<>();
             }
-            if (!this.cxJ.contains(blVar.getTid()) && !ajG()) {
+            if (!this.cxJ.contains(blVar.getTid()) && !ajA()) {
                 this.cxJ.add(blVar.getTid());
                 aj ajVar = new aj("c11439");
                 ajVar.aa("fid", aVar.cxG);
@@ -148,9 +148,9 @@ public class b {
                 ajVar.r("obj_id", A(blVar));
                 ajVar.aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
                 ajVar.g("exposure_time", System.currentTimeMillis());
-                ajVar.r("obj_name", blVar.sU() != null && (blVar.sU().aBw() != null || blVar.sU().Iv() != null) ? 1 : 0);
-                u.WX().a(ajVar);
-                if (blVar.ss()) {
+                ajVar.r("obj_name", blVar.sV() != null && (blVar.sV().aBr() != null || blVar.sV().Iv() != null) ? 1 : 0);
+                u.WU().a(ajVar);
+                if (blVar.st()) {
                     aj ajVar2 = new aj("c12099");
                     ajVar2.aa("fid", aVar.cxG);
                     ajVar2.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, blVar.aaC);
@@ -161,7 +161,7 @@ public class b {
                     ajVar2.aa("obj_param3", blVar.aaH);
                     ajVar2.r("obj_id", A(blVar));
                     ajVar2.aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-                    u.WX().a(ajVar2);
+                    u.WU().a(ajVar2);
                 }
             }
         }
@@ -169,7 +169,7 @@ public class b {
 
     public void a(com.baidu.tieba.frs.e.a aVar, bl blVar, int i) {
         if (aVar != null && aVar.cxE && blVar != null && blVar.getTid() != null) {
-            u.WX().dF(true);
+            u.WU().dF(true);
             aj ajVar = new aj("c11438");
             ajVar.aa("fid", aVar.cxG);
             ajVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, blVar.aaC);
@@ -182,7 +182,7 @@ public class b {
             ajVar.r("obj_id", A(blVar));
             ajVar.aa("obj_to", N(blVar));
             TiebaStatic.log(ajVar);
-            if (blVar.ss()) {
+            if (blVar.st()) {
                 aj ajVar2 = new aj("c12098");
                 ajVar2.aa("fid", aVar.cxG);
                 ajVar2.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, blVar.aaC);
@@ -200,19 +200,19 @@ public class b {
     }
 
     public static void a(i iVar, int i, int i2) {
-        if (iVar != null && iVar.aPO() != null && iVar.ghi == 1) {
-            TiebaStatic.log(new aj("c11440").aa("fid", iVar.aPO().getId()).r("obj_locate", i).r("obj_type", i2));
+        if (iVar != null && iVar.aPJ() != null && iVar.ghi == 1) {
+            TiebaStatic.log(new aj("c11440").aa("fid", iVar.aPJ().getId()).r("obj_locate", i).r("obj_type", i2));
         }
     }
 
     private int A(bl blVar) {
-        if (blVar.sJ() == null || blVar.sJ().channelId <= 0) {
+        if (blVar.sK() == null || blVar.sK().channelId <= 0) {
             return 0;
         }
-        return (int) blVar.sJ().channelId;
+        return (int) blVar.sK().channelId;
     }
 
     private String N(bl blVar) {
-        return blVar.aaI ? String.valueOf(blVar.sG()) : String.valueOf(4);
+        return blVar.aaI ? String.valueOf(blVar.sH()) : String.valueOf(4);
     }
 }

@@ -23,7 +23,7 @@ public class a {
         }
     }
 
-    public void btH() {
+    public void btA() {
         this.glJ.clear();
     }
 

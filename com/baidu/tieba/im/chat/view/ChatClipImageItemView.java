@@ -27,7 +27,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
 
     /* loaded from: classes.dex */
     public interface a {
-        void t(Canvas canvas);
+        void v(Canvas canvas);
     }
 
     public ChatClipImageItemView(Context context) {
@@ -116,7 +116,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         this.dfG = z;
     }
 
-    public void asY() {
+    public void asR() {
         this.dmx.iP();
         this.dmx.K(true);
     }
@@ -126,7 +126,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         boolean z = false;
         com.baidu.adp.widget.a.a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
-        boolean z3 = bdImage != null && bdImage.kY();
+        boolean z3 = bdImage != null && bdImage.kX();
         k kVar = this.dmx;
         if (z3 || z2) {
             z = true;
@@ -197,7 +197,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     }
 
     @Override // com.baidu.adp.b.a.k.a
-    public void c(Canvas canvas) {
+    public void e(Canvas canvas) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -206,7 +206,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         if (this.dmz == null) {
             ai.e(this, d.e.cp_bg_line_c, 0);
         } else {
-            this.dmz.t(canvas);
+            this.dmz.v(canvas);
         }
         super.onDraw(canvas);
     }

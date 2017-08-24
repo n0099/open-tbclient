@@ -52,14 +52,14 @@ public class e {
         private String Bw;
         private Socket Bx;
         private InputStream By;
+        private byte[] mData;
         private OutputStream mOutputStream;
-        private byte[] tu;
 
         public c(String str, int i, l lVar) throws Exception {
             this.Bx = null;
             this.By = null;
             this.mOutputStream = null;
-            this.tu = null;
+            this.mData = null;
             this.Bt = 0L;
             this.Bu = null;
             this.Bv = null;
@@ -76,7 +76,7 @@ public class e {
             this.Bx.setTcpNoDelay(lVar.getTcpNoDelay());
             this.By = this.Bx.getInputStream();
             this.mOutputStream = this.Bx.getOutputStream();
-            this.tu = new byte[1024];
+            this.mData = new byte[1024];
             this.Bv = com.baidu.adp.lib.util.k.hJ();
             this.Bw = com.baidu.adp.lib.util.k.hK();
         }
@@ -113,9 +113,9 @@ public class e {
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int read(ByteBuffer byteBuffer) throws Exception {
-            int read = this.By.read(this.tu);
+            int read = this.By.read(this.mData);
             if (read > 0) {
-                byteBuffer.put(this.tu, 0, read);
+                byteBuffer.put(this.mData, 0, read);
             }
             return read;
         }

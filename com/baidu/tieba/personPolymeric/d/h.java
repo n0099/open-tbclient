@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.j> {
-    private ImageView aZO;
+    private ImageView aZP;
     private TextView cSq;
     private View mRootView;
 
     public h(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        S(getView());
+        init(getView());
     }
 
-    private void S(View view) {
+    private void init(View view) {
         this.mRootView = view.findViewById(d.h.card_privacy_rootview);
-        this.aZO = (ImageView) view.findViewById(d.h.card_privacy_icon);
+        this.aZP = (ImageView) view.findViewById(d.h.card_privacy_icon);
         this.cSq = (TextView) view.findViewById(d.h.card_privacy_txt);
     }
 
@@ -27,7 +27,7 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ai.j(this.mRootView, d.e.cp_bg_line_d);
-            ai.c(this.aZO, d.g.icon_mine_lock);
+            ai.c(this.aZP, d.g.icon_mine_lock);
             ai.c(this.cSq, d.e.cp_cont_c, 1);
         }
         this.mSkinType = i;
@@ -43,7 +43,7 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public void a(com.baidu.tieba.personPolymeric.c.j jVar) {
         String string = jVar.sex == 2 ? this.mContext.getString(d.l.person_identity_she) : this.mContext.getString(d.l.he);
         StringBuffer stringBuffer = new StringBuffer();
-        if (jVar.fms) {
+        if (jVar.fmu) {
             stringBuffer.append(this.mContext.getString(d.l.text_post));
         }
         this.cSq.setText(String.format(this.mContext.getString(d.l.person_polymeric_privacry_tip), string, stringBuffer.toString()));

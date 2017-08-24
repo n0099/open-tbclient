@@ -68,9 +68,9 @@ public class BdSocketLinkService extends BdBaseService {
         }
 
         @Override // com.baidu.adp.lib.webSocket.j, com.baidu.adp.lib.webSocket.g.a
-        public void I(String str) {
+        public void J(String str) {
             if (BdSocketLinkService.connStateCallBack != null) {
-                BdSocketLinkService.connStateCallBack.I(str);
+                BdSocketLinkService.connStateCallBack.J(str);
             }
         }
 
@@ -252,7 +252,7 @@ public class BdSocketLinkService extends BdBaseService {
         public void onReceive(Context context, Intent intent) {
             com.baidu.adp.framework.client.socket.b dg;
             if (intent != null && intent.getAction() == "android.intent.action.SCREEN_ON" && (dg = MessageManager.getInstance().getSocketClient().dg()) != null) {
-                dg.H("Screen on");
+                dg.I("Screen on");
             }
         }
     }

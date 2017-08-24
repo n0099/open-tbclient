@@ -66,9 +66,9 @@ public class u {
                     this.mNetwork.n("kw", this.mForumName);
                     this.mNetwork.n("favo_type", "1");
                     this.mNetwork.n("st_type", this.ajv);
-                    this.mNetwork.vl().wh().mIsNeedTbs = true;
-                    this.mNetwork.uO();
-                    if (this.mNetwork.vl().wi().isRequestSuccess()) {
+                    this.mNetwork.vm().wi().mIsNeedTbs = true;
+                    this.mNetwork.uP();
+                    if (this.mNetwork.vm().wj().isRequestSuccess()) {
                         i = 1;
                         return i;
                     }
@@ -91,7 +91,7 @@ public class u {
                 aVar.forumId = this.mForumId;
                 a aVar2 = this.giS.get();
                 if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.vl().wi().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.vm().wj().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
                         aVar2.j(this.mForumName, this.mForumId);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));
@@ -101,7 +101,7 @@ public class u {
                         aVar2.k(this.mForumName, this.mForumId);
                         aVar.isSuccess = false;
                         if (this.mNetwork != null) {
-                            aVar.errorMessage = this.mNetwork.vo() ? this.mNetwork.getErrorString() : this.mNetwork.vr();
+                            aVar.errorMessage = this.mNetwork.vp() ? this.mNetwork.getErrorString() : this.mNetwork.vs();
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM, aVar));

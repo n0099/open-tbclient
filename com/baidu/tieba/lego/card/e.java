@@ -17,11 +17,11 @@ public abstract class e {
 
     public abstract <T> l a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
 
-    protected abstract void aCG();
+    protected abstract void aCB();
 
-    public abstract String nx();
+    public abstract String ny();
 
     public e() {
-        aCG();
+        aCB();
     }
 }

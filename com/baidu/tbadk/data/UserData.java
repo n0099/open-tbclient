@@ -253,16 +253,16 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             k kVar = new k();
-            kVar.fw(getPortraitH());
-            kVar.fx(getPortrait());
+            kVar.fA(getPortraitH());
+            kVar.fB(getPortrait());
             kVar.bx(true);
             this.mPhotoAlbum.add(kVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         k kVar2 = new k();
-                        kVar2.fw(userPics.big);
-                        kVar2.fx(userPics.small);
+                        kVar2.fA(userPics.big);
+                        kVar2.fB(userPics.small);
                         kVar2.bx(false);
                         this.mPhotoAlbum.add(kVar2);
                     }
@@ -449,8 +449,8 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 k kVar = new k();
-                kVar.fw(getPortraitH());
-                kVar.fx(getPortrait());
+                kVar.fA(getPortraitH());
+                kVar.fB(getPortrait());
                 kVar.bx(true);
                 this.mPhotoAlbum.add(kVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
@@ -460,8 +460,8 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             k kVar2 = new k();
-                            kVar2.fw(jSONObject2.optString("big"));
-                            kVar2.fx(jSONObject2.optString("small"));
+                            kVar2.fA(jSONObject2.optString("big"));
+                            kVar2.fB(jSONObject2.optString("small"));
                             kVar2.bx(false);
                             this.mPhotoAlbum.add(kVar2);
                         }

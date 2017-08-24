@@ -12,8 +12,8 @@ import tbclient.Timgs;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class h {
-    private VideoInfo Vm;
-    private String Vn;
+    private VideoInfo Vn;
+    private String Vo;
     public String gjn;
     public boolean gjo;
     private int gjp;
@@ -50,8 +50,8 @@ public class h {
                 }
                 this.gjn = tPointPost.monitor_id;
                 this.gjt = tPointPost.hidden_day.intValue();
-                this.Vm = tPointPost.t_video;
-                this.Vn = tPointPost.tag_name;
+                this.Vn = tPointPost.t_video;
+                this.Vo = tPointPost.tag_name;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -83,7 +83,7 @@ public class h {
                 this.gjs = new i(jSONObject.getJSONObject("detail_info"));
                 this.gjn = jSONObject.optString("monitor_id");
                 this.gjt = jSONObject.optInt("hidden_day");
-                this.Vn = jSONObject.optString("tag_name");
+                this.Vo = jSONObject.optString("tag_name");
                 if (this.gjp == 3 && (jSONObject2 = jSONObject.getJSONObject("t_video")) != null) {
                     VideoInfo.Builder builder = new VideoInfo.Builder();
                     builder.video_md5 = jSONObject2.optString("video_md5");
@@ -96,7 +96,7 @@ public class h {
                     builder.thumbnail_height = Integer.valueOf(jSONObject2.optInt("thumbnail_height"));
                     builder.video_length = Integer.valueOf(jSONObject2.optInt("video_length"));
                     builder.play_count = Integer.valueOf(jSONObject2.optInt("play_count"));
-                    this.Vm = builder.build(false);
+                    this.Vn = builder.build(false);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -104,7 +104,7 @@ public class h {
         }
     }
 
-    public j bsJ() {
+    public j bsC() {
         return (j) u.c(this.gjr, 0);
     }
 
@@ -112,27 +112,27 @@ public class h {
         return this.templateId;
     }
 
-    public ArrayList<g> bsK() {
+    public ArrayList<g> bsD() {
         return this.gjq;
     }
 
-    public ArrayList<j> bsL() {
+    public ArrayList<j> bsE() {
         return this.gjr;
     }
 
-    public i bsM() {
+    public i bsF() {
         return this.gjs;
     }
 
-    public int bsN() {
+    public int bsG() {
         return this.gjp;
     }
 
-    public String bsO() {
+    public String bsH() {
         return this.gjn;
     }
 
     public String getTagName() {
-        return this.Vn;
+        return this.Vo;
     }
 }

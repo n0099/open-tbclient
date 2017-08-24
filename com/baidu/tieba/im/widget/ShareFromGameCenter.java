@@ -107,7 +107,7 @@ public class ShareFromGameCenter extends LinearLayout {
         this.dBU.setDefaultResource(d.g.icon);
         this.dBU.setAutoChangeStyle(false);
         this.dBU.c(this.dBL.getShareSourceIcon(), 10, false);
-        TiebaStatic.eventStat(this.mContext, "game_show", "show", 1, "dev_id", com.baidu.tieba.tbadkCore.util.b.sk(this.dBL.getShareSourceUrl()), "ref_id", "2000801");
+        TiebaStatic.eventStat(this.mContext, "game_show", "show", 1, "dev_id", com.baidu.tieba.tbadkCore.util.b.sp(this.dBL.getShareSourceUrl()), "ref_id", "2000801");
     }
 
     public LinearLayout getTail() {

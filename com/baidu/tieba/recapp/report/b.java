@@ -13,43 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b fKA;
-    private CustomMessageListener fKC = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b fKC;
+    private CustomMessageListener fKE = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && i.hr() && b.this.fKB != null) {
-                b.this.fKB.biV();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && i.hr() && b.this.fKD != null) {
+                b.this.fKD.biQ();
             }
         }
     };
-    private c fKB = new e();
+    private c fKD = new e();
 
-    public static b biT() {
-        if (fKA == null) {
+    public static b biO() {
+        if (fKC == null) {
             synchronized (b.class) {
-                if (fKA == null) {
-                    fKA = new b();
+                if (fKC == null) {
+                    fKC = new b();
                 }
             }
         }
-        return fKA;
+        return fKC;
     }
 
-    private boolean biU() {
-        return com.baidu.adp.lib.b.d.fh().al("ad_log_open") != 0;
+    private boolean biP() {
+        return com.baidu.adp.lib.b.d.fh().am("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.fKC);
+        MessageManager.getInstance().registerListener(this.fKE);
     }
 
     public void a(a aVar) {
-        if (biU() && aVar != null && this.fKB != null) {
+        if (biP() && aVar != null && this.fKD != null) {
             if (i.hr()) {
-                this.fKB.b(aVar);
+                this.fKD.b(aVar);
             } else {
-                this.fKB.c(aVar);
+                this.fKD.c(aVar);
             }
         }
     }

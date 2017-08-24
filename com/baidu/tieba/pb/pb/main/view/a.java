@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-    private TextView eVO;
-    private RadioButton eVP;
+    private TextView eVQ;
+    private RadioButton eVR;
     private Context mContext;
 
     public a(Context context) {
@@ -24,58 +24,58 @@ public class a extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(d.j.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.eVO = (TextView) findViewById(d.h.custom_check_radio_button_tv);
-        this.eVP = (RadioButton) findViewById(d.h.custom_check_radio_button_rb);
-        aVh();
+        this.eVQ = (TextView) findViewById(d.h.custom_check_radio_button_tv);
+        this.eVR = (RadioButton) findViewById(d.h.custom_check_radio_button_rb);
+        aVc();
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.eVP != null) {
-                    a.this.eVP.toggle();
+                if (a.this.eVR != null) {
+                    a.this.eVR.toggle();
                 }
             }
         });
     }
 
-    public void aVh() {
-        if (this.eVO != null) {
-            ai.a(this.eVO, "cp_link_tip_a");
+    public void aVc() {
+        if (this.eVQ != null) {
+            ai.a(this.eVQ, "cp_link_tip_a");
         }
     }
 
     public TextView getTv() {
-        return this.eVO;
+        return this.eVQ;
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        if (this.eVP != null) {
-            this.eVP.setOnCheckedChangeListener(onCheckedChangeListener);
+        if (this.eVR != null) {
+            this.eVR.setOnCheckedChangeListener(onCheckedChangeListener);
         }
     }
 
     public RadioButton getRb() {
-        return this.eVP;
+        return this.eVR;
     }
 
     public void setText(String str) {
-        if (this.eVO != null) {
-            this.eVO.setText(str);
+        if (this.eVQ != null) {
+            this.eVQ.setText(str);
         }
     }
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        if (this.eVP != null) {
-            this.eVP.setTag(obj);
+        if (this.eVR != null) {
+            this.eVR.setTag(obj);
         }
     }
 
     @Override // android.view.View
     public Object getTag() {
-        return this.eVP.getTag();
+        return this.eVR.getTag();
     }
 
     public void setChecked(boolean z) {
-        this.eVP.setChecked(z);
+        this.eVR.setChecked(z);
     }
 }

@@ -34,7 +34,7 @@ public class d {
 
     public void crash(String str) {
         Iterator<c> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().ak(str)) {
+        while (it.hasNext() && !it.next().al(str)) {
         }
     }
 
@@ -46,7 +46,7 @@ public class d {
         return false;
     }
 
-    public int al(String str) {
+    public int am(String str) {
         c cVar = this.mSwitchs.get(str);
         if (cVar != null) {
             return cVar.getType();

@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes.dex */
 public interface c {
-    boolean ahr();
+    boolean ahl();
 
-    void ahs();
+    void ahm();
 
-    void aht();
+    void ahn();
 
     void eS(boolean z);
 

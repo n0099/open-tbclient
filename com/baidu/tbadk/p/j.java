@@ -29,6 +29,6 @@ public abstract class j extends com.baidu.adp.lib.b.a {
     }
 
     public boolean ge() {
-        return com.baidu.adp.lib.b.d.fh().al(getName()) == eZ();
+        return com.baidu.adp.lib.b.d.fh().am(getName()) == eZ();
     }
 }

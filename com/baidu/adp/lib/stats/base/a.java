@@ -144,7 +144,7 @@ public class a {
         this.yS = 0L;
     }
 
-    public void au(String str) {
+    public void av(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.yK = str;
         }
@@ -186,7 +186,7 @@ public class a {
         return this.yU;
     }
 
-    public static String av(String str) {
+    public static String aw(String str) {
         if ("net".equals(str) || "op".equals(str) || "crash".equals(str) || AddFriendActivityConfig.MSG.equals(str)) {
             return "error";
         }

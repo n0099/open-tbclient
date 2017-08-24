@@ -23,7 +23,7 @@ public class b extends e {
         private static final b dON = new b();
     }
 
-    public static b aCF() {
+    public static b aCA() {
         return a.dON;
     }
 
@@ -36,11 +36,11 @@ public class b extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void aCG() {
+    protected void aCB() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    public String nx() {
+    public String ny() {
         return "lego_main";
     }
 
@@ -57,7 +57,7 @@ public class b extends e {
                     return a2;
                 }
             } catch (Throwable th) {
-                throw new CardParseException("Card type " + i + ", factory <" + eVar.nx() + "> respond exception", th);
+                throw new CardParseException("Card type " + i + ", factory <" + eVar.ny() + "> respond exception", th);
             }
         }
         BdLog.e("No card factory for card type " + i);
@@ -79,7 +79,7 @@ public class b extends e {
             try {
                 a2 = eVar.a(tbPageContext, iCardInfo, i);
             } catch (Throwable th) {
-                BdLog.detailException("factory <" + eVar.nx() + "> respond exception", th);
+                BdLog.detailException("factory <" + eVar.ny() + "> respond exception", th);
             }
             if (a2 != null) {
                 return a2;
@@ -89,12 +89,12 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo nd(String str) {
+    public static ICardInfo ni(String str) {
         try {
-            ICardInfo v = v(new JSONObject(str));
-            if (v != null) {
-                if (v.isValid()) {
-                    return v;
+            ICardInfo w = w(new JSONObject(str));
+            if (w != null) {
+                if (w.isValid()) {
+                    return w;
                 }
             }
             return null;
@@ -107,7 +107,7 @@ public class b extends e {
         }
     }
 
-    public static ICardInfo v(JSONObject jSONObject) throws CardParseException {
-        return aCF().a(jSONObject, jSONObject.optInt("card_type"));
+    public static ICardInfo w(JSONObject jSONObject) throws CardParseException {
+        return aCA().a(jSONObject, jSONObject.optInt("card_type"));
     }
 }

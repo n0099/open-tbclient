@@ -64,7 +64,7 @@ public class j {
         return of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
     }
 
-    public static boolean aO(String str) {
+    public static boolean aP(String str) {
         return str != null && str.length() > 0;
     }
 
@@ -72,11 +72,11 @@ public class j {
         return str == null || str.length() == 0 || str.equals("null");
     }
 
-    public static boolean aP(String str) {
+    public static boolean aQ(String str) {
         return str == null || str.trim().length() == 0;
     }
 
-    public static String aQ(String str) {
+    public static String aR(String str) {
         if (str == null) {
             return null;
         }
@@ -88,7 +88,7 @@ public class j {
         }
     }
 
-    public static String aR(String str) {
+    public static String aS(String str) {
         try {
             return URLDecoder.decode(str, "utf-8");
         } catch (Exception e) {
@@ -97,7 +97,7 @@ public class j {
         }
     }
 
-    public static int aS(String str) {
+    public static int aT(String str) {
         int i = 0;
         for (int i2 = 0; i2 < str.length(); i2++) {
             if (Integer.toHexString(str.charAt(i2)).length() == 4) {

@@ -56,10 +56,10 @@ public class a extends InputStream {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void receive(int i) throws IOException {
-        ut();
+        uu();
         this.aeK = Thread.currentThread();
         if (this.in == this.out) {
-            uu();
+            uv();
         }
         if (this.in < 0) {
             this.in = 0;
@@ -77,12 +77,12 @@ public class a extends InputStream {
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void j(byte[] bArr, int i, int i2) throws IOException {
         int i3;
-        ut();
+        uu();
         this.aeK = Thread.currentThread();
         int i4 = i2;
         while (i4 > 0) {
             if (this.in == this.out) {
-                uu();
+                uv();
             }
             if (this.out < this.in) {
                 i3 = this.buffer.length - this.in;
@@ -111,7 +111,7 @@ public class a extends InputStream {
         }
     }
 
-    private void ut() throws IOException {
+    private void uu() throws IOException {
         if (!this.connected) {
             throw new IOException("Pipe not connected");
         }
@@ -123,9 +123,9 @@ public class a extends InputStream {
         }
     }
 
-    private void uu() throws IOException {
+    private void uv() throws IOException {
         while (this.in == this.out) {
-            ut();
+            uu();
             notifyAll();
             try {
                 wait(100L);
@@ -136,7 +136,7 @@ public class a extends InputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void uv() {
+    public synchronized void uw() {
         this.aeH = true;
         notifyAll();
     }

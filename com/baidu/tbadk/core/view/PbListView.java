@@ -18,7 +18,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     private TextView mTextView = null;
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
-    private View Sf = null;
+    private View Sg = null;
     private View anz = null;
     private String anA = null;
     private LinearLayout anB = null;
@@ -41,38 +41,38 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public View lk() {
-        this.Sf = LayoutInflater.from(this.mContext).inflate(d.j.new_pb_list_more, (ViewGroup) null);
-        this.anB = (LinearLayout) this.Sf.findViewById(d.h.pb_more_view);
-        this.mTextView = (TextView) this.Sf.findViewById(d.h.pb_more_text);
+    public View lj() {
+        this.Sg = LayoutInflater.from(this.mContext).inflate(d.j.new_pb_list_more, (ViewGroup) null);
+        this.anB = (LinearLayout) this.Sg.findViewById(d.h.pb_more_view);
+        this.mTextView = (TextView) this.Sg.findViewById(d.h.pb_more_text);
         if (this.anF) {
             this.anB.setVisibility(0);
         } else {
             this.anB.setVisibility(8);
         }
-        this.mProgressBar = (ProgressBar) this.Sf.findViewById(d.h.progress);
-        this.anD = (ImageView) this.Sf.findViewById(d.h.pb_more_view_top_line);
-        this.anz = this.Sf.findViewById(d.h.empty_view);
-        this.anE = (LinearLayout) this.Sf.findViewById(d.h.pb_more_top_extra_view);
-        return this.Sf;
-    }
-
-    public void wS() {
-        this.anD.setVisibility(0);
+        this.mProgressBar = (ProgressBar) this.Sg.findViewById(d.h.progress);
+        this.anD = (ImageView) this.Sg.findViewById(d.h.pb_more_view_top_line);
+        this.anz = this.Sg.findViewById(d.h.empty_view);
+        this.anE = (LinearLayout) this.Sg.findViewById(d.h.pb_more_top_extra_view);
+        return this.Sg;
     }
 
     public void wT() {
-        this.anD.setVisibility(8);
+        this.anD.setVisibility(0);
     }
 
     public void wU() {
+        this.anD.setVisibility(8);
+    }
+
+    public void wV() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.anD.getLayoutParams();
         layoutParams.leftMargin = 0;
         layoutParams.rightMargin = 0;
         this.anD.setLayoutParams(layoutParams);
     }
 
-    public void wV() {
+    public void wW() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.anD.getLayoutParams();
         layoutParams.height = com.baidu.adp.lib.util.k.g(this.mContext, d.f.ds1);
         this.anD.setLayoutParams(layoutParams);
@@ -82,13 +82,13 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.mTextView.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, i));
     }
 
-    public void wW() {
+    public void wX() {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(this.mContext.getText(d.l.loading));
         dp(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void wX() {
+    public void wY() {
         this.mProgressBar.setVisibility(8);
         if (this.anA != null) {
             this.mTextView.setText(this.anA);
@@ -98,13 +98,13 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         dp(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void wY() {
+    public void wZ() {
         this.mTextView.setVisibility(0);
         this.anB.setVisibility(0);
-        wX();
+        wY();
     }
 
-    public void wZ() {
+    public void showLoading() {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(this.mContext.getText(d.l.loading));
     }
@@ -136,7 +136,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public void onClick() {
         if (this.mOnClickListener != null) {
-            this.mOnClickListener.onClick(this.Sf);
+            this.mOnClickListener.onClick(this.Sg);
         }
     }
 

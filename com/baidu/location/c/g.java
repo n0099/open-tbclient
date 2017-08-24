@@ -52,7 +52,7 @@ public class g {
             stringBuffer.append(this.h);
         }
         stringBuffer.append(com.baidu.location.h.c.ns().a(false));
-        stringBuffer.append(com.baidu.location.a.a.mu().c());
+        stringBuffer.append(com.baidu.location.a.a.mt().c());
         return stringBuffer.toString();
     }
 

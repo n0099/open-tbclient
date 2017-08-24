@@ -73,7 +73,7 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KV_CACHE_SUCC));
     }
 
-    public static a tn() {
+    public static a to() {
         if (abv == null) {
             abv = new a();
         }
@@ -85,11 +85,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public l<byte[]> cP(String str) {
+    public l<byte[]> cS(String str) {
         return L(str, null);
     }
 
-    public l<String> cQ(String str) {
+    public l<String> cT(String str) {
         return M(str, null);
     }
 
@@ -156,7 +156,7 @@ public class a extends CustomMessageListener {
         }
     }
 
-    public void cR(String str) {
+    public void cU(String str) {
         N(str, null);
     }
 

@@ -42,7 +42,7 @@ public class c implements b {
             }
         }
     };
-    private final NewWriteModel.d aEm = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.a.c.2
+    private final NewWriteModel.d aEn = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.a.c.2
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, q qVar, WriteData writeData, AntiData antiData) {
             String str;
@@ -100,13 +100,13 @@ public class c implements b {
     public c(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
         this.gEY = newVcodeView;
         this.gBC = newWriteModel;
-        this.gBC.b(this.aEm);
+        this.gBC.b(this.aEn);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
     public boolean onUrlLoad(WebView webView, String str) {
         if (str.contains("objc:jsChangeVcode")) {
-            this.jsMethodForInit = com.baidu.tbadk.q.a.gX(str);
+            this.jsMethodForInit = com.baidu.tbadk.q.a.ha(str);
             if (this.jsMethodForInit != null && this.gBC.getWriteData() != null) {
                 this.gEY.runJsMethod(this.jsMethodForInit, "'" + this.gBC.getWriteData().getVcodeUrl() + "'");
                 return true;
@@ -118,7 +118,7 @@ public class c implements b {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
             return true;
         } else if (str.contains("objc:jsSubmit")) {
-            return dealJsSubmit(com.baidu.tbadk.q.a.gX(str));
+            return dealJsSubmit(com.baidu.tbadk.q.a.ha(str));
         } else {
             return false;
         }
@@ -167,7 +167,7 @@ public class c implements b {
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
-    public boolean bys() {
+    public boolean byk() {
         return this.gBD;
     }
 
@@ -182,11 +182,11 @@ public class c implements b {
             return false;
         }
         this.jsMethodForChangeVCode = split[0];
-        rF(split[1]);
+        rK(split[1]);
         return true;
     }
 
-    private void rF(String str) {
+    private void rK(String str) {
         this.gBD = false;
         if (!k.hI()) {
             this.gEY.getContext().showToast(d.l.neterror);

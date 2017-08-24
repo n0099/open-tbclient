@@ -13,7 +13,7 @@ public class b {
         return this.mDescription;
     }
 
-    public String bsC() {
+    public String bsv() {
         return this.giZ;
     }
 

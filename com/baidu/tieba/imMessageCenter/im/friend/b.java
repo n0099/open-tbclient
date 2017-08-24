@@ -17,8 +17,8 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
     private BdListView JE;
-    private View Sf;
-    private NoNetworkView bFB;
+    private View Sg;
+    private NoNetworkView bFC;
     private IMBlackListActivity dDZ;
     private a dEd;
     private NavigationBar mNavigationBar;
@@ -35,7 +35,7 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
         this.mProgress.setVisibility(0);
     }
 
-    public void azs() {
+    public void azn() {
         this.mProgress.setVisibility(8);
     }
 
@@ -76,14 +76,14 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
 
     private void bg() {
         this.dDZ.setContentView(d.j.im_black_list);
-        this.Sf = this.dDZ.findViewById(d.h.root_view);
-        this.bFB = (NoNetworkView) this.Sf.findViewById(d.h.view_no_network);
-        this.mNavigationBar = (NavigationBar) this.Sf.findViewById(d.h.view_navigation_bar);
+        this.Sg = this.dDZ.findViewById(d.h.root_view);
+        this.bFC = (NoNetworkView) this.Sg.findViewById(d.h.view_no_network);
+        this.mNavigationBar = (NavigationBar) this.Sg.findViewById(d.h.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(d.l.chat_black_list_title);
-        this.JE = (BdListView) this.Sf.findViewById(d.h.black_list);
-        this.mNoDataView = NoDataViewFactory.a(this.dDZ.getPageContext().getContext(), this.Sf, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aMx), NoDataViewFactory.d.dk(d.l.black_list_no_data_text), null);
-        this.mProgress = (ProgressBar) this.Sf.findViewById(d.h.progress);
+        this.JE = (BdListView) this.Sg.findViewById(d.h.black_list);
+        this.mNoDataView = NoDataViewFactory.a(this.dDZ.getPageContext().getContext(), this.Sg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aMy), NoDataViewFactory.d.dk(d.l.black_list_no_data_text), null);
+        this.mProgress = (ProgressBar) this.Sg.findViewById(d.h.progress);
         this.dEd = new a(this.dDZ);
         this.JE.setAdapter((ListAdapter) this.dEd);
         xd();
@@ -92,9 +92,9 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
     private void xd() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         this.dDZ.getLayoutMode().ah(skinType == 1);
-        this.dDZ.getLayoutMode().t(this.Sf);
+        this.dDZ.getLayoutMode().t(this.Sg);
         this.mNavigationBar.onChangeSkinType(this.dDZ.getPageContext(), skinType);
         this.mNoDataView.onChangeSkinType(this.dDZ.getPageContext(), skinType);
-        this.bFB.onChangeSkinType(this.dDZ.getPageContext(), skinType);
+        this.bFC.onChangeSkinType(this.dDZ.getPageContext(), skinType);
     }
 }

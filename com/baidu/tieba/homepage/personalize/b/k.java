@@ -53,7 +53,7 @@ public class k extends BaseAdapter {
         }
         com.baidu.tieba.homepage.personalize.data.g item = getItem(i);
         if (item != null) {
-            textView.setText(item.Vn);
+            textView.setText(item.Vo);
             if (item.isSelect) {
                 ai.i(textView, d.e.cp_cont_g);
                 ai.j(textView, d.g.shape_semi_circle_all_selected);
@@ -70,7 +70,7 @@ public class k extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public com.baidu.tieba.homepage.personalize.data.f app() {
+    public com.baidu.tieba.homepage.personalize.data.f apj() {
         return this.cVW;
     }
 }

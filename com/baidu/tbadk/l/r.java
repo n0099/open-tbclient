@@ -9,32 +9,32 @@ import java.io.InputStreamReader;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class r {
-    private static String aKI = "tb_perfor_samllflow_time";
-    private static volatile r aKL;
-    private long aKK;
-    private boolean aKG = false;
-    private long aKJ = 86400;
-    private long aKH = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKI, 0);
+    private static String aKJ = "tb_perfor_samllflow_time";
+    private static volatile r aKM;
+    private long aKL;
+    private boolean aKH = false;
+    private long aKK = 86400;
+    private long aKI = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aKJ, 0);
 
     public static r Gz() {
-        if (aKL == null) {
+        if (aKM == null) {
             synchronized (r.class) {
-                if (aKL == null) {
-                    aKL = new r();
+                if (aKM == null) {
+                    aKM = new r();
                 }
             }
         }
-        return aKL;
+        return aKM;
     }
 
     private r() {
-        this.aKK = 0L;
-        this.aKK = this.aKJ;
+        this.aKL = 0L;
+        this.aKL = this.aKK;
     }
 
     public boolean GA() {
-        if (!this.aKG || (System.currentTimeMillis() - this.aKH) / 1000 <= this.aKK) {
-            return this.aKG;
+        if (!this.aKH || (System.currentTimeMillis() - this.aKI) / 1000 <= this.aKL) {
+            return this.aKH;
         }
         return false;
     }
@@ -42,15 +42,15 @@ public class r {
     public void ca(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aKH || currentTimeMillis - this.aKH >= this.aKK) {
-                this.aKH = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKI, this.aKH);
+            if (0 == this.aKI || currentTimeMillis - this.aKI >= this.aKL) {
+                this.aKI = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKJ, this.aKI);
             }
         } else {
-            this.aKH = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKI, this.aKH);
+            this.aKI = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aKJ, this.aKI);
         }
-        this.aKG = z;
+        this.aKH = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
             s.GF().GG();
         }
@@ -153,7 +153,7 @@ public class r {
 
     public void S(long j) {
         if (j > 0) {
-            this.aKK = j;
+            this.aKL = j;
         }
     }
 

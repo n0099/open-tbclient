@@ -33,7 +33,7 @@ public interface a {
             return (TextUtils.isEmpty(this.picUrl) || this.rect.isEmpty()) ? false : true;
         }
 
-        public boolean aCK() {
+        public boolean aCF() {
             return (TextUtils.isEmpty(this.dOT) || this.dOU.isEmpty()) ? false : true;
         }
 
@@ -54,7 +54,7 @@ public interface a {
             return jSONObject.toString();
         }
 
-        public static C0104a ne(String str) {
+        public static C0104a nj(String str) {
             if (TextUtils.isEmpty(str)) {
                 return new C0104a();
             }
@@ -66,7 +66,7 @@ public interface a {
             }
         }
 
-        public void nf(String str) {
+        public void nk(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray optJSONArray = new JSONObject(str).optJSONArray("pics");

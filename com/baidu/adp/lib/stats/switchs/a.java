@@ -25,7 +25,7 @@ public class a {
             switch (message.what) {
                 case 1:
                     if (message.obj instanceof BdUploadStatMsgData) {
-                        g.gR().aA(((BdUploadStatMsgData) message.obj).parentType);
+                        g.gR().aB(((BdUploadStatMsgData) message.obj).parentType);
                         return;
                     }
                     return;
@@ -107,12 +107,12 @@ public class a {
                 bdStatSwitchData.parserJson(a.this.zg.zj);
             }
             a.this.zb = false;
-            if (a.this.mIsMainProcess && a.this.aw(a.this.zg.zj)) {
+            if (a.this.mIsMainProcess && a.this.ax(a.this.zg.zj)) {
                 String gL = a.this.gL();
                 if (!TextUtils.isEmpty(gL) && !gL.equals(a.this.zg.zj)) {
                     a.this.zb = true;
                     bdStatSwitchData.parserJson(gL);
-                    a.this.zg.ay(gL);
+                    a.this.zg.az(gL);
                 }
             }
             return bdStatSwitchData;
@@ -138,7 +138,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aw(String str) {
+    public boolean ax(String str) {
         return TextUtils.isEmpty(str) || System.currentTimeMillis() - this.zg.zi >= 86400000;
     }
 
@@ -214,28 +214,28 @@ public class a {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.zf.isWrite(com.baidu.adp.lib.stats.base.a.av(str), str2);
+        return this.zf.isWrite(com.baidu.adp.lib.stats.base.a.aw(str), str2);
     }
 
     public boolean isUpload(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.zf.isUpload(com.baidu.adp.lib.stats.base.a.av(str), str2);
+        return this.zf.isUpload(com.baidu.adp.lib.stats.base.a.aw(str), str2);
     }
 
     public boolean onlyWifiUpload(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.zf.onlyWifiUpload(com.baidu.adp.lib.stats.base.a.av(str), str2);
+        return this.zf.onlyWifiUpload(com.baidu.adp.lib.stats.base.a.aw(str), str2);
     }
 
     public boolean isExactWriteFile(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.zf.isExactWriteFile(com.baidu.adp.lib.stats.base.a.av(str));
+        return this.zf.isExactWriteFile(com.baidu.adp.lib.stats.base.a.aw(str));
     }
 
     public int getMaxAlertCount(String str, int i) {
@@ -250,10 +250,10 @@ public class a {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return true;
         }
-        return this.zf.smallFlowUpload(com.baidu.adp.lib.stats.base.a.av(str), str2);
+        return this.zf.smallFlowUpload(com.baidu.adp.lib.stats.base.a.aw(str), str2);
     }
 
-    public ArrayList<String> ax(String str) {
+    public ArrayList<String> ay(String str) {
         return this.zf.getChiledTypes(str);
     }
 

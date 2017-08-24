@@ -38,7 +38,7 @@ import java.util.List;
 public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     private BdListView JE;
     private TextView abZ;
-    private View bhj;
+    private View bhk;
     private View dKu;
     private TextView gEq;
     private b gEr;
@@ -103,16 +103,16 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             }
             CheckBox checkBox = (CheckBox) view.findViewById(d.h.transmit_check_box);
             boolean isChecked = checkBox.isChecked();
-            boolean bzo = SelectForumActivity.this.bzo();
-            if (!isChecked && bzo) {
+            boolean bzg = SelectForumActivity.this.bzg();
+            if (!isChecked && bzg) {
                 SelectForumActivity.this.showToast(d.l.transmit_max_commit);
                 return;
             }
             checkBox.setChecked(!checkBox.isChecked());
             if (transmitForumData != null) {
-                transmitForumData.abk = checkBox.isChecked();
+                transmitForumData.checked = checkBox.isChecked();
             }
-            SelectForumActivity.this.bzr();
+            SelectForumActivity.this.bzj();
             SelectForumActivity.this.a(transmitForumData);
         }
     };
@@ -142,7 +142,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         this.gEu.setOnClickListener(this.mOnClickListener);
         this.gEv = (TextView) findViewById(d.h.textview_search);
         this.gEv.setOnClickListener(this.mOnClickListener);
-        this.bhj = findViewById(d.h.view_divider);
+        this.bhk = findViewById(d.h.view_divider);
         this.gEq = (TextView) findViewById(d.h.transmit_confirm);
         this.gEq.setOnClickListener(this.mOnClickListener);
         this.gEw = findViewById(d.h.layout_confirm);
@@ -161,7 +161,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         this.gEr = new b(getActivity());
         this.JE.setAdapter((ListAdapter) this.gEr);
         this.gEr.Z(this.mDataList);
-        bzr();
+        bzj();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -192,7 +192,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 }
                 i++;
             }
-            if (transmitForumData.abk) {
+            if (transmitForumData.checked) {
                 if (i == -1) {
                     this.gEu.setVisibility(8);
                     BarImageView barImageView = new BarImageView(getActivity());
@@ -247,7 +247,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                     }
                     i4 = i3 + 1;
                 }
-                if (bzo()) {
+                if (bzg()) {
                     showToast(d.l.transmit_max_commit);
                     if (i3 != -1) {
                         this.mDataList.add(0, this.mDataList.remove(i3));
@@ -257,7 +257,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 } else {
                     if (i3 != -1) {
                         transmitForumData = this.mDataList.remove(i3);
-                        transmitForumData.abk = true;
+                        transmitForumData.checked = true;
                         this.mDataList.add(0, transmitForumData);
                     } else {
                         TransmitForumData transmitForumData3 = new TransmitForumData(longExtra, stringExtra, true, 0, stringExtra2);
@@ -265,7 +265,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                         transmitForumData = transmitForumData3;
                     }
                     a(transmitForumData);
-                    bzr();
+                    bzj();
                 }
                 this.gEr.Z(this.mDataList);
                 this.JE.setSelection(0);
@@ -274,21 +274,21 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bzo() {
-        return u.u(bzs()) >= 3;
+    public boolean bzg() {
+        return u.u(bzk()) >= 3;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bzr() {
-        this.gEq.setText(getResources().getString(d.l.transmit_confirm, Integer.valueOf(u.u(bzs())), 3));
+    public void bzj() {
+        this.gEq.setText(getResources().getString(d.l.transmit_confirm, Integer.valueOf(u.u(bzk())), 3));
     }
 
-    public ArrayList<TransmitForumData> bzs() {
+    public ArrayList<TransmitForumData> bzk() {
         ArrayList<TransmitForumData> arrayList = new ArrayList<>();
         for (TransmitForumData transmitForumData : this.mDataList) {
             if (transmitForumData instanceof TransmitForumData) {
                 TransmitForumData transmitForumData2 = transmitForumData;
-                if (transmitForumData2.abk) {
+                if (transmitForumData2.checked) {
                     arrayList.add(transmitForumData2);
                 }
             }
@@ -307,7 +307,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         ai.j(this.gEq, d.g.btn_all_blue);
         ai.c(this.gEq, d.e.cp_cont_g, 1);
         ai.k(this.mRootView, d.e.cp_bg_line_d);
-        ai.k(this.bhj, d.e.cp_bg_line_c);
+        ai.k(this.bhk, d.e.cp_bg_line_c);
         this.gEr.uv(i);
         this.JE.setSelector(ai.getDrawable(d.g.selector_select_forum_item));
         ai.k(this.gEw, d.e.cp_bg_line_d_alpha95);

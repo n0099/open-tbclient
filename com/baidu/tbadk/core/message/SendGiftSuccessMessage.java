@@ -59,7 +59,8 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
             this.url = str;
         }
 
-        public void dl(String str) {
+        /* renamed from: do  reason: not valid java name */
+        public void m9do(String str) {
             this.aeO = str;
         }
 

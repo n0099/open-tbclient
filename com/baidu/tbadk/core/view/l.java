@@ -33,7 +33,7 @@ public class l extends k {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                l.this.anL.setBackgroundColor(ae.vz().cN(TbadkCoreApplication.getInst().getSkinType()));
+                l.this.anL.setBackgroundColor(ae.vA().cN(TbadkCoreApplication.getInst().getSkinType()));
             }
         };
         e(tbPageContext);
@@ -56,8 +56,8 @@ public class l extends k {
     }
 
     @Override // com.baidu.tbadk.core.view.k, com.baidu.adp.widget.ListView.c
-    public void lm() {
-        super.lm();
+    public void ll() {
+        super.ll();
         this.isDone = false;
     }
 
@@ -66,16 +66,16 @@ public class l extends k {
         super.dp(i);
         if (this.anL != null && this.anM != null) {
             this.aob = false;
-            if (!vH()) {
-                this.anQ = ae.vz().cL(i);
+            if (!vI()) {
+                this.anQ = ae.vA().cL(i);
                 if (this.anQ != null) {
                     this.aob = true;
                 } else {
                     this.anQ = new AnimationDrawable();
                 }
-                this.anL.setBackgroundColor(ae.vz().cN(i));
+                this.anL.setBackgroundColor(ae.vA().cN(i));
                 if (!this.aob) {
-                    this.anQ = ae.vz().cM(i);
+                    this.anQ = ae.vA().cM(i);
                 }
                 this.anQ.setOneShot(false);
                 this.anM.setBackgroundDrawable(this.anQ);

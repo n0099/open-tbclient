@@ -6,8 +6,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextLinkImageInfo extends OrmObject {
-    private boolean aRe;
     private boolean aRf;
+    private boolean aRg;
     private String cdn_src;
     private String link;
     private int mHeight;
@@ -18,8 +18,8 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.aRe = false;
-        this.aRf = true;
+        this.aRf = false;
+        this.aRg = true;
     }
 
     public TbRichTextLinkImageInfo(PbContent pbContent) {
@@ -27,8 +27,8 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.aRe = false;
-        this.aRf = true;
+        this.aRf = false;
+        this.aRg = true;
         this.cdn_src = pbContent.cdn_src;
         this.link = pbContent.link;
         String str = pbContent.bsize;
@@ -48,7 +48,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
             this.mHeight = 1;
         }
         if (this.cdn_src != null && this.cdn_src.indexOf(".baidu.com") != -1) {
-            this.aRe = true;
+            this.aRf = true;
         }
     }
 
@@ -69,6 +69,6 @@ public class TbRichTextLinkImageInfo extends OrmObject {
     }
 
     public boolean IJ() {
-        return this.aRf;
+        return this.aRg;
     }
 }

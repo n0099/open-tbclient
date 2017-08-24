@@ -13,7 +13,7 @@ public class p {
         this.uQ = bVar;
     }
 
-    public h ae(String str) {
+    public h af(String str) {
         Cursor cursor;
         try {
             cursor = this.uQ.cs().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
@@ -63,9 +63,9 @@ public class p {
         }
     }
 
-    public int af(String str) {
+    public int ag(String str) {
         try {
-            if (ae(str) == null) {
+            if (af(str) == null) {
                 return 0;
             }
             return this.uQ.cs().delete("cache_meta_info", "nameSpace = ?", new String[]{str});

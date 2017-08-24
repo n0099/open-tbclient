@@ -11,14 +11,14 @@ import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class b implements f {
     public static final BdUniqueId cGU = BdUniqueId.gen();
-    private int bJW;
+    private int bJX;
     private List<a> cGV;
     private String cGW;
     private String cGX;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.bJW = esport.floor_no.intValue();
+            this.bJX = esport.floor_no.intValue();
             if (esport._static != null) {
                 this.cGW = esport._static.img;
                 this.cGX = esport._static.url;
@@ -26,8 +26,8 @@ public class b implements f {
             this.cGV = new ArrayList();
             if (!StringUtils.isNull(this.cGW)) {
                 a aVar = new a();
-                aVar.kK(this.cGW);
-                aVar.kL(this.cGX);
+                aVar.kN(this.cGW);
+                aVar.kO(this.cGX);
                 this.cGV.add(aVar);
             }
             if (!u.v(esport.billboard)) {
@@ -40,11 +40,11 @@ public class b implements f {
         }
     }
 
-    public int alH() {
-        return this.bJW;
+    public int alB() {
+        return this.bJX;
     }
 
-    public List<a> alI() {
+    public List<a> alC() {
         return this.cGV;
     }
 

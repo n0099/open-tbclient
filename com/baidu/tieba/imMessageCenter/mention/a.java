@@ -14,19 +14,19 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b> {
     private TextView apH;
-    private View auN;
-    private TextView bJf;
-    private TextView ceD;
-    private HeadImageView clO;
+    private View auO;
+    private TextView bJg;
+    private TextView ceE;
+    private HeadImageView clP;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.clO = (HeadImageView) view.findViewById(d.h.photo);
+        this.clP = (HeadImageView) view.findViewById(d.h.photo);
         this.apH = (TextView) view.findViewById(d.h.user_name);
-        this.ceD = (TextView) view.findViewById(d.h.time);
-        this.bJf = (TextView) view.findViewById(d.h.content);
-        this.auN = view.findViewById(d.h.line);
-        this.clO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
+        this.ceE = (TextView) view.findViewById(d.h.time);
+        this.bJg = (TextView) view.findViewById(d.h.content);
+        this.auO = view.findViewById(d.h.line);
+        this.clP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 a.this.FN().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
@@ -59,33 +59,33 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
             } else {
                 ai.i(this.apH, d.e.cp_cont_c);
             }
-            this.clO.setShowV(feedData.getReplyer().isBigV());
-            this.clO.setIsRound(true);
-            this.clO.setVisibility(0);
+            this.clP.setShowV(feedData.getReplyer().isBigV());
+            this.clP.setIsRound(true);
+            this.clP.setVisibility(0);
             String portrait = feedData.getReplyer().getPortrait();
-            this.clO.setTag(null);
+            this.clP.setTag(null);
             if (portrait != null && portrait.length() > 0) {
-                this.clO.c(portrait, 12, false);
+                this.clP.c(portrait, 12, false);
             } else {
-                this.clO.setImageResource(d.g.photo);
+                this.clP.setImageResource(d.g.photo);
             }
         }
-        this.ceD.setText(al.r(feedData.getTime()));
-        this.bJf.setText(feedData.getContent());
+        this.ceE.setText(al.r(feedData.getTime()));
+        this.bJg.setText(feedData.getContent());
     }
 
     @Override // com.baidu.tieba.tbadkCore.l
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         ai.j(getRootView(), d.g.list_selector);
-        ai.k(this.auN, d.e.cp_bg_line_b);
+        ai.k(this.auO, d.e.cp_bg_line_b);
         if (i == 1) {
-            this.ceD.setTextColor(getResources().getColor(d.e.common_color_10071));
-            this.bJf.setTextColor(getResources().getColor(d.e.common_color_10069));
+            this.ceE.setTextColor(getResources().getColor(d.e.common_color_10071));
+            this.bJg.setTextColor(getResources().getColor(d.e.common_color_10069));
         } else {
-            this.ceD.setTextColor(getResources().getColor(d.e.common_color_10070));
-            this.bJf.setTextColor(getResources().getColor(d.e.common_color_10235));
+            this.ceE.setTextColor(getResources().getColor(d.e.common_color_10070));
+            this.bJg.setTextColor(getResources().getColor(d.e.common_color_10235));
         }
-        this.ceD.setCompoundDrawablesWithIntrinsicBounds(ai.getDrawable(d.g.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.ceE.setCompoundDrawablesWithIntrinsicBounds(ai.getDrawable(d.g.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }
 }

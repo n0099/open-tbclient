@@ -48,10 +48,10 @@ public class a extends d<bl, b> implements c {
             str = "#3385ff";
         }
         final z zVar = (z) blVar;
-        String str3 = zVar.WU;
+        String str3 = zVar.WV;
         if (!StringUtils.isNull(str3)) {
             bVar.cCE.setVisibility(0);
-            bVar.bGv.setVisibility(8);
+            bVar.bGw.setVisibility(8);
             bVar.cCE.setIsRound(true);
             bVar.cCE.setUserId(blVar.getAuthor().getUserId());
             bVar.cCE.setImageDrawable(null);
@@ -65,7 +65,7 @@ public class a extends d<bl, b> implements c {
             str2 = "<font color='" + str + "'>" + zVar.type + "·</font>" + zVar.title;
         }
         bVar.cCH.setText(Html.fromHtml(str2));
-        bVar.cCI.setText(zVar.WV);
+        bVar.cCI.setText(zVar.WW);
         if (zVar.pics != null) {
             int size = zVar.pics.size();
             if (size == 1) {
@@ -153,8 +153,8 @@ public class a extends d<bl, b> implements c {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 String str4 = zVar.linkUrl;
-                if (!at.wf().a(a.this.oV, "", new String[]{str4}, false, null, true) && !at.wf().ej(str4)) {
-                    a.this.oV.showToast(d.l.pluginstatus_tip_unknown);
+                if (!at.wg().a(a.this.oW, "", new String[]{str4}, false, null, true) && !at.wg().en(str4)) {
+                    a.this.oW.showToast(d.l.pluginstatus_tip_unknown);
                 }
                 TiebaStatic.log(new aj("c11683").aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
             }
@@ -167,7 +167,7 @@ public class a extends d<bl, b> implements c {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ae */
     public b onCreateViewHolder(ViewGroup viewGroup) {
-        return new b(this.oV, LayoutInflater.from(this.mContext).inflate(d.j.frs_wefan_item, (ViewGroup) null), this.mPageId);
+        return new b(this.oW, LayoutInflater.from(this.mContext).inflate(d.j.frs_wefan_item, (ViewGroup) null), this.mPageId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

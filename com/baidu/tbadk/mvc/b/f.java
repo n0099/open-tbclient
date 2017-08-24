@@ -3,5 +3,5 @@ package com.baidu.tbadk.mvc.b;
 public interface f extends d {
     String Fc();
 
-    boolean gy(String str);
+    boolean gB(String str);
 }

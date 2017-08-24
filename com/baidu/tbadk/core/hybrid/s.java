@@ -342,7 +342,7 @@ public class s {
         add("video/x-webex", "wrf");
         add("x-conference/x-cooltalk", "ice");
         add("x-epoc/x-sisx-app", "sisx");
-        uc();
+        ud();
     }
 
     private static void add(String str, String str2) {
@@ -352,7 +352,7 @@ public class s {
         aek.put(str2, str);
     }
 
-    private static InputStream ub() {
+    private static InputStream uc() {
         String property = System.getProperty("content.types.user.table");
         if (property != null) {
             File file = new File(property);
@@ -373,21 +373,21 @@ public class s {
         return null;
     }
 
-    private static void uc() {
-        InputStream ub = ub();
-        if (ub != null) {
+    private static void ud() {
+        InputStream uc = uc();
+        if (uc != null) {
             try {
                 Properties properties = new Properties();
-                properties.load(ub);
+                properties.load(uc);
                 for (Map.Entry entry : properties.entrySet()) {
                     add((String) entry.getValue(), (String) entry.getKey());
                 }
-                ub.close();
+                uc.close();
             }
         }
     }
 
-    public static String dc(String str) {
+    public static String df(String str) {
         if (str == null || str.isEmpty()) {
             return null;
         }

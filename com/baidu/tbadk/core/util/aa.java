@@ -12,7 +12,7 @@ public class aa {
     public static boolean aC(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.b.a.nw()) {
+        if (com.baidu.b.a.nx()) {
             if (context == null) {
                 return false;
             }
@@ -37,7 +37,7 @@ public class aa {
     }
 
     public static boolean aD(Context context) {
-        if (com.baidu.b.a.nw()) {
+        if (com.baidu.b.a.nx()) {
             if (context != null) {
                 try {
                     if (!com.baidu.b.a.a.R(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -57,7 +57,7 @@ public class aa {
     }
 
     public static boolean aE(Context context) {
-        if (!com.baidu.b.a.nw()) {
+        if (!com.baidu.b.a.nx()) {
             return true;
         }
         if (context != null) {
@@ -72,7 +72,7 @@ public class aa {
     }
 
     public static boolean aF(Context context) {
-        if (!com.baidu.b.a.nw()) {
+        if (!com.baidu.b.a.nx()) {
             return true;
         }
         if (context != null) {
@@ -92,7 +92,7 @@ public class aa {
             return true;
         }
         try {
-            if (com.baidu.b.a.nw() && com.baidu.b.a.a.S(aK, "android.permission.RECORD_AUDIO")) {
+            if (com.baidu.b.a.nx() && com.baidu.b.a.a.S(aK, "android.permission.RECORD_AUDIO")) {
                 com.baidu.adp.lib.util.k.showToast(aK, d.l.record_audio_permission_denied_fun_disable);
                 return true;
             }
@@ -103,7 +103,7 @@ public class aa {
     }
 
     public static boolean aH(Context context) {
-        if (!com.baidu.b.a.nw()) {
+        if (!com.baidu.b.a.nx()) {
             return true;
         }
         if (context != null) {
@@ -118,7 +118,7 @@ public class aa {
     }
 
     public static boolean aI(Context context) {
-        if (!com.baidu.b.a.nw()) {
+        if (!com.baidu.b.a.nx()) {
             return true;
         }
         if (context != null) {
@@ -138,7 +138,7 @@ public class aa {
             return true;
         }
         try {
-            if (com.baidu.b.a.nw() && com.baidu.b.a.a.S(aK, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+            if (com.baidu.b.a.nx() && com.baidu.b.a.a.S(aK, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                 com.baidu.adp.lib.util.k.showToast(aK, d.l.write_external_storage_permission_denied_fun_disable);
                 return true;
             }

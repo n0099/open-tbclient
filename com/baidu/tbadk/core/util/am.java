@@ -9,7 +9,7 @@ public class am {
     private int air = TbConfig.POST_IMAGE_SMALL;
     private String ais = String.valueOf(45);
 
-    public static am vQ() {
+    public static am vR() {
         if (aio == null) {
             synchronized (am.class) {
                 aio = new am();
@@ -19,71 +19,71 @@ public class am {
     }
 
     public am() {
-        vT();
-        vR();
+        vU();
+        vS();
     }
 
-    private void vR() {
-        vX();
+    private void vS() {
         vY();
         vZ();
+        wa();
     }
 
     public void aD(boolean z) {
         this.aiq = z;
     }
 
-    public boolean vS() {
+    public boolean vT() {
         return this.aiq;
     }
 
     public void aE(boolean z) {
         this.aip = z;
-        vR();
+        vS();
     }
 
-    private void vT() {
+    private void vU() {
         this.aip = com.baidu.adp.lib.util.i.hs();
     }
 
-    public boolean vU() {
+    public boolean vV() {
         return this.aip;
     }
 
-    public String vV() {
+    public String vW() {
         return this.ais;
     }
 
-    public int vW() {
-        vZ();
+    public int vX() {
+        wa();
         return this.air;
     }
 
-    public void vX() {
+    public void vY() {
         boolean z = true;
-        if (com.baidu.tbadk.core.h.oX().getViewImageQuality() != 0 ? com.baidu.tbadk.core.h.oX().getViewImageQuality() != 1 : !this.aip) {
+        if (com.baidu.tbadk.core.h.oY().getViewImageQuality() != 0 ? com.baidu.tbadk.core.h.oY().getViewImageQuality() != 1 : !this.aip) {
             z = false;
         }
         aD(z);
     }
 
-    public void vY() {
+    public void vZ() {
         String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.h.oX().getViewImageQuality() == 0) {
-            if (vU()) {
+        if (com.baidu.tbadk.core.h.oY().getViewImageQuality() == 0) {
+            if (vV()) {
                 valueOf = String.valueOf(80);
             }
-        } else if (com.baidu.tbadk.core.h.oX().getViewImageQuality() == 1) {
+        } else if (com.baidu.tbadk.core.h.oY().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
         this.ais = valueOf;
     }
 
-    public void vZ() {
+    public void wa() {
         int i = TbConfig.POST_IMAGE_BIG;
-        switch (com.baidu.tbadk.core.h.oX().pa()) {
+        switch (com.baidu.tbadk.core.h.oY().pb()) {
             case 0:
-                if (!vU()) {
+                if (!vV()) {
                     i = 600;
                     break;
                 }
@@ -103,7 +103,7 @@ public class am {
         this.air = i;
     }
 
-    public static boolean wa() {
+    public static boolean wb() {
         return k.dR() && com.baidu.adp.gif.c.dQ();
     }
 }

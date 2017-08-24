@@ -17,12 +17,12 @@ public class a {
             bVar2.setThreadList(list);
             if (forumData != null) {
                 bVar2.setForumId(forumData.getId());
-                bVar2.hb(forumData.getFirst_class());
-                bVar2.hc(forumData.getSecond_class());
+                bVar2.he(forumData.getFirst_class());
+                bVar2.hf(forumData.getSecond_class());
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                bVar2.hd(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                bVar2.hg(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
             bVar2.cl(z);
             bVar2.setPageNum(i);
@@ -31,8 +31,8 @@ public class a {
     }
 
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, FrsModelController frsModelController, List<com.baidu.adp.widget.ListView.f> list, int i) {
-        if (frsModelController != null && frsModelController.aim() != null) {
-            a(bVar, frsModelController.aim().aPO(), list, false, i);
+        if (frsModelController != null && frsModelController.aig() != null) {
+            a(bVar, frsModelController.aig().aPJ(), list, false, i);
         }
     }
 

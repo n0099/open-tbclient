@@ -44,7 +44,7 @@ public class b extends LinkMovementMethod {
         return super.onTouchEvent(textView, spannable, motionEvent);
     }
 
-    public static b bxm() {
+    public static b bxf() {
         if (gxx == null) {
             gxx = new b();
         }

@@ -13,7 +13,7 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class b implements h {
     public static final String TAG = b.class.getSimpleName();
-    private static b aWP;
+    private static b aWQ;
     private int mPort = 0;
 
     private b() {
@@ -21,14 +21,14 @@ public class b implements h {
     }
 
     public static b KI() {
-        if (aWP == null) {
+        if (aWQ == null) {
             synchronized (b.class) {
-                if (aWP == null) {
-                    aWP = new b();
+                if (aWQ == null) {
+                    aWQ = new b();
                 }
             }
         }
-        return aWP;
+        return aWQ;
     }
 
     private static long KD() {
@@ -40,7 +40,7 @@ public class b implements h {
     }
 
     private boolean KJ() {
-        d.log(TAG, "sdcard avalible size " + ((KD() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M");
+        d.at(TAG, "sdcard avalible size " + ((KD() / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT) + "M");
         return KD() > 314572800 && getPort() > 0;
     }
 
@@ -51,26 +51,26 @@ public class b implements h {
     }
 
     @Override // com.baidu.tieba.play.h
-    public String hx(String str) {
+    public String hA(String str) {
         if (KJ()) {
-            String hy = hy(str);
-            if (hy == null) {
-                String hv = hv(str);
-                if (hv != null && new File(c.aWC + hv + "/header_downloaded").exists()) {
+            String hB = hB(str);
+            if (hB == null) {
+                String hy = hy(str);
+                if (hy != null && new File(c.aWD + hy + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
             }
-            return hy;
+            return hB;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.h
-    public String hy(String str) {
-        String hv;
+    public String hB(String str) {
+        String hy;
         File file;
-        if (str == null || !str.contains("/") || (hv = hv(str)) == null || (file = new File(c.aWC + hv + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (hy = hy(str)) == null || (file = new File(c.aWD + hy + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -78,17 +78,17 @@ public class b implements h {
 
     @Override // com.baidu.tieba.play.h
     public void af(Context context, String str) {
-        e.ba(context).hA(str);
+        e.ba(context).hD(str);
     }
 
     @Override // com.baidu.tieba.play.h
     public void ag(Context context, String str) {
-        e.ba(context).hB(str);
+        e.ba(context).hE(str);
     }
 
     @Override // com.baidu.tieba.play.h
-    public void hz(String str) {
-        a.KF().hw(str);
+    public void hC(String str) {
+        a.KF().hz(str);
     }
 
     @Override // com.baidu.tieba.play.h
@@ -96,7 +96,7 @@ public class b implements h {
         e.ba(context).clearCache();
     }
 
-    public static String hv(String str) {
+    public static String hy(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -119,7 +119,7 @@ public class b implements h {
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
         if (this.mPort == 0) {
-            File file = new File(c.aWD);
+            File file = new File(c.aWE);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);

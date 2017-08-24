@@ -10,19 +10,19 @@ public class h {
     private int chat = 0;
     private int bookmark = 0;
 
-    public int aAb() {
+    public int azW() {
         return this.dGn;
     }
 
-    public int aAc() {
+    public int azX() {
         return this.dGo;
     }
 
-    public int aAd() {
+    public int azY() {
         return this.fans;
     }
 
-    public int aAe() {
+    public int azZ() {
         return this.bookmark;
     }
 

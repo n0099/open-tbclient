@@ -27,12 +27,12 @@ public abstract class b implements CustomMessageTask.CustomRunnable<SaveDraftMes
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
-        ChatSetting bl = this.dAP.bl(str, data.mId);
-        if (bl == null) {
+        ChatSetting bm = this.dAP.bm(str, data.mId);
+        if (bm == null) {
             return null;
         }
-        bl.setDraft(data.mDraft);
-        this.dAP.a(bl);
+        bm.setDraft(data.mDraft);
+        this.dAP.a(bm);
         return customResponsedMessage;
     }
 }

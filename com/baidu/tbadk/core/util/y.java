@@ -13,7 +13,7 @@ public class y {
         ahh = TbadkCoreApplication.getInst().getNetWorkCoreType();
     }
 
-    public static synchronized y vv() {
+    public static synchronized y vw() {
         y yVar;
         synchronized (y.class) {
             if (ahd == null) {

@@ -13,7 +13,7 @@ public class i {
     private static i fZm;
     private SQLiteDatabase fZn = new j(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
 
-    public static synchronized i boL() {
+    public static synchronized i boE() {
         i iVar;
         synchronized (i.class) {
             if (fZm == null) {
@@ -27,7 +27,7 @@ public class i {
     private i() {
     }
 
-    public void rC(String str) {
+    public void rH(String str) {
         new j(TbadkCoreApplication.getInst().getApp()).f(this.fZn, str);
     }
 
@@ -114,7 +114,7 @@ public class i {
         return bVar;
     }
 
-    public List<com.baidu.tieba.story.process.b> rD(String str) {
+    public List<com.baidu.tieba.story.process.b> rI(String str) {
         if (this.fZn == null || StringUtils.isNull(str)) {
             return null;
         }

@@ -6,19 +6,19 @@ import com.baidu.tbadk.core.util.k;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class i {
-    BaseActivity bmE;
+    BaseActivity bmG;
     String mUrl;
 
     public i(String str, BaseActivity baseActivity) {
         this.mUrl = null;
         this.mUrl = str;
-        this.bmE = baseActivity;
+        this.bmG = baseActivity;
     }
 
     public void execute() {
         try {
             if (this.mUrl == null || this.mUrl.length() <= 0) {
-                showToast(this.bmE.getPageContext().getString(d.l.save_error));
+                showToast(this.bmG.getPageContext().getString(d.l.save_error));
             }
             com.baidu.adp.lib.f.c.fU().a(this.mUrl, 10, new b<com.baidu.adp.widget.a.a>() { // from class: com.baidu.tieba.im.chat.i.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -27,32 +27,32 @@ public class i {
                 public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str, i);
                     if (aVar != null) {
-                        i.this.showToast(i.this.k(i.this.mUrl, aVar.la()));
+                        i.this.showToast(i.this.k(i.this.mUrl, aVar.kZ()));
                     } else {
-                        i.this.showToast(i.this.bmE.getPageContext().getString(d.l.save_error));
+                        i.this.showToast(i.this.bmG.getPageContext().getString(d.l.save_error));
                     }
                 }
-            }, this.bmE.getUniqueId());
+            }, this.bmG.getUniqueId());
         } catch (Exception e) {
-            showToast(this.bmE.getPageContext().getString(d.l.save_error));
+            showToast(this.bmG.getPageContext().getString(d.l.save_error));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String k(String str, byte[] bArr) {
-        switch (k.a(str, bArr, this.bmE.getPageContext().getPageActivity())) {
+        switch (k.a(str, bArr, this.bmG.getPageContext().getPageActivity())) {
             case -2:
-                return k.uI();
+                return k.uJ();
             case -1:
             default:
-                return this.bmE.getPageContext().getString(d.l.save_error);
+                return this.bmG.getPageContext().getString(d.l.save_error);
             case 0:
-                return this.bmE.getPageContext().getString(d.l.save_image_to_album);
+                return this.bmG.getPageContext().getString(d.l.save_image_to_album);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void showToast(String str) {
-        this.bmE.showToast(str);
+        this.bmG.showToast(str);
     }
 }

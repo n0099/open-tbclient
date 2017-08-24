@@ -10,36 +10,36 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 /* loaded from: classes.dex */
 public class b extends j.a {
-    public HTypeListView aGd;
-    public com.baidu.tieba.a.a aGe;
+    public HTypeListView aGe;
+    public com.baidu.tieba.a.a aGf;
     public int aqm;
-    private View ayL;
+    private View ayM;
     public View mRootView;
-    public TbPageContext oV;
+    public TbPageContext oW;
 
     public b(View view, TbPageContext tbPageContext) {
         super(view);
         this.aqm = 3;
         this.mRootView = view;
-        this.oV = tbPageContext;
-        this.aGd = (HTypeListView) view.findViewById(d.h.listview_story_pic);
-        this.ayL = view.findViewById(d.h.story_bottom_line);
-        this.aGd.setSelector(d.g.transparent_bg);
-        this.aGe = new com.baidu.tieba.a.a(this.oV, this.aGd);
+        this.oW = tbPageContext;
+        this.aGe = (HTypeListView) view.findViewById(d.h.listview_story_pic);
+        this.ayM = view.findViewById(d.h.story_bottom_line);
+        this.aGe.setSelector(d.g.transparent_bg);
+        this.aGf = new com.baidu.tieba.a.a(this.oW, this.aGe);
     }
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.aGe.a(eVar.Ct(), "0", "0");
+            this.aGf.a(eVar.Ct(), "0", "0");
         }
     }
 
     public void Eu() {
         if (this.aqm != TbadkCoreApplication.getInst().getSkinType()) {
             this.aqm = TbadkCoreApplication.getInst().getSkinType();
-            ai.k(this.aGd, d.e.cp_bg_line_d);
-            ai.k(this.ayL, d.e.cp_bg_line_c);
-            this.aGe.notifyDataSetChanged();
+            ai.k(this.aGe, d.e.cp_bg_line_d);
+            ai.k(this.ayM, d.e.cp_bg_line_c);
+            this.aGf.notifyDataSetChanged();
         }
     }
 }

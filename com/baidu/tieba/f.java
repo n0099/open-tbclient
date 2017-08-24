@@ -9,6 +9,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aj;
 import java.io.File;
 import java.io.FileInputStream;
+import java.security.Key;
 import java.security.PublicKey;
 /* loaded from: classes.dex */
 public class f {
@@ -23,12 +24,12 @@ public class f {
                 TiebaStatic.log(new aj("c10836").aa("obj_type", "publicKeyCode is null").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] hf = hf(str);
-            if (hf == null || hf.length <= 0) {
+            byte[] hi = hi(str);
+            if (hi == null || hi.length <= 0) {
                 TiebaStatic.log(new aj("c10836").aa("obj_type", "server_data is null").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] b = t.b(s, hf);
+            byte[] b = t.b((Key) s, hi);
             if (b == null || b.length <= 0) {
                 TiebaStatic.log(new aj("c10836").aa("obj_type", "des is null").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
@@ -63,7 +64,7 @@ public class f {
         return digit;
     }
 
-    public static byte[] hf(String str) {
+    public static byte[] hi(String str) {
         int i = 0;
         if (str == null) {
             throw new IllegalArgumentException("binary string is null");

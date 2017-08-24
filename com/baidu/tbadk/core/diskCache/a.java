@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
 public class a {
     private static boolean acN = false;
-    private static Handler qk = new Handler() { // from class: com.baidu.tbadk.core.diskCache.a.1
+    private static Handler ql = new Handler() { // from class: com.baidu.tbadk.core.diskCache.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
@@ -43,12 +43,12 @@ public class a {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                         if (!a.acN) {
-                            a.qk.sendEmptyMessageDelayed(1, 10000L);
+                            a.ql.sendEmptyMessageDelayed(1, 10000L);
                             return;
                         }
                         return;
                     }
-                    a.qk.removeMessages(1);
+                    a.ql.removeMessages(1);
                     a.stopService();
                 }
             }

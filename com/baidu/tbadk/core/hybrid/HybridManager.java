@@ -33,7 +33,7 @@ public class HybridManager {
     private HybridManager() {
     }
 
-    public static HybridManager tW() {
+    public static HybridManager tX() {
         if (adP == null) {
             synchronized (HybridManager.class) {
                 if (adP == null) {
@@ -45,19 +45,19 @@ public class HybridManager {
     }
 
     public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
-        InterceptType da = da(str);
-        if (da == null) {
+        InterceptType dd = dd(str);
+        if (dd == null) {
             return null;
         }
-        return a(webView, str, da);
+        return a(webView, str, dd);
     }
 
     private WebResourceResponse a(WebView webView, String str, InterceptType interceptType) {
         if (interceptType == InterceptType.NORMAL) {
-            if (j.cZ(str) || j.cY(str)) {
+            if (j.dc(str) || j.db(str)) {
                 return h(str, false);
             }
-            if (j.cX(str)) {
+            if (j.da(str)) {
                 return h(str, true);
             }
             return null;
@@ -68,14 +68,14 @@ public class HybridManager {
     }
 
     private WebResourceResponse h(String str, boolean z) {
-        String dc = s.dc(MimeTypeMap.getFileExtensionFromUrl(str));
-        if (TextUtils.isEmpty(dc)) {
-            dc = "text/html";
+        String df = s.df(MimeTypeMap.getFileExtensionFromUrl(str));
+        if (TextUtils.isEmpty(df)) {
+            df = "text/html";
         }
         try {
             com.baidu.tbadk.core.hybrid.b.b bVar = new com.baidu.tbadk.core.hybrid.b.b();
-            WebResourceResponse webResourceResponse = new WebResourceResponse(dc, "UTF-8", new com.baidu.tbadk.core.hybrid.b.a(bVar));
-            new a(str, bVar, z, dc).execute(new Void[0]);
+            WebResourceResponse webResourceResponse = new WebResourceResponse(df, "UTF-8", new com.baidu.tbadk.core.hybrid.b.a(bVar));
+            new a(str, bVar, z, df).execute(new Void[0]);
             return webResourceResponse;
         } catch (IOException e) {
             e.printStackTrace();
@@ -85,7 +85,7 @@ public class HybridManager {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:23:0x0053 -> B:24:0x0007). Please submit an issue!!! */
-    private InterceptType da(String str) {
+    private InterceptType dd(String str) {
         InterceptType interceptType = null;
         if (!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) {
             try {
@@ -132,11 +132,11 @@ public class HybridManager {
             v vVar;
             int responseCode;
             try {
-                CacheEntry di = com.baidu.tbadk.core.hybrid.cache.b.uq().di(this.url);
-                if (di != null) {
-                    byte[] o = o.o(di.getInputStream());
-                    this.adV = di.geteTag();
-                    if (di.isValidate(this.adV, o)) {
+                CacheEntry dl = com.baidu.tbadk.core.hybrid.cache.b.ur().dl(this.url);
+                if (dl != null) {
+                    byte[] o = o.o(dl.getInputStream());
+                    this.adV = dl.geteTag();
+                    if (dl.isValidate(this.adV, o)) {
                         this.adS.write(o, 0, o.length);
                         this.adS.flush();
                         this.adW = true;
@@ -148,11 +148,11 @@ public class HybridManager {
                 }
                 vVar = new v();
                 vVar.setUrl(this.url);
-                vVar.addHeader("Cookie", j.tV());
+                vVar.addHeader("Cookie", j.tW());
                 if (this.adW) {
                     vVar.addHeader("If-None-Match", this.adV);
                 }
-                this.data = vVar.uf();
+                this.data = vVar.ug();
                 responseCode = vVar.getResponseCode();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -167,13 +167,13 @@ public class HybridManager {
                     this.adS.write(this.data, 0, this.data.length);
                     this.adS.flush();
                 }
-                Map<String, List<String>> ue = vVar.ue();
-                if (ue != null) {
-                    List<String> list = ue.get("Cache-Offline");
+                Map<String, List<String>> uf = vVar.uf();
+                if (uf != null) {
+                    List<String> list = uf.get("Cache-Offline");
                     if (list != null && list.size() > 0 && list.get(0).equals("false")) {
                         return OperateCacheType.REMOVE;
                     }
-                    List<String> list2 = ue.get("ETag");
+                    List<String> list2 = uf.get("ETag");
                     if (list2 != null && list2.size() > 0) {
                         this.adU = list2.get(0);
                         if (StringUtils.isNull(this.adU)) {
@@ -219,10 +219,10 @@ public class HybridManager {
         public Void doInBackground(Void... voidArr) {
             switch (this.adZ) {
                 case REMOVE:
-                    com.baidu.tbadk.core.hybrid.cache.b.uq().dj(this.url);
+                    com.baidu.tbadk.core.hybrid.cache.b.ur().dm(this.url);
                     return null;
                 case SAVE:
-                    com.baidu.tbadk.core.hybrid.cache.b.uq().saveCache(this.url, this.eTag, false, this.data);
+                    com.baidu.tbadk.core.hybrid.cache.b.ur().saveCache(this.url, this.eTag, false, this.data);
                     return null;
                 default:
                     return null;

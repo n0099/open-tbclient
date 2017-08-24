@@ -13,7 +13,7 @@ public class c extends f {
     }
 
     public void a(String str, com.baidu.tieba.myCollection.baseHistory.a aVar) {
-        sm(str);
+        sr(str);
         try {
             Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.d(str, -1L));
             synchronized (this) {
@@ -25,7 +25,7 @@ public class c extends f {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.f
-    public void bdh() {
+    public void bdc() {
         int i;
         Long l;
         synchronized (this) {

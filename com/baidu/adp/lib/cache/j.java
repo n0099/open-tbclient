@@ -11,8 +11,8 @@ public class j<T> extends d<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.d
-    public g<T> W(String str) {
-        return this.vk.R(str);
+    public g<T> X(String str) {
+        return this.vk.S(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
@@ -21,27 +21,27 @@ public class j<T> extends d<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.d
-    public void X(String str) {
-        this.vk.S(str);
+    public void Y(String str) {
+        this.vk.T(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
-    protected void Y(String str) {
+    protected void Z(String str) {
         this.vk.c(str, true);
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public void aa(String str) {
-        this.vk.T(str);
+    public void ab(String str) {
+        this.vk.U(str);
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public void ab(final String str) {
+    public void ac(final String str) {
         if (this.uZ instanceof e.b) {
             com.baidu.adp.lib.g.h.gb().f(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.vk.V(str);
+                    j.this.vk.W(str);
                 }
             });
         }
@@ -49,7 +49,7 @@ public class j<T> extends d<T> {
             com.baidu.adp.lib.g.h.gb().f(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.vk.U(str);
+                    j.this.vk.V(str);
                 }
             });
         }

@@ -12,7 +12,7 @@ public class c {
     public String thumbnail;
     public int width;
 
-    public static c m(JSONObject jSONObject) {
+    public static c n(JSONObject jSONObject) {
         try {
             c cVar = new c();
             cVar.picId = jSONObject.optString(GraffitiVcodeActivityConfig.PIC_ID);

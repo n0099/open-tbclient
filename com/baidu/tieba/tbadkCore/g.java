@@ -47,11 +47,11 @@ import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class g implements com.baidu.tbadk.mvc.b.c {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private AntiData XO;
+    private AntiData XP;
     private AlaLiveNotify cwr;
     protected ar dGu;
-    protected ForumData eFF;
-    private UserData eFL;
+    protected ForumData eFH;
+    private UserData eFN;
     private String gameName;
     private NavTabInfo ghA;
     private List<FeedForumData> ghC;
@@ -108,13 +108,13 @@ public class g implements com.baidu.tbadk.mvc.b.c {
     }
 
     private void initData() {
-        this.eFF = new ForumData();
+        this.eFH = new ForumData();
         this.threadList = new ArrayList<>();
         this.ghP = new ArrayList();
         this.userMap = new HashMap<>();
         this.dGu = new ar();
         this.ghk = new h();
-        this.eFL = new UserData();
+        this.eFN = new UserData();
         this.ghn = new j();
         d(new AntiData());
         a(new b());
@@ -188,17 +188,17 @@ public class g implements com.baidu.tbadk.mvc.b.c {
                     }
                 }
                 this.ghn.a(dataRes.gcon_account);
-                this.eFF.parserProtobuf(dataRes.forum);
+                this.eFH.parserProtobuf(dataRes.forum);
                 long longValue = dataRes.forum != null ? dataRes.forum.id.longValue() : 0L;
                 this.ghj = dataRes.thread_id_list;
-                this.XO.parserProtobuf(dataRes.anti);
+                this.XP.parserProtobuf(dataRes.anti);
                 this.gho.a(dataRes.group);
                 this.dGu.a(dataRes.page);
                 this.ghk.a(dataRes.frs_star);
-                this.eFL.parserProtobuf(dataRes.user);
+                this.eFN.parserProtobuf(dataRes.user);
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
-                    currentAccountObj.setIsSelectTail(this.eFL.getIsSelectTail());
+                    currentAccountObj.setIsSelectTail(this.eFN.getIsSelectTail());
                 }
                 this.ghz = dataRes.frs_tab_info;
                 if (dataRes.nav_tab_info == null) {
@@ -275,16 +275,16 @@ public class g implements com.baidu.tbadk.mvc.b.c {
                     this.ghL.bW(this.ght);
                     this.ghL.setUserMap(this.userMap);
                     this.ghL.a(dataRes.card_shipin_info.get(0));
-                    this.ghL.sn();
+                    this.ghL.so();
                     if (this.ghL.getFid() == 0 && longValue != 0) {
                         this.ghL.setFid(longValue);
                     }
                     this.ghL.i(this.ghw);
-                    this.ghL.ao(!this.ghL.rm());
+                    this.ghL.ao(!this.ghL.rn());
                     if (this.ghL.getAuthor() != null && this.ghL.getAuthor().getPendantData() == null && (metaData = this.userMap.get(this.ghL.getAuthor().getUserId())) != null && metaData.getPendantData() != null) {
                         com.baidu.tbadk.data.j jVar = new com.baidu.tbadk.data.j();
                         jVar.Q(metaData.getPendantData().CB());
-                        jVar.cH(metaData.getPendantData().pV());
+                        jVar.cK(metaData.getPendantData().pW());
                         this.ghL.getAuthor().setPendantData(jVar);
                     }
                 }
@@ -303,7 +303,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.ghi = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.biO().rj(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.biJ().ro(dataRes.asp_shown_info);
                 this.ghS = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i5 = 0; i5 < dataRes.card_shipin_new.size(); i5++) {
@@ -343,7 +343,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         }
     }
 
-    public List<com.baidu.adp.widget.ListView.f> brf() {
+    public List<com.baidu.adp.widget.ListView.f> bqY() {
         return this.ghY;
     }
 
@@ -351,7 +351,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghY = list;
     }
 
-    public AgreeBanner brg() {
+    public AgreeBanner bqZ() {
         return this.ghX;
     }
 
@@ -379,24 +379,24 @@ public class g implements com.baidu.tbadk.mvc.b.c {
                 blVar.setUserMap(this.userMap);
                 blVar.a(list.get(i));
                 blVar.bX(3);
-                blVar.sn();
+                blVar.so();
                 if (blVar.getFid() == 0 && j != 0) {
                     blVar.setFid(j);
                 }
-                if (StringUtils.isNull(blVar.rK())) {
-                    blVar.cJ(this.eFF.getName());
+                if (StringUtils.isNull(blVar.rL())) {
+                    blVar.cM(this.eFH.getName());
                 }
                 blVar.i(this.ghw);
-                if (blVar.getThreadType() == 33 && !blVar.sg()) {
+                if (blVar.getThreadType() == 33 && !blVar.sh()) {
                     ax axVar = new ax();
                     axVar.a(blVar, 0);
-                    axVar.r(brt());
+                    axVar.r(brm());
                     if (appResponseToIntentClass) {
                         this.threadList.add(axVar);
                     }
-                } else if (!TextUtils.isEmpty(blVar.sA())) {
+                } else if (!TextUtils.isEmpty(blVar.sB())) {
                     ah ahVar = new ah();
-                    ahVar.cE(blVar.sA());
+                    ahVar.cH(blVar.sB());
                     this.threadList.add(ahVar);
                 } else {
                     this.threadList.add(blVar);
@@ -405,7 +405,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         }
     }
 
-    public int brh() {
+    public int bra() {
         return this.alaLiveCount;
     }
 
@@ -429,18 +429,18 @@ public class g implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void n(JSONObject jSONObject) {
+    public void o(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
     public void a(Message message) {
     }
 
-    public ForumData aPO() {
-        return this.eFF;
+    public ForumData aPJ() {
+        return this.eFH;
     }
 
-    public int bri() {
+    public int brb() {
         return this.ghQ;
     }
 
@@ -448,7 +448,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghQ = i;
     }
 
-    public int brj() {
+    public int brc() {
         return this.ghR;
     }
 
@@ -457,7 +457,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
     }
 
     public void c(ForumData forumData) {
-        this.eFF = forumData;
+        this.eFH = forumData;
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.f> getThreadList() {
@@ -468,15 +468,15 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.threadList = arrayList;
     }
 
-    public AntiData qr() {
-        return this.XO;
+    public AntiData qs() {
+        return this.XP;
     }
 
     public void d(AntiData antiData) {
-        this.XO = antiData;
+        this.XP = antiData;
     }
 
-    public ar qH() {
+    public ar qI() {
         return this.dGu;
     }
 
@@ -484,7 +484,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.dGu = arVar;
     }
 
-    public h brk() {
+    public h brd() {
         return this.ghk;
     }
 
@@ -492,7 +492,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghk = hVar;
     }
 
-    public com.baidu.tbadk.core.data.r brl() {
+    public com.baidu.tbadk.core.data.r bre() {
         return this.ghy;
     }
 
@@ -500,7 +500,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghy = rVar;
     }
 
-    public boolean brm() {
+    public boolean brf() {
         return this.ghl;
     }
 
@@ -508,15 +508,15 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghl = z;
     }
 
-    public String brn() {
+    public String brg() {
         return this.ghm;
     }
 
-    public void rR(String str) {
+    public void rW(String str) {
         this.ghm = str;
     }
 
-    public j bro() {
+    public j brh() {
         return this.ghn;
     }
 
@@ -525,14 +525,14 @@ public class g implements com.baidu.tbadk.mvc.b.c {
     }
 
     public UserData getUserData() {
-        return this.eFL;
+        return this.eFN;
     }
 
     public void setUserData(UserData userData) {
-        this.eFL = userData;
+        this.eFN = userData;
     }
 
-    public List<Long> brp() {
+    public List<Long> bri() {
         return this.ghj;
     }
 
@@ -540,7 +540,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghj = list;
     }
 
-    public b brq() {
+    public b brj() {
         return this.gho;
     }
 
@@ -548,7 +548,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.gho = bVar;
     }
 
-    public boolean brr() {
+    public boolean brk() {
         return this.ghp;
     }
 
@@ -564,7 +564,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.gameName = str;
     }
 
-    public List<e> brs() {
+    public List<e> brl() {
         return this.ghq;
     }
 
@@ -580,7 +580,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.userMap = hashMap;
     }
 
-    public int aQc() {
+    public int aPX() {
         return this.ghr;
     }
 
@@ -588,19 +588,19 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghr = i;
     }
 
-    public List<PhotoLiveCardData> brt() {
+    public List<PhotoLiveCardData> brm() {
         return this.ghs;
     }
 
-    public String bru() {
+    public String brn() {
         return this.ghv;
     }
 
-    public void rS(String str) {
+    public void rX(String str) {
         this.ghv = str;
     }
 
-    public List<FrsTabInfo> brv() {
+    public List<FrsTabInfo> bro() {
         return this.ghz;
     }
 
@@ -609,15 +609,15 @@ public class g implements com.baidu.tbadk.mvc.b.c {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public void m12do(List<PhotoLiveCardData> list) {
+    public void m13do(List<PhotoLiveCardData> list) {
         this.ghs = list;
     }
 
-    public boolean brw() {
+    public boolean brp() {
         return this.ghu != null;
     }
 
-    public PhotoLiveCardData brx() {
+    public PhotoLiveCardData brq() {
         return this.ghu;
     }
 
@@ -625,7 +625,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghu = photoLiveCardData;
     }
 
-    public z bry() {
+    public z brr() {
         return this.ghx;
     }
 
@@ -633,7 +633,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghx = zVar;
     }
 
-    public int brz() {
+    public int brs() {
         return this.ght;
     }
 
@@ -641,7 +641,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ght = i;
     }
 
-    public List<FeedForumData> brA() {
+    public List<FeedForumData> brt() {
         return this.ghC;
     }
 
@@ -649,7 +649,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghC = list;
     }
 
-    public void rT(String str) {
+    public void rY(String str) {
         if (this.ghC != null && str != null) {
             for (FeedForumData feedForumData : this.ghC) {
                 if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(str)) {
@@ -660,7 +660,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         }
     }
 
-    public List<CategoryInfo> brB() {
+    public List<CategoryInfo> bru() {
         return this.ghD;
     }
 
@@ -668,15 +668,15 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghD = list;
     }
 
-    public void rU(String str) {
+    public void rZ(String str) {
         this.ghE = str;
     }
 
-    public String brC() {
+    public String brv() {
         return this.ghE;
     }
 
-    public bl brD() {
+    public bl brw() {
         return this.ghL;
     }
 
@@ -684,7 +684,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghL = blVar;
     }
 
-    public int brE() {
+    public int brx() {
         return this.ghB;
     }
 
@@ -692,7 +692,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghB = i;
     }
 
-    public y brF() {
+    public y bry() {
         return this.ghF;
     }
 
@@ -700,7 +700,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghF = yVar;
     }
 
-    public com.baidu.tbadk.core.data.s brG() {
+    public com.baidu.tbadk.core.data.s brz() {
         return this.ghH;
     }
 
@@ -708,7 +708,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghH = sVar;
     }
 
-    public com.baidu.tbadk.core.data.u brH() {
+    public com.baidu.tbadk.core.data.u brA() {
         return this.ghK;
     }
 
@@ -716,7 +716,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghK = uVar;
     }
 
-    public int brI() {
+    public int brB() {
         return this.ghN;
     }
 
@@ -724,7 +724,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghN = i;
     }
 
-    public ba brJ() {
+    public ba brC() {
         return this.ghM;
     }
 
@@ -732,7 +732,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghM = baVar;
     }
 
-    public NavTabInfo brK() {
+    public NavTabInfo brD() {
         return this.ghA;
     }
 
@@ -740,7 +740,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghA = navTabInfo;
     }
 
-    public com.baidu.tbadk.core.data.m brL() {
+    public com.baidu.tbadk.core.data.m brE() {
         return this.ghO;
     }
 
@@ -748,7 +748,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghO = mVar;
     }
 
-    public Integer brM() {
+    public Integer brF() {
         return this.ghI;
     }
 
@@ -756,7 +756,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghI = num;
     }
 
-    public List<Integer> brN() {
+    public List<Integer> brG() {
         return this.ghS;
     }
 
@@ -764,7 +764,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghS = list;
     }
 
-    public List<com.baidu.adp.widget.ListView.f> brO() {
+    public List<com.baidu.adp.widget.ListView.f> brH() {
         return this.ghT;
     }
 
@@ -776,7 +776,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         return this.isShowDriftingBottle;
     }
 
-    public long brP() {
+    public long brI() {
         return this.ghU;
     }
 
@@ -788,7 +788,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghU = j;
     }
 
-    public com.baidu.tieba.g.b brQ() {
+    public com.baidu.tieba.g.b brJ() {
         return this.ghW;
     }
 
@@ -796,7 +796,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.ghW = bVar;
     }
 
-    public AlaLiveNotify brR() {
+    public AlaLiveNotify brK() {
         return this.cwr;
     }
 
@@ -804,7 +804,7 @@ public class g implements com.baidu.tbadk.mvc.b.c {
         this.cwr = alaLiveNotify;
     }
 
-    public List<FrsTabInfo> brS() {
+    public List<FrsTabInfo> brL() {
         return this.ghZ;
     }
 

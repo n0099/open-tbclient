@@ -45,17 +45,17 @@ public class b extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wu() {
+    public boolean wv() {
         return this.ajN;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean wv() {
+    public boolean ww() {
         return this.ajM;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int ww() {
+    public int wx() {
         return this.procType;
     }
 }

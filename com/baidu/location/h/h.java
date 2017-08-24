@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 /* loaded from: classes.dex */
 public final class h {
-    private static volatile h QP = null;
+    private static volatile h QO = null;
     public static String a = nv().b() + "/baidu/tempdata";
     private final List<g> b = new ArrayList();
     private Context d;
@@ -45,58 +45,6 @@ public final class h {
             return z;
         }
         return z;
-    }
-
-    private List<g> d() {
-        boolean z;
-        try {
-            StorageManager storageManager = (StorageManager) this.d.getSystemService("storage");
-            Method method = storageManager.getClass().getMethod("getVolumeList", new Class[0]);
-            Method method2 = storageManager.getClass().getMethod("getVolumeState", String.class);
-            Class<?> cls = Class.forName("android.os.storage.StorageVolume");
-            Method method3 = cls.getMethod("isRemovable", new Class[0]);
-            Method method4 = cls.getMethod("getPath", new Class[0]);
-            Object[] objArr = (Object[]) method.invoke(storageManager, new Object[0]);
-            if (objArr != null) {
-                for (Object obj : objArr) {
-                    String str = (String) method4.invoke(obj, new Object[0]);
-                    if (str != null && str.length() > 0 && "mounted".equals(method2.invoke(storageManager, str))) {
-                        boolean z2 = !((Boolean) method3.invoke(obj, new Object[0])).booleanValue();
-                        if (Build.VERSION.SDK_INT <= 19 && a(str)) {
-                            this.b.add(new g(str, !z2, z2 ? "Internal Storage" : "External Storage"));
-                        }
-                    }
-                }
-                if (Build.VERSION.SDK_INT >= 19) {
-                    File[] externalFilesDirs = this.d.getExternalFilesDirs(null);
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.addAll(this.b);
-                    for (int i = 0; i < externalFilesDirs.length && externalFilesDirs[i] != null; i++) {
-                        String absolutePath = externalFilesDirs[i].getAbsolutePath();
-                        Iterator<g> it = this.b.iterator();
-                        while (true) {
-                            if (it.hasNext()) {
-                                if (absolutePath.startsWith(it.next().a())) {
-                                    z = true;
-                                    break;
-                                }
-                            } else {
-                                z = false;
-                                break;
-                            }
-                        }
-                        if (!z && absolutePath.indexOf(this.d.getPackageName()) != -1) {
-                            arrayList.add(new g(absolutePath, true, "External Storage"));
-                        }
-                    }
-                    this.b.clear();
-                    this.b.addAll(arrayList);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return this.b;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:42:0x00b5  */
@@ -194,14 +142,66 @@ public final class h {
     }
 
     public static h nv() {
-        if (QP == null) {
+        if (QO == null) {
             synchronized (h.class) {
-                if (QP == null) {
-                    QP = new h(com.baidu.location.f.getServiceContext());
+                if (QO == null) {
+                    QO = new h(com.baidu.location.f.getServiceContext());
                 }
             }
         }
-        return QP;
+        return QO;
+    }
+
+    private List<g> nw() {
+        boolean z;
+        try {
+            StorageManager storageManager = (StorageManager) this.d.getSystemService("storage");
+            Method method = storageManager.getClass().getMethod("getVolumeList", new Class[0]);
+            Method method2 = storageManager.getClass().getMethod("getVolumeState", String.class);
+            Class<?> cls = Class.forName("android.os.storage.StorageVolume");
+            Method method3 = cls.getMethod("isRemovable", new Class[0]);
+            Method method4 = cls.getMethod("getPath", new Class[0]);
+            Object[] objArr = (Object[]) method.invoke(storageManager, new Object[0]);
+            if (objArr != null) {
+                for (Object obj : objArr) {
+                    String str = (String) method4.invoke(obj, new Object[0]);
+                    if (str != null && str.length() > 0 && "mounted".equals(method2.invoke(storageManager, str))) {
+                        boolean z2 = !((Boolean) method3.invoke(obj, new Object[0])).booleanValue();
+                        if (Build.VERSION.SDK_INT <= 19 && a(str)) {
+                            this.b.add(new g(str, !z2, z2 ? "Internal Storage" : "External Storage"));
+                        }
+                    }
+                }
+                if (Build.VERSION.SDK_INT >= 19) {
+                    File[] externalFilesDirs = this.d.getExternalFilesDirs(null);
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.addAll(this.b);
+                    for (int i = 0; i < externalFilesDirs.length && externalFilesDirs[i] != null; i++) {
+                        String absolutePath = externalFilesDirs[i].getAbsolutePath();
+                        Iterator<g> it = this.b.iterator();
+                        while (true) {
+                            if (it.hasNext()) {
+                                if (absolutePath.startsWith(it.next().a())) {
+                                    z = true;
+                                    break;
+                                }
+                            } else {
+                                z = false;
+                                break;
+                            }
+                        }
+                        if (!z && absolutePath.indexOf(this.d.getPackageName()) != -1) {
+                            arrayList.add(new g(absolutePath, true, "External Storage"));
+                        }
+                    }
+                    this.b.clear();
+                    this.b.addAll(arrayList);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return this.b;
     }
 
     public String b() {
@@ -213,7 +213,7 @@ public final class h {
     }
 
     public List<g> c() {
-        List<g> d = Build.VERSION.SDK_INT >= 14 ? d() : null;
-        return (d == null || d.size() <= 0) ? e() : d;
+        List<g> nw = Build.VERSION.SDK_INT >= 14 ? nw() : null;
+        return (nw == null || nw.size() <= 0) ? e() : nw;
     }
 }

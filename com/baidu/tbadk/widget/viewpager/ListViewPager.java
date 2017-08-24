@@ -9,9 +9,9 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.d;
 /* loaded from: classes.dex */
 public class ListViewPager extends ViewPager {
-    private float aOJ;
+    private float aOK;
     private float aSA;
-    private float aSy;
+    private float aSB;
     private float aSz;
     private boolean alh;
     private d.c alj;
@@ -42,7 +42,7 @@ public class ListViewPager extends ViewPager {
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             if (ListViewPager.this.alj != null) {
-                ListViewPager.this.alj.lz();
+                ListViewPager.this.alj.ly();
             }
             return Math.abs(f) > Math.abs(f2);
         }
@@ -90,30 +90,30 @@ public class ListViewPager extends ViewPager {
             case 5:
             case 6:
                 if (this.alj != null) {
-                    this.alj.lz();
+                    this.alj.ly();
                 }
-                this.aOJ = motionEvent.getX();
-                this.aSy = motionEvent.getY();
+                this.aOK = motionEvent.getX();
+                this.aSz = motionEvent.getY();
                 break;
             case 1:
             case 3:
                 if (this.alj != null) {
-                    this.alj.lz();
+                    this.alj.ly();
                 }
-                this.aOJ = 0.0f;
-                this.aSy = 0.0f;
+                this.aOK = 0.0f;
                 this.aSz = 0.0f;
                 this.aSA = 0.0f;
+                this.aSB = 0.0f;
                 break;
             case 2:
                 if (this.alj != null) {
-                    this.alj.lz();
+                    this.alj.ly();
                 }
-                this.aSz = motionEvent.getX() - this.aOJ;
-                this.aSA = motionEvent.getY() - this.aSy;
-                this.aOJ = motionEvent.getX();
-                this.aSy = motionEvent.getY();
-                if (getCurrentItem() != 0 && Math.abs(this.aSz) > Math.abs(this.aSA)) {
+                this.aSA = motionEvent.getX() - this.aOK;
+                this.aSB = motionEvent.getY() - this.aSz;
+                this.aOK = motionEvent.getX();
+                this.aSz = motionEvent.getY();
+                if (getCurrentItem() != 0 && Math.abs(this.aSA) > Math.abs(this.aSB)) {
                     aS(true);
                     break;
                 }

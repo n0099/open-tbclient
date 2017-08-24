@@ -15,7 +15,7 @@ public interface b {
 
     void a(boolean z, d dVar, f fVar, com.baidu.tieba.frs.i iVar, i iVar2);
 
-    void ak(View view);
+    void aj(View view);
 
     boolean iR(int i);
 }

@@ -90,11 +90,11 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void wA() {
-        if (!this.aOo) {
-            this.aOo = true;
-        } else if (this.aOt != null && this.aOt.aKa) {
-            this.aOt.Gs();
+    public void wB() {
+        if (!this.aOp) {
+            this.aOp = true;
+        } else if (this.aOu != null && this.aOu.aKb) {
+            this.aOu.Gs();
         }
     }
 
@@ -107,7 +107,7 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
                 paint.setColor(this.akI);
                 canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, getWidth() / 2.0f, paint);
             }
-            e(canvas);
+            g(canvas);
             if (this.akG && !this.isBigV) {
                 Drawable drawable = this.akJ == null ? ai.getDrawable(d.g.pic_home_shen_avatar) : this.akJ;
                 if (drawable != null) {
@@ -176,7 +176,7 @@ public class HeadImageView extends com.baidu.tbadk.widget.b {
         this.akH = z;
     }
 
-    public void e(Canvas canvas) {
+    public void g(Canvas canvas) {
         Drawable drawable;
         if (this.akH && (drawable = ai.getDrawable(d.g.pic_v_avatar)) != null) {
             int width = getWidth();

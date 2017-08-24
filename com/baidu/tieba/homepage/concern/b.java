@@ -29,7 +29,7 @@ public class b extends BaseFragment implements ah {
     @SuppressLint({"ValidFragment"})
     public b(Context context) {
         this.cRK = new c(context);
-        this.cRK.aov();
+        this.cRK.aop();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -42,7 +42,7 @@ public class b extends BaseFragment implements ah {
         }
         this.cRK.setPageUniqueId(getUniqueId());
         if (this.cRM) {
-            this.cRK.aov();
+            this.cRK.aop();
             this.cRM = false;
         }
         return this.cRK;
@@ -109,14 +109,14 @@ public class b extends BaseFragment implements ah {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.cRK.aoz();
+            this.cRK.aot();
             return;
         }
-        this.cRK.aoA();
+        this.cRK.aou();
         completePullRefresh();
     }
 
-    public void aot() {
+    public void aon() {
         this.cRK.setViewForeground(true);
     }
 
@@ -139,9 +139,9 @@ public class b extends BaseFragment implements ah {
         }
     }
 
-    public void aou() {
+    public void aoo() {
         if (this.cRK != null) {
-            this.cRK.aox();
+            this.cRK.aor();
         }
     }
 
@@ -150,16 +150,16 @@ public class b extends BaseFragment implements ah {
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void afR() {
+    public void afL() {
         this.cRK.reload();
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void afC() {
+    public void afw() {
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void afD() {
+    public void afx() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a
@@ -182,7 +182,7 @@ public class b extends BaseFragment implements ah {
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public ForumWriteData afS() {
+    public ForumWriteData afM() {
         return null;
     }
 

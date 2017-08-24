@@ -27,15 +27,15 @@ public class c extends com.baidu.adp.widget.ListView.a<TransmitForumData, a> {
                 if (fVar instanceof TransmitForumData) {
                     CheckBox checkBox = (CheckBox) view.findViewById(d.h.transmit_check_box);
                     boolean isChecked = checkBox.isChecked();
-                    boolean bzo = c.this.gEL != null ? c.this.gEL.bzo() : false;
-                    if (!isChecked && bzo) {
-                        c.this.gEL.bzp();
+                    boolean bzg = c.this.gEL != null ? c.this.gEL.bzg() : false;
+                    if (!isChecked && bzg) {
+                        c.this.gEL.bzh();
                     }
-                    if (isChecked || !bzo) {
+                    if (isChecked || !bzg) {
                         checkBox.setChecked(checkBox.isChecked() ? false : true);
-                        ((TransmitForumData) fVar).abk = checkBox.isChecked();
+                        ((TransmitForumData) fVar).checked = checkBox.isChecked();
                         if (c.this.gEL != null) {
-                            c.this.gEL.bzq();
+                            c.this.gEL.bzi();
                         }
                     }
                 }
@@ -57,20 +57,20 @@ public class c extends com.baidu.adp.widget.ListView.a<TransmitForumData, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, a aVar) {
-        aVar.bGh.setText(transmitForumData.forumName);
-        aVar.gEz.setChecked(transmitForumData.abk);
-        ai.i(aVar.bGh, d.e.cp_cont_b);
+        aVar.bGi.setText(transmitForumData.forumName);
+        aVar.gEz.setChecked(transmitForumData.checked);
+        ai.i(aVar.bGi, d.e.cp_cont_b);
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a extends j.a {
-        public TextView bGh;
+        public TextView bGi;
         public CheckBox gEz;
 
         public a(View view) {
             super(view);
-            this.bGh = (TextView) view.findViewById(d.h.transmit_forum_name);
+            this.bGi = (TextView) view.findViewById(d.h.transmit_forum_name);
             this.gEz = (CheckBox) view.findViewById(d.h.transmit_check_box);
             this.gEz.setButtonDrawable(ai.getDrawable(d.g.transmit_check_box));
         }

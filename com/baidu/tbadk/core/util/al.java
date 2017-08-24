@@ -62,7 +62,7 @@ public class al extends com.baidu.adp.lib.util.j {
         return i5 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
     }
 
-    public static String vN() {
+    public static String vO() {
         String format;
         Date date = new Date();
         synchronized (AA) {
@@ -96,7 +96,7 @@ public class al extends com.baidu.adp.lib.util.j {
         }
     }
 
-    public static int vO() {
+    public static int vP() {
         Calendar calendar = Calendar.getInstance();
         return calendar.get(5) + 0 + (calendar.get(1) * 10000) + ((calendar.get(2) + 1) * 100);
     }
@@ -622,7 +622,7 @@ public class al extends com.baidu.adp.lib.util.j {
         return new SimpleDateFormat(str).format(date);
     }
 
-    public static String dX(String str) {
+    public static String eb(String str) {
         return isEmpty(str) ? "" : "\u202d" + str + "\u202c";
     }
 
@@ -630,11 +630,11 @@ public class al extends com.baidu.adp.lib.util.j {
         return spannableStringBuilder == null ? new SpannableStringBuilder("") : new SpannableStringBuilder("\u202d").append((CharSequence) spannableStringBuilder).append((CharSequence) "\u202c");
     }
 
-    public static String vP() {
+    public static String vQ() {
         return "-∞";
     }
 
-    public static String c(String str, int i, String str2) {
+    public static String d(String str, int i, String str2) {
         if (str != null && i >= 0 && str.length() > i) {
             StringBuilder sb = new StringBuilder();
             sb.append(str.substring(0, i));
@@ -668,10 +668,10 @@ public class al extends com.baidu.adp.lib.util.j {
 
     @Deprecated
     public static String t(String str, int i) {
-        return (str == null || i < 0 || str.length() == i) ? str : c(str, i - 1, "...");
+        return (str == null || i < 0 || str.length() == i) ? str : d(str, i - 1, "...");
     }
 
-    public static String d(String str, int i, String str2) {
+    public static String e(String str, int i, String str2) {
         if (str == null || i <= 0) {
             return String.valueOf("");
         }
@@ -720,7 +720,7 @@ public class al extends com.baidu.adp.lib.util.j {
         return sb.toString();
     }
 
-    public static int dY(String str) {
+    public static int ec(String str) {
         int i = 0;
         if (str != null) {
             int length = str.length();
@@ -735,7 +735,7 @@ public class al extends com.baidu.adp.lib.util.j {
         return i;
     }
 
-    public static String e(String str, int i, String str2) {
+    public static String f(String str, int i, String str2) {
         if (str == null || i <= 0) {
             return String.valueOf("");
         }
@@ -769,7 +769,7 @@ public class al extends com.baidu.adp.lib.util.j {
         return ((float) j) >= aic ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(((float) j) / aic)) : ((float) j) >= aid / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(((float) j) / aid)) : TbadkCoreApplication.getInst().getString(d.l.less_than_zero_dot_one_k);
     }
 
-    public static int dZ(String str) {
+    public static int ed(String str) {
         int i = 0;
         if (str != null && str.length() > 0) {
             int length = str.length();
@@ -928,7 +928,7 @@ public class al extends com.baidu.adp.lib.util.j {
         }
     }
 
-    public static String ea(String str) {
+    public static String ee(String str) {
         return str != null ? str.trim() : "";
     }
 

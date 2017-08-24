@@ -50,16 +50,16 @@ public class c {
     }
 
     public void e(String str, int i) {
-        a aq = aq(f(str, i));
-        if (aq != null) {
-            aq.cancel();
+        a ar = ar(f(str, i));
+        if (ar != null) {
+            ar.cancel();
         }
     }
 
     public <T> void a(String str, int i, b<T> bVar) {
-        a<T> aq = aq(f(str, i));
-        if (aq != null) {
-            aq.a(bVar);
+        a<T> ar = ar(f(str, i));
+        if (ar != null) {
+            ar.a(bVar);
         }
     }
 
@@ -156,9 +156,9 @@ public class c {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        a<T> aq = aq(f);
-        if (aq != null && aq.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-            aq.a(bVar, bdUniqueId);
+        a<T> ar = ar(f);
+        if (ar != null && ar.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+            ar.a(bVar, bdUniqueId);
         } else {
             boolean hs = i.hs();
             boolean hu = i.hu();
@@ -385,7 +385,7 @@ public class c {
         }
     }
 
-    private <T> a<T> aq(String str) {
+    private <T> a<T> ar(String str) {
         BdAsyncTask<?, ?, ?> searchTask;
         if (!TextUtils.isEmpty(str) && (searchTask = BdAsyncTask.searchTask(str)) != null) {
             if (!(searchTask instanceof a)) {

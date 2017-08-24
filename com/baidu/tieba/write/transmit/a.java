@@ -1,9 +1,9 @@
 package com.baidu.tieba.write.transmit;
 /* loaded from: classes.dex */
 public interface a {
-    boolean bzo();
+    boolean bzg();
 
-    void bzp();
+    void bzh();
 
-    void bzq();
+    void bzi();
 }

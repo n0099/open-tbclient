@@ -190,7 +190,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
 
     public void init(Context context) {
         al(context);
-        mb();
+        ma();
         this.Mq[0] = ai.getColor(d.e.common_color_10151);
         this.Mq[1] = ai.getColor(d.e.common_color_10152);
         VoiceManager voiceManager = getVoiceManager();
@@ -260,22 +260,22 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        d(canvas);
+        f(canvas);
         super.dispatchDraw(canvas);
     }
 
-    private void lV() {
+    private void lU() {
         final com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
         if (this.Mn == null) {
             this.Mn = new com.baidu.tbadk.core.dialog.a(com.baidu.adp.base.i.aa(getContext()).getPageActivity());
-            this.Mn.cT(getContext().getString(d.l.voice_restart_tip)).a(getContext().getString(d.l.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.g.2
+            this.Mn.cW(getContext().getString(d.l.voice_restart_tip)).a(getContext().getString(d.l.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.g.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    g.this.lX();
+                    g.this.lW();
                     if (g.this.getVoiceManager() != null && g.this.mModel != null) {
                         if (recorderManager != null) {
-                            recorderManager.bM(g.this.mModel.voiceId);
+                            recorderManager.bN(g.this.mModel.voiceId);
                         }
                         g.this.mModel = null;
                     }
@@ -288,11 +288,11 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
             }).b(com.baidu.adp.base.i.aa(getContext()));
         }
         try {
-            this.Mn.tr();
+            this.Mn.ts();
         } catch (Exception e) {
             if (getVoiceManager() != null && this.mModel != null) {
                 if (recorderManager != null) {
-                    recorderManager.bM(this.mModel.voiceId);
+                    recorderManager.bN(this.mModel.voiceId);
                 }
                 this.mModel = null;
             }
@@ -314,10 +314,10 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
         this.Md.setOnClickListener(this);
         this.Mi.setOnClickListener(this);
         this.Mh.setRecorderView(this);
-        lX();
+        lW();
     }
 
-    private void lW() {
+    private void lV() {
         this.Mh.setVisibility(4);
         this.Mj.setVisibility(0);
         this.Md.setVisibility(0);
@@ -335,7 +335,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lX() {
+    public void lW() {
         ai.c(this.Mh, d.g.but_posts_record_zero_selector);
         this.Mh.setVisibility(0);
         this.LF = 0;
@@ -348,7 +348,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     }
 
     public void reset() {
-        lX();
+        lW();
         this.mModel = null;
         this.LF = 0;
     }
@@ -358,7 +358,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
         this.Me.setText("");
         this.Me.setVisibility(4);
         this.LF = 0;
-        lW();
+        lV();
         b(new com.baidu.tbadk.editortools.a(10, -1, voiceModel));
         b(new com.baidu.tbadk.editortools.a(2, 6, " "));
     }
@@ -366,7 +366,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     @Override // com.baidu.adp.lib.voice.f
     public void onStartedRecorder(boolean z) {
         if (z) {
-            lX();
+            lW();
             this.Mf.setText(getContext().getString(d.l.voice_record_release_to_stop));
         }
     }
@@ -389,7 +389,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
                     ai.c(this.Mi, d.g.but_posts_record_play_selector);
                     this.Mi.setContentDescription(String.format(getContext().getString(d.l.listen_time), Integer.valueOf(voiceModel.duration)));
                     this.Mf.setText(getContext().getString(d.l.voice_play_tip));
-                    lZ();
+                    lY();
                     return;
                 case 2:
                 default:
@@ -399,7 +399,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
                     ai.c(this.Mi, d.g.but_posts_record_stop_selector);
                     this.Mi.setContentDescription(getContext().getString(d.l.pause));
                     this.Mf.setText(getContext().getString(d.l.voice_stop_tip));
-                    lY();
+                    lX();
                     return;
             }
         }
@@ -449,7 +449,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
                     }
                 }, 2000L);
             } else {
-                lX();
+                lW();
                 this.Me.setVisibility(0);
                 this.Me.setText(str);
                 postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.g.6
@@ -527,7 +527,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
         }
     }
 
-    private void lY() {
+    private void lX() {
         if (this.mModel != null) {
             this.LF = 0;
             this.Mk = 360.0f / (this.mModel.duration2 > 0 ? this.mModel.duration2 / 1000.0f : this.mModel.duration);
@@ -538,7 +538,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
         }
     }
 
-    private void lZ() {
+    private void lY() {
         this.LF = 0;
         this.LG = 0;
         this.Mk = 0.0f;
@@ -570,7 +570,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
             int id = view.getId();
             if (id == d.h.restart) {
                 voiceManager.stopPlay();
-                lV();
+                lU();
             } else if (id == d.h.play_img && this.mModel != null) {
                 if (this.mModel.voice_status.intValue() == 3) {
                     voiceManager.stopPlay();
@@ -617,10 +617,10 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
-    public void ma() {
+    public void lZ() {
     }
 
-    public void mb() {
+    public void ma() {
         this.LN = new Paint();
         this.LN.setAntiAlias(true);
         this.LN.setStyle(Paint.Style.STROKE);
@@ -639,7 +639,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
         this.LQ.setStrokeWidth(2.0f);
     }
 
-    public void d(Canvas canvas) {
+    public void f(Canvas canvas) {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
             this.LN.setColor(this.LV);
             this.LO.setColor(this.LW);
@@ -677,7 +677,7 @@ public class g extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     }
 
     @Override // com.baidu.tbadk.editortools.s
-    public void lT() {
+    public void lS() {
         setVisibility(0);
     }
 

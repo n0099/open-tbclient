@@ -35,7 +35,7 @@ public class e {
             }
         } else if (!i.hr()) {
             tbPageContext.showToast(d.l.neterror);
-        } else if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.kb().kc() != null && (pluginConfig = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.kb().kc().getPluginConfig(XiaoyingUtil.PKG_NAME_VIDEO)) != null) {
+        } else if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ka().kb() != null && (pluginConfig = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ka().kb().getPluginConfig(XiaoyingUtil.PKG_NAME_VIDEO)) != null) {
             float f = (pluginConfig.newest == null || pluginConfig.newest.size <= 0) ? 0.0f : pluginConfig.newest.size / 1048576.0f;
             String string = tbPageContext.getPageActivity().getString(d.l.plugin_imme_install);
             String string2 = tbPageContext.getPageActivity().getString(d.l.plugin_video_install_tips_wifi);
@@ -48,7 +48,7 @@ public class e {
                 str5 = string;
             }
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.cT(str4);
+            aVar.cW(str4);
             aVar.a(str5, new a.b() { // from class: com.baidu.tieba.write.e.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -58,7 +58,7 @@ public class e {
                         a unused = e.gBy = new a();
                     }
                     e.gBy.d(TbPageContext.this, e.mForumId, e.mForumName);
-                    if (PluginPackageManager.jE().bu(XiaoyingUtil.PKG_NAME_VIDEO)) {
+                    if (PluginPackageManager.jE().bv(XiaoyingUtil.PKG_NAME_VIDEO)) {
                         PluginPackageManager.jE().a(e.gBy);
                     } else {
                         PluginPackageManager.jE().a(pluginConfig, e.gBy);
@@ -71,7 +71,7 @@ public class e {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(tbPageContext).tr();
+            aVar.b(tbPageContext).ts();
         }
     }
 

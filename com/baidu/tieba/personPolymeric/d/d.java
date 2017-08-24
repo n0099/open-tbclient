@@ -8,18 +8,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.e> {
-    private TextView fmL;
     private TextView fmN;
-    private TbImageView fna;
-    private com.baidu.tieba.personPolymeric.c.e fnb;
+    private TextView fmP;
+    private TbImageView fnc;
+    private com.baidu.tieba.personPolymeric.c.e fnd;
     private View mRootView;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.fna = (TbImageView) this.mRootView.findViewById(d.h.card_person_auth_icon);
-        this.fmN = (TextView) this.mRootView.findViewById(d.h.card_person_auth_bar_name);
-        this.fmL = (TextView) this.mRootView.findViewById(d.h.card_person_auth_des);
+        this.fnc = (TbImageView) this.mRootView.findViewById(d.h.card_person_auth_icon);
+        this.fmP = (TextView) this.mRootView.findViewById(d.h.card_person_auth_bar_name);
+        this.fmN = (TextView) this.mRootView.findViewById(d.h.card_person_auth_des);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -27,10 +27,10 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ai.j(this.mRootView, d.e.cp_bg_line_d);
-            ai.c(this.fmN, d.e.cp_cont_b, 1);
-            ai.c(this.fmL, d.e.cp_cont_d, 1);
-            if (this.fnb.iconUrl == null) {
-                ai.c(this.fna, d.g.icon_shen_mine);
+            ai.c(this.fmP, d.e.cp_cont_b, 1);
+            ai.c(this.fmN, d.e.cp_cont_d, 1);
+            if (this.fnd.iconUrl == null) {
+                ai.c(this.fnc, d.g.icon_shen_mine);
             }
         }
     }
@@ -44,12 +44,12 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.e eVar) {
         if (eVar != null) {
-            this.fnb = eVar;
+            this.fnd = eVar;
             if (eVar.iconUrl != null) {
-                this.fna.c(eVar.iconUrl, 10, false);
+                this.fnc.c(eVar.iconUrl, 10, false);
             }
-            this.fmN.setText(eVar.cXk);
-            this.fmL.setText(eVar.des);
+            this.fmP.setText(eVar.cXk);
+            this.fmN.setText(eVar.des);
         }
     }
 

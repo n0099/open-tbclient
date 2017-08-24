@@ -11,7 +11,7 @@ public interface c {
 
     void h(AccountData accountData);
 
-    AccountData uB();
+    AccountData uC();
 
     void xO();
 

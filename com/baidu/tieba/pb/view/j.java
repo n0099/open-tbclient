@@ -10,7 +10,7 @@ public class j extends l {
     }
 
     @Override // com.baidu.tbadk.core.view.k, com.baidu.adp.widget.ListView.c
-    public View lk() {
-        return super.lk();
+    public View lj() {
+        return super.lj();
     }
 }

@@ -59,17 +59,17 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     private void r(bl blVar) {
-        if (this.aop != null && blVar != null && this.apz && blVar.rX() != null && blVar.sN()) {
+        if (this.aop != null && blVar != null && this.apz && blVar.rY() != null && blVar.sO()) {
             this.aop.setVisibility(0);
-            this.aop.setText(String.format(this.mContext.getString(d.l.person_view_item_live_watch_num), al.u(blVar.rX().audience_count)));
+            this.aop.setText(String.format(this.mContext.getString(d.l.person_view_item_live_watch_num), al.u(blVar.rY().audience_count)));
         }
     }
 
     private void i(bl blVar) {
         if (this.aop != null && blVar != null && this.apx) {
-            if (blVar.ry() >= 0) {
+            if (blVar.rz() >= 0) {
                 this.aop.setVisibility(0);
-                this.aop.setText(String.format(this.mContext.getString(d.l.person_view_num), al.u(blVar.ry())));
+                this.aop.setText(String.format(this.mContext.getString(d.l.person_view_num), al.u(blVar.rz())));
                 return;
             }
             this.aop.setVisibility(8);
@@ -78,9 +78,9 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     private void s(bl blVar) {
         if (this.aom != null && blVar != null && this.apy) {
-            if (blVar.rx() >= 0) {
+            if (blVar.ry() >= 0) {
                 this.aom.setVisibility(0);
-                this.aom.setText(String.format(this.mContext.getString(d.l.comment_num_tip), al.u(blVar.rx())));
+                this.aom.setText(String.format(this.mContext.getString(d.l.comment_num_tip), al.u(blVar.ry())));
                 return;
             }
             this.aom.setVisibility(8);
@@ -88,9 +88,9 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     private void t(bl blVar) {
-        if (this.aom != null && blVar != null && this.apA && blVar.sN()) {
+        if (this.aom != null && blVar != null && this.apA && blVar.sO()) {
             this.aom.setVisibility(0);
-            this.aom.setText(String.format(this.mContext.getString(d.l.person_view_item_live_zan_num), al.u(blVar.sS())));
+            this.aom.setText(String.format(this.mContext.getString(d.l.person_view_item_live_zan_num), al.u(blVar.sT())));
         }
     }
 

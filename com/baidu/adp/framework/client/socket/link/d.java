@@ -11,26 +11,26 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class d {
     private boolean isRunning = false;
-    private int rQ = 0;
-    private final Handler rR = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.framework.client.socket.link.d.1
+    private int rR = 0;
+    private final Handler rS = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.framework.client.socket.link.d.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    d.this.rR.removeMessages(1);
-                    BdLog.i("this is reconn time:" + d.this.rQ);
+                    d.this.rS.removeMessages(1);
+                    BdLog.i("this is reconn time:" + d.this.rR);
                     BdSocketLinkService.startService(true, "time to reconnStragety");
                     d.c(d.this);
                     if (i.hr()) {
-                        if (d.this.rQ >= com.baidu.adp.lib.stats.switchs.a.gJ().getMaxAlertCount("alert_im", 3)) {
-                            BdStatisticsManager.getInstance().alert("alert_im", "Socket_Reconnect_" + String.valueOf(d.this.rQ) + "_times");
+                        if (d.this.rR >= com.baidu.adp.lib.stats.switchs.a.gJ().getMaxAlertCount("alert_im", 3)) {
+                            BdStatisticsManager.getInstance().alert("alert_im", "Socket_Reconnect_" + String.valueOf(d.this.rR) + "_times");
                         }
                     }
                     int[] dh = h.dh();
-                    if (dh != null && d.this.rQ < dh.length) {
-                        BdLog.i("Next will be delay:" + dh[d.this.rQ]);
-                        d.this.rR.sendMessageDelayed(d.this.rR.obtainMessage(1), dh[d.this.rQ] * 1000);
+                    if (dh != null && d.this.rR < dh.length) {
+                        BdLog.i("Next will be delay:" + dh[d.this.rR]);
+                        d.this.rS.sendMessageDelayed(d.this.rS.obtainMessage(1), dh[d.this.rR] * 1000);
                         return;
                     }
                     d.this.stop("reconnStragety to the end");
@@ -42,8 +42,8 @@ public class d {
     };
 
     static /* synthetic */ int c(d dVar) {
-        int i = dVar.rQ;
-        dVar.rQ = i + 1;
+        int i = dVar.rR;
+        dVar.rR = i + 1;
         return i;
     }
 
@@ -53,7 +53,7 @@ public class d {
             stop("online failed 5");
         } else if (!this.isRunning) {
             this.isRunning = true;
-            this.rR.removeMessages(1);
+            this.rS.removeMessages(1);
             if (com.baidu.adp.lib.webSocket.h.ie().ih()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
                 stop("in Opened");
@@ -61,12 +61,12 @@ public class d {
             }
             dy();
             BdLog.d("启动重连策略");
-            this.rQ = 0;
+            this.rR = 0;
             int[] dh = h.dh();
             if (dh != null && dh.length >= 1) {
                 BdLog.i("start reconnStrategy... the first will be delay" + dh[0]);
-                com.baidu.adp.framework.client.socket.i.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, str + " retryTimes=" + String.valueOf(this.rQ));
-                this.rR.sendMessageDelayed(this.rR.obtainMessage(1), dh[0] * 1000);
+                com.baidu.adp.framework.client.socket.i.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, str + " retryTimes=" + String.valueOf(this.rR));
+                this.rS.sendMessageDelayed(this.rS.obtainMessage(1), dh[0] * 1000);
                 return;
             }
             BdLog.i("don't have reconnStrategy!");
@@ -84,9 +84,9 @@ public class d {
         if (this.isRunning) {
             com.baidu.adp.framework.client.socket.i.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, str);
             this.isRunning = false;
-            this.rQ = 0;
+            this.rR = 0;
             BdLog.i("stop reconnStrategy");
-            this.rR.removeMessages(1);
+            this.rS.removeMessages(1);
         }
     }
 }

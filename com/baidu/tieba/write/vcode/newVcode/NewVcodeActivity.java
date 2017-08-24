@@ -18,7 +18,7 @@ import com.baidu.tieba.write.vcode.newVcode.a.b;
 import com.baidu.tieba.write.vcode.newVcode.a.c;
 /* loaded from: classes.dex */
 public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
-    private NewWriteModel aDV;
+    private NewWriteModel aDW;
     private NewVcodeView gET;
     private b gEU;
     private boolean mNeedFeedBackButton;
@@ -35,8 +35,8 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 NewVcodeActivity.this.mWriteData.setVcodeMD5(qVar.getVcode_md5());
                 NewVcodeActivity.this.mWriteData.setVcodeUrl(qVar.getVcode_pic_url());
                 NewVcodeActivity.this.mWriteData.setVcodeExtra(qVar.yy());
-                NewVcodeActivity.this.aDV.setWriteData(NewVcodeActivity.this.mWriteData);
-                NewVcodeActivity.this.gEU = NewVcodeActivity.this.bzu();
+                NewVcodeActivity.this.aDW.setWriteData(NewVcodeActivity.this.mWriteData);
+                NewVcodeActivity.this.gEU = NewVcodeActivity.this.bzm();
                 NewVcodeActivity.this.gEU.showErrorOnStart(true, postWriteCallBackData.getErrorString());
                 NewVcodeActivity.this.gET.setPresenter(NewVcodeActivity.this.gEU);
                 NewVcodeActivity.this.gEU.start(NewVcodeActivity.this.mNeedFeedBackButton);
@@ -63,23 +63,23 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             finish();
             return;
         }
-        this.aDV = new NewWriteModel(this);
-        this.aDV.setWriteData(this.mWriteData);
+        this.aDW = new NewWriteModel(this);
+        this.aDW.setWriteData(this.mWriteData);
         if (this.mWriteData.getWriteImagesInfo() != null) {
-            this.aDV.mF(this.mWriteData.getWriteImagesInfo().size() > 0);
+            this.aDW.mF(this.mWriteData.getWriteImagesInfo().size() > 0);
         }
-        this.gEU = bzu();
+        this.gEU = bzm();
         this.gET.setPresenter(this.gEU);
         this.gEU.start(this.mNeedFeedBackButton);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public b bzu() {
+    public b bzm() {
         b cVar;
         if (this.mPageType == com.baidu.adp.lib.g.b.g("5", 0)) {
-            cVar = new a(this.gET, this.aDV);
+            cVar = new a(this.gET, this.aDW);
         } else {
-            cVar = new c(this.gET, this.aDV);
+            cVar = new c(this.gET, this.aDW);
         }
         cVar.d(this.gEV);
         return cVar;
@@ -99,11 +99,11 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         if (this.mWriteData != null && this.mWriteData.getIsStory() == 1) {
             br brVar = new br();
             brVar.abo = this.mWriteData;
-            brVar.abr = this.gEU.bys();
+            brVar.abr = this.gEU.byk();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_VCODE_CHECK_INFO, brVar));
         }
         super.onDestroy();
-        bxI();
+        bxA();
         this.gEU.onDestroy();
     }
 
@@ -117,7 +117,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
     }
 
-    private void bxI() {
+    private void bxA() {
         if (this.mWriteData != null && this.mWriteData.getType() == 3) {
             com.baidu.tbadk.core.e.b.c(getPageContext().getPageActivity(), 200, false);
         }

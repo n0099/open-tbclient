@@ -18,7 +18,7 @@ public class a {
         interfaceC0096a.a(this.dwg.values().iterator());
     }
 
-    public void axd() {
+    public void awY() {
         this.dwg.clear();
     }
 
@@ -28,14 +28,14 @@ public class a {
         }
     }
 
-    public ImMessageCenterPojo mu(String str) {
+    public ImMessageCenterPojo mz(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         return this.dwg.get(str);
     }
 
-    public boolean mv(String str) {
+    public boolean mA(String str) {
         return (TextUtils.isEmpty(str) || this.dwg.remove(str) == null) ? false : true;
     }
 }

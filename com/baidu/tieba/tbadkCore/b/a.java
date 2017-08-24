@@ -32,7 +32,7 @@ public class a {
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0119a {
-        void lj();
+        void li();
     }
 
     public static void a(final BaseActivity<?> baseActivity, View view, final boolean z, InterfaceC0119a interfaceC0119a) {
@@ -45,7 +45,7 @@ public class a {
                 TbadkCoreApplication.getInst().setDefaultBubble(null);
                 TbadkCoreApplication.getInst().setDefaultBubbleEndTime(0);
                 if (interfaceC0119a != null) {
-                    interfaceC0119a.lj();
+                    interfaceC0119a.li();
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
                 aVar.as(false);
@@ -73,7 +73,7 @@ public class a {
                     }
                 });
                 aVar.b(baseActivity.getPageContext());
-                aVar.tr();
+                aVar.ts();
                 return;
             }
             int i = (defaultBubbleEndTime - currentTimeMillis) / 86400;

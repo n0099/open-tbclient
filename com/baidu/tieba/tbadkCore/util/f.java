@@ -13,12 +13,12 @@ public class f {
         this.gmi = i;
     }
 
-    public void sm(String str) {
+    public void sr(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
                 if (this.gmj.size() >= this.gmi) {
-                    bdh();
+                    bdc();
                 }
                 this.gmh++;
                 this.gmj.put(valueOf, Integer.valueOf(this.gmh));
@@ -28,7 +28,7 @@ public class f {
         }
     }
 
-    public void bdh() {
+    public void bdc() {
         int i;
         Long l;
         synchronized (this) {
@@ -54,7 +54,7 @@ public class f {
         }
     }
 
-    public boolean sn(String str) {
+    public boolean ss(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
@@ -68,7 +68,7 @@ public class f {
         }
     }
 
-    public boolean so(String str) {
+    public boolean st(String str) {
         try {
             return this.gmj.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
@@ -77,7 +77,7 @@ public class f {
         }
     }
 
-    public void bub() {
+    public void btU() {
         synchronized (this) {
             this.gmj.clear();
         }

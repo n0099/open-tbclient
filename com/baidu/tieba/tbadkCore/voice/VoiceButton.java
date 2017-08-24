@@ -27,7 +27,7 @@ public class VoiceButton extends ImageView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         a recorderManager = getRecorderManager();
         if (motionEvent.getAction() == 0) {
-            if (recorderManager == null || !recorderManager.lS()) {
+            if (recorderManager == null || !recorderManager.lR()) {
                 return false;
             }
             this.gmT = recorderManager.a(this.gmS, -1);

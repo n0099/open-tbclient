@@ -24,6 +24,6 @@ public class c extends Thread {
         wVar.n("obj", this.ahO);
         wVar.n("obj_tp", this.mObjTp);
         wVar.n("group_id", this.mGroupId);
-        wVar.uO();
+        wVar.uP();
     }
 }

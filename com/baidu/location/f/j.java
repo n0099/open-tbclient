@@ -16,11 +16,11 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j extends l {
-    private static j QD = null;
+    private static j QC = null;
     public static long a = 0;
-    private WifiManager QE = null;
-    private a QF = null;
-    private i QG = null;
+    private WifiManager QD = null;
+    private a QE = null;
+    private i QF = null;
     private long f = 0;
     private long g = 0;
     private boolean h = false;
@@ -47,7 +47,7 @@ public class j extends l {
             if (action.equals("android.net.wifi.SCAN_RESULTS")) {
                 j.a = System.currentTimeMillis() / 1000;
                 j.this.m();
-                com.baidu.location.a.e.mw().h();
+                com.baidu.location.a.e.mv().h();
                 if (System.currentTimeMillis() - com.baidu.location.a.h.b() <= TbConfig.NOTIFY_SOUND_INTERVAL) {
                     com.baidu.location.a.j.a(com.baidu.location.a.h.mB(), j.this.no(), com.baidu.location.a.h.mC(), com.baidu.location.a.h.a());
                 }
@@ -114,13 +114,13 @@ public class j extends l {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
-        if (this.QE == null) {
+        if (this.QD == null) {
             return;
         }
         try {
-            i iVar = new i(this.QE.getScanResults(), System.currentTimeMillis());
-            if (this.QG == null || !iVar.a(this.QG)) {
-                this.QG = iVar;
+            i iVar = new i(this.QD.getScanResults(), System.currentTimeMillis());
+            if (this.QF == null || !iVar.a(this.QF)) {
+                this.QF = iVar;
             }
         } catch (Exception e) {
         }
@@ -129,10 +129,10 @@ public class j extends l {
     public static synchronized j nm() {
         j jVar;
         synchronized (j.class) {
-            if (QD == null) {
-                QD = new j();
+            if (QC == null) {
+                QC = new j();
             }
-            jVar = QD;
+            jVar = QC;
         }
         return jVar;
     }
@@ -140,10 +140,10 @@ public class j extends l {
     @Override // com.baidu.location.f.l
     public synchronized void b() {
         if (!this.h && com.baidu.location.f.isServing) {
-            this.QE = (WifiManager) com.baidu.location.f.getServiceContext().getSystemService("wifi");
-            this.QF = new a();
+            this.QD = (WifiManager) com.baidu.location.f.getServiceContext().getSystemService("wifi");
+            this.QE = new a();
             try {
-                com.baidu.location.f.getServiceContext().registerReceiver(this.QF, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
+                com.baidu.location.f.getServiceContext().registerReceiver(this.QE, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
             } catch (Exception e) {
             }
             this.h = true;
@@ -151,7 +151,7 @@ public class j extends l {
                 Field declaredField = Class.forName("android.net.wifi.WifiManager").getDeclaredField("mService");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.i = declaredField.get(this.QE);
+                    this.i = declaredField.get(this.QD);
                     this.i.getClass();
                 }
             } catch (Exception e2) {
@@ -163,12 +163,12 @@ public class j extends l {
     public synchronized void c() {
         if (this.h) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.QF);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.QE);
                 a = 0L;
             } catch (Exception e) {
             }
-            this.QF = null;
             this.QE = null;
+            this.QD = null;
             this.h = false;
         }
     }
@@ -185,7 +185,7 @@ public class j extends l {
 
     @Override // com.baidu.location.f.l
     public boolean e() {
-        if (this.QE == null) {
+        if (this.QD == null) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -201,8 +201,8 @@ public class j extends l {
     @Override // com.baidu.location.f.l
     public boolean f() {
         try {
-            if (this.QE.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.QE.isScanAlwaysAvailable())) {
-                this.QE.startScan();
+            if (this.QD.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.QD.isScanAlwaysAvailable())) {
+                this.QD.startScan();
                 this.f = System.currentTimeMillis();
                 return true;
             }
@@ -232,7 +232,7 @@ public class j extends l {
     @Override // com.baidu.location.f.l
     public String l() {
         try {
-            WifiInfo connectionInfo = this.QE.getConnectionInfo();
+            WifiInfo connectionInfo = this.QD.getConnectionInfo();
             if (connectionInfo != null) {
                 return connectionInfo.getMacAddress();
             }
@@ -244,11 +244,11 @@ public class j extends l {
 
     @Override // com.baidu.location.f.l
     public WifiInfo nn() {
-        if (this.QE == null) {
+        if (this.QD == null) {
             return null;
         }
         try {
-            WifiInfo connectionInfo = this.QE.getConnectionInfo();
+            WifiInfo connectionInfo = this.QD.getConnectionInfo();
             if (connectionInfo == null || connectionInfo.getBSSID() == null) {
                 return null;
             }
@@ -270,19 +270,19 @@ public class j extends l {
 
     @Override // com.baidu.location.f.l
     public i no() {
-        return (this.QG == null || !this.QG.f()) ? nq() : this.QG;
+        return (this.QF == null || !this.QF.f()) ? nq() : this.QF;
     }
 
     @Override // com.baidu.location.f.l
     public i np() {
-        return (this.QG == null || !this.QG.g()) ? nq() : this.QG;
+        return (this.QF == null || !this.QF.g()) ? nq() : this.QF;
     }
 
     @Override // com.baidu.location.f.l
     public i nq() {
-        if (this.QE != null) {
+        if (this.QD != null) {
             try {
-                return new i(this.QE.getScanResults(), this.f);
+                return new i(this.QD.getScanResults(), this.f);
             } catch (Exception e) {
             }
         }

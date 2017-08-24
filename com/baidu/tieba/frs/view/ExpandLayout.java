@@ -104,7 +104,7 @@ public class ExpandLayout extends LinearLayout {
                 if (this.cAG.getAnimation() == null || this.cAG.getAnimation().hasEnded()) {
                     if (i == 0) {
                         if (this.cAI == null) {
-                            akp();
+                            akj();
                         }
                         if (this.cAJ != null) {
                             this.cAJ.cancel();
@@ -113,7 +113,7 @@ public class ExpandLayout extends LinearLayout {
                         return;
                     }
                     if (this.cAJ == null) {
-                        akq();
+                        akk();
                     }
                     if (this.cAI != null) {
                         this.cAI.cancel();
@@ -124,7 +124,7 @@ public class ExpandLayout extends LinearLayout {
         }
     }
 
-    private void akp() {
+    private void akj() {
         this.cAI = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_expand);
         this.cAI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.view.ExpandLayout.3
             @Override // android.view.animation.Animation.AnimationListener
@@ -142,7 +142,7 @@ public class ExpandLayout extends LinearLayout {
         });
     }
 
-    private void akq() {
+    private void akk() {
         this.cAJ = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_collapse);
         this.cAJ.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.view.ExpandLayout.4
             @Override // android.view.animation.Animation.AnimationListener

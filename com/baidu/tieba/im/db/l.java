@@ -17,7 +17,7 @@ public class l extends a {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l auL() {
+    public static synchronized l auG() {
         l lVar;
         synchronized (l.class) {
             if (doT == null) {
@@ -52,7 +52,7 @@ public class l extends a {
             ?? r2 = doE;
             try {
                 try {
-                    cursor = g.auC().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.aux().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
@@ -82,7 +82,7 @@ public class l extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        lX(str);
+                        mc(str);
                         m.e(cursor);
                         r2 = cursor;
                         return commonMsgPojo;

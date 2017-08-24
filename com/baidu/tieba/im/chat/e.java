@@ -16,7 +16,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
     private boolean djl;
     private boolean djm;
     protected int djn;
-    protected TbPageContext<MsglistActivity<?>> oV;
+    protected TbPageContext<MsglistActivity<?>> oW;
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
@@ -25,7 +25,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         this.djk = 0L;
         this.djl = false;
         this.djm = false;
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
@@ -36,11 +36,11 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         this.dje = bVar;
     }
 
-    private void asx() {
+    private void asq() {
         this.djk = System.currentTimeMillis() / 1000;
     }
 
-    public boolean asy() {
+    public boolean asr() {
         return this.djl;
     }
 
@@ -48,7 +48,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         this.djl = z;
     }
 
-    public boolean asz() {
+    public boolean ass() {
         return this.djm;
     }
 
@@ -68,7 +68,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        asx();
+        asq();
         return view;
     }
 
@@ -81,7 +81,7 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
             this.djo = t;
         }
 
-        public T asA() {
+        public T ast() {
             return this.djo;
         }
     }

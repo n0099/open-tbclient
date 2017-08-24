@@ -33,7 +33,7 @@ public class a {
         return aVar;
     }
 
-    public void bh(String str) {
+    public void bi(String str) {
         if (str != null) {
             Integer num = this.Fk.get(str);
             if (num == null) {
@@ -45,7 +45,7 @@ public class a {
 
     public void A(String str, String str2) {
         if (str != null && str2 != null) {
-            bh(str);
+            bi(str);
         }
     }
 
@@ -72,14 +72,14 @@ public class a {
             fV.p("pname", str2);
         }
         fV.d(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings ke = c.kh().ke();
-        if (ke != null) {
-            fV.p("pver", ke.getContainerVersion());
+        PluginSettings kd = c.kg().kd();
+        if (kd != null) {
+            fV.p("pver", kd.getContainerVersion());
         }
         BdStatisticsManager.getInstance().debug("pluginproxy", fV);
     }
 
-    public void e(String str, String str2, String str3, String str4) {
+    public void c(String str, String str2, String str3, String str4) {
         com.baidu.adp.lib.stats.a fV = fV();
         if (str != null) {
             fV.p("workflow", str + "_debug");
@@ -94,9 +94,9 @@ public class a {
             fV.p("comment", str4);
         }
         fV.d(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings ke = c.kh().ke();
-        if (ke != null) {
-            fV.p("pver", ke.getContainerVersion());
+        PluginSettings kd = c.kg().kd();
+        if (kd != null) {
+            fV.p("pver", kd.getContainerVersion());
         }
         BdLog.e(fV.toString());
         BdStatisticsManager.getInstance().debug("pluginproxy", fV);
@@ -104,10 +104,10 @@ public class a {
     }
 
     public void f(String str, String str2, String str3) {
-        f(str, str2, str3, null);
+        d(str, str2, str3, null);
     }
 
-    public void f(String str, String str2, String str3, String str4) {
+    public void d(String str, String str2, String str3, String str4) {
         com.baidu.adp.lib.stats.a fV = fV();
         if (str != null) {
             fV.p("workflow", str + "_failure");
@@ -123,9 +123,9 @@ public class a {
             fV.p("comment", str4);
         }
         fV.d(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
-        PluginSettings ke = c.kh().ke();
-        if (ke != null) {
-            fV.p("pver", ke.getContainerVersion());
+        PluginSettings kd = c.kg().kd();
+        if (kd != null) {
+            fV.p("pver", kd.getContainerVersion());
         }
         BdLog.e(fV.toString());
         BdStatisticsManager.getInstance().debug("pluginproxy", fV);
@@ -140,7 +140,7 @@ public class a {
         }
     }
 
-    public void bi(String str) {
+    public void bj(String str) {
         BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), str, null, 1, new Object[0]);
     }
 
@@ -154,19 +154,19 @@ public class a {
 
     public void e(String str, String str2, PluginSetting pluginSetting) {
         if (pluginSetting == null) {
-            pluginSetting = c.kh().findPluginSetting(str2);
+            pluginSetting = c.kg().findPluginSetting(str2);
         }
         BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, "index", Integer.valueOf(pluginSetting != null ? pluginSetting.install_fail_count : 0));
     }
 
     public void a(String str, String str2, PluginSetting pluginSetting, String str3) {
         if (pluginSetting == null) {
-            pluginSetting = c.kh().findPluginSetting(str2);
+            pluginSetting = c.kg().findPluginSetting(str2);
         }
         BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, "index", Integer.valueOf(pluginSetting != null ? pluginSetting.install_fail_count : 0), "reason", str3);
     }
 
-    public void g(String str, String str2, String str3, String str4) {
+    public void e(String str, String str2, String str3, String str4) {
         BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, "reason", str3, "comment", str4);
     }
 

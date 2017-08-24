@@ -15,7 +15,7 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgrightView extends g {
     private static final String TAG = MsgrightView.class.getName();
-    private HeadImageView clO;
+    private HeadImageView clP;
     private ImageButton djW;
     protected TextView djX;
     private TextView djY;
@@ -31,14 +31,14 @@ public class MsgrightView extends g {
         this.djX = (TextView) findViewById(d.h.img_msgitem_progressbar);
         this.mProgress = (ProgressBar) findViewById(d.h.progress);
         this.djW = (ImageButton) findViewById(d.h.btn_msgitem_resend);
-        this.clO = (HeadImageView) findViewById(d.h.img_msgitem_photo);
-        this.clO.setAutoChangeStyle(false);
-        this.clO.setDrawerType(1);
-        this.clO.setRadius(k.dip2px(this.mContext.getContext(), 4.0f));
-        this.clO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.MsgrightView.1
+        this.clP = (HeadImageView) findViewById(d.h.img_msgitem_photo);
+        this.clP.setAutoChangeStyle(false);
+        this.clP.setDrawerType(1);
+        this.clP.setRadius(k.dip2px(this.mContext.getContext(), 4.0f));
+        this.clP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.MsgrightView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MsgrightView.this.djd.a(view, 6, MsgrightView.this.awA, 0L);
+                MsgrightView.this.djd.a(view, 6, MsgrightView.this.awB, 0L);
             }
         });
         this.djY = (TextView) findViewById(d.h.has_read);
@@ -70,7 +70,7 @@ public class MsgrightView extends g {
     public void b(View view, ChatMessage chatMessage) {
         super.b(view, chatMessage);
         if (chatMessage == null) {
-            this.ceD.setVisibility(8);
+            this.ceE.setVisibility(8);
             this.mProgress.setVisibility(8);
             this.djW.setVisibility(8);
             this.djY.setVisibility(8);
@@ -88,15 +88,15 @@ public class MsgrightView extends g {
         }
         try {
             e(chatMessage);
-            this.clO.setDefaultResource(d.g.photo);
+            this.clP.setDefaultResource(d.g.photo);
             if (chatMessage.getUserInfo() != null) {
-                this.clO.setUserId(chatMessage.getUserInfo().getUserId());
+                this.clP.setUserId(chatMessage.getUserInfo().getUserId());
                 String currentPortrait = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentPortrait() : null;
                 if (currentPortrait != null && currentPortrait.length() > 0) {
-                    this.clO.c(currentPortrait, 12, false);
+                    this.clP.c(currentPortrait, 12, false);
                 }
             }
-            this.clO.setContentDescription(chatMessage.getUserInfo().getName_show());
+            this.clP.setContentDescription(chatMessage.getUserInfo().getName_show());
             this.mProgress.setVisibility(8);
             this.djW.setVisibility(8);
             this.djY.setVisibility(8);
@@ -129,7 +129,7 @@ public class MsgrightView extends g {
                 this.djW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.MsgrightView.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        MsgrightView.this.djd.a(view2, 1, MsgrightView.this.awA, 0L);
+                        MsgrightView.this.djd.a(view2, 1, MsgrightView.this.awB, 0L);
                     }
                 });
             }

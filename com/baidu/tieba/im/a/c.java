@@ -37,37 +37,37 @@ public class c {
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 c.this.mHandler.removeMessages(2);
-                if (c.this.awY()) {
+                if (c.this.awT()) {
                     c.this.yQ = System.currentTimeMillis();
                     if (MessageManager.getInstance().getSocketClient().isValid()) {
-                        c.this.awV();
+                        c.this.awQ();
                     }
                 }
-                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.axa());
+                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.awV());
             }
             if (message.what == 1) {
                 c.this.mHandler.removeMessages(2);
                 c.this.yQ = System.currentTimeMillis();
                 if (MessageManager.getInstance().getSocketClient().isValid()) {
-                    c.this.awV();
+                    c.this.awQ();
                 }
-                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.axa());
+                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.awV());
             }
             if (message.what == 3) {
                 c.this.mHandler.removeMessages(3);
-                c.this.awU();
-                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(3), c.this.axc());
+                c.this.awP();
+                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(3), c.this.awX());
             }
             if (message.what == 4) {
                 c.this.mHandler.removeMessages(3);
                 c.this.mHandler.removeMessages(2);
                 c.this.yQ = System.currentTimeMillis();
-                c.this.awU();
+                c.this.awP();
                 if (MessageManager.getInstance().getSocketClient().isValid()) {
-                    c.this.awV();
+                    c.this.awQ();
                 }
-                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(3), c.this.axc());
-                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.axa());
+                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(3), c.this.awX());
+                c.this.mHandler.sendMessageDelayed(c.this.mHandler.obtainMessage(2), c.this.awV());
             }
         }
     };
@@ -75,13 +75,13 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            if (c.this.awW() && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
+            if (c.this.awR() && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
                 PushNotifyMessage pushNotifyMessage = (PushNotifyMessage) socketResponsedMessage;
                 if (pushNotifyMessage.getType() != 3 && pushNotifyMessage.getType() != 4) {
                     b bVar = new b();
                     bVar.emitTime = ((PushNotifyMessage) socketResponsedMessage).getEmitTime();
-                    bVar.netType = c.this.awR();
-                    bVar.dvR = c.this.awT();
+                    bVar.netType = c.this.awM();
+                    bVar.dvR = c.this.awO();
                     if (c.this.dvX == null) {
                         c.this.dvX = bVar.emitTime;
                     }
@@ -116,7 +116,7 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsePullMessage) && socketResponsedMessage.getError() == 0) {
-                c.this.awN();
+                c.this.awI();
             }
         }
     };
@@ -125,7 +125,7 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                c.this.awQ();
+                c.this.awL();
             }
         }
     };
@@ -134,7 +134,7 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                c.this.mt(c.this.awR());
+                c.this.my(c.this.awM());
             }
         }
     };
@@ -155,20 +155,20 @@ public class c {
         dwa = null;
     }
 
-    public String awL() {
+    public String awG() {
         return this.dvY;
     }
 
-    public String awM() {
+    public String awH() {
         return this.dvX;
     }
 
-    public void awN() {
+    public void awI() {
         this.dvX = null;
         this.dvY = null;
     }
 
-    public static synchronized c awO() {
+    public static synchronized c awJ() {
         c cVar;
         synchronized (c.class) {
             if (dwa == null) {
@@ -180,19 +180,19 @@ public class c {
     }
 
     public void start() {
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), axc());
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), axa());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), awX());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), awV());
     }
 
     public c() {
         this.dvV = null;
         this.dvW = null;
-        awP();
+        awK();
         this.dvW = new ArrayList();
         this.dvV = new ArrayList();
     }
 
-    private void awP() {
+    private void awK() {
         MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
         MessageManager.getInstance().registerListener(this.dwb);
         MessageManager.getInstance().registerListener(this.dwc);
@@ -200,22 +200,22 @@ public class c {
         MessageManager.getInstance().registerListener(this.dwe);
     }
 
-    public void awQ() {
+    public void awL() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(4));
     }
 
-    public void mt(String str) {
+    public void my(String str) {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
-        if (awY() && System.currentTimeMillis() - this.yQ > axa()) {
+        if (awT() && System.currentTimeMillis() - this.yQ > awV()) {
             this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
         }
     }
 
-    public String awR() {
+    public String awM() {
         return String.valueOf(i.hx());
     }
 
-    public String awS() {
+    public String awN() {
         switch (i.hx()) {
             case 1:
                 return "wifi";
@@ -230,12 +230,12 @@ public class c {
         }
     }
 
-    public int awT() {
+    public int awO() {
         return TbadkCoreApplication.getInst().isInBackground() ? 2 : 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awU() {
+    public void awP() {
         if (!this.dvZ) {
             if (this.dvV != null && this.dvV.size() > 0) {
                 ArrayList arrayList = new ArrayList();
@@ -269,16 +269,16 @@ public class c {
                 }
             }
             this.dvV.clear();
-            if (this.dvW.size() > axb() && awX() && i.hr()) {
+            if (this.dvW.size() > awW() && awS() && i.hr()) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
             }
-            if (this.dvW.size() > 100 && !awY() && !awX()) {
+            if (this.dvW.size() > 100 && !awT() && !awS()) {
                 this.dvW.clear();
             }
         }
     }
 
-    public void awV() {
+    public void awQ() {
         if (this.dvW.size() > 0) {
             this.dvZ = true;
             ArrayList arrayList = new ArrayList();
@@ -297,54 +297,54 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean awW() {
+    public boolean awR() {
         String str;
-        g awZ = awZ();
-        return (awZ == null || (str = awZ.aAM) == null || !str.equals("1")) ? false : true;
+        g awU = awU();
+        return (awU == null || (str = awU.aAN) == null || !str.equals("1")) ? false : true;
     }
 
-    private boolean awX() {
+    private boolean awS() {
         String str;
-        g awZ = awZ();
-        return awZ == null || (str = awZ.aAK.get(awS())) == null || !str.equals("-1");
+        g awU = awU();
+        return awU == null || (str = awU.aAL.get(awN())) == null || !str.equals("-1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean awY() {
+    public boolean awT() {
         String str;
-        g awZ = awZ();
-        return awZ == null || (str = awZ.aAJ.get(awS())) == null || !str.equals("-1");
+        g awU = awU();
+        return awU == null || (str = awU.aAK.get(awN())) == null || !str.equals("-1");
     }
 
-    private g awZ() {
+    private g awU() {
         return g.Cu();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long axa() {
+    public long awV() {
         String str;
-        g awZ = awZ();
-        if (awZ != null && (str = awZ.aAJ.get(awS())) != null && str.length() > 0) {
+        g awU = awU();
+        if (awU != null && (str = awU.aAK.get(awN())) != null && str.length() > 0) {
             long d = com.baidu.adp.lib.g.b.d(str, 0L);
             if (d > 2) {
                 return d * 1000;
             }
         }
-        return dvS.get(awS()).longValue() * 1000;
+        return dvS.get(awN()).longValue() * 1000;
     }
 
-    private int axb() {
+    private int awW() {
         String str;
         int g;
-        g awZ = awZ();
-        return (awZ == null || (str = awZ.aAK.get(awS())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? dvT.get(awS()).intValue() : g;
+        g awU = awU();
+        return (awU == null || (str = awU.aAL.get(awN())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? dvT.get(awN()).intValue() : g;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long axc() {
+    public long awX() {
         String str;
         int g;
-        g awZ = awZ();
-        return (awZ == null || (str = awZ.aAL.get(awS())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? dvU.get(awS()).longValue() * 1000 : g * 1000;
+        g awU = awU();
+        return (awU == null || (str = awU.aAM.get(awN())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? dvU.get(awN()).longValue() * 1000 : g * 1000;
     }
 }

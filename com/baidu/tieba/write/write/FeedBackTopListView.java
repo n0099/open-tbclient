@@ -25,7 +25,7 @@ public class FeedBackTopListView extends LinearLayout {
     private ArrayList<bl> gHg;
     private Context mContext;
     private int mSkinType;
-    private TbPageContext<?> oV;
+    private TbPageContext<?> oW;
 
     public FeedBackTopListView(Context context) {
         this(context, null);
@@ -43,7 +43,7 @@ public class FeedBackTopListView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(ArrayList<bl> arrayList, TbPageContext<?> tbPageContext) {
         int i = 0;
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
         if (arrayList == null || arrayList.size() == 0) {
             setVisibility(8);
             return;
@@ -75,8 +75,8 @@ public class FeedBackTopListView extends LinearLayout {
         inflate.findViewById(d.h.frs_top_divider);
         final String tid = blVar.getTid();
         textView.setText(blVar.getTitle());
-        this.oV.getLayoutMode().ah(this.mSkinType == 1);
-        this.oV.getLayoutMode().t(inflate);
+        this.oW.getLayoutMode().ah(this.mSkinType == 1);
+        this.oW.getLayoutMode().t(inflate);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) ai.getDrawable(d.g.icon_notice);
         ai.j(linearLayout, d.g.bg_frs_top_middle_selector);
         if (bitmapDrawable != null) {
@@ -90,7 +90,7 @@ public class FeedBackTopListView extends LinearLayout {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(FeedBackTopListView.this.mContext).createNormalCfg(tid, null, WriteActivityConfig.FEED_BACK)));
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(FeedBackTopListView.this.mContext, blVar.getTid()).cz(blVar.rV()).pn()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(FeedBackTopListView.this.mContext, blVar.getTid()).cC(blVar.rW()).po()));
             }
         });
         return inflate;

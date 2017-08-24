@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a.InterfaceC0049a {
-    private int aEY;
+    private int aEZ;
     private WriteMultiImgsActivity gHk;
     private ImageFileInfo[] gHl;
     private a gHm;
@@ -34,11 +34,11 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
     public interface a {
         void a(com.baidu.tbadk.coreExtra.view.a aVar, int i);
 
-        void bAs();
+        void bAk();
 
-        void bAt();
+        void bAl();
 
-        void bAu();
+        void bAm();
     }
 
     public b(WriteMultiImgsActivity writeMultiImgsActivity, ViewPager viewPager, LinkedList<ImageFileInfo> linkedList, int i, a aVar) {
@@ -48,7 +48,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
         this.mViewPager = null;
         this.gHm = null;
         this.mCount = 0;
-        this.aEY = 0;
+        this.aEZ = 0;
         this.gHn = null;
         this.gHo = null;
         this.gHp = 120;
@@ -71,7 +71,7 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
                 linkedList.set(i3, this.gHl[i3]);
                 i2 = i3 + 1;
             } else {
-                this.aEY = i;
+                this.aEZ = i;
                 this.mViewPager = viewPager;
                 this.gHm = aVar;
                 this.mViewPager.setOffscreenPageLimit(1);
@@ -83,35 +83,35 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void uK(int i) {
-        if (this.gHn[this.aEY].bAv()) {
-            this.gHl[this.aEY].addPageAction(e.eY(i));
-            this.gHk.bBg();
-            if (this.gHo[this.aEY] != null) {
-                String selectedFilter = this.gHo[this.aEY].getSelectedFilter();
+        if (this.gHn[this.aEZ].bAn()) {
+            this.gHl[this.aEZ].addPageAction(e.eY(i));
+            this.gHk.bAY();
+            if (this.gHo[this.aEZ] != null) {
+                String selectedFilter = this.gHo[this.aEZ].getSelectedFilter();
                 if (selectedFilter != null && !selectedFilter.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-                    ImageFileInfo cloneWithoutFilterAction = this.gHl[this.aEY].cloneWithoutFilterAction(false);
-                    cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gr(selectedFilter));
-                    this.gHn[this.aEY].j(cloneWithoutFilterAction);
+                    ImageFileInfo cloneWithoutFilterAction = this.gHl[this.aEZ].cloneWithoutFilterAction(false);
+                    cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gv(selectedFilter));
+                    this.gHn[this.aEZ].j(cloneWithoutFilterAction);
                     return;
                 }
-                this.gHn[this.aEY].j(this.gHl[this.aEY]);
+                this.gHn[this.aEZ].j(this.gHl[this.aEZ]);
                 return;
             }
-            this.gHn[this.aEY].j(this.gHl[this.aEY]);
+            this.gHn[this.aEZ].j(this.gHl[this.aEZ]);
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.a.InterfaceC0049a
-    public void fg(String str) {
+    public void fk(String str) {
         if (str != null && !str.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-            this.gHk.bBg();
-            ImageFileInfo cloneWithoutFilterAction = this.gHl[this.aEY].cloneWithoutFilterAction(false);
-            cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gr(str));
-            this.gHn[this.aEY].j(cloneWithoutFilterAction);
+            this.gHk.bAY();
+            ImageFileInfo cloneWithoutFilterAction = this.gHl[this.aEZ].cloneWithoutFilterAction(false);
+            cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gv(str));
+            this.gHn[this.aEZ].j(cloneWithoutFilterAction);
             return;
         }
-        this.gHk.bBh();
-        this.gHn[this.aEY].j(this.gHl[this.aEY]);
+        this.gHk.bAZ();
+        this.gHn[this.aEZ].j(this.gHl[this.aEZ]);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -130,41 +130,41 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.aEY = i;
-        bAq();
+        this.aEZ = i;
+        bAi();
         if (this.gHm != null) {
             this.gHm.a(this.gHo[i], i);
         }
     }
 
-    private void bAq() {
-        if (this.aEY >= 0) {
+    private void bAi() {
+        if (this.aEZ >= 0) {
             if (this.gHn != null) {
                 for (int i = 0; i < this.gHn.length; i++) {
                     if (this.gHn[i] != null) {
-                        this.gHn[i].UV();
+                        this.gHn[i].US();
                     }
                 }
-                if (this.gHn[this.aEY] == null) {
-                    this.gHn[this.aEY] = new C0130b(this.aEY);
+                if (this.gHn[this.aEZ] == null) {
+                    this.gHn[this.aEZ] = new C0130b(this.aEZ);
                 }
             }
-            String selectedFilter = this.gHo[this.aEY].getSelectedFilter();
+            String selectedFilter = this.gHo[this.aEZ].getSelectedFilter();
             if (selectedFilter != null && !selectedFilter.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-                ImageFileInfo cloneWithoutFilterAction = this.gHl[this.aEY].cloneWithoutFilterAction(false);
-                cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gr(selectedFilter));
+                ImageFileInfo cloneWithoutFilterAction = this.gHl[this.aEZ].cloneWithoutFilterAction(false);
+                cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.gv(selectedFilter));
                 if (this.gHn != null) {
-                    this.gHn[this.aEY].j(cloneWithoutFilterAction);
+                    this.gHn[this.aEZ].j(cloneWithoutFilterAction);
                 }
             } else if (this.gHn != null) {
-                this.gHn[this.aEY].j(this.gHl[this.aEY]);
+                this.gHn[this.aEZ].j(this.gHl[this.aEZ]);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getCurrentIndex() {
-        return this.aEY;
+        return this.aEZ;
     }
 
     private void a(ImageFileInfo imageFileInfo, int i) {
@@ -194,12 +194,12 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bAr() {
+    public void bAj() {
         String selectedFilter;
         for (int i = 0; i < this.gHl.length; i++) {
             this.gHl[i].applayRotatePageActionToPersistAction();
             if (this.gHo[i] != null && (selectedFilter = this.gHo[i].getSelectedFilter()) != null && !selectedFilter.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-                this.gHl[i].addPersistAction(com.baidu.tbadk.img.effect.a.gr(selectedFilter));
+                this.gHl[i].addPersistAction(com.baidu.tbadk.img.effect.a.gv(selectedFilter));
             }
         }
     }
@@ -208,34 +208,34 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
     /* renamed from: com.baidu.tieba.write.write.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0130b {
-        private TbImageView aST;
-        private ProgressBar frT;
+        private TbImageView aSU;
+        private ProgressBar frV;
         private FrameLayout gHr;
         private com.baidu.tbadk.img.b gHs;
         private int index;
 
         public C0130b(int i) {
-            this.frT = null;
+            this.frV = null;
             this.index = -1;
             this.index = i;
             this.gHr = (FrameLayout) LayoutInflater.from(b.this.gHk.getPageContext().getContext()).inflate(d.j.progress_tb_imageview, (ViewGroup) null);
-            this.aST = (TbImageView) this.gHr.findViewById(d.h.progress_tb_imageview);
-            this.aST.setClickable(true);
-            this.aST.setDefaultResource(0);
-            this.aST.setDefaultErrorResource(0);
-            this.aST.setDefaultBgResource(0);
-            this.aST.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            this.aSU = (TbImageView) this.gHr.findViewById(d.h.progress_tb_imageview);
+            this.aSU.setClickable(true);
+            this.aSU.setDefaultResource(0);
+            this.aSU.setDefaultErrorResource(0);
+            this.aSU.setDefaultBgResource(0);
+            this.aSU.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             this.gHs = new com.baidu.tbadk.img.b();
-            this.aST.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.b.b.1
+            this.aSU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.b.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (b.this.gHm != null) {
-                        b.this.gHm.bAs();
+                        b.this.gHm.bAk();
                     }
                 }
             });
-            this.frT = (ProgressBar) this.gHr.findViewById(d.h.progress_tb_imageview_progress);
-            this.frT.setVisibility(8);
+            this.frV = (ProgressBar) this.gHr.findViewById(d.h.progress_tb_imageview_progress);
+            this.frV.setVisibility(8);
         }
 
         public View getView() {
@@ -243,12 +243,12 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
         }
 
         public void j(ImageFileInfo imageFileInfo) {
-            UV();
-            this.aST.setDefaultResource(0);
-            this.aST.setDefaultBgResource(0);
+            US();
+            this.aSU.setDefaultResource(0);
+            this.aSU.setDefaultBgResource(0);
             com.baidu.adp.widget.a.a a = this.gHs.a(imageFileInfo, false);
             if (a != null) {
-                a.e(this.aST);
+                a.e(this.aSU);
                 return;
             }
             nj(false);
@@ -257,42 +257,42 @@ public class b extends PagerAdapter implements ViewPager.OnPageChangeListener, a
                 public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
                     C0130b.this.nj(true);
                     if (aVar != null) {
-                        aVar.e(C0130b.this.aST);
+                        aVar.e(C0130b.this.aSU);
                     } else {
-                        C0130b.this.aST.setDefaultResource(d.g.image_group_load_f);
+                        C0130b.this.aSU.setDefaultResource(d.g.image_group_load_f);
                     }
                 }
             }, false);
         }
 
-        public void UV() {
+        public void US() {
             if (this.gHs != null) {
                 this.gHs.EH();
             }
-            if (this.aST != null) {
-                this.aST.setImageDrawable(null);
+            if (this.aSU != null) {
+                this.aSU.setImageDrawable(null);
             }
         }
 
-        public boolean bAv() {
-            return this.frT.getVisibility() != 0;
+        public boolean bAn() {
+            return this.frV.getVisibility() != 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void nj(boolean z) {
             if (z) {
-                if (this.frT.getVisibility() != 8) {
+                if (this.frV.getVisibility() != 8) {
                     if (b.this.gHm != null) {
-                        b.this.gHm.bAu();
+                        b.this.gHm.bAm();
                     }
-                    this.frT.setVisibility(8);
+                    this.frV.setVisibility(8);
                     b.this.gHo[this.index].setCanbeClick(true);
                 }
-            } else if (this.frT.getVisibility() != 0) {
+            } else if (this.frV.getVisibility() != 0) {
                 if (b.this.gHm != null) {
-                    b.this.gHm.bAt();
+                    b.this.gHm.bAl();
                 }
-                this.frT.setVisibility(0);
+                this.frV.setVisibility(0);
                 b.this.gHo[this.index].setCanbeClick(false);
             }
         }

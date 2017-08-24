@@ -11,7 +11,7 @@ public class b {
         this.dzj = new e(1000, 1000, 1000);
     }
 
-    public static b axZ() {
+    public static b axU() {
         if (dzi == null) {
             synchronized (b.class) {
                 if (dzi == null) {

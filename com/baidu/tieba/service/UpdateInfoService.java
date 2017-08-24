@@ -19,12 +19,12 @@ public class UpdateInfoService extends BdBaseService {
                     if (address != null) {
                         float longitude = (float) address.getLongitude();
                         float latitude = (float) address.getLatitude();
-                        com.baidu.tieba.recapp.d.a.biO().setLongitude(String.valueOf(longitude));
-                        com.baidu.tieba.recapp.d.a.biO().setLatitude(String.valueOf(latitude));
-                        com.baidu.tieba.recapp.d.a.biO().cF(System.currentTimeMillis());
-                        if (UpdateInfoService.this.mModel.aKJ() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                        com.baidu.tieba.recapp.d.a.biJ().lQ(String.valueOf(longitude));
+                        com.baidu.tieba.recapp.d.a.biJ().lR(String.valueOf(latitude));
+                        com.baidu.tieba.recapp.d.a.biJ().cF(System.currentTimeMillis());
+                        if (UpdateInfoService.this.mModel.aKE() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                             UpdateInfoService.this.mModel.b(1, longitude, latitude);
-                            UpdateInfoService.this.mModel.aKK();
+                            UpdateInfoService.this.mModel.aKF();
                             return;
                         }
                         return;
@@ -49,7 +49,7 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new ReportUserInfoModel(null);
-        this.mModel.aKL();
+        this.mModel.aKG();
         this.mModel.ci(540000L);
         this.mModel.a(new ReportUserInfoModel.a() { // from class: com.baidu.tieba.service.UpdateInfoService.1
             @Override // com.baidu.tieba.model.ReportUserInfoModel.a
@@ -77,7 +77,7 @@ public class UpdateInfoService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.mModel.aKJ()) {
+        if (this.mModel.aKE()) {
             findLocationFromLocal();
         }
     }

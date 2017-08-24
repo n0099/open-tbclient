@@ -14,7 +14,7 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
-    private NewWriteModel aDV;
+    private NewWriteModel aDW;
     private a gBA;
     private AccessState gBB;
     private b gBz;
@@ -33,14 +33,14 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                 finish();
                 return;
             }
-            this.aDV = new NewWriteModel(this);
-            this.aDV.setWriteData(this.mWriteData);
+            this.aDW = new NewWriteModel(this);
+            this.aDW.setWriteData(this.mWriteData);
             if (this.mWriteData.getWriteImagesInfo() != null) {
-                this.aDV.mF(this.mWriteData.getWriteImagesInfo().size() > 0);
+                this.aDW.mF(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
-            this.gBA = new a(this.gBz, this.aDV);
+            this.gBA = new a(this.gBz, this.aDW);
             this.gBz.c(this.gBA);
-            this.gBA.start(byp());
+            this.gBA.start(byh());
         }
     }
 
@@ -60,14 +60,14 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         if (this.mWriteData != null && this.mWriteData.getIsStory() == 1) {
             br brVar = new br();
             brVar.abo = this.mWriteData;
-            brVar.abr = this.gBA.bys();
+            brVar.abr = this.gBA.byk();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_VCODE_CHECK_INFO, brVar));
         }
         super.onDestroy();
         this.gBz.onDestory();
     }
 
-    public String byp() {
+    public String byh() {
         if (this.gBB == null || this.gBB.getUserInfo() == null) {
             return null;
         }

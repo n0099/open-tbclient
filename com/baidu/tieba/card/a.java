@@ -10,8 +10,8 @@ import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
     private String ajv;
-    protected x<T> bEn;
-    protected w bGj;
+    protected x<T> bEo;
+    protected w bGk;
     public Context mContext;
     public TbPageContext<?> mTbPageContext;
     public int mSkinType = 3;
@@ -53,19 +53,19 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
         return this.mContext;
     }
 
-    public TbPageContext<?> Wz() {
+    public TbPageContext<?> Ww() {
         return this.mTbPageContext;
     }
 
     public void b(x<T> xVar) {
-        this.bEn = xVar;
+        this.bEo = xVar;
     }
 
     public void a(w wVar) {
-        this.bGj = wVar;
+        this.bGk = wVar;
     }
 
-    public x<T> WA() {
-        return this.bEn;
+    public x<T> Wx() {
+        return this.bEo;
     }
 }

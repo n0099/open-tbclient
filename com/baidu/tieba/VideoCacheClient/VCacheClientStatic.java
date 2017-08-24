@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.play.h;
 /* loaded from: classes2.dex */
 public class VCacheClientStatic {
-    private static CustomMessageListener aWS = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1
+    private static CustomMessageListener aWT = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,7 +27,7 @@ public class VCacheClientStatic {
 
     static {
         KN();
-        MessageManager.getInstance().registerListener(aWS);
+        MessageManager.getInstance().registerListener(aWT);
     }
 
     private static void KN() {

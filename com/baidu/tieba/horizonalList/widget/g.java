@@ -93,10 +93,10 @@ public class g {
                     break;
                 }
             case 1:
-                if (!this.dam.lh && !this.dam.aqh() && !this.dam.aqg()) {
+                if (!this.dam.lh && !this.dam.aqb() && !this.dam.aqa()) {
                     this.dam.finish();
                 }
-                if (!this.dan.lh && !this.dan.aqh() && !this.dan.aqg()) {
+                if (!this.dan.lh && !this.dan.aqb() && !this.dan.aqa()) {
                     this.dan.finish();
                     break;
                 }
@@ -346,7 +346,7 @@ public class g {
         private void F(int i, int i2, int i3) {
             this.dav = lt(i3 == 0 ? i - i2 : i3);
             E(i, i2, i3);
-            aqf();
+            apZ();
         }
 
         private void p(int i, int i2, int i3, int i4) {
@@ -375,7 +375,7 @@ public class g {
             }
         }
 
-        private void aqf() {
+        private void apZ() {
             float abs = (this.das * this.das) / (Math.abs(this.dav) * 2.0f);
             float signum = Math.signum(this.das);
             if (abs > this.daz) {
@@ -392,7 +392,7 @@ public class g {
             this.mDuration = -((int) ((1000.0f * this.das) / this.dav));
         }
 
-        boolean aqg() {
+        boolean aqa() {
             switch (this.mState) {
                 case 0:
                     if (this.mDuration < this.daw) {
@@ -400,7 +400,7 @@ public class g {
                         this.das = (int) this.dau;
                         this.dav = lt(this.das);
                         this.mStartTime += this.mDuration;
-                        aqf();
+                        apZ();
                         break;
                     } else {
                         return false;
@@ -412,11 +412,11 @@ public class g {
                     D(this.dar, this.mStart, 0);
                     break;
             }
-            aqh();
+            aqb();
             return true;
         }
 
-        boolean aqh() {
+        boolean aqb() {
             long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.mStartTime;
             if (currentAnimationTimeMillis > this.mDuration) {
                 return false;

@@ -15,7 +15,7 @@ public class BdSoundGate {
         System.loadLibrary("sound_gate");
     }
 
-    public static BdSoundGate lL() {
+    public static BdSoundGate lK() {
         if (KZ == null) {
             KZ = new BdSoundGate();
         }
@@ -26,7 +26,7 @@ public class BdSoundGate {
     }
 
     public void init(int i, int i2) {
-        lL().a(i, 0.0f, d.aP(i2), 0.0f);
+        lK().a(i, 0.0f, d.aP(i2), 0.0f);
     }
 
     public void a(int i, float f, float f2, float f3) {

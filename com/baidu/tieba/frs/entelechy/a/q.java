@@ -9,19 +9,19 @@ import java.util.List;
 public interface q {
     void a(com.baidu.tieba.frs.b bVar);
 
-    int agy();
+    int ags();
 
-    HashMap<Integer, bl> ahi();
+    HashMap<Integer, bl> ahc();
 
-    void ahj();
+    void ahd();
 
-    int ahk();
+    int ahe();
 
-    int ahl();
+    int ahf();
 
-    int ahm();
+    int ahg();
 
-    int ahn();
+    int ahh();
 
     void b(ArrayList<com.baidu.adp.widget.ListView.f> arrayList, com.baidu.tieba.tbadkCore.i iVar);
 

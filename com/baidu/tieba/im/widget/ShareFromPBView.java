@@ -10,8 +10,8 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private TextView aSF;
-    private TextView axR;
+    private TextView aSG;
+    private TextView axS;
     private HeadImageView cCi;
     private ShareFromPBMsgData dBY;
 
@@ -28,31 +28,31 @@ public final class ShareFromPBView extends LinearLayout {
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(d.j.share_from_pb_view, this);
         setOrientation(1);
-        this.axR = (TextView) findViewById(d.h.chat_title);
+        this.axS = (TextView) findViewById(d.h.chat_title);
         this.cCi = (HeadImageView) findViewById(d.h.chat_group_img);
-        this.aSF = (TextView) findViewById(d.h.chat_group_desc);
+        this.aSG = (TextView) findViewById(d.h.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.axR.setTextColor(getContext().getResources().getColor(d.e.cp_cont_b));
-            this.aSF.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
+            this.axS.setTextColor(getContext().getResources().getColor(d.e.cp_cont_b));
+            this.aSG.setTextColor(getContext().getResources().getColor(d.e.cp_cont_f));
             return;
         }
-        this.axR.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
-        this.aSF.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
+        this.axS.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
+        this.aSG.setTextColor(getContext().getResources().getColor(d.e.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         this.dBY = shareFromPBMsgData;
-        wP();
+        wQ();
     }
 
-    private void wP() {
-        this.axR.setText(this.dBY.getTitle());
+    private void wQ() {
+        this.axS.setText(this.dBY.getTitle());
         this.cCi.setDefaultResource(d.g.icon_default_ba_120);
         this.cCi.setAutoChangeStyle(false);
         this.cCi.c(this.dBY.getImageUrl(), 10, false);
-        this.aSF.setText(this.dBY.getContent());
+        this.aSG.setText(this.dBY.getContent());
     }
 }

@@ -51,7 +51,7 @@ public class o {
         try {
             JSONObject jSONObject = new JSONObject(str);
             parserJson(jSONObject.optJSONObject(LoginActivityConfig.INFO));
-            f(jSONObject.optJSONArray("feed_forum"));
+            e(jSONObject.optJSONArray("feed_forum"));
         } catch (Exception e) {
             BdLog.detailException(e);
         }
@@ -73,7 +73,7 @@ public class o {
         }
     }
 
-    public void f(JSONArray jSONArray) {
+    public void e(JSONArray jSONArray) {
         int i = 0;
         while (true) {
             try {
@@ -133,7 +133,7 @@ public class o {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> bre() {
+    public List<FeedForumData> bqX() {
         return this.giy;
     }
 }

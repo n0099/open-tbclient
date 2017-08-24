@@ -19,7 +19,7 @@ public abstract class f {
     private static int b = 80;
     protected static int o = 0;
 
-    private static int a(Context context, NetworkInfo networkInfo) {
+    private static int b(Context context, NetworkInfo networkInfo) {
         String lowerCase;
         if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
             if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
@@ -67,7 +67,7 @@ public abstract class f {
                     String defaultHost = Proxy.getDefaultHost();
                     i = (defaultHost == null || defaultHost.length() <= 0) ? b.f : b.h;
                 } else {
-                    i = a(serviceContext, activeNetworkInfo);
+                    i = b(serviceContext, activeNetworkInfo);
                 }
             }
             return i;

@@ -12,8 +12,8 @@ import com.baidu.adp.lib.util.k;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class d extends PopupWindow {
-    private int aEY;
-    private LinearLayout ayF;
+    private int aEZ;
+    private LinearLayout ayG;
     private Context context;
     private int count;
     private a gBw;
@@ -26,7 +26,7 @@ public class d extends PopupWindow {
 
     public d(Context context) {
         super(context);
-        this.aEY = -1;
+        this.aEZ = -1;
         this.context = context;
         init(context);
     }
@@ -34,10 +34,10 @@ public class d extends PopupWindow {
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.ayF = new LinearLayout(context);
-        this.ayF.setOrientation(1);
-        this.ayF.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.ayF);
+        this.ayG = new LinearLayout(context);
+        this.ayG.setOrientation(1);
+        this.ayG.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.ayG);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, k.dip2px(context, 1.0f), k.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -69,7 +69,7 @@ public class d extends PopupWindow {
 
     public void addView(View view) {
         view.setOnClickListener(new b(this.count, this.gBw));
-        this.ayF.addView(view);
+        this.ayG.addView(view);
         this.count++;
     }
 
@@ -78,11 +78,11 @@ public class d extends PopupWindow {
     }
 
     public void setCurrentIndex(int i) {
-        if (this.aEY != -1) {
-            this.ayF.getChildAt(this.aEY).setSelected(false);
+        if (this.aEZ != -1) {
+            this.ayG.getChildAt(this.aEZ).setSelected(false);
         }
-        this.aEY = i;
-        this.ayF.getChildAt(this.aEY).setSelected(true);
+        this.aEZ = i;
+        this.ayG.getChildAt(this.aEZ).setSelected(true);
     }
 
     public void a(a aVar) {

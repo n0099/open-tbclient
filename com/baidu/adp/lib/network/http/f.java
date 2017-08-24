@@ -67,7 +67,7 @@ public class f {
             }
             sb.append(this.xs.get(i2).getName());
             sb.append("=");
-            sb.append(j.aQ(this.xs.get(i2).getValue()));
+            sb.append(j.aR(this.xs.get(i2).getValue()));
             i = i2 + 1;
         }
         if (dVar != null) {
@@ -169,7 +169,7 @@ public class f {
                         sb.append("&");
                     }
                     sb.append(name + "=");
-                    sb.append(j.aQ(value));
+                    sb.append(j.aR(value));
                     i++;
                 }
             }
@@ -184,7 +184,7 @@ public class f {
         this.xr = hashMap;
     }
 
-    public String an(String str) {
+    public String ao(String str) {
         if (this.xr != null) {
             return this.xr.get(str);
         }

@@ -23,12 +23,12 @@ public class e extends com.baidu.tbadk.editortools.emotiontool.c {
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public String eH(int i) {
         int i2;
-        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.aCV.size()) {
+        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.aCW.size()) {
             i2 = 0;
         } else {
-            i2 = com.baidu.tbadk.editortools.emotiontool.b.aCV.get(i).intValue();
+            i2 = com.baidu.tbadk.editortools.emotiontool.b.aCW.get(i).intValue();
         }
-        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.aCW.entrySet()) {
+        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.aCX.entrySet()) {
             if (entry.getValue().intValue() == i2) {
                 return entry.getKey();
             }
@@ -37,14 +37,14 @@ public class e extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean fK(String str) {
-        return com.baidu.tbadk.editortools.emotiontool.b.aCW.get(str) != null;
+    public boolean fO(String str) {
+        return com.baidu.tbadk.editortools.emotiontool.b.aCX.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.a.a fL(String str) {
+    public com.baidu.adp.widget.a.a fP(String str) {
         Bitmap resBitmap;
-        Integer num = com.baidu.tbadk.editortools.emotiontool.b.aCW.get(str);
+        Integer num = com.baidu.tbadk.editortools.emotiontool.b.aCX.get(str);
         if (num != null && (resBitmap = com.baidu.adp.lib.util.d.gZ().getResBitmap(TbadkCoreApplication.getInst().getApp(), num.intValue())) != null) {
             return new com.baidu.adp.widget.a.a(resBitmap, false, str);
         }
@@ -53,12 +53,12 @@ public class e extends com.baidu.tbadk.editortools.emotiontool.c {
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public int getEmotionsCount() {
-        return com.baidu.tbadk.editortools.emotiontool.b.aCV.size();
+        return com.baidu.tbadk.editortools.emotiontool.b.aCW.size();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.a.a fM(String str) {
-        return fL(str);
+    public com.baidu.adp.widget.a.a fQ(String str) {
+        return fP(str);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c

@@ -210,7 +210,7 @@ public class UtilHelper {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
             }
-        }).b(com.baidu.adp.base.i.aa(activity)).tr();
+        }).b(com.baidu.adp.base.i.aa(activity)).ts();
     }
 
     public static String getFixedBarText(String str, int i, boolean z) {
@@ -373,7 +373,7 @@ public class UtilHelper {
         }
         intent.putExtra("is_notify", true);
         intent.putExtra("link", str);
-        intent.putExtra("message_id", apVar.qx());
+        intent.putExtra("message_id", apVar.qy());
         intent.putExtra(InterviewLiveActivityConfig.KEY_TASK_ID, apVar.getTaskId());
         if (!TextUtils.isEmpty(apVar.getStat())) {
             intent.putExtra("stat", apVar.getStat());
@@ -818,9 +818,9 @@ public class UtilHelper {
                     str = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("apk_md5", "");
                 } else {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("version_name", versionName);
-                    String d = an.d(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putString("apk_md5", d);
-                    str = d;
+                    String f = an.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getPackageName(), 0));
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putString("apk_md5", f);
+                    str = f;
                 }
             }
         } catch (PackageManager.NameNotFoundException e) {
@@ -830,11 +830,11 @@ public class UtilHelper {
     }
 
     public static boolean isFlymeOsOver51() {
-        String aT;
+        String aU;
         String str = Build.DISPLAY;
-        if (str != null && str.contains("Flyme") && (aT = com.baidu.adp.lib.util.k.aT(str)) != null && aT.length() >= 3) {
-            int g = com.baidu.adp.lib.g.b.g(com.baidu.adp.lib.util.k.aT(aT.substring(0, 1)), 0);
-            int g2 = com.baidu.adp.lib.g.b.g(com.baidu.adp.lib.util.k.aT(aT.substring(1, 2)), 0);
+        if (str != null && str.contains("Flyme") && (aU = com.baidu.adp.lib.util.k.aU(str)) != null && aU.length() >= 3) {
+            int g = com.baidu.adp.lib.g.b.g(com.baidu.adp.lib.util.k.aU(aU.substring(0, 1)), 0);
+            int g2 = com.baidu.adp.lib.g.b.g(com.baidu.adp.lib.util.k.aU(aU.substring(1, 2)), 0);
             if (g > 5) {
                 return true;
             }
@@ -1092,12 +1092,12 @@ public class UtilHelper {
     }
 
     public static void install_apk(Context context, String str) {
-        File dv;
-        if (str != null && str.length() > 0 && (dv = k.dv(str)) != null) {
+        File dy;
+        if (str != null && str.length() > 0 && (dy = k.dy(str)) != null) {
             try {
                 Intent intent = new Intent();
                 intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(getUriFromFile(dv, intent, context), "application/vnd.android.package-archive");
+                intent.setDataAndType(getUriFromFile(dy, intent, context), "application/vnd.android.package-archive");
                 intent.addFlags(268435456);
                 if (isHaveActivityCanHandleIntent(intent)) {
                     context.startActivity(intent);
@@ -1288,8 +1288,8 @@ public class UtilHelper {
                 break;
             case 3:
                 z2 = true;
-                if (com.baidu.tbadk.core.e.b.uw() != null) {
-                    intent.setClass(context, com.baidu.tbadk.core.e.b.uw());
+                if (com.baidu.tbadk.core.e.b.ux() != null) {
+                    intent.setClass(context, com.baidu.tbadk.core.e.b.ux());
                     context.startActivity(intent);
                     z = true;
                     break;
@@ -1365,8 +1365,8 @@ public class UtilHelper {
                 break;
             case 9:
                 z2 = true;
-                if (com.baidu.tbadk.core.e.b.uw() != null) {
-                    intent.setClass(context, com.baidu.tbadk.core.e.b.uw());
+                if (com.baidu.tbadk.core.e.b.ux() != null) {
+                    intent.setClass(context, com.baidu.tbadk.core.e.b.ux());
                     context.startActivity(intent);
                     z = true;
                     break;
@@ -1476,16 +1476,16 @@ public class UtilHelper {
                 boolean z6 = intent.getExtras().getBoolean("is_ad", false);
                 com.baidu.adp.base.h Y = com.baidu.adp.base.i.Y(context);
                 if (Y instanceof BaseActivity) {
-                    at.wf().a(((BaseActivity) Y).getPageContext(), new String[]{string2}, z6);
+                    at.wg().a(((BaseActivity) Y).getPageContext(), new String[]{string2}, z6);
                     z = true;
                     break;
                 } else if (Y instanceof BaseFragmentActivity) {
-                    at.wf().a(((BaseFragmentActivity) Y).getPageContext(), new String[]{string2}, z6);
+                    at.wg().a(((BaseFragmentActivity) Y).getPageContext(), new String[]{string2}, z6);
                     z = true;
                     break;
                 } else {
                     if (Y instanceof ProxyAdkBaseActivity) {
-                        at.wf().a(((ProxyAdkBaseActivity) Y).getPageContext(), new String[]{string2}, z6);
+                        at.wg().a(((ProxyAdkBaseActivity) Y).getPageContext(), new String[]{string2}, z6);
                         z = true;
                         break;
                     }
@@ -1494,7 +1494,7 @@ public class UtilHelper {
                 }
             case 31:
                 TiebaStatic.log("c10303");
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PHOTOLIVE_ACTIVITY, new PhotoLiveActivityConfig.a(context, intent.getStringExtra("tid")).pn()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PHOTOLIVE_ACTIVITY, new PhotoLiveActivityConfig.a(context, intent.getStringExtra("tid")).po()));
                 z = true;
                 break;
             case 32:
@@ -1840,7 +1840,7 @@ public class UtilHelper {
     public static void showHeadImageViewBigV(HeadImageView headImageView, MetaData metaData) {
         boolean z = true;
         if (headImageView != null && metaData != null) {
-            boolean z2 = (metaData.getPendantData() == null || StringUtils.isNull(metaData.getPendantData().pV())) ? false : true;
+            boolean z2 = (metaData.getPendantData() == null || StringUtils.isNull(metaData.getPendantData().pW())) ? false : true;
             headImageView.setIsBigV(metaData.isBigV());
             if (!metaData.isBigV() || z2) {
                 z = false;

@@ -6,7 +6,7 @@ import com.baidu.tieba.d;
 public class q extends r {
     public q(Context context) {
         super((String) null, 23, 0);
-        this.aCO = d.g.selector_editor_btn_more;
-        this.aCT = new int[]{32};
+        this.aCP = d.g.selector_editor_btn_more;
+        this.aCU = new int[]{32};
     }
 }

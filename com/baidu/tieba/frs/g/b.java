@@ -17,7 +17,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.entelechy.view.EntelechyPullUpRefreshView;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs.tab.c {
-    private com.baidu.tieba.frs.f ckZ;
+    private com.baidu.tieba.frs.f cla;
     private Animation czA;
     private Animation czB;
     private Animation czC;
@@ -37,16 +37,16 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     private boolean czD = false;
     private float czE = 360.0f;
     private boolean czK = false;
-    private boolean aDN = true;
+    private boolean aDO = true;
     private View.OnClickListener czL = new View.OnClickListener() { // from class: com.baidu.tieba.frs.g.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.ckZ != null) {
+            if (b.this.cla != null) {
                 if (view == b.this.czH || view == b.this.czI) {
-                    TiebaStatic.eventStat(b.this.ckZ.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
-                    if (!b.this.ckZ.afO() && b.this.ckZ.afv() != null) {
-                        TiebaStatic.log(new aj("c11752").aa("fid", b.this.ckZ.getFid()).aa("obj_locate", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
-                        b.this.ckZ.afv().startPullRefresh();
+                    TiebaStatic.eventStat(b.this.cla.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
+                    if (!b.this.cla.afI() && b.this.cla.afp() != null) {
+                        TiebaStatic.log(new aj("c11752").aa("fid", b.this.cla.getFid()).aa("obj_locate", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+                        b.this.cla.afp().startPullRefresh();
                         return;
                     }
                     return;
@@ -63,9 +63,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         this.czH = null;
         this.czI = null;
         this.czJ = null;
-        this.ckZ = fVar;
+        this.cla = fVar;
         this.czt = noPressedRelativeLayout;
-        ajR();
+        ajL();
         this.czF = (LinearLayout) this.czt.findViewById(d.h.frs_stick_bottom_holder);
         this.czG = (LinearLayout) this.czt.findViewById(d.h.frs_no_stick_bottom_holder);
         this.czJ = (EntelechyPullUpRefreshView) this.czt.findViewById(d.h.frs_stick_bottom_goto_top);
@@ -75,10 +75,10 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         this.czI.setOnClickListener(this.czL);
         this.czH.setOnClickListener(this.czL);
         onChangeSkinType(this.mSkinType);
-        ajS();
+        ajM();
     }
 
-    private void ajQ() {
+    private void ajK() {
         if (this.czK) {
             this.czF.setVisibility(0);
             this.czG.setVisibility(8);
@@ -88,9 +88,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         this.czG.setVisibility(0);
     }
 
-    private void ajR() {
-        this.czu = new TbImageView(this.ckZ.getPageContext().getPageActivity());
-        int g = k.g(this.ckZ.getPageContext().getPageActivity(), d.f.ds68);
+    private void ajL() {
+        this.czu = new TbImageView(this.cla.getPageContext().getPageActivity());
+        int g = k.g(this.cla.getPageContext().getPageActivity(), d.f.ds68);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g, g);
         layoutParams.addRule(10);
         layoutParams.addRule(14);
@@ -103,15 +103,15 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     @Override // com.baidu.tieba.frs.entelechy.b.c
     public void t(boolean z, boolean z2) {
         if (!this.czD) {
-            this.aDN = z;
+            this.aDO = z;
             if (z) {
                 if (z2) {
-                    ajV();
+                    ajP();
                 } else {
-                    ajQ();
+                    ajK();
                 }
             } else if (z2) {
-                ajX();
+                ajR();
             } else {
                 this.czF.setVisibility(8);
                 this.czG.setVisibility(8);
@@ -120,46 +120,46 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public boolean ahr() {
+    public boolean ahl() {
         if (this.czH == null || this.czI == null) {
             return false;
         }
-        return this.aDN;
+        return this.aDO;
     }
 
-    private void ajS() {
-        this.czB = AnimationUtils.loadAnimation(this.ckZ.getPageContext().getPageActivity(), d.a.frs_bottom_fade_in);
-        this.czz = AnimationUtils.loadAnimation(this.ckZ.getPageContext().getPageActivity(), d.a.frs_bottom_fade_in);
-        this.czC = AnimationUtils.loadAnimation(this.ckZ.getPageContext().getPageActivity(), d.a.frs_bottom_fade_out);
-        this.czA = AnimationUtils.loadAnimation(this.ckZ.getPageContext().getPageActivity(), d.a.frs_bottom_fade_out);
+    private void ajM() {
+        this.czB = AnimationUtils.loadAnimation(this.cla.getPageContext().getPageActivity(), d.a.frs_bottom_fade_in);
+        this.czz = AnimationUtils.loadAnimation(this.cla.getPageContext().getPageActivity(), d.a.frs_bottom_fade_in);
+        this.czC = AnimationUtils.loadAnimation(this.cla.getPageContext().getPageActivity(), d.a.frs_bottom_fade_out);
+        this.czA = AnimationUtils.loadAnimation(this.cla.getPageContext().getPageActivity(), d.a.frs_bottom_fade_out);
         this.czC.setAnimationListener(new a(this.czG));
         this.czB.setAnimationListener(new animation.Animation$AnimationListenerC0086b(this.czG));
         this.czA.setAnimationListener(new a(this.czF));
         this.czz.setAnimationListener(new animation.Animation$AnimationListenerC0086b(this.czF));
     }
 
-    private void ajT() {
-        if (this.ckZ.isAdded()) {
-            this.czv = AnimationUtils.loadAnimation(this.ckZ.getPageContext().getPageActivity(), d.a.frs_pull_up_refresh_out);
-            this.czx = AnimationUtils.loadAnimation(this.ckZ.getPageContext().getPageActivity(), d.a.frs_pull_up_refresh_out);
+    private void ajN() {
+        if (this.cla.isAdded()) {
+            this.czv = AnimationUtils.loadAnimation(this.cla.getPageContext().getPageActivity(), d.a.frs_pull_up_refresh_out);
+            this.czx = AnimationUtils.loadAnimation(this.cla.getPageContext().getPageActivity(), d.a.frs_pull_up_refresh_out);
             this.czv.setAnimationListener(new a(this.czF));
             this.czx.setAnimationListener(new a(this.czG));
         }
     }
 
-    private void ajU() {
-        if (this.ckZ.isAdded()) {
-            this.czw = AnimationUtils.loadAnimation(this.ckZ.getPageContext().getPageActivity(), d.a.frs_pull_up_refresh_in);
-            this.czy = AnimationUtils.loadAnimation(this.ckZ.getPageContext().getPageActivity(), d.a.frs_pull_up_refresh_in);
+    private void ajO() {
+        if (this.cla.isAdded()) {
+            this.czw = AnimationUtils.loadAnimation(this.cla.getPageContext().getPageActivity(), d.a.frs_pull_up_refresh_in);
+            this.czy = AnimationUtils.loadAnimation(this.cla.getPageContext().getPageActivity(), d.a.frs_pull_up_refresh_in);
             this.czw.setAnimationListener(new animation.Animation$AnimationListenerC0086b(this.czF));
             this.czy.setAnimationListener(new animation.Animation$AnimationListenerC0086b(this.czG));
         }
     }
 
-    private void ajV() {
-        ajW();
+    private void ajP() {
+        ajQ();
         if (this.czw == null) {
-            ajU();
+            ajO();
         }
         if (this.czw != null) {
             if (this.czK) {
@@ -174,7 +174,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         }
     }
 
-    private void ajW() {
+    private void ajQ() {
         if (this.czF.getAnimation() == this.czA) {
             this.czA.cancel();
             this.czF.clearAnimation();
@@ -197,15 +197,15 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         }
     }
 
-    private boolean aj(View view) {
+    private boolean ai(View view) {
         Animation animation;
         return (view == null || (animation = view.getAnimation()) == null || !animation.hasStarted() || animation.hasEnded()) ? false : true;
     }
 
-    private void ajX() {
-        ajW();
+    private void ajR() {
+        ajQ();
         if (this.czv == null) {
-            ajT();
+            ajN();
         }
         if (this.czv != null) {
             if (this.czK) {
@@ -221,22 +221,22 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public void aht() {
-        if (this.czH != null && !aj(this.czH)) {
-            this.czH.ahI();
+    public void ahn() {
+        if (this.czH != null && !ai(this.czH)) {
+            this.czH.ahC();
         }
-        if (this.czI != null && !aj(this.czI)) {
-            this.czI.ahI();
+        if (this.czI != null && !ai(this.czI)) {
+            this.czI.ahC();
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.c
-    public void ahs() {
-        if (this.czH != null && !aj(this.czH)) {
-            this.czH.ahH();
+    public void ahm() {
+        if (this.czH != null && !ai(this.czH)) {
+            this.czH.ahB();
         }
-        if (this.czI != null && !aj(this.czI)) {
-            this.czI.ahH();
+        if (this.czI != null && !ai(this.czI)) {
+            this.czI.ahB();
         }
     }
 
@@ -261,9 +261,9 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         this.czD = z;
         if (this.czH != null) {
             if (z) {
-                ajX();
+                ajR();
             } else {
-                ajV();
+                ajP();
             }
         }
     }
@@ -287,7 +287,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     }
 
     @Override // com.baidu.tieba.frs.tab.c
-    public void ajJ() {
+    public void ajD() {
         if (this.czu != null) {
             this.czu.clearAnimation();
             this.czu.setImageDrawable(null);
@@ -296,8 +296,8 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     }
 
     @Override // com.baidu.tieba.frs.tab.c
-    public void lh() {
-        if (this.czu != null && this.ckZ != null && this.ckZ.getPageContext() != null) {
+    public void lg() {
+        if (this.czu != null && this.cla != null && this.cla.getPageContext() != null) {
             if (!this.czu.isShown()) {
                 this.czu.setVisibility(0);
                 ai.c(this.czu, d.g.icon_pop_refresh);
@@ -305,7 +305,7 @@ public class b implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
             if (this.czu.getAnimation() != null) {
                 this.czu.clearAnimation();
             }
-            this.czu.startAnimation((RotateAnimation) AnimationUtils.loadAnimation(this.ckZ.getPageContext().getPageActivity(), d.a.center_head_rotate));
+            this.czu.startAnimation((RotateAnimation) AnimationUtils.loadAnimation(this.cla.getPageContext().getPageActivity(), d.a.center_head_rotate));
         }
     }
 

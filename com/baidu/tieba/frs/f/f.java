@@ -29,16 +29,16 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(com.baidu.tieba.frs.f fVar, String str) {
         Intent ai;
-        if (!TextUtils.isEmpty(str) && fVar != null && fVar.afs() != null && (ai = i.ai(fVar.getPageContext().getPageActivity(), str)) != null) {
+        if (!TextUtils.isEmpty(str) && fVar != null && fVar.afm() != null && (ai = i.ai(fVar.getPageContext().getPageActivity(), str)) != null) {
             Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
             intent.putExtra("duplicate", false);
             intent.putExtra("android.intent.extra.shortcut.NAME", str + fVar.getPageContext().getString(d.l.bar));
             intent.putExtra("android.intent.extra.shortcut.INTENT", ai);
-            BarImageView akj = fVar.afs().akj();
-            if (akj != null && akj.getBdImage() != null && akj.getBdImage().kX() != null) {
-                Bitmap kX = akj.getBdImage().kX();
+            BarImageView akd = fVar.afm().akd();
+            if (akd != null && akd.getBdImage() != null && akd.getBdImage().kW() != null) {
+                Bitmap kW = akd.getBdImage().kW();
                 Float valueOf = Float.valueOf(fVar.getResources().getDisplayMetrics().density);
-                intent.putExtra("android.intent.extra.shortcut.ICON", com.baidu.adp.lib.util.d.gZ().a(com.baidu.adp.lib.util.d.gZ().resizeBitmap(kX, valueOf.intValue() * 48), valueOf.intValue() * 6));
+                intent.putExtra("android.intent.extra.shortcut.ICON", com.baidu.adp.lib.util.d.gZ().a(com.baidu.adp.lib.util.d.gZ().resizeBitmap(kW, valueOf.intValue() * 48), valueOf.intValue() * 6));
             } else {
                 intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(fVar.getPageContext().getPageActivity(), d.g.icon));
             }

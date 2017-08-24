@@ -7,28 +7,28 @@ import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class DeclareItemView extends LinearLayout {
     private int dHQ;
-    private boolean faw;
+    private boolean fay;
 
     public DeclareItemView(Context context) {
         super(context);
-        this.faw = false;
+        this.fay = false;
         this.dHQ = 0;
     }
 
     public DeclareItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.faw = false;
+        this.fay = false;
         this.dHQ = 0;
     }
 
     public DeclareItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.faw = false;
+        this.fay = false;
         this.dHQ = 0;
     }
 
     public void setNeedTranslate(boolean z) {
-        this.faw = z;
+        this.fay = z;
     }
 
     public void setOffSet(int i) {
@@ -37,9 +37,9 @@ public class DeclareItemView extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.faw) {
+        if (this.fay) {
             setTranslationX(((((View) getParent()).getMeasuredWidth() - getX()) - getMeasuredWidth()) + this.dHQ);
-            this.faw = false;
+            this.fay = false;
         }
         super.onLayout(z, i, i2, i3, i4);
     }

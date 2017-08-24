@@ -19,7 +19,7 @@ public class d extends t {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.t
-    public String oh() {
+    public String oi() {
         return "TBHY_COMMON_Navigator";
     }
 
@@ -28,7 +28,7 @@ public class d extends t {
         if (jSONObject != null) {
             String optString = jSONObject.optString("url");
             if (!StringUtils.isNull(optString)) {
-                at.wf().c(this.acr, new String[]{optString});
+                at.wg().c(this.acr, new String[]{optString});
             }
         }
     }

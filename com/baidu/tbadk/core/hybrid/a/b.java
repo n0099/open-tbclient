@@ -17,7 +17,7 @@ public class b extends t {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.t
-    public String oh() {
+    public String oi() {
         return "TBHY_EXT_FocusFeed";
     }
 
@@ -30,7 +30,7 @@ public class b extends t {
             i iVar = new i();
             iVar.setActivityId(optInt);
             iVar.eu(optInt2);
-            iVar.fv(optString);
+            iVar.fz(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_ADCARD, iVar));
         }
     }

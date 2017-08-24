@@ -12,7 +12,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
     private int JT;
-    private List<d> XF;
+    private List<d> XG;
     private f dai;
     public final ArrayList<f> daj = new ArrayList<>();
     private LayoutInflater mInflater;
@@ -25,7 +25,7 @@ public class c extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.XF = list;
+        this.XG = list;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -39,34 +39,34 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return u.u(this.XF);
+        return u.u(this.XG);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return u.c(this.XF, i);
+        return u.c(this.XG, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (u.c(this.XF, i) == null) {
+        if (u.c(this.XG, i) == null) {
             return -1L;
         }
-        return ((d) u.c(this.XF, i)).hashCode();
+        return ((d) u.c(this.XG, i)).hashCode();
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.JT, viewGroup, false);
-            f V = this.dai.V(view);
-            V.setOnClickListener(this.mOnClickListener);
-            view.setTag(V);
-            this.daj.add(V);
+            f U = this.dai.U(view);
+            U.setOnClickListener(this.mOnClickListener);
+            view.setTag(U);
+            this.daj.add(U);
         }
         f fVar = (f) view.getTag();
-        if (u.c(this.XF, i) != null) {
-            a(fVar, this.XF.get(i));
+        if (u.c(this.XG, i) != null) {
+            a(fVar, this.XG.get(i));
         }
         return fVar.getView();
     }

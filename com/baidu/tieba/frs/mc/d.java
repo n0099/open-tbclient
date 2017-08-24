@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private final com.baidu.tieba.frs.i cjK;
-    private final FrsModelController cjT;
-    private final com.baidu.tieba.frs.f coU;
+    private final com.baidu.tieba.frs.i cjL;
+    private final FrsModelController cjU;
+    private final com.baidu.tieba.frs.f coV;
     private final FrsLoadMoreModel cwE;
     private final FrsSmartLoadMoreModel cwF;
 
@@ -16,29 +16,29 @@ public class d {
         if (fVar == null) {
             throw new NullPointerException("FrsFragment is NullPointerException");
         }
-        this.coU = fVar;
+        this.coV = fVar;
         this.cwE = new FrsLoadMoreModel(fVar, jVar);
         this.cwF = new FrsSmartLoadMoreModel(fVar, jVar);
-        this.cjK = fVar.afv();
-        this.cjT = fVar.afq();
-        this.cwF.setSortType(this.cjT.Om());
-        this.cwE.setSortType(this.cjT.Om());
+        this.cjL = fVar.afp();
+        this.cjU = fVar.afk();
+        this.cwF.setSortType(this.cjU.Om());
+        this.cwE.setSortType(this.cjU.Om());
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.f> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.f> arrayList, com.baidu.tieba.tbadkCore.data.e eVar) {
-        if (this.cjT != null) {
-            boolean ajo = this.coU.afq().ajo();
-            if (this.cjT.ajp()) {
-                return this.cwF.a(z, ajo, arrayList);
+        if (this.cjU != null) {
+            boolean aji = this.coV.afk().aji();
+            if (this.cjU.ajj()) {
+                return this.cwF.a(z, aji, arrayList);
             }
-            return this.cwE.a(z, ajo, z2, arrayList, eVar);
+            return this.cwE.a(z, aji, z2, arrayList, eVar);
         }
         return arrayList;
     }
 
     public void resetData() {
-        if (this.cjT != null) {
-            if (this.cjT.ajp()) {
+        if (this.cjU != null) {
+            if (this.cjU.ajj()) {
                 this.cwF.resetData();
             } else {
                 this.cwE.resetData();
@@ -47,56 +47,56 @@ public class d {
     }
 
     public boolean aK(List<Long> list) {
-        if (this.cjT == null || this.cjT.ajp()) {
+        if (this.cjU == null || this.cjU.ajj()) {
             return false;
         }
         return this.cwE.aK(list);
     }
 
     public void a(String str, String str2, com.baidu.tieba.tbadkCore.i iVar) {
-        if (this.cjT != null && this.cjK != null && iVar != null) {
-            if (this.cjT.ajp()) {
-                if (this.cwF.afw() == 1 && !this.cjT.xc()) {
-                    this.cwF.setSortType(this.cjT.Om());
-                    this.cjK.a(this.cwF.getDataList(), iVar);
+        if (this.cjU != null && this.cjL != null && iVar != null) {
+            if (this.cjU.ajj()) {
+                if (this.cwF.afq() == 1 && !this.cjU.xc()) {
+                    this.cwF.setSortType(this.cjU.Om());
+                    this.cjL.a(this.cwF.getDataList(), iVar);
                     int pn = this.cwF.getPn();
                     this.cwF.setPn(pn);
-                    this.cjT.je(pn + 1);
+                    this.cjU.je(pn + 1);
                 }
-            } else if (this.cjT.ajf() == 1) {
-                if (!this.cwE.isLoading && !this.cjT.xc()) {
+            } else if (this.cjU.aiZ() == 1) {
+                if (!this.cwE.isLoading && !this.cjU.xc()) {
                     int pn2 = this.cwE.getPn();
-                    if (this.cwE.aK(iVar.brp())) {
-                        this.cjK.a(this.cwE.aie(), iVar);
-                        this.cwE.setSortType(this.cjT.Om());
-                        this.cwE.a(com.baidu.adp.lib.g.b.d(str2, 0L), iVar.brp(), str, pn2);
-                    } else if (this.cwE.afw() == 1) {
-                        this.cjK.a(this.cwE.aie(), iVar);
+                    if (this.cwE.aK(iVar.bri())) {
+                        this.cjL.a(this.cwE.ahY(), iVar);
+                        this.cwE.setSortType(this.cjU.Om());
+                        this.cwE.a(com.baidu.adp.lib.g.b.d(str2, 0L), iVar.bri(), str, pn2);
+                    } else if (this.cwE.afq() == 1) {
+                        this.cjL.a(this.cwE.ahY(), iVar);
                         this.cwE.setPn(pn2);
-                        this.cjT.je(pn2 + 1);
+                        this.cjU.je(pn2 + 1);
                         this.cwE.loadingDone = false;
                         this.cwE.loadIndex = 0;
                     }
                 }
-            } else if (!this.cjT.aji()) {
-                this.cjT.Yk();
+            } else if (!this.cjU.ajc()) {
+                this.cjU.Yh();
             }
         }
     }
 
-    public int afw() {
-        if (this.cjT == null) {
+    public int afq() {
+        if (this.cjU == null) {
             return -1;
         }
-        if (this.cjT.ajp()) {
-            return this.cwF.afw();
+        if (this.cjU.ajj()) {
+            return this.cwF.afq();
         }
-        return this.cwE.afw();
+        return this.cwE.afq();
     }
 
     public void setHasMore(int i) {
-        if (this.cjT != null) {
-            if (this.cjT.ajp()) {
+        if (this.cjU != null) {
+            if (this.cjU.ajj()) {
                 this.cwF.setHasMore(i);
             } else {
                 this.cwE.setHasMore(i);
@@ -105,18 +105,18 @@ public class d {
     }
 
     public int getPn() {
-        if (this.cjT == null) {
+        if (this.cjU == null) {
             return 1;
         }
-        if (this.cjT.ajp()) {
+        if (this.cjU.ajj()) {
             return this.cwF.getPn();
         }
         return this.cwE.getPn();
     }
 
     public void setPn(int i) {
-        if (this.cjT != null) {
-            if (this.cjT.ajp()) {
+        if (this.cjU != null) {
+            if (this.cjU.ajj()) {
                 this.cwF.setPn(i);
             } else {
                 this.cwE.setPn(i);
@@ -125,10 +125,10 @@ public class d {
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.f> getDataList() {
-        return this.cjT.ajp() ? this.cwF.getDataList() : this.cjT.ajk();
+        return this.cjU.ajj() ? this.cwF.getDataList() : this.cjU.aje();
     }
 
-    public FrsSmartLoadMoreModel aiZ() {
+    public FrsSmartLoadMoreModel aiT() {
         return this.cwF;
     }
 }

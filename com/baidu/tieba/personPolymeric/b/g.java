@@ -58,7 +58,7 @@ public class g {
         }
     }
 
-    public static void n(String str, List<com.baidu.adp.widget.ListView.f> list) {
+    public static void m(String str, List<com.baidu.adp.widget.ListView.f> list) {
         if (!StringUtils.isNull(str)) {
             if (list == null) {
                 list = new ArrayList<>();

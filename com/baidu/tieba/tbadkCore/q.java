@@ -8,32 +8,32 @@ import android.view.View;
 public class q implements View.OnTouchListener {
     private a giC;
     private int count = 0;
-    private long eGK = 0;
-    private long eGL = 0;
-    private long eGN = 500;
+    private long eGM = 0;
+    private long eGN = 0;
+    private long eGP = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.tbadkCore.q.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 q.this.count = 0;
-                q.this.eGK = 0L;
-                q.this.eGL = 0L;
+                q.this.eGM = 0L;
+                q.this.eGN = 0L;
             } else if (message.what == 1 && q.this.count == 1) {
                 if (q.this.giC != null) {
-                    q.this.giC.agu();
+                    q.this.giC.ago();
                 }
                 q.this.count = 0;
-                q.this.eGK = 0L;
-                q.this.eGL = 0L;
+                q.this.eGM = 0L;
+                q.this.eGN = 0L;
             }
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void agu();
+        void ago();
 
-        void agv();
+        void agp();
     }
 
     public q(a aVar) {
@@ -48,13 +48,13 @@ public class q implements View.OnTouchListener {
             }
             this.count++;
             if (this.count == 1) {
-                this.eGK = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.eGN);
+                this.eGM = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.eGP);
                 return true;
             } else if (this.count == 2) {
-                this.eGL = System.currentTimeMillis();
-                if (this.eGL - this.eGK < this.eGN) {
-                    this.giC.agv();
+                this.eGN = System.currentTimeMillis();
+                if (this.eGN - this.eGM < this.eGP) {
+                    this.giC.agp();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

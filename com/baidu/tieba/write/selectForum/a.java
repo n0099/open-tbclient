@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private String sZ(String str) {
+    private String te(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -83,25 +83,25 @@ public class a extends BaseAdapter {
     private C0125a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0125a c0125a;
         if (obj == null) {
-            c0125a = bzn();
+            c0125a = bzf();
         } else {
             c0125a = (C0125a) obj;
         }
-        c0125a.gEo.setText(sZ(hotTopicBussinessData.mForumName));
+        c0125a.gEo.setText(te(hotTopicBussinessData.mForumName));
         c0125a.gEn.c(hotTopicBussinessData.mForumAvatar, 10, false);
         ai.j(c0125a.mRootView, d.g.select_forum_item_bg);
         ai.i(c0125a.gEo, d.e.cp_cont_b);
-        ai.k(c0125a.cpX, d.e.cp_bg_line_e);
+        ai.k(c0125a.cpY, d.e.cp_bg_line_e);
         return c0125a;
     }
 
-    private C0125a bzn() {
+    private C0125a bzf() {
         C0125a c0125a = new C0125a();
         c0125a.mRootView = LayoutInflater.from(this.mContext).inflate(d.j.hot_topic_change_item, (ViewGroup) null);
         ai.j(c0125a.mRootView, d.g.select_forum_item_bg);
         ai.i(c0125a.gEo, d.e.cp_cont_b);
         c0125a.gEo = (TextView) c0125a.mRootView.findViewById(d.h.fourm_tv);
-        c0125a.cpX = c0125a.mRootView.findViewById(d.h.line_view);
+        c0125a.cpY = c0125a.mRootView.findViewById(d.h.line_view);
         c0125a.gEn = (TbImageView) c0125a.mRootView.findViewById(d.h.icon_img);
         c0125a.gEn.setDefaultBgResource(d.e.cp_bg_line_e);
         c0125a.gEn.setDefaultResource(d.g.transparent_bg);
@@ -114,7 +114,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0125a {
-        public View cpX;
+        public View cpY;
         public TbImageView gEn;
         public TextView gEo;
         public View mRootView;

@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
 public interface a {
-    void G(View.OnClickListener onClickListener);
+    void C(View.OnClickListener onClickListener);
 
     void b(com.baidu.tieba.pb.data.f fVar);
 

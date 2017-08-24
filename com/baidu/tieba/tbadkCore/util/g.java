@@ -3,15 +3,15 @@ package com.baidu.tieba.tbadkCore.util;
 public class g {
     private static boolean gmk = false;
 
-    public static void buc() {
+    public static void btV() {
         gmk = true;
     }
 
-    public static void bud() {
+    public static void btW() {
         gmk = false;
     }
 
-    public static boolean bue() {
+    public static boolean btX() {
         return gmk;
     }
 }

@@ -16,7 +16,7 @@ public abstract class k extends c {
     public interface a {
         Path a(RectF rectF);
 
-        void c(Canvas canvas);
+        void e(Canvas canvas);
     }
 
     @Override // com.baidu.adp.b.a.a
@@ -43,7 +43,7 @@ public abstract class k extends c {
         if (this.DW) {
             canvas.drawPath(this.DT, this.DU);
             if (this.DV != null) {
-                this.DV.c(canvas);
+                this.DV.e(canvas);
             }
         }
     }

@@ -3,16 +3,16 @@ package com.baidu.tbadk.c;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 public class a {
-    private ImageFileInfo Rz;
+    private ImageFileInfo RA;
+    private String Rz;
     private String albumId;
-    private String count;
     private String name;
 
     public String getAlbumId() {
         return this.albumId;
     }
 
-    public void cd(String str) {
+    public void cg(String str) {
         this.albumId = str;
     }
 
@@ -24,19 +24,19 @@ public class a {
         this.name = str;
     }
 
-    public String nF() {
-        return this.count;
-    }
-
-    public void ce(String str) {
-        this.count = str;
-    }
-
-    public ImageFileInfo nG() {
+    public String nG() {
         return this.Rz;
     }
 
+    public void ch(String str) {
+        this.Rz = str;
+    }
+
+    public ImageFileInfo nH() {
+        return this.RA;
+    }
+
     public void a(ImageFileInfo imageFileInfo) {
-        this.Rz = imageFileInfo;
+        this.RA = imageFileInfo;
     }
 }

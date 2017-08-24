@@ -20,7 +20,7 @@ public class e {
             if (e.this.JK == null) {
                 return;
             }
-            e.this.JK.ls();
+            e.this.JK.lr();
         }
     };
 
@@ -48,7 +48,7 @@ public class e {
             this.mScroller = new Scroller(context);
         }
 
-        private void lr() {
+        private void lq() {
             if (e.this.mHandler != null) {
                 e.this.mHandler.removeCallbacks(e.this.JL);
             }
@@ -87,7 +87,7 @@ public class e {
         public void s(int i, int i2) {
             if (e.this.mView != null && this.mScroller != null) {
                 int i3 = i == 0 ? i - 1 : i;
-                lr();
+                lq();
                 this.JN = 0;
                 this.mScroller.startScroll(0, 0, 0, i3, i2);
                 e.this.mView.post(this);
@@ -95,7 +95,7 @@ public class e {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void ls() {
+        public void lr() {
             e.this.mHandler.removeCallbacks(e.this.JL);
             if (this.mScroller != null) {
                 this.mScroller.abortAnimation();

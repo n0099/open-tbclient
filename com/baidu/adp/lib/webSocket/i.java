@@ -205,7 +205,7 @@ public class i implements g {
                 if (message.obj instanceof k.s) {
                     k.s sVar = (k.s) message.obj;
                     if (i.this.BT != null) {
-                        i.this.BT.I(sVar.Cq);
+                        i.this.BT.J(sVar.Cq);
                     }
                 } else if (message.obj instanceof k.m) {
                     k.m mVar = (k.m) message.obj;

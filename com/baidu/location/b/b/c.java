@@ -81,7 +81,7 @@ public final class c {
             this();
         }
 
-        public static b ca(String str) {
+        public static b cd(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -448,13 +448,21 @@ public final class c {
     public static void b(Throwable th) {
     }
 
+    private boolean c() {
+        return c("android.permission.WRITE_SETTINGS");
+    }
+
+    private boolean c(String str) {
+        return this.a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:22:0x0052  */
     /* JADX WARN: Removed duplicated region for block: B:44:0x00bd  */
     /* JADX WARN: Removed duplicated region for block: B:55:0x00a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private b bZ(String str) {
+    private b cc(String str) {
         String str2;
         String[] split;
         boolean z = false;
@@ -520,14 +528,6 @@ public final class c {
         }
         if (TextUtils.isEmpty(str3)) {
         }
-    }
-
-    private boolean c() {
-        return c("android.permission.WRITE_SETTINGS");
-    }
-
-    private boolean c(String str) {
-        return this.a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
     private static String e(String str) {
@@ -636,8 +636,8 @@ public final class c {
             z = z3;
         }
         File file = new File(this.a.getFilesDir(), "libcuid.so");
-        b ca = file.exists() ? b.ca(f(a(file))) : null;
-        if (ca == null) {
+        b cd = file.exists() ? b.cd(f(a(file))) : null;
+        if (cd == null) {
             this.b |= 16;
             List<a> a3 = a(new Intent("com.baidu.intent.action.GALAXY"), z);
             if (a3 != null) {
@@ -652,21 +652,21 @@ public final class c {
                     if (!aVar2.d) {
                         File file2 = new File(new File(aVar2.a.dataDir, str2), "libcuid.so");
                         if (file2.exists()) {
-                            bVar = b.ca(f(a(file2)));
+                            bVar = b.cd(f(a(file2)));
                             if (bVar != null) {
                                 break;
                             }
                         } else {
-                            bVar = ca;
+                            bVar = cd;
                         }
-                        ca = bVar;
+                        cd = bVar;
                     }
                 }
             }
         }
-        bVar = ca;
+        bVar = cd;
         if (bVar == null) {
-            bVar = b.ca(f(b("com.baidu.deviceid.v2")));
+            bVar = b.cd(f(b("com.baidu.deviceid.v2")));
         }
         boolean c = c("android.permission.READ_EXTERNAL_STORAGE");
         if (bVar == null && c) {
@@ -682,7 +682,7 @@ public final class c {
         if (bVar2 == null && c) {
             this.b |= 1;
             str = h("");
-            bVar2 = bZ(str);
+            bVar2 = cc(str);
             z2 = true;
         } else {
             str = null;
@@ -762,7 +762,7 @@ public final class c {
             String a2 = a(file);
             if (!TextUtils.isEmpty(a2)) {
                 try {
-                    return b.ca(new String(com.baidu.location.b.a.a.b("30212102dicudiab", "30212102dicudiab", com.baidu.location.b.a.b.a(a2.getBytes()))));
+                    return b.cd(new String(com.baidu.location.b.a.a.b("30212102dicudiab", "30212102dicudiab", com.baidu.location.b.a.b.a(a2.getBytes()))));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

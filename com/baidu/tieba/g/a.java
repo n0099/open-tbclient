@@ -24,39 +24,39 @@ public class a {
         }
     }
 
-    public String alA() {
+    public String alu() {
         return this.mTitle;
     }
 
-    public String alB() {
+    public String alv() {
         return this.cGO;
     }
 
-    public String alC() {
+    public String alw() {
         return this.cGP;
     }
 
-    public String alD() {
+    public String alx() {
         return this.cGQ;
     }
 
-    public String alE() {
+    public String aly() {
         return this.cGR;
     }
 
-    public String alF() {
+    public String alz() {
         return this.cGS;
     }
 
-    public void kK(String str) {
+    public void kN(String str) {
         this.cGS = str;
     }
 
-    public String alG() {
+    public String alA() {
         return this.cGT;
     }
 
-    public void kL(String str) {
+    public void kO(String str) {
         this.cGT = str;
     }
 }

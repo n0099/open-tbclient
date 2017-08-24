@@ -80,8 +80,8 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
             }
         };
         setUniqueId(bdUniqueId);
-        UJ();
-        VY();
+        UH();
+        VV();
         registerListener(this.mNetMessageListener);
     }
 
@@ -112,14 +112,14 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void VY() {
+    private void VV() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309264);
         bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
         bVar.m(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void UJ() {
+    private void UH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, com.baidu.tieba.tbadkCore.a.a.az(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
@@ -143,15 +143,15 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
-        if (r.Gz().GA() && com.baidu.tieba.homepage.framework.a.aoK().getCreateTime() > 0) {
-            long kE = com.baidu.tieba.homepage.framework.a.aoK().kE(1);
-            long createTime = com.baidu.tieba.homepage.framework.a.aoK().getCreateTime();
-            g gVar = new g(1005, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.aoK().kD(1), false, kE + createTime);
+        if (r.Gz().GA() && com.baidu.tieba.homepage.framework.a.aoE().getCreateTime() > 0) {
+            long kE = com.baidu.tieba.homepage.framework.a.aoE().kE(1);
+            long createTime = com.baidu.tieba.homepage.framework.a.aoE().getCreateTime();
+            g gVar = new g(1005, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.aoE().kD(1), false, kE + createTime);
             if (gVar != null) {
                 gVar.pageType = i;
                 gVar.Gu();
             }
-            com.baidu.tieba.homepage.framework.a.aoK().setCreateTime(0L);
+            com.baidu.tieba.homepage.framework.a.aoE().setCreateTime(0L);
         }
     }
 }

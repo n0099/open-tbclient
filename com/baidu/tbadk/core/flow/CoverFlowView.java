@@ -101,21 +101,21 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
                 this.acV.setCount(size);
                 this.acU.setCurrentItem(1, false);
                 this.acV.setPosition(0.0f);
-                tF();
+                tG();
                 return;
             }
             this.acV.setVisibility(8);
-            tG();
+            tH();
         }
     }
 
     public void setCoverFlowFactory(com.baidu.tbadk.core.flow.b bVar) {
         if (bVar != null) {
             this.acY = bVar;
-            this.acW = bVar.tC();
+            this.acW = bVar.tD();
             this.acW.g(this.acV);
-            bVar.tD().b(this.acU);
-            this.mCustomView = bVar.tE();
+            bVar.tE().b(this.acU);
+            this.mCustomView = bVar.tF();
             if (this.mCustomView != null) {
                 removeAllViews();
                 addView(this.acU);
@@ -125,22 +125,22 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         }
     }
 
-    public void tF() {
-        tH();
-    }
-
     public void tG() {
-        this.acZ.removeMessages(1);
+        tI();
     }
 
     public void tH() {
+        this.acZ.removeMessages(1);
+    }
+
+    public void tI() {
         this.acZ.removeMessages(1);
         this.acZ.sendEmptyMessageDelayed(1, this.ade);
     }
 
     public void setMarqueenTime(long j) {
         this.ade = j;
-        tH();
+        tI();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -155,7 +155,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    CoverFlowView.this.tI();
+                    CoverFlowView.this.tJ();
                     return;
                 default:
                     return;
@@ -164,7 +164,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tI() {
+    public void tJ() {
         int count;
         if (this.acU != null && this.acX != null && (count = this.acX.getCount()) > 1) {
             int currentItem = this.acU.getCurrentItem();
@@ -180,7 +180,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         }
     }
 
-    private boolean tJ() {
+    private boolean tK() {
         int count;
         if (this.acX != null && (count = this.acX.getCount()) > 1) {
             int currentItem = this.acU.getCurrentItem();
@@ -234,7 +234,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             if (CoverFlowView.this.acU != null && CoverFlowView.this.acX != null) {
                 switch (i) {
                     case 0:
-                        CoverFlowView.this.tK();
+                        CoverFlowView.this.tL();
                         return;
                     default:
                         return;
@@ -244,9 +244,9 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tK() {
-        if (tJ()) {
-            tH();
+    public void tL() {
+        if (tK()) {
+            tI();
         }
     }
 
@@ -261,7 +261,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             int intValue;
             com.baidu.tbadk.core.flow.a.a cu;
             if (CoverFlowView.this.ada != null && (view.getTag() instanceof Integer) && (cu = CoverFlowView.this.acX.cu((intValue = ((Integer) view.getTag()).intValue()))) != null) {
-                CoverFlowView.this.ada.g(intValue, cu.pQ());
+                CoverFlowView.this.ada.g(intValue, cu.pR());
             }
         }
     }
@@ -269,8 +269,8 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     public void onChangeSkinType() {
         this.acX.onChangeSkinType();
         if (this.acV != null && this.acW != null) {
-            this.acV.setDrawable(ai.getDrawable(this.acW.tL()));
-            this.acV.setSelector(ai.getDrawable(this.acW.tM()));
+            this.acV.setDrawable(ai.getDrawable(this.acW.tM()));
+            this.acV.setSelector(ai.getDrawable(this.acW.tN()));
         }
     }
 

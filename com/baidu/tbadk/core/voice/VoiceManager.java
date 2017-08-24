@@ -208,7 +208,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                         }
                         b playView4 = VoiceManager.this.getPlayView();
                         if (playView4 != null) {
-                            playView4.ma();
+                            playView4.lZ();
                         }
                         MediaService.startPlay(context);
                         return;
@@ -250,7 +250,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
         VoiceData.VoiceModel getVoiceModel();
 
-        void ma();
+        void lZ();
 
         void onShowErr(int i, String str);
     }
@@ -395,14 +395,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     }
                 };
             }
-            Object ex = com.baidu.tbadk.core.voice.a.ex(voiceModel.getId());
-            if (ex == null) {
+            Object eB = com.baidu.tbadk.core.voice.a.eB(voiceModel.getId());
+            if (eB == null) {
                 if (this.context != null && (this.context.getOrignalPage() instanceof com.baidu.adp.base.h)) {
                     bdUniqueId = ((com.baidu.adp.base.h) this.context.getOrignalPage()).getUniqueId();
                 }
-                ex = com.baidu.adp.lib.f.c.fU().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                eB = com.baidu.adp.lib.f.c.fU().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
             }
-            if (voiceModel.isLocal && ex == null) {
+            if (voiceModel.isLocal && eB == null) {
                 if (this.mPlayCall == null) {
                     this.mPlayCall = new d();
                 }
@@ -413,8 +413,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     jVar.n("from", voiceModel.from);
                 }
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "VoiceManager.setDownloading() error : record file not exists", jVar.toString());
-            } else if (ex != null) {
-                setPlaying(voiceModel, (String) ex);
+            } else if (eB != null) {
+                setPlaying(voiceModel, (String) eB);
             } else {
                 voiceModel.voice_status = 2;
                 b playView = getPlayView();

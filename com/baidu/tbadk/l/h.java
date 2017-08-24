@@ -9,20 +9,20 @@ public class h extends t {
             com.baidu.adp.lib.stats.a fV = fV();
             fV.p("action", "time_t");
             a(fV, mVar);
-            fV.p("ishttp", mVar.aKp ? "1" : "0");
+            fV.p("ishttp", mVar.aKq ? "1" : "0");
             fV.p("issuccess", mVar.isSuccess ? "1" : "0");
             fV.p("nettype", r.Gz().getNetType());
-            fV.p("ct", String.valueOf(mVar.aKc));
-            fV.p("wt", String.valueOf(mVar.aKk));
-            fV.p("qt", String.valueOf(mVar.aKd));
-            fV.p("connt", String.valueOf(mVar.aKe));
-            fV.p("rwt", String.valueOf(mVar.aKf));
-            fV.p("dect", String.valueOf(mVar.aKg));
-            fV.p("parset", String.valueOf(mVar.aKh));
-            fV.p("rendert", String.valueOf(mVar.aKj));
-            fV.p("ss", String.valueOf(mVar.aKn));
-            fV.p("hs", String.valueOf(mVar.aKo));
-            if (mVar.aKp && mVar.socketErrNo != 0) {
+            fV.p("ct", String.valueOf(mVar.aKd));
+            fV.p("wt", String.valueOf(mVar.aKl));
+            fV.p("qt", String.valueOf(mVar.aKe));
+            fV.p("connt", String.valueOf(mVar.aKf));
+            fV.p("rwt", String.valueOf(mVar.aKg));
+            fV.p("dect", String.valueOf(mVar.aKh));
+            fV.p("parset", String.valueOf(mVar.aKi));
+            fV.p("rendert", String.valueOf(mVar.aKk));
+            fV.p("ss", String.valueOf(mVar.aKo));
+            fV.p("hs", String.valueOf(mVar.aKp));
+            if (mVar.aKq && mVar.socketErrNo != 0) {
                 fV.p("salno", String.valueOf(mVar.socketErrNo));
                 if (mVar.socketCostTime != 0) {
                     fV.p("scosttime", String.valueOf(mVar.socketCostTime));
@@ -31,8 +31,8 @@ public class h extends t {
             if (mVar.errCode != 0) {
                 fV.d("errcode", Integer.valueOf(mVar.errCode));
             }
-            if (mVar.aKp) {
-                fV.p("c_logid", String.valueOf(mVar.aKt));
+            if (mVar.aKq) {
+                fV.p("c_logid", String.valueOf(mVar.aKu));
             } else {
                 fV.p("seq_id", String.valueOf(mVar.sequenceID & 4294967295L));
             }
@@ -42,22 +42,22 @@ public class h extends t {
 
     @Override // com.baidu.tbadk.l.t
     public void b(m mVar) {
-        if (r.Gz().GA() && mVar.aKl > 0) {
+        if (r.Gz().GA() && mVar.aKm > 0) {
             com.baidu.adp.lib.stats.a fV = fV();
             fV.p("action", "readCache_t");
             a(fV, mVar);
-            fV.p("rct", String.valueOf(mVar.aKl));
+            fV.p("rct", String.valueOf(mVar.aKm));
             BdStatisticsManager.getInstance().performance(this.subType, fV);
         }
     }
 
     @Override // com.baidu.tbadk.l.t
     public void c(m mVar) {
-        if (r.Gz().GA() && mVar.aKm > 0) {
+        if (r.Gz().GA() && mVar.aKn > 0) {
             com.baidu.adp.lib.stats.a fV = fV();
             fV.p("action", "writeCache_t");
             a(fV, mVar);
-            fV.p("wct", String.valueOf(mVar.aKm));
+            fV.p("wct", String.valueOf(mVar.aKn));
             BdStatisticsManager.getInstance().performance(this.subType, fV);
         }
     }
@@ -69,7 +69,7 @@ public class h extends t {
             fV.p("action", "resource_t");
             fV.p("actype", str);
             fV.p("issuccess", lVar.isSuccess ? "1" : "0");
-            fV.p("isfs", lVar.aKa ? "1" : "0");
+            fV.p("isfs", lVar.aKb ? "1" : "0");
             fV.p("ct", String.valueOf(lVar.IH));
             fV.p("from", String.valueOf(lVar.IG));
             BdStatisticsManager.getInstance().performance(this.subType, fV);

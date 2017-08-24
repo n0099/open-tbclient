@@ -12,8 +12,8 @@ import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FrsEntranceStoryListWrapperView extends LinearLayout {
-    private HTypeListView aGd;
-    private com.baidu.tieba.a.a aGe;
+    private HTypeListView aGe;
+    private com.baidu.tieba.a.a aGf;
     private TbPageContext acr;
     private View mRootView;
     private int mSkinType;
@@ -35,36 +35,36 @@ public class FrsEntranceStoryListWrapperView extends LinearLayout {
     public void p(TbPageContext tbPageContext) {
         this.acr = tbPageContext;
         if (this.acr != null) {
-            this.aGd = (HTypeListView) this.mRootView.findViewById(d.h.listview_story_pic);
-            this.aGd.setSelector(d.g.transparent_bg);
-            this.aGe = new com.baidu.tieba.a.a(this.acr, this.aGd);
+            this.aGe = (HTypeListView) this.mRootView.findViewById(d.h.listview_story_pic);
+            this.aGe.setSelector(d.g.transparent_bg);
+            this.aGf = new com.baidu.tieba.a.a(this.acr, this.aGe);
         }
     }
 
     public void changeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.aGe != null) {
-                this.aGe.notifyDataSetChanged();
+            if (this.aGf != null) {
+                this.aGf.notifyDataSetChanged();
             }
             ai.k(this.mRootView, d.e.cp_bg_line_e);
-            ai.k(this.aGd, d.e.cp_bg_line_d);
+            ai.k(this.aGe, d.e.cp_bg_line_d);
         }
         this.mSkinType = i;
     }
 
     public void b(List<com.baidu.adp.widget.ListView.f> list, String str, String str2) {
-        com.baidu.tieba.story.l.boN().boP();
+        com.baidu.tieba.story.l.boG().boI();
         if (u.v(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        if (this.aGe != null) {
-            this.aGe.a(list, str, str2);
+        if (this.aGf != null) {
+            this.aGf.a(list, str, str2);
         }
     }
 
     public void setOnClick(View.OnClickListener onClickListener) {
-        this.aGe.setItemOnclickListener(onClickListener);
+        this.aGf.setItemOnclickListener(onClickListener);
     }
 }

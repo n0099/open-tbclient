@@ -24,7 +24,7 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aC */
     public e.a<MsgrightView> onCreateViewHolder(ViewGroup viewGroup) {
-        MsgrightView msgrightView = new MsgrightView(this.oV);
+        MsgrightView msgrightView = new MsgrightView(this.oW);
         return new a(msgrightView.cq(), msgrightView);
     }
 
@@ -34,19 +34,19 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgrightView asA = aVar.asA();
-        asA.lU(this.djn);
-        asA.fY(this.djw);
+        MsgrightView ast = aVar.ast();
+        ast.lU(this.djn);
+        ast.fY(this.djw);
         chatMessage.getCacheData().setIs_left(0);
-        asA.a(this.djd);
-        asA.setOnItemViewLongClickListener(this.dje);
-        asA.setPosition(i);
-        asA.bC(this.djk);
-        asA.bB(chatMessage.getCacheData().getLastMsgTime());
-        asA.a(viewGroup, chatMessage);
-        asA.b(viewGroup, chatMessage);
-        this.oV.getLayoutMode().ah(false);
-        this.oV.getLayoutMode().t(view);
+        ast.a(this.djd);
+        ast.setOnItemViewLongClickListener(this.dje);
+        ast.setPosition(i);
+        ast.bC(this.djk);
+        ast.bB(chatMessage.getCacheData().getLastMsgTime());
+        ast.a(viewGroup, chatMessage);
+        ast.b(viewGroup, chatMessage);
+        this.oW.getLayoutMode().ah(false);
+        this.oW.getLayoutMode().t(view);
         return view;
     }
 

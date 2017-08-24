@@ -19,8 +19,8 @@ import org.json.JSONObject;
 public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void arT() {
-        super.arT();
+    public void arM() {
+        super.arM();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,7 +31,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void m(Bundle bundle) {
+    public void l(Bundle bundle) {
         if (bundle != null && bundle.getString("user") != null) {
             UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
             a(userData);
@@ -50,19 +50,19 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean arV() {
+    public boolean arO() {
         UserData user;
         return (!(this.dke instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.dke).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void l(Bundle bundle) throws Exception {
+    public void k(Bundle bundle) throws Exception {
         this.dke.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
-        m(bundle);
+        l(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void arU() {
+    public void arN() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
         if (this.dke != null) {
@@ -78,7 +78,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         super.a(view, i, i2, j);
         switch (i) {
             case 7:
-                if (asF() && this.dke != null && (msg = this.dke.getMsg(i2)) != null && com.baidu.tieba.im.util.e.s(msg) && (content = msg.getContent()) != null) {
+                if (asy() && this.dke != null && (msg = this.dke.getMsg(i2)) != null && com.baidu.tieba.im.util.e.s(msg) && (content = msg.getContent()) != null) {
                     JSONObject jSONObject = null;
                     try {
                         JSONArray jSONArray = new JSONArray(content);

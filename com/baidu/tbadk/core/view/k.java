@@ -67,14 +67,14 @@ public class k extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public View lk() {
+    public View lj() {
         this.anK = LayoutInflater.from(getContext()).inflate(d.j.tb_pull_view, (ViewGroup) null);
         this.anL = (LinearLayout) this.anK.findViewById(d.h.pull_root);
         this.anU = (LinearLayout) this.anL.findViewById(d.h.cube_container);
         this.anV = (FrameLayout) this.anL.findViewById(d.h.loading_cube);
         this.anM = (ImageView) this.anK.findViewById(d.h.pull_image);
-        if (!vH()) {
-            this.anQ = ae.vz().cM(TbadkCoreApplication.getInst().getSkinType());
+        if (!vI()) {
+            this.anQ = ae.vA().cM(TbadkCoreApplication.getInst().getSkinType());
         }
         this.anM.setBackgroundDrawable(this.anQ);
         this.anS = new a.e() { // from class: com.baidu.tbadk.core.view.k.1
@@ -91,7 +91,7 @@ public class k extends com.baidu.adp.widget.ListView.c {
         this.anX = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.g.btn_frs_post_arrow);
         this.anY = BitmapHelper.getResBitmapPowerOf2Size(getContext(), d.g.btn_frs_post_ok);
         if (this.anW == null || this.anX == null || this.anY == null) {
-            ae.vz().aC(false);
+            ae.vA().aC(false);
         }
         this.anT.a(this.anW, this.anW, this.anX, this.anW, this.anW, this.anW);
         this.anR = new com.baidu.tieba.b.d.a(getContext());
@@ -102,14 +102,14 @@ public class k extends com.baidu.adp.widget.ListView.c {
         } catch (Exception e) {
         }
         this.anV.addView(this.anR);
-        this.anT.Vi();
+        this.anT.Vf();
         xf();
         return this.anK;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void ll() {
-        if (vH()) {
+    public void lk() {
+        if (vI()) {
             this.anR.setVisibility(0);
             this.anR.setRenderMode(1);
         } else if (this.anQ != null && this.anM != null) {
@@ -125,15 +125,15 @@ public class k extends com.baidu.adp.widget.ListView.c {
         }
         xf();
         this.anZ = true;
-        if (vH()) {
+        if (vI()) {
             xg();
             this.anR.requestRender();
             this.anR.onResume();
             this.anR.setRenderMode(1);
             if (z) {
-                this.anT.Vk();
+                this.anT.Vh();
             }
-            this.anT.Vi();
+            this.anT.Vf();
             this.anR.setVisibility(0);
         } else if (this.anQ != null && this.anM != null) {
             this.anQ.stop();
@@ -142,9 +142,9 @@ public class k extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void lm() {
+    public void ll() {
         xf();
-        if (vH()) {
+        if (vI()) {
             if (!this.anZ) {
                 xg();
             }
@@ -152,7 +152,7 @@ public class k extends com.baidu.adp.widget.ListView.c {
             this.anR.onResume();
             this.anR.setVisibility(0);
             this.anR.setRenderMode(1);
-            this.anT.Vj();
+            this.anT.Vg();
             this.anT.a(this.anW, this.anW, this.anW, this.anW, this.anW, this.anW);
         } else if (this.anQ != null && this.anM != null) {
             this.anQ.stop();
@@ -171,7 +171,7 @@ public class k extends com.baidu.adp.widget.ListView.c {
     @Override // com.baidu.adp.widget.ListView.c
     public void T(boolean z) {
         this.anZ = false;
-        if (vH()) {
+        if (vI()) {
             this.anT.a(this.anW, this.anW, this.anX, this.anW, this.anW, this.anW);
             if (this.anR != null) {
                 this.anR.setRenderMode(0);
@@ -194,10 +194,10 @@ public class k extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void ln() {
-        if (vH()) {
+    public void lm() {
+        if (vI()) {
             this.anT.a(this.anW, this.anW, this.anY, this.anW, this.anW, this.anW);
-            this.anT.Vk();
+            this.anT.Vh();
             this.anR.setRenderMode(1);
         }
     }
@@ -215,7 +215,7 @@ public class k extends com.baidu.adp.widget.ListView.c {
     }
 
     public void dp(int i) {
-        if (vH() && this.anT != null) {
+        if (vI() && this.anT != null) {
             if (this.anT.aqm != i) {
                 this.anT.hk(ai.getColor(d.e.cp_bg_line_c));
                 this.anT.aqm = i;
@@ -227,12 +227,12 @@ public class k extends com.baidu.adp.widget.ListView.c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean vH() {
-        return ae.vz().vH();
+    public boolean vI() {
+        return ae.vA().vI();
     }
 
     private void xf() {
-        if (vH()) {
+        if (vI()) {
             if (this.anM != null && this.anU != null) {
                 if (this.anM.getVisibility() != 8) {
                     this.anM.setVisibility(8);
@@ -262,7 +262,7 @@ public class k extends com.baidu.adp.widget.ListView.c {
     }
 
     private void release() {
-        if (vH()) {
+        if (vI()) {
             if (this.anQ != null) {
                 this.anQ.stop();
                 this.anQ = null;

@@ -24,10 +24,10 @@ public class MainTabActivityStatic {
     private static int goh = 0;
 
     static {
-        afa();
-        buS();
-        buR();
-        buT();
+        aeU();
+        buL();
+        buK();
+        buM();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.START_GO_HOME) { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -38,7 +38,7 @@ public class MainTabActivityStatic {
                 }
             }
         });
-        at.wf().a(new at.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.2
+        at.wg().a(new at.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.2
             @Override // com.baidu.tbadk.core.util.at.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -91,7 +91,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    private static void afa() {
+    private static void aeU() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new CustomMessageTask.CustomRunnable<MainTabActivityConfig>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<MainTabActivityConfig> customMessage) {
@@ -105,7 +105,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void buR() {
+    private static void buK() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -120,7 +120,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void buS() {
+    private static void buL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
@@ -134,8 +134,8 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void buT() {
-        at.wf().a(new at.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.7
+    private static void buM() {
+        at.wg().a(new at.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.7
             @Override // com.baidu.tbadk.core.util.at.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {

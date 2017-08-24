@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.a;
 /* loaded from: classes.dex */
 public interface c {
-    void Yb();
+    void XY();
 
     void aj(int i, int i2);
 

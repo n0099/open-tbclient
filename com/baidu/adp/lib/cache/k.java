@@ -5,9 +5,9 @@ import com.baidu.adp.lib.cache.l;
 public interface k<T> {
     void a(String str, String str2, T t, long j);
 
-    void aa(String str);
-
     void ab(String str);
+
+    void ac(String str);
 
     e eI();
 

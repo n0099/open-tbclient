@@ -45,7 +45,7 @@ public class TabItemView extends TextView {
     }
 
     public void setState(int i) {
-        if (this.cyo != null && this.cyo.cyk != null && this.cyo.cyk.cmA != null && this.cyo.cyk.cmA.size() > 0) {
+        if (this.cyo != null && this.cyo.cyk != null && this.cyo.cyk.cmB != null && this.cyo.cyk.cmB.size() > 0) {
             int i2 = -k.g(getContext(), d.f.ds10);
             if (!this.cyp) {
                 i2 = 0;

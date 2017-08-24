@@ -173,7 +173,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         View childView;
         b lg = lg(i);
         if (lg.cZw.type == 2) {
-            childView = this.cZm.getGroupView(lg.cZw.cZz, lg.apW(), view, viewGroup);
+            childView = this.cZm.getGroupView(lg.cZw.cZz, lg.apQ(), view, viewGroup);
         } else if (lg.cZw.type == 1) {
             childView = this.cZm.getChildView(lg.cZw.cZz, lg.cZw.cZA, lg.cZx.cZr == i, view, viewGroup);
         } else {
@@ -320,21 +320,21 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         return false;
     }
 
-    ExpandableListAdapter apT() {
+    ExpandableListAdapter apN() {
         return this.cZm;
     }
 
     @Override // android.widget.Filterable
     public Filter getFilter() {
-        ExpandableListAdapter apT = apT();
-        if (apT instanceof Filterable) {
-            return ((Filterable) apT).getFilter();
+        ExpandableListAdapter apN = apN();
+        if (apN instanceof Filterable) {
+            return ((Filterable) apN).getFilter();
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<GroupMetadata> apU() {
+    public ArrayList<GroupMetadata> apO() {
         return this.cZn;
     }
 
@@ -354,9 +354,9 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        ExpandableListAdapter apT = apT();
-        if (apT != null) {
-            return apT.isEmpty();
+        ExpandableListAdapter apN = apN();
+        if (apN != null) {
+            return apN.isEmpty();
         }
         return true;
     }
@@ -369,14 +369,14 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         int min = Math.min(groupCount - 1, Math.max(0, i));
         long uptimeMillis = SystemClock.uptimeMillis() + 100;
         boolean z = false;
-        ExpandableListAdapter apT = apT();
-        if (apT == null) {
+        ExpandableListAdapter apN = apN();
+        if (apN == null) {
             return -1;
         }
         int i2 = min;
         int i3 = min;
         while (SystemClock.uptimeMillis() <= uptimeMillis) {
-            if (apT.getGroupId(i3) != j) {
+            if (apN.getGroupId(i3) != j) {
                 boolean z2 = min == groupCount + (-1);
                 boolean z3 = i2 == 0;
                 if (z2 && z3) {
@@ -494,14 +494,14 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         }
 
         static b a(int i, int i2, int i3, int i4, GroupMetadata groupMetadata, int i5) {
-            b apV = apV();
-            apV.cZw = com.baidu.tieba.horizonalList.widget.b.o(i2, i3, i4, i);
-            apV.cZx = groupMetadata;
-            apV.cZy = i5;
-            return apV;
+            b apP = apP();
+            apP.cZw = com.baidu.tieba.horizonalList.widget.b.o(i2, i3, i4, i);
+            apP.cZx = groupMetadata;
+            apP.cZy = i5;
+            return apP;
         }
 
-        private static b apV() {
+        private static b apP() {
             b bVar;
             synchronized (cZv) {
                 if (cZv.size() > 0) {
@@ -523,7 +523,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
             }
         }
 
-        public boolean apW() {
+        public boolean apQ() {
             return this.cZx != null;
         }
     }

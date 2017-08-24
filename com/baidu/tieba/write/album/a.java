@@ -20,7 +20,7 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         this.gBZ = albumActivity;
     }
 
-    public void aMk() {
+    public void aMf() {
         this.gCa = new Fragment[2];
         this.gCb = new String[2];
         this.gCc = new l();
@@ -60,59 +60,59 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView byE() {
+    public TbCameraView byw() {
         if (this.gCc == null) {
             return null;
         }
-        return this.gCc.byE();
+        return this.gCc.byw();
     }
 
-    public View byF() {
+    public View byx() {
         if (this.gCc == null) {
             return null;
         }
-        return this.gCc.blq();
+        return this.gCc.blk();
     }
 
-    public View byG() {
+    public View byy() {
         if (this.gCc == null) {
             return null;
         }
-        return this.gCc.bza();
+        return this.gCc.byS();
     }
 
-    public View byH() {
+    public View byz() {
         if (this.gCd == null) {
             return null;
         }
-        return this.gCd.blq();
+        return this.gCd.blk();
     }
 
-    public View byI() {
+    public View byA() {
         if (this.gCd == null) {
             return null;
         }
-        return this.gCd.byO();
+        return this.gCd.byG();
     }
 
-    public View byJ() {
+    public View byB() {
         if (this.gCd == null) {
             return null;
         }
-        return this.gCd.byJ();
+        return this.gCd.byB();
     }
 
     public void onDestroy() {
-        if (this.gBZ.anq() != null) {
-            this.gBZ.anq().EH();
+        if (this.gBZ.ank() != null) {
+            this.gBZ.ank().EH();
         }
     }
 
-    public b byK() {
+    public b byC() {
         return this.gCd;
     }
 
-    public l byL() {
+    public l byD() {
         return this.gCc;
     }
 }

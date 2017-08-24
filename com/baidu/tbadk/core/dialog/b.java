@@ -22,7 +22,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final HashMap<Integer, Integer[]> acg = new HashMap<>(2);
-    private List<CharSequence> Xu;
+    private List<CharSequence> Xv;
     private AlertDialog abL;
     private final ViewGroup abM;
     private InterfaceC0043b abY;
@@ -71,13 +71,13 @@ public class b {
         return this.abM;
     }
 
-    public b cU(String str) {
+    public b cX(String str) {
         this.mTitle = str;
         return this;
     }
 
     public b cf(int i) {
-        return cU(this.mActivity.getResources().getString(i));
+        return cX(this.mActivity.getResources().getString(i));
     }
 
     public b a(CharSequence[] charSequenceArr, InterfaceC0043b interfaceC0043b) {
@@ -89,7 +89,7 @@ public class b {
 
     public b a(List<CharSequence> list, InterfaceC0043b interfaceC0043b) {
         if (list != null && list.size() > 0) {
-            this.Xu = list;
+            this.Xv = list;
             if (interfaceC0043b != null) {
                 this.abY = interfaceC0043b;
             }
@@ -119,8 +119,8 @@ public class b {
                 this.abZ.setVisibility(8);
                 this.aca.setVisibility(8);
             }
-            if (this.Xu != null && this.Xu.size() > 0) {
-                int size = this.Xu.size();
+            if (this.Xv != null && this.Xv.size() > 0) {
+                int size = this.Xv.size();
                 for (int i = 0; i < size; i++) {
                     ci(i);
                 }
@@ -137,7 +137,7 @@ public class b {
         }
     }
 
-    public b tu() {
+    public b tv() {
         if (!this.abO) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -200,15 +200,15 @@ public class b {
             textView.setGravity(this.ace);
         }
         View findViewById = inflate.findViewById(d.h.line);
-        CharSequence charSequence = this.Xu.get(i);
+        CharSequence charSequence = this.Xv.get(i);
         if (charSequence.length() <= 0) {
             charSequence = "";
         }
         textView.setText(charSequence);
-        if (i == this.Xu.size() - 1) {
+        if (i == this.Xv.size() - 1) {
             findViewById.setVisibility(8);
             ai.j(inflate, d.g.dialog_single_button_bg_selector);
-        } else if (this.Xu.size() == 1) {
+        } else if (this.Xv.size() == 1) {
             findViewById.setVisibility(8);
             ai.j(inflate, d.g.dialog_single_button_only_one_bg_selector);
         } else if (i == 0 && StringUtils.isNull(this.mTitle)) {

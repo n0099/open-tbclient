@@ -18,7 +18,7 @@ public class v implements MediaScannerConnection.MediaScannerConnectionClient {
 
     /* loaded from: classes.dex */
     public interface a {
-        void vj();
+        void vk();
     }
 
     public v(Context context) {
@@ -26,7 +26,7 @@ public class v implements MediaScannerConnection.MediaScannerConnectionClient {
         this.agM = new MediaScannerConnection(this.mContext, this);
     }
 
-    public void dO(String str) {
+    public void dS(String str) {
         this.mPath = str;
         String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
         this.adX = "image/jpeg";
@@ -79,7 +79,7 @@ public class v implements MediaScannerConnection.MediaScannerConnectionClient {
             }
         }
         if (this.agP && this.agQ != null) {
-            this.agQ.vj();
+            this.agQ.vk();
         }
     }
 }

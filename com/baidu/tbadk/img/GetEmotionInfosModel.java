@@ -13,19 +13,19 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GetEmotionInfosModel extends BdBaseModel {
-    private a aGK;
-    private final HttpMessageListener aGL = new HttpMessageListener(CmdConfigHttp.CMD_GET_EMOTION_INFOS) { // from class: com.baidu.tbadk.img.GetEmotionInfosModel.1
+    private a aGL;
+    private final HttpMessageListener aGM = new HttpMessageListener(CmdConfigHttp.CMD_GET_EMOTION_INFOS) { // from class: com.baidu.tbadk.img.GetEmotionInfosModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003353 && (httpResponsedMessage instanceof GetEmotionInfosResponseMessage) && GetEmotionInfosModel.this.aGK != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003353 && (httpResponsedMessage instanceof GetEmotionInfosResponseMessage) && GetEmotionInfosModel.this.aGL != null) {
                 GetEmotionInfosResponseMessage getEmotionInfosResponseMessage = (GetEmotionInfosResponseMessage) httpResponsedMessage;
                 if (getEmotionInfosResponseMessage.getEmotionList() != null) {
-                    GetEmotionInfosModel.this.aGK.B(getEmotionInfosResponseMessage.getEmotionList());
+                    GetEmotionInfosModel.this.aGL.B(getEmotionInfosResponseMessage.getEmotionList());
                 } else {
-                    GetEmotionInfosModel.this.aGK.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
+                    GetEmotionInfosModel.this.aGL.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
                 }
-                GetEmotionInfosModel.this.aGK = null;
+                GetEmotionInfosModel.this.aGL = null;
             }
         }
     };
@@ -40,9 +40,9 @@ public class GetEmotionInfosModel extends BdBaseModel {
     public GetEmotionInfosModel() {
         setUniqueId(BdUniqueId.gen());
         Eo();
-        this.aGL.setTag(getUniqueId());
-        this.aGL.setSelfListener(true);
-        registerListener(this.aGL);
+        this.aGM.setTag(getUniqueId());
+        this.aGM.setSelfListener(true);
+        registerListener(this.aGM);
     }
 
     private void Eo() {
@@ -53,7 +53,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
 
     public void a(List<String> list, a aVar) {
         int i = 0;
-        this.aGK = aVar;
+        this.aGL = aVar;
         if (list == null || list.isEmpty()) {
             if (aVar != null) {
                 aVar.onFail(0, "list is empty");
@@ -67,7 +67,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
             if (i2 < list.size()) {
                 String str = list.get(i2);
                 if (!TextUtils.isEmpty(str)) {
-                    sb.append(com.baidu.tbadk.browser.d.cj(str));
+                    sb.append(com.baidu.tbadk.browser.d.cm(str));
                     if (i2 < list.size() - 1) {
                         sb.append("_");
                     }
@@ -89,7 +89,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.aGL);
+        MessageManager.getInstance().unRegisterListener(this.aGM);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
         return true;
     }

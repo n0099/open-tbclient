@@ -14,25 +14,25 @@ import com.baidu.tieba.frs.ar;
 import com.baidu.tieba.frs.i;
 /* loaded from: classes.dex */
 public class b {
-    private ar beQ;
-    private int cem;
-    private final com.baidu.tieba.frs.f coU;
+    private ar beR;
+    private int cen;
+    private final com.baidu.tieba.frs.f coV;
     private TextView cwp;
     private boolean cxy;
     private int cxz = -1;
 
     public b(com.baidu.tieba.frs.f fVar) {
-        this.cem = 0;
+        this.cen = 0;
         if (fVar == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.coU = fVar;
+        this.coV = fVar;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cem = UtilHelper.getStatusBarHeight();
+            this.cen = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void ajz() {
+    public void ajt() {
         if (this.cxy && this.cxz >= 0) {
             js(this.cxz);
         }
@@ -51,12 +51,12 @@ public class b {
 
     private void js(int i) {
         String string;
-        com.baidu.tieba.frs.entelechy.b.d aft = this.coU.aft();
-        i afv = this.coU.afv();
-        if (afv != null && aft != null && aft.ahw() != null && (afv.Wn() instanceof NoPressedRelativeLayout)) {
-            if (this.cwp == null && this.coU.getPageContext() != null) {
-                this.cwp = new TextView(this.coU.getPageContext().getPageActivity());
-                this.cwp.setTextSize(0, this.coU.getResources().getDimensionPixelSize(d.f.fontsize28));
+        com.baidu.tieba.frs.entelechy.b.d afn = this.coV.afn();
+        i afp = this.coV.afp();
+        if (afp != null && afn != null && afn.ahq() != null && (afp.Wk() instanceof NoPressedRelativeLayout)) {
+            if (this.cwp == null && this.coV.getPageContext() != null) {
+                this.cwp = new TextView(this.coV.getPageContext().getPageActivity());
+                this.cwp.setTextSize(0, this.coV.getResources().getDimensionPixelSize(d.f.fontsize28));
                 this.cwp.setGravity(17);
             }
             if (this.cwp != null) {
@@ -67,38 +67,38 @@ public class b {
                 }
                 this.cwp.setText(string);
             }
-            View ahw = aft.ahw();
-            BdTypeListView listView = afv.getListView();
-            if (ahw != null && listView != null) {
+            View ahq = afn.ahq();
+            BdTypeListView listView = afp.getListView();
+            if (ahq != null && listView != null) {
                 ai.j(this.cwp, d.e.common_color_10260);
                 ai.i(this.cwp, d.e.cp_cont_g);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, k.g(TbadkCoreApplication.getInst(), d.f.ds56));
                 layoutParams.addRule(6, d.h.frs_list_content);
-                if (afv.afV() != null && afv.afV().getLayoutParams() != null) {
-                    layoutParams.topMargin = afv.afV().getLayoutParams().height;
+                if (afp.afP() != null && afp.afP().getLayoutParams() != null) {
+                    layoutParams.topMargin = afp.afP().getLayoutParams().height;
                 } else {
                     layoutParams.topMargin = 0;
                 }
-                if (this.beQ == null) {
-                    this.beQ = new ar();
+                if (this.beR == null) {
+                    this.beR = new ar();
                 }
-                this.beQ.a(this.cwp, (NoPressedRelativeLayout) afv.Wn(), layoutParams, 2000);
+                this.beR.a(this.cwp, (NoPressedRelativeLayout) afp.Wk(), layoutParams, 2000);
                 this.cxz = -1;
             }
         }
     }
 
-    public void ajA() {
+    public void aju() {
         if (this.cwp != null && this.cwp.getVisibility() == 0) {
-            com.baidu.tieba.frs.entelechy.b.d aft = this.coU.aft();
-            i afv = this.coU.afv();
-            if (afv != null && aft != null && aft.ahw() != null && (afv.Wn() instanceof NoPressedRelativeLayout)) {
-                BdTypeListView listView = afv.getListView();
-                View ahw = aft.ahw();
+            com.baidu.tieba.frs.entelechy.b.d afn = this.coV.afn();
+            i afp = this.coV.afp();
+            if (afp != null && afn != null && afn.ahq() != null && (afp.Wk() instanceof NoPressedRelativeLayout)) {
+                BdTypeListView listView = afp.getListView();
+                View ahq = afn.ahq();
                 if (listView != null) {
-                    boolean z = listView.indexOfChild(ahw) >= 0;
-                    if (this.beQ != null && !z && this.cwp.getTop() <= this.cem) {
-                        this.beQ.hideTip();
+                    boolean z = listView.indexOfChild(ahq) >= 0;
+                    if (this.beR != null && !z && this.cwp.getTop() <= this.cen) {
+                        this.beR.hideTip();
                     }
                 }
             }
@@ -114,8 +114,8 @@ public class b {
     }
 
     public void onDestroy() {
-        if (this.beQ != null) {
-            this.beQ.onDestroy();
+        if (this.beR != null) {
+            this.beR.onDestroy();
         }
     }
 }

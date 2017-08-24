@@ -59,7 +59,7 @@ public class c {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(eVar).tr();
+                aVar.b(eVar).ts();
                 ai.i(textView, d.e.cp_cont_b);
                 ai.i(textView2, d.e.common_color_10122);
             }
@@ -77,7 +77,7 @@ public class c {
         }
     }
 
-    public static CustomDialogData I(JSONObject jSONObject) {
+    public static CustomDialogData J(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("tb_hudong")) == null || TextUtils.isEmpty(optJSONObject.optString("content"))) {
             return null;

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 public class s {
     private static String mThreadId;
 
-    public static void gS(String str) {
+    public static void gV(String str) {
         mThreadId = str;
     }
 

@@ -67,9 +67,9 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
                 if (this.acP.get(i) != null && tbImageView2 != null) {
                     tbImageView2.c(this.acP.get(i).getPicUrl(), 10, false);
                     tbImageView2.setOnClickListener(this.acQ);
-                    if ((this.acP.get(i) instanceof t) && !((t) this.acP.get(i)).pU()) {
+                    if ((this.acP.get(i) instanceof t) && !((t) this.acP.get(i)).pV()) {
                         t tVar = (t) this.acP.get(i);
-                        s.b(tVar.pR(), tbImageView, tVar.pS(), k.g(this.context, d.f.ds24));
+                        s.b(tVar.pS(), tbImageView, tVar.pT(), k.g(this.context, d.f.ds24));
                     }
                 }
             }
@@ -102,7 +102,7 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
         if (imageView == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        if ((u.c(this.acP, i) instanceof t) && !((t) u.c(this.acP, i)).pU()) {
+        if ((u.c(this.acP, i) instanceof t) && !((t) u.c(this.acP, i)).pV()) {
             RelativeLayout relativeLayout = (RelativeLayout) u.c(this.acS, i);
             TbImageView tbImageView = (TbImageView) u.c(this.acR, i);
             relativeLayout.removeView(tbImageView);
@@ -111,7 +111,7 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
             }
             relativeLayout.addView(imageView, new RelativeLayout.LayoutParams(-1, -1));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            if (this.acT.tE() == null) {
+            if (this.acT.tF() == null) {
                 layoutParams.addRule(12);
                 layoutParams.addRule(9);
             } else {

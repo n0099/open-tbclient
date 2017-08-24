@@ -21,16 +21,16 @@ public class j implements com.baidu.tbadk.mvc.b.j {
     protected ar dGu = new ar();
     protected h dGv = new h();
 
-    public ArrayList<FeedData> aAh() {
+    public ArrayList<FeedData> aAc() {
         return this.dGt;
     }
 
-    public ar qH() {
+    public ar qI() {
         return this.dGu;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void n(JSONObject jSONObject) {
+    public void o(JSONObject jSONObject) {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
             JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
@@ -44,7 +44,7 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                         }
                     } else {
                         this.dGt.add(feedData);
-                        if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.amF()) {
+                        if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.amz()) {
                             this.dGt.remove(feedData);
                         }
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && u.u(feedData.getPraiseList()) == 0) {
@@ -78,7 +78,7 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                             }
                         } else {
                             this.dGt.add(feedData);
-                            if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.amF()) {
+                            if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.b.amz()) {
                                 this.dGt.remove(feedData);
                             }
                             if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && u.u(feedData.getPraiseList()) == 0) {

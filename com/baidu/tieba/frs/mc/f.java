@@ -21,33 +21,33 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private k ckX;
+    private k ckY;
     private CustomMessageListener cxi = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.frs.mc.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && f.this.ckX != null && f.this.ckX.afq() != null && f.this.ckX.afq().aim() != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && f.this.ckY != null && f.this.ckY.afk() != null && f.this.ckY.afk().aig() != null) {
                 String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
                 if (!StringUtils.isNull(optString)) {
                     boolean z = false;
-                    if (f.this.ckX.afv() != null && f.this.ckX.afv().ago() != null) {
-                        View childAt = f.this.ckX.afv().getListView().getChildAt(f.this.a(optString, f.this.ckX.afv().getListView()));
+                    if (f.this.ckY.afp() != null && f.this.ckY.afp().agi() != null) {
+                        View childAt = f.this.ckY.afp().getListView().getChildAt(f.this.a(optString, f.this.ckY.afp().getListView()));
                         if (childAt != null) {
-                            f.this.ap(childAt);
+                            f.this.ao(childAt);
                             z = true;
                         } else {
-                            f.this.ckX.afv().ago().notifyDataSetChanged();
+                            f.this.ckY.afp().agi().notifyDataSetChanged();
                         }
                     }
-                    ArrayList<com.baidu.adp.widget.ListView.f> threadList = f.this.ckX.afq().aim().getThreadList();
-                    f.this.g(optString, threadList);
-                    f.this.g(optString, f.this.ckX.afv().getListView().getData());
-                    f.this.ckX.afq().kv(optString);
-                    if (!z && f.this.ckX.afv() != null && f.this.ckX.afv().ago() != null) {
-                        f.this.ckX.afv().ago().notifyDataSetChanged();
+                    ArrayList<com.baidu.adp.widget.ListView.f> threadList = f.this.ckY.afk().aig().getThreadList();
+                    f.this.f(optString, threadList);
+                    f.this.f(optString, f.this.ckY.afp().getListView().getData());
+                    f.this.ckY.afk().ky(optString);
+                    if (!z && f.this.ckY.afp() != null && f.this.ckY.afp().agi() != null) {
+                        f.this.ckY.afp().agi().notifyDataSetChanged();
                     }
                     if (threadList != null && threadList.size() < 5) {
-                        f.this.ckX.MS();
+                        f.this.ckY.MS();
                     }
                 }
             }
@@ -57,21 +57,21 @@ public class f {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && f.this.ckX != null && f.this.ckX.afq() != null && f.this.ckX.afq().aim() != null) {
+            if (customResponsedMessage != null && f.this.ckY != null && f.this.ckY.afk() != null && f.this.ckY.afk().aig() != null) {
                 String str = (String) customResponsedMessage.getData();
-                f.this.h(str, f.this.ckX.afq().aim().aPO().getBannerListData().getAllAdvertList());
-                f.this.i(str, f.this.ckX.afv().getListView().getData());
-                f.this.i(str, f.this.ckX.afr().aiZ().getDataList());
-                f.this.ckX.afq().kw(str);
-                if (f.this.ckX.afv() != null && f.this.ckX.afv().ago() != null) {
-                    f.this.ckX.afv().ago().notifyDataSetChanged();
+                f.this.g(str, f.this.ckY.afk().aig().aPJ().getBannerListData().getAllAdvertList());
+                f.this.h(str, f.this.ckY.afp().getListView().getData());
+                f.this.h(str, f.this.ckY.afl().aiT().getDataList());
+                f.this.ckY.afk().kz(str);
+                if (f.this.ckY.afp() != null && f.this.ckY.afp().agi() != null) {
+                    f.this.ckY.afp().agi().notifyDataSetChanged();
                 }
             }
         }
     };
 
     public f(k kVar, BdUniqueId bdUniqueId) {
-        this.ckX = kVar;
+        this.ckY = kVar;
         this.cxi.setTag(bdUniqueId);
         this.cxj.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.cxi);
@@ -79,7 +79,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void g(String str, List<com.baidu.adp.widget.ListView.f> list) {
+    public void f(String str, List<com.baidu.adp.widget.ListView.f> list) {
         if (u.u(list) != 0) {
             ArrayList arrayList = new ArrayList();
             for (com.baidu.adp.widget.ListView.f fVar : list) {
@@ -116,7 +116,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ap(final View view) {
+    public void ao(final View view) {
         final int measuredHeight = view.getMeasuredHeight();
         Animation animation = new Animation() { // from class: com.baidu.tieba.frs.mc.f.2
             @Override // android.view.animation.Animation
@@ -142,8 +142,8 @@ public class f {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation2) {
                 view.setVisibility(8);
-                if (f.this.ckX.afv() != null && f.this.ckX.afv().ago() != null) {
-                    f.this.ckX.afv().ago().notifyDataSetChanged();
+                if (f.this.ckY.afp() != null && f.this.ckY.afp().agi() != null) {
+                    f.this.ckY.afp().agi().notifyDataSetChanged();
                 }
             }
         });
@@ -152,12 +152,12 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h(String str, List<AdvertAppInfo> list) {
+    public void g(String str, List<AdvertAppInfo> list) {
         if (list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
             Iterator<AdvertAppInfo> it = list.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                if (next != null && str.equals(next.UJ)) {
+                if (next != null && str.equals(next.UK)) {
                     it.remove();
                 }
             }
@@ -165,14 +165,14 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void i(String str, List<com.baidu.adp.widget.ListView.f> list) {
+    public void h(String str, List<com.baidu.adp.widget.ListView.f> list) {
         if (list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
             Iterator<com.baidu.adp.widget.ListView.f> it = list.iterator();
             while (it.hasNext()) {
                 com.baidu.adp.widget.ListView.f next = it.next();
                 if (next instanceof com.baidu.tieba.InjectPlugin.a) {
                     Object Jq = ((com.baidu.tieba.InjectPlugin.a) next).Jq();
-                    if ((Jq instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) Jq).UJ)) {
+                    if ((Jq instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) Jq).UK)) {
                         it.remove();
                     }
                 }

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class FrsPraiseView extends LinearLayout {
     private TextView aoj;
     private View cCx;
-    private boolean eYk;
+    private boolean eYm;
     private TextView ghb;
     private TextView ghc;
     private PraiseData ghd;
@@ -31,13 +31,13 @@ public class FrsPraiseView extends LinearLayout {
 
     public FrsPraiseView(Context context) {
         super(context, null);
-        this.eYk = false;
+        this.eYm = false;
         this.ghe = false;
     }
 
     public FrsPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eYk = false;
+        this.eYm = false;
         this.ghe = false;
         setOrientation(0);
         this.mContext = context;
@@ -56,7 +56,7 @@ public class FrsPraiseView extends LinearLayout {
                 if (FrsPraiseView.this.ghd != null) {
                     str = FrsPraiseView.this.ghd.getTitle();
                 }
-                com.baidu.tbadk.util.l.a(new PraiseListActivityConfig(FrsPraiseView.this.mContext, FrsPraiseView.this.mThreadId, FrsPraiseView.this.mPostId, str, FrsPraiseView.this.eYk));
+                com.baidu.tbadk.util.l.a(new PraiseListActivityConfig(FrsPraiseView.this.mContext, FrsPraiseView.this.mThreadId, FrsPraiseView.this.mPostId, str, FrsPraiseView.this.eYm));
             }
         });
         this.ghc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.2
@@ -89,7 +89,7 @@ public class FrsPraiseView extends LinearLayout {
     }
 
     public void setIsFromPb(boolean z) {
-        this.eYk = z;
+        this.eYm = z;
     }
 
     public void setIsFromPbVideo(boolean z) {
@@ -106,16 +106,16 @@ public class FrsPraiseView extends LinearLayout {
                 if (user.size() == 1) {
                     if (user.get(0) != null) {
                         this.ghb.setVisibility(0);
-                        this.ghb.setText(rP(user.get(0).getName_show()));
+                        this.ghb.setText(rU(user.get(0).getName_show()));
                     }
                 } else {
                     if (user.get(0) != null) {
                         this.ghb.setVisibility(0);
-                        this.ghb.setText(rP(user.get(0).getName_show()));
+                        this.ghb.setText(rU(user.get(0).getName_show()));
                     }
                     if (user.get(1) != null) {
                         this.ghc.setVisibility(0);
-                        this.ghc.setText("、" + rP(user.get(1).getName_show()));
+                        this.ghc.setText("、" + rU(user.get(1).getName_show()));
                     }
                 }
             }
@@ -129,7 +129,7 @@ public class FrsPraiseView extends LinearLayout {
         }
     }
 
-    private String rP(String str) {
+    private String rU(String str) {
         if (!TextUtils.isEmpty(str) && str.length() > 14) {
             return str.substring(0, 14);
         }
@@ -137,7 +137,7 @@ public class FrsPraiseView extends LinearLayout {
     }
 
     public void dt(int i) {
-        if (this.eYk) {
+        if (this.eYm) {
             if (this.ghe) {
                 ai.j(this.cCx, d.g.praise_video_selector);
                 ai.c(this.aoj, d.e.cp_cont_c, 1);

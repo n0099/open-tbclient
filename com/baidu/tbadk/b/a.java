@@ -44,7 +44,7 @@ public class a {
         }
     }
 
-    public void nD() {
+    public void nE() {
         if (this.Ru != null && this.Rv != null) {
             if (this.timeInterval <= 0) {
                 this.timeInterval = 3600000L;
@@ -53,7 +53,7 @@ public class a {
         }
     }
 
-    public long nE() {
+    public long nF() {
         if (this.timeInterval <= 0) {
             this.timeInterval = 3600000L;
         }

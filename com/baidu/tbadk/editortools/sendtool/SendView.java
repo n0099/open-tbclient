@@ -12,17 +12,17 @@ import com.baidu.tieba.d;
 public class SendView extends TextView implements s {
     private int Ls;
     private i Lt;
-    private boolean[] aEE;
-    private int[] aEF;
+    private boolean[] aEF;
+    private int[] aEG;
     private int aqm;
     private int mType;
-    public static int aEG = 1;
+    public static int aEH = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.aEE = new boolean[]{false, false, false, false, false};
-        this.aEF = new int[]{0, 0};
+        this.aEF = new boolean[]{false, false, false, false, false};
+        this.aEG = new int[]{0, 0};
         this.aqm = 0;
         this.mType = ALL;
         setWidth(context.getResources().getDimensionPixelSize(d.f.ds100));
@@ -48,71 +48,71 @@ public class SendView extends TextView implements s {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.aEE[0] = false;
+                        this.aEF[0] = false;
                         break;
                     } else {
-                        this.aEE[0] = true;
+                        this.aEF[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.aEE[0] = false;
-                    this.aEE[1] = false;
-                    this.aEE[2] = false;
-                    this.aEE[3] = false;
-                    this.aEE[4] = false;
-                    this.aEF[0] = 0;
-                    this.aEF[1] = 0;
+                    this.aEF[0] = false;
+                    this.aEF[1] = false;
+                    this.aEF[2] = false;
+                    this.aEF[3] = false;
+                    this.aEF[4] = false;
+                    this.aEG[0] = 0;
+                    this.aEG[1] = 0;
                     break;
                 case 10:
-                    this.aEE[2] = true;
+                    this.aEF[2] = true;
                     break;
                 case 11:
-                    this.aEE[2] = false;
+                    this.aEF[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.aDb != null) {
-                            if (aVar2.aDb.getChosedFiles() != null) {
-                                this.aEF[0] = aVar2.aDb.getChosedFiles().size();
+                        if (aVar2.aDc != null) {
+                            if (aVar2.aDc.getChosedFiles() != null) {
+                                this.aEG[0] = aVar2.aDc.getChosedFiles().size();
                             } else {
-                                this.aEF[0] = 0;
+                                this.aEG[0] = 0;
                             }
                         }
-                        if (this.aEF[0] > 0) {
-                            this.aEE[1] = true;
+                        if (this.aEG[0] > 0) {
+                            this.aEF[1] = true;
                             break;
                         } else {
-                            this.aEE[1] = false;
+                            this.aEF[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.aEF;
+                    int[] iArr = this.aEG;
                     iArr[0] = iArr[0] - 1;
-                    if (this.aEF[0] > 0) {
-                        this.aEE[1] = true;
+                    if (this.aEG[0] > 0) {
+                        this.aEF[1] = true;
                         break;
                     } else {
-                        this.aEE[1] = false;
+                        this.aEF[1] = false;
                         break;
                     }
                 case 28:
                 case 39:
-                    this.aEE[3] = true;
+                    this.aEF[3] = true;
                     break;
                 case 29:
-                    this.aEE[3] = false;
+                    this.aEF[3] = false;
                     break;
                 case 40:
                     if (aVar.data instanceof String) {
-                        this.aEE[4] = true;
+                        this.aEF[4] = true;
                         break;
                     } else {
-                        this.aEE[4] = false;
+                        this.aEF[4] = false;
                         break;
                     }
             }
@@ -148,7 +148,7 @@ public class SendView extends TextView implements s {
     }
 
     @Override // com.baidu.tbadk.editortools.s
-    public void lT() {
+    public void lS() {
         setVisibility(0);
     }
 
@@ -174,15 +174,15 @@ public class SendView extends TextView implements s {
 
     public void eP(int i) {
         if (i == ALL) {
-            if (this.aEE[0] || this.aEE[1] || this.aEE[2] || this.aEE[3] || this.aEE[4]) {
+            if (this.aEF[0] || this.aEF[1] || this.aEF[2] || this.aEF[3] || this.aEF[4]) {
                 setEnabled(true);
                 ai.b(this, d.e.cp_cont_f, 1, this.aqm);
                 return;
             }
             setEnabled(false);
             ai.b(this, d.e.common_color_10050, 1, 0);
-        } else if (i == aEG) {
-            if (this.aEE[1]) {
+        } else if (i == aEH) {
+            if (this.aEF[1]) {
                 setEnabled(true);
                 ai.b(this, d.e.cp_cont_f, 1, this.aqm);
                 return;

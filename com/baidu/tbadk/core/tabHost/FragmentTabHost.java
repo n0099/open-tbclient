@@ -197,7 +197,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         this.afp.setAdapter(this.afr);
     }
 
-    public void uD() {
+    public void uE() {
         if (this.afp != null) {
             removeView(this.afp);
         }
@@ -409,7 +409,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        this.afk.b(i, f);
+        this.afk.a(i, f);
         if (this.mOnPageChangeListener != null) {
             this.mOnPageChangeListener.onPageScrolled(i, f, i2);
         }

@@ -19,7 +19,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g {
-    private com.baidu.tbadk.core.view.h bGy;
+    private com.baidu.tbadk.core.view.h bGz;
     private ViewGroup cAo;
     private h.a cAp = new h.a() { // from class: com.baidu.tieba.frs.g.g.1
         @Override // com.baidu.tbadk.core.view.h.a
@@ -46,10 +46,10 @@ public class g {
         }
     };
     private BdUniqueId mBdUniqueId;
-    private TbPageContext oV;
+    private TbPageContext oW;
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
         this.cAo = viewGroup;
     }
 
@@ -59,32 +59,32 @@ public class g {
 
     public void P(bl blVar) {
         int i = 0;
-        if (blVar != null && this.oV != null && this.cAo != null) {
+        if (blVar != null && this.oW != null && this.cAo != null) {
             boolean z = (blVar.getAuthor() == null || blVar.getAuthor().getUserId() == null || !blVar.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-            if (blVar.sI() && blVar.qw() != null && !z) {
-                if (this.bGy == null) {
-                    this.bGy = new com.baidu.tbadk.core.view.h(this.oV);
-                    this.bGy.setUniqueId(this.mBdUniqueId);
-                    this.bGy.setId(d.h.negative_feedback_view);
-                    this.bGy.wK();
-                    this.bGy.setLeftPadding((int) this.oV.getResources().getDimension(d.f.ds60));
-                    this.bGy.setDefaultReasonArray(new String[]{this.oV.getString(d.l.bad_quality), "", ""});
-                    this.bGy.setEventCallback(this.cAp);
-                    this.cAo.addView(this.bGy);
+            if (blVar.sJ() && blVar.qx() != null && !z) {
+                if (this.bGz == null) {
+                    this.bGz = new com.baidu.tbadk.core.view.h(this.oW);
+                    this.bGz.setUniqueId(this.mBdUniqueId);
+                    this.bGz.setId(d.h.negative_feedback_view);
+                    this.bGz.wL();
+                    this.bGz.setLeftPadding((int) this.oW.getResources().getDimension(d.f.ds60));
+                    this.bGz.setDefaultReasonArray(new String[]{this.oW.getString(d.l.bad_quality), "", ""});
+                    this.bGz.setEventCallback(this.cAp);
+                    this.cAo.addView(this.bGz);
                 }
-                if (this.bGy.getVisibility() != 0) {
-                    this.bGy.setVisibility(0);
+                if (this.bGz.getVisibility() != 0) {
+                    this.bGz.setVisibility(0);
                 }
                 an anVar = new an();
-                anVar.cF(blVar.getTid());
+                anVar.cI(blVar.getTid());
                 anVar.setFid(blVar.getFid());
-                anVar.a(blVar.qw());
-                this.bGy.setData(anVar);
+                anVar.a(blVar.qx());
+                this.bGz.setData(anVar);
             } else {
-                if (this.bGy != null && this.bGy.getVisibility() != 8) {
-                    this.bGy.setVisibility(8);
+                if (this.bGz != null && this.bGz.getVisibility() != 8) {
+                    this.bGz.setVisibility(8);
                 }
-                i = k.g(this.oV.getPageActivity(), d.f.ds32);
+                i = k.g(this.oW.getPageActivity(), d.f.ds32);
             }
             if (this.cAo.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cAo.getLayoutParams();
@@ -96,15 +96,15 @@ public class g {
                 layoutParams2.rightMargin = i;
                 this.cAo.setLayoutParams(layoutParams2);
             }
-            if (this.bGy != null) {
-                this.bGy.wM();
+            if (this.bGz != null) {
+                this.bGz.wN();
             }
         }
     }
 
     public void onChangeSkinType() {
-        if (this.bGy != null) {
-            this.bGy.onChangeSkinType();
+        if (this.bGz != null) {
+            this.bGz.onChangeSkinType();
         }
     }
 }

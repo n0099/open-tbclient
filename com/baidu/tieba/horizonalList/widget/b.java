@@ -21,7 +21,7 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long apX() {
+    public long apR() {
         return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.cZz, this.cZA) : ExpandableListView.getPackedPositionForGroup(this.cZz);
     }
 
@@ -32,15 +32,15 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b o(int i, int i2, int i3, int i4) {
-        b apY = apY();
-        apY.type = i;
-        apY.cZz = i2;
-        apY.cZA = i3;
-        apY.cZB = i4;
-        return apY;
+        b apS = apS();
+        apS.type = i;
+        apS.cZz = i2;
+        apS.cZA = i3;
+        apS.cZB = i4;
+        return apS;
     }
 
-    private static b apY() {
+    private static b apS() {
         b bVar;
         synchronized (cZv) {
             if (cZv.size() > 0) {

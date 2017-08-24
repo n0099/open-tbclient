@@ -26,11 +26,11 @@ import com.baidu.tieba.d;
 public class c extends com.baidu.tieba.card.a<b> {
     private View.OnClickListener aoH;
     private View.OnClickListener aoX;
-    private TbImageView bgn;
-    private TextView bgo;
-    private RelativeLayout bgp;
-    private FrameLayout bgt;
-    private View bgu;
+    private TbImageView bgo;
+    private TextView bgp;
+    private RelativeLayout bgq;
+    private FrameLayout bgu;
+    private View bgv;
     private ThreadLiveAndRecordUserInfoLayout cRw;
     private b cRx;
 
@@ -39,16 +39,16 @@ public class c extends com.baidu.tieba.card.a<b> {
         this.aoX = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.WA() != null) {
-                    c.this.WA().a(view, c.this.cRx);
+                if (c.this.Wx() != null) {
+                    c.this.Wx().a(view, c.this.cRx);
                 }
             }
         };
         this.aoH = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.alalivelist.view.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.WA() != null) {
-                    c.this.WA().a(view, c.this.cRx);
+                if (c.this.Wx() != null) {
+                    c.this.Wx().a(view, c.this.cRx);
                 }
             }
         };
@@ -56,21 +56,21 @@ public class c extends com.baidu.tieba.card.a<b> {
     }
 
     private void initView() {
-        this.bgp = (RelativeLayout) getView().findViewById(d.h.rlAlaLivePane);
-        ViewGroup.LayoutParams layoutParams = this.bgp.getLayoutParams();
+        this.bgq = (RelativeLayout) getView().findViewById(d.h.rlAlaLivePane);
+        ViewGroup.LayoutParams layoutParams = this.bgq.getLayoutParams();
         layoutParams.height = k.ag(this.mContext) * 1;
-        this.bgp.setLayoutParams(layoutParams);
+        this.bgq.setLayoutParams(layoutParams);
         getView().setOnClickListener(this);
-        this.bgt = (FrameLayout) getView().findViewById(d.h.flAlaLiveTitlePane);
-        this.bgn = (TbImageView) getView().findViewById(d.h.imgAlaLiveView);
-        this.bgn.setDefaultErrorResource(0);
-        this.bgn.setDefaultBgResource(d.g.pic_bg_video_frs);
-        this.bgo = (TextView) getView().findViewById(d.h.tvAlaLiveTitle);
+        this.bgu = (FrameLayout) getView().findViewById(d.h.flAlaLiveTitlePane);
+        this.bgo = (TbImageView) getView().findViewById(d.h.imgAlaLiveView);
+        this.bgo.setDefaultErrorResource(0);
+        this.bgo.setDefaultBgResource(d.g.pic_bg_video_frs);
+        this.bgp = (TextView) getView().findViewById(d.h.tvAlaLiveTitle);
         this.cRw = (ThreadLiveAndRecordUserInfoLayout) getView().findViewById(d.h.layoutAlaUserCard);
         this.cRw.setForumAfterClickListener(this.aoH);
         this.cRw.setUserAfterClickListener(this.aoX);
         this.cRw.setBarNameClickEnabled(true);
-        this.bgu = getView().findViewById(d.h.dividerBottom);
+        this.bgv = getView().findViewById(d.h.dividerBottom);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -86,11 +86,11 @@ public class c extends com.baidu.tieba.card.a<b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(b bVar) {
-        if (bVar != null && bVar.bcM != null && bVar.bcM.rX() != null) {
+        if (bVar != null && bVar.bcN != null && bVar.bcN.rY() != null) {
             this.cRx = bVar;
-            this.bgo.setText(bVar.bcM.getTitle());
-            this.bgn.c(bVar.bcM.rX().cover, 10, false);
-            this.cRw.x(bVar.bcM);
+            this.bgp.setText(bVar.bcN.getTitle());
+            this.bgo.c(bVar.bcN.rY().cover, 10, false);
+            this.cRw.x(bVar.bcN);
             d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -98,9 +98,9 @@ public class c extends com.baidu.tieba.card.a<b> {
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ai.j(this.bgp, d.g.addresslist_item_bg);
-            ai.i(this.bgo, d.e.cp_cont_i);
-            ai.j(this.bgu, d.e.cp_bg_line_d);
+            ai.j(this.bgq, d.g.addresslist_item_bg);
+            ai.i(this.bgp, d.e.cp_cont_i);
+            ai.j(this.bgv, d.e.cp_bg_line_d);
             this.cRw.d(tbPageContext, i);
             this.mSkinType = i;
         }
@@ -120,21 +120,21 @@ public class c extends com.baidu.tieba.card.a<b> {
     }
 
     public void i(TbPageContext<?> tbPageContext) {
-        if (tbPageContext != null && this.cRx != null && this.cRx.bcM != null && this.cRx.bcM.getAuthor() != null && this.cRx.bcM.rX() != null) {
+        if (tbPageContext != null && this.cRx != null && this.cRx.bcN != null && this.cRx.bcN.getAuthor() != null && this.cRx.bcN.rY() != null) {
             boolean z = false;
             String str = "";
             if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-                String userId = this.cRx.bcM.getAuthor().getUserId();
+                String userId = this.cRx.bcN.getAuthor().getUserId();
                 str = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(this.cRx.bcM.rX());
+            alaLiveInfoCoreData.fillWithInfoData(this.cRx.bcN.rY());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_PLAY, str, z, "")));
-            int i = this.cRx.bcM.rX().live_type;
+            int i = this.cRx.bcN.rY().live_type;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             aj ajVar = new aj("c11827");
-            ajVar.aa("tid", this.cRx.bcM.getTid());
+            ajVar.aa("tid", this.cRx.bcN.getTid());
             ajVar.aa(SapiAccountManager.SESSION_UID, currentAccount);
             ajVar.r("obj_type", i);
             TiebaStatic.log(ajVar);

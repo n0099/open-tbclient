@@ -31,9 +31,9 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes2.dex */
 public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
     private View anK;
-    private com.baidu.tbadk.mvc.g.a bOV;
-    private NoNetworkView ber;
-    private final AbsListView.OnScrollListener ckJ;
+    private com.baidu.tbadk.mvc.g.a bOW;
+    private NoNetworkView bes;
+    private final AbsListView.OnScrollListener ckK;
     private com.baidu.tbadk.mvc.f.d<FeedData, com.baidu.tbadk.mvc.d.b, k> dFP;
     private NavigationBar dFR;
     private final ReplyMessageActivity dGC;
@@ -63,14 +63,14 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
                 n.this.dGR = j3;
                 if (n.this.dGN != null) {
                     if (!n.this.dGO.getIsFloor() || n.this.dGO.getReplyer() == null) {
-                        n.this.dGN.gd(null);
+                        n.this.dGN.gh(null);
                     } else {
-                        n.this.dGN.gd(n.this.dGO.getReplyer().getName_show());
+                        n.this.dGN.gh(n.this.dGO.getReplyer().getName_show());
                     }
                 }
             }
         };
-        this.ckJ = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.imMessageCenter.mention.n.7
+        this.ckK = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.imMessageCenter.mention.n.7
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             }
@@ -90,7 +90,7 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
         if (aVar instanceof f) {
             f fVar = (f) aVar;
             if (this.dFP != null) {
-                this.dFP.D(fVar.aAh());
+                this.dFP.D(fVar.aAc());
             }
         }
     }
@@ -99,7 +99,7 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
     /* JADX DEBUG: Multi-variable search result rejected for r1v42, resolved type: com.baidu.tieba.imMessageCenter.mention.ReplyMessageActivity */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
-    public View Ym() {
+    public View Yj() {
         this.mRootView = (RelativeLayout) this.dGC.getActivity().getLayoutInflater().inflate(d.j.reply_me_activity, (ViewGroup) null);
         this.dGC.setContentView(this.mRootView);
         this.dGL = (BdListView) this.mRootView.findViewById(d.h.replyme_lv);
@@ -111,17 +111,17 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
         this.dGL.setAdapter((ListAdapter) this.dFP);
         this.mPullView = new com.baidu.tbadk.core.view.l(this.dGC.getPageContext());
         this.mPullView.a(this.dGC);
-        this.bOV = new com.baidu.tbadk.mvc.g.a(this.dGC);
-        this.bOV.lk();
+        this.bOW = new com.baidu.tbadk.mvc.g.a(this.dGC);
+        this.bOW.lj();
         this.anK = new TextView(this.dGC.getPageContext().getPageActivity());
         this.anK.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.k.g(this.dGC.getPageContext().getPageActivity(), d.f.ds98)));
         BdListViewHelper.a(this.anK, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.i.hr());
-        this.dGL.setNextPage(this.bOV);
+        this.dGL.setNextPage(this.bOW);
         this.dGL.setPullRefresh(this.mPullView);
         this.dGL.addHeaderView(this.anK, 0);
-        this.ber = (NoNetworkView) this.mRootView.findViewById(d.h.no_networkview);
-        this.ber.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        this.ber.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.n.1
+        this.bes = (NoNetworkView) this.mRootView.findViewById(d.h.no_networkview);
+        this.bes.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.bes.a(new NoNetworkView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.n.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void aM(boolean z) {
                 n.this.gY(z);
@@ -129,7 +129,7 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
         });
         this.dGM = new ReplyMeModel(this.dGC);
         this.dGM.a(this.dGT);
-        this.dGL.setOnScrollListener(this.ckJ);
+        this.dGL.setOnScrollListener(this.ckK);
         this.dGL.setExOnSrollToBottomListener(new BdListView.f() { // from class: com.baidu.tieba.imMessageCenter.mention.n.2
             @Override // com.baidu.adp.widget.ListView.BdListView.f
             public void a(BdListView bdListView) {
@@ -153,7 +153,7 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
             }
 
             @Override // com.baidu.tbadk.editortools.pb.DataModel
-            public WriteData fS(String str) {
+            public WriteData fW(String str) {
                 WriteData writeData = new WriteData();
                 writeData.setForumId(n.this.mForumId);
                 writeData.setForumName(n.this.dGP);
@@ -217,8 +217,8 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
             this.dGN.Da().onChangeSkinType(i);
         }
         this.dFR.onChangeSkinType(tbPageContext, i);
-        if (this.bOV != null) {
-            this.bOV.b(tbPageContext, i);
+        if (this.bOW != null) {
+            this.bOW.b(tbPageContext, i);
         }
         if (this.mPullView != null) {
             this.mPullView.dp(i);
@@ -256,7 +256,7 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
         }
     }
 
-    public void azZ() {
+    public void azU() {
         if (this.dGL != null) {
             this.dGL.completePullRefreshPostDelayed(2000L);
         }
@@ -265,29 +265,29 @@ public class n extends com.baidu.adp.base.c<ReplyMessageActivity> {
     public void b(com.baidu.tbadk.mvc.d.b bVar) {
         if (bVar instanceof com.baidu.tbadk.mvc.d.a) {
             com.baidu.tbadk.mvc.d.a aVar = (com.baidu.tbadk.mvc.d.a) bVar;
-            if (this.bOV != null) {
+            if (this.bOW != null) {
                 if (aVar.FH()) {
-                    this.bOV.lT();
+                    this.bOW.lS();
                     if (aVar.FF()) {
-                        this.bOV.fc(d.l.loading);
+                        this.bOW.fc(d.l.loading);
                     } else if (aVar.FG()) {
-                        this.bOV.fc(d.l.loading);
+                        this.bOW.fc(d.l.loading);
                     } else {
-                        this.bOV.fd(d.l.no_more_msg);
+                        this.bOW.fd(d.l.no_more_msg);
                     }
                 } else {
-                    this.bOV.hide();
+                    this.bOW.hide();
                 }
             }
             if (aVar.isPullRefreshing()) {
-                aAa();
+                azV();
             } else {
-                azZ();
+                azU();
             }
         }
     }
 
-    public void aAa() {
+    public void azV() {
         if (this.mPullView != null) {
             this.mPullView.a((k.b) null);
         }

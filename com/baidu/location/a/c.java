@@ -307,7 +307,7 @@ public class c {
         }
     }
 
-    public static c mv() {
+    public static c mu() {
         if (Nx == null) {
             Nx = new c(com.baidu.location.h.c.ns().c());
         }

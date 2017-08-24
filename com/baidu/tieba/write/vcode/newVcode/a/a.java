@@ -28,7 +28,7 @@ public class a implements b {
     private PostWriteCallBackData gEZ;
     private NewWriteModel.d gFa;
     private boolean gBD = false;
-    private final NewWriteModel.d aEm = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.a.a.1
+    private final NewWriteModel.d aEn = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.a.a.1
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, q qVar, WriteData writeData, AntiData antiData) {
             String str;
@@ -63,7 +63,7 @@ public class a implements b {
     public a(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
         this.gEY = newVcodeView;
         this.gBC = newWriteModel;
-        this.gBC.b(this.aEm);
+        this.gBC.b(this.aEn);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
@@ -79,7 +79,7 @@ public class a implements b {
             this.gEY.runJsMethod("handleFreshCaptcha", "'" + writeData.getVcodeUrl() + "','" + writeData.getVcodeExtra().slideImg + "','" + writeData.getVcodeExtra().textImg + "'");
             return true;
         } else if (str.contains("objc:jsChangePosition")) {
-            rF(com.baidu.tbadk.q.a.gX(str));
+            rK(com.baidu.tbadk.q.a.ha(str));
             return true;
         } else if (str.contains("objc:finish")) {
             this.gBD = true;
@@ -153,11 +153,11 @@ public class a implements b {
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
-    public boolean bys() {
+    public boolean byk() {
         return this.gBD;
     }
 
-    private void rF(String str) {
+    private void rK(String str) {
         this.gBD = false;
         if (!k.hI()) {
             this.gEY.getContext().showToast(d.l.neterror);

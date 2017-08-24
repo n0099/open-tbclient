@@ -6,11 +6,11 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends j.a {
     public int aqm;
-    public View bHl;
+    public View bHm;
 
     public a(View view) {
         super(view);
         this.aqm = -1;
-        this.bHl = view.findViewById(d.h.person_center_interval_item);
+        this.bHm = view.findViewById(d.h.person_center_interval_item);
     }
 }

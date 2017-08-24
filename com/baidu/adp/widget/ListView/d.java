@@ -316,7 +316,7 @@ public class d extends BaseAdapter {
         if (i < headersCount) {
             View view4 = this.mHeaderViewInfos.get(i).view;
             if (view4 == null) {
-                return lq();
+                return lp();
             }
             return view4;
         }
@@ -337,7 +337,7 @@ public class d extends BaseAdapter {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return lq();
+                return lp();
             }
             return view3;
         }
@@ -348,12 +348,12 @@ public class d extends BaseAdapter {
             view2 = null;
         }
         if (view2 == null) {
-            return lq();
+            return lp();
         }
         return view2;
     }
 
-    private View lq() {
+    private View lp() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = k.dip2px(this.mContext, 15.0f);

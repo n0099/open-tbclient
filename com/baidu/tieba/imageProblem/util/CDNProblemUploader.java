@@ -266,12 +266,12 @@ public class CDNProblemUploader extends o {
                 this.mNetWork.n("ab_num_error", this.mErrorNum + "");
                 this.mNetWork.n("error", this.aeW);
             }
-            String uO = this.mNetWork.uO();
-            if (!this.mNetWork.vo() || TextUtils.isEmpty(uO)) {
+            String uP = this.mNetWork.uP();
+            if (!this.mNetWork.vp() || TextUtils.isEmpty(uP)) {
                 return null;
             }
             try {
-                return new JSONObject(uO);
+                return new JSONObject(uP);
             } catch (JSONException e) {
                 BdLog.e(e.getMessage());
                 return null;
@@ -282,7 +282,7 @@ public class CDNProblemUploader extends o {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: s */
+        /* renamed from: t */
         public void onPostExecute(JSONObject jSONObject) {
             super.onPostExecute(jSONObject);
             try {

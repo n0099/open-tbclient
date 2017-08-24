@@ -34,9 +34,9 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a gG = a.gG(str);
-                if (gG != null && !StringUtils.isNull(gG.forumName)) {
-                    arrayList.add(gG.forumName);
+                a gJ = a.gJ(str);
+                if (gJ != null && !StringUtils.isNull(gJ.forumName)) {
+                    arrayList.add(gJ.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -53,9 +53,9 @@ public class c {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a gG = a.gG(str);
-                if (gG != null && !StringUtils.isNull(gG.forumName)) {
-                    arrayList.add(gG);
+                a gJ = a.gJ(str);
+                if (gJ != null && !StringUtils.isNull(gJ.forumName)) {
+                    arrayList.add(gJ);
                 }
             }
             return (a[]) arrayList.toArray(new a[arrayList.size()]);
@@ -83,7 +83,7 @@ public class c {
             return this.forumName + "#" + this.level;
         }
 
-        public static a gG(String str) {
+        public static a gJ(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

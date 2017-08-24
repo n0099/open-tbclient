@@ -6,8 +6,8 @@ import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
 public class c {
-    public AlaUserInfoData Vs;
-    public AlaShareInfoData Vt;
+    public AlaUserInfoData Vt;
+    public AlaShareInfoData Vu;
     public int audience_count;
     public String cover;
     public String description;
@@ -40,8 +40,8 @@ public class c {
                 this.media_id = jSONObject.optString("media_id");
                 this.media_subtitle = jSONObject.optString("media_subtitle");
                 this.description = jSONObject.optString("description");
-                this.Vs = (AlaUserInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("user_info"), AlaUserInfoData.class);
-                this.Vt = (AlaShareInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("share_info"), AlaShareInfoData.class);
+                this.Vt = (AlaUserInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("user_info"), AlaUserInfoData.class);
+                this.Vu = (AlaShareInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("share_info"), AlaShareInfoData.class);
                 this.live_status = jSONObject.optInt("live_status");
                 this.duration = jSONObject.optInt("duration");
                 this.audience_count = jSONObject.optInt("audience_count");
@@ -68,10 +68,10 @@ public class c {
                 this.media_id = alaLiveInfo.media_id;
                 this.media_subtitle = alaLiveInfo.media_subtitle;
                 this.description = alaLiveInfo.description;
-                this.Vs = new AlaUserInfoData();
-                this.Vs.a(alaLiveInfo.user_info);
-                this.Vt = new AlaShareInfoData();
-                this.Vt.a(alaLiveInfo.share_info);
+                this.Vt = new AlaUserInfoData();
+                this.Vt.a(alaLiveInfo.user_info);
+                this.Vu = new AlaShareInfoData();
+                this.Vu.a(alaLiveInfo.share_info);
                 this.live_status = alaLiveInfo.live_status.intValue();
                 this.duration = alaLiveInfo.duration.intValue();
                 this.audience_count = alaLiveInfo.audience_count.intValue();

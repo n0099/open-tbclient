@@ -19,7 +19,7 @@ public class c implements View.OnClickListener {
     private BdUniqueId aqe;
     private com.baidu.tbadk.e.a aqf;
     private a aqg;
-    private TbPageContext oV;
+    private TbPageContext oW;
     private String aqd = "0";
     private CustomMessageListener aqh = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tbadk.core.view.userLike.c.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class c implements View.OnClickListener {
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
                 if (c.this.aqa != null && !StringUtils.isNull(c.this.aqa.getUserId()) && data != null && c.this.aqa.getUserId().equals(data.toUid)) {
                     if (!data.Ec) {
-                        c.this.oV.showToast(updateAttentionMessage.getData().errorString);
+                        c.this.oW.showToast(updateAttentionMessage.getData().errorString);
                         return;
                     }
                     int fansNum = c.this.aqa.getFansNum();
@@ -65,12 +65,12 @@ public class c implements View.OnClickListener {
     }
 
     public c(TbPageContext tbPageContext) {
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
         tbPageContext.registerListener(this.aqh);
     }
 
     public c(TbPageContext tbPageContext, b bVar) {
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
         tbPageContext.registerListener(this.aqh);
         a(bVar);
     }
@@ -87,7 +87,7 @@ public class c implements View.OnClickListener {
     public void a(b bVar) {
         this.aqb = bVar;
         if (this.aqb != null) {
-            this.aqb.g(this);
+            this.aqb.c(this);
         }
     }
 
@@ -103,14 +103,14 @@ public class c implements View.OnClickListener {
     public void onClick(View view) {
         if (this.aqf == null || !this.aqf.s(view)) {
             if (!i.hf()) {
-                this.oV.showToast(d.l.network_ungeilivable);
+                this.oW.showToast(d.l.network_ungeilivable);
             }
             if (this.aqb != null) {
                 this.aqb.C(view);
             }
-            if (aw.aO(this.oV.getPageActivity()) && this.aqa != null) {
+            if (aw.aO(this.oW.getPageActivity()) && this.aqa != null) {
                 if (this.aqe == null) {
-                    this.aqc.a(this.aqa.getIsLike() ? false : true, this.aqa.getPortrait(), this.aqa.getUserId(), this.aqa.isGod(), this.oV.getUniqueId());
+                    this.aqc.a(this.aqa.getIsLike() ? false : true, this.aqa.getPortrait(), this.aqa.getUserId(), this.aqa.isGod(), this.oW.getUniqueId());
                 } else {
                     this.aqc.a(this.aqa.getIsLike() ? false : true, this.aqa.getPortrait(), this.aqa.getUserId(), this.aqa.isGod(), this.aqe);
                 }

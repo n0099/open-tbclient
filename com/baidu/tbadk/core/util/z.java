@@ -34,7 +34,7 @@ public class z {
         }
     }
 
-    public static synchronized a vw() {
+    public static synchronized a vx() {
         a remove;
         synchronized (z.class) {
             int size = ahi.size();

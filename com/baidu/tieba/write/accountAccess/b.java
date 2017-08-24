@@ -36,7 +36,7 @@ public class b {
         public void run() {
             if (b.this.mWebView != null) {
                 b.this.showWebLoadingView(false);
-                b.this.byu();
+                b.this.bym();
             }
         }
     };
@@ -95,11 +95,11 @@ public class b {
                         if (!b.this.onPageFinishHasBeenCalled) {
                             b.this.onPageFinishHasBeenCalled = true;
                             b.this.showWebLoadingView(false);
-                            b.this.byu();
-                            b.this.gBA.byq();
+                            b.this.bym();
+                            b.this.gBA.byi();
                             return true;
                         }
-                        return b.this.gBA.sS(str);
+                        return b.this.gBA.sX(str);
                     }
 
                     @Override // android.webkit.WebViewClient
@@ -107,7 +107,7 @@ public class b {
                         super.onPageFinished(webView, str);
                         b.this.onPageFinishHasBeenCalled = true;
                         if (b.this.gBA != null) {
-                            b.this.gBA.byq();
+                            b.this.gBA.byi();
                         }
                     }
 
@@ -189,7 +189,7 @@ public class b {
         return this.mRatio;
     }
 
-    public float byt() {
+    public float byl() {
         return this.gBF;
     }
 
@@ -208,7 +208,7 @@ public class b {
         return translateAnimation;
     }
 
-    public void byu() {
+    public void bym() {
         if (this.mContext != null) {
             if (this.mRatio == this.gBF) {
                 this.mWebView.startAnimation(m(k.ah(this.mContext.getBaseContext()) - (this.mWebView.getWidth() * 1.2631578f), 0.0f));

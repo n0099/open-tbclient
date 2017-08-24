@@ -13,9 +13,9 @@ public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String bDM;
         public String bDN;
-        public int bJW;
+        public String bDO;
+        public int bJX;
     }
 
     public static C0121a a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
@@ -28,7 +28,7 @@ public class a {
         C0121a c0121a = new C0121a("ad_tpoint", "PT", str, str2, "tpoint");
         c0121a.e(null, null, str3, str4, str5);
         if (!al.isEmpty(str6)) {
-            c0121a.ci("obj_ref", str6);
+            c0121a.ck("obj_ref", str6);
         }
         return c0121a;
     }
@@ -37,12 +37,12 @@ public class a {
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         C0121a c0121a = new C0121a("ad_tpoint", "PT", str, "c0122", "ad_plat");
         c0121a.e(str2, str7, str3, str4, str5);
-        c0121a.ci("obj_url", str6);
+        c0121a.ck("obj_url", str6);
         c0121a.save();
     }
 
     @Deprecated
-    public static void ch(String str, String str2) {
+    public static void cj(String str, String str2) {
         if (!al.isEmpty(str)) {
             aj ajVar = new aj(str);
             if (str2 != null) {
@@ -55,8 +55,8 @@ public class a {
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0121a {
-        private final String Uo;
-        private final boolean XD;
+        private final String Up;
+        private final boolean XE;
         private final aj dNt;
         private final String gkI;
         private final String gkJ;
@@ -66,20 +66,20 @@ public class a {
         private C0121a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
             this.gkI = str2;
-            this.Uo = str3;
+            this.Up = str3;
             this.locate = str4;
             this.gkJ = str5;
-            this.XD = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.dNt = btw();
+            this.XE = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.dNt = btp();
         }
 
-        private aj btw() {
+        private aj btp() {
             aj ajVar = new aj(this.key);
             if (!StringUtils.isNull(this.gkI)) {
                 ajVar = ajVar.aa("line", this.gkI);
             }
-            if (!StringUtils.isNull(this.Uo)) {
-                ajVar = ajVar.aa("page", this.Uo);
+            if (!StringUtils.isNull(this.Up)) {
+                ajVar = ajVar.aa("page", this.Up);
             }
             if (!StringUtils.isNull(this.locate)) {
                 ajVar = ajVar.aa("locate", this.locate);
@@ -111,7 +111,7 @@ public class a {
             return this.dNt;
         }
 
-        public C0121a ci(String str, String str2) {
+        public C0121a ck(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
                 this.dNt.aa(str, str2);
             }
@@ -120,7 +120,7 @@ public class a {
 
         public void save() {
             TiebaStatic.log(this.dNt);
-            if (!this.XD) {
+            if (!this.XE) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }

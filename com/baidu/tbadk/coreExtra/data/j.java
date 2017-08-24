@@ -132,8 +132,8 @@ public class j {
                 if (this.mSwitchs != null && this.mSwitchs.size() > 0) {
                     com.baidu.adp.lib.b.d.fh().c(this.mSwitchs);
                 }
-                com.baidu.tieba.play.r.bgC();
-                CustomPlayerSwitchStatic.rJ(com.baidu.adp.lib.b.d.fh().al("android_custom_player_enabled_2"));
+                com.baidu.tieba.play.r.bgx();
+                CustomPlayerSwitchStatic.rJ(com.baidu.adp.lib.b.d.fh().am("android_custom_player_enabled_2"));
                 this.asb = jSONObject.optInt("is_pushservice_open", 1) == 1;
                 TbadkCoreApplication.getInst().setIsPushServiceOpen(this.asb);
                 if (!this.asb) {
@@ -171,9 +171,9 @@ public class j {
                     }
                 }
                 TbadkCoreApplication.getInst().setHybridBridgeTimeout(jSONObject.optInt("hybrid_bridge_timeout", -1));
-                TbadkCoreApplication.getInst().setSocketReconnStratgy(c(jSONObject.optJSONArray("lcsReconStrategy")));
-                TbadkCoreApplication.getInst().setSocketHeartBeatStratgy(c(jSONObject.optJSONArray("lcsHeartbeatStrategy")));
-                TbadkCoreApplication.getInst().setSocketGetMsgStratgy(c(jSONObject.optJSONArray("imGetMsgStrategy")));
+                TbadkCoreApplication.getInst().setSocketReconnStratgy(b(jSONObject.optJSONArray("lcsReconStrategy")));
+                TbadkCoreApplication.getInst().setSocketHeartBeatStratgy(b(jSONObject.optJSONArray("lcsHeartbeatStrategy")));
+                TbadkCoreApplication.getInst().setSocketGetMsgStratgy(b(jSONObject.optJSONArray("imGetMsgStrategy")));
                 JSONObject optJSONObject6 = jSONObject.optJSONObject("imNetworkTimeOut");
                 if (optJSONObject6 != null) {
                     TbadkCoreApplication.getInst().setImTimeOut(new int[]{optJSONObject6.optInt("2gTo", 0) * 1000, optJSONObject6.optInt("3gTo", 0) * 1000, optJSONObject6.optInt("wifiTo", 0) * 1000});
@@ -200,7 +200,7 @@ public class j {
         }
     }
 
-    private String c(JSONArray jSONArray) throws Exception {
+    private String b(JSONArray jSONArray) throws Exception {
         if (jSONArray == null) {
             return null;
         }

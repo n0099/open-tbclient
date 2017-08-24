@@ -49,6 +49,6 @@ public class af extends Thread {
         if (this.mObjTp != null) {
             wVar.n("obj_tp", this.mObjTp);
         }
-        wVar.uO();
+        wVar.uP();
     }
 }

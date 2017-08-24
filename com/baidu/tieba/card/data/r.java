@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.data;
 /* loaded from: classes.dex */
 public interface r extends com.baidu.adp.widget.ListView.f {
-    boolean Xg();
+    boolean Xd();
 
     void dG(boolean z);
 

@@ -19,7 +19,7 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f extends com.baidu.tbadk.editortools.d {
-    private boolean aEr = false;
+    private boolean aEs = false;
 
     @Override // com.baidu.tbadk.editortools.d
     protected com.baidu.tbadk.editortools.f aS(Context context) {
@@ -41,8 +41,8 @@ public class f extends com.baidu.tbadk.editortools.d {
                     if (aVar != null) {
                         switch (aVar.code) {
                             case 4:
-                                eVar.fX((String) aVar.data);
-                                f.this.aEr = false;
+                                eVar.gb((String) aVar.data);
+                                f.this.aEs = false;
                                 return;
                             case 5:
                             case 6:
@@ -55,7 +55,7 @@ public class f extends com.baidu.tbadk.editortools.d {
                                 return;
                             case 7:
                                 eVar.yg().showToast(d.l.over_limit_tip);
-                                f.this.aEr = true;
+                                f.this.aEs = true;
                                 return;
                             case 8:
                                 if (f.this.a(eVar.yg(), 11001)) {
@@ -75,7 +75,7 @@ public class f extends com.baidu.tbadk.editortools.d {
                                 Da.b(new com.baidu.tbadk.editortools.a(2, 6, null));
                                 return;
                             case 16:
-                                if (f.this.aEr) {
+                                if (f.this.aEs) {
                                     eVar.yg().showToast(d.l.over_limit_tip);
                                 }
                                 if (f.this.a(eVar.yg(), 11025)) {
@@ -108,14 +108,14 @@ public class f extends com.baidu.tbadk.editortools.d {
         if (eE != null) {
             eE.bH(false);
         }
-        if (com.baidu.tieba.tbadkCore.voice.c.bul() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Da.getContext()), r.class)) != null && (rVar = (r) runTask.getData()) != null) {
-            rVar.aCQ = 2;
+        if (com.baidu.tieba.tbadkCore.voice.c.bue() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Da.getContext()), r.class)) != null && (rVar = (r) runTask.getData()) != null) {
+            rVar.aCR = 2;
             Da.b(rVar);
         }
         Da.b(new com.baidu.tbadk.editortools.a.a(Da.getContext(), 4));
         com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(Da.getContext(), true);
-        if (aVar.aCd instanceof EditText) {
-            ((EditText) aVar.aCd).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
+        if (aVar.aCe instanceof EditText) {
+            ((EditText) aVar.aCe).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
         }
         Da.b(aVar);
         Da.b(new com.baidu.tbadk.editortools.sendtool.a(Da.getContext()));

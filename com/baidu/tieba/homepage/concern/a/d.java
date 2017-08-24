@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.util.ai;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int bwJ;
+    private static int bwK;
     private static int cSp;
 
     public d(Context context) {
         super(context, com.baidu.tieba.homepage.concern.b.a.cSw);
-        bwJ = k.g(context, d.f.ds40);
+        bwK = k.g(context, d.f.ds40);
         cSp = k.g(context, d.f.ds120);
     }
 
@@ -44,7 +44,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             layoutParams.bottomMargin = cSp;
             aVar2.cSr.setVisibility(0);
         } else {
-            layoutParams.bottomMargin = bwJ;
+            layoutParams.bottomMargin = bwK;
             aVar2.cSr.setVisibility(8);
         }
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

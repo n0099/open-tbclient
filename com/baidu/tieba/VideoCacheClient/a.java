@@ -15,17 +15,17 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a aWM;
+    private static a aWN;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean aWN = false;
+    private boolean aWO = false;
     private byte[] mBuffer = new byte[1024];
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:128:0x0314, code lost:
             r3 = e;
          */
         /* JADX WARN: Code restructure failed: missing block: B:66:0x022b, code lost:
-            com.baidu.tieba.VideoCacheClient.d.log(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
+            com.baidu.tieba.VideoCacheClient.d.at(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
          */
         /* JADX WARN: Code restructure failed: missing block: B:67:0x0246, code lost:
             r9.close();
@@ -92,7 +92,7 @@ public class a {
             int i3;
             long j2;
             String readLine;
-            while (!a.this.aWN) {
+            while (!a.this.aWO) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -100,14 +100,14 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.aWN) {
+                if (!a.this.aWO) {
                     String KG = a.this.KG();
                     if (KG != null && !KG.isEmpty()) {
-                        File file = new File(c.aWC + b.hv(KG) + "/header_downloaded");
+                        File file = new File(c.aWD + b.hy(KG) + "/header_downloaded");
                         if (file.exists()) {
-                            d.log(a.TAG, "header exists " + KG);
+                            d.at(a.TAG, "header exists " + KG);
                         } else {
-                            d.log(a.TAG, "client preload start: " + KG);
+                            d.at(a.TAG, "client preload start: " + KG);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -185,7 +185,7 @@ public class a {
                                                 }
                                             } while (!readLine.equals(""));
                                             inputStream = socket.getInputStream();
-                                            d.log(a.TAG, "client preload check1: " + KG);
+                                            d.at(a.TAG, "client preload check1: " + KG);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -244,7 +244,7 @@ public class a {
                                     e12.printStackTrace();
                                 }
                             }
-                            d.log(a.TAG, "client preload end: " + KG);
+                            d.at(a.TAG, "client preload end: " + KG);
                         }
                     }
                 } else {
@@ -291,14 +291,14 @@ public class a {
     }
 
     public static a KF() {
-        if (aWM == null) {
+        if (aWN == null) {
             synchronized (a.class) {
-                if (aWM == null) {
-                    aWM = new a();
+                if (aWN == null) {
+                    aWN = new a();
                 }
             }
         }
-        return aWM;
+        return aWN;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -306,7 +306,7 @@ public class a {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void hw(String str) {
+    public synchronized void hz(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

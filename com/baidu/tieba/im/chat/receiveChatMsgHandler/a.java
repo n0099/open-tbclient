@@ -35,12 +35,12 @@ public abstract class a {
     public interface b {
         void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z);
 
-        void j(String str, List<CommonMsgPojo> list);
+        void i(String str, List<CommonMsgPojo> list);
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        boolean lH(String str);
+        boolean lK(String str);
     }
 
     public static boolean a(ChatMessage chatMessage, int i) {
@@ -54,7 +54,7 @@ public abstract class a {
         }
     }
 
-    public static void lG(String str) {
+    public static void lJ(String str) {
         if (!TextUtils.isEmpty(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             try {
@@ -94,7 +94,7 @@ public abstract class a {
                     if (currentAccount != null && currentAccount.length() > 0) {
                         int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.yZ().getMsgChat();
                         int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.yZ().getMsgBookmark();
-                        com.baidu.tbadk.coreExtra.messageCenter.a.yZ().k(jSONObject);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.yZ().l(jSONObject);
                         com.baidu.tbadk.coreExtra.messageCenter.a.yZ().c(optInt, optInt6, msgChat, i, msgBookmark, optInt4);
                     }
                 }
@@ -162,7 +162,7 @@ public abstract class a {
             if (commonMsgPojo != null) {
                 commonMsgPojo.checkRidAndSelf();
             }
-            if (cVar != null && cVar.lH(valueOf)) {
+            if (cVar != null && cVar.lK(valueOf)) {
                 i2 = 0;
             }
             imMessageCenterPojo.setUnread_count(i2);
@@ -249,7 +249,7 @@ public abstract class a {
                 i = 2;
             }
             if (bVar != null) {
-                bVar.j(valueOf, linkedList);
+                bVar.i(valueOf, linkedList);
                 bVar.a(imMessageCenterPojo, i, z5);
             }
         }

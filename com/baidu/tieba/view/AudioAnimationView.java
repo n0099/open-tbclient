@@ -13,8 +13,8 @@ import com.baidu.tieba.d;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class AudioAnimationView extends View {
-    private int bIg;
-    private boolean fEX;
+    private int bIh;
+    private boolean fEZ;
     private int gwX;
     private int gwY;
     private boolean gwZ;
@@ -34,19 +34,19 @@ public class AudioAnimationView extends View {
         this.random = new Random();
         this.gwX = 0;
         this.gwY = 8;
-        this.fEX = false;
+        this.fEZ = false;
         this.gwZ = true;
         this.gxd = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
         this.gxe = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.getInst(), d.f.ds4);
-        this.bIg = d.e.cp_link_tip_a;
+        this.bIh = d.e.cp_link_tip_a;
         this.gxf = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                AudioAnimationView.this.bhx();
+                AudioAnimationView.this.bhs();
             }
         };
         initPaint();
-        bhx();
+        bhs();
     }
 
     public AudioAnimationView(Context context, AttributeSet attributeSet) {
@@ -55,24 +55,24 @@ public class AudioAnimationView extends View {
         this.random = new Random();
         this.gwX = 0;
         this.gwY = 8;
-        this.fEX = false;
+        this.fEZ = false;
         this.gwZ = true;
         this.gxd = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
         this.gxe = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.getInst(), d.f.ds4);
-        this.bIg = d.e.cp_link_tip_a;
+        this.bIh = d.e.cp_link_tip_a;
         this.gxf = new Runnable() { // from class: com.baidu.tieba.view.AudioAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                AudioAnimationView.this.bhx();
+                AudioAnimationView.this.bhs();
             }
         };
         initPaint();
-        bhx();
+        bhs();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bhx() {
-        if (this.fEX) {
+    public void bhs() {
+        if (this.fEZ) {
             invalidate();
         }
         com.baidu.adp.lib.g.e.ga().removeCallbacks(this.gxf);
@@ -101,9 +101,9 @@ public class AudioAnimationView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.fEX) {
+        if (this.fEZ) {
             for (int i = 0; i < this.gwY; i++) {
-                bxj();
+                bxc();
                 if (i < this.gxc.length) {
                     canvas.drawRect(this.gxc[i], this.mPaint);
                 }
@@ -116,18 +116,18 @@ public class AudioAnimationView extends View {
         this.mPaint.setDither(true);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(ai.getColor(this.bIg));
+        this.mPaint.setColor(ai.getColor(this.bIh));
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType && this.mPaint != null) {
-            this.mPaint.setColor(ai.getColor(this.bIg));
+            this.mPaint.setColor(ai.getColor(this.bIh));
             invalidate();
             this.mSkinType = i;
         }
     }
 
-    private void bxj() {
+    private void bxc() {
         int nextInt;
         if (this.gxc == null || this.gxc.length != this.gwY) {
             this.gxc = new Rect[this.gwY];
@@ -159,13 +159,13 @@ public class AudioAnimationView extends View {
         if (this.mPaint != null) {
             this.mPaint.setColor(ai.getColor(i));
         }
-        this.bIg = i;
+        this.bIh = i;
     }
 
     public void start() {
-        this.fEX = true;
+        this.fEZ = true;
         this.gwZ = false;
-        bhx();
+        bhs();
     }
 
     public void setCertainColumnCount(int i) {
@@ -174,10 +174,10 @@ public class AudioAnimationView extends View {
         }
     }
 
-    public void bxk() {
-        this.fEX = true;
+    public void bxd() {
+        this.fEZ = true;
         this.gwZ = true;
-        bhx();
+        bhs();
     }
 
     @Override // android.view.View

@@ -73,11 +73,11 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void wA() {
-        if (!this.aOo) {
-            this.aOo = true;
-        } else if (this.aOt != null && this.aOt.aKa) {
-            this.aOt.Gs();
+    public void wB() {
+        if (!this.aOp) {
+            this.aOp = true;
+        } else if (this.aOu != null && this.aOu.aKb) {
+            this.aOu.Gs();
         }
     }
 
@@ -103,7 +103,7 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
             } else if (this.akI == 1) {
                 canvas.drawBitmap(this.mBmp, 0.0f, 0.0f, this.fZo);
                 if (this.fZv != null && !this.fZv.isRunning()) {
-                    this.fZv.bx(this);
+                    this.fZv.bw(this);
                 }
             } else if (this.akI == 3) {
                 this.fZu.setColor(ai.getColor(d.e.cp_cont_e));
@@ -139,10 +139,10 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
     }
 
     @Override // com.baidu.tieba.story.b
-    public void boJ() {
+    public void boC() {
         if (this.fZv != null) {
             setMaskColor(2);
-            this.fZv.boR();
+            this.fZv.boK();
         }
     }
 
@@ -153,13 +153,13 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
     }
 
     @Override // com.baidu.tieba.story.b
-    public void boK() {
+    public void boD() {
         setMaskColor(0);
         postInvalidate();
     }
 
     @Override // com.baidu.tieba.story.b
-    public void boI() {
+    public void boB() {
     }
 
     public void setValueFloat(float f) {
@@ -170,9 +170,9 @@ public class StoryHeaderOutView extends com.baidu.tbadk.widget.b implements b {
         this.mColor = i;
     }
 
-    public void boM() {
+    public void boF() {
         if (this.fZv != null) {
-            this.fZv.boM();
+            this.fZv.boF();
         }
     }
 

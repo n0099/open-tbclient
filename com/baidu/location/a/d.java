@@ -97,8 +97,8 @@ public abstract class d {
                     try {
                         bDLocation = new BDLocation(str);
                         bDLocation.setOperators(com.baidu.location.f.c.ni().g());
-                        if (f.mx().f()) {
-                            bDLocation.setDirection(f.mx().h());
+                        if (f.mw().f()) {
+                            bDLocation.setDirection(f.mw().h());
                         }
                     } catch (Exception e) {
                         bDLocation = new BDLocation();
@@ -137,7 +137,7 @@ public abstract class d {
         if ((this.NA == null || this.NA.c()) && ((this.Nz == null || this.Nz.a() == 0) && nk == null)) {
             return null;
         }
-        String c2 = com.baidu.location.a.a.mu().c();
+        String c2 = com.baidu.location.a.a.mt().c();
         String format = com.baidu.location.f.k.nr().g() ? "&cn=32" : String.format(Locale.CHINA, "&cn=%d", Integer.valueOf(com.baidu.location.f.c.ni().e()));
         if (this.e) {
             this.e = false;

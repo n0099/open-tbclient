@@ -14,7 +14,7 @@ public class f implements com.baidu.adp.widget.ListView.f {
         return gha;
     }
 
-    public List<FeedForumData> bre() {
+    public List<FeedForumData> bqX() {
         return this.cri;
     }
 

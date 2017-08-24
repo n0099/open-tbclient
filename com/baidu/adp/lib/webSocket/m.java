@@ -214,7 +214,7 @@ public class m extends Thread {
                         if (this.BU.it()) {
                             u(this.CB.toByteArray());
                         } else {
-                            I(new String(this.CB.toByteArray(), "UTF-8"));
+                            J(new String(this.CB.toByteArray(), "UTF-8"));
                         }
                     } else if (this.CE == 2) {
                         x(this.CB.toByteArray());
@@ -266,7 +266,7 @@ public class m extends Thread {
         t(new k.C0008k(bArr));
     }
 
-    protected void I(String str) {
+    protected void J(String str) {
         t(new k.s(str));
     }
 

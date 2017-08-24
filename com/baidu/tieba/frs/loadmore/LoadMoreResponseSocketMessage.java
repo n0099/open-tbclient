@@ -53,7 +53,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            a.biO().rj(threadListResIdl.data.asp_shown_info);
+            a.biJ().ro(threadListResIdl.data.asp_shown_info);
             this.threadList = new ArrayList<>();
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {
@@ -62,16 +62,16 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     blVar.setUserMap(this.userMap);
                     blVar.a(list2.get(i3));
                     blVar.bX(3);
-                    blVar.sn();
+                    blVar.so();
                     if (blVar.getThreadType() == 33) {
                         ax axVar = new ax();
                         axVar.a(blVar, 0);
                         if (true == TbadkCoreApplication.getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                             this.threadList.add(axVar);
                         }
-                    } else if (!TextUtils.isEmpty(blVar.sA())) {
+                    } else if (!TextUtils.isEmpty(blVar.sB())) {
                         ah ahVar = new ah();
-                        ahVar.cE(blVar.sA());
+                        ahVar.cH(blVar.sB());
                         this.threadList.add(ahVar);
                     } else {
                         this.threadList.add(blVar);

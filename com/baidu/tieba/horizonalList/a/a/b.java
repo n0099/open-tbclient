@@ -18,7 +18,7 @@ public class b implements a {
         this.cXm = aVar;
     }
 
-    public boolean aps() {
+    public boolean apm() {
         return this.cXm != null;
     }
 

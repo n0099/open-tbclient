@@ -5,7 +5,7 @@ import java.util.List;
 public interface b {
     void aE(int i, int i2);
 
-    void aoL();
+    void aoF();
 
     void k(List<com.baidu.tieba.homepage.b.a.a> list, boolean z);
 

@@ -8,11 +8,11 @@ public class bt {
     private int abt = 0;
     private bs abu = new bs();
 
-    public boolean tj() {
+    public boolean tk() {
         return this.abt != 0;
     }
 
-    public bs tk() {
+    public bs tl() {
         return this.abu;
     }
 

@@ -14,10 +14,10 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.e.a;
 /* loaded from: classes.dex */
 public class a {
-    private int aMQ = 0;
-    private boolean aMR = false;
-    private a.InterfaceC0080a bWR = new a.InterfaceC0080a() { // from class: com.baidu.tieba.frs.gametab.a.1
-        final int byL = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
+    private int aMR = 0;
+    private boolean aMS = false;
+    private a.InterfaceC0080a bWS = new a.InterfaceC0080a() { // from class: com.baidu.tieba.frs.gametab.a.1
+        final int byM = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.f.ds98);
 
         @Override // com.baidu.tieba.e.a.InterfaceC0080a
         public void ah(int i, int i2) {
@@ -37,7 +37,7 @@ public class a {
             return Math.abs(f) >= 1.0f;
         }
     };
-    private com.baidu.tieba.e.b cmM;
+    private com.baidu.tieba.e.b cmN;
     private boolean cvH;
     private Context mContext;
     private BdUniqueId mPageId;
@@ -47,26 +47,26 @@ public class a {
         this.mPageId = bdUniqueId;
         this.cvH = z;
         if (this.cvH) {
-            this.cmM = new com.baidu.tieba.e.b(context);
-            this.cmM.a(this.bWR);
+            this.cmN = new com.baidu.tieba.e.b(context);
+            this.cmN.a(this.bWS);
         }
     }
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         if (this.cvH) {
-            this.aMQ = i;
+            this.aMR = i;
         }
     }
 
     public void a(AbsListView absListView, int i, int i2) {
         if (this.cvH && i == 0) {
             int firstVisiblePosition = absListView.getFirstVisiblePosition() + i2;
-            if (firstVisiblePosition > 0 && firstVisiblePosition > this.aMQ) {
+            if (firstVisiblePosition > 0 && firstVisiblePosition > this.aMR) {
                 l(false, true);
-            } else if (firstVisiblePosition < this.aMQ) {
+            } else if (firstVisiblePosition < this.aMR) {
                 l(true, true);
-            } else if (firstVisiblePosition == this.aMQ) {
-                if (!this.aMR || firstVisiblePosition <= 0 || a(absListView)) {
+            } else if (firstVisiblePosition == this.aMR) {
+                if (!this.aMS || firstVisiblePosition <= 0 || a(absListView)) {
                     l(true, true);
                 } else {
                     l(false, true);
@@ -76,14 +76,14 @@ public class a {
     }
 
     public void d(View view, MotionEvent motionEvent) {
-        if (this.cvH && this.cmM != null) {
-            this.cmM.onTouchEvent(motionEvent);
+        if (this.cvH && this.cmN != null) {
+            this.cmN.onTouchEvent(motionEvent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eo(boolean z) {
-        this.aMR = z;
+        this.aMS = z;
     }
 
     private boolean a(AbsListView absListView) {

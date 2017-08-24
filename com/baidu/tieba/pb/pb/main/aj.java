@@ -34,20 +34,20 @@ public class aj extends l<com.baidu.tieba.pb.data.k, ak> {
         if (kVar != null && akVar != null) {
             switch (kVar.mType) {
                 case 0:
-                    akVar.ePF.setSelected(false);
-                    akVar.ePF.setClickable(false);
-                    akVar.ePF.setText(this.mContext.getString(d.l.god_reply));
-                    akVar.evV.setVisibility(8);
-                    akVar.ePG.setVisibility(8);
+                    akVar.ePH.setSelected(false);
+                    akVar.ePH.setClickable(false);
+                    akVar.ePH.setText(this.mContext.getString(d.l.god_reply));
+                    akVar.evX.setVisibility(8);
+                    akVar.ePI.setVisibility(8);
                     break;
                 case 1:
-                    akVar.ePF.setClickable(true);
-                    akVar.ePF.setText(this.mContext.getString(d.l.all_reply));
-                    akVar.evV.setVisibility(0);
-                    akVar.ePG.setVisibility(0);
-                    akVar.jE(kVar.eGt);
-                    akVar.jD(kVar.aFW);
-                    akVar.H(this.cNL);
+                    akVar.ePH.setClickable(true);
+                    akVar.ePH.setText(this.mContext.getString(d.l.all_reply));
+                    akVar.evX.setVisibility(0);
+                    akVar.ePI.setVisibility(0);
+                    akVar.jE(kVar.eGv);
+                    akVar.jD(kVar.aFX);
+                    akVar.D(this.cNL);
                     break;
             }
         }
@@ -58,7 +58,7 @@ public class aj extends l<com.baidu.tieba.pb.data.k, ak> {
     private void a(ak akVar) {
         if (akVar != null) {
             if (akVar.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-                com.baidu.tbadk.core.util.ai.c(akVar.ePF, d.e.cp_cont_d, 1);
+                com.baidu.tbadk.core.util.ai.c(akVar.ePH, d.e.cp_cont_d, 1);
                 com.baidu.tbadk.core.util.ai.k(akVar.cSQ, d.e.cp_bg_line_c);
             }
             akVar.mSkinType = TbadkCoreApplication.getInst().getSkinType();

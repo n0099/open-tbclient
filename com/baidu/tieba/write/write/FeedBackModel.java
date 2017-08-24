@@ -26,7 +26,7 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bl> bAp() {
+    public ArrayList<bl> bAh() {
         return this.gHg;
     }
 
@@ -36,7 +36,7 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void tj(String str) {
+    public void to(String str) {
         if (this.gHf == null) {
             this.gHf = new a();
             this.gHf.setPriority(3);
@@ -59,12 +59,12 @@ public class FeedBackModel extends BdBaseModel<WriteActivity> {
             String obj = objArr[0].toString();
             this.mNetWork = new w(TbConfig.SERVER_ADDRESS + "c/f/frs/toplist");
             this.mNetWork.n("kw", obj);
-            String uO = this.mNetWork.uO();
-            if (!this.mNetWork.vl().wi().isRequestSuccess()) {
+            String uP = this.mNetWork.uP();
+            if (!this.mNetWork.vm().wj().isRequestSuccess()) {
                 return null;
             }
             FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.gHh);
-            feedBackModel.parserJson(uO);
+            feedBackModel.parserJson(uP);
             return feedBackModel;
         }
 

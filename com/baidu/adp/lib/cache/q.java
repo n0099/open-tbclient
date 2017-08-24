@@ -13,9 +13,9 @@ public class q extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String P(String str) {
-        this.uQ.E("CREATE TABLE IF NOT EXISTS " + this.uP + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-        this.uQ.E("CREATE INDEX if not exists idx_mi_ns ON " + this.uP + "(m_ns)");
+    public String Q(String str) {
+        this.uQ.F("CREATE TABLE IF NOT EXISTS " + this.uP + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.uQ.F("CREATE INDEX if not exists idx_mi_ns ON " + this.uP + "(m_ns)");
         return this.uP;
     }
 
@@ -79,7 +79,7 @@ public class q extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean Q(String str) {
+    protected boolean R(String str) {
         try {
             this.uQ.cs().delete(this.uR, "m_ns = ?", new String[]{str});
             return true;

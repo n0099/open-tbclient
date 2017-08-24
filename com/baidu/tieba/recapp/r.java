@@ -11,12 +11,12 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class r implements p {
-    public static final AtomicReference<p> fGq = new AtomicReference<>(null);
-    private static final p fGr = new r();
+    public static final AtomicReference<p> fGs = new AtomicReference<>(null);
+    private static final p fGt = new r();
 
-    public static p bil() {
-        p pVar = fGq.get();
-        return pVar == null ? fGr : pVar;
+    public static p big() {
+        p pVar = fGs.get();
+        return pVar == null ? fGt : pVar;
     }
 
     @Override // com.baidu.tieba.recapp.p
@@ -48,13 +48,13 @@ public class r implements p {
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public k bih() {
+    public k bic() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public m bii() {
+    public m bid() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
@@ -66,13 +66,13 @@ public class r implements p {
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public com.baidu.tieba.k.a bij() {
+    public com.baidu.tieba.k.a bie() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.p
-    public i bik() {
+    public i bif() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }

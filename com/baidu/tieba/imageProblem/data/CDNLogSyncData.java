@@ -9,59 +9,59 @@ import com.baidu.tbadk.core.util.r;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CDNLogSyncData {
-    private boolean VQ;
-    private int VR;
+    private boolean VR;
     private int VS;
-    private int VT = 25;
+    private int VT;
     private int VU = 25;
-    private int VV = 10;
+    private int VV = 25;
+    private int VW = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.VT;
-    }
-
-    public void setSuccRank(int i) {
-        this.VT = i;
-    }
-
-    public int getErrRank() {
         return this.VU;
     }
 
-    public void setErrRank(int i) {
+    public void setSuccRank(int i) {
         this.VU = i;
     }
 
-    public int getSlowRank() {
+    public int getErrRank() {
         return this.VV;
     }
 
-    public void setSlowRank(int i) {
+    public void setErrRank(int i) {
         this.VV = i;
     }
 
+    public int getSlowRank() {
+        return this.VW;
+    }
+
+    public void setSlowRank(int i) {
+        this.VW = i;
+    }
+
     public boolean ismSwitch() {
-        return this.VQ;
+        return this.VR;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.VQ != z) {
+        if (this.VR != z) {
             a fV = r.fV();
             fV.p("act", "fallback");
             fV.p("result", z ? "1" : "0");
             fV.p("type", "switch");
             BdStatisticsManager.getInstance().debug("img", fV);
         }
-        this.VQ = z;
+        this.VR = z;
     }
 
     public int getSlowNumber() {
-        return this.VR;
+        return this.VS;
     }
 
     public void setSlowNumber(int i) {
-        this.VR = i;
+        this.VS = i;
     }
 
     public int getTime() {
@@ -73,11 +73,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.VS;
+        return this.VT;
     }
 
     public void setErrNumber(int i) {
-        this.VS = i;
+        this.VT = i;
     }
 
     public void parseJson(String str) {
@@ -86,7 +86,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.VQ = false;
+            this.VR = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -95,30 +95,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.VQ = true;
+                    this.VR = true;
                 } else {
-                    this.VQ = false;
+                    this.VR = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.VS = optJSONObject.optInt("num");
+                    this.VT = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.VR = optJSONObject2.optInt("num");
+                    this.VS = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.VT = optJSONObject3.optInt("succ");
-                    this.VU = optJSONObject3.optInt("err");
-                    this.VV = optJSONObject3.optInt("slow");
+                    this.VU = optJSONObject3.optInt("succ");
+                    this.VV = optJSONObject3.optInt("err");
+                    this.VW = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.VR <= 0 || this.VS <= 0) {
-                    this.VQ = false;
+                if (this.time <= 0 || this.VS <= 0 || this.VT <= 0) {
+                    this.VR = false;
                 }
             } catch (Exception e) {
-                this.VQ = false;
+                this.VR = false;
                 BdLog.e(e.getMessage());
             }
         }

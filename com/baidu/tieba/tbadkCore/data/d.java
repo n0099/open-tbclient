@@ -12,7 +12,7 @@ public class d {
         this.gje = absDelegateAdapterList;
     }
 
-    public AbsDelegateAdapterList bsG() {
+    public AbsDelegateAdapterList bsz() {
         return this.gje;
     }
 

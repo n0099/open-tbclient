@@ -29,11 +29,11 @@ public class d {
         this.Ex.put(str, aVar);
     }
 
-    public synchronized a ba(String str) {
+    public synchronized a bb(String str) {
         return this.Ex.get(str);
     }
 
-    public synchronized void bb(String str) {
+    public synchronized void bc(String str) {
         this.Ex.remove(str);
     }
 

@@ -9,15 +9,15 @@ public class p extends bl {
     private boolean giA;
     private j giB;
 
-    public boolean bsu() {
+    public boolean bsn() {
         return this.giA;
     }
 
-    public String bsv() {
+    public String bso() {
         return this.fortune_desc;
     }
 
-    public j bsw() {
+    public j bsp() {
         return this.giB;
     }
 

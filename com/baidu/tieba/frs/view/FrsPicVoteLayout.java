@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.k;
 /* loaded from: classes.dex */
 public class FrsPicVoteLayout extends ViewGroup {
     private int cBV;
-    private int cbV;
+    private int cbW;
     private int mChildCount;
     private int mItemSize;
     private int mPadding;
@@ -17,7 +17,7 @@ public class FrsPicVoteLayout extends ViewGroup {
         super(context);
         this.mItemSize = 0;
         this.cBV = 110;
-        this.cbV = 0;
+        this.cbW = 0;
         this.mPadding = 3;
         this.mChildCount = 3;
         init(context);
@@ -27,7 +27,7 @@ public class FrsPicVoteLayout extends ViewGroup {
         super(context, attributeSet);
         this.mItemSize = 0;
         this.cBV = 110;
-        this.cbV = 0;
+        this.cbW = 0;
         this.mPadding = 3;
         this.mChildCount = 3;
         init(context);
@@ -49,8 +49,8 @@ public class FrsPicVoteLayout extends ViewGroup {
         } else {
             size = i3;
         }
-        this.cbV = (int) (this.mItemSize * 0.75d);
-        setMeasuredDimension(size, this.cbV);
+        this.cbW = (int) (this.mItemSize * 0.75d);
+        setMeasuredDimension(size, this.cbW);
         int i4 = 0;
         while (true) {
             int i5 = i4;
@@ -58,7 +58,7 @@ public class FrsPicVoteLayout extends ViewGroup {
                 if (getChildAt(i5) instanceof FrsPicVotePhotoFrame) {
                     FrsPicVotePhotoFrame frsPicVotePhotoFrame = (FrsPicVotePhotoFrame) getChildAt(i5);
                     if (frsPicVotePhotoFrame.getLayoutParams() != null) {
-                        measureChild(frsPicVotePhotoFrame, View.MeasureSpec.makeMeasureSpec(this.mItemSize, 1073741824), View.MeasureSpec.makeMeasureSpec(this.cbV, 1073741824));
+                        measureChild(frsPicVotePhotoFrame, View.MeasureSpec.makeMeasureSpec(this.mItemSize, 1073741824), View.MeasureSpec.makeMeasureSpec(this.cbW, 1073741824));
                     }
                 }
                 i4 = i5 + 1;

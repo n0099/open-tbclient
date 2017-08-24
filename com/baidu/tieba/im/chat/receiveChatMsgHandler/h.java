@@ -20,7 +20,7 @@ public class h {
     private h() {
     }
 
-    public static synchronized h asX() {
+    public static synchronized h asQ() {
         h hVar;
         synchronized (h.class) {
             if (dmw == null) {
@@ -86,7 +86,7 @@ public class h {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.receiveChatMsgHandler.h.1
             @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-            public boolean lH(String str) {
+            public boolean lK(String str) {
                 return true;
             }
         }, false);

@@ -6,20 +6,20 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private int aPw;
     private int aPx;
-    private double aPy;
+    private int aPy;
+    private double aPz;
 
     public f() {
-        this.aPw = 3;
-        this.aPx = this.aPw;
+        this.aPx = 3;
+        this.aPy = this.aPx;
     }
 
     public f(int i) {
-        this.aPw = 3;
-        this.aPx = this.aPw;
+        this.aPx = 3;
+        this.aPy = this.aPx;
         if (i > 0) {
-            this.aPx = i;
+            this.aPy = i;
         }
     }
 
@@ -39,9 +39,9 @@ public class f implements c {
             return i;
         }
         int u = u.u(list);
-        int i3 = u - this.aPx;
+        int i3 = u - this.aPy;
         if (i3 > 0) {
-            i2 = this.aPx + i;
+            i2 = this.aPy + i;
             List<String> a = u.a(list, i, i2);
             bVar.setExtraCenterText(TbadkCoreApplication.getInst().getString(d.l.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)}));
             bVar.a(a, i, true);
@@ -59,13 +59,13 @@ public class f implements c {
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.aPy > 0.0d) {
-            return this.aPy;
+        if (this.aPz > 0.0d) {
+            return this.aPz;
         }
         return 0.6666666666666666d;
     }
 
     public void e(double d) {
-        this.aPy = d;
+        this.aPz = d;
     }
 }

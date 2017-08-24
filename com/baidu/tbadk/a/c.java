@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class c implements e {
     public static final AtomicReference<e> Rl = new AtomicReference<>(null);
-    private static final e Rm = nA();
+    private static final e Rm = nB();
 
     private c() {
     }
@@ -15,7 +15,7 @@ public class c implements e {
         private static c Rn = new c();
     }
 
-    public static c nA() {
+    public static c nB() {
         return a.Rn;
     }
 }

@@ -21,14 +21,14 @@ public class e {
     private TextView czV;
     private final Runnable czW;
     private NoPressedRelativeLayout czt;
-    private int ckQ = -1;
+    private int ckR = -1;
     private int czX = 0;
     private int czY = -1;
     private final Handler czU = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.frs.g.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 111) {
-                e.this.ajZ();
+                e.this.ajT();
                 return true;
             }
             return false;
@@ -59,7 +59,7 @@ public class e {
         this.czW = new Runnable() { // from class: com.baidu.tieba.frs.g.e.3
             @Override // java.lang.Runnable
             public void run() {
-                e.this.aka();
+                e.this.ajU();
             }
         };
         initView();
@@ -70,9 +70,9 @@ public class e {
         this.czV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.g.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.aka();
-                if (e.this.cww != null && !e.this.cww.afO() && e.this.cww.afv() != null) {
-                    e.this.cww.afv().startPullRefresh();
+                e.this.ajU();
+                if (e.this.cww != null && !e.this.cww.afI() && e.this.cww.afp() != null) {
+                    e.this.cww.afp().startPullRefresh();
                 }
             }
         });
@@ -86,29 +86,29 @@ public class e {
         ai.i(this.czV, d.e.cp_link_tip_a);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
-        layoutParams.topMargin = this.cww.afM().getBottom() + k.g(TbadkCoreApplication.getInst(), d.f.ds8);
+        layoutParams.topMargin = this.cww.afG().getBottom() + k.g(TbadkCoreApplication.getInst(), d.f.ds8);
         this.czV.setLayoutParams(layoutParams);
     }
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.ckQ = i;
+        this.ckR = i;
         this.czX = i2;
         if (this.czY < 0) {
-            this.czY = this.ckQ;
+            this.czY = this.ckR;
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
-            if (this.ckQ > 0 && this.czY >= 0 && this.ckQ + this.czX < this.czY) {
+            if (this.ckR > 0 && this.czY >= 0 && this.ckR + this.czX < this.czY) {
                 this.czU.sendEmptyMessage(SapiSafeFacade.SAPIWEBVIEW_BIND_WIDGET);
             }
-            this.czY = this.ckQ;
+            this.czY = this.ckR;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajZ() {
+    public void ajT() {
         if (this.czV.getParent() == null) {
             this.czt.addView(this.czV);
             this.czV.clearAnimation();
@@ -119,9 +119,9 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aka() {
+    public void ajU() {
         if (this.czV.getParent() != null) {
-            this.ckQ = -1;
+            this.ckR = -1;
             this.czY = -1;
             this.czU.removeCallbacks(this.czW);
             this.czV.clearAnimation();

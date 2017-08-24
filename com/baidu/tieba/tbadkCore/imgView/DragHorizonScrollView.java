@@ -306,7 +306,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         this.glk = (this.glq + i6) - this.mPadding;
         if (this.gls || z) {
             scrollTo(0, 0);
-            scrollBy(btA(), 0);
+            scrollBy(btt(), 0);
             this.gls = false;
         }
     }
@@ -477,7 +477,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int btA() {
+    public int btt() {
         if (canScroll()) {
             return this.glk - ((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight());
         }
@@ -498,8 +498,8 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         int scrollX = getScrollX();
         int i2 = scrollX + i;
         if (z) {
-            if (i2 > btA()) {
-                i = btA() - scrollX;
+            if (i2 > btt()) {
+                i = btt() - scrollX;
             }
         } else if (i2 < 0) {
             i = -scrollX;
@@ -530,7 +530,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
             scrollTo(this.mScroller.getCurrX(), 0);
             postInvalidateDelayed(16L);
             if ((this.gln || this.glo) && this.gli != null) {
-                this.gli.btz();
+                this.gli.bts();
                 return;
             }
             return;
@@ -612,7 +612,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.e
-    public void btB() {
+    public void btu() {
         if (!this.gln) {
             this.gln = true;
             int scrollX = getScrollX();
@@ -622,19 +622,19 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.e
-    public void btC() {
+    public void btv() {
         if (!this.glo) {
             this.glo = true;
-            int btA = btA();
+            int btt = btt();
             int scrollX = getScrollX();
-            int scrollX2 = btA - getScrollX();
+            int scrollX2 = btt - getScrollX();
             this.mScroller.startScroll(scrollX, 0, scrollX2, 0, (int) (scrollX2 * 2.0f));
             invalidate();
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.e
-    public void btD() {
+    public void btw() {
         if (!this.mScroller.isFinished()) {
             this.mScroller.forceFinished(true);
         }
@@ -643,7 +643,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.e
-    public void btE() {
+    public void btx() {
         reset();
     }
 
@@ -663,7 +663,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         this.glt = view;
     }
 
-    public int bA(View view) {
+    public int bz(View view) {
         this.gly = true;
         view.clearAnimation();
         int indexOfChild = indexOfChild(view);
@@ -701,8 +701,8 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         if (!canScroll()) {
             this.mScroller.startScroll(scrollX, 0, 0 - scrollX, 0, 500);
             postInvalidate();
-        } else if (scrollX > btA()) {
-            this.mScroller.startScroll(scrollX, 0, btA() - scrollX, 0, 500);
+        } else if (scrollX > btt()) {
+            this.mScroller.startScroll(scrollX, 0, btt() - scrollX, 0, 500);
             postInvalidate();
         }
         postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView.2
@@ -716,8 +716,8 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                     }
                 }
                 if (DragHorizonScrollView.this.canScroll()) {
-                    if (DragHorizonScrollView.this.getScrollX() > DragHorizonScrollView.this.btA()) {
-                        DragHorizonScrollView.this.scrollTo(DragHorizonScrollView.this.btA(), 0);
+                    if (DragHorizonScrollView.this.getScrollX() > DragHorizonScrollView.this.btt()) {
+                        DragHorizonScrollView.this.scrollTo(DragHorizonScrollView.this.btt(), 0);
                     }
                 } else {
                     DragHorizonScrollView.this.scrollTo(0, 0);
@@ -730,7 +730,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         return indexOfChild;
     }
 
-    public boolean btF() {
+    public boolean bty() {
         return this.gly;
     }
 

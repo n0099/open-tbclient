@@ -33,19 +33,19 @@ public class MsgReplyCardView extends g {
         this.dFe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MsgReplyCardView.this.djd.a(view, 14, MsgReplyCardView.this.awA, 0L);
+                MsgReplyCardView.this.djd.a(view, 14, MsgReplyCardView.this.awB, 0L);
             }
         });
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            a.C0102a mO = a.mO(chatMessage.getContent());
+            a.C0102a mT = a.mT(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.dFf.setText(a(mO, valueOf));
-            this.dFg.setText(mO.dEN);
-            this.dFh.setText(b(mO, valueOf));
-            this.dFi.setText(mO.dFr + this.mContext.getString(d.l.bar));
+            this.dFf.setText(a(mT, valueOf));
+            this.dFg.setText(mT.dEN);
+            this.dFh.setText(b(mT, valueOf));
+            this.dFi.setText(mT.dFr + this.mContext.getString(d.l.bar));
         }
     }
 

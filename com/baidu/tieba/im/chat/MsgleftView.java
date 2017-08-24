@@ -20,7 +20,7 @@ public class MsgleftView extends g {
     private static final String TAG = MsgleftView.class.getName();
     private TbPageContext<MsglistActivity<?>> acr;
     private UserIconBox apn;
-    private HeadImageView clO;
+    private HeadImageView clP;
     private ViewGroup djM;
     private ImageView djN;
     private final TouchType djO;
@@ -42,24 +42,24 @@ public class MsgleftView extends g {
         this.djN = (ImageView) findViewById(d.h.iv_live_group_host);
         this.mName = (TextView) findViewById(d.h.tex_msgitem_name);
         this.djM = (ViewGroup) findViewById(d.h.box_msgitem_bubble);
-        this.clO = (HeadImageView) findViewById(d.h.img_msgitem_photo);
-        this.clO.setAutoChangeStyle(false);
-        this.clO.setDrawerType(1);
-        this.clO.setRadius(k.dip2px(this.acr.getContext(), 4.0f));
+        this.clP = (HeadImageView) findViewById(d.h.img_msgitem_photo);
+        this.clP.setAutoChangeStyle(false);
+        this.clP.setDrawerType(1);
+        this.clP.setRadius(k.dip2px(this.acr.getContext(), 4.0f));
         this.apn = (UserIconBox) findViewById(d.h.user_tshow_icon_box);
-        this.clO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.MsgleftView.1
+        this.clP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.MsgleftView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MsgleftView.this.djd.a(view, 2, MsgleftView.this.awA, 0L);
+                MsgleftView.this.djd.a(view, 2, MsgleftView.this.awB, 0L);
             }
         });
-        this.clO.setLongClickable(true);
-        this.clO.setOnLongClickListener(this.djP);
-        this.clO.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.im.chat.MsgleftView.2
+        this.clP.setLongClickable(true);
+        this.clP.setOnLongClickListener(this.djP);
+        this.clP.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.im.chat.MsgleftView.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (MsgleftView.this.djO.get() && motionEvent.getAction() == 1) {
-                    MsgleftView.this.dje.b(view, 2, MsgleftView.this.awA, 0L);
+                    MsgleftView.this.dje.b(view, 2, MsgleftView.this.awB, 0L);
                     MsgleftView.this.djO.set(false);
                 }
                 return false;
@@ -74,7 +74,7 @@ public class MsgleftView extends g {
         String str = null;
         super.b(view, chatMessage);
         ArrayList<IconData> tShowInfoNew = chatMessage != null ? chatMessage.getUserInfo().getTShowInfoNew() : null;
-        asB();
+        asu();
         if (this.apn != null && this.djJ) {
             this.apn.setVisibility(0);
             this.apn.setAutoChangedStyle(false);
@@ -104,15 +104,15 @@ public class MsgleftView extends g {
         try {
             if (chatMessage.getUserInfo() != null) {
                 this.mName.setText(chatMessage.getUserInfo().getUserName());
-                this.clO.setUserId(chatMessage.getUserInfo().getUserId());
+                this.clP.setUserId(chatMessage.getUserInfo().getUserId());
                 str = chatMessage.getUserInfo().getPortrait();
             }
             if (chatMessage.getUserInfo().getUserType() == 1 || chatMessage.getUserInfo().getUserType() == 3) {
-                this.clO.c(str, 10, false);
+                this.clP.c(str, 10, false);
             } else {
-                this.clO.c(str, 12, false);
+                this.clP.c(str, 12, false);
             }
-            this.clO.setContentDescription(chatMessage.getUserInfo().getName_show());
+            this.clP.setContentDescription(chatMessage.getUserInfo().getName_show());
             this.djB.setVisibility(8);
             lV(8);
             this.djC.setVisibility(8);
@@ -187,7 +187,7 @@ public class MsgleftView extends g {
         }
     }
 
-    public void asB() {
+    public void asu() {
         if (this.djJ) {
             this.mName.setVisibility(0);
             this.apn.setVisibility(0);

@@ -14,31 +14,31 @@ import com.baidu.tieba.view.g;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private Context fgC;
-    private ArrayList<com.baidu.tieba.personCenter.b.a> fgD = new ArrayList<>();
-    private g fgE;
+    private Context fgE;
+    private ArrayList<com.baidu.tieba.personCenter.b.a> fgF = new ArrayList<>();
+    private g fgG;
 
     public a(Context context) {
-        this.fgC = context;
+        this.fgE = context;
     }
 
     public void setData(ArrayList<com.baidu.tieba.personCenter.b.a> arrayList) {
-        this.fgD.clear();
-        this.fgD.addAll(arrayList);
+        this.fgF.clear();
+        this.fgF.addAll(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.fgD.size() == 0 || this.fgD.size() <= i) {
+        if (this.fgF.size() == 0 || this.fgF.size() <= i) {
             return null;
         }
-        return this.fgD.get(i);
+        return this.fgF.get(i);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.fgD.size();
+        return this.fgF.size();
     }
 
     @Override // android.widget.Adapter
@@ -50,67 +50,67 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
-            view = LayoutInflater.from(this.fgC).inflate(d.j.person_center_function_grid_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.fgE).inflate(d.j.person_center_function_grid_item, (ViewGroup) null);
             bVar = new b();
-            bVar.aMd = (LinearLayout) view.findViewById(d.h.func_icon_and_new);
-            bVar.fgJ = (TextView) view.findViewById(d.h.function_desc);
-            bVar.fgI = (TbImageView) view.findViewById(d.h.function_icon);
-            bVar.fgH = (TextView) view.findViewById(d.h.message_new);
+            bVar.aMe = (LinearLayout) view.findViewById(d.h.func_icon_and_new);
+            bVar.fgL = (TextView) view.findViewById(d.h.function_desc);
+            bVar.fgK = (TbImageView) view.findViewById(d.h.function_icon);
+            bVar.fgJ = (TextView) view.findViewById(d.h.message_new);
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
-        com.baidu.tieba.personCenter.b.a aVar = this.fgD.get(i);
+        com.baidu.tieba.personCenter.b.a aVar = this.fgF.get(i);
         if (aVar != null) {
-            bVar.fgI.setImageDrawable(ai.getDrawable(aVar.iconId));
-            bVar.fgJ.setText(aVar.title);
-            if (aVar.cbk != null) {
-                if (aVar.cbk.getBoolean("person_center_item_red_tip_show", false)) {
-                    bVar.fgH.setVisibility(0);
+            bVar.fgK.setImageDrawable(ai.getDrawable(aVar.iconId));
+            bVar.fgL.setText(aVar.title);
+            if (aVar.cbl != null) {
+                if (aVar.cbl.getBoolean("person_center_item_red_tip_show", false)) {
+                    bVar.fgJ.setVisibility(0);
                 } else {
-                    bVar.fgH.setVisibility(8);
+                    bVar.fgJ.setVisibility(8);
                 }
             }
             View$OnClickListenerC0114a view$OnClickListenerC0114a = new View$OnClickListenerC0114a();
             view$OnClickListenerC0114a.a(aVar);
-            bVar.aMd.setOnClickListener(view$OnClickListenerC0114a);
+            bVar.aMe.setOnClickListener(view$OnClickListenerC0114a);
         }
-        ai.i(bVar.fgJ, d.e.cp_cont_c);
-        ai.j(bVar.fgH, d.g.icon_news_down_bar_one);
-        ai.j(bVar.aMd, d.g.item_person_center_function_selector);
+        ai.i(bVar.fgL, d.e.cp_cont_c);
+        ai.j(bVar.fgJ, d.g.icon_news_down_bar_one);
+        ai.j(bVar.aMe, d.g.item_person_center_function_selector);
         return view;
     }
 
     public void setOnViewResponseListener(g gVar) {
-        this.fgE = gVar;
+        this.fgG = gVar;
     }
 
     /* renamed from: com.baidu.tieba.personCenter.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     class View$OnClickListenerC0114a implements View.OnClickListener {
-        private com.baidu.tieba.personCenter.b.a fgF;
+        private com.baidu.tieba.personCenter.b.a fgH;
 
         View$OnClickListenerC0114a() {
         }
 
         public void a(com.baidu.tieba.personCenter.b.a aVar) {
-            this.fgF = aVar;
+            this.fgH = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.fgE != null) {
-                a.this.fgE.a(view, this.fgF.fgK);
+            if (a.this.fgG != null) {
+                a.this.fgG.a(view, this.fgH.fgM);
             }
         }
     }
 
     /* loaded from: classes.dex */
     public class b {
-        LinearLayout aMd;
-        TextView fgH;
-        TbImageView fgI;
+        LinearLayout aMe;
         TextView fgJ;
+        TbImageView fgK;
+        TextView fgL;
 
         public b() {
         }

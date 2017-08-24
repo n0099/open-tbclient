@@ -13,7 +13,7 @@ public class a extends DiskFileOperate {
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public boolean n(byte[] bArr) {
-        if (bArr == null || !NSGif.sU) {
+        if (bArr == null || !NSGif.sV) {
             return false;
         }
         this.tF = NSGif.h(bArr, 0, bArr.length);

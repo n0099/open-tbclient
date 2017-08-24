@@ -22,18 +22,18 @@ public class PushStatic {
                     @Override // java.lang.Runnable
                     public void run() {
                         Log.e("BaiduYunPush", "push static init " + System.currentTimeMillis());
-                        PushStatic.bBC();
+                        PushStatic.bBu();
                     }
                 }).start();
             }
         }
     };
 
-    private static void bBA() {
+    private static void bBs() {
         bR(TbadkApplication.getInst());
     }
 
-    private static void bBB() {
+    private static void bBt() {
         bS(TbadkCoreApplication.getInst());
     }
 
@@ -57,15 +57,15 @@ public class PushStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bBC() {
+    public static void bBu() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
                 Log.e("BaiduYunPush", "switch available");
-                bBA();
+                bBs();
                 return;
             }
             Log.e("BaiduYunPush", "switch close");
-            bBB();
+            bBt();
         }
     }
 

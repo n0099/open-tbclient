@@ -10,9 +10,9 @@ public class d extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void ot();
-
         void ou();
+
+        void ov();
     }
 
     public d(Context context, View view, a aVar) {
@@ -28,10 +28,10 @@ public class d extends LinearLayout {
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
             if (this.alx != null) {
-                this.alx.ot();
+                this.alx.ou();
             }
         } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.alx != null) {
-            this.alx.ou();
+            this.alx.ov();
         }
         return super.dispatchKeyEvent(keyEvent);
     }

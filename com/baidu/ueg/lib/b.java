@@ -50,13 +50,13 @@ public abstract class b {
         return 0;
     }
 
-    protected int bBF() {
+    protected int bBx() {
         return 8192;
     }
 
     private byte[] b(a aVar) {
         if (aVar.buffer == null) {
-            aVar.buffer = new byte[bBF()];
+            aVar.buffer = new byte[bBx()];
             aVar.pos = 0;
             aVar.gKM = 0;
         } else {
@@ -87,7 +87,7 @@ public abstract class b {
     }
 
     public byte[] decode(String str) {
-        return decode(d.tq(str));
+        return decode(d.tv(str));
     }
 
     public byte[] decode(byte[] bArr) {

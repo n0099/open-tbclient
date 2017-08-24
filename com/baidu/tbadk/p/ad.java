@@ -31,6 +31,6 @@ public class ad extends com.baidu.adp.lib.b.a {
     }
 
     public static boolean ge() {
-        return com.baidu.adp.lib.b.d.fh().al("android_url_post") == 1;
+        return com.baidu.adp.lib.b.d.fh().am("android_url_post") == 1;
     }
 }

@@ -10,20 +10,20 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
 
     protected abstract void initView();
 
-    protected abstract boolean n(Bundle bundle);
+    protected abstract boolean m(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.d
-    public void asw() {
-        arY();
+    public void asp() {
+        arR();
     }
 
-    public void arY() {
+    public void arR() {
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!n(bundle)) {
+        if (!m(bundle)) {
             finish();
             return;
         }
@@ -32,10 +32,10 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (this.dke != null) {
             this.dke.setImageUploadUIProgressCallback(this.dkk);
         }
-        asC();
+        asv();
         if (a((d) this)) {
             loadDraft();
-            arW();
+            arP();
             j.dkc = com.baidu.tbadk.util.i.Hd();
         }
     }
@@ -47,13 +47,13 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             this.dke.onDestroy();
         }
         setIntent(intent);
-        if (!n(null)) {
+        if (!m(null)) {
             finish();
             return;
         }
         initView();
         adjustResizeForSoftInput(d.e.common_color_10022, false);
-        asC();
+        asv();
         if (a((d) this)) {
             loadDraft();
         }
@@ -73,12 +73,12 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         super.onResume();
         if (this.dkd != null) {
             this.dkd.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            arT();
+            arM();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void arT() {
+    public void arM() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
             this.dkd.showReceiver();
         } else {
@@ -94,14 +94,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        arX();
+        arQ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void arW() {
+    public void arP() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void arX() {
+    public void arQ() {
     }
 }

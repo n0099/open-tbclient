@@ -58,7 +58,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.mId == null) {
             this.mId = BdUniqueId.gen();
         }
-        this.customToast = com.baidu.tbadk.core.util.e.uG();
+        this.customToast = com.baidu.tbadk.core.util.e.uH();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -141,7 +141,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            ar.ec(getClass().getName());
+            ar.eg(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }
@@ -155,8 +155,8 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
                 this.mRefreshView = new com.baidu.tbadk.k.g(getPageContext().getContext(), onClickListener);
             }
             this.mRefreshView.setTitle(str);
-            this.mRefreshView.gv(str2);
-            this.mRefreshView.gw(str3);
+            this.mRefreshView.gz(str2);
+            this.mRefreshView.setButtonText(str3);
             this.mRefreshView.c(view, z);
             this.mRefreshView.ET();
         }
@@ -174,7 +174,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.mRefreshView == null) {
             this.mRefreshView = new com.baidu.tbadk.k.g(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.gv(str);
+        this.mRefreshView.gz(str);
         this.mRefreshView.c(view, z);
         this.mRefreshView.EU();
     }
@@ -562,7 +562,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new com.baidu.tbadk.pageStayDuration.d();
         }
-        this.pageStayDurationItem.gz(getCurrentPageKey());
+        this.pageStayDurationItem.gC(getCurrentPageKey());
         this.pageStayDurationItem.G(getCurrentPageSourceKeyList());
         return this.pageStayDurationItem;
     }

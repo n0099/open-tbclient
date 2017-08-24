@@ -53,8 +53,8 @@ public class d {
             z = true;
         }
         if (z) {
-            if (blVar.getFid() != 0 && !ac.agC().e(blVar.getFid(), blVar.getId())) {
-                ac.agC().d(blVar.getFid(), blVar.getId());
+            if (blVar.getFid() != 0 && !ac.agw().e(blVar.getFid(), blVar.getId())) {
+                ac.agw().d(blVar.getFid(), blVar.getId());
                 TiebaStatic.log(new aj("c10633").aa("tid", blVar.getId()).aa("fid", String.valueOf(blVar.getFid())));
             }
             View.OnClickListener onClickListener2 = new View.OnClickListener() { // from class: com.baidu.tieba.frs.f.d.1
@@ -129,7 +129,7 @@ public class d {
             layoutParams3.addRule(5, d.h.frs_user_tshow_icon_box);
             layoutParams3.addRule(3, d.h.frs_item_loc_view);
             if (clickableHeaderImageView != null) {
-                if (com.baidu.tbadk.core.h.oX().oZ()) {
+                if (com.baidu.tbadk.core.h.oY().pa()) {
                     clickableHeaderImageView.setVisibility(0);
                     linearLayout.setPadding(cyL, linearLayout.getPaddingTop(), cyP, linearLayout.getPaddingBottom());
                     layoutParams3.leftMargin = cyL;
@@ -180,27 +180,27 @@ public class d {
             if (gVar == null) {
                 return false;
             }
-            if (!blVar.sk() && !TextUtils.isEmpty(blVar.getAddress()) && !TextUtils.isEmpty(blVar.getAddress().trim())) {
-                gVar.ckV.setVisibility(0);
-                gVar.ckV.setText(blVar.getAddress());
-            } else {
-                gVar.ckV.setVisibility(8);
-            }
-            if (blVar.rv() != null && blVar.rv().getNum() > 0) {
-                gVar.aoj.setVisibility(0);
-                gVar.aoj.setText(al.u(blVar.rv().getNum()));
-            } else {
-                gVar.aoj.setVisibility(8);
-            }
-            com.baidu.tieba.graffiti.b.as(gVar.aoj);
-            int rx = blVar.rx();
-            if (rx > 0) {
+            if (!blVar.sl() && !TextUtils.isEmpty(blVar.getAddress()) && !TextUtils.isEmpty(blVar.getAddress().trim())) {
                 gVar.ckW.setVisibility(0);
-                gVar.ckW.setText(al.z(rx));
+                gVar.ckW.setText(blVar.getAddress());
             } else {
                 gVar.ckW.setVisibility(8);
             }
-            gVar.aog.setText(al.r(blVar.rz() * 1000));
+            if (blVar.rw() != null && blVar.rw().getNum() > 0) {
+                gVar.aoj.setVisibility(0);
+                gVar.aoj.setText(al.u(blVar.rw().getNum()));
+            } else {
+                gVar.aoj.setVisibility(8);
+            }
+            com.baidu.tieba.graffiti.b.ar(gVar.aoj);
+            int ry = blVar.ry();
+            if (ry > 0) {
+                gVar.ckX.setVisibility(0);
+                gVar.ckX.setText(al.z(ry));
+            } else {
+                gVar.ckX.setVisibility(8);
+            }
+            gVar.aog.setText(al.r(blVar.rA() * 1000));
             if (gVar.aqm != i) {
                 ai.j(textView2, d.g.icon_arrow_list);
                 ai.c(textView3, d.e.cp_cont_d, 1);
@@ -211,7 +211,7 @@ public class d {
             return true;
         }
         relativeLayout.setOnClickListener(onClickListener);
-        if (com.baidu.tbadk.core.h.oX().oZ()) {
+        if (com.baidu.tbadk.core.h.oY().pa()) {
             headImageView.setVisibility(0);
         }
         textView.setOnClickListener(onClickListener);

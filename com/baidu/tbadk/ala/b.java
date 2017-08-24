@@ -11,7 +11,7 @@ public class b {
     private b() {
     }
 
-    public static b nC() {
+    public static b nD() {
         if (Rs == null) {
             synchronized (b.class) {
                 if (Rs == null) {

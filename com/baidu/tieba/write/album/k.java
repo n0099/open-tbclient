@@ -15,11 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k extends BaseAdapter {
-    private com.baidu.tbadk.img.b azc;
-    private int cbV;
-    int ete;
-    int etf;
-    private boolean etg;
+    private com.baidu.tbadk.img.b azd;
+    private int cbW;
+    int etg;
+    int eth;
+    private boolean eti;
     private AlbumActivity gBZ;
     private e gCB;
     private i gCC;
@@ -30,11 +30,11 @@ public class k extends BaseAdapter {
 
     public k(AlbumActivity albumActivity, e eVar) {
         this.gBZ = albumActivity;
-        this.azc = albumActivity.anq();
+        this.azd = albumActivity.ank();
         this.gCB = eVar;
         this.mWidth = (int) this.gBZ.getResources().getDimension(d.f.ds220);
-        this.ete = com.baidu.adp.lib.util.k.g(this.gBZ.getPageContext().getPageActivity(), d.f.ds8) / 3;
-        this.etf = (this.ete * 2) + 1;
+        this.etg = com.baidu.adp.lib.util.k.g(this.gBZ.getPageContext().getPageActivity(), d.f.ds8) / 3;
+        this.eth = (this.etg * 2) + 1;
     }
 
     public void setData(List<m> list) {
@@ -44,7 +44,7 @@ public class k extends BaseAdapter {
     }
 
     public void uq(int i) {
-        this.cbV = i;
+        this.cbW = i;
     }
 
     @Override // android.widget.Adapter
@@ -57,7 +57,7 @@ public class k extends BaseAdapter {
     /* renamed from: oC */
     public ImageFileInfo getItem(int i) {
         if (this.mDataList.get(i) != null) {
-            return this.mDataList.get(i).amQ();
+            return this.mDataList.get(i).amK();
         }
         return null;
     }
@@ -99,7 +99,7 @@ public class k extends BaseAdapter {
                 view = LayoutInflater.from(this.gBZ.getPageContext().getPageActivity()).inflate(d.j.album_image_item_view, viewGroup, false);
                 bVar2.rootView = view;
                 bVar2.gCL = (HeadImageView) view.findViewById(d.h.pic);
-                bVar2.cca = (ImageView) view.findViewById(d.h.select_icon);
+                bVar2.ccb = (ImageView) view.findViewById(d.h.select_icon);
                 bVar2.goP = (RelativeLayout) view.findViewById(d.h.lay_select);
                 bVar2.gCM = view.findViewById(d.h.gif_icon);
                 view.setTag(bVar2);
@@ -120,7 +120,7 @@ public class k extends BaseAdapter {
                 if (this.mDataList.size() - i <= 3) {
                     layoutParams2.height = com.baidu.adp.lib.util.k.g(this.gBZ.getPageContext().getContext(), d.f.ds140);
                 } else {
-                    layoutParams2.height = this.cbV;
+                    layoutParams2.height = this.cbW;
                 }
                 findViewById2.setLayoutParams(layoutParams2);
                 ai.k(view, d.e.cp_bg_line_d);
@@ -130,14 +130,14 @@ public class k extends BaseAdapter {
                 int paddingTop = bVar.rootView.getPaddingTop();
                 int i2 = i % 3;
                 if (i2 == 0) {
-                    bVar.rootView.setPadding(0, paddingTop, this.etf, 0);
+                    bVar.rootView.setPadding(0, paddingTop, this.eth, 0);
                 } else if (i2 == 1) {
-                    bVar.rootView.setPadding(this.ete, paddingTop, this.ete, 0);
+                    bVar.rootView.setPadding(this.etg, paddingTop, this.etg, 0);
                 } else {
-                    bVar.rootView.setPadding(this.etf, paddingTop, 0, 0);
+                    bVar.rootView.setPadding(this.eth, paddingTop, 0, 0);
                 }
                 ViewGroup.LayoutParams layoutParams3 = bVar.gCL.getLayoutParams();
-                layoutParams3.height = this.cbV;
+                layoutParams3.height = this.cbW;
                 bVar.gCL.setLayoutParams(layoutParams3);
                 bVar.gCL.setTag(null);
                 bVar.gCL.setRadius(1);
@@ -146,21 +146,21 @@ public class k extends BaseAdapter {
                 bVar.gCL.invalidate();
                 final a aVar = new a();
                 aVar.gCK = true;
-                final ImageFileInfo amQ = mVar.amQ();
-                if (amQ != null) {
-                    if (amQ.isGif()) {
+                final ImageFileInfo amK = mVar.amK();
+                if (amK != null) {
+                    if (amK.isGif()) {
                         bVar.gCM.setVisibility(0);
                         ai.j(bVar.gCM, d.g.ic_image_gif);
                     } else {
                         bVar.gCM.setVisibility(8);
                     }
-                    amQ.clearPageActions();
-                    amQ.addPageAction(com.baidu.tbadk.img.effect.d.M(this.mWidth, this.mWidth));
-                    bVar.gCL.setTag(amQ.toCachedKey(false));
-                    if (this.azc.a(amQ, false) != null) {
+                    amK.clearPageActions();
+                    amK.addPageAction(com.baidu.tbadk.img.effect.d.M(this.mWidth, this.mWidth));
+                    bVar.gCL.setTag(amK.toCachedKey(false));
+                    if (this.azd.a(amK, false) != null) {
                         bVar.gCL.invalidate();
                     } else {
-                        this.azc.a(amQ, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.k.1
+                        this.azd.a(amK, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.album.k.1
                             @Override // com.baidu.tbadk.imageManager.b
                             public void a(com.baidu.adp.widget.a.a aVar2, String str, boolean z) {
                                 HeadImageView headImageView = (HeadImageView) viewGroup.findViewWithTag(str);
@@ -170,27 +170,27 @@ public class k extends BaseAdapter {
                                     aVar.gCK = false;
                                 }
                             }
-                        }, false, this.etg);
+                        }, false, this.eti);
                     }
                 } else {
                     aVar.gCK = false;
                 }
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
                 if (this.gCB != null) {
-                    if (this.gCB.isAdded(amQ)) {
-                        bVar.cca.setContentDescription(this.gBZ.getResources().getString(d.l.check_box_checked));
-                        ai.j(bVar.cca, d.g.ic_post_image_selected_s);
+                    if (this.gCB.isAdded(amK)) {
+                        bVar.ccb.setContentDescription(this.gBZ.getResources().getString(d.l.check_box_checked));
+                        ai.j(bVar.ccb, d.g.ic_post_image_selected_s);
                     } else {
-                        bVar.cca.setContentDescription(this.gBZ.getResources().getString(d.l.check_box_not_checked));
-                        ai.j(bVar.cca, d.g.ic_post_image_selected_n);
+                        bVar.ccb.setContentDescription(this.gBZ.getResources().getString(d.l.check_box_not_checked));
+                        ai.j(bVar.ccb, d.g.ic_post_image_selected_n);
                     }
-                    a(bVar, aVar, i, amQ, skinType, this.gCB);
+                    a(bVar, aVar, i, amK, skinType, this.gCB);
                 }
                 bVar.gCL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.album.k.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (k.this.gCC != null && aVar.gCK) {
-                            k.this.gCC.a(i - 3, amQ);
+                            k.this.gCC.a(i - 3, amK);
                         }
                     }
                 });
@@ -200,11 +200,11 @@ public class k extends BaseAdapter {
     }
 
     public boolean isScroll() {
-        return this.etg;
+        return this.eti;
     }
 
     public void iy(boolean z) {
-        this.etg = z;
+        this.eti = z;
     }
 
     public void a(i iVar) {
@@ -218,7 +218,7 @@ public class k extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        ImageView cca;
+        ImageView ccb;
         HeadImageView gCL;
         View gCM;
         RelativeLayout goP;
@@ -245,12 +245,12 @@ public class k extends BaseAdapter {
                     boolean isAdded = eVar.isAdded(imageFileInfo);
                     if (k.this.gCD.a(i, imageFileInfo, !isAdded)) {
                         if (!isAdded) {
-                            ai.j(bVar.cca, d.g.ic_post_image_selected_s);
-                            bVar.cca.setContentDescription(k.this.gBZ.getResources().getString(d.l.check_box_checked));
+                            ai.j(bVar.ccb, d.g.ic_post_image_selected_s);
+                            bVar.ccb.setContentDescription(k.this.gBZ.getResources().getString(d.l.check_box_checked));
                             return;
                         }
-                        ai.j(bVar.cca, d.g.ic_post_image_selected_n);
-                        bVar.cca.setContentDescription(k.this.gBZ.getResources().getString(d.l.check_box_not_checked));
+                        ai.j(bVar.ccb, d.g.ic_post_image_selected_n);
+                        bVar.ccb.setContentDescription(k.this.gBZ.getResources().getString(d.l.check_box_not_checked));
                     }
                 }
             }
@@ -258,7 +258,7 @@ public class k extends BaseAdapter {
     }
 
     public int h(ImageFileInfo imageFileInfo) {
-        ImageFileInfo amQ;
+        ImageFileInfo amK;
         if (imageFileInfo == null || imageFileInfo.getFilePath() == null) {
             return -1;
         }
@@ -268,14 +268,14 @@ public class k extends BaseAdapter {
         int size = this.mDataList.size();
         for (int i = 0; i < size; i++) {
             m mVar = this.mDataList.get(i);
-            if (mVar != null && (amQ = mVar.amQ()) != null && amQ.getFilePath() != null && amQ.getFilePath().equals(imageFileInfo.getFilePath())) {
+            if (mVar != null && (amK = mVar.amK()) != null && amK.getFilePath() != null && amK.getFilePath().equals(imageFileInfo.getFilePath())) {
                 return i;
             }
         }
         return -1;
     }
 
-    public void l(View.OnClickListener onClickListener) {
+    public void h(View.OnClickListener onClickListener) {
         this.gCE = onClickListener;
     }
 }

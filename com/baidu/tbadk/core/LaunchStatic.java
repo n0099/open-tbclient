@@ -43,13 +43,13 @@ public class LaunchStatic {
         initRegisterIntent();
         initRegisterTask();
         initRegisterListeners();
-        oW();
+        oX();
         ai.GT();
         com.baidu.tieba.tbadkCore.location.b.init();
-        com.baidu.tieba.im.widget.c.ayU();
+        com.baidu.tieba.im.widget.c.ayP();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.axr();
-        com.baidu.tieba.im.db.h.auE();
+        ImMemoryCacheRegister.axm();
+        com.baidu.tieba.im.db.h.auz();
         com.baidu.tbadk.browser.d.init();
         g.init();
         com.baidu.tieba.wallet.d.init();
@@ -132,7 +132,7 @@ public class LaunchStatic {
         }
     }
 
-    private static void oW() {
+    private static void oX() {
         com.baidu.adp.lib.f.c.fU().a(10, new o(true, 10));
         com.baidu.adp.lib.f.c.fU().a(11, new o(false, 10));
         com.baidu.adp.lib.f.c.fU().a(12, new m(false, false, false, 12));

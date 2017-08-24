@@ -10,8 +10,8 @@ import tbclient.PbTopAgreePost;
 import tbclient.Post;
 /* loaded from: classes.dex */
 public class o {
-    public List<PostData> eGI = new ArrayList();
-    public List<Long> eGJ = new ArrayList();
+    public List<PostData> eGK = new ArrayList();
+    public List<Long> eGL = new ArrayList();
     private int count = 0;
 
     public int getCount() {
@@ -28,17 +28,17 @@ public class o {
                 PostData postData = new PostData();
                 postData.gkq = SapiSafeFacade.SAPIWEBVIEW_BACK;
                 postData.a(post, context);
-                this.eGI.add(postData);
+                this.eGK.add(postData);
             }
         }
-        if (!u.v(this.eGI)) {
-            this.eGI.get(0).gkr = true;
-            setCount(this.eGI.size());
+        if (!u.v(this.eGK)) {
+            this.eGK.get(0).gkr = true;
+            setCount(this.eGK.size());
         }
         List<Long> list = pbTopAgreePost.post_id_list;
         if (list != null && list.size() > 0) {
             for (Long l : pbTopAgreePost.post_id_list) {
-                this.eGJ.add(l);
+                this.eGL.add(l);
             }
         }
     }

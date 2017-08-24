@@ -42,7 +42,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     private int cTN;
     private r cTO;
     private String[] cTP;
-    private int ckn;
+    private int cko;
     private int mChildCount;
     private Context mContext;
 
@@ -71,7 +71,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
     }
 
-    private Fragment aoQ() {
+    private Fragment aoK() {
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GET_NEW_FRS_FRAGMENT);
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GET_NEW_FRS_FRAGMENT);
         customResponsedMessage.setOrginalMessage(customMessage);
@@ -108,12 +108,12 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         if (i == cTS) {
             return this.cTH;
         }
-        Fragment aoQ = aoQ();
-        if (aoQ instanceof ah) {
-            ((ah) aoQ).N(kI(i));
-            return aoQ;
+        Fragment aoK = aoK();
+        if (aoK instanceof ah) {
+            ((ah) aoK).N(kI(i));
+            return aoK;
         }
-        return aoQ;
+        return aoK;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -144,11 +144,11 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     @Override // com.baidu.tbadk.core.view.viewpager.a, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (obj != null && com.baidu.tieba.homepage.framework.a.a.aoX().cUq != i) {
+        if (obj != null && com.baidu.tieba.homepage.framework.a.a.aoR().cUq != i) {
             if (this.cTI instanceof BaseFragment) {
                 ((BaseFragment) this.cTI).setPrimary(false);
             }
-            com.baidu.tieba.homepage.framework.a.a.aoX().cUq = i;
+            com.baidu.tieba.homepage.framework.a.a.aoR().cUq = i;
             VoiceManager bP = com.baidu.tieba.tbadkCore.voice.b.bP(this.mContext);
             if (bP != null) {
                 bP.stopPlay();
@@ -157,7 +157,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
                 ((BaseFragment) obj).setPrimary(true);
             }
             if ((obj instanceof com.baidu.tieba.homepage.personalize.a) && i == 0) {
-                ((com.baidu.tieba.homepage.personalize.a) obj).aot();
+                ((com.baidu.tieba.homepage.personalize.a) obj).aon();
             }
             if (obj instanceof ah) {
                 ((ah) obj).showFloatingView();
@@ -165,7 +165,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
         if (obj instanceof ah) {
             this.cTI = (ah) obj;
-            this.cTI.setHeaderViewHeight(this.ckn);
+            this.cTI.setHeaderViewHeight(this.cko);
             this.cTI.setRecommendFrsNavigationAnimDispatcher(this.cTO);
         }
     }
@@ -199,13 +199,13 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     }
 
     public void b(View view, int i, int i2, int i3, int i4) {
-        if (this.ckn != i2) {
-            this.ckn = i2;
+        if (this.cko != i2) {
+            this.cko = i2;
             Iterator<Fragment> it = xr().iterator();
             while (it.hasNext()) {
                 Fragment next = it.next();
                 if (next != null && (next instanceof ah)) {
-                    ((ah) next).setHeaderViewHeight(this.ckn);
+                    ((ah) next).setHeaderViewHeight(this.cko);
                 }
             }
         }
@@ -215,7 +215,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         com.baidu.tbadk.util.u.a(new t<Object>() { // from class: com.baidu.tieba.homepage.framework.indicator.a.1
             @Override // com.baidu.tbadk.util.t
             public Object doInBackground() {
-                l<String> M = com.baidu.tbadk.core.c.a.tn().M(a.this.cTJ, TbadkCoreApplication.getCurrentAccount());
+                l<String> M = com.baidu.tbadk.core.c.a.to().M(a.this.cTJ, TbadkCoreApplication.getCurrentAccount());
                 if (M != null) {
                     M.a(a.this.cTK, Integer.toString(i), 43200000L);
                     return null;
@@ -247,7 +247,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
     }
 
-    public void g(String str, int i, int i2) {
+    public void h(String str, int i, int i2) {
         if (i2 == cTR && this.cTG != null && this.cTI == this.cTG) {
             this.cTG.N(str, i);
         }
@@ -256,12 +256,12 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
     }
 
-    public void aou() {
+    public void aoo() {
         if (this.cTG != null) {
-            this.cTG.aou();
+            this.cTG.aoo();
         }
         if (this.cTF != null) {
-            this.cTF.aou();
+            this.cTF.aoo();
         }
     }
 
@@ -283,9 +283,9 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         }
     }
 
-    public void aoR() {
+    public void aoL() {
         if (this.cTI != null) {
-            this.cTI.afR();
+            this.cTI.afL();
         }
     }
 
@@ -293,7 +293,7 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
     public void kK(int i) {
         Fragment fragment = (Fragment) u.c(xr(), i);
         if (fragment != null && (fragment instanceof ah)) {
-            ((ah) fragment).afR();
+            ((ah) fragment).afL();
         }
     }
 
@@ -301,25 +301,25 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
         return this.cTI;
     }
 
-    public void aot() {
-        int i = com.baidu.tieba.homepage.framework.a.a.aoX().cUq;
+    public void aon() {
+        int i = com.baidu.tieba.homepage.framework.a.a.aoR().cUq;
         if (i == cTR) {
             if (this.cTG != null) {
-                this.cTG.aot();
+                this.cTG.aon();
             }
         } else if (i == cTQ && this.cTF != null) {
-            this.cTF.aot();
+            this.cTF.aon();
         }
     }
 
     public void kL(int i) {
         if (i == cTR && this.cTG != null) {
-            this.cTG.aoY();
+            this.cTG.aoS();
         }
     }
 
     public void kM(int i) {
-        if (com.baidu.tieba.homepage.framework.a.a.aoX().cUq == i) {
+        if (com.baidu.tieba.homepage.framework.a.a.aoR().cUq == i) {
             this.cTN = -1;
         } else {
             this.cTN = i;
@@ -334,10 +334,10 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
             this.cTN = -1;
             if (f == 0.0f) {
                 if (fragment instanceof ah) {
-                    ((ah) fragment).afD();
+                    ((ah) fragment).afx();
                 }
                 if (fragment3 instanceof ah) {
-                    ((ah) fragment3).afD();
+                    ((ah) fragment3).afx();
                 }
                 if (fragment2 != null) {
                     fragment2.setMenuVisibility(true);
@@ -347,13 +347,13 @@ public class a extends com.baidu.tbadk.core.view.viewpager.a {
                 return;
             }
             if (fragment instanceof ah) {
-                ((ah) fragment).afC();
+                ((ah) fragment).afw();
             }
             if (fragment2 instanceof ah) {
-                ((ah) fragment2).afC();
+                ((ah) fragment2).afw();
             }
             if (fragment3 instanceof ah) {
-                ((ah) fragment3).afC();
+                ((ah) fragment3).afw();
             }
         }
     }

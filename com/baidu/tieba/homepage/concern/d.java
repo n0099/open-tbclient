@@ -30,7 +30,7 @@ import tbclient.Userlike.DataRes;
 import tbclient.Userlike.UserList;
 /* loaded from: classes.dex */
 public class d {
-    private q aMS;
+    private q aMT;
     private com.baidu.tieba.e.a cAk;
     private LongSparseArray<com.baidu.tieba.homepage.concern.b.c> cLh;
     private DataRes.Builder cRW;
@@ -44,7 +44,7 @@ public class d {
     private final List<f> mDataList = new LinkedList();
     private boolean mIsLoading = false;
     private boolean cRX = false;
-    private boolean clp = false;
+    private boolean clq = false;
     private boolean mIsBackground = false;
     private int cSb = 0;
     private AbsListView.OnScrollListener mOnScrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.homepage.concern.d.1
@@ -54,11 +54,11 @@ public class d {
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (d.this.aMS != null && !d.this.mIsBackground) {
-                d.this.aMS.onScrollStateChanged(absListView, i);
+            if (d.this.aMT != null && !d.this.mIsBackground) {
+                d.this.aMT.onScrollStateChanged(absListView, i);
             }
             if (i == 0) {
-                u.WX().cA(true);
+                u.WU().cA(true);
                 this.cSe = false;
                 return;
             }
@@ -71,8 +71,8 @@ public class d {
             if (this.cSd > i) {
                 this.cSe = true;
             }
-            if (d.this.aMS != null && !d.this.mIsBackground) {
-                d.this.aMS.a(absListView, this.cSd, i, i2, i3);
+            if (d.this.aMT != null && !d.this.mIsBackground) {
+                d.this.aMT.a(absListView, this.cSd, i, i2, i3);
             }
             this.cSd = i;
             int i4 = (i + i2) - 1;
@@ -84,7 +84,7 @@ public class d {
             }
         }
     };
-    private View.OnTouchListener aMT = new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.d.2
+    private View.OnTouchListener aMU = new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.d.2
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (d.this.cRZ != null) {
@@ -97,23 +97,23 @@ public class d {
             return false;
         }
     };
-    private a.InterfaceC0080a bWR = new a.InterfaceC0080a() { // from class: com.baidu.tieba.homepage.concern.d.3
+    private a.InterfaceC0080a bWS = new a.InterfaceC0080a() { // from class: com.baidu.tieba.homepage.concern.d.3
         @Override // com.baidu.tieba.e.a.InterfaceC0080a
         public void ah(int i, int i2) {
-            d.this.clp = true;
+            d.this.clq = true;
         }
 
         @Override // com.baidu.tieba.e.a.InterfaceC0080a
         public void ai(int i, int i2) {
-            d.this.clp = false;
+            d.this.clq = false;
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void aoB();
+        void aov();
 
-        void lo(String str);
+        void lr(String str);
 
         void onError(int i, String str);
 
@@ -130,33 +130,33 @@ public class d {
 
     public d(e<?> eVar, BdTypeListView bdTypeListView, com.baidu.tieba.homepage.concern.a aVar) {
         this.mListView = bdTypeListView;
-        this.mListView.setOnTouchListener(this.aMT);
+        this.mListView.setOnTouchListener(this.aMU);
         this.cAk = new com.baidu.tieba.e.a();
         this.cSa = new com.baidu.tieba.homepage.concern.c.a();
-        this.cAk.a(this.bWR);
+        this.cAk.a(this.bWS);
         this.cRY = aVar;
         bdTypeListView.setOnScrollListener(this.mOnScrollListener);
     }
 
     public void setRecommendFrsNavigationAnimDispatcher(r rVar) {
         if (rVar != null) {
-            this.aMS = rVar.Hp();
+            this.aMT = rVar.Hp();
             this.cRZ = rVar.Hq();
         }
     }
 
     public void update() {
         if (this.mDataList.size() == 0 && !this.cRX) {
-            aoE();
+            aoy();
         } else {
-            aoC();
+            aow();
         }
     }
 
     public void MS() {
         if (!xc() && this.hasMore && this.cRV != null) {
             setIsLoading(true);
-            this.cRV.lo(this.pageTag);
+            this.cRV.lr(this.pageTag);
         }
     }
 
@@ -180,7 +180,7 @@ public class d {
         if (this.cRV != null) {
             this.cRV.v(z, false);
         }
-        aoF();
+        aoz();
     }
 
     public void fF(boolean z) {
@@ -189,9 +189,9 @@ public class d {
         }
     }
 
-    private void aoC() {
+    private void aow() {
         if (this.cRV != null) {
-            this.cRV.aoB();
+            this.cRV.aov();
         }
     }
 
@@ -206,10 +206,10 @@ public class d {
                 }
                 return;
             }
-            aoC();
+            aow();
             return;
         }
-        aoC();
+        aow();
     }
 
     private List<f> a(boolean z, DataRes.Builder builder, boolean z2) {
@@ -223,7 +223,7 @@ public class d {
         if (a2 == null) {
             return null;
         }
-        List<f> list = a2.aTU;
+        List<f> list = a2.aTV;
         this.cSb = a2.cWO;
         return list;
     }
@@ -245,7 +245,7 @@ public class d {
                     if (cVar != null) {
                         com.baidu.tieba.homepage.concern.b.b bVar = new com.baidu.tieba.homepage.concern.b.b();
                         bVar.cSz = cVar;
-                        bVar.aoH();
+                        bVar.aoB();
                         arrayList.add(bVar);
                         i++;
                     }
@@ -274,7 +274,7 @@ public class d {
         return this.mDataList;
     }
 
-    public void aoD() {
+    public void aox() {
         this.cRY.br(this.mDataList);
     }
 
@@ -326,13 +326,13 @@ public class d {
         return true;
     }
 
-    private void aoE() {
+    private void aoy() {
         com.baidu.tbadk.util.u.a(new t<DataRes>() { // from class: com.baidu.tieba.homepage.concern.d.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.t
-            /* renamed from: aoG */
+            /* renamed from: aoA */
             public DataRes doInBackground() {
-                l<byte[]> L = com.baidu.tbadk.core.c.a.tn().L("tb.concern_page", TbadkCoreApplication.getCurrentAccount());
+                l<byte[]> L = com.baidu.tbadk.core.c.a.to().L("tb.concern_page", TbadkCoreApplication.getCurrentAccount());
                 if (L == null) {
                     return null;
                 }
@@ -357,7 +357,7 @@ public class d {
         });
     }
 
-    private void aoF() {
+    private void aoz() {
         if (this.cRW != null) {
             DataRes.Builder builder = new DataRes.Builder(this.cRW.build(true));
             if (builder.thread_info != null && builder.thread_info.size() > 30) {
@@ -373,7 +373,7 @@ public class d {
             public Object doInBackground() {
                 DataRes.Builder builder2 = new DataRes.Builder(builder.build(true));
                 try {
-                    com.baidu.tbadk.core.c.a.tn().L("tb.concern_page", TbadkCoreApplication.getCurrentAccount()).k("0", builder2.build(true).toByteArray());
+                    com.baidu.tbadk.core.c.a.to().L("tb.concern_page", TbadkCoreApplication.getCurrentAccount()).k("0", builder2.build(true).toByteArray());
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e);

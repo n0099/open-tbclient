@@ -170,7 +170,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     }
 
     public void setPackageSize(String str) {
-        this.package_size = gh(str);
+        this.package_size = gl(str);
     }
 
     public String getGameLink() {
@@ -539,7 +539,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
         this.app_id = str;
     }
 
-    private String gh(String str) {
+    private String gl(String str) {
         return String.format("%.1f", Float.valueOf(b.b(str, 0.0f)));
     }
 

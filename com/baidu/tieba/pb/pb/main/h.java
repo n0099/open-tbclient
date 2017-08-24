@@ -4,90 +4,90 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class h {
-    private static h eLE;
-    private com.baidu.adp.lib.cache.l<byte[]> eLF = null;
-    private com.baidu.adp.lib.cache.l<byte[]> eLG = null;
-    private long eLH = 0;
-    private long eLI = 0;
+    private static h eLG;
+    private com.baidu.adp.lib.cache.l<byte[]> eLH = null;
+    private com.baidu.adp.lib.cache.l<byte[]> eLI = null;
+    private long eLJ = 0;
+    private long eLK = 0;
 
-    public static synchronized h aRT() {
+    public static synchronized h aRO() {
         h hVar;
         synchronized (h.class) {
-            if (eLE == null) {
-                eLE = new h();
+            if (eLG == null) {
+                eLG = new h();
             }
-            hVar = eLE;
+            hVar = eLG;
         }
         return hVar;
     }
 
     private h() {
-        ael();
+        aeh();
     }
 
-    private void ael() {
-        if (this.eLF == null) {
+    private void aeh() {
+        if (this.eLH == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.eLF = com.baidu.tbadk.core.c.a.tn().cP("tb.pb_mark");
-            this.eLI = System.currentTimeMillis() - currentTimeMillis;
+            this.eLH = com.baidu.tbadk.core.c.a.to().cS("tb.pb_mark");
+            this.eLK = System.currentTimeMillis() - currentTimeMillis;
         }
-        if (this.eLG == null) {
+        if (this.eLI == null) {
             long currentTimeMillis2 = System.currentTimeMillis();
-            this.eLG = com.baidu.tbadk.core.c.a.tn().cP("tb.pb_normal");
-            this.eLH = System.currentTimeMillis() - currentTimeMillis2;
+            this.eLI = com.baidu.tbadk.core.c.a.to().cS("tb.pb_normal");
+            this.eLJ = System.currentTimeMillis() - currentTimeMillis2;
         }
     }
 
     public void Q(String str, boolean z) {
         if (z) {
-            if (this.eLF != null && str != null) {
-                this.eLF.b(str, new byte[0], 0L);
+            if (this.eLH != null && str != null) {
+                this.eLH.b(str, new byte[0], 0L);
             }
-        } else if (this.eLG != null && str != null) {
-            this.eLG.b(str, new byte[0], 0L);
+        } else if (this.eLI != null && str != null) {
+            this.eLI.b(str, new byte[0], 0L);
         }
     }
 
     public byte[] R(String str, boolean z) {
-        l.c<byte[]> ac;
+        l.c<byte[]> ad;
         long currentTimeMillis = System.currentTimeMillis();
         long j = 0;
         if (z) {
-            if (this.eLF != null && str != null) {
-                ac = this.eLF.ac(str);
-                j = this.eLI;
+            if (this.eLH != null && str != null) {
+                ad = this.eLH.ad(str);
+                j = this.eLK;
             }
-            ac = null;
+            ad = null;
         } else {
-            if (this.eLG != null && str != null) {
-                ac = this.eLG.ac(str);
-                j = this.eLH;
+            if (this.eLI != null && str != null) {
+                ad = this.eLI.ad(str);
+                j = this.eLJ;
             }
-            ac = null;
+            ad = null;
         }
-        if (ac == null || ac.up == null) {
+        if (ad == null || ad.up == null) {
             return null;
         }
         com.baidu.tbadk.l.m mVar = new com.baidu.tbadk.l.m();
         mVar.fi(1001);
-        mVar.aKl = j + (System.currentTimeMillis() - currentTimeMillis);
+        mVar.aKm = j + (System.currentTimeMillis() - currentTimeMillis);
         mVar.Gv();
-        return ac.up;
+        return ad.up;
     }
 
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            ael();
+            aeh();
             if (z) {
-                this.eLF.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                this.eLH.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
-                this.eLG.a(str, bArr, 86400000L);
+                this.eLI.a(str, bArr, 86400000L);
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.l.m mVar = new com.baidu.tbadk.l.m();
             mVar.fi(1001);
-            mVar.aKm = currentTimeMillis2;
+            mVar.aKn = currentTimeMillis2;
             mVar.Gw();
         }
     }
@@ -95,12 +95,12 @@ public class h {
     public void l(String str, byte[] bArr) {
         if (bArr != null && str != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            ael();
-            this.eLF.a(str, bArr, 2592000000L);
+            aeh();
+            this.eLH.a(str, bArr, 2592000000L);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.l.m mVar = new com.baidu.tbadk.l.m();
             mVar.fi(1001);
-            mVar.aKm = currentTimeMillis2;
+            mVar.aKn = currentTimeMillis2;
             mVar.Gw();
         }
     }

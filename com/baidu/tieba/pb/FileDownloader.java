@@ -84,7 +84,7 @@ public class FileDownloader extends Service {
             } else {
                 fileOfUrl = getFileOfUrl(stringExtra);
             }
-            if (k.dv(fileOfUrl) != null) {
+            if (k.dy(fileOfUrl) != null) {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(1, fileOfUrl), 100L);
             } else if (this.mDowndingTask == null) {
                 this.mDowndingTask = new a(stringExtra, fileOfUrl);
@@ -124,15 +124,15 @@ public class FileDownloader extends Service {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            File dy;
+            File dB;
             Boolean bool = false;
             while (!this.mCanceled) {
                 try {
                     this.mNetWork = new w(this.mUrl);
                     bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
-                    if (bool.booleanValue() || this.mNetWork.vp() == -2) {
+                    if (bool.booleanValue() || this.mNetWork.vq() == -2) {
                         break;
-                    } else if (!this.mNetWork.vl().wi().fB()) {
+                    } else if (!this.mNetWork.vm().wj().fB()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e) {
@@ -142,10 +142,10 @@ public class FileDownloader extends Service {
                 }
             }
             if (bool.booleanValue()) {
-                k.dD(this.mFile);
-                File dv = k.dv(this.mFile + ".tmp");
-                if (dv != null && (dy = k.dy(this.mFile)) != null) {
-                    if (!dv.renameTo(dy)) {
+                k.dG(this.mFile);
+                File dy = k.dy(this.mFile + ".tmp");
+                if (dy != null && (dB = k.dB(this.mFile)) != null) {
+                    if (!dy.renameTo(dB)) {
                     }
                 }
             }

@@ -189,7 +189,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             if (action == 3 || action == 1) {
                 this.ali = false;
                 if (this.alj != null) {
-                    this.alj.lz();
+                    this.alj.ly();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -201,7 +201,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                         this.mInitialMotionX = MotionEventCompat.getX(motionEvent, actionIndex);
                         this.mInitialMotionY = MotionEventCompat.getY(motionEvent, actionIndex);
                         if (this.alj != null) {
-                            this.alj.lA();
+                            this.alj.lz();
                             break;
                         }
                     }
@@ -209,13 +209,13 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 case 1:
                 default:
                     if (this.alj != null) {
-                        this.alj.lz();
+                        this.alj.ly();
                         break;
                     }
                     break;
                 case 2:
                     if (this.alj != null) {
-                        this.alj.lA();
+                        this.alj.lz();
                     }
                     i(motionEvent);
                     if (this.ali) {
@@ -239,20 +239,20 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             case 0:
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
                 if (this.alj != null) {
-                    this.alj.lA();
+                    this.alj.lz();
                     break;
                 }
                 break;
             case 1:
                 this.ali = false;
                 if (this.alj != null) {
-                    this.alj.lz();
+                    this.alj.ly();
                     break;
                 }
                 break;
             case 2:
                 if (this.alj != null) {
-                    this.alj.lA();
+                    this.alj.lz();
                 }
                 if (!this.ali) {
                     i(motionEvent);
@@ -264,7 +264,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 break;
             default:
                 if (this.alj != null) {
-                    this.alj.lz();
+                    this.alj.ly();
                     break;
                 }
                 break;

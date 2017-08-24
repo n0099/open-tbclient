@@ -36,12 +36,12 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public Class<?> uw() {
+    public Class<?> ux() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public String ux() {
+    public String uy() {
         return MainTabActivity.class.getName();
     }
 

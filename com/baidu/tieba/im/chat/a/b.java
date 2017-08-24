@@ -76,13 +76,13 @@ public abstract class b extends BaseAdapter {
         }
         if (aVar == null) {
             view = LayoutInflater.from(this.mContext).inflate(d.j.chat_list_item, viewGroup, false);
-            aVar = aG(view);
+            aVar = aF(view);
             view.setTag(aVar);
         }
         ai.j(view, d.g.list_selector);
-        ai.j(aVar.auN, d.e.cp_bg_line_b);
+        ai.j(aVar.auO, d.e.cp_bg_line_b);
         aVar.dku.setVisibility(0);
-        aVar.auN.setVisibility(0);
+        aVar.auO.setVisibility(0);
         ImMessageCenterShowItemData item = getItem(i);
         if (item != null) {
             a(aVar, item);
@@ -203,7 +203,7 @@ public abstract class b extends BaseAdapter {
         ai.c(aVar.dkz, d.e.common_color_10225, 1);
     }
 
-    public boolean asJ() {
+    public boolean asC() {
         return this.dkt;
     }
 
@@ -212,14 +212,14 @@ public abstract class b extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a aG(View view) {
+    public a aF(View view) {
         a aVar = new a();
         aVar.dku = (ViewGroup) view.findViewById(d.h.chat_item);
         aVar.dkv = (HeadImageView) view.findViewById(d.h.chat_head);
         aVar.dkw = (TextView) view.findViewById(d.h.chat_name);
         aVar.dkx = (TextView) view.findViewById(d.h.last_chat_content);
         aVar.dky = (TextView) view.findViewById(d.h.chat_time);
-        aVar.auN = view.findViewById(d.h.line);
+        aVar.auO = view.findViewById(d.h.line);
         aVar.dkz = (TextView) view.findViewById(d.h.new_message);
         aVar.dkA = (ImageView) view.findViewById(d.h.iv_bell);
         aVar.dkB = (ImageView) view.findViewById(d.h.send_status);
@@ -236,7 +236,7 @@ public abstract class b extends BaseAdapter {
         public TextView dkx = null;
         public TextView dky = null;
         public TextView dkz = null;
-        public View auN = null;
+        public View auO = null;
         public ImageView dkA = null;
         public ImageView dkB = null;
         public ImageView dkC = null;

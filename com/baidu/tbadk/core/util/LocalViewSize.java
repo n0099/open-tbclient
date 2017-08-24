@@ -13,7 +13,7 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize ve() {
+    public static LocalViewSize vf() {
         if (agL == null) {
             agL = new LocalViewSize();
         }
@@ -58,7 +58,7 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int vf() {
+    public int vg() {
         int ag = com.baidu.adp.lib.util.k.ag(this.mContext);
         if (ag >= 1080) {
             return 1080;
@@ -66,7 +66,7 @@ public class LocalViewSize {
         return (ag < 720 || ag >= 1080) ? 480 : 720;
     }
 
-    public ImageSize vg() {
+    public ImageSize vh() {
         int i = 240;
         int ag = com.baidu.adp.lib.util.k.ag(this.mContext);
         if (ag < 240) {
@@ -84,15 +84,15 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize vh() {
+    public ImageSize vi() {
         ImageSize imageSize = new ImageSize();
         imageSize.height = com.baidu.adp.lib.util.k.ah(this.mContext);
         imageSize.width = com.baidu.adp.lib.util.k.ag(this.mContext);
         return imageSize;
     }
 
-    public int vi() {
-        ImageSize vg = vg();
-        return vg.height >= vg.width ? vg.height : vg.width;
+    public int vj() {
+        ImageSize vh = vh();
+        return vh.height >= vh.width ? vh.height : vh.width;
     }
 }

@@ -17,13 +17,13 @@ public interface p {
 
     h bI(Context context);
 
-    k bih();
+    k bic();
 
-    m bii();
+    m bid();
 
-    com.baidu.tieba.k.a bij();
+    com.baidu.tieba.k.a bie();
 
-    i bik();
+    i bif();
 
     com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 

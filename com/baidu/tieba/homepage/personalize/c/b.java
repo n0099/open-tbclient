@@ -14,12 +14,12 @@ import com.baidu.tieba.card.u;
 import com.baidu.tieba.card.x;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private x<c> bkD;
-    private final TbPageContext<?> oV;
+    private x<c> bkE;
+    private final TbPageContext<?> oW;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bkD = new x<c>() { // from class: com.baidu.tieba.homepage.personalize.c.b.1
+        this.bkE = new x<c>() { // from class: com.baidu.tieba.homepage.personalize.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.x
             public void a(View view, c cVar) {
@@ -27,7 +27,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
             }
         };
-        this.oV = tbPageContext;
+        this.oW = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,8 +35,8 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ar */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.homepage.personalize.c.a aVar = new com.baidu.tieba.homepage.personalize.c.a(this.oV);
-        aVar.b(this.bkD);
+        com.baidu.tieba.homepage.personalize.c.a aVar = new com.baidu.tieba.homepage.personalize.c.a(this.oW);
+        aVar.b(this.bkE);
         return new a(aVar);
     }
 
@@ -45,7 +45,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        u.WX().a(new aj("c11272"));
+        u.WU().a(new aj("c11272"));
         aVar.cWY.a(cVar);
         return aVar.getView();
     }

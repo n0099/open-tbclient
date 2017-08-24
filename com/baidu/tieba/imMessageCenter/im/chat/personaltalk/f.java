@@ -51,7 +51,7 @@ public class f {
                                 if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
                                     f.this.dDG = requestUpdateMaskInfoMessage.getIsMask() == 1;
                                     if (f.this.dDK != null) {
-                                        f.this.dDK.wP();
+                                        f.this.dDK.wQ();
                                         return;
                                     }
                                     return;
@@ -74,7 +74,7 @@ public class f {
                                 f.this.dDG = f.this.data.isBlacklist.intValue() == 1;
                                 f.this.dDJ.hideProgressBar();
                                 if (f.this.dDK != null) {
-                                    f.this.dDK.wP();
+                                    f.this.dDK.wQ();
                                     return;
                                 }
                                 return;
@@ -111,7 +111,7 @@ public class f {
                     }
                 }
                 if (f.this.dDK != null) {
-                    f.this.dDK.wP();
+                    f.this.dDK.wQ();
                 }
             }
         }
@@ -119,10 +119,10 @@ public class f {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void wP();
+        void wQ();
     }
 
-    public boolean azl() {
+    public boolean azg() {
         return this.dDH;
     }
 
@@ -130,11 +130,11 @@ public class f {
         this.dDH = z;
     }
 
-    public DataRes azm() {
+    public DataRes azh() {
         return this.data;
     }
 
-    public boolean azn() {
+    public boolean azi() {
         return this.dDG;
     }
 
@@ -146,9 +146,9 @@ public class f {
         u.b(new t<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.t
-            /* renamed from: azq */
+            /* renamed from: azl */
             public PersonalSettingItemData doInBackground() {
-                return com.baidu.tieba.im.settingcache.e.ayy().bl(TbadkCoreApplication.getCurrentAccount(), String.valueOf(j));
+                return com.baidu.tieba.im.settingcache.e.ayt().bm(TbadkCoreApplication.getCurrentAccount(), String.valueOf(j));
             }
         }, new h<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -193,11 +193,11 @@ public class f {
         }
     }
 
-    public com.baidu.adp.framework.listener.c azo() {
+    public com.baidu.adp.framework.listener.c azj() {
         return this.dip;
     }
 
-    public CustomMessageListener azp() {
+    public CustomMessageListener azk() {
         return this.mCustomListener;
     }
 }

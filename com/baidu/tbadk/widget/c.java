@@ -9,13 +9,13 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class c extends ImageSpan {
     private WeakReference<Drawable> Hu;
-    private int aOL;
+    private int aOM;
     private int paddingLeft;
     private int paddingRight;
 
     public c(Drawable drawable) {
         super(drawable);
-        this.aOL = 0;
+        this.aOM = 0;
     }
 
     public void fq(int i) {
@@ -28,11 +28,11 @@ public class c extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Drawable kB = kB();
-        if (kB == null) {
+        Drawable kA = kA();
+        if (kA == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
-        Rect bounds = kB.getBounds();
+        Rect bounds = kA.getBounds();
         if (fontMetricsInt != null) {
             Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
             int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
@@ -49,16 +49,16 @@ public class c extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable kB = kB();
-        if (kB != null) {
+        Drawable kA = kA();
+        if (kA != null) {
             canvas.save();
-            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - kB.getBounds().bottom) / 2) + i3) - this.aOL);
-            kB.draw(canvas);
+            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - kA.getBounds().bottom) / 2) + i3) - this.aOM);
+            kA.draw(canvas);
             canvas.restore();
         }
     }
 
-    private Drawable kB() {
+    private Drawable kA() {
         WeakReference<Drawable> weakReference = this.Hu;
         Drawable drawable = null;
         if (weakReference != null) {
@@ -73,6 +73,6 @@ public class c extends ImageSpan {
     }
 
     public void setVerticalOffset(int i) {
-        this.aOL = i;
+        this.aOM = i;
     }
 }

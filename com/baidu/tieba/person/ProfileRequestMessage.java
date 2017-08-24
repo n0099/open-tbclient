@@ -127,7 +127,7 @@ public class ProfileRequestMessage extends NetMessage {
             double ai = com.baidu.adp.lib.util.k.ai(TbadkCoreApplication.getInst().getApp());
             int ag = com.baidu.adp.lib.util.k.ag(TbadkCoreApplication.getInst().getApp());
             int ah = com.baidu.adp.lib.util.k.ah(TbadkCoreApplication.getInst().getApp());
-            int viewImageQuality = com.baidu.tbadk.core.h.oX().getViewImageQuality();
+            int viewImageQuality = com.baidu.tbadk.core.h.oY().getViewImageQuality();
             builder.scr_w = Integer.valueOf(ag);
             builder.scr_h = Integer.valueOf(ah);
             builder.scr_dip = Double.valueOf(ai);

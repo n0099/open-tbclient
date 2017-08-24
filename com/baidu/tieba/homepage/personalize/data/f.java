@@ -34,8 +34,8 @@ public class f implements com.baidu.adp.widget.ListView.f {
             int i2 = i;
             if (i2 < fVar.cWI.size()) {
                 g gVar = fVar.cWI.get(i2);
-                if (gVar != null && !StringUtils.isNull(gVar.Vn)) {
-                    sb.append(gVar.Vn);
+                if (gVar != null && !StringUtils.isNull(gVar.Vo)) {
+                    sb.append(gVar.Vo);
                     if (i2 != fVar.cWI.size() - 1) {
                         sb.append("_");
                     }

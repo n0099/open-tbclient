@@ -107,13 +107,13 @@ public class SyncLoginService extends BdBaseService {
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
                 this.mNetWork.n("package", packageName);
                 this.mNetWork.n("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.mNetWork.n("signmd5", an.d(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.mNetWork.n("signmd5", an.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.mNetWork.n("md5", g.getTiebaApkMd5());
-                String uO = this.mNetWork.uO();
-                if (this.mNetWork.vl().wi().isRequestSuccess()) {
+                String uP = this.mNetWork.uP();
+                if (this.mNetWork.vm().wj().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(uO);
+                        cVar.parserJson(uP);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {

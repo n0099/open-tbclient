@@ -34,7 +34,7 @@ public class PersonInfoActivityStatic {
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MQ();
-        at.wf().a(new at.a() { // from class: com.baidu.tieba.person.PersonInfoActivityStatic.2
+        at.wg().a(new at.a() { // from class: com.baidu.tieba.person.PersonInfoActivityStatic.2
             @Override // com.baidu.tbadk.core.util.at.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {

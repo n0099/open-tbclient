@@ -13,8 +13,8 @@ import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class b extends c<StrangerListActivity> {
     private ViewGroup abM;
-    private NoNetworkView ber;
-    private BdListView bkH;
+    private NoNetworkView bes;
+    private BdListView bkI;
     private StrangerListAdapter dFA;
     private ImageView dFB;
     private StrangerListActivity dFu;
@@ -35,30 +35,30 @@ public class b extends c<StrangerListActivity> {
         this.dFB = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.j.stranger_delete, this.dFu);
         ai.b(this.dFB, d.g.icon_tabbar_delete_bg_s, d.g.icon_tabbar_delete_bg);
         this.abM = (ViewGroup) strangerListActivity.findViewById(d.h.root_view);
-        this.ber = (NoNetworkView) this.abM.findViewById(d.h.no_network_view);
+        this.bes = (NoNetworkView) this.abM.findViewById(d.h.no_network_view);
     }
 
     public void onChangeSkinType(int i) {
         this.dFu.getLayoutMode().ah(i == 1);
         this.dFu.getLayoutMode().t(this.abM);
         this.mNavigationBar.onChangeSkinType(this.dFu.getPageContext(), i);
-        this.ber.onChangeSkinType(this.dFu.getPageContext(), i);
+        this.bes.onChangeSkinType(this.dFu.getPageContext(), i);
         ai.b(this.dFB, d.g.icon_tabbar_delete_bg_s, d.g.icon_tabbar_delete_bg);
     }
 
     private void g(StrangerListActivity strangerListActivity) {
-        this.bkH = (BdListView) strangerListActivity.findViewById(d.h.msg_list);
-        this.bkH.setOnItemClickListener(strangerListActivity);
-        this.bkH.setOnItemLongClickListener(strangerListActivity);
+        this.bkI = (BdListView) strangerListActivity.findViewById(d.h.msg_list);
+        this.bkI.setOnItemClickListener(strangerListActivity);
+        this.bkI.setOnItemLongClickListener(strangerListActivity);
         this.dFA = new StrangerListAdapter(strangerListActivity);
-        this.bkH.setAdapter((ListAdapter) this.dFA);
+        this.bkI.setAdapter((ListAdapter) this.dFA);
     }
 
-    public StrangerListAdapter azV() {
+    public StrangerListAdapter azQ() {
         return this.dFA;
     }
 
-    public View azW() {
+    public View azR() {
         return this.dFB;
     }
 }

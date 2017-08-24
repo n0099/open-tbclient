@@ -26,28 +26,28 @@ public class b {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e btx;
-        if (this.gkK != null && (btx = btx()) != null) {
+        e btq;
+        if (this.gkK != null && (btq = btq()) != null) {
             if (z) {
-                if (btx.gkS != null) {
-                    btx.gkS.num++;
+                if (btq.gkS != null) {
+                    btq.gkS.num++;
                     if (z2) {
-                        btx.gkS.gkP += j2;
-                        btx.gkS.size += j;
+                        btq.gkS.gkP += j2;
+                        btq.gkS.size += j;
                     } else {
-                        btx.gkS.gkQ++;
+                        btq.gkS.gkQ++;
                     }
                 } else {
                     return;
                 }
-            } else if (btx.gkT != null) {
-                btx.gkT.num++;
+            } else if (btq.gkT != null) {
+                btq.gkT.num++;
                 if (z2) {
-                    btx.gkT.gkP += j3;
-                    btx.gkT.size += j;
+                    btq.gkT.gkP += j3;
+                    btq.gkT.size += j;
                     j2 = j3;
                 } else {
-                    btx.gkT.gkQ++;
+                    btq.gkT.gkQ++;
                     j2 = j3;
                 }
             } else {
@@ -55,7 +55,7 @@ public class b {
             }
             this.gkK = null;
             if (z2) {
-                c.a(btx, 10);
+                c.a(btq, 10);
             }
             if (this.gkN == "frsStat") {
                 if (!z2 || j2 > 3000) {
@@ -74,19 +74,19 @@ public class b {
     }
 
     public void destory() {
-        e btx;
-        if (this.gkK != null && (btx = btx()) != null && btx.gkU != null) {
+        e btq;
+        if (this.gkK != null && (btq = btq()) != null && btq.gkU != null) {
             long gf = this.gkK.gf();
             if (gf > 3000) {
-                d dVar = btx.gkU;
+                d dVar = btq.gkU;
                 dVar.gkP = gf + dVar.gkP;
-                btx.gkU.num++;
-                c.a(btx, 10);
+                btq.gkU.num++;
+                c.a(btq, 10);
             }
         }
     }
 
-    private e btx() {
+    private e btq() {
         return c.k(this.gkN, getNetType(), this.ajs);
     }
 

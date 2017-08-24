@@ -35,9 +35,9 @@ public interface l<T> {
 
     void a(String str, T t, long j);
 
-    c<T> ac(String str);
+    c<T> ad(String str);
 
-    void ad(String str);
+    void ae(String str);
 
     void b(String str, T t, long j);
 

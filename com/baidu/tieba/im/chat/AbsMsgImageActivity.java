@@ -69,7 +69,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         setContentView(d.j.image_activity_2);
         initData(bundle);
         initUI();
-        arR();
+        arK();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -86,7 +86,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        arR();
+        arK();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -221,7 +221,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             public void onPageSelected(int i) {
                 AbsMsgImageActivity.this.aX(AbsMsgImageActivity.this.mIndex, i);
                 AbsMsgImageActivity.this.mIndex = i;
-                AbsMsgImageActivity.this.arP();
+                AbsMsgImageActivity.this.arI();
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -287,7 +287,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.dhY.J(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.dhY.setOnPageChangeListener(this.mOnPageChangeListener);
         this.dhY.setItemOnclickListener(this.mOnClickListener);
-        this.dhY.setCurrentItem(arQ(), false);
+        this.dhY.setCurrentItem(arJ(), false);
         this.dhY.setOnScrollOutListener(this.dhZ);
         this.dhY.setItemOnLongClickListener(onLongClickListener);
         this.dhY.setHasNext(false);
@@ -299,7 +299,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void arP() {
+    public void arI() {
         if (this.dhU != null) {
             String valueOf = String.valueOf(this.mIndex + 1);
             if (this.mCount > 0) {
@@ -315,7 +315,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    private int arQ() {
+    private int arJ() {
         if (this.dhU != null && this.dhU.size() > 0) {
             int size = this.dhU.size();
             if (this.mIndex >= size) {
@@ -368,7 +368,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.dih = new HashMap<>();
     }
 
-    private void arR() {
+    private void arK() {
         if (TextUtils.isEmpty(this.id)) {
             finish();
         }
@@ -411,7 +411,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                         AbsMsgImageActivity.this.mIndex = AbsMsgImageActivity.this.mCount - 1;
                     }
                     AbsMsgImageActivity.this.mTextView.setVisibility(0);
-                    AbsMsgImageActivity.this.arP();
+                    AbsMsgImageActivity.this.arI();
                     AbsMsgImageActivity.this.dhY.setIsFromCDN(true);
                     AbsMsgImageActivity.this.dhY.setAllowLocalUrl(true);
                     AbsMsgImageActivity.this.dhY.setAssistUrls(hashMap);
@@ -443,14 +443,14 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<String, Integer, String> {
+        byte[] mData;
         String mUrl;
-        byte[] tu;
 
         public a(String str, byte[] bArr) {
             this.mUrl = null;
-            this.tu = null;
+            this.mData = null;
             this.mUrl = str;
-            this.tu = bArr;
+            this.mData = bArr;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -458,9 +458,9 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            switch (com.baidu.tbadk.core.util.k.a(this.mUrl, this.tu, AbsMsgImageActivity.this.getPageContext().getPageActivity())) {
+            switch (com.baidu.tbadk.core.util.k.a(this.mUrl, this.mData, AbsMsgImageActivity.this.getPageContext().getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.k.uI();
+                    return com.baidu.tbadk.core.util.k.uJ();
                 case -1:
                 default:
                     return AbsMsgImageActivity.this.getPageContext().getString(d.l.save_error);

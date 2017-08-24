@@ -7,11 +7,11 @@ public interface a {
 
     C0057a X(Context context, String str);
 
-    int fH(String str);
+    int fL(String str);
 
-    int fI(String str);
+    int fM(String str);
 
-    String fJ(String str);
+    String fN(String str);
 
     /* renamed from: com.baidu.tbadk.imageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */

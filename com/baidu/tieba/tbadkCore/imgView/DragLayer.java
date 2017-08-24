@@ -55,11 +55,11 @@ public class DragLayer extends FrameLayout {
         return this.glF;
     }
 
-    public void btG() {
+    public void btz() {
         if (this.glF != null) {
-            if (this.glF.aNT != null) {
-                this.glF.aNT.recycle();
-                this.glF.aNT = null;
+            if (this.glF.aNU != null) {
+                this.glF.aNU.recycle();
+                this.glF.aNU = null;
             }
             this.glF = null;
         }
@@ -81,6 +81,6 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        btG();
+        btz();
     }
 }

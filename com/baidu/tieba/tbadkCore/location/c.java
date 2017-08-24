@@ -6,7 +6,7 @@ public class c {
     private a mLocationData;
     private long mTimeStamp;
 
-    public static c btM() {
+    public static c btF() {
         if (glK == null) {
             synchronized (c.class) {
                 if (glK == null) {
@@ -17,7 +17,7 @@ public class c {
         return glK;
     }
 
-    public long boz() {
+    public long bos() {
         return this.mTimeStamp;
     }
 
@@ -33,7 +33,7 @@ public class c {
         this.mLocationData = aVar;
     }
 
-    public boolean btN() {
+    public boolean btG() {
         return this.glL;
     }
 

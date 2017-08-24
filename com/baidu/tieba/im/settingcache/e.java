@@ -17,14 +17,14 @@ public class e extends a {
     private e() {
     }
 
-    public static e ayy() {
+    public static e ayt() {
         return dAI;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: bp */
-    public PersonalSettingItemData bl(String str, String str2) {
+    /* renamed from: bq */
+    public PersonalSettingItemData bm(String str, String str2) {
         PersonalSettingItemData personalSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
@@ -49,22 +49,22 @@ public class e extends a {
         return personalSettingItemData;
     }
 
-    public void aux() {
+    public void aus() {
         super.m(PersonalSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        PersonalSettingItemData bl;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bl = bl(str, str2)) != null) {
-            bl.setToPortrait(userData.getPortrait());
-            bl.setToName(userData.getUserName());
-            a(bl);
+        PersonalSettingItemData bm;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bm = bm(str, str2)) != null) {
+            bm.setToPortrait(userData.getPortrait());
+            bm.setToName(userData.getUserName());
+            a(bm);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> ayu() {
-        return com.baidu.tbadk.core.c.a.tn().cQ("tb.im_personal_chat_setting");
+    protected l<String> ayp() {
+        return com.baidu.tbadk.core.c.a.to().cT("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -79,13 +79,13 @@ public class e extends a {
                 }
                 return;
             }
-            l<String> ayu = ayu();
+            l<String> ayp = ayp();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
             synchronized (this.dAx) {
                 this.dAx.put(str, personalSettingItemData);
             }
-            ayu.k(str, jsonStrWithObject);
+            ayp.k(str, jsonStrWithObject);
         }
     }
 
@@ -110,7 +110,7 @@ public class e extends a {
                 @Override // com.baidu.tbadk.util.t
                 /* renamed from: Lp */
                 public Void doInBackground() {
-                    e.this.ayu().k(str, OrmObject.jsonStrWithObject(personalSettingItemData));
+                    e.this.ayp().k(str, OrmObject.jsonStrWithObject(personalSettingItemData));
                     return null;
                 }
             }, hVar);

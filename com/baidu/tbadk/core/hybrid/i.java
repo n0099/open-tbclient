@@ -17,7 +17,7 @@ public class i {
         private static final i adM = new i();
     }
 
-    public static i tP() {
+    public static i tQ() {
         return c.adM;
     }
 
@@ -25,7 +25,7 @@ public class i {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
                 this.adA = new a(i, mVar);
-                this.adA.tR();
+                this.adA.tS();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -64,7 +64,7 @@ public class i {
 
         private void n(long j) {
             this.adK.add(Long.valueOf(j));
-            this.adA.tR();
+            this.adA.tS();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -102,17 +102,17 @@ public class i {
             this.adI = mVar;
         }
 
-        private void tQ() throws InvocationTargetException, IllegalAccessException {
+        private void tR() throws InvocationTargetException, IllegalAccessException {
             this.adG.invoke(this.adF, this.adC);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void tR() {
+        public void tS() {
             if (this.index >= this.MAX_FRAME_COUNT) {
                 com.baidu.adp.lib.g.e.ga().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.i.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.adI.n(a.this.tT());
+                        a.this.adI.n(a.this.tU());
                         a.this.adH.destroy();
                         a.this.destroy();
                     }
@@ -121,13 +121,13 @@ public class i {
             }
             this.index++;
             try {
-                tQ();
+                tR();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> tS() {
+        private List<Long> tT() {
             return this.adH.adK;
         }
 
@@ -137,15 +137,15 @@ public class i {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> tT() {
+        public List<Long> tU() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> tS = tS();
-            int size = tS.size();
+            List<Long> tT = tT();
+            int size = tT.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(tS.get(i2 + 1).longValue() - tS.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(tT.get(i2 + 1).longValue() - tT.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

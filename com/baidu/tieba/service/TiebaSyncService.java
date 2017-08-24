@@ -145,16 +145,16 @@ public class TiebaSyncService extends BdBaseService {
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
                 this.mNetWork.n("package", packageName);
                 this.mNetWork.n("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.mNetWork.n("signmd5", an.b(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.mNetWork.n("signmd5", an.d(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.mNetWork.n("md5", g.getTiebaApkMd5());
-                String uO = this.mNetWork.uO();
-                if (this.mNetWork.vo()) {
+                String uP = this.mNetWork.uP();
+                if (this.mNetWork.vp()) {
                     TbadkCoreApplication.getInst().clearActiveVersion();
                 }
-                if (this.mNetWork.vl().wi().isRequestSuccess()) {
+                if (this.mNetWork.vm().wj().isRequestSuccess()) {
                     dVar = new d();
                     try {
-                        dVar.parserJson(uO);
+                        dVar.parserJson(uP);
                         if (TbadkCoreApplication.getClientId() == null && dVar.Ab().getClientId() != null && dVar.Ab().getClientId().length() > 0) {
                             TbadkCoreApplication.saveClientId(TiebaSyncService.this, dVar.Ab().getClientId());
                             TbadkCoreApplication.setClientId(dVar.Ab().getClientId());
@@ -228,14 +228,14 @@ public class TiebaSyncService extends BdBaseService {
                 }
                 r Ac = TiebaSyncService.this.mModel.Ac();
                 if (Ac != null) {
-                    TbadkCoreApplication.getInst().getListItemRule().eG(Ac.yG());
-                    TbadkCoreApplication.getInst().getListItemRule().eI(Ac.yI());
-                    TbadkCoreApplication.getInst().getListItemRule().eH(Ac.yH());
+                    TbadkCoreApplication.getInst().getListItemRule().eK(Ac.yG());
+                    TbadkCoreApplication.getInst().getListItemRule().eM(Ac.yI());
+                    TbadkCoreApplication.getInst().getListItemRule().eL(Ac.yH());
                     TbadkCoreApplication.getInst().setUseNewResign(Ac.yP());
                     TbadkCoreApplication.getInst().setUegVoiceWarning(Ac.getUegVoiceWarning());
                     TbadkCoreApplication.getInst().setUrlText(Ac.yY());
                     TbadkCoreApplication.getInst().setGameInfoData(Ac.yQ(), Ac.yS(), Ac.yR());
-                    ae.vz().b(Ac.yB(), Ac.yC(), Ac.yD(), Ac.yE(), Ac.yF());
+                    ae.vA().b(Ac.yB(), Ac.yC(), Ac.yD(), Ac.yE(), Ac.yF());
                     String yA = Ac.yA();
                     com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
                     if (yA == null) {

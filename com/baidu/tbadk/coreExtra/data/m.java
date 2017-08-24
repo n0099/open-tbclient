@@ -12,7 +12,7 @@ public class m {
         return this.asn;
     }
 
-    public void eG(String str) {
+    public void eK(String str) {
         this.asn = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
@@ -20,7 +20,7 @@ public class m {
         return this.aso;
     }
 
-    public void eH(String str) {
+    public void eL(String str) {
         this.aso = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
@@ -28,7 +28,7 @@ public class m {
         return this.asp;
     }
 
-    public void eI(String str) {
+    public void eM(String str) {
         this.asp = com.baidu.adp.lib.g.b.g(str, 0);
     }
 }

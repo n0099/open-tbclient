@@ -16,7 +16,7 @@ public class n extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Rect bounds = kB().getBounds();
+        Rect bounds = kA().getBounds();
         if (fontMetricsInt != null) {
             Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
             int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
@@ -33,14 +33,14 @@ public class n extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable kB = kB();
+        Drawable kA = kA();
         canvas.save();
-        canvas.translate(f, ((i5 - kB.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
-        kB.draw(canvas);
+        canvas.translate(f, ((i5 - kA.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
+        kA.draw(canvas);
         canvas.restore();
     }
 
-    private Drawable kB() {
+    private Drawable kA() {
         WeakReference<Drawable> weakReference = this.Hu;
         Drawable drawable = null;
         if (weakReference != null) {

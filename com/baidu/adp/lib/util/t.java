@@ -24,7 +24,7 @@ public class t {
         return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
     }
 
-    public static byte[] a(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
+    public static byte[] b(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, publicKey);
         return cipher.doFinal(bArr);
@@ -36,7 +36,7 @@ public class t {
         return cipher.doFinal(bArr);
     }
 
-    public static SecretKey aW(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public static SecretKey aX(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         char[] cArr = new char[str.length()];
         for (int i = 0; i < cArr.length; i++) {

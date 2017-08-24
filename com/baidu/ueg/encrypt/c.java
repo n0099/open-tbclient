@@ -17,7 +17,7 @@ public class c implements a {
         if (com.baidu.ueg.a.a.h(str)) {
             throw new Exception("PubKey can not be blank.");
         }
-        this.gKt = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(com.baidu.ueg.lib.a.tp(str.replaceAll("-----BEGIN PUBLIC KEY-----", "").replaceAll("-----END PUBLIC KEY-----", ""))));
+        this.gKt = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(com.baidu.ueg.lib.a.tu(str.replaceAll("-----BEGIN PUBLIC KEY-----", "").replaceAll("-----END PUBLIC KEY-----", ""))));
     }
 
     @Override // com.baidu.ueg.encrypt.a

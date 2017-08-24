@@ -88,7 +88,7 @@ public class CommonUserLikeButton extends TextView implements b {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void g(View.OnClickListener onClickListener) {
+    public void c(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 

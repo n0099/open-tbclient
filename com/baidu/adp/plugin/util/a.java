@@ -124,14 +124,14 @@ public class a {
                 declaredMethod.invoke(w, str2, null);
                 Object d = d(y(w), y(w2));
                 if (d instanceof File[]) {
-                    Arrays.sort((File[]) d, kq());
+                    Arrays.sort((File[]) d, kp());
                     list = d;
                 } else {
                     boolean z2 = d instanceof List;
                     list = d;
                     if (z2) {
                         List list4 = (List) d;
-                        Collections.sort(list4, kq());
+                        Collections.sort(list4, kp());
                         list = list4;
                     }
                 }
@@ -145,14 +145,14 @@ public class a {
                 a(w, w.getClass(), "dexElements", z ? d(x(w), x(w2)) : d(x(w2), x(w)));
                 Object d2 = d(y(w), y(w2));
                 if (d2 instanceof File[]) {
-                    Arrays.sort((File[]) d2, kq());
+                    Arrays.sort((File[]) d2, kp());
                     list3 = d2;
                 } else {
                     boolean z3 = d2 instanceof List;
                     list3 = d2;
                     if (z3) {
                         List list5 = (List) d2;
-                        Collections.sort(list5, kq());
+                        Collections.sort(list5, kp());
                         list3 = list5;
                     }
                 }
@@ -166,14 +166,14 @@ public class a {
                 a(w, w.getClass(), "dexElements", z ? d(x(w), x(w2)) : d(x(w2), x(w)));
                 Object d3 = d(y(w), y(w2));
                 if (d3 instanceof File[]) {
-                    Arrays.sort((File[]) d3, kq());
+                    Arrays.sort((File[]) d3, kp());
                     list2 = d3;
                 } else {
                     boolean z4 = d3 instanceof List;
                     list2 = d3;
                     if (z4) {
                         List list6 = (List) d3;
-                        Collections.sort(list6, kq());
+                        Collections.sort(list6, kp());
                         list2 = list6;
                     }
                 }
@@ -314,7 +314,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> kq() {
+    private static final Comparator<File> kp() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator

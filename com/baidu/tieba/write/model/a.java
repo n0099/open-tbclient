@@ -22,7 +22,7 @@ public class a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AddLinkResponseMessage) {
                 AddLinkResponseMessage addLinkResponseMessage = (AddLinkResponseMessage) httpResponsedMessage;
-                e.ga().removeCallbacks(a.this.aYu);
+                e.ga().removeCallbacks(a.this.aYv);
                 if (a.this.gEd != null) {
                     if (addLinkResponseMessage.getAddLinkResponseData() == null) {
                         com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
@@ -42,10 +42,10 @@ public class a {
             }
         }
     };
-    private Runnable aYu = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
+    private Runnable aYv = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bzj();
+            a.this.bzb();
             com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
             aVar.gDK = false;
             aVar.linkUrl = a.this.mLinkUrl;
@@ -69,7 +69,7 @@ public class a {
         MessageManager.getInstance().registerListener(this.gEf);
     }
 
-    public void sY(String str) {
+    public void td(String str) {
         this.mLinkUrl = str;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
         httpMessage.addParam("link_url", str);
@@ -79,25 +79,25 @@ public class a {
         tbHttpMessageTask.setTimeOut(new com.baidu.adp.framework.c.e(5000));
         tbHttpMessageTask.setRetry(3);
         MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
-        e.ga().removeCallbacks(this.aYu);
-        e.ga().postDelayed(this.aYu, 15000L);
+        e.ga().removeCallbacks(this.aYv);
+        e.ga().postDelayed(this.aYv, 15000L);
     }
 
-    public void bzj() {
+    public void bzb() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
-        e.ga().removeCallbacks(this.aYu);
+        e.ga().removeCallbacks(this.aYv);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterListener(this.gEf);
-        e.ga().removeCallbacks(this.aYu);
+        e.ga().removeCallbacks(this.aYv);
     }
 
     public void a(InterfaceC0124a interfaceC0124a) {
         this.gEd = interfaceC0124a;
     }
 
-    public com.baidu.tieba.write.a.a bzk() {
+    public com.baidu.tieba.write.a.a bzc() {
         return this.gEe;
     }
 }

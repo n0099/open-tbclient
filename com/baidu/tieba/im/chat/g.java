@@ -19,8 +19,8 @@ import com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class g extends b<MsglistActivity<?>> {
-    protected int awA;
-    protected TextView ceD;
+    protected int awB;
+    protected TextView ceE;
     protected Long djA;
     protected TbRichTextView djB;
     protected ChatVoiceView djC;
@@ -43,7 +43,7 @@ public class g extends b<MsglistActivity<?>> {
         super(tbPageContext, i);
         this.djd = null;
         this.dje = null;
-        this.awA = 0;
+        this.awB = 0;
         this.djz = 0L;
         this.djA = null;
         this.djJ = true;
@@ -62,7 +62,7 @@ public class g extends b<MsglistActivity<?>> {
     }
 
     public void setPosition(int i) {
-        this.awA = i;
+        this.awB = i;
     }
 
     public void bB(long j) {
@@ -104,7 +104,7 @@ public class g extends b<MsglistActivity<?>> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initView() {
-        this.ceD = (TextView) findViewById(d.h.tex_msgitem_time);
+        this.ceE = (TextView) findViewById(d.h.tex_msgitem_time);
         this.djB = (TbRichTextView) findViewById(d.h.tex_msgitem_text);
         this.djB.setLinkTextColor(-14845754);
         this.djI = (ChatImageWithTailView) findViewById(d.h.img_msgitem_image);
@@ -119,7 +119,7 @@ public class g extends b<MsglistActivity<?>> {
         this.djC.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.dje.b(view, 5, g.this.awA, 0L);
+                g.this.dje.b(view, 5, g.this.awB, 0L);
                 return true;
             }
         });
@@ -127,14 +127,14 @@ public class g extends b<MsglistActivity<?>> {
         this.djI.getImage().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.djd.a(view, 4, g.this.awA, 0L);
+                g.this.djd.a(view, 4, g.this.awB, 0L);
             }
         });
         this.djI.getImage().setLongClickable(true);
         this.djI.getImage().setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.9
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.dje.b(view, 4, g.this.awA, 0L);
+                g.this.dje.b(view, 4, g.this.awB, 0L);
                 return true;
             }
         });
@@ -142,14 +142,14 @@ public class g extends b<MsglistActivity<?>> {
         this.djI.getTail().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.djd.a(view, 13, g.this.awA, 0L);
+                g.this.djd.a(view, 13, g.this.awB, 0L);
             }
         });
         this.djB.setLongClickable(true);
         this.djB.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.11
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.dje.b(view, 3, g.this.awA, 0L);
+                g.this.dje.b(view, 3, g.this.awB, 0L);
                 return true;
             }
         });
@@ -158,14 +158,14 @@ public class g extends b<MsglistActivity<?>> {
         this.djD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.12
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.djd.a(view, 7, g.this.awA, 0L);
+                g.this.djd.a(view, 7, g.this.awB, 0L);
             }
         });
         this.djD.setLongClickable(true);
         this.djD.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.13
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.dje.b(view, 7, g.this.awA, 0L);
+                g.this.dje.b(view, 7, g.this.awB, 0L);
                 return true;
             }
         });
@@ -173,14 +173,14 @@ public class g extends b<MsglistActivity<?>> {
         this.djF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.14
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.djd.a(view, 10, g.this.awA, 0L);
+                g.this.djd.a(view, 10, g.this.awB, 0L);
             }
         });
         this.djF.setLongClickable(true);
         this.djF.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.15
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.dje.b(view, 10, g.this.awA, 0L);
+                g.this.dje.b(view, 10, g.this.awB, 0L);
                 return true;
             }
         });
@@ -188,14 +188,14 @@ public class g extends b<MsglistActivity<?>> {
         this.djG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.djd.a(view, 15, g.this.awA, 0L);
+                g.this.djd.a(view, 15, g.this.awB, 0L);
             }
         });
         this.djG.setLongClickable(true);
         this.djG.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.dje.b(view, 15, g.this.awA, 0L);
+                g.this.dje.b(view, 15, g.this.awB, 0L);
                 return true;
             }
         });
@@ -203,21 +203,21 @@ public class g extends b<MsglistActivity<?>> {
         this.djH.getContentBody().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.djd.a(view, 11, g.this.awA, 0L);
+                g.this.djd.a(view, 11, g.this.awB, 0L);
             }
         });
         this.djH.getTail().setClickable(true);
         this.djH.getTail().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.g.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.djd.a(view, 12, g.this.awA, 0L);
+                g.this.djd.a(view, 12, g.this.awB, 0L);
             }
         });
         this.djH.getContentBody().setLongClickable(true);
         this.djH.getContentBody().setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.6
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                g.this.dje.b(view, 11, g.this.awA, 0L);
+                g.this.dje.b(view, 11, g.this.awB, 0L);
                 return true;
             }
         });
@@ -225,7 +225,7 @@ public class g extends b<MsglistActivity<?>> {
             this.djE.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.g.7
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    g.this.dje.b(view, 17, g.this.awA, 0L);
+                    g.this.dje.b(view, 17, g.this.awB, 0L);
                     return true;
                 }
             });
@@ -242,10 +242,10 @@ public class g extends b<MsglistActivity<?>> {
         boolean z = chatMessage.getCacheData() != null && chatMessage.getCacheData().getIs_show_time() == 1;
         boolean bD = bD(chatMessage.getTime());
         if (z || bD) {
-            this.ceD.setVisibility(0);
-            this.ceD.setText(bE(chatMessage.getTime()));
+            this.ceE.setVisibility(0);
+            this.ceE.setText(bE(chatMessage.getTime()));
         } else {
-            this.ceD.setVisibility(8);
+            this.ceE.setVisibility(8);
         }
         if (!z && bD) {
             MsgCacheData cacheData = chatMessage.getCacheData();

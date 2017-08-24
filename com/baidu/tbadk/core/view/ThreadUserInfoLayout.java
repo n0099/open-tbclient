@@ -65,14 +65,14 @@ public class ThreadUserInfoLayout extends LinearLayout {
             public void onClick(View view) {
                 String url;
                 if (aw.aO(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.akl != null && ThreadUserInfoLayout.this.akl.getAuthor() != null && ThreadUserInfoLayout.this.akl.getAuthor().getTShowInfoNew() != null && u.c(ThreadUserInfoLayout.this.akl.getAuthor().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.akl.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.aa(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    at.wf().c((TbPageContext) com.baidu.adp.base.i.aa(ThreadUserInfoLayout.this.mContext), new String[]{url});
+                    at.wg().c((TbPageContext) com.baidu.adp.base.i.aa(ThreadUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
         this.aoY = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadUserInfoLayout.this.akl != null && ThreadUserInfoLayout.this.akl.getAuthor() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getUserId()) && ThreadUserInfoLayout.this.akl.rK() != null) {
+                if (ThreadUserInfoLayout.this.akl != null && ThreadUserInfoLayout.this.akl.getAuthor() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getUserId()) && ThreadUserInfoLayout.this.akl.rL() != null) {
                     if (view.getTag(d.h.tag_nick_name_activity) != null && (view.getTag(d.h.tag_nick_name_activity) instanceof String)) {
                         String str = (String) view.getTag(d.h.tag_nick_name_activity);
                         if (!TextUtils.isEmpty(str) && aw.aO(ThreadUserInfoLayout.this.getContext())) {
@@ -80,10 +80,10 @@ public class ThreadUserInfoLayout extends LinearLayout {
                             return;
                         }
                     }
-                    if (ThreadUserInfoLayout.this.akl.sJ() == null || ThreadUserInfoLayout.this.akl.sJ().channelId <= 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.getAuthor().getUserId(), ThreadUserInfoLayout.this.akl.getAuthor().getName_show(), ThreadUserInfoLayout.this.akl.rK(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                    if (ThreadUserInfoLayout.this.akl.sK() == null || ThreadUserInfoLayout.this.akl.sK().channelId <= 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.getAuthor().getUserId(), ThreadUserInfoLayout.this.akl.getAuthor().getName_show(), ThreadUserInfoLayout.this.akl.rL(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.sJ().channelId, ThreadUserInfoLayout.this.akl.sJ().mCurrentPage)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.sK().channelId, ThreadUserInfoLayout.this.akl.sK().mCurrentPage)));
                     }
                     if (ThreadUserInfoLayout.this.aoX != null) {
                         ThreadUserInfoLayout.this.aoX.onClick(view);
@@ -113,14 +113,14 @@ public class ThreadUserInfoLayout extends LinearLayout {
             public void onClick(View view) {
                 String url;
                 if (aw.aO(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.akl != null && ThreadUserInfoLayout.this.akl.getAuthor() != null && ThreadUserInfoLayout.this.akl.getAuthor().getTShowInfoNew() != null && u.c(ThreadUserInfoLayout.this.akl.getAuthor().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.akl.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.aa(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    at.wf().c((TbPageContext) com.baidu.adp.base.i.aa(ThreadUserInfoLayout.this.mContext), new String[]{url});
+                    at.wg().c((TbPageContext) com.baidu.adp.base.i.aa(ThreadUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
         this.aoY = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadUserInfoLayout.this.akl != null && ThreadUserInfoLayout.this.akl.getAuthor() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getUserId()) && ThreadUserInfoLayout.this.akl.rK() != null) {
+                if (ThreadUserInfoLayout.this.akl != null && ThreadUserInfoLayout.this.akl.getAuthor() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getUserId()) && ThreadUserInfoLayout.this.akl.rL() != null) {
                     if (view.getTag(d.h.tag_nick_name_activity) != null && (view.getTag(d.h.tag_nick_name_activity) instanceof String)) {
                         String str = (String) view.getTag(d.h.tag_nick_name_activity);
                         if (!TextUtils.isEmpty(str) && aw.aO(ThreadUserInfoLayout.this.getContext())) {
@@ -128,10 +128,10 @@ public class ThreadUserInfoLayout extends LinearLayout {
                             return;
                         }
                     }
-                    if (ThreadUserInfoLayout.this.akl.sJ() == null || ThreadUserInfoLayout.this.akl.sJ().channelId <= 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.getAuthor().getUserId(), ThreadUserInfoLayout.this.akl.getAuthor().getName_show(), ThreadUserInfoLayout.this.akl.rK(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                    if (ThreadUserInfoLayout.this.akl.sK() == null || ThreadUserInfoLayout.this.akl.sK().channelId <= 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.getAuthor().getUserId(), ThreadUserInfoLayout.this.akl.getAuthor().getName_show(), ThreadUserInfoLayout.this.akl.rL(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.sJ().channelId, ThreadUserInfoLayout.this.akl.sJ().mCurrentPage)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.sK().channelId, ThreadUserInfoLayout.this.akl.sK().mCurrentPage)));
                     }
                     if (ThreadUserInfoLayout.this.aoX != null) {
                         ThreadUserInfoLayout.this.aoX.onClick(view);
@@ -161,14 +161,14 @@ public class ThreadUserInfoLayout extends LinearLayout {
             public void onClick(View view) {
                 String url;
                 if (aw.aO(ThreadUserInfoLayout.this.mContext) && ThreadUserInfoLayout.this.akl != null && ThreadUserInfoLayout.this.akl.getAuthor() != null && ThreadUserInfoLayout.this.akl.getAuthor().getTShowInfoNew() != null && u.c(ThreadUserInfoLayout.this.akl.getAuthor().getTShowInfoNew(), 0) != null && (url = ThreadUserInfoLayout.this.akl.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (com.baidu.adp.base.i.aa(ThreadUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    at.wf().c((TbPageContext) com.baidu.adp.base.i.aa(ThreadUserInfoLayout.this.mContext), new String[]{url});
+                    at.wg().c((TbPageContext) com.baidu.adp.base.i.aa(ThreadUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
         this.aoY = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadUserInfoLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadUserInfoLayout.this.akl != null && ThreadUserInfoLayout.this.akl.getAuthor() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getUserId()) && ThreadUserInfoLayout.this.akl.rK() != null) {
+                if (ThreadUserInfoLayout.this.akl != null && ThreadUserInfoLayout.this.akl.getAuthor() != null && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getName_show()) && !StringUtils.isNull(ThreadUserInfoLayout.this.akl.getAuthor().getUserId()) && ThreadUserInfoLayout.this.akl.rL() != null) {
                     if (view.getTag(d.h.tag_nick_name_activity) != null && (view.getTag(d.h.tag_nick_name_activity) instanceof String)) {
                         String str = (String) view.getTag(d.h.tag_nick_name_activity);
                         if (!TextUtils.isEmpty(str) && aw.aO(ThreadUserInfoLayout.this.getContext())) {
@@ -176,10 +176,10 @@ public class ThreadUserInfoLayout extends LinearLayout {
                             return;
                         }
                     }
-                    if (ThreadUserInfoLayout.this.akl.sJ() == null || ThreadUserInfoLayout.this.akl.sJ().channelId <= 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.getAuthor().getUserId(), ThreadUserInfoLayout.this.akl.getAuthor().getName_show(), ThreadUserInfoLayout.this.akl.rK(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                    if (ThreadUserInfoLayout.this.akl.sK() == null || ThreadUserInfoLayout.this.akl.sK().channelId <= 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.getAuthor().getUserId(), ThreadUserInfoLayout.this.akl.getAuthor().getName_show(), ThreadUserInfoLayout.this.akl.rL(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.sJ().channelId, ThreadUserInfoLayout.this.akl.sJ().mCurrentPage)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(ThreadUserInfoLayout.this.mContext, ThreadUserInfoLayout.this.akl.sK().channelId, ThreadUserInfoLayout.this.akl.sK().mCurrentPage)));
                     }
                     if (ThreadUserInfoLayout.this.aoX != null) {
                         ThreadUserInfoLayout.this.aoX.onClick(view);
@@ -211,7 +211,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
         this.aog = (TextView) inflate.findViewById(d.h.thread_info_reply_time);
         this.apq = (TextView) inflate.findViewById(d.h.thread_info_god_intro);
         this.apr = (TextView) inflate.findViewById(d.h.card_home_page_normal_thread_share_intro);
-        this.aps = com.baidu.tbadk.ala.b.nC().h(context, 1);
+        this.aps = com.baidu.tbadk.ala.b.nD().h(context, 1);
         if (this.aps != null) {
             this.aps.setVisibility(8);
             this.apt.addView(this.aps);
@@ -267,7 +267,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
     private void k(bl blVar) {
         if (this.aoT != null && blVar != null) {
             if (!StringUtils.isNull(this.akl.getAuthor().getName_show())) {
-                this.aoT.setText(al.d(this.akl.getAuthor().getName_show(), 14, "..."));
+                this.aoT.setText(al.e(this.akl.getAuthor().getName_show(), 14, "..."));
             }
             xl();
             if (this.mFrom == 3) {
@@ -276,7 +276,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
                 if (ab.ge() && name_show != null && !name_show.equals(userName)) {
                     this.aoT.setText(com.baidu.tieba.pb.d.ao(this.mContext, this.aoT.getText().toString()));
                     this.aoT.setGravity(16);
-                    this.aoT.setTag(d.h.tag_nick_name_activity, com.baidu.tieba.pb.d.aPr());
+                    this.aoT.setTag(d.h.tag_nick_name_activity, com.baidu.tieba.pb.d.aPm());
                     ai.c(this.aoT, d.e.cp_other_e, 1);
                 }
             }
@@ -298,17 +298,17 @@ public class ThreadUserInfoLayout extends LinearLayout {
     private void c(bl blVar) {
         String r;
         if (this.aog != null && blVar != null) {
-            if (blVar.rz() <= 0) {
+            if (blVar.rA() <= 0) {
                 this.aog.setVisibility(4);
                 return;
             }
             this.aog.setVisibility(0);
             if (this.mFrom == 2) {
-                r = al.p(blVar.rz());
-            } else if (blVar.sK()) {
+                r = al.p(blVar.rA());
+            } else if (blVar.sL()) {
                 r = TbadkCoreApplication.getInst().getString(d.l.ala_living_card_time_prefix, new Object[]{al.q(blVar.getCreateTime())});
             } else {
-                r = al.r(blVar.rz() * 1000);
+                r = al.r(blVar.rA() * 1000);
             }
             this.aog.setText(r);
         }
@@ -316,12 +316,12 @@ public class ThreadUserInfoLayout extends LinearLayout {
 
     private void n(bl blVar) {
         if (this.apr != null) {
-            if (blVar == null || this.akl.rX() == null || this.akl.rX().Vt == null || this.akl.rX().Vt.share_user_count <= 0 || !this.akl.sN()) {
+            if (blVar == null || this.akl.rY() == null || this.akl.rY().Vu == null || this.akl.rY().Vu.share_user_count <= 0 || !this.akl.sO()) {
                 this.apr.setVisibility(8);
                 return;
             }
             this.apr.setVisibility(0);
-            int i = this.akl.rX().Vt.share_user_count;
+            int i = this.akl.rY().Vu.share_user_count;
             if (i == 1) {
                 this.apr.setText(TbadkCoreApplication.getInst().getString(d.l.ala_live_share_live_label_simple));
             } else {
@@ -333,7 +333,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
     private void o(bl blVar) {
         if (this.apq != null && blVar != null && this.akl.getAuthor() != null) {
             if (!StringUtils.isNull(this.akl.getAuthor().getGodIntro())) {
-                this.apq.setText(al.d(TbadkCoreApplication.getInst().getString(d.l.user_god_bar) + this.akl.getAuthor().getGodIntro(), 20, "..."));
+                this.apq.setText(al.e(TbadkCoreApplication.getInst().getString(d.l.user_god_bar) + this.akl.getAuthor().getGodIntro(), 20, "..."));
                 this.apq.setVisibility(0);
                 return;
             }

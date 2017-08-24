@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b extends i {
-    private final CustomMessageListener bgL;
+    private final CustomMessageListener bgM;
 
     public b(com.baidu.tieba.frs.f fVar) {
         super(fVar);
-        this.bgL = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.mc.b.1
+        this.bgM = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.frs.mc.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -25,31 +25,31 @@ public class b extends i {
                     if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
                         if (updateAttentionMessage.getData().Ec) {
                             b.this.b(updateAttentionMessage);
-                            b.this.coU.a(updateAttentionMessage);
+                            b.this.coV.a(updateAttentionMessage);
                             b.this.c(updateAttentionMessage);
                         } else if (updateAttentionMessage.getData().errorString != null) {
-                            b.this.coU.showToast(updateAttentionMessage.getData().errorString);
+                            b.this.coV.showToast(updateAttentionMessage.getData().errorString);
                         }
                     }
                 }
             }
         };
-        this.coU.registerListener(this.bgL);
+        this.coV.registerListener(this.bgM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(UpdateAttentionMessage updateAttentionMessage) {
         Message<?> message;
-        if (updateAttentionMessage != null && updateAttentionMessage.getData() != null && updateAttentionMessage.getData().asR && !StringUtils.isNull(updateAttentionMessage.getData().showMsg, true) && updateAttentionMessage.getData().isAttention && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(this.coU.getUniqueId())) {
-            this.coU.showToast(updateAttentionMessage.getData().showMsg);
+        if (updateAttentionMessage != null && updateAttentionMessage.getData() != null && updateAttentionMessage.getData().asR && !StringUtils.isNull(updateAttentionMessage.getData().asS, true) && updateAttentionMessage.getData().isAttention && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(this.coV.getUniqueId())) {
+            this.coV.showToast(updateAttentionMessage.getData().asS);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(UpdateAttentionMessage updateAttentionMessage) {
         ArrayList<com.baidu.adp.widget.ListView.f> threadList;
-        com.baidu.tieba.tbadkCore.i afN = this.coU.afN();
-        if (afN != null && (threadList = afN.getThreadList()) != null && updateAttentionMessage != null && updateAttentionMessage.getData() != null) {
+        com.baidu.tieba.tbadkCore.i afH = this.coV.afH();
+        if (afH != null && (threadList = afH.getThreadList()) != null && updateAttentionMessage != null && updateAttentionMessage.getData() != null) {
             MetaData metaData = new MetaData();
             Iterator<com.baidu.adp.widget.ListView.f> it = threadList.iterator();
             while (true) {

@@ -607,9 +607,9 @@ public class MessageManager {
                     NetMessage netMessage = (NetMessage) orginalMessage.getExtra();
                     if (netMessage.getHttpMessage() != null && netMessage.getNetType() == NetMessage.NetType.AUTO) {
                         NetMessage.a switchToHttpStrategy = netMessage.getSwitchToHttpStrategy();
-                        if ((switchToHttpStrategy != null ? switchToHttpStrategy.checkToSwitchHttp((SocketResponsedMessage) responsedMessage) : false) || responsedMessage.getError() == h.qY) {
+                        if ((switchToHttpStrategy != null ? switchToHttpStrategy.checkToSwitchHttp((SocketResponsedMessage) responsedMessage) : false) || responsedMessage.getError() == h.qZ) {
                             int i = 5;
-                            if (responsedMessage.getError() == h.qY) {
+                            if (responsedMessage.getError() == h.qZ) {
                                 netMessage.setSocketCostTime(System.currentTimeMillis() - orginalMessage.getStartTime());
                             } else if (responsedMessage.getError() == 110004) {
                                 i = 8;

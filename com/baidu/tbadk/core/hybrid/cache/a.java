@@ -19,7 +19,7 @@ public class a {
     private a() {
     }
 
-    public static a um() {
+    public static a un() {
         if (aez == null) {
             synchronized (a.class) {
                 if (aez == null) {
@@ -30,48 +30,48 @@ public class a {
         return aez;
     }
 
-    public CacheEntry dg(String str) {
-        un();
+    public CacheEntry dj(String str) {
+        uo();
         return this.aeA.get(str);
     }
 
     public synchronized boolean a(CacheEntry cacheEntry) {
-        boolean uo;
-        un();
+        boolean up;
+        uo();
         if (cacheEntry == null) {
-            uo = false;
+            up = false;
         } else {
             this.aeA.put(cacheEntry.getUrl(), cacheEntry);
-            uo = uo();
+            up = up();
         }
-        return uo;
+        return up;
     }
 
-    public synchronized CacheEntry dh(String str) {
+    public synchronized CacheEntry dk(String str) {
         CacheEntry remove;
-        un();
+        uo();
         remove = this.aeA.remove(str);
         if (remove == null) {
             remove = null;
         } else {
-            uo();
+            up();
         }
         return remove;
     }
 
-    private synchronized void un() {
+    private synchronized void uo() {
         if (!this.aeB) {
             this.aeB = true;
-            List<CacheEntry> up = up();
-            if (up != null && up.size() > 0) {
-                for (CacheEntry cacheEntry : up) {
+            List<CacheEntry> uq = uq();
+            if (uq != null && uq.size() > 0) {
+                for (CacheEntry cacheEntry : uq) {
                     this.aeA.put(cacheEntry.getUrl(), cacheEntry);
                 }
             }
         }
     }
 
-    private boolean uo() {
+    private boolean up() {
         File file = new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache");
         if (file.exists() || file.mkdirs()) {
             File file2 = new File(file, "config.config");
@@ -89,7 +89,7 @@ public class a {
         return false;
     }
 
-    public List<CacheEntry> up() {
+    public List<CacheEntry> uq() {
         File file = new File(new File(TbadkCoreApplication.getInst().getFilesDir(), "tbhybrid/cache"), "config.config");
         if (file.exists() && file.isFile() && file.length() > 0) {
             byte[] p = o.p(file);

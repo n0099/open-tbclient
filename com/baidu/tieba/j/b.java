@@ -3,10 +3,10 @@ package com.baidu.tieba.j;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class b {
-    public SparseArray<a> fMo;
+    public SparseArray<a> fMp;
 
     public b(SparseArray<a> sparseArray) {
-        this.fMo = sparseArray;
+        this.fMp = sparseArray;
     }
 
     /* loaded from: classes.dex */

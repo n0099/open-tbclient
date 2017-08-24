@@ -76,12 +76,12 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private C0100a azr() {
+    private C0100a azm() {
         C0100a c0100a = new C0100a();
         c0100a.rootView = LayoutInflater.from(this.dDZ.getPageContext().getContext()).inflate(d.j.im_black_list_item, (ViewGroup) null);
         c0100a.dEb = (HeadImageView) c0100a.rootView.findViewById(d.h.header_view);
         c0100a.dEb.setIsRound(true);
-        c0100a.bHa = (TextView) c0100a.rootView.findViewById(d.h.user_name);
+        c0100a.bHb = (TextView) c0100a.rootView.findViewById(d.h.user_name);
         c0100a.dEc = (Button) c0100a.rootView.findViewById(d.h.remove_button);
         c0100a.rootView.setTag(c0100a);
         c0100a.dEc.setOnClickListener(this.cCt);
@@ -91,12 +91,12 @@ public class a extends BaseAdapter {
     private C0100a a(Object obj, BlackListItemData blackListItemData) {
         C0100a c0100a;
         if (obj == null) {
-            c0100a = azr();
+            c0100a = azm();
         } else {
             c0100a = (C0100a) obj;
         }
-        a(c0100a, blackListItemData.auo());
-        c0100a.bHa.setText(blackListItemData.getUserName());
+        a(c0100a, blackListItemData.auj());
+        c0100a.bHb.setText(blackListItemData.getUserName());
         c0100a.dEc.setTag(blackListItemData);
         this.dDZ.getLayoutMode().t(c0100a.rootView);
         return c0100a;
@@ -113,7 +113,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.friend.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public class C0100a {
-        public TextView bHa;
+        public TextView bHb;
         public HeadImageView dEb;
         public Button dEc;
         public View rootView;

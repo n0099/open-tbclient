@@ -6,11 +6,11 @@ public class j {
     private boolean gir;
     private String menu_name;
 
-    public boolean bso() {
+    public boolean bsh() {
         return this.gir;
     }
 
-    public String bsp() {
+    public String bsi() {
         return this.menu_name;
     }
 

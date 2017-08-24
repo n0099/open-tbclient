@@ -19,10 +19,10 @@ import tbclient.ThreadInfo;
 public class a {
     private com.baidu.tieba.homepage.personalize.c.d cSF = new com.baidu.tieba.homepage.personalize.c.d();
     private final c cSE = new c();
-    private final int beW = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
+    private final int beX = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
-    public int apr() {
-        return this.beW;
+    public int apl() {
+        return this.beX;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -38,7 +38,7 @@ public class a {
         d.f(builder);
         d.f(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.beW);
+        a(builder, i, this.beX);
         d.g(builder);
         List<r> e = d.e(builder);
         bz(e);
@@ -46,7 +46,7 @@ public class a {
         this.cSF.bB(m);
         a(m, builder);
         b.a(builder, m);
-        this.cSE.aTU = m;
+        this.cSE.aTV = m;
         return this.cSE;
     }
 
@@ -154,14 +154,14 @@ public class a {
                 bl blVar = new bl();
                 blVar.a(threadInfo);
                 blVar.bX(1);
-                if (!TextUtils.isEmpty(blVar.sA())) {
+                if (!TextUtils.isEmpty(blVar.sB())) {
                     ah ahVar = new ah();
-                    ahVar.cE(blVar.sA());
+                    ahVar.cH(blVar.sB());
                     linkedList.add(ahVar);
                 } else {
                     com.baidu.tieba.card.data.c S = d.S(blVar);
                     if (S != null) {
-                        S.XU = blVar.getTid();
+                        S.XV = blVar.getTid();
                     }
                     if (S != null && S.isValid()) {
                         linkedList.add(S);

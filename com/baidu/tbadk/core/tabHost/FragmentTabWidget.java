@@ -102,7 +102,7 @@ public class FragmentTabWidget extends LinearLayout {
                 this.afB = i;
                 getChildAt(this.afB).setSelected(true);
                 if (z) {
-                    b(this.afB, 0.0f);
+                    a(this.afB, 0.0f);
                 }
             }
         }
@@ -155,7 +155,7 @@ public class FragmentTabWidget extends LinearLayout {
             this.mHeight = i4 - i2;
             this.afN = this.mWidth / this.mChildCount;
             if (this.afB != -1) {
-                b(this.afB, 0.0f);
+                a(this.afB, 0.0f);
             }
             int i5 = this.mHeight - this.afH;
             this.afF.set(0, i5, this.mWidth, this.afH + i5);
@@ -163,7 +163,7 @@ public class FragmentTabWidget extends LinearLayout {
         }
     }
 
-    public void b(int i, float f) {
+    public void a(int i, float f) {
         this.left = this.afN * i;
         this.left += (int) (this.afN * f);
         int i2 = this.mHeight - this.afJ;

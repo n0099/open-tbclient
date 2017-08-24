@@ -59,17 +59,17 @@ public class a {
         void onClick(a aVar);
     }
 
-    public a cS(String str) {
+    public a cV(String str) {
         this.mTitle = str;
         return this;
     }
 
     public a cb(int i) {
-        cS(this.mActivity.getResources().getString(i));
+        cV(this.mActivity.getResources().getString(i));
         return this;
     }
 
-    public a cT(String str) {
+    public a cW(String str) {
         this.mMessage = str;
         return this;
     }
@@ -163,10 +163,10 @@ public class a {
                 linearLayout.removeAllViews();
                 linearLayout.addView(this.mContentView);
             } else {
-                View view = to();
-                if (view != null) {
+                View tp = tp();
+                if (tp != null) {
                     linearLayout.removeAllViews();
-                    linearLayout.addView(view);
+                    linearLayout.addView(tp);
                 }
             }
             c(eVar);
@@ -201,7 +201,7 @@ public class a {
         return this;
     }
 
-    public View to() {
+    public View tp() {
         boolean z = !StringUtils.isNull(this.mTitle);
         boolean z2 = StringUtils.isNull(this.mMessage) ? false : true;
         if (z || z2) {
@@ -289,7 +289,7 @@ public class a {
         }
     }
 
-    public a tp() {
+    public a tq() {
         return at(false);
     }
 
@@ -328,11 +328,11 @@ public class a {
                 attributes.width = -1;
                 DisplayMetrics o = k.o(this.mActivity);
                 if (o != null) {
-                    int tq = tq();
+                    int tr = tr();
                     if (UtilHelper.getRealScreenOrientation(this.mActivity) == 2) {
-                        attributes.width = o.heightPixels - (tq * 2);
+                        attributes.width = o.heightPixels - (tr * 2);
                     } else {
-                        attributes.width = o.widthPixels - (tq * 2);
+                        attributes.width = o.widthPixels - (tr * 2);
                     }
                 }
                 attributes.height = -2;
@@ -357,7 +357,7 @@ public class a {
         return this;
     }
 
-    public int tq() {
+    public int tr() {
         return this.abG == 1 ? k.g(this.mActivity, d.f.ds40) : k.g(this.mActivity, d.f.ds90);
     }
 
@@ -380,7 +380,7 @@ public class a {
         }
     }
 
-    public a tr() {
+    public a ts() {
         return at(true);
     }
 
@@ -416,7 +416,7 @@ public class a {
         }
     }
 
-    public ViewGroup ts() {
+    public ViewGroup tt() {
         return this.abN;
     }
 
@@ -424,7 +424,7 @@ public class a {
         this.abQ = obj;
     }
 
-    public Object tt() {
+    public Object tu() {
         return this.abQ;
     }
 

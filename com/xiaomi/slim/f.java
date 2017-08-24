@@ -35,7 +35,7 @@ public class f extends h {
         }
         byte[] c = com.xiaomi.stats.h.c();
         if (c != null) {
-            jVar.a(com.google.protobuf.micro.a.M(c));
+            jVar.a(com.google.protobuf.micro.a.L(c));
         }
         bVar.a(jVar.c(), (String) null);
         return bVar;

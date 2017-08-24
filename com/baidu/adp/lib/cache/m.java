@@ -27,7 +27,7 @@ public class m<T> implements l.d<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public l.c<T> ac(String str) {
+    public l.c<T> ad(String str) {
         if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.hH()) {
             if (this.vw) {
                 throw new RuntimeException("access db in main thread!");
@@ -89,7 +89,7 @@ public class m<T> implements l.d<T> {
         com.baidu.adp.lib.g.h.gb().f(new Runnable() { // from class: com.baidu.adp.lib.cache.m.2
             @Override // java.lang.Runnable
             public void run() {
-                bVar.a(str, m.this.ac(str));
+                bVar.a(str, m.this.ad(str));
             }
         });
     }
@@ -112,7 +112,7 @@ public class m<T> implements l.d<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public void ad(final String str) {
+    public void ae(final String str) {
         com.baidu.adp.lib.g.h.gb().f(new Runnable() { // from class: com.baidu.adp.lib.cache.m.4
             @Override // java.lang.Runnable
             public void run() {
@@ -132,7 +132,7 @@ public class m<T> implements l.d<T> {
     }
 
     public void eV() {
-        this.vx.ab(this.vd);
+        this.vx.ac(this.vd);
     }
 
     protected void eW() {
@@ -144,7 +144,7 @@ public class m<T> implements l.d<T> {
 
     @Override // com.baidu.adp.lib.cache.l.d
     public void eU() {
-        this.vx.aa(this.vd);
+        this.vx.ab(this.vd);
         eW();
     }
 }

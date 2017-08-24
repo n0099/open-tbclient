@@ -11,17 +11,17 @@ public class m {
     private b fZC;
     private ValueAnimator fZz;
 
-    public void boQ() {
+    public void boJ() {
         if (this.fZz != null) {
             this.fZz.cancel();
             this.fZz = null;
         }
     }
 
-    public void bx(View view) {
+    public void bw(View view) {
         if (this.fZz == null || !this.fZz.isStarted()) {
             if (this.fZC != null) {
-                this.fZC.boI();
+                this.fZC.boB();
             }
             this.fZz = ObjectAnimator.ofFloat(view, "rotation", 0.0f, 360.0f);
             this.fZz.setRepeatCount(-1);
@@ -35,7 +35,7 @@ public class m {
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     if (m.this.fZC != null) {
-                        m.this.fZC.boJ();
+                        m.this.fZC.boC();
                     }
                 }
 
@@ -51,8 +51,8 @@ public class m {
         }
     }
 
-    public void boR() {
-        boQ();
+    public void boK() {
+        boJ();
         this.fZA = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.fZA.setRepeatCount(0);
         this.fZA.setDuration(800L);
@@ -72,7 +72,7 @@ public class m {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                m.this.boM();
+                m.this.boF();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -97,7 +97,7 @@ public class m {
         return true;
     }
 
-    public void boM() {
+    public void boF() {
         if (this.fZz != null) {
             this.fZz.cancel();
         }

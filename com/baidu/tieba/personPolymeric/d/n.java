@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class n extends RelativeLayout {
-    public TextView cah;
+    public TextView cai;
     public TextView fnA;
-    private com.baidu.tieba.personPolymeric.c.f fnB;
-    public BarImageView fnx;
-    public TextView fny;
-    public TextView fnz;
+    public TextView fnB;
+    public TextView fnC;
+    private com.baidu.tieba.personPolymeric.c.f fnD;
+    public BarImageView fnz;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
@@ -39,21 +39,21 @@ public class n extends RelativeLayout {
     }
 
     private void init() {
-        this.fnx = (BarImageView) findViewById(d.h.forum_avatar);
-        this.cah = (TextView) findViewById(d.h.forum_name);
-        this.fny = (TextView) findViewById(d.h.forum_post_thread);
-        this.fnz = (TextView) findViewById(d.h.forum_thread_num);
-        this.fnA = (TextView) findViewById(d.h.forum_thread_str);
+        this.fnz = (BarImageView) findViewById(d.h.forum_avatar);
+        this.cai = (TextView) findViewById(d.h.forum_name);
+        this.fnA = (TextView) findViewById(d.h.forum_post_thread);
+        this.fnB = (TextView) findViewById(d.h.forum_thread_num);
+        this.fnC = (TextView) findViewById(d.h.forum_thread_str);
     }
 
     private void initListener() {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.d.n.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && n.this.fnB != null) {
+                if (view != null && n.this.fnD != null) {
                     TiebaStatic.log(new aj("c11594"));
-                    String str = n.this.fnB.forumName;
-                    if (al.aO(str)) {
+                    String str = n.this.fnD.forumName;
+                    if (al.aP(str)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(n.this.mContext).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
                     }
                 }
@@ -62,11 +62,11 @@ public class n extends RelativeLayout {
     }
 
     public void setData(com.baidu.tieba.personPolymeric.c.f fVar) {
-        this.fnB = fVar;
-        this.fnx.c(fVar.avatar, 10, false);
-        this.cah.setText(al.e(fVar.forumName, 7, "...") + this.mContext.getString(d.l.forum));
-        this.fnz.setText(al.u(fVar.fmj));
-        this.fny.setText(String.format(this.mContext.getString(d.l.person_has_posted), al.cY(fVar.sex)));
+        this.fnD = fVar;
+        this.fnz.c(fVar.avatar, 10, false);
+        this.cai.setText(al.f(fVar.forumName, 7, "...") + this.mContext.getString(d.l.forum));
+        this.fnB.setText(al.u(fVar.fml));
+        this.fnA.setText(String.format(this.mContext.getString(d.l.person_has_posted), al.cY(fVar.sex)));
         if (getRootView() != null) {
             getRootView().setOnClickListener(this.mOnClickListener);
         }
@@ -75,10 +75,10 @@ public class n extends RelativeLayout {
 
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            ai.i(this.cah, d.e.cp_cont_b);
-            ai.i(this.fny, d.e.cp_cont_c);
+            ai.i(this.cai, d.e.cp_cont_b);
             ai.i(this.fnA, d.e.cp_cont_c);
-            ai.i(this.fnz, d.e.cp_link_tip_a);
+            ai.i(this.fnC, d.e.cp_cont_c);
+            ai.i(this.fnB, d.e.cp_link_tip_a);
         }
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
     }

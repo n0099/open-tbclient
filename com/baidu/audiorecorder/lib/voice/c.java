@@ -10,7 +10,7 @@ public class c {
     private short KR;
     private int KS = -2;
 
-    public static c lJ() {
+    public static c lI() {
         c cVar;
         if (KT == null) {
             synchronized (c.class) {
@@ -36,7 +36,7 @@ public class c {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [149=7, 150=6, 151=6, 152=6] */
-    public android.media.AudioRecord lK() throws java.lang.IllegalArgumentException {
+    public android.media.AudioRecord lJ() throws java.lang.IllegalArgumentException {
         /*
             r18 = this;
             r0 = r18
@@ -231,6 +231,6 @@ public class c {
             r1 = r7
             goto L6a
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.audiorecorder.lib.voice.c.lK():android.media.AudioRecord");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.audiorecorder.lib.voice.c.lJ():android.media.AudioRecord");
     }
 }

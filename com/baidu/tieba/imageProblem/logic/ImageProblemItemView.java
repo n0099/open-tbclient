@@ -15,10 +15,10 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ImageProblemItemView extends FrameLayout {
-    protected LinearLayout ayF;
-    protected TextView ayG;
+    protected LinearLayout ayG;
     protected TextView ayH;
-    protected ImageView ayM;
+    protected TextView ayI;
+    protected ImageView ayN;
     protected LinearLayout dJg;
     protected TextView dJh;
     protected Context mContext;
@@ -27,7 +27,7 @@ public class ImageProblemItemView extends FrameLayout {
         super(context, attributeSet);
         this.mContext = context;
         BE();
-        c(attributeSet);
+        b(attributeSet);
     }
 
     public ImageProblemItemView(Context context) {
@@ -37,33 +37,33 @@ public class ImageProblemItemView extends FrameLayout {
     }
 
     public void displayTip() {
-        if (this.ayH != null) {
-            this.ayH.setVisibility(0);
+        if (this.ayI != null) {
+            this.ayI.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        if (this.ayH != null) {
-            this.ayH.setVisibility(8);
+        if (this.ayI != null) {
+            this.ayI.setVisibility(8);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.ayH != null) {
-            this.ayH.setTextColor(i);
+        if (this.ayI != null) {
+            this.ayI.setTextColor(i);
         }
     }
 
     public void hideArrow() {
-        this.ayM.setVisibility(8);
+        this.ayN.setVisibility(8);
     }
 
     public void displayArrow() {
-        this.ayM.setVisibility(0);
+        this.ayN.setVisibility(0);
     }
 
     public void setArrowImg(int i) {
-        this.ayM.setImageResource(i);
+        this.ayN.setImageResource(i);
     }
 
     public void setHelpText(String str) {
@@ -86,65 +86,65 @@ public class ImageProblemItemView extends FrameLayout {
     @SuppressLint({"ResourceAsColor"})
     public void setStatus(int i) {
         if (i == 1) {
-            this.ayG.setTextColor(getResources().getColor(d.e.cp_cont_b));
+            this.ayH.setTextColor(getResources().getColor(d.e.cp_cont_b));
         } else if (i == 2) {
-            this.ayG.setTextColor(getResources().getColor(d.e.cp_link_tip_d));
+            this.ayH.setTextColor(getResources().getColor(d.e.cp_link_tip_d));
         } else if (i == 3) {
-            this.ayG.setTextColor(getResources().getColor(d.e.cp_cont_e));
+            this.ayH.setTextColor(getResources().getColor(d.e.cp_cont_e));
         }
     }
 
     public void setText(String str) {
-        this.ayG.setText(str);
-    }
-
-    public void setText(int i) {
-        this.ayG.setText(i);
-    }
-
-    public void setTip(String str) {
         this.ayH.setText(str);
     }
 
+    public void setText(int i) {
+        this.ayH.setText(i);
+    }
+
+    public void setTip(String str) {
+        this.ayI.setText(str);
+    }
+
     public CharSequence getTip() {
-        return this.ayH.getText();
+        return this.ayI.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.ayH.setBackgroundDrawable(drawable);
+        this.ayI.setBackgroundDrawable(drawable);
     }
 
     protected void BE() {
         LayoutInflater.from(this.mContext).inflate(d.j.image_problem_item_view, (ViewGroup) this, true);
-        this.ayF = (LinearLayout) findViewById(d.h.container);
-        this.ayG = (TextView) findViewById(d.h.text);
-        this.ayH = (TextView) findViewById(d.h.tip);
-        this.ayM = (ImageView) findViewById(d.h.arrow2);
+        this.ayG = (LinearLayout) findViewById(d.h.container);
+        this.ayH = (TextView) findViewById(d.h.text);
+        this.ayI = (TextView) findViewById(d.h.tip);
+        this.ayN = (ImageView) findViewById(d.h.arrow2);
         this.dJg = (LinearLayout) findViewById(d.h.ll_container);
         this.dJh = (TextView) findViewById(d.h.tv_help);
     }
 
-    protected void c(AttributeSet attributeSet) {
+    protected void b(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, d.n.TbSettingView);
         String string = obtainStyledAttributes.getString(d.n.TbSettingView_settingText);
         int color = obtainStyledAttributes.getColor(d.n.TbSettingView_settingTextColor, -1);
         String string2 = obtainStyledAttributes.getString(d.n.TbSettingView_settingTip);
         int color2 = obtainStyledAttributes.getColor(d.n.TbSettingView_settingTipColor, -1);
         if (string != null) {
-            this.ayG.setText(string);
+            this.ayH.setText(string);
         }
         if (color > -1) {
-            this.ayG.setTextColor(color);
+            this.ayH.setTextColor(color);
         }
         if (string2 != null) {
-            this.ayH.setText(string2);
+            this.ayI.setText(string2);
         }
         if (color2 > -1) {
-            this.ayH.setTextColor(color2);
+            this.ayI.setTextColor(color2);
         }
         obtainStyledAttributes.recycle();
-        this.ayF.setClickable(false);
-        this.ayF.setFocusable(false);
-        this.ayM.setVisibility(4);
+        this.ayG.setClickable(false);
+        this.ayG.setFocusable(false);
+        this.ayN.setVisibility(4);
     }
 }

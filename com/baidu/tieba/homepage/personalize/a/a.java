@@ -33,7 +33,7 @@ public class a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                a.this.p((JSONObject) customResponsedMessage.getData());
+                a.this.q((JSONObject) customResponsedMessage.getData());
             }
         }
     };
@@ -64,7 +64,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p(JSONObject jSONObject) {
+    public void q(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (i.hf()) {
                 JSONArray jSONArray = new JSONArray();

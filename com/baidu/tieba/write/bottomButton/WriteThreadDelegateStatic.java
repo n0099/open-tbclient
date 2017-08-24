@@ -22,11 +22,11 @@ public class WriteThreadDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public c EW() {
         c cVar = new c();
-        cVar.aHH = new a();
+        cVar.aHI = new a();
         cVar.type = 9;
-        cVar.aHI = d.l.home_write;
-        cVar.aHJ = d.g.home_bottom_selector;
-        cVar.aHN = c.aHK;
+        cVar.aHJ = d.l.home_write;
+        cVar.aHK = d.g.home_bottom_selector;
+        cVar.aHO = c.aHL;
         return cVar;
     }
 
@@ -40,7 +40,7 @@ public class WriteThreadDelegateStatic extends b {
                     WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
                     ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
                     if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (EX = writeThreadDelegateStatic.EX()) != null) {
-                        EX.aHH.setArguments(new Bundle());
+                        EX.aHI.setArguments(new Bundle());
                     }
                 }
             }
@@ -51,8 +51,8 @@ public class WriteThreadDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator aT(Context context) {
-        this.aHu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
-        this.aHu.setTextSize(2.0f);
-        return this.aHu;
+        this.aHv = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.j.fragmenttabindicator, (ViewGroup) null);
+        this.aHv.setTextSize(2.0f);
+        return this.aHv;
     }
 }

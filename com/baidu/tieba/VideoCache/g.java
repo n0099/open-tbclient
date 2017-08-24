@@ -63,22 +63,22 @@ public class g implements Runnable {
     */
     private synchronized void Kw() {
         File file;
-        long hp;
+        long hs;
         File[] fileArr;
         int i;
         long j;
         long fileSize;
         long j2;
-        j.log(TAG, "merge ...");
-        String hv = m.hv(this.mVideoUrl);
-        if (hv != null && !hv.isEmpty() && ((file = new File(i.aWC + hv + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.aWC + hv + "/completed.temp");
+        j.at(TAG, "merge ...");
+        String hy = m.hy(this.mVideoUrl);
+        if (hy != null && !hy.isEmpty() && ((file = new File(i.aWD + hy + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.aWD + hy + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.aWC + hv + "/segments");
+            File file3 = new File(i.aWD + hy + "/segments");
             if (file3 != null && file3.exists()) {
-                hp = hp(hv);
+                hs = hs(hy);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -90,7 +90,7 @@ public class g implements Runnable {
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 file4.delete();
-                                j.log(TAG, "delete file " + file4.getAbsolutePath());
+                                j.at(TAG, "delete file " + file4.getAbsolutePath());
                             }
                         }
                     }
@@ -105,7 +105,7 @@ public class g implements Runnable {
                         if (fileArr[i2] == null) {
                             break;
                         }
-                        j.log(TAG, "file name " + fileArr[i2].getName());
+                        j.at(TAG, "file name " + fileArr[i2].getName());
                         i2++;
                     }
                 }
@@ -124,7 +124,7 @@ public class g implements Runnable {
             }
             if (j + fileSize == j2) {
             }
-        } else if (m.getFileSize(fileArr[i]) + j == hp) {
+        } else if (m.getFileSize(fileArr[i]) + j == hs) {
             int i32 = i + 1;
         }
     }
@@ -256,12 +256,12 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long hp(String str) {
+    private long hs(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.aWC + str + "/content_length");
+        File file = new File(i.aWD + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

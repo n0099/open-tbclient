@@ -3,9 +3,9 @@ package com.baidu.tieba.story;
 public interface b {
     void aj(float f);
 
-    void boI();
+    void boB();
 
-    void boJ();
+    void boC();
 
-    void boK();
+    void boD();
 }

@@ -16,15 +16,15 @@ public class t extends bl {
         return giN;
     }
 
-    public boolean bsx() {
+    public boolean bsq() {
         return this.giQ;
     }
 
-    public bm bsy() {
+    public bm bsr() {
         return this.giO;
     }
 
-    public bp bsz() {
+    public bp bss() {
         return this.giP;
     }
 }

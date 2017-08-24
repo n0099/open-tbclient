@@ -124,8 +124,8 @@ public class ThreadGodReplyLayout extends RelativeLayout {
         a(postData);
         b(postData);
         c(postData);
-        setPraised(postData.btt());
-        aO(postData.btt());
+        setPraised(postData.btm());
+        aO(postData.btm());
         if ((this.mImageList != null && this.mImageList.size() > 0) || (this.aph != null && this.aph.Jh() != null)) {
             a(postData, 2);
         } else {
@@ -141,11 +141,11 @@ public class ThreadGodReplyLayout extends RelativeLayout {
     }
 
     public void a(PostData postData, int i) {
-        if (this.apa == null || postData.aBw() == null) {
+        if (this.apa == null || postData.aBr() == null) {
             this.apa.setVisibility(8);
             return;
         }
-        SpannableStringBuilder a = a(postData.aBw());
+        SpannableStringBuilder a = a(postData.aBr());
         if (a == null || al.isEmpty(a.toString())) {
             this.apa.setVisibility(8);
             return;
@@ -198,16 +198,16 @@ public class ThreadGodReplyLayout extends RelativeLayout {
         } else {
             this.mImageList.clear();
         }
-        if (!com.baidu.tbadk.core.h.oX().pd()) {
+        if (!com.baidu.tbadk.core.h.oY().pe()) {
             this.apc.setVisibility(8);
             return;
         }
-        TbRichText aBw = postData.aBw();
-        if (aBw == null || aBw.Io() == null) {
+        TbRichText aBr = postData.aBr();
+        if (aBr == null || aBr.Io() == null) {
             this.apc.setVisibility(8);
             return;
         }
-        Iterator<TbRichTextData> it = aBw.Io().iterator();
+        Iterator<TbRichTextData> it = aBr.Io().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 8) {
@@ -258,7 +258,7 @@ public class ThreadGodReplyLayout extends RelativeLayout {
 
     public void c(PostData postData) {
         if (this.aoj != null && postData != null) {
-            this.aoj.setText(al.v(postData.bts() >= 0 ? (int) postData.bts() : 0L));
+            this.aoj.setText(al.v(postData.btl() >= 0 ? (int) postData.btl() : 0L));
         }
     }
 
@@ -283,7 +283,7 @@ public class ThreadGodReplyLayout extends RelativeLayout {
         ai.i(this.aoj, d.e.cp_cont_f);
         ai.i(this.apa, d.e.cp_cont_f);
         ai.c(this.apf, d.g.icon_corner_shen);
-        this.apb.bix();
+        this.apb.bis();
         aO(this.apg);
     }
 
